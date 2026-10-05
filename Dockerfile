@@ -47,6 +47,7 @@ ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["npm","run","start:standalone"]
 
 # ----------------------------------------------------------------------- jobs
+# ----------------------------------------------------------------------- jobs
 FROM deps AS jobs
 ENV NODE_ENV=production
 RUN apt-get update && apt-get install -y --no-install-recommends tini && rm -rf /var/lib/apt/lists/*
@@ -55,3 +56,7 @@ COPY --chown=node:node . .
 USER node
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["npm", "run", "--silent", "jobs:scheduler"]
+
+# ----------------------------------------------------------------------- Render default web
+FROM web AS production
+CMD ["npm", "run", "start:standalone"]
