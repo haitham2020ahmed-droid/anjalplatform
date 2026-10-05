@@ -194,3 +194,40 @@ Recommendation: use Vercel for previews and demos with demo data; run the school
 server in Saudi Arabia with `docker-compose.prod.yml`. If Vercel must be used in production, adapt the
 PDF engine, file storage and jobs first.
 
+
+## 11. Hosting on Render (Docker)
+
+Render builds the `Dockerfile` **without a build target**, so the image's default must be the
+website. It is (`ARG APP_TARGET=web`; tested). Render then expects the server to listen on the
+port in its `PORT` variable; the Next.js server reads `PORT` and listens on `0.0.0.0`.
+
+**Web Service** (Runtime: Docker; leave "Docker Command" empty)
+
+| Setting | Value |
+|---|---|
+| Health Check Path | `/api/health` |
+| `DATABASE_URL` | an external **MySQL 8** database (Render's own managed databases are PostgreSQL, which this app does not use) |
+| `APP_SECRET` | 32+ random characters (`openssl rand -base64 32`) |
+| `APP_URL` | `https://<your-service>.onrender.com` (or your own domain) |
+| `REPORT_CHROMIUM_NO_SANDBOX` | `true` |
+| `ANTHROPIC_API_KEY` | optional: enables AI question generation (only curriculum data is sent) |
+
+The server refuses to start if any required setting is missing; the log names each one.
+
+**Database tables and data:** the web image does not contain the Prisma CLI, so run these once
+from your computer with `DATABASE_URL` set to the same database: `npx prisma migrate deploy`
+(or `npx prisma db push` for a test database), then the seeds (`npm run db:seed:curriculum`,
+`npm run db:seed:questions`) and `npm run admin:create`.
+
+**Scheduled jobs (optional):** create a **Background Worker** from the same repository with the
+environment variable `APP_TARGET=jobs` (Render passes environment variables to the Docker build
+as build arguments, which selects the jobs image) plus the same `DATABASE_URL` and `APP_SECRET`.
+
+**Know before relying on it:**
+- **Uploaded files** (school logo, imports) are lost on every redeploy unless a Render Disk is
+  mounted at `/app/storage`. Without one, upload the logo again after each deploy, or put it in
+  `School.logoUrl` as a `data:` URI.
+- **PDF reports** run Chromium inside the web service; the smallest instances (512 MB) may be too
+  small. If PDFs fail with memory errors, choose a larger instance or set `REPORT_PDF_CONCURRENCY=1`.
+- **Data location:** check where your Render region and database are hosted; student data
+  outside Saudi Arabia needs the school's PDPL approval (section 2).

@@ -10,7 +10,10 @@ export default async function TeacherHome() {
     <AppShell name={String(me.displayName)}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-3xl font-bold text-brand-navy">My classes</h1>
-        <a href="/admin/questions?status=DRAFT&mine=1" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">My questions</a>
+        <div className="flex flex-wrap gap-2">
+          <a href="/admin/questions?status=DRAFT&ai=1" className="rounded-xl bg-amber-100 px-4 py-2 font-semibold text-amber-900">Review AI questions</a>
+          <a href="/admin/questions?status=DRAFT&mine=1" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">My questions</a>
+        </div>
       </div>
       {classes.length === 0 ? <p className="mt-4 text-slate-600">You are not assigned to any classes yet. Ask your school admin to add you to a class.</p> : (
         <ul className="mt-6 grid gap-4 md:grid-cols-3">

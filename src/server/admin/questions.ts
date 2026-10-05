@@ -50,6 +50,12 @@ export interface EditorInput {
   pairs?: { left: string; right: string }[];
   /** AI-drafted items must be marked so (they go through the same review). */
   aiDrafted?: boolean;
+  /** Lesson the question belongs to (optional; must teach the skill). */
+  lessonId?: string | null;
+  /** Bloom's cognitive level, e.g. Understand, Analyze (stored in tags). */
+  cognitiveLevel?: string | null;
+  /** AI generation batch id (stored in tags). */
+  batch?: string | null;
 }
 
 const num = (v: unknown) => Number(v ?? 0);
@@ -86,7 +92,8 @@ const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADM
 function assertMayEdit(actor: Actor, q: Row) {
   assertCan(actor, "questions:edit");
   if (q.status === "PUBLISHED" || q.status === "ARCHIVED") throw new ValidationError("Published and archived questions cannot be edited. Use “Revise” to make a new version.");
-  if (q.createdById !== actor.userId && !can(actor, "questions:publish") && !isAdmin(actor)) throw new ForbiddenError("You can edit only your own drafts.");
+  const aiReviewer = q.origin === "AI_GENERATED" && can(actor, "questions:review");
+  if (q.createdById !== actor.userId && !can(actor, "questions:publish") && !isAdmin(actor) && !aiReviewer) throw new ForbiddenError("You can edit only your own drafts.");
 }
 
 // ------------------------------------------------------------ validation
@@ -138,6 +145,14 @@ async function writeParts(tx: Repo, questionId: string, item: BankItem): Promise
   if (item.explanation.tip) await tx.create("QuestionExplanation", { questionId, kind: "TIP", body: [{ type: "text", text: item.explanation.tip }], order: 1 });
 }
 
+function tagsFor(input: EditorInput, existing: unknown): Record<string, unknown> | null {
+  const t: Record<string, unknown> = { ...((typeof existing === "string" ? JSON.parse(existing) : existing) ?? {}) as Record<string, unknown> };
+  if (input.cognitiveLevel !== undefined) t.cognitiveLevel = input.cognitiveLevel ? text(input.cognitiveLevel, "Cognitive level", 20) : undefined;
+  if (input.batch) t.aiBatch = input.batch;
+  for (const k of Object.keys(t)) if (t[k] === undefined) delete t[k];
+  return Object.keys(t).length ? t : null;
+}
+
 // ------------------------------------------------------------- workflow
 
 export async function createDraft(repo: Repo, actor: Actor, input: EditorInput, now = new Date()): Promise<string> {
@@ -150,6 +165,7 @@ export async function createDraft(repo: Repo, actor: Actor, input: EditorInput, 
       externalRef: ref, skillId: input.skillId, standardId, passageId, typeId, stem: item.stem, content: contentPayload(item), hint: input.hint ? text(input.hint, "Hint", 500) : null,
       difficultyLevel: item.level, irtA: 1, irtB: item.irt.b, irtC: 0, estimatedSeconds: item.estimatedSeconds,
       status: "DRAFT", origin: input.aiDrafted ? "AI_GENERATED" : "TEACHER_AUTHORED", aiStatus: input.aiDrafted ? "AI_GENERATED" : null,
+      lessonId: input.lessonId ?? null, tags: tagsFor(input, null),
       createdById: actor.userId, createdAt: now, updatedAt: now,
     });
     await writeParts(tx, String(q.id), item);
@@ -171,6 +187,7 @@ export async function updateDraft(repo: Repo, actor: Actor, id: string, input: E
       skillId: input.skillId, standardId, passageId, typeId: await typeIdFor(tx, item.type), stem: item.stem, content: contentPayload(item),
       hint: input.hint ? text(input.hint, "Hint", 500) : null, difficultyLevel: item.level, estimatedSeconds: item.estimatedSeconds,
       ...(q.calibrated ? {} : { irtB: item.irt.b }), status, updatedAt: now,
+      ...(input.lessonId !== undefined ? { lessonId: input.lessonId } : {}), tags: tagsFor(input, q.tags),
     });
     await writeParts(tx, id, item);
   });
@@ -260,7 +277,7 @@ export interface QuestionListItem {
   updatedAt: string;
 }
 
-export async function listQuestions(repo: Repo, actor: Actor, filter: { status?: QuestionStatus; gradeLevel?: number; skillId?: string; q?: string; mine?: boolean } = {}): Promise<{ items: QuestionListItem[]; counts: Record<QuestionStatus, number> }> {
+export async function listQuestions(repo: Repo, actor: Actor, filter: { status?: QuestionStatus; gradeLevel?: number; skillId?: string; q?: string; mine?: boolean; aiOnly?: boolean } = {}): Promise<{ items: QuestionListItem[]; counts: Record<QuestionStatus, number>; aiPending: number }> {
   assertCan(actor, "questions:read");
   const schoolId = schoolOf(actor);
   const grades = (await repo.findMany("Grade", { schoolId })).filter((g) => !filter.gradeLevel || num(g.level) === filter.gradeLevel);
@@ -277,7 +294,7 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: { status?:
     return num(grades.find((g) => g.id === c?.gradeId)?.level);
   };
   const items = all
-    .filter((q) => (!filter.status || q.status === filter.status) && (!filter.mine || q.createdById === actor.userId))
+    .filter((q) => (!filter.status || q.status === filter.status) && (!filter.mine || q.createdById === actor.userId) && (!filter.aiOnly || q.origin === "AI_GENERATED"))
     .filter((q) => !needle || [q.stem, q.externalRef].some((v) => String(v ?? "").toLowerCase().includes(needle)))
     .map((q) => ({
       id: String(q.id), ref: String(q.externalRef ?? ""), stem: String(q.stem).slice(0, 160), skill: String(skills.find((s) => s.id === q.skillId)?.name ?? ""), grade: gradeOfSkill(q.skillId),
@@ -286,7 +303,8 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: { status?:
       updatedAt: (q.updatedAt instanceof Date ? q.updatedAt : new Date(String(q.updatedAt))).toISOString(),
     }))
     .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
-  return { items, counts };
+  const aiPending = all.filter((q) => q.origin === "AI_GENERATED" && (q.status === "DRAFT" || q.status === "UNDER_REVIEW")).length;
+  return { items, counts, aiPending };
 }
 
 export interface QuestionDetail {
@@ -298,6 +316,8 @@ export interface QuestionDetail {
   mine: boolean;
   canEdit: boolean;
   canReview: boolean;
+  /** May approve or reject this AI-drafted question (teachers and admins with questions:review). */
+  canReviewAi: boolean;
   revisionOf: string | null;
   input: EditorInput;
   history: { at: string; action: string; by: string; note: string | null }[];
@@ -328,6 +348,8 @@ export async function getQuestion(repo: Repo, actor: Actor, id: string): Promise
     passageId: q.passageId ? String(q.passageId) : null, hint: q.hint ? String(q.hint) : null,
     whyCorrect: explText("WHY_CORRECT"), tip: explText("TIP") || null, estimatedSeconds: num(q.estimatedSeconds),
     aiDrafted: q.origin === "AI_GENERATED",
+    lessonId: q.lessonId ? String(q.lessonId) : null,
+    cognitiveLevel: ((typeof q.tags === "string" ? JSON.parse(q.tags) : q.tags) as { cognitiveLevel?: string } | null)?.cognitiveLevel ?? null,
   };
   if (options.length) input.options = options.sort((a, b) => num(a.order) - num(b.order)).map((o) => ({ label: String(o.label), text: String(o.text), correct: Boolean(o.isCorrect), rationale: o.rationale ? String(o.rationale) : null }));
   if (code === "TRUE_FALSE" && primary) input.answer = Boolean(val(primary));
@@ -348,6 +370,7 @@ export async function getQuestion(repo: Repo, actor: Actor, id: string): Promise
   return {
     id, ref: String(q.externalRef ?? ""), status: String(q.status) as QuestionStatus, origin: String(q.origin), version: num(q.version), mine: q.createdById === actor.userId,
     canEdit: editable, canReview: q.status === "UNDER_REVIEW" && can(actor, "questions:publish") && (q.createdById !== actor.userId || isAdmin(actor)),
+    canReviewAi: q.origin === "AI_GENERATED" && (q.status === "DRAFT" || q.status === "UNDER_REVIEW") && can(actor, "questions:review") && (q.createdById !== actor.userId || isAdmin(actor)),
     revisionOf: (q.tags as { revisionOf?: string } | null)?.revisionOf ?? null, input,
     history: logs
       .map((l) => ({ at: (l.createdAt instanceof Date ? l.createdAt : new Date(String(l.createdAt))).toISOString(), action: String(l.action), by: String(users.find((u) => u.id === l.actorId)?.displayName ?? ""), note: after(l).note ?? after(l).reason ?? null }))
@@ -356,3 +379,34 @@ export async function getQuestion(repo: Repo, actor: Actor, id: string): Promise
 }
 
 export { LEVEL_LABELS, QUESTION_TYPES };
+
+// ------------------------------------------------------ AI-drafted questions
+
+/**
+ * Approve an AI-drafted question: it is validated again, then PUBLISHED, which is the only
+ * status the adaptive engine (practice and placement) ever reads. Teachers and admins with
+ * questions:review may approve; nobody but a school admin may approve a batch they requested.
+ */
+export async function approveAiDraft(repo: Repo, actor: Actor, id: string, now = new Date()): Promise<void> {
+  assertCan(actor, "questions:review");
+  const q = await questionInSchool(repo, actor, id);
+  if (q.origin !== "AI_GENERATED") throw new ValidationError("Only AI-drafted questions are approved here; other questions use the normal review.");
+  if (q.status !== "DRAFT" && q.status !== "UNDER_REVIEW") throw new ValidationError("This question has already been reviewed.");
+  if (q.createdById === actor.userId && !isAdmin(actor)) throw new ForbiddenError("Another reviewer must approve questions you requested.");
+  const form = await getQuestion(repo, actor, id);
+  await toBankItem(repo, actor, form.input, String(q.externalRef ?? id));
+  await repo.updateMany("Question", { id }, { status: "PUBLISHED", aiStatus: "APPROVED", publishedAt: now, reviewedById: actor.userId, updatedAt: now });
+  await audit(repo, { actorId: actor.userId, action: "question.ai.approve", entityType: "Question", entityId: id, before: { status: q.status }, after: { status: "PUBLISHED" }, at: now });
+}
+
+/** Reject an AI-drafted question (a reason is required). It is archived and never reaches students. */
+export async function rejectAiDraft(repo: Repo, actor: Actor, id: string, reason: string, now = new Date()): Promise<void> {
+  assertCan(actor, "questions:review");
+  const q = await questionInSchool(repo, actor, id);
+  if (q.origin !== "AI_GENERATED") throw new ValidationError("Only AI-drafted questions are rejected here.");
+  if (q.status !== "DRAFT" && q.status !== "UNDER_REVIEW") throw new ValidationError("This question has already been reviewed.");
+  const r = text(reason, "Reason", 500);
+  await repo.updateMany("Question", { id }, { status: "ARCHIVED", aiStatus: "REJECTED", reviewedById: actor.userId, updatedAt: now });
+  await audit(repo, { actorId: actor.userId, action: "question.ai.reject", entityType: "Question", entityId: id, before: { status: q.status }, after: { status: "ARCHIVED", reason: r }, at: now });
+}
+

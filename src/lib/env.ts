@@ -27,6 +27,9 @@ const EnvSchema = z.object({
   REPORT_CHROMIUM_PATH: z.string().optional(), // empty = Playwright's bundled Chromium
   REPORT_PDF_CONCURRENCY: z.coerce.number().int().min(1).max(8).default(2),
   REPORT_CHROMIUM_NO_SANDBOX: z.enum(["true", "false"]).default("false"), // only for containers that cannot sandbox
+  // AI-assisted question bank (optional; without a key the generator explains how to enable it)
+  ANTHROPIC_API_KEY: z.string().optional(),
+  AI_MODEL: z.string().default("claude-sonnet-5-5"),
 });
 
 export type Env = z.infer<typeof EnvSchema>;

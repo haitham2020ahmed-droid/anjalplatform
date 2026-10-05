@@ -15,6 +15,8 @@ export const PERMISSIONS = [
   "questions:read",
   "questions:edit",
   "questions:publish",
+  "questions:review", // approve / reject AI-drafted questions (teachers and admins)
+  "questions:generate", // request AI-drafted questions (admins)
   "practice:take",
   "students:read",
   "students:manage",
@@ -44,6 +46,7 @@ export const ROLE_PERMISSIONS: Record<Role, ReadonlySet<Permission>> = {
     "curriculum:read",
     "questions:read",
     "questions:edit", // drafts only; publish needs an explicit grant
+    "questions:review", // may review AI-drafted questions
     "students:read",
     "assignments:create",
     "assignments:read",
