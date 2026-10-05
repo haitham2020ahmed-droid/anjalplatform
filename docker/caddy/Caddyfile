@@ -1,0 +1,19 @@
+# HTTPS reverse proxy (Phase 13). Caddy obtains and renews the TLS certificate automatically.
+{$APP_DOMAIN} {
+	encode zstd gzip
+	request_body {
+		max_size 12MB
+	}
+	header {
+		-Server
+		-X-Powered-By
+	}
+	reverse_proxy web:3000 {
+		health_uri /api/health
+		health_interval 30s
+	}
+	log {
+		output stdout
+		format json
+	}
+}

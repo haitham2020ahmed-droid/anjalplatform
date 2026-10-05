@@ -1,0 +1,58 @@
+/**
+ * Prisma implementation of Repo. Unique lookups go through prismaUniqueWhere, which
+ * finds the model's unique key by its SET of fields (any order) and builds Prisma's
+ * compound name in schema order, e.g. { level, schoolId } -> where.schoolId_level.
+ * A lookup on fields that are not a unique key fails with a clear message.
+ */
+import type { Prisma, PrismaClient } from "@prisma/client";
+import type { Repo, Row, Where } from "../seeding/repo";
+import { prismaUniqueWhere } from "./unique-keys";
+
+type Delegate = {
+  upsert(args: unknown): Promise<Row>;
+  create(args: unknown): Promise<Row>;
+  findUnique(args: unknown): Promise<Row | null>;
+  findMany(args: unknown): Promise<Row[]>;
+  count(args: unknown): Promise<number>;
+  updateMany(args: unknown): Promise<{ count: number }>;
+  deleteMany(args: unknown): Promise<{ count: number }>;
+};
+
+const lcfirst = (s: string) => s[0].toLowerCase() + s.slice(1);
+
+export class PrismaRepo implements Repo {
+  constructor(private readonly client: PrismaClient | Prisma.TransactionClient) {}
+
+  private d(model: string): Delegate {
+    const delegate = (this.client as unknown as Record<string, Delegate>)[lcfirst(model)];
+    if (!delegate) throw new Error(`Unknown Prisma model ${model}`);
+    return delegate;
+  }
+
+  upsert(model: string, where: Record<string, unknown>, create: Row, update: Row = {}) {
+    return this.d(model).upsert({ where: prismaUniqueWhere(model, where), create: { ...where, ...create }, update });
+  }
+  create(model: string, data: Row) {
+    return this.d(model).create({ data });
+  }
+  findUnique(model: string, where: Record<string, unknown>) {
+    return this.d(model).findUnique({ where: prismaUniqueWhere(model, where) });
+  }
+  findMany(model: string, where?: Where) {
+    return this.d(model).findMany({ where });
+  }
+  count(model: string, where?: Where) {
+    return this.d(model).count({ where });
+  }
+  async updateMany(model: string, where: Where, data: Row) {
+    return (await this.d(model).updateMany({ where, data })).count;
+  }
+  async deleteMany(model: string, where: Where) {
+    return (await this.d(model).deleteMany({ where })).count;
+  }
+  async transaction<T>(fn: (tx: Repo) => Promise<T>): Promise<T> {
+    const c = this.client as PrismaClient;
+    if (typeof c.$transaction !== "function") return fn(this); // already inside a transaction
+    return c.$transaction((tx) => fn(new PrismaRepo(tx)), { timeout: 120_000 });
+  }
+}

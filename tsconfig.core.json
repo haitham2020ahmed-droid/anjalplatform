@@ -1,0 +1,47 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "plugins": []
+  },
+  "include": [
+    "src/config/**/*.ts",
+    "src/types/**/*.ts",
+    "src/adaptive/**/*.ts",
+    "src/mastery/**/*.ts",
+    "src/reading/**/*.ts",
+    "src/recommendations/**/*.ts",
+    "src/imports/**/*.ts",
+    "src/analytics/**/*.ts",
+    "src/server/auth/rbac.ts",
+    "src/server/auth/password.ts",
+    "src/server/auth/config.ts",
+    "src/server/auth/sessions.ts",
+    "src/server/auth/rate-limit.ts",
+    "src/server/auth/login.ts",
+    "src/server/auth/passwords-admin.ts",
+    "src/server/auth/actor.ts",
+    "src/server/auth/http.ts",
+    "src/server/audit.ts",
+    "src/server/seeding/**/*.ts",
+    "scripts/db/schema-ddl.ts",
+    "scripts/db/sqlite-repo.ts",
+    "scripts/db/verify.ts",
+    "scripts/db/gen-ddl.ts",
+    "tests/**/*.ts",
+    "src/server/queries/**/*.ts",
+    "src/server/curriculum-admin.ts",
+    "src/server/practice/**/*.ts",
+    "src/server/assessment/**/*.ts",
+    "src/server/jobs/**/*.ts",
+    "src/server/teacher/**/*.ts",
+    "src/server/analytics/**/*.ts",
+    "src/server/imports/**/*.ts",
+    "src/reports/**/*.ts",
+    "src/server/reports/**/*.ts",
+    "src/server/admin/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/server/reports/runtime.ts"
+  ]
+}

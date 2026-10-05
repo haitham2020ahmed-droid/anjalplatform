@@ -1,0 +1,3516 @@
+{
+ "grade": 5,
+ "book": {
+  "code": "WONDERS-G5",
+  "title": "Wonders",
+  "publisher": "McGraw Hill",
+  "edition": "2023",
+  "note": "Uploaded books are the 2023 edition; brief says 2020 — confirm before import."
+ },
+ "units": [
+  {
+   "number": 1,
+   "title": "Unit 1",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G5-U1-TS1",
+     "title": "Text Set 1: Narrative Nonfiction",
+     "genre": "Narrative Nonfiction",
+     "weeks": [
+      1,
+      2
+     ],
+     "texts": {
+      "shared_read": "A Life in the Woods",
+      "anchor_text": "Camping with the President",
+      "paired_selection": "A Walk with Teddy"
+     },
+     "skills": [
+      {
+       "label": "Homographs",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "text-features"
+      },
+      {
+       "label": "Ask and Answer Questions",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "ask-answer-questions"
+      },
+      {
+       "label": "Primary and Secondary Sources",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "text-features"
+      },
+      {
+       "label": "Cause and Effect",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "cause-effect"
+      },
+      {
+       "label": "Author's Perspective",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "author-perspective"
+      },
+      {
+       "label": "Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "sentences",
+       "week": 1,
+       "ruleSummary": [
+        "A sentence is a group of words that expresses a complete thought. It begins with a capital letter and ends with a punctuation mark.",
+        "A sentence fragment is a group of words that does not express a complete thought: Went to the store.",
+        "A statement is a sentence that tells something. It ends with a period. The playground is under construction.",
+        "A question is a sentence that asks something. It ends with a question mark: Have you visited the new zoo?",
+        "You can use interrogatives such as how, what, when, where, why, and who to ask questions."
+       ]
+      },
+      {
+       "label": "Commands and Exclamations",
+       "role": "GRAMMAR",
+       "familyCode": "commas",
+       "week": 1,
+       "ruleSummary": [
+        "A command is a sentence that tells or asks someone to do something. It ends with a period or an exclamation point: Be careful.",
+        "An exclamation expresses strong feeling. It ends with an exclamation point: Carrots are my favorite vegetable, too!"
+       ]
+      },
+      {
+       "label": "Mechanics: Punctuate Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "commas",
+       "week": 1,
+       "ruleSummary": [
+        "A sentence is a group of words that expresses a complete thought. It begins with a capital letter and ends with a punctuation mark.",
+        "A statement ends with a period. A question ends with a question mark. A command can end with a period or an exclamation point. An exclamation ends with an exclamation point.",
+        "An interjection is a word or a phrase used to express strong emotion. It is followed by an exclamation point. Wow! You won the race!",
+        "Use a comma in direct address with the name of the person. Ali, thanks for the book. That’s great, Susan!"
+       ]
+      },
+      {
+       "label": "Subjects and Predicates",
+       "role": "GRAMMAR",
+       "familyCode": "subjects-predicates",
+       "week": 2,
+       "ruleSummary": [
+        "The simple subject is the main noun or pronoun that names the subject of the sentence: The friendly dog waited for her owner.",
+        "The complete subject includes all of the words that tell whom or what the sentence is about: The friendly dog waited for her owner.",
+        "The simple predicate is the verb that tells exactly what the subject does or is: The friendly dog waited for her owner.",
+        "The complete predicate is the verb and all of the words that tell what the subject does or is: The friendly dog waited for her owner. After each sentence, write whether the underlined word or words are the simple subject, complete subject, simple predicate, or complete predicate."
+       ]
+      },
+      {
+       "label": "Compound Subjects and Predicates",
+       "role": "GRAMMAR",
+       "familyCode": "subjects-predicates",
+       "week": 2,
+       "ruleSummary": [
+        "A compound subject is two or more subjects that share the same verb. The subjects are usually joined by a conjunction such as and or or. My brother and sister are still asleep.",
+        "A compound predicate contains two or more predicates that have the same subject. The journalist reads and writes a lot.",
+        "Compound subjects and predicates can use coordinating conjunctions (and, or) or correlative conjunctions (either/or, neither/nor). Neither Julia nor her friend participated. Can you either clear the table or do the dishes? After each sentence, write whether the underlined words are a compound subject or compound predicate. Circle each conjunction."
+       ]
+      },
+      {
+       "label": "Mechanics: Commas",
+       "role": "GRAMMAR",
+       "familyCode": "commas",
+       "week": 2,
+       "ruleSummary": [
+        "Use commas to separate three or more words or phrases in a series: We packed water, trail mix, and a map.",
+        "Appositives are words or groups of words that identify and usually follow a noun. They are often set off by commas: Iggy, our lizard, sat still all day. I will visit Chicago, my hometown.",
+        "Commas set off introductory words, such as yes, no, and thank you."
+       ]
+      },
+      {
+       "label": "Spelling: Short Vowels",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 1,
+       "wordList": {
+        "core": [
+         "jut",
+         "nick",
+         "tenth",
+         "shrug",
+         "stuff",
+         "sense",
+         "damp",
+         "cot",
+         "fling",
+         "notch",
+         "gush",
+         "scan",
+         "batch",
+         "rough",
+         "stump",
+         "tough",
+         "laugh",
+         "guess",
+         "lead",
+         "dove"
+        ],
+        "review": [
+         "past",
+         "dock",
+         "plum"
+        ],
+        "challenge": [
+         "cinch",
+         "blond"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Long Vowels",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 2,
+       "wordList": {
+        "core": [
+         "paste",
+         "bride",
+         "shave",
+         "spice",
+         "greed",
+         "plead",
+         "greet",
+         "heap",
+         "paid",
+         "coach",
+         "theme",
+         "type",
+         "oak",
+         "growth",
+         "yolk",
+         "folks",
+         "aim",
+         "prey",
+         "tow",
+         "grind"
+        ],
+        "review": [
+         "tenth",
+         "damp",
+         "stuff"
+        ],
+        "challenge": [
+         "decay",
+         "lifetime"
+        ]
+       }
+      },
+      {
+       "label": "Prefixes",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "prefixes",
+       "week": 2
+      }
+     ],
+     "vocabularyWords": [
+      "debris",
+      "emphasis",
+      "encounter",
+      "generations",
+      "indicated",
+      "sheer",
+      "spectacular"
+     ],
+     "assessedFocus": [
+      "Author’s Perspective",
+      "Homographs",
+      "Primary and Secondary Sources",
+      "Text Structure: Cause and Effect"
+     ]
+    },
+    {
+     "number": 2,
+     "code": "G5-U1-TS2",
+     "title": "Text Set 2: Realistic Fiction",
+     "genre": "Realistic Fiction",
+     "weeks": [
+      3,
+      4
+     ],
+     "texts": {
+      "shared_read": "A Fresh Idea",
+      "anchor_text": "One Hen",
+      "paired_selection": "Reading Between the Dots"
+     },
+     "skills": [
+      {
+       "label": "Context Clues",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "context-clues"
+      },
+      {
+       "label": "Reread",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "reread"
+      },
+      {
+       "label": "Plot: Conflict and Resolution",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "plot-conflict"
+      },
+      {
+       "label": "Plot: Events",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "plot-events"
+      },
+      {
+       "label": "Chronology",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "sequence"
+      },
+      {
+       "label": "Compound Sentences and Conjunctions",
+       "role": "GRAMMAR",
+       "familyCode": "compound-sentences",
+       "week": 3,
+       "ruleSummary": [
+        "A simple sentence expresses one complete thought. The family went out to celebrate.",
+        "A compound sentence contains two simple sentences joined by a comma and a conjunction. The streets were empty, and the sun was setting.",
+        "A conjunction joins words or groups of words. The words and, but, and or are conjunctions."
+       ]
+      },
+      {
+       "label": "Run-on Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "fragments-run-ons",
+       "week": 3,
+       "ruleSummary": [
+        "A run-on sentence joins together two or more sentences without the proper conjunctions and punctuation. I went to the store it was closed. (incorrect)",
+        "You can correct a run-on sentence by rewriting it as a compound sentence. I went to the store, but it was closed.",
+        "A comma splice joins together two sentences with only a comma: We ran a race, I won first place. To avoid this error, make sure the compound sentence has a conjunction: We ran a race, and I won first place."
+       ]
+      },
+      {
+       "label": "Mechanics: Punctuation in Compound Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "commas",
+       "week": 3,
+       "ruleSummary": [
+        "When you correct a run-on sentence, use a comma before and, but, or or if the subject in each independent clause is different.",
+        "To coordinate two closely related sentences without using a conjunction, use a semicolon (;)."
+       ]
+      },
+      {
+       "label": "Sentence Combining",
+       "role": "GRAMMAR",
+       "familyCode": "combining-sentences",
+       "week": 4,
+       "ruleSummary": [
+        "Coordinating conjunctions join two words or word groups of the same grammatical rank or importance (e.g., two nouns, two independent clauses). The coordinating conjunctions and, but, and or can be used to create a compound sentence.",
+        "Subordinating conjunctions tell where, when, why, or how. Some common subordinating conjunctions are after, although, as, because, before, if, since, so that, until, when, and while."
+       ]
+      },
+      {
+       "label": "Complex Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "clauses-complex",
+       "week": 4,
+       "ruleSummary": [
+        "A complex sentence is a sentence that contains two related clauses joined by a conjunction other than and, but, or or.",
+        "Subordinating conjunctions can appear at the beginning or in the middle of a complex sentence. If the sentence begins with a subordinating conjunction, a comma should follow the last word of the dependent, or subordinate, clause. When spring is near, I hang a new bird feeder in the tree. I hang a new bird feeder in the tree when spring is near."
+       ]
+      },
+      {
+       "label": "Mechanics: Commas",
+       "role": "GRAMMAR",
+       "familyCode": "commas",
+       "week": 4,
+       "ruleSummary": [
+        "Use a comma before a conjunction to separate two independent clauses in compound sentences. It’s supposed to rain today, but I don’t see any clouds in the sky.",
+        "In complex sentences that begin with dependent clauses, add a comma after the last word of the dependent clause. After the soccer game ended, we heard thunder."
+       ]
+      },
+      {
+       "label": "Spelling: Words with /u",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 3,
+       "wordList": {
+        "core": [
+         "tuna",
+         "duty",
+         "lose",
+         "few",
+         "doom",
+         "bamboo",
+         "soothe",
+         "crooks",
+         "hoof",
+         "hooks",
+         "booth",
+         "handbook",
+         "prove",
+         "mute",
+         "amuse",
+         "plume",
+         "hue",
+         "view",
+         "bruise",
+         "union"
+        ],
+        "review": [
+         "theme",
+         "coach",
+         "bride"
+        ],
+        "challenge": [
+         "strewn",
+         "accuse"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: r-Controlled Vowels",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 4,
+       "wordList": {
+        "core": [
+         "heart",
+         "swear",
+         "aboard",
+         "squares",
+         "swore",
+         "chart",
+         "scorn",
+         "starch",
+         "source",
+         "fare",
+         "barge",
+         "thorn",
+         "marsh",
+         "force",
+         "harsh",
+         "scarce",
+         "coarse",
+         "flare",
+         "course",
+         "sword"
+        ],
+        "review": [
+         "soothe",
+         "prove",
+         "hoof"
+        ],
+        "challenge": [
+         "uproar",
+         "gorge"
+        ]
+       }
+      },
+      {
+       "label": "Suffixes",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "suffixes",
+       "week": 4
+      }
+     ],
+     "vocabularyWords": [
+      "afford",
+      "profit",
+      "prosper",
+      "loan",
+      "risk",
+      "savings",
+      "scarce",
+      "wages"
+     ],
+     "assessedFocus": [
+      "Context Clues",
+      "Plot: Conflict and Resolution",
+      "Plot: Events",
+      "Text Structure: Chronology"
+     ]
+    },
+    {
+     "number": 3,
+     "code": "G5-U1-TS3",
+     "title": "Text Set 3: Argumentative Text",
+     "genre": "Argumentative Text",
+     "weeks": [
+      5
+     ],
+     "texts": {
+      "shared_read": "Are Electronic Devices Good for Us?",
+      "anchor_text": "The Future of Transportation",
+      "paired_selection": "Getting from Here to There"
+     },
+     "skills": [
+      {
+       "label": "Greek and Latin Prefixes",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "prefixes"
+      },
+      {
+       "label": "Reread",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "reread"
+      },
+      {
+       "label": "Headings and Graphs",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "text-features"
+      },
+      {
+       "label": "Author's Claim",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-claim"
+      },
+      {
+       "label": "Author's Purpose",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "author-purpose"
+      },
+      {
+       "label": "Run-on Sentences and Fragments",
+       "role": "GRAMMAR",
+       "familyCode": "fragments-run-ons",
+       "week": 5,
+       "ruleSummary": [
+        "A sentence fragment is a group of words that does not express a complete thought. Went to the park. (missing a subject) Kayla is getting better, but she. (missing a predicate)",
+        "A run-on sentence joins together two or more sentences incorrectly. Diego wanted to see the movie it was playing down the street. After each sentence, write whether it is a sentence fragment or a run-on sentence. run-on sentence"
+       ]
+      },
+      {
+       "label": "Run-on Sentences and Fragments",
+       "role": "GRAMMAR",
+       "familyCode": "fragments-run-ons",
+       "week": 5,
+       "ruleSummary": [
+        "Correct a sentence fragment by adding a subject, a predicate, or both. Went to the park. (fragment) We went to the park. Kayla is getting better, but she. (fragment) Kayla is getting better, but she needs more practice.",
+        "You can correct a run-on sentence by rewriting it as two separate sentences or as one compound or complex sentence. Diego will see the movie it is playing down the street. (run-on) Diego will see the movie. It is playing down the street. Diego will see the movie, and it is playing down the street. Diego will see the movie because it is playing down the street. After each group of words, write the strategy that would best correct each sentence error. Write add a subject, add a predicate, add both subject and predicate, add a comma, or make a compound sentence."
+       ]
+      },
+      {
+       "label": "Mechanics: Correcting Run-on Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "fragments-run-ons",
+       "week": 5,
+       "ruleSummary": [
+        "You can correct a run-on sentence or comma splice by rewriting it as two separate sentences using periods or as either a compound or complex sentence. You can also use a semicolon to connect the sentences. The blossoms looked beautiful, they were in full bloom. (comma splice) The blossoms looked beautiful; they were in full bloom.",
+        "Use a comma before a conjunction to separate two independent clauses in compound sentences.",
+        "In complex sentences that begin with dependent clauses, add a comma after the last word of the dependent clause."
+       ]
+      },
+      {
+       "label": "Spelling: r-Controlled Vowel /ûr/",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 5,
+       "wordList": {
+        "core": [
+         "word",
+         "nerve",
+         "squirt",
+         "verse",
+         "surf",
+         "lurk",
+         "work",
+         "stern",
+         "spurts",
+         "lurch",
+         "blurt",
+         "thirst",
+         "spur",
+         "learning",
+         "shirt",
+         "midterm",
+         "return",
+         "squirm",
+         "swerve",
+         "yearns"
+        ],
+        "review": [
+         "aboard",
+         "barge",
+         "scarce"
+        ],
+        "challenge": [
+         "merging",
+         "rehearse"
+        ]
+       }
+      }
+     ],
+     "vocabularyWords": [
+      "access",
+      "cite",
+      "advance",
+      "counterpoint",
+      "data",
+      "drawbacks",
+      "reasoning"
+     ],
+     "assessedFocus": [
+      "Author’s Claim",
+      "Author’s Purpose",
+      "Greek and Latin Prefixes",
+      "Text Features: Headings"
+     ]
+    }
+   ],
+   "writing": [
+    {
+     "title": "PROJECT 1 Argumentative Essay",
+     "familyCode": "writing-argument"
+    },
+    {
+     "title": "PROJECT 2 Argumentative Essay",
+     "familyCode": "writing-argument"
+    }
+   ],
+   "crossCurricular": [
+    "SCIENCE A Protector of Nature",
+    "SCIENCE Children Save the Rain Forest",
+    "SOCIAL STUDIES Solutions, Not Complaints"
+   ],
+   "unitSkills": [
+    {
+     "label": "Cite Text Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "text-evidence"
+    },
+    {
+     "label": "Make Inferences",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "inference"
+    },
+    {
+     "label": "Compare and Contrast Texts",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "compare-texts"
+    },
+    {
+     "label": "Precise Language, Style and Tone",
+     "role": "WRITING",
+     "familyCode": "precise-language"
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "title": "Unit 2",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G5-U2-TS1",
+     "title": "Text Set 1: Expository Text",
+     "genre": "Expository Text",
+     "weeks": [
+      1,
+      2
+     ],
+     "texts": {
+      "shared_read": "Creating a Nation",
+      "anchor_text": "Who Wrote the U.S. Constitution?",
+      "paired_selection": "Wordsmiths"
+     },
+     "skills": [
+      {
+       "label": "Context Clues",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "context-clues"
+      },
+      {
+       "label": "Reread",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "reread"
+      },
+      {
+       "label": "Headings and Timelines",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "sequence"
+      },
+      {
+       "label": "Problem and Solution",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "problem-solution"
+      },
+      {
+       "label": "Print and Graphic Features",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "text-features"
+      },
+      {
+       "label": "Common and Proper Nouns",
+       "role": "GRAMMAR",
+       "familyCode": "nouns",
+       "week": 1,
+       "ruleSummary": [
+        "A noun names a person, place, thing, event, or idea. A common noun names any person, place, thing, or event: professor, farm, scissors, concert.",
+        "A proper noun names a specific person, place, or thing and begins with a capital letter. Some proper nouns may contain more than one word. Days of the week, months of the year, and holidays are proper nouns. George Washington, Wyoming, The Library of Congress, Thursday, February, Fourth of July"
+       ]
+      },
+      {
+       "label": "Concrete and Abstract Nouns",
+       "role": "GRAMMAR",
+       "familyCode": "nouns",
+       "week": 1,
+       "ruleSummary": [
+        "A concrete noun names a person, place, or thing. It is something you can see, hear, smell, taste, or feel: fog, thunder, scent, apple, feathers.",
+        "An abstract noun is an idea or concept. You cannot see, hear, smell, taste, or feel it: personality, bravery, childhood, birthday, future, energy."
+       ]
+      },
+      {
+       "label": "Mechanics: Capitalizing Proper Nouns",
+       "role": "GRAMMAR",
+       "familyCode": "capitalization",
+       "week": 1,
+       "ruleSummary": [
+        "A proper noun always begins with a capital letter. When proper nouns contain more than one word, capitalize each important word.",
+        "Capitalize the names of days, months, holidays, historical events, geographical names, nationalities, and organizations. Naomi, Sunday, August, Presidents’ Day, Shays’s Rebellion, Denver, Spanish, American Heart Association",
+        "Some proper nouns are abbreviated, or shortened. An initial is the first letter of a name. Initials and titles are capitalized and end with a period. Abbreviations of days and months are also capitalized. E.B. White, Mrs. Jackson, Thurs., Aug."
+       ]
+      },
+      {
+       "label": "Singular and Plural Nouns",
+       "role": "GRAMMAR",
+       "familyCode": "plural-nouns",
+       "week": 2,
+       "ruleSummary": [
+        "A singular noun names one person, place, idea, or thing.",
+        "A plural noun names more than one person, place, idea, or thing. Most plural nouns are formed by adding -s or -es: song, songs; inch, inches.",
+        "A noun can function in a sentence as a subject, a direct object of an action verb, or an object of a preposition. My parents walked the dog around the neighborhood."
+       ]
+      },
+      {
+       "label": "Forming Plural Nouns",
+       "role": "GRAMMAR",
+       "familyCode": "plural-nouns",
+       "week": 2,
+       "ruleSummary": [
+        "Add -es to form the plural of singular nouns that end in s, sh, ch, or x. bus, buses; wish, wishes; lunch, lunches; box, boxes",
+        "To form the plural of nouns ending in a consonant and the letter y, change the y to i and add -es: reply, replies.",
+        "To form the plural of nouns ending in a vowel and y, add -s: key, keys."
+       ]
+      },
+      {
+       "label": "Mechanics: Forming Plural Nouns",
+       "role": "GRAMMAR",
+       "familyCode": "plural-nouns",
+       "week": 2,
+       "ruleSummary": [
+        "Add -es to form the plural of singular nouns that end in s, sh, ch, or x.",
+        "To form the plural of nouns ending in a consonant and the letter y, change the y to i and add -es.",
+        "To form the plural of nouns ending in a vowel and y, add -s."
+       ]
+      },
+      {
+       "label": "Spelling: Variant Vowel /ô/; Diphthongs /oi/, /ou/",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 1,
+       "wordList": {
+        "core": [
+         "joint",
+         "foul",
+         "coil",
+         "hoist",
+         "stout",
+         "dawdle",
+         "mouthful",
+         "counter",
+         "brought",
+         "bawl",
+         "fountain",
+         "sprawls",
+         "douse",
+         "clause",
+         "sprouts",
+         "cautious",
+         "turmoil",
+         "scrawny",
+         "foundation",
+         "turquoise"
+        ],
+        "review": [
+         "work",
+         "thirst",
+         "squirm"
+        ],
+        "challenge": [
+         "buoyant",
+         "renown"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Plurals",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 2,
+       "wordList": {
+        "core": [
+         "rattlers",
+         "fangs",
+         "countries",
+         "liberties",
+         "potatoes",
+         "rodeos",
+         "taxes",
+         "reptiles",
+         "surroundings",
+         "beliefs",
+         "difficulties",
+         "batches",
+         "abilities",
+         "lashes",
+         "identities",
+         "losses",
+         "possibilities",
+         "notches",
+         "zeroes",
+         "eddies"
+        ],
+        "review": [
+         "brought",
+         "counter",
+         "coil"
+        ],
+        "challenge": [
+         "mangoes",
+         "sinews"
+        ]
+       }
+      },
+      {
+       "label": "Dictionary and Glossary",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "reference-materials",
+       "week": 2
+      }
+     ],
+     "vocabularyWords": [
+      "committees",
+      "convention",
+      "debate",
+      "proposal",
+      "representatives",
+      "resolve",
+      "situation",
+      "union"
+     ],
+     "assessedFocus": [
+      "Context Clues",
+      "Text Features: Headings",
+      "Text Features: Print and Graphic Features",
+      "Text Features: Timelines",
+      "Text Structure: Problem and Solution"
+     ]
+    },
+    {
+     "number": 2,
+     "code": "G5-U2-TS2",
+     "title": "Text Set 2: Folktale",
+     "genre": "Folktale",
+     "weeks": [
+      3,
+      4
+     ],
+     "texts": {
+      "shared_read": "The Magical Lost Brocade",
+      "anchor_text": "Blancaflor",
+      "paired_selection": "From Tale to Table"
+     },
+     "skills": [
+      {
+       "label": "Personification",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "figurative-language"
+      },
+      {
+       "label": "Make Predictions",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "make-predictions"
+      },
+      {
+       "label": "Plot: Setting",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "plot-setting"
+      },
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Sequence",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "sequence"
+      },
+      {
+       "label": "More Plural Nouns and Collective Nouns",
+       "role": "GRAMMAR",
+       "familyCode": "plural-nouns",
+       "week": 3,
+       "ruleSummary": [
+        "To form the plural of some nouns ending in f or fe, change the f to v and add -es: leaf, leaves.",
+        "To form the plural of nouns ending in a vowel followed by o, add -s: videos. To form the plural of nouns ending in a consonant followed by o, add -s or -es: pianos, potatoes.",
+        "Some nouns name a group. These nouns are called collective nouns. A collective noun can be either singular or plural. Usually a collective noun has a singular verb because it refers to a group as a whole. My basketball team is the second best in the state. A. Complete each sentence by writing the plural form of each noun in parentheses."
+       ]
+      },
+      {
+       "label": "Irregular Plural Nouns",
+       "role": "GRAMMAR",
+       "familyCode": "plural-nouns",
+       "week": 3,
+       "ruleSummary": [
+        "Some nouns have a special plural form that does not end in -s: women, teeth, feet.",
+        "Some nouns stay the same whether they are singular or plural: trout, deer, moose, sheep."
+       ]
+      },
+      {
+       "label": "Mechanics: Plural Forms and Appositives",
+       "role": "GRAMMAR",
+       "familyCode": "plural-nouns",
+       "week": 3,
+       "ruleSummary": [
+        "Some nouns have special plural forms that do not end in -s or -es.",
+        "Some nouns stay the same whether they are singular or plural.",
+        "Appositives tell more about the nouns they follow. Use commas within a sentence to set off many appositives: The photographer’s camera, the newest on the market, broke after one month."
+       ]
+      },
+      {
+       "label": "Possessive Nouns",
+       "role": "GRAMMAR",
+       "familyCode": "possessive-nouns",
+       "week": 4,
+       "ruleSummary": [
+        "A possessive noun is a noun that shows who or what owns or has something.",
+        "Form a singular possessive noun by adding an apostrophe (’) and an -s to a singular noun: the squirrel’s tail; Maria’s suitcase.",
+        "A person’s name or a collective noun that ends in -s also has an apostrophe (’) and an -s in the possessive form: Lucas’s bicycle; the class’s final project."
+       ]
+      },
+      {
+       "label": "Plural Possessive Nouns",
+       "role": "GRAMMAR",
+       "familyCode": "possessive-nouns",
+       "week": 4,
+       "ruleSummary": [
+        "A plural possessive noun is a plural noun that shows ownership.",
+        "To form the possessive of a plural noun that ends in -s, add an apostrophe: the athletes’ uniforms.",
+        "To form the possessive of a plural noun that does not end in -s, add an apostrophe and -s: the people’s hometown. Stop the presses! These newspaper headlines need editing. Read each one and correct the plural possessive noun. Write your answers on the lines. Local Athlete Wins Womens’ Olympic Medal Women’s Three Authors Books Offer Clues for Lost Crown Authors’ Ten Year’s Worth of Research Leads to New Medicine Years’ Two Fishs Mission to Swim Upstream Fails Fish’s \u0007"
+       ]
+      },
+      {
+       "label": "Mechanics: Adding -s or -’s",
+       "role": "GRAMMAR",
+       "familyCode": "sentences",
+       "week": 4,
+       "ruleSummary": [
+        "When a singular noun ends in -s, show the possessive form by adding an apostrophe and -s: the atlas’s index.",
+        "The possessive form of a plural noun that ends in -s adds only an apostrophe: the socks’ design. To form the possessive of a plural noun that does not end in -s, add an apostrophe and -s: the oxen’s horns.",
+        "Do not confuse plural nouns with possessive nouns."
+       ]
+      },
+      {
+       "label": "Spelling: Inflectional Endings",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 3,
+       "wordList": {
+        "core": [
+         "jogging",
+         "dripping",
+         "skimmed",
+         "accepted",
+         "amusing",
+         "easing",
+         "regretted",
+         "forbidding",
+         "referred",
+         "injured",
+         "deserved",
+         "applied",
+         "relied",
+         "renewing",
+         "complicated",
+         "qualified",
+         "threatening",
+         "gnarled",
+         "envied",
+         "fascinated"
+        ],
+        "review": [
+         "difficulties",
+         "notches",
+         "rodeos"
+        ],
+        "challenge": [
+         "adoring",
+         "diaries"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Contractions",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 4,
+       "wordList": {
+        "core": [
+         "you’ve",
+         "she’d",
+         "that’s",
+         "what’s",
+         "doesn’t",
+         "there’s",
+         "you’re",
+         "wasn’t",
+         "we’ll",
+         "we’ve",
+         "we’re",
+         "couldn’t",
+         "I’ve",
+         "didn’t",
+         "they’re",
+         "shouldn’t",
+         "wouldn’t",
+         "he’d",
+         "don’t",
+         "isn’t"
+        ],
+        "review": [
+         "dripping",
+         "applied",
+         "diaries"
+        ],
+        "challenge": [
+         "won’t",
+         "aren’t"
+        ]
+       }
+      },
+      {
+       "label": "Roots",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "greek-latin-roots",
+       "week": 4
+      }
+     ],
+     "vocabularyWords": [
+      "emerging",
+      "assuring",
+      "gratitude",
+      "detected",
+      "guidance",
+      "outcome",
+      "previous",
+      "pursuit"
+     ],
+     "assessedFocus": [
+      "Personification",
+      "Plot: Setting",
+      "Text Structure: Sequence",
+      "Theme"
+     ]
+    },
+    {
+     "number": 3,
+     "code": "G5-U2-TS3",
+     "title": "Text Set 3: Poetry",
+     "genre": "Poetry",
+     "weeks": [
+      5
+     ],
+     "texts": {
+      "shared_read": "A Simple Plan",
+      "anchor_text": "Stage Fright",
+      "paired_selection": "Foul Shot"
+     },
+     "skills": [
+      {
+       "label": "Homographs",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "text-features"
+      },
+      {
+       "label": "Repetition and Rhyme",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "poetry-elements"
+      },
+      {
+       "label": "Narrative and Free Verse",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "poetry-elements"
+      },
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Form and Line Breaks",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "poetry-elements"
+      },
+      {
+       "label": "Prepositional Phrases",
+       "role": "GRAMMAR",
+       "familyCode": "prepositions",
+       "week": 5,
+       "ruleSummary": [
+        "A prepositional phrase is a group of words that tells more about an important part of a sentence.",
+        "A prepositional phrase begins with a preposition, such as about, during, in, near, under, or with. It ends with a noun or pronoun: near the door.",
+        "A prepositional phrase can function as an adjective or an adverb. The dog with brown fur barked loudly. (adjective) The dog barks at the park. (adverb)"
+       ]
+      },
+      {
+       "label": "Nouns in Prepositional Phrases",
+       "role": "GRAMMAR",
+       "familyCode": "prepositions",
+       "week": 5,
+       "ruleSummary": [
+        "The object of a prepositional phrase is the noun or pronoun that follows the preposition: over the ledge; by her.",
+        "The most important word in a prepositional phrase is often the noun or pronoun at the end: The key is under the doormat.",
+        "When a prepositional phrase comes between the subject and a verb, the verb should agree with the subject, not the object of a preposition."
+       ]
+      },
+      {
+       "label": "Mechanics: Punctuating Titles and Letters",
+       "role": "GRAMMAR",
+       "familyCode": "commas",
+       "week": 5,
+       "ruleSummary": [
+        "Use quotation marks around the title of a song, part of a book, or a short story: The name of the first chapter is “The Quiet Skies.”",
+        "Use italics or underlining with the title of a long work, such as a book or newspaper. You can also use italics or underlining to show emphasis. Have you ever read The Secret Garden? My brother was the only person in class to get an A on the paper. This is great news!",
+        "Use commas after the greeting and closing in a friendly letter and in the date and address. In a business letter, use a colon after the greeting. Insert commas, quotation marks, or underlining where needed."
+       ]
+      },
+      {
+       "label": "Spelling: Closed Syllables",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 5,
+       "wordList": {
+        "core": [
+         "dentist",
+         "jogger",
+         "fifteen",
+         "flatter",
+         "submit",
+         "mustang",
+         "absent",
+         "hollow",
+         "empire",
+         "blizzard",
+         "culture",
+         "goggles",
+         "summon",
+         "excite",
+         "kennel",
+         "valley",
+         "fragment",
+         "gallop",
+         "vulture",
+         "pigment"
+        ],
+        "review": [
+         "won’t",
+         "shouldn’t",
+         "we’re"
+        ],
+        "challenge": [
+         "clammy",
+         "hammock"
+        ]
+       }
+      }
+     ],
+     "vocabularyWords": [
+      "shuddered",
+      "ambitious",
+      "memorized",
+      "satisfaction",
+      "narrative",
+      "repetition",
+      "rhyme"
+     ],
+     "assessedFocus": [
+      "Homographs",
+      "Poetic Elements: Form and Line Breaks",
+      "Poetic Elements: Repetition",
+      "Poetic Elements: Rhyme",
+      "Theme"
+     ]
+    }
+   ],
+   "writing": [
+    {
+     "title": "PROJECT 1 Expository Essay",
+     "familyCode": "writing-informative"
+    },
+    {
+     "title": "PROJECT 2 Expository Essay",
+     "familyCode": "writing-informative"
+    }
+   ],
+   "crossCurricular": [
+    "SCIENCE Popover: The Ultimate Baked Bubble",
+    "SCIENCE Cooking with Electricity",
+    "SOCIAL STUDIES Searching for Freedom",
+    "SOCIAL STUDIES Supporting Religious Liberty"
+   ],
+   "unitSkills": [
+    {
+     "label": "Cite Text Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "text-evidence"
+    },
+    {
+     "label": "Make Inferences",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "inference"
+    },
+    {
+     "label": "Compare and Contrast Texts",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "compare-texts"
+    },
+    {
+     "label": "Precise Language, Style and Tone",
+     "role": "WRITING",
+     "familyCode": "precise-language"
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "title": "Unit 3",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G5-U3-TS1",
+     "title": "Text Set 1: Realistic Fiction",
+     "genre": "Realistic Fiction",
+     "weeks": [
+      1,
+      2
+     ],
+     "texts": {
+      "shared_read": "A Reluctant Traveler",
+      "anchor_text": "They Don't Mean It!",
+      "paired_selection": "Where Did That Come From?"
+     },
+     "skills": [
+      {
+       "label": "Context Clues",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "context-clues"
+      },
+      {
+       "label": "Summarize",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "summarize"
+      },
+      {
+       "label": "Plot: Characterization",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "character"
+      },
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Author’s Purpose",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "author-purpose"
+      },
+      {
+       "label": "Action Verbs",
+       "role": "GRAMMAR",
+       "familyCode": "verbs",
+       "week": 1,
+       "ruleSummary": [
+        "A verb shows what the subject does or is. An action verb expresses action: The girl builds a sand castle. The waves knock it down.",
+        "Commonly misused verbs include lie/lay, sit/set, and rise/raise. Lie, sit, and rise do not use a direct object. You lie down. You sit on the chair. You rise in the morning. Lay, set, and raise require a direct object. You lay a book on the table. You set a glass down. You raise your hand."
+       ]
+      },
+      {
+       "label": "Subject-Verb Agreement",
+       "role": "GRAMMAR",
+       "familyCode": "subject-verb-agreement",
+       "week": 1,
+       "ruleSummary": [
+        "A verb must agree with its subject: a singular subject takes a singular verb. A plural subject takes a plural verb.",
+        "Add -s or -es to most verbs in the present tense if the subject is singular. The scientist looks through the microscope. Raul’s father watches from the stands.",
+        "A prepositional phrase that comes between a subject and a verb does not affect subject-verb agreement: The box of toys collects dust. (singular verb)",
+        "Collective nouns, such as class and government, describe a group of people or things. They take a singular verb when they refer to the group as a whole. The team trains every day. A flock of birds flies over the river. (The prepositional phrase “of birds” does not change the verb. The subject, flock, takes a singular verb.)",
+        "If the subject is I, you, or plural, do not add -s to the verb. I listen to music. You travel a lot. The club members meet after class."
+       ]
+      },
+      {
+       "label": "Mechanics: Subject-Verb Agreement",
+       "role": "GRAMMAR",
+       "familyCode": "subject-verb-agreement",
+       "week": 1,
+       "ruleSummary": [
+        "A verb must agree with its subject.",
+        "Add -s or -es to most verbs in the present tense if the subject is singular. If the subject is I or you, do not add -s or -es to the verb.",
+        "If the subject is plural, the verb is plural. Do not add -s or -es to the verb.",
+        "A compound subject with the conjunction and takes a plural verb. Audrey and her sister play catch in the field.",
+        "In compound sentences, each subject must agree with the verb that follows it. My sisters practice basketball, and my little brother watches."
+       ]
+      },
+      {
+       "label": "Verb Tenses",
+       "role": "GRAMMAR",
+       "familyCode": "verb-tenses",
+       "week": 2,
+       "ruleSummary": [
+        "The tense of a verb tells when an action takes place.",
+        "A present-tense verb tells what is happening now. To form the present tense of most verbs in the third person singular, add -s: draws. Add -es to verbs that end in s, ss, ch, sh, x, or zz: wishes, misses. If a verb ends with a consonant and the letter y, change y to i before adding -es: tries.",
+        "The present progressive tense shows action that is continuing over time. To form the present progressive, use the verb be plus a present participle."
+       ]
+      },
+      {
+       "label": "Past and Future Tenses",
+       "role": "GRAMMAR",
+       "familyCode": "verb-tenses",
+       "week": 2,
+       "ruleSummary": [
+        "Past-tense verbs tell about actions in the past. Add -ed to most verbs to show past tense: looked. If a verb ends in e, drop the e and add -ed: liked. If a verb ends in a vowel and consonant, double the consonant and add -ed: slipped. If it ends in a consonant + y, change y to i and add -ed: fried.",
+        "Future-tense verbs are formed with the helping verb will: He will stop.",
+        "The past progressive and future progressive tenses use present participles to show action that was or will be continuing. She was helping. My friend will be attending."
+       ]
+      },
+      {
+       "label": "Mechanics: Avoid Shifting Tenses",
+       "role": "GRAMMAR",
+       "familyCode": "verb-tenses",
+       "week": 2,
+       "ruleSummary": [
+        "When talking or writing about the past, present, or future, always use the correct verb tense.",
+        "Take care not to mix verb tenses when describing the same incident. Monique will look in the bushes, and Andre will check the grass."
+       ]
+      },
+      {
+       "label": "Spelling: Open Syllables",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 1,
+       "wordList": {
+        "core": [
+         "minus",
+         "loser",
+         "humor",
+         "closet",
+         "recent",
+         "student",
+         "equal",
+         "profile",
+         "local",
+         "comet",
+         "vacant",
+         "punish",
+         "cavern",
+         "shiver",
+         "decent",
+         "linen",
+         "legal",
+         "panic",
+         "smoky",
+         "tyrant"
+        ],
+        "review": [
+         "valley",
+         "fifteen",
+         "culture"
+        ],
+        "challenge": [
+         "fatigue",
+         "fugitive"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Open Syllables (V/V)",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 2,
+       "wordList": {
+        "core": [
+         "video",
+         "poet",
+         "riot",
+         "piano",
+         "diary",
+         "radio",
+         "ideas",
+         "ruin",
+         "diet",
+         "patriot",
+         "fluid",
+         "rodeo",
+         "cruel",
+         "genuine",
+         "casual",
+         "trial",
+         "fuel",
+         "meteor",
+         "diameter",
+         "meander"
+        ],
+        "review": [
+         "recent",
+         "closet",
+         "minus"
+        ],
+        "challenge": [
+         "situation",
+         "variety"
+        ]
+       }
+      },
+      {
+       "label": "Adages",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "idioms-adages",
+       "week": 2
+      }
+     ],
+     "vocabularyWords": [
+      "appreciation",
+      "blurted",
+      "complimenting",
+      "congratulate",
+      "contradicted",
+      "cultural",
+      "misunderstanding"
+     ],
+     "assessedFocus": [
+      "Author’s Purpose",
+      "Context Clues",
+      "Plot: Characterization",
+      "Theme"
+     ]
+    },
+    {
+     "number": 2,
+     "code": "G5-U3-TS2",
+     "title": "Text Set 2: Expository Text",
+     "genre": "Expository Text",
+     "weeks": [
+      3,
+      4
+     ],
+     "texts": {
+      "shared_read": "Gulf Spill Superheroes",
+      "anchor_text": "Winter’s Tail",
+      "paired_selection": "Helping Hands"
+     },
+     "skills": [
+      {
+       "label": "Latin Roots",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "greek-latin-roots"
+      },
+      {
+       "label": "Ask and Answer Questions",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "ask-answer-questions"
+      },
+      {
+       "label": "Problem and Solution",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "problem-solution"
+      },
+      {
+       "label": "Central Idea and Relevant Details",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "central-idea"
+      },
+      {
+       "label": "Literal and Figurative Language",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "figurative-language"
+      },
+      {
+       "label": "Main and Helping Verbs",
+       "role": "GRAMMAR",
+       "familyCode": "verbs",
+       "week": 3,
+       "ruleSummary": [
+        "The main verb shows what the subject does or is.",
+        "A helping verb helps the main verb show an action or make a statement. Some helping verbs include has, had, have, am, is, are, was, and were. A storm is coming.",
+        "Sentences can be in the active or passive voice. In the active voice, the subject is doing something. In the passive voice, the subject is the object of an action. Janelle ate the pasta. (active) The pasta was eaten by Janelle. (passive)"
+       ]
+      },
+      {
+       "label": "Participles and Perfect Tenses",
+       "role": "GRAMMAR",
+       "familyCode": "verb-tenses",
+       "week": 3,
+       "ruleSummary": [
+        "The progressive tenses take a form of the verb be and a present participle: I am cooking. (present progressive) My daughter was waiting. (past progressive) They will be arriving. (future progressive)",
+        "Past participles for regular verbs take the same form as the past tense: worked, stayed. Irregular verbs have irregular past participles: eaten, brought, sung.",
+        "The three perfect tenses (present, past, future) use a form of the verb have and the past participle to show a completed action. She has practiced. She had practiced. She will have practiced."
+       ]
+      },
+      {
+       "label": "Mechanics: Helping Verbs; Contractions; Troublesome Words",
+       "role": "GRAMMAR",
+       "familyCode": "apostrophes-contractions",
+       "week": 3,
+       "ruleSummary": [
+        "Special helping verbs, called modals, express possibility or obligation. The principal modals are can, could, may, might, must, ought, shall, should, will, and would: I may join you later.",
+        "A contraction is a shortened form of two words. It can be formed from a helping verb and the word not or from a pronoun and a verb: aren’t, can’t, she’s, they’re. An apostrophe (’) indicates the missing letter or letters.",
+        "Avoid confusing its with it’s and your with you’re. Its and your are used to show possession. A. \u0007Rewrite each sentence, forming a contraction from the two separate words in each one. Simplify the writing"
+       ]
+      },
+      {
+       "label": "Linking Verbs",
+       "role": "GRAMMAR",
+       "familyCode": "verbs",
+       "week": 4,
+       "ruleSummary": [
+        "A linking verb links the subject of a sentence to a noun or an adjective in the predicate. It tells what the subject is, was, or will be.",
+        "Common linking verbs include am, is, are, was, were, and will be: My dog is sleepy. The verbs seem, feel, appear, look, and taste can also be used as linking verbs: That sandwich looks delicious.",
+        "Subjects and linking verbs must agree: The playground was empty.",
+        "In compound sentences, both subjects and verbs must agree. Those dishes are dirty, but this plate is clean."
+       ]
+      },
+      {
+       "label": "How Linking Verbs Work",
+       "role": "GRAMMAR",
+       "familyCode": "verbs",
+       "week": 4,
+       "ruleSummary": [
+        "A linking verb links the subject of a sentence to a noun or an adjective in the predicate: The restaurant looks empty.",
+        "The noun that follows a linking verb renames or identifies the subject: The woman is a politician. (noun)",
+        "The adjective that follows a linking verb describes the subject. It is called a predicate adjective: This hike will be difficult. (adjective)"
+       ]
+      },
+      {
+       "label": "Mechanics: Punctuating Titles and Product Names",
+       "role": "GRAMMAR",
+       "familyCode": "commas",
+       "week": 4,
+       "ruleSummary": [
+        "Titles always begin with a capital letter. All major words in the title are also capitalized: The Washington Post. Do not use a capital letter for articles, conjunctions, and prepositions: Mary Poppins in the Park.",
+        "Underline or italicize the titles of major works, such as books, newspapers, and magazines: National Geographic. Use quotation marks around smaller works, such as poems, songs, and short stories: “Jack and Jill.”",
+        "Capitalize all major words in product names: Skylar Superball. Product names do not require underlining, italicizing, or quotation marks."
+       ]
+      },
+      {
+       "label": "Spelling: Vowel Team Syllables",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 3,
+       "wordList": {
+        "core": [
+         "footprint",
+         "fairground",
+         "although",
+         "laughter",
+         "appoint",
+         "coastal",
+         "bleachers",
+         "grownup",
+         "encounter",
+         "grouchy",
+         "flawless",
+         "lawyer",
+         "entertain",
+         "applause",
+         "faucet",
+         "caution",
+         "boundary",
+         "doubting",
+         "southern",
+         "roughness"
+        ],
+        "review": [
+         "poet",
+         "radio",
+         "fuel"
+        ],
+        "challenge": [
+         "nowadays",
+         "distraught"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Consonant + le Syllables",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 4,
+       "wordList": {
+        "core": [
+         "stable",
+         "saddle",
+         "table",
+         "noble",
+         "cattle",
+         "stumble",
+         "terrible",
+         "beetle",
+         "kettle",
+         "eagle",
+         "royal",
+         "cripple",
+         "hospital",
+         "legal",
+         "label",
+         "vocal",
+         "journal",
+         "medal",
+         "several",
+         "sample"
+        ],
+        "review": [
+         "entertain",
+         "encounter",
+         "southern"
+        ],
+        "challenge": [
+         "impossible",
+         "people"
+        ]
+       }
+      },
+      {
+       "label": "Similes and Metaphors",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "figurative-language",
+       "week": 4
+      }
+     ],
+     "vocabularyWords": [
+      "artificial",
+      "dedicated",
+      "flexible",
+      "collaborate",
+      "function",
+      "mimic",
+      "obstacle",
+      "techniques"
+     ],
+     "assessedFocus": [
+      "Central Idea and Relevant Details",
+      "Latin Roots",
+      "Literal and Figurative Language",
+      "Text Structure:"
+     ]
+    },
+    {
+     "number": 3,
+     "code": "G5-U3-TS3",
+     "title": "Text Set 3: Argumentative Text",
+     "genre": "Argumentative Text",
+     "weeks": [
+      5
+     ],
+     "texts": {
+      "shared_read": "What Was the Purpose of the Inca’s Knotted Strings?",
+      "anchor_text": "Machu Picchu: Ancient City",
+      "paired_selection": "Dig This Technology!"
+     },
+     "skills": [
+      {
+       "label": "Context Clues",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "context-clues"
+      },
+      {
+       "label": "Summarize",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "summarize"
+      },
+      {
+       "label": "Compare and Contrast",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "compare-contrast"
+      },
+      {
+       "label": "Author's Claim",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-claim"
+      },
+      {
+       "label": "Figurative Language",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "figurative-language"
+      },
+      {
+       "label": "Irregular Verbs",
+       "role": "GRAMMAR",
+       "familyCode": "irregular-verbs",
+       "week": 5,
+       "ruleSummary": [
+        "An irregular verb is a verb that does not add -ed to form the past tense.",
+        "Some irregular verbs include begin/began, bring/brought, catch/caught, choose/chose, do/did, drink/drank, eat/ate, fall/fell, fight/fought, get/got, go/went, keep/kept, know/knew, leave/left, make/made, read/read, run/ ran, say/said, speak/spoke, think/thought, win/won, and write/wrote."
+       ]
+      },
+      {
+       "label": "More About Irregular Verbs",
+       "role": "GRAMMAR",
+       "familyCode": "irregular-verbs",
+       "week": 5,
+       "ruleSummary": []
+      },
+      {
+       "label": "Mechanics: Correct Verb Usage",
+       "role": "GRAMMAR",
+       "familyCode": "verbs",
+       "week": 5,
+       "ruleSummary": [
+        "Use the present tenses if the action or condition is or has been happening now. Use the past tenses to show an action or condition that was or had been completed in the past.",
+        "Irregular verbs use forms other than adding -ed to show the past tense."
+       ]
+      },
+      {
+       "label": "Spelling: r-Controlled Vowel Syllables",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 5,
+       "wordList": {
+        "core": [
+         "perform",
+         "gentler",
+         "scissors",
+         "founder",
+         "director",
+         "danger",
+         "saucer",
+         "labor",
+         "margin",
+         "error",
+         "crater",
+         "pillar",
+         "splendor",
+         "peddler",
+         "professor",
+         "shatter",
+         "governor",
+         "vapor",
+         "equator",
+         "fonder"
+        ],
+        "review": [
+         "terrible",
+         "legal",
+         "journal"
+        ],
+        "challenge": [
+         "refrigerator",
+         "remainder"
+        ]
+       }
+      }
+     ],
+     "vocabularyWords": [
+      "fragments",
+      "archaeologist",
+      "historian",
+      "era",
+      "intact",
+      "reconstruct",
+      "remnants"
+     ],
+     "assessedFocus": [
+      "Author’s Claim",
+      "Context Clues",
+      "Figurative Language",
+      "Text Structure: Compare and Contrast"
+     ]
+    }
+   ],
+   "writing": [
+    {
+     "title": "PROJECT 1 Argumentative Essay",
+     "familyCode": "writing-argument"
+    },
+    {
+     "title": "PROJECT 2 Argumentative Essay",
+     "familyCode": "writing-argument"
+    }
+   ],
+   "crossCurricular": [
+    "SOCIAL STUDIES Teamwork and Destiny",
+    "SOCIAL STUDIES US Space School",
+    "SCIENCE To Be an Archaeologist",
+    "SCIENCE Digging Into the Past"
+   ],
+   "unitSkills": [
+    {
+     "label": "Cite Text Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "text-evidence"
+    },
+    {
+     "label": "Make Inferences",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "inference"
+    },
+    {
+     "label": "Compare and Contrast Texts",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "compare-texts"
+    },
+    {
+     "label": "Precise Language, Style and Tone",
+     "role": "WRITING",
+     "familyCode": "precise-language"
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "title": "Unit 4",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G5-U4-TS1",
+     "title": "Text Set 1: Biography",
+     "genre": "Biography",
+     "weeks": [
+      1,
+      2
+     ],
+     "texts": {
+      "shared_read": "Frederick Douglass: Freedom’s Voice",
+      "anchor_text": "Rosa",
+      "paired_selection": "Our Voices, Our Votes"
+     },
+     "skills": [
+      {
+       "label": "Prefixes and Suffixes",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "prefixes"
+      },
+      {
+       "label": "Summarize",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "summarize"
+      },
+      {
+       "label": "Photographs and Captions",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "text-features"
+      },
+      {
+       "label": "Author's Perspective",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-perspective"
+      },
+      {
+       "label": "Chronology",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "sequence"
+      },
+      {
+       "label": "Pronouns and Antecedents",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns",
+       "week": 1,
+       "ruleSummary": [
+        "A pronoun takes the place of a noun or nouns and may be singular or plural. Singular pronouns are I, you, he, she, it, me, him, and her. Plural pronouns are we, you, they, them, and us.",
+        "An antecedent is the noun (or nouns) to which the pronoun refers. My mother will be home late. She is busy at work.",
+        "An indefinite pronoun does not refer to a particular person, place, or thing. Examples of indefinite pronouns include some, everyone, nowhere, everything, and anything. Everyone is having fun at the picnic."
+       ]
+      },
+      {
+       "label": "Agreement of Pronouns and Antecedents",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns",
+       "week": 1,
+       "ruleSummary": [
+        "Pronouns and antecedents must agree in both number, case, and gender. A singular pronoun refers to a singular antecedent: Maria is my best friend, and she lives one block away. A plural pronoun refers to a plural antecedent: Two squirrels chased each other. They were having fun.",
+        "Antecedents may or may not appear in the same sentence as their related nouns or pronouns: We wanted to see Susan’s play. We are very proud of her.",
+        "The case of a pronoun depends on whether the pronoun is a subject, object, or possessive: He went to the store. We reminded him. He forgot his wallet."
+       ]
+      },
+      {
+       "label": "Mechanics: Pronoun-Antecedent Agreement",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns",
+       "week": 1,
+       "ruleSummary": [
+        "Pronouns and antecedents must agree in both number and gender. A singular pronoun refers to a singular antecedent: Ruth practices every day because she wants to win the competition. A plural pronoun refers to a plural antecedent: Earthworms do not have eyes, but they can sense light.",
+        "Antecedents may or may not appear in the same sentence as their related pronouns. The pine tree looks beautiful in winter. It stays green all year."
+       ]
+      },
+      {
+       "label": "Different Kinds of Pronouns",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns",
+       "week": 2,
+       "ruleSummary": [
+        "A subject pronoun—I, you, he, she, it, we, they—takes the place of a noun used as a subject.",
+        "An object pronoun—me, you, him, her, it, us, them—takes the place of a noun used as an object. It comes after a preposition or an action verb.",
+        "A relative pronoun—that, which, who, whom, whose—is used at the beginning of a dependent clause: We chose the pears that felt softest.",
+        "A reflexive pronoun is used when the object of a sentence is the same as the subject: He helped himself to a slice of pie."
+       ]
+      },
+      {
+       "label": "Use of Subject and Object Pronouns",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns",
+       "week": 2,
+       "ruleSummary": [
+        "Use a subject pronoun as the subject: I, you, he, she, it, we, they. Are you coming to the game? We are leaving at noon.",
+        "Use an object pronoun after an action verb or a preposition: me, you, him, her, it, us, them. Dana told Jon and me to go without her. She will meet us later."
+       ]
+      },
+      {
+       "label": "Mechanics: Quotation Marks in Dialogue",
+       "role": "GRAMMAR",
+       "familyCode": "quotations-dialogue",
+       "week": 2,
+       "ruleSummary": [
+        "Use quotation marks before and after direct quotations.",
+        "Use a comma or commas to separate a phrase, such as she said, from the quotation itself.",
+        "Place a comma or period inside closing quotation marks.",
+        "There is no space between an opening quotation mark and the following word or a closing quotation mark and the preceding word. “Mom, I had so much fun at the birthday party,” Charlie said."
+       ]
+      },
+      {
+       "label": "Spelling: Words with Final / l/ and / n/",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 1,
+       "wordList": {
+        "core": [
+         "slogan",
+         "woolen",
+         "listen",
+         "heron",
+         "frighten",
+         "lengthen",
+         "captain",
+         "mountain",
+         "sandal",
+         "signal",
+         "global",
+         "bushel",
+         "marvel",
+         "barrel",
+         "practical",
+         "pretzel",
+         "fable",
+         "chuckle",
+         "angle",
+         "nozzle"
+        ],
+        "review": [
+         "scissors",
+         "pillar",
+         "governor"
+        ],
+        "challenge": [
+         "dungeon",
+         "salmon"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Prefixes",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 2,
+       "wordList": {
+        "core": [
+         "unusual",
+         "underwater",
+         "regain",
+         "repaired",
+         "unaware",
+         "unfriendly",
+         "unfinished",
+         "unimportant",
+         "refreeze",
+         "replenish",
+         "reunite",
+         "rediscover",
+         "rewrap",
+         "disconnect",
+         "discourage",
+         "dishonest",
+         "nonspecific",
+         "misguide",
+         "overwhelm",
+         "submerge"
+        ],
+        "review": [
+         "listen",
+         "signal",
+         "fable"
+        ],
+        "challenge": [
+         "impatiently",
+         "inaccurate"
+        ]
+       }
+      },
+      {
+       "label": "Hyperbole",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "figurative-language",
+       "week": 2
+      }
+     ],
+     "vocabularyWords": [
+      "entitled",
+      "anticipation",
+      "neutral",
+      "defy",
+      "outspoken",
+      "reserved",
+      "sought",
+      "unequal"
+     ],
+     "assessedFocus": [
+      "Author’s Perspective",
+      "Prefixes and Suffixes",
+      "Text Features: Photographs and Captions",
+      "Text Structure: Chronology"
+     ]
+    },
+    {
+     "number": 2,
+     "code": "G5-U4-TS2",
+     "title": "Text Set 2: Drama",
+     "genre": "Drama",
+     "weeks": [
+      3,
+      4
+     ],
+     "texts": {
+      "shared_read": "Where’s Brownie?",
+      "anchor_text": "A Window into History",
+      "paired_selection": "A Boy, a Horse, and a Fiddle"
+     },
+     "skills": [
+      {
+       "label": "Adages and Proverbs",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "idioms-adages"
+      },
+      {
+       "label": "Visualize",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "visualize"
+      },
+      {
+       "label": "Elements of a Play",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "drama-elements"
+      },
+      {
+       "label": "Character Perspective",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "character-perspective"
+      },
+      {
+       "label": "Similes and Metaphors",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "figurative-language"
+      },
+      {
+       "label": "Pronoun-Verb Agreement",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns",
+       "week": 3,
+       "ruleSummary": [
+        "Add -s to most present-tense verbs when the subject is one of the singular pronouns he, she, or it. Do not add -s to present-tense verbs when the subject is I, we, you, or they.",
+        "Some indefinite pronouns are singular: Somebody is knocking on the door. Others are plural: Many agree with me. Others can be plural or singular: Some is still left in the fridge. Some are still finishing their project. When an indefinite pronoun is used as a subject, the verb must agree with it.",
+        "A prepositional phrase after an indefinite pronoun can indicate whether the pronoun is singular or plural: Some of the book is challenging. Some of the pages are challenging. However, a prepositional phrase does not affect pronouns that are always singular or always plural: Each of the rooms is occupied."
+       ]
+      },
+      {
+       "label": "Subject Pronoun-Verb Contractions",
+       "role": "GRAMMAR",
+       "familyCode": "pronoun-homophones",
+       "week": 3,
+       "ruleSummary": [
+        "A contraction is a shortened form of two words.",
+        "Subject pronouns can be combined with some verbs to form contractions. An apostrophe (’) shows that a letter or letters have been left out. we’re = we are; she’s = she is; they’ve = they have he’s = he is; I’m = I am; there’s = there is; I’ll = I will"
+       ]
+      },
+      {
+       "label": "Mechanics: Abbreviations",
+       "role": "GRAMMAR",
+       "familyCode": "titles-abbreviations",
+       "week": 3,
+       "ruleSummary": [
+        "An abbreviation is a shortened form of a word. Most abbreviations begin with a capital letter and end with a period: Dr., Mr., Ms., Mrs., Jr., Rd., Blvd.",
+        "Postal abbreviations for states, such as MN or TX, use all capital letters with no periods."
+       ]
+      },
+      {
+       "label": "Possessive Pronouns",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns",
+       "week": 4,
+       "ruleSummary": [
+        "A pronoun takes the place of a noun in a sentence.",
+        "A possessive pronoun takes the place of a possessive noun. It shows who or what has or owns something: Ron’s bike is green. His bike is green.",
+        "Some possessive pronouns are used before nouns. That used to be our apartment. Others can stand alone in a sentence: That used to be ours."
+       ]
+      },
+      {
+       "label": "Ways to Use Possessive Pronouns",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns",
+       "week": 4,
+       "ruleSummary": [
+        "These possessive pronouns are used before nouns: my, his, her, its, our, your, and their.",
+        "These possessive pronouns can stand alone: mine, yours, his, hers, its, ours, yours, and theirs."
+       ]
+      },
+      {
+       "label": "Mechanics: Apostrophes, Possessives, and Reflexive Pronouns",
+       "role": "GRAMMAR",
+       "familyCode": "apostrophes-contractions",
+       "week": 4,
+       "ruleSummary": [
+        "An apostrophe takes the place of a letter or letters left out of a contraction.",
+        "Possessive pronouns never use apostrophes.",
+        "Reflexive pronouns are used as objects and refer back to the subject. The ending -self is used with singular pronouns: She wrote the song by herself. The ending -selves is used with plural pronouns: We helped ourselves to slices of pizza."
+       ]
+      },
+      {
+       "label": "Spelling: Homographs",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 3,
+       "wordList": {
+        "core": [
+         "contest",
+         "content",
+         "protest",
+         "combat",
+         "permits",
+         "rebel",
+         "present",
+         "insert",
+         "desert",
+         "subject",
+         "minute",
+         "compact",
+         "conduct",
+         "contract",
+         "refuse",
+         "conflict",
+         "research",
+         "excuse",
+         "entrance",
+         "extract"
+        ],
+        "review": [
+         "unusual",
+         "rewrap",
+         "dishonest"
+        ],
+        "challenge": [
+         "effect",
+         "affect"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Words with /ch r/ and /zh r/",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 4,
+       "wordList": {
+        "core": [
+         "rancher",
+         "searcher",
+         "pressure",
+         "future",
+         "butcher",
+         "measure",
+         "pleasure",
+         "mixture",
+         "treasure",
+         "feature",
+         "pasture",
+         "creature",
+         "lecture",
+         "gesture",
+         "nature",
+         "fracture",
+         "moisture",
+         "stretcher",
+         "legislature",
+         "azure"
+        ],
+        "review": [
+         "contest",
+         "desert",
+         "entrance"
+        ],
+        "challenge": [
+         "miniature",
+         "disclosure"
+        ]
+       }
+      },
+      {
+       "label": "Synonyms and Antonyms",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "synonyms-antonyms",
+       "week": 4
+      }
+     ],
+     "vocabularyWords": [
+      "inquisitive",
+      "astounded",
+      "interpret",
+      "concealed",
+      "perplexed",
+      "precise",
+      "reconsider",
+      "suspicious"
+     ],
+     "assessedFocus": [
+      "Adages and Proverbs",
+      "Character’s Perspective",
+      "Figurative Language: Metaphors",
+      "Figurative Language: Similes",
+      "Structural Elements: Play"
+     ]
+    },
+    {
+     "number": 3,
+     "code": "G5-U4-TS3",
+     "title": "Text Set 3: Poetry",
+     "genre": "Poetry",
+     "weeks": [
+      5
+     ],
+     "texts": {
+      "shared_read": "How Do I Hold the Summer?",
+      "anchor_text": "Words Free as Confetti",
+      "paired_selection": "A Story of How a Wall Stands"
+     },
+     "skills": [
+      {
+       "label": "Simile and Metaphor",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "figurative-language"
+      },
+      {
+       "label": "Stanza and Meter",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "poetry-elements"
+      },
+      {
+       "label": "Lyric and Free Verse",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "poetry-elements"
+      },
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Imagery",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "imagery"
+      },
+      {
+       "label": "Homophones",
+       "role": "GRAMMAR",
+       "familyCode": "pronoun-homophones",
+       "week": 5,
+       "ruleSummary": [
+        "Homophones are words that sound the same but have different spellings and meanings. Some examples of homophone pairs include read/reed, write/right, their/there, sight/site, and break/brake."
+       ]
+      },
+      {
+       "label": "Possessive Pronouns and Contractions That Are Homophones",
+       "role": "GRAMMAR",
+       "familyCode": "pronoun-homophones",
+       "week": 5,
+       "ruleSummary": [
+        "Some pronouns and pronoun/verb contractions are homophones.",
+        "Don’t confuse these homophones: there/they’re/their, there’s/theirs, its/it’s, and your/you’re. These are also high-frequency words. Try to memorize the spelling and usage of each word."
+       ]
+      },
+      {
+       "label": "Mechanics: Punctuating Poetry",
+       "role": "GRAMMAR",
+       "familyCode": "commas",
+       "week": 5,
+       "ruleSummary": [
+        "Use capital letters at the beginning of complete thoughts. Be consistent if you also use capital letters at the beginning of each line.",
+        "Dashes can be used to show examples or sudden breaks in thought. I will see you at the picnic—that is, if I finish my project in time.",
+        "Hyphens are used in compound words (forty-six, mother-in-law) or to connect double-adjectives (a well-respected professor). They are also used to break up words between lines.",
+        "Use quotation marks around dialogue or speech.",
+        "Use commas to separate units of meaning."
+       ]
+      },
+      {
+       "label": "Spelling: Suffixes -ance and -ence",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 5,
+       "wordList": {
+        "core": [
+         "distance",
+         "importance",
+         "balance",
+         "attendance",
+         "absence",
+         "performance",
+         "dependence",
+         "substance",
+         "disturbance",
+         "appearance",
+         "assistance",
+         "ignorance",
+         "brilliance",
+         "ambulance",
+         "residence",
+         "radiance",
+         "resistance",
+         "reluctance",
+         "persistence",
+         "hesitance"
+        ],
+        "review": [
+         "creature",
+         "measure",
+         "rancher"
+        ],
+        "challenge": [
+         "vigilance",
+         "inference"
+        ]
+       }
+      }
+     ],
+     "vocabularyWords": [
+      "plumes",
+      "barren",
+      "lyric",
+      "expression",
+      "meaningful",
+      "alliteration",
+      "stanza"
+     ],
+     "assessedFocus": [
+      "Metaphor",
+      "Poetic Elements: Imagery",
+      "Poetic Elements: Stanza and Meter",
+      "Simile",
+      "Theme"
+     ]
+    }
+   ],
+   "writing": [
+    {
+     "title": "PROJECT 1 Expository Essay",
+     "familyCode": "writing-informative"
+    },
+    {
+     "title": "PROJECT 2 Expository Essay",
+     "familyCode": "writing-informative"
+    }
+   ],
+   "crossCurricular": [
+    "SOCIAL STUDIES Cesar Chavez: Hero at Work",
+    "SOCIAL STUDIES Army of Helpers",
+    "SCIENCE Colorful Chameleons",
+    "SCIENCE Changing Their Look"
+   ],
+   "unitSkills": [
+    {
+     "label": "Cite Text Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "text-evidence"
+    },
+    {
+     "label": "Make Inferences",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "inference"
+    },
+    {
+     "label": "Compare and Contrast Texts",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "compare-texts"
+    },
+    {
+     "label": "Precise Language, Style and Tone",
+     "role": "WRITING",
+     "familyCode": "precise-language"
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "title": "Unit 5",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G5-U5-TS1",
+     "title": "Text Set 1: Expository Text",
+     "genre": "Expository Text",
+     "weeks": [
+      1,
+      2
+     ],
+     "texts": {
+      "shared_read": "Changing Views of Earth",
+      "anchor_text": "When Is a Planet Not a Planet?",
+      "paired_selection": "The Crow and the Pitcher"
+     },
+     "skills": [
+      {
+       "label": "Greek Roots",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "greek-latin-roots"
+      },
+      {
+       "label": "Ask and Answer Questions",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "ask-answer-questions"
+      },
+      {
+       "label": "Diagrams",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "text-features"
+      },
+      {
+       "label": "Central Idea and Relevant Details",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "central-idea"
+      },
+      {
+       "label": "Imagery",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "imagery"
+      },
+      {
+       "label": "Independent and Dependent Clauses",
+       "role": "GRAMMAR",
+       "familyCode": "clauses-complex",
+       "week": 1,
+       "ruleSummary": [
+        "A clause is a group of words that has a subject and a predicate.",
+        "An independent, or main, clause has one complete subject and one complete predicate. It can stand alone as a sentence. I painted the room last weekend.",
+        "A dependent, or subordinate, clause cannot stand alone as a sentence. It is introduced by a subordinating conjunction, such as after, although, before, because, if, since, until, when, where, and while. I took a shower after I painted the room."
+       ]
+      },
+      {
+       "label": "Complex Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "clauses-complex",
+       "week": 1,
+       "ruleSummary": [
+        "A complex sentence contains an independent, or main, clause and a dependent, or subordinate, clause.",
+        "Use a comma after an introductory dependent clause. Whenever I can’t fall sleep, I reread an old book."
+       ]
+      },
+      {
+       "label": "Mechanics: Appositives",
+       "role": "GRAMMAR",
+       "familyCode": "sentences",
+       "week": 1,
+       "ruleSummary": [
+        "An appositive is a noun, noun phrase, or noun clause that explains or describes a nearby noun or pronoun.",
+        "An appositive may come before or after a noun or a pronoun. Commas are used to set off many appositives. Zoe, our class president, gave an excellent speech."
+       ]
+      },
+      {
+       "label": "Complex Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "clauses-complex",
+       "week": 2,
+       "ruleSummary": [
+        "A complex sentence contains an independent clause and a dependent clause.",
+        "Dependent clauses are introduced by subordinating conjunctions, such as while, because, if, and although: I jumped because I was happy.",
+        "Dependent clauses can also be introduced by relative pronouns, such as who, whose, which, whom, and that, and relative adverbs, such as where, when, and why. It is the only store that sells them. I will go when I have time."
+       ]
+      },
+      {
+       "label": "More About Complex Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "clauses-complex",
+       "week": 2,
+       "ruleSummary": [
+        "A dependent clause in a complex sentence can come after an independent clause: I will take some ice cream if there is any left.",
+        "A dependent clause can also come before an independent clause, separated by a comma: If we leave now, we will arrive by noon."
+       ]
+      },
+      {
+       "label": "Mechanics: Commas with Clauses",
+       "role": "GRAMMAR",
+       "familyCode": "commas",
+       "week": 2,
+       "ruleSummary": [
+        "An essential clause is necessary to identify a person or thing that is being described. It is not separated by commas: The car that costs less is perfect.",
+        "A nonessential clause is not necessary to the meaning of the sentence. Commas are needed to set apart the clause: Her new book, which I finished yesterday, is my favorite."
+       ]
+      },
+      {
+       "label": "Spelling: Suffixes",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 1,
+       "wordList": {
+        "core": [
+         "serious",
+         "furious",
+         "eruption",
+         "usually",
+         "direction",
+         "position",
+         "forgetful",
+         "comfortable",
+         "finally",
+         "destruction",
+         "apparently",
+         "completely",
+         "eventually",
+         "carefully",
+         "microscopic",
+         "allergic",
+         "scientific",
+         "safety",
+         "activity",
+         "sickness"
+        ],
+        "review": [
+         "distance",
+         "ambulance",
+         "substance"
+        ],
+        "challenge": [
+         "aquatic",
+         "mathematics"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Homophones",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 2,
+       "wordList": {
+        "core": [
+         "sweet",
+         "suite",
+         "pray",
+         "prey",
+         "poll",
+         "pole",
+         "waste",
+         "waist",
+         "manor",
+         "manner",
+         "pier",
+         "peer",
+         "currant",
+         "current",
+         "presence",
+         "presents",
+         "council",
+         "counsel",
+         "stationery",
+         "stationary"
+        ],
+        "review": [
+         "eruption",
+         "forgetful",
+         "allergic"
+        ],
+        "challenge": [
+         "kernel",
+         "colonel"
+        ]
+       }
+      },
+      {
+       "label": "Thesaurus",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "reference-materials",
+       "week": 2
+      }
+     ],
+     "vocabularyWords": [
+      "approximately",
+      "astronomical",
+      "calculation",
+      "criteria",
+      "diameter",
+      "orbit",
+      "spheres"
+     ],
+     "assessedFocus": [
+      "Central Idea and Relevant Details",
+      "Figurative Language: Imagery",
+      "Greek Roots",
+      "Text Features: Diagrams"
+     ]
+    },
+    {
+     "number": 2,
+     "code": "G5-U5-TS2",
+     "title": "Text Set 2: Historical Fiction",
+     "genre": "Historical Fiction",
+     "weeks": [
+      3,
+      4
+     ],
+     "texts": {
+      "shared_read": "The Day the Rollets Got Their Moxie Back",
+      "anchor_text": "Bud, Not Buddy",
+      "paired_selection": "Musical Impressions of the Great Depression"
+     },
+     "skills": [
+      {
+       "label": "Idioms",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "idioms-adages"
+      },
+      {
+       "label": "Make Predictions",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "make-predictions"
+      },
+      {
+       "label": "Plot: Characterization",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "character"
+      },
+      {
+       "label": "Plot: Conflict",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "plot-conflict"
+      },
+      {
+       "label": "Compare and Contrast",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "compare-contrast"
+      },
+      {
+       "label": "Adjectives",
+       "role": "GRAMMAR",
+       "familyCode": "adjectives",
+       "week": 3,
+       "ruleSummary": [
+        "An adjective modifies a noun or a pronoun. Adjectives can tell what kind (new, bright, tiny), how many (eight, few), or how much (some, all). Proper adjectives should be capitalized: Spanish language.",
+        "Demonstrative adjectives tell which one: this, that, these, those.",
+        "The words the, a, and an are special adjectives called articles. Use a and an to refer to any one item in a group. Use the to refer to a specific item or more than one item."
+       ]
+      },
+      {
+       "label": "Order of Adjectives",
+       "role": "GRAMMAR",
+       "familyCode": "adjectives",
+       "week": 3,
+       "ruleSummary": [
+        "When more than one adjective is used to modify a noun, the adjectives must be listed in order. Numbers come first, followed by opinion, size, age, and color: a delicious red cake; two beautiful old chairs; a large brown blanket.",
+        "Commas often separate two or more adjectives that describe the same noun: Jorge played a quiet, sensitive song on the piano. A comma does not normally follow a number in a description, however."
+       ]
+      },
+      {
+       "label": "Mechanics: Capitalization and Punctuation",
+       "role": "GRAMMAR",
+       "familyCode": "capitalization",
+       "week": 3,
+       "ruleSummary": [
+        "Acronyms are abbreviations usually formed with all capital letters and no periods, such as TV, NASA, and the UN.",
+        "Underline or italicize titles from long works, such as books and magazines. Put quotation marks around the titles of shorter works, such as articles and chapters. Capitalize all major words in titles. I picked up a copy of Sunny Day magazine and turned to an article called “Hiking at Daybreak.”"
+       ]
+      },
+      {
+       "label": "Adjectives That Compare",
+       "role": "GRAMMAR",
+       "familyCode": "comparatives",
+       "week": 4,
+       "ruleSummary": [
+        "Comparative adjectives compare two nouns or pronouns. Add -er to most adjectives to compare two items.",
+        "Superlative adjectives compare more than two nouns or pronouns.",
+        "Drop the e in adjectives such as pale before adding -er or -est: palest. Change the y to i in adjectives such as sunny: sunnier. For one-syllable adjectives such as red, double the final consonant: reddest."
+       ]
+      },
+      {
+       "label": "More and Most",
+       "role": "GRAMMAR",
+       "familyCode": "comparatives",
+       "week": 4,
+       "ruleSummary": [
+        "Use more in front of most long adjectives to compare two items. This book is more interesting than the last one I read.",
+        "Use most in front of most long adjectives to compare more than two items. This is the most interesting book I have ever read."
+       ]
+      },
+      {
+       "label": "Mechanics: Using More and Most",
+       "role": "GRAMMAR",
+       "familyCode": "comparatives",
+       "week": 4,
+       "ruleSummary": [
+        "Never use more and -er with the same adjective.",
+        "Never use most and -est with the same adjective."
+       ]
+      },
+      {
+       "label": "Spelling: Prefixes",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 3,
+       "wordList": {
+        "core": [
+         "prewash",
+         "disable",
+         "discolor",
+         "mistaken",
+         "preheats",
+         "mistrust",
+         "incorrect",
+         "disconnect",
+         "preview",
+         "prejudge",
+         "misjudge",
+         "discomfort",
+         "dismount",
+         "misunderstand",
+         "disobey",
+         "dishonest",
+         "injustice",
+         "disapprove",
+         "inexpensive",
+         "indefinite"
+        ],
+        "review": [
+         "presence",
+         "stationary",
+         "current"
+        ],
+        "challenge": [
+         "prehistoric",
+         "misbehave"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Suffixes -less and -ness",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 4,
+       "wordList": {
+        "core": [
+         "sadness",
+         "gladness",
+         "needless",
+         "harmless",
+         "darkness",
+         "fullness",
+         "stillness",
+         "hopeless",
+         "fearless",
+         "weakness",
+         "bottomless",
+         "foolishness",
+         "fondness",
+         "effortless",
+         "meaningless",
+         "emptiness",
+         "forgiveness",
+         "motionless",
+         "ceaseless",
+         "fierceness"
+        ],
+        "review": [
+         "disobey",
+         "mistrust",
+         "preview"
+        ],
+        "challenge": [
+         "weightlessness",
+         "thoughtlessness"
+        ]
+       }
+      },
+      {
+       "label": "Puns",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "puns",
+       "week": 4
+      }
+     ],
+     "vocabularyWords": [
+      "assume",
+      "guarantee",
+      "nominate",
+      "obviously",
+      "rely",
+      "supportive",
+      "sympathy",
+      "weakling"
+     ],
+     "assessedFocus": [
+      "Idioms",
+      "Plot: Characterization",
+      "Plot: Conflict",
+      "Text Structure: Compare and Contrast"
+     ]
+    },
+    {
+     "number": 3,
+     "code": "G5-U5-TS3",
+     "title": "Text Set 3: Argumentative Text",
+     "genre": "Argumentative Text",
+     "weeks": [
+      5
+     ],
+     "texts": {
+      "shared_read": "Should Plants and Animals from Other Places Live Here?",
+      "anchor_text": "The Case of the Missing Bees",
+      "paired_selection": "Busy, Beneficial Bees"
+     },
+     "skills": [
+      {
+       "label": "Root Words",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "greek-latin-roots"
+      },
+      {
+       "label": "Ask and Answer Questions",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "ask-answer-questions"
+      },
+      {
+       "label": "Charts and Headings",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "text-features"
+      },
+      {
+       "label": "Author's Perspective",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-perspective"
+      },
+      {
+       "label": "Puns",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "puns"
+      },
+      {
+       "label": "Comparing with Good",
+       "role": "GRAMMAR",
+       "familyCode": "comparatives",
+       "week": 5,
+       "ruleSummary": [
+        "Good and bad have irregular comparative and superlative forms.",
+        "Use better to compare two people, places, or things. Use best to compare more than two."
+       ]
+      },
+      {
+       "label": "Comparing with Bad",
+       "role": "GRAMMAR",
+       "familyCode": "comparatives",
+       "week": 5,
+       "ruleSummary": [
+        "Good and bad have irregular comparative and superlative forms.",
+        "Use worse to compare two people, places, or things: This new design is worse than the last one. Use worst to compare more than two people, places, or things: That was the worst orange I’ve ever eaten."
+       ]
+      },
+      {
+       "label": "Mechanics: Irregular Comparative Forms",
+       "role": "GRAMMAR",
+       "familyCode": "sentences",
+       "week": 5,
+       "ruleSummary": [
+        "In comparisons, better and best are the irregular forms of the adjective good; worse and worst are the forms of the adjective bad.",
+        "The comparative form of many is more; the superlative form is most.",
+        "The comparative form of much is more; the superlative form is most.",
+        "Never add -er, -est, more, or most to an irregular comparative or superlative form."
+       ]
+      },
+      {
+       "label": "Spelling: Suffix -ion",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 5,
+       "wordList": {
+        "core": [
+         "impress",
+         "impression",
+         "elect",
+         "election",
+         "locate",
+         "location",
+         "confuse",
+         "confusion",
+         "correct",
+         "correction",
+         "discuss",
+         "discussion",
+         "concentrate",
+         "concentration",
+         "estimate",
+         "estimation",
+         "decorate",
+         "decoration",
+         "exhaust",
+         "exhaustion"
+        ],
+        "review": [
+         "hopeless",
+         "fearless",
+         "forgiveness"
+        ],
+        "challenge": [
+         "conclude",
+         "conclusion"
+        ]
+       }
+      }
+     ],
+     "vocabularyWords": [
+      "agricultural",
+      "declined",
+      "disorder",
+      "identify",
+      "probable",
+      "unexpected",
+      "widespread"
+     ],
+     "assessedFocus": [
+      "Author’s Perspective",
+      "Figurative Language: Puns",
+      "Root Words",
+      "Text Features: Charts",
+      "Text Features: Headings"
+     ]
+    }
+   ],
+   "writing": [
+    {
+     "title": "PROJECT 1 Research Report",
+     "familyCode": "writing-research"
+    },
+    {
+     "title": "PROJECT 2 Personal Narrative",
+     "familyCode": "writing-narrative"
+    }
+   ],
+   "crossCurricular": [
+    "SCIENCE Sir Isaac Newton",
+    "SCIENCE Gravity",
+    "SOCIAL STUDIES Wind in the Great Plains",
+    "SOCIAL STUDIES Dusting Off with Humor"
+   ],
+   "unitSkills": [
+    {
+     "label": "Cite Text Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "text-evidence"
+    },
+    {
+     "label": "Make Inferences",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "inference"
+    },
+    {
+     "label": "Compare and Contrast Texts",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "compare-texts"
+    },
+    {
+     "label": "Precise Language, Style and Tone",
+     "role": "WRITING",
+     "familyCode": "precise-language"
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "title": "Unit 6",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G5-U6-TS1",
+     "title": "Text Set 1: Historical Fiction",
+     "genre": "Historical Fiction",
+     "weeks": [
+      1,
+      2
+     ],
+     "texts": {
+      "shared_read": "Shipped Out",
+      "anchor_text": "The Unbreakable Code",
+      "paired_selection": "Allies in Action"
+     },
+     "skills": [
+      {
+       "label": "Homophones",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "homographs-homophones"
+      },
+      {
+       "label": "Summarize",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "summarize"
+      },
+      {
+       "label": "Plot: Flashback",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "plot-flashback"
+      },
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Print and Graphic Features",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "text-features"
+      },
+      {
+       "label": "Adverbs",
+       "role": "GRAMMAR",
+       "familyCode": "adverbs",
+       "week": 1,
+       "ruleSummary": [
+        "An adverb can tell how, when, where, or how often an action happens. Many adverbs end in -ly: I eat slowly. (tells how)",
+        "Some adverbs tell how much or how intensely: I am absolutely certain. (tells how intensely)",
+        "Conjunctive adverbs, such as therefore, meanwhile, however, similarly, and otherwise, connect and clarify the relationship between two clauses: I want a new bike; however, I need to save money first.",
+        "The relative adverbs where, when, and why can also introduce clauses: That is the market where I buy fresh vegetables."
+       ]
+      },
+      {
+       "label": "Adverbs Before Adjectives and Other Adverbs",
+       "role": "GRAMMAR",
+       "familyCode": "adverbs",
+       "week": 1,
+       "ruleSummary": [
+        "An adverb can describe an adjective or another adverb. The weather today is uncomfortably hot. (describes the adjective hot) The performer arrived very late. (describes the adverb late)"
+       ]
+      },
+      {
+       "label": "Mechanics: Capitalization and Abbreviations in Letters and E-mails",
+       "role": "GRAMMAR",
+       "familyCode": "capitalization",
+       "week": 1,
+       "ruleSummary": [
+        "Capitalize the first word and all proper nouns in a greeting.",
+        "Capitalize only the first word in the closing.",
+        "Capitalize these abbreviations commonly used in letters and formal e-mails: Mrs., Mr., Ms., Dr., Inc."
+       ]
+      },
+      {
+       "label": "Adverbs That Compare",
+       "role": "GRAMMAR",
+       "familyCode": "adverbs",
+       "week": 2,
+       "ruleSummary": [
+        "An adverb can compare two or more actions. Adverbs that compare two actions use -er or more: Amy jumped higher than Sam during the game. Adverbs that compare three or more actions use -est or most: Avery worked the hardest and most carefully of all."
+       ]
+      },
+      {
+       "label": "Comparative Adverbs -er, -est, More, Most",
+       "role": "GRAMMAR",
+       "familyCode": "adverbs",
+       "week": 2,
+       "ruleSummary": [
+        "Add -er or -est to most short adverbs to compare actions: swam farther, swam the farthest. Add more or most to adverbs that have two or more syllables or to adverbs that end in -ly: more softly, most softly."
+       ]
+      },
+      {
+       "label": "Mechanics: Using Good, Well; More, Most; -er, -est",
+       "role": "GRAMMAR",
+       "familyCode": "comparatives",
+       "week": 2,
+       "ruleSummary": [
+        "Good is often an adjective, and well is often an adverb that tells how. Good and well cannot be used interchangeably. Well is an adjective when it means healthy: I was sick yesterday, but I am well now.",
+        "As with the adjective good, the comparative form of well is better. The superlative form is best.",
+        "Never add -er and more or -est and most to the same adverb."
+       ]
+      },
+      {
+       "label": "Spelling: Words with Greek Roots",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 1,
+       "wordList": {
+        "core": [
+         "astronaut",
+         "telephone",
+         "automobile",
+         "telescope",
+         "mechanical",
+         "myth",
+         "television",
+         "phonics",
+         "astronomer",
+         "photograph",
+         "photography",
+         "mythical",
+         "homophone",
+         "mechanic",
+         "telegram",
+         "telephoto",
+         "autograph",
+         "automatic",
+         "disaster",
+         "telegraph"
+        ],
+        "review": [
+         "correction",
+         "discussion",
+         "decoration"
+        ],
+        "challenge": [
+         "videophone",
+         "photogenic"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Words with Latin Roots",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 2,
+       "wordList": {
+        "core": [
+         "subtraction",
+         "transportation",
+         "missile",
+         "portable",
+         "intermission",
+         "committee",
+         "respect",
+         "transport",
+         "tractor",
+         "spectator",
+         "attraction",
+         "export",
+         "inspector",
+         "distract",
+         "spectacle",
+         "inspect",
+         "mission",
+         "import",
+         "dismiss",
+         "suspect"
+        ],
+        "review": [
+         "telescope",
+         "astronaut",
+         "photograph"
+        ],
+        "challenge": [
+         "spectacular",
+         "protractor"
+        ]
+       }
+      },
+      {
+       "label": "Literal and Figurative Language",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "figurative-language",
+       "week": 2
+      }
+     ],
+     "vocabularyWords": [
+      "diversity",
+      "bulletin",
+      "contributions",
+      "enlisted",
+      "intercept",
+      "operations",
+      "recruits",
+      "survival"
+     ],
+     "assessedFocus": [
+      "Homophones",
+      "Plot: Flashback",
+      "Text Features: Print and Graphic Features",
+      "Theme"
+     ]
+    },
+    {
+     "number": 2,
+     "code": "G5-U6-TS2",
+     "title": "Text Set 2: Expository Text",
+     "genre": "Expository Text",
+     "weeks": [
+      3,
+      4
+     ],
+     "texts": {
+      "shared_read": "Mysterious Oceans",
+      "anchor_text": "Survival at 40 Below",
+      "paired_selection": "Why the Evergreen Trees Never Lose Their Leaves"
+     },
+     "skills": [
+      {
+       "label": "Context Clues",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "context-clues"
+      },
+      {
+       "label": "Ask and Answer Questions",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "ask-answer-questions"
+      },
+      {
+       "label": "Maps",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "text-features"
+      },
+      {
+       "label": "Cause and Effect",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "cause-effect"
+      },
+      {
+       "label": "Character Perspective",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "character-perspective"
+      },
+      {
+       "label": "Negatives",
+       "role": "GRAMMAR",
+       "familyCode": "negatives",
+       "week": 3,
+       "ruleSummary": [
+        "A negative is a word or phrase that means “no.”",
+        "Do not use more than one negative in a spoken or written sentence.",
+        "Negatives include no and not, as well as nobody, nothing, never, no one, and nowhere.",
+        "Positive forms of negative words include words such as somebody, something, any, ever, anything, anybody, anyone, and anywhere."
+       ]
+      },
+      {
+       "label": "Negative Contractions",
+       "role": "GRAMMAR",
+       "familyCode": "pronoun-homophones",
+       "week": 3,
+       "ruleSummary": [
+        "A negative contraction is made up of a verb and the word not. An apostrophe is used in place of the letter o: isn’t (is not), aren’t (are not)."
+       ]
+      },
+      {
+       "label": "Mechanics: Correct Double Negatives",
+       "role": "GRAMMAR",
+       "familyCode": "negatives",
+       "week": 3,
+       "ruleSummary": [
+        "Do not use two negatives in the same clause. This is known as a double negative: I didn’t do nothing. (incorrect) I don’t feel like going nowhere. (incorrect)",
+        "Correct a clause with two negatives by changing one negative to a positive word or eliminating one of the negative words. I didn’t do anything. (Or: I did nothing.) I don’t feel like going anywhere. (Or: I feel like going nowhere.)"
+       ]
+      },
+      {
+       "label": "Sentence Combining",
+       "role": "GRAMMAR",
+       "familyCode": "combining-sentences",
+       "week": 4,
+       "ruleSummary": [
+        "Sentence combining is reducing two or more simple sentences into one sentence.",
+        "Two simple sentences about the same subject can be combined into one compound sentence. They can also be combined with a compound predicate.",
+        "The paired conjunctions either/or and neither/nor can be used to combine sentences."
+       ]
+      },
+      {
+       "label": "Combining Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "combining-sentences",
+       "week": 4,
+       "ruleSummary": [
+        "Adding an adjective can combine two sentences that tell about the same noun: I opened the door. The door was old. I opened the old door.",
+        "If two sentences tell about the same action, adding an adverb can combine them. If two sentences tell about the same time or location, adding a prepositional phrase can combine them."
+       ]
+      },
+      {
+       "label": "Mechanics: Commas and Colons",
+       "role": "GRAMMAR",
+       "familyCode": "commas",
+       "week": 4,
+       "ruleSummary": [
+        "Use commas in the greeting and closing of a friendly letter. Use commas in addresses and dates. Use commas to separate the items in a list.",
+        "Use a colon after a salutation or greeting in a business letter. A colon can also separate hours, minutes, and seconds. Use a colon to introduce lists.",
+        "Use a comma in direct address with the name of a person. Jose, what a great idea! Let’s go, Shantal!"
+       ]
+      },
+      {
+       "label": "Spelling: Words from Mythology",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 3,
+       "wordList": {
+        "core": [
+         "clothes",
+         "January",
+         "cereal",
+         "strength",
+         "lunar",
+         "atlas",
+         "ocean",
+         "salute",
+         "fury",
+         "echo",
+         "cycle",
+         "cyclone",
+         "gigantic",
+         "Olympics",
+         "territory",
+         "terrace",
+         "parasol",
+         "fortune",
+         "furious",
+         "gracious"
+        ],
+        "review": [
+         "suspect",
+         "inspect",
+         "mission"
+        ],
+        "challenge": [
+         "jovial",
+         "venerable"
+        ]
+       }
+      },
+      {
+       "label": "Spelling: Number Prefixes uni-, bi-, tri-, cent-",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 4,
+       "wordList": {
+        "core": [
+         "tripod",
+         "triplet",
+         "unicorn",
+         "uniform",
+         "unison",
+         "biweekly",
+         "triple",
+         "bicycle",
+         "tricycle",
+         "unicycle",
+         "triangle",
+         "bisect",
+         "trio",
+         "unify",
+         "centipede",
+         "centimeter",
+         "century",
+         "binoculars",
+         "universe",
+         "university"
+        ],
+        "review": [
+         "cereal",
+         "terrace",
+         "atlas"
+        ],
+        "challenge": [
+         "bilingual",
+         "trilogy"
+        ]
+       }
+      },
+      {
+       "label": "Context Clues: Paragraph Clues",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "text-features",
+       "week": 4
+      },
+      {
+       "label": "Sound Devices",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "sound-devices",
+       "week": 4
+      }
+     ],
+     "vocabularyWords": [
+      "adaptation",
+      "cache",
+      "dormant",
+      "agile",
+      "forage",
+      "frigid",
+      "insulates"
+     ],
+     "assessedFocus": [
+      "Character Perspective",
+      "Context Clues",
+      "Text Features: Maps",
+      "Text Structure: Cause and Effect"
+     ]
+    },
+    {
+     "number": 3,
+     "code": "G5-U6-TS3",
+     "title": "Text Set 3: Poetry",
+     "genre": "Poetry",
+     "weeks": [
+      5
+     ],
+     "texts": {
+      "shared_read": "To Travel!",
+      "anchor_text": "You Are My Music",
+      "paired_selection": "A Time to Talk"
+     },
+     "skills": [
+      {
+       "label": "Personification",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "figurative-language"
+      },
+      {
+       "label": "Assonance and Consonance",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "sound-devices"
+      },
+      {
+       "label": "Lyric and Narrative",
+       "role": "STRATEGY_AND_FEATURE",
+       "familyCode": "poetry-elements"
+      },
+      {
+       "label": "Point of View and Perspective",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "point-of-view"
+      },
+      {
+       "label": "Imagery",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "imagery"
+      },
+      {
+       "label": "Prepositional Phrases as Adjectives",
+       "role": "GRAMMAR",
+       "familyCode": "prepositions",
+       "week": 5,
+       "ruleSummary": [
+        "A prepositional phrase is a group of words that contains a preposition, an object, and possibly a modifier. Some common prepositions are by, from, through, to, of, above, at, behind, and with.",
+        "When a prepositional phrase acts as an adjective, it tells what kind, how many, or which one. You can use the plates above the sink. (modifies plates) I read a long article on endangered animals. (modifies article)"
+       ]
+      },
+      {
+       "label": "Prepositional Phrases as Adverbs",
+       "role": "GRAMMAR",
+       "familyCode": "adverbs",
+       "week": 5,
+       "ruleSummary": [
+        "When a prepositional phrase acts as an adverb, it tells how, when, or where: The woman entered the bus in a hurry."
+       ]
+      },
+      {
+       "label": "Mechanics: Pronouns in Prepositional Phrases",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns",
+       "week": 5,
+       "ruleSummary": [
+        "A prepositional phrase begins with a preposition and ends with a noun or a pronoun: I talked with Paul.",
+        "When the object of a preposition is a pronoun, use the objective case. I talked with him. I received a letter from her.",
+        "A gerund is a verbal ending in -ing that is used as a noun. Swimming is fun.",
+        "An infinitive is the base form of a verb. It is formed by placing to in front of the verb. It can also act as a noun, adjective, or adverb. I plan to write the essay. To bake a cake, read the recipe.",
+        "A participial phrase is a verbal that contains a participle and functions as an adjective. The dog, barking loudly, woke us up. A. \u0007Read each sentence. Choose the pronoun in parentheses that best completes the sentence and write it on the line provided. them"
+       ]
+      },
+      {
+       "label": "Spelling: Suffixes -ible and -able",
+       "role": "SPELLING",
+       "familyCode": "spelling",
+       "week": 5,
+       "wordList": {
+        "core": [
+         "enjoyable",
+         "breakable",
+         "favorable",
+         "likable",
+         "usable",
+         "respectable",
+         "affordable",
+         "possible",
+         "unreasonable",
+         "laughable",
+         "comfortable",
+         "convertible",
+         "invisible",
+         "honorable",
+         "capable",
+         "sensible",
+         "unbelievable",
+         "bearable",
+         "collapsible",
+         "suitable"
+        ],
+        "review": [
+         "uniform",
+         "bicycle",
+         "triangle"
+        ],
+        "challenge": [
+         "manageable",
+         "tangible"
+        ]
+       }
+      }
+     ],
+     "vocabularyWords": [
+      "blares",
+      "connection",
+      "exchange",
+      "personification",
+      "errand",
+      "consonance",
+      "imagery"
+     ],
+     "assessedFocus": [
+      "Personification",
+      "Poetic Elements: Assonance",
+      "Poetic Elements: Consonance",
+      "Poetic Elements: Imagery",
+      "Point of View and Perspective"
+     ]
+    }
+   ],
+   "writing": [
+    {
+     "title": "PROJECT 1 Historical Fiction",
+     "familyCode": "writing-narrative"
+    },
+    {
+     "title": "PROJECT 2 Narrative Poem",
+     "familyCode": "writing-poetry"
+    }
+   ],
+   "crossCurricular": [
+    "SOCIAL STUDIES Sarah Winnemucca: Word Warrior",
+    "SOCIAL STUDIES Sequoyah's Gift",
+    "SCIENCE Wonders of the Water Cycle",
+    "SCIENCE An Ocean of Adaptations"
+   ],
+   "unitSkills": [
+    {
+     "label": "Cite Text Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "text-evidence"
+    },
+    {
+     "label": "Make Inferences",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "inference"
+    },
+    {
+     "label": "Compare and Contrast Texts",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "compare-texts"
+    },
+    {
+     "label": "Precise Language, Style and Tone",
+     "role": "WRITING",
+     "familyCode": "precise-language"
+    }
+   ]
+  }
+ ]
+}
