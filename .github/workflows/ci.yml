@@ -1,0 +1,98 @@
+# Continuous integration (Phase 13): every push and pull request.
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency: { group: "${{ github.workflow }}-${{ github.ref }}", cancel-in-progress: true }
+
+jobs:
+  checks:
+    name: Types, tests, dependency audit
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npx prisma generate
+      - name: Type check
+        run: npx tsc -p tsconfig.core.json --noEmit
+      - name: Unit, integration, contract and isolation tests
+        run: npm test
+      - name: Production build (full Next.js type check and compile)
+        # no secrets: settings are validated when the server starts, not at build time
+        run: npm run build
+      - name: Dependency vulnerabilities (production dependencies)
+        run: npm audit --omit=dev --audit-level=high
+      - name: Committed migration exists
+        run: test -f prisma/migrations/0001_init/migration.sql || { echo "::error::No committed migration. Run 'npm run db:baseline' and commit prisma/migrations/."; exit 1; }
+
+  database:
+    name: Migrations on MySQL 8.4
+    runs-on: ubuntu-24.04
+    services:
+      mysql:
+        image: mysql:8.4
+        env: { MYSQL_ROOT_PASSWORD: ci-root, MYSQL_DATABASE: alanjal_ela }
+        ports: ["3306:3306"]
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -pci-root" --health-interval=5s --health-timeout=5s --health-retries=30
+    env:
+      DATABASE_URL: mysql://root:ci-root@127.0.0.1:3306/alanjal_ela
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Apply migrations to an empty database
+        run: npx prisma migrate deploy
+      - name: Migrations match the schema (no drift)
+        run: npx prisma migrate diff --from-migrations prisma/migrations --to-schema-datamodel prisma/schema.prisma --shadow-database-url mysql://root:ci-root@127.0.0.1:3306/prisma_shadow --exit-code
+      - name: Seed curriculum and verify on MySQL (Phase 2 checks)
+        run: npm run db:seed:curriculum && npm run db:verify:mysql
+
+  e2e:
+    name: Browser end-to-end
+    needs: [checks, database]
+    runs-on: ubuntu-24.04
+    services:
+      mysql:
+        image: mysql:8.4
+        env: { MYSQL_ROOT_PASSWORD: ci-root, MYSQL_DATABASE: alanjal_ela }
+        ports: ["3306:3306"]
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -pci-root" --health-interval=5s --health-timeout=5s --health-retries=30
+    env:
+      DATABASE_URL: mysql://root:ci-root@127.0.0.1:3306/alanjal_ela
+      APP_URL: http://localhost:3000
+      APP_SECRET: ci-only-secret-0123456789abcdefghijklmnopqrstuvwxyz
+      DEMO_PASSWORD: Ci-Demo-Password-2026
+      NODE_ENV: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npx prisma migrate deploy
+      - run: npm run db:seed:curriculum && npm run db:seed:demo
+      - run: npx playwright install --with-deps chromium
+      - run: npm run e2e
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with: { name: e2e-report, path: "e2e-report\ntest-results", retention-days: 14 }
+
+  docker:
+    name: Docker images build
+    needs: [checks]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - run: docker build --target web -t alanjal-ela-web:ci .
+      - run: docker build --target jobs -t alanjal-ela-jobs:ci .
+      - run: docker build -t alanjal-ela-backup:ci docker/backup
+      - name: Web image runs as a non-root user
+        run: test "$(docker image inspect alanjal-ela-web:ci --format '{{.Config.User}}')" = "node"

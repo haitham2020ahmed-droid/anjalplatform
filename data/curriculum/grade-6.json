@@ -1,0 +1,960 @@
+{
+ "grade": 6,
+ "book": {
+  "code": "STUDYSYNC-G6",
+  "title": "StudySync ELA",
+  "publisher": "McGraw Hill",
+  "edition": null
+ },
+ "units": [
+  {
+   "number": 1,
+   "title": "Unit 1: Testing Our Limits",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G6-U1-L1",
+     "title": "Eleven",
+     "genre": null,
+     "texts": {
+      "selection": "Eleven"
+     },
+     "skills": []
+    },
+    {
+     "number": 2,
+     "code": "G6-U1-L2",
+     "title": "The Mighty Miss Malone",
+     "genre": null,
+     "texts": {
+      "selection": "The Mighty Miss Malone"
+     },
+     "skills": []
+    },
+    {
+     "number": 3,
+     "code": "G6-U1-L3",
+     "title": "Red Scarf Girl / Hatchet",
+     "genre": null,
+     "texts": {
+      "selection": "Red Scarf Girl / Hatchet"
+     },
+     "skills": []
+    },
+    {
+     "number": 4,
+     "code": "G6-U1-L4",
+     "title": "The Magic Marker Mystery",
+     "genre": null,
+     "texts": {
+      "selection": "The Magic Marker Mystery"
+     },
+     "skills": []
+    },
+    {
+     "number": 5,
+     "code": "G6-U1-L5",
+     "title": "Scout's Honor",
+     "genre": null,
+     "texts": {
+      "selection": "Scout's Honor"
+     },
+     "skills": []
+    },
+    {
+     "number": 6,
+     "code": "G6-U1-L6",
+     "title": "The Good Samaritan",
+     "genre": null,
+     "texts": {
+      "selection": "The Good Samaritan"
+     },
+     "skills": []
+    },
+    {
+     "number": 7,
+     "code": "G6-U1-L7",
+     "title": "Jabberwocky / Gathering Blue / A Wrinkle in Time",
+     "genre": null,
+     "texts": {
+      "selection": "Jabberwocky / Gathering Blue / A Wrinkle in Time"
+     },
+     "skills": []
+    }
+   ],
+   "unitSkills": [
+    {
+     "label": "Context Clues",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "context-clues"
+    },
+    {
+     "label": "Cite Text Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "text-evidence"
+    },
+    {
+     "label": "Make Inferences",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "inference"
+    },
+    {
+     "label": "Figurative Language (Similes, Metaphors, Personification, Hyperbole)",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "figurative-language"
+    },
+    {
+     "label": "Character Traits & Development",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "character"
+    },
+    {
+     "label": "Compare and Contrast Texts",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "compare-texts"
+    },
+    {
+     "label": "Elements of Drama",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "drama-elements"
+    },
+    {
+     "label": "Summarize",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "summarize"
+    },
+    {
+     "label": "Adjectives, Articles and Order of Adjectives",
+     "role": "GRAMMAR",
+     "familyCode": "adjectives"
+    },
+    {
+     "label": "Adverbs and Relative Adverbs",
+     "role": "GRAMMAR",
+     "familyCode": "adverbs"
+    },
+    {
+     "label": "Pronouns and Antecedents",
+     "role": "GRAMMAR",
+     "familyCode": "pronouns"
+    },
+    {
+     "label": "Nouns: Common, Proper, Concrete, Abstract, Collective",
+     "role": "GRAMMAR",
+     "familyCode": "nouns"
+    },
+    {
+     "label": "Kinds of Sentences",
+     "role": "GRAMMAR",
+     "familyCode": "sentences"
+    },
+    {
+     "label": "Sentence Fragments",
+     "role": "GRAMMAR",
+     "familyCode": "fragments-run-ons"
+    },
+    {
+     "label": "Run-On Sentences",
+     "role": "GRAMMAR",
+     "familyCode": "fragments-run-ons"
+    },
+    {
+     "label": "Nouns: Proper and Common",
+     "role": "GRAMMAR",
+     "familyCode": "nouns"
+    },
+    {
+     "label": "Nouns: Singular and Plural",
+     "role": "GRAMMAR",
+     "familyCode": "plural-nouns"
+    },
+    {
+     "label": "Nouns: Collective",
+     "role": "GRAMMAR",
+     "familyCode": "plural-nouns"
+    },
+    {
+     "label": "Nouns: Possessives",
+     "role": "GRAMMAR",
+     "familyCode": "nouns"
+    }
+   ],
+   "writing": [
+    {
+     "title": "Writing Project",
+     "familyCode": "writing-narrative"
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "title": "Unit 2: You and Me",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G6-U2-L1",
+     "title": "Walk Two Moons",
+     "genre": null,
+     "texts": {
+      "selection": "Walk Two Moons"
+     },
+     "skills": []
+    },
+    {
+     "number": 2,
+     "code": "G6-U2-L2",
+     "title": "Roll of Thunder, Hear My Cry",
+     "genre": null,
+     "texts": {
+      "selection": "Roll of Thunder, Hear My Cry"
+     },
+     "skills": []
+    },
+    {
+     "number": 3,
+     "code": "G6-U2-L3",
+     "title": "Teenagers",
+     "genre": null,
+     "texts": {
+      "selection": "Teenagers"
+     },
+     "skills": []
+    },
+    {
+     "number": 4,
+     "code": "G6-U2-L4",
+     "title": "Tableau",
+     "genre": null,
+     "texts": {
+      "selection": "Tableau"
+     },
+     "skills": []
+    },
+    {
+     "number": 5,
+     "code": "G6-U2-L5",
+     "title": "The Voice in My Head / We're on the Same Team",
+     "genre": null,
+     "texts": {
+      "selection": "The Voice in My Head / We're on the Same Team"
+     },
+     "skills": []
+    },
+    {
+     "number": 6,
+     "code": "G6-U2-L6",
+     "title": "The Treasure of Lemon Brown",
+     "genre": null,
+     "texts": {
+      "selection": "The Treasure of Lemon Brown"
+     },
+     "skills": []
+    },
+    {
+     "number": 7,
+     "code": "G6-U2-L7",
+     "title": "The Circuit / That Day / A Poem for My Librarian, Mrs. Long",
+     "genre": null,
+     "texts": {
+      "selection": "The Circuit / That Day / A Poem for My Librarian, Mrs. Long"
+     },
+     "skills": []
+    }
+   ],
+   "unitSkills": [
+    {
+     "label": "Imagery and Sensory Language",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "imagery"
+    },
+    {
+     "label": "Figurative Language (Similes, Metaphors, Personification, Hyperbole)",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "figurative-language"
+    },
+    {
+     "label": "Cite Text Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "text-evidence"
+    },
+    {
+     "label": "Theme",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "theme"
+    },
+    {
+     "label": "Connotation and Denotation",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "connotation"
+    },
+    {
+     "label": "Poetry: Structure, Rhyme, Meter and Form",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "poetry-elements"
+    },
+    {
+     "label": "Point of View and Perspective",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "point-of-view"
+    },
+    {
+     "label": "Compare and Contrast Texts",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "compare-texts"
+    },
+    {
+     "label": "Author's Claim and Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "author-claim"
+    },
+    {
+     "label": "Nouns: Common, Proper, Concrete, Abstract, Collective",
+     "role": "GRAMMAR",
+     "familyCode": "nouns"
+    },
+    {
+     "label": "Fragments and Run-On Sentences",
+     "role": "GRAMMAR",
+     "familyCode": "fragments-run-ons"
+    },
+    {
+     "label": "Subjects and Predicates",
+     "role": "GRAMMAR",
+     "familyCode": "subjects-predicates"
+    },
+    {
+     "label": "Punctuation and Commas",
+     "role": "GRAMMAR",
+     "familyCode": "commas"
+    },
+    {
+     "label": "Spelling Patterns",
+     "role": "GRAMMAR",
+     "familyCode": "spelling"
+    },
+    {
+     "label": "Pronouns, Contractions and Homophones",
+     "role": "GRAMMAR",
+     "familyCode": "pronoun-homophones"
+    },
+    {
+     "label": "Verb Tenses: Present, Past, and Future",
+     "role": "GRAMMAR",
+     "familyCode": "verb-tenses"
+    },
+    {
+     "label": "Present and Past Progressive",
+     "role": "GRAMMAR",
+     "familyCode": "verb-tenses"
+    },
+    {
+     "label": "Perfect Tenses: Present and Past",
+     "role": "GRAMMAR",
+     "familyCode": "verb-tenses"
+    },
+    {
+     "label": "Irregular Verbs",
+     "role": "GRAMMAR",
+     "familyCode": "irregular-verbs"
+    },
+    {
+     "label": "Using Pronouns Correctly",
+     "role": "GRAMMAR",
+     "familyCode": "pronouns"
+    },
+    {
+     "label": "Pronouns and Antecedents",
+     "role": "GRAMMAR",
+     "familyCode": "pronouns"
+    },
+    {
+     "label": "Indefinite Pronouns",
+     "role": "GRAMMAR",
+     "familyCode": "pronouns"
+    },
+    {
+     "label": "Adjectives and Proper Adjectives",
+     "role": "GRAMMAR",
+     "familyCode": "adjectives"
+    },
+    {
+     "label": "Articles and Demonstratives",
+     "role": "GRAMMAR",
+     "familyCode": "adjectives"
+    }
+   ],
+   "writing": [
+    {
+     "title": "Writing Project",
+     "familyCode": "writing-argument"
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "title": "Unit 3: In the Dark",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G6-U3-L1",
+     "title": "Heroes Every Child Should Know: Perseus",
+     "genre": null,
+     "texts": {
+      "selection": "Heroes Every Child Should Know: Perseus"
+     },
+     "skills": []
+    },
+    {
+     "number": 2,
+     "code": "G6-U3-L2",
+     "title": "The Lightning Thief",
+     "genre": null,
+     "texts": {
+      "selection": "The Lightning Thief"
+     },
+     "skills": []
+    },
+    {
+     "number": 3,
+     "code": "G6-U3-L3",
+     "title": "Elena / Hatshepsut",
+     "genre": null,
+     "texts": {
+      "selection": "Elena / Hatshepsut"
+     },
+     "skills": []
+    },
+    {
+     "number": 4,
+     "code": "G6-U3-L4",
+     "title": "I, Too",
+     "genre": null,
+     "texts": {
+      "selection": "I, Too"
+     },
+     "skills": []
+    },
+    {
+     "number": 5,
+     "code": "G6-U3-L5",
+     "title": "Everybody Jump",
+     "genre": null,
+     "texts": {
+      "selection": "Everybody Jump"
+     },
+     "skills": []
+    },
+    {
+     "number": 6,
+     "code": "G6-U3-L6",
+     "title": "Hoot",
+     "genre": null,
+     "texts": {
+      "selection": "Hoot"
+     },
+     "skills": []
+    },
+    {
+     "number": 7,
+     "code": "G6-U3-L7",
+     "title": "Donna O'Meara / Dare to be Creative! / Margaret Bourke-White",
+     "genre": null,
+     "texts": {
+      "selection": "Donna O'Meara / Dare to be Creative! / Margaret Bourke-White"
+     },
+     "skills": []
+    }
+   ],
+   "unitSkills": [
+    {
+     "label": "Character Traits & Development",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "character"
+    },
+    {
+     "label": "Dictionary, Glossary and Thesaurus",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "reference-materials"
+    },
+    {
+     "label": "Plot: Sequence of Events",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "plot-events"
+    },
+    {
+     "label": "Central Idea and Relevant Details",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "central-idea"
+    },
+    {
+     "label": "Poetry: Structure, Rhyme, Meter and Form",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "poetry-elements"
+    },
+    {
+     "label": "Text Structure: Cause and Effect",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "cause-effect"
+    },
+    {
+     "label": "Synonyms and Antonyms",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "synonyms-antonyms"
+    },
+    {
+     "label": "Theme",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "theme"
+    },
+    {
+     "label": "Make Inferences",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "inference"
+    },
+    {
+     "label": "Compound Sentences and Conjunctions",
+     "role": "GRAMMAR",
+     "familyCode": "compound-sentences"
+    },
+    {
+     "label": "Adjectives, Articles and Order of Adjectives",
+     "role": "GRAMMAR",
+     "familyCode": "adjectives"
+    },
+    {
+     "label": "Prefixes",
+     "role": "GRAMMAR",
+     "familyCode": "prefixes"
+    }
+   ],
+   "writing": [
+    {
+     "title": "Writing Project",
+     "familyCode": "writing-informative"
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "title": "Unit 4: Personal Best",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G6-U4-L1",
+     "title": "I Am Malala",
+     "genre": null,
+     "texts": {
+      "selection": "I Am Malala"
+     },
+     "skills": []
+    },
+    {
+     "number": 2,
+     "code": "G6-U4-L2",
+     "title": "Malala Yousafzai – Nobel Lecture",
+     "genre": null,
+     "texts": {
+      "selection": "Malala Yousafzai – Nobel Lecture"
+     },
+     "skills": []
+    },
+    {
+     "number": 3,
+     "code": "G6-U4-L3",
+     "title": "Priscilla and the Wimps / All Summer in a Day",
+     "genre": null,
+     "texts": {
+      "selection": "Priscilla and the Wimps / All Summer in a Day"
+     },
+     "skills": []
+    },
+    {
+     "number": 4,
+     "code": "G6-U4-L4",
+     "title": "Bullying in Schools",
+     "genre": null,
+     "texts": {
+      "selection": "Bullying in Schools"
+     },
+     "skills": []
+    },
+    {
+     "number": 5,
+     "code": "G6-U4-L5",
+     "title": "Freedom Walkers / Letter to Xavier High School / Freedom's Daughters",
+     "genre": null,
+     "texts": {
+      "selection": "Freedom Walkers / Letter to Xavier High School / Freedom's Daughters"
+     },
+     "skills": []
+    },
+    {
+     "number": 6,
+     "code": "G6-U4-L6",
+     "title": "Celebrities as Heroes",
+     "genre": null,
+     "texts": {
+      "selection": "Celebrities as Heroes"
+     },
+     "skills": []
+    },
+    {
+     "number": 7,
+     "code": "G6-U4-L7",
+     "title": "Famous",
+     "genre": null,
+     "texts": {
+      "selection": "Famous"
+     },
+     "skills": []
+    }
+   ],
+   "unitSkills": [
+    {
+     "label": "Connotation and Denotation",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "connotation"
+    },
+    {
+     "label": "Author's Purpose",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "author-purpose"
+    },
+    {
+     "label": "Author's Perspective",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "author-perspective"
+    },
+    {
+     "label": "Theme",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "theme"
+    },
+    {
+     "label": "Author's Claim and Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "author-claim"
+    },
+    {
+     "label": "Central Idea and Relevant Details",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "central-idea"
+    },
+    {
+     "label": "Compare and Contrast Texts",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "compare-texts"
+    },
+    {
+     "label": "Poetry: Structure, Rhyme, Meter and Form",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "poetry-elements"
+    },
+    {
+     "label": "Punctuation and Commas",
+     "role": "GRAMMAR",
+     "familyCode": "commas"
+    },
+    {
+     "label": "Pronouns and Antecedents",
+     "role": "GRAMMAR",
+     "familyCode": "pronouns"
+    },
+    {
+     "label": "Homographs and Homophones",
+     "role": "GRAMMAR",
+     "familyCode": "homographs-homophones"
+    }
+   ],
+   "writing": [
+    {
+     "title": "Writing Project",
+     "familyCode": "writing-argument"
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "title": "Unit 5: Making Your Mark",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G6-U5-L1",
+     "title": "Warriors Don't Cry",
+     "genre": null,
+     "texts": {
+      "selection": "Warriors Don't Cry"
+     },
+     "skills": []
+    },
+    {
+     "number": 2,
+     "code": "G6-U5-L2",
+     "title": "Damon and Pythias",
+     "genre": null,
+     "texts": {
+      "selection": "Damon and Pythias"
+     },
+     "skills": []
+    },
+    {
+     "number": 3,
+     "code": "G6-U5-L3",
+     "title": "Amigo Brothers",
+     "genre": null,
+     "texts": {
+      "selection": "Amigo Brothers"
+     },
+     "skills": []
+    },
+    {
+     "number": 4,
+     "code": "G6-U5-L4",
+     "title": "Listen, Slowly",
+     "genre": null,
+     "texts": {
+      "selection": "Listen, Slowly"
+     },
+     "skills": []
+    },
+    {
+     "number": 5,
+     "code": "G6-U5-L5",
+     "title": "Charles",
+     "genre": null,
+     "texts": {
+      "selection": "Charles"
+     },
+     "skills": []
+    },
+    {
+     "number": 6,
+     "code": "G6-U5-L6",
+     "title": "Saying Yes / The All American Slurp",
+     "genre": null,
+     "texts": {
+      "selection": "Saying Yes / The All American Slurp"
+     },
+     "skills": []
+    },
+    {
+     "number": 7,
+     "code": "G6-U5-L7",
+     "title": "Helen Keller / The Story of My Life (Ch. IV) / The Miracle Worker",
+     "genre": null,
+     "texts": {
+      "selection": "Helen Keller / The Story of My Life (Ch. IV) / The Miracle Worker"
+     },
+     "skills": []
+    }
+   ],
+   "unitSkills": [
+    {
+     "label": "Context Clues",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "context-clues"
+    },
+    {
+     "label": "Greek and Latin Roots",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "greek-latin-roots"
+    },
+    {
+     "label": "Character Traits & Development",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "character"
+    },
+    {
+     "label": "Precise Language, Style and Tone",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "precise-language"
+    },
+    {
+     "label": "Point of View and Perspective",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "point-of-view"
+    },
+    {
+     "label": "Imagery and Sensory Language",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "imagery"
+    },
+    {
+     "label": "Elements of Drama",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "drama-elements"
+    },
+    {
+     "label": "Cite Text Evidence",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "text-evidence"
+    },
+    {
+     "label": "Theme",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "theme"
+    },
+    {
+     "label": "Pronouns and Antecedents",
+     "role": "GRAMMAR",
+     "familyCode": "pronouns"
+    },
+    {
+     "label": "Clauses and Complex Sentences",
+     "role": "GRAMMAR",
+     "familyCode": "clauses-complex"
+    },
+    {
+     "label": "Sentences and Sentence Types",
+     "role": "GRAMMAR",
+     "familyCode": "sentences"
+    }
+   ],
+   "writing": [
+    {
+     "title": "Writing Project",
+     "familyCode": "writing-informative"
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "title": "Unit 6: True to Yourself",
+   "lessons": [
+    {
+     "number": 1,
+     "code": "G6-U6-L1",
+     "title": "Bronx Masquerade",
+     "genre": null,
+     "texts": {
+      "selection": "Bronx Masquerade"
+     },
+     "skills": []
+    },
+    {
+     "number": 2,
+     "code": "G6-U6-L2",
+     "title": "A BEACON of Hope / Shree Bose",
+     "genre": null,
+     "texts": {
+      "selection": "A BEACON of Hope / Shree Bose"
+     },
+     "skills": []
+    },
+    {
+     "number": 3,
+     "code": "G6-U6-L3",
+     "title": "Letter to His Daughter",
+     "genre": null,
+     "texts": {
+      "selection": "Letter to His Daughter"
+     },
+     "skills": []
+    },
+    {
+     "number": 4,
+     "code": "G6-U6-L4",
+     "title": "The Story Behind the Bus / Rosa / Rosa Parks: My Story",
+     "genre": null,
+     "texts": {
+      "selection": "The Story Behind the Bus / Rosa / Rosa Parks: My Story"
+     },
+     "skills": []
+    },
+    {
+     "number": 5,
+     "code": "G6-U6-L5",
+     "title": "Eleanor Roosevelt / Brave",
+     "genre": null,
+     "texts": {
+      "selection": "Eleanor Roosevelt / Brave"
+     },
+     "skills": []
+    },
+    {
+     "number": 6,
+     "code": "G6-U6-L6",
+     "title": "I Never Had It Made (Jackie Robinson)",
+     "genre": null,
+     "texts": {
+      "selection": "I Never Had It Made (Jackie Robinson)"
+     },
+     "skills": []
+    },
+    {
+     "number": 7,
+     "code": "G6-U6-L7",
+     "title": "Touching Spirit Bear",
+     "genre": null,
+     "texts": {
+      "selection": "Touching Spirit Bear"
+     },
+     "skills": []
+    }
+   ],
+   "unitSkills": [
+    {
+     "label": "Central Idea and Relevant Details",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "central-idea"
+    },
+    {
+     "label": "Homographs and Homophones",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "homographs-homophones"
+    },
+    {
+     "label": "Figurative Language (Similes, Metaphors, Personification, Hyperbole)",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "figurative-language"
+    },
+    {
+     "label": "Idioms, Adages and Proverbs",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "idioms-adages"
+    },
+    {
+     "label": "Text Structure: Cause and Effect",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "cause-effect"
+    },
+    {
+     "label": "Text Structure: Compare and Contrast",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "compare-contrast"
+    },
+    {
+     "label": "Character Traits & Development",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "character"
+    },
+    {
+     "label": "Author's Purpose",
+     "role": "COMPREHENSION_SKILL",
+     "familyCode": "author-purpose"
+    },
+    {
+     "label": "Quotation Marks and Dialogue",
+     "role": "GRAMMAR",
+     "familyCode": "quotations-dialogue"
+    },
+    {
+     "label": "Fragments and Run-On Sentences",
+     "role": "GRAMMAR",
+     "familyCode": "fragments-run-ons"
+    },
+    {
+     "label": "Punctuation and Commas",
+     "role": "GRAMMAR",
+     "familyCode": "commas"
+    }
+   ],
+   "writing": [
+    {
+     "title": "Writing Project",
+     "familyCode": "writing-research"
+    }
+   ]
+  }
+ ]
+}

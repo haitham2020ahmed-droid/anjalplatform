@@ -1,0 +1,62 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { AppShell } from "@/components/app-shell";
+import { ActionForm } from "@/components/admin/action-form";
+import { card, field, h2 } from "@/components/admin/styles";
+import { getActor, repo, requireActor } from "@/server/auth/next";
+import { can } from "@/server/auth/rbac";
+import { getQuestion } from "@/server/admin/questions";
+import { questionStepAction } from "../../actions";
+import { QuestionEditor } from "../question-editor";
+import { editorOptions } from "../editor-data";
+
+const ACTION_LABEL: Record<string, string> = {
+  "question.create": "Created", "question.update": "Edited", "question.submit": "Sent for review", "question.reject": "Sent back", "question.publish": "Published", "question.archive": "Archived", "question.revise": "New version created",
+};
+
+export default async function QuestionPage({ params }: { params: Promise<{ questionId: string }> }) {
+  const actor = await requireActor({ permission: "questions:read" });
+  const me = (await getActor())!.user;
+  const { questionId } = await params;
+  const d = await getQuestion(repo, actor, questionId).catch(() => null);
+  if (!d) notFound();
+  const { skills, standards } = await editorOptions(repo, actor.schoolId!);
+  const step = (s: string, text: string, opts: { note?: "required" | "optional"; danger?: boolean } = {}) => (
+    <ActionForm action={questionStepAction} submit={text} danger={opts.danger} className="space-y-2">
+      <input type="hidden" name="questionId" value={d.id} /><input type="hidden" name="step" value={s} />
+      {opts.note && <textarea name="note" rows={2} maxLength={1000} required={opts.note === "required"} placeholder={opts.note === "required" ? "What needs to change / why" : "Note (optional)"} className={field} />}
+    </ActionForm>
+  );
+  return (
+    <AppShell name={String(me.displayName)}>
+      <p><Link href="/admin/questions" className="text-brand-teal hover:underline">← Questions</Link></p>
+      <h1 className="mt-2 text-3xl font-bold text-brand-navy">Question <span className="font-mono text-lg text-slate-500">{d.ref}</span></h1>
+      <p className="mt-1 text-slate-600">Status: <strong>{d.status.replace("_", " ").toLowerCase()}</strong> · version {d.version}{d.origin === "AI_GENERATED" ? " · drafted with AI help" : ""}{d.revisionOf ? <> · revision of <Link className="text-brand-teal hover:underline" href={`/admin/questions/${d.revisionOf}`}>the published version</Link></> : null}</p>
+
+      <section className={card}>
+        <h2 className={h2}>Next step</h2>
+        <div className="mt-3 grid gap-4 sm:grid-cols-2">
+          {d.status === "DRAFT" && d.canEdit && step("submit", "Send for review")}
+          {d.canReview && step("approve", "Approve and publish", { note: "optional" })}
+          {d.canReview && step("reject", "Send back to the author", { note: "required", danger: true })}
+          {d.status === "UNDER_REVIEW" && !d.canReview && <p className="text-slate-600">Waiting for a reviewer{d.mine ? " (another person must approve your own question)" : ""}.</p>}
+          {d.status === "PUBLISHED" && can(actor, "questions:edit") && step("revise", "Make a new version")}
+          {d.status !== "ARCHIVED" && can(actor, "questions:publish") && step("archive", "Archive", { note: "required", danger: true })}
+          {d.status === "PUBLISHED" && <p className="text-sm text-slate-600">Published questions cannot be edited: their answers and statistics belong to this exact wording. A new version replaces this one when it is approved.</p>}
+        </div>
+      </section>
+
+      <section className={card}>
+        <h2 className={h2}>{d.canEdit ? "Edit" : "Question"}</h2>
+        <div className="mt-3"><QuestionEditor questionId={d.id} initial={d.input} skills={skills} standards={standards} readOnly={!d.canEdit} /></div>
+      </section>
+
+      <section className={card}>
+        <h2 className={h2}>History</h2>
+        <ol className="mt-2 space-y-1 text-sm">
+          {d.history.map((h, i) => <li key={i}><span className="text-slate-500">{h.at.slice(0, 16).replace("T", " ")}</span> · {ACTION_LABEL[h.action] ?? h.action} · <bdi>{h.by}</bdi>{h.note ? <> · <em>“{h.note}”</em></> : null}</li>)}
+        </ol>
+      </section>
+    </AppShell>
+  );
+}

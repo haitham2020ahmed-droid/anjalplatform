@@ -1,0 +1,4335 @@
+[
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "7MT",
+  "externalName": "Multiple-meaning words with pictures",
+  "familyCode": "multiple-meaning"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "EM5",
+  "externalName": "Read about famous places",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "YBU",
+  "externalName": "Compare and contrast in informational texts",
+  "familyCode": "compare-contrast"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "6RR",
+  "externalName": "Identify the purpose of a text",
+  "familyCode": "author-purpose"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "MW8",
+  "externalName": "Select and use text features",
+  "familyCode": "text-features"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "SD8",
+  "externalName": "Use spelling patterns to sort long and short vowel words",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "LXK",
+  "externalName": "Spell the long a word: silent e, ai, ay, ea, ey, eigh",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "FPR",
+  "externalName": "Complete the verb with the ending that you hear",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "TMH",
+  "externalName": "Identify and correct plagiarism",
+  "familyCode": "writing-research"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "96L",
+  "externalName": "Distinguish facts from opinions",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "C9W",
+  "externalName": "Identify an author's statement of opinion",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "YL8",
+  "externalName": "Is the sentence declarative, interrogative, imperative, or exclamatory?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "L7P",
+  "externalName": "Is it a complete sentence or a fragment?",
+  "familyCode": "fragments-run-ons"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "7M3",
+  "externalName": "Identify the complete subject of a sentence",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "U6M",
+  "externalName": "Identify the complete predicate of a sentence",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "A5R",
+  "externalName": "Identify the simple subject or predicate of a sentence",
+  "familyCode": "subjects-predicates"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "JMD",
+  "externalName": "Determine the meaning of idioms from context: set 1",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "YE5",
+  "externalName": "Homophones with pictures",
+  "familyCode": "homographs-homophones"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "DC8",
+  "externalName": "Use context to identify the meaning of a word",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "TXS",
+  "externalName": "Make predictions about a story",
+  "familyCode": "make-predictions"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "SRQ",
+  "externalName": "Identify story elements",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "UB2",
+  "externalName": "Draw inferences from a text",
+  "familyCode": "inference"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "2BC",
+  "externalName": "Read realistic fiction with illustrations",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "CP7",
+  "externalName": "Spell the long e word: silent e, ee, ea, ie",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "AAJ",
+  "externalName": "Spell the long i word: silent e, ie, y, igh, ind, ild",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "RKT",
+  "externalName": "Form regular plurals with -s, -es, and -ies",
+  "familyCode": "plural-nouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "VVG",
+  "externalName": "Identify supporting details in literary texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "8MJ",
+  "externalName": "Identify supporting details in informational texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "EV2",
+  "externalName": "Is the sentence simple or compound?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XA7",
+  "externalName": "Create compound sentences",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "CDC",
+  "externalName": "Identify dependent and independent clauses",
+  "familyCode": "clauses-complex"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "BSL",
+  "externalName": "Commas with compound and complex sentences",
+  "familyCode": "clauses-complex"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "VDR",
+  "externalName": "Determine the meaning of a word with -ful or -less",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "J58",
+  "externalName": "Determine the meaning of a word with -ly or -ness",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "DMM",
+  "externalName": "Use key details to determine the main idea",
+  "familyCode": "central-idea"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "99D",
+  "externalName": "Determine the order of events in informational texts",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "7XK",
+  "externalName": "Spell the long o word: silent e, oa, ow, old, ost, olt",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "WRS",
+  "externalName": "Form compound words with pictures",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "JSG",
+  "externalName": "Form compound words",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "JX5",
+  "externalName": "Form and use compound words",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "HW7",
+  "externalName": "Choose reasons to support an opinion",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "YMU",
+  "externalName": "Choose the best transition",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "AUH",
+  "externalName": "Is it a complete sentence or a run-on?",
+  "familyCode": "fragments-run-ons"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "X9V",
+  "externalName": "Is it a complete sentence, a fragment, or a run- on?",
+  "familyCode": "fragments-run-ons"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "VSQ",
+  "externalName": "Determine the meaning of a word with pre-, re-, or mis-",
+  "familyCode": "prefixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "YZB",
+  "externalName": "Determine the meaning of a word with -able or - ment",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "7XV",
+  "externalName": "Determine the main idea of a passage",
+  "familyCode": "central-idea"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "7TG",
+  "externalName": "Read about animals",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "F7T",
+  "externalName": "Identify base words, prefixes, and suffixes",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "KFP",
+  "externalName": "Spell words with consonant digraphs",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "E7S",
+  "externalName": "Learn to spell words with prefixes: dis-, mis-, pre-",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "6GA",
+  "externalName": "Organize information by topic",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "82A",
+  "externalName": "Remove the sentence that does not belong",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "F79",
+  "externalName": "Use coordinating conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "L8K",
+  "externalName": "Identify common and proper nouns",
+  "familyCode": "nouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "HNY",
+  "externalName": "Capitalizing the names of people and pets and titles of respect",
+  "familyCode": "capitalization"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "G2S",
+  "externalName": "Capitalizing the names of places and geographic features",
+  "familyCode": "text-features"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "68P",
+  "externalName": "Use regular plurals with -s, -es, and -ies",
+  "familyCode": "plural-nouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "5CP",
+  "externalName": "Commas with a series",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "QLF",
+  "externalName": "Choose the antonym",
+  "familyCode": "synonyms-antonyms"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "G7R",
+  "externalName": "Sort words by shared Greek or Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "KJP",
+  "externalName": "Read drama",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "6PW",
+  "externalName": "Determine the themes of myths, fables, and folktales",
+  "familyCode": "theme"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "52Z",
+  "externalName": "Complete the word or sentence with a three- letter consonant blend",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "X2P",
+  "externalName": "Complete the word with the correct r-controlled vowel: ar, er, ir, or, ur",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "TYM",
+  "externalName": "Spell words with r vowel patterns",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "VDR",
+  "externalName": "Determine the meaning of a word with -ful or -less",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "C5Z",
+  "externalName": "Choose the best topic sentence",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "68D",
+  "externalName": "Choose the best concluding sentence",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "JSA",
+  "externalName": "Create varied sentences based on models",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XHT",
+  "externalName": "Use linking words in paragraphs",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "5VG",
+  "externalName": "Form regular plurals with -s, -es, -ies, and -ves",
+  "familyCode": "plural-nouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "9QM",
+  "externalName": "Form and use irregular plurals",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "DVH",
+  "externalName": "Identify plurals, singular possessives, and plural possessives",
+  "familyCode": "possessive-nouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "A8M",
+  "externalName": "Identify similes and metaphors",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "UZ9",
+  "externalName": "Sort sensory details",
+  "familyCode": "imagery"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "9FU",
+  "externalName": "Identify elements of poetry",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "9BT",
+  "externalName": "How many syllables does the word have?",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "VZH",
+  "externalName": "Determine the meanings of words with prefixes and suffixes: review",
+  "familyCode": "prefixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "U8T",
+  "externalName": "Pronoun-verb contractions",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XNV",
+  "externalName": "Contractions with \"not\"",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "BR2",
+  "externalName": "Learn to spell words with suffixes: -able, -ish, - ment",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "JCE",
+  "externalName": "Capitalizing titles",
+  "familyCode": "capitalization"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "VH9",
+  "externalName": "Combine sentences: subjects and predicates",
+  "familyCode": "subjects-predicates"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "LT5",
+  "externalName": "Find words using context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "7XU",
+  "externalName": "Choose the synonym",
+  "familyCode": "synonyms-antonyms"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "B6G",
+  "externalName": "Which sentence has the same meaning?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "FFK",
+  "externalName": "Identify sensory details",
+  "familyCode": "imagery"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "EBK",
+  "externalName": "Identify the narrative point of view",
+  "familyCode": "point-of-view"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "CXM",
+  "externalName": "Use actions and dialogue to understand characters",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "26L",
+  "externalName": "Read fantasy with illustrations",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "Y52",
+  "externalName": "Complete the word with the correct r-controlled vowel: er, ir, ur",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "EEA",
+  "externalName": "Complete the words with silent letters",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "N84",
+  "externalName": "Is the syllable open or closed?",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "DXR",
+  "externalName": "Put the sentences in order",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "96L",
+  "externalName": "Distinguish facts from opinions",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XP9",
+  "externalName": "Identify action verbs",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "8Z3",
+  "externalName": "Use action verbs",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "JCE",
+  "externalName": "Capitalizing titles",
+  "familyCode": "capitalization"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "LW9",
+  "externalName": "Which sentence is in the regular past tense?",
+  "familyCode": "verb-tenses"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "PQP",
+  "externalName": "Identify verbs in the regular past tense",
+  "familyCode": "verb-tenses"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "29B",
+  "externalName": "Form and use the regular past tense",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "L85",
+  "externalName": "Use the correct subject or verb",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "TJ6",
+  "externalName": "Which sentence uses an antonym?",
+  "familyCode": "synonyms-antonyms"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "6DS",
+  "externalName": "Which definition matches the sentence?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "DH7",
+  "externalName": "Read graphic organizers",
+  "familyCode": "text-features"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "8SC",
+  "externalName": "Read about famous people",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "46A",
+  "externalName": "Sort and spell soft c and soft g words",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "BRH",
+  "externalName": "Form the singular or plural possessive",
+  "familyCode": "possessive-nouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "FJN",
+  "externalName": "Use regular plurals with -s, -es, -ies, and -ves",
+  "familyCode": "plural-nouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "WUG",
+  "externalName": "Is the noun singular or plural?",
+  "familyCode": "plural-nouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "C9W",
+  "externalName": "Identify an author's statement of opinion",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "QQC",
+  "externalName": "Use academic vocabulary in context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "Y7G",
+  "externalName": "Identify main verbs and helping verbs",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "U8T",
+  "externalName": "Pronoun-verb contractions",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XNV",
+  "externalName": "Contractions with \"not\"",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "TQ7",
+  "externalName": "Use the correct subject or verb – with compound subjects",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XNX",
+  "externalName": "Use Greek and Latin roots as clues to the meanings of words",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "49S",
+  "externalName": "Use the meanings of words as clues to the meanings of Greek and Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "99D",
+  "externalName": "Determine the order of events in informational texts",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "8CJ",
+  "externalName": "Compare information from two texts",
+  "familyCode": "compare-texts"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "JSG",
+  "externalName": "Form compound words",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "JX5",
+  "externalName": "Form and use compound words",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "HW7",
+  "externalName": "Choose reasons to support an opinion",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "8MJ",
+  "externalName": "Identify supporting details in informational texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "MHA",
+  "externalName": "Identify the irregular past tense",
+  "familyCode": "irregular-verbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "FCL",
+  "externalName": "Determine the meanings of Greek and Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "BJ9",
+  "externalName": "Determine the meanings of words with Greek and Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "ZR5",
+  "externalName": "Identify homophones",
+  "familyCode": "homographs-homophones"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "6DS",
+  "externalName": "Which definition matches the sentence?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "ZSE",
+  "externalName": "Read about art, music, and traditions",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "Z9L",
+  "externalName": "Match causes and effects in informational texts",
+  "familyCode": "cause-effect"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "29B",
+  "externalName": "Form and use the regular past tense",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "FPR",
+  "externalName": "Complete the verb with the ending that you hear",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "UUV",
+  "externalName": "Identify syllable types",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "82A",
+  "externalName": "Remove the sentence that does not belong",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "VVG",
+  "externalName": "Identify supporting details in literary texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "GMK",
+  "externalName": "Identify personal pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "QXY",
+  "externalName": "Replace the noun with a personal pronoun",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "2VF",
+  "externalName": "Choose between subject and object personal pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "RQT",
+  "externalName": "Find synonyms in context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "WDU",
+  "externalName": "Determine the meaning of words using synonyms in context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "DC8",
+  "externalName": "Use context to identify the meaning of a word",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "59R",
+  "externalName": "Read historical fiction",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "TXS",
+  "externalName": "Make predictions about a story",
+  "familyCode": "make-predictions"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "LGA",
+  "externalName": "Distinguish points of view",
+  "familyCode": "point-of-view"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "SRQ",
+  "externalName": "Identify story elements",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "Q8P",
+  "externalName": "Spell the long u word: silent e, ue, oo, ew, ui",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "WNR",
+  "externalName": "Complete the word with the correct diphthong: oi, oy, ou, ow",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "9U7",
+  "externalName": "Spell consonant-l-e words",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "C5Z",
+  "externalName": "Choose the best topic sentence",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "68D",
+  "externalName": "Choose the best concluding sentence",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "EER",
+  "externalName": "Pronoun-verb agreement",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "ECG",
+  "externalName": "Punctuating dialogue",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "CZE",
+  "externalName": "Identify possessive pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "5Y6",
+  "externalName": "Use possessive pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "ZEA",
+  "externalName": "Positive and negative connotation",
+  "familyCode": "connotation"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "9FU",
+  "externalName": "Identify elements of poetry",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "TMW",
+  "externalName": "Read poetry",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "AQU",
+  "externalName": "Label the rhyme scheme",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "F7J",
+  "externalName": "Determine the meanings of similes and metaphors",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "CBR",
+  "externalName": "Variant vowel words",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "B9V",
+  "externalName": "Spell words with variant vowels: oo, ou, ow, ea",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "JSA",
+  "externalName": "Create varied sentences based on models",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "YMU",
+  "externalName": "Choose the best transition",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "S8L",
+  "externalName": "Use the correct homophone",
+  "familyCode": "homographs-homophones"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "WMN",
+  "externalName": "Identify and correct errors with plural and possessive nouns",
+  "familyCode": "possessive-nouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "TJ6",
+  "externalName": "Which sentence uses an antonym?",
+  "familyCode": "synonyms-antonyms"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "BTA",
+  "externalName": "Find antonyms in context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "VBG",
+  "externalName": "Which sentence matches the definition?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "RTC",
+  "externalName": "Read about science and nature",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "99D",
+  "externalName": "Determine the order of events in informational texts",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "39A",
+  "externalName": "Spell words with open and closed syllables",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "9QM",
+  "externalName": "Form and use irregular plurals",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "FFK",
+  "externalName": "Identify sensory details",
+  "familyCode": "imagery"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XY2",
+  "externalName": "Show character emotions and traits",
+  "familyCode": "character"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "F9L",
+  "externalName": "Identify the adjective that describes the noun",
+  "familyCode": "nouns"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "JN9",
+  "externalName": "Identify adjectives",
+  "familyCode": "adjectives"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "K6D",
+  "externalName": "Identify articles",
+  "familyCode": "adjectives"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "MXA",
+  "externalName": "Use the correct article: a, an, or the",
+  "familyCode": "adjectives"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "8YE",
+  "externalName": "Similes and metaphors with pictures",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "PFB",
+  "externalName": "Determine the meaning of idioms from context: set 2",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "A7Z",
+  "externalName": "Read realistic fiction",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XZF",
+  "externalName": "Summarize a story",
+  "familyCode": "summarize"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "CXM",
+  "externalName": "Use actions and dialogue to understand characters",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "WMF",
+  "externalName": "Analyze the effects of figures of speech on meaning and tone",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "T7C",
+  "externalName": "Complete the word with the correct vowel team",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "X2P",
+  "externalName": "Complete the word with the correct r-controlled vowel: ar, er, ir, or, ur",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "6BY",
+  "externalName": "Add imagery to stories",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "27D",
+  "externalName": "Use subordinating conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "GW2",
+  "externalName": "Use adjectives to compare",
+  "familyCode": "comparatives"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "WA9",
+  "externalName": "Spell adjectives that compare",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "G9T",
+  "externalName": "Use adjectives with more and most",
+  "familyCode": "comparatives"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "QJX",
+  "externalName": "Greetings and closings of letters",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "A72",
+  "externalName": "Identify the meaning of idioms and adages: set 1",
+  "familyCode": "idioms-adages"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "KNW",
+  "externalName": "Identify the meaning of idioms and adages: set 2",
+  "familyCode": "idioms-adages"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "ZB2",
+  "externalName": "Read about history",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "HR6",
+  "externalName": "Identify and analyze text structures",
+  "familyCode": "compare-contrast"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "6RR",
+  "externalName": "Identify the purpose of a text",
+  "familyCode": "author-purpose"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "9U7",
+  "externalName": "Spell consonant-l-e words",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "S78",
+  "externalName": "Good, better, best, bad, worse, and worst",
+  "familyCode": "comparatives"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "VH9",
+  "externalName": "Combine sentences: subjects and predicates",
+  "familyCode": "subjects-predicates"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "F6D",
+  "externalName": "Use the prefixes pre-, re-, and mis-",
+  "familyCode": "prefixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "8GB",
+  "externalName": "Sort words with shared prefixes and suffixes by meaning",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XFL",
+  "externalName": "Determine the meaning of a word with a suffix: review",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "MZT",
+  "externalName": "Read about business and technology",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "6GA",
+  "externalName": "Organize information by topic",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "S8L",
+  "externalName": "Use the correct homophone",
+  "familyCode": "homographs-homophones"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "78V",
+  "externalName": "Describe the difference between related words",
+  "familyCode": "connotation"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "HXU",
+  "externalName": "Revise the sentence using a stronger verb",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "DUC",
+  "externalName": "Identify adverbs",
+  "familyCode": "adverbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "2UH",
+  "externalName": "Choose between adjectives and adverbs",
+  "familyCode": "adverbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "WY7",
+  "externalName": "Use adverbs to compare",
+  "familyCode": "adverbs"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "UNT",
+  "externalName": "Commas: review",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "58V",
+  "externalName": "Capitalization: review",
+  "familyCode": "capitalization"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "D54",
+  "externalName": "Correct errors with signs",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "ZEA",
+  "externalName": "Positive and negative connotation",
+  "familyCode": "connotation"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "K7J",
+  "externalName": "Determine the meaning of domain-specific words with pictures",
+  "familyCode": "academic-vocabulary"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "59R",
+  "externalName": "Read historical fiction",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "6PW",
+  "externalName": "Determine the themes of myths, fables, and folktales",
+  "familyCode": "theme"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "F7T",
+  "externalName": "Identify base words, prefixes, and suffixes",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XNX",
+  "externalName": "Use Greek and Latin roots as clues to the meanings of words",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "E7S",
+  "externalName": "Learn to spell words with prefixes: dis-, mis-, pre-",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "BR2",
+  "externalName": "Learn to spell words with suffixes: -able, -ish, - ment",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "XY2",
+  "externalName": "Show character emotions and traits",
+  "familyCode": "character"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "6BY",
+  "externalName": "Add imagery to stories",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "8ZS",
+  "externalName": "Identify prepositions",
+  "familyCode": "prepositions"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "ECG",
+  "externalName": "Punctuating dialogue",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "F7J",
+  "externalName": "Determine the meanings of similes and metaphors",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "WMF",
+  "externalName": "Analyze the effects of figures of speech on meaning and tone",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "TMW",
+  "externalName": "Read poetry",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "LGA",
+  "externalName": "Distinguish points of view",
+  "familyCode": "point-of-view"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "P48",
+  "externalName": "Use personification",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "VZH",
+  "externalName": "Determine the meanings of words with prefixes and suffixes: review",
+  "familyCode": "prefixes"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "WPS",
+  "externalName": "Spell words with affixes: review",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "S8J",
+  "externalName": "Identify prepositions and their objects",
+  "familyCode": "prepositions"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "Y6S",
+  "externalName": "Identify prepositional phrases",
+  "familyCode": "prepositions"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "ZJL",
+  "externalName": "Prepositions: review",
+  "familyCode": "prepositions"
+ },
+ {
+  "grade": 4,
+  "source": "G4 Wonders",
+  "externalCode": "74G",
+  "externalName": "Commas with introductory words and phrases",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "QQU",
+  "externalName": "Multiple-meaning words with pictures",
+  "familyCode": "multiple-meaning"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "PDL",
+  "externalName": "Determine the meanings of words with Greek and Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "VT8",
+  "externalName": "Read about famous places",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "QTM",
+  "externalName": "Match causes and effects in informational texts",
+  "familyCode": "cause-effect"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "XPD",
+  "externalName": "Identify the narrative point of view",
+  "familyCode": "point-of-view"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "BN8",
+  "externalName": "Sort sensory details",
+  "familyCode": "imagery"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "9KC",
+  "externalName": "Put the sentences in order",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "UAV",
+  "externalName": "Identify the complete subject or complete predicate of a sentence",
+  "familyCode": "subjects-predicates"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "ZDA",
+  "externalName": "Identify the simple subject or predicate of a sentence",
+  "familyCode": "subjects-predicates"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "DQC",
+  "externalName": "Is it a complete sentence or a fragment?",
+  "familyCode": "fragments-run-ons"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "WCN",
+  "externalName": "Commas with a series",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "DTB",
+  "externalName": "Commas with direct addresses",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "D56",
+  "externalName": "Commas with introductory elements",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "7QW",
+  "externalName": "Use the correct pair of correlative conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "DHV",
+  "externalName": "Fill in the missing correlative conjunction",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "AKN",
+  "externalName": "Find words using context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "C2M",
+  "externalName": "Determine the meaning of a word with a suffix",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "8XM",
+  "externalName": "Identify story elements",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "SDP",
+  "externalName": "Identify supporting details in literary texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "YQT",
+  "externalName": "Read realistic fiction with illustrations",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "TEV",
+  "externalName": "Use linking words in paragraphs",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "LGR",
+  "externalName": "Choose the best concluding sentence",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "XSD",
+  "externalName": "Correct errors with signs",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "LJN",
+  "externalName": "Is the sentence simple or compound?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "UJF",
+  "externalName": "Is the sentence simple, compound, or complex?",
+  "familyCode": "clauses-complex"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "U9M",
+  "externalName": "Create compound sentences",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "FGB",
+  "externalName": "Identify coordinating conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "QM9",
+  "externalName": "Commas with compound and complex sentences",
+  "familyCode": "clauses-complex"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "UGM",
+  "externalName": "Identify base words, prefixes, and suffixes",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "JRN",
+  "externalName": "Read about business and technology",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "GDH",
+  "externalName": "Read about sports and hobbies",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "7GS",
+  "externalName": "Distinguish facts from opinions",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "QX6",
+  "externalName": "Identify the purpose of a text",
+  "familyCode": "author-purpose"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "PBS",
+  "externalName": "Choose the best topic sentence",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "RAE",
+  "externalName": "Identify an author's statement of opinion",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "6XL",
+  "externalName": "Is it a complete sentence or a run-on?",
+  "familyCode": "fragments-run-ons"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "NJT",
+  "externalName": "Is it a complete sentence, a fragment, or a run-on?",
+  "familyCode": "fragments-run-ons"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "FP7",
+  "externalName": "Use context to identify the meaning of a word",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "6DA",
+  "externalName": "Find synonyms in context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "BPH",
+  "externalName": "Find antonyms in context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "PFT",
+  "externalName": "Use dictionary definitions",
+  "familyCode": "reference-materials"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "XJG",
+  "externalName": "Match problems with their solutions",
+  "familyCode": "problem-solution"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "CVZ",
+  "externalName": "Select and use text features",
+  "familyCode": "text-features"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "75M",
+  "externalName": "Read graphic organizers",
+  "familyCode": "text-features"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "5E5",
+  "externalName": "Read about history",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "87Z",
+  "externalName": "Identify supporting details in informational texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "TEV",
+  "externalName": "Use linking words in paragraphs",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "R8M",
+  "externalName": "Identify and correct plagiarism",
+  "familyCode": "writing-research"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "AUM",
+  "externalName": "Abbreviate days of the week and months of the year",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "SEY",
+  "externalName": "Identify nouns – with abstract nouns",
+  "familyCode": "nouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "TDB",
+  "externalName": "Identify common and proper nouns",
+  "familyCode": "nouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "LQF",
+  "externalName": "Form regular plurals with -s, -es, and -ies",
+  "familyCode": "plural-nouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "ZR9",
+  "externalName": "Use regular plurals with -s, -es, -ies, and -ves",
+  "familyCode": "plural-nouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "JHG",
+  "externalName": "Form plurals of nouns ending in f, fe, o, and y",
+  "familyCode": "plural-nouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "MYY",
+  "externalName": "Form and use plurals of nouns ending in f, fe, o, and y",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "AK9",
+  "externalName": "Sort words by shared Greek or Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "LZU",
+  "externalName": "Make predictions about a story",
+  "familyCode": "make-predictions"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "KWD",
+  "externalName": "Determine the themes of short stories",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "U9D",
+  "externalName": "Read fantasy with illustrations",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "UQ5",
+  "externalName": "Identify time-order words",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "5XZ",
+  "externalName": "Correct errors with frequently confused words",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "S7F",
+  "externalName": "Form and use the regular past tense",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "2KG",
+  "externalName": "Form plurals: review",
+  "familyCode": "plural-nouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "VPE",
+  "externalName": "Form and use plurals: review",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "D83",
+  "externalName": "Identify plurals, singular possessives, and plural possessives",
+  "familyCode": "possessive-nouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "BME",
+  "externalName": "Form the singular or plural possessive",
+  "familyCode": "possessive-nouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "ME2",
+  "externalName": "Identify and correct errors with plural and possessive nouns",
+  "familyCode": "possessive-nouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "KRX",
+  "externalName": "Contractions with \"not\"",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "J79",
+  "externalName": "Pronoun-verb contractions",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "SWG",
+  "externalName": "Which definition matches the sentence?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "2GG",
+  "externalName": "Identify similes and metaphors",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "9TK",
+  "externalName": "Similes and metaphors with pictures",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "PG7",
+  "externalName": "Label the rhyme scheme",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "WDA",
+  "externalName": "Identify elements of poetry",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "SDP",
+  "externalName": "Identify supporting details in literary texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "ALY",
+  "externalName": "Revise the sentence using a stronger verb",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "2NZ",
+  "externalName": "Identify prepositions",
+  "familyCode": "prepositions"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "U6W",
+  "externalName": "Identify prepositions and their objects",
+  "familyCode": "prepositions"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "UZH",
+  "externalName": "Identify prepositional phrases",
+  "familyCode": "prepositions"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "KX8",
+  "externalName": "Formatting titles",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "FP7",
+  "externalName": "Use context to identify the meaning of a word",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "DLW",
+  "externalName": "Identify the meaning of idioms and adages: set 1",
+  "familyCode": "idioms-adages"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "DGQ",
+  "externalName": "Summarize a story",
+  "familyCode": "summarize"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "ETU",
+  "externalName": "Draw inferences from a text",
+  "familyCode": "inference"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "LZ7",
+  "externalName": "Use actions and dialogue to understand characters",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "STG",
+  "externalName": "Read realistic fiction",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "AQK",
+  "externalName": "Choose reasons to support an opinion",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "CQA",
+  "externalName": "Determine the order of events in informational texts",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "F5Q",
+  "externalName": "Use the correct subject or verb",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "XGL",
+  "externalName": "Use the correct subject or verb – with compound subjects",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "WDH",
+  "externalName": "Correct inappropriate shifts in verb tense",
+  "familyCode": "verb-tenses"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "PSC",
+  "externalName": "Is the sentence in the past, present, or future tense?",
+  "familyCode": "verb-tenses"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "B54",
+  "externalName": "Form and use the simple past, present, and future tense",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "RQX",
+  "externalName": "Use the meanings of words as clues to the meanings of Greek and Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "AF5",
+  "externalName": "Use words as clues to the meanings of Greek and Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "7LD",
+  "externalName": "Use academic vocabulary in context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "DTM",
+  "externalName": "Use key details to determine the main idea",
+  "familyCode": "central-idea"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "23G",
+  "externalName": "Determine the main idea of a passage",
+  "familyCode": "central-idea"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "XJG",
+  "externalName": "Match problems with their solutions",
+  "familyCode": "problem-solution"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "WXC",
+  "externalName": "Determine the meanings of similes and metaphors",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "L9D",
+  "externalName": "Read about animals",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "6MN",
+  "externalName": "Identify counterclaims",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "ALY",
+  "externalName": "Revise the sentence using a stronger verb",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "5XZ",
+  "externalName": "Correct errors with frequently confused words",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "RY6",
+  "externalName": "Use the progressive verb tenses",
+  "familyCode": "verb-tenses"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "AAT",
+  "externalName": "Form the progressive verb tenses",
+  "familyCode": "verb-tenses"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "AV6",
+  "externalName": "Choose between the past tense and past participle",
+  "familyCode": "verb-tenses"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "YLV",
+  "externalName": "Use the perfect verb tenses",
+  "familyCode": "verb-tenses"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "AJQ",
+  "externalName": "Form the perfect verb tenses",
+  "familyCode": "verb-tenses"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "5EA",
+  "externalName": "Identify main verbs and helping verbs",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "GFQ",
+  "externalName": "What does the modal verb show?",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "X47",
+  "externalName": "Formatting and capitalizing titles",
+  "familyCode": "capitalization"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "D8L",
+  "externalName": "Determine the meaning of domain-specific words with pictures",
+  "familyCode": "academic-vocabulary"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "M6Z",
+  "externalName": "Compare and contrast in informational texts",
+  "familyCode": "compare-contrast"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "BPJ",
+  "externalName": "Positive and negative connotation",
+  "familyCode": "connotation"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "5E5",
+  "externalName": "Read about history",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "XL8",
+  "externalName": "Organize information by topic",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "6BD",
+  "externalName": "Which sentence is more formal?",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "42P",
+  "externalName": "Form and use the irregular past tense",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "YTQ",
+  "externalName": "Words with sub-",
+  "familyCode": "prefixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "NC2",
+  "externalName": "Words with -able and -ible",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "55H",
+  "externalName": "Sort words with shared prefixes and suffixes by meaning",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "GSX",
+  "externalName": "Words with mis-",
+  "familyCode": "prefixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "UE2",
+  "externalName": "Read about famous people",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "GV8",
+  "externalName": "Compare and contrast points of view",
+  "familyCode": "point-of-view"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "ZC2",
+  "externalName": "Identify and analyze text structures",
+  "familyCode": "compare-contrast"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "87Z",
+  "externalName": "Identify supporting details in informational texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "X9M",
+  "externalName": "Choose the best transition",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "M2J",
+  "externalName": "Learn to spell words with prefixes: con-, over-, pro-",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "WMW",
+  "externalName": "Choose between subject and object personal pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "8H5",
+  "externalName": "Replace the noun with a personal pronoun",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "9RG",
+  "externalName": "Punctuating dialogue",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "J6R",
+  "externalName": "Identify pronouns and antecedents",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "Y8F",
+  "externalName": "Identify pronouns and their antecedents",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "5Y8",
+  "externalName": "Identify relative pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "66E",
+  "externalName": "Identify the meaning of idioms and adages: set 2",
+  "familyCode": "idioms-adages"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "7PS",
+  "externalName": "Which sentence matches the definition?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "GVE",
+  "externalName": "Choose the synonym",
+  "familyCode": "synonyms-antonyms"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "6E3",
+  "externalName": "Choose the antonym",
+  "familyCode": "synonyms-antonyms"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "WXC",
+  "externalName": "Determine the meanings of similes and metaphors",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "NXX",
+  "externalName": "Read drama",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "LGR",
+  "externalName": "Choose the best concluding sentence",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "A9N",
+  "externalName": "Transitions with conjunctive adverbs",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "UBL",
+  "externalName": "Create varied sentences based on models",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "L6N",
+  "externalName": "Use possessive pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "ZMP",
+  "externalName": "Abbreviate people's titles",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "2P8",
+  "externalName": "Abbreviate street names and state names",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "BZT",
+  "externalName": "Use reflexive pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "XGL",
+  "externalName": "Use the correct subject or verb – with compound subjects",
+  "familyCode": "verbs"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "J79",
+  "externalName": "Pronoun-verb contractions",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "HZW",
+  "externalName": "Sort words with shared suffixes by part of speech",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "EMN",
+  "externalName": "Classify figures of speech",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "PCM",
+  "externalName": "Read poetry",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "WDA",
+  "externalName": "Identify elements of poetry",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "6PZ",
+  "externalName": "Remove the sentence that does not belong",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "JHD",
+  "externalName": "Add imagery to stories",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "L2X",
+  "externalName": "Use the correct frequently confused word",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "W99",
+  "externalName": "Use dashes",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "FSZ",
+  "externalName": "Determine the meanings of Greek and Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "AXG",
+  "externalName": "Words with -ful",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "GYK",
+  "externalName": "Determine the meaning of a word with -ly or -ness",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "82B",
+  "externalName": "Use thesaurus entries",
+  "familyCode": "reference-materials"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "7ZU",
+  "externalName": "Homophones with pictures",
+  "familyCode": "homographs-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "JB5",
+  "externalName": "Read about science and nature",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "CVZ",
+  "externalName": "Select and use text features",
+  "familyCode": "text-features"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "VNS",
+  "externalName": "Compare two texts with different genres",
+  "familyCode": "compare-texts"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "R8M",
+  "externalName": "Identify and correct plagiarism",
+  "familyCode": "writing-research"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "XL8",
+  "externalName": "Organize information by topic",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "6TN",
+  "externalName": "Identify dependent and independent clauses",
+  "familyCode": "clauses-complex"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "QM9",
+  "externalName": "Commas with compound and complex sentences",
+  "familyCode": "clauses-complex"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "GQ6",
+  "externalName": "Identify subordinating conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "GTH",
+  "externalName": "Use relative pronouns: who and whom",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "KRK",
+  "externalName": "Use relative pronouns: who, whom, whose, which, and that",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "8ML",
+  "externalName": "Determine the meaning of idioms from context: set 1",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "JQU",
+  "externalName": "Determine the meaning of idioms from context: set 2",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "HZQ",
+  "externalName": "Words with pre-",
+  "familyCode": "prefixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "VUA",
+  "externalName": "Words with -less",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "LTR",
+  "externalName": "Compare and contrast characters",
+  "familyCode": "character"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "GCP",
+  "externalName": "Read historical fiction with illustrations",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "94B",
+  "externalName": "Combine main ideas from two texts",
+  "familyCode": "compare-texts"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "RMV",
+  "externalName": "Use coordinating conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "JKQ",
+  "externalName": "Identify adjectives",
+  "familyCode": "adjectives"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "6FR",
+  "externalName": "Order adjectives",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "94N",
+  "externalName": "Use adjectives to compare",
+  "familyCode": "comparatives"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "FJF",
+  "externalName": "Spell adjectives that compare",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "BN9",
+  "externalName": "Use adjectives with more and most",
+  "familyCode": "comparatives"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "R6Z",
+  "externalName": "Correct capitalization errors",
+  "familyCode": "capitalization"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "67C",
+  "externalName": "Match words with Greek and Latin roots to their meanings",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "L9D",
+  "externalName": "Read about animals",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "6EA",
+  "externalName": "Analyze argumentative texts",
+  "familyCode": "author-claim"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "FN5",
+  "externalName": "Compare information from two texts",
+  "familyCode": "compare-texts"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "AQK",
+  "externalName": "Choose reasons to support an opinion",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "DJH",
+  "externalName": "Formatting quotations and dialogue",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "JHD",
+  "externalName": "Add imagery to stories",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "4E9",
+  "externalName": "Learn to spell words with suffixes: -hood, -ion, - or, -ure",
+  "familyCode": "spelling"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "47G",
+  "externalName": "Good, better, best, bad, worse, and worst",
+  "familyCode": "comparatives"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "D59",
+  "externalName": "Use the correct homophone",
+  "familyCode": "homographs-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "9MD",
+  "externalName": "Use Greek and Latin roots as clues to the meanings of words",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "ZUX",
+  "externalName": "Read historical fiction",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "DGQ",
+  "externalName": "Summarize a story",
+  "familyCode": "summarize"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "KWD",
+  "externalName": "Determine the themes of short stories",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "2AF",
+  "externalName": "Show character emotions and traits",
+  "familyCode": "character"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "7GS",
+  "externalName": "Distinguish facts from opinions",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "9KC",
+  "externalName": "Put the sentences in order",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "FKZ",
+  "externalName": "Identify adverbs",
+  "familyCode": "adverbs"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "Q5G",
+  "externalName": "Use relative adverbs",
+  "familyCode": "adverbs"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "G6Q",
+  "externalName": "Use adverbs to compare",
+  "familyCode": "adverbs"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "R6Z",
+  "externalName": "Correct capitalization errors",
+  "familyCode": "capitalization"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "5EM",
+  "externalName": "Determine the meaning of words using synonyms in context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "EMN",
+  "externalName": "Classify figures of speech",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "JB5",
+  "externalName": "Read about science and nature",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "ZC2",
+  "externalName": "Identify and analyze text structures",
+  "familyCode": "compare-contrast"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "QTM",
+  "externalName": "Match causes and effects in informational texts",
+  "familyCode": "cause-effect"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "75M",
+  "externalName": "Read graphic organizers",
+  "familyCode": "text-features"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "LZ7",
+  "externalName": "Use actions and dialogue to understand characters",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "XPD",
+  "externalName": "Identify the narrative point of view",
+  "familyCode": "point-of-view"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "X9M",
+  "externalName": "Choose the best transition",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "XSD",
+  "externalName": "Correct errors with signs",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "KRX",
+  "externalName": "Contractions with \"not\"",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "U9M",
+  "externalName": "Create compound sentences",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "7QW",
+  "externalName": "Use the correct pair of correlative conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "77M",
+  "externalName": "Commas with dates and places",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "DVV",
+  "externalName": "Commas: review",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "YA5",
+  "externalName": "Greetings and closings of letters",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "NC2",
+  "externalName": "Words with -able and -ible",
+  "familyCode": "suffixes"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "LDG",
+  "externalName": "Use personification",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "PCM",
+  "externalName": "Read poetry",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "PG7",
+  "externalName": "Label the rhyme scheme",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "KMU",
+  "externalName": "Analyze the effects of figures of speech on meaning and tone",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "9RG",
+  "externalName": "Punctuating dialogue",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "EQ2",
+  "externalName": "Identify sensory details",
+  "familyCode": "imagery"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "BN8",
+  "externalName": "Sort sensory details",
+  "familyCode": "imagery"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "U6W",
+  "externalName": "Identify prepositions and their objects",
+  "familyCode": "prepositions"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "UZH",
+  "externalName": "Identify prepositional phrases",
+  "familyCode": "prepositions"
+ },
+ {
+  "grade": 5,
+  "source": "G5 Wonders",
+  "externalCode": "K9N",
+  "externalName": "Prepositions: review",
+  "familyCode": "prepositions"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "LQN",
+  "externalName": "Find words using context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "RJL",
+  "externalName": "Analyze short stories",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "SE6",
+  "externalName": "Draw inferences from a text",
+  "familyCode": "inference"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "FYL",
+  "externalName": "Correct errors with signs",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "M8D",
+  "externalName": "Analyze the effects of figures of speech on meaning and tone",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "GZF",
+  "externalName": "Interpret the meaning of an allusion from its source",
+  "familyCode": "writing-research"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "6LN",
+  "externalName": "Use actions and dialogue to understand characters",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "EUE",
+  "externalName": "Identify story elements",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "G7K",
+  "externalName": "Compare information from two texts",
+  "familyCode": "compare-texts"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "DWK",
+  "externalName": "Read drama",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "A7S",
+  "externalName": "Read historical fiction",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "Q2K",
+  "externalName": "Summarize a story",
+  "familyCode": "summarize"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "GBJ",
+  "externalName": "Order topics from broadest to narrowest",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "5XY",
+  "externalName": "Order adjectives",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "FG8",
+  "externalName": "Transitions with conjunctive adverbs",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "RMB",
+  "externalName": "Form and use comparative and superlative adverbs",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "A5T",
+  "externalName": "Choose between personal and reflexive pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "5AR",
+  "externalName": "Identify pronouns and their antecedents",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "EXW",
+  "externalName": "Use the pronoun that agrees with the antecedent",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "HTL",
+  "externalName": "Correct inappropriate shifts in pronoun number and person",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "DNE",
+  "externalName": "Identify relative pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "CSF",
+  "externalName": "Use relative pronouns: who and whom",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "R6F",
+  "externalName": "Use relative pronouns: who, whom, whose, which, and that",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "PC6",
+  "externalName": "Use reflexive pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "6WX",
+  "externalName": "Is the pronoun reflexive or intensive?",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "52H",
+  "externalName": "Identify sensory details",
+  "familyCode": "imagery"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "FWM",
+  "externalName": "Interpret figures of speech",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "6FM",
+  "externalName": "Identify supporting details in literary texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "KWD",
+  "externalName": "Determine the themes of short stories",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "CMA",
+  "externalName": "Positive and negative connotation",
+  "familyCode": "connotation"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "QX9",
+  "externalName": "Classify figures of speech",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "WJ9",
+  "externalName": "Label the rhyme scheme",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "KJZ",
+  "externalName": "Read about science and nature",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "TTM",
+  "externalName": "Identify the narrative point of view",
+  "familyCode": "point-of-view"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "KVP",
+  "externalName": "Compare two texts with different genres",
+  "familyCode": "compare-texts"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "7BE",
+  "externalName": "Organize information by topic",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "6AW",
+  "externalName": "Identify counterclaims",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "E6G",
+  "externalName": "Which is a thesis statement?",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "87Z",
+  "externalName": "Identify supporting details in informational texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "2F3",
+  "externalName": "Choose the best transition",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "GS8",
+  "externalName": "Correct errors in everyday use",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "KV5",
+  "externalName": "Commas with direct addresses, introductory words, interjections, and interrupters",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "ZK7",
+  "externalName": "Use the correct frequently confused word",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "QGB",
+  "externalName": "Correct errors with frequently confused words",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "N82",
+  "externalName": "Use possessive pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "R5Q",
+  "externalName": "Which sentence is more formal?",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "ERT",
+  "externalName": "Identify common and proper nouns",
+  "familyCode": "nouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "7SV",
+  "externalName": "Is it a complete sentence or a fragment?",
+  "familyCode": "fragments-run-ons"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "EQF",
+  "externalName": "Identify the simple subject or simple predicate of a sentence",
+  "familyCode": "subjects-predicates"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "WJJ",
+  "externalName": "Show character emotions and traits",
+  "familyCode": "character"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "2J5",
+  "externalName": "Use guide words",
+  "familyCode": "reference-materials"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "YQU",
+  "externalName": "Use dictionary entries",
+  "familyCode": "reference-materials"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "RLF",
+  "externalName": "Use dictionary definitions",
+  "familyCode": "reference-materials"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "EUE",
+  "externalName": "Identify story elements",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "N5X",
+  "externalName": "Use key details to determine the main idea",
+  "familyCode": "central-idea"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "7YW",
+  "externalName": "Identify elements of poetry",
+  "familyCode": "titles-abbreviations"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "F7K",
+  "externalName": "Match causes and effects in informational texts",
+  "familyCode": "cause-effect"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "GYH",
+  "externalName": "Determine the meaning of words using synonyms in context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "BDD",
+  "externalName": "Determine the themes of short stories",
+  "familyCode": "plot-events"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "SE6",
+  "externalName": "Draw inferences from a text",
+  "familyCode": "inference"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "GBJ",
+  "externalName": "Order topics from broadest to narrowest",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "T7W",
+  "externalName": "Choose evidence to support a claim",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "2F3",
+  "externalName": "Choose the best transition",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "MCX",
+  "externalName": "Choose the synonym",
+  "familyCode": "synonyms-antonyms"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "N5K",
+  "externalName": "Determine the meaning of domain-specific words with pictures",
+  "familyCode": "academic-vocabulary"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "ZBZ",
+  "externalName": "Compare passages for tone",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "5BQ",
+  "externalName": "Decide whether ellipses are used appropriately",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "JWX",
+  "externalName": "Words with pre-",
+  "familyCode": "prefixes"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "WP7",
+  "externalName": "Words with un-, dis-, in-, im-, and non-",
+  "familyCode": "prefixes"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "5MR",
+  "externalName": "Identify the compound subject or compound predicate of a sentence",
+  "familyCode": "subjects-predicates"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "N62",
+  "externalName": "Use coordinating conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "PHY",
+  "externalName": "Identify coordinating conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "M7T",
+  "externalName": "Identify adjectives",
+  "familyCode": "adjectives"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "5XY",
+  "externalName": "Order adjectives",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "5DU",
+  "externalName": "Commas with coordinate adjectives",
+  "familyCode": "adjectives"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "CMA",
+  "externalName": "Positive and negative connotation",
+  "familyCode": "connotation"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "6G9",
+  "externalName": "Identify text structures",
+  "familyCode": "compare-contrast"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "4J8",
+  "externalName": "Match the quotations with their themes",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "A9H",
+  "externalName": "Trace an argument",
+  "familyCode": "author-claim"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "23B",
+  "externalName": "Identify supporting details in informational texts",
+  "familyCode": "text-evidence"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "U9R",
+  "externalName": "Use academic vocabulary in context: informational",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "R2C",
+  "externalName": "Determine the main idea of a passage",
+  "familyCode": "central-idea"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "G7K",
+  "externalName": "Compare information from two texts",
+  "familyCode": "compare-texts"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "JXZ",
+  "externalName": "Classify logical fallacies",
+  "familyCode": "author-claim"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "M7T",
+  "externalName": "Identify adjectives",
+  "familyCode": "adjectives"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "TDX",
+  "externalName": "Identify adverbs",
+  "familyCode": "adverbs"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "E6G",
+  "externalName": "Which is a thesis statement?",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "T7W",
+  "externalName": "Choose evidence to support a claim",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "FG8",
+  "externalName": "Transitions with conjunctive adverbs",
+  "familyCode": "writing-informative"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "N62",
+  "externalName": "Use coordinating conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "PZY",
+  "externalName": "Commas with nonrestrictive elements",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "MGF",
+  "externalName": "Identify vague pronoun references",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "RYQ",
+  "externalName": "Identify all of the possible antecedents",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "GS8",
+  "externalName": "Correct errors in everyday use",
+  "familyCode": "pronoun-homophones"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "CVE",
+  "externalName": "What does the punctuation suggest?",
+  "familyCode": "puns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "DXX",
+  "externalName": "Which definition matches the sentence?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "RMZ",
+  "externalName": "Which sentence matches the definition?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "XN5",
+  "externalName": "Use the correct homophone",
+  "familyCode": "homographs-homophones"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "5UB",
+  "externalName": "Use context to identify the meaning of a word",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "RBH",
+  "externalName": "Describe the difference between related words",
+  "familyCode": "connotation"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "N5R",
+  "externalName": "Use Greek and Latin roots as clues to the meanings of words",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "MN9",
+  "externalName": "Use the meanings of words as clues to the meanings of Greek and Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "75T",
+  "externalName": "Use words as clues to the meanings of Greek and Latin roots",
+  "familyCode": "greek-latin-roots"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "6LN",
+  "externalName": "Use actions and dialogue to understand characters",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "ZBZ",
+  "externalName": "Compare passages for tone",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "TTM",
+  "externalName": "Identify the narrative point of view",
+  "familyCode": "point-of-view"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "52H",
+  "externalName": "Identify sensory details",
+  "familyCode": "imagery"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "WJ9",
+  "externalName": "Label the rhyme scheme",
+  "familyCode": "poetry-elements"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "F94",
+  "externalName": "Distinguish facts from opinions",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "GEU",
+  "externalName": "Identify the author's purpose",
+  "familyCode": "author-purpose"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "KV2",
+  "externalName": "Suggest appropriate revisions",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "AV7",
+  "externalName": "Recognize the parts of a Works Cited entry (MLA 8th–9th editions)",
+  "familyCode": "writing-research"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "C9Y",
+  "externalName": "Use in-text citations (MLA 8th–9th editions)",
+  "familyCode": "writing-research"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "A5T",
+  "externalName": "Choose between personal and reflexive pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "PC6",
+  "externalName": "Use reflexive pronouns",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "YJK",
+  "externalName": "Create varied sentences based on models",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "AJK",
+  "externalName": "Is the sentence declarative, interrogative, imperative, or exclamatory?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "6WX",
+  "externalName": "Is the pronoun reflexive or intensive?",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "R5Q",
+  "externalName": "Which sentence is more formal?",
+  "familyCode": "precise-language"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "5AR",
+  "externalName": "Identify pronouns and their antecedents",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "EXW",
+  "externalName": "Use the pronoun that agrees with the antecedent",
+  "familyCode": "pronouns"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "K9B",
+  "externalName": "Identify dependent and independent clauses",
+  "familyCode": "clauses-complex"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "WA8",
+  "externalName": "Is the sentence simple, compound, or complex?",
+  "familyCode": "clauses-complex"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "FSY",
+  "externalName": "Identify subordinating conjunctions",
+  "familyCode": "compound-sentences"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "N5X",
+  "externalName": "Use key details to determine the main idea",
+  "familyCode": "central-idea"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "DXX",
+  "externalName": "Which definition matches the sentence?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "RMZ",
+  "externalName": "Which sentence matches the definition?",
+  "familyCode": "sentences"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "42L",
+  "externalName": "Determine the meaning of idioms from context: set 2",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "QX9",
+  "externalName": "Classify figures of speech",
+  "familyCode": "figurative-language"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "28D",
+  "externalName": "Find antonyms in context",
+  "familyCode": "context-clues"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "F7K",
+  "externalName": "Match causes and effects in informational texts",
+  "familyCode": "cause-effect"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "QZW",
+  "externalName": "Compare and contrast in informational texts",
+  "familyCode": "compare-contrast"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "45Q",
+  "externalName": "Positive and negative connotation",
+  "familyCode": "connotation"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "WJJ",
+  "externalName": "Show character emotions and traits",
+  "familyCode": "character"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "GEU",
+  "externalName": "Identify the author's purpose",
+  "familyCode": "author-purpose"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "DB7",
+  "externalName": "Determine the main idea of a passage",
+  "familyCode": "central-idea"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "F94",
+  "externalName": "Distinguish facts from opinions",
+  "familyCode": "writing-argument"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "ADU",
+  "externalName": "Identify and correct plagiarism",
+  "familyCode": "writing-research"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "C9Y",
+  "externalName": "Use in-text citations (MLA 8th–9th editions)",
+  "familyCode": "writing-research"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "KCS",
+  "externalName": "Read graphic organizers",
+  "familyCode": "text-features"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "TGX",
+  "externalName": "Use dashes",
+  "familyCode": "commas"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "JMH",
+  "externalName": "Use hyphens in compound adjectives",
+  "familyCode": "adjectives"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "FNT",
+  "externalName": "Formatting quotations and dialogue",
+  "familyCode": "quotations-dialogue"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "2YN",
+  "externalName": "Is it a complete sentence or a run-on?",
+  "familyCode": "fragments-run-ons"
+ },
+ {
+  "grade": 6,
+  "source": "G6 StudySync",
+  "externalCode": "2UR",
+  "externalName": "Is it a complete sentence, a fragment, or a run-on?",
+  "familyCode": "fragments-run-ons"
+ }
+]

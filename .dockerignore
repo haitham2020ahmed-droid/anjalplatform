@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+.env
+.env.*
+!.env.example
+storage
+report-preview
+e2e-report
+test-results
+coverage
+*.log
+*.tsbuildinfo

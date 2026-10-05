@@ -1,0 +1,2742 @@
+{
+ "families": [
+  {
+   "code": "theme",
+   "name": "Theme",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_THEME",
+   "ccssStems": [
+    "RL.{g}.2"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.2"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.2"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.2"
+    ]
+   }
+  },
+  {
+   "code": "summarize",
+   "name": "Summarize",
+   "domain": "READING",
+   "category": "COMPREHENSION",
+   "mapGoalArea": "LIT_THEME",
+   "ccssStems": [
+    "RL.{g}.2",
+    "RI.{g}.2"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.2",
+     "CCSS.ELA-LITERACY.RI.4.2"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.2",
+     "CCSS.ELA-LITERACY.RI.5.2"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.2",
+     "CCSS.ELA-LITERACY.RI.6.2"
+    ]
+   }
+  },
+  {
+   "code": "character",
+   "name": "Character Traits & Development",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_THEME",
+   "ccssStems": [
+    "RL.{g}.3"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.3"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.3"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.3"
+    ]
+   }
+  },
+  {
+   "code": "character-perspective",
+   "name": "Character Perspective",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_STRUCTURE",
+   "ccssStems": [
+    "RL.{g}.6"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.6"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.6"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.6"
+    ]
+   }
+  },
+  {
+   "code": "point-of-view",
+   "name": "Point of View and Perspective",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_STRUCTURE",
+   "ccssStems": [
+    "RL.{g}.6"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.6"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.6"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.6"
+    ]
+   }
+  },
+  {
+   "code": "plot-conflict",
+   "name": "Plot: Conflict and Resolution",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_THEME",
+   "ccssStems": [
+    "RL.{g}.3"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.3"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.3"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.3"
+    ]
+   }
+  },
+  {
+   "code": "plot-events",
+   "name": "Plot: Sequence of Events",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_STRUCTURE",
+   "ccssStems": [
+    "RL.{g}.3",
+    "RL.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.3",
+     "CCSS.ELA-LITERACY.RL.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.3",
+     "CCSS.ELA-LITERACY.RL.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.3",
+     "CCSS.ELA-LITERACY.RL.6.5"
+    ]
+   }
+  },
+  {
+   "code": "plot-setting",
+   "name": "Plot: Setting",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_THEME",
+   "ccssStems": [
+    "RL.{g}.3"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.3"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.3"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.3"
+    ]
+   }
+  },
+  {
+   "code": "plot-flashback",
+   "name": "Plot: Flashback",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_STRUCTURE",
+   "ccssStems": [
+    "RL.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.5"
+    ]
+   }
+  },
+  {
+   "code": "plot-foreshadowing",
+   "name": "Plot: Foreshadowing",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_STRUCTURE",
+   "ccssStems": [
+    "RL.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.5"
+    ]
+   }
+  },
+  {
+   "code": "make-predictions",
+   "name": "Make Predictions",
+   "domain": "READING",
+   "category": "COMPREHENSION",
+   "mapGoalArea": "LIT_THEME",
+   "ccssStems": [
+    "RL.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.1"
+    ]
+   }
+  },
+  {
+   "code": "visualize",
+   "name": "Visualize",
+   "domain": "READING",
+   "category": "COMPREHENSION",
+   "mapGoalArea": "LIT_STRUCTURE",
+   "ccssStems": [
+    "RL.{g}.7"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.7"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.7"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.7"
+    ]
+   }
+  },
+  {
+   "code": "ask-answer-questions",
+   "name": "Ask and Answer Questions",
+   "domain": "READING",
+   "category": "COMPREHENSION",
+   "mapGoalArea": "INFO_CENTRAL_IDEA",
+   "ccssStems": [
+    "RI.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.1"
+    ]
+   }
+  },
+  {
+   "code": "reread",
+   "name": "Reread to Clarify",
+   "domain": "READING",
+   "category": "COMPREHENSION",
+   "mapGoalArea": "INFO_CENTRAL_IDEA",
+   "ccssStems": [
+    "RI.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.1"
+    ]
+   }
+  },
+  {
+   "code": "drama-elements",
+   "name": "Elements of Drama",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_STRUCTURE",
+   "ccssStems": [
+    "RL.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.5"
+    ]
+   }
+  },
+  {
+   "code": "poetry-elements",
+   "name": "Poetry: Structure, Rhyme, Meter and Form",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "LIT_STRUCTURE",
+   "ccssStems": [
+    "RL.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.5"
+    ]
+   }
+  },
+  {
+   "code": "sound-devices",
+   "name": "Sound Devices (Assonance, Consonance, Alliteration)",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "RL.{g}.4",
+    "L.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.4",
+     "CCSS.ELA-LITERACY.L.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.4",
+     "CCSS.ELA-LITERACY.L.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.4",
+     "CCSS.ELA-LITERACY.L.6.5"
+    ]
+   }
+  },
+  {
+   "code": "imagery",
+   "name": "Imagery and Sensory Language",
+   "domain": "READING",
+   "category": "LITERATURE",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "RL.{g}.4"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.4"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.4"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.4"
+    ]
+   }
+  },
+  {
+   "code": "inference",
+   "name": "Make Inferences",
+   "domain": "READING",
+   "category": "COMPREHENSION",
+   "mapGoalArea": "LIT_THEME",
+   "ccssStems": [
+    "RL.{g}.1",
+    "RI.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.1",
+     "CCSS.ELA-LITERACY.RI.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.1",
+     "CCSS.ELA-LITERACY.RI.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.1",
+     "CCSS.ELA-LITERACY.RI.6.1"
+    ]
+   }
+  },
+  {
+   "code": "text-evidence",
+   "name": "Cite Text Evidence",
+   "domain": "READING",
+   "category": "COMPREHENSION",
+   "mapGoalArea": "INFO_CENTRAL_IDEA",
+   "ccssStems": [
+    "RL.{g}.1",
+    "RI.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.1",
+     "CCSS.ELA-LITERACY.RI.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.1",
+     "CCSS.ELA-LITERACY.RI.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.1",
+     "CCSS.ELA-LITERACY.RI.6.1"
+    ]
+   }
+  },
+  {
+   "code": "compare-texts",
+   "name": "Compare and Contrast Texts",
+   "domain": "READING",
+   "category": "COMPREHENSION",
+   "mapGoalArea": "INFO_CENTRAL_IDEA",
+   "ccssStems": [
+    "RL.{g}.9",
+    "RI.{g}.9"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RL.4.9",
+     "CCSS.ELA-LITERACY.RI.4.9"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RL.5.9",
+     "CCSS.ELA-LITERACY.RI.5.9"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RL.6.9",
+     "CCSS.ELA-LITERACY.RI.6.9"
+    ]
+   }
+  },
+  {
+   "code": "central-idea",
+   "name": "Central Idea and Relevant Details",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_CENTRAL_IDEA",
+   "ccssStems": [
+    "RI.{g}.2"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.2"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.2"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.2"
+    ]
+   }
+  },
+  {
+   "code": "compare-contrast",
+   "name": "Text Structure: Compare and Contrast",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_STRUCTURE",
+   "ccssStems": [
+    "RI.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.5"
+    ]
+   }
+  },
+  {
+   "code": "cause-effect",
+   "name": "Text Structure: Cause and Effect",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_STRUCTURE",
+   "ccssStems": [
+    "RI.{g}.3",
+    "RI.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.3",
+     "CCSS.ELA-LITERACY.RI.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.3",
+     "CCSS.ELA-LITERACY.RI.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.3",
+     "CCSS.ELA-LITERACY.RI.6.5"
+    ]
+   }
+  },
+  {
+   "code": "problem-solution",
+   "name": "Text Structure: Problem and Solution",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_STRUCTURE",
+   "ccssStems": [
+    "RI.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.5"
+    ]
+   }
+  },
+  {
+   "code": "sequence",
+   "name": "Text Structure: Sequence and Chronology",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_STRUCTURE",
+   "ccssStems": [
+    "RI.{g}.3",
+    "RI.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.3",
+     "CCSS.ELA-LITERACY.RI.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.3",
+     "CCSS.ELA-LITERACY.RI.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.3",
+     "CCSS.ELA-LITERACY.RI.6.5"
+    ]
+   }
+  },
+  {
+   "code": "text-features",
+   "name": "Text Features",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_STRUCTURE",
+   "ccssStems": [
+    "RI.{g}.7"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.7"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.7"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.7"
+    ]
+   }
+  },
+  {
+   "code": "author-perspective",
+   "name": "Author's Perspective",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_STRUCTURE",
+   "ccssStems": [
+    "RI.{g}.6",
+    "RI.{g}.8"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.6",
+     "CCSS.ELA-LITERACY.RI.4.8"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.6",
+     "CCSS.ELA-LITERACY.RI.5.8"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.6",
+     "CCSS.ELA-LITERACY.RI.6.8"
+    ]
+   }
+  },
+  {
+   "code": "author-purpose",
+   "name": "Author's Purpose",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_STRUCTURE",
+   "ccssStems": [
+    "RI.{g}.6"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.6"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.6"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.6"
+    ]
+   }
+  },
+  {
+   "code": "author-claim",
+   "name": "Author's Claim and Evidence",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_STRUCTURE",
+   "ccssStems": [
+    "RI.{g}.8"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.8"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.8"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.8"
+    ]
+   }
+  },
+  {
+   "code": "description",
+   "name": "Text Structure: Description",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_STRUCTURE",
+   "ccssStems": [
+    "RI.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.RI.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.RI.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.RI.6.5"
+    ]
+   }
+  },
+  {
+   "code": "context-clues",
+   "name": "Context Clues",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.4.a"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.4.a"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.4.a"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.4.a"
+    ]
+   }
+  },
+  {
+   "code": "multiple-meaning",
+   "name": "Multiple-Meaning Words",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.4.a"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.4.a"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.4.a"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.4.a"
+    ]
+   }
+  },
+  {
+   "code": "homographs-homophones",
+   "name": "Homographs and Homophones",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.5.c"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.5.c"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.5.c"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.5.c"
+    ]
+   }
+  },
+  {
+   "code": "synonyms-antonyms",
+   "name": "Synonyms and Antonyms",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.5.c"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.5.c"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.5.c"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.5.c"
+    ]
+   }
+  },
+  {
+   "code": "prefixes",
+   "name": "Prefixes",
+   "domain": "VOCABULARY",
+   "category": "WORD_STUDY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.4.b"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.4.b"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.4.b"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.4.b"
+    ]
+   }
+  },
+  {
+   "code": "suffixes",
+   "name": "Suffixes",
+   "domain": "VOCABULARY",
+   "category": "WORD_STUDY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.4.b"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.4.b"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.4.b"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.4.b"
+    ]
+   }
+  },
+  {
+   "code": "greek-latin-roots",
+   "name": "Greek and Latin Roots",
+   "domain": "VOCABULARY",
+   "category": "WORD_STUDY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.4.b"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.4.b"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.4.b"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.4.b"
+    ]
+   }
+  },
+  {
+   "code": "idioms-adages",
+   "name": "Idioms, Adages and Proverbs",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.5.b"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.5.b"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.5.b"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.5.b"
+    ]
+   }
+  },
+  {
+   "code": "figurative-language",
+   "name": "Figurative Language (Similes, Metaphors, Personification, Hyperbole)",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.5.a",
+    "RL.{g}.4"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.5.a",
+     "CCSS.ELA-LITERACY.RL.4.4"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.5.a",
+     "CCSS.ELA-LITERACY.RL.5.4"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.5.a",
+     "CCSS.ELA-LITERACY.RL.6.4"
+    ]
+   }
+  },
+  {
+   "code": "connotation",
+   "name": "Connotation and Denotation",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.5",
+    "RL.{g}.4"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.5",
+     "CCSS.ELA-LITERACY.RL.4.4"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.5",
+     "CCSS.ELA-LITERACY.RL.5.4"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.5",
+     "CCSS.ELA-LITERACY.RL.6.4"
+    ]
+   }
+  },
+  {
+   "code": "reference-materials",
+   "name": "Dictionary, Glossary and Thesaurus",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.4.c"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.4.c"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.4.c"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.4.c"
+    ]
+   }
+  },
+  {
+   "code": "academic-vocabulary",
+   "name": "Academic and Domain-Specific Vocabulary",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.6",
+    "RI.{g}.4"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.6",
+     "CCSS.ELA-LITERACY.RI.4.4"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.6",
+     "CCSS.ELA-LITERACY.RI.5.4"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.6",
+     "CCSS.ELA-LITERACY.RI.6.4"
+    ]
+   }
+  },
+  {
+   "code": "puns",
+   "name": "Puns and Wordplay",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.5"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.5"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.5"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.5"
+    ]
+   }
+  },
+  {
+   "code": "sentences",
+   "name": "Sentences and Sentence Types",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "subjects-predicates",
+   "name": "Subjects and Predicates",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "fragments-run-ons",
+   "name": "Fragments and Run-On Sentences",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "compound-sentences",
+   "name": "Compound Sentences and Conjunctions",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1",
+    "L.{g}.2"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1",
+     "CCSS.ELA-LITERACY.L.4.2"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1",
+     "CCSS.ELA-LITERACY.L.5.2"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1",
+     "CCSS.ELA-LITERACY.L.6.2"
+    ]
+   }
+  },
+  {
+   "code": "clauses-complex",
+   "name": "Clauses and Complex Sentences",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "combining-sentences",
+   "name": "Combining Sentences",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.3"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.3"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.3"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.3"
+    ]
+   }
+  },
+  {
+   "code": "nouns",
+   "name": "Nouns: Common, Proper, Concrete, Abstract, Collective",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "plural-nouns",
+   "name": "Singular, Plural and Irregular Plural Nouns",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1",
+    "L.{g}.2"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1",
+     "CCSS.ELA-LITERACY.L.4.2"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1",
+     "CCSS.ELA-LITERACY.L.5.2"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1",
+     "CCSS.ELA-LITERACY.L.6.2"
+    ]
+   }
+  },
+  {
+   "code": "possessive-nouns",
+   "name": "Possessive Nouns",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_MECHANICS",
+   "ccssStems": [
+    "L.{g}.2"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.2"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.2"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.2"
+    ]
+   }
+  },
+  {
+   "code": "verbs",
+   "name": "Action, Main, Helping and Linking Verbs",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "verb-tenses",
+   "name": "Verb Tenses (Simple, Progressive, Perfect)",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "irregular-verbs",
+   "name": "Irregular Verbs",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "subject-verb-agreement",
+   "name": "Subject-Verb Agreement",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "pronouns",
+   "name": "Pronouns and Antecedents",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "pronoun-homophones",
+   "name": "Pronouns, Contractions and Homophones",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_MECHANICS",
+   "ccssStems": [
+    "L.{g}.1.g"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1.g"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "adjectives",
+   "name": "Adjectives, Articles and Order of Adjectives",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "comparatives",
+   "name": "Comparing with Adjectives and Adverbs",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "adverbs",
+   "name": "Adverbs and Relative Adverbs",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "negatives",
+   "name": "Negatives and Double Negatives",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "prepositions",
+   "name": "Prepositions and Prepositional Phrases",
+   "domain": "GRAMMAR",
+   "category": "GRAMMAR",
+   "mapGoalArea": "LANG_GRAMMAR",
+   "ccssStems": [
+    "L.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.1"
+    ]
+   }
+  },
+  {
+   "code": "capitalization",
+   "name": "Capitalization",
+   "domain": "LANGUAGE",
+   "category": "MECHANICS",
+   "mapGoalArea": "LANG_MECHANICS",
+   "ccssStems": [
+    "L.{g}.2.a"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.2.a"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.2.a"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.2.a"
+    ]
+   }
+  },
+  {
+   "code": "commas",
+   "name": "Punctuation and Commas",
+   "domain": "LANGUAGE",
+   "category": "MECHANICS",
+   "mapGoalArea": "LANG_MECHANICS",
+   "ccssStems": [
+    "L.{g}.2"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.2"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.2"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.2"
+    ]
+   }
+  },
+  {
+   "code": "quotations-dialogue",
+   "name": "Quotation Marks and Dialogue",
+   "domain": "LANGUAGE",
+   "category": "MECHANICS",
+   "mapGoalArea": "LANG_MECHANICS",
+   "ccssStems": [
+    "L.{g}.2.b"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.2.b"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.2.b"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.2.b"
+    ]
+   }
+  },
+  {
+   "code": "titles-abbreviations",
+   "name": "Titles, Abbreviations and Letter Format",
+   "domain": "LANGUAGE",
+   "category": "MECHANICS",
+   "mapGoalArea": "LANG_MECHANICS",
+   "ccssStems": [
+    "L.{g}.2"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.2"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.2"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.2"
+    ]
+   }
+  },
+  {
+   "code": "apostrophes-contractions",
+   "name": "Apostrophes and Contractions",
+   "domain": "LANGUAGE",
+   "category": "MECHANICS",
+   "mapGoalArea": "LANG_MECHANICS",
+   "ccssStems": [
+    "L.{g}.2"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.2"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.2"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.2"
+    ]
+   }
+  },
+  {
+   "code": "spelling",
+   "name": "Spelling Patterns",
+   "domain": "WORD_STUDY",
+   "category": "PHONICS_WORD_STUDY",
+   "mapGoalArea": "LANG_MECHANICS",
+   "ccssStems": [
+    "L.{g}.2.e",
+    "RF.{g}.3"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.L.4.2.d",
+     "CCSS.ELA-LITERACY.RF.4.3.a"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.L.5.2.e",
+     "CCSS.ELA-LITERACY.RF.5.3.a"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.L.6.2.b"
+    ]
+   }
+  },
+  {
+   "code": "writing-argument",
+   "name": "Argumentative / Opinion Writing",
+   "domain": "WRITING",
+   "category": "WRITING",
+   "mapGoalArea": "WRITING_ORG",
+   "ccssStems": [
+    "W.{g}.1"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.W.4.1"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.W.5.1"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.W.6.1"
+    ]
+   }
+  },
+  {
+   "code": "writing-informative",
+   "name": "Informative / Expository Writing",
+   "domain": "WRITING",
+   "category": "WRITING",
+   "mapGoalArea": "WRITING_ORG",
+   "ccssStems": [
+    "W.{g}.2"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.W.4.2"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.W.5.2"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.W.6.2"
+    ]
+   }
+  },
+  {
+   "code": "writing-narrative",
+   "name": "Narrative Writing",
+   "domain": "WRITING",
+   "category": "WRITING",
+   "mapGoalArea": "WRITING_ORG",
+   "ccssStems": [
+    "W.{g}.3"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.W.4.3"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.W.5.3"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.W.6.3"
+    ]
+   }
+  },
+  {
+   "code": "writing-poetry",
+   "name": "Poetry Writing",
+   "domain": "WRITING",
+   "category": "WRITING",
+   "mapGoalArea": "WRITING_STYLE",
+   "ccssStems": [
+    "W.{g}.3"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.W.4.3"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.W.5.3"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.W.6.3"
+    ]
+   }
+  },
+  {
+   "code": "writing-research",
+   "name": "Research and Sources",
+   "domain": "WRITING",
+   "category": "WRITING",
+   "mapGoalArea": "WRITING_SUPPORT",
+   "ccssStems": [
+    "W.{g}.7",
+    "W.{g}.8"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.W.4.7",
+     "CCSS.ELA-LITERACY.W.4.8"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.W.5.7",
+     "CCSS.ELA-LITERACY.W.5.8"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.W.6.7",
+     "CCSS.ELA-LITERACY.W.6.8"
+    ]
+   }
+  },
+  {
+   "code": "precise-language",
+   "name": "Precise Language, Style and Tone",
+   "domain": "WRITING",
+   "category": "WRITING",
+   "mapGoalArea": "WRITING_STYLE",
+   "ccssStems": [
+    "W.{g}.2.d",
+    "L.{g}.3"
+   ],
+   "standardsByGrade": {
+    "4": [
+     "CCSS.ELA-LITERACY.W.4.2.d",
+     "CCSS.ELA-LITERACY.L.4.3"
+    ],
+    "5": [
+     "CCSS.ELA-LITERACY.W.5.2.d",
+     "CCSS.ELA-LITERACY.L.5.3"
+    ],
+    "6": [
+     "CCSS.ELA-LITERACY.W.6.2.d",
+     "CCSS.ELA-LITERACY.L.6.3"
+    ]
+   }
+  }
+ ],
+ "standards": [
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.1",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Demonstrate command of the conventions of standard English grammar and usage when writing or speaking."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.1.g",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Correctly use frequently confused words (e.g., to, too, two; there, their)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.2",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.2.a",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Use correct capitalization."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.2.b",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Use commas and quotation marks to mark direct speech and quotations from a text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.2.d",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Spell grade-appropriate words correctly, consulting references as needed."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.3",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Use knowledge of language and its conventions when writing, speaking, reading, or listening."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.4.a",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Use context (e.g., definitions, examples, or restatements in text) as a clue to the meaning of a word or phrase."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.4.b",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Use common, grade-appropriate Greek and Latin affixes and roots as clues to the meaning of a word (e.g., telegraph, photograph, autograph)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.4.c",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Consult reference materials (e.g., dictionaries, glossaries, thesauruses), both print and digital, to find the pronunciation and determine or clarify the precise meaning of key words and phrases."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.5",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Demonstrate understanding of figurative language, word relationships, and nuances in word meanings."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.5.a",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Explain the meaning of simple similes and metaphors (e.g., as pretty as a picture) in context."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.5.b",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Recognize and explain the meaning of common idioms, adages, and proverbs."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.5.c",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Demonstrate understanding of words by relating them to their opposites (antonyms) and to words with similar but not identical meanings (synonyms)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.4.6",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "L",
+   "description": "Acquire and use accurately grade-appropriate general academic and domain-specific words and phrases, including those that signal precise actions, emotions, or states of being (e.g., quizzed, whined, stammered) and that are basic to a particular topic (e.g., wildlife, conservation, and endangered when discussing animal preservation)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.1",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Demonstrate command of the conventions of standard English grammar and usage when writing or speaking."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.2",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.2.a",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Use punctuation to separate items in a series."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.2.b",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Use a comma to separate an introductory element from the rest of the sentence."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.2.e",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Spell grade-appropriate words correctly, consulting references as needed."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.3",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Use knowledge of language and its conventions when writing, speaking, reading, or listening."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.4.a",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Use context (e.g., cause/effect relationships and comparisons in text) as a clue to the meaning of a word or phrase."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.4.b",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Use common, grade-appropriate Greek and Latin affixes and roots as clues to the meaning of a word (e.g., photograph, photosynthesis)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.4.c",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Consult reference materials (e.g., dictionaries, glossaries, thesauruses), both print and digital, to find the pronunciation and determine or clarify the precise meaning of key words and phrases."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.5",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Demonstrate understanding of figurative language, word relationships, and nuances in word meanings."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.5.a",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Interpret figurative language, including similes and metaphors, in context."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.5.b",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Recognize and explain the meaning of common idioms, adages, and proverbs."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.5.c",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Use the relationship between particular words (e.g., synonyms, antonyms, homographs) to better understand each of the words."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.5.6",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "L",
+   "description": "Acquire and use accurately grade-appropriate general academic and domain-specific words and phrases, including those that signal contrast, addition, and other logical relationships (e.g., however, although, nevertheless, similarly, moreover, in addition)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.1",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Demonstrate command of the conventions of standard English grammar and usage when writing or speaking."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.2",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.2.a",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Use punctuation (commas, parentheses, dashes) to set off nonrestrictive/parenthetical 6-12 | English Language Arts | language elements."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.2.b",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Spell correctly."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.3",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Use knowledge of language and its conventions when writing, speaking, reading, or listening."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.4.a",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Use context (e.g., the overall meaning of a sentence or paragraph; a word’s position or function in a sentence) as a clue to the meaning of a word or phrase."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.4.b",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Use common, grade-appropriate Greek or Latin affixes and roots as clues to the meaning of a word (e.g., audience, auditory, audible)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.4.c",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Consult reference materials (e.g., dictionaries, glossaries, thesauruses), both print and digital, to find the pronunciation of a word or determine or clarify its precise meaning or its part of speech."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.5",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Demonstrate understanding of figurative language, word relationships, and nuances in word meanings."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.5.a",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Interpret figures of speech (e.g., personification) in context. 6-12 | English Language Arts | language"
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.5.b",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Use the relationship between particular words (e.g., cause/effect, part/whole, item/category) to better understand each of the words."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.5.c",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Distinguish among the connotations (associations) of words with similar denotations (definitions) (e.g., stingy, scrimping, economical, unwasteful, thrifty)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.L.6.6",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "L",
+   "description": "Acquire and use accurately grade-appropriate general academic and domain-specific words and phrases; gather vocabulary knowledge when considering a word or phrase important to comprehension or expression."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RF",
+   "description": "Use combined knowledge of all letter-sound correspondences, syllabication patterns, and morphology (e.g., roots and affixes) to read accurately unfamiliar multisyllabic words in context and out of context."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RF",
+   "description": "Use combined knowledge of all letter-sound correspondences, syllabication patterns, and morphology (e.g., roots and affixes) to read accurately unfamiliar multisyllabic words in context and out of context."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.4.1",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RI",
+   "description": "Refer to details and examples in a text when explaining what the text says explicitly and when drawing inferences from the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.4.2",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RI",
+   "description": "Determine the main idea of a text and explain how it is supported by key details; summarize the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.4.3",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RI",
+   "description": "Explain events, procedures, ideas, or concepts in a historical, scientific, or technical text, including what happened and why, based on specific information in the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.4.4",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RI",
+   "description": "Determine the meaning of general academic and domain-specific words or phrases in a text relevant to a grade 4 topic or subject area."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.4.5",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RI",
+   "description": "Describe the overall structure (e.g., chronology, comparison, cause/effect, problem/solution) of events, ideas, concepts, or information in a text or part of a text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.4.6",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RI",
+   "description": "Compare and contrast a firsthand and secondhand account of the same event or topic; describe the differences in focus and the information provided."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.4.7",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RI",
+   "description": "Interpret information presented visually, orally, or quantitatively (e.g., in charts, graphs, diagrams, time lines, animations, or interactive elements on Web pages) and explain how the information contributes to an understanding of the text in which it appears."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.4.8",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RI",
+   "description": "Explain how an author uses reasons and evidence to support particular points in a text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.4.9",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RI",
+   "description": "Integrate information from two texts on the same topic in order to write or speak about the subject knowledgeably."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.5.1",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RI",
+   "description": "Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.5.2",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RI",
+   "description": "Determine two or more main ideas of a text and explain how they are supported by key details; summarize the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.5.3",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RI",
+   "description": "Explain the relationships or interactions between two or more individuals, events, ideas, or concepts in a historical, scientific, or technical text based on specific information in the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.5.4",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RI",
+   "description": "Determine the meaning of general academic and domain-specific words and phrases in a text relevant to a grade 5 topic or subject area."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.5.5",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RI",
+   "description": "Compare and contrast the overall structure (e.g., chronology, comparison, cause/effect, problem/solution) of events, ideas, concepts, or information in two or more texts."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.5.6",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RI",
+   "description": "Analyze multiple accounts of the same event or topic, noting important similarities and differences in the point of view they represent."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.5.7",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RI",
+   "description": "Draw on information from multiple print or digital sources, demonstrating the ability to locate an answer to a question quickly or to solve a problem efficiently."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.5.8",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RI",
+   "description": "Explain how an author uses reasons and evidence to support particular points in a text, identifying which reasons and evidence support which point(s)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.5.9",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RI",
+   "description": "Integrate information from several texts on the same topic in order to write or speak about the subject knowledgeably."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.6.1",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RI",
+   "description": "Cite textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.6.2",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RI",
+   "description": "Determine a central idea of a text and how it is conveyed through particular details; provide a summary of the text distinct from personal opinions or judgments."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.6.3",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RI",
+   "description": "Analyze in detail how a key individual, event, or idea is introduced, illustrated, and elaborated in a text (e.g., through examples or anecdotes)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.6.4",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RI",
+   "description": "Determine the meaning of words and phrases as they are used in a text, including figurative, connotative, and technical meanings. 6-12 | English Language Arts | Reading: informational text"
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.6.5",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RI",
+   "description": "Analyze how a particular sentence, paragraph, chapter, or section fits into the overall structure of a text and contributes to the development of the ideas."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.6.6",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RI",
+   "description": "Determine an author’s point of view or purpose in a text and explain how it is conveyed in the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.6.7",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RI",
+   "description": "Integrate information presented in different media or formats (e.g., visually, quantitatively) as well as in words to develop a coherent understanding of a topic or issue."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.6.8",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RI",
+   "description": "Trace and evaluate the argument and specific claims in a text, distinguishing claims that are supported by reasons and evidence from claims that are not."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RI.6.9",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RI",
+   "description": "Compare and contrast one author’s presentation of events with that of another (e.g., a memoir written by and a biography on the same person)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.4.1",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RL",
+   "description": "Refer to details and examples in a text when explaining what the text says explicitly and when drawing inferences from the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.4.2",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RL",
+   "description": "Determine a theme of a story, drama, or poem from details in the text; summarize the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.4.3",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RL",
+   "description": "Describe in depth a character, setting, or event in a story or drama, drawing on specific details in the text (e.g., a character’s thoughts, words, or actions)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.4.4",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RL",
+   "description": "Determine the meaning of words and phrases as they are used in a text, including those that allude to significant characters found in mythology (e.g., Herculean)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.4.5",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RL",
+   "description": "Explain major differences between poems, drama, and prose, and refer to the structural elements of poems (e.g., verse, rhythm, meter) and drama (e.g., casts of characters, settings, descriptions, dialogue, stage directions) when writing or speaking about a text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.4.6",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RL",
+   "description": "Compare and contrast the point of view from which different stories are narrated, including the difference between firstand third-person narrations."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.4.7",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RL",
+   "description": "Make connections between the text of a story or drama and a visual or oral presentation of the text, identifying where each version reflects specific descriptions and directions in the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.4.9",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "RL",
+   "description": "Compare and contrast the treatment of similar themes and topics (e.g., opposition of good and evil) and patterns of events (e.g., the quest) in stories, myths, and traditional literature from different cultures."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.5.1",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RL",
+   "description": "Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.5.2",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RL",
+   "description": "Determine a theme of a story, drama, or poem from details in the text, including how characters in a story or drama respond to challenges or how the speaker in a poem reflects upon a topic; summarize the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.5.3",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RL",
+   "description": "Compare and contrast two or more characters, settings, or events in a story or drama, drawing on specific details in the text (e.g., how characters interact)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.5.4",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RL",
+   "description": "Determine the meaning of words and phrases as they are used in a text, including figurative language such as metaphors and similes."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.5.5",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RL",
+   "description": "Explain how a series of chapters, scenes, or stanzas fits together to provide the overall structure of a particular story, drama, or poem."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.5.6",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RL",
+   "description": "Describe how a narrator’s or speaker’s point of view influences how events are described."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.5.7",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RL",
+   "description": "Analyze how visual and multimedia elements contribute to the meaning, tone, or beauty of a text (e.g., graphic novel, multimedia presentation of fiction, folktale, myth, poem)."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.5.9",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "RL",
+   "description": "Compare and contrast stories in the same genre (e.g., mysteries and adventure stories) on their approaches to similar themes and topics."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.6.1",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RL",
+   "description": "Cite textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.6.2",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RL",
+   "description": "Determine a theme or central idea of a text and how it is conveyed through particular details; provide a summary of the text distinct from personal opinions or judgments."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.6.3",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RL",
+   "description": "Describe how a particular story’s or drama’s plot unfolds in a series of episodes as well as how the characters respond or change as the plot moves toward a resolution."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.6.4",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RL",
+   "description": "Determine the meaning of words and phrases as they are used in a text, including figurative and connotative meanings; analyze the impact of a specific word choice on meaning and tone. 6-12 | English Language Arts | Reading: literature"
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.6.5",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RL",
+   "description": "Analyze how a particular sentence, chapter, scene, or stanza fits into the overall structure of a text and contributes to the development of the theme, setting, or plot."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.6.6",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RL",
+   "description": "Explain how an author develops the point of view of the narrator or speaker in a text."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.6.7",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RL",
+   "description": "Compare and contrast the experience of reading a story, drama, or poem to listening to or viewing an audio, video, or live version of the text, including contrasting what they “see” and “hear” when reading the text to what they perceive when they listen or watch."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.RL.6.9",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "RL",
+   "description": "Compare and contrast texts in different forms or genres (e.g., stories and poems; historical novels and fantasy stories) in terms of their approaches to similar themes and topics. R"
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.4.1",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "W",
+   "description": "Write opinion pieces on topics or texts, supporting a point of view with reasons and information."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.4.2",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "W",
+   "description": "Write informative/explanatory texts to examine a topic and convey ideas and information clearly."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.4.2.d",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "W",
+   "description": "Use precise language and domain-specific vocabulary to inform about or explain the topic."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.4.3",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "W",
+   "description": "Write narratives to develop real or imagined experiences or events using effective technique, descriptive details, and clear event sequences."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.4.7",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "W",
+   "description": "Conduct short research projects that build knowledge through investigation of different aspects of a topic."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.4.8",
+   "framework": "CCSS_ELA",
+   "grade": 4,
+   "strand": "W",
+   "description": "Recall relevant information from experiences or gather relevant information from print and digital sources; take notes and categorize information, and provide a list of sources."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.5.1",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "W",
+   "description": "Write opinion pieces on topics or texts, supporting a point of view with reasons and information."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.5.2",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "W",
+   "description": "Write informative/explanatory texts to examine a topic and convey ideas and information clearly."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.5.2.d",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "W",
+   "description": "Use precise language and domain-specific vocabulary to inform about or explain the topic."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.5.3",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "W",
+   "description": "Write narratives to develop real or imagined experiences or events using effective technique, descriptive details, and clear event sequences."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.5.7",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "W",
+   "description": "Conduct short research projects that use several sources to build knowledge through investigation of different aspects of a topic."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.5.8",
+   "framework": "CCSS_ELA",
+   "grade": 5,
+   "strand": "W",
+   "description": "Recall relevant information from experiences or gather relevant information from print and digital sources; summarize or paraphrase information in notes and finished work, and provide a list of sources."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.6.1",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "W",
+   "description": "Write arguments to support claims with clear reasons and relevant evidence."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.6.2",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "W",
+   "description": "Write informative/explanatory texts to examine a topic and convey ideas, concepts, and information through the selection, organization, and analysis of relevant content. 6-12 | English Language Arts | writing"
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.6.2.d",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "W",
+   "description": "Use precise language and domain-specific vocabulary to inform about or explain the topic."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.6.3",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "W",
+   "description": "Write narratives to develop real or imagined experiences or events using effective technique, relevant descriptive details, and well-structured event sequences."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.6.7",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "W",
+   "description": "Conduct short research projects to answer a question, drawing on several sources and refocusing the inquiry when appropriate."
+  },
+  {
+   "code": "CCSS.ELA-LITERACY.W.6.8",
+   "framework": "CCSS_ELA",
+   "grade": 6,
+   "strand": "W",
+   "description": "Gather relevant information from multiple print and digital sources; assess the credibility of each source; and quote or paraphrase the data and conclusions of others while avoiding plagiarism and providing basic bibliographic information for sources."
+  }
+ ],
+ "mapGoalAreas": [
+  {
+   "code": "LIT_STRUCTURE",
+   "name": "Literary Text: Analyze Structure, Point of View, and Multimedia Elements",
+   "subject": "READING"
+  },
+  {
+   "code": "LIT_THEME",
+   "name": "Literary Text: Analyze Theme and Literary Elements; Summarize",
+   "subject": "READING"
+  },
+  {
+   "code": "INFO_STRUCTURE",
+   "name": "Informational Text: Analyze Point of View, Purpose, Features, and Structure",
+   "subject": "READING"
+  },
+  {
+   "code": "INFO_CENTRAL_IDEA",
+   "name": "Informational Text: Analyze Central Idea, Concepts, and Events; Summarize",
+   "subject": "READING"
+  },
+  {
+   "code": "VOCAB",
+   "name": "Vocabulary: Acquisition and Use",
+   "subject": "READING"
+  },
+  {
+   "code": "WRITING_STYLE",
+   "name": "Writing: Establish and Maintain Style; Use Precise Language",
+   "subject": "LANGUAGE_USAGE"
+  },
+  {
+   "code": "WRITING_ORG",
+   "name": "Writing: Plan, Organize; Create Cohesion, Use Transitions",
+   "subject": "LANGUAGE_USAGE"
+  },
+  {
+   "code": "WRITING_SUPPORT",
+   "name": "Writing: Provide Support; Develop Topics; Conduct Research",
+   "subject": "LANGUAGE_USAGE"
+  },
+  {
+   "code": "LANG_GRAMMAR",
+   "name": "Language: Understand, Edit for Grammar, Usage",
+   "subject": "LANGUAGE_USAGE"
+  },
+  {
+   "code": "LANG_MECHANICS",
+   "name": "Language: Understand, Edit for Mechanics",
+   "subject": "LANGUAGE_USAGE"
+  }
+ ],
+ "prerequisites": [
+  {
+   "skill": "subjects-predicates",
+   "prerequisite": "nouns",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "subjects-predicates",
+   "prerequisite": "verbs",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "sentences",
+   "prerequisite": "subjects-predicates",
+   "weight": 0.7,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "fragments-run-ons",
+   "prerequisite": "sentences",
+   "weight": 0.8,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "compound-sentences",
+   "prerequisite": "sentences",
+   "weight": 0.8,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "clauses-complex",
+   "prerequisite": "compound-sentences",
+   "weight": 0.8,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "combining-sentences",
+   "prerequisite": "compound-sentences",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "combining-sentences",
+   "prerequisite": "clauses-complex",
+   "weight": 0.5,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "plural-nouns",
+   "prerequisite": "nouns",
+   "weight": 0.7,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "possessive-nouns",
+   "prerequisite": "plural-nouns",
+   "weight": 0.8,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "verb-tenses",
+   "prerequisite": "verbs",
+   "weight": 0.8,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "irregular-verbs",
+   "prerequisite": "verb-tenses",
+   "weight": 0.7,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "subject-verb-agreement",
+   "prerequisite": "subjects-predicates",
+   "weight": 0.7,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "subject-verb-agreement",
+   "prerequisite": "verb-tenses",
+   "weight": 0.5,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "pronouns",
+   "prerequisite": "nouns",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "pronoun-homophones",
+   "prerequisite": "pronouns",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "comparatives",
+   "prerequisite": "adjectives",
+   "weight": 0.8,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "comparatives",
+   "prerequisite": "adverbs",
+   "weight": 0.5,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "commas",
+   "prerequisite": "compound-sentences",
+   "weight": 0.5,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "quotations-dialogue",
+   "prerequisite": "capitalization",
+   "weight": 0.4,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "inference",
+   "prerequisite": "text-evidence",
+   "weight": 0.8,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "theme",
+   "prerequisite": "summarize",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "theme",
+   "prerequisite": "inference",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "central-idea",
+   "prerequisite": "summarize",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "author-claim",
+   "prerequisite": "central-idea",
+   "weight": 0.7,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "author-perspective",
+   "prerequisite": "author-purpose",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "character-perspective",
+   "prerequisite": "point-of-view",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "plot-conflict",
+   "prerequisite": "plot-events",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "plot-flashback",
+   "prerequisite": "plot-events",
+   "weight": 0.7,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "plot-foreshadowing",
+   "prerequisite": "make-predictions",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "compare-texts",
+   "prerequisite": "central-idea",
+   "weight": 0.5,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "multiple-meaning",
+   "prerequisite": "context-clues",
+   "weight": 0.8,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "homographs-homophones",
+   "prerequisite": "context-clues",
+   "weight": 0.5,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "greek-latin-roots",
+   "prerequisite": "prefixes",
+   "weight": 0.5,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "greek-latin-roots",
+   "prerequisite": "suffixes",
+   "weight": 0.5,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "idioms-adages",
+   "prerequisite": "context-clues",
+   "weight": 0.6,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "figurative-language",
+   "prerequisite": "context-clues",
+   "weight": 0.5,
+   "minimumMastery": 60
+  },
+  {
+   "skill": "connotation",
+   "prerequisite": "synonyms-antonyms",
+   "weight": 0.6,
+   "minimumMastery": 60
+  }
+ ]
+}

@@ -1,0 +1,119 @@
+# Production stack (Phase 13). Usage:
+#   cp .env.production.example .env.production   # fill in every value
+#   docker compose -f docker-compose.prod.yml --env-file .env.production up -d --build
+# Services: caddy (HTTPS) → web (Next.js) ; mysql (not reachable from outside) ;
+# migrate (one-off, before web starts) ; jobs (scheduled work) ; backup (nightly, encrypted).
+x-app-env: &app-env
+  NODE_ENV: production
+  APP_URL: https://${APP_DOMAIN:?set APP_DOMAIN}
+  APP_SECRET: ${APP_SECRET:?set APP_SECRET}
+  DATABASE_URL: mysql://ela_app:${MYSQL_APP_PASSWORD:?set MYSQL_APP_PASSWORD}@mysql:3306/alanjal_ela
+  SESSION_TTL_MINUTES: ${SESSION_TTL_MINUTES:-720}
+  SESSION_IDLE_MINUTES: ${SESSION_IDLE_MINUTES:-60}
+  REPORT_PDF_CONCURRENCY: ${REPORT_PDF_CONCURRENCY:-2}
+  # Chromium renders only our own escaped HTML with JavaScript and network disabled;
+  # the container sandbox is not available to a non-root user without extra kernel privileges.
+  REPORT_CHROMIUM_NO_SANDBOX: "true"
+  LOG_LEVEL: ${LOG_LEVEL:-info}
+  TZ: Asia/Riyadh
+
+x-hardening: &hardening
+  restart: unless-stopped
+  security_opt: ["no-new-privileges:true"]
+  logging:
+    driver: json-file
+    options: { max-size: "20m", max-file: "5" }
+
+services:
+  caddy:
+    <<: *hardening
+    image: caddy:2.8
+    ports: ["80:80", "443:443"]
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN:?set APP_DOMAIN}
+    volumes:
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      web: { condition: service_healthy }
+
+  web:
+    <<: *hardening
+    build: { context: ., target: web }
+    image: alanjal-ela-web:${APP_VERSION:-latest}
+    environment: *app-env
+    volumes: ["app-storage:/app/storage"]
+    shm_size: "256m"
+    cap_drop: ["ALL"]
+    depends_on:
+      mysql: { condition: service_healthy }
+      migrate: { condition: service_completed_successfully }
+
+  migrate:
+    build: { context: ., target: jobs }
+    image: alanjal-ela-jobs:${APP_VERSION:-latest}
+    restart: "no"
+    security_opt: ["no-new-privileges:true"]
+    environment:
+      DATABASE_URL: mysql://ela_migrate:${MYSQL_MIGRATE_PASSWORD:?set MYSQL_MIGRATE_PASSWORD}@mysql:3306/alanjal_ela
+    command: ["npx", "prisma", "migrate", "deploy"]
+    depends_on:
+      mysql: { condition: service_healthy }
+
+  jobs:
+    <<: *hardening
+    image: alanjal-ela-jobs:${APP_VERSION:-latest}
+    environment:
+      <<: *app-env
+      ALERT_WEBHOOK_URL: ${ALERT_WEBHOOK_URL:-}
+      HEARTBEAT_URL_ROLLUPS: ${HEARTBEAT_URL_ROLLUPS:-}
+      HEARTBEAT_URL_SECURITY_DIGEST: ${HEARTBEAT_URL_SECURITY_DIGEST:-}
+      HEARTBEAT_URL_ITEM_ANALYSIS: ${HEARTBEAT_URL_ITEM_ANALYSIS:-}
+    cap_drop: ["ALL"]
+    depends_on:
+      mysql: { condition: service_healthy }
+      migrate: { condition: service_completed_successfully }
+
+  mysql:
+    <<: *hardening
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD}
+      MYSQL_MIGRATE_PASSWORD: ${MYSQL_MIGRATE_PASSWORD:?set MYSQL_MIGRATE_PASSWORD}
+      MYSQL_APP_PASSWORD: ${MYSQL_APP_PASSWORD:?set MYSQL_APP_PASSWORD}
+      MYSQL_BACKUP_PASSWORD: ${MYSQL_BACKUP_PASSWORD:?set MYSQL_BACKUP_PASSWORD}
+      TZ: Asia/Riyadh
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_0900_ai_ci", "--sql-mode=STRICT_ALL_TABLES", "--default-time-zone=+00:00"]
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/mysql/01-accounts.sh:/docker-entrypoint-initdb.d/01-accounts.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+    # no "ports": the database is reachable only from the other services
+
+  backup:
+    <<: *hardening
+    build: { context: ./docker/backup }
+    image: alanjal-ela-backup:${APP_VERSION:-latest}
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_BACKUP_PASSWORD: ${MYSQL_BACKUP_PASSWORD:?set MYSQL_BACKUP_PASSWORD}
+      BACKUP_TIME: ${BACKUP_TIME:-01:30}
+      BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-30}
+      BACKUP_HEARTBEAT_URL: ${BACKUP_HEARTBEAT_URL:-}
+    volumes:
+      - ${BACKUP_DIR:-./backups}:/backups
+      - ./docker/backup/backup-public.asc:/keys/backup-public.asc:ro
+      - app-storage:/storage:ro
+    depends_on:
+      mysql: { condition: service_healthy }
+
+volumes:
+  mysql-data:
+  app-storage:
+  caddy-data:
+  caddy-config:

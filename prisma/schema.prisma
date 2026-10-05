@@ -1,0 +1,1208 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String         @id @default(cuid())
+  email              String?        @unique
+  username           String         @unique
+  passwordHash       String?
+  displayName        String
+  role               Role
+  schoolId           String?
+  isActive           Boolean        @default(true)
+  sessionVersion     Int            @default(0)
+  mustChangePassword Boolean        @default(false)
+  passwordChangedAt  DateTime?
+  lastLoginAt        DateTime?
+  failedLogins       Int            @default(0)
+  lockedUntil        DateTime?
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+  deletedAt          DateTime?
+  auditLogs          AuditLog[]
+  importJobs         ImportJob[]
+  notifications      Notification[]
+  parent             Parent?
+  sessions           Session[]
+  student            Student?
+  teacher            Teacher?
+  school             School?        @relation(fields: [schoolId], references: [id])
+
+  @@index([schoolId, role])
+}
+
+/// Server-side session. The cookie holds a random token; only its SHA-256 is stored,
+/// so a database leak cannot be replayed as live sessions.
+model Session {
+  id         String   @id
+  userId     String
+  version    Int
+  expiresAt  DateTime
+  lastSeenAt DateTime @default(now())
+  createdAt  DateTime @default(now())
+  ip         String?
+  userAgent  String?  @db.VarChar(255)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+/// Fine-grained permission grants on top of the role (e.g. a teacher allowed to edit the question bank).
+model RolePermission {
+  id         String @id @default(cuid())
+  role       Role
+  permission String
+
+  @@unique([role, permission])
+}
+
+model School {
+  id            String          @id @default(cuid())
+  name          String
+  code          String          @unique
+  logoUrl       String?
+  timezone      String          @default("Asia/Riyadh")
+  isDemo        Boolean         @default(false)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  deletedAt     DateTime?
+  academicYears AcademicYear[]
+  classes       Class[]
+  grades        Grade[]
+  settings      SchoolSetting[]
+  students      Student[]
+  teachers      Teacher[]
+  users         User[]
+}
+
+/// Configurable engine settings (mastery thresholds, adaptive parameters) per school, JSON-validated in code.
+model SchoolSetting {
+  id        String   @id @default(cuid())
+  schoolId  String
+  key       String
+  value     Json
+  updatedBy String?
+  updatedAt DateTime @updatedAt
+  school    School   @relation(fields: [schoolId], references: [id])
+
+  @@unique([schoolId, key])
+}
+
+model AcademicYear {
+  id        String   @id @default(cuid())
+  schoolId  String
+  name      String
+  startDate DateTime
+  endDate   DateTime
+  isCurrent Boolean  @default(false)
+  school    School   @relation(fields: [schoolId], references: [id])
+  classes   Class[]
+  terms     Term[]
+
+  @@unique([schoolId, name])
+}
+
+model Term {
+  id             String       @id @default(cuid())
+  academicYearId String
+  name           String
+  startDate      DateTime
+  endDate        DateTime
+  academicYear   AcademicYear @relation(fields: [academicYearId], references: [id])
+
+  @@unique([academicYearId, name])
+}
+
+/// Grade level. `level` is numeric (1-12) so new grades are rows, not code changes.
+model Grade {
+  id        String       @id @default(cuid())
+  schoolId  String
+  level     Int
+  name      String
+  classes   Class[]
+  curricula Curriculum[]
+  school    School       @relation(fields: [schoolId], references: [id])
+  students  Student[]
+
+  @@unique([schoolId, level])
+}
+
+model Class {
+  id             String            @id @default(cuid())
+  schoolId       String
+  gradeId        String
+  academicYearId String
+  name           String
+  createdAt      DateTime          @default(now())
+  deletedAt      DateTime?
+  assignments    Assignment[]
+  academicYear   AcademicYear      @relation(fields: [academicYearId], references: [id])
+  grade          Grade             @relation(fields: [gradeId], references: [id])
+  school         School            @relation(fields: [schoolId], references: [id])
+  memberships    ClassMembership[]
+  skillDaily     ClassSkillDaily[]
+  teachers       ClassTeacher[]
+
+  @@unique([academicYearId, name])
+  @@index([gradeId])
+  @@index([schoolId], map: "Class_schoolId_fkey")
+}
+
+model Teacher {
+  id                 String         @id @default(cuid())
+  userId             String         @unique
+  schoolId           String
+  title              String?
+  assignmentsCreated Assignment[]
+  classes            ClassTeacher[]
+  school             School         @relation(fields: [schoolId], references: [id])
+  user               User           @relation(fields: [userId], references: [id])
+
+  @@index([schoolId], map: "Teacher_schoolId_fkey")
+}
+
+model ClassTeacher {
+  classId   String
+  teacherId String
+  isLead    Boolean @default(true)
+  class     Class   @relation(fields: [classId], references: [id])
+  teacher   Teacher @relation(fields: [teacherId], references: [id])
+
+  @@id([classId, teacherId])
+  @@index([teacherId])
+}
+
+model Student {
+  id                 String                     @id @default(cuid())
+  userId             String                     @unique
+  schoolId           String
+  gradeId            String
+  studentNumber      String
+  createdAt          DateTime                   @default(now())
+  deletedAt          DateTime?
+  abilitySnapshots   AbilitySnapshot[]
+  adaptiveLogs       AdaptiveDecisionLog[]
+  assignments        AssignmentStudent[]
+  memberships        ClassMembership[]
+  diagnostics        DiagnosticResult[]
+  externalResults    ExternalAssessmentResult[]
+  interventionAlerts InterventionAlert[]
+  mapResults         MapResult[]
+  parents            ParentStudent[]
+  sessions           PracticeSession[]
+  attempts           QuestionAttempt[]
+  recommendations    Recommendation[]
+  grade              Grade                      @relation(fields: [gradeId], references: [id])
+  school             School                     @relation(fields: [schoolId], references: [id])
+  user               User                       @relation(fields: [userId], references: [id])
+  abilities          StudentAbility[]
+  badges             StudentBadge[]
+  dailyActivity      StudentDailyActivity[]
+  readingRange       StudentReadingRange[]
+  mastery            StudentSkillMastery[]
+  xpEvents           XpEvent[]
+
+  @@unique([schoolId, studentNumber])
+  @@index([gradeId])
+}
+
+model ClassMembership {
+  classId   String
+  studentId String
+  joinedAt  DateTime  @default(now())
+  leftAt    DateTime?
+  class     Class     @relation(fields: [classId], references: [id])
+  student   Student   @relation(fields: [studentId], references: [id])
+
+  @@id([classId, studentId])
+  @@index([studentId])
+}
+
+model Parent {
+  id       String          @id @default(cuid())
+  userId   String          @unique
+  user     User            @relation(fields: [userId], references: [id])
+  children ParentStudent[]
+}
+
+model ParentStudent {
+  parentId     String
+  studentId    String
+  relationship String?
+  parent       Parent  @relation(fields: [parentId], references: [id])
+  student      Student @relation(fields: [studentId], references: [id])
+
+  @@id([parentId, studentId])
+  @@index([studentId])
+}
+
+/// Publisher programme (Wonders, StudySync). Edition stored explicitly (uploaded books are 2023).
+model Book {
+  id        String       @id @default(cuid())
+  code      String       @unique
+  title     String
+  publisher String?
+  edition   String?
+  curricula Curriculum[]
+}
+
+/// A grade's instance of a book at a school: Grade 4 + Wonders. Mastery is tracked per curriculum skill.
+model Curriculum {
+  id        String    @id @default(cuid())
+  gradeId   String
+  bookId    String
+  name      String
+  isActive  Boolean   @default(true)
+  deletedAt DateTime?
+  book      Book      @relation(fields: [bookId], references: [id])
+  grade     Grade     @relation(fields: [gradeId], references: [id])
+  skills    Skill[]
+  units     Unit[]
+
+  @@unique([gradeId, bookId])
+  @@index([bookId], map: "Curriculum_bookId_fkey")
+}
+
+model Unit {
+  id           String       @id @default(cuid())
+  curriculumId String
+  number       Int
+  title        String
+  description  String?      @db.Text
+  deletedAt    DateTime?
+  assessments  Assessment[]
+  assignments  Assignment[]
+  lessons      Lesson[]
+  curriculum   Curriculum   @relation(fields: [curriculumId], references: [id])
+  unitSkills   UnitSkill[]
+
+  @@unique([curriculumId, number])
+}
+
+/// Wonders: a Text Set (weeks 1-2, 3-4, 5). StudySync: a selection / lesson.
+model Lesson {
+  id           String        @id @default(cuid())
+  unitId       String
+  number       Int
+  code         String
+  title        String
+  genre        String?
+  weeks        Json?
+  texts        Json?
+  metadata     Json?
+  deletedAt    DateTime?
+  unit         Unit          @relation(fields: [unitId], references: [id])
+  lessonSkills LessonSkill[]
+  questions    Question[]
+
+  @@unique([unitId, number])
+  @@unique([unitId, code])
+}
+
+/// Cross-grade skill concept: the node of the learning continuum ("Theme", "Context Clues").
+model SkillFamily {
+  id            String        @id @default(cuid())
+  code          String        @unique
+  name          String
+  domain        Domain
+  category      SkillCategory
+  mapGoalAreaId String?
+  skills        Skill[]
+  mapGoalArea   MapGoalArea?  @relation(fields: [mapGoalAreaId], references: [id])
+
+  @@index([mapGoalAreaId], map: "SkillFamily_mapGoalAreaId_fkey")
+}
+
+/// Grade-specific skill inside a curriculum. Mastery and theta are tracked at this level.
+model Skill {
+  id            String                @id @default(cuid())
+  curriculumId  String
+  familyId      String
+  code          String
+  name          String
+  description   String?               @db.Text
+  domain        Domain
+  category      SkillCategory
+  sequence      Int                   @default(0)
+  isActive      Boolean               @default(true)
+  deletedAt     DateTime?
+  classDaily    ClassSkillDaily[]
+  externalRefs  ExternalSkillRef[]
+  lessonSkills  LessonSkill[]
+  questions     Question[]
+  attempts      QuestionAttempt[]
+  curriculum    Curriculum            @relation(fields: [curriculumId], references: [id])
+  family        SkillFamily           @relation(fields: [familyId], references: [id])
+  dependents    SkillPrerequisite[]   @relation("PrereqOfSkill")
+  prerequisites SkillPrerequisite[]   @relation("SkillHasPrereq")
+  standards     SkillStandard[]
+  abilities     StudentAbility[]
+  mastery       StudentSkillMastery[]
+  subskills     Subskill[]
+  unitSkills    UnitSkill[]
+
+  @@unique([curriculumId, code])
+  @@index([familyId])
+  @@index([domain])
+}
+
+model Subskill {
+  id        String     @id @default(cuid())
+  skillId   String
+  code      String
+  name      String
+  content   Json?
+  deletedAt DateTime?
+  questions Question[]
+  skill     Skill      @relation(fields: [skillId], references: [id])
+
+  @@unique([skillId, code])
+}
+
+/// Where a skill is taught (one skill can appear in several lessons/units).
+model LessonSkill {
+  lessonId   String
+  skillId    String
+  subskillId String?
+  role       SkillRole
+  label      String
+  lesson     Lesson    @relation(fields: [lessonId], references: [id])
+  skill      Skill     @relation(fields: [skillId], references: [id])
+
+  @@id([lessonId, skillId, label])
+  @@index([skillId])
+}
+
+/// Unit-level skill pool (used directly for StudySync, derived from lessons for Wonders).
+model UnitSkill {
+  unitId  String
+  skillId String
+  order   Int    @default(0)
+  skill   Skill  @relation(fields: [skillId], references: [id])
+  unit    Unit   @relation(fields: [unitId], references: [id])
+
+  @@id([unitId, skillId])
+  @@index([skillId])
+}
+
+model Standard {
+  id          String            @id @default(cuid())
+  framework   StandardFramework
+  code        String
+  description String?           @db.Text
+  gradeLevel  Int?
+  strand      String?
+  questions   Question[]
+  skills      SkillStandard[]
+
+  @@unique([framework, code])
+}
+
+/// Many-to-many: one skill -> CCSS + curriculum map + MAP continuum + school objective.
+model SkillStandard {
+  skillId    String
+  standardId String
+  isPrimary  Boolean  @default(false)
+  skill      Skill    @relation(fields: [skillId], references: [id])
+  standard   Standard @relation(fields: [standardId], references: [id])
+
+  @@id([skillId, standardId])
+  @@index([standardId])
+}
+
+/// MAP-style goal areas (names only, matching the school's MAP skills documents).
+model MapGoalArea {
+  id         String        @id @default(cuid())
+  code       String        @unique
+  name       String
+  subject    String
+  mapResults MapResult[]
+  families   SkillFamily[]
+}
+
+model SkillPrerequisite {
+  skillId             String
+  prerequisiteSkillId String
+  weight              Float  @default(0.5)
+  minimumMastery      Int    @default(60)
+  prerequisite        Skill  @relation("PrereqOfSkill", fields: [prerequisiteSkillId], references: [id])
+  skill               Skill  @relation("SkillHasPrereq", fields: [skillId], references: [id])
+
+  @@id([skillId, prerequisiteSkillId])
+  @@index([prerequisiteSkillId])
+}
+
+model ReadingPassage {
+  id                   String                   @id @default(cuid())
+  externalRef          String?                  @unique
+  title                String
+  body                 String                   @db.MediumText
+  genre                String?
+  gradeBand            String?
+  wordCount            Int
+  sentenceCount        Int
+  avgSentenceLength    Float
+  avgWordLength        Float
+  gradeLevel           Int?
+  platformReadingLevel Int?
+  estimatedDifficulty  Float?
+  status               ContentStatus            @default(DRAFT)
+  origin               ContentOrigin            @default(TEACHER_AUTHORED)
+  createdById          String?
+  createdAt            DateTime                 @default(now())
+  updatedAt            DateTime                 @updatedAt
+  deletedAt            DateTime?
+  officialMeasures     OfficialReadingMeasure[]
+  questions            Question[]
+
+  @@index([platformReadingLevel])
+}
+
+/// Externally licensed reading measures (e.g. an official Lexile) — stored separately from PRL.
+model OfficialReadingMeasure {
+  id         String         @id @default(cuid())
+  passageId  String
+  provider   String
+  value      String
+  sourceRef  String?
+  importedAt DateTime       @default(now())
+  passage    ReadingPassage @relation(fields: [passageId], references: [id])
+
+  @@index([passageId], map: "OfficialReadingMeasure_passageId_fkey")
+}
+
+/// Question types are data, not an enum, so new formats are added without a migration.
+model QuestionType {
+  id           String     @id @default(cuid())
+  code         String     @unique
+  name         String
+  isAutoScored Boolean    @default(true)
+  schema       Json?
+  questions    Question[]
+}
+
+model Question {
+  id                  String                @id @default(cuid())
+  externalRef         String?
+  skillId             String
+  subskillId          String?
+  lessonId            String?
+  passageId           String?
+  standardId          String?
+  typeId              String
+  stem                String                @db.Text
+  content             Json
+  hint                String?               @db.Text
+  difficultyLevel     Int
+  irtA                Float                 @default(1)
+  irtB                Float
+  irtC                Float                 @default(0)
+  calibrated          Boolean               @default(false)
+  estimatedSeconds    Int                   @default(45)
+  tags                Json?
+  status              ContentStatus         @default(DRAFT)
+  origin              ContentOrigin         @default(TEACHER_AUTHORED)
+  aiStatus            AiReviewStatus?
+  version             Int                   @default(1)
+  createdById         String?
+  reviewedById        String?
+  publishedAt         DateTime?
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+  deletedAt           DateTime?
+  assessmentQuestions AssessmentQuestion[]
+  lesson              Lesson?               @relation(fields: [lessonId], references: [id])
+  passage             ReadingPassage?       @relation(fields: [passageId], references: [id])
+  skill               Skill                 @relation(fields: [skillId], references: [id])
+  standard            Standard?             @relation(fields: [standardId], references: [id])
+  subskill            Subskill?             @relation(fields: [subskillId], references: [id])
+  type                QuestionType          @relation(fields: [typeId], references: [id])
+  answers             QuestionAnswer[]
+  attempts            QuestionAttempt[]
+  explanations        QuestionExplanation[]
+  options             QuestionOption[]
+  stats               QuestionStats?
+
+  @@unique([skillId, externalRef])
+  @@index([skillId, status, irtB])
+  @@index([status, origin])
+  @@index([standardId])
+  @@index([lessonId], map: "Question_lessonId_fkey")
+  @@index([passageId], map: "Question_passageId_fkey")
+  @@index([subskillId], map: "Question_subskillId_fkey")
+  @@index([typeId], map: "Question_typeId_fkey")
+}
+
+model QuestionOption {
+  id         String   @id @default(cuid())
+  questionId String
+  label      String
+  text       String   @db.Text
+  isCorrect  Boolean  @default(false)
+  rationale  String?  @db.Text
+  order      Int
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([questionId])
+}
+
+/// Accepted answers for non-option types (fill-in, short answer, ordering keys).
+model QuestionAnswer {
+  id         String   @id @default(cuid())
+  questionId String
+  value      Json
+  isPrimary  Boolean  @default(true)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([questionId], map: "QuestionAnswer_questionId_fkey")
+}
+
+model QuestionExplanation {
+  id         String   @id @default(cuid())
+  questionId String
+  kind       String
+  body       Json
+  order      Int      @default(0)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([questionId], map: "QuestionExplanation_questionId_fkey")
+}
+
+/// Rolling item statistics for item analysis (recomputed by a background job).
+model QuestionStats {
+  questionId       String   @id
+  attempts         Int      @default(0)
+  correct          Int      @default(0)
+  pValue           Float?
+  pointBiserial    Float?
+  avgResponseMs    Int?
+  distractorCounts Json?
+  flags            Json?
+  updatedAt        DateTime @updatedAt
+  question         Question @relation(fields: [questionId], references: [id])
+}
+
+model PracticeSession {
+  id                String            @id @default(cuid())
+  studentId         String
+  skillId           String?
+  assessmentId      String?
+  assignmentId      String?
+  mode              SessionMode
+  startedAt         DateTime          @default(now())
+  endedAt           DateTime?
+  questionCount     Int               @default(0)
+  correctCount      Int               @default(0)
+  activeMs          Int               @default(0)
+  currentQuestionId String?
+  currentServedAt   DateTime?
+  currentOrder      Json?
+  lastTargetB       Float?
+  endReason         String?
+  assessment        Assessment?       @relation(fields: [assessmentId], references: [id])
+  student           Student           @relation(fields: [studentId], references: [id])
+  attempts          QuestionAttempt[]
+
+  @@index([studentId, startedAt])
+  @@index([assessmentId], map: "PracticeSession_assessmentId_fkey")
+}
+
+model QuestionAttempt {
+  id            BigInt          @id @default(autoincrement())
+  sessionId     String
+  studentId     String
+  questionId    String
+  skillId       String
+  response      Json
+  isCorrect     Boolean
+  partialCredit Float?
+  responseMs    Int
+  usedHint      Boolean         @default(false)
+  rapidGuess    Boolean         @default(false)
+  difficultyB   Float
+  createdAt     DateTime        @default(now())
+  question      Question        @relation(fields: [questionId], references: [id])
+  session       PracticeSession @relation(fields: [sessionId], references: [id])
+  skill         Skill           @relation(fields: [skillId], references: [id])
+  student       Student         @relation(fields: [studentId], references: [id])
+
+  @@index([studentId, skillId, createdAt])
+  @@index([questionId, createdAt])
+  @@index([skillId, createdAt])
+  @@index([sessionId], map: "QuestionAttempt_sessionId_fkey")
+}
+
+/// Every adaptive decision, fully traceable.
+model AdaptiveDecisionLog {
+  id                 BigInt   @id @default(autoincrement())
+  studentId          String
+  sessionId          String
+  attemptId          BigInt?
+  questionId         String?
+  skillId            String
+  previousTheta      Float
+  newTheta           Float
+  thetaSE            Float
+  questionDifficulty Float?
+  responseCorrect    Boolean?
+  responseMs         Int?
+  masteryBefore      Float?
+  masteryAfter       Float?
+  nextQuestionId     String?
+  nextTargetB        Float?
+  reason             String   @db.Text
+  reasonCode         String
+  engineVersion      String
+  createdAt          DateTime @default(now())
+  student            Student  @relation(fields: [studentId], references: [id])
+
+  @@index([studentId, createdAt])
+  @@index([sessionId])
+}
+
+/// Current internal ability estimate per student x skill (and a per-domain/global row with skillId null).
+model StudentAbility {
+  id        String   @id @default(cuid())
+  studentId String
+  scope     String
+  skillId   String?
+  domain    Domain?
+  theta     Float    @default(0)
+  thetaSE   Float    @default(1)
+  responses Int      @default(0)
+  updatedAt DateTime @updatedAt
+  skill     Skill?   @relation(fields: [skillId], references: [id])
+  student   Student  @relation(fields: [studentId], references: [id])
+
+  @@unique([studentId, scope])
+  @@index([skillId])
+}
+
+/// Daily snapshot for growth charts (internal metric).
+model AbilitySnapshot {
+  id        BigInt   @id @default(autoincrement())
+  studentId String
+  scope     String
+  theta     Float
+  mastery   Float?
+  takenOn   DateTime @db.Date
+  student   Student  @relation(fields: [studentId], references: [id])
+
+  @@unique([studentId, scope, takenOn])
+  @@index([takenOn])
+}
+
+model StudentSkillMastery {
+  studentId       String
+  skillId         String
+  score           Float       @default(0)
+  band            MasteryBand @default(BEGINNING)
+  attempts        Int         @default(0)
+  correct         Int         @default(0)
+  maxLevelCorrect Int         @default(0)
+  isMastered      Boolean     @default(false)
+  masteredAt      DateTime?
+  lastPracticedAt DateTime?
+  components      Json?
+  updatedAt       DateTime    @updatedAt
+  skill           Skill       @relation(fields: [skillId], references: [id])
+  student         Student     @relation(fields: [studentId], references: [id])
+
+  @@id([studentId, skillId])
+  @@index([skillId, band])
+}
+
+model ReadingLevelBand {
+  id        String  @id @default(cuid())
+  label     String
+  minPrl    Int
+  maxPrl    Int
+  gradeBand String?
+}
+
+/// Internal Platform Reading Range history.
+model StudentReadingRange {
+  id         String   @id @default(cuid())
+  studentId  String
+  lowPrl     Int
+  highPrl    Int
+  evidence   Int
+  computedAt DateTime @default(now())
+  student    Student  @relation(fields: [studentId], references: [id])
+
+  @@index([studentId, computedAt])
+}
+
+model Assignment {
+  id            String              @id @default(cuid())
+  classId       String
+  createdById   String
+  title         String
+  target        AssignmentTarget
+  unitId        String?
+  skillIds      Json?
+  assessmentId  String?
+  targetMastery Int?
+  dueAt         DateTime?
+  createdAt     DateTime            @default(now())
+  deletedAt     DateTime?
+  assessment    Assessment?         @relation(fields: [assessmentId], references: [id])
+  class         Class               @relation(fields: [classId], references: [id])
+  createdBy     Teacher             @relation(fields: [createdById], references: [id])
+  unit          Unit?               @relation(fields: [unitId], references: [id])
+  students      AssignmentStudent[]
+
+  @@index([classId, dueAt])
+  @@index([assessmentId], map: "Assignment_assessmentId_fkey")
+  @@index([createdById], map: "Assignment_createdById_fkey")
+  @@index([unitId], map: "Assignment_unitId_fkey")
+}
+
+model AssignmentStudent {
+  assignmentId String
+  studentId    String
+  status       AssignmentStatus @default(NOT_STARTED)
+  progress     Float            @default(0)
+  completedAt  DateTime?
+  assignment   Assignment       @relation(fields: [assignmentId], references: [id])
+  student      Student          @relation(fields: [studentId], references: [id])
+
+  @@id([assignmentId, studentId])
+  @@index([studentId, status])
+}
+
+model Assessment {
+  id           String               @id @default(cuid())
+  title        String
+  type         AssessmentType
+  unitId       String?
+  isAdaptive   Boolean              @default(false)
+  maxQuestions Int?
+  timeLimitMin Int?
+  status       ContentStatus        @default(DRAFT)
+  createdById  String?
+  createdAt    DateTime             @default(now())
+  deletedAt    DateTime?
+  unit         Unit?                @relation(fields: [unitId], references: [id])
+  questions    AssessmentQuestion[]
+  assignments  Assignment[]
+  sessions     PracticeSession[]
+
+  @@index([unitId], map: "Assessment_unitId_fkey")
+}
+
+model AssessmentQuestion {
+  assessmentId String
+  questionId   String
+  order        Int
+  points       Float      @default(1)
+  assessment   Assessment @relation(fields: [assessmentId], references: [id])
+  question     Question   @relation(fields: [questionId], references: [id])
+
+  @@id([assessmentId, questionId])
+  @@index([questionId], map: "AssessmentQuestion_questionId_fkey")
+}
+
+model ExternalAssessmentSource {
+  id        String                     @id @default(cuid())
+  code      String                     @unique
+  name      String
+  notes     String?                    @db.Text
+  results   ExternalAssessmentResult[]
+  skillRefs ExternalSkillRef[]
+}
+
+/// Maps an external skill name/code (e.g. IXL "LQN") to a platform skill. Names only — no content.
+model ExternalSkillRef {
+  id           String                   @id @default(cuid())
+  sourceId     String
+  externalCode String
+  externalName String
+  gradeLevel   Int?
+  skillId      String?
+  skill        Skill?                   @relation(fields: [skillId], references: [id])
+  source       ExternalAssessmentSource @relation(fields: [sourceId], references: [id])
+
+  @@unique([sourceId, externalCode, gradeLevel])
+  @@index([skillId], map: "ExternalSkillRef_skillId_fkey")
+}
+
+model ExternalAssessmentResult {
+  id            String                   @id @default(cuid())
+  sourceId      String
+  studentId     String
+  importJobId   String?
+  externalSkill String?
+  score         Float?
+  questions     Int?
+  timeSpentSec  Int?
+  takenOn       DateTime?
+  raw           Json
+  importedAt    DateTime                 @default(now())
+  source        ExternalAssessmentSource @relation(fields: [sourceId], references: [id])
+  student       Student                  @relation(fields: [studentId], references: [id])
+
+  @@index([studentId, sourceId])
+  @@index([sourceId], map: "ExternalAssessmentResult_sourceId_fkey")
+}
+
+/// OFFICIAL MAP Growth values — only from imported, authorised reports.
+model MapResult {
+  id                    String       @id @default(cuid())
+  studentId             String
+  importJobId           String?
+  testDate              DateTime
+  subject               String
+  goalName              String?
+  goalAreaId            String?
+  rit                   Int
+  ritSE                 Float?
+  achievementPercentile Int?
+  growthPercentile      Int?
+  projectedGrowth       Int?
+  termName              String?
+  importedAt            DateTime     @default(now())
+  goalArea              MapGoalArea? @relation(fields: [goalAreaId], references: [id])
+  student               Student      @relation(fields: [studentId], references: [id])
+
+  @@index([studentId, testDate])
+  @@index([studentId, subject, testDate])
+  @@index([goalAreaId], map: "MapResult_goalAreaId_fkey")
+}
+
+/// Benchmark reference values (class/grade/school computed; district/national ONLY when imported).
+model BenchmarkReference {
+  id         String   @id @default(cuid())
+  scope      String
+  metric     String
+  gradeLevel Int
+  season     String?
+  value      Float
+  source     String
+  importedAt DateTime @default(now())
+
+  @@unique([scope, metric, gradeLevel, season])
+}
+
+model ImportJob {
+  id            String       @id @default(cuid())
+  kind          ImportKind
+  status        ImportStatus @default(UPLOADED)
+  fileName      String
+  uploadedById  String
+  totalRows     Int          @default(0)
+  validRows     Int          @default(0)
+  errorRows     Int          @default(0)
+  duplicateRows Int          @default(0)
+  preview       Json?
+  errors        Json?
+  fileSha256    String?
+  payload       Json?
+  options       Json?
+  summary       Json?
+  createdAt     DateTime     @default(now())
+  completedAt   DateTime?
+  uploadedBy    User         @relation(fields: [uploadedById], references: [id])
+
+  @@index([kind, status])
+  @@index([uploadedById], map: "ImportJob_uploadedById_fkey")
+}
+
+model Recommendation {
+  id          String    @id @default(cuid())
+  studentId   String
+  skillId     String
+  targetLevel Int
+  score       Float
+  reasons     Json
+  createdAt   DateTime  @default(now())
+  dismissedAt DateTime?
+  student     Student   @relation(fields: [studentId], references: [id])
+
+  @@index([studentId, createdAt])
+}
+
+model InterventionAlert {
+  id         String    @id @default(cuid())
+  studentId  String
+  skillId    String?
+  ruleCode   String
+  message    String
+  evidence   Json
+  resolvedAt DateTime?
+  createdAt  DateTime  @default(now())
+  student    Student   @relation(fields: [studentId], references: [id])
+
+  @@index([studentId, resolvedAt])
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  type      NotificationType
+  title     String
+  body      String           @db.Text
+  link      String?
+  readAt    DateTime?
+  createdAt DateTime         @default(now())
+  user      User             @relation(fields: [userId], references: [id])
+
+  @@index([userId, readAt])
+}
+
+model Badge {
+  id          String         @id @default(cuid())
+  code        String         @unique
+  name        String
+  description String
+  criteria    Json
+  awards      StudentBadge[]
+}
+
+model StudentBadge {
+  studentId String
+  badgeId   String
+  awardedAt DateTime @default(now())
+  badge     Badge    @relation(fields: [badgeId], references: [id])
+  student   Student  @relation(fields: [studentId], references: [id])
+
+  @@id([studentId, badgeId])
+  @@index([badgeId], map: "StudentBadge_badgeId_fkey")
+}
+
+/// XP is only awarded by the server for meaningful events (mastery gain, non-rapid correct answers).
+model XpEvent {
+  id        BigInt   @id @default(autoincrement())
+  studentId String
+  points    Int
+  reason    String
+  createdAt DateTime @default(now())
+  student   Student  @relation(fields: [studentId], references: [id])
+
+  @@index([studentId, createdAt])
+}
+
+model AuditLog {
+  id         BigInt   @id @default(autoincrement())
+  actorId    String?
+  action     String
+  entityType String
+  entityId   String?
+  before     Json?
+  after      Json?
+  ip         String?
+  createdAt  DateTime @default(now())
+  actor      User?    @relation(fields: [actorId], references: [id])
+
+  @@index([entityType, entityId])
+  @@index([actorId, createdAt])
+}
+
+model StudentDailyActivity {
+  studentId       String
+  day             DateTime @db.Date
+  questions       Int      @default(0)
+  correct         Int      @default(0)
+  activeMs        Int      @default(0)
+  skillsPracticed Int      @default(0)
+  maxLevel        Int      @default(0)
+  student         Student  @relation(fields: [studentId], references: [id])
+
+  @@id([studentId, day])
+  @@index([day])
+}
+
+model ClassSkillDaily {
+  classId           String
+  skillId           String
+  day               DateTime @db.Date
+  studentsPracticed Int      @default(0)
+  attempts          Int      @default(0)
+  correct           Int      @default(0)
+  avgMastery        Float?
+  masteredStudents  Int      @default(0)
+  class             Class    @relation(fields: [classId], references: [id])
+  skill             Skill    @relation(fields: [skillId], references: [id])
+
+  @@id([classId, skillId, day])
+  @@index([skillId, day])
+}
+
+/// Fixed-window rate-limit counters (login attempts per username+IP, per IP). DB-backed so limits
+/// hold across several app servers; old rows are purged by the nightly job.
+model RateLimitBucket {
+  key         String   @id
+  count       Int      @default(0)
+  windowStart DateTime
+  updatedAt   DateTime @updatedAt
+
+  @@index([windowStart])
+}
+
+/// Result of a placement / diagnostic check (INTERNAL estimate — never an official MAP score).
+model DiagnosticResult {
+  id                   String   @id @default(cuid())
+  studentId            String
+  sessionId            String   @unique
+  takenAt              DateTime @default(now())
+  questions            Int
+  overallTheta         Float
+  overallSE            Float
+  proficiency          String
+  domains              Json
+  strongDomains        Json
+  weakDomains          Json
+  recommendedSkillIds  Json
+  interventionSkillIds Json
+  engineVersion        String
+  student              Student  @relation(fields: [studentId], references: [id])
+
+  @@index([studentId, takenAt])
+}
+
+enum Role {
+  SUPER_ADMIN
+  SCHOOL_ADMIN
+  TEACHER
+  STUDENT
+  PARENT
+}
+
+enum Domain {
+  READING
+  VOCABULARY
+  GRAMMAR
+  LANGUAGE
+  WRITING
+  WORD_STUDY
+}
+
+enum SkillCategory {
+  LITERATURE
+  INFORMATIONAL
+  COMPREHENSION
+  VOCABULARY
+  WORD_STUDY
+  GRAMMAR
+  MECHANICS
+  PHONICS_WORD_STUDY
+  WRITING
+}
+
+enum SkillRole {
+  COMPREHENSION_SKILL
+  STRATEGY_AND_FEATURE
+  VOCABULARY_STRATEGY
+  AUTHORS_CRAFT
+  GRAMMAR
+  SPELLING
+  WRITING
+}
+
+enum StandardFramework {
+  CCSS_ELA
+  MAP_CONTINUUM
+  CURRICULUM_MAP
+  SCHOOL_OBJECTIVE
+}
+
+enum ContentStatus {
+  DRAFT
+  UNDER_REVIEW
+  PUBLISHED
+  ARCHIVED
+}
+
+enum ContentOrigin {
+  TEACHER_AUTHORED
+  SCHOOL_BOOKLET
+  IMPORTED
+  AI_GENERATED
+  DEMO
+}
+
+enum AiReviewStatus {
+  AI_GENERATED
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+}
+
+enum SessionMode {
+  ADAPTIVE_PRACTICE
+  DIAGNOSTIC
+  PLACEMENT
+  UNIT_QUIZ
+  BENCHMARK
+  TEACHER_QUIZ
+  FINAL
+}
+
+enum AssessmentType {
+  DIAGNOSTIC
+  PLACEMENT
+  UNIT_QUIZ
+  BENCHMARK
+  TEACHER_QUIZ
+  FINAL
+}
+
+enum AssignmentTarget {
+  SKILL
+  UNIT
+  ASSESSMENT
+}
+
+enum AssignmentStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  OVERDUE
+}
+
+enum MasteryBand {
+  BEGINNING
+  DEVELOPING
+  APPROACHING
+  PROFICIENT
+  MASTERED
+}
+
+enum ImportKind {
+  STUDENTS
+  TEACHERS
+  QUESTIONS
+  SKILLS
+  STANDARDS
+  CURRICULUM_MAP
+  MAP_RESULTS
+  EXTERNAL_RESULTS
+}
+
+enum ImportStatus {
+  UPLOADED
+  VALIDATING
+  AWAITING_CONFIRMATION
+  IMPORTING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum NotificationType {
+  NEW_ASSIGNMENT
+  ASSIGNMENT_DUE
+  SKILL_MASTERED
+  TEACHER_FEEDBACK
+  NEW_BADGE
+  ASSESSMENT_AVAILABLE
+  PARENT_PROGRESS
+  INTERVENTION_ALERT
+}

@@ -1,0 +1,15 @@
+# Weekly dependency updates (Phase 13): security fixes arrive as pull requests that CI tests.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule: { interval: weekly, day: sunday, timezone: Asia/Riyadh }
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch: { update-types: ["minor", "patch"] }
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule: { interval: monthly }
+  - package-ecosystem: docker
+    directory: "/"
+    schedule: { interval: monthly }
