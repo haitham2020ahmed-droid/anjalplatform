@@ -59,4 +59,4 @@ CMD ["npm", "run", "--silent", "jobs:scheduler"]
 
 # ----------------------------------------------------------------------- Render default web
 FROM web AS production
-CMD ["npm", "run", "start:standalone"]
+CMD ["node", "server.js"]
