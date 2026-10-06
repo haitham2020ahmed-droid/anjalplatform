@@ -1,11 +1,19 @@
 export class PrismaRepo {
-  constructor(public prisma: unknown) {}
+  prisma: any;
 
-  async findUnique() {
-    return null;
+  constructor(prisma?: any) {
+    this.prisma = prisma;
   }
 
-  async findMany() {
-    return [];
+  async findUnique(model: string, args: any) {
+    return this.prisma?.[model]?.findUnique(args);
+  }
+
+  async findMany(model: string, args: any) {
+    return this.prisma?.[model]?.findMany(args) ?? [];
+  }
+
+  async create(model: string, args: any) {
+    return this.prisma?.[model]?.create(args);
   }
 }
