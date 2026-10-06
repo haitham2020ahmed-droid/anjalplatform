@@ -151,8 +151,11 @@ describe("analytics on the database", () => {
     // December carries November's mastery forward (mastery persists between sessions)
     assert.deepEqual(a.growth.series.map((p) => p.mastery !== null), [true, true, true, true]);
     assert.equal(a.growth.series[3].mastery, a.growth.series[2].mastery);
-    // Central Idea has a single question in today's Grade 4 bank → one measurement → no growth claimed
-    assert.deepEqual(a.growth.skills.map((x) => x.name).sort(), ["Context Clues", "Theme"]);
+    // growth is claimed only for practised skills with ≥ 2 measurements (rule in growth.ts); Theme and
+    // Context Clues are practised across months, so they must appear. (Not a fixed list: the bank keeps growing.)
+    const grown = a.growth.skills.map((x) => x.name);
+    assert.ok(grown.includes("Theme") && grown.includes("Context Clues"), JSON.stringify(grown));
+    assert.ok(grown.every((n) => ["Theme", "Context Clues", "Central Idea and Relevant Details"].includes(n)), JSON.stringify(grown));
     assert.deepEqual(a.importedMap, []);
   });
 

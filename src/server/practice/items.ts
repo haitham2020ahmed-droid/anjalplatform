@@ -53,7 +53,9 @@ export async function loadItemsForSkills(repo: Repo, skillIds: string[]): Promis
   const passages = passageIds.length ? await repo.findMany("ReadingPassage", { id: { in: passageIds } }) : [];
   const typeCode = new Map(types.map((t) => [str(t.id), str(t.code) as QuestionTypeCode]));
   const passage = new Map(passages.map((p) => [str(p.id), p]));
-  return qs.map((q) => ({ ...toPracticeItem(q, opts, answers, expl, typeCode, passage), skillKey: String(q.skillId) }));
+  // adaptive practice needs automatic scoring: teacher-scored types (SHORT_ANSWER) are never served
+  const autoScored = new Set(types.filter((t) => t.isAutoScored !== false && t.code !== "SHORT_ANSWER").map((t) => str(t.id)));
+  return qs.filter((q) => autoScored.has(str(q.typeId))).map((q) => ({ ...toPracticeItem(q, opts, answers, expl, typeCode, passage), skillKey: String(q.skillId) }));
 }
 
 function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCode: Map<string, QuestionTypeCode>, passage: Map<string, Row>): PracticeItem {

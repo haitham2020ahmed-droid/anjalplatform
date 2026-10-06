@@ -12,9 +12,9 @@ import { inflateRawSync } from "node:zlib";
 const MAX_PART_BYTES = 50 * 1024 * 1024; // decompressed size limit per XML part
 const MAX_ROWS = 100_000;
 
-interface ZipEntry { name: string; method: number; compSize: number; size: number; offset: number }
+export interface ZipEntry { name: string; method: number; compSize: number; size: number; offset: number }
 
-function readZipEntries(buf: Buffer): Map<string, ZipEntry> {
+export function readZipEntries(buf: Buffer): Map<string, ZipEntry> {
   // End of central directory: search backwards for signature 0x06054b50
   let eocd = -1;
   for (let i = buf.length - 22; i >= Math.max(0, buf.length - 65_557); i--) if (buf.readUInt32LE(i) === 0x06054b50) { eocd = i; break; }
@@ -38,7 +38,7 @@ function readZipEntries(buf: Buffer): Map<string, ZipEntry> {
   return out;
 }
 
-function readPart(buf: Buffer, e: ZipEntry): string {
+export function readPart(buf: Buffer, e: ZipEntry): string {
   if (e.size > MAX_PART_BYTES) throw new Error("The Excel file is too large to import.");
   const nameLen = buf.readUInt16LE(e.offset + 26);
   const extraLen = buf.readUInt16LE(e.offset + 28);

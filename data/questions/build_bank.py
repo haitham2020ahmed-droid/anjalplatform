@@ -14,6 +14,8 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 import qb  # noqa: E402
 import grade4, grade5, grade6, extremes  # noqa: E402,F401  (authoring modules register items)
+qb.EXPANSION = True  # items below get per-type answer-key balancing
+import grade4_more, grade5_more, grade6_more, grade4_topup, grade5_topup, grade6_topup  # noqa: E402,F401  (expansions: imported last so existing refs never change)
 
 OFFICIAL = json.load(open(ROOT / "data/curriculum/ccss-standards.json"))
 TAX = json.load(open(ROOT / "data/curriculum/taxonomy.json"))
@@ -83,15 +85,16 @@ for it in qb.ITEMS:
             others[k], others[r] = others[r], others[k]
         if t != "MULTI_SELECT":
             key = next(j for j in range(len(opts)) if opts[j]["correct"])
-            pos = rotation[len(opts)] % len(opts)
-            rotation[len(opts)] += 1
+            rkey = (t, len(opts)) if it.get("_expansion") else len(opts)
+            pos = rotation[rkey] % len(opts)
+            rotation[rkey] += 1
             idx = others[:pos] + [key] + others[pos:]
         else:
             idx = others
         it["options"] = [dict(label="ABCDEFG"[n], **opts[j]) for n, j in enumerate(idx)]
         if t == "MULTIPLE_CHOICE":
             key_positions[next(o["label"] for o in it["options"] if o["correct"])] += 1
-    elif t == "SENTENCE_ORDER" and len(it["sequence"]) < 3:
+    elif t in ("SENTENCE_ORDER", "WORD_ORDER") and len(it["sequence"]) < 3:
         errors.append(f"{where}: ordering needs at least 3 steps")
     elif t == "ERROR_CORRECTION" and not 0 <= it["errorIndex"] < len(it["segments"]):
         errors.append(f"{where}: errorIndex out of range")
@@ -109,6 +112,8 @@ if errors:
     sys.exit(1)
 
 out_dir = ROOT / "data/questions"
+for it in qb.ITEMS:
+    it.pop("_expansion", None)
 json.dump(dict(passages=list(passages.values()), items=qb.ITEMS), open(out_dir / "bank.json", "w"), indent=1, ensure_ascii=False)
 
 with open(out_dir / "bank-review.csv", "w", newline="", encoding="utf-8-sig") as f:
@@ -122,7 +127,7 @@ with open(out_dir / "bank-review.csv", "w", newline="", encoding="utf-8-sig") as
             opts, correct = "True | False", str(it["answer"])
         elif it["type"] == "FILL_BLANK":
             opts, correct = "(typed)", " / ".join(it["answers"])
-        elif it["type"] == "SENTENCE_ORDER":
+        elif it["type"] in ("SENTENCE_ORDER", "WORD_ORDER"):
             opts, correct = " → ".join(it["sequence"]), "order as listed"
         elif it["type"] == "ERROR_CORRECTION":
             opts, correct = " | ".join(it["segments"]), f"segment {it['errorIndex'] + 1} → {it['correction']}"

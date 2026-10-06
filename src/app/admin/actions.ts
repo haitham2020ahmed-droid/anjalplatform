@@ -202,3 +202,132 @@ export async function questionStepAction(_: Result, f: FormData): Promise<Result
     return { message: { submit: "Sent for review.", approve: "Published.", reject: "Sent back to the author.", archive: "Archived." }[step] };
   });
 }
+
+// ------------------------------------------------------- AI question bank
+
+import { aiProvider } from "@/server/ai/runtime";
+import { generateMissing, generateQuestions, type GenerateResult } from "@/server/admin/ai-bank";
+import { approveAiDraft, rejectAiDraft } from "@/server/admin/questions";
+
+export type AiResult = { error?: string; result?: GenerateResult; nothingNeeded?: boolean };
+
+export async function generateAiAction(input: { skillId: string; standardId: string; lessonId: string | null; count: number }): Promise<AiResult> {
+  const actor = await requireActor({ permission: "questions:generate" });
+  try {
+    const p = z.object({ skillId: id, standardId: id, lessonId: id.nullable(), count: z.number().int().min(1).max(20) }).parse(input);
+    const result = await generateQuestions(repo, actor, aiProvider(), p);
+    revalidatePath("/admin/question-bank");
+    revalidatePath("/admin/questions");
+    return { result };
+  } catch (e) {
+    if (e instanceof ValidationError || (e as { status?: number }).status === 403 || e instanceof z.ZodError) return { error: e instanceof z.ZodError ? "Choose a skill, a standard and 1–20 questions." : (e as Error).message };
+    throw e;
+  }
+}
+
+export async function generateMissingAction(_: Result, f: FormData): Promise<Result> {
+  const actor = await requireActor({ permission: "questions:generate" });
+  return run(["/admin/question-bank", "/admin/questions"], async () => {
+    const r = await generateMissing(repo, actor, aiProvider(), id.parse(f.get("skillId")));
+    if ("nothingNeeded" in r) return { message: "Nothing needed: this skill has reached its target (counting drafts awaiting review)." };
+    return { message: `${r.saved.length} draft(s) saved for review${r.rejected.length ? `; ${r.rejected.length} rejected by validation` : ""}.` };
+  });
+}
+
+export async function aiReviewAction(_: Result, f: FormData): Promise<Result> {
+  const actor = await requireActor({ permission: "questions:review" });
+  const qid = id.parse(f.get("questionId"));
+  return run(["/admin/questions", `/admin/questions/${qid}`, "/admin/question-bank"], async () => {
+    if (f.get("decision") === "approve") {
+      await approveAiDraft(repo, actor, qid);
+      return { message: "Approved: students can now practise this question." };
+    }
+    await rejectAiDraft(repo, actor, qid, str(f, "reason"));
+    return { message: "Rejected: the question will not be used." };
+  });
+}
+
+// ------------------------------------------------------- question import
+
+import { cancelImport, commitImportChunk, selectAll, updateImportRow, type CommitProgress, type ImportDecision, type PreviewRow } from "@/server/admin/question-import";
+
+const ImportPatch = z.object({ selected: z.boolean().optional(), decision: z.enum(["IMPORT", "SKIP", "REPLACE", "FORCE"]).optional(), input: z.record(z.unknown()).optional() });
+
+export async function importRowAction(jobId: string, rowId: string, patch: { selected?: boolean; decision?: ImportDecision; input?: EditorInput }): Promise<{ error?: string; row?: PreviewRow; message?: string }> {
+  const actor = await requireActor({ permission: "questions:edit" });
+  try {
+    const p = ImportPatch.parse(patch);
+    const row = await updateImportRow(repo, actor, id.parse(jobId), id.parse(rowId), { selected: p.selected, decision: p.decision, input: p.input as EditorInput | undefined });
+    return { row, message: row.errors.length ? "Saved, but it still has errors." : "Saved and checked." };
+  } catch (e) {
+    if (e instanceof ValidationError || (e as { status?: number }).status === 403 || e instanceof z.ZodError) return { error: e instanceof z.ZodError ? "Invalid change." : (e as Error).message };
+    throw e;
+  }
+}
+
+export async function importSelectAllAction(jobId: string, selected: boolean): Promise<{ error?: string }> {
+  const actor = await requireActor({ permission: "questions:edit" });
+  try {
+    await selectAll(repo, actor, id.parse(jobId), Boolean(selected));
+    return {};
+  } catch (e) {
+    if (e instanceof ValidationError) return { error: e.message };
+    throw e;
+  }
+}
+
+export async function commitImportAction(jobId: string, publish: boolean): Promise<{ error?: string; progress?: CommitProgress }> {
+  const actor = await requireActor({ permission: "questions:edit" });
+  try {
+    const progress = await commitImportChunk(repo, actor, id.parse(jobId), { publish: Boolean(publish) });
+    if (progress.done) {
+      revalidatePath("/admin/questions");
+      revalidatePath("/admin/question-bank");
+    }
+    return { progress };
+  } catch (e) {
+    if (e instanceof ValidationError || (e as { status?: number }).status === 403) return { error: (e as Error).message };
+    throw e;
+  }
+}
+
+export async function cancelImportAction(_: Result, f: FormData): Promise<Result> {
+  const actor = await requireActor({ permission: "questions:edit" });
+  return run(["/admin/questions/import"], async () => {
+    await cancelImport(repo, actor, id.parse(f.get("jobId")));
+    return { message: "Import cancelled. Nothing was added." };
+  });
+}
+
+// ------------------------------------------------------- bulk publish
+
+import { BULK_PUBLISH_MAX, publishableIds, publishQuestions, STATUSES, type BulkPublishResult, type QuestionStatus } from "@/server/admin/questions";
+
+const ListFilter = z.object({ status: z.enum(STATUSES as unknown as [QuestionStatus, ...QuestionStatus[]]).optional(), grade: z.number().int().optional(), q: z.string().max(100).optional(), mine: z.boolean().optional(), ai: z.boolean().optional() });
+
+/** “Publish All”: the publishable questions matching the list filters (admins with questions:publish). */
+export async function publishableIdsAction(filter: { status?: QuestionStatus; grade?: number; q?: string; mine?: boolean; ai?: boolean }): Promise<{ ids?: string[]; error?: string }> {
+  const actor = await requireActor({ permission: "questions:publish" });
+  try {
+    const f = ListFilter.parse(filter);
+    return { ids: await publishableIds(repo, actor, { status: f.status, gradeLevel: f.grade, q: f.q, mine: f.mine, aiOnly: f.ai }) };
+  } catch (e) {
+    if (e instanceof z.ZodError) return { error: "Invalid filter." };
+    throw e;
+  }
+}
+
+/** Publish a batch of questions directly (the page sends large selections in batches). */
+export async function bulkPublishAction(ids: string[]): Promise<{ result?: BulkPublishResult; error?: string }> {
+  const actor = await requireActor({ permission: "questions:publish" });
+  try {
+    const list = z.array(id).min(1).max(BULK_PUBLISH_MAX).parse(ids);
+    const result = await publishQuestions(repo, actor, list);
+    revalidatePath("/admin/questions");
+    revalidatePath("/admin/question-bank");
+    return { result };
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof z.ZodError) return { error: e instanceof z.ZodError ? "Choose between 1 and 100 questions." : e.message };
+    throw e;
+  }
+}

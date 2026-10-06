@@ -20,8 +20,22 @@ type Delegate = {
 
 const lcfirst = (s: string) => s[0].toLowerCase() + s.slice(1);
 
+export interface PrismaRepoOptions {
+  /**
+   * "interactive" (default, used by the app): repo.transaction() runs inside one Prisma
+   * interactive transaction, all or nothing.
+   * "none" (used by seed scripts): repo.transaction() just runs the work. Seeds only use
+   * idempotent upserts, so a stopped seed is completed by running it again, and thousands of
+   * writes to a remote database never hit an interactive-transaction time limit.
+   */
+  transactions?: "interactive" | "none";
+}
+
 export class PrismaRepo implements Repo {
-  constructor(private readonly client: PrismaClient | Prisma.TransactionClient) {}
+  constructor(
+    private readonly client: PrismaClient | Prisma.TransactionClient,
+    private readonly options: PrismaRepoOptions = {},
+  ) {}
 
   private d(model: string): Delegate {
     const delegate = (this.client as unknown as Record<string, Delegate>)[lcfirst(model)];
@@ -51,6 +65,7 @@ export class PrismaRepo implements Repo {
     return (await this.d(model).deleteMany({ where })).count;
   }
   async transaction<T>(fn: (tx: Repo) => Promise<T>): Promise<T> {
+    if (this.options.transactions === "none") return fn(this);
     const c = this.client as PrismaClient;
     if (typeof c.$transaction !== "function") return fn(this); // already inside a transaction
     return c.$transaction((tx) => fn(new PrismaRepo(tx)), { timeout: 120_000 });

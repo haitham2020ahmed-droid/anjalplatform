@@ -9,12 +9,17 @@ type Skill = { id: string; grade: number; name: string };
 const TYPES: [string, string][] = [
   ["MULTIPLE_CHOICE", "Multiple choice"], ["MULTI_SELECT", "Multiple select"], ["DROPDOWN", "Dropdown"], ["TRUE_FALSE", "True / false"],
   ["FILL_BLANK", "Fill in the blank"], ["SENTENCE_ORDER", "Sentence order"], ["WORD_ORDER", "Word order"], ["ERROR_CORRECTION", "Error correction"], ["MATCHING", "Matching"],
+  ["SHORT_ANSWER", "Short answer (teacher-scored)"],
 ];
 const LEVELS = ["Very easy", "Easy", "Below grade level", "Grade level", "Above grade level", "Challenging", "Advanced"];
 const lines = (s: string) => s.split("\n").map((x) => x.trim()).filter(Boolean);
 
 /** Question editor. Every save is validated on the server with the same rules as the question bank. */
-export function QuestionEditor({ questionId, initial, skills, standards, readOnly }: { questionId: string | null; initial: EditorInput | null; skills: Skill[]; standards: string[]; readOnly: boolean }) {
+export function QuestionEditor({ questionId, initial, skills, standards, readOnly, onSave }: {
+  questionId: string | null; initial: EditorInput | null; skills: Skill[]; standards: string[]; readOnly: boolean;
+  /** Optional: save somewhere else (e.g. an import preview row) instead of the question bank. */
+  onSave?: (payload: EditorInput) => Promise<{ error?: string; message?: string }>;
+}) {
   const router = useRouter();
   const [q, setQ] = useState<EditorInput>(initial ?? {
     skillId: skills[0]?.id ?? "", type: "MULTIPLE_CHOICE", stem: "", level: 4, whyCorrect: "", tip: "",
@@ -33,11 +38,15 @@ export function QuestionEditor({ questionId, initial, skills, standards, readOnl
     for (const k of ["options", "answer", "answers", "sequence", "segments", "errorIndex", "correction", "pairs"] as const) delete payload[k];
     if (optionTypes) payload.options = opts.map((o, i) => ({ ...o, label: "ABCDEFGH"[i], rationale: o.correct ? o.rationale || null : o.rationale ?? "" }));
     if (q.type === "TRUE_FALSE") payload.answer = q.answer ?? true;
-    if (q.type === "FILL_BLANK") payload.answers = q.answers ?? [];
+    if (q.type === "FILL_BLANK" || q.type === "SHORT_ANSWER") payload.answers = q.answers ?? [];
     if (q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") payload.sequence = q.sequence ?? [];
     if (q.type === "ERROR_CORRECTION") Object.assign(payload, { segments: q.segments ?? [], errorIndex: q.errorIndex ?? 0, correction: q.correction ?? "" });
     if (q.type === "MATCHING") payload.pairs = q.pairs ?? [];
     start(async () => {
+      if (onSave) {
+        const o = await onSave(payload);
+        return setMsg(o.error ? { error: o.error } : { ok: o.message ?? "Saved." });
+      }
       const r = await saveQuestionAction(questionId, payload);
       if (r.error) return setMsg({ error: r.error });
       setMsg({ ok: r.message });
@@ -79,6 +88,7 @@ export function QuestionEditor({ questionId, initial, skills, standards, readOnl
           <label className="flex items-center gap-2"><input type="radio" checked={q.answer === false} onChange={() => set({ answer: false })} />False</label>
         </fieldset>
       )}
+      {q.type === "SHORT_ANSWER" && <label className={label}>Model answer (teacher-scored; one per line)<textarea rows={3} value={(q.answers ?? []).join("\n")} onChange={(e) => set({ answers: lines(e.target.value) })} className={field} /></label>}
       {q.type === "FILL_BLANK" && <label className={label}>Accepted answers (one per line)<textarea rows={3} value={(q.answers ?? []).join("\n")} onChange={(e) => set({ answers: lines(e.target.value) })} className={field} /></label>}
       {(q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") && <label className={label}>Items in the CORRECT order (one per line; students see them shuffled)<textarea rows={5} value={(q.sequence ?? []).join("\n")} onChange={(e) => set({ sequence: lines(e.target.value) })} className={field} /></label>}
       {q.type === "ERROR_CORRECTION" && (

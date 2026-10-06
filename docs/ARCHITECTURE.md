@@ -942,3 +942,49 @@ All 13 phases are complete. Before the first production deployment: (1) `npm ins
 
 **Totals:** 227 tests; 58 of 58 mutations caught. `npm run build` itself cannot run in the build sandbox (no internet to install Next.js); the first CI run or Vercel build is the confirmation.
 
+## AA. AI-assisted question bank
+
+Added to the existing platform: same database (no schema change), same adaptive engine.
+
+**Flow.** Admins choose Grade → Book → Unit → Lesson → Skill → Standard → number of questions (`/admin/question-bank/generate`). The server builds a prompt from curriculum records only, calls the AI provider (Anthropic Messages API, `ANTHROPIC_API_KEY`, `AI_MODEL`), validates every returned question, and saves valid ones as **DRAFT** (`origin AI_GENERATED`, `aiStatus AI_GENERATED`) with grade/unit (via the lesson), `lessonId`, `skillId`, `standardId`, `difficultyLevel` and the cognitive level (Bloom's, in `tags.cognitiveLevel`), plus question text, four choices, the correct answer, a rationale for each wrong choice, an explanation and a tip.
+
+**Automatic validation** (`src/server/admin/ai-bank.ts`): question text and exactly 4 distinct choices with exactly one correct answer and a rationale for every wrong one; explanation present; known cognitive level; the stated skill and standard must be the ones requested and the standard must be linked to the skill (the lesson must teach the skill); each question's level must match its planned slot; duplicates against every existing question of the skill and within the batch. Invalid questions are not saved; reasons are shown. The batch is reported against the planned easy / medium / hard split. The full bank validator then checks each item again before it is saved.
+
+**Review.** Teachers and admins (new permission `questions:review`; teachers have it) can review, edit, **approve** (→ `PUBLISHED`, `aiStatus APPROVED`, re-validated) or **reject** with a reason (→ `ARCHIVED`, `aiStatus REJECTED`). Only admins may generate (`questions:generate`). A teacher cannot approve a batch they requested; admins may.
+
+**Only approved questions reach students:** practice, placement and skill cards read `status = PUBLISHED` only (unchanged; verified by test).
+
+**Coverage** (`/admin/question-bank`): per skill, approved questions, approved easy (levels 1–2) / medium (3–5) / hard (6–7) against the target (12 = 3/6/3), drafts awaiting review, and what is still needed. **Generate Missing** asks for exactly the shortfall per difficulty band, counting drafts awaiting review so nothing is generated twice (at most 20 per request; the next click continues).
+
+**Privacy.** `src/server/ai/question-generator.ts` imports nothing (no database access); the prompt contains only curriculum data and existing question stems. A test seeds a school and checks that no student number, username or name appears in the prompt.
+
+**Tests:** `tests/ai-bank.test.ts` (10, with a fake provider; no network). Mutation check `scripts/mutation/phase15-ai-bank.py`: 13 of 13 caught. Totals: 244 tests; 71 of 71 mutations caught.
+
+## AB. Question-bank importer (`/admin/questions/import`)
+
+Integrated with the existing question bank: imported questions are created through `createDraft`, the same path and validator as the question editor (origin `IMPORTED`, status `DRAFT`; admins may approve on import).
+
+**Data.** The job is the existing `ImportJob` (kind `QUESTIONS`): the import history is shared with the MAP and roster imports, so no parallel `QuestionImportJob` table was added. One new table, **`ImportedQuestionLog`** (with enums `ImportedQuestionStatus`, `ImportDecision`), holds one row per detected question: the original text, the detected question in editor form, errors, warnings, the duplicate match and its similarity, the decision (Import / Skip / Replace / Import anyway), and the resulting question.
+
+**Pipeline** (`src/imports/questions/extract.ts`, `parse.ts`; `src/server/admin/question-import.ts`):
+1. *Detect and extract* by content: PDF (`%PDF`), Word and Excel (ZIP contents), JSON, CSV/TSV (also a .txt that is really a table), TXT. Word paragraphs, numbered lists and tables; PDF text layer via `pdfjs-dist` (scanned PDFs are reported as having no text).
+2. *Rule-based parsing* of tables (flexible headers: Question / A–H / Option 1… / Choices / Answer / Key / Explanation / Type / Difficulty / Grade / Subject / Unit / Lesson / Skill / Standard / Cognitive level), JSON (flexible keys) and text layouts (numbered `1.` / `Q1:` / `Question 3)`, lettered options on separate lines or one line, `Answer:` / `Key:`, `*` or `(correct)` marks, `Explanation:`, metadata lines). All 10 question types are recognized, including matching (`left = right`), ordering (answer `B, A, C`), error correction (`Correction:`), and short answer.
+3. *AI understanding* (optional, `src/server/ai/question-understanding.ts`): when the rules find nothing usable the AI extracts the questions; it then maps questions to the school's skills and standards and fills difficulty, cognitive level, a missing explanation, feedback for wrong answers and, where the file has no key, a suggested answer that is clearly marked for checking. **Text is redacted first**: the school's student names, usernames and student numbers are replaced with `[REDACTED]`; the AI modules import nothing and never see the database.
+4. *Mapping*: grade, skill (code or name), standard (must be linked to the skill; otherwise the skill's main standard with a warning), lesson; defaults chosen at upload fill gaps; difficulty words (easy / medium / hard) or numbers map to levels 1–7.
+5. *Validation*: parser problems plus the full bank validator (dry run) → `INVALID` rows are unselected with reasons.
+6. *Duplicates*: against existing questions of the grade (question text ≥ 90 % similar, or question + options ≥ 75 %) and within the file; default decision Skip.
+
+**Preview**: every question with type, answer, skill, level, status, errors and warnings; edit any row in the standard question editor (re-validated and re-checked for duplicates on save); select rows; choose Skip / Replace existing / Import anyway for duplicates. **Import** runs in chunks of 20 with a progress bar and reports imported, replaced, skipped, failed and duplicates; Replace archives the matching question. Finished or cancelled imports are locked. Uploads go to `POST /api/question-imports` (same-origin check, sign-in, `questions:edit`, 10 MB limit).
+
+**Short answer** questions are teacher-scored: they can be imported and approved, but the practice loader now serves only automatically scored types, so they never enter adaptive practice.
+
+**Tests:** `tests/question-import.test.ts` (11): real CSV, XLSX, DOCX and PDF files, JSON and TXT; the three example layouts; all types; redaction; statuses, editing, decisions, chunked import, replace, approve-on-import permission, the short-answer guard, the AI path (privacy), school scope. Mutation check `phase16-question-import.py`: 14 of 14 caught. Totals: 255 tests; 85 of 85 mutations caught.
+
+## AC. Bulk publishing (questions list)
+
+Admins with `questions:publish` see row checkboxes, a “Select all” header checkbox, **Publish Selected** and **Publish All** on `/admin/questions`. “Publish All” covers every publishable question matching the current tab and filters (including rows beyond the 300 shown). A confirmation (“Are you sure you want to publish X questions?”) comes first; large selections are sent in batches of 50 with a progress bar; the result lists any question that was not published and why, and the list refreshes.
+
+Rules: DRAFT and UNDER_REVIEW questions are published directly (no review step); PUBLISHED and ARCHIVED questions are never touched. Each question goes through `publishChecked`, the **same step as single-question approval** (now shared by `reviewQuestion`): it is validated again, a revision archives the version it replaces, and the audit entry is written (`bulk: true` for bulk). A question that fails validation is reported and left unpublished; the others still publish. Single-question publishing is unchanged. Server: `publishQuestions`, `publishableIds` in `src/server/admin/questions.ts`; actions `bulkPublishAction`, `publishableIdsAction`; UI `src/app/admin/questions/question-table.tsx`.
+
+Tests: `tests/bulk-publish.test.ts` (6). Mutation check `phase17-bulk-publish.py`: 9 of 9 caught.
+

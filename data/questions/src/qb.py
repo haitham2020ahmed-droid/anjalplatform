@@ -12,6 +12,9 @@ deterministically so the key is spread across A–D.
 
 PASSAGES = []
 ITEMS = []
+# Set True by build_bank.py before importing expansion modules: their answer keys are
+# balanced per question type, while the original items keep their exact option order.
+EXPANSION = False
 _grade = None
 _counter = {}
 
@@ -36,7 +39,7 @@ def _ref(fam):
 
 
 def _base(fam, std, lvl, stem, why, tip, passage, sub, qtype, secs):
-    return dict(ref=_ref(fam), grade=_grade, family=fam, standard="CCSS.ELA-LITERACY." + std, level=lvl,
+    return dict(_expansion=EXPANSION, ref=_ref(fam), grade=_grade, family=fam, standard="CCSS.ELA-LITERACY." + std, level=lvl,
                 type=qtype, stem=stem, passage=passage, subskill=sub,
                 explanation=dict(whyCorrect=why, tip=tip),
                 estimatedSeconds=secs or (25 + 8 * lvl + (40 if passage else 0)))
@@ -95,8 +98,8 @@ def err(fam, std, lvl, segments, wrong_index, correction, why, tip, sub=None):
     ITEMS.append(it)
 
 
-def match(fam, std, lvl, stem, pairs, why, tip, sub=None):
+def match(fam, std, lvl, stem, pairs, why, tip, sub=None, passage=None):
     """Matching: pairs = [(left, right), ...] in correct correspondence."""
-    it = _base(fam, std, lvl, stem, why, tip, None, sub, "MATCHING", None)
+    it = _base(fam, std, lvl, stem, why, tip, passage, sub, "MATCHING", None)
     it["pairs"] = [dict(left=a, right=b) for a, b in pairs]
     ITEMS.append(it)

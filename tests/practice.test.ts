@@ -100,7 +100,15 @@ describe("starting practice", () => {
     await assert.rejects(startPractice(repo, teacher, await skillId("G4.theme")), /Only students/);
     const g6 = (await repo.findMany("Skill", { code: "G6.theme" }))[0];
     await assert.rejects(startPractice(repo, lina, String(g6.id)), /not part of your curriculum/);
-    await assert.rejects(startPractice(repo, lina, await skillId("G4.plot-flashback")), /no questions/);
+    // a skill with no published questions (made so here; the bank keeps growing)
+    const empty = await skillId("G4.plot-flashback");
+    const ids = (await repo.findMany("Question", { skillId: empty, status: "PUBLISHED" })).map((q) => q.id);
+    await repo.updateMany("Question", { id: { in: ids } }, { status: "ARCHIVED" });
+    try {
+      await assert.rejects(startPractice(repo, lina, empty), /no questions/);
+    } finally {
+      await repo.updateMany("Question", { id: { in: ids } }, { status: "PUBLISHED" });
+    }
   });
 
   test("ordering and matching tasks are shown shuffled, never already solved", async () => {
@@ -242,7 +250,7 @@ describe("answering", () => {
 });
 
 describe("every question type is scored correctly after a database round trip", () => {
-  test("all 8 types: right answer scores 1, wrong answer scores less", async () => {
+  test("all 9 types: right answer scores 1, wrong answer scores less", async () => {
     const qs = await repo.findMany("Question", { status: "PUBLISHED" });
     const bySkill = [...new Set(qs.map((q) => String(q.skillId)))];
     const seen = new Set<string>();
@@ -258,6 +266,6 @@ describe("every question type is scored correctly after a database round trip", 
         seen.add(item.type);
       }
     }
-    assert.deepEqual([...seen].sort(), ["DROPDOWN", "ERROR_CORRECTION", "FILL_BLANK", "MATCHING", "MULTIPLE_CHOICE", "MULTI_SELECT", "SENTENCE_ORDER", "TRUE_FALSE"]);
+    assert.deepEqual([...seen].sort(), ["DROPDOWN", "ERROR_CORRECTION", "FILL_BLANK", "MATCHING", "MULTIPLE_CHOICE", "MULTI_SELECT", "SENTENCE_ORDER", "TRUE_FALSE", "WORD_ORDER"]);
   });
 });

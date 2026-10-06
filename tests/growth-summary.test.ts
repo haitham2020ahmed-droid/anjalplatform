@@ -27,6 +27,11 @@ describe("class growth uses paired skill growth", () => {
     await simulatePractice(repo, students, [
       { date: "2026-09-15", skill: "G4.theme" }, { date: "2026-10-15", skill: "G4.context-clues" }, { date: "2026-11-15", skill: "G4.central-idea" }, { date: "2026-12-01", skill: "G4.theme" },
     ]);
+    // new skills started late with a single answer: one measurement each (not paired growth),
+    // but they pull the overall average down, which is exactly the situation the fix is about
+    await simulatePractice(repo, students, [
+      { date: "2026-12-10", skill: "G4.summarize" }, { date: "2026-12-11", skill: "G4.visualize" }, { date: "2026-12-12", skill: "G4.sequence" },
+    ], 1, 99);
   });
 
   test("the class figure is the mean of each student's paired growth, not the change in overall average", async () => {

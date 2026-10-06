@@ -888,6 +888,28 @@ CREATE TABLE `DiagnosticResult` (
 
 CREATE INDEX `DiagnosticResult_studentId_takenAt_idx` ON `DiagnosticResult`(`studentId`, `takenAt`);
 
+CREATE TABLE `ImportedQuestionLog` (
+  `id` VARCHAR(191) NOT NULL,
+  `jobId` VARCHAR(191) NOT NULL,
+  `rowIndex` INTEGER NOT NULL,
+  `status` ENUM('VALID', 'INVALID', 'DUPLICATE', 'IMPORTED', 'REPLACED', 'SKIPPED', 'FAILED') NOT NULL,
+  `decision` ENUM('IMPORT', 'SKIP', 'REPLACE', 'FORCE') NOT NULL DEFAULT 'IMPORT',
+  `selected` BOOLEAN NOT NULL DEFAULT true,
+  `source` TEXT NOT NULL,
+  `detected` JSON NOT NULL,
+  `errors` JSON,
+  `warnings` JSON,
+  `duplicateOfId` VARCHAR(191),
+  `similarity` DOUBLE,
+  `questionId` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `ImportedQuestionLog_jobId_rowIndex_key` UNIQUE (`jobId`, `rowIndex`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `ImportedQuestionLog_jobId_status_idx` ON `ImportedQuestionLog`(`jobId`, `status`);
+
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 ALTER TABLE `Session` ADD CONSTRAINT `Session_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
@@ -977,3 +999,4 @@ ALTER TABLE `StudentDailyActivity` ADD CONSTRAINT `StudentDailyActivity_studentI
 ALTER TABLE `ClassSkillDaily` ADD CONSTRAINT `ClassSkillDaily_classId_fkey` FOREIGN KEY (`classId`) REFERENCES `Class`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 ALTER TABLE `ClassSkillDaily` ADD CONSTRAINT `ClassSkillDaily_skillId_fkey` FOREIGN KEY (`skillId`) REFERENCES `Skill`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 ALTER TABLE `DiagnosticResult` ADD CONSTRAINT `DiagnosticResult_studentId_fkey` FOREIGN KEY (`studentId`) REFERENCES `Student`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `ImportedQuestionLog` ADD CONSTRAINT `ImportedQuestionLog_jobId_fkey` FOREIGN KEY (`jobId`) REFERENCES `ImportJob`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

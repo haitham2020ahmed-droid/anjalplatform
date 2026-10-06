@@ -1104,6 +1104,8 @@ model ImportJob {
   completedAt DateTime?
 
   uploadedBy User @relation(fields: [uploadedById], references: [id])
+  /// Question-bank imports: one log row per detected question (preview, decision, result).
+  questionLogs ImportedQuestionLog[]
 
   @@index([kind, status])
 }
@@ -1274,3 +1276,48 @@ model DiagnosticResult {
 
   @@index([studentId, takenAt])
 }
+
+/// Question-bank import: what happened to each question detected in an uploaded file.
+enum ImportedQuestionStatus {
+  VALID      // ready to import
+  INVALID    // has errors; fix in the preview or leave unselected
+  DUPLICATE  // looks like an existing question; decision decides what happens
+  IMPORTED
+  REPLACED   // imported and the old question was archived
+  SKIPPED
+  FAILED
+}
+
+enum ImportDecision {
+  IMPORT   // add as a new question
+  SKIP     // do not import
+  REPLACE  // archive the matching question, then import this one
+  FORCE    // import even though it looks like a duplicate
+}
+
+model ImportedQuestionLog {
+  id            String                 @id @default(cuid())
+  jobId         String
+  rowIndex      Int
+  status        ImportedQuestionStatus
+  decision      ImportDecision         @default(IMPORT)
+  selected      Boolean                @default(true)
+  /// original text of this question in the file (for the preview)
+  source        String                 @db.Text
+  /// detected question in editor form (type, stem, options, answers, skill, standard, level…)
+  detected      Json
+  errors        Json?
+  warnings      Json?
+  duplicateOfId String?
+  similarity    Float?
+  /// the question created by the import (or replaced)
+  questionId    String?
+  createdAt     DateTime               @default(now())
+  updatedAt     DateTime               @updatedAt
+
+  job ImportJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@unique([jobId, rowIndex])
+  @@index([jobId, status])
+}
+

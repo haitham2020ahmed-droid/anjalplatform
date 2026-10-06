@@ -48,10 +48,20 @@ describe("student learning flow", () => {
 
   test("only skills with published questions can be practised; recommendations point to practisable skills", async () => {
     const c = await getStudentCurriculum(repo, studentId);
-    const { cards } = await getUnitSkillCards(repo, studentId, c.units[0].unitId);
-    assert.ok(cards.some((k) => k.canPractice) && cards.some((k) => !k.canPractice));
-    for (const k of cards.filter((x) => x.recommended)) assert.ok(k.canPractice && k.recommendedReason);
-    assert.ok(cards.filter((k) => k.recommended).length <= 3);
+    // make one skill question-less for this check (the bank grows, so no skill is guaranteed to be empty)
+    const before = (await getUnitSkillCards(repo, studentId, c.units[0].unitId)).cards;
+    const emptied = before.find((k) => k.canPractice)!;
+    const ids = (await repo.findMany("Question", { skillId: emptied.skillId, status: "PUBLISHED" })).map((q) => q.id);
+    await repo.updateMany("Question", { id: { in: ids } }, { status: "ARCHIVED" });
+    try {
+      const { cards } = await getUnitSkillCards(repo, studentId, c.units[0].unitId);
+      assert.ok(cards.some((k) => k.canPractice) && cards.some((k) => !k.canPractice));
+      assert.equal(cards.find((k) => k.skillId === emptied.skillId)!.canPractice, false);
+      for (const k of cards.filter((x) => x.recommended)) assert.ok(k.canPractice && k.recommendedReason);
+      assert.ok(cards.filter((k) => k.recommended).length <= 3);
+    } finally {
+      await repo.updateMany("Question", { id: { in: ids } }, { status: "PUBLISHED" });
+    }
   });
 
   test("mastery, attempts and accuracy come from the student's own record; mastered skills are not recommended", async () => {

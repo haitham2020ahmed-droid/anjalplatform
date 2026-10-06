@@ -1,10 +1,15 @@
 # syntax=docker/dockerfile:1.7
 # Al-Anjal Adaptive ELA (Phase 13). Two images from one file:
-#   docker build --target web  -t alanjal-ela-web .    # the website (Next.js standalone + PDF engine)
+#   docker build -t alanjal-ela-web .                  # DEFAULT: the website (Next.js standalone + PDF engine)
 #   docker build --target jobs -t alanjal-ela-jobs .   # migrations, scheduled jobs, one-off scripts
+#   docker build --build-arg APP_TARGET=jobs .         # same jobs image, for hosts without a target option
+# The website MUST be the default: hosts such as Render build without --target and expect a web
+# server listening on $PORT. (Before this fix the last stage was "jobs", so Render started the
+# scheduler, which opens no port: "No open ports detected".)
 # No secrets are baked in: all configuration comes from the environment at run time.
 
-ARG NODE_VERSION=22.12.0
+ARG NODE_VERSION=22.14.0
+ARG APP_TARGET=web
 
 # ---------------------------------------------------------------- dependencies
 FROM node:${NODE_VERSION}-bookworm-slim AS deps
@@ -34,6 +39,8 @@ COPY --from=build --chown=node:node /app/.next/static ./.next/static
 COPY --from=build --chown=node:node /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=build --chown=node:node /app/node_modules/@prisma/client ./node_modules/@prisma/client
 COPY --from=build --chown=node:node /app/node_modules/playwright-core ./node_modules/playwright-core
+# PDF text extraction for the question-bank importer (server external package, see next.config.ts)
+COPY --from=build --chown=node:node /app/node_modules/pdfjs-dist ./node_modules/pdfjs-dist
 COPY --chown=node:node assets ./assets
 # Chromium headless shell for PDF reports, with its system libraries (same version as playwright-core)
 RUN node node_modules/playwright-core/cli.js install --with-deps --only-shell chromium \
@@ -55,3 +62,7 @@ COPY --chown=node:node . .
 USER node
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["npm", "run", "--silent", "jobs:scheduler"]
+
+# ---------------------------------------------------------------------- final
+# Default image = web. APP_TARGET=jobs selects the jobs image (e.g. a Render Background Worker).
+FROM ${APP_TARGET} AS final

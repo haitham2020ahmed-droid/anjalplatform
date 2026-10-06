@@ -1016,3 +1016,26 @@ CREATE TABLE "DiagnosticResult" (
 );
 
 CREATE INDEX "DiagnosticResult_studentId_takenAt_idx" ON "DiagnosticResult"("studentId", "takenAt");
+
+CREATE TABLE "ImportedQuestionLog" (
+  "id" TEXT NOT NULL,
+  "jobId" TEXT NOT NULL,
+  "rowIndex" INTEGER NOT NULL,
+  "status" TEXT NOT NULL CHECK ("status" IN ('VALID', 'INVALID', 'DUPLICATE', 'IMPORTED', 'REPLACED', 'SKIPPED', 'FAILED')),
+  "decision" TEXT NOT NULL DEFAULT 'IMPORT' CHECK ("decision" IN ('IMPORT', 'SKIP', 'REPLACE', 'FORCE')),
+  "selected" INTEGER NOT NULL DEFAULT 1,
+  "source" TEXT NOT NULL,
+  "detected" TEXT NOT NULL,
+  "errors" TEXT,
+  "warnings" TEXT,
+  "duplicateOfId" TEXT,
+  "similarity" REAL,
+  "questionId" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "ImportedQuestionLog_jobId_rowIndex_key" UNIQUE ("jobId", "rowIndex"),
+  CONSTRAINT "ImportedQuestionLog_jobId_fkey" FOREIGN KEY ("jobId") REFERENCES "ImportJob"("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE INDEX "ImportedQuestionLog_jobId_status_idx" ON "ImportedQuestionLog"("jobId", "status");

@@ -72,7 +72,15 @@ describe("monitoring", () => {
 describe("deployment files are consistent", () => {
   const dockerfile = read("Dockerfile");
   const compose = read("docker-compose.prod.yml");
-  const webStage = dockerfile.slice(dockerfile.indexOf("AS web"), dockerfile.indexOf("AS jobs"));
+  const webStage = dockerfile.slice(dockerfile.indexOf("AS web"), dockerfile.indexOf("\nFROM ", dockerfile.indexOf("AS web")));
+
+  test("the DEFAULT image (no --target) is the website, as hosts like Render build it", () => {
+    const stages = [...dockerfile.matchAll(/^FROM\s+(\S+)(?:\s+AS\s+(\S+))?/gm)].map((m) => ({ from: m[1], as: m[2] }));
+    const last = stages[stages.length - 1];
+    assert.equal(last.from, "${APP_TARGET}", "last stage selects by APP_TARGET");
+    assert.match(dockerfile, /^ARG APP_TARGET=web$/m, "APP_TARGET defaults to web");
+    assert.ok(stages.some((x) => x.as === "web") && stages.some((x) => x.as === "jobs"));
+  });
 
   test("web image: non-root, health check on the real health route, tini, no secrets", () => {
     assert.match(webStage, /^USER node$/m);
@@ -81,7 +89,10 @@ describe("deployment files are consistent", () => {
     assert.match(webStage, /ENTRYPOINT \["\/usr\/bin\/tini"/);
     assert.ok(!/(SECRET|PASSWORD|DATABASE_URL)=/.test(webStage), "no credentials baked into the web image");
     assert.match(read("next.config.ts"), /output: "standalone"/);
-    assert.match(read("next.config.ts"), /serverExternalPackages: \["playwright-core"\]/);
+    // every server-external package must be copied into the web image, or it is missing at run time
+    const externals = JSON.parse(read("next.config.ts").match(/serverExternalPackages: (\[[^\]]*\])/)![1]) as string[];
+    assert.ok(externals.includes("playwright-core") && externals.includes("pdfjs-dist"), externals.join());
+    for (const pkg of externals) assert.match(webStage, new RegExp(`COPY --from=build[^\\n]*/app/node_modules/${pkg} \\./node_modules/${pkg}`), `${pkg} is not copied into the web image`);
     assert.match(dockerfile, /--only-shell chromium/);
   });
 
@@ -149,3 +160,12 @@ describe("first admin account", () => {
     assert.ok(d.alerts.some((x) => x.rule === "new_admin"), "a shell-created admin is flagged in the daily digest");
   });
 });
+
+describe("repository hygiene", () => {
+  test(".gitignore never hides application source files", () => {
+    const ignored = read(".gitignore").split(/\r?\n/).map((l) => l.trim()).filter((l) => l && !l.startsWith("#"));
+    assert.deepEqual(ignored.filter((l) => /^(src|prisma|tests|scripts|data)\//.test(l)), [], "source files must be committed");
+    for (const must of ["node_modules/", ".next/", ".env"]) assert.ok(ignored.includes(must), `${must} must be ignored`);
+  });
+});
+

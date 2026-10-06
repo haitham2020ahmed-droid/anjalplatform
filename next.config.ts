@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   // Phase 13: self-contained server for the Docker image (.next/standalone)
   output: "standalone",
   // PDF engine: loaded at runtime from node_modules, never bundled
-  serverExternalPackages: ["playwright-core"],
+  serverExternalPackages: ["playwright-core", "pdfjs-dist"],
   // Phase 11: logo (≤ 1 MB) and roster files (≤ 3,000 rows) are sent through server actions
   experimental: { serverActions: { bodySizeLimit: "4mb" } },
   async headers() {
