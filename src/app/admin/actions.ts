@@ -249,9 +249,18 @@ export async function aiReviewAction(_: Result, f: FormData): Promise<Result> {
 
 // ------------------------------------------------------- question import
 
-import { cancelImport, commitImportChunk, selectAll, updateImportRow, type CommitProgress, type ImportDecision, type PreviewRow } from "@/server/admin/question-import";
+import { cancelImport, commitImportChunk, selectAll, shortDbMessage, updateImportRow, type CommitProgress, type ImportDecision, type PreviewRow } from "@/server/admin/question-import";
+import { log } from "@/server/monitoring/log";
 
 const ImportPatch = z.object({ selected: z.boolean().optional(), decision: z.enum(["IMPORT", "SKIP", "REPLACE", "FORCE"]).optional(), input: z.record(z.unknown()).optional() });
+
+/** Import actions always answer { error } with a specific message; unexpected errors are logged with their stage. */
+function importError(e: unknown, stage: string, jobId: string): { error: string } {
+  if (e instanceof ValidationError || (e as { status?: number }).status === 403) return { error: (e as Error).message };
+  if (e instanceof z.ZodError) return { error: "The change could not be read. Reload the page and try again." };
+  log("error", "question_import.action_error", { stage, jobId, error: e as Error });
+  return { error: `Database error while ${stage}: ${shortDbMessage(e)}` };
+}
 
 export async function importRowAction(jobId: string, rowId: string, patch: { selected?: boolean; decision?: ImportDecision; input?: EditorInput }): Promise<{ error?: string; row?: PreviewRow; message?: string }> {
   const actor = await requireActor({ permission: "questions:edit" });
@@ -260,8 +269,7 @@ export async function importRowAction(jobId: string, rowId: string, patch: { sel
     const row = await updateImportRow(repo, actor, id.parse(jobId), id.parse(rowId), { selected: p.selected, decision: p.decision, input: p.input as EditorInput | undefined });
     return { row, message: row.errors.length ? "Saved, but it still has errors." : "Saved and checked." };
   } catch (e) {
-    if (e instanceof ValidationError || (e as { status?: number }).status === 403 || e instanceof z.ZodError) return { error: e instanceof z.ZodError ? "Invalid change." : (e as Error).message };
-    throw e;
+    return importError(e, "saving the question", jobId);
   }
 }
 
@@ -271,8 +279,7 @@ export async function importSelectAllAction(jobId: string, selected: boolean): P
     await selectAll(repo, actor, id.parse(jobId), Boolean(selected));
     return {};
   } catch (e) {
-    if (e instanceof ValidationError) return { error: e.message };
-    throw e;
+    return importError(e, "updating the selection", jobId);
   }
 }
 
@@ -283,11 +290,11 @@ export async function commitImportAction(jobId: string, publish: boolean): Promi
     if (progress.done) {
       revalidatePath("/admin/questions");
       revalidatePath("/admin/question-bank");
+      revalidatePath("/admin/questions/import");
     }
     return { progress };
   } catch (e) {
-    if (e instanceof ValidationError || (e as { status?: number }).status === 403) return { error: (e as Error).message };
-    throw e;
+    return importError(e, "importing", jobId);
   }
 }
 

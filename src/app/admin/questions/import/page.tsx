@@ -1,36 +1,76 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { card, h2 } from "@/components/admin/styles";
-import { env } from "@/lib/env";
+import { SUPPORTED_TYPES, TEACHER_RULES, TEMPLATE_COLUMNS } from "@/imports/questions/template";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { importChoices, listImportJobs } from "@/server/admin/question-import";
+import { listImportJobs } from "@/server/admin/question-import";
 import { ImportUpload } from "./upload-form";
 
-const STATUS: Record<string, string> = { AWAITING_CONFIRMATION: "Waiting for review", IMPORTING: "Importing", COMPLETED: "Completed", CANCELLED: "Cancelled", FAILED: "Failed" };
+const STATUS: Record<string, { text: string; cls: string }> = {
+  AWAITING_CONFIRMATION: { text: "Waiting for review", cls: "bg-amber-100 text-amber-900" },
+  IMPORTING: { text: "Importing", cls: "bg-sky-100 text-sky-900" },
+  COMPLETED: { text: "Completed", cls: "bg-teal-100 text-teal-900" },
+  CANCELLED: { text: "Cancelled", cls: "bg-slate-200 text-slate-700" },
+  FAILED: { text: "Failed", cls: "bg-red-100 text-red-800" },
+};
 
 export default async function ImportQuestionsPage() {
   const actor = await requireActor({ permission: "questions:edit" });
   const me = (await getActor())!.user;
-  const [grades, jobs] = await Promise.all([importChoices(repo, actor), listImportJobs(repo, actor)]);
+  const jobs = await listImportJobs(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/admin/questions" className="text-brand-teal hover:underline">← Questions</Link></p>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">Import questions</h1>
-      <p className="mt-1 max-w-3xl text-slate-600">Upload any question-bank file. The format is detected automatically; you see every question before anything is added, and imported questions go through the normal review before students see them.</p>
-      <section className={card}><ImportUpload grades={grades} aiReady={Boolean(env.ANTHROPIC_API_KEY)} /></section>
+      <p className="mt-1 max-w-3xl text-slate-600">Prepare your Excel file, upload it, review every question, then import. Nothing is added to the question bank until you confirm, and imported questions go through the normal review before students see them.</p>
+
+      <section className={card}>
+        <h2 className={h2}>1. Prepare your file</h2>
+        <p className="mt-1 rounded-lg bg-teal-50 px-3 py-2 text-sm font-medium text-teal-900">Use the official CSV or Excel template for the highest import accuracy.</p>
+        <div className="mt-3 flex flex-wrap gap-3">
+          <a href="/api/question-imports/template?format=xlsx" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">Download Excel template</a>
+          <a href="/api/question-imports/template?format=csv" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Download CSV template</a>
+          <a href="/api/question-imports/template?format=curriculum" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Download skills and standards list</a>
+        </div>
+        <div className="mt-4 grid gap-6 md:grid-cols-2">
+          <div>
+            <h3 className="font-semibold text-brand-navy">Rules</h3>
+            <ul className="mt-1 list-disc space-y-1 ps-5 text-sm text-slate-700">{TEACHER_RULES.map((r) => <li key={r}>{r}</li>)}</ul>
+            <p className="mt-2 text-sm text-slate-600">The Excel template has a <strong>Curriculum</strong> sheet with every grade, skill and standard of the school, and drop-down lists for the question type, grade, difficulty and cognitive level.</p>
+          </div>
+          <details className="text-sm text-slate-700">
+            <summary className="cursor-pointer font-semibold text-brand-navy">What goes in each column</summary>
+            <dl className="mt-2 space-y-1">
+              {TEMPLATE_COLUMNS.filter((c) => c.help).map((c) => (
+                <div key={c.key}><dt className="inline font-semibold">{c.header}{c.required ? "" : " (optional)"}: </dt><dd className="inline">{c.help}</dd></div>
+              ))}
+            </dl>
+            <p className="mt-2">Question types: {SUPPORTED_TYPES.map((t) => t.name).join(", ")}.</p>
+          </details>
+        </div>
+      </section>
+
+      <section className={card}>
+        <h2 className={h2}>2. Upload</h2>
+        <ImportUpload />
+      </section>
+
       <section className={card}>
         <h2 className={h2}>Import history</h2>
         {jobs.length === 0 ? <p className="text-slate-600">No imports yet.</p> : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
-              <thead><tr className="border-b text-slate-500"><th className="py-2">File</th><th>Type</th><th>Date</th><th>By</th><th>Questions</th><th>Result</th><th>Status</th></tr></thead>
+              <thead><tr className="border-b text-slate-500"><th className="py-2">File</th><th>Date</th><th>By</th><th>Rows</th><th>Result</th><th>Status</th></tr></thead>
               <tbody>{jobs.map((j) => (
-                <tr key={j.id} className="border-b last:border-0">
-                  <td className="py-2"><Link className="font-semibold text-brand-teal hover:underline" href={`/admin/questions/import/${j.id}`}>{j.fileName}</Link></td>
-                  <td className="uppercase">{j.kind}</td><td>{j.createdAt.slice(0, 10)}</td><td>{j.uploadedBy}</td>
-                  <td>{j.totals.total} ({j.totals.valid} valid · {j.totals.invalid} with errors · {j.totals.duplicates} duplicates)</td>
-                  <td>{j.summary ? `${j.summary.imported + j.summary.replaced} imported · ${j.summary.skipped} skipped · ${j.summary.failed} failed` : "—"}</td>
-                  <td>{STATUS[j.status] ?? j.status}</td>
+                <tr key={j.id} className="border-b align-top last:border-0">
+                  <td className="py-2 pe-2"><Link className="font-semibold text-brand-teal hover:underline" href={`/admin/questions/import/${j.id}`}>{j.fileName}</Link><span className="ms-2 text-xs uppercase text-slate-500">{j.kind}</span></td>
+                  <td className="pe-2">{j.createdAt.slice(0, 10)}</td>
+                  <td className="pe-2">{j.uploadedBy}</td>
+                  <td className="pe-2">{j.status === "FAILED" ? "—" : `${j.totals.total} (${j.totals.valid} ready, ${j.totals.invalid} with errors, ${j.totals.duplicates} duplicates)`}</td>
+                  <td className="pe-2">
+                    {j.summary ? `${j.summary.imported + j.summary.replaced} imported, ${j.summary.skipped} skipped, ${j.summary.failed} failed` : j.status === "FAILED" ? <span className="text-red-700">{j.errors[0] ?? "The file could not be read."}{j.errors.length > 1 ? ` (+${j.errors.length - 1} more)` : ""}</span> : "—"}
+                  </td>
+                  <td><span className={`whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-semibold ${STATUS[j.status]?.cls ?? ""}`}>{STATUS[j.status]?.text ?? j.status}</span></td>
                 </tr>
               ))}</tbody>
             </table>

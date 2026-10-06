@@ -15,6 +15,7 @@ export function withProgress(repo: Repo, report: (writes: number, elapsedMs: num
     writes: () => writes,
     async upsert(model: string, where: Record<string, unknown>, create: Row, update?: Row) { const r = await repo.upsert(model, where, create, update); tick(); return r; },
     async create(model: string, data: Row) { const r = await repo.create(model, data); tick(); return r; },
+    async createMany(model: string, rows: Row[]) { const n = await repo.createMany(model, rows); for (let i = 0; i < n; i++) tick(); return n; },
     async updateMany(model: string, where: Where, data: Row) { const r = await repo.updateMany(model, where, data); tick(); return r; },
     async deleteMany(model: string, where: Where) { const r = await repo.deleteMany(model, where); tick(); return r; },
     findUnique: (model: string, where: Record<string, unknown>) => repo.findUnique(model, where),

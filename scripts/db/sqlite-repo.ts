@@ -91,6 +91,23 @@ export class SqliteRepo implements Repo {
     return (await this.findUnique(model, where))!;
   }
 
+  async createMany(model: string, rows: Row[]): Promise<number> {
+    const m = this.model(model);
+    let n = 0;
+    for (const data of rows) {
+      const d: Row = { ...data };
+      for (const c of columns(m, this.schema)) {
+        if (d[c.name] === undefined && c.default?.kind === "cuid") d[c.name] = cuidLike();
+        if (c.isUpdatedAt) d[c.name] = new Date();
+      }
+      const row = this.toDb(m, d);
+      const keys = Object.keys(row);
+      this.db.prepare(`INSERT INTO "${model}" (${keys.map((k) => `"${k}"`).join(",")}) VALUES (${keys.map(() => "?").join(",")})`).run(...(keys.map((k) => row[k]) as never[]));
+      n++;
+    }
+    return n;
+  }
+
   async findUnique(model: string, where: Record<string, unknown>): Promise<Row | null> {
     const m = this.model(model);
     matchUniqueKey(UNIQUE_KEYS, model, Object.keys(where)); // same contract as PrismaRepo (Phase 12)

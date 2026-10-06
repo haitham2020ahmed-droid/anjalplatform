@@ -63,20 +63,26 @@ function colIndex(ref: string): number {
   return n - 1;
 }
 
-export function readXlsx(buf: Buffer): string[][] {
+/**
+ * Reads one worksheet. By default the first sheet in workbook order; with `sheet`, the sheet of that
+ * name (case-insensitive) when the workbook has one, else the first sheet.
+ */
+export function readXlsx(buf: Buffer, opts: { sheet?: string } = {}): string[][] {
   if (buf.length < 4 || buf.readUInt32LE(0) !== 0x04034b50) throw new Error("This is not a valid Excel (.xlsx) file.");
   const entries = readZipEntries(buf);
   const shared: string[] = [];
   const ss = entries.get("xl/sharedStrings.xml");
   if (ss) for (const m of readPart(buf, ss).matchAll(/<si>([\s\S]*?)<\/si>/g)) shared.push(textOf(m[1]));
-  // first worksheet in workbook order
   const wb = readPart(buf, entries.get("xl/workbook.xml") ?? (() => { throw new Error("The Excel file has no workbook."); })());
+  const sheets = [...wb.matchAll(/<sheet\b[^>]*>/g)].map((m) => ({ name: unescape(m[0].match(/\bname="([^"]*)"/)?.[1] ?? ""), rid: m[0].match(/\br:id="([^"]+)"/)?.[1] }));
+  const wanted = opts.sheet ? sheets.find((x) => x.name.trim().toLowerCase() === opts.sheet!.toLowerCase()) : undefined;
+  const firstRid = (wanted ?? sheets[0])?.rid;
   const rels = entries.get("xl/_rels/workbook.xml.rels");
-  const firstRid = wb.match(/<sheet\b[^>]*\br:id="([^"]+)"/)?.[1];
   let sheetPath = "xl/worksheets/sheet1.xml";
   if (rels && firstRid) {
-    const target = readPart(buf, rels).match(new RegExp(`<Relationship\\b[^>]*Id="${firstRid}"[^>]*Target="([^"]+)"`))?.[1]
-      ?? readPart(buf, rels).match(new RegExp(`<Relationship\\b[^>]*Target="([^"]+)"[^>]*Id="${firstRid}"`))?.[1];
+    const relXml = readPart(buf, rels);
+    const target = relXml.match(new RegExp(`<Relationship\\b[^>]*Id="${firstRid}"[^>]*Target="([^"]+)"`))?.[1]
+      ?? relXml.match(new RegExp(`<Relationship\\b[^>]*Target="([^"]+)"[^>]*Id="${firstRid}"`))?.[1];
     if (target) sheetPath = target.startsWith("/") ? target.slice(1) : `xl/${target.replace(/^\.\//, "")}`;
   }
   const sheet = entries.get(sheetPath);

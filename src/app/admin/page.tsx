@@ -11,7 +11,7 @@ export default async function AdminHome() {
     { href: "/admin/users", title: "Users", text: "Students, teachers, parents and admins; classes and parent links.", show: can(actor, "students:manage") || can(actor, "teachers:manage") },
     { href: "/admin/roster", title: "Import users", text: "Add or update many users at once from a CSV or Excel file.", show: can(actor, "students:manage") },
     { href: "/admin/questions", title: "Questions", text: "Write, review and publish practice questions.", show: can(actor, "questions:read") },
-    { href: "/admin/questions/import", title: "Import questions", text: "Upload CSV, Excel, Word, PDF, JSON or TXT question banks; preview, fix and import.", show: can(actor, "questions:edit") },
+    { href: "/admin/questions/import", title: "Import questions", text: "Upload questions from the official CSV or Excel template; review, fix and import.", show: can(actor, "questions:edit") },
     { href: "/admin/question-bank", title: "Question bank coverage (AI)", text: "Questions per skill and difficulty; generate missing questions as drafts for review.", show: can(actor, "questions:read") },
     { href: "/admin/curriculum", title: "Curriculum", text: "Units, lessons, skills, standards and prerequisites.", show: can(actor, "curriculum:edit") },
     { href: "/admin/imports", title: "MAP and other results", text: "Import official MAP Growth and other results.", show: can(actor, "imports:run") },

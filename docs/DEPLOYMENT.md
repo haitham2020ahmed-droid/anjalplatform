@@ -232,9 +232,20 @@ as build arguments, which selects the jobs image) plus the same `DATABASE_URL` a
 - **Data location:** check where your Render region and database are hosted; student data
   outside Saudi Arabia needs the school's PDPL approval (section 2).
 
-## 12. After updating to the question importer
+## 12. Question importer (CSV / Excel template)
 
-The importer adds one table (`ImportedQuestionLog`) and the `pdfjs-dist` package.
-- Database: `npx prisma db push` (test/demo) or create and apply a migration (`npx prisma migrate dev --name question_importer`, then `npx prisma migrate deploy` in production).
-- Dependencies: `npm install` updates `package-lock.json`; commit it. The Docker web image copies `pdfjs-dist` (checked by the deployment tests).
+The importer uses the existing tables `ImportJob` and `ImportedQuestionLog` (no schema change in the
+template version). If imports fail with "a table is missing in the database", the database was created
+before the importer: run once from your computer, with `DATABASE_URL` set to the production database,
+`npx prisma db push` (or create and apply a migration).
 
+- Accepted files: CSV (.csv) and Excel (.xlsx) in the official template, up to 10 MB and 5,000 questions.
+  Teachers download the template from Admin → Questions → Import questions (Excel template, CSV template,
+  and the list of skills and standards).
+- No AI is used for importing. `ANTHROPIC_API_KEY` is only for AI question generation.
+- Grade, Skill and Standard must already exist; the importer never creates skills or standards.
+- Every attempt is in the import history, including files that could not be read (status Failed, with
+  the reasons). Server-side problems are logged as `question_import.error` /
+  `question_import.action_error` (Render → Logs).
+- `pdfjs-dist` is no longer used by the importer; it stays installed for now (removing it also needs a
+  Dockerfile and `next.config.ts` change).

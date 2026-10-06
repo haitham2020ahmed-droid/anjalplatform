@@ -100,6 +100,32 @@ function assertMayEdit(actor: Actor, q: Row) {
 
 // ------------------------------------------------------------ validation
 
+/**
+ * Pure part of the bank validation: builds the BankItem from editor input and checks it with the
+ * Phase 1 validator. No database access, so the importer can validate thousands of rows quickly.
+ * Throws ValidationError with every problem found.
+ */
+export function buildBankItem(input: EditorInput, ctx: { ref: string; grade: number; skillCode: string; standardCode: string | null; passageRef: string | null }): BankItem {
+  if (!(QUESTION_TYPES as readonly string[]).includes(input.type)) throw new ValidationError("Choose a question type.");
+  const item: BankItem = {
+    ref: ctx.ref, grade: ctx.grade, family: "", skillKey: ctx.skillCode, standard: ctx.standardCode || "(none)",
+    level: Math.round(num(input.level)), type: input.type,
+    stem: text(input.stem, "Question", 2000), passage: ctx.passageRef, subskill: null,
+    explanation: { whyCorrect: text(input.whyCorrect, "Explanation", 1000), tip: text(input.tip, "Tip", 500, false) },
+    estimatedSeconds: Math.min(600, Math.max(10, Math.round(num(input.estimatedSeconds ?? 45)))),
+    irt: { a: 1, b: LEVEL_TO_B[Math.round(num(input.level))] ?? 0, c: 0 },
+    options: input.options?.map((o, i) => ({ label: o.label?.trim() || "ABCDEFGH"[i], text: text(o.text, `Option ${i + 1}`, 500), correct: Boolean(o.correct), rationale: o.rationale ? text(o.rationale, `Feedback for option ${i + 1}`, 500) : null })),
+    answer: input.answer, answers: input.answers?.map((a) => text(a, "Accepted answer", 200)).filter(Boolean),
+    sequence: input.sequence?.map((s) => text(s, "Item", 300)), segments: input.segments?.map((s) => text(s, "Segment", 300)),
+    errorIndex: input.errorIndex === undefined ? undefined : num(input.errorIndex), correction: input.correction ? text(input.correction, "Correction", 300) : undefined,
+    pairs: input.pairs?.map((p) => ({ left: text(p.left, "Left", 200), right: text(p.right, "Right", 200) })),
+  };
+  const passages = new Set(item.passage ? [item.passage] : []);
+  const issues = validateItem(item, { skillKeys: new Set([item.skillKey]), standards: new Set(ctx.standardCode ? [ctx.standardCode] : []), passages });
+  if (issues.length) throw new ValidationError(issues.map((i) => i.message.replace(/^unknown standard.*/, "Choose the standard this question assesses.")).join("; "));
+  return item;
+}
+
 async function toBankItem(repo: Repo, actor: Actor, input: EditorInput, ref: string): Promise<{ item: BankItem; grade: number; standardId: string | null; passageId: string | null }> {
   const { skill, grade } = await skillInSchool(repo, actor, input.skillId);
   if (!(QUESTION_TYPES as readonly string[]).includes(input.type)) throw new ValidationError("Choose a question type.");
@@ -112,22 +138,10 @@ async function toBankItem(repo: Repo, actor: Actor, input: EditorInput, ref: str
   const std = standardCode ? (await repo.findMany("Standard", { code: standardCode }))[0] : null;
   const passage = input.passageId ? await repo.findUnique("ReadingPassage", { id: input.passageId }) : null;
   if (input.passageId && !passage) throw new ValidationError("Reading passage not found.");
-  const item: BankItem = {
-    ref, grade, family: "", skillKey: String(skill.code), standard: std ? String(std.code) : standardCode || "(none)",
-    level: Math.round(num(input.level)), type: input.type,
-    stem: text(input.stem, "Question", 2000), passage: passage ? String(passage.externalRef ?? passage.id) : null, subskill: null,
-    explanation: { whyCorrect: text(input.whyCorrect, "Explanation", 1000), tip: text(input.tip, "Tip", 500, false) },
-    estimatedSeconds: Math.min(600, Math.max(10, Math.round(num(input.estimatedSeconds ?? 45)))),
-    irt: { a: 1, b: LEVEL_TO_B[Math.round(num(input.level))] ?? 0, c: 0 },
-    options: input.options?.map((o, i) => ({ label: o.label?.trim() || "ABCDEFGH"[i], text: text(o.text, `Option ${i + 1}`, 500), correct: Boolean(o.correct), rationale: o.rationale ? text(o.rationale, `Feedback for option ${i + 1}`, 500) : null })),
-    answer: input.answer, answers: input.answers?.map((a) => text(a, "Accepted answer", 200)).filter(Boolean),
-    sequence: input.sequence?.map((s) => text(s, "Item", 300)), segments: input.segments?.map((s) => text(s, "Segment", 300)),
-    errorIndex: input.errorIndex === undefined ? undefined : num(input.errorIndex), correction: input.correction ? text(input.correction, "Correction", 300) : undefined,
-    pairs: input.pairs?.map((p) => ({ left: text(p.left, "Left", 200), right: text(p.right, "Right", 200) })),
-  };
-  const passages = new Set(item.passage ? [item.passage] : []);
-  const issues = validateItem(item, { skillKeys: new Set([item.skillKey]), standards: new Set(std ? [String(std.code)] : []), passages });
-  if (issues.length) throw new ValidationError(issues.map((i) => i.message.replace(/^unknown standard.*/, "Choose the standard this question assesses.")).join("; "));
+  const item = buildBankItem(input, {
+    ref, grade, skillCode: String(skill.code), standardCode: std ? String(std.code) : null,
+    passageRef: passage ? String(passage.externalRef ?? passage.id) : null,
+  });
   return { item, grade, standardId: std ? String(std.id) : null, passageId: passage ? String(passage.id) : null };
 }
 

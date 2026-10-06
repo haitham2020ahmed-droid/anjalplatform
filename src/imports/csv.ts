@@ -7,7 +7,7 @@
  * prefixed with an apostrophe. Plain negative numbers are left untouched.
  */
 
-export function parseCsv(text: string): string[][] {
+export function parseCsv(text: string, delimiter: "," | ";" | "\t" = ","): string[][] {
   const s = text.charCodeAt(0) === 0xfeff ? text.slice(1) : text;
   const rows: string[][] = [];
   let row: string[] = [];
@@ -23,7 +23,7 @@ export function parseCsv(text: string): string[][] {
       continue;
     }
     if (c === '"' && field === "") inQuotes = true;
-    else if (c === ",") { row.push(field); field = ""; }
+    else if (c === delimiter) { row.push(field); field = ""; }
     else if (c === "\n" || c === "\r") {
       if (c === "\r" && s[i + 1] === "\n") i++;
       row.push(field);

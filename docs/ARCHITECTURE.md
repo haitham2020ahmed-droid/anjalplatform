@@ -962,23 +962,54 @@ Added to the existing platform: same database (no schema change), same adaptive 
 
 ## AB. Question-bank importer (`/admin/questions/import`)
 
-Integrated with the existing question bank: imported questions are created through `createDraft`, the same path and validator as the question editor (origin `IMPORTED`, status `DRAFT`; admins may approve on import).
+Template-based and deterministic: teachers fill the official CSV or Excel template, upload it, review
+every row, and confirm. No AI is used anywhere in the import. Word, PDF, image, JSON and text files are
+refused with a message pointing to the template.
 
-**Data.** The job is the existing `ImportJob` (kind `QUESTIONS`): the import history is shared with the MAP and roster imports, so no parallel `QuestionImportJob` table was added. One new table, **`ImportedQuestionLog`** (with enums `ImportedQuestionStatus`, `ImportDecision`), holds one row per detected question: the original text, the detected question in editor form, errors, warnings, the duplicate match and its similarity, the decision (Import / Skip / Replace / Import anyway), and the resulting question.
+**Data.** The existing `ImportJob` (kind `QUESTIONS`) and `ImportedQuestionLog` (one row per question:
+detected question, status, decision, errors, warnings, duplicate link, created question). No schema change.
+Files that cannot be imported at all are kept as `FAILED` jobs with their reasons, so the history shows
+every attempt.
 
-**Pipeline** (`src/imports/questions/extract.ts`, `parse.ts`; `src/server/admin/question-import.ts`):
-1. *Detect and extract* by content: PDF (`%PDF`), Word and Excel (ZIP contents), JSON, CSV/TSV (also a .txt that is really a table), TXT. Word paragraphs, numbered lists and tables; PDF text layer via `pdfjs-dist` (scanned PDFs are reported as having no text).
-2. *Rule-based parsing* of tables (flexible headers: Question / A–H / Option 1… / Choices / Answer / Key / Explanation / Type / Difficulty / Grade / Subject / Unit / Lesson / Skill / Standard / Cognitive level), JSON (flexible keys) and text layouts (numbered `1.` / `Q1:` / `Question 3)`, lettered options on separate lines or one line, `Answer:` / `Key:`, `*` or `(correct)` marks, `Explanation:`, metadata lines). All 10 question types are recognized, including matching (`left = right`), ordering (answer `B, A, C`), error correction (`Correction:`), and short answer.
-3. *AI understanding* (optional, `src/server/ai/question-understanding.ts`): when the rules find nothing usable the AI extracts the questions; it then maps questions to the school's skills and standards and fills difficulty, cognitive level, a missing explanation, feedback for wrong answers and, where the file has no key, a suggested answer that is clearly marked for checking. **Text is redacted first**: the school's student names, usernames and student numbers are replaced with `[REDACTED]`; the AI modules import nothing and never see the database.
-4. *Mapping*: grade, skill (code or name), standard (must be linked to the skill; otherwise the skill's main standard with a warning), lesson; defaults chosen at upload fill gaps; difficulty words (easy / medium / hard) or numbers map to levels 1–7.
-5. *Validation*: parser problems plus the full bank validator (dry run) → `INVALID` rows are unselected with reasons.
-6. *Duplicates*: against existing questions of the grade (question text ≥ 90 % similar, or question + options ≥ 75 %) and within the file; default decision Skip.
+**Template** (`src/imports/questions/template.ts`, `template-files.ts`; download at
+`/api/question-imports/template?format=xlsx|csv|curriculum`): columns Question Text, Question Type,
+Option A–D, Correct Answer, Explanation, Grade, Skill, Standard, Difficulty Level, Cognitive Level,
+Passage/Text (optional). The Excel template has a Questions sheet (drop-down lists), an Instructions
+sheet and a Curriculum sheet built from the school's own grades, skills and linked standards. Example
+rows start with `[Example]` and are refused, so an unchanged template adds nothing.
 
-**Preview**: every question with type, answer, skill, level, status, errors and warnings; edit any row in the standard question editor (re-validated and re-checked for duplicates on save); select rows; choose Skip / Replace existing / Import anyway for duplicates. **Import** runs in chunks of 20 with a progress bar and reports imported, replaced, skipped, failed and duplicates; Replace archives the matching question. Finished or cancelled imports are locked. Uploads go to `POST /api/question-imports` (same-origin check, sign-in, `questions:edit`, 10 MB limit).
+**Pipeline** (`extract.ts` → `template.ts` → `src/server/admin/question-import.ts`):
+1. *Read*: file type from content; CSV (comma, semicolon or tab; UTF-8, UTF-16 or Windows-1252) or the
+   sheet named "Questions" of an .xlsx.
+2. *Columns*: the header must be the template's; every missing required column is named
+   ("Missing required column: Correct Answer").
+3. *Rows*: type (Multiple Choice, Multi Select, True/False, Dropdown, Fill in the Blank, Short Answer),
+   choices in order without gaps or repeats, correct answer (letters, or the choice's text), difficulty
+   1–7, cognitive level (Bloom), grade number. Every problem names the column and the value.
+4. *Curriculum, exact only*: the grade must exist in the school; the skill matches by exact code or
+   exact name within that grade (a skill of another grade is reported as such); the standard must exist
+   and be linked to the skill. Nothing is created or guessed.
+5. *Validation*: the bank validator, as a pure function (`buildBankItem` in `questions.ts`), so thousands
+   of rows are checked without database round trips.
+6. *Duplicates*: exact (same text and choices, ignoring case, punctuation and spacing) or similar
+   (≥ 80 % word overlap of text and choices, or ≥ 90 % of the text alone), against the bank and within
+   the file. Duplicates default to Skip; the reviewer can choose Import anyway.
 
-**Short answer** questions are teacher-scored: they can be imported and approved, but the practice loader now serves only automatically scored types, so they never enter adaptive practice.
+**Import**: 100 questions per request (progress bar). Each chunk writes questions, choices, answers,
+explanations, reading passages (one per distinct text, reused) and audit rows with batch inserts
+(`Repo.createMany`) in one transaction. If a chunk fails, its questions are retried one by one so a
+single bad row cannot stop the rest; failures are recorded on the row and in the job's error list.
+Questions are created as DRAFT with origin IMPORTED (admins may approve on import; short answers stay drafts).
+Rows with errors are reported as failed, never silently skipped.
 
-**Tests:** `tests/question-import.test.ts` (11): real CSV, XLSX, DOCX and PDF files, JSON and TXT; the three example layouts; all types; redaction; statuses, editing, decisions, chunked import, replace, approve-on-import permission, the short-answer guard, the AI path (privacy), school scope. Mutation check `phase16-question-import.py`: 14 of 14 caught. Totals: 255 tests; 85 of 85 mutations caught.
+**Errors**: the upload API and the import actions always answer with a specific message (never a bare
+"Import failed"); unexpected server errors are logged with their stage. A problems CSV
+(`/api/question-imports/<job>/problems`) lists every error and warning by spreadsheet row.
+
+**Tests:** `tests/question-import.test.ts` (16): header and row rules, every type, curriculum matching,
+duplicates, refused file types, CSV variants, the templates, end-to-end import on SQLite (statuses,
+fixing, decisions, passages, approval permission, cancel, school scope), recovery from a database error,
+and a 2,000-question Excel file (about 4 s to check and 2 s to import on SQLite).
 
 ## AC. Bulk publishing (questions list)
 

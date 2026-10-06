@@ -19,6 +19,7 @@ export default async function ImportJobPage({ params }: { params: Promise<{ jobI
   try { job = await getImportJob(repo, actor, jobId); } catch { notFound(); }
   const { skills, standards } = await editorOptions(repo, schoolOf(actor));
   const done = job.summary;
+  const problems = job.rows.some((r) => r.errors.length || r.warnings.length) || job.errors.length > 0;
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/admin/questions/import" className="text-brand-teal hover:underline">← Import questions</Link></p>
@@ -30,20 +31,36 @@ export default async function ImportJobPage({ params }: { params: Promise<{ jobI
       </div>
       <section className={card}>
         <p className="text-sm text-slate-600">
-          {job.kind.toUpperCase()} file · uploaded {job.createdAt.slice(0, 10)} by {job.uploadedBy}
-          {job.options.aiUsed ? " · AI helped read and map the questions" : ""}
-          {job.options.redactions ? ` · ${job.options.redactions} personal detail(s) removed before AI` : ""}
-          {job.options.notes?.length ? ` · ${job.options.notes.join("; ")}` : ""}
+          {job.kind === "xlsx" ? "Excel" : job.kind === "csv" ? "CSV" : "Unknown"} file, uploaded {job.createdAt.slice(0, 10)} by {job.uploadedBy}.
+          {job.options.notes?.length ? ` ${job.options.notes.map((n) => n.charAt(0).toUpperCase() + n.slice(1)).join(". ")}.` : ""}
         </p>
-        <div className="mt-3 grid gap-3 sm:grid-cols-4">
-          {[["Questions found", job.totals.total, "text-brand-navy"], ["Ready", job.totals.valid, "text-brand-teal"], ["With errors", job.totals.invalid, "text-red-700"], ["Possible duplicates", job.totals.duplicates, "text-amber-800"]].map(([l, v, c]) => (
-            <div key={String(l)} className="rounded-xl bg-slate-50 p-3"><p className="text-xs text-slate-500">{l}</p><p className={`text-2xl font-bold ${c}`}>{v}</p></div>
-          ))}
-        </div>
-        {done && <p className="mt-3 font-semibold text-brand-navy">Result: {done.imported} imported · {done.replaced} replaced · {done.skipped} skipped · {done.failed} failed. <Link className="text-brand-teal hover:underline" href="/admin/questions?status=DRAFT">Review the new drafts →</Link></p>}
+
+        {job.status === "FAILED" ? (
+          <div role="alert" className="mt-3 rounded-xl bg-red-50 px-4 py-3 text-red-800 ring-1 ring-red-200">
+            <p className="font-semibold">This file could not be imported. Nothing was added to the question bank.</p>
+            <ul className="mt-2 list-disc space-y-0.5 ps-5 text-sm">{job.errors.map((e) => <li key={e}>{e}</li>)}</ul>
+            <p className="mt-2 text-sm">Fix the file and <Link className="underline" href="/admin/questions/import">upload it again</Link>.</p>
+          </div>
+        ) : (
+          <div className="mt-3 grid gap-3 sm:grid-cols-4">
+            {([["Rows read", job.totals.total, "text-brand-navy"], ["Ready to import", job.totals.valid, "text-brand-teal"], ["With errors", job.totals.invalid, "text-red-700"], ["Already in the bank or repeated", job.totals.duplicates, "text-amber-800"]] as const).map(([l, v, c]) => (
+              <div key={l} className="rounded-xl bg-slate-50 p-3"><p className="text-xs text-slate-500">{l}</p><p className={`text-2xl font-bold ${c}`}>{v}</p></div>
+            ))}
+          </div>
+        )}
+        {problems && <p className="mt-3 text-sm"><a className="font-semibold text-brand-teal hover:underline" href={`/api/question-imports/${job.id}/problems`}>Download the list of problems (CSV, by row number)</a> to fix them in your file.</p>}
+        {done && (
+          <p className="mt-3 font-semibold text-brand-navy">
+            Result: {done.imported} imported, {done.replaced} replaced, {done.skipped} skipped, {done.failed} failed.{" "}
+            <Link className="text-brand-teal hover:underline" href={`/admin/questions?status=${job.options.publish ? "PUBLISHED" : "DRAFT"}`}>Open the imported questions</Link>
+          </p>
+        )}
+        {done && job.errors.length > 0 && (
+          <details className="mt-2 text-sm text-red-800"><summary className="cursor-pointer">Rows that failed ({job.errors.length})</summary><ul className="mt-1 list-disc ps-5">{job.errors.map((e) => <li key={e}>{e}</li>)}</ul></details>
+        )}
         {job.status === "CANCELLED" && <p className="mt-3 text-slate-600">This import was cancelled. Nothing was added.</p>}
       </section>
-      <div className="mt-6"><ImportPreview job={job} skills={skills} standards={standards} canPublish={can(actor, "questions:publish")} /></div>
+      {job.status !== "FAILED" && <div className="mt-6"><ImportPreview job={job} skills={skills} standards={standards} canPublish={can(actor, "questions:publish")} /></div>}
     </AppShell>
   );
 }

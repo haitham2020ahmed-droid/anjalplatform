@@ -11,6 +11,7 @@ import { prismaUniqueWhere } from "./unique-keys";
 type Delegate = {
   upsert(args: unknown): Promise<Row>;
   create(args: unknown): Promise<Row>;
+  createMany(args: unknown): Promise<{ count: number }>;
   findUnique(args: unknown): Promise<Row | null>;
   findMany(args: unknown): Promise<Row[]>;
   count(args: unknown): Promise<number>;
@@ -48,6 +49,13 @@ export class PrismaRepo implements Repo {
   }
   create(model: string, data: Row) {
     return this.d(model).create({ data });
+  }
+  async createMany(model: string, rows: Row[]) {
+    if (!rows.length) return 0;
+    let n = 0;
+    // one INSERT per 500 rows keeps each statement well under MySQL's packet limit
+    for (let i = 0; i < rows.length; i += 500) n += (await this.d(model).createMany({ data: rows.slice(i, i + 500) })).count;
+    return n;
   }
   findUnique(model: string, where: Record<string, unknown>) {
     return this.d(model).findUnique({ where: prismaUniqueWhere(model, where) });

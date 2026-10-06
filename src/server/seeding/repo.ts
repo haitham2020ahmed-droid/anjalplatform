@@ -18,6 +18,11 @@ export interface Repo {
   /** Insert or update by a unique key. Returns the stored row. */
   upsert(model: string, where: Record<string, unknown>, create: Row, update?: Row): Promise<Row>;
   create(model: string, data: Row): Promise<Row>;
+  /**
+   * Insert many rows in as few statements as possible (bulk import). Returns the number of rows
+   * inserted. Rows are NOT read back: give each row its own id when the caller needs it.
+   */
+  createMany(model: string, rows: Row[]): Promise<number>;
   findUnique(model: string, where: Record<string, unknown>): Promise<Row | null>;
   findMany(model: string, where?: Where): Promise<Row[]>;
   count(model: string, where?: Where): Promise<number>;
