@@ -119,3 +119,6 @@ export function permissionMatrix(): Record<Permission, Record<Role, boolean>> {
     PERMISSIONS.map((p) => [p, Object.fromEntries(roles.map((r) => [r, ROLE_PERMISSIONS[r].has(p)]))]),
   ) as Record<Permission, Record<Role, boolean>>;
 }
+export function requireActor(actor:any){
+  return actor;
+}
