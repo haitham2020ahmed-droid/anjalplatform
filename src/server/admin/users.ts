@@ -4,6 +4,3 @@ export async function getUsers() {
 export function schoolOf(actor:any){
   return actor?.schoolId ?? null;
 }
-export function schoolOf(actor:any){
-  return actor?.schoolId ?? null;
-}

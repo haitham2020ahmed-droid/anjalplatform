@@ -1,0 +1,9 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/question-bank/page": "app/admin/question-bank/page.js",
+  "/admin/questions/[questionId]/page": "app/admin/questions/[questionId]/page.js",
+  "/admin/questions/page": "app/admin/questions/page.js",
+  "/admin/question-bank/generate/page": "app/admin/question-bank/generate/page.js",
+  "/teacher/page": "app/teacher/page.js"
+}

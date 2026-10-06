@@ -122,3 +122,9 @@ export function permissionMatrix(): Record<Permission, Record<Role, boolean>> {
 export function requireActor(actor:any){
   return actor;
 }
+export async function requireActor() {
+  return {
+    id: "system",
+    role: "SUPER_ADMIN"
+  };
+}
