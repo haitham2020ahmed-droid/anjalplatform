@@ -7,8 +7,13 @@ import { revalidatePath } from "next/cache";
 import { resolve } from "node:path";
 import { z } from "zod";
 import { env } from "@/lib/env";
-import { repo, requireActor } from "@/server/auth/rbac";
+import { repo, requireActor } from "@/server/auth/next";
+import { ValidationError } from "@/server/curriculum-admin";
+import { createUser, linkParent, moveStudent, setTeacherClasses, unlinkParent, updateUser, MANAGED_ROLES } from "@/server/admin/users";
+import { archiveClass, createClass, removeLogo, renameClass, saveAcademicYear, updateBranding, updateEngineSettings, uploadLogo } from "@/server/admin/settings";
 import { archiveQuestion, createDraft, reviewQuestion, reviseQuestion, submitForReview, updateDraft, type EditorInput } from "@/server/admin/questions";
+import { applyRoster, planRoster, type RosterPlan } from "@/server/admin/roster-import";
+
 export type Result = { ok?: boolean; error?: string; message?: string; temporaryPassword?: string; id?: string };
 const id = z.string().min(1).max(191);
 const str = (f: FormData, k: string) => String(f.get(k) ?? "");
@@ -195,49 +200,5 @@ export async function questionStepAction(_: Result, f: FormData): Promise<Result
     if (step === "archive") await archiveQuestion(repo, actor, qid, str(f, "note"));
     if (step === "revise") return { id: await reviseQuestion(repo, actor, qid), message: "New version created." };
     return { message: { submit: "Sent for review.", approve: "Published.", reject: "Sent back to the author.", archive: "Archived." }[step] };
-  });
-}
-
-// ------------------------------------------------------- AI question bank
-
-import { aiProvider } from "@/server/ai/runtime";
-import { generateMissing, generateQuestions, type GenerateResult } from "@/server/admin/ai-bank";
-import { approveAiDraft, rejectAiDraft } from "@/server/admin/questions";
-
-export type AiResult = { error?: string; result?: GenerateResult; nothingNeeded?: boolean };
-
-export async function generateAiAction(input: { skillId: string; standardId: string; lessonId: string | null; count: number }): Promise<AiResult> {
-  const actor = await requireActor({ permission: "questions:generate" });
-  try {
-    const p = z.object({ skillId: id, standardId: id, lessonId: id.nullable(), count: z.number().int().min(1).max(20) }).parse(input);
-    const result = await generateQuestions(repo, actor, aiProvider(), p);
-    revalidatePath("/admin/question-bank");
-    revalidatePath("/admin/questions");
-    return { result };
-  } catch (e) {
-    if (e instanceof ValidationError || (e as { status?: number }).status === 403 || e instanceof z.ZodError) return { error: e instanceof z.ZodError ? "Choose a skill, a standard and 1–20 questions." : (e as Error).message };
-    throw e;
-  }
-}
-
-export async function generateMissingAction(_: Result, f: FormData): Promise<Result> {
-  const actor = await requireActor({ permission: "questions:generate" });
-  return run(["/admin/question-bank", "/admin/questions"], async () => {
-    const r = await generateMissing(repo, actor, aiProvider(), id.parse(f.get("skillId")));
-    if ("nothingNeeded" in r) return { message: "Nothing needed: this skill has reached its target (counting drafts awaiting review)." };
-    return { message: `${r.saved.length} draft(s) saved for review${r.rejected.length ? `; ${r.rejected.length} rejected by validation` : ""}.` };
-  });
-}
-
-export async function aiReviewAction(_: Result, f: FormData): Promise<Result> {
-  const actor = await requireActor({ permission: "questions:review" });
-  const qid = id.parse(f.get("questionId"));
-  return run(["/admin/questions", `/admin/questions/${qid}`, "/admin/question-bank"], async () => {
-    if (f.get("decision") === "approve") {
-      await approveAiDraft(repo, actor, qid);
-      return { message: "Approved: students can now practise this question." };
-    }
-    await rejectAiDraft(repo, actor, qid, str(f, "reason"));
-    return { message: "Rejected: the question will not be used." };
   });
 }

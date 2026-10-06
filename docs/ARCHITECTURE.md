@@ -942,21 +942,3 @@ All 13 phases are complete. Before the first production deployment: (1) `npm ins
 
 **Totals:** 227 tests; 58 of 58 mutations caught. `npm run build` itself cannot run in the build sandbox (no internet to install Next.js); the first CI run or Vercel build is the confirmation.
 
-## AA. AI-assisted question bank
-
-Added to the existing platform: same database (no schema change), same adaptive engine.
-
-**Flow.** Admins choose Grade → Book → Unit → Lesson → Skill → Standard → number of questions (`/admin/question-bank/generate`). The server builds a prompt from curriculum records only, calls the AI provider (Anthropic Messages API, `ANTHROPIC_API_KEY`, `AI_MODEL`), validates every returned question, and saves valid ones as **DRAFT** (`origin AI_GENERATED`, `aiStatus AI_GENERATED`) with grade/unit (via the lesson), `lessonId`, `skillId`, `standardId`, `difficultyLevel` and the cognitive level (Bloom's, in `tags.cognitiveLevel`), plus question text, four choices, the correct answer, a rationale for each wrong choice, an explanation and a tip.
-
-**Automatic validation** (`src/server/admin/ai-bank.ts`): question text and exactly 4 distinct choices with exactly one correct answer and a rationale for every wrong one; explanation present; known cognitive level; the stated skill and standard must be the ones requested and the standard must be linked to the skill (the lesson must teach the skill); each question's level must match its planned slot; duplicates against every existing question of the skill and within the batch. Invalid questions are not saved; reasons are shown. The batch is reported against the planned easy / medium / hard split. The full bank validator then checks each item again before it is saved.
-
-**Review.** Teachers and admins (new permission `questions:review`; teachers have it) can review, edit, **approve** (→ `PUBLISHED`, `aiStatus APPROVED`, re-validated) or **reject** with a reason (→ `ARCHIVED`, `aiStatus REJECTED`). Only admins may generate (`questions:generate`). A teacher cannot approve a batch they requested; admins may.
-
-**Only approved questions reach students:** practice, placement and skill cards read `status = PUBLISHED` only (unchanged; verified by test).
-
-**Coverage** (`/admin/question-bank`): per skill, approved questions, approved easy (levels 1–2) / medium (3–5) / hard (6–7) against the target (12 = 3/6/3), drafts awaiting review, and what is still needed. **Generate Missing** asks for exactly the shortfall per difficulty band, counting drafts awaiting review so nothing is generated twice (at most 20 per request; the next click continues).
-
-**Privacy.** `src/server/ai/question-generator.ts` imports nothing (no database access); the prompt contains only curriculum data and existing question stems. A test seeds a school and checks that no student number, username or name appears in the prompt.
-
-**Tests:** `tests/ai-bank.test.ts` (10, with a fake provider; no network). Mutation check `scripts/mutation/phase15-ai-bank.py`: 13 of 13 caught. Totals: 244 tests; 71 of 71 mutations caught.
-

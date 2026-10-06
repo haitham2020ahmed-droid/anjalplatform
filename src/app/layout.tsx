@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Anjal Adaptive ELA",
-  description: "Adaptive learning platform",
-};
+export const metadata: Metadata = { title: "Al-Anjal English", description: "Adaptive English practice" };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="min-h-screen">{children}</body>
     </html>
   );
 }

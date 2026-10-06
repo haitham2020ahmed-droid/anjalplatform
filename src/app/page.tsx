@@ -1,23 +1,8 @@
-export default function Home() {
-  return (
-    <main style={{padding:40,fontFamily:"Arial"}}>
-      <h1>Anjal Adaptive ELA Platform</h1>
+import { redirect } from "next/navigation";
+import { getActor, HOME_BY_ROLE } from "@/server/auth/next";
 
-      <p>Welcome to the learning platform</p>
-
-      <hr />
-
-      <h2>Choose your portal</h2>
-
-      <ul>
-        <li>
-          <a href="/admin">Admin Dashboard</a>
-        </li>
-
-        <li>
-          <a href="/teacher">Teacher Dashboard</a>
-        </li>
-      </ul>
-    </main>
-  );
+/** Sends each signed-in user to their own home; everyone else to /login. */
+export default async function Home() {
+  const s = await getActor();
+  redirect(s ? HOME_BY_ROLE[s.actor.role] : "/login");
 }

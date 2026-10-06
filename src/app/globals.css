@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* Theme tokens (configurable per school in a later phase). Al-Anjal palette. */
+@theme {
+  --color-brand-navy: #1f3a68;
+  --color-brand-purple: #5b3fa0;
+  --color-brand-teal: #1fa3a3;
+  --color-brand-gold: #f5b800;
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+body { @apply bg-slate-50 text-slate-900 antialiased; }

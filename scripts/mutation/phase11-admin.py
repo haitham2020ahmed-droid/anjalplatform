@@ -2,7 +2,7 @@ import subprocess, shutil, os, tempfile
 BAK = os.path.join(tempfile.gettempdir(), "ela-mutation.bak")
 muts = [
  ("self-approval allowed", "src/server/admin/questions.ts", 'if (q.createdById === actor.userId && !isAdmin(actor)) throw new ForbiddenError("Another reviewer', 'if (false) throw new ForbiddenError("Another reviewer'),
- ("teacher may edit others' drafts", "src/server/admin/questions.ts", 'if (q.createdById !== actor.userId && !can(actor, "questions:publish") && !isAdmin(actor) && !aiReviewer) throw', 'if (false) throw'),
+ ("teacher may edit others' drafts", "src/server/admin/questions.ts", 'if (q.createdById !== actor.userId && !can(actor, "questions:publish") && !isAdmin(actor)) throw', 'if (false) throw'),
  ("published items editable", "src/server/admin/questions.ts", 'if (q.status === "PUBLISHED" || q.status === "ARCHIVED") throw', 'if (false) throw'),
  ("revision does not archive original", "src/server/admin/questions.ts", 'if (revisionOf) await tx.updateMany("Question", { id: revisionOf, status: "PUBLISHED" }, { status: "ARCHIVED", updatedAt: now });', ''),
  ("reject without note", "src/server/admin/questions.ts", 'if (!n) throw new ValidationError("Say what needs to change', 'if (false) throw new ValidationError("Say what needs to change'),
