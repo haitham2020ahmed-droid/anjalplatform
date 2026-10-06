@@ -237,6 +237,17 @@ async function contextFor(repo: Repo, actor: Actor, req: GenerateRequest) {
   return { skill, grade, book, lesson, unit, standard, standardCodes: stds.map((s) => short(String(s.code))) };
 }
 
+/** Up to 5 approved questions of the skill, spread across levels, as style examples for the AI. */
+async function examplesFor(repo: Repo, skillId: string): Promise<NonNullable<GenerationContext["examples"]>> {
+  const qs = (await repo.findMany("Question", { skillId, status: "PUBLISHED" })).filter((q) => !q.deletedAt).sort((a, b) => Number(a.difficultyLevel) - Number(b.difficultyLevel));
+  const picked = qs.length <= 5 ? qs : [0, 1, 2, 3, 4].map((i) => qs[Math.round((i * (qs.length - 1)) / 4)]);
+  const opts = picked.length ? await repo.findMany("QuestionOption", { questionId: { in: picked.map((q) => q.id) } }) : [];
+  return picked.map((q) => {
+    const mine = opts.filter((o) => o.questionId === q.id).sort((x, y) => String(x.label).localeCompare(String(y.label)));
+    return { stem: String(q.stem), options: mine.map((o) => String(o.text)), correct: String(mine.find((o) => o.isCorrect)?.text ?? ""), level: Number(q.difficultyLevel) };
+  });
+}
+
 async function existingFor(repo: Repo, skillId: string): Promise<ExistingItem[]> {
   const qs = (await repo.findMany("Question", { skillId })).filter((q) => !q.deletedAt && q.status !== "ARCHIVED");
   const opts = qs.length ? await repo.findMany("QuestionOption", { questionId: { in: qs.map((q) => q.id) } }) : [];
@@ -260,7 +271,7 @@ export async function generateQuestions(repo: Repo, actor: Actor, provider: AiPr
     lesson: c.lesson ? { code: String(c.lesson.code), title: String(c.lesson.title), genre: c.lesson.genre ? String(c.lesson.genre) : null } : null,
     skill: { code: String(c.skill.code), name: String(c.skill.name), description: c.skill.description ? String(c.skill.description) : null, domain: String(c.skill.domain) },
     standard: { code: short(String(c.standard.code)), description: c.standard.description ? String(c.standard.description) : null },
-    slots, avoid: existing.map((e) => e.stem),
+    slots, avoid: existing.map((e) => e.stem), examples: await examplesFor(repo, String(c.skill.id)),
   };
   const prompt = buildPrompt(ctx);
   let raw: unknown[];

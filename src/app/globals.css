@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* scan every source file explicitly (do not rely on automatic detection in container builds) */
+@source "../";
 
 /* Theme tokens (configurable per school in a later phase). Al-Anjal palette. */
 @theme {
@@ -10,3 +12,21 @@
 }
 
 body { @apply bg-slate-50 text-slate-900 antialiased; }
+
+/* Form fields are always visible, even if a utility class is missing. */
+@layer base {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="hidden"]),
+  select,
+  textarea {
+    border: 1px solid var(--color-slate-300);
+    border-radius: 0.5rem;
+    background-color: #fff;
+    padding: 0.5rem 0.75rem;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--color-brand-teal);
+    outline-offset: 1px;
+  }
+  textarea { min-height: 4.5rem; }
+}
+

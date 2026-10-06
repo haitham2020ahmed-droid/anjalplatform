@@ -91,6 +91,17 @@ describe("AI-assisted question bank", () => {
       assert.ok(!prompt.includes(String(u.displayName)), `name ${u.displayName} leaked`);
     }
     assert.ok(prompt.includes(skillCode) && prompt.includes(stdCode));
+    assert.match(prompt, /Common Core State Standard/);
+  });
+
+  test("approved questions of the skill are sent as style examples (curriculum content only)", async () => {
+    const q = (await repo.findMany("Question", { skillId }))[0];
+    await repo.updateMany("Question", { id: q.id }, { status: "PUBLISHED" });
+    const ai = fakeAi(skillCode, stdCode);
+    await generateQuestions(repo, admin, ai, { skillId, standardId, lessonId, count: 2 }, now);
+    const user = JSON.parse(ai.prompts[0].slice(ai.prompts[0].indexOf("\n") + 1)) as { styleExamples: { stem: string }[] };
+    assert.ok(user.styleExamples.some((e) => e.stem === String(q.stem)), "an approved question of the skill is a style example");
+    assert.ok(user.styleExamples.length <= 5);
   });
 
   test("the AI module cannot reach student data: it imports nothing from the database layer", () => {

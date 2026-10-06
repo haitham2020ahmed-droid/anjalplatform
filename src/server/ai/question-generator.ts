@@ -18,6 +18,8 @@ export interface GenerationContext {
   slots: { slot: number; level: number }[];
   /** Existing question stems for this skill, so the model avoids repeating them. */
   avoid: string[];
+  /** Approved questions of this skill (curriculum content only), as models of style and format. */
+  examples?: { stem: string; options: string[]; correct: string; level: number }[];
 }
 
 export interface GeneratedQuestion {
@@ -57,6 +59,7 @@ export function buildPrompt(ctx: GenerationContext): { system: string; user: str
     "rationale explaining why it is wrong (the correct option's rationale is null); include a one-sentence",
     "explanation of why the answer is correct and an optional short tip. If the question needs a text,",
     "include a short original excerpt (at most 80 words) inside the stem.",
+    "Every question must assess the given Common Core State Standard (CCSS) for English Language Arts at the given grade.",
     "Return ONLY valid JSON, no Markdown, in exactly this shape:",
     '{"questions":[{"slot":1,"level":4,"cognitiveLevel":"Understand","skillCode":"…","standardCode":"…","stem":"…",',
     '"options":[{"text":"…","correct":true,"rationale":null},{"text":"…","correct":false,"rationale":"…"}],',
@@ -75,6 +78,8 @@ export function buildPrompt(ctx: GenerationContext): { system: string; user: str
       requiredSkillCode: ctx.skill.code,
       requiredStandardCode: ctx.standard.code,
       slots: ctx.slots.map((s) => ({ slot: s.slot, level: s.level, meaning: LEVEL_GUIDE[s.level] })),
+      styleExamples: (ctx.examples ?? []).slice(0, 5).map((e) => ({ level: e.level, stem: e.stem, options: e.options, correct: e.correct })),
+      styleRule: "Match the style, length, vocabulary and format of styleExamples, but write NEW questions: never copy or lightly reword them.",
       doNotRepeatTheseExistingQuestions: ctx.avoid.slice(0, 40),
     },
     null,
