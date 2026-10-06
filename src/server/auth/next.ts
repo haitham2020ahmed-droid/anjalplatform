@@ -1,16 +1,19 @@
-import { redirect } from "next/navigation";
+import { requireActor as requireActorFromRbac } from "./rbac";
 
-export async function requireActor() {
-  return {
-    id: "system",
-    role: "SUPER_ADMIN",
-  };
+export async function getActor() {
+  return requireActorFromRbac();
 }
 
-export async function repo() {
-  return {};
-}
+export async function requireActor(options?: { roles?: string[] }) {
+  const actor = await getActor();
 
-export function requireAuth() {
-  return true;
+  if (!actor) {
+    throw new Error("Unauthorized");
+  }
+
+  if (options?.roles && !options.roles.includes(actor.role)) {
+    throw new Error("Forbidden");
+  }
+
+  return actor;
 }
