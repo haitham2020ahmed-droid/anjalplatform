@@ -21,3 +21,8 @@ export function AdminTitle({
     </h1>
   );
 }
+export const field =
+  "flex flex-col gap-2";
+
+export const label =
+  "text-sm font-medium text-gray-700";
