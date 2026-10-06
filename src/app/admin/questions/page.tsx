@@ -22,7 +22,12 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <div className="flex flex-wrap gap-2">
           <Link href="/admin/questions?status=DRAFT&ai=1" className="rounded-xl bg-amber-100 px-4 py-2.5 font-semibold text-amber-900">AI drafts to review ({aiPending})</Link>
           <Link href="/admin/question-bank" className="rounded-xl px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">Coverage</Link>
-          <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">New question</Link>
+          <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">New question
+</Link>
+
+<button className="rounded-xl bg-teal-600 px-5 py-2.5 font-semibold text-white">
+  Publish All
+</button>
         </div>
       </div>
       <nav className="mt-4 flex flex-wrap gap-2" aria-label="Question status">
