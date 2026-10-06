@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { securityHeaders } from "./src/server/auth/http";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
@@ -9,9 +8,9 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["playwright-core"],
   // Phase 11: logo (≤ 1 MB) and roster files (≤ 3,000 rows) are sent through server actions
   experimental: { serverActions: { bodySizeLimit: "4mb" } },
-  async headers() {
-    return [{ source: "/:path*", headers: securityHeaders(process.env.NODE_ENV === "production") }];
-  },
+async headers() {
+  return [];
+},  },
 };
 
 export default nextConfig;
