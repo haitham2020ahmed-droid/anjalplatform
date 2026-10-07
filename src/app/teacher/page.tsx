@@ -10,6 +10,10 @@ export default async function TeacherHome() {
     <AppShell name={String(me.displayName)}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-3xl font-bold text-brand-navy">My classes</h1>
+        <div className="mt-2 flex flex-wrap gap-2 text-sm">
+          <a href="/teacher/curriculum" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-amber-300 hover:bg-amber-50">⭐ Curriculum &amp; assign skills</a>
+          <a href="/teacher/assignments" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Weekly assignments</a>
+        </div>
         <div className="flex flex-wrap gap-2">
           <a href="/admin/questions?status=DRAFT&ai=1" className="rounded-xl bg-amber-100 px-4 py-2 font-semibold text-amber-900">Review AI questions</a>
           <a href="/admin/questions?status=DRAFT&mine=1" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">My questions</a>

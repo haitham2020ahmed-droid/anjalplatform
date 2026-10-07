@@ -67,7 +67,7 @@ const INVALID_XML = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/g;
 const x = (s: unknown) => String(s ?? "").replace(INVALID_XML, "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 const col = (i: number): string => (i < 26 ? String.fromCharCode(65 + i) : col(Math.floor(i / 26) - 1) + String.fromCharCode(65 + (i % 26)));
 
-interface Sheet { name: string; rows: string[][]; widths: number[]; headerStyle?: boolean; freeze?: boolean; validations?: string; numericCols?: Set<number> }
+export interface Sheet { name: string; rows: string[][]; widths: number[]; headerStyle?: boolean; freeze?: boolean; validations?: string; numericCols?: Set<number> }
 
 /** styles: 0 normal, 1 header (bold white on navy, wrapped), 2 wrapped text, 3 title */
 const STYLES = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -136,7 +136,11 @@ export function templateXlsx(idx: CurriculumIndex): Uint8Array {
     ],
   };
   const curriculum: Sheet = { name: "Curriculum", rows: curSheet, widths: [8, 28, 44, 40, 4, 20], headerStyle: true, freeze: true, numericCols: new Set([0]) };
-  const sheets = [questions, instructions, curriculum];
+  return workbookXlsx([questions, instructions, curriculum]);
+}
+
+/** Any set of sheets as an .xlsx file (the same writer as the template). */
+export function workbookXlsx(sheets: Sheet[]): Uint8Array {
   return zip([
     { name: "[Content_Types].xml", data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>${sheets.map((_, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join("")}</Types>` },

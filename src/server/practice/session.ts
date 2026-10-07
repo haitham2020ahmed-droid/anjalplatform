@@ -13,6 +13,7 @@
  * question currently served (no replays or double-submits); response time comes from
  * the server clock, not the browser.
  */
+import { modelVersion } from "../cache/bank-version";
 import { resolveEngineConfig, ENGINE_VERSION, type AdaptiveConfig, type MasteryThresholds } from "../../config/engine";
 import { processAnswer } from "../../adaptive/engine";
 import { selectNextItem, type PrerequisiteStatus } from "../../adaptive/selector";
@@ -22,6 +23,7 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
 import { correctAnswerText, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
+import { openAssignmentFor, refreshAfterAnswer } from "../teacher/assign";
 
 export const SESSION_RESUME_MINUTES = 120;
 export const MAX_QUESTIONS_PER_SESSION = 20;
@@ -58,12 +60,31 @@ export interface Feedback {
 
 const d = (v: unknown) => (v instanceof Date ? v : new Date(String(v)));
 
+/**
+ * Reference data read on every answer but rarely changed (engine settings, prerequisites, skill rows) is
+ * kept in memory and reused only while no write to those tables has happened (modelVersion).
+ */
+const refCache = new Map<string, { v: string; value: unknown }>();
+async function cached<T>(key: string, models: string[], load: () => Promise<T>): Promise<T> {
+  const v = modelVersion(...models);
+  const hit = refCache.get(key);
+  if (hit && hit.v === v) return hit.value as T;
+  const value = await load();
+  if (refCache.size > 20_000) refCache.clear();
+  refCache.set(key, { v, value });
+  return value;
+}
+
 async function engineConfig(repo: Repo, schoolId: string | null): Promise<{ adaptive: AdaptiveConfig; mastery: MasteryThresholds }> {
   if (!schoolId) return resolveEngineConfig();
-  const rows = await repo.findMany("SchoolSetting", { schoolId, key: { in: ["adaptive.engine", "mastery.thresholds"] } });
-  const get = (k: string) => (rows.find((r) => r.key === k)?.value ?? {}) as Record<string, unknown>;
-  return resolveEngineConfig(get("adaptive.engine"), get("mastery.thresholds"));
+  return cached(`cfg:${schoolId}`, ["SchoolSetting"], async () => {
+    const rows = await repo.findMany("SchoolSetting", { schoolId, key: { in: ["adaptive.engine", "mastery.thresholds"] } });
+    const get = (k: string) => (rows.find((r) => r.key === k)?.value ?? {}) as Record<string, unknown>;
+    return resolveEngineConfig(get("adaptive.engine"), get("mastery.thresholds"));
+  });
 }
+
+const cachedSkill = (repo: Repo, skillId: string) => cached(`skill:${skillId}`, ["Skill"], () => repo.findUnique("Skill", { id: skillId }));
 
 async function ownStudent(repo: Repo, actor: Actor): Promise<Row> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only students can practise.");
@@ -104,10 +125,14 @@ async function skillHistory(repo: Repo, studentId: string, skillId: string, item
 }
 
 async function prerequisitesFor(repo: Repo, studentId: string, skillId: string): Promise<PrerequisiteStatus[]> {
-  const pre = await repo.findMany("SkillPrerequisite", { skillId });
+  const { pre, skills } = await cached(`pre:${skillId}`, ["SkillPrerequisite", "Skill"], async () => {
+    const pre = await repo.findMany("SkillPrerequisite", { skillId });
+    const skills = pre.length ? await repo.findMany("Skill", { id: { in: pre.map((p) => String(p.prerequisiteSkillId)) } }, { select: ["id", "name"] }) : [];
+    return { pre, skills };
+  });
   if (!pre.length) return [];
   const ids = pre.map((p) => String(p.prerequisiteSkillId));
-  const [skills, mastery] = await Promise.all([repo.findMany("Skill", { id: { in: ids } }), repo.findMany("StudentSkillMastery", { studentId, skillId: { in: ids } })]);
+  const mastery = await repo.findMany("StudentSkillMastery", { studentId, skillId: { in: ids } });
   return pre.map((p) => ({
     skillId: String(p.prerequisiteSkillId),
     name: String(skills.find((s) => s.id === p.prerequisiteSkillId)?.name ?? ""),
@@ -123,8 +148,11 @@ async function prerequisitesFor(repo: Repo, studentId: string, skillId: string):
  * Returns the prior to use as well, so the first answers move from the placement level.
  */
 async function abilityOf(repo: Repo, studentId: string, skillId: string, cfg: AdaptiveConfig) {
-  const [row, skill] = await Promise.all([repo.findUnique("StudentAbility", { studentId, scope: `SKILL:${skillId}` }), repo.findUnique("Skill", { id: skillId })]);
-  const dom = skill ? await repo.findUnique("StudentAbility", { studentId, scope: `DOMAIN:${String(skill.domain)}` }) : null;
+  const skill = await cachedSkill(repo, skillId);
+  const [row, dom] = await Promise.all([
+    repo.findUnique("StudentAbility", { studentId, scope: `SKILL:${skillId}` }),
+    skill ? repo.findUnique("StudentAbility", { studentId, scope: `DOMAIN:${String(skill.domain)}` }) : Promise.resolve(null),
+  ]);
   const priorMean = dom ? Number(dom.theta) : cfg.priorMean;
   return {
     theta: row ? Number(row.theta) : priorMean,
@@ -136,9 +164,10 @@ async function abilityOf(repo: Repo, studentId: string, skillId: string, cfg: Ad
 export async function startPractice(repo: Repo, actor: Actor, skillId: string, now = new Date(), random?: () => number): Promise<PracticeView> {
   const student = await ownStudent(repo, actor);
   const skill = await assertSkillInCurriculum(repo, student, skillId);
-  const [items, openRows] = await Promise.all([
+  const [items, openRows, assignmentId] = await Promise.all([
     loadSkillItems(repo, skillId),
     repo.findMany("PracticeSession", { studentId: student.id, skillId, endedAt: null }),
+    openAssignmentFor(repo, String(student.id), skillId, now), // practice on an assigned skill counts toward it
   ]);
   if (!items.length) throw new ValidationError("There are no questions for this skill yet.");
 
@@ -159,7 +188,7 @@ export async function startPractice(repo: Repo, actor: Actor, skillId: string, n
   // if every item was seen recently, allow repeats rather than refusing to practise
   const firstId = first.itemId ?? items.sort((a, b) => Math.abs(a.irt.b - ability.theta) - Math.abs(b.irt.b - ability.theta))[0].questionId;
   const session = await repo.create("PracticeSession", {
-    studentId: student.id, skillId, mode: "ADAPTIVE_PRACTICE", startedAt: now,
+    studentId: student.id, skillId, mode: "ADAPTIVE_PRACTICE", startedAt: now, ...(assignmentId ? { assignmentId } : {}),
     currentQuestionId: firstId, currentServedAt: now, lastTargetB: first.targetB,
   });
   await repo.create("AdaptiveDecisionLog", {
@@ -171,11 +200,12 @@ export async function startPractice(repo: Repo, actor: Actor, skillId: string, n
   return currentQuestion(repo, actor, String(session.id), now);
 }
 
-export async function currentQuestion(repo: Repo, actor: Actor, sessionId: string, _now = new Date()): Promise<PracticeView> {
-  const s = await ownSession(repo, actor, sessionId);
+export async function currentQuestion(repo: Repo, actor: Actor, sessionId: string, _now = new Date(), known?: { session: Row; mastery: Row | null }): Promise<PracticeView> {
+  // `known`: the answer transaction already has the updated session and mastery (ownership checked there)
+  const s = known ? known.session : await ownSession(repo, actor, sessionId);
   const [skillRow, m, items] = await Promise.all([
-    repo.findUnique("Skill", { id: s.skillId }),
-    repo.findUnique("StudentSkillMastery", { studentId: s.studentId, skillId: s.skillId }),
+    known ? cachedSkill(repo, String(s.skillId)) : repo.findUnique("Skill", { id: s.skillId }),
+    known ? Promise.resolve(known.mastery) : repo.findUnique("StudentSkillMastery", { studentId: s.studentId, skillId: s.skillId }),
     s.currentQuestionId && !s.endedAt ? loadSkillItems(repo, String(s.skillId)) : Promise.resolve([] as PracticeItem[]),
   ]);
   const skill = skillRow!;
@@ -228,6 +258,13 @@ export function normalizeResponse(item: PracticeItem, raw: unknown): unknown {
   }
 }
 
+/** Assignment-status updates still running after an answer (pages refresh statuses themselves). */
+const pendingRefreshes = new Set<Promise<unknown>>();
+/** Waits until every assignment update started by an answer has finished (seeding scripts and tests). */
+export async function assignmentUpdatesSettled(): Promise<void> {
+  while (pendingRefreshes.size) await Promise.all([...pendingRefreshes]);
+}
+
 export async function submitAnswer(
   repo: Repo,
   actor: Actor,
@@ -235,8 +272,15 @@ export async function submitAnswer(
   now = new Date(),
   random?: () => number,
 ): Promise<{ feedback: Feedback; view: PracticeView }> {
+  let linkedAssignment: string | null = null;
+  let linkedStudent = "";
+  let linkedSkill = "";
+  let after: { session: Row; mastery: Row } | null = null;
   const feedback = await repo.transaction(async (tx) => {
     const s = await ownSession(tx, actor, input.sessionId);
+    linkedAssignment = s.assignmentId ? String(s.assignmentId) : null;
+    linkedStudent = String(s.studentId);
+    linkedSkill = String(s.skillId ?? "");
     if (s.endedAt) throw new ValidationError("This practice session has ended.");
     if (s.currentQuestionId !== input.questionId) throw new ValidationError("This question was already answered. Here is your next one.");
     const skillId = String(s.skillId);
@@ -306,11 +350,13 @@ const masteryData = {
     await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
     if (step.xp > 0) await tx.create("XpEvent", { studentId, points: step.xp, reason: mst.isMastered && !prevMastery?.isMastered ? "skill_mastered" : "practice", createdAt: now });
 
-    await tx.updateMany("PracticeSession", { id: s.id }, {
+    const sessionPatch = {
       questionCount: answeredThisSession, correctCount: Number(s.correctCount) + (correct ? 1 : 0), activeMs: Number(s.activeMs) + responseMs,
       currentQuestionId: nextId, currentServedAt: nextId ? now : null, lastTargetB: step.next.targetB,
       ...(endReason ? { endedAt: now, endReason } : {}),
-    });
+    };
+    await tx.updateMany("PracticeSession", { id: s.id }, sessionPatch);
+    after = { session: { ...s, ...sessionPatch }, mastery: { studentId, skillId, ...masteryData } };
 
     const routeName = routeToSkillId ? String((await tx.findUnique("Skill", { id: routeToSkillId }))?.name ?? "") : null;
     const fb: Feedback = {
@@ -326,7 +372,15 @@ const masteryData = {
     };
     return fb;
   });
-  return { feedback, view: await currentQuestion(repo, actor, input.sessionId, now) };
+  // the next screen comes from the transaction's own results (no re-reading)
+  const view = await currentQuestion(repo, actor, input.sessionId, now, after ?? undefined);
+  // the assignment's status is updated after replying (the student does not wait; their home page refreshes it too)
+  if (linkedAssignment) {
+    const p = refreshAfterAnswer(repo, linkedAssignment, linkedStudent, now, linkedSkill || undefined).catch((e) => console.error("assignment refresh failed", e));
+    pendingRefreshes.add(p);
+    void p.finally(() => pendingRefreshes.delete(p));
+  }
+  return { feedback, view };
 }
 
 export async function endPractice(repo: Repo, actor: Actor, sessionId: string, now = new Date()): Promise<void> {

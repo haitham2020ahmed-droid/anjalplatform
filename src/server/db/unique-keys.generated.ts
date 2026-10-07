@@ -66,4 +66,5 @@ export const UNIQUE_KEYS: Record<string, readonly (readonly string[])[]> = {
   RateLimitBucket: [["key"]],
   DiagnosticResult: [["id"], ["sessionId"]],
   ImportedQuestionLog: [["id"], ["jobId", "rowIndex"]],
+  QuestionImage: [["id"]],
 };

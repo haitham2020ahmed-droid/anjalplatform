@@ -5,7 +5,9 @@
  */
 import { answerValues, contentPayload, QUESTION_TYPES, validateItem, type BankItem, type BankPassage } from "../../imports/questions/validate";
 import { analyzeText, platformReadingLevelFor } from "../../reading/prl";
-import type { Repo } from "./repo";
+import type { Repo, Row } from "./repo";
+import { randomBytes } from "node:crypto";
+const newId = () => "c" + Date.now().toString(36) + randomBytes(8).toString("hex");
 
 const TYPE_NAMES: Record<string, string> = {
   MULTIPLE_CHOICE: "Multiple choice", MULTI_SELECT: "Multiple select", TRUE_FALSE: "True / false", DROPDOWN: "Dropdown",
@@ -52,33 +54,28 @@ export async function seedQuestions(repo: Repo, input: { schoolCode: string; ban
       passageId.set(p.id, row.id!);
       rep.passages++;
     }
+    // batched: one lookup for what exists, then inserts in chunks (a few dozen queries instead of thousands)
+    const skillIds = [...new Set(input.bank.items.map((it) => skillId.get(it.skillKey)!))];
+    const existing = new Set((await tx.findMany("Question", { skillId: { in: skillIds } }, { select: ["skillId", "externalRef"] })).map((q) => `${q.skillId}|${q.externalRef}`));
+    const questions: Row[] = [], options: Row[] = [], answers: Row[] = [], explanations: Row[] = [];
     for (const it of input.bank.items) {
-      if (await tx.findUnique("Question", { skillId: skillId.get(it.skillKey)!, externalRef: it.ref })) {
-        rep.skipped++;
-        continue;
-      }
-      const q = await tx.create("Question", {
-        externalRef: it.ref,
-        skillId: skillId.get(it.skillKey)!,
-        standardId: standardId.get(it.standard) ?? null,
-        passageId: it.passage ? passageId.get(it.passage) ?? null : null,
-        typeId: typeId.get(it.type)!,
-        stem: it.stem,
-        content: contentPayload(it),
-        difficultyLevel: it.level,
-        irtA: it.irt.a, irtB: it.irt.b, irtC: it.irt.c,
-        estimatedSeconds: it.estimatedSeconds,
-        tags: { family: it.family, grade: it.grade },
-        status: "UNDER_REVIEW",
-        origin: "TEACHER_AUTHORED",
+      const sid = skillId.get(it.skillKey)!;
+      if (existing.has(`${sid}|${it.ref}`)) { rep.skipped++; continue; }
+      existing.add(`${sid}|${it.ref}`);
+      const id = newId();
+      questions.push({
+        id, externalRef: it.ref, skillId: sid, standardId: standardId.get(it.standard) ?? null, passageId: it.passage ? passageId.get(it.passage) ?? null : null,
+        typeId: typeId.get(it.type)!, stem: it.stem, content: contentPayload(it), difficultyLevel: it.level, irtA: it.irt.a, irtB: it.irt.b, irtC: it.irt.c,
+        estimatedSeconds: it.estimatedSeconds, tags: { family: it.family, grade: it.grade }, status: "UNDER_REVIEW", origin: "TEACHER_AUTHORED",
       });
-      for (const [i, o] of (it.options ?? []).entries())
-        await tx.create("QuestionOption", { questionId: q.id, label: o.label, text: o.text, isCorrect: o.correct, rationale: o.rationale, order: i });
-      for (const [i, v] of answerValues(it).entries()) await tx.create("QuestionAnswer", { questionId: q.id, value: v as object, isPrimary: i === 0 });
-      await tx.create("QuestionExplanation", { questionId: q.id, kind: "WHY_CORRECT", body: [{ type: "text", text: it.explanation.whyCorrect }], order: 0 });
-      await tx.create("QuestionExplanation", { questionId: q.id, kind: "TIP", body: [{ type: "text", text: it.explanation.tip }], order: 1 });
+      for (const [i, o] of (it.options ?? []).entries()) options.push({ id: newId(), questionId: id, label: o.label, text: o.text, isCorrect: o.correct, rationale: o.rationale, order: i });
+      for (const [i, v] of answerValues(it).entries()) answers.push({ id: newId(), questionId: id, value: v as object, isPrimary: i === 0 });
+      explanations.push({ id: newId(), questionId: id, kind: "WHY_CORRECT", body: [{ type: "text", text: it.explanation.whyCorrect }], order: 0 });
+      explanations.push({ id: newId(), questionId: id, kind: "TIP", body: [{ type: "text", text: it.explanation.tip }], order: 1 });
       rep.created++;
     }
+    for (const [model, rows] of [["Question", questions], ["QuestionOption", options], ["QuestionAnswer", answers], ["QuestionExplanation", explanations]] as const)
+      for (let i = 0; i < rows.length; i += 200) await tx.createMany(model, rows.slice(i, i + 200));
   });
   return rep;
 }

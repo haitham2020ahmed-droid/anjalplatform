@@ -9,7 +9,7 @@
  */
 import { readFileSync } from "node:fs";
 
-export type Scalar = "String" | "Int" | "Float" | "Boolean" | "DateTime" | "Json" | "BigInt";
+export type Scalar = "String" | "Int" | "Float" | "Boolean" | "DateTime" | "Json" | "BigInt" | "Bytes";
 export interface Field {
   name: string;
   type: string; // scalar, enum or model name
@@ -34,7 +34,7 @@ export interface Schema {
   enums: Map<string, string[]>;
 }
 
-const SCALARS = new Set(["String", "Int", "Float", "Boolean", "DateTime", "Json", "BigInt"]);
+const SCALARS = new Set(["String", "Int", "Float", "Boolean", "DateTime", "Json", "BigInt", "Bytes"]);
 
 export function parseSchema(path: string): Schema {
   const src = readFileSync(path, "utf8").replace(/\/\/[^\n]*/g, "");
@@ -92,12 +92,14 @@ function mysqlType(f: Field, s: Schema): string {
   if (f.dbType === "MediumText") return "MEDIUMTEXT";
   if (f.dbType === "Date") return "DATE";
   if (f.dbType?.startsWith("VarChar")) return f.dbType.replace("VarChar", "VARCHAR");
-  return { String: "VARCHAR(191)", Int: "INTEGER", Float: "DOUBLE", Boolean: "BOOLEAN", DateTime: "DATETIME(3)", Json: "JSON", BigInt: "BIGINT" }[f.type as Scalar];
+  if (f.dbType === "MediumBlob") return "MEDIUMBLOB";
+  if (f.dbType === "LongBlob") return "LONGBLOB";
+  return { String: "VARCHAR(191)", Int: "INTEGER", Float: "DOUBLE", Boolean: "BOOLEAN", DateTime: "DATETIME(3)", Json: "JSON", BigInt: "BIGINT", Bytes: "LONGBLOB" }[f.type as Scalar];
 }
 
 function sqliteType(f: Field, s: Schema): string {
   if (s.enums.has(f.type)) return "TEXT";
-  return { String: "TEXT", Int: "INTEGER", Float: "REAL", Boolean: "INTEGER", DateTime: "TEXT", Json: "TEXT", BigInt: "INTEGER" }[f.type as Scalar];
+  return { String: "TEXT", Int: "INTEGER", Float: "REAL", Boolean: "INTEGER", DateTime: "TEXT", Json: "TEXT", BigInt: "INTEGER", Bytes: "BLOB" }[f.type as Scalar];
 }
 
 export function generateDDL(s: Schema, dialect: "mysql" | "sqlite"): string {

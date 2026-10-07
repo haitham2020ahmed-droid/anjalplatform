@@ -4,6 +4,8 @@ import { useState, useTransition } from "react";
 import type { EditorInput } from "@/server/admin/questions";
 import { field, label } from "@/components/admin/styles";
 import { saveQuestionAction } from "../actions";
+import { possibleMissingPassage } from "@/lib/passage-detect";
+import { ImageField } from "./image-field";
 
 type Skill = { id: string; grade: number; name: string };
 const TYPES: [string, string][] = [
@@ -63,10 +65,20 @@ export function QuestionEditor({ questionId, initial, skills, standards, readOnl
         <label className={label}>Difficulty<select value={q.level} onChange={(e) => set({ level: Number(e.target.value) })} className={field}>{LEVELS.map((l, i) => <option key={l} value={i + 1}>{i + 1} · {l}</option>)}</select></label>
         <label className={label}>Standard (optional)<input list="standards" value={q.standardCode ?? ""} onChange={(e) => set({ standardCode: e.target.value || null })} placeholder="Skill's standard" className={field} /></label>
         <datalist id="standards">{standards.map((s) => <option key={s} value={s} />)}</datalist>
+        <label className={label}>Cognitive level (optional)<select value={q.cognitiveLevel ?? ""} onChange={(e) => set({ cognitiveLevel: e.target.value || null })} className={field}><option value="">—</option>{["Remember", "Understand", "Apply", "Analyze", "Evaluate", "Create"].map((c) => <option key={c} value={c}>{c}</option>)}</select></label>
         <label className={label}>Expected time (seconds)<input type="number" min={10} max={600} value={q.estimatedSeconds ?? 45} onChange={(e) => set({ estimatedSeconds: Number(e.target.value) })} className={field} /></label>
         <label className="flex items-center gap-2 pt-6 text-sm"><input type="checkbox" checked={!!q.aiDrafted} onChange={(e) => set({ aiDrafted: e.target.checked })} disabled={!!questionId} />Drafted with AI help</label>
       </div>
+      <label className={label}>
+        Passage / Text (optional)
+        <span className="block text-xs font-normal text-slate-500">A story, article or poem shown BEFORE the question. Leave empty for grammar, vocabulary and other standalone questions. Questions with the same text share one passage.</span>
+        <textarea value={q.passageText ?? ""} onChange={(e) => set({ passageText: e.target.value })} rows={q.passageText ? 8 : 2} maxLength={20000} placeholder="No passage" className={field} />
+      </label>
+      <ImageField imageId={q.imageId ?? null} imageAlt={q.imageAlt ?? ""} readOnly={readOnly} onChange={(v) => set(v)} />
       <label className={label}>Question<textarea value={q.stem} onChange={(e) => set({ stem: e.target.value })} rows={3} maxLength={2000} className={field} /></label>
+      {possibleMissingPassage(q.stem, Boolean((q.passageText ?? "").trim() || (q.passageText === undefined && q.passageId))) && (
+        <p role="status" className="rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900">⚠ This question mentions a passage, story or paragraph, but there is no passage. Add the text above, or reword the question. (A warning only: you can still save.)</p>
+      )}
 
       {optionTypes && (
         <div className="space-y-2">

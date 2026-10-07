@@ -6,8 +6,28 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import type { Actor, Permission, Role } from "./rbac";
+import { authVersion } from "../cache/bank-version";
+
+/**
+ * Resolved actors (permissions + scope), per database connection, for at most 60 s. Cleared at once
+ * when users, roles, classes or memberships change (authVersion), so a change is never served stale.
+ */
+const actorCache = new WeakMap<object, Map<string, { actor: Actor; version: number; at: number; role: string; schoolId: unknown }>>();
+const ACTOR_TTL_MS = 60_000;
 
 export async function resolveActor(repo: Repo, user: Row): Promise<Actor> {
+  let m = actorCache.get(repo as object);
+  if (!m) { m = new Map(); actorCache.set(repo as object, m); }
+  const hit = m.get(String(user.id));
+  if (hit && hit.version === authVersion() && Date.now() - hit.at < ACTOR_TTL_MS && hit.role === String(user.role) && hit.schoolId === (user.schoolId ?? null)) return hit.actor;
+  const version = authVersion();
+  const actor = await resolveActorUncached(repo, user);
+  if (m.size > 5000) m.clear();
+  m.set(String(user.id), { actor, version, at: Date.now(), role: String(user.role), schoolId: user.schoolId ?? null });
+  return actor;
+}
+
+async function resolveActorUncached(repo: Repo, user: Row): Promise<Actor> {
   const role = String(user.role) as Role;
   const actor: Actor = { userId: String(user.id), role, schoolId: user.schoolId ? String(user.schoolId) : null };
 

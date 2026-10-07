@@ -101,6 +101,7 @@ CREATE TABLE `Grade` (
   `schoolId` VARCHAR(191) NOT NULL,
   `level` INTEGER NOT NULL,
   `name` VARCHAR(191) NOT NULL,
+  `isActive` BOOLEAN NOT NULL DEFAULT true,
   PRIMARY KEY (`id`),
   CONSTRAINT `Grade_schoolId_level_key` UNIQUE (`schoolId`, `level`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -205,6 +206,7 @@ CREATE TABLE `Unit` (
   `number` INTEGER NOT NULL,
   `title` VARCHAR(191) NOT NULL,
   `description` TEXT,
+  `isActive` BOOLEAN NOT NULL DEFAULT true,
   `deletedAt` DATETIME(3),
   PRIMARY KEY (`id`),
   CONSTRAINT `Unit_curriculumId_number_key` UNIQUE (`curriculumId`, `number`)
@@ -295,6 +297,7 @@ CREATE TABLE `Standard` (
   `description` TEXT,
   `gradeLevel` INTEGER,
   `strand` VARCHAR(191),
+  `isActive` BOOLEAN NOT NULL DEFAULT true,
   PRIMARY KEY (`id`),
   CONSTRAINT `Standard_framework_code_key` UNIQUE (`framework`, `code`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -380,6 +383,7 @@ CREATE TABLE `Question` (
   `subskillId` VARCHAR(191),
   `lessonId` VARCHAR(191),
   `passageId` VARCHAR(191),
+  `imageId` VARCHAR(191),
   `standardId` VARCHAR(191),
   `typeId` VARCHAR(191) NOT NULL,
   `stem` TEXT NOT NULL,
@@ -476,6 +480,8 @@ CREATE TABLE `PracticeSession` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `PracticeSession_studentId_startedAt_idx` ON `PracticeSession`(`studentId`, `startedAt`);
+
+CREATE INDEX `PracticeSession_assignmentId_idx` ON `PracticeSession`(`assignmentId`);
 
 CREATE TABLE `QuestionAttempt` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -606,6 +612,9 @@ CREATE TABLE `Assignment` (
   `target` ENUM('SKILL', 'UNIT', 'ASSESSMENT') NOT NULL,
   `unitId` VARCHAR(191),
   `skillIds` JSON,
+  `skillId` VARCHAR(191),
+  `startAt` DATETIME(3),
+  `note` TEXT,
   `assessmentId` VARCHAR(191),
   `targetMastery` INTEGER,
   `dueAt` DATETIME(3),
@@ -615,6 +624,8 @@ CREATE TABLE `Assignment` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `Assignment_classId_dueAt_idx` ON `Assignment`(`classId`, `dueAt`);
+
+CREATE INDEX `Assignment_skillId_idx` ON `Assignment`(`skillId`);
 
 CREATE TABLE `AssignmentStudent` (
   `assignmentId` VARCHAR(191) NOT NULL,
@@ -913,6 +924,22 @@ CREATE TABLE `ImportedQuestionLog` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `ImportedQuestionLog_jobId_status_idx` ON `ImportedQuestionLog`(`jobId`, `status`);
+
+CREATE TABLE `QuestionImage` (
+  `id` VARCHAR(191) NOT NULL,
+  `mime` VARCHAR(40) NOT NULL,
+  `bytes` MEDIUMBLOB NOT NULL,
+  `size` INTEGER NOT NULL,
+  `width` INTEGER,
+  `height` INTEGER,
+  `sha256` VARCHAR(64) NOT NULL,
+  `altText` VARCHAR(300),
+  `createdById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `QuestionImage_sha256_idx` ON `QuestionImage`(`sha256`);
 
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

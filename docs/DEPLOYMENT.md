@@ -266,3 +266,47 @@ before the importer: run once from your computer, with `DATABASE_URL` set to the
 - **Measuring.** `npx tsx scripts/perf/measure.ts` builds a demo school in SQLite and prints, per page,
   the database calls, rows, data volume and time with a simulated network delay (`LATENCY_MS`,
   default 30). `scripts/perf/snapshot.ts` dumps every page's data so two versions can be compared.
+
+## 14. Curriculum management and new database columns
+
+The admin page **Curriculum** creates, edits, reorders, activates/deactivates and (only when nothing
+uses them) deletes grades, units, skills and standards. No grade is ever created automatically.
+
+This release adds database columns (`Grade.isActive`, `Unit.isActive`, `Standard.isActive`,
+`Assignment.skillId/startAt/note`, `Question.imageId`) and the table `QuestionImage`. All are additive.
+**Run `npx prisma db push` BEFORE deploying the new code**: the new pages read these columns.
+
+## 15. One-time cleanup of the question bank
+
+`scripts/cleanup-questions.ts` deletes **every question** once, so the bank can be rebuilt. It is not
+in the web app. It never deletes grades, units, skills, standards, curriculum, users, teachers,
+students, classes, assignments or reading passages, and it checks that their counts are unchanged.
+
+1. `npx tsx scripts/cleanup-questions.ts report`: changes nothing. Prints the counts per table and
+   writes a full backup to `backups/` (JSON for restore + Excel in the import template format).
+   It prints the confirmation code, e.g. `DELETE-1082`.
+2. `npx tsx scripts/cleanup-questions.ts execute --confirm DELETE-1082`: deletes all questions.
+   Refuses if the code does not match the current count, if there is no backup from the last 24 hours,
+   or if students have practised (then add `--include-practice-history`, which also clears practice
+   history and resets assignment progress). Prints the verification.
+3. To undo: `npx tsx scripts/cleanup-questions.ts restore backups/question-backup-….json`
+   (or restore the Aiven backup taken before the cleanup).
+
+`backups/` is in `.gitignore`: backups stay on your computer and are never pushed to GitHub.
+
+## 16. Test environment (Test School: 1 admin, 6 teachers, 200 students)
+
+A separate school, marked as test data, so test accounts never appear in the real school's
+classes or analytics. It gets its own copy of the curriculum (Grades 4–6) and of the original
+question bank, real skill assignments, and real practice through the adaptive engine, so every
+status exists: Not Started, In Progress, Completed, Overdue. Notifications are real too.
+
+    TEST_ACCOUNT_PASSWORD='choose-a-password' npx tsx scripts/seed-test-env.ts seed   # about 15 minutes remotely
+    npx tsx scripts/seed-test-env.ts report                                              # counts and statuses
+    npx tsx scripts/seed-test-env.ts reset                                               # removes the Test School completely
+
+Accounts: `test.admin`, `test.teacher.1` … `test.teacher.6` (one class each: TEST 4A, 4B, 5A, 5B, 6A, 6B),
+`test.student.001` … `test.student.200`. All use TEST_ACCOUNT_PASSWORD (at least 10 characters),
+which is never printed or stored in the code. To recreate: `reset`, then `seed`.
+`reset` follows the database relations from the Test School only; shared data (standards, books,
+reading passages) and other schools are never touched. It refuses any school not marked as test data.

@@ -40,11 +40,27 @@ export async function createSession(repo: Repo, user: Row, cfg: AuthConfig, meta
 
 const toDate = (v: unknown) => (v instanceof Date ? v : new Date(String(v)));
 
+/** sessionId → userId, per database connection (never changes for a session; bounded size). */
+const owners = new WeakMap<object, Map<string, string>>();
+function sessionOwner(repo: Repo): Map<string, string> {
+  let m = owners.get(repo as object);
+  if (!m) { m = new Map(); owners.set(repo as object, m); }
+  return m;
+}
+function rememberOwner(repo: Repo, id: string, userId: string): void {
+  const m = sessionOwner(repo);
+  if (m.size > 5000) m.clear();
+  m.set(id, userId);
+}
+
 export async function validateSession(repo: Repo, token: string | undefined | null, cfg: AuthConfig, now = new Date()): Promise<ValidSession | { ok: false; reason: InvalidReason }> {
   if (!token || token.length < 20 || token.length > 100) return { ok: false, reason: "NOT_FOUND" };
   const id = hashToken(token);
-  const s = await repo.findUnique("Session", { id });
-  if (!s) return { ok: false, reason: "NOT_FOUND" };
+  // a session always belongs to the same user: once known, fetch both rows together (1 round trip, not 2).
+  // Every check below still runs on fresh rows from the database.
+  const known = sessionOwner(repo).get(id);
+  const [s, early] = await Promise.all([repo.findUnique("Session", { id }), known ? repo.findUnique("User", { id: known }) : Promise.resolve(null)]);
+  if (!s) { sessionOwner(repo).delete(id); return { ok: false, reason: "NOT_FOUND" }; }
   const expiresAt = toDate(s.expiresAt);
   const lastSeen = toDate(s.lastSeenAt);
   if (now >= expiresAt) {
@@ -55,7 +71,8 @@ export async function validateSession(repo: Repo, token: string | undefined | nu
     await repo.deleteMany("Session", { id });
     return { ok: false, reason: "IDLE" };
   }
-  const user = await repo.findUnique("User", { id: s.userId });
+  const user = early && early.id === s.userId ? early : await repo.findUnique("User", { id: s.userId });
+  rememberOwner(repo, id, String(s.userId));
   if (!user || !user.isActive || user.deletedAt) {
     await repo.deleteMany("Session", { id });
     return { ok: false, reason: "USER_INACTIVE" };

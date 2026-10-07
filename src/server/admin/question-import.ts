@@ -65,11 +65,12 @@ const newId = () => "c" + Date.now().toString(36) + randomBytes(8).toString("hex
 
 /** The school's grades, skills (with linked standards) and all standards: a handful of queries. */
 export async function loadCurriculumIndex(repo: Repo, actor: Actor): Promise<CurriculumIndex> {
-  const grades = await repo.findMany("Grade", { schoolId: schoolOf(actor) });
+  // inactive grades and skills are hidden: they cannot receive new questions
+  const grades = (await repo.findMany("Grade", { schoolId: schoolOf(actor) })).filter((g) => g.isActive !== false);
   const curricula = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }) : [];
-  const skills = curricula.length ? (await repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => c.id) } })).filter((s) => !s.deletedAt) : [];
+  const skills = curricula.length ? (await repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => c.id) } })).filter((s) => !s.deletedAt && s.isActive !== false) : [];
   const links = skills.length ? await repo.findMany("SkillStandard", { skillId: { in: skills.map((s) => s.id) } }) : [];
-  const standards = await repo.findMany("Standard", {});
+  const standards = (await repo.findMany("Standard", {})).filter((s) => s.isActive !== false);
   const stdById = new Map(standards.map((s) => [String(s.id), s]));
   const levelOf = new Map(curricula.map((c) => [String(c.id), Number(grades.find((g) => g.id === c.gradeId)?.level)]));
   const refs: SkillRef[] = skills.map((s) => ({
@@ -421,7 +422,7 @@ export interface CommitProgress { processed: number; total: number; done: boolea
 
 interface Planned { log: Row; input: EditorInput; item: BankItem; skill: SkillRef; standardId: string; passage: string | null; replaceId: string | null }
 
-const passageRef = (text: string) => `IMP-${createHash("sha256").update(text.replace(/\s+/g, " ").trim()).digest("hex").slice(0, 24)}`;
+import { passageRef } from "./passages";
 
 /** Writes planned questions with batch inserts, in one transaction. Returns log id → question id. */
 async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: boolean, jobId: string, now: Date): Promise<Map<string, string>> {

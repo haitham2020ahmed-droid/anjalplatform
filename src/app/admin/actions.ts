@@ -168,7 +168,7 @@ export async function applyRosterAction(f: FormData): Promise<{ credentialsCsv?:
 
 const editorSchema = z.object({
   skillId: id, type: z.string(), stem: z.string().max(2000), level: z.coerce.number().int().min(1).max(7), standardCode: z.string().max(40).nullish(),
-  passageId: z.string().max(191).nullish(), hint: z.string().max(500).nullish(), whyCorrect: z.string().max(1000), tip: z.string().max(500).nullish(),
+  passageId: z.string().max(191).nullish(), passageText: z.string().max(20000).nullish(), imageId: z.string().max(191).nullish(), imageAlt: z.string().max(300).nullish(), hint: z.string().max(500).nullish(), cognitiveLevel: z.string().max(20).nullish(), whyCorrect: z.string().max(1000), tip: z.string().max(500).nullish(),
   estimatedSeconds: z.coerce.number().int().min(10).max(600).optional(), aiDrafted: z.boolean().optional(),
   options: z.array(z.object({ label: z.string().max(4), text: z.string().max(500), correct: z.boolean(), rationale: z.string().max(500).nullable() })).max(8).optional(),
   answer: z.boolean().optional(), answers: z.array(z.string().max(200)).max(10).optional(),
@@ -309,15 +309,23 @@ export async function cancelImportAction(_: Result, f: FormData): Promise<Result
 // ------------------------------------------------------- bulk publish
 
 import { BULK_PUBLISH_MAX, publishableIds, publishQuestions, STATUSES, type BulkPublishResult, type QuestionStatus } from "@/server/admin/questions";
+import { BULK_MAX, archiveQuestions, deleteQuestions, type ArchiveResult, type DeleteResult } from "@/server/admin/question-delete";
+import { redirect as goTo } from "next/navigation";
 
-const ListFilter = z.object({ status: z.enum(STATUSES as unknown as [QuestionStatus, ...QuestionStatus[]]).optional(), grade: z.number().int().optional(), q: z.string().max(100).optional(), mine: z.boolean().optional(), ai: z.boolean().optional() });
+const ListFilter = z.object({
+  status: z.enum(STATUSES as unknown as [QuestionStatus, ...QuestionStatus[]]).optional(), grade: z.number().int().optional(), q: z.string().max(100).optional(), mine: z.boolean().optional(), ai: z.boolean().optional(),
+  unitId: z.string().max(191).optional(), skillId: z.string().max(191).optional(), standard: z.string().max(60).optional(), type: z.string().max(40).optional(),
+  passage: z.enum(["has", "none", "missing"]).optional(), image: z.enum(["has", "none"]).optional(),
+});
+export type ListFilterInput = z.infer<typeof ListFilter>;
 
 /** “Publish All”: the publishable questions matching the list filters (admins with questions:publish). */
-export async function publishableIdsAction(filter: { status?: QuestionStatus; grade?: number; q?: string; mine?: boolean; ai?: boolean }): Promise<{ ids?: string[]; error?: string }> {
+export async function publishableIdsAction(filter: ListFilterInput): Promise<{ ids?: string[]; error?: string }> {
   const actor = await requireActor({ permission: "questions:publish" });
   try {
     const f = ListFilter.parse(filter);
-    return { ids: await publishableIds(repo, actor, { status: f.status, gradeLevel: f.grade, q: f.q, mine: f.mine, aiOnly: f.ai }) };
+    // the same filters as the list on screen, so “Publish All” never includes hidden questions
+    return { ids: await publishableIds(repo, actor, { status: f.status, gradeLevel: f.grade, q: f.q, mine: f.mine, aiOnly: f.ai, unitId: f.unitId, skillId: f.skillId, standardCode: f.standard, typeCode: f.type, passage: f.passage, image: f.image }) };
   } catch (e) {
     if (e instanceof z.ZodError) return { error: "Invalid filter." };
     throw e;
@@ -337,4 +345,51 @@ export async function bulkPublishAction(ids: string[]): Promise<{ result?: BulkP
     if (e instanceof ValidationError || e instanceof z.ZodError) return { error: e instanceof z.ZodError ? "Choose between 1 and 100 questions." : e.message };
     throw e;
   }
+}
+
+// ------------------------------------------------------------------ delete / archive questions
+
+
+/** Delete a batch of questions permanently (admins). Answered questions are skipped and reported. */
+export async function deleteQuestionsAction(ids: string[]): Promise<{ result?: DeleteResult; error?: string }> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:publish" });
+  try {
+    const result = await deleteQuestions(repo, actor, z.array(id).min(1).max(BULK_MAX).parse(ids));
+    revalidatePath("/admin/questions");
+    revalidatePath("/admin/question-bank");
+    return { result };
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof z.ZodError || (e as { status?: number }).status === 403) return { error: e instanceof z.ZodError ? `Choose between 1 and ${BULK_MAX} questions.` : (e as Error).message };
+    throw e;
+  }
+}
+
+/** Archive a batch of questions (kept with their history, never shown in practice). */
+export async function archiveQuestionsAction(ids: string[], reason: string): Promise<{ result?: ArchiveResult; error?: string }> {
+  const actor = await requireActor({ permission: "questions:publish" });
+  try {
+    const result = await archiveQuestions(repo, actor, z.array(id).min(1).max(BULK_MAX).parse(ids), String(reason ?? ""));
+    revalidatePath("/admin/questions");
+    revalidatePath("/admin/question-bank");
+    return { result };
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof z.ZodError || (e as { status?: number }).status === 403) return { error: e instanceof z.ZodError ? `Choose between 1 and ${BULK_MAX} questions.` : (e as Error).message };
+    throw e;
+  }
+}
+
+/** Delete one question from its page (confirmed in the browser first). */
+export async function deleteOneQuestionAction(_: Result, f: FormData): Promise<Result> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:publish" });
+  let r: DeleteResult;
+  try {
+    r = await deleteQuestions(repo, actor, [id.parse(str(f, "questionId"))]);
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof z.ZodError || (e as { status?: number }).status === 403) return { error: (e as Error).message };
+    throw e;
+  }
+  if (r.skipped.length) return { error: r.skipped[0].reason };
+  revalidatePath("/admin/questions");
+  goTo("/admin/questions?deleted=1");
+  return { ok: true }; // not reached: redirect() ends the request
 }

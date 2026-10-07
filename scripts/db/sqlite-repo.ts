@@ -60,6 +60,10 @@ export class SqliteRepo implements Repo {
         if (arr.length === 0) { parts.push("0"); continue; }
         parts.push(`"${k}" IN (${arr.map(() => "?").join(",")})`);
         params.push(...arr.map((x) => this.toDb(m, { [k]: x })[k]));
+      } else if (v && typeof v === "object" && !(v instanceof Date) && "not" in (v as object)) {
+        const n = (v as { not: unknown }).not;
+        if (n === null) parts.push(`"${k}" IS NOT NULL`);
+        else { parts.push(`("${k}" IS NULL OR "${k}" != ?)`); params.push(this.toDb(m, { [k]: n })[k]); }
       } else if (v && typeof v === "object" && !(v instanceof Date) && "contains" in (v as object)) {
         // case-insensitive substring, like MySQL's default collation
         const needle = String((v as { contains: string }).contains).replace(/[!%_]/g, (c) => `!${c}`);

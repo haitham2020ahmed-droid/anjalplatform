@@ -10,6 +10,7 @@
  * No AI is involved anywhere in the import.
  */
 import type { BankOption, QuestionTypeCode } from "./validate";
+import { needsPassage } from "../../lib/passage-detect";
 
 // ------------------------------------------------------------------ columns
 
@@ -282,6 +283,7 @@ export function readRow(cells: Partial<Record<ColumnKey, string>>): RowResult {
         break;
     }
   }
+  if (q && !q.passage && needsPassage(q.stem)) warnings.push("The question seems to refer to a passage (passage, story, paragraph…), but Passage/Text is empty.");
   if (q && !q.explanationGiven) {
     warnings.push("Explanation is empty: students will see “The correct answer is …”. Add an explanation before approving.");
     q.explanation = defaultExplanation(q);

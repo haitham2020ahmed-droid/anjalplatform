@@ -15,7 +15,7 @@ export type Row = Record<string, unknown> & { id?: string };
  * Equality, `{ in: [...] }`, range `{ lt, lte, gt, gte }`, or `{ contains: "text" }` (case-insensitive
  * substring) — a Prisma-compatible subset.
  */
-export type Where = Record<string, unknown | { in: unknown[] } | { lt?: unknown; lte?: unknown; gt?: unknown; gte?: unknown } | { contains: string }>;
+export type Where = Record<string, unknown | { in: unknown[] } | { lt?: unknown; lte?: unknown; gt?: unknown; gte?: unknown } | { contains: string } | { not: unknown }>;
 
 /**
  * Optional query shaping, done by the database instead of in JavaScript (performance):

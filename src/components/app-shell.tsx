@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import { LogoutButton } from "./logout-button";
+import { NotificationBell } from "./notification-bell";
 
 /** Shared page frame: school name, the signed-in person, sign out. Content area max ~72rem. */
 export function AppShell({ name, children }: { name: string; children: React.ReactNode }) {
@@ -8,6 +10,8 @@ export function AppShell({ name, children }: { name: string; children: React.Rea
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
           <a href="/" className="font-bold text-brand-navy">Al-Anjal English</a>
           <div className="flex items-center gap-4 text-sm text-slate-600">
+            {/* the bell loads alongside the page instead of holding it up */}
+            <Suspense fallback={<span className="inline-block h-8 w-8" aria-hidden="true" />}><NotificationBell /></Suspense>
             <span>{name}</span>
             <LogoutButton />
           </div>

@@ -13,6 +13,8 @@ export interface PracticeItem extends BankItem {
   passageText: string | null;
   passageTitle: string | null;
   hint: string | null;
+  /** optional picture (diagram, chart…) shown with the question */
+  image: { id: string; alt: string } | null;
 }
 
 /** What the student's browser receives. Contains nothing that reveals the answer. */
@@ -22,6 +24,7 @@ export interface ClientQuestion {
   stem: string;
   level: number;
   passage: { title: string; text: string } | null;
+  image: { url: string; alt: string } | null;
   options?: { label: string; text: string }[];
   multiple?: boolean;
   elements?: string[]; // ordering: shuffled
@@ -70,9 +73,12 @@ export async function loadItemsForSkills(repo: Repo, skillIds: string[]): Promis
   const passages = passageIds.length ? await repo.findMany("ReadingPassage", { id: { in: passageIds } }) : [];
   const typeCode = new Map(types.map((t) => [str(t.id), str(t.code) as QuestionTypeCode]));
   const passage = new Map(passages.map((p) => [str(p.id), p]));
+  // images: only the description is read here (the picture itself is served separately)
+  const imageIds = [...new Set(qs.map((q) => q.imageId).filter(Boolean))];
+  const imageAlt = new Map((imageIds.length ? await repo.findMany("QuestionImage", { id: { in: imageIds } }, { select: ["id", "altText"] }) : []).map((x) => [str(x.id), str(x.altText ?? "")]));
   // adaptive practice needs automatic scoring: teacher-scored types (SHORT_ANSWER) are never served
   const autoScored = new Set(types.filter((t) => t.isAutoScored !== false && t.code !== "SHORT_ANSWER").map((t) => str(t.id)));
-  return qs.filter((q) => autoScored.has(str(q.typeId))).map((q) => ({ ...toPracticeItem(q, opts, answers, expl, typeCode, passage), skillKey: String(q.skillId) }));
+  return qs.filter((q) => autoScored.has(str(q.typeId))).map((q) => ({ ...toPracticeItem(q, opts, answers, expl, typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
 }
 
 function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCode: Map<string, QuestionTypeCode>, passage: Map<string, Row>): PracticeItem {
@@ -108,6 +114,7 @@ function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCo
     passageText: p ? str(p.body) : null,
     passageTitle: p ? str(p.title) : null,
     hint: q.hint ? str(q.hint) : null,
+    image: null,
   };
   if (type === "TRUE_FALSE") item.answer = Boolean(ans[0]);
   if (type === "FILL_BLANK") item.answers = ans.map(str);
@@ -147,6 +154,7 @@ export function toClientQuestion(item: PracticeItem, seed: string): ClientQuesti
     stem: item.stem,
     level: item.level,
     passage: item.passageText ? { title: item.passageTitle ?? "", text: item.passageText } : null,
+    image: item.image ? { url: `/api/question-images/${item.image.id}`, alt: item.image.alt || "Picture for this question" } : null,
     hasHint: Boolean(item.hint),
   };
   switch (item.type) {

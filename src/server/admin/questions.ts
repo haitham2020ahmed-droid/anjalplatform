@@ -25,6 +25,9 @@ import { assertCan, can, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
 import { schoolOf } from "./users";
+import { cleanPassage, passageForText } from "./passages";
+import { needsPassage, possibleMissingPassage } from "../../lib/passage-detect";
+import { cleanAlt, removeUnusedImages } from "./question-images";
 
 export type QuestionStatus = "DRAFT" | "UNDER_REVIEW" | "PUBLISHED" | "ARCHIVED";
 export const STATUSES: readonly QuestionStatus[] = ["DRAFT", "UNDER_REVIEW", "PUBLISHED", "ARCHIVED"];
@@ -36,6 +39,14 @@ export interface EditorInput {
   level: number;
   standardCode?: string | null;
   passageId?: string | null;
+  /**
+   * Optional passage/story/poem shown before the question. When present (even ""), it decides the
+   * passage: text → the passage with that text (found or created), "" → no passage.
+   */
+  passageText?: string | null;
+  /** optional QuestionImage id (null = no image; leave out = unchanged) and its description */
+  imageId?: string | null;
+  imageAlt?: string | null;
   hint?: string | null;
   whyCorrect: string;
   tip?: string | null;
@@ -90,6 +101,18 @@ async function questionInSchool(repo: Repo, actor: Actor, id: string): Promise<R
 }
 
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
+
+/**
+ * Editing rule. Drafts and items under review: as before. PUBLISHED: may be edited directly by
+ * someone who can publish, but ONLY while no student has answered it (its statistics would no longer
+ * match its wording); after that, “Make a new version”. Archived: never.
+ */
+async function mayEditQuestion(repo: Repo, actor: Actor, q: Row): Promise<void> {
+  if (q.status !== "PUBLISHED") return assertMayEdit(actor, q);
+  assertCan(actor, "questions:edit");
+  if (!can(actor, "questions:publish") && !isAdmin(actor)) throw new ForbiddenError("Only reviewers and admins can edit a published question directly. Use “Revise” to make a new version.");
+  if (await repo.count("QuestionAttempt", { questionId: q.id })) throw new ValidationError("Students have already answered this question, so it cannot be changed. Use “Revise” to make a new version.");
+}
 
 function assertMayEdit(actor: Actor, q: Row) {
   assertCan(actor, "questions:edit");
@@ -182,17 +205,28 @@ export async function checkQuestion(repo: Repo, actor: Actor, input: EditorInput
   }
 }
 
+/** The image a question points to must exist; its description is updated when given. */
+async function checkedImage(repo: Repo, input: EditorInput): Promise<string | null> {
+  if (!input.imageId) return null;
+  const img = await repo.findUnique("QuestionImage", { id: input.imageId });
+  if (!img) throw new ValidationError("The image was not found. Upload it again.");
+  if (input.imageAlt !== undefined) await repo.updateMany("QuestionImage", { id: img.id }, { altText: cleanAlt(input.imageAlt) });
+  return String(img.id);
+}
+
 export async function createDraft(repo: Repo, actor: Actor, input: EditorInput, now = new Date()): Promise<string> {
   assertCan(actor, "questions:edit");
   const ref = `T${(await skillInSchool(repo, actor, input.skillId)).grade}-${randomBytes(4).toString("hex")}`;
-  const { item, standardId, passageId } = await toBankItem(repo, actor, input, ref);
+  const passageText = input.passageText === undefined ? undefined : cleanPassage(input.passageText);
+  const { item, standardId, passageId: givenPassage, grade } = await toBankItem(repo, actor, passageText === undefined ? input : { ...input, passageId: null }, ref);
   const typeId = await typeIdFor(repo, item.type);
   const id = await repo.transaction(async (tx) => {
+    const passageId = passageText === undefined ? givenPassage : passageText ? await passageForText(tx, passageText, grade, actor.userId, now) : null;
     const q = await tx.create("Question", {
       externalRef: ref, skillId: input.skillId, standardId, passageId, typeId, stem: item.stem, content: contentPayload(item), hint: input.hint ? text(input.hint, "Hint", 500) : null,
       difficultyLevel: item.level, irtA: 1, irtB: item.irt.b, irtC: 0, estimatedSeconds: item.estimatedSeconds,
       status: "DRAFT", origin: input.imported ? "IMPORTED" : input.aiDrafted ? "AI_GENERATED" : "TEACHER_AUTHORED", aiStatus: input.aiDrafted && !input.imported ? "AI_GENERATED" : null,
-      lessonId: input.lessonId ?? null, tags: tagsFor(input, null),
+      lessonId: input.lessonId ?? null, tags: tagsFor(input, null), imageId: input.imageId ? await checkedImage(tx, input) : null,
       createdById: actor.userId, createdAt: now, updatedAt: now,
     });
     await writeParts(tx, String(q.id), item);
@@ -204,21 +238,25 @@ export async function createDraft(repo: Repo, actor: Actor, input: EditorInput, 
 
 export async function updateDraft(repo: Repo, actor: Actor, id: string, input: EditorInput, now = new Date()): Promise<void> {
   const q = await questionInSchool(repo, actor, id);
-  assertMayEdit(actor, q);
-  const { item, standardId, passageId } = await toBankItem(repo, actor, input, String(q.externalRef ?? id));
+  await mayEditQuestion(repo, actor, q);
+  const passageText = input.passageText === undefined ? undefined : cleanPassage(input.passageText);
+  const { item, standardId, passageId: givenPassage, grade } = await toBankItem(repo, actor, passageText === undefined ? input : { ...input, passageId: null }, String(q.externalRef ?? id));
   const byAuthor = q.createdById === actor.userId;
   // an author's change to an item under review sends it back to draft; a reviewer's fix does not
   const status = q.status === "UNDER_REVIEW" && byAuthor ? "DRAFT" : String(q.status);
   await repo.transaction(async (tx) => {
+    const passageId = passageText === undefined ? givenPassage : passageText ? await passageForText(tx, passageText, grade, actor.userId, now) : null;
     await tx.updateMany("Question", { id }, {
       skillId: input.skillId, standardId, passageId, typeId: await typeIdFor(tx, item.type), stem: item.stem, content: contentPayload(item),
       hint: input.hint ? text(input.hint, "Hint", 500) : null, difficultyLevel: item.level, estimatedSeconds: item.estimatedSeconds,
       ...(q.calibrated ? {} : { irtB: item.irt.b }), status, updatedAt: now,
       ...(input.lessonId !== undefined ? { lessonId: input.lessonId } : {}), tags: tagsFor(input, q.tags),
+      ...(input.imageId !== undefined ? { imageId: await checkedImage(tx, input) } : {}),
     });
     await writeParts(tx, id, item);
   });
-  await audit(repo, { actorId: actor.userId, action: "question.update", entityType: "Question", entityId: id, before: { stem: q.stem, level: q.difficultyLevel, status: q.status }, after: { stem: item.stem, level: item.level, status }, at: now });
+  if (input.imageId !== undefined && q.imageId && q.imageId !== (input.imageId || null)) await removeUnusedImages(repo, [String(q.imageId)]);
+  await audit(repo, { actorId: actor.userId, action: q.status === "PUBLISHED" ? "question.update_published" : "question.update", entityType: "Question", entityId: id, before: { stem: q.stem, level: q.difficultyLevel, status: q.status, passageId: q.passageId ?? null }, after: { stem: item.stem, level: item.level, status, passage: passageText === undefined ? "unchanged" : passageText ? "set" : "removed" }, at: now });
 }
 
 export async function submitForReview(repo: Repo, actor: Actor, id: string, now = new Date()): Promise<void> {
@@ -366,46 +404,89 @@ export interface QuestionListItem {
   origin: string;
   mine: boolean;
   updatedAt: string;
+  hasPassage: boolean;
+  hasImage: boolean;
+  /** no passage, but the wording seems to need one (warning only) */
+  possibleMissingPassage: boolean;
+}
+
+export interface QuestionFilter {
+  status?: QuestionStatus; gradeLevel?: number; skillId?: string; q?: string; mine?: boolean; aiOnly?: boolean;
+  /** only skills placed in this unit */
+  unitId?: string;
+  /** e.g. RL.4.1 or the full CCSS code */
+  standardCode?: string;
+  /** question type code, e.g. MULTIPLE_CHOICE */
+  typeCode?: string;
+  /** has = with a passage; none = without; missing = without, but the wording seems to need one */
+  passage?: "has" | "none" | "missing";
+  image?: "has" | "none";
+  /** page size (the list page uses 100) and 1-based page number */
+  limit?: number;
+  page?: number;
 }
 
 /**
  * The question list. Filtering, search, sorting, counting and paging happen in the database, and only
- * the columns the list shows are read (performance: this used to load every question of the school).
- * `limit` caps the rows returned (the page shows 300); `total` is always the full number of matches.
+ * the columns the list shows are read. `total` is always the full number of matches. The one
+ * exception is “possible missing passage”, a wording check that runs on the candidates' text.
  */
-export async function listQuestions(repo: Repo, actor: Actor, filter: { status?: QuestionStatus; gradeLevel?: number; skillId?: string; q?: string; mine?: boolean; aiOnly?: boolean; limit?: number } = {}): Promise<{ items: QuestionListItem[]; total: number; counts: Record<QuestionStatus, number>; aiPending: number }> {
+export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFilter = {}): Promise<{ items: QuestionListItem[]; total: number; counts: Record<QuestionStatus, number>; aiPending: number }> {
   assertCan(actor, "questions:read");
   const schoolId = schoolOf(actor);
   const grades = (await repo.findMany("Grade", { schoolId })).filter((g) => !filter.gradeLevel || num(g.level) === filter.gradeLevel);
   const curricula = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }) : [];
   const skills = curricula.length ? await repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => c.id) } }, { select: ["id", "name", "curriculumId"] }) : [];
-  const skillIds = filter.skillId ? skills.filter((s) => s.id === filter.skillId).map((s) => s.id) : skills.map((s) => s.id);
+  let skillIds = filter.skillId ? skills.filter((s) => s.id === filter.skillId).map((s) => s.id) : skills.map((s) => s.id);
+  if (filter.unitId) {
+    const inUnit = new Set((await repo.findMany("UnitSkill", { unitId: filter.unitId }, { select: ["skillId"] })).map((x) => String(x.skillId)));
+    skillIds = skillIds.filter((id) => inUnit.has(String(id)));
+  }
   const empty = { items: [], total: 0, counts: Object.fromEntries(STATUSES.map((s) => [s, 0])) as Record<QuestionStatus, number>, aiPending: 0 };
   if (!skillIds.length) return empty;
 
   const base = { skillId: { in: skillIds }, deletedAt: null };
+  const [standardIds, typeIds] = await Promise.all([
+    filter.standardCode ? repo.findMany("Standard", {}, { select: ["id", "code"] }).then((all) => {
+      const want = filter.standardCode!.trim().replace(/^CCSS\.ELA-LITERACY\./i, "").toUpperCase();
+      return all.filter((x) => String(x.code).replace(/^CCSS\.ELA-LITERACY\./i, "").toUpperCase() === want).map((x) => x.id);
+    }) : Promise.resolve(null),
+    filter.typeCode ? repo.findMany("QuestionType", { code: filter.typeCode }, { select: ["id"] }).then((r) => r.map((x) => x.id)) : Promise.resolve(null),
+  ]);
+  if ((standardIds && !standardIds.length) || (typeIds && !typeIds.length)) {
+    const counts = Object.fromEntries(await Promise.all(STATUSES.map(async (st) => [st, await repo.count("Question", { ...base, status: st })]))) as Record<QuestionStatus, number>;
+    return { ...empty, counts };
+  }
   const where = {
     ...base,
     ...(filter.status ? { status: filter.status } : {}),
     ...(filter.mine ? { createdById: actor.userId } : {}),
     ...(filter.aiOnly ? { origin: "AI_GENERATED" } : {}),
+    ...(standardIds ? { standardId: { in: standardIds } } : {}),
+    ...(typeIds ? { typeId: { in: typeIds } } : {}),
+    ...(filter.passage === "has" ? { passageId: { not: null } } : filter.passage ? { passageId: null } : {}),
+    ...(filter.image === "has" ? { imageId: { not: null } } : filter.image === "none" ? { imageId: null } : {}),
   };
   const needle = (filter.q ?? "").trim();
-  const COLS = ["id", "externalRef", "stem", "skillId", "typeId", "difficultyLevel", "status", "origin", "createdById", "updatedAt"];
+  const limit = filter.limit, page = Math.max(1, Math.floor(filter.page ?? 1));
+  const COLS = ["id", "externalRef", "stem", "skillId", "typeId", "difficultyLevel", "status", "origin", "createdById", "updatedAt", "passageId", "imageId"];
   const ORDER = [{ field: "updatedAt", dir: "desc" as const }, { field: "id", dir: "asc" as const }];
-  // search matches the question text OR the reference: two indexed reads, merged
-  const read = (w: Record<string, unknown>, take?: number) => repo.findMany("Question", w, { select: COLS, orderBy: ORDER, ...(take !== undefined ? { take } : {}) });
+  const read = (w: Record<string, unknown>, take?: number, skip?: number) => repo.findMany("Question", w, { select: COLS, orderBy: ORDER, ...(take !== undefined ? { take } : {}), ...(skip ? { skip } : {}) });
+  // in JavaScript only when needed: text search (two fields) and the wording check
+  const inMemory = Boolean(needle) || filter.passage === "missing";
   const [statusCounts, aiPending, types, rows, total] = await Promise.all([
     Promise.all(STATUSES.map((st) => repo.count("Question", { ...base, status: st }))),
     repo.count("Question", { ...base, origin: "AI_GENERATED", status: { in: ["DRAFT", "UNDER_REVIEW"] } }),
     repo.findMany("QuestionType", {}, { select: ["id", "code"] }),
-    needle
-      ? Promise.all([read({ ...where, stem: { contains: needle } }), read({ ...where, externalRef: { contains: needle } })]).then(([a, b]) => {
-          const seen = new Set(a.map((q) => q.id));
-          return [...a, ...b.filter((q) => !seen.has(q.id))];
-        })
-      : filter.limit === 0 ? Promise.resolve([] as Row[]) : read(where, filter.limit),
-    needle || filter.limit === undefined ? Promise.resolve(-1) : repo.count("Question", where),
+    inMemory
+      ? (needle
+          ? Promise.all([read({ ...where, stem: { contains: needle } }), read({ ...where, externalRef: { contains: needle } })]).then(([a, b]) => {
+              const seen = new Set(a.map((q) => q.id));
+              return [...a, ...b.filter((q) => !seen.has(q.id))];
+            })
+          : read(where)).then((r) => (filter.passage === "missing" ? r.filter((q) => needsPassage(String(q.stem))) : r))
+      : limit === 0 ? Promise.resolve([] as Row[]) : read(where, limit, limit ? (page - 1) * limit : undefined),
+    inMemory || limit === undefined ? Promise.resolve(-1) : repo.count("Question", where),
   ]);
   const counts = Object.fromEntries(STATUSES.map((st, i) => [st, statusCounts[i]])) as Record<QuestionStatus, number>;
   const skillById = new Map(skills.map((x) => [String(x.id), x]));
@@ -415,15 +496,16 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: { status?:
   const all = rows
     .map((q) => {
       const sk = skillById.get(String(q.skillId));
+      const hasPassage = Boolean(q.passageId);
       return {
         id: String(q.id), ref: String(q.externalRef ?? ""), stem: String(q.stem).slice(0, 160), skill: String(sk?.name ?? ""), grade: num(sk ? gradeOfCurriculum.get(String(sk.curriculumId)) : 0),
         type: typeCode.get(String(q.typeId)) ?? "", level: num(q.difficultyLevel), levelLabel: LEVEL_LABELS[num(q.difficultyLevel)] ?? "",
         status: String(q.status) as QuestionStatus, origin: String(q.origin), mine: q.createdById === actor.userId,
-        updatedAt: iso(q.updatedAt),
+        updatedAt: iso(q.updatedAt), hasPassage, hasImage: Boolean(q.imageId), possibleMissingPassage: possibleMissingPassage(String(q.stem), hasPassage),
       };
     })
     .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt) || a.id.localeCompare(b.id));
-  const items = filter.limit !== undefined ? all.slice(0, filter.limit) : all;
+  const items = inMemory && limit !== undefined ? all.slice((page - 1) * limit, (page - 1) * limit + limit) : all;
   return { items, total: total >= 0 ? total : all.length, counts, aiPending };
 }
 
@@ -463,9 +545,11 @@ export async function getQuestion(repo: Repo, actor: Actor, id: string): Promise
     const body = (typeof e?.body === "string" ? JSON.parse(e.body) : e?.body) as { text?: string }[] | undefined;
     return body?.map((b) => b.text ?? "").join(" ") ?? "";
   };
+  const passageRow = q.passageId ? await repo.findUnique("ReadingPassage", { id: q.passageId }) : null;
+  const imageRow = q.imageId ? (await repo.findMany("QuestionImage", { id: q.imageId }, { select: ["id", "altText"] }))[0] : null;
   const input: EditorInput = {
     skillId: String(q.skillId), type: code, stem: String(q.stem), level: num(q.difficultyLevel), standardCode: std ? String(std.code) : null,
-    passageId: q.passageId ? String(q.passageId) : null, hint: q.hint ? String(q.hint) : null,
+    passageId: q.passageId ? String(q.passageId) : null, passageText: passageRow ? String(passageRow.body) : "", imageId: imageRow ? String(imageRow.id) : null, imageAlt: imageRow?.altText ? String(imageRow.altText) : "", hint: q.hint ? String(q.hint) : null,
     whyCorrect: explText("WHY_CORRECT"), tip: explText("TIP") || null, estimatedSeconds: num(q.estimatedSeconds),
     aiDrafted: q.origin === "AI_GENERATED",
     lessonId: q.lessonId ? String(q.lessonId) : null,
@@ -484,9 +568,7 @@ export async function getQuestion(repo: Repo, actor: Actor, id: string): Promise
   if (code === "MATCHING" && primary) input.pairs = val(primary) as { left: string; right: string }[];
   const users = logs.length ? await repo.findMany("User", { id: { in: [...new Set(logs.map((l) => l.actorId).filter(Boolean))] } }, { select: ["id", "displayName"] }) : [];
   const after = (l: Row) => (typeof l.after === "string" ? JSON.parse(l.after) : l.after ?? {}) as { note?: string; reason?: string };
-  const editable = (() => {
-    try { assertMayEdit(actor, q); return true; } catch { return false; }
-  })();
+  const editable = await mayEditQuestion(repo, actor, q).then(() => true, () => false);
   return {
     id, ref: String(q.externalRef ?? ""), status: String(q.status) as QuestionStatus, origin: String(q.origin), version: num(q.version), mine: q.createdById === actor.userId,
     canEdit: editable, canReview: q.status === "UNDER_REVIEW" && can(actor, "questions:publish") && (q.createdById !== actor.userId || isAdmin(actor)),

@@ -1,18 +1,17 @@
 import { AppShell } from "@/components/app-shell";
-import { UnitList } from "@/components/curriculum/unit-list";
+import { AssignedSkills } from "@/components/student/assigned-skills";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { getStudentCurriculum } from "@/server/queries/student-curriculum";
 import { latestDiagnostic } from "@/server/assessment/diagnostic";
+import { assignedSkills, placementRequired } from "@/server/student/assigned";
 
-/** Step 1–3 of the learning flow: the student's grade, book and units. */
+/** Student home: only the skills the teacher assigned (no full curriculum). */
 export default async function StudentHome() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
-  const curriculum = await getStudentCurriculum(repo, actor.studentId!);
-  const needsPlacement = !(await latestDiagnostic(repo, actor.studentId!));
+  const [view, required, diagnostic] = await Promise.all([assignedSkills(repo, actor), placementRequired(repo, actor.schoolId!), latestDiagnostic(repo, actor.studentId!)]);
   return (
     <AppShell name={String(me.displayName)}>
-      <UnitList curriculum={curriculum} firstName={String(me.displayName).split(" ")[0]} needsPlacement={needsPlacement} />
+      <AssignedSkills view={view} firstName={String(me.displayName).split(" ")[0]} placement={required && !diagnostic} />
     </AppShell>
   );
 }

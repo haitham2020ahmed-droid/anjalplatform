@@ -56,6 +56,10 @@ export function PracticeFrame(props: {
             </article>
           )}
           <div>
+            {q.image && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={q.image.url} alt={q.image.alt} className="mb-4 max-h-[50vh] w-auto max-w-full rounded-xl bg-white ring-1 ring-slate-200" />
+            )}
             {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900">{q.stem}</p>}
             <div className="mt-5"><AnswerInput q={q} value={props.value} onChange={props.onChange} disabled={!!fb || props.pending} /></div>
             {props.error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{props.error}</p>}

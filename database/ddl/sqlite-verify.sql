@@ -106,6 +106,7 @@ CREATE TABLE "Grade" (
   "schoolId" TEXT NOT NULL,
   "level" INTEGER NOT NULL,
   "name" TEXT NOT NULL,
+  "isActive" INTEGER NOT NULL DEFAULT 1,
   PRIMARY KEY ("id"),
   CONSTRAINT "Grade_schoolId_level_key" UNIQUE ("schoolId", "level"),
   CONSTRAINT "Grade_schoolId_fkey" FOREIGN KEY ("schoolId") REFERENCES "School"("id") ON DELETE RESTRICT ON UPDATE CASCADE
@@ -234,6 +235,7 @@ CREATE TABLE "Unit" (
   "number" INTEGER NOT NULL,
   "title" TEXT NOT NULL,
   "description" TEXT,
+  "isActive" INTEGER NOT NULL DEFAULT 1,
   "deletedAt" TEXT,
   PRIMARY KEY ("id"),
   CONSTRAINT "Unit_curriculumId_number_key" UNIQUE ("curriculumId", "number"),
@@ -336,6 +338,7 @@ CREATE TABLE "Standard" (
   "description" TEXT,
   "gradeLevel" INTEGER,
   "strand" TEXT,
+  "isActive" INTEGER NOT NULL DEFAULT 1,
   PRIMARY KEY ("id"),
   CONSTRAINT "Standard_framework_code_key" UNIQUE ("framework", "code")
 );
@@ -428,6 +431,7 @@ CREATE TABLE "Question" (
   "subskillId" TEXT,
   "lessonId" TEXT,
   "passageId" TEXT,
+  "imageId" TEXT,
   "standardId" TEXT,
   "typeId" TEXT NOT NULL,
   "stem" TEXT NOT NULL,
@@ -548,6 +552,8 @@ CREATE TABLE "PracticeSession" (
 );
 
 CREATE INDEX "PracticeSession_studentId_startedAt_idx" ON "PracticeSession"("studentId", "startedAt");
+
+CREATE INDEX "PracticeSession_assignmentId_idx" ON "PracticeSession"("assignmentId");
 
 CREATE INDEX "PracticeSession_assessmentId_fk_idx" ON "PracticeSession"("assessmentId");
 
@@ -690,6 +696,9 @@ CREATE TABLE "Assignment" (
   "target" TEXT NOT NULL CHECK ("target" IN ('SKILL', 'UNIT', 'ASSESSMENT')),
   "unitId" TEXT,
   "skillIds" TEXT,
+  "skillId" TEXT,
+  "startAt" TEXT,
+  "note" TEXT,
   "assessmentId" TEXT,
   "targetMastery" INTEGER,
   "dueAt" TEXT,
@@ -703,6 +712,8 @@ CREATE TABLE "Assignment" (
 );
 
 CREATE INDEX "Assignment_classId_dueAt_idx" ON "Assignment"("classId", "dueAt");
+
+CREATE INDEX "Assignment_skillId_idx" ON "Assignment"("skillId");
 
 CREATE INDEX "Assignment_createdById_fk_idx" ON "Assignment"("createdById");
 
@@ -1043,3 +1054,19 @@ CREATE TABLE "ImportedQuestionLog" (
 );
 
 CREATE INDEX "ImportedQuestionLog_jobId_status_idx" ON "ImportedQuestionLog"("jobId", "status");
+
+CREATE TABLE "QuestionImage" (
+  "id" TEXT NOT NULL,
+  "mime" TEXT NOT NULL,
+  "bytes" BLOB NOT NULL,
+  "size" INTEGER NOT NULL,
+  "width" INTEGER,
+  "height" INTEGER,
+  "sha256" TEXT NOT NULL,
+  "altText" TEXT,
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "QuestionImage_sha256_idx" ON "QuestionImage"("sha256");

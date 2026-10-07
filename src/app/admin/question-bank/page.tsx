@@ -12,7 +12,10 @@ import { generateMissingAction } from "../actions";
 export default async function QuestionBankPage({ searchParams }: { searchParams: Promise<{ grade?: string }> }) {
   const actor = await requireActor({ permission: "questions:read" });
   const me = (await getActor())!.user;
-  const grade = [4, 5, 6].includes(Number((await searchParams).grade)) ? Number((await searchParams).grade) : 4;
+  // grades come from the database (any grade an admin creates appears here automatically)
+  const levels = (await repo.findMany("Grade", { schoolId: actor.schoolId })).filter((g) => g.isActive !== false).map((g) => Number(g.level)).sort((a, b) => a - b);
+  const asked = Number((await searchParams).grade);
+  const grade = levels.includes(asked) ? asked : levels[0] ?? 0;
   const rows = await skillCoverage(repo, actor, grade);
   const { aiPending } = await listQuestions(repo, actor, { aiOnly: true, limit: 0 });
   const t = bandTargets(DEFAULT_TARGET);
@@ -33,7 +36,7 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
         Only approved questions are used in practice and placement. “Still needed” counts drafts awaiting review, so nothing is generated twice.
       </p>
       <nav className="mt-4 flex gap-2" aria-label="Grade">
-        {[4, 5, 6].map((g) => <Link key={g} href={`/admin/question-bank?grade=${g}`} aria-current={g === grade ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-semibold ${g === grade ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>Grade {g}</Link>)}
+        {levels.map((g) => <Link key={g} href={`/admin/question-bank?grade=${g}`} aria-current={g === grade ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-semibold ${g === grade ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>Grade {g}</Link>)}
       </nav>
       <section className={card}>
         <p className="text-sm text-slate-600">{rows.length} skills · {needing} below target</p>

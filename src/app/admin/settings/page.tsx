@@ -6,9 +6,12 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { ADAPTIVE_LIMITS, getBranding, getEngineSettings, listAcademicYears } from "@/server/admin/settings";
 import { archiveClassAction, brandingAction, createClassAction, engineSettingsAction, renameClassAction, yearAction } from "../actions";
+import { placementRequired } from "@/server/student/assigned";
+import { placementAction } from "./placement-actions";
 
 export default async function SettingsPage() {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
+  const placementOn = await placementRequired(repo, actor.schoolId!);
   const me = (await getActor())!.user;
   const school = can(actor, "settings:school");
   const engine = can(actor, "settings:engine") ? await getEngineSettings(repo, actor) : null;
@@ -22,6 +25,15 @@ export default async function SettingsPage() {
     <AppShell name={String(me.displayName)}>
       <p><Link href="/admin" className="text-brand-teal hover:underline">← Administration</Link></p>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">Settings</h1>
+
+      <section className={card}>
+          <h2 className={h2}>Placement test</h2>
+          <p className="text-sm text-slate-600">Students see only the skills their teachers assign. Turn this on to also ask students who have not taken the placement test to take it.</p>
+          <ActionForm action={placementAction} submit="Save" className="mt-2 flex flex-wrap items-center gap-4">
+            <label className="flex items-center gap-2"><input type="radio" name="required" value="1" defaultChecked={placementOn} /> Required</label>
+            <label className="flex items-center gap-2"><input type="radio" name="required" value="0" defaultChecked={!placementOn} /> Not required</label>
+          </ActionForm>
+        </section>
 
       {school && (
         <section className={card}>

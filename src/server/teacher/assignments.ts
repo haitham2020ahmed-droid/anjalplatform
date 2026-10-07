@@ -7,6 +7,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { refreshSkillAssignment, refreshSkillAssignments } from "./assign";
 
 export interface NewAssignment {
   classId: string;
@@ -81,6 +82,8 @@ export async function createAssignment(repo: Repo, actor: Actor, input: NewAssig
 /** Recompute every student's status/progress for one assignment from current mastery. */
 export async function refreshAssignmentProgress(repo: Repo, assignmentId: string, now = new Date()): Promise<void> {
   const a = (await repo.findUnique("Assignment", { id: assignmentId }))!;
+  // single-skill assignments (⭐ Assign) count only practice done for the assignment
+  if (a.skillId) return refreshSkillAssignment(repo, a, null, now);
   const skills = await targetSkills(repo, a);
   const rows = await repo.findMany("AssignmentStudent", { assignmentId });
   const mastery = skills.length && rows.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: rows.map((r) => r.studentId) }, skillId: { in: skills } }) : [];
@@ -110,15 +113,17 @@ export interface AssignmentSummary {
 export async function classAssignments(repo: Repo, actor: Actor, classId: string, now = new Date()): Promise<AssignmentSummary[]> {
   await assertClassAccess(repo, actor, classId);
   const list = (await repo.findMany("Assignment", { classId, deletedAt: null })).sort((x, y) => String(y.createdAt).localeCompare(String(x.createdAt)));
+  // batched: skill assignments refreshed together; older multi-skill ones keep their own refresh
+  await refreshSkillAssignments(repo, list.filter((a) => a.skillId), null, now);
+  for (const a of list.filter((x) => !x.skillId)) await refreshAssignmentProgress(repo, String(a.id), now);
+  const allRows = list.length ? await repo.findMany("AssignmentStudent", { assignmentId: { in: list.map((a) => a.id) } }, { select: ["assignmentId", "status"] }) : [];
   const out: AssignmentSummary[] = [];
   for (const a of list) {
-    await refreshAssignmentProgress(repo, String(a.id), now);
-    const rows = await repo.findMany("AssignmentStudent", { assignmentId: a.id });
     const counts = { NOT_STARTED: 0, IN_PROGRESS: 0, COMPLETED: 0, OVERDUE: 0 };
-    for (const r of rows) counts[r.status as keyof typeof counts]++;
+    for (const r of allRows) if (r.assignmentId === a.id) counts[r.status as keyof typeof counts]++;
     out.push({
       id: String(a.id), title: String(a.title), dueAt: a.dueAt ? new Date(String(a.dueAt instanceof Date ? a.dueAt.toISOString() : a.dueAt)).toISOString() : null,
-      targetMastery: Number(a.targetMastery ?? 75), skills: (await targetSkills(repo, a)).length, counts,
+      targetMastery: Number(a.targetMastery ?? 75), skills: a.skillId ? 1 : (await targetSkills(repo, a)).length, counts,
     });
   }
   return out;
