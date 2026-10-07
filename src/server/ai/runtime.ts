@@ -2,9 +2,11 @@
 import "server-only";
 import { env } from "@/lib/env";
 import { ValidationError } from "@/server/curriculum-admin";
-import { anthropicProvider, type AiProvider } from "./question-generator";
+import { anthropicProvider, chooseAiProvider, geminiProvider, type AiProvider } from "./question-generator";
 
+/** Gemini when GEMINI_API_KEY is set (or AI_PROVIDER=gemini), else Claude; see chooseAiProvider. */
 export function aiProvider(): AiProvider {
-  if (!env.ANTHROPIC_API_KEY) throw new ValidationError("AI question generation is not set up: add ANTHROPIC_API_KEY to the server settings.");
-  return anthropicProvider({ apiKey: env.ANTHROPIC_API_KEY, model: env.AI_MODEL });
+  const c = chooseAiProvider(env);
+  if ("error" in c) throw new ValidationError(c.error);
+  return c.provider === "gemini" ? geminiProvider({ apiKey: c.apiKey, model: c.model }) : anthropicProvider({ apiKey: c.apiKey, model: c.model });
 }

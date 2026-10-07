@@ -30,6 +30,10 @@ const EnvSchema = z.object({
   // AI-assisted question bank (optional; without a key the generator explains how to enable it)
   ANTHROPIC_API_KEY: z.string().optional(),
   AI_MODEL: z.string().default("claude-sonnet-5-5"),
+  // Google Gemini (free tier available at aistudio.google.com); used when set, unless AI_PROVIDER says otherwise
+  GEMINI_API_KEY: z.string().optional(),
+  GEMINI_MODEL: z.string().default("gemini-3.5-flash"),
+  AI_PROVIDER: z.string().optional(), // "gemini" | "anthropic"; empty = Gemini if its key is set, else Claude
 });
 
 export type Env = z.infer<typeof EnvSchema>;

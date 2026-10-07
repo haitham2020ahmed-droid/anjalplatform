@@ -210,7 +210,10 @@ port in its `PORT` variable; the Next.js server reads `PORT` and listens on `0.0
 | `APP_SECRET` | 32+ random characters (`openssl rand -base64 32`) |
 | `APP_URL` | `https://<your-service>.onrender.com` (or your own domain) |
 | `REPORT_CHROMIUM_NO_SANDBOX` | `true` |
-| `ANTHROPIC_API_KEY` | optional: enables AI question generation (only curriculum data is sent) |
+| `GEMINI_API_KEY` | optional: AI question generation with Google Gemini (free tier; key from aistudio.google.com, starts with `AQ.`). Used when set. Only curriculum data is sent; free-tier prompts may be used by Google to improve its models |
+| `GEMINI_MODEL` | optional, default `gemini-3.5-flash` (e.g. `gemini-2.5-flash` if Google retires a model) |
+| `ANTHROPIC_API_KEY` | optional: AI question generation with Claude (only curriculum data is sent) |
+| `AI_PROVIDER` | optional: `gemini` or `anthropic` to force one when both keys are set |
 
 The server refuses to start if any required setting is missing; the log names each one.
 
@@ -242,7 +245,7 @@ before the importer: run once from your computer, with `DATABASE_URL` set to the
 - Accepted files: CSV (.csv) and Excel (.xlsx) in the official template, up to 10 MB and 5,000 questions.
   Teachers download the template from Admin → Questions → Import questions (Excel template, CSV template,
   and the list of skills and standards).
-- No AI is used for importing. `ANTHROPIC_API_KEY` is only for AI question generation.
+- No AI is used for importing. `GEMINI_API_KEY` / `ANTHROPIC_API_KEY` are only for AI question generation.
 - Grade, Skill and Standard must already exist; the importer never creates skills or standards.
 - Every attempt is in the import history, including files that could not be read (status Failed, with
   the reasons). Server-side problems are logged as `question_import.error` /

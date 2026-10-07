@@ -110,9 +110,94 @@ export function anthropicProvider(opts: { apiKey: string; model: string; fetchIm
         body: JSON.stringify({ model: opts.model, max_tokens: 8000, system, messages: [{ role: "user", content: user }] }),
         signal: AbortSignal.timeout(opts.timeoutMs ?? 120_000),
       });
-      if (!res.ok) throw new Error(`AI provider error ${res.status}: ${(await res.text()).slice(0, 200)}`);
+      if (!res.ok) throw providerError("Claude", res.status, await res.text(), opts.model);
       const data = (await res.json()) as { content?: { type: string; text?: string }[] };
       return (data.content ?? []).filter((c) => c.type === "text").map((c) => c.text ?? "").join("\n");
     },
   };
+}
+
+/** Readable message for a failed provider call (shown to the admin; never includes the key). */
+function providerError(provider: "Gemini" | "Claude", status: number, body: string, model: string): Error {
+  const b = body.slice(0, 300);
+  if (provider === "Gemini") {
+    if (/ACCESS_TOKEN_TYPE_UNSUPPORTED/.test(b)) return new Error("Google did not accept this Gemini key. Check that GEMINI_API_KEY holds the whole key (no spaces, nothing cut off); if it does, create a new key in aistudio.google.com and replace it.");
+    if (status === 401 || status === 403 || /API_KEY_INVALID|API key not valid/i.test(b)) return new Error("The Gemini API key is not valid. Check GEMINI_API_KEY in the server settings (a Google key starts with “AQ.” or “AIza”).");
+    if (status === 429) return new Error("Gemini's free usage limit was reached (per minute or per day). Wait a minute, or try again tomorrow.");
+    if (status === 404) return new Error(`The Gemini model “${model}” was not found. Set GEMINI_MODEL in the server settings to a current model, e.g. gemini-2.5-flash.`);
+    if (status >= 500) return new Error(`Gemini is temporarily unavailable (error ${status}). Try again in a few minutes.`);
+    return new Error(`Gemini error ${status}: ${b}`);
+  }
+  if (status === 401) return new Error("The Claude API key is not valid. Check ANTHROPIC_API_KEY in the server settings (an Anthropic key starts with “sk-ant-”).");
+  if (status === 429) return new Error("Claude's usage limit was reached. Wait a minute and try again.");
+  return new Error(`AI provider error ${status}: ${b}`);
+}
+
+/**
+ * Google Gemini provider (generateContent; server-side only, the key never reaches the browser).
+ * JSON mode is on because the prompt asks for one JSON object. Only the prompt is sent: curriculum
+ * content, never student data (see buildPrompt).
+ */
+export function geminiProvider(opts: { apiKey: string; model: string; fetchImpl?: typeof fetch; timeoutMs?: number }): AiProvider {
+  const f = opts.fetchImpl ?? fetch;
+  return {
+    async complete(system, user) {
+      const res = await f(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(opts.model)}:generateContent`, {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-goog-api-key": opts.apiKey },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: system }] },
+          contents: [{ role: "user", parts: [{ text: user }] }],
+          // newer models also spend output tokens on thinking: leave room for the JSON answer
+          generationConfig: { maxOutputTokens: 16384, responseMimeType: "application/json" },
+        }),
+        signal: AbortSignal.timeout(opts.timeoutMs ?? 120_000),
+      });
+      if (!res.ok) throw providerError("Gemini", res.status, await res.text(), opts.model);
+      const data = (await res.json()) as {
+        candidates?: { content?: { parts?: { text?: string; thought?: boolean }[] }; finishReason?: string }[];
+        promptFeedback?: { blockReason?: string };
+      };
+      if (data.promptFeedback?.blockReason) throw new Error(`Gemini refused the request (${data.promptFeedback.blockReason}). Try again, or with fewer questions.`);
+      const cand = data.candidates?.[0];
+      const text = (cand?.content?.parts ?? []).filter((p) => !p.thought).map((p) => p.text ?? "").join("");
+      if (!text.trim()) {
+        throw new Error(cand?.finishReason === "MAX_TOKENS" ? "Gemini's reply was cut off (too long). Try generating fewer questions at once." : `Gemini returned no answer${cand?.finishReason ? ` (${cand.finishReason})` : ""}. Try again.`);
+      }
+      return text;
+    },
+  };
+}
+
+export type AiChoice = { provider: "gemini" | "anthropic"; apiKey: string; model: string };
+
+/**
+ * Which AI provider to use, from the server settings:
+ *   AI_PROVIDER = "gemini" | "anthropic"  (optional; forces one)
+ *   GEMINI_API_KEY (+ GEMINI_MODEL)        Google Gemini (free tier available)
+ *   ANTHROPIC_API_KEY (+ AI_MODEL)         Claude
+ * Without AI_PROVIDER, Gemini is used when its key is set, else Claude. A Google key ("AQ.…" or "AIza…")
+ * put in ANTHROPIC_API_KEY by mistake is recognised and used as the Gemini key.
+ */
+export function chooseAiProvider(s: { AI_PROVIDER?: string; GEMINI_API_KEY?: string; GEMINI_MODEL?: string; ANTHROPIC_API_KEY?: string; AI_MODEL?: string }): AiChoice | { error: string } {
+  // AI Studio keys: "AQ." (auth keys, issued since 2026) or the older "AIza"
+  const isGoogleKey = (k: string) => /^(AQ\.|AIza)/.test(k);
+  let gemini = (s.GEMINI_API_KEY ?? "").trim();
+  let anthropic = (s.ANTHROPIC_API_KEY ?? "").trim();
+  if (anthropic && isGoogleKey(anthropic)) {
+    if (!gemini) gemini = anthropic;
+    anthropic = "";
+  }
+  const want = (s.AI_PROVIDER ?? "").trim().toLowerCase();
+  const geminiChoice = (): AiChoice => ({ provider: "gemini", apiKey: gemini, model: (s.GEMINI_MODEL ?? "").trim() || "gemini-3.5-flash" });
+  const claudeChoice = (): AiChoice => ({ provider: "anthropic", apiKey: anthropic, model: (s.AI_MODEL ?? "").trim() || "claude-sonnet-5-5" });
+  if (want && want !== "gemini" && want !== "anthropic" && want !== "claude") return { error: `AI_PROVIDER must be “gemini” or “anthropic” (found “${s.AI_PROVIDER}”).` };
+  if (want === "gemini") return gemini ? geminiChoice() : { error: "AI_PROVIDER is gemini but GEMINI_API_KEY is not set in the server settings." };
+  if (want === "anthropic" || want === "claude") {
+    if (anthropic) return claudeChoice();
+    return { error: (s.ANTHROPIC_API_KEY ?? "").trim() ? "ANTHROPIC_API_KEY holds a Google key (it starts with “AQ.” or “AIza”). Put it in GEMINI_API_KEY, or remove AI_PROVIDER." : "AI_PROVIDER is anthropic but ANTHROPIC_API_KEY is not set in the server settings." };
+  }
+  if (gemini) return geminiChoice();
+  if (anthropic) return claudeChoice();
+  return { error: "AI question generation is not set up: add GEMINI_API_KEY (free, from aistudio.google.com) or ANTHROPIC_API_KEY to the server settings." };
 }
