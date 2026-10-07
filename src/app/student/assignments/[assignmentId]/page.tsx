@@ -7,7 +7,7 @@ export default async function StudentAssignmentLink({ params }: { params: Promis
   const { assignmentId } = await params;
   const mine = actor.studentId ? (await repo.findMany("AssignmentStudent", { assignmentId, studentId: actor.studentId }))[0] : undefined;
   const a = mine ? await repo.findUnique("Assignment", { id: assignmentId }) : null;
-  if (!a || a.deletedAt || !a.skillId) notFound();
+  if (!a || a.deletedAt || (!a.skillId && !a.assessmentId)) notFound();
   if (mine!.status === "COMPLETED") redirect(`/student/assignments/${assignmentId}/report`);
-  redirect(`/practice/${String(a.skillId)}`);
+  redirect(a.skillId ? `/practice/${String(a.skillId)}` : `/quiz/${assignmentId}`);
 }

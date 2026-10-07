@@ -26,7 +26,7 @@ export function AssignedSkills({ view, firstName, placement }: { view: AssignedV
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h2 className="text-lg font-semibold text-brand-navy">{i.skill}</h2>
-                  <p className="text-sm text-slate-600">{i.standard ?? "No standard"} · assigned {i.assignedAt.slice(0, 10)}{i.dueAt ? ` · due ${i.dueAt.slice(0, 10)}` : ""}</p>
+                  <p className="text-sm text-slate-600">{i.kind === "questions" ? `${i.questionCount} questions chosen by your teacher` : i.standard ?? "No standard"} · assigned {i.assignedAt.slice(0, 10)}{i.dueAt ? ` · due ${i.dueAt.slice(0, 10)}` : ""}</p>
                   {i.note && <p className="mt-1 text-sm text-amber-900">Teacher's note: {i.note}</p>}
                 </div>
                 <span className={`rounded-full px-3 py-1 text-sm font-semibold ${TONE[i.status]}`}>{LABEL[i.status]}</span>
@@ -40,9 +40,9 @@ export function AssignedSkills({ view, firstName, placement }: { view: AssignedV
                   : i.status === "COMPLETED" ? (
                     <span className="flex gap-2">
                       <a href={`/student/assignments/${i.assignmentId}/report`} className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white">View report</a>
-                      <a href={`/practice/${i.skillId}`} className="rounded-xl px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">Practise again</a>
+                      {i.kind === "skill" && <a href={`/practice/${i.skillId}`} className="rounded-xl px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">Practise again</a>}
                     </span>
-                  ) : <a href={`/practice/${i.skillId}`} className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white">{i.status === "NOT_STARTED" ? "Start" : "Continue"}</a>}
+                  ) : <a href={i.kind === "questions" ? `/quiz/${i.assignmentId}` : `/practice/${i.skillId}`} className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white">{i.status === "NOT_STARTED" ? "Start" : "Continue"}</a>}
               </div>
             </li>
           ))}

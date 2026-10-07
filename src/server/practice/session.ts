@@ -22,8 +22,8 @@ import type { MasteryResult, ResponseEvidence } from "../../types/domain";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
-import { correctAnswerText, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
-import { openAssignmentFor, refreshAfterAnswer } from "../teacher/assign";
+import { correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
+import { openAssignmentFor, refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
 
 export const SESSION_RESUME_MINUTES = 120;
 export const MAX_QUESTIONS_PER_SESSION = 20;
@@ -387,4 +387,110 @@ export async function endPractice(repo: Repo, actor: Actor, sessionId: string, n
   const s = await ownSession(repo, actor, sessionId);
   if (s.endedAt) return;
   await repo.updateMany("PracticeSession", { id: s.id }, { endedAt: now, endReason: "STUDENT_EXIT", currentQuestionId: null, currentServedAt: null });
+}
+
+// ------------------------------------------------------------------ teacher question sets (⭐ chosen questions)
+
+/**
+ * A teacher-chosen set of questions, answered in the teacher's order: one attempt per question, the correct
+ * answer shown after each one, and every answer counted toward the student's mastery of that question's
+ * skill (same scoring and mastery engine as practice). Stored as Assessment (TEACHER_QUIZ) + Assignment.
+ */
+export interface QuizView {
+  assignmentId: string; sessionId: string; title: string; question: ClientQuestion | null;
+  index: number; total: number; answered: number; correct: number; ended: boolean;
+}
+
+async function quizContext(repo: Repo, actor: Actor, assignmentId: string) {
+  if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only students can answer assigned questions.");
+  const [a, mine] = await Promise.all([repo.findUnique("Assignment", { id: assignmentId }), repo.findMany("AssignmentStudent", { assignmentId, studentId: actor.studentId })]);
+  if (!a || a.deletedAt || !a.assessmentId || !mine.length) throw new ForbiddenError("These questions were not assigned to you.");
+  if (a.startAt && new Date(String(a.startAt instanceof Date ? a.startAt.toISOString() : a.startAt)) > new Date()) throw new ValidationError("This work has not started yet.");
+  const order = (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).sort((x, y) => Number(x.order) - Number(y.order)).map((x) => String(x.questionId));
+  return { a, order };
+}
+
+async function quizView(repo: Repo, a: Row, order: string[], s: Row): Promise<QuizView> {
+  const answeredIds = new Set((await repo.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId"] })).map((x) => String(x.questionId)));
+  const nextId = order.find((id) => !answeredIds.has(id)) ?? null;
+  const item = nextId ? (await loadQuestionItems(repo, [nextId]))[0] : undefined;
+  return {
+    assignmentId: String(a.id), sessionId: String(s.id), title: String(a.title), question: item ? toClientQuestion(item, `${s.id}:${item.questionId}`) : null,
+    index: Math.min(order.length, answeredIds.size + 1), total: order.length, answered: answeredIds.size, correct: Number(s.correctCount ?? 0), ended: !nextId,
+  };
+}
+
+/** Starts or resumes the student's question set (continues from the first unanswered question). */
+export async function startQuiz(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<QuizView> {
+  const { a, order } = await quizContext(repo, actor, assignmentId);
+  if (!order.length) throw new ValidationError("This assignment has no questions.");
+  let s = (await repo.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" }))[0];
+  if (!s) s = await repo.create("PracticeSession", { studentId: actor.studentId!, assessmentId: a.assessmentId, assignmentId: a.id, mode: "TEACHER_QUIZ", startedAt: now, currentServedAt: now });
+  return quizView(repo, a, order, s);
+}
+
+/** One answer: scored, saved (one attempt per question), counted toward mastery; returns feedback and the next question. */
+export async function submitQuizAnswer(repo: Repo, actor: Actor, input: { assignmentId: string; questionId: string; response: unknown }, now = new Date()): Promise<{ feedback: Feedback; view: QuizView }> {
+  const { a, order } = await quizContext(repo, actor, input.assignmentId);
+  if (!order.includes(input.questionId)) throw new ValidationError("This question is not part of the assignment.");
+  const feedback = await repo.transaction(async (tx) => {
+    const s = (await tx.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" }))[0];
+    if (!s) throw new ValidationError("Start the assignment first.");
+    if ((await tx.findMany("QuestionAttempt", { sessionId: s.id, questionId: input.questionId }, { select: ["id"] })).length) throw new ValidationError("You already answered this question.");
+    const item = (await loadQuestionItems(tx, [input.questionId]))[0];
+    if (!item) throw new ValidationError("This question is no longer available.");
+    const response = normalizeResponse(item, input.response);
+    const studentId = String(s.studentId), skillId = String((await tx.findUnique("Question", { id: item.questionId }))!.skillId);
+    const credit = scoreResponse(item, response);
+    const correct = credit >= 1;
+    const servedAt = s.currentServedAt ? d(s.currentServedAt) : now;
+    const responseMs = Math.max(0, Math.min(30 * 60_000, now.getTime() - servedAt.getTime()));
+    // mastery: the same engine as practice, with this question's skill as the context
+    const cfg = await engineConfig(tx, actor.schoolId);
+    const skillItems = await loadSkillItems(tx, skillId);
+    const byId = new Map(skillItems.map((i) => [i.questionId, i]));
+    if (!byId.has(item.questionId)) byId.set(item.questionId, item);
+    const [history, ability, prerequisites, prevMastery] = await Promise.all([
+      skillHistory(tx, studentId, skillId, byId), abilityOf(tx, studentId, skillId, cfg.adaptive), prerequisitesFor(tx, studentId, skillId),
+      tx.findUnique("StudentSkillMastery", { studentId, skillId }),
+    ]);
+    const evidence: ResponseEvidence = {
+      itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
+      a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint: false, at: now.toISOString(),
+    };
+    const step = processAnswer({
+      studentId, skillId, sessionId: String(s.id), mode: "PRACTICE", ability: { theta: ability.theta, se: ability.se }, prior: ability.prior, history,
+      previousTargetB: null, candidates: [...byId.values()].map((i) => toCandidate(i, skillId)), prerequisites,
+    }, evidence, cfg, now);
+    await tx.create("QuestionAttempt", {
+      sessionId: s.id, studentId, questionId: item.questionId, skillId, response: { value: response }, isCorrect: correct,
+      partialCredit: credit > 0 && credit < 1 ? credit : null, responseMs, usedHint: false, rapidGuess: step.rapidGuess, difficultyB: item.irt.b, createdAt: now,
+    });
+    const seenBefore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
+    let mst: MasteryResult = step.mastery;
+    if (!correct && mst.score > seenBefore) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
+    await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 },
+      { theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 });
+    const masteryData = {
+      score: mst.score, band: mst.band, attempts: Number(prevMastery?.attempts ?? 0) + 1, correct: Number(prevMastery?.correct ?? 0) + (correct ? 1 : 0),
+      maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered, masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
+    };
+    await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
+    const answered = (await tx.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId"] })).length;
+    const done = answered >= order.length;
+    await tx.updateMany("PracticeSession", { id: s.id }, {
+      questionCount: answered, correctCount: Number(s.correctCount ?? 0) + (correct ? 1 : 0), activeMs: Number(s.activeMs ?? 0) + responseMs,
+      currentServedAt: done ? null : now, ...(done ? { endedAt: now, endReason: "COMPLETED" } : {}),
+    });
+    const fb: Feedback = {
+      correct, credit, yourAnswer: studentAnswerText(item, response), correctAnswer: correctAnswerText(item), whyCorrect: item.explanation.whyCorrect,
+      whyYoursIsWrong: correct ? null : whyChosenWrong(item, response), tip: item.explanation.tip, rapidGuess: step.rapidGuess,
+      masteryBefore: Math.round(seenBefore), masteryAfter: Math.round(mst.score), band: mst.band, xp: 0,
+      next: { hasQuestion: !done, endReason: done ? "COMPLETED" : null, routeToSkillId: null, routeToSkillName: null },
+    };
+    return fb;
+  });
+  await refreshQuestionSets(repo, [a], [actor.studentId!], now);
+  const s = (await repo.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" }))[0];
+  return { feedback, view: await quizView(repo, a, order, s) };
 }

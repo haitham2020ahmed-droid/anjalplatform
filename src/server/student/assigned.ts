@@ -11,7 +11,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
-import { DEFAULT_TARGET_MASTERY, MIN_ANSWERS_TO_COMPLETE, refreshSkillAssignments } from "../teacher/assign";
+import { DEFAULT_TARGET_MASTERY, MIN_ANSWERS_TO_COMPLETE, refreshQuestionSets, refreshSkillAssignments } from "../teacher/assign";
 
 type Status = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "OVERDUE";
 const s = (v: unknown) => String(v ?? "");
@@ -27,6 +27,8 @@ function ownStudentId(actor: Actor): string {
 const skillOf = (a: Row): string | null => (a.skillId ? s(a.skillId) : Array.isArray(a.skillIds) && (a.skillIds as unknown[]).length === 1 ? s((a.skillIds as unknown[])[0]) : null);
 
 export interface AssignedSkill {
+  /** skill = adaptive practice on a skill; questions = a set of questions the teacher chose */
+  kind: "skill" | "questions"; questionCount?: number;
   assignmentId: string; skillId: string; skill: string; standard: string | null; assignedAt: string; startAt: string | null; dueAt: string | null;
   status: Status; progress: number; note: string | null; startsLater: boolean; completedAt: string | null;
 }
@@ -36,10 +38,14 @@ export interface AssignedView { summary: { assigned: number; completed: number; 
 export async function assignedSkills(repo: Repo, actor: Actor, now = new Date()): Promise<AssignedView> {
   const studentId = ownStudentId(actor);
   const rows = await repo.findMany("AssignmentStudent", { studentId });
-  const assignments = rows.length ? (await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null })).filter((a) => skillOf(a)) : [];
+  const all = rows.length ? await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }) : [];
+  const assignments = all.filter((a) => skillOf(a));
+  const sets = all.filter((a) => a.assessmentId && !skillOf(a));
   // bring statuses up to date (writes only what changed)
-  await refreshSkillAssignments(repo, assignments, [studentId], now);
-  const fresh = assignments.length ? await repo.findMany("AssignmentStudent", { studentId, assignmentId: { in: assignments.map((a) => a.id) } }) : [];
+  await Promise.all([refreshSkillAssignments(repo, assignments, [studentId], now), refreshQuestionSets(repo, sets, [studentId], now)]);
+  const fresh = all.length ? await repo.findMany("AssignmentStudent", { studentId, assignmentId: { in: all.map((a) => a.id) } }) : [];
+  const setSize = new Map<string, number>();
+  if (sets.length) for (const x of await repo.findMany("AssessmentQuestion", { assessmentId: { in: sets.map((a) => a.assessmentId) } }, { select: ["assessmentId"] })) setSize.set(s(x.assessmentId), (setSize.get(s(x.assessmentId)) ?? 0) + 1);
   const skillIds = [...new Set(assignments.map((a) => skillOf(a)!))];
   const [skills, links] = await Promise.all([
     skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
@@ -56,12 +62,22 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     const skillId = skillOf(a)!;
     const startAt = d(a.startAt);
     return {
-      assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
+      kind: "skill" as const, assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now),
       completedAt: d(r.completedAt)?.toISOString() ?? null,
     };
   });
+  for (const a of sets) {
+    const r = fresh.find((x) => x.assignmentId === a.id);
+    if (!r) continue;
+    const startAt = d(a.startAt);
+    items.push({
+      kind: "questions", questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: s(a.title), standard: null,
+      assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
+      status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now), completedAt: d(r.completedAt)?.toISOString() ?? null,
+    });
+  }
   const order: Record<Status, number> = { OVERDUE: 0, IN_PROGRESS: 1, NOT_STARTED: 2, COMPLETED: 3 };
   items.sort((x, y) => order[x.status] - order[y.status] || (x.dueAt ?? "9").localeCompare(y.dueAt ?? "9") || y.assignedAt.localeCompare(x.assignedAt));
   const count = (st: Status) => items.filter((i) => i.status === st).length;
@@ -135,7 +151,7 @@ const LEVEL_GROUP = (lvl: number) => (lvl <= 2 ? "easier questions" : lvl <= 4 ?
  */
 export async function assignmentReport(repo: Repo, actor: Actor, assignmentId: string, studentIdArg?: string): Promise<AssignmentReport> {
   const a = await repo.findUnique("Assignment", { id: assignmentId });
-  if (!a || a.deletedAt || !skillOf(a)) throw new ForbiddenError("Assignment not found.");
+  if (!a || a.deletedAt || (!skillOf(a) && !a.assessmentId)) throw new ForbiddenError("Assignment not found.");
   let studentId: string;
   if (actor.role === "STUDENT") {
     studentId = ownStudentId(actor);
@@ -147,6 +163,7 @@ export async function assignmentReport(repo: Repo, actor: Actor, assignmentId: s
   }
   const row = (await repo.findMany("AssignmentStudent", { assignmentId, studentId }))[0];
   if (!row) throw new ForbiddenError("This skill was not assigned to that student.");
+  if (!skillOf(a)) return questionSetReport(repo, a, row, studentId);
   const skillId = skillOf(a)!;
   const [skill, sessions, mastery, links, st] = await Promise.all([
     repo.findUnique("Skill", { id: skillId }),
@@ -194,6 +211,41 @@ export async function assignmentReport(repo: Repo, actor: Actor, assignmentId: s
   return {
     assignmentId, student: s(user?.displayName ?? "Student"), skill: s(skill?.name ?? a.title), standard: std ? s(std.code).replace(/^CCSS\.ELA-LITERACY\./, "") : null, status,
     score, accuracy, answered, correct, timeSpentMin: Math.round(sessions.reduce((n, x) => n + Number(x.activeMs ?? 0), 0) / 60000), masteryLevel: BAND_LABEL[s(mastery[0]?.band)] ?? "Not started",
+    completedAt: d(row.completedAt)?.toISOString() ?? null, strengths, needsPractice: needs, nextStep,
+  };
+}
+
+
+/** Report for a teacher's question set: score, right/wrong, time, and strengths/needs by skill. */
+async function questionSetReport(repo: Repo, a: Row, row: Row, studentId: string): Promise<AssignmentReport> {
+  const [sessions, setItems, st] = await Promise.all([
+    repo.findMany("PracticeSession", { assignmentId: a.id, studentId, mode: "TEACHER_QUIZ" }, { select: ["id", "activeMs"] }),
+    repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId }, { select: ["questionId"] }),
+    repo.findUnique("Student", { id: studentId }),
+  ]);
+  const attempts = sessions.length ? await repo.findMany("QuestionAttempt", { sessionId: { in: sessions.map((x) => x.id) } }, { select: ["questionId", "skillId", "isCorrect"] }) : [];
+  const [user, skills] = await Promise.all([
+    st ? repo.findUnique("User", { id: st.userId }) : Promise.resolve(null),
+    attempts.length ? repo.findMany("Skill", { id: { in: [...new Set(attempts.map((x) => x.skillId))] } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
+  ]);
+  const total = setItems.length, answered = attempts.length, correct = attempts.filter((x) => x.isCorrect).length;
+  const bySkill = new Map<string, { n: number; ok: number }>();
+  for (const x of attempts) { const g = bySkill.get(s(x.skillId)) ?? { n: 0, ok: 0 }; g.n++; if (x.isCorrect) g.ok++; bySkill.set(s(x.skillId), g); }
+  const strengths: string[] = [], needs: string[] = [];
+  for (const [skillId, g] of bySkill) {
+    const name = s(skills.find((k) => k.id === skillId)?.name ?? "Skill"), pct = Math.round((100 * g.ok) / g.n);
+    if (g.ok === g.n) strengths.push(`${name}: ${g.ok} of ${g.n} correct`);
+    else if (pct < 60) needs.push(`${name}: ${g.ok} of ${g.n} correct`);
+  }
+  const score = total ? Math.round((100 * correct) / total) : 0;
+  const status = row.status as Status;
+  const nextStep = status !== "COMPLETED" ? `Answer the remaining ${Math.max(0, total - answered)} question(s) to finish.`
+    : score >= 90 ? "Excellent work! Ask your teacher for a new challenge."
+    : needs.length ? `Good effort. Review ${needs[0].split(":")[0]} and ask your teacher about the questions you missed.` : "Well done! Keep practising to stay strong.";
+  return {
+    assignmentId: s(a.id), student: s(user?.displayName ?? "Student"), skill: s(a.title), standard: null, status,
+    score, accuracy: answered ? Math.round((100 * correct) / answered) : null, answered, correct,
+    timeSpentMin: Math.round(sessions.reduce((n, x) => n + Number(x.activeMs ?? 0), 0) / 60000), masteryLevel: `${correct} of ${total} correct`,
     completedAt: d(row.completedAt)?.toISOString() ?? null, strengths, needsPractice: needs, nextStep,
   };
 }

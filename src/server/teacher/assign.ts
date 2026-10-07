@@ -259,7 +259,7 @@ export async function weeklyAssignments(repo: Repo, actor: Actor, weekStart: Dat
     return (c >= weekStart && c < end) || (due && due >= weekStart && due < end);
   });
   if (!inWeek.length) return [];
-  await refreshSkillAssignments(repo, inWeek, null, now);
+  await Promise.all([refreshSkillAssignments(repo, inWeek, null, now), refreshQuestionSets(repo, inWeek, null, now)]);
   const [rows, members] = await Promise.all([
     repo.findMany("AssignmentStudent", { assignmentId: { in: inWeek.map((a) => a.id) } }, { select: ["assignmentId", "status"] }),
     repo.findMany("ClassMembership", { classId: { in: [...new Set(inWeek.map((a) => a.classId))] }, leftAt: null }, { select: ["classId"] }),
@@ -292,6 +292,7 @@ export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: s
   if (!a || a.deletedAt) throw new ForbiddenError("Assignment not found.");
   const klass = await assertClassAccess(repo, actor, s(a.classId));
   if (a.skillId) await refreshSkillAssignment(repo, a, null, now);
+  if (a.assessmentId) await refreshQuestionSets(repo, [a], null, now);
   const rows = await repo.findMany("AssignmentStudent", { assignmentId });
   const ids = rows.map((r) => s(r.studentId));
   const [students, sessions] = await Promise.all([
@@ -313,4 +314,113 @@ export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: s
       };
     }).sort((x, y) => x.name.localeCompare(y.name)),
   };
+}
+
+// ------------------------------------------------------------------ ⭐ assign chosen questions (question sets)
+
+export const MAX_SET_QUESTIONS = 50;
+
+export interface AssignQuestionsInput { classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null }
+
+/**
+ * Assigns specific questions chosen by the teacher (from the question list) to a class, selected students or
+ * one student. Stored as an Assessment of type TEACHER_QUIZ (+ its AssessmentQuestion rows) and an Assignment
+ * with target ASSESSMENT, so it shares statuses, notifications and reports with skill assignments.
+ */
+export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQuestionsInput, now = new Date()): Promise<{ assignmentId: string; students: number; questions: number }> {
+  assertCan(actor, "assignments:create");
+  if (!input.classId) throw new ValidationError("Choose a class.");
+  const ids = [...new Set((input.questionIds ?? []).filter(Boolean))];
+  if (!ids.length) throw new ValidationError("Choose at least one question.");
+  if (ids.length > MAX_SET_QUESTIONS) throw new ValidationError(`Choose at most ${MAX_SET_QUESTIONS} questions at a time.`);
+  const klass = await assertClassAccess(repo, actor, input.classId);
+  const teacher = await repo.findUnique("Teacher", { userId: actor.userId });
+  if (!teacher) throw new ForbiddenError("Only teachers can assign questions.");
+  const qs = await repo.findMany("Question", { id: { in: ids } }, { select: ["id", "skillId", "status", "deletedAt", "typeId"] });
+  if (qs.length !== ids.length || qs.some((q) => q.status !== "PUBLISHED" || q.deletedAt)) throw new ValidationError("Only published questions can be assigned.");
+  // the platform marks answers itself; short answers need a teacher, so they cannot go into a set
+  const types = await repo.findMany("QuestionType", { id: { in: [...new Set(qs.map((q) => q.typeId))] } }, { select: ["id", "code", "isAutoScored"] });
+  const manual = qs.filter((q) => { const t = types.find((x) => x.id === q.typeId); return !t || t.code === "SHORT_ANSWER" || t.isAutoScored === false; });
+  if (manual.length) throw new ValidationError(`${manual.length} of these questions ${manual.length === 1 ? "is a short answer" : "are short answers"} that a teacher must mark, so ${manual.length === 1 ? "it" : "they"} cannot be assigned here. Remove ${manual.length === 1 ? "it" : "them"} from the selection.`);
+  // the questions must belong to this school's curriculum
+  const skills = await repo.findMany("Skill", { id: { in: [...new Set(qs.map((q) => q.skillId))] } }, { select: ["id", "name", "curriculumId"] });
+  const curs = await repo.findMany("Curriculum", { id: { in: [...new Set(skills.map((k) => k.curriculumId))] } }, { select: ["id", "gradeId"] });
+  const grades = await repo.findMany("Grade", { id: { in: [...new Set(curs.map((c) => c.gradeId))] } }, { select: ["id", "schoolId"] });
+  if (grades.some((g) => g.schoolId !== klass.schoolId)) throw new ForbiddenError("These questions belong to another school.");
+  const members = await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] });
+  const classStudents = new Set(members.map((m) => s(m.studentId)));
+  const chosen = [...new Set((input.studentIds ?? []).filter(Boolean))];
+  for (const id of chosen) if (!classStudents.has(id)) throw new ForbiddenError("You can only assign work to students in this class.");
+  const recipients = chosen.length ? chosen : [...classStudents];
+  if (!recipients.length) throw new ValidationError("This class has no students yet.");
+  const startAt = d(input.startAt), dueAt = d(input.dueAt);
+  if (dueAt && dueAt.getTime() < now.getTime() - 60_000) throw new ValidationError("The due date is in the past.");
+  if (startAt && dueAt && dueAt <= startAt) throw new ValidationError("The due date must be after the start date.");
+  const note = s(input.note).replace(/\s+/g, " ").trim().slice(0, 1000) || null;
+  const skillNames = [...new Set(ids.map((id) => skills.find((k) => k.id === qs.find((q) => q.id === id)!.skillId)?.name).filter(Boolean).map(String))];
+  const title = (s(input.title).replace(/\s+/g, " ").trim() || `${skillNames.slice(0, 2).join(" & ")}${skillNames.length > 2 ? " & more" : ""}`).slice(0, 150) + ` (${ids.length} question${ids.length === 1 ? "" : "s"})`;
+  const students = await repo.findMany("Student", { id: { in: recipients } }, { select: ["id", "userId"] });
+  const id = await repo.transaction(async (tx) => {
+    const set = await tx.create("Assessment", { title: title.slice(0, 191), type: "TEACHER_QUIZ", isAdaptive: false, maxQuestions: ids.length, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
+    await tx.createMany("AssessmentQuestion", ids.map((questionId, order) => ({ assessmentId: set.id, questionId, order, points: 1 })));
+    const a = await tx.create("Assignment", { classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, createdAt: now });
+    await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
+    const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";
+    await tx.createMany("Notification", students.map((st) => ({
+      userId: st.userId, type: "NEW_ASSIGNMENT", title: "Your teacher assigned you questions",
+      body: `${title}.${due}${note ? ` Note: ${note}` : ""}`, link: `/student/assignments/${s(a.id)}`, createdAt: now,
+    })));
+    await audit(tx, { actorId: actor.userId, action: "assignment.assign_questions", entityType: "Assignment", entityId: s(a.id), after: { classId: klass.id, questions: ids.length, students: recipients.length, scope: chosen.length ? "students" : "class", dueAt } });
+    return s(a.id);
+  });
+  return { assignmentId: id, students: recipients.length, questions: ids.length };
+}
+
+/** Statuses for question sets: Completed when every question is answered; Overdue after the due date. */
+export async function refreshQuestionSets(repo: Repo, assignments: Row[], studentIds: string[] | null, now = new Date()): Promise<void> {
+  const list = assignments.filter((a) => a.assessmentId && !a.deletedAt);
+  if (!list.length) return;
+  const byStudent = studentIds ? { studentId: { in: studentIds } } : {};
+  const [rows, sessions, items] = await Promise.all([
+    repo.findMany("AssignmentStudent", { assignmentId: { in: list.map((a) => a.id) }, ...byStudent }),
+    repo.findMany("PracticeSession", { assignmentId: { in: list.map((a) => a.id) }, mode: "TEACHER_QUIZ", ...byStudent }, { select: ["assignmentId", "studentId", "questionCount"] }),
+    repo.findMany("AssessmentQuestion", { assessmentId: { in: list.map((a) => a.assessmentId) } }, { select: ["assessmentId"] }),
+  ]);
+  const total = new Map<string, number>();
+  for (const x of items) total.set(s(x.assessmentId), (total.get(s(x.assessmentId)) ?? 0) + 1);
+  const answered = new Map(sessions.map((x) => [`${s(x.assignmentId)}|${s(x.studentId)}`, Number(x.questionCount ?? 0)]));
+  const byId = new Map(list.map((a) => [s(a.id), a]));
+  const writes: Promise<unknown>[] = [];
+  for (const r of rows) {
+    const a = byId.get(s(r.assignmentId))!;
+    const n = total.get(s(a.assessmentId)) ?? 0, k = answered.get(`${s(a.id)}|${s(r.studentId)}`) ?? 0;
+    const done = n > 0 && k >= n;
+    const due = d(a.dueAt);
+    const status = done ? "COMPLETED" : due && now > due ? "OVERDUE" : k > 0 ? "IN_PROGRESS" : "NOT_STARTED";
+    const progress = n ? Math.round((1000 * Math.min(k, n)) / n) / 1000 : 0;
+    const completedAt = done ? (d(r.completedAt) ?? now) : null;
+    if (status !== r.status || Math.abs(progress - Number(r.progress)) > 0.0005 || (completedAt === null) !== (d(r.completedAt) === null)) {
+      writes.push(repo.updateMany("AssignmentStudent", { assignmentId: a.id, studentId: r.studentId }, { status, progress, completedAt }));
+    }
+  }
+  await Promise.all(writes);
+}
+
+/** The teacher's classes with their students (for the “assign questions” dialog). */
+export async function teacherRoster(repo: Repo, actor: Actor): Promise<{ id: string; name: string; grade: number; students: { id: string; name: string }[] }[]> {
+  if (actor.role !== "TEACHER") return [];
+  const classes = await accessibleClasses(repo, actor);
+  if (!classes.length) return [];
+  const [grades, members] = await Promise.all([
+    repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => c.gradeId))] } }, { select: ["id", "level"] }),
+    repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"] }),
+  ]);
+  const students = members.length ? await repo.findMany("Student", { id: { in: [...new Set(members.map((m) => m.studentId))] } }, { select: ["id", "userId"] }) : [];
+  const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
+  const nameOf = new Map(students.map((x) => [s(x.id), s(users.find((u) => u.id === x.userId)?.displayName ?? "Student")]));
+  const level = new Map(grades.map((g) => [s(g.id), Number(g.level)]));
+  return classes.map((c) => ({
+    id: s(c.id), name: s(c.name), grade: level.get(s(c.gradeId)) ?? 0,
+    students: members.filter((m) => m.classId === c.id).map((m) => ({ id: s(m.studentId), name: nameOf.get(s(m.studentId)) ?? "Student" })).sort((x, y) => x.name.localeCompare(y.name)),
+  })).sort((x, y) => x.grade - y.grade || x.name.localeCompare(y.name));
 }

@@ -12,6 +12,7 @@ export default async function TeacherHome() {
         <h1 className="text-3xl font-bold text-brand-navy">My classes</h1>
         <div className="mt-2 flex flex-wrap gap-2 text-sm">
           <a href="/teacher/curriculum" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-amber-300 hover:bg-amber-50">⭐ Curriculum &amp; assign skills</a>
+          <a href="/admin/questions?status=PUBLISHED" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-amber-300 hover:bg-amber-50">⭐ Questions: search &amp; assign</a>
           <a href="/teacher/assignments" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Weekly assignments</a>
         </div>
         <div className="flex flex-wrap gap-2">

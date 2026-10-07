@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { QuestionStatus } from "@/server/admin/questions";
 import { archiveQuestionsAction, bulkPublishAction, deleteQuestionsAction, publishableIdsAction } from "../actions";
+import { AssignQuestionsDialog, type RosterClass } from "./assign-questions-dialog";
 
 export interface TableRow {
   id: string; stem: string; mine: boolean; origin: string; grade: number; skill: string; type: string; level: number; levelLabel: string; status: QuestionStatus; updatedAt: string;
@@ -19,12 +20,21 @@ const BATCH = 50;
  * Questions table. Admins with publishing permission also get row checkboxes, “Select all”,
  * “Publish Selected” and “Publish All” (all publishable questions matching the current filters).
  */
-export function QuestionTable({ rows, total, canPublish, canDelete = false, filter }: {
+export function QuestionTable({ rows, total, canPublish, canDelete = false, roster, filter }: {
   rows: TableRow[]; total: number; canPublish: boolean; canDelete?: boolean;
+  /** teachers: their classes and students; shows a ⭐ in front of every published question to assign it */
+  roster?: RosterClass[];
   filter: import("../actions").ListFilterInput;
 }) {
   const router = useRouter();
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const canAssign = Boolean(roster);
+  const [starred, setStarred] = useState<string[]>([]); // keeps the order the teacher picked
+  const [assigning, setAssigning] = useState(false);
+  const toggleStar = (id: string) => setStarred((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
+  // only published questions the platform can mark itself (not short answers)
+  const starrable = rows.filter((r) => r.status === "PUBLISHED" && r.type !== "SHORT_ANSWER");
+  const allStarred = starrable.length > 0 && starrable.every((r) => starred.includes(r.id));
   const [busy, setBusy] = useState<{ done: number; total: number } | null>(null);
   const [feedback, setFeedback] = useState<{ ok?: string; error?: string; skipped?: { stem: string; reason: string }[] } | null>(null);
   const eligible = rows.filter((r) => PUBLISHABLE.includes(r.status));
@@ -106,6 +116,15 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, filt
 
   return (
     <div>
+      {canAssign && (
+        <div className="mb-3 flex flex-wrap items-center gap-3 rounded-xl bg-amber-50 px-4 py-2 ring-1 ring-amber-200">
+          <span className="text-sm text-amber-900">Press <span aria-hidden="true">☆</span> in front of the questions you want, then assign them.</span>
+          <span className="ms-auto text-sm font-semibold text-amber-900" aria-live="polite">⭐ Selected: {starred.length}</span>
+          {starred.length > 0 && <button type="button" onClick={() => setStarred([])} className="text-sm text-amber-900 underline">Clear</button>}
+          <button type="button" disabled={starred.length === 0} onClick={() => setAssigning(true)} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">⭐ Assign selected ({starred.length})</button>
+        </div>
+      )}
+      {assigning && roster && <AssignQuestionsDialog roster={roster} questionIds={starred} onDone={() => setStarred([])} onClose={() => setAssigning(false)} />}
       {checkboxes && (
         <div className="mb-3 flex flex-wrap items-center justify-end gap-2">
           <span className="me-auto text-sm font-semibold text-slate-700" aria-live="polite">Selected: {selected.size}</span>
@@ -129,6 +148,7 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, filt
       <table className="w-full text-left text-sm">
         <thead>
           <tr className="border-b text-slate-500">
+            {canAssign && <th className="w-8 py-2"><button type="button" onClick={() => setStarred(allStarred ? starred.filter((id) => !starrable.some((r) => r.id === id)) : [...starred, ...starrable.map((r) => r.id).filter((id) => !starred.includes(id))])} aria-label={allStarred ? "Unselect all questions on this page" : "Select all questions on this page"} title="All on this page" className="text-lg leading-none">{allStarred ? "⭐" : "☆"}</button></th>}
             {checkboxes && <th className="w-8 py-2"><input type="checkbox" aria-label="Select all questions on this page" checked={allChecked} disabled={!selectable.length || !!busy} onChange={() => setSelected(allChecked ? new Set() : new Set(selectable.map((r) => r.id)))} /></th>}
             <th className="py-2">Question</th><th>Skill</th><th>Type</th><th>Level</th><th>Status</th><th>Updated</th>
           </tr>
@@ -136,6 +156,7 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, filt
         <tbody>
           {rows.map((q) => (
             <tr key={q.id} className="border-b align-top last:border-0">
+              {canAssign && <td className="py-2">{q.status === "PUBLISHED" && q.type !== "SHORT_ANSWER" && <button type="button" onClick={() => toggleStar(q.id)} aria-pressed={starred.includes(q.id)} aria-label={`${starred.includes(q.id) ? "Unselect" : "Select"} for assigning: ${q.stem.slice(0, 60)}`} className="text-xl leading-none">{starred.includes(q.id) ? "⭐" : "☆"}</button>}</td>}
               {checkboxes && <td className="py-2"><input type="checkbox" aria-label={`Select: ${q.stem.slice(0, 60)}`} checked={selected.has(q.id)} disabled={(!canDelete && !PUBLISHABLE.includes(q.status)) || !!busy} onChange={() => toggle(q.id)} /></td>}
               <td className="max-w-md py-2"><Link href={`/admin/questions/${q.id}`} className="text-brand-navy hover:underline">{q.stem}</Link>{q.mine && <span className="ml-2 text-xs text-brand-purple">mine</span>}{q.origin === "AI_GENERATED" && <span className="ml-2 text-xs text-amber-700">AI-drafted</span>}
                 {(q.hasPassage || q.hasImage || q.possibleMissingPassage) && (
@@ -152,7 +173,7 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, filt
               <td>{q.updatedAt.slice(0, 10)}</td>
             </tr>
           ))}
-          {rows.length === 0 && <tr><td colSpan={checkboxes ? 7 : 6} className="py-6 text-center text-slate-500">No questions here.</td></tr>}
+          {rows.length === 0 && <tr><td colSpan={(checkboxes ? 7 : 6) + (canAssign ? 1 : 0)} className="py-6 text-center text-slate-500">No questions here.</td></tr>}
         </tbody>
       </table>
       {total > rows.length && <p className="mt-2 text-sm text-slate-500">This page shows {rows.length} of {total} matching questions. “Publish All” includes every matching question that can be published, on all pages.</p>}

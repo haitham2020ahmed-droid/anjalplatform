@@ -480,10 +480,18 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFi
     repo.findMany("QuestionType", {}, { select: ["id", "code"] }),
     inMemory
       ? (needle
-          ? Promise.all([read({ ...where, stem: { contains: needle } }), read({ ...where, externalRef: { contains: needle } })]).then(([a, b]) => {
-              const seen = new Set(a.map((q) => q.id));
-              return [...a, ...b.filter((q) => !seen.has(q.id))];
-            })
+          ? (() => {
+              // the text also matches skill names: “main idea” finds every question of “Central Idea / Main Idea” skills
+              const lower = needle.toLowerCase();
+              const named = skills.filter((k) => String(k.name).toLowerCase().includes(lower) && skillIds.includes(k.id)).map((k) => k.id);
+              return Promise.all([
+                read({ ...where, stem: { contains: needle } }), read({ ...where, externalRef: { contains: needle } }),
+                named.length ? read({ ...where, skillId: { in: named } }) : Promise.resolve([] as Row[]),
+              ]).then((lists) => {
+                const seen = new Set<unknown>();
+                return lists.flat().filter((q) => (seen.has(q.id) ? false : (seen.add(q.id), true)));
+              });
+            })()
           : read(where)).then((r) => (filter.passage === "missing" ? r.filter((q) => needsPassage(String(q.stem))) : r))
       : limit === 0 ? Promise.resolve([] as Row[]) : read(where, limit, limit ? (page - 1) * limit : undefined),
     inMemory || limit === undefined ? Promise.resolve(-1) : repo.count("Question", where),

@@ -62,7 +62,9 @@ describe("performance: question list in the database", () => {
     assert.ok(hits.items.length > 0);
     // the list shows the first 160 characters, so compare with the full text from the database
     const qs = await repo.findMany("Question", { id: { in: all.map((x) => x.id) } });
-    const expected = qs.filter((q) => String(q.stem).toLowerCase().includes(word.toLowerCase()) || String(q.externalRef ?? "").toLowerCase().includes(word.toLowerCase())).map((q) => String(q.id)).sort();
+    // search matches the question text, its reference, or its skill's name
+    const skillNames = new Map((await repo.findMany("Skill", { id: { in: [...new Set(qs.map((q) => q.skillId))] } })).map((k) => [String(k.id), String(k.name).toLowerCase()]));
+    const expected = qs.filter((q) => String(q.stem).toLowerCase().includes(word.toLowerCase()) || String(q.externalRef ?? "").toLowerCase().includes(word.toLowerCase()) || (skillNames.get(String(q.skillId)) ?? "").includes(word.toLowerCase())).map((q) => String(q.id)).sort();
     assert.deepEqual(hits.items.map((x) => x.id).sort(), expected);
     const ref = all.find((x) => x.ref)!.ref;
     assert.ok((await listQuestions(repo, admin, { status: "PUBLISHED", q: ref })).items.some((x) => x.ref === ref), "search by reference");

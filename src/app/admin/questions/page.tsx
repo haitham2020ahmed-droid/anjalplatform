@@ -6,6 +6,7 @@ import { can } from "@/server/auth/rbac";
 import { listQuestions, STATUSES, type QuestionStatus } from "@/server/admin/questions";
 import { QuestionTable } from "./question-table";
 import { editorOptions } from "./editor-data";
+import { teacherRoster } from "@/server/teacher/assign";
 
 const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
 
@@ -17,7 +18,8 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
   const actor = await requireActor({ permission: "questions:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
-  const status = (STATUSES as readonly string[]).includes(sp.status ?? "") ? (sp.status as QuestionStatus) : "UNDER_REVIEW";
+  // teachers land on the published questions (the ones they can assign); admins on the review queue
+  const status = (STATUSES as readonly string[]).includes(sp.status ?? "") ? (sp.status as QuestionStatus) : actor.role === "TEACHER" ? "PUBLISHED" : "UNDER_REVIEW";
   const grade = Number(sp.grade) || undefined;
   // picked from the allowed values, so the type is exact (not just string)
   const passage = (["has", "none", "missing"] as const).find((v) => v === sp.passage);
@@ -79,6 +81,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
           total={total}
           canPublish={can(actor, "questions:publish")}
           canDelete={(actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN") && can(actor, "questions:publish")}
+          roster={actor.role === "TEACHER" ? await teacherRoster(repo, actor) : undefined}
           filter={filter}
         />
         {pages > 1 && (

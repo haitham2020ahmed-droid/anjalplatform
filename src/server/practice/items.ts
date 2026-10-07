@@ -61,6 +61,19 @@ export async function loadSkillItems(repo: Repo, skillId: string): Promise<Pract
 export async function loadItemsForSkills(repo: Repo, skillIds: string[]): Promise<PracticeItem[]> {
   if (!skillIds.length) return [];
   const qs = await repo.findMany("Question", { skillId: { in: skillIds }, status: "PUBLISHED", deletedAt: null });
+  return buildItems(repo, qs);
+}
+
+/** Specific PUBLISHED questions (a teacher's question set), in the order given. Missing ones are skipped. */
+export async function loadQuestionItems(repo: Repo, questionIds: string[]): Promise<PracticeItem[]> {
+  if (!questionIds.length) return [];
+  const qs = await repo.findMany("Question", { id: { in: questionIds }, status: "PUBLISHED", deletedAt: null });
+  const items = await buildItems(repo, qs);
+  const pos = new Map(questionIds.map((id, i) => [id, i]));
+  return items.sort((a, b) => (pos.get(a.questionId) ?? 0) - (pos.get(b.questionId) ?? 0));
+}
+
+async function buildItems(repo: Repo, qs: Row[]): Promise<PracticeItem[]> {
   if (!qs.length) return [];
   const ids = qs.map((q) => q.id);
   const [opts, answers, expl, types] = await Promise.all([
