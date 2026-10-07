@@ -26,7 +26,7 @@ const staff = (actor: Actor) => { if (actor.role === "STUDENT" || actor.role ===
 
 // ------------------------------------------------------------------ staff
 
-export interface ArticleSummary { id: string; code: string; title: string; topic: string | null; grade: number; skill: string | null; status: string; versions: { level: Level; lexile: number; questions: number }[]; attempts: number }
+export interface ArticleSummary { id: string; code: string; title: string; topic: string | null; grade: number; skill: string | null; standard: string | null; status: string; versions: { level: Level; lexile: number; questions: number }[]; attempts: number }
 
 export async function listArticles(repo: Repo, actor: Actor, grade?: number): Promise<ArticleSummary[]> {
   assertCan(actor, "questions:read"); staff(actor);
@@ -36,7 +36,7 @@ export async function listArticles(repo: Repo, actor: Actor, grade?: number): Pr
   const links = vers.length ? await repo.findMany("ReadMasterQuestion", { versionId: { in: vers.map((v) => v.id) } }, { select: ["versionId"] }) : [];
   const atts = await repo.findMany("ReadMasterAttempt", { articleId: { in: arts.map((a) => a.id) } }, { select: ["articleId"] });
   return arts.map((a) => ({
-    id: s(a.id), code: s(a.code), title: s(a.title), topic: a.topic ? s(a.topic) : null, grade: Number(a.gradeLevel), skill: a.skillName ? s(a.skillName) : null, status: s(a.status),
+    id: s(a.id), code: s(a.code), title: s(a.title), topic: a.topic ? s(a.topic) : null, grade: Number(a.gradeLevel), skill: a.skillName ? s(a.skillName) : null, standard: a.standardCode ? shortStandard(s(a.standardCode)) : null, status: s(a.status),
     versions: LEVELS.map((l) => vers.find((v) => v.articleId === a.id && v.level === l)).filter((v): v is Row => Boolean(v)).map((v) => ({ level: s(v.level) as Level, lexile: Number(v.lexile), questions: links.filter((k) => k.versionId === v.id).length })),
     attempts: atts.filter((x) => x.articleId === a.id).length,
   }));
@@ -50,23 +50,51 @@ async function articleInSchool(repo: Repo, actor: Actor, id: string): Promise<Ro
 
 /** Skills of a grade for the article form (name → the article's skill). */
 export async function gradeSkills(repo: Repo, schoolId: string, grade: number): Promise<{ id: string; name: string }[]> {
-  const g = (await repo.findMany("Grade", { schoolId, level: grade }))[0];
-  const cur = g ? (await repo.findMany("Curriculum", { gradeId: g.id }))[0] : undefined;
-  return cur ? (await repo.findMany("Skill", { curriculumId: cur.id, isActive: true, deletedAt: null }, { select: ["id", "name"] })).map((k) => ({ id: s(k.id), name: s(k.name) })).sort((a, b) => a.name.localeCompare(b.name)) : [];
+  const gs = await repo.findMany("Grade", { schoolId, level: grade }, { select: ["id"] });
+  const curs = gs.length ? await repo.findMany("Curriculum", { gradeId: { in: gs.map((g) => g.id) } }, { select: ["id"] }) : [];
+  if (!curs.length) return [];
+  const all = await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, isActive: true, deletedAt: null }, { select: ["id", "name", "code"] });
+  return all.filter((k) => !s(k.code).endsWith(".curriculum-map-unclassified")).map((k) => ({ id: s(k.id), name: s(k.name) })).sort((a, b) => a.name.localeCompare(b.name));
 }
 
-export async function saveArticle(repo: Repo, actor: Actor, input: { id?: string; code?: string; title: string; topic?: string | null; grade: number; skillId?: string | null; skillName?: string | null }, now = new Date()): Promise<string> {
+/** Common Core standards of a grade (shared by all schools), grouped by strand. */
+export const shortStandard = (code: string) => code.replace(/^CCSS\.ELA-LITERACY\./, "");
+const STRANDS: Record<string, string> = { RL: "Reading: Literature", RI: "Reading: Informational Text", RF: "Reading: Foundational Skills", W: "Writing", SL: "Speaking & Listening", L: "Language" };
+export async function gradeStandards(repo: Repo, grade: number): Promise<{ strand: string; items: { code: string; short: string; description: string }[] }[]> {
+  const rows = (await repo.findMany("Standard", { gradeLevel: grade }, { select: ["code", "description", "isActive"] })).filter((x) => x.isActive !== false);
+  const byStrand = new Map<string, { code: string; short: string; description: string }[]>();
+  for (const r of rows) {
+    const short = shortStandard(s(r.code)), key = short.split(".")[0];
+    byStrand.set(key, [...(byStrand.get(key) ?? []), { code: s(r.code), short, description: s(r.description) }]);
+  }
+  const num = (x: string) => x.split(".").slice(1).map((p) => (/^\d+$/.test(p) ? p.padStart(3, "0") : p)).join(".");
+  return ["RL", "RI", "RF", "L", "W", "SL"].filter((k) => byStrand.has(k)).map((k) => ({ strand: STRANDS[k], items: byStrand.get(k)!.sort((a, b) => num(a.short).localeCompare(num(b.short))) }));
+}
+
+/** “RI.6.2”, “ri 6.2” or the full code → the full code (or null when unknown). */
+async function resolveStandard(repo: Repo, grade: number, raw: string | null | undefined): Promise<string | null> {
+  const t = s(raw).trim().toUpperCase().replace(/\s+/g, "").replace(/^CCSS\.ELA-LITERACY\./, "");
+  if (!t) return null;
+  const hit = (await repo.findMany("Standard", { gradeLevel: grade }, { select: ["code"] })).find((x) => shortStandard(s(x.code)).toUpperCase() === t);
+  if (!hit) throw new ValidationError(`“${raw}” is not a Common Core standard of Grade ${grade} (e.g. RI.${grade}.2).`);
+  return s(hit.code);
+}
+
+export async function saveArticle(repo: Repo, actor: Actor, input: { id?: string; code?: string; title: string; topic?: string | null; grade: number; skillId?: string | null; skillName?: string | null; standard?: string | null }, now = new Date()): Promise<string> {
   assertCan(actor, "questions:edit"); staff(actor);
   const title = s(input.title).replace(/\s+/g, " ").trim();
   if (!title) throw new ValidationError("Write the article's title.");
   if (![4, 5, 6].includes(Number(input.grade))) throw new ValidationError("Choose Grade 4, 5 or 6.");
-  let skillName = input.skillName ? s(input.skillName).trim() : null;
+  // the skill shown to students: the name written by the teacher, else the platform skill, else the standard
+  let skillName = input.skillName ? s(input.skillName).trim().slice(0, 191) : null;
   if (input.skillId) {
     const k = (await gradeSkills(repo, actor.schoolId!, Number(input.grade))).find((x) => x.id === input.skillId);
     if (!k) throw new ValidationError("That skill is not in this grade.");
-    skillName = k.name;
+    skillName = skillName || k.name;
   }
-  const data = { title: title.slice(0, 255), topic: input.topic ? s(input.topic).trim().slice(0, 191) : null, gradeLevel: Number(input.grade), skillId: input.skillId || null, skillName, updatedAt: now };
+  const standardCode = await resolveStandard(repo, Number(input.grade), input.standard);
+  if (!skillName && standardCode) skillName = shortStandard(standardCode);
+  const data = { title: title.slice(0, 255), topic: input.topic ? s(input.topic).trim().slice(0, 191) : null, gradeLevel: Number(input.grade), skillId: input.skillId || null, skillName, standardCode, updatedAt: now };
   if (input.id) { await articleInSchool(repo, actor, input.id); await repo.updateMany("ReadMasterArticle", { id: input.id }, data); return input.id; }
   const code = (s(input.code).trim() || `${title.replace(/[^A-Za-z0-9]+/g, "-").toUpperCase().slice(0, 30)}-${Date.now().toString(36).toUpperCase()}`).slice(0, 60);
   if ((await repo.findMany("ReadMasterArticle", { schoolId: actor.schoolId, code })).length) throw new ValidationError(`An article with the code ${code} already exists.`);
@@ -102,6 +130,7 @@ export async function addVersionQuestion(repo: Repo, actor: Actor, versionId: st
     skillId, type: (q.type ?? "MULTIPLE_CHOICE") as never, stem: q.stem, level: DIFFICULTY[s(v.level) as Level], whyCorrect: q.whyCorrect,
     options: q.options?.map((o) => ({ label: o.label, text: o.text, correct: o.correct, rationale: o.correct ? null : o.rationale || "Read the text again." })),
     answer: q.answer, answers: q.answers, passageText: s(v.body), lexile: Number(v.lexile),
+    ...(a.standardCode ? { standardCode: s(a.standardCode) } : {}),   // the full code (as stored in Standard)
   });
   if (can(actor, "questions:publish")) await repo.updateMany("Question", { id }, { status: "PUBLISHED", publishedAt: new Date(), reviewedById: actor.userId });
   const n = await repo.count("ReadMasterQuestion", { versionId });

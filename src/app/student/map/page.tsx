@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { studentMap } from "@/server/map/student-map";
+import { PageHeader } from "@/components/page-header";
 
 const BAND: Record<string, string> = { Low: "bg-red-100 text-red-800", LoAvg: "bg-orange-100 text-orange-800", Avg: "bg-slate-100 text-slate-700", HiAvg: "bg-teal-100 text-teal-800", High: "bg-emerald-100 text-emerald-800" };
 
@@ -12,8 +13,7 @@ export default async function StudentMapPage() {
   const m = await studentMap(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href="/student" className="text-brand-teal hover:underline">← My work</Link></p>
-      <h1 className="mt-2 text-3xl font-bold text-brand-navy"><span aria-hidden="true">🗺️</span> My MAP</h1>
+      <PageHeader back={{ href: "/student", label: "My work" }} icon="🗺️" title="My MAP" />
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <section className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
           <h2 className="text-sm font-semibold text-slate-500">My Reading RIT</h2>

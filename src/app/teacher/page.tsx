@@ -8,23 +8,34 @@ export default async function TeacherHome() {
   const classes = await teacherClasses(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-3xl font-bold text-brand-navy">My classes</h1>
-        <div className="mt-2 flex flex-wrap gap-2 text-sm">
-          <a href="/teacher/curriculum" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-amber-300 hover:bg-amber-50">⭐ Skills: 📘 Curriculum &amp; 🗺️ MAP</a>
-          <a href="/admin/questions?status=PUBLISHED" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-amber-300 hover:bg-amber-50">📚 Question Bank</a>
-          <a href="/admin/curriculum-map" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🧭 Curriculum Map</a>
-          <a href="/teacher/levels" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🎯 Levels &amp; tests</a>
-          <a href="/teacher/curriculum-results" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📊 Curriculum results</a>
-          <a href="/teacher/map-rit" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-emerald-300 hover:bg-emerald-50">🗺️ MAP RIT</a>
-          <a href="/admin/readmaster" className="rounded-lg bg-amber-100 px-3 py-1.5 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">⭐ ReadMaster</a>
-          <a href="/teacher/assignments" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Weekly assignments</a>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <a href="/admin/questions?status=DRAFT&ai=1" className="rounded-xl bg-amber-100 px-4 py-2 font-semibold text-amber-900">Review AI questions</a>
-          <a href="/admin/questions?status=DRAFT&mine=1" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">My questions</a>
-        </div>
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br bg-linear-to-br from-brand-navy via-[#2b3f8f] to-brand-purple p-6 text-white shadow-lg">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-12 h-48 w-48 rounded-full bg-brand-teal/30 blur-2xl" />
+        <p className="relative text-sm text-white/80">Welcome back,</p>
+        <h1 className="relative text-3xl font-extrabold tracking-tight">{String(me.displayName).split(" ")[0]} 👋</h1>
+        <p className="relative mt-1 text-white/85">{classes.length} class{classes.length === 1 ? "" : "es"} · {classes.reduce((n, c) => n + Number(c.students ?? 0), 0)} students</p>
+      </section>
+      <div className="mt-6 grid gap-4 lg:grid-cols-3">
+        {([
+          ["Teach", "from-sky-50", [["🧭", "Curriculum Map", "Assign by place, level or student", "/admin/curriculum-map"], ["📚", "Question Bank", "Find, ☆ star and assign questions", "/admin/questions?status=PUBLISHED"], ["⭐", "ReadMaster", "Leveled articles (Lexile)", "/admin/readmaster"], ["🗺️", "MAP", "MAP skills by goal area", "/teacher/curriculum"]]],
+          ["Track", "from-emerald-50", [["🎯", "Levels & tests", "Above / On / Below · Placement", "/teacher/levels"], ["📊", "Curriculum results", "% correct on every place", "/teacher/curriculum-results"], ["📈", "MAP RIT", "Ranking vs national average", "/teacher/map-rit"], ["🗓️", "Weekly assignments", "Status of everything assigned", "/teacher/assignments"]]],
+          ["Review", "from-amber-50", [["🤖", "Review AI questions", "Drafts waiting for you", "/admin/questions?status=DRAFT&ai=1"], ["✍️", "My questions", "Questions you wrote", "/admin/questions?status=DRAFT&mine=1"]]],
+        ] as const).map(([group, tint, tools]) => (
+          <section key={group} className={`rounded-3xl bg-gradient-to-br bg-linear-to-br ${tint} to-white p-4 ring-1 ring-slate-200`}>
+            <h2 className="px-1 text-xs font-bold uppercase tracking-wider text-slate-500">{group}</h2>
+            <ul className="mt-2 grid gap-2">
+              {tools.map(([icon, title, text, href]) => (
+                <li key={href}>
+                  <a href={href} className="lift group flex items-center gap-3 rounded-2xl bg-white p-3 ring-1 ring-slate-200">
+                    <span aria-hidden="true" className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-slate-50 text-2xl transition group-hover:scale-110">{icon}</span>
+                    <span className="min-w-0"><span className="block font-bold text-brand-navy">{title}</span><span className="block truncate text-xs text-slate-500">{text}</span></span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
       </div>
+      <h2 className="mt-8 text-2xl font-bold text-brand-navy">My classes</h2>
       {classes.length === 0 ? <p className="mt-4 text-slate-600">You are not assigned to any classes yet. Ask your school admin to add you to a class.</p> : (
         <ul className="mt-6 grid gap-4 md:grid-cols-3">
           {classes.map((c) => (

@@ -3,6 +3,7 @@ import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { accessibleClasses } from "@/server/teacher/assign";
 import { curriculumResults } from "@/server/curriculum-map/results";
+import { PageHeader } from "@/components/page-header";
 
 const tone = (v: number | null) => (v === null ? "text-slate-400" : v >= 75 ? "text-teal-800" : v >= 50 ? "text-amber-800" : "text-red-700");
 
@@ -16,9 +17,7 @@ export default async function CurriculumResultsPage({ searchParams }: { searchPa
   const r = classId ? await curriculumResults(repo, actor, classId) : null;
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href={actor.role === "TEACHER" ? "/teacher" : "/admin"} className="text-brand-teal hover:underline">← Back</Link></p>
-      <h1 className="mt-2 text-3xl font-bold text-brand-navy"><span aria-hidden="true">📊</span> Curriculum results</h1>
-      <p className="mt-1 text-slate-600">Answers and % correct on each place of the Curriculum Map, for the students of the class.</p>
+      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="📊" title="Curriculum results" subtitle={<>Answers and % correct on each place of the Curriculum Map, for the students of the class.</>} />
       {!r ? <p className="mt-6 text-slate-600">No classes yet.</p> : (
         <>
           <nav aria-label="Classes" className="mt-4 flex flex-wrap gap-2">

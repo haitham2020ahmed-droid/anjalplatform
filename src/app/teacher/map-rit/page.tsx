@@ -5,6 +5,7 @@ import { can } from "@/server/auth/rbac";
 import { classLevels } from "@/server/curriculum-map/levels";
 import { nationalNorm, ritView, SEASONS } from "@/server/map/rit";
 import { enterRitAction, importMapScoresAction, levelsFromRitAction, updateNormsAction } from "../map-rit-actions";
+import { PageHeader } from "@/components/page-header";
 
 const BAND_STYLE: Record<string, string> = { Low: "bg-red-100 text-red-800", LoAvg: "bg-orange-100 text-orange-800", Avg: "bg-slate-100 text-slate-700", HiAvg: "bg-teal-100 text-teal-800", High: "bg-emerald-100 text-emerald-800" };
 const VS: Record<string, [string, string]> = { ABOVE: ["Above class average", "text-emerald-700"], AT: ["At class average", "text-slate-600"], BELOW: ["Below class average", "text-red-700"] };
@@ -26,9 +27,7 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
   const tile = (label: string, value: string, extra = "") => <div className="rounded-xl bg-white p-4 ring-1 ring-slate-200"><dt className="text-xs text-slate-500">{label}</dt><dd className={`text-2xl font-bold text-brand-navy ${extra}`}>{value}</dd></div>;
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href={isAdmin ? "/admin" : "/teacher"} className="text-brand-teal hover:underline">← Back</Link></p>
-      <h1 className="mt-2 text-3xl font-bold text-brand-navy"><span aria-hidden="true">🗺️</span> MAP Reading · RIT</h1>
-      <p className="mt-1 max-w-3xl text-slate-600">Students ranked by RIT, compared with the national average for their grade and season (NWEA norms) and with their class average (±{3} RIT counts as “at” the average).</p>
+      <PageHeader back={{ href: isAdmin ? "/admin" : "/teacher", label: "Back" }} icon="🗺️" title="MAP Reading · RIT" subtitle={<>Students ranked by RIT, compared with the national average for their grade and season (NWEA norms) and with their class average (±{3} RIT counts as “at” the average).</>} />
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {v.canEdit && (
         <form action={importMapScoresAction} className="mt-4 rounded-2xl bg-emerald-50/60 p-4 ring-1 ring-emerald-200">

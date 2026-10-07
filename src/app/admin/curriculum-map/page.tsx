@@ -3,6 +3,10 @@ import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { curriculumMapView, type MapViewNode } from "@/server/curriculum-map/view";
 import { can } from "@/server/auth/rbac";
+import { accessibleClasses } from "@/server/teacher/assign";
+import { classLevels } from "@/server/curriculum-map/levels";
+import { MapAssignButton, type RosterClass } from "@/components/curriculum-map/assign-button";
+import { assignPlaceAction } from "./actions";
 
 /**
  * 🧭 Curriculum Map (read only): Grade → Book → Unit → Text Set / Selection (Shared Read, Genre) → Category (skills) → Level.
@@ -12,7 +16,25 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
-  const v = await curriculumMapView(repo, actor, Number(sp.grade) || undefined);
+  // teachers see only the grades they teach
+  const myClasses = actor.role === "TEACHER" ? await accessibleClasses(repo, actor) : [];
+  const myGradeIds = new Set(myClasses.map((c) => String(c.gradeId)));
+  const myLevels = actor.role === "TEACHER" ? new Set((await repo.findMany("Grade", { schoolId: actor.schoolId })).filter((g) => myGradeIds.has(String(g.id))).map((g) => Number(g.level))) : null;
+  const wanted = Number(sp.grade) || undefined;
+  let v = await curriculumMapView(repo, actor, myLevels && wanted && !myLevels.has(wanted) ? [...myLevels][0] : wanted ?? (myLevels ? [...myLevels].sort()[0] : undefined));
+  if (myLevels) {
+    if (v.level !== null && !myLevels.has(v.level) && myLevels.size) v = await curriculumMapView(repo, actor, [...myLevels].sort()[0]);
+    v = { ...v, grades: v.grades.filter((g) => myLevels.has(g.level)) };
+    if (!v.grades.length) v = { ...v, book: null, level: null };
+  }
+  // the teacher's classes of this grade, with students and levels, for the ⭐ Assign dialog
+  const roster: RosterClass[] = [];
+  if (actor.role === "TEACHER" && v.level !== null) {
+    for (const c of myClasses.sort((a, b) => String(a.name).localeCompare(String(b.name)))) {
+      const cl = await classLevels(repo, actor, String(c.id));
+      if (cl.grade === v.level) roster.push({ id: cl.classId, name: cl.className, students: cl.students.map((x) => ({ id: x.id, name: x.name, level: x.level })) });
+    }
+  }
   const canAdd = can(actor, "questions:edit");
   const isTeacher = actor.role === "TEACHER";
   const badge = (n: MapViewNode) => n.acceptsQuestions && (
@@ -24,7 +46,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
       {canAdd && <a href={`/admin/curriculum-map/place/${n.code}`} className="rounded-full bg-brand-navy px-2 py-0.5 font-semibold text-white hover:bg-brand-purple" title="One question, or many from a ready template">➕ Add questions</a>}
       {isTeacher && n.questions > 0 && (
         <>
-          <a href={`/teacher/map-assign?code=${n.code}`} className="rounded-full bg-amber-100 px-2 py-0.5 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200" title="Assign this place to the whole class or chosen students">⭐ Assign</a>
+          <MapAssignButton code={n.code} label="Assign" levels={false} classes={roster} assign={assignPlaceAction} />
           <a href={`/admin/questions?status=PUBLISHED&map=${n.code}`} className="rounded-full px-2 py-0.5 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-50" title="Open these questions, star ☆ the ones you want and assign them">☆ Choose questions</a>
         </>
       )}
@@ -63,7 +85,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
                           {s.children.map((c) => (
                             <li key={c.id} className={`rounded-lg border-s-4 p-3 ${catColor[c.categoryType ?? ""] ?? ""}`}>
                               <p className="font-semibold text-slate-900">{c.title}{c.skills && <span className="font-normal"> ({c.skills})</span>}{badge(c)}
-                                {actor.role === "TEACHER" && c.children.length > 0 && <a href={`/teacher/map-assign?code=${c.code}`} className="ms-2 inline-block rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200" title="All three levels: adaptive (Below → On → Above) or each student at their level">⭐ Assign (adaptive / by level)</a>}</p>
+                                {actor.role === "TEACHER" && c.children.length > 0 && <MapAssignButton code={c.code} label="Assign (adaptive / by level)" levels={true} classes={roster} assign={assignPlaceAction} />}</p>
                               {c.children.length > 0 && (
                                 <ul className="mt-2 flex flex-wrap gap-2">
                                   {c.children.map((l) => <li key={l.id} className="rounded-lg bg-white px-2.5 py-1 text-sm ring-1 ring-slate-200">{l.title}{badge(l)}</li>)}

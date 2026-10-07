@@ -21,7 +21,7 @@ export default async function ReadArticle({ params }: { params: Promise<{ articl
         <>
           <h1 className="mt-2 text-3xl font-bold text-brand-navy">{a.title}</h1>
           <p className="text-sm text-slate-600">{LEVEL_NAMES[a.level]} · {a.lexile}L{a.skill ? ` · ${a.skill}` : ""}</p>
-          <article className="mt-4 rounded-2xl bg-white p-6 text-lg leading-relaxed text-slate-900 ring-1 ring-slate-200" style={{ whiteSpace: "pre-wrap" }}>{a.body}</article>
+          <article className="reading mt-4 rounded-3xl bg-white p-6 text-slate-900 shadow-sm ring-1 ring-slate-200 sm:p-10" style={{ whiteSpace: "pre-wrap" }}>{a.body}</article>
           <h2 className="mt-6 text-xl font-bold text-brand-navy">Questions</h2>
           <div className="mt-3"><ReadMasterPlayer articleId={a.articleId} versionId={a.versionId} questions={a.questions} submit={submitArticleAction} /></div>
         </>

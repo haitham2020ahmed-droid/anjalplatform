@@ -30,3 +30,28 @@ body { @apply bg-slate-50 text-slate-900 antialiased; }
   textarea { min-height: 4.5rem; }
 }
 
+
+/* ------------------------------------------------------------------ look & motion (CSS only, fast) */
+body {
+  background:
+    radial-gradient(1200px 500px at 100% -10%, color-mix(in oklab, var(--color-brand-teal) 10%, transparent), transparent 60%),
+    radial-gradient(900px 420px at -10% 0%, color-mix(in oklab, var(--color-brand-purple) 9%, transparent), transparent 60%),
+    var(--color-slate-50);
+  background-attachment: fixed;
+}
+@keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes pop { 0% { transform: scale(.92); } 60% { transform: scale(1.04); } 100% { transform: scale(1); } }
+@keyframes shake { 10%, 90% { transform: translateX(-1px); } 20%, 80% { transform: translateX(2px); } 30%, 50%, 70% { transform: translateX(-4px); } 40%, 60% { transform: translateX(4px); } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes ring-fill { from { stroke-dashoffset: var(--ring-full); } }
+@utility animate-fade-up { animation: fade-up .45s cubic-bezier(.2,.7,.2,1) both; }
+@utility animate-pop { animation: pop .35s ease-out both; }
+@utility animate-shake { animation: shake .45s ease-in-out both; }
+@utility animate-float { animation: float 3s ease-in-out infinite; }
+/* a card that lifts on hover */
+@utility lift { transition: transform .18s ease, box-shadow .18s ease; &:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -12px rgb(15 23 42 / .35); } }
+/* the brand stripe (logo colors) */
+@utility brand-stripe { background: linear-gradient(90deg, #4c2e9a, var(--color-brand-navy) 30%, #2f7bd8 50%, var(--color-brand-teal) 70%, var(--color-brand-gold)); }
+/* comfortable long reading (ReadMaster) */
+@utility reading { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; font-size: 1.2rem; line-height: 1.85; letter-spacing: .005em; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

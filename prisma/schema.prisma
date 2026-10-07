@@ -1494,6 +1494,8 @@ model ReadMasterArticle {
   gradeLevel  Int
   skillId     String?
   skillName   String?  @db.VarChar(191)
+  /// the Common Core standard the article practises, e.g. CCSS.ELA-LITERACY.RI.6.2 (its questions get it too)
+  standardCode String? @db.VarChar(80)
   /// DRAFT or PUBLISHED (students see published articles of their grade)
   status      String   @default("DRAFT") @db.VarChar(20)
   createdById String?

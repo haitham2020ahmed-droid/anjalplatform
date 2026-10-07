@@ -1021,6 +1021,7 @@ CREATE TABLE `ReadMasterArticle` (
   `gradeLevel` INTEGER NOT NULL,
   `skillId` VARCHAR(191),
   `skillName` VARCHAR(191),
+  `standardCode` VARCHAR(80),
   `status` VARCHAR(20) NOT NULL DEFAULT 'DRAFT',
   `createdById` VARCHAR(191),
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),

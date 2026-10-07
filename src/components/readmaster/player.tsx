@@ -27,7 +27,7 @@ export function ReadMasterPlayer({ articleId, versionId, questions, submit }: {
       {questions.map((q, i) => {
         const rv = result?.review.find((x) => x.questionId === q.questionId);
         return (
-          <section key={q.questionId} className={`rounded-2xl bg-white p-5 ring-1 ${rv ? (rv.correct ? "ring-emerald-300" : "ring-red-300") : "ring-slate-200"}`}>
+          <section key={q.questionId} className={`rounded-2xl bg-white p-5 ring-1 ${rv ? (rv.correct ? "animate-pop ring-2 ring-emerald-400" : "animate-shake ring-2 ring-red-300") : "ring-slate-200"}`}>
             <p className="font-semibold text-slate-900">{i + 1}. {q.stem}</p>
             <div className="mt-3"><AnswerInput q={q} value={values[q.questionId] ?? null} onChange={(v) => setValues((s) => ({ ...s, [q.questionId]: v }))} disabled={Boolean(result) || busy} /></div>
             {rv && <p className={`mt-3 text-sm ${rv.correct ? "text-emerald-800" : "text-red-800"}`}>{rv.correct ? "✓ Correct." : `✗ The answer is: ${rv.correctAnswer}.`} {rv.why}</p>}
@@ -38,7 +38,7 @@ export function ReadMasterPlayer({ articleId, versionId, questions, submit }: {
       {!result ? (
         <button onClick={send} disabled={!ready || busy} className="rounded-xl bg-brand-navy px-6 py-3 text-lg font-semibold text-white disabled:opacity-50">{busy ? "Checking…" : "Submit my answers"}</button>
       ) : (
-        <section role="status" className="rounded-2xl bg-amber-50 p-5 ring-2 ring-amber-300">
+        <section role="status" className="animate-pop rounded-3xl bg-gradient-to-br bg-linear-to-br from-amber-50 to-white p-6 ring-2 ring-amber-300 shadow">
           <p className="text-2xl font-bold text-brand-navy">{result.correct} of {result.total} correct ({result.pct}%)</p>
           <p className="mt-1 text-lg">My reading Lexile: <b>{result.lexileBefore}L → {result.lexileAfter}L</b> {result.lexileAfter > result.lexileBefore ? "⬆" : result.lexileAfter < result.lexileBefore ? "⬇" : ""}</p>
           {result.levelAfter && result.levelAfter !== result.levelBefore && <p className="mt-1 font-semibold text-emerald-800">Next articles: {LV[result.levelAfter]} version.</p>}

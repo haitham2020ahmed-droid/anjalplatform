@@ -4,6 +4,13 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { articleDetail, LEVEL_NAMES } from "@/server/readmaster/service";
 import { lexileBands, levelForLexile } from "@/server/curriculum-map/lexile";
 import { addQuestionAction, saveVersionAction, setStatusAction } from "../actions";
+import { PageHeader } from "@/components/page-header";
+
+const STYLE = {
+  BELOW: { icon: "🟠", ring: "ring-orange-200", head: "bg-orange-50 text-orange-900" },
+  ON: { icon: "🔵", ring: "ring-sky-200", head: "bg-sky-50 text-sky-900" },
+  ABOVE: { icon: "🟢", ring: "ring-emerald-200", head: "bg-emerald-50 text-emerald-900" },
+} as const;
 
 /** One ReadMaster article: its three versions (text + Lexile), their questions, publishing, results. */
 export default async function ReadMasterArticlePage({ params, searchParams }: { params: Promise<{ articleId: string }>; searchParams: Promise<{ msg?: string }> }) {
@@ -16,26 +23,26 @@ export default async function ReadMasterArticlePage({ params, searchParams }: { 
   const box = "rounded-lg border border-slate-300 px-3 py-2";
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href={`/admin/readmaster?grade=${a.grade}`} className="text-brand-teal hover:underline">← ReadMaster</Link></p>
-      <div className="mt-2 flex flex-wrap items-start justify-between gap-3">
-        <div><h1 className="text-3xl font-bold text-brand-navy">{a.title}</h1><p className="text-slate-600">Grade {a.grade} · {a.code}{a.skill ? ` · ${a.skill}` : ""}</p></div>
+      <PageHeader back={{ href: `/admin/readmaster?grade=${a.grade}`, label: "ReadMaster" }} icon="📰" title={a.title}
+        subtitle={<span className="flex flex-wrap gap-2 text-sm">{[`Grade ${a.grade}`, a.code, a.standard, a.skill !== a.standard ? a.skill : null].filter(Boolean).map((t) => <span key={String(t)} className="rounded-full bg-white px-3 py-0.5 font-semibold ring-1 ring-slate-200">{t}</span>)}<span className={`rounded-full px-3 py-0.5 font-bold ${a.status === "PUBLISHED" ? "bg-teal-100 text-teal-800" : "bg-slate-100 text-slate-600"}`}>{a.status === "PUBLISHED" ? "Published" : "Draft"}</span></span>}>
         <form action={setStatusAction}><input type="hidden" name="articleId" value={a.id} /><input type="hidden" name="status" value={a.status === "PUBLISHED" ? "DRAFT" : "PUBLISHED"} />
           <button className={`rounded-xl px-4 py-2 font-semibold ${a.status === "PUBLISHED" ? "text-brand-navy ring-1 ring-slate-300" : "bg-brand-navy text-white hover:bg-brand-purple"}`}>{a.status === "PUBLISHED" ? "Move back to draft" : "Publish to students"}</button>
         </form>
-      </div>
+      </PageHeader>
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <div className="mt-6 grid gap-4 xl:grid-cols-3">
         {(["BELOW", "ON", "ABOVE"] as const).map((l) => {
           const v = a.versionsFull.find((x) => x.level === l);
           const off = v && levelForLexile(band, v.lexile) !== l;
           return (
-            <section key={l} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-              <h2 className="text-lg font-bold text-brand-navy">{LEVEL_NAMES[l]}</h2>
+            <section key={l} className={`overflow-hidden rounded-3xl bg-white shadow-sm ring-2 ${STYLE[l].ring}`}>
+              <h2 className={`px-4 py-3 text-lg font-bold ${STYLE[l].head}`}>{STYLE[l].icon} {LEVEL_NAMES[l]}{v ? <span className="ms-2 text-sm font-semibold opacity-80">{v.lexile}L · {v.wordCount} words · {v.questions.length} Q</span> : <span className="ms-2 text-sm font-semibold opacity-70">not written yet</span>}</h2>
+              <div className="p-4">
               <form action={saveVersionAction} className="mt-2 space-y-2 text-sm">
                 <input type="hidden" name="articleId" value={a.id} /><input type="hidden" name="level" value={l} />
                 <label className="flex items-center gap-2">Lexile<input type="number" name="lexile" min={0} max={2000} required defaultValue={v?.lexile ?? (l === "BELOW" ? band.onMin - 100 : l === "ON" ? Math.round((band.onMin + band.onMax) / 2) : band.onMax + 80)} className={`${box} w-28`} />L</label>
                 {off && <p className="text-xs font-semibold text-amber-800">This Lexile is outside the {LEVEL_NAMES[l]} band for Grade {a.grade}.</p>}
-                <textarea name="body" required rows={10} defaultValue={v?.body ?? ""} style={{ width: "100%" }} placeholder={`The article written for ${LEVEL_NAMES[l]} readers…`} className={box} />
+                <textarea name="body" required rows={14} defaultValue={v?.body ?? ""} style={{ width: "100%" }} placeholder={`The article written for ${LEVEL_NAMES[l]} readers…`} className={box} />
                 <button className="rounded-lg bg-brand-navy px-3 py-1.5 font-semibold text-white">{v ? "Save text" : "Add this version"}</button>
                 {v && <span className="ms-2 text-xs text-slate-500">{v.wordCount} words</span>}
               </form>
@@ -56,6 +63,7 @@ export default async function ReadMasterArticlePage({ params, searchParams }: { 
                   </details>
                 </>
               )}
+              </div>
             </section>
           );
         })}

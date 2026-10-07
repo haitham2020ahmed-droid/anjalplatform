@@ -6,6 +6,7 @@ import { CURRICULUM_RULES } from "@/imports/questions/template-files";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { listImportJobs } from "@/server/admin/question-import";
 import { ImportUpload } from "./upload-form";
+import { CcssNote } from "@/components/ccss-note";
 
 const STATUS: Record<string, { text: string; cls: string }> = {
   AWAITING_CONFIRMATION: { text: "Waiting for review", cls: "bg-amber-100 text-amber-900" },
@@ -25,6 +26,7 @@ export default async function ImportQuestionsPage({ searchParams }: { searchPara
     <AppShell name={String(me.displayName)}>
       <p><Link href="/admin/questions" className="text-brand-teal hover:underline">← Questions</Link></p>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">Import questions</h1>
+      <CcssNote className="mt-3" />
       <p className="mt-1 max-w-3xl text-slate-600">Prepare your Excel file, upload it, review every question, then import. Nothing is added to the question bank until you confirm, and imported questions go through the normal review before students see them.</p>
 
       <nav aria-label="Import to" className="mt-5 flex flex-wrap gap-3">

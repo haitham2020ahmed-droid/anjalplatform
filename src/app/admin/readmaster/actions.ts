@@ -11,12 +11,21 @@ import type { Level } from "@/server/curriculum-map/lexile";
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "questions:edit" as const };
 const msgOf = (e: unknown) => { if (e instanceof ValidationError || e instanceof ForbiddenError) return e.message; throw e; };
 
+/** Creates the article and, in the same step, the versions whose text was written (Below / On / Above). */
 export async function createArticleAction(f: FormData): Promise<void> {
   const actor = await requireActor(STAFF);
   let target = "/admin/readmaster";
   try {
-    const id = await saveArticle(repo, actor, { title: String(f.get("title") ?? ""), topic: String(f.get("topic") ?? ""), grade: Number(f.get("grade")), skillId: String(f.get("skillId") ?? "") || null, code: String(f.get("code") ?? "") });
-    target = `/admin/readmaster/${id}?msg=${encodeURIComponent("Article created. Add its three versions.")}`;
+    const id = await saveArticle(repo, actor, { title: String(f.get("title") ?? ""), topic: String(f.get("topic") ?? ""), grade: Number(f.get("grade")), skillId: String(f.get("skillId") ?? "") || null, skillName: String(f.get("skillName") ?? "") || null, standard: String(f.get("standard") ?? "") || null, code: String(f.get("code") ?? "") });
+    const saved: string[] = [], problems: string[] = [];
+    for (const level of ["BELOW", "ON", "ABOVE"] as Level[]) {
+      const body = String(f.get(`body:${level}`) ?? "").trim();
+      if (!body) continue;
+      try { await saveVersion(repo, actor, id, level, { lexile: Number(f.get(`lexile:${level}`)), body }); saved.push(level.toLowerCase()); }
+      catch (e) { problems.push(`${level.toLowerCase()}: ${msgOf(e)}`); }
+    }
+    const msg = `Article created${saved.length ? ` with ${saved.length} version(s) (${saved.join(", ")})` : ""}. ${problems.length ? `Not saved — ${problems.join(" · ")}. ` : ""}Now add the questions of each version.`;
+    target = `/admin/readmaster/${id}?msg=${encodeURIComponent(msg)}`;
   } catch (e) { target = `/admin/readmaster?msg=${encodeURIComponent(msgOf(e))}`; }
   redirect(target);
 }

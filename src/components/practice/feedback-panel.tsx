@@ -7,7 +7,7 @@ export function FeedbackPanel({ fb }: { fb: Feedback }) {
   const ok = fb.correct;
   return (
     <section role="status" aria-live="polite"
-      className={["rounded-2xl border-2 p-5", ok ? "border-teal-300 bg-teal-50" : "border-amber-300 bg-amber-50"].join(" ")}>
+      className={["rounded-2xl border-2 p-5 shadow-sm", ok ? "animate-pop border-teal-300 bg-gradient-to-br bg-linear-to-br from-teal-50 to-white" : "animate-shake border-amber-300 bg-gradient-to-br bg-linear-to-br from-amber-50 to-white"].join(" ")}>
       <h2 className={["flex items-center gap-2 text-2xl font-bold", ok ? "text-teal-800" : "text-amber-900"].join(" ")}>
         <span aria-hidden="true">{ok ? "✓" : "✗"}</span>{ok ? "Correct!" : "Not quite."}
       </h2>

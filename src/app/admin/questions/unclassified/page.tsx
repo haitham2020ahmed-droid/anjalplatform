@@ -3,6 +3,7 @@ import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { unclassifiedQuestions } from "@/server/curriculum-map/questions";
 import { classifyAction } from "./actions";
+import { PageHeader } from "@/components/page-header";
 
 /** 🏷️ Curriculum questions without a platform skill: give each one a skill of its grade. */
 export default async function UnclassifiedPage({ searchParams }: { searchParams: Promise<{ msg?: string }> }) {
@@ -12,9 +13,7 @@ export default async function UnclassifiedPage({ searchParams }: { searchParams:
   const { rows, skills } = await unclassifiedQuestions(repo, actor.schoolId!);
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href="/admin/questions" className="text-brand-teal hover:underline">← Question Bank</Link></p>
-      <h1 className="mt-2 text-3xl font-bold text-brand-navy"><span aria-hidden="true">🏷️</span> Classify curriculum questions</h1>
-      <p className="mt-1 max-w-3xl text-slate-600">These questions are on the Curriculum Map but have no platform skill yet (“Unclassified”). Give each a skill of its grade: they then also count in adaptive practice and skill reports. Their place on the map does not change.</p>
+      <PageHeader back={{ href: "/admin/questions", label: "Question Bank" }} icon="🏷️" title="Classify curriculum questions" subtitle={<>These questions are on the Curriculum Map but have no platform skill yet (“Unclassified”). Give each a skill of its grade: they then also count in adaptive practice and skill reports. Their place on the map does not change.</>} />
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {rows.length === 0 ? <p className="mt-6 rounded-xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">Nothing to classify. ✅</p> : (
         <form action={classifyAction} className="mt-5 rounded-2xl bg-white p-5 ring-1 ring-slate-200">

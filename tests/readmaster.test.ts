@@ -5,7 +5,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { importReadMaster, rmTemplateRows } from "../src/server/readmaster/import";
-import { addVersionQuestion, articleDetail, listArticles, openArticle, readingLexile, saveArticle, saveVersion, setArticleStatus, studentArticles, submitArticle } from "../src/server/readmaster/service";
+import { addVersionQuestion, articleDetail, gradeStandards, listArticles, openArticle, readingLexile, saveArticle, saveVersion, setArticleStatus, studentArticles, submitArticle } from "../src/server/readmaster/service";
 import { loadQuestionItems } from "../src/server/practice/items";
 import { demoDatabase } from "./helpers/db";
 
@@ -33,8 +33,18 @@ describe("⭐ ReadMaster: one article, three reading levels, Lexile that moves",
     const d = await articleDetail(repo, admin, articleId);
     const q = (await repo.findUnique("Question", { id: d.versionsFull[0].questions[0].id }))!;
     assert.deepEqual([q.status, Number(q.lexile)], ["PUBLISHED", 650], "a published bank question carrying the version's Lexile");
+    // the Common Core standard: on the article and on every one of its questions
+    assert.deepEqual([a.standard, a.skill], ["RI.4.2", "Main Idea and Key Details"]);
+    const std = (await repo.findMany("Standard", { code: "CCSS.ELA-LITERACY.RI.4.2" }))[0];
+    for (const v of d.versionsFull) for (const qq of v.questions) assert.equal(String((await repo.findUnique("Question", { id: qq.id }))!.standardId), String(std.id));
+    const g6 = await gradeStandards(repo, 6);
+    assert.ok(g6.length >= 4 && g6.every((x) => x.items.length) && g6.some((x) => x.strand === "Reading: Informational Text"), "Grade 6 lists its Common Core standards by strand");
+    await assert.rejects(saveArticle(repo, admin, { title: "Wrong standard", grade: 4, standard: "RI.5.2" }), /not a Common Core standard of Grade 4/);
+    const free = await saveArticle(repo, admin, { title: "Free skill name", grade: 6, standard: "ri.6.2", skillName: "Central Idea" });
+    const fa = (await repo.findUnique("ReadMasterArticle", { id: free }))!;
+    assert.deepEqual([fa.standardCode, fa.skillName], ["CCSS.ELA-LITERACY.RI.6.2", "Central Idea"]);
     // a bad row is reported, the rest still imports
-    const bad = await importReadMaster(repo, admin, [rmTemplateRows()[0], ["NEW-1", "", "4", "", "", "On", "", "", "Q?", "Multiple Choice", "a", "b", "", "", "A", "x"]]);
+    const bad = await importReadMaster(repo, admin, [rmTemplateRows()[0], ["NEW-1", "", "4", "", "", "", "On", "", "", "Q?", "Multiple Choice", "a", "b", "", "", "A", "x"]]);
     assert.match(bad.errors[0].message, /is new: write its Title/);
   });
 

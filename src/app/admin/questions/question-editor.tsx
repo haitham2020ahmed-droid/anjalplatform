@@ -7,6 +7,7 @@ import { saveQuestionAction } from "../actions";
 import { possibleMissingPassage } from "@/lib/passage-detect";
 import { ImageField } from "./image-field";
 import { createSkillAction, createStandardAction } from "../curriculum/manage-actions";
+import { CcssNote } from "@/components/ccss-note";
 
 type Skill = { id: string; grade: number; name: string };
 const TYPES: [string, string][] = [
@@ -105,6 +106,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
         <label className={label}>Difficulty<select value={q.level} onChange={(e) => set({ level: Number(e.target.value) })} className={field}>{LEVELS.map((l, i) => <option key={l} value={i + 1}>{i + 1} · {l}</option>)}</select></label>
         <label className={label}>Standard (optional)<input list="standards" value={q.standardCode ?? ""} onChange={(e) => set({ standardCode: e.target.value || null })} placeholder="Skill's standard" className={field} /></label>
         <datalist id="standards">{standards.map((s) => <option key={s} value={s} />)}</datalist>
+        <CcssNote className="sm:col-span-2" />
         <label className={label}>Cognitive level (optional)<select value={q.cognitiveLevel ?? ""} onChange={(e) => set({ cognitiveLevel: e.target.value || null })} className={field}><option value="">—</option>{["Remember", "Understand", "Apply", "Analyze", "Evaluate", "Create"].map((c) => <option key={c} value={c}>{c}</option>)}</select></label>
         <label className={label}>Lexile (optional)<input type="number" min={0} max={2000} value={q.lexile ?? ""} onChange={(e) => set({ lexile: e.target.value === "" ? null : Number(e.target.value) })} placeholder="e.g. 820" className={field} /></label>
         <label className={label}>Expected time (seconds)<input type="number" min={10} max={600} value={q.estimatedSeconds ?? 45} onChange={(e) => set({ estimatedSeconds: Number(e.target.value) })} className={field} /></label>

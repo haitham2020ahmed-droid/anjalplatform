@@ -6,6 +6,7 @@ import { classLevels, LEVEL_NAMES } from "@/server/curriculum-map/levels";
 import { giveTestAction, saveLevelsAction, saveLexileBandsAction } from "../levels-actions";
 import { can } from "@/server/auth/rbac";
 import { LEXILE_SOURCE, lexileBands } from "@/server/curriculum-map/lexile";
+import { PageHeader } from "@/components/page-header";
 
 /** 🎯 Student levels (Above / On / Below) + Placement test and MAP practice test for a class. */
 export default async function LevelsPage({ searchParams }: { searchParams: Promise<{ classId?: string; msg?: string }> }) {
@@ -21,9 +22,7 @@ export default async function LevelsPage({ searchParams }: { searchParams: Promi
   const editBands = actor.role !== "TEACHER" && can(actor, "settings:school");
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href={isTeacher ? "/teacher" : "/admin"} className="text-brand-teal hover:underline">← Back</Link></p>
-      <h1 className="mt-2 text-3xl font-bold text-brand-navy"><span aria-hidden="true">🎯</span> Student levels &amp; tests</h1>
-      <p className="mt-1 max-w-3xl text-slate-600">Each student’s level decides which Curriculum Map questions they get (Above / On / Below Level). Set it here, or give the Placement test: its score sets the level automatically (80%+ Above, 50–79% On, under 50% Below).</p>
+      <PageHeader back={{ href: isTeacher ? "/teacher" : "/admin", label: "Back" }} icon="🎯" title="Student levels &amp; tests" subtitle={<>Each student’s level decides which Curriculum Map questions they get (Above / On / Below Level). Set it here, or give the Placement test: its score sets the level automatically (80%+ Above, 50–79% On, under 50% Below).</>} />
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {!v ? <p className="mt-6 text-slate-600">No classes yet.</p> : (
         <>

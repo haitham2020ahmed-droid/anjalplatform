@@ -6,6 +6,7 @@ import { attachmentNodes } from "@/server/curriculum-map/questions";
 import { lexileBands } from "@/server/curriculum-map/lexile";
 import { listQuestions } from "@/server/admin/questions";
 import { ImportUpload } from "@/app/admin/questions/import/upload-form";
+import { CcssNote } from "@/components/ccss-note";
 
 const LV = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" } as const;
 
@@ -54,6 +55,7 @@ export default async function PlacePage({ params }: { params: Promise<{ code: st
           <div className="mt-4"><ImportUpload target="CURRICULUM" place={code} /></div>
         </section>
       </div>
+      <CcssNote className="mt-4" />
       <section className="mt-8">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-xl font-bold text-brand-navy">Questions on this place</h2>
