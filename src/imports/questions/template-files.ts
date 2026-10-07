@@ -11,7 +11,7 @@
  */
 import { toCsv } from "../csv";
 import { zip } from "../../reports/zip";
-import { COGNITIVE_LEVELS, EXAMPLE_MARK, SUPPORTED_TYPES, TEACHER_RULES, TEMPLATE_COLUMNS, TEMPLATE_HEADERS, shortStandard, type CurriculumIndex, type SkillRef } from "./template";
+import { COGNITIVE_LEVELS, CURRICULUM_TEMPLATE_HEADERS, EXAMPLE_MARK, SUPPORTED_TYPES, TEACHER_RULES, TEMPLATE_COLUMNS, TEMPLATE_HEADERS, shortStandard, type CurriculumIndex, type SkillRef } from "./template";
 
 const LEVELS = ["1 = very easy", "2 = easy", "3 = below grade level", "4 = grade level", "5 = above grade level", "6 = challenging", "7 = advanced"];
 
@@ -153,4 +153,98 @@ export function workbookXlsx(sheets: Sheet[]): Uint8Array {
     { name: "xl/styles.xml", data: STYLES },
     ...sheets.map((s, i) => ({ name: `xl/worksheets/sheet${i + 1}.xml`, data: sheetXml(s) })),
   ]);
+}
+
+// ------------------------------------------------------------------ Curriculum import template (advanced)
+
+/** A place on the Curriculum Map, as the template lists it (from attachmentNodes). */
+export interface MapPlace {
+  code: string; grade: number; unit: number; setKind: "TEXT_SET" | "SELECTION"; setNumber: number; heading: string;
+  sharedRead?: string | null; genre?: string | null; categoryLabel: string; skills?: string | null; level: "ABOVE" | "ON" | "BELOW" | null;
+}
+const MAP_LEVEL_TEXT = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
+const categoryName = (label: string) => label.replace(/^\d+-\s*/, "");
+export const CATEGORY_NAMES = ["Concept Vocabulary", "Analyze Craft and Structure", "Respond to Reading"] as const;
+
+/**
+ * Columns of the Curriculum template: the place first (pre-filled), then the question. The importer
+ * reads columns by name, so any order works; Skill, Standard, Difficulty and Cognitive Level are optional.
+ */
+export const CURRICULUM_SHEET_HEADERS = [
+  "Grade", "Unit", "Text Set / Selection", "Category", "Map Level", "Curriculum Map ID",
+  "Question Text", "Question Type", "Option A", "Option B", "Option C", "Option D", "Correct Answer", "Explanation",
+  "Passage/Text", "Lexile", "Difficulty Level", "Cognitive Level", "Skill", "Standard",
+] as const;
+export const DEFAULT_ROWS_PER_PLACE = 5;
+export const MAX_ROWS_PER_PLACE = 20;
+
+/** Every place questions can go on the Curriculum Map (one row each), with its text set details. */
+export function mapPlaceRows(places: MapPlace[]): string[][] {
+  return [["Curriculum Map ID", "Grade", "Unit", "Text Set / Selection", "Shared Read", "Genre", "Category", "Skills", "Map Level"],
+    ...places.map((p) => [p.code, String(p.grade), String(p.unit), p.heading, p.sharedRead ?? "", p.genre ?? "", categoryName(p.categoryLabel), p.skills ?? "", p.level ? MAP_LEVEL_TEXT[p.level] : ""])];
+}
+
+/** Ready rows: every place repeated `perPlace` times with its place filled in; two [Example] rows first. */
+export function curriculumTemplateRows(places: MapPlace[], perPlace = DEFAULT_ROWS_PER_PLACE): string[][] {
+  const n = Math.max(1, Math.min(MAX_ROWS_PER_PLACE, Math.round(perPlace)));
+  const at = (p: MapPlace): Record<string, string> => ({ Grade: String(p.grade), Unit: String(p.unit), "Text Set / Selection": String(p.setNumber), Category: categoryName(p.categoryLabel), "Map Level": p.level ? MAP_LEVEL_TEXT[p.level] : "", "Curriculum Map ID": p.code });
+  const row = (v: Record<string, string>) => CURRICULUM_SHEET_HEADERS.map((h) => v[h] ?? "");
+  const cv = places.find((p) => p.categoryLabel.includes("Concept Vocabulary"));
+  const acs = places.find((p) => p.categoryLabel.includes("Analyze Craft") && p.level === "ON");
+  const examples = [
+    cv && row({ ...at(cv), "Question Text": `${EXAMPLE_MARK} Which word has more than one meaning?`, "Question Type": "Multiple Choice", "Option A": "bat", "Option B": "happy", "Option C": "quickly", "Option D": "blue", "Correct Answer": "A", Explanation: "A bat can be an animal or a tool used in sports." }),
+    acs && row({ ...at(acs), "Question Text": `${EXAMPLE_MARK} Why did the author include headings in the text?`, "Question Type": "Multiple Choice", "Option A": "to organize information", "Option B": "to tell a joke", "Option C": "to list the characters", "Option D": "to rhyme", "Correct Answer": "A", Explanation: "Headings tell the reader what each part is about." }),
+  ].filter((r): r is string[] => Boolean(r));
+  return [[...CURRICULUM_SHEET_HEADERS], ...examples, ...places.flatMap((p) => Array.from({ length: n }, () => row(at(p))))];
+}
+
+export const CURRICULUM_RULES = [
+  "Every question goes to the Curriculum Map AND to the Question Bank.",
+  "The Questions sheet already lists every place on the Curriculum Map (several empty rows each). Write your question in a row of the place you want; leave the other rows empty: rows without a question are skipped.",
+  "Need more rows for a place? Copy one of its rows (the place columns) and paste it below.",
+  "The place can also be written by hand: Unit, Text Set / Selection (number or exact title), Category, Map Level — or just the Curriculum Map ID.",
+  "Category: Concept Vocabulary, Analyze Craft and Structure, or Respond to Reading (Grades 4–5 only). Map Level: Above, On or Below; EMPTY for Concept Vocabulary.",
+  "Skill and Standard are optional. Without a skill, the question is saved as “Unclassified (Curriculum Map)”.",
+  "Difficulty Level is optional: Above = 5, On = 4, Below = 3, Concept Vocabulary = 4. Cognitive Level is optional.",
+  "Lexile (recommended): the text complexity of the question or its passage, e.g. 820. Below / On / Above follow the Lexile bands of the grade (CCSS: Grades 4–5 740L–1010L, Grades 6–8 925L–1185L); a Lexile outside its level's band is flagged.",
+  "Up to 5,000 questions per file. Rows starting with [Example] are examples: delete or replace them.",
+];
+
+export function curriculumTemplateCsv(places: MapPlace[], perPlace = DEFAULT_ROWS_PER_PLACE): string {
+  return toCsv(curriculumTemplateRows(places, perPlace));
+}
+
+/** The advanced Excel template: ready rows per place, drop-down lists, the Curriculum Map sheet, instructions. */
+export function curriculumTemplateXlsx(places: MapPlace[], perPlace = DEFAULT_ROWS_PER_PLACE): Uint8Array {
+  const rows = curriculumTemplateRows(places, perPlace);
+  const last = rows.length + 2000; // room for rows added by copy/paste
+  const at = (h: (typeof CURRICULUM_SHEET_HEADERS)[number]) => col(CURRICULUM_SHEET_HEADERS.indexOf(h));
+  const range = (h: (typeof CURRICULUM_SHEET_HEADERS)[number]) => `${at(h)}2:${at(h)}${last}`;
+  const list = (h: (typeof CURRICULUM_SHEET_HEADERS)[number], values: readonly string[], strict = true) =>
+    `<dataValidation type="list" allowBlank="1" showInputMessage="1" showErrorMessage="1"${strict ? "" : ' errorStyle="warning"'} sqref="${range(h)}"><formula1>"${x(values.join(","))}"</formula1></dataValidation>`;
+  const grades = [...new Set(places.map((p) => String(p.grade)))].sort();
+  const validations = [
+    list("Grade", grades),
+    list("Category", CATEGORY_NAMES),
+    list("Map Level", ["Above", "On", "Below"]),
+    `<dataValidation type="list" allowBlank="1" showInputMessage="1" showErrorMessage="1" errorStyle="warning" errorTitle="Not on the Curriculum Map" error="This ID is not on the Curriculum Map sheet." sqref="${range("Curriculum Map ID")}"><formula1>'Curriculum Map'!$A$2:$A$${places.length + 1}</formula1></dataValidation>`,
+    list("Question Type", SUPPORTED_TYPES.map((t) => t.name)),
+    list("Correct Answer", ["A", "B", "C", "D", "True", "False"], false),
+    `<dataValidation type="whole" allowBlank="1" showInputMessage="1" showErrorMessage="1" errorTitle="Difficulty Level" error="Write a whole number from 1 to 7 (or leave it empty)." promptTitle="Difficulty Level (optional)" prompt="Empty = from the Map Level: Above 5, On 4, Below 3." sqref="${range("Difficulty Level")}"><formula1>1</formula1><formula2>7</formula2></dataValidation>`,
+    list("Cognitive Level", [...COGNITIVE_LEVELS]),
+  ];
+  const wide = new Set(["Question Text", "Passage/Text", "Explanation"]);
+  const questions: Sheet = {
+    name: "Questions", rows, headerStyle: true, freeze: true,
+    widths: CURRICULUM_SHEET_HEADERS.map((h) => (wide.has(h) ? 50 : h === "Curriculum Map ID" ? 24 : h === "Category" ? 28 : /^Option/.test(h) ? 18 : h === "Text Set / Selection" ? 14 : 12)),
+    numericCols: new Set([CURRICULUM_SHEET_HEADERS.indexOf("Grade"), CURRICULUM_SHEET_HEADERS.indexOf("Unit"), CURRICULUM_SHEET_HEADERS.indexOf("Difficulty Level"), CURRICULUM_SHEET_HEADERS.indexOf("Lexile")]),
+    validations: `<dataValidations count="${validations.length}">${validations.join("")}</dataValidations>`,
+  };
+  const map: Sheet = { name: "Curriculum Map", rows: mapPlaceRows(places), widths: [24, 7, 7, 44, 44, 22, 28, 60, 10], headerStyle: true, freeze: true, numericCols: new Set([1, 2]) };
+  const instructions: Sheet = {
+    name: "Instructions", widths: [6, 120],
+    rows: [["Import to Curriculum — advanced template"], [""], ...CURRICULUM_RULES.map((r, i) => [`${i + 1}.`, r]), [""],
+      ["", `Question types: ${SUPPORTED_TYPES.map((t) => t.name).join(", ")}.`], ["", `Places on the Curriculum Map: ${places.length}.`]],
+  };
+  return workbookXlsx([questions, map, instructions]);
 }

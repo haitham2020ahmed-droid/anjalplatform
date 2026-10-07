@@ -13,7 +13,7 @@ const OK_NAME = /\.(csv|xlsx)$/i;
  * Sends the file with a visible upload percentage, then waits while the server checks every row.
  * Any reply that is not the expected JSON still produces a specific message (never just "failed").
  */
-function upload(file: File, onProgress: (p: number) => void): Promise<{ status: number; body: { jobId?: string; error?: string; details?: string[] } | null; raw: string }> {
+function upload(file: File, onProgress: (p: number) => void, target: "BANK" | "CURRICULUM" = "BANK"): Promise<{ status: number; body: { jobId?: string; error?: string; details?: string[] } | null; raw: string }> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/question-imports");
@@ -28,11 +28,13 @@ function upload(file: File, onProgress: (p: number) => void): Promise<{ status: 
     xhr.timeout = 6 * 60 * 1000;
     const fd = new FormData();
     fd.set("file", file);
+    fd.set("target", target);
     xhr.send(fd);
   });
 }
 
-export function ImportUpload() {
+/** target: BANK (Question Bank only) or CURRICULUM (on the Curriculum Map, and in the bank). */
+export function ImportUpload({ target = "BANK" }: { target?: "BANK" | "CURRICULUM" } = {}) {
   const router = useRouter();
   const input = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
@@ -62,7 +64,7 @@ export function ImportUpload() {
     setFailure(null);
     setPhase({ kind: "uploading", percent: 0 });
     try {
-      const res = await upload(file, (percent) => setPhase(percent >= 100 ? { kind: "checking" } : { kind: "uploading", percent }));
+      const res = await upload(file, (percent) => setPhase(percent >= 100 ? { kind: "checking" } : { kind: "uploading", percent }), target);
       if (res.status === 200 && res.body?.jobId) {
         router.push(`/admin/questions/import/${res.body.jobId}`);
         return;

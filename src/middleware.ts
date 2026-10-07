@@ -9,7 +9,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { contentSecurityPolicy, newNonce } from "@/server/auth/csp";
 
-const PUBLIC = ["/login", "/_next", "/favicon", "/api/health"];
+const PUBLIC = ["/login", "/_next", "/favicon", "/api/health", "/brand/", "/api/school-logo"];
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;

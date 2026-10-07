@@ -85,7 +85,7 @@ export default async function SettingsPage() {
           <ActionForm action={brandingAction} submit="Save branding" className="mt-3 grid gap-3 sm:grid-cols-2">
             <label className={label}>School name (English)<input value={branding.name} disabled className={field} /></label>
             <label className={label}>School name (Arabic)<input name="nameAr" defaultValue={branding.nameAr ?? ""} dir="rtl" lang="ar" maxLength={120} placeholder="مدارس الأنجال الأهلية" className={field} /></label>
-            <label className={label}>Logo {branding.logoUrl ? <span className="text-slate-500">(current: {branding.logoUrl})</span> : null}<input type="file" name="logo" accept="image/png,image/jpeg,image/svg+xml" className="mt-1 block" /></label>
+            <label className={label}>Logo {branding.logoUrl ? <span className="text-slate-500">(current: {branding.logoUrl.startsWith("db:") ? "uploaded" : branding.logoUrl})</span> : null}<input type="file" name="logo" accept="image/png,image/jpeg,image/svg+xml" className="mt-1 block" /></label>
             {branding.logoUrl && <label className="flex items-center gap-2 pt-6 text-sm"><input type="checkbox" name="removeLogo" value="true" />Remove the logo</label>}
           </ActionForm>
         </section>

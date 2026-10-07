@@ -153,12 +153,12 @@ export async function findMissingPassageQuestions(repo: Repo): Promise<FlaggedQu
 
 /** Backup of exactly the questions that will be deleted (same format as the bank backup: restorable). */
 export async function backupSubset(repo: Repo, ids: string[], now = new Date()): Promise<QuestionBackup> {
-  const tables: Record<string, Row[]> = { Question: [], QuestionOption: [], QuestionAnswer: [], QuestionExplanation: [], QuestionStats: [], AssessmentQuestion: [], QuestionImage: [] };
+  const tables: Record<string, Row[]> = { Question: [], QuestionOption: [], QuestionAnswer: [], QuestionExplanation: [], QuestionStats: [], AssessmentQuestion: [], QuestionImage: [], QuestionMapLink: [], ReadMasterQuestion: [], QuestionUse: [] };
   for (let i = 0; i < ids.length; i += 200) {
     const part = ids.slice(i, i + 200);
     const qs = await repo.findMany("Question", { id: { in: part } });
     tables.Question.push(...qs);
-    for (const t of ["QuestionOption", "QuestionAnswer", "QuestionExplanation", "QuestionStats", "AssessmentQuestion"]) tables[t].push(...(await repo.findMany(t, { questionId: { in: part } })));
+    for (const t of ["QuestionOption", "QuestionAnswer", "QuestionExplanation", "QuestionStats", "AssessmentQuestion", "QuestionMapLink", "ReadMasterQuestion", "QuestionUse"]) tables[t].push(...(await repo.findMany(t, { questionId: { in: part } })));
     const imageIds = [...new Set(qs.map((q) => q.imageId).filter(Boolean).map(s))];
     if (imageIds.length) tables.QuestionImage.push(...(await repo.findMany("QuestionImage", { id: { in: imageIds } })).map((r) => ({ ...r, bytes: Buffer.from(r.bytes as Uint8Array).toString("base64") })));
   }

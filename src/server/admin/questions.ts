@@ -28,6 +28,7 @@ import { schoolOf } from "./users";
 import { cleanPassage, passageForText } from "./passages";
 import { needsPassage, possibleMissingPassage } from "../../lib/passage-detect";
 import { cleanAlt, removeUnusedImages } from "./question-images";
+import { attachmentNodes, placesOf, setQuestionMapNode, setQuestionUses, unclassifiedSkillId, type QuestionUseKind } from "../curriculum-map/questions";
 
 export type QuestionStatus = "DRAFT" | "UNDER_REVIEW" | "PUBLISHED" | "ARCHIVED";
 export const STATUSES: readonly QuestionStatus[] = ["DRAFT", "UNDER_REVIEW", "PUBLISHED", "ARCHIVED"];
@@ -44,6 +45,16 @@ export interface EditorInput {
    * passage: text → the passage with that text (found or created), "" → no passage.
    */
   passageText?: string | null;
+  /**
+   * Curriculum Map place (an attachment node's ID, e.g. G4.U1.TS1.ACS.ON): the question is then on the
+   * map AND in the bank. null = bank only. Leave out = unchanged. Without a skill, the question gets
+   * its grade's “Unclassified (Curriculum Map)” skill.
+   */
+  mapNodeCode?: string | null;
+  /** Placement / MAP test uses (both allowed). Leave out = unchanged. */
+  uses?: QuestionUseKind[];
+  /** Lexile of the question/passage (e.g. 820). null = none; leave out = unchanged. */
+  lexile?: number | null;
   /** optional QuestionImage id (null = no image; leave out = unchanged) and its description */
   imageId?: string | null;
   imageAlt?: string | null;
@@ -128,7 +139,7 @@ function assertMayEdit(actor: Actor, q: Row) {
  * Phase 1 validator. No database access, so the importer can validate thousands of rows quickly.
  * Throws ValidationError with every problem found.
  */
-export function buildBankItem(input: EditorInput, ctx: { ref: string; grade: number; skillCode: string; standardCode: string | null; passageRef: string | null }): BankItem {
+export function buildBankItem(input: EditorInput, ctx: { ref: string; grade: number; skillCode: string; standardCode: string | null; passageRef: string | null; /** Curriculum Map questions may have no standard */ allowNoStandard?: boolean }): BankItem {
   if (!(QUESTION_TYPES as readonly string[]).includes(input.type)) throw new ValidationError("Choose a question type.");
   const item: BankItem = {
     ref: ctx.ref, grade: ctx.grade, family: "", skillKey: ctx.skillCode, standard: ctx.standardCode || "(none)",
@@ -144,7 +155,8 @@ export function buildBankItem(input: EditorInput, ctx: { ref: string; grade: num
     pairs: input.pairs?.map((p) => ({ left: text(p.left, "Left", 200), right: text(p.right, "Right", 200) })),
   };
   const passages = new Set(item.passage ? [item.passage] : []);
-  const issues = validateItem(item, { skillKeys: new Set([item.skillKey]), standards: new Set(ctx.standardCode ? [ctx.standardCode] : []), passages });
+  const noStandardOk = !ctx.standardCode && ctx.allowNoStandard;
+  const issues = validateItem(item, { skillKeys: new Set([item.skillKey]), standards: new Set(ctx.standardCode ? [ctx.standardCode] : noStandardOk ? [item.standard] : []), passages });
   if (issues.length) throw new ValidationError(issues.map((i) => i.message.replace(/^unknown standard.*/, "Choose the standard this question assesses.")).join("; "));
   return item;
 }
@@ -164,6 +176,7 @@ async function toBankItem(repo: Repo, actor: Actor, input: EditorInput, ref: str
   const item = buildBankItem(input, {
     ref, grade, skillCode: String(skill.code), standardCode: std ? String(std.code) : null,
     passageRef: passage ? String(passage.externalRef ?? passage.id) : null,
+    allowNoStandard: Boolean(input.mapNodeCode) || String(skill.code).endsWith(".curriculum-map-unclassified"),
   });
   return { item, grade, standardId: std ? String(std.id) : null, passageId: passage ? String(passage.id) : null };
 }
@@ -214,8 +227,31 @@ async function checkedImage(repo: Repo, input: EditorInput): Promise<string | nu
   return String(img.id);
 }
 
-export async function createDraft(repo: Repo, actor: Actor, input: EditorInput, now = new Date()): Promise<string> {
+/** Resolves the Curriculum Map place: the node to link, and the skill (Unclassified when none is given). */
+async function placeOnMap(repo: Repo, actor: Actor, input: EditorInput): Promise<{ input: EditorInput; nodeId: string | null | undefined }> {
+  if (input.mapNodeCode === undefined) return { input, nodeId: undefined };
+  const code = String(input.mapNodeCode ?? "").trim();
+  if (!code) return { input, nodeId: null };
+  const node = (await attachmentNodes(repo, schoolOf(actor))).find((n) => n.code.toUpperCase() === code.toUpperCase());
+  if (!node) throw new ValidationError(`The Curriculum Map place “${code}” does not exist or does not accept questions.`);
+  if (!input.skillId) return { input: { ...input, skillId: await unclassifiedSkillId(repo, schoolOf(actor), node.grade) }, nodeId: node.id };
+  const { grade } = await skillInSchool(repo, actor, input.skillId);
+  if (grade !== node.grade) throw new ValidationError(`The skill is in Grade ${grade}, but the Curriculum Map place is in Grade ${node.grade}.`);
+  return { input, nodeId: node.id };
+}
+
+/** A Lexile is a whole number from 0 to 2000 (“820L” is accepted); empty = none. */
+export function cleanLexile(v: unknown): number | null {
+  if (v === null || v === undefined || String(v).trim() === "") return null;
+  const n = Number(String(v).trim().replace(/l$/i, ""));
+  if (!Number.isInteger(n) || n < 0 || n > 2000) throw new ValidationError(`Lexile “${v}” must be a whole number from 0 to 2000 (e.g. 820 or 820L).`);
+  return n;
+}
+
+export async function createDraft(repo: Repo, actor: Actor, inputIn: EditorInput, now = new Date()): Promise<string> {
   assertCan(actor, "questions:edit");
+  const placed = await placeOnMap(repo, actor, inputIn);
+  const input = placed.input;
   const ref = `T${(await skillInSchool(repo, actor, input.skillId)).grade}-${randomBytes(4).toString("hex")}`;
   const passageText = input.passageText === undefined ? undefined : cleanPassage(input.passageText);
   const { item, standardId, passageId: givenPassage, grade } = await toBankItem(repo, actor, passageText === undefined ? input : { ...input, passageId: null }, ref);
@@ -226,19 +262,23 @@ export async function createDraft(repo: Repo, actor: Actor, input: EditorInput, 
       externalRef: ref, skillId: input.skillId, standardId, passageId, typeId, stem: item.stem, content: contentPayload(item), hint: input.hint ? text(input.hint, "Hint", 500) : null,
       difficultyLevel: item.level, irtA: 1, irtB: item.irt.b, irtC: 0, estimatedSeconds: item.estimatedSeconds,
       status: "DRAFT", origin: input.imported ? "IMPORTED" : input.aiDrafted ? "AI_GENERATED" : "TEACHER_AUTHORED", aiStatus: input.aiDrafted && !input.imported ? "AI_GENERATED" : null,
-      lessonId: input.lessonId ?? null, tags: tagsFor(input, null), imageId: input.imageId ? await checkedImage(tx, input) : null,
+      lessonId: input.lessonId ?? null, tags: tagsFor(input, null), imageId: input.imageId ? await checkedImage(tx, input) : null, lexile: cleanLexile(input.lexile),
       createdById: actor.userId, createdAt: now, updatedAt: now,
     });
     await writeParts(tx, String(q.id), item);
     return String(q.id);
   });
+  if (placed.nodeId) await setQuestionMapNode(repo, id, placed.nodeId, actor.userId);
+  if (input.uses?.length) await setQuestionUses(repo, id, input.uses);
   await audit(repo, { actorId: actor.userId, action: "question.create", entityType: "Question", entityId: id, after: { ref, skillId: input.skillId, type: item.type, level: item.level, aiDrafted: !!input.aiDrafted }, at: now });
   return id;
 }
 
-export async function updateDraft(repo: Repo, actor: Actor, id: string, input: EditorInput, now = new Date()): Promise<void> {
+export async function updateDraft(repo: Repo, actor: Actor, id: string, inputIn: EditorInput, now = new Date()): Promise<void> {
   const q = await questionInSchool(repo, actor, id);
   await mayEditQuestion(repo, actor, q);
+  const placed = await placeOnMap(repo, actor, inputIn);
+  const input = placed.input;
   const passageText = input.passageText === undefined ? undefined : cleanPassage(input.passageText);
   const { item, standardId, passageId: givenPassage, grade } = await toBankItem(repo, actor, passageText === undefined ? input : { ...input, passageId: null }, String(q.externalRef ?? id));
   const byAuthor = q.createdById === actor.userId;
@@ -252,10 +292,13 @@ export async function updateDraft(repo: Repo, actor: Actor, id: string, input: E
       ...(q.calibrated ? {} : { irtB: item.irt.b }), status, updatedAt: now,
       ...(input.lessonId !== undefined ? { lessonId: input.lessonId } : {}), tags: tagsFor(input, q.tags),
       ...(input.imageId !== undefined ? { imageId: await checkedImage(tx, input) } : {}),
+      ...(input.lexile !== undefined ? { lexile: cleanLexile(input.lexile) } : {}),
     });
     await writeParts(tx, id, item);
   });
   if (input.imageId !== undefined && q.imageId && q.imageId !== (input.imageId || null)) await removeUnusedImages(repo, [String(q.imageId)]);
+  if (placed.nodeId !== undefined) await setQuestionMapNode(repo, id, placed.nodeId, actor.userId);
+  if (input.uses !== undefined) await setQuestionUses(repo, id, input.uses);
   await audit(repo, { actorId: actor.userId, action: q.status === "PUBLISHED" ? "question.update_published" : "question.update", entityType: "Question", entityId: id, before: { stem: q.stem, level: q.difficultyLevel, status: q.status, passageId: q.passageId ?? null }, after: { stem: item.stem, level: item.level, status, passage: passageText === undefined ? "unchanged" : passageText ? "set" : "removed" }, at: now });
 }
 
@@ -385,6 +428,9 @@ export async function reviseQuestion(repo: Repo, actor: Actor, id: string, now =
     await writeParts(tx, String(n.id), item);
     return String(n.id);
   });
+  const kept = (await placesOf(repo, [id])).get(id)!;
+  if (kept.code) { const node = (await repo.findMany("QuestionMapLink", { questionId: id }))[0]; if (node) await setQuestionMapNode(repo, newId, String(node.nodeId), actor.userId); }
+  if (kept.uses.length) await setQuestionUses(repo, newId, kept.uses);
   await audit(repo, { actorId: actor.userId, action: "question.revise", entityType: "Question", entityId: newId, after: { revisionOf: id, version }, at: now });
   return newId;
 }
@@ -408,6 +454,9 @@ export interface QuestionListItem {
   hasImage: boolean;
   /** no passage, but the wording seems to need one (warning only) */
   possibleMissingPassage: boolean;
+  /** its place on the Curriculum Map (null = Question Bank only) and Placement / MAP test uses */
+  mapCode?: string | null;
+  uses?: string[];
 }
 
 export interface QuestionFilter {
@@ -425,6 +474,12 @@ export interface QuestionFilter {
   subject?: string;
   difficulty?: number;
   source?: string;
+  /** map = on the Curriculum Map; bank = Question Bank only (not on the map) */
+  onMap?: "map" | "bank";
+  /** one place on the Curriculum Map (its ID, e.g. G4.U1.TS1.ACS.ON) */
+  mapCode?: string;
+  /** marked for Placement or MAP tests */
+  use?: "PLACEMENT" | "MAP_TEST";
   /** page size (the list page uses 100) and 1-based page number */
   limit?: number;
   page?: number;
@@ -435,6 +490,28 @@ export interface QuestionFilter {
  * the columns the list shows are read. `total` is always the full number of matches. The one
  * exception is “possible missing passage”, a wording check that runs on the candidates' text.
  */
+/** Curriculum Map / use filters as an id condition (one or two small queries). */
+async function placeFilter(repo: Repo, schoolId: string, filter: QuestionFilter): Promise<Record<string, unknown>> {
+  if (!filter.onMap && !filter.mapCode && !filter.use) return {};
+  let allow: Set<string> | null = null;
+  const keep = (ids: string[]) => { const n = new Set(ids); allow = allow ? new Set([...allow].filter((x) => n.has(x))) : n; };
+  if (filter.mapCode) {
+    const grades = await repo.findMany("Grade", { schoolId }, { select: ["id"] });
+    // a place and everything under it: a category's code also covers its Above / On / Below levels
+    const code = filter.mapCode.trim().toUpperCase();
+    const nodes = grades.length ? (await repo.findMany("CurriculumMapNode", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id", "code"] })).filter((n) => String(n.code) === code || String(n.code).startsWith(`${code}.`)) : [];
+    keep(nodes.length ? (await repo.findMany("QuestionMapLink", { nodeId: { in: nodes.map((n) => n.id) } }, { select: ["questionId"] })).map((l) => String(l.questionId)) : []);
+  }
+  if (filter.use) keep((await repo.findMany("QuestionUse", { use: filter.use }, { select: ["questionId"] })).map((u) => String(u.questionId)));
+  const linked = filter.onMap ? (await repo.findMany("QuestionMapLink", {}, { select: ["questionId"] })).map((l) => String(l.questionId)) : [];
+  if (filter.onMap === "map") keep(linked);
+  if (filter.onMap === "bank") {
+    if (allow) { const off = new Set(linked); return { id: { in: [...(allow as Set<string>)].filter((x) => !off.has(x)) } }; }
+    return { id: { notIn: linked } };
+  }
+  return { id: { in: [...(allow ?? new Set<string>())] } };
+}
+
 export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFilter = {}): Promise<{ items: QuestionListItem[]; total: number; counts: Record<QuestionStatus, number>; aiPending: number }> {
   assertCan(actor, "questions:read");
   const schoolId = schoolOf(actor);
@@ -468,6 +545,7 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFi
     ...(filter.mine ? { createdById: actor.userId } : {}),
     ...(filter.source ? { origin: filter.source } : filter.aiOnly ? { origin: "AI_GENERATED" } : {}),
     ...(filter.difficulty ? { difficultyLevel: filter.difficulty } : {}),
+    ...(await placeFilter(repo, schoolId, filter)),
     ...(standardIds ? { standardId: { in: standardIds } } : {}),
     ...(typeIds ? { typeId: { in: typeIds } } : {}),
     ...(filter.passage === "has" ? { passageId: { not: null } } : filter.passage ? { passageId: null } : {}),
@@ -519,7 +597,10 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFi
       };
     })
     .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt) || a.id.localeCompare(b.id));
-  const items = inMemory && limit !== undefined ? all.slice((page - 1) * limit, (page - 1) * limit + limit) : all;
+  const items: QuestionListItem[] = inMemory && limit !== undefined ? all.slice((page - 1) * limit, (page - 1) * limit + limit) : all;
+  // map places and uses (one query each), so every list item has the same shape
+  const places = await placesOf(repo, items.map((x) => x.id));
+  for (const it of items) { const p = places.get(it.id); it.mapCode = p?.code ?? null; it.uses = p?.uses ?? []; }
   return { items, total: total >= 0 ? total : all.length, counts, aiPending };
 }
 
@@ -579,6 +660,11 @@ export async function getQuestion(repo: Repo, actor: Actor, id: string): Promise
     input.errorIndex = v.errorIndex;
     input.correction = v.correction;
   }
+  // its Curriculum Map place and Placement / MAP test uses
+  const place = (await placesOf(repo, [String(q.id)])).get(String(q.id))!;
+  input.mapNodeCode = place.code;
+  input.uses = place.uses;
+  input.lexile = q.lexile === null || q.lexile === undefined ? null : Number(q.lexile);
   if (code === "MATCHING" && primary) input.pairs = val(primary) as { left: string; right: string }[];
   const users = logs.length ? await repo.findMany("User", { id: { in: [...new Set(logs.map((l) => l.actorId).filter(Boolean))] } }, { select: ["id", "displayName"] }) : [];
   const after = (l: Row) => (typeof l.after === "string" ? JSON.parse(l.after) : l.after ?? {}) as { note?: string; reason?: string };

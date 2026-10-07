@@ -317,6 +317,7 @@ const ListFilter = z.object({
   unitId: z.string().max(191).optional(), skillId: z.string().max(191).optional(), standard: z.string().max(60).optional(), type: z.string().max(40).optional(),
   passage: z.enum(["has", "none", "missing"]).optional(), image: z.enum(["has", "none"]).optional(),
   subject: z.string().max(30).optional(), difficulty: z.number().int().min(1).max(7).optional(), source: z.string().max(30).optional(),
+  onMap: z.enum(["map", "bank"]).optional(), use: z.enum(["PLACEMENT", "MAP_TEST"]).optional(), mapCode: z.string().max(120).optional(),
 });
 export type ListFilterInput = z.infer<typeof ListFilter>;
 
@@ -326,7 +327,7 @@ export async function publishableIdsAction(filter: ListFilterInput): Promise<{ i
   try {
     const f = ListFilter.parse(filter);
     // the same filters as the list on screen, so “Publish All” never includes hidden questions
-    return { ids: await publishableIds(repo, actor, { status: f.status, gradeLevel: f.grade, q: f.q, mine: f.mine, aiOnly: f.ai, unitId: f.unitId, skillId: f.skillId, standardCode: f.standard, typeCode: f.type, passage: f.passage, image: f.image, subject: f.subject, difficulty: f.difficulty, source: f.source }) };
+    return { ids: await publishableIds(repo, actor, { status: f.status, gradeLevel: f.grade, q: f.q, mine: f.mine, aiOnly: f.ai, unitId: f.unitId, skillId: f.skillId, standardCode: f.standard, typeCode: f.type, passage: f.passage, image: f.image, subject: f.subject, difficulty: f.difficulty, source: f.source, onMap: f.onMap, use: f.use, mapCode: f.mapCode }) };
   } catch (e) {
     if (e instanceof z.ZodError) return { error: "Invalid filter." };
     throw e;

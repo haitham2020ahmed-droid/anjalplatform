@@ -35,6 +35,8 @@ ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0 \
 RUN apt-get update && apt-get install -y --no-install-recommends tini openssl ca-certificates && rm -rf /var/lib/apt/lists/*
 COPY --from=build --chown=node:node /app/.next/standalone ./
 COPY --from=build --chown=node:node /app/.next/static ./.next/static
+# public/ (the built-in school logo, brand images): Next.js standalone does not include it by itself
+COPY --from=build --chown=node:node /app/public ./public
 # Prisma engine and the PDF engine are loaded at run time; copy them explicitly
 COPY --from=build --chown=node:node /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=build --chown=node:node /app/node_modules/@prisma/client ./node_modules/@prisma/client

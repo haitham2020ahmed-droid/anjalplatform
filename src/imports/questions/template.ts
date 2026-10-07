@@ -16,7 +16,9 @@ import { needsPassage } from "../../lib/passage-detect";
 
 export type ColumnKey =
   | "stem" | "type" | "optA" | "optB" | "optC" | "optD" | "optE" | "optF" | "answer" | "explanation"
-  | "grade" | "skill" | "standard" | "level" | "cognitive" | "passage";
+  | "grade" | "skill" | "standard" | "level" | "cognitive" | "passage"
+  // optional: Placement / MAP test uses (Question Bank import) and the Curriculum Map place (Curriculum import)
+  | "use" | "mapCode" | "unit" | "set" | "category" | "mapLevel" | "lexile";
 
 interface ColumnSpec { key: ColumnKey; header: string; required: boolean; aliases: string[]; help: string }
 
@@ -38,10 +40,28 @@ export const TEMPLATE_COLUMNS: readonly ColumnSpec[] = [
   { key: "level", header: "Difficulty Level", required: true, aliases: ["difficulty level", "difficulty", "level"], help: "A number from 1 (very easy) to 7 (advanced); 4 = grade level." },
   { key: "cognitive", header: "Cognitive Level", required: true, aliases: ["cognitive level", "bloom", "bloom's level", "blooms level"], help: "Remember, Understand, Apply, Analyze, Evaluate or Create (may be empty)." },
   { key: "passage", header: "Passage/Text", required: false, aliases: ["passage/text", "passage", "text", "passage text", "reading passage"], help: "Optional: a reading text the question is about. Repeat the same text on each of its questions." },
+  { key: "lexile", header: "Lexile", required: false, aliases: ["lexile", "lexile measure", "lexile level", "text lexile"], help: "Optional: the Lexile of the question or its passage, e.g. 820 or 820L. It decides Below / On / Above." },
+  { key: "use", header: "Use", required: false, aliases: ["use", "uses", "use for", "placement / map", "placement/map"], help: "Optional: Placement, MAP, or both (e.g. Placement, MAP). Empty = practice only." },
+  { key: "unit", header: "Unit", required: false, aliases: ["unit", "unit number"], help: "Curriculum import: the unit number, e.g. 1 or Unit 1." },
+  { key: "set", header: "Text Set / Selection", required: false, aliases: ["text set / selection", "text set/selection", "text set", "selection"], help: "Curriculum import: the number (e.g. 2) or the exact title (e.g. Amigo Brothers)." },
+  { key: "category", header: "Category", required: false, aliases: ["category", "curriculum category"], help: "Curriculum import: Concept Vocabulary, Analyze Craft and Structure or Respond to Reading." },
+  { key: "mapLevel", header: "Map Level", required: false, aliases: ["map level", "category level", "above/on/below", "reading level"], help: "Curriculum import: Above, On or Below (leave empty for Concept Vocabulary)." },
+  { key: "mapCode", header: "Curriculum Map ID", required: false, aliases: ["curriculum map id", "map id", "map code", "curriculum map code"], help: "Optional instead of the four columns above, e.g. G4.U1.TS1.ACS.ON." },
 ];
 
 /** Headers of the template, in order (Option E/F are accepted but not part of the template). */
-export const TEMPLATE_HEADERS = TEMPLATE_COLUMNS.filter((c) => c.key !== "optE" && c.key !== "optF").map((c) => c.header);
+export const MAP_COLUMNS: readonly ColumnKey[] = ["unit", "set", "category", "mapLevel", "mapCode"];
+export const TEMPLATE_HEADERS = TEMPLATE_COLUMNS.filter((c) => c.key !== "optE" && c.key !== "optF" && !MAP_COLUMNS.includes(c.key)).map((c) => c.header);
+/** Curriculum import: the place on the Curriculum Map instead of Use; Skill, Standard and Cognitive Level optional. */
+export const CURRICULUM_TEMPLATE_HEADERS = TEMPLATE_COLUMNS.filter((c) => c.key !== "optE" && c.key !== "optF" && c.key !== "use" && c.key !== "mapCode").map((c) => c.header);
+export type ImportTarget = "BANK" | "CURRICULUM";
+/** Columns that must be present for each kind of import. */
+function requiredKeys(target: ImportTarget, present: Set<ColumnKey>): ColumnKey[] {
+  const base = TEMPLATE_COLUMNS.filter((c) => c.required).map((c) => c.key);
+  if (target === "BANK") return base;
+  const notNeeded: ColumnKey[] = ["skill", "standard", "cognitive", "level"];
+  return [...base.filter((k) => !notNeeded.includes(k)), ...(present.has("mapCode") ? [] : (["unit", "set", "category"] as ColumnKey[]))];
+}
 
 export const SUPPORTED_TYPES: readonly { name: string; code: QuestionTypeCode }[] = [
   { name: "Multiple Choice", code: "MULTIPLE_CHOICE" },
@@ -81,7 +101,7 @@ export type ParsedTable =
  * Checks the header row and returns the data rows. The header must be the first non-empty row.
  * Every missing required column is reported by name ("Missing required column: Correct Answer").
  */
-export function parseTemplateTable(table: string[][]): ParsedTable {
+export function parseTemplateTable(table: string[][], target: ImportTarget = "BANK"): ParsedTable {
   const at = table.findIndex((r) => r.some((c) => String(c ?? "").trim() !== ""));
   if (at < 0) return { ok: false, errors: ["The file is empty."] };
   const header = table[at].map((h) => String(h ?? ""));
@@ -96,8 +116,9 @@ export function parseTemplateTable(table: string[][]): ParsedTable {
     if (col.has(spec.key)) errors.push(`The column “${spec.header}” appears twice in the header row. Keep only one.`);
     else col.set(spec.key, i);
   });
-  const missing = TEMPLATE_COLUMNS.filter((c) => c.required && !col.has(c.key));
-  if (missing.length === TEMPLATE_COLUMNS.filter((c) => c.required).length) {
+  const required = requiredKeys(target, new Set(col.keys()));
+  const missing = TEMPLATE_COLUMNS.filter((c) => required.includes(c.key) && !col.has(c.key));
+  if (missing.length === required.length) {
     return { ok: false, errors: [`The first row must be the template’s header row (${TEMPLATE_HEADERS.slice(0, 4).join(", ")}, …). Download the template and keep its first row unchanged.`] };
   }
   for (const m of missing) errors.push(`Missing required column: ${m.header}`);
@@ -194,7 +215,8 @@ export interface RowQuestion {
 export interface RowResult { question: RowQuestion | null; grade: number | null; errors: string[]; warnings: string[] }
 
 /** Reads one row: everything except the curriculum (Grade/Skill/Standard are matched separately). */
-export function readRow(cells: Partial<Record<ColumnKey, string>>): RowResult {
+const LEVEL_FROM_MAP: Record<string, number> = { above: 5, on: 4, below: 3 };
+export function readRow(cells: Partial<Record<ColumnKey, string>>, target: ImportTarget = "BANK"): RowResult {
   const errors: string[] = [];
   const warnings: string[] = [];
   const get = (k: ColumnKey) => cells[k] ?? "";
@@ -205,10 +227,12 @@ export function readRow(cells: Partial<Record<ColumnKey, string>>): RowResult {
 
   const t = questionTypeFrom(get("type"));
   if (t.error) errors.push(t.error);
-  const lv = difficultyFrom(get("level"));
+  // curriculum rows: an empty Difficulty Level follows the Map Level (Above 5, On 4, Below 3; Concept Vocabulary 4)
+  const mapLv = get("mapLevel").trim().toLowerCase().replace(/\s*level$/, "");
+  const lv = target === "CURRICULUM" && !get("level").trim() ? { level: LEVEL_FROM_MAP[mapLv] ?? 4 } : difficultyFrom(get("level"));
   if (lv.error) errors.push(lv.error);
-  const cg = cognitiveFrom(get("cognitive"));
-  if (cg.error) errors.push(cg.error);
+  const cg = target === "CURRICULUM" && !get("cognitive").trim() ? { value: null as string | null } : cognitiveFrom(get("cognitive"));
+  if ("error" in cg && cg.error) errors.push(cg.error);
   const gr = gradeFrom(get("grade"));
   if (gr.error) errors.push(gr.error);
 

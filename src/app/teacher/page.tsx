@@ -13,6 +13,11 @@ export default async function TeacherHome() {
         <div className="mt-2 flex flex-wrap gap-2 text-sm">
           <a href="/teacher/curriculum" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-amber-300 hover:bg-amber-50">⭐ Skills: 📘 Curriculum &amp; 🗺️ MAP</a>
           <a href="/admin/questions?status=PUBLISHED" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-amber-300 hover:bg-amber-50">📚 Question Bank</a>
+          <a href="/admin/curriculum-map" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🧭 Curriculum Map</a>
+          <a href="/teacher/levels" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🎯 Levels &amp; tests</a>
+          <a href="/teacher/curriculum-results" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📊 Curriculum results</a>
+          <a href="/teacher/map-rit" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-emerald-300 hover:bg-emerald-50">🗺️ MAP RIT</a>
+          <a href="/admin/readmaster" className="rounded-lg bg-amber-100 px-3 py-1.5 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">⭐ ReadMaster</a>
           <a href="/teacher/assignments" className="rounded-lg px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Weekly assignments</a>
         </div>
         <div className="flex flex-wrap gap-2">

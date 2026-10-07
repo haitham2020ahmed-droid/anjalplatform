@@ -18,10 +18,14 @@ const LEVELS = ["Very easy", "Easy", "Below grade level", "Grade level", "Above 
 const lines = (s: string) => s.split("\n").map((x) => x.trim()).filter(Boolean);
 
 /** Question editor. Every save is validated on the server with the same rules as the question bank. */
-export function QuestionEditor({ questionId, initial, skills: skillsIn, standards: standardsIn, readOnly, onSave, curriculum }: {
+export function QuestionEditor({ questionId, initial, skills: skillsIn, standards: standardsIn, readOnly, onSave, curriculum, places = [], initialPlace = null }: {
   questionId: string | null; initial: EditorInput | null; skills: Skill[]; standards: string[]; readOnly: boolean;
   /** admins: grades for “+ New skill” (skills and standards are created in the curriculum) */
   curriculum?: { grades: { id: string; level: number }[] };
+  /** the Curriculum Map places a question can go to (path text for the picker) */
+  places?: { code: string; grade: number; unit: number; path: string }[];
+  /** place preselected from the Curriculum Map page (“➕ Add question”) */
+  initialPlace?: string | null;
   /** Optional: save somewhere else (e.g. an import preview row) instead of the question bank. */
   onSave?: (payload: EditorInput) => Promise<{ error?: string; message?: string }>;
 }) {
@@ -30,7 +34,8 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
   const [standards, setStandards] = useState<string[]>(standardsIn);
   const [adding, setAdding] = useState<"skill" | "standard" | null>(null);
   const [q, setQ] = useState<EditorInput>(initial ?? {
-    skillId: skillsIn[0]?.id ?? "", type: "MULTIPLE_CHOICE", stem: "", level: 4, whyCorrect: "", tip: "",
+    ...(initialPlace ? { mapNodeCode: initialPlace } : {}),
+    skillId: initialPlace ? "" : skillsIn[0]?.id ?? "", type: "MULTIPLE_CHOICE", stem: "", level: 4, whyCorrect: "", tip: "",
     options: [{ label: "A", text: "", correct: true, rationale: null }, { label: "B", text: "", correct: false, rationale: "" }, { label: "C", text: "", correct: false, rationale: "" }],
   });
   const [msg, setMsg] = useState<{ ok?: string; error?: string }>({});
@@ -65,13 +70,43 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
 
   return (
     <fieldset disabled={readOnly || pending} className="space-y-4">
+      {places.length > 0 && (
+        <div className="space-y-3 rounded-xl bg-slate-50 p-4 ring-1 ring-slate-200">
+          <fieldset>
+            <legend className="text-sm font-semibold text-slate-700">Where does this question go?</legend>
+            <div className="mt-1 flex flex-wrap gap-3 text-sm">
+              <label className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200 has-[:checked]:ring-brand-teal"><input type="radio" name="destination" checked={!q.mapNodeCode} onChange={() => set({ mapNodeCode: null, ...(q.skillId ? {} : { skillId: skills[0]?.id ?? "" }) })} /><span aria-hidden="true">📚</span> Question Bank only</label>
+              <label className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200 has-[:checked]:ring-brand-teal"><input type="radio" name="destination" checked={Boolean(q.mapNodeCode)} onChange={() => set({ mapNodeCode: q.mapNodeCode || places.find((p) => skills.find((k) => k.id === q.skillId)?.grade === p.grade)?.code || places[0].code })} /><span aria-hidden="true">🧭</span> Curriculum Map (and the Question Bank)</label>
+            </div>
+          </fieldset>
+          {q.mapNodeCode && (
+            <label className={label}>Place on the Curriculum Map
+              <select value={q.mapNodeCode} onChange={(e) => set({ mapNodeCode: e.target.value })} className={field}>
+                {[...new Set(places.map((p) => `${p.grade}|${p.unit}`))].map((gu) => {
+                  const [g, u] = gu.split("|").map(Number);
+                  return <optgroup key={gu} label={`Grade ${g} · Unit ${u}`}>{places.filter((p) => p.grade === g && p.unit === u).map((p) => <option key={p.code} value={p.code}>{p.path.split(" › ").slice(2).join(" › ")}</option>)}</optgroup>;
+                })}
+              </select>
+            </label>
+          )}
+          <fieldset>
+            <legend className="text-sm font-semibold text-slate-700">Also use for (optional)</legend>
+            <div className="mt-1 flex flex-wrap gap-4 text-sm">
+              {([["PLACEMENT", "Placement test"], ["MAP_TEST", "MAP test"]] as const).map(([v, l]) => (
+                <label key={v} className="flex items-center gap-2"><input type="checkbox" checked={(q.uses ?? []).includes(v)} onChange={(e) => set({ uses: e.target.checked ? [...new Set([...(q.uses ?? []), v])] : (q.uses ?? []).filter((x) => x !== v) })} />{l}</label>
+              ))}
+            </div>
+          </fieldset>
+        </div>
+      )}
       <div className="grid gap-3 sm:grid-cols-3">
-        <label className={label}>Skill<select value={q.skillId} onChange={(e) => set({ skillId: e.target.value })} className={field}>{skills.map((s) => <option key={s.id} value={s.id}>G{s.grade} · {s.name}</option>)}</select></label>
+        <label className={label}>Skill<select value={q.skillId} onChange={(e) => set({ skillId: e.target.value })} className={field}>{q.mapNodeCode && <option value="">— No skill yet (Unclassified) —</option>}{skills.map((s) => <option key={s.id} value={s.id}>G{s.grade} · {s.name}</option>)}</select></label>
         <label className={label}>Type<select value={q.type} onChange={(e) => set({ type: e.target.value as EditorInput["type"] })} className={field}>{TYPES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select></label>
         <label className={label}>Difficulty<select value={q.level} onChange={(e) => set({ level: Number(e.target.value) })} className={field}>{LEVELS.map((l, i) => <option key={l} value={i + 1}>{i + 1} · {l}</option>)}</select></label>
         <label className={label}>Standard (optional)<input list="standards" value={q.standardCode ?? ""} onChange={(e) => set({ standardCode: e.target.value || null })} placeholder="Skill's standard" className={field} /></label>
         <datalist id="standards">{standards.map((s) => <option key={s} value={s} />)}</datalist>
         <label className={label}>Cognitive level (optional)<select value={q.cognitiveLevel ?? ""} onChange={(e) => set({ cognitiveLevel: e.target.value || null })} className={field}><option value="">—</option>{["Remember", "Understand", "Apply", "Analyze", "Evaluate", "Create"].map((c) => <option key={c} value={c}>{c}</option>)}</select></label>
+        <label className={label}>Lexile (optional)<input type="number" min={0} max={2000} value={q.lexile ?? ""} onChange={(e) => set({ lexile: e.target.value === "" ? null : Number(e.target.value) })} placeholder="e.g. 820" className={field} /></label>
         <label className={label}>Expected time (seconds)<input type="number" min={10} max={600} value={q.estimatedSeconds ?? 45} onChange={(e) => set({ estimatedSeconds: Number(e.target.value) })} className={field} /></label>
         <label className="flex items-center gap-2 pt-6 text-sm"><input type="checkbox" checked={!!q.aiDrafted} onChange={(e) => set({ aiDrafted: e.target.checked })} disabled={!!questionId} />Drafted with AI help</label>
       </div>

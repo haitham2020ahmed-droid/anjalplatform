@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { curriculumCsv, templateCsv, templateXlsx } from "@/imports/questions/template-files";
+import { curriculumCsv, curriculumTemplateCsv, curriculumTemplateXlsx, templateCsv, templateXlsx } from "@/imports/questions/template-files";
+import { attachmentNodes } from "@/server/curriculum-map/questions";
 import { apiActor, repo } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { loadCurriculumIndex } from "@/server/admin/question-import";
@@ -11,13 +12,21 @@ export const runtime = "nodejs";
  *   ?format=xlsx        Excel template (Questions, Instructions, Curriculum sheets)
  *   ?format=csv         CSV template (header + example rows)
  *   ?format=curriculum  the school's grades, skills and standards as CSV
+ *   ?format=map-xlsx    Curriculum import template (Questions, Curriculum Map with every place and ID, Instructions)
+ *   ?format=map-csv     Curriculum import template as CSV
  */
 export async function GET(req: Request) {
   const actor = await apiActor();
   if (!actor || !can(actor, "questions:edit")) return new NextResponse("Forbidden", { status: 403 });
   const format = new URL(req.url).searchParams.get("format") ?? "xlsx";
-  const idx = await loadCurriculumIndex(repo, actor);
   const common = { "X-Content-Type-Options": "nosniff", "Cache-Control": "no-store" };
+  if (format === "map-xlsx" || format === "map-csv") {
+    const places = await attachmentNodes(repo, actor.schoolId!);
+    const per = Number(new URL(req.url).searchParams.get("per") ?? "") || undefined;  // ready rows per place (1–20)
+    if (format === "map-csv") return new NextResponse(curriculumTemplateCsv(places, per), { headers: { ...common, "Content-Type": "text/csv; charset=utf-8", "Content-Disposition": 'attachment; filename="curriculum-import-template.csv"' } });
+    return new NextResponse(Buffer.from(curriculumTemplateXlsx(places, per)), { headers: { ...common, "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Content-Disposition": 'attachment; filename="curriculum-import-template.xlsx"' } });
+  }
+  const idx = await loadCurriculumIndex(repo, actor);
   if (format === "xlsx") {
     return new NextResponse(Buffer.from(templateXlsx(idx)), { headers: { ...common, "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Content-Disposition": 'attachment; filename="question-import-template.xlsx"' } });
   }
@@ -26,5 +35,5 @@ export async function GET(req: Request) {
     const name = format === "csv" ? "question-import-template.csv" : "curriculum-skills-standards.csv";
     return new NextResponse(body, { headers: { ...common, "Content-Type": "text/csv; charset=utf-8", "Content-Disposition": `attachment; filename="${name}"` } });
   }
-  return new NextResponse("Unknown format. Use xlsx, csv or curriculum.", { status: 400 });
+  return new NextResponse("Unknown format. Use xlsx, csv, curriculum, map-xlsx or map-csv.", { status: 400 });
 }

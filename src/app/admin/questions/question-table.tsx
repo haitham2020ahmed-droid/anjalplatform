@@ -11,6 +11,8 @@ import { selectionCsvAction } from "./preview-actions";
 export interface TableRow {
   id: string; stem: string; mine: boolean; origin: string; grade: number; skill: string; type: string; level: number; levelLabel: string; status: QuestionStatus; updatedAt: string;
   hasPassage?: boolean; hasImage?: boolean; possibleMissingPassage?: boolean;
+  /** place on the Curriculum Map (null = Question Bank only) and Placement / MAP test uses */
+  mapCode?: string | null; uses?: string[];
 }
 
 const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
@@ -191,6 +193,9 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
                 {(q.hasPassage || q.hasImage || q.possibleMissingPassage) && (
                   <span className="mt-1 flex flex-wrap gap-1">
                     {q.hasPassage && <span className="rounded bg-sky-50 px-1.5 text-xs text-sky-800">Passage</span>}
+                    {q.mapCode && <a href={`/admin/questions?status=PUBLISHED&map=${q.mapCode}`} className="rounded bg-emerald-50 px-1.5 text-xs font-medium text-emerald-800 ring-1 ring-emerald-200" title="On the Curriculum Map (and in the Question Bank)">🧭 {q.mapCode}</a>}
+                    {q.uses?.includes("PLACEMENT") && <span className="rounded bg-violet-50 px-1.5 text-xs text-violet-800">Placement</span>}
+                    {q.uses?.includes("MAP_TEST") && <span className="rounded bg-orange-50 px-1.5 text-xs text-orange-800">MAP test</span>}
                     {q.hasImage && <span className="rounded bg-violet-50 px-1.5 text-xs text-violet-800">Image</span>}
                     {q.possibleMissingPassage && <span className="rounded bg-amber-100 px-1.5 text-xs font-semibold text-amber-900" title="The question mentions a passage, story or paragraph, but has no passage.">⚠ Possible missing passage</span>}
                   </span>

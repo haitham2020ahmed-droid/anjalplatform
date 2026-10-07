@@ -96,7 +96,13 @@ export async function loadBranding(repo: Repo, schoolId: string, brandingDir: st
     try { raw = JSON.parse(raw); } catch { raw = null; }
   }
   const nameAr = raw && typeof raw === "object" && typeof (raw as Record<string, unknown>).nameAr === "string" ? String((raw as Record<string, unknown>).nameAr).trim().slice(0, 120) : "";
-  const { logo, warning } = loadLogo(school.logoUrl ? String(school.logoUrl) : null, brandingDir);
+  // logos uploaded since the fix live in the database (“db:<id>”); older ones are file names in the branding folder
+  let logoRef = school.logoUrl ? String(school.logoUrl) : null;
+  if (logoRef?.startsWith("db:")) {
+    const asset = await repo.findUnique("SchoolAsset", { id: logoRef.slice(3) });
+    logoRef = asset ? `data:${String(asset.mime)};base64,${Buffer.from(asset.bytes as Uint8Array).toString("base64")}` : null;
+  }
+  const { logo, warning } = loadLogo(logoRef, brandingDir);
   return { name: String(school.name), nameAr: nameAr || null, logo, warning };
 }
 

@@ -12,6 +12,7 @@ import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
 import { DEFAULT_TARGET_MASTERY, MIN_ANSWERS_TO_COMPLETE, refreshQuestionSets, refreshSkillAssignments } from "../teacher/assign";
+import { adaptiveNext } from "../curriculum-map/leveled-run";
 
 type Status = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "OVERDUE";
 const s = (v: unknown) => String(v ?? "");
@@ -48,6 +49,8 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
   const fresh = all.length ? await repo.findMany("AssignmentStudent", { studentId, assignmentId: { in: all.map((a) => a.id) } }) : [];
   const setSize = new Map<string, number>();
   if (sets.length) for (const x of await repo.findMany("AssessmentQuestion", { assessmentId: { in: sets.map((a) => a.assessmentId) } }, { select: ["assessmentId"] })) setSize.set(s(x.assessmentId), (setSize.get(s(x.assessmentId)) ?? 0) + 1);
+  // adaptive sets: the student answers up to maxQuestions of the pool
+  if (sets.length) for (const x of await repo.findMany("Assessment", { id: { in: sets.map((a) => a.assessmentId) }, isAdaptive: true }, { select: ["id", "maxQuestions"] })) setSize.set(s(x.id), Math.min(setSize.get(s(x.id)) ?? 0, Number(x.maxQuestions) || 0));
   const skillIds = [...new Set(assignments.map((a) => skillOf(a)!))];
   const [skills, links] = await Promise.all([
     skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
@@ -231,23 +234,42 @@ async function questionSetReport(repo: Repo, a: Row, row: Row, studentId: string
     attempts.length ? repo.findMany("Skill", { id: { in: [...new Set(attempts.map((x) => x.skillId))] } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
   ]);
   const total = setItems.length, answered = attempts.length, correct = attempts.filter((x) => x.isCorrect).length;
+  // MAP practice tests group by MAP goal area (skill → family → goal area); other sets by skill
+  const set = a.assessmentId ? await repo.findUnique("Assessment", { id: a.assessmentId }) : null;
+  const groupOf = new Map<string, string>();
+  if (set?.type === "BENCHMARK" && skills.length) {
+    const full = await repo.findMany("Skill", { id: { in: skills.map((k) => k.id) } }, { select: ["id", "familyId"] });
+    const fams = await repo.findMany("SkillFamily", { id: { in: [...new Set(full.map((k) => s(k.familyId)))] } }, { select: ["id", "mapGoalAreaId"] });
+    const areas = await repo.findMany("MapGoalArea", { id: { in: [...new Set(fams.map((f) => s(f.mapGoalAreaId)).filter(Boolean))] } }, { select: ["id", "name"] });
+    for (const k of full) { const f = fams.find((x) => x.id === k.familyId); const ar = f ? areas.find((x) => x.id === f.mapGoalAreaId) : undefined; if (ar) groupOf.set(s(k.id), `MAP: ${s(ar.name)}`); }
+  }
   const bySkill = new Map<string, { n: number; ok: number }>();
-  for (const x of attempts) { const g = bySkill.get(s(x.skillId)) ?? { n: 0, ok: 0 }; g.n++; if (x.isCorrect) g.ok++; bySkill.set(s(x.skillId), g); }
+  for (const x of attempts) { const key = groupOf.get(s(x.skillId)) ?? s(x.skillId); const g = bySkill.get(key) ?? { n: 0, ok: 0 }; g.n++; if (x.isCorrect) g.ok++; bySkill.set(key, g); }
   const strengths: string[] = [], needs: string[] = [];
   for (const [skillId, g] of bySkill) {
-    const name = s(skills.find((k) => k.id === skillId)?.name ?? "Skill"), pct = Math.round((100 * g.ok) / g.n);
+    const name = skillId.startsWith("MAP: ") ? skillId.slice(5) : s(skills.find((k) => k.id === skillId)?.name ?? "Skill"), pct = Math.round((100 * g.ok) / g.n);
     if (g.ok === g.n) strengths.push(`${name}: ${g.ok} of ${g.n} correct`);
     else if (pct < 60) needs.push(`${name}: ${g.ok} of ${g.n} correct`);
   }
-  const score = total ? Math.round((100 * correct) / total) : 0;
+  let total2 = total;
+  let reached: string | null = null;
+  if (set?.isAdaptive && sessions[0]) {
+    // adaptive: the score is over the questions answered; the result is the level reached and the path
+    const order = (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).map((x) => s(x.questionId));
+    const st = await adaptiveNext(repo, set, order, s(sessions[0].id), studentId);
+    total2 = Math.max(answered, 1);
+    const N = { BELOW: "Below", ON: "On", ABOVE: "Above" } as const;
+    reached = `${st.done ? "Reached" : "Now at"} ${N[st.decision.level]} Level (path: ${st.decision.path.map((l) => N[l]).join(" → ")})`;
+  }
+  const score = total2 ? Math.round((100 * correct) / total2) : 0;
   const status = row.status as Status;
-  const nextStep = status !== "COMPLETED" ? `Answer the remaining ${Math.max(0, total - answered)} question(s) to finish.`
+  const nextStep = status !== "COMPLETED" ? (set?.isAdaptive ? "Keep going: 4 correct answers out of 5 move you up a level." : `Answer the remaining ${Math.max(0, total - answered)} question(s) to finish.`)
     : score >= 90 ? "Excellent work! Ask your teacher for a new challenge."
     : needs.length ? `Good effort. Review ${needs[0].split(":")[0]} and ask your teacher about the questions you missed.` : "Well done! Keep practising to stay strong.";
   return {
     assignmentId: s(a.id), student: s(user?.displayName ?? "Student"), skill: s(a.title), standard: null, status,
     score, accuracy: answered ? Math.round((100 * correct) / answered) : null, answered, correct,
-    timeSpentMin: Math.round(sessions.reduce((n, x) => n + Number(x.activeMs ?? 0), 0) / 60000), masteryLevel: `${correct} of ${total} correct`,
+    timeSpentMin: Math.round(sessions.reduce((n, x) => n + Number(x.activeMs ?? 0), 0) / 60000), masteryLevel: reached ?? `${correct} of ${total} correct`,
     completedAt: d(row.completedAt)?.toISOString() ?? null, strengths, needsPractice: needs, nextStep,
   };
 }

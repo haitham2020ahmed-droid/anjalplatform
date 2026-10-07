@@ -299,6 +299,7 @@ model Grade {
   students    Student[]
 
   @@unique([schoolId, level])
+  mapNodes      CurriculumMapNode[]
 }
 
 model Class {
@@ -425,6 +426,7 @@ model Book {
   edition   String?
 
   curricula Curriculum[]
+  mapNodes      CurriculumMapNode[]
 }
 
 /// A grade's instance of a book at a school: Grade 4 + Wonders. Mastery is tracked per curriculum skill.
@@ -724,6 +726,10 @@ model Question {
   @@index([skillId, status, irtB])
   @@index([status, origin])
   @@index([standardId])
+  mapLinks              QuestionMapLink[]
+  uses                  QuestionUse[]
+  /// text complexity of the question (or its passage), e.g. 820 for 820L; drives Below / On / Above
+  lexile                Int?
 }
 
 model QuestionOption {
@@ -1080,6 +1086,8 @@ model MapResult {
 
   @@index([studentId, testDate])
   @@index([studentId, subject, testDate])
+  /// the student's Lexile measure from the MAP report
+  lexile                Int?
 }
 
 /// Benchmark reference values (class/grade/school computed; district/national ONLY when imported).
@@ -1349,4 +1357,197 @@ model QuestionImage {
   createdAt DateTime @default(now())
 
   @@index([sha256])
+}
+
+
+// ------------------------------------------------------------------ Curriculum Map (Grade → Book → Unit → Text Set/Selection → Category → Level)
+
+enum MapNodeKind {
+  BOOK
+  UNIT
+  TEXT_SET
+  SELECTION
+  CATEGORY
+  LEVEL
+}
+
+enum MapCategoryType {
+  CONCEPT_VOCABULARY
+  ANALYZE_CRAFT_AND_STRUCTURE
+  RESPOND_TO_READING
+}
+
+enum MapLevel {
+  ABOVE
+  ON
+  BELOW
+}
+
+/// One node of the school's Curriculum Map (a tree per grade). Names are stored exactly as the school
+/// wrote them. Questions will later be linked ONLY to nodes with acceptsQuestions = true:
+/// Concept Vocabulary, and the Above/On/Below levels of Analyze Craft and Structure and Respond to Reading.
+/// Independent of the adaptive curriculum (Unit/Lesson/Skill), which it does not change.
+model CurriculumMapNode {
+  id               String           @id @default(cuid())
+  gradeId          String
+  parentId         String?
+  kind             MapNodeKind
+  /// stable unique key per grade, e.g. G4.U1.TS1.ACS.ABOVE (for Question Bank / import mapping)
+  code             String           @db.VarChar(120)
+  number           Int?
+  /// exact text: “Unit 1”, “Text Set 1: Expository Text” → title “Expository Text”, “1- Concept Vocabulary”, “Above Level”
+  title            String           @db.VarChar(255)
+  /// text sets/selections: the full heading as written, e.g. “Text Set 1: Expository Text”
+  heading          String?          @db.VarChar(255)
+  /// text sets (Grades 4–5) only, exactly as written incl. curly quotes; empty for Grade 6
+  sharedRead       String?          @db.VarChar(255)
+  genre            String?          @db.VarChar(120)
+  categoryType     MapCategoryType?
+  /// the skill(s) in parentheses, exactly as written (one string), e.g. “Reread / Diagrams and Headings \ Compare and Contrast”
+  skills           String?          @db.VarChar(500)
+  level            MapLevel?
+  /// true only for the nodes questions will be linked to
+  acceptsQuestions Boolean          @default(false)
+  bookId           String?
+  sortOrder        Int
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  grade            Grade            @relation(fields: [gradeId], references: [id])
+  book             Book?            @relation(fields: [bookId], references: [id])
+  parent           CurriculumMapNode?  @relation("MapTree", fields: [parentId], references: [id])
+  children         CurriculumMapNode[] @relation("MapTree")
+
+  @@unique([gradeId, code])
+  @@index([gradeId, parentId, sortOrder])
+  @@index([acceptsQuestions])
+  questionLinks    QuestionMapLink[]
+}
+
+
+/// A question placed on the Curriculum Map (only on nodes with acceptsQuestions = true).
+/// Every question is in the Question Bank; a link adds it to the curriculum too (one way: bank-only
+/// questions are not on the map until linked).
+model QuestionMapLink {
+  questionId  String
+  nodeId      String
+  createdById String?
+  createdAt   DateTime          @default(now())
+  question    Question          @relation(fields: [questionId], references: [id])
+  node        CurriculumMapNode @relation(fields: [nodeId], references: [id])
+
+  @@id([questionId, nodeId])
+  @@index([nodeId])
+}
+
+enum QuestionUseKind {
+  PLACEMENT
+  MAP_TEST
+}
+
+/// What a Question Bank question may be used for besides practice: Placement and/or MAP tests (both allowed).
+model QuestionUse {
+  questionId String
+  use        QuestionUseKind
+  createdAt  DateTime        @default(now())
+  question   Question        @relation(fields: [questionId], references: [id])
+
+  @@id([questionId, use])
+  @@index([use])
+}
+
+
+/// Files a school uploads that must survive redeploys (the server disk is wiped on every deploy): the logo.
+model SchoolAsset {
+  id        String   @id @default(cuid())
+  schoolId  String
+  kind      String   @db.VarChar(30)
+  mime      String   @db.VarChar(60)
+  bytes     Bytes    @db.MediumBlob
+  sha256    String   @db.VarChar(64)
+  createdAt DateTime @default(now())
+
+  @@index([schoolId, kind])
+}
+
+
+/// Each student's reading level for the Curriculum Map (Above / On / Below Level): set by the teacher or by
+/// the Placement test. Assigning from the map gives every student the questions of their own level.
+model StudentLevel {
+  studentId String   @id
+  level     MapLevel
+  /// TEACHER or PLACEMENT
+  source    String   @db.VarChar(20)
+  setById   String?
+  updatedAt DateTime @updatedAt
+}
+
+// ------------------------------------------------------------------ ⭐ ReadMaster (leveled articles, Achieve3000-style)
+
+/// One article (topic + skill) written in up to three versions: Below / On / Above Level (different Lexile).
+model ReadMasterArticle {
+  id          String   @id @default(cuid())
+  schoolId    String
+  /// short unique code per school (used by the import to group rows), e.g. SOLAR-01
+  code        String   @db.VarChar(60)
+  title       String   @db.VarChar(255)
+  topic       String?  @db.VarChar(191)
+  gradeLevel  Int
+  skillId     String?
+  skillName   String?  @db.VarChar(191)
+  /// DRAFT or PUBLISHED (students see published articles of their grade)
+  status      String   @default("DRAFT") @db.VarChar(20)
+  createdById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([schoolId, code])
+  @@index([schoolId, gradeLevel])
+}
+
+/// The same article at one reading level: different words and length, its own Lexile.
+model ReadMasterVersion {
+  id        String   @id @default(cuid())
+  articleId String
+  level     MapLevel
+  lexile    Int
+  body      String   @db.Text
+  wordCount Int
+  createdAt DateTime @default(now())
+
+  @@unique([articleId, level])
+}
+
+/// Questions of a version (regular Question rows: they are also in the Question Bank).
+model ReadMasterQuestion {
+  versionId  String
+  questionId String
+  order      Int
+
+  @@id([versionId, questionId])
+  @@index([questionId])
+}
+
+/// Each student's ReadMaster reading Lexile: starts from MAP, moves after every article.
+model StudentReadingLexile {
+  studentId String   @id
+  lexile    Int
+  /// MAP, START or READMASTER
+  source    String   @db.VarChar(20)
+  updatedAt DateTime @updatedAt
+}
+
+model ReadMasterAttempt {
+  id           String   @id @default(cuid())
+  studentId    String
+  articleId    String
+  versionId    String
+  level        MapLevel
+  lexileBefore Int
+  lexileAfter  Int
+  correct      Int
+  total        Int
+  createdAt    DateTime @default(now())
+
+  @@index([studentId])
+  @@index([articleId])
 }

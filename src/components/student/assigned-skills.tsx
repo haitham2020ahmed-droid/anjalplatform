@@ -32,6 +32,14 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL" }: { v
           <div key={l} className="rounded-xl bg-white p-3 ring-1 ring-slate-200"><dt className="text-xs text-slate-500">{l}</dt><dd className={`text-2xl font-bold ${c}`}>{v}</dd></div>
         ))}
       </dl>
+      <a href="/student/readmaster" className="mt-6 flex items-center gap-4 rounded-2xl bg-amber-50 p-5 ring-2 ring-amber-300 hover:ring-amber-500">
+        <span aria-hidden="true" className="text-5xl leading-none">⭐</span>
+        <span><span className="block text-xl font-bold text-brand-navy">ReadMaster</span><span className="block text-sm text-slate-600">Articles at my reading level — my Lexile grows as I read</span></span>
+      </a>
+      <a href="/student/map" className="mt-3 flex items-center gap-4 rounded-2xl bg-emerald-50 p-5 ring-2 ring-emerald-300 hover:ring-emerald-500">
+        <span aria-hidden="true" className="text-5xl leading-none">🗺️</span>
+        <span><span className="block text-xl font-bold text-brand-navy">My MAP</span><span className="block text-sm text-slate-600">My RIT score, my goal, and practice that adapts to my level</span></span>
+      </a>
       <nav aria-label="Areas" className="mt-6 grid gap-3 sm:grid-cols-2">
         {areaCard("CURRICULUM", "📘", "Curriculum skills", "bg-sky-50 ring-sky-400")}
         {areaCard("MAP", "🗺️", "MAP skills", "bg-emerald-50 ring-emerald-400")}

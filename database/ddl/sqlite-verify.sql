@@ -454,6 +454,7 @@ CREATE TABLE "Question" (
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "updatedAt" TEXT NOT NULL,
   "deletedAt" TEXT,
+  "lexile" INTEGER,
   PRIMARY KEY ("id"),
   CONSTRAINT "Question_skillId_externalRef_key" UNIQUE ("skillId", "externalRef"),
   CONSTRAINT "Question_skillId_fkey" FOREIGN KEY ("skillId") REFERENCES "Skill"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -699,6 +700,7 @@ CREATE TABLE "Assignment" (
   "skillId" TEXT,
   "startAt" TEXT,
   "note" TEXT,
+  "track" TEXT NOT NULL DEFAULT 'CURRICULUM',
   "assessmentId" TEXT,
   "targetMastery" INTEGER,
   "dueAt" TEXT,
@@ -824,6 +826,7 @@ CREATE TABLE "MapResult" (
   "projectedGrowth" INTEGER,
   "termName" TEXT,
   "importedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "lexile" INTEGER,
   PRIMARY KEY ("id"),
   CONSTRAINT "MapResult_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "MapResult_goalAreaId_fkey" FOREIGN KEY ("goalAreaId") REFERENCES "MapGoalArea"("id") ON DELETE SET NULL ON UPDATE CASCADE
@@ -1070,3 +1073,147 @@ CREATE TABLE "QuestionImage" (
 );
 
 CREATE INDEX "QuestionImage_sha256_idx" ON "QuestionImage"("sha256");
+
+CREATE TABLE "CurriculumMapNode" (
+  "id" TEXT NOT NULL,
+  "gradeId" TEXT NOT NULL,
+  "parentId" TEXT,
+  "kind" TEXT NOT NULL CHECK ("kind" IN ('BOOK', 'UNIT', 'TEXT_SET', 'SELECTION', 'CATEGORY', 'LEVEL')),
+  "code" TEXT NOT NULL,
+  "number" INTEGER,
+  "title" TEXT NOT NULL,
+  "heading" TEXT,
+  "sharedRead" TEXT,
+  "genre" TEXT,
+  "categoryType" TEXT CHECK ("categoryType" IN ('CONCEPT_VOCABULARY', 'ANALYZE_CRAFT_AND_STRUCTURE', 'RESPOND_TO_READING')),
+  "skills" TEXT,
+  "level" TEXT CHECK ("level" IN ('ABOVE', 'ON', 'BELOW')),
+  "acceptsQuestions" INTEGER NOT NULL DEFAULT 0,
+  "bookId" TEXT,
+  "sortOrder" INTEGER NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "CurriculumMapNode_gradeId_code_key" UNIQUE ("gradeId", "code"),
+  CONSTRAINT "CurriculumMapNode_gradeId_fkey" FOREIGN KEY ("gradeId") REFERENCES "Grade"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT "CurriculumMapNode_bookId_fkey" FOREIGN KEY ("bookId") REFERENCES "Book"("id") ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT "CurriculumMapNode_parentId_fkey" FOREIGN KEY ("parentId") REFERENCES "CurriculumMapNode"("id") ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+CREATE INDEX "CurriculumMapNode_gradeId_parentId_sortOrder_idx" ON "CurriculumMapNode"("gradeId", "parentId", "sortOrder");
+
+CREATE INDEX "CurriculumMapNode_acceptsQuestions_idx" ON "CurriculumMapNode"("acceptsQuestions");
+
+CREATE INDEX "CurriculumMapNode_bookId_fk_idx" ON "CurriculumMapNode"("bookId");
+
+CREATE INDEX "CurriculumMapNode_parentId_fk_idx" ON "CurriculumMapNode"("parentId");
+
+CREATE TABLE "QuestionMapLink" (
+  "questionId" TEXT NOT NULL,
+  "nodeId" TEXT NOT NULL,
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("questionId", "nodeId"),
+  CONSTRAINT "QuestionMapLink_questionId_fkey" FOREIGN KEY ("questionId") REFERENCES "Question"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT "QuestionMapLink_nodeId_fkey" FOREIGN KEY ("nodeId") REFERENCES "CurriculumMapNode"("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+CREATE INDEX "QuestionMapLink_nodeId_idx" ON "QuestionMapLink"("nodeId");
+
+CREATE TABLE "QuestionUse" (
+  "questionId" TEXT NOT NULL,
+  "use" TEXT NOT NULL CHECK ("use" IN ('PLACEMENT', 'MAP_TEST')),
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("questionId", "use"),
+  CONSTRAINT "QuestionUse_questionId_fkey" FOREIGN KEY ("questionId") REFERENCES "Question"("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+CREATE INDEX "QuestionUse_use_idx" ON "QuestionUse"("use");
+
+CREATE TABLE "SchoolAsset" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "kind" TEXT NOT NULL,
+  "mime" TEXT NOT NULL,
+  "bytes" BLOB NOT NULL,
+  "sha256" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "SchoolAsset_schoolId_kind_idx" ON "SchoolAsset"("schoolId", "kind");
+
+CREATE TABLE "StudentLevel" (
+  "studentId" TEXT NOT NULL,
+  "level" TEXT NOT NULL CHECK ("level" IN ('ABOVE', 'ON', 'BELOW')),
+  "source" TEXT NOT NULL,
+  "setById" TEXT,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("studentId")
+);
+
+CREATE TABLE "ReadMasterArticle" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "code" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "topic" TEXT,
+  "gradeLevel" INTEGER NOT NULL,
+  "skillId" TEXT,
+  "skillName" TEXT,
+  "status" TEXT NOT NULL DEFAULT 'DRAFT',
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "ReadMasterArticle_schoolId_code_key" UNIQUE ("schoolId", "code")
+);
+
+CREATE INDEX "ReadMasterArticle_schoolId_gradeLevel_idx" ON "ReadMasterArticle"("schoolId", "gradeLevel");
+
+CREATE TABLE "ReadMasterVersion" (
+  "id" TEXT NOT NULL,
+  "articleId" TEXT NOT NULL,
+  "level" TEXT NOT NULL CHECK ("level" IN ('ABOVE', 'ON', 'BELOW')),
+  "lexile" INTEGER NOT NULL,
+  "body" TEXT NOT NULL,
+  "wordCount" INTEGER NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "ReadMasterVersion_articleId_level_key" UNIQUE ("articleId", "level")
+);
+
+CREATE TABLE "ReadMasterQuestion" (
+  "versionId" TEXT NOT NULL,
+  "questionId" TEXT NOT NULL,
+  "order" INTEGER NOT NULL,
+  PRIMARY KEY ("versionId", "questionId")
+);
+
+CREATE INDEX "ReadMasterQuestion_questionId_idx" ON "ReadMasterQuestion"("questionId");
+
+CREATE TABLE "StudentReadingLexile" (
+  "studentId" TEXT NOT NULL,
+  "lexile" INTEGER NOT NULL,
+  "source" TEXT NOT NULL,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("studentId")
+);
+
+CREATE TABLE "ReadMasterAttempt" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "articleId" TEXT NOT NULL,
+  "versionId" TEXT NOT NULL,
+  "level" TEXT NOT NULL CHECK ("level" IN ('ABOVE', 'ON', 'BELOW')),
+  "lexileBefore" INTEGER NOT NULL,
+  "lexileAfter" INTEGER NOT NULL,
+  "correct" INTEGER NOT NULL,
+  "total" INTEGER NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "ReadMasterAttempt_studentId_idx" ON "ReadMasterAttempt"("studentId");
+
+CREATE INDEX "ReadMasterAttempt_articleId_idx" ON "ReadMasterAttempt"("articleId");

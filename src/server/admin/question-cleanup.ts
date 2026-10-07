@@ -16,7 +16,7 @@ const CHUNK = 200;
 const chunks = <T,>(xs: T[], n = CHUNK) => Array.from({ length: Math.ceil(xs.length / n) }, (_, i) => xs.slice(i * n, i * n + n));
 
 /** Rows that are deleted with the questions. */
-export const QUESTION_TABLES = ["Question", "QuestionOption", "QuestionAnswer", "QuestionExplanation", "QuestionStats", "AssessmentQuestion", "QuestionImage"] as const;
+export const QUESTION_TABLES = ["Question", "QuestionOption", "QuestionAnswer", "QuestionExplanation", "QuestionStats", "AssessmentQuestion", "QuestionImage", "QuestionMapLink", "ReadMasterQuestion", "QuestionUse"] as const;
 /** Columns that only point at a question: cleared (set empty), the row itself stays. */
 export const CLEARED_REFERENCES: [string, string][] = [["PracticeSession", "currentQuestionId"], ["AdaptiveDecisionLog", "questionId"], ["AdaptiveDecisionLog", "nextQuestionId"], ["ImportedQuestionLog", "questionId"], ["ImportedQuestionLog", "duplicateOfId"]];
 /** Student practice history; deleted ONLY with --include-practice-history (dependents first). */
@@ -63,13 +63,14 @@ export async function backupQuestions(repo: Repo, now = new Date()): Promise<Que
   const ids = questions.map((q) => s(q.id));
   const by = async (t: string) => (await Promise.all(chunks(ids).map((part) => repo.findMany(t, { questionId: { in: part } })))).flat();
   const imageIds = [...new Set(questions.map((q) => q.imageId).filter(Boolean).map(s))];
-  const [options, answers, explanations, stats, assessment, images] = await Promise.all([
-    by("QuestionOption"), by("QuestionAnswer"), by("QuestionExplanation"), by("QuestionStats"), by("AssessmentQuestion"),
+  const [options, answers, explanations, stats, assessment, mapLinks, rmLinks, uses, images] = await Promise.all([
+    by("QuestionOption"), by("QuestionAnswer"), by("QuestionExplanation"), by("QuestionStats"), by("AssessmentQuestion"), by("QuestionMapLink"), by("ReadMasterQuestion"), by("QuestionUse"),
     imageIds.length ? repo.findMany("QuestionImage", { id: { in: imageIds } }) : Promise.resolve([] as Row[]),
   ]);
   const tables: Record<string, Row[]> = {
     QuestionImage: images.map((i) => ({ ...i, bytes: Buffer.from(i.bytes as Uint8Array).toString("base64") })),
     Question: questions, QuestionOption: options, QuestionAnswer: answers, QuestionExplanation: explanations, QuestionStats: stats, AssessmentQuestion: assessment,
+    QuestionMapLink: mapLinks, ReadMasterQuestion: rmLinks, QuestionUse: uses,
   };
   return { format: "alanjal-question-backup", version: 1, createdAt: now.toISOString(), counts: Object.fromEntries(Object.entries(tables).map(([k, v]) => [k, v.length])), tables };
 }
@@ -148,8 +149,9 @@ export async function restoreQuestions(repo: Repo, b: QuestionBackup): Promise<R
   const images = b.tables.QuestionImage.filter((i) => !existingImages.has(s(i.id))).map((i) => ({ ...clean(i), bytes: Buffer.from(s(i.bytes), "base64") }));
   for (const part of chunks(images, 20)) await repo.createMany("QuestionImage", part);
   out.QuestionImage = images.length;
-  for (const t of ["Question", "QuestionOption", "QuestionAnswer", "QuestionExplanation", "QuestionStats", "AssessmentQuestion"]) {
-    const rows = b.tables[t].filter((r) => restoreIds.has(s(t === "Question" ? r.id : r.questionId))).map(clean);
+  // backups made before the Curriculum Map have no link/use tables
+  for (const t of ["Question", "QuestionOption", "QuestionAnswer", "QuestionExplanation", "QuestionStats", "AssessmentQuestion", "QuestionMapLink", "ReadMasterQuestion", "QuestionUse"]) {
+    const rows = (b.tables[t] ?? []).filter((r) => restoreIds.has(s(t === "Question" ? r.id : r.questionId))).map(clean);
     for (const part of chunks(rows)) await repo.createMany(t, part);
     out[t] = rows.length;
   }

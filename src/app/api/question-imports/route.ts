@@ -33,8 +33,11 @@ export async function POST(req: Request) {
   if (Number(h.get("content-length") ?? 0) > MAX_IMPORT_BYTES + 64_000) return reply({ error: "The file is larger than 10 MB. Split it into smaller files.", stage: "upload" }, 413);
 
   let file: FormDataEntryValue | null;
+  let target: "BANK" | "CURRICULUM" = "BANK";
   try {
-    file = (await req.formData()).get("file");
+    const form = await req.formData();
+    file = form.get("file");
+    if (form.get("target") === "CURRICULUM") target = "CURRICULUM";
   } catch {
     return reply({ error: "The upload was interrupted or is not a file. Choose the file again and retry.", stage: "upload" }, 400);
   }
@@ -42,7 +45,7 @@ export async function POST(req: Request) {
 
   const started = Date.now();
   try {
-    const jobId = await analyzeImport(repo, actor, { fileName: file.name, bytes: new Uint8Array(await file.arrayBuffer()) });
+    const jobId = await analyzeImport(repo, actor, { fileName: file.name, bytes: new Uint8Array(await file.arrayBuffer()), target });
     log("info", "question_import.analyzed", { jobId, kind: file.name.split(".").pop(), bytes: file.size, ms: Date.now() - started, user: actor.userId });
     return reply({ jobId });
   } catch (e) {

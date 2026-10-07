@@ -60,6 +60,12 @@ export class SqliteRepo implements Repo {
         if (arr.length === 0) { parts.push("0"); continue; }
         parts.push(`"${k}" IN (${arr.map(() => "?").join(",")})`);
         params.push(...arr.map((x) => this.toDb(m, { [k]: x })[k]));
+      } else if (v && typeof v === "object" && "notIn" in (v as object)) {
+        // same as Prisma: an empty list excludes nothing
+        const arr = (v as { notIn: unknown[] }).notIn;
+        if (arr.length === 0) continue;
+        parts.push(`"${k}" NOT IN (${arr.map(() => "?").join(",")})`);
+        params.push(...arr.map((x) => this.toDb(m, { [k]: x })[k]));
       } else if (v && typeof v === "object" && !(v instanceof Date) && "not" in (v as object)) {
         const n = (v as { not: unknown }).not;
         if (n === null) parts.push(`"${k}" IS NOT NULL`);

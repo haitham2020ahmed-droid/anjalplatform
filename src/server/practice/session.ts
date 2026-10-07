@@ -24,6 +24,8 @@ import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
 import { correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
 import { openAssignmentFor, refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
+import { applyPlacementResult } from "../curriculum-map/placement-result";
+import { adaptiveNext } from "../curriculum-map/leveled-run";
 
 export const SESSION_RESUME_MINUTES = 120;
 export const MAX_QUESTIONS_PER_SESSION = 20;
@@ -410,13 +412,21 @@ async function quizContext(repo: Repo, actor: Actor, assignmentId: string) {
   return { a, order };
 }
 
+/** The next question of a set: fixed sets in the teacher's order; adaptive sets by level (Below → On → Above). */
+async function nextInSet(repo: Repo, a: Row, order: string[], sessionId: string, studentId: string): Promise<{ nextId: string | null; total: number }> {
+  const set = await repo.findUnique("Assessment", { id: a.assessmentId });
+  if (set?.isAdaptive) { const st = await adaptiveNext(repo, set, order, sessionId, studentId); return { nextId: st.nextId, total: st.total }; }
+  const answered = new Set((await repo.findMany("QuestionAttempt", { sessionId }, { select: ["questionId"] })).map((x) => String(x.questionId)));
+  return { nextId: order.find((id) => !answered.has(id)) ?? null, total: order.length };
+}
+
 async function quizView(repo: Repo, a: Row, order: string[], s: Row): Promise<QuizView> {
   const answeredIds = new Set((await repo.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId"] })).map((x) => String(x.questionId)));
-  const nextId = order.find((id) => !answeredIds.has(id)) ?? null;
+  const { nextId, total } = await nextInSet(repo, a, order, String(s.id), String(s.studentId));
   const item = nextId ? (await loadQuestionItems(repo, [nextId]))[0] : undefined;
   return {
     assignmentId: String(a.id), sessionId: String(s.id), title: String(a.title), question: item ? toClientQuestion(item, `${s.id}:${item.questionId}`) : null,
-    index: Math.min(order.length, answeredIds.size + 1), total: order.length, answered: answeredIds.size, correct: Number(s.correctCount ?? 0), ended: !nextId,
+    index: Math.min(total, answeredIds.size + 1), total, answered: answeredIds.size, correct: Number(s.correctCount ?? 0), ended: !nextId,
   };
 }
 
@@ -477,7 +487,7 @@ export async function submitQuizAnswer(repo: Repo, actor: Actor, input: { assign
     };
     await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
     const answered = (await tx.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId"] })).length;
-    const done = answered >= order.length;
+    const done = answered >= order.length || !(await nextInSet(tx, a, order, String(s.id), studentId)).nextId;
     await tx.updateMany("PracticeSession", { id: s.id }, {
       questionCount: answered, correctCount: Number(s.correctCount ?? 0) + (correct ? 1 : 0), activeMs: Number(s.activeMs ?? 0) + responseMs,
       currentServedAt: done ? null : now, ...(done ? { endedAt: now, endReason: "COMPLETED" } : {}),
@@ -492,5 +502,7 @@ export async function submitQuizAnswer(repo: Repo, actor: Actor, input: { assign
   });
   await refreshQuestionSets(repo, [a], [actor.studentId!], now);
   const s = (await repo.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" }))[0];
+  // a finished Placement test sets the student's level
+  if (!feedback.next.hasQuestion && a.assessmentId) await applyPlacementResult(repo, String(a.assessmentId), String(s.id), actor.studentId!, now);
   return { feedback, view: await quizView(repo, a, order, s) };
 }

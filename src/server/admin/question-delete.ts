@@ -50,6 +50,9 @@ export async function purgeQuestionRows(tx: Repo, rows: Row[]): Promise<void> {
   await tx.deleteMany("QuestionExplanation", { questionId: { in: pid } });
   await tx.deleteMany("QuestionStats", { questionId: { in: pid } });
   await tx.deleteMany("AssessmentQuestion", { questionId: { in: pid } });
+  await tx.deleteMany("QuestionMapLink", { questionId: { in: pid } });   // its place on the Curriculum Map
+  await tx.deleteMany("ReadMasterQuestion", { questionId: { in: pid } });   // its ReadMaster version
+  await tx.deleteMany("QuestionUse", { questionId: { in: pid } });       // Placement / MAP test uses
   await tx.updateMany("PracticeSession", { currentQuestionId: { in: pid } }, { currentQuestionId: null, currentServedAt: null });
   await tx.updateMany("AdaptiveDecisionLog", { questionId: { in: pid } }, { questionId: null });
   await tx.updateMany("AdaptiveDecisionLog", { nextQuestionId: { in: pid } }, { nextQuestionId: null });

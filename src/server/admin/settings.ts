@@ -13,8 +13,6 @@
  * All changes are audited with before/after values.
  */
 import { createHash } from "node:crypto";
-import { mkdirSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
 import { DEFAULT_ADAPTIVE, DEFAULT_MASTERY, resolveEngineConfig, type AdaptiveConfig, type MasteryThresholds } from "../../config/engine";
 import { validateLogo } from "../../reports/logo";
 import { audit } from "../audit";
@@ -157,10 +155,11 @@ export async function uploadLogo(repo: Repo, actor: Actor, bytes: Uint8Array, br
   const schoolId = schoolOf(actor);
   const v = validateLogo(bytes);
   if (!v.ok) throw new ValidationError(v.reason);
-  const ext = v.logo.mime === "image/png" ? "png" : v.logo.mime === "image/jpeg" ? "jpg" : "svg";
-  const name = `logo-${createHash("sha256").update(bytes).digest("hex").slice(0, 16)}.${ext}`;
-  mkdirSync(brandingDir, { recursive: true });
-  writeFileSync(join(brandingDir, name), bytes, { mode: 0o640 });
+  void brandingDir; // kept for callers: the logo is stored in the database (the server disk is wiped on every deploy)
+  const sha = createHash("sha256").update(bytes).digest("hex");
+  await repo.deleteMany("SchoolAsset", { schoolId, kind: "LOGO" });
+  const asset = await repo.create("SchoolAsset", { schoolId, kind: "LOGO", mime: v.logo.mime, bytes: Buffer.from(bytes), sha256: sha, createdAt: now });
+  const name = `db:${String(asset.id)}`;
   const before = (await repo.findUnique("School", { id: schoolId }))!.logoUrl ?? null;
   await repo.updateMany("School", { id: schoolId }, { logoUrl: name });
   await audit(repo, { actorId: actor.userId, action: "school.logo.update", entityType: "School", entityId: schoolId, before: { logoUrl: before }, after: { logoUrl: name, bytes: bytes.length, mime: v.logo.mime }, at: now });
@@ -172,6 +171,7 @@ export async function removeLogo(repo: Repo, actor: Actor, now = new Date()): Pr
   const schoolId = schoolOf(actor);
   const before = (await repo.findUnique("School", { id: schoolId }))!.logoUrl ?? null;
   await repo.updateMany("School", { id: schoolId }, { logoUrl: null });
+  await repo.deleteMany("SchoolAsset", { schoolId, kind: "LOGO" });
   await audit(repo, { actorId: actor.userId, action: "school.logo.remove", entityType: "School", entityId: schoolId, before: { logoUrl: before }, at: now });
 }
 
@@ -291,3 +291,16 @@ export async function archiveClass(repo: Repo, actor: Actor, classId: string, no
 }
 
 export type { Row };
+
+/**
+ * The logo shown in the app (header and sign-in page): the school's uploaded logo (stored in the
+ * database), or null (the app then shows the built-in default logo). Before sign-in (no school known),
+ * the first real school (not a demo/test school) with an uploaded logo.
+ */
+export async function schoolLogoFor(repo: Repo, schoolId: string | null): Promise<{ mime: string; bytes: Uint8Array } | null> {
+  const schools = schoolId ? [await repo.findUnique("School", { id: schoolId })].filter(Boolean) : (await repo.findMany("School", {})).filter((x) => !x.isDemo);
+  const school = schools.find((x) => String(x!.logoUrl ?? "").startsWith("db:"));
+  if (!school) return null;
+  const asset = await repo.findUnique("SchoolAsset", { id: String(school.logoUrl).slice(3) });
+  return asset ? { mime: String(asset.mime), bytes: new Uint8Array(asset.bytes as Uint8Array) } : null;
+}

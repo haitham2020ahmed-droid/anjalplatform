@@ -176,7 +176,7 @@ export async function refreshAfterAnswer(repo: Repo, assignmentId: string, stude
 
 // ------------------------------------------------------------------ teacher views
 
-async function accessibleClasses(repo: Repo, actor: Actor): Promise<Row[]> {
+export async function accessibleClasses(repo: Repo, actor: Actor): Promise<Row[]> {
   assertCan(actor, "assignments:read");
   // students (and parents) also hold assignments:read for their OWN work; class views are for staff only
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only teachers and admins can see class assignments.");
@@ -355,7 +355,14 @@ export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: s
 
 export const MAX_SET_QUESTIONS = 50;
 
-export interface AssignQuestionsInput { track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null }
+export interface AssignQuestionsInput {
+  /** TEACHER_QUIZ (default) · PLACEMENT (sets each student's level when done) · BENCHMARK (MAP practice test) */
+  kind?: "TEACHER_QUIZ" | "PLACEMENT" | "BENCHMARK";
+  /** use the title exactly (no “(N questions)” suffix) */
+  exactTitle?: boolean;
+  /** adaptive set: the pool may be large; each student answers up to maxQuestions, moving Below ↔ On ↔ Above */
+  adaptive?: { maxQuestions: number };
+  track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null }
 
 /**
  * Assigns specific questions chosen by the teacher (from the question list) to a class, selected students or
@@ -367,7 +374,7 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
   if (!input.classId) throw new ValidationError("Choose a class.");
   const ids = [...new Set((input.questionIds ?? []).filter(Boolean))];
   if (!ids.length) throw new ValidationError("Choose at least one question.");
-  if (ids.length > MAX_SET_QUESTIONS) throw new ValidationError(`Choose at most ${MAX_SET_QUESTIONS} questions at a time.`);
+  if (ids.length > (input.adaptive ? 1000 : MAX_SET_QUESTIONS)) throw new ValidationError(`Choose at most ${input.adaptive ? 1000 : MAX_SET_QUESTIONS} questions at a time.`);
   const klass = await assertClassAccess(repo, actor, input.classId);
   const teacher = await repo.findUnique("Teacher", { userId: actor.userId });
   if (!teacher) throw new ForbiddenError("Only teachers can assign questions.");
@@ -393,10 +400,10 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
   if (startAt && dueAt && dueAt <= startAt) throw new ValidationError("The due date must be after the start date.");
   const note = s(input.note).replace(/\s+/g, " ").trim().slice(0, 1000) || null;
   const skillNames = [...new Set(ids.map((id) => skills.find((k) => k.id === qs.find((q) => q.id === id)!.skillId)?.name).filter(Boolean).map(String))];
-  const title = (s(input.title).replace(/\s+/g, " ").trim() || `${skillNames.slice(0, 2).join(" & ")}${skillNames.length > 2 ? " & more" : ""}`).slice(0, 150) + ` (${ids.length} question${ids.length === 1 ? "" : "s"})`;
+  const title = input.exactTitle && s(input.title).trim() ? s(input.title).replace(/\s+/g, " ").trim().slice(0, 180) : (s(input.title).replace(/\s+/g, " ").trim() || `${skillNames.slice(0, 2).join(" & ")}${skillNames.length > 2 ? " & more" : ""}`).slice(0, 150) + ` (${ids.length} question${ids.length === 1 ? "" : "s"})`;
   const students = await repo.findMany("Student", { id: { in: recipients } }, { select: ["id", "userId"] });
   const id = await repo.transaction(async (tx) => {
-    const set = await tx.create("Assessment", { title: title.slice(0, 191), type: "TEACHER_QUIZ", isAdaptive: false, maxQuestions: ids.length, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
+    const set = await tx.create("Assessment", { title: title.slice(0, 191), type: input.kind ?? "TEACHER_QUIZ", isAdaptive: Boolean(input.adaptive), maxQuestions: input.adaptive ? Math.min(ids.length, input.adaptive.maxQuestions) : ids.length, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
     await tx.createMany("AssessmentQuestion", ids.map((questionId, order) => ({ assessmentId: set.id, questionId, order, points: 1 })));
     const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, createdAt: now });
     await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
@@ -418,18 +425,24 @@ export async function refreshQuestionSets(repo: Repo, assignments: Row[], studen
   const byStudent = studentIds ? { studentId: { in: studentIds } } : {};
   const [rows, sessions, items] = await Promise.all([
     repo.findMany("AssignmentStudent", { assignmentId: { in: list.map((a) => a.id) }, ...byStudent }),
-    repo.findMany("PracticeSession", { assignmentId: { in: list.map((a) => a.id) }, mode: "TEACHER_QUIZ", ...byStudent }, { select: ["assignmentId", "studentId", "questionCount"] }),
+    repo.findMany("PracticeSession", { assignmentId: { in: list.map((a) => a.id) }, mode: "TEACHER_QUIZ", ...byStudent }, { select: ["assignmentId", "studentId", "questionCount", "endedAt"] }),
     repo.findMany("AssessmentQuestion", { assessmentId: { in: list.map((a) => a.assessmentId) } }, { select: ["assessmentId"] }),
   ]);
   const total = new Map<string, number>();
   for (const x of items) total.set(s(x.assessmentId), (total.get(s(x.assessmentId)) ?? 0) + 1);
   const answered = new Map(sessions.map((x) => [`${s(x.assignmentId)}|${s(x.studentId)}`, Number(x.questionCount ?? 0)]));
+  const ended = new Set(sessions.filter((x) => x.endedAt).map((x) => `${s(x.assignmentId)}|${s(x.studentId)}`));
+  // adaptive sets: each student answers up to maxQuestions of a larger pool, and is done when the session ends
+  const sets = await repo.findMany("Assessment", { id: { in: [...new Set(list.map((a) => s(a.assessmentId)))] } }, { select: ["id", "isAdaptive", "maxQuestions"] });
+  const adaptive = new Map(sets.filter((x) => x.isAdaptive).map((x) => [s(x.id), Number(x.maxQuestions) || 0]));
   const byId = new Map(list.map((a) => [s(a.id), a]));
   const writes: Promise<unknown>[] = [];
   for (const r of rows) {
     const a = byId.get(s(r.assignmentId))!;
-    const n = total.get(s(a.assessmentId)) ?? 0, k = answered.get(`${s(a.id)}|${s(r.studentId)}`) ?? 0;
-    const done = n > 0 && k >= n;
+    const pool = total.get(s(a.assessmentId)) ?? 0;
+    const n = adaptive.has(s(a.assessmentId)) ? Math.min(pool, adaptive.get(s(a.assessmentId)) || pool) : pool;
+    const k = answered.get(`${s(a.id)}|${s(r.studentId)}`) ?? 0;
+    const done = n > 0 && (k >= n || (adaptive.has(s(a.assessmentId)) && ended.has(`${s(a.id)}|${s(r.studentId)}`)));
     const due = d(a.dueAt);
     const status = done ? "COMPLETED" : due && now > due ? "OVERDUE" : k > 0 ? "IN_PROGRESS" : "NOT_STARTED";
     const progress = n ? Math.round((1000 * Math.min(k, n)) / n) / 1000 : 0;

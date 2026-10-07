@@ -21,6 +21,7 @@ import { ExtractError, extract, type FileKind } from "../../imports/questions/ex
 import {
   DuplicateIndex, GENERIC_WRONG_FEEDBACK, MAX_IMPORT_ROWS, buildCurriculumIndex, matchCurriculum, parseTemplateTable, readRow, shortStandard,
   type CurriculumIndex, type RowQuestion, type SkillRef,
+  type ImportTarget, type CurriculumMatch,
 } from "../../imports/questions/template";
 import { answerValues, contentPayload, type BankItem } from "../../imports/questions/validate";
 import { analyzeText, platformReadingLevelFor } from "../../reading/prl";
@@ -42,6 +43,8 @@ export interface DetectedRow {
     row: number;
     grade: number | null; gradeText: string; skillText: string; standardText: string; levelText: string; cognitiveText: string;
     skillName: string | null; standardCode: string | null;
+    /** Curriculum import: the place on the map (readable path); any import: Placement / MAP test uses */
+    mapPath?: string | null; uses?: string[];
     passage: string | null;
     duplicateExact: boolean;
   };
@@ -64,11 +67,11 @@ const newId = () => "c" + Date.now().toString(36) + randomBytes(8).toString("hex
 // --------------------------------------------------------------- curriculum
 
 /** The school's grades, skills (with linked standards) and all standards: a handful of queries. */
-export async function loadCurriculumIndex(repo: Repo, actor: Actor): Promise<CurriculumIndex> {
+export async function loadCurriculumIndex(repo: Repo, actor: Actor, opts: { includeUnclassified?: boolean } = {}): Promise<CurriculumIndex> {
   // inactive grades and skills are hidden: they cannot receive new questions
   const grades = (await repo.findMany("Grade", { schoolId: schoolOf(actor) })).filter((g) => g.isActive !== false);
   const curricula = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }) : [];
-  const skills = curricula.length ? (await repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => c.id) } })).filter((s) => !s.deletedAt && s.isActive !== false) : [];
+  const skills = curricula.length ? (await repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => c.id) } })).filter((s) => !s.deletedAt && (s.isActive !== false || (opts.includeUnclassified && String(s.code).endsWith(".curriculum-map-unclassified")))) : [];
   const links = skills.length ? await repo.findMany("SkillStandard", { skillId: { in: skills.map((s) => s.id) } }) : [];
   const standards = (await repo.findMany("Standard", {})).filter((s) => s.isActive !== false);
   const stdById = new Map(standards.map((s) => [String(s.id), s]));
@@ -95,11 +98,15 @@ function toInput(q: RowQuestion, skillId: string, standardCode: string | null, j
  * Checks an editor input against the curriculum and the bank rules without any database access.
  * Returns every problem (empty = valid).
  */
-export function checkInput(idx: CurriculumIndex, input: EditorInput): string[] {
+export function checkInput(idx: CurriculumIndex, input: EditorInput, opts: { allowNoStandard?: boolean } = {}): string[] {
   const skill = input.skillId ? skillById(idx, input.skillId) : null;
   if (!skill) return ["Choose a skill that exists on the platform."];
   const errors: string[] = [];
   const std = input.standardCode ? idx.standards.get(shortStandard(input.standardCode)) ?? null : null;
+  if (!input.standardCode && opts.allowNoStandard) {
+    try { buildBankItem(input, { ref: "preview", grade: skill.grade, skillCode: skill.code, standardCode: null, passageRef: null, allowNoStandard: true }); return []; }
+    catch (e) { if (e instanceof ValidationError) return friendlyBankErrors(e.message); throw e; }
+  }
   if (!input.standardCode) errors.push("Choose the standard this question assesses.");
   else if (!std) errors.push(`Standard “${input.standardCode}” does not exist on the platform.`);
   else if (skill.standards.length && !skill.standards.some((s) => shortStandard(s.code) === shortStandard(std.code))) {
@@ -154,7 +161,7 @@ const optionTexts = (i: EditorInput | null | undefined) => i?.options?.map((o) =
 
 // ------------------------------------------------------------------- analyze
 
-export interface AnalyzeInput { fileName: string; bytes: Uint8Array }
+export interface AnalyzeInput { fileName: string; bytes: Uint8Array; /** BANK (default) or CURRICULUM */ target?: ImportTarget }
 
 async function recordFailure(repo: Repo, actor: Actor, fileName: string, bytes: Uint8Array, kind: string | null, stage: string, errors: string[], now: Date): Promise<string | null> {
   try {
@@ -188,19 +195,46 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
     const msg = e instanceof ExtractError ? e.message : `The file could not be read: ${(e as Error).message}`;
     return fail(null, "read", msg, [msg]);
   }
-  const parsed = parseTemplateTable(table);
+  const target: ImportTarget = input.target === "CURRICULUM" ? "CURRICULUM" : "BANK";
+  const parsed = parseTemplateTable(table, target);
   if (!parsed.ok) return fail(kind, "columns", parsed.errors.length === 1 ? parsed.errors[0] : "The file does not match the template.", parsed.errors);
-  if (!parsed.rows.length) return fail(kind, "rows", "The file has the header row but no questions.", ["The file has the header row but no questions. Add one question per row under the header."]);
-  if (parsed.rows.length > MAX_IMPORT_ROWS) return fail(kind, "rows", `The file has ${parsed.rows.length.toLocaleString("en")} questions; the limit is ${MAX_IMPORT_ROWS.toLocaleString("en")} per file.`, [`The file has ${parsed.rows.length.toLocaleString("en")} questions; the limit is ${MAX_IMPORT_ROWS.toLocaleString("en")} per file. Split it into smaller files.`]);
+  // Curriculum template: rows of places with no question written are skipped (the template pre-fills them)
+  const QUESTION_CELLS = ["stem", "type", "optA", "optB", "optC", "optD", "answer", "explanation", "passage"] as const;
+  const rowsIn = target === "CURRICULUM" ? parsed.rows.filter((r) => QUESTION_CELLS.some((k) => (r.cells[k] ?? "").trim())) : parsed.rows;
+  const emptyPlaces = parsed.rows.length - rowsIn.length;
+  if (!rowsIn.length) return fail(kind, "rows", "The file has the header row but no questions.", ["The file has the header row but no questions. Add one question per row under the header."]);
+  if (rowsIn.length > MAX_IMPORT_ROWS) return fail(kind, "rows", `The file has ${rowsIn.length.toLocaleString("en")} questions; the limit is ${MAX_IMPORT_ROWS.toLocaleString("en")} per file.`, [`The file has ${rowsIn.length.toLocaleString("en")} questions; the limit is ${MAX_IMPORT_ROWS.toLocaleString("en")} per file. Split it into smaller files.`]);
 
-  const idx = await loadCurriculumIndex(repo, actor);
+  // curriculum import: the map's places, and each grade's Unclassified skill for rows without a skill
+  const mapNodes = target === "CURRICULUM" ? await attachmentNodes(repo, schoolOf(actor)) : [];
+  if (target === "CURRICULUM" && !mapNodes.length) return fail(kind, "curriculum", "The Curriculum Map has not been created yet.", ["The Curriculum Map has not been created yet. Run: npx tsx scripts/curriculum-map.ts seed"]);
+  const unclassified = new Map<number, string>();
+  for (const g of [...new Set(mapNodes.map((n) => n.grade))]) unclassified.set(g, await unclassifiedSkillId(repo, schoolOf(actor), g));
+  const idx = await loadCurriculumIndex(repo, actor, { includeUnclassified: target === "CURRICULUM" });
+  const bands = await lexileBands(repo, schoolOf(actor));
   if (!idx.grades.size) return fail(kind, "curriculum", "No grades are set up for this school yet.", ["No grades are set up for this school yet. Load the curriculum before importing questions."]);
 
   // read and match every row (pure, no database work per row)
-  const read = parsed.rows.map((r) => {
-    const rr = readRow(r.cells);
-    const cm = matchCurriculum(idx, rr.grade, r.cells.skill ?? "", r.cells.standard ?? "");
-    return { r, rr, cm };
+  const read = rowsIn.map((r) => {
+    const rr = readRow(r.cells, target);
+    const place = target === "CURRICULUM" ? resolveMapLocation(mapNodes, rr.grade, { code: r.cells.mapCode, unit: r.cells.unit, set: r.cells.set, category: r.cells.category, level: r.cells.mapLevel }) : null;
+    const uses = usesFrom(r.cells.use ?? "");
+    let cm: CurriculumMatch;
+    if (target === "CURRICULUM" && !(r.cells.skill ?? "").trim()) {
+      // no platform skill: the grade's Unclassified skill (the question is still on the map and in the bank)
+      const sid = rr.grade ? unclassified.get(rr.grade) : undefined;
+      const sk = sid ? skillById(idx, sid) : null;
+      cm = { skill: sk, standard: null, errors: sk ? [] : rr.grade ? [`Grade ${rr.grade} has no Curriculum Map.`] : [], warnings: [] };
+    } else {
+      cm = matchCurriculum(idx, rr.grade, r.cells.skill ?? "", r.cells.standard ?? "");
+      if (target === "CURRICULUM" && !(r.cells.standard ?? "").trim()) {
+        // standard optional here: the skill's primary standard when it has one
+        cm.errors = cm.errors.filter((e) => !e.startsWith("Standard is empty"));
+        const primary = cm.skill?.standards.find((x) => x.isPrimary) ?? cm.skill?.standards[0];
+        cm.standard = primary ? { id: primary.id, code: primary.code } : null;
+      }
+    }
+    return { r, rr, cm, place, uses };
   });
   const gradesInFile = new Set(read.map((x) => x.cm.skill?.grade).filter((g): g is number => g !== undefined));
   const { index: existing } = await duplicateIndex(repo, [...gradesInFile].flatMap((g) => idx.grades.get(g) ?? []).map((s) => s.id));
@@ -209,12 +243,20 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
 
   const logs: Row[] = [];
   let valid = 0, invalid = 0, dups = 0;
-  for (const [i, { r, rr, cm }] of read.entries()) {
-    const errors = [...rr.errors, ...cm.errors];
+  for (const [i, { r, rr, cm, place, uses }] of read.entries()) {
+    const errors = [...rr.errors, ...cm.errors, ...(place?.errors ?? []), ...(uses.error ? [uses.error] : [])];
+    if (place?.node && cm.skill && cm.skill.grade !== place.node.grade) errors.push(`The skill is in Grade ${cm.skill.grade}, but the Curriculum Map place is in Grade ${place.node.grade}.`);
     const warnings = [...rr.warnings, ...cm.warnings];
     const standardCode = cm.standard ? String(cm.standard.code) : null;
-    const editor = rr.question ? toInput(rr.question, cm.skill?.id ?? "", standardCode, null) : null;
-    if (editor && !errors.length) errors.push(...checkInput(idx, editor));
+    let lexile: number | null = null;
+    try { lexile = cleanLexile(r.cells.lexile); } catch (e) { errors.push((e as Error).message); }
+    if (lexile !== null && place?.node?.level) {
+      const lv = levelForLexile(bands[place.node.grade], lexile);
+      const LN = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
+      if (lv && lv !== place.node.level) warnings.push(`Lexile ${lexile}L is in the ${LN[lv]} Level band for Grade ${place.node.grade} (On Level ${bands[place.node.grade].onMin}–${bands[place.node.grade].onMax}L), but the question is placed at ${LN[place.node.level]} Level.`);
+    }
+    const editor = rr.question ? { ...toInput(rr.question, cm.skill?.id ?? "", standardCode, null), ...(place?.node ? { mapNodeCode: place.node.code } : {}), ...(uses.uses.length ? { uses: uses.uses } : {}), ...(lexile !== null ? { lexile } : {}) } : null;
+    if (editor && !errors.length) errors.push(...checkInput(idx, editor, { allowNoStandard: target === "CURRICULUM" }));
     let dup = editor && editor.stem ? existing.find(editor.stem, optionTexts(editor)) : null;
     const fileDup = editor && editor.stem ? inFile.find(editor.stem, optionTexts(editor)) : null;
     if (dup) warnings.push(dup.exact ? "This question already exists in the question bank." : `A similar question already exists in the question bank (${Math.round(dup.score * 100)}% similar).`);
@@ -234,6 +276,7 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
         row: r.row, grade: rr.grade, gradeText: r.cells.grade ?? "", skillText: r.cells.skill ?? "", standardText: r.cells.standard ?? "",
         levelText: r.cells.level ?? "", cognitiveText: r.cells.cognitive ?? "", skillName: cm.skill?.name ?? null, standardCode: standardCode ? shortStandard(standardCode) : null,
         passage: rr.question?.passage ?? null, duplicateExact: Boolean(dup?.exact),
+        mapPath: place?.node?.path ?? null, uses: uses.uses,
       },
     };
     logs.push({
@@ -245,8 +288,9 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
   }
 
   const notes = [
-    `${parsed.rows.length} row(s) read from the ${kind === "xlsx" ? "Excel" : "CSV"} file`,
+    `${rowsIn.length} row(s) read from the ${kind === "xlsx" ? "Excel" : "CSV"} file`,
     "wrong-answer feedback is not part of the template: a standard message is used for wrong choices",
+    ...(emptyPlaces ? [`${emptyPlaces} empty row(s) of the Curriculum template were skipped`] : []),
     ...(parsed.ignoredColumns.length ? [`column(s) not in the template were ignored: ${parsed.ignoredColumns.join(", ")}`] : []),
   ];
   let jobId: string;
@@ -255,7 +299,7 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
       const job = await tx.create("ImportJob", {
         kind: "QUESTIONS", status: "AWAITING_CONFIRMATION", fileName, uploadedById: actor.userId,
         totalRows: logs.length, validRows: valid, errorRows: invalid, duplicateRows: dups,
-        fileSha256: createHash("sha256").update(input.bytes).digest("hex"), options: { kind, notes }, createdAt: now,
+        fileSha256: createHash("sha256").update(input.bytes).digest("hex"), options: { kind, notes, target }, createdAt: now,
       });
       for (const l of logs) {
         l.jobId = job.id;
@@ -357,7 +401,7 @@ async function editableJob(repo: Repo, actor: Actor, jobId: string) {
 
 /** Edit one detected question, select or unselect it, or choose what to do with a duplicate. */
 export async function updateImportRow(repo: Repo, actor: Actor, jobId: string, rowId: string, patch: { input?: EditorInput; selected?: boolean; decision?: ImportDecision }, now = new Date()): Promise<PreviewRow> {
-  await editableJob(repo, actor, jobId);
+  const job = await editableJob(repo, actor, jobId);
   const row = await repo.findUnique("ImportedQuestionLog", { id: rowId });
   if (!row || row.jobId !== jobId) throw new ForbiddenError("Question not found in this import.");
   const data: Row = { updatedAt: now };
@@ -372,9 +416,10 @@ export async function updateImportRow(repo: Repo, actor: Actor, jobId: string, r
   }
   if (patch.input) {
     const prev = parseJ<DetectedRow>(row.detected);
-    const input: EditorInput = { ...patch.input, imported: true, batch: jobId };
-    const idx = await loadCurriculumIndex(repo, actor);
-    const errors = checkInput(idx, input);
+    const curriculum = parseJ<{ target?: string }>(job.options)?.target === "CURRICULUM";
+    const input: EditorInput = { mapNodeCode: prev.input?.mapNodeCode, uses: prev.input?.uses, ...patch.input, imported: true, batch: jobId };
+    const idx = await loadCurriculumIndex(repo, actor, { includeUnclassified: curriculum });
+    const errors = checkInput(idx, input, { allowNoStandard: curriculum });
     const skill = skillById(idx, input.skillId);
     const { index } = await duplicateIndex(repo, skill ? (idx.grades.get(skill.grade) ?? []).map((s) => s.id) : []);
     const dup = errors.length ? null : index.find(input.stem, optionTexts(input));
@@ -420,9 +465,12 @@ export async function cancelImport(repo: Repo, actor: Actor, jobId: string, now 
 
 export interface CommitProgress { processed: number; total: number; done: boolean; counts: { imported: number; replaced: number; skipped: number; failed: number; duplicates: number } }
 
-interface Planned { log: Row; input: EditorInput; item: BankItem; skill: SkillRef; standardId: string; passage: string | null; replaceId: string | null }
+interface Planned { log: Row; input: EditorInput; item: BankItem; skill: SkillRef; standardId: string | null; passage: string | null; replaceId: string | null }
 
 import { passageRef } from "./passages";
+import { cleanLexile } from "./questions";
+import { attachmentNodes, resolveMapLocation, unclassifiedSkillId, usesFrom } from "../curriculum-map/questions";
+import { lexileBands, levelForLexile } from "../curriculum-map/lexile";
 
 /** Writes planned questions with batch inserts, in one transaction. Returns log id → question id. */
 async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: boolean, jobId: string, now: Date): Promise<Map<string, string>> {
@@ -465,6 +513,7 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
         typeId: types.get(p.item.type)!, stem: p.item.stem, content: contentPayload(p.item), hint: null, difficultyLevel: p.item.level,
         irtA: 1, irtB: LEVEL_TO_B[p.item.level] ?? 0, irtC: 0, estimatedSeconds: p.item.estimatedSeconds,
         status: published ? "PUBLISHED" : "DRAFT", origin: "IMPORTED", aiStatus: null, lessonId: null,
+        lexile: p.input.lexile ?? null,
         tags: { ...(p.input.cognitiveLevel ? { cognitiveLevel: p.input.cognitiveLevel } : {}), importJob: jobId },
         createdById: actor.userId, ...(published ? { publishedAt: now, reviewedById: actor.userId } : {}), createdAt: now, updatedAt: now,
       });
@@ -478,6 +527,15 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
     await tx.createMany("QuestionOption", options);
     await tx.createMany("QuestionAnswer", answers);
     await tx.createMany("QuestionExplanation", explanations);
+    // Curriculum import: the place on the map; any import: Placement / MAP test uses
+    const mapCodes = [...new Set(plans.map((p) => p.input.mapNodeCode).filter(Boolean).map(String))];
+    if (mapCodes.length) {
+      const nodeOf = new Map((await attachmentNodes(tx, schoolOf(actor))).map((n) => [n.code, n.id]));
+      const links = plans.filter((p) => p.input.mapNodeCode && nodeOf.has(String(p.input.mapNodeCode))).map((p) => ({ questionId: ids.get(String(p.log.id))!, nodeId: nodeOf.get(String(p.input.mapNodeCode))!, createdById: actor.userId, createdAt: now }));
+      if (links.length) await tx.createMany("QuestionMapLink", links);
+    }
+    const useRows = plans.flatMap((p) => [...new Set(p.input.uses ?? [])].map((use) => ({ questionId: ids.get(String(p.log.id))!, use, createdAt: now })));
+    if (useRows.length) await tx.createMany("QuestionUse", useRows);
     for (const p of plans.filter((x) => x.replaceId)) {
       const old = await tx.findUnique("Question", { id: p.replaceId! });
       if (old && old.status !== "ARCHIVED") {
@@ -513,19 +571,20 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
   const skip: string[] = [];
   const failed: { id: string; errors: string[] }[] = [];
   const plans: Planned[] = [];
-  const idx = open.length ? await loadCurriculumIndex(repo, actor) : null;
+  const target: ImportTarget = parseJ<{ target?: string }>(job.options)?.target === "CURRICULUM" ? "CURRICULUM" : "BANK";
+  const idx = open.length ? await loadCurriculumIndex(repo, actor, { includeUnclassified: target === "CURRICULUM" }) : null;
   for (const l of open) {
     const det = parseJ<DetectedRow>(l.detected);
     // rows with errors are reported as failed (with their reasons), never silently as skipped
     if (l.status === "INVALID" || !det.input) { failed.push({ id: String(l.id), errors: parseJ<string[] | null>(l.errors) ?? ["the question has errors"] }); continue; }
     if (!l.selected || l.decision === "SKIP") { skip.push(String(l.id)); continue; }
     const input = det.input;
-    const problems = checkInput(idx!, input); // the curriculum may have changed since the preview
+    const problems = checkInput(idx!, input, { allowNoStandard: target === "CURRICULUM" }); // the curriculum may have changed since the preview
     if (problems.length) { failed.push({ id: String(l.id), errors: problems }); continue; }
     const skill = skillById(idx!, input.skillId)!;
-    const std = idx!.standards.get(shortStandard(input.standardCode!))!;
-    const item = buildBankItem(input, { ref: `T${skill.grade}-${randomBytes(4).toString("hex")}`, grade: skill.grade, skillCode: skill.code, standardCode: std.code, passageRef: null });
-    plans.push({ log: l, input, item, skill, standardId: std.id, passage: det.meta?.passage ?? null, replaceId: l.decision === "REPLACE" && l.duplicateOfId ? String(l.duplicateOfId) : null });
+    const std = input.standardCode ? idx!.standards.get(shortStandard(input.standardCode)) ?? null : null;
+    const item = buildBankItem(input, { ref: `T${skill.grade}-${randomBytes(4).toString("hex")}`, grade: skill.grade, skillCode: skill.code, standardCode: std ? std.code : null, passageRef: null, allowNoStandard: target === "CURRICULUM" });
+    plans.push({ log: l, input, item, skill, standardId: std ? std.id : null, passage: det.meta?.passage ?? null, replaceId: l.decision === "REPLACE" && l.duplicateOfId ? String(l.duplicateOfId) : null });
   }
   if (skip.length) await repo.updateMany("ImportedQuestionLog", { id: { in: skip } }, { status: "SKIPPED", updatedAt: now });
   for (const f of failed) await repo.updateMany("ImportedQuestionLog", { id: f.id }, { status: "FAILED", errors: f.errors, updatedAt: now });

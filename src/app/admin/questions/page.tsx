@@ -11,7 +11,7 @@ import { LEVEL_LABELS } from "@/config/engine";
 
 const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
 
-type SP = { status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string; track?: string; subject?: string; level?: string; source?: string };
+type SP = { status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string; track?: string; subject?: string; level?: string; source?: string; onmap?: string; use?: string; map?: string };
 const SUBJECTS: [string, string][] = [["READING", "Reading"], ["VOCABULARY", "Vocabulary"], ["GRAMMAR", "Grammar"], ["LANGUAGE", "Language"], ["WRITING", "Writing"], ["WORD_STUDY", "Word study / spelling"]];
 const SOURCES: [string, string][] = [["TEACHER_AUTHORED", "Written by teachers"], ["SCHOOL_BOOKLET", "School booklet"], ["IMPORTED", "Imported"], ["AI_GENERATED", "AI-generated"], ["DEMO", "Demo"]];
 // the platform's own difficulty scale (config/engine LEVEL_LABELS)
@@ -41,12 +41,15 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
   const filter = { status, grade, q: sp.q?.slice(0, 100) || undefined, mine: sp.mine === "1" || undefined, ai: sp.ai === "1" || undefined, unitId: sp.unit || undefined, skillId: sp.skill || undefined, standard: sp.standard?.slice(0, 60) || undefined, type: sp.type || undefined, passage, image,
     subject: SUBJECTS.some(([v]) => v === sp.subject) ? sp.subject : undefined,
     difficulty: LEVELS.some(([v]) => v === sp.level) ? Number(sp.level) : undefined,
-    source: SOURCES.some(([v]) => v === sp.source) ? sp.source : undefined };
-  const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: grade, q: filter.q, mine: filter.mine, aiOnly: filter.ai, unitId: filter.unitId, skillId: filter.skillId, standardCode: filter.standard, typeCode: filter.type, passage, image, subject: filter.subject, difficulty: filter.difficulty, source: filter.source, limit: PAGE, page });
+    source: SOURCES.some(([v]) => v === sp.source) ? sp.source : undefined,
+    onMap: sp.onmap === "map" || sp.onmap === "bank" ? (sp.onmap as "map" | "bank") : undefined,
+    use: sp.use === "PLACEMENT" || sp.use === "MAP_TEST" ? (sp.use as "PLACEMENT" | "MAP_TEST") : undefined,
+    mapCode: /^G\d+\.[A-Z0-9.]+$/i.test(sp.map ?? "") ? String(sp.map).toUpperCase() : undefined };
+  const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: grade, q: filter.q, mine: filter.mine, aiOnly: filter.ai, unitId: filter.unitId, skillId: filter.skillId, standardCode: filter.standard, typeCode: filter.type, passage, image, subject: filter.subject, difficulty: filter.difficulty, source: filter.source, onMap: filter.onMap, use: filter.use, mapCode: filter.mapCode, limit: PAGE, page });
   const pages = Math.max(1, Math.ceil(total / PAGE));
   const qs = (over: Record<string, string | number | undefined>) => {
     const p = new URLSearchParams();
-    for (const [k, v] of Object.entries({ status, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, track: sp.track, subject: sp.subject, level: sp.level, source: sp.source, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
+    for (const [k, v] of Object.entries({ status, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, track: sp.track, subject: sp.subject, level: sp.level, source: sp.source, onmap: sp.onmap, use: sp.use, map: sp.map, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
     return `/admin/questions?${p.toString()}`;
   };
   const tab = (s: QuestionStatus) => qs({ status: s, page: undefined });
@@ -82,6 +85,9 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <select name="subject" defaultValue={sp.subject ?? ""} aria-label="Subject" className={sel}><option value="">All subjects</option>{SUBJECTS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="level" defaultValue={sp.level ?? ""} aria-label="Difficulty level" className={sel}><option value="">All difficulty levels</option>{LEVELS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="source" defaultValue={sp.source ?? ""} aria-label="Source" className={sel}><option value="">All sources</option>{SOURCES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
+        <select name="onmap" defaultValue={sp.onmap ?? ""} aria-label="Curriculum Map" className={sel}><option value="">Curriculum Map: any</option><option value="map">🧭 On the Curriculum Map</option><option value="bank">📚 Question Bank only</option></select>
+        <select name="use" defaultValue={sp.use ?? ""} aria-label="Use" className={sel}><option value="">Use: any</option><option value="PLACEMENT">Placement</option><option value="MAP_TEST">MAP test</option></select>
+        {filter.mapCode && <><input type="hidden" name="map" value={filter.mapCode} /><span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-sm text-emerald-900 ring-1 ring-emerald-300">🧭 Place: {filter.mapCode} <a href={qs({ map: undefined, page: undefined })} aria-label="Remove the place filter" className="font-bold">✕</a></span></>}
         {sp.track && <input type="hidden" name="track" value={sp.track} />}
         <input name="q" defaultValue={sp.q ?? ""} placeholder="Search question text or skill name" aria-label="Search" className={sel} />
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="mine" value="1" defaultChecked={sp.mine === "1"} />Only mine</label>
@@ -92,7 +98,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
       <section className={card}>
         {sp.deleted === "1" && <p role="status" className="mb-3 rounded-lg bg-teal-50 px-3 py-2 text-teal-900">The question was deleted.</p>}
         <QuestionTable
-          rows={items.map((q) => ({ id: q.id, stem: q.stem, mine: q.mine, origin: q.origin, grade: q.grade, skill: q.skill, type: q.type, level: q.level, levelLabel: q.levelLabel, status: q.status, updatedAt: q.updatedAt, hasPassage: q.hasPassage, hasImage: q.hasImage, possibleMissingPassage: q.possibleMissingPassage }))}
+          rows={items.map((q) => ({ id: q.id, stem: q.stem, mine: q.mine, origin: q.origin, grade: q.grade, skill: q.skill, type: q.type, level: q.level, levelLabel: q.levelLabel, status: q.status, updatedAt: q.updatedAt, hasPassage: q.hasPassage, hasImage: q.hasImage, possibleMissingPassage: q.possibleMissingPassage, mapCode: q.mapCode ?? null, uses: q.uses ?? [] }))}
           total={total}
           canPublish={can(actor, "questions:publish")}
           canDelete={(actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN") && can(actor, "questions:publish")}

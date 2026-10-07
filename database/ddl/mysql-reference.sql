@@ -406,6 +406,7 @@ CREATE TABLE `Question` (
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `updatedAt` DATETIME(3) NOT NULL,
   `deletedAt` DATETIME(3),
+  `lexile` INTEGER,
   PRIMARY KEY (`id`),
   CONSTRAINT `Question_skillId_externalRef_key` UNIQUE (`skillId`, `externalRef`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -615,6 +616,7 @@ CREATE TABLE `Assignment` (
   `skillId` VARCHAR(191),
   `startAt` DATETIME(3),
   `note` TEXT,
+  `track` VARCHAR(16) NOT NULL DEFAULT 'CURRICULUM',
   `assessmentId` VARCHAR(191),
   `targetMastery` INTEGER,
   `dueAt` DATETIME(3),
@@ -713,6 +715,7 @@ CREATE TABLE `MapResult` (
   `projectedGrowth` INTEGER,
   `termName` VARCHAR(191),
   `importedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `lexile` INTEGER,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -941,6 +944,140 @@ CREATE TABLE `QuestionImage` (
 
 CREATE INDEX `QuestionImage_sha256_idx` ON `QuestionImage`(`sha256`);
 
+CREATE TABLE `CurriculumMapNode` (
+  `id` VARCHAR(191) NOT NULL,
+  `gradeId` VARCHAR(191) NOT NULL,
+  `parentId` VARCHAR(191),
+  `kind` ENUM('BOOK', 'UNIT', 'TEXT_SET', 'SELECTION', 'CATEGORY', 'LEVEL') NOT NULL,
+  `code` VARCHAR(120) NOT NULL,
+  `number` INTEGER,
+  `title` VARCHAR(255) NOT NULL,
+  `heading` VARCHAR(255),
+  `sharedRead` VARCHAR(255),
+  `genre` VARCHAR(120),
+  `categoryType` ENUM('CONCEPT_VOCABULARY', 'ANALYZE_CRAFT_AND_STRUCTURE', 'RESPOND_TO_READING'),
+  `skills` VARCHAR(500),
+  `level` ENUM('ABOVE', 'ON', 'BELOW'),
+  `acceptsQuestions` BOOLEAN NOT NULL DEFAULT false,
+  `bookId` VARCHAR(191),
+  `sortOrder` INTEGER NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `CurriculumMapNode_gradeId_code_key` UNIQUE (`gradeId`, `code`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `CurriculumMapNode_gradeId_parentId_sortOrder_idx` ON `CurriculumMapNode`(`gradeId`, `parentId`, `sortOrder`);
+
+CREATE INDEX `CurriculumMapNode_acceptsQuestions_idx` ON `CurriculumMapNode`(`acceptsQuestions`);
+
+CREATE TABLE `QuestionMapLink` (
+  `questionId` VARCHAR(191) NOT NULL,
+  `nodeId` VARCHAR(191) NOT NULL,
+  `createdById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`questionId`, `nodeId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `QuestionMapLink_nodeId_idx` ON `QuestionMapLink`(`nodeId`);
+
+CREATE TABLE `QuestionUse` (
+  `questionId` VARCHAR(191) NOT NULL,
+  `use` ENUM('PLACEMENT', 'MAP_TEST') NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`questionId`, `use`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `QuestionUse_use_idx` ON `QuestionUse`(`use`);
+
+CREATE TABLE `SchoolAsset` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `kind` VARCHAR(30) NOT NULL,
+  `mime` VARCHAR(60) NOT NULL,
+  `bytes` MEDIUMBLOB NOT NULL,
+  `sha256` VARCHAR(64) NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `SchoolAsset_schoolId_kind_idx` ON `SchoolAsset`(`schoolId`, `kind`);
+
+CREATE TABLE `StudentLevel` (
+  `studentId` VARCHAR(191) NOT NULL,
+  `level` ENUM('ABOVE', 'ON', 'BELOW') NOT NULL,
+  `source` VARCHAR(20) NOT NULL,
+  `setById` VARCHAR(191),
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`studentId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `ReadMasterArticle` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `code` VARCHAR(60) NOT NULL,
+  `title` VARCHAR(255) NOT NULL,
+  `topic` VARCHAR(191),
+  `gradeLevel` INTEGER NOT NULL,
+  `skillId` VARCHAR(191),
+  `skillName` VARCHAR(191),
+  `status` VARCHAR(20) NOT NULL DEFAULT 'DRAFT',
+  `createdById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `ReadMasterArticle_schoolId_code_key` UNIQUE (`schoolId`, `code`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `ReadMasterArticle_schoolId_gradeLevel_idx` ON `ReadMasterArticle`(`schoolId`, `gradeLevel`);
+
+CREATE TABLE `ReadMasterVersion` (
+  `id` VARCHAR(191) NOT NULL,
+  `articleId` VARCHAR(191) NOT NULL,
+  `level` ENUM('ABOVE', 'ON', 'BELOW') NOT NULL,
+  `lexile` INTEGER NOT NULL,
+  `body` TEXT NOT NULL,
+  `wordCount` INTEGER NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `ReadMasterVersion_articleId_level_key` UNIQUE (`articleId`, `level`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `ReadMasterQuestion` (
+  `versionId` VARCHAR(191) NOT NULL,
+  `questionId` VARCHAR(191) NOT NULL,
+  `order` INTEGER NOT NULL,
+  PRIMARY KEY (`versionId`, `questionId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `ReadMasterQuestion_questionId_idx` ON `ReadMasterQuestion`(`questionId`);
+
+CREATE TABLE `StudentReadingLexile` (
+  `studentId` VARCHAR(191) NOT NULL,
+  `lexile` INTEGER NOT NULL,
+  `source` VARCHAR(20) NOT NULL,
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`studentId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `ReadMasterAttempt` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `articleId` VARCHAR(191) NOT NULL,
+  `versionId` VARCHAR(191) NOT NULL,
+  `level` ENUM('ABOVE', 'ON', 'BELOW') NOT NULL,
+  `lexileBefore` INTEGER NOT NULL,
+  `lexileAfter` INTEGER NOT NULL,
+  `correct` INTEGER NOT NULL,
+  `total` INTEGER NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `ReadMasterAttempt_studentId_idx` ON `ReadMasterAttempt`(`studentId`);
+
+CREATE INDEX `ReadMasterAttempt_articleId_idx` ON `ReadMasterAttempt`(`articleId`);
+
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 ALTER TABLE `Session` ADD CONSTRAINT `Session_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
@@ -1031,3 +1168,9 @@ ALTER TABLE `ClassSkillDaily` ADD CONSTRAINT `ClassSkillDaily_classId_fkey` FORE
 ALTER TABLE `ClassSkillDaily` ADD CONSTRAINT `ClassSkillDaily_skillId_fkey` FOREIGN KEY (`skillId`) REFERENCES `Skill`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 ALTER TABLE `DiagnosticResult` ADD CONSTRAINT `DiagnosticResult_studentId_fkey` FOREIGN KEY (`studentId`) REFERENCES `Student`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 ALTER TABLE `ImportedQuestionLog` ADD CONSTRAINT `ImportedQuestionLog_jobId_fkey` FOREIGN KEY (`jobId`) REFERENCES `ImportJob`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `CurriculumMapNode` ADD CONSTRAINT `CurriculumMapNode_gradeId_fkey` FOREIGN KEY (`gradeId`) REFERENCES `Grade`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `CurriculumMapNode` ADD CONSTRAINT `CurriculumMapNode_bookId_fkey` FOREIGN KEY (`bookId`) REFERENCES `Book`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `CurriculumMapNode` ADD CONSTRAINT `CurriculumMapNode_parentId_fkey` FOREIGN KEY (`parentId`) REFERENCES `CurriculumMapNode`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `QuestionMapLink` ADD CONSTRAINT `QuestionMapLink_questionId_fkey` FOREIGN KEY (`questionId`) REFERENCES `Question`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `QuestionMapLink` ADD CONSTRAINT `QuestionMapLink_nodeId_fkey` FOREIGN KEY (`nodeId`) REFERENCES `CurriculumMapNode`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `QuestionUse` ADD CONSTRAINT `QuestionUse_questionId_fkey` FOREIGN KEY (`questionId`) REFERENCES `Question`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

@@ -158,9 +158,10 @@ describe("school settings", () => {
     await updateBranding(repo, admin, { nameAr: "مدارس الأنجال الأهلية" }, now);
     await assert.rejects(uploadLogo(repo, admin, new TextEncoder().encode("<html>not an image</html>"), dir), ValidationError);
     const name = await uploadLogo(repo, admin, PNG_1PX, dir, now);
-    assert.match(name, /^logo-[0-9a-f]{16}\.png$/);
-    assert.ok(existsSync(join(dir, name)));
-    const b = await loadBranding(repo, admin.schoolId!, dir);
+    // stored in the database (the server disk is wiped on every deploy), not in the branding folder
+    assert.match(name, /^db:/);
+    assert.ok(!existsSync(join(dir, name)));
+    const b = await loadBranding(repo, admin.schoolId!, mkdtempSync(join(tmpdir(), "brand-empty-")));
     assert.equal(b.nameAr, "مدارس الأنجال الأهلية");
     assert.equal(b.logo?.mime, "image/png");
   });

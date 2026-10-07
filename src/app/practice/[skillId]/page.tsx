@@ -5,16 +5,20 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { startPractice } from "@/server/practice/session";
 import { isAssignedSkill } from "@/server/student/assigned";
+import { isMapPracticeSkill, seedAbilityFromRit } from "@/server/map/student-map";
 import { submitAnswerAction } from "./actions";
 
 /** Starts (or resumes) adaptive practice for a skill. */
-export default async function PracticePage({ params }: { params: Promise<{ skillId: string }> }) {
+export default async function PracticePage({ params, searchParams }: { params: Promise<{ skillId: string }>; searchParams: Promise<{ from?: string }> }) {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const { skillId } = await params;
   const me = (await getActor())!.user;
-  const unitHref = "/student";
-  // students practise assigned work only (checked on the server)
-  if (!(await isAssignedSkill(repo, actor, skillId))) {
+  // MAP practice: a skill of the student's own grade linked to a MAP goal area (adaptive, starts at their RIT level)
+  const fromMap = (await searchParams).from === "map" && (await isMapPracticeSkill(repo, actor, skillId));
+  const unitHref = fromMap ? "/student/map" : "/student";
+  if (fromMap) await seedAbilityFromRit(repo, actor, skillId);
+  // otherwise students practise assigned work only (checked on the server)
+  if (!fromMap && !(await isAssignedSkill(repo, actor, skillId))) {
     return (
       <AppShell name={String(me.displayName)}>
         <p className="text-lg text-slate-700">This skill has not been assigned to you. Your teacher will assign the skills to practise.</p>
