@@ -20,10 +20,12 @@ const BATCH = 50;
  * Questions table. Admins with publishing permission also get row checkboxes, “Select all”,
  * “Publish Selected” and “Publish All” (all publishable questions matching the current filters).
  */
-export function QuestionTable({ rows, total, canPublish, canDelete = false, roster, filter }: {
+export function QuestionTable({ rows, total, canPublish, canDelete = false, roster, defaultTrack, filter }: {
   rows: TableRow[]; total: number; canPublish: boolean; canDelete?: boolean;
   /** teachers: their classes and students; shows a ⭐ in front of every published question to assign it */
   roster?: RosterClass[];
+  /** the area preselected in the assign dialog (from the curriculum page's MAP tab) */
+  defaultTrack?: "CURRICULUM" | "MAP";
   filter: import("../actions").ListFilterInput;
 }) {
   const router = useRouter();
@@ -124,7 +126,7 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
           <button type="button" disabled={starred.length === 0} onClick={() => setAssigning(true)} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">⭐ Assign selected ({starred.length})</button>
         </div>
       )}
-      {assigning && roster && <AssignQuestionsDialog roster={roster} questionIds={starred} onDone={() => setStarred([])} onClose={() => setAssigning(false)} />}
+      {assigning && roster && <AssignQuestionsDialog roster={roster} questionIds={starred} defaultTrack={defaultTrack} onDone={() => setStarred([])} onClose={() => setAssigning(false)} />}
       {checkboxes && (
         <div className="mb-3 flex flex-wrap items-center justify-end gap-2">
           <span className="me-auto text-sm font-semibold text-slate-700" aria-live="polite">Selected: {selected.size}</span>

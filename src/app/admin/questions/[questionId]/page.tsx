@@ -22,7 +22,7 @@ export default async function QuestionPage({ params }: { params: Promise<{ quest
   const { questionId } = await params;
   const d = await getQuestion(repo, actor, questionId).catch(() => null);
   if (!d) notFound();
-  const { skills, standards } = await editorOptions(repo, actor.schoolId!);
+  const { skills, standards, grades } = await editorOptions(repo, actor.schoolId!);
   const step = (s: string, text: string, opts: { note?: "required" | "optional"; danger?: boolean } = {}) => (
     <ActionForm action={questionStepAction} submit={text} danger={opts.danger} className="space-y-2">
       <input type="hidden" name="questionId" value={d.id} /><input type="hidden" name="step" value={s} />
@@ -74,7 +74,7 @@ export default async function QuestionPage({ params }: { params: Promise<{ quest
 
       <section className={card}>
         <h2 className={h2}>{d.canEdit ? "Edit" : "Question"}</h2>
-        <div className="mt-3"><QuestionEditor questionId={d.id} initial={d.input} skills={skills} standards={standards} readOnly={!d.canEdit} /></div>
+        <div className="mt-3"><QuestionEditor questionId={d.id} initial={d.input} skills={skills} standards={standards} readOnly={!d.canEdit} curriculum={can(actor, "curriculum:edit") ? { grades } : undefined} /></div>
       </section>
 
       <section className={card}>

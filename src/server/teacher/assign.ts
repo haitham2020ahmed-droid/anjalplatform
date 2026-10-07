@@ -39,7 +39,12 @@ export function assignmentStatus(input: { answered: number; mastery: number; tar
 
 // ------------------------------------------------------------------ assign
 
+export type Track = "CURRICULUM" | "MAP";
+const trackOf = (v: unknown): Track => (v === "MAP" ? "MAP" : "CURRICULUM");
+
 export interface AssignSkillInput {
+  /** CURRICULUM (default) or MAP */
+  track?: Track;
   classId: string;
   skillId: string;
   /** undefined or empty = the whole class */
@@ -78,6 +83,7 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
   const students = await repo.findMany("Student", { id: { in: recipients } }, { select: ["id", "userId"] });
   const id = await repo.transaction(async (tx) => {
     const a = await tx.create("Assignment", {
+      track: trackOf(input.track),
       classId: klass.id, createdById: teacher.id, title: s(skill.name).slice(0, 191), target: "SKILL", skillId: skill.id, skillIds: [s(skill.id)],
       startAt, dueAt, note, targetMastery: target, createdAt: now,
     });
@@ -181,11 +187,15 @@ async function accessibleClasses(repo: Repo, actor: Actor): Promise<Row[]> {
   return links.length ? (await repo.findMany("Class", { id: { in: links.map((l) => l.classId) }, deletedAt: null })) : [];
 }
 
+export interface CurriculumSkill { id: string; name: string; code: string; standards: string[]; lessons: string[]; openAssignments: number; questions: number }
+
 export interface TeacherCurriculum {
   classes: { id: string; name: string; grade: number }[];
   classId: string;
   grade: { level: number; name: string };
-  units: { id: string; number: number; title: string; skills: { id: string; name: string; code: string; standards: string[]; lessons: string[]; openAssignments: number }[] }[];
+  units: { id: string; number: number; title: string; skills: CurriculumSkill[] }[];
+  /** the same skills grouped by MAP Growth goal area (via each skill's family) */
+  mapAreas: { code: string; name: string; skills: CurriculumSkill[] }[];
   students: { id: string; name: string }[];
 }
 
@@ -202,7 +212,7 @@ export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: stri
   const cur = (await repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }))[0];
   const [units, skills, members, assignments] = await Promise.all([
     cur ? repo.findMany("Unit", { curriculumId: cur.id, deletedAt: null }) : Promise.resolve([] as Row[]),
-    cur ? repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null, isActive: true }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
+    cur ? repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null, isActive: true }, { select: ["id", "name", "code", "familyId"] }) : Promise.resolve([] as Row[]),
     repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] }),
     repo.findMany("Assignment", { classId: klass.id, deletedAt: null }, { select: ["id", "skillId"] }),
   ]);
@@ -222,12 +232,16 @@ export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: stri
   ]);
   const stdCode = new Map(stds.map((x) => [s(x.id), s(x.code).replace(/^CCSS\.ELA-LITERACY\./, "")]));
   const lessonNo = new Map(lessons.map((l) => [s(l.id), Number(l.number)]));
+  // published questions per skill (one query): the teacher can open them, star and assign
+  const skillIdsHere = skills.map((k) => k.id);
+  const questionCount = new Map<string, number>();
+  if (skillIdsHere.length) for (const q of await repo.findMany("Question", { skillId: { in: skillIdsHere }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId"] })) questionCount.set(s(q.skillId), (questionCount.get(s(q.skillId)) ?? 0) + 1);
   const openBySkill = new Map<string, number>();
   const openAssignmentIds = new Set(openRows.map((r) => s(r.assignmentId)));
   for (const a of assignments) if (a.skillId && openAssignmentIds.has(s(a.id))) openBySkill.set(s(a.skillId), (openBySkill.get(s(a.skillId)) ?? 0) + 1);
   const skillById = new Map(skills.map((k) => [s(k.id), k]));
   const names = new Map(users.map((u) => [s(u.id), s(u.displayName)]));
-  return {
+  const view: TeacherCurriculum = {
     classes: sorted.map((c) => ({ id: s(c.id), name: s(c.name), grade: levelOf.get(s(c.gradeId)) ?? 0 })),
     classId: s(klass.id), grade: { level: Number(grade.level), name: s(grade.name) },
     units: activeUnits.map((u) => {
@@ -239,14 +253,35 @@ export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: stri
           standards: links.filter((l) => l.skillId === k.id).sort((a, b) => Number(b.isPrimary) - Number(a.isPrimary)).map((l) => stdCode.get(s(l.standardId)) ?? "").filter(Boolean),
           lessons: [...new Set(lessonSkills.filter((ls) => ls.skillId === k.id && myLessons.has(s(ls.lessonId))).map((ls) => lessonNo.get(s(ls.lessonId)) ?? 0))].sort((a, b) => a - b).map((n) => `L${n}`),
           openAssignments: openBySkill.get(s(k.id)) ?? 0,
+          questions: questionCount.get(s(k.id)) ?? 0,
         })),
       };
     }),
     students: students.map((x) => ({ id: s(x.id), name: names.get(s(x.userId)) ?? "Student" })).sort((a, b) => a.name.localeCompare(b.name)),
+    mapAreas: [],
   };
+  view.mapAreas = await mapAreasFor(repo, skills, view.units.flatMap((u) => u.skills));
+  return view;
 }
 
-export interface WeeklyRow { id: string; skill: string; className: string; assigned: number; counts: Record<Status, number>; dueAt: string | null; startAt: string | null; createdAt: string; scope: "class" | "students" }
+/** Groups the grade's skills by MAP goal area (skill → family → goal area), in the goal areas' order. */
+async function mapAreasFor(repo: Repo, skills: Row[], built: CurriculumSkill[]): Promise<TeacherCurriculum["mapAreas"]> {
+  const familyIds = [...new Set(skills.map((k) => k.familyId).filter(Boolean).map(s))];
+  if (!familyIds.length) return [];
+  const families = await repo.findMany("SkillFamily", { id: { in: familyIds } }, { select: ["id", "mapGoalAreaId"] });
+  const areaIds = [...new Set(families.map((f) => f.mapGoalAreaId).filter(Boolean).map(s))];
+  if (!areaIds.length) return [];
+  const areas = await repo.findMany("MapGoalArea", { id: { in: areaIds } }, { select: ["id", "code", "name"] });
+  const areaOfFamily = new Map(families.map((f) => [s(f.id), s(f.mapGoalAreaId)]));
+  const byId = new Map(built.map((k) => [k.id, k]));
+  const ORDER = ["LIT_THEME", "LIT_STRUCTURE", "INFO_CENTRAL_IDEA", "INFO_STRUCTURE", "VOCAB", "LANG_GRAMMAR", "LANG_MECHANICS", "WRITING_STYLE", "WRITING_ORG", "WRITING_SUPPORT"];
+  return areas.map((a) => ({
+    code: s(a.code), name: s(a.name),
+    skills: skills.filter((k) => areaOfFamily.get(s(k.familyId)) === a.id).map((k) => byId.get(s(k.id))).filter((k): k is CurriculumSkill => Boolean(k)).sort((x, y) => x.name.localeCompare(y.name)),
+  })).filter((a) => a.skills.length).sort((x, y) => (ORDER.indexOf(x.code) + 99) % 99 - (ORDER.indexOf(y.code) + 99) % 99 || x.name.localeCompare(y.name));
+}
+
+export interface WeeklyRow { id: string; track: Track; skill: string; className: string; assigned: number; counts: Record<Status, number>; dueAt: string | null; startAt: string | null; createdAt: string; scope: "class" | "students" }
 
 /** Skill assignments created or due in the week starting `weekStart`, for the classes the actor may see. */
 export async function weeklyAssignments(repo: Repo, actor: Actor, weekStart: Date, now = new Date()): Promise<WeeklyRow[]> {
@@ -272,7 +307,7 @@ export async function weeklyAssignments(repo: Repo, actor: Actor, weekStart: Dat
     const counts: Record<Status, number> = { NOT_STARTED: 0, IN_PROGRESS: 0, COMPLETED: 0, OVERDUE: 0 };
     for (const r of mine) counts[r.status as Status]++;
     return {
-      id: s(a.id), skill: s(a.title), className: className.get(s(a.classId)) ?? "", assigned: mine.length, counts,
+      id: s(a.id), track: trackOf(a.track), skill: s(a.title), className: className.get(s(a.classId)) ?? "", assigned: mine.length, counts,
       dueAt: d(a.dueAt)?.toISOString() ?? null, startAt: d(a.startAt)?.toISOString() ?? null, createdAt: d(a.createdAt)!.toISOString(),
       scope: (mine.length < (classSize.get(s(a.classId)) ?? 0) ? "students" : "class") as WeeklyRow["scope"],
     };
@@ -320,7 +355,7 @@ export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: s
 
 export const MAX_SET_QUESTIONS = 50;
 
-export interface AssignQuestionsInput { classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null }
+export interface AssignQuestionsInput { track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null }
 
 /**
  * Assigns specific questions chosen by the teacher (from the question list) to a class, selected students or
@@ -363,7 +398,7 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
   const id = await repo.transaction(async (tx) => {
     const set = await tx.create("Assessment", { title: title.slice(0, 191), type: "TEACHER_QUIZ", isAdaptive: false, maxQuestions: ids.length, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
     await tx.createMany("AssessmentQuestion", ids.map((questionId, order) => ({ assessmentId: set.id, questionId, order, points: 1 })));
-    const a = await tx.create("Assignment", { classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, createdAt: now });
+    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, createdAt: now });
     await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
     const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";
     await tx.createMany("Notification", students.map((st) => ({

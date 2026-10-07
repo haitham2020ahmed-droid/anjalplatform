@@ -6,7 +6,7 @@ import { assignSkillAction } from "./actions";
  * ⭐ Assign: opens a small dialog. Nothing is assigned until the teacher presses “Assign” in it.
  * Target: entire class, selected students, or one student; optional start date, due date, note.
  */
-export function AssignDialog({ classId, className, skill, students }: { classId: string; className: string; skill: { id: string; name: string; standards: string[] }; students: { id: string; name: string }[] }) {
+export function AssignDialog({ classId, className, skill, students, track = "CURRICULUM" }: { classId: string; className: string; skill: { id: string; name: string; standards: string[] }; students: { id: string; name: string }[]; track?: "CURRICULUM" | "MAP" }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [mode, setMode] = useState<"class" | "students" | "one">("class");
   const [state, action, pending] = useActionState(assignSkillAction, {});
@@ -18,7 +18,7 @@ export function AssignDialog({ classId, className, skill, students }: { classId:
       </button>
       <dialog ref={ref} className="w-full max-w-lg rounded-2xl p-0 backdrop:bg-slate-900/40" aria-labelledby={`assign-${skill.id}`}>
         <form action={action} className="space-y-4 p-6">
-          <input type="hidden" name="classId" value={classId} /><input type="hidden" name="skillId" value={skill.id} /><input type="hidden" name="mode" value={mode} />
+          <input type="hidden" name="track" value={track} /><input type="hidden" name="classId" value={classId} /><input type="hidden" name="skillId" value={skill.id} /><input type="hidden" name="mode" value={mode} />
           <div>
             <h2 id={`assign-${skill.id}`} className="text-lg font-bold text-brand-navy">Assign “{skill.name}”</h2>
             <p className="text-sm text-slate-600">{skill.standards.join(", ") || "No standard"} · {className}</p>

@@ -15,9 +15,10 @@ const yes = (f: FormData, k: string) => f.get(k) === "on" || f.get(k) === "1" ||
 type Actor = Awaited<ReturnType<typeof requireActor>>;
 async function act(actor: Actor, fn: (actor: Actor) => Promise<unknown>, message: string): Promise<Result> {
   try {
-    await fn(actor);
+    const made = await fn(actor);
+    const id = made && typeof made === "object" && "id" in (made as object) ? String((made as { id: unknown }).id) : undefined;
     for (const p of ["/admin/curriculum", "/admin/curriculum/standards", "/admin/questions", "/admin/question-bank", "/admin/questions/import"]) revalidatePath(p);
-    return { ok: true, message };
+    return { ok: true, message, ...(id ? { id } : {}) };
   } catch (e) {
     if (e instanceof ValidationError || (e as { status?: number }).status === 403) return { error: (e as Error).message };
     throw e;

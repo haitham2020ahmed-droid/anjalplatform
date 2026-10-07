@@ -17,6 +17,7 @@ export async function editorOptions(repo: Repo, schoolId: string) {
   const standards = standardRows.map((s) => String(s.code)).sort();
   return {
     skills: skills.map((s) => ({ id: String(s.id), grade: level(s), name: String(s.name) })).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name)),
+    grades: grades.map((g) => ({ id: String(g.id), level: Number(g.level) })).sort((a, b) => a.level - b.level),
     standards,
   };
 }

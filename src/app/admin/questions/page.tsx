@@ -10,7 +10,7 @@ import { teacherRoster } from "@/server/teacher/assign";
 
 const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
 
-type SP = { status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string };
+type SP = { status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string; track?: string };
 const PAGE = 100;
 const TYPES: [string, string][] = [["MULTIPLE_CHOICE", "Multiple choice"], ["MULTI_SELECT", "Multi select"], ["TRUE_FALSE", "True/false"], ["DROPDOWN", "Dropdown"], ["FILL_BLANK", "Fill in the blank"], ["SHORT_ANSWER", "Short answer"], ["MATCHING", "Matching"], ["SENTENCE_ORDER", "Sentence order"], ["WORD_ORDER", "Word order"], ["ERROR_CORRECTION", "Error correction"]];
 
@@ -38,7 +38,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
   const pages = Math.max(1, Math.ceil(total / PAGE));
   const qs = (over: Record<string, string | number | undefined>) => {
     const p = new URLSearchParams();
-    for (const [k, v] of Object.entries({ status, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
+    for (const [k, v] of Object.entries({ status, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, track: sp.track, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
     return `/admin/questions?${p.toString()}`;
   };
   const tab = (s: QuestionStatus) => qs({ status: s, page: undefined });
@@ -68,7 +68,8 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <select name="type" defaultValue={sp.type ?? ""} aria-label="Question type" className={sel}><option value="">All types</option>{TYPES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="passage" defaultValue={sp.passage ?? ""} aria-label="Passage" className={sel}><option value="">Passage: any</option><option value="has">Has passage</option><option value="none">No passage</option><option value="missing">⚠ Possible missing passage</option></select>
         <select name="image" defaultValue={sp.image ?? ""} aria-label="Image" className={sel}><option value="">Image: any</option><option value="has">Has image</option><option value="none">No image</option></select>
-        <input name="q" defaultValue={sp.q ?? ""} placeholder="Search question text" aria-label="Search" className={sel} />
+        {sp.track && <input type="hidden" name="track" value={sp.track} />}
+        <input name="q" defaultValue={sp.q ?? ""} placeholder="Search question text or skill name" aria-label="Search" className={sel} />
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="mine" value="1" defaultChecked={sp.mine === "1"} />Only mine</label>
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="ai" value="1" defaultChecked={sp.ai === "1"} />Only AI-drafted</label>
         <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Filter</button>
@@ -82,6 +83,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
           canPublish={can(actor, "questions:publish")}
           canDelete={(actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN") && can(actor, "questions:publish")}
           roster={actor.role === "TEACHER" ? await teacherRoster(repo, actor) : undefined}
+          defaultTrack={sp.track === "map" ? "MAP" : "CURRICULUM"}
           filter={filter}
         />
         {pages > 1 && (

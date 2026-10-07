@@ -949,6 +949,8 @@ model Assignment {
   skillId     String? // one skill per assignment (Assign button); skillIds kept for older rows
   startAt     DateTime?
   note        String?          @db.Text
+  /// CURRICULUM (taught from the book units) or MAP (MAP Growth preparation); shown as two areas to students
+  track        String   @default("CURRICULUM") @db.VarChar(16)
   assessmentId String?
   targetMastery Int?           // e.g. 75
   dueAt       DateTime?

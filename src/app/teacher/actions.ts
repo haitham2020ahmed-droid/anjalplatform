@@ -53,7 +53,7 @@ export async function assignSkillAction(_: { error?: string; message?: string },
     const picked = f.getAll("studentIds").map(String).filter(Boolean);
     if (mode !== "class" && picked.length === 0) return { error: "Choose at least one student." };
     if (mode === "one" && picked.length !== 1) return { error: "Choose exactly one student." };
-    const r = await assignSkill(repo, actor, {
+    const r = await assignSkill(repo, actor, { track: f.get("track") === "MAP" ? "MAP" : "CURRICULUM", 
       classId: String(f.get("classId") ?? ""), skillId: String(f.get("skillId") ?? ""), studentIds: mode === "class" ? [] : picked,
       startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
     });
@@ -76,6 +76,7 @@ export async function assignQuestionsAction(_: { error?: string; message?: strin
     if (mode !== "class" && picked.length === 0) return { error: "Choose at least one student." };
     if (mode === "one" && picked.length !== 1) return { error: "Choose exactly one student." };
     const r = await assignQuestions(repo, actor, {
+      track: f.get("track") === "MAP" ? "MAP" : "CURRICULUM",
       classId: String(f.get("classId") ?? ""), questionIds: f.getAll("questionIds").map(String), studentIds: mode === "class" ? [] : picked,
       title: String(f.get("title") ?? ""), startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
     });

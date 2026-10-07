@@ -29,6 +29,8 @@ const skillOf = (a: Row): string | null => (a.skillId ? s(a.skillId) : Array.isA
 export interface AssignedSkill {
   /** skill = adaptive practice on a skill; questions = a set of questions the teacher chose */
   kind: "skill" | "questions"; questionCount?: number;
+  /** CURRICULUM or MAP: the student sees two areas */
+  track: "CURRICULUM" | "MAP";
   assignmentId: string; skillId: string; skill: string; standard: string | null; assignedAt: string; startAt: string | null; dueAt: string | null;
   status: Status; progress: number; note: string | null; startsLater: boolean; completedAt: string | null;
 }
@@ -62,7 +64,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     const skillId = skillOf(a)!;
     const startAt = d(a.startAt);
     return {
-      kind: "skill" as const, assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
+      kind: "skill" as const, track: (a.track === "MAP" ? "MAP" : "CURRICULUM") as AssignedSkill["track"], assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now),
       completedAt: d(r.completedAt)?.toISOString() ?? null,
@@ -73,7 +75,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     if (!r) continue;
     const startAt = d(a.startAt);
     items.push({
-      kind: "questions", questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: s(a.title), standard: null,
+      kind: "questions", track: a.track === "MAP" ? "MAP" : "CURRICULUM", questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: s(a.title), standard: null,
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now), completedAt: d(r.completedAt)?.toISOString() ?? null,
     });
