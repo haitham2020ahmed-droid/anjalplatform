@@ -11,22 +11,25 @@ export async function resolveActor(repo: Repo, user: Row): Promise<Actor> {
   const role = String(user.role) as Role;
   const actor: Actor = { userId: String(user.id), role, schoolId: user.schoolId ? String(user.schoolId) : null };
 
-  const grants = await repo.findMany("RolePermission", { role });
+  // the permission grants and the role's scope are independent: read them at the same time (this runs
+  // on every page, so each saved database round trip counts)
+  const scope = async () => {
+    if (role === "STUDENT") {
+      const st = await repo.findUnique("Student", { userId: user.id });
+      if (st) actor.studentId = String(st.id);
+    } else if (role === "TEACHER") {
+      const t = await repo.findUnique("Teacher", { userId: user.id });
+      const classIds = t ? (await repo.findMany("ClassTeacher", { teacherId: t.id }, { select: ["classId"] })).map((c) => String(c.classId)) : [];
+      const members = classIds.length ? await repo.findMany("ClassMembership", { classId: { in: classIds }, leftAt: null }, { select: ["studentId"] }) : [];
+      actor.teacherStudentIds = new Set(members.map((m) => String(m.studentId)));
+    } else if (role === "PARENT") {
+      const p = await repo.findUnique("Parent", { userId: user.id });
+      const links = p ? await repo.findMany("ParentStudent", { parentId: p.id }, { select: ["studentId"] }) : [];
+      actor.parentChildIds = new Set(links.map((l) => String(l.studentId)));
+    }
+  };
+  const [grants] = await Promise.all([repo.findMany("RolePermission", { role }, { select: ["permission"] }), scope()]);
   if (grants.length) actor.extraPermissions = grants.map((g) => String(g.permission) as Permission);
-
-  if (role === "STUDENT") {
-    const st = await repo.findUnique("Student", { userId: user.id });
-    if (st) actor.studentId = String(st.id);
-  } else if (role === "TEACHER") {
-    const t = await repo.findUnique("Teacher", { userId: user.id });
-    const classIds = t ? (await repo.findMany("ClassTeacher", { teacherId: t.id })).map((c) => String(c.classId)) : [];
-    const members = classIds.length ? await repo.findMany("ClassMembership", { classId: { in: classIds }, leftAt: null }) : [];
-    actor.teacherStudentIds = new Set(members.map((m) => String(m.studentId)));
-  } else if (role === "PARENT") {
-    const p = await repo.findUnique("Parent", { userId: user.id });
-    const links = p ? await repo.findMany("ParentStudent", { parentId: p.id }) : [];
-    actor.parentChildIds = new Set(links.map((l) => String(l.studentId)));
-  }
   return actor;
 }
 

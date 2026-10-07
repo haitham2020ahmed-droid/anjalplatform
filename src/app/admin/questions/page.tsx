@@ -13,7 +13,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const status = (STATUSES as readonly string[]).includes(sp.status ?? "") ? (sp.status as QuestionStatus) : "UNDER_REVIEW";
-  const { items, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: Number(sp.grade) || undefined, q: sp.q?.slice(0, 100), mine: sp.mine === "1", aiOnly: sp.ai === "1" });
+  const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: Number(sp.grade) || undefined, q: sp.q?.slice(0, 100), mine: sp.mine === "1", aiOnly: sp.ai === "1", limit: 300 });
   const tab = (s: QuestionStatus) => `/admin/questions?status=${s}${sp.grade ? `&grade=${sp.grade}` : ""}${sp.mine ? "&mine=1" : ""}${sp.ai ? "&ai=1" : ""}`;
   return (
     <AppShell name={String(me.displayName)}>
@@ -40,8 +40,8 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
       </form>
       <section className={card}>
         <QuestionTable
-          rows={items.slice(0, 300).map((q) => ({ id: q.id, stem: q.stem, mine: q.mine, origin: q.origin, grade: q.grade, skill: q.skill, type: q.type, level: q.level, levelLabel: q.levelLabel, status: q.status, updatedAt: q.updatedAt }))}
-          total={items.length}
+          rows={items.map((q) => ({ id: q.id, stem: q.stem, mine: q.mine, origin: q.origin, grade: q.grade, skill: q.skill, type: q.type, level: q.level, levelLabel: q.levelLabel, status: q.status, updatedAt: q.updatedAt }))}
+          total={total}
           canPublish={can(actor, "questions:publish")}
           filter={{ status, grade: Number(sp.grade) || undefined, q: sp.q?.slice(0, 100) || undefined, mine: sp.mine === "1" || undefined, ai: sp.ai === "1" || undefined }}
         />

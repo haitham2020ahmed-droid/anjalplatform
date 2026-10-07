@@ -496,6 +496,8 @@ CREATE TABLE `QuestionAttempt` (
 
 CREATE INDEX `QuestionAttempt_studentId_skillId_createdAt_idx` ON `QuestionAttempt`(`studentId`, `skillId`, `createdAt`);
 
+CREATE INDEX `QuestionAttempt_studentId_createdAt_idx` ON `QuestionAttempt`(`studentId`, `createdAt`);
+
 CREATE INDEX `QuestionAttempt_questionId_createdAt_idx` ON `QuestionAttempt`(`questionId`, `createdAt`);
 
 CREATE INDEX `QuestionAttempt_skillId_createdAt_idx` ON `QuestionAttempt`(`skillId`, `createdAt`);
@@ -829,6 +831,8 @@ CREATE TABLE `AuditLog` (
 CREATE INDEX `AuditLog_entityType_entityId_idx` ON `AuditLog`(`entityType`, `entityId`);
 
 CREATE INDEX `AuditLog_actorId_createdAt_idx` ON `AuditLog`(`actorId`, `createdAt`);
+
+CREATE INDEX `AuditLog_createdAt_idx` ON `AuditLog`(`createdAt`);
 
 CREATE TABLE `StudentDailyActivity` (
   `studentId` VARCHAR(191) NOT NULL,

@@ -341,7 +341,7 @@ export async function getImportJob(repo: Repo, actor: Actor, jobId: string): Pro
 
 export async function listImportJobs(repo: Repo, actor: Actor, limit = 30): Promise<Omit<ImportJobView, "rows">[]> {
   assertCan(actor, "questions:edit");
-  const users = await repo.findMany("User", { schoolId: schoolOf(actor) });
+  const users = await repo.findMany("User", { schoolId: schoolOf(actor) }, { select: ["id", "displayName"] });
   const jobs = (await repo.findMany("ImportJob", { kind: "QUESTIONS", uploadedById: { in: users.map((u) => u.id) } }))
     .sort((a, b) => new Date(String(b.createdAt)).getTime() - new Date(String(a.createdAt)).getTime()).slice(0, limit);
   return jobs.map((job) => viewOf(job, String(users.find((u) => u.id === job.uploadedById)?.displayName ?? "")));

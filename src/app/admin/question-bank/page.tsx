@@ -14,7 +14,7 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
   const me = (await getActor())!.user;
   const grade = [4, 5, 6].includes(Number((await searchParams).grade)) ? Number((await searchParams).grade) : 4;
   const rows = await skillCoverage(repo, actor, grade);
-  const { aiPending } = await listQuestions(repo, actor, { aiOnly: true });
+  const { aiPending } = await listQuestions(repo, actor, { aiOnly: true, limit: 0 });
   const t = bandTargets(DEFAULT_TARGET);
   const mayGenerate = can(actor, "questions:generate");
   const needing = rows.filter((r) => r.needed > 0).length;

@@ -368,34 +368,63 @@ export interface QuestionListItem {
   updatedAt: string;
 }
 
-export async function listQuestions(repo: Repo, actor: Actor, filter: { status?: QuestionStatus; gradeLevel?: number; skillId?: string; q?: string; mine?: boolean; aiOnly?: boolean } = {}): Promise<{ items: QuestionListItem[]; counts: Record<QuestionStatus, number>; aiPending: number }> {
+/**
+ * The question list. Filtering, search, sorting, counting and paging happen in the database, and only
+ * the columns the list shows are read (performance: this used to load every question of the school).
+ * `limit` caps the rows returned (the page shows 300); `total` is always the full number of matches.
+ */
+export async function listQuestions(repo: Repo, actor: Actor, filter: { status?: QuestionStatus; gradeLevel?: number; skillId?: string; q?: string; mine?: boolean; aiOnly?: boolean; limit?: number } = {}): Promise<{ items: QuestionListItem[]; total: number; counts: Record<QuestionStatus, number>; aiPending: number }> {
   assertCan(actor, "questions:read");
   const schoolId = schoolOf(actor);
   const grades = (await repo.findMany("Grade", { schoolId })).filter((g) => !filter.gradeLevel || num(g.level) === filter.gradeLevel);
   const curricula = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }) : [];
-  const skills = curricula.length ? await repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => c.id) } }) : [];
+  const skills = curricula.length ? await repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => c.id) } }, { select: ["id", "name", "curriculumId"] }) : [];
   const skillIds = filter.skillId ? skills.filter((s) => s.id === filter.skillId).map((s) => s.id) : skills.map((s) => s.id);
-  const all = skillIds.length ? (await repo.findMany("Question", { skillId: { in: skillIds } })).filter((q) => !q.deletedAt) : [];
-  const counts = Object.fromEntries(STATUSES.map((s) => [s, all.filter((q) => q.status === s).length])) as Record<QuestionStatus, number>;
-  const types = await repo.findMany("QuestionType", {});
-  const needle = (filter.q ?? "").trim().toLowerCase();
-  const gradeOfSkill = (sid: unknown) => {
-    const s = skills.find((x) => x.id === sid);
-    const c = curricula.find((x) => x.id === s?.curriculumId);
-    return num(grades.find((g) => g.id === c?.gradeId)?.level);
+  const empty = { items: [], total: 0, counts: Object.fromEntries(STATUSES.map((s) => [s, 0])) as Record<QuestionStatus, number>, aiPending: 0 };
+  if (!skillIds.length) return empty;
+
+  const base = { skillId: { in: skillIds }, deletedAt: null };
+  const where = {
+    ...base,
+    ...(filter.status ? { status: filter.status } : {}),
+    ...(filter.mine ? { createdById: actor.userId } : {}),
+    ...(filter.aiOnly ? { origin: "AI_GENERATED" } : {}),
   };
-  const items = all
-    .filter((q) => (!filter.status || q.status === filter.status) && (!filter.mine || q.createdById === actor.userId) && (!filter.aiOnly || q.origin === "AI_GENERATED"))
-    .filter((q) => !needle || [q.stem, q.externalRef].some((v) => String(v ?? "").toLowerCase().includes(needle)))
-    .map((q) => ({
-      id: String(q.id), ref: String(q.externalRef ?? ""), stem: String(q.stem).slice(0, 160), skill: String(skills.find((s) => s.id === q.skillId)?.name ?? ""), grade: gradeOfSkill(q.skillId),
-      type: String(types.find((t) => t.id === q.typeId)?.code ?? ""), level: num(q.difficultyLevel), levelLabel: LEVEL_LABELS[num(q.difficultyLevel)] ?? "",
-      status: String(q.status) as QuestionStatus, origin: String(q.origin), mine: q.createdById === actor.userId,
-      updatedAt: (q.updatedAt instanceof Date ? q.updatedAt : new Date(String(q.updatedAt))).toISOString(),
-    }))
-    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
-  const aiPending = all.filter((q) => q.origin === "AI_GENERATED" && (q.status === "DRAFT" || q.status === "UNDER_REVIEW")).length;
-  return { items, counts, aiPending };
+  const needle = (filter.q ?? "").trim();
+  const COLS = ["id", "externalRef", "stem", "skillId", "typeId", "difficultyLevel", "status", "origin", "createdById", "updatedAt"];
+  const ORDER = [{ field: "updatedAt", dir: "desc" as const }, { field: "id", dir: "asc" as const }];
+  // search matches the question text OR the reference: two indexed reads, merged
+  const read = (w: Record<string, unknown>, take?: number) => repo.findMany("Question", w, { select: COLS, orderBy: ORDER, ...(take !== undefined ? { take } : {}) });
+  const [statusCounts, aiPending, types, rows, total] = await Promise.all([
+    Promise.all(STATUSES.map((st) => repo.count("Question", { ...base, status: st }))),
+    repo.count("Question", { ...base, origin: "AI_GENERATED", status: { in: ["DRAFT", "UNDER_REVIEW"] } }),
+    repo.findMany("QuestionType", {}, { select: ["id", "code"] }),
+    needle
+      ? Promise.all([read({ ...where, stem: { contains: needle } }), read({ ...where, externalRef: { contains: needle } })]).then(([a, b]) => {
+          const seen = new Set(a.map((q) => q.id));
+          return [...a, ...b.filter((q) => !seen.has(q.id))];
+        })
+      : filter.limit === 0 ? Promise.resolve([] as Row[]) : read(where, filter.limit),
+    needle || filter.limit === undefined ? Promise.resolve(-1) : repo.count("Question", where),
+  ]);
+  const counts = Object.fromEntries(STATUSES.map((st, i) => [st, statusCounts[i]])) as Record<QuestionStatus, number>;
+  const skillById = new Map(skills.map((x) => [String(x.id), x]));
+  const gradeOfCurriculum = new Map(curricula.map((c) => [String(c.id), num(grades.find((g) => g.id === c.gradeId)?.level)]));
+  const typeCode = new Map(types.map((t) => [String(t.id), String(t.code)]));
+  const iso = (v: unknown) => (v instanceof Date ? v : new Date(String(v))).toISOString();
+  const all = rows
+    .map((q) => {
+      const sk = skillById.get(String(q.skillId));
+      return {
+        id: String(q.id), ref: String(q.externalRef ?? ""), stem: String(q.stem).slice(0, 160), skill: String(sk?.name ?? ""), grade: num(sk ? gradeOfCurriculum.get(String(sk.curriculumId)) : 0),
+        type: typeCode.get(String(q.typeId)) ?? "", level: num(q.difficultyLevel), levelLabel: LEVEL_LABELS[num(q.difficultyLevel)] ?? "",
+        status: String(q.status) as QuestionStatus, origin: String(q.origin), mine: q.createdById === actor.userId,
+        updatedAt: iso(q.updatedAt),
+      };
+    })
+    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt) || a.id.localeCompare(b.id));
+  const items = filter.limit !== undefined ? all.slice(0, filter.limit) : all;
+  return { items, total: total >= 0 ? total : all.length, counts, aiPending };
 }
 
 export interface QuestionDetail {
@@ -453,7 +482,7 @@ export async function getQuestion(repo: Repo, actor: Actor, id: string): Promise
     input.correction = v.correction;
   }
   if (code === "MATCHING" && primary) input.pairs = val(primary) as { left: string; right: string }[];
-  const users = logs.length ? await repo.findMany("User", { id: { in: [...new Set(logs.map((l) => l.actorId).filter(Boolean))] } }) : [];
+  const users = logs.length ? await repo.findMany("User", { id: { in: [...new Set(logs.map((l) => l.actorId).filter(Boolean))] } }, { select: ["id", "displayName"] }) : [];
   const after = (l: Row) => (typeof l.after === "string" ? JSON.parse(l.after) : l.after ?? {}) as { note?: string; reason?: string };
   const editable = (() => {
     try { assertMayEdit(actor, q); return true; } catch { return false; }

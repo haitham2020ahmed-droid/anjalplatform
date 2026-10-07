@@ -43,7 +43,12 @@ export function replayDays(logs: { skillId: string; at: number; masteryAfter: nu
 export async function practiceLogs(repo: Repo, studentIds: string[], to?: Date): Promise<Map<string, { skillId: string; at: number; masteryAfter: number; newTheta: number }[]>> {
   const out = new Map<string, { skillId: string; at: number; masteryAfter: number; newTheta: number }[]>();
   if (!studentIds.length) return out;
-  const logs: Row[] = await repo.findMany("AdaptiveDecisionLog", { studentId: { in: studentIds } });
+  // Only the 6 columns growth needs, only up to `to`, in the table's own (id) order: the original read
+  // every column of the whole history (the "reason" text alone is most of each row).
+  const logs: Row[] = await repo.findMany("AdaptiveDecisionLog", { studentId: { in: studentIds }, ...(to ? { createdAt: { lte: to } } : {}) }, {
+    select: ["studentId", "skillId", "createdAt", "masteryAfter", "newTheta", "attemptId"],
+    orderBy: [{ field: "id" }],
+  });
   for (const l of logs) {
     if (l.masteryAfter === null || l.masteryAfter === undefined || l.attemptId === null || l.attemptId === undefined) continue;
     if (to && t(l.createdAt) > to.getTime()) continue;

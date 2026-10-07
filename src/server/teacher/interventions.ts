@@ -86,18 +86,23 @@ export async function scanInterventions(repo: Repo, studentIds: string[], now = 
   if (!studentIds.length) return 0;
   const since = new Date(now.getTime() - 30 * DAY);
   const [attempts, mastery, logs, open, students] = await Promise.all([
-    repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: since } }),
-    repo.findMany("StudentSkillMastery", { studentId: { in: studentIds } }),
-    repo.findMany("AdaptiveDecisionLog", { studentId: { in: studentIds }, createdAt: { gte: since } }),
-    repo.findMany("InterventionAlert", { studentId: { in: studentIds }, resolvedAt: null }),
-    repo.findMany("Student", { id: { in: studentIds } }),
+    // only the columns the rules use (the response and text columns are the bulk of these tables)
+    repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "questionId", "sessionId", "isCorrect", "responseMs", "rapidGuess", "createdAt"] }),
+    repo.findMany("StudentSkillMastery", { studentId: { in: studentIds } }, { select: ["studentId", "skillId", "score"] }),
+    repo.findMany("AdaptiveDecisionLog", { studentId: { in: studentIds }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "masteryAfter", "reasonCode", "createdAt"] }),
+    repo.findMany("InterventionAlert", { studentId: { in: studentIds }, resolvedAt: null }, { select: ["studentId", "skillId"] }),
+    repo.findMany("Student", { id: { in: studentIds } }, { select: ["id", "userId"] }),
   ]);
   const qIds = [...new Set(attempts.map((a) => String(a.questionId)))];
-  const questions = qIds.length ? await repo.findMany("Question", { id: { in: qIds } }) : [];
-  const qMeta = new Map(questions.map((q) => [String(q.id), q]));
   const skillIds = [...new Set(attempts.map((a) => String(a.skillId)))];
-  const skills = new Map((skillIds.length ? await repo.findMany("Skill", { id: { in: skillIds } }) : []).map((k) => [String(k.id), String(k.name)]));
-  const users = new Map((await repo.findMany("User", { id: { in: students.map((s) => s.userId) } })).map((u) => [String(u.id), String(u.displayName)]));
+  const [questions, skillRows, userRows] = await Promise.all([
+    qIds.length ? repo.findMany("Question", { id: { in: qIds } }, { select: ["id", "estimatedSeconds", "externalRef"] }) : Promise.resolve([] as Row[]),
+    skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
+    students.length ? repo.findMany("User", { id: { in: students.map((s) => s.userId) } }, { select: ["id", "displayName"] }) : Promise.resolve([] as Row[]),
+  ]);
+  const qMeta = new Map(questions.map((q) => [String(q.id), q]));
+  const skills = new Map(skillRows.map((k) => [String(k.id), String(k.name)]));
+  const users = new Map(userRows.map((u) => [String(u.id), String(u.displayName)]));
   const nameOf = new Map(students.map((s) => [String(s.id), (users.get(String(s.userId)) ?? "This student").split(" ")[0]]));
   const openKey = new Set(open.map((a) => `${a.studentId}|${a.skillId}`));
   let created = 0;

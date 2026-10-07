@@ -11,8 +11,24 @@
  * or compound); ids and @updatedAt are filled automatically.
  */
 export type Row = Record<string, unknown> & { id?: string };
-/** Equality, `{ in: [...] }`, or range `{ lt, gte }` (Prisma-compatible subset). */
-export type Where = Record<string, unknown | { in: unknown[] } | { lt?: unknown; gte?: unknown }>;
+/**
+ * Equality, `{ in: [...] }`, range `{ lt, lte, gt, gte }`, or `{ contains: "text" }` (case-insensitive
+ * substring) — a Prisma-compatible subset.
+ */
+export type Where = Record<string, unknown | { in: unknown[] } | { lt?: unknown; lte?: unknown; gt?: unknown; gte?: unknown } | { contains: string }>;
+
+/**
+ * Optional query shaping, done by the database instead of in JavaScript (performance):
+ *   select  only these columns (the rows contain nothing else)
+ *   orderBy sort order (applied before take/skip)
+ *   take / skip  a page of rows
+ */
+export interface FindOptions {
+  select?: readonly string[];
+  orderBy?: readonly { field: string; dir?: "asc" | "desc" }[];
+  take?: number;
+  skip?: number;
+}
 
 export interface Repo {
   /** Insert or update by a unique key. Returns the stored row. */
@@ -24,7 +40,7 @@ export interface Repo {
    */
   createMany(model: string, rows: Row[]): Promise<number>;
   findUnique(model: string, where: Record<string, unknown>): Promise<Row | null>;
-  findMany(model: string, where?: Where): Promise<Row[]>;
+  findMany(model: string, where?: Where, opts?: FindOptions): Promise<Row[]>;
   count(model: string, where?: Where): Promise<number>;
   /** Update rows matching `where` (equality / in). Returns the number of rows changed. */
   updateMany(model: string, where: Where, data: Row): Promise<number>;

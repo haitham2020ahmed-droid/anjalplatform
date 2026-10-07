@@ -6,6 +6,7 @@ import { createHash } from "node:crypto";
 import type { BankItem, BankOption, QuestionTypeCode } from "../../imports/questions/validate";
 import type { CandidateItem } from "../../types/domain";
 import type { Repo, Row } from "../seeding/repo";
+import { bankVersion } from "../cache/bank-version";
 
 export interface PracticeItem extends BankItem {
   questionId: string;
@@ -32,9 +33,25 @@ export interface ClientQuestion {
 
 const str = (v: unknown) => String(v ?? "");
 
-/** Load every PUBLISHED item for a skill (batched: one query per table). */
+/**
+ * In-memory cache of each skill's published items (performance: practice used to rebuild them from
+ * six tables on every answer). An entry is used only while the bank version is unchanged (any write
+ * to the question tables in this process changes it) and for at most ITEM_CACHE_MS (covers changes
+ * made by another process, e.g. the item-statistics job). Callers get their own copy.
+ */
+const ITEM_CACHE_MS = 60_000;
+const ITEM_CACHE_MAX = 500;
+const itemCache = new Map<string, { version: number; at: number; items: PracticeItem[] }>();
+
+/** Load every PUBLISHED item for a skill (cached; batched on a miss: one query per table). */
 export async function loadSkillItems(repo: Repo, skillId: string): Promise<PracticeItem[]> {
-  return loadItemsForSkills(repo, [skillId]);
+  const hit = itemCache.get(skillId);
+  if (hit && hit.version === bankVersion() && Date.now() - hit.at < ITEM_CACHE_MS) return structuredClone(hit.items);
+  const version = bankVersion();
+  const items = await loadItemsForSkills(repo, [skillId]);
+  if (itemCache.size >= ITEM_CACHE_MAX) itemCache.clear();
+  itemCache.set(skillId, { version, at: Date.now(), items: structuredClone(items) });
+  return items;
 }
 
 /** Load every PUBLISHED item for several skills at once (used by placement checks). */

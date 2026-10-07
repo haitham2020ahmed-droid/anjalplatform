@@ -60,27 +60,37 @@ export interface ClassOverview {
 }
 
 async function classStudents(repo: Repo, classId: string) {
-  const members = await repo.findMany("ClassMembership", { classId, leftAt: null });
-  const students = members.length ? await repo.findMany("Student", { id: { in: members.map((m) => m.studentId) } }) : [];
-  const users = students.length ? await repo.findMany("User", { id: { in: students.map((s) => s.userId) } }) : [];
+  const members = await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] });
+  const students = members.length ? await repo.findMany("Student", { id: { in: members.map((m) => m.studentId) } }, { select: ["id", "userId"] }) : [];
+  const users = students.length ? await repo.findMany("User", { id: { in: students.map((s) => s.userId) } }, { select: ["id", "displayName"] }) : [];
   const name = new Map(users.map((u) => [String(u.id), String(u.displayName)]));
-  return students.map((s) => ({ id: String(s.id), name: name.get(String(s.userId)) ?? "Student", row: s }));
+  return students.map((s) => ({ id: String(s.id), name: name.get(String(s.userId)) ?? "Student" }));
 }
 
 export async function classOverview(repo: Repo, actor: Actor, classId: string, range: { from: Date; to: Date }): Promise<ClassOverview> {
   const klass = await assertClassAccess(repo, actor, classId);
-  const grade = (await repo.findUnique("Grade", { id: klass.gradeId }))!;
-  const studs = await classStudents(repo, classId);
+  const [gradeRow, studs] = await Promise.all([repo.findUnique("Grade", { id: klass.gradeId }), classStudents(repo, classId)]);
+  const grade = gradeRow!;
   const ids = studs.map((s) => s.id);
+  // only the columns this page uses, and only the attempts inside the range (performance)
   const [mastery, attempts, globals, alerts] = await Promise.all([
-    ids.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: range.from } }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("StudentAbility", { studentId: { in: ids }, scope: "GLOBAL" }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("InterventionAlert", { studentId: { in: ids }, resolvedAt: null }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "attempts", "score", "isMastered"] }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: range.from, lte: range.to } }, { select: ["studentId", "questionId", "createdAt", "isCorrect", "responseMs"] }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("StudentAbility", { studentId: { in: ids }, scope: "GLOBAL" }, { select: ["studentId", "theta"] }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("InterventionAlert", { studentId: { in: ids }, resolvedAt: null }, { select: ["id", "studentId", "message", "ruleCode", "createdAt"] }) : Promise.resolve([] as Row[]),
   ]);
   const inRange = attempts.filter((a) => ms(a.createdAt) <= range.to.getTime());
   const skillIds = [...new Set(mastery.map((m) => String(m.skillId)))];
-  const skills = new Map((skillIds.length ? await repo.findMany("Skill", { id: { in: skillIds } }) : []).map((k) => [String(k.id), String(k.name)]));
+  const byQ = new Map<string, Row[]>();
+  for (const a of inRange) (byQ.get(String(a.questionId)) ?? byQ.set(String(a.questionId), []).get(String(a.questionId))!).push(a);
+  const hardIds = [...byQ].filter(([, v]) => v.length >= 5).map(([id, v]) => ({ id, acc: v.filter((x) => x.isCorrect).length / v.length, n: v.length })).sort((a, b) => a.acc - b.acc).slice(0, 5);
+  const [skillRows, qrows] = await Promise.all([
+    skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
+    hardIds.length ? repo.findMany("Question", { id: { in: hardIds.map((h) => h.id) } }, { select: ["id", "externalRef", "stem", "skillId"] }) : Promise.resolve([] as Row[]),
+  ]);
+  const skills = new Map(skillRows.map((k) => [String(k.id), String(k.name)]));
+  const missing = [...new Set(qrows.map((q) => String(q.skillId)))].filter((id) => !skills.has(id));
+  const qSkills = new Map([...skills, ...(missing.length ? await repo.findMany("Skill", { id: { in: missing } }, { select: ["id", "name"] }) : []).map((k) => [String(k.id), String(k.name)] as [string, string])]);
 
   const students: StudentRow[] = studs.map((s) => {
     const m = mastery.filter((x) => x.studentId === s.id && num(x.attempts) > 0);
@@ -112,11 +122,6 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   const weakSkills = skillAvg.filter((x) => x.avgMastery < 60).sort((a, b) => a.avgMastery - b.avgMastery).slice(0, 5);
   const strongSkills = skillAvg.filter((x) => x.avgMastery >= 60).sort((a, b) => b.avgMastery - a.avgMastery).slice(0, 5);
 
-  const byQ = new Map<string, Row[]>();
-  for (const a of inRange) (byQ.get(String(a.questionId)) ?? byQ.set(String(a.questionId), []).get(String(a.questionId))!).push(a);
-  const hardIds = [...byQ].filter(([, v]) => v.length >= 5).map(([id, v]) => ({ id, acc: v.filter((x) => x.isCorrect).length / v.length, n: v.length })).sort((a, b) => a.acc - b.acc).slice(0, 5);
-  const qrows = hardIds.length ? await repo.findMany("Question", { id: { in: hardIds.map((h) => h.id) } }) : [];
-  const qSkills = new Map((qrows.length ? await repo.findMany("Skill", { id: { in: qrows.map((q) => q.skillId) } }) : []).map((k) => [String(k.id), String(k.name)]));
   const hardQuestions = hardIds.map((h) => {
     const q = qrows.find((x) => x.id === h.id)!;
     return { questionId: h.id, ref: String(q.externalRef ?? q.id), stem: String(q.stem).slice(0, 140), skill: qSkills.get(String(q.skillId)) ?? "", attempts: h.n, accuracyPct: Math.round(h.acc * 100) };
@@ -150,14 +155,20 @@ export interface MasteryGrid {
 /** Students × skills heat map for one unit. */
 export async function masteryGrid(repo: Repo, actor: Actor, classId: string, unitId: string): Promise<MasteryGrid> {
   const klass = await assertClassAccess(repo, actor, classId);
-  const unit = await repo.findUnique("Unit", { id: unitId });
-  const cur = (await repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }))[0];
+  const [unit, curs, unitLinks, studs] = await Promise.all([
+    repo.findUnique("Unit", { id: unitId }),
+    repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }),
+    repo.findMany("UnitSkill", { unitId }),
+    classStudents(repo, classId),
+  ]);
+  const cur = curs[0];
   if (!unit || unit.curriculumId !== cur.id) throw new ForbiddenError("That unit is not in this class's book.");
-  const links = (await repo.findMany("UnitSkill", { unitId })).sort((a, b) => num(a.order) - num(b.order));
-  const skillRows = await repo.findMany("Skill", { id: { in: links.map((l) => l.skillId) } });
+  const links = unitLinks.sort((a, b) => num(a.order) - num(b.order));
+  const [skillRows, mastery] = await Promise.all([
+    links.length ? repo.findMany("Skill", { id: { in: links.map((l) => l.skillId) } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
+    studs.length && links.length ? repo.findMany("StudentSkillMastery", { studentId: { in: studs.map((s) => s.id) }, skillId: { in: links.map((l) => l.skillId) } }, { select: ["studentId", "skillId", "attempts", "score", "band"] }) : Promise.resolve([] as Row[]),
+  ]);
   const skills = links.map((l) => ({ skillId: String(l.skillId), name: String(skillRows.find((k) => k.id === l.skillId)?.name ?? "") }));
-  const studs = await classStudents(repo, classId);
-  const mastery = studs.length && skills.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: studs.map((s) => s.id) }, skillId: { in: skills.map((k) => k.skillId) } }) : [];
   return {
     skills,
     rows: studs.sort((a, b) => a.name.localeCompare(b.name)).map((s) => ({
@@ -187,24 +198,30 @@ export interface StudentDetail {
 export async function studentDetail(repo: Repo, actor: Actor, studentId: string): Promise<StudentDetail> {
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || !canAccessStudent(actor, { studentId, schoolId: String(st.schoolId) })) throw new ForbiddenError("You do not have access to this student.");
-  const user = (await repo.findUnique("User", { id: st.userId }))!;
-  const grade = (await repo.findUnique("Grade", { id: st.gradeId }))!;
-  const member = (await repo.findMany("ClassMembership", { studentId, leftAt: null }))[0];
-  const klass = member ? await repo.findUnique("Class", { id: member.classId }) : null;
-  const [mastery, attempts, logs, alerts, domains] = await Promise.all([
+  // everything independent is loaded in parallel; the full history is read only as narrow columns
+  const [user, grade, members, mastery, attempts, logs, alerts, domains, placement] = await Promise.all([
+    repo.findUnique("User", { id: st.userId }),
+    repo.findUnique("Grade", { id: st.gradeId }),
+    repo.findMany("ClassMembership", { studentId, leftAt: null }),
     repo.findMany("StudentSkillMastery", { studentId }),
-    repo.findMany("QuestionAttempt", { studentId }),
-    repo.findMany("AdaptiveDecisionLog", { studentId }),
+    repo.findMany("QuestionAttempt", { studentId }, { select: ["id", "skillId", "questionId", "createdAt", "response", "isCorrect", "responseMs", "rapidGuess"] }),
+    repo.findMany("AdaptiveDecisionLog", { studentId }, { select: ["id", "createdAt", "reasonCode", "reason", "previousTheta", "newTheta", "questionDifficulty", "responseCorrect", "masteryBefore", "masteryAfter"] }),
     repo.findMany("InterventionAlert", { studentId, resolvedAt: null }),
     repo.findMany("StudentAbility", { studentId }),
+    latestDiagnostic(repo, studentId),
   ]);
+  const member = members[0];
   const skillIds = [...new Set([...mastery.map((m) => String(m.skillId)), ...attempts.map((a) => String(a.skillId))])];
-  const skillName = new Map((skillIds.length ? await repo.findMany("Skill", { id: { in: skillIds } }) : []).map((k) => [String(k.id), String(k.name)]));
   const recentA = attempts.sort((a, b) => ms(b.createdAt) - ms(a.createdAt)).slice(0, 20);
-  const qs = recentA.length ? await repo.findMany("Question", { id: { in: recentA.map((a) => a.questionId) } }) : [];
+  const [klass, skillRows, qs] = await Promise.all([
+    member ? repo.findUnique("Class", { id: member.classId }) : Promise.resolve(null),
+    skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
+    recentA.length ? repo.findMany("Question", { id: { in: recentA.map((a) => a.questionId) } }, { select: ["id", "externalRef", "stem"] }) : Promise.resolve([] as Row[]),
+  ]);
+  const skillName = new Map(skillRows.map((k) => [String(k.id), String(k.name)]));
   return {
-    studentId, name: String(user.displayName), studentNumber: String(st.studentNumber), grade: num(grade.level), className: klass ? String(klass.name) : null,
-    placement: await latestDiagnostic(repo, studentId),
+    studentId, name: String(user!.displayName), studentNumber: String(st.studentNumber), grade: num(grade!.level), className: klass ? String(klass.name) : null,
+    placement,
     skills: mastery.filter((m) => num(m.attempts) > 0).sort((a, b) => num(a.score) - num(b.score)).map((m) => ({
       skillId: String(m.skillId), name: skillName.get(String(m.skillId)) ?? "", score: Math.round(num(m.score)), band: BAND_LABEL[String(m.band) as MasteryBandName] ?? String(m.band),
       attempts: num(m.attempts), accuracyPct: num(m.attempts) ? Math.round((100 * num(m.correct)) / num(m.attempts)) : 0,
@@ -241,9 +258,11 @@ export async function teacherClasses(repo: Repo, actor: Actor): Promise<{ classI
   } else if (actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN") {
     classes = await repo.findMany("Class", actor.role === "SUPER_ADMIN" ? { deletedAt: null } : { schoolId: actor.schoolId, deletedAt: null });
   } else throw new ForbiddenError("Teachers and admins only.");
-  const grades = classes.length ? await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => c.gradeId))] } }) : [];
-  const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }) : [];
-  const alerts = members.length ? await repo.findMany("InterventionAlert", { studentId: { in: members.map((m) => m.studentId) }, resolvedAt: null }) : [];
+  const [grades, members] = await Promise.all([
+    classes.length ? repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => c.gradeId))] } }) : Promise.resolve([] as Row[]),
+    classes.length ? repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"] }) : Promise.resolve([] as Row[]),
+  ]);
+  const alerts = members.length ? await repo.findMany("InterventionAlert", { studentId: { in: members.map((m) => m.studentId) }, resolvedAt: null }, { select: ["studentId"] }) : [];
   return classes.map((c) => {
     const sids = new Set(members.filter((m) => m.classId === c.id).map((m) => String(m.studentId)));
     return { classId: String(c.id), name: String(c.name), grade: num(grades.find((g) => g.id === c.gradeId)?.level), students: sids.size, openAlerts: alerts.filter((a) => sids.has(String(a.studentId))).length };

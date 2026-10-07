@@ -820,6 +820,7 @@ model QuestionAttempt {
   skill    Skill           @relation(fields: [skillId], references: [id])
 
   @@index([studentId, skillId, createdAt])
+  @@index([studentId, createdAt]) // analytics: a group's answers in a date range (performance)
   @@index([questionId, createdAt])
   @@index([skillId, createdAt])
 }
@@ -1206,6 +1207,7 @@ model AuditLog {
 
   @@index([entityType, entityId])
   @@index([actorId, createdAt])
+  @@index([createdAt]) // security digest: events since a date
 }
 
 // ------------------------------------------------- analytics summary tables ----

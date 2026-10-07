@@ -249,3 +249,17 @@ before the importer: run once from your computer, with `DATABASE_URL` set to the
   `question_import.action_error` (Render → Logs).
 - `pdfjs-dist` is no longer used by the importer; it stays installed for now (removing it also needs a
   Dockerfile and `next.config.ts` change).
+
+## 13. Performance
+
+- **Same region for server and database.** Pages make several database round trips each; with the
+  web service and MySQL in different continents every trip costs ~200 ms. Keep them in the same or
+  a neighbouring region (e.g. Render Singapore with an Aiven database in Hong Kong or Singapore).
+- **Indexes.** After updating, run `npx prisma db push` once against the production database (it only
+  adds the indexes `QuestionAttempt(studentId, createdAt)` and `AuditLog(createdAt)`; no data changes).
+- **Caches.** Each skill's practice questions are cached in memory; any write to the question tables
+  in the web process clears the cache at once, and entries expire after 60 s (changes made by the
+  scheduled-jobs worker). Nothing else is cached.
+- **Measuring.** `npx tsx scripts/perf/measure.ts` builds a demo school in SQLite and prints, per page,
+  the database calls, rows, data volume and time with a simulated network delay (`LATENCY_MS`,
+  default 30). `scripts/perf/snapshot.ts` dumps every page's data so two versions can be compared.

@@ -71,22 +71,28 @@ async function ownStudent(repo: Repo, actor: Actor): Promise<Row> {
 }
 
 async function ownSession(repo: Repo, actor: Actor, sessionId: string): Promise<Row> {
-  const st = await ownStudent(repo, actor);
+  // the actor's student id was resolved from the database for this request: no need to read it again
+  if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only students can practise.");
   const s = await repo.findUnique("PracticeSession", { id: sessionId });
-  if (!s || s.studentId !== st.id) throw new ForbiddenError("This practice session is not yours.");
+  if (!s || s.studentId !== actor.studentId) throw new ForbiddenError("This practice session is not yours.");
   return s;
 }
 
 /** The skill must belong to the student's own (active) curriculum. */
 async function assertSkillInCurriculum(repo: Repo, student: Row, skillId: string): Promise<Row> {
-  const skill = await repo.findUnique("Skill", { id: skillId });
-  const cur = (await repo.findMany("Curriculum", { gradeId: student.gradeId, isActive: true }))[0];
+  const [skill, curs] = await Promise.all([repo.findUnique("Skill", { id: skillId }), repo.findMany("Curriculum", { gradeId: student.gradeId, isActive: true })]);
+  const cur = curs[0];
   if (!skill || !cur || skill.curriculumId !== cur.id || !skill.isActive || skill.deletedAt) throw new ForbiddenError("This skill is not part of your curriculum.");
   return skill;
 }
 
 async function skillHistory(repo: Repo, studentId: string, skillId: string, items: Map<string, PracticeItem>): Promise<ResponseEvidence[]> {
-  const rows = (await repo.findMany("QuestionAttempt", { studentId, skillId })).sort((a, b) => d(a.createdAt).getTime() - d(b.createdAt).getTime()).slice(-HISTORY_WINDOW);
+  // only the latest HISTORY_WINDOW answers, newest first from the database, then oldest → newest
+  const rows = (await repo.findMany("QuestionAttempt", { studentId, skillId }, {
+    select: ["questionId", "isCorrect", "partialCredit", "difficultyB", "responseMs", "usedHint", "createdAt"],
+    orderBy: [{ field: "createdAt", dir: "desc" }, { field: "id", dir: "desc" }],
+    take: HISTORY_WINDOW,
+  })).reverse();
   return rows.map((r) => {
     const it = items.get(String(r.questionId));
     return {
@@ -117,8 +123,7 @@ async function prerequisitesFor(repo: Repo, studentId: string, skillId: string):
  * Returns the prior to use as well, so the first answers move from the placement level.
  */
 async function abilityOf(repo: Repo, studentId: string, skillId: string, cfg: AdaptiveConfig) {
-  const row = await repo.findUnique("StudentAbility", { studentId, scope: `SKILL:${skillId}` });
-  const skill = await repo.findUnique("Skill", { id: skillId });
+  const [row, skill] = await Promise.all([repo.findUnique("StudentAbility", { studentId, scope: `SKILL:${skillId}` }), repo.findUnique("Skill", { id: skillId })]);
   const dom = skill ? await repo.findUnique("StudentAbility", { studentId, scope: `DOMAIN:${String(skill.domain)}` }) : null;
   const priorMean = dom ? Number(dom.theta) : cfg.priorMean;
   return {
@@ -131,18 +136,22 @@ async function abilityOf(repo: Repo, studentId: string, skillId: string, cfg: Ad
 export async function startPractice(repo: Repo, actor: Actor, skillId: string, now = new Date(), random?: () => number): Promise<PracticeView> {
   const student = await ownStudent(repo, actor);
   const skill = await assertSkillInCurriculum(repo, student, skillId);
-  const items = await loadSkillItems(repo, skillId);
+  const [items, openRows] = await Promise.all([
+    loadSkillItems(repo, skillId),
+    repo.findMany("PracticeSession", { studentId: student.id, skillId, endedAt: null }),
+  ]);
   if (!items.length) throw new ValidationError("There are no questions for this skill yet.");
 
   // resume a recent open session for this skill instead of starting over
-  const open = (await repo.findMany("PracticeSession", { studentId: student.id, skillId, endedAt: null }))
-    .filter((s) => now.getTime() - d(s.startedAt).getTime() < SESSION_RESUME_MINUTES * 60_000 && s.currentQuestionId);
+  const open = openRows.filter((s) => now.getTime() - d(s.startedAt).getTime() < SESSION_RESUME_MINUTES * 60_000 && s.currentQuestionId);
   if (open.length) return currentQuestion(repo, actor, String(open[0].id), now);
 
   const cfg = await engineConfig(repo, actor.schoolId);
   const byId = new Map(items.map((i) => [i.questionId, i]));
-  const history = await skillHistory(repo, String(student.id), skillId, byId);
-  const ability = await abilityOf(repo, String(student.id), skillId, cfg.adaptive);
+  const [history, ability] = await Promise.all([
+    skillHistory(repo, String(student.id), skillId, byId),
+    abilityOf(repo, String(student.id), skillId, cfg.adaptive),
+  ]);
   const first = selectNextItem({
     mode: "PRACTICE", theta: ability.theta, previousTargetB: null, candidates: items.map((i) => toCandidate(i, skillId)),
     recentItemIds: history.map((h) => h.itemId), recentCorrect: [], prerequisites: [], config: cfg.adaptive, random,
@@ -164,11 +173,15 @@ export async function startPractice(repo: Repo, actor: Actor, skillId: string, n
 
 export async function currentQuestion(repo: Repo, actor: Actor, sessionId: string, _now = new Date()): Promise<PracticeView> {
   const s = await ownSession(repo, actor, sessionId);
-  const skill = (await repo.findUnique("Skill", { id: s.skillId }))!;
-  const m = await repo.findUnique("StudentSkillMastery", { studentId: s.studentId, skillId: s.skillId });
+  const [skillRow, m, items] = await Promise.all([
+    repo.findUnique("Skill", { id: s.skillId }),
+    repo.findUnique("StudentSkillMastery", { studentId: s.studentId, skillId: s.skillId }),
+    s.currentQuestionId && !s.endedAt ? loadSkillItems(repo, String(s.skillId)) : Promise.resolve([] as PracticeItem[]),
+  ]);
+  const skill = skillRow!;
   let question: ClientQuestion | null = null;
   if (s.currentQuestionId && !s.endedAt) {
-    const item = (await loadSkillItems(repo, String(s.skillId))).find((i) => i.questionId === s.currentQuestionId);
+    const item = items.find((i) => i.questionId === s.currentQuestionId);
     if (item) question = toClientQuestion(item, `${s.id}:${item.questionId}`);
   }
   return {
@@ -266,7 +279,7 @@ export async function submitAnswer(
     let nextId = step.next.itemId;
     let endReason: string | null = null;
     let routeToSkillId: string | null = null;
-    const seenThisSession = new Set((await tx.findMany("QuestionAttempt", { sessionId: s.id })).map((a) => String(a.questionId)));
+    const seenThisSession = new Set((await tx.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId"] })).map((a) => String(a.questionId)));
     if (answeredThisSession >= MAX_QUESTIONS_PER_SESSION) { nextId = null; endReason = "COMPLETED"; }
     else if (seenThisSession.size >= items.length && nextId && seenThisSession.has(nextId)) { nextId = null; endReason = "ALL_QUESTIONS_ANSWERED"; }
     else if (step.next.reasonCode === "PREREQ_ROUTE") { nextId = null; endReason = "PREREQ_ROUTE"; routeToSkillId = step.next.routeToSkillId ?? null; }

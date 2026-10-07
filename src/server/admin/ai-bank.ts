@@ -110,10 +110,13 @@ export async function skillCoverage(repo: Repo, actor: Actor, gradeLevel: number
   if (!grade) return [];
   const curricula = await repo.findMany("Curriculum", { gradeId: grade.id });
   const skills = curricula.length ? (await repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => c.id) } })).filter((s) => !s.deletedAt && s.domain !== "WRITING") : [];
-  const qs = skills.length ? (await repo.findMany("Question", { skillId: { in: skills.map((s) => s.id) } })).filter((q) => !q.deletedAt) : [];
+  // only the three columns coverage needs (performance)
+  const qs = skills.length ? await repo.findMany("Question", { skillId: { in: skills.map((s) => s.id) }, deletedAt: null }, { select: ["skillId", "status", "difficultyLevel"] }) : [];
+  const bySkill = new Map<string, Row[]>();
+  for (const q of qs) (bySkill.get(String(q.skillId)) ?? bySkill.set(String(q.skillId), []).get(String(q.skillId))!).push(q);
   const t = bandTargets(target);
   return skills.sort((a, b) => Number(a.sequence) - Number(b.sequence)).map((s) => {
-    const mine = qs.filter((q) => q.skillId === s.id);
+    const mine = bySkill.get(String(s.id)) ?? [];
     const approved = mine.filter((q) => q.status === "PUBLISHED");
     const pending = mine.filter((q) => q.status === "DRAFT" || q.status === "UNDER_REVIEW");
     const by = (rows: Row[]) => ({ easy: 0, medium: 0, hard: 0, ...Object.fromEntries((["easy", "medium", "hard"] as Band[]).map((b) => [b, rows.filter((q) => bandOf(Number(q.difficultyLevel)) === b).length])) }) as Record<Band, number>;

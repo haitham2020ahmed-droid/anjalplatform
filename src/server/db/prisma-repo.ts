@@ -5,8 +5,9 @@
  * A lookup on fields that are not a unique key fails with a clear message.
  */
 import type { Prisma, PrismaClient } from "@prisma/client";
-import type { Repo, Row, Where } from "../seeding/repo";
+import type { FindOptions, Repo, Row, Where } from "../seeding/repo";
 import { prismaUniqueWhere } from "./unique-keys";
+import { bankVersion, bumpBankVersion, noteWrite } from "../cache/bank-version";
 
 type Delegate = {
   upsert(args: unknown): Promise<Row>;
@@ -45,12 +46,15 @@ export class PrismaRepo implements Repo {
   }
 
   upsert(model: string, where: Record<string, unknown>, create: Row, update: Row = {}) {
+    noteWrite(model);
     return this.d(model).upsert({ where: prismaUniqueWhere(model, where), create: { ...where, ...create }, update });
   }
   create(model: string, data: Row) {
+    noteWrite(model);
     return this.d(model).create({ data });
   }
   async createMany(model: string, rows: Row[]) {
+    noteWrite(model);
     if (!rows.length) return 0;
     let n = 0;
     // one INSERT per 500 rows keeps each statement well under MySQL's packet limit
@@ -60,22 +64,37 @@ export class PrismaRepo implements Repo {
   findUnique(model: string, where: Record<string, unknown>) {
     return this.d(model).findUnique({ where: prismaUniqueWhere(model, where) });
   }
-  findMany(model: string, where?: Where) {
-    return this.d(model).findMany({ where });
+  findMany(model: string, where?: Where, opts: FindOptions = {}) {
+    return this.d(model).findMany({
+      where: where,
+      ...(opts.select ? { select: Object.fromEntries(opts.select.map((k) => [k, true])) } : {}),
+      ...(opts.orderBy?.length ? { orderBy: opts.orderBy.map((o) => ({ [o.field]: o.dir ?? "asc" })) } : {}),
+      ...(opts.take !== undefined ? { take: opts.take } : {}),
+      ...(opts.skip ? { skip: opts.skip } : {}),
+    });
   }
   count(model: string, where?: Where) {
-    return this.d(model).count({ where });
+    return this.d(model).count({ where: where });
   }
   async updateMany(model: string, where: Where, data: Row) {
-    return (await this.d(model).updateMany({ where, data })).count;
+    noteWrite(model);
+    return (await this.d(model).updateMany({ where: where, data })).count;
   }
   async deleteMany(model: string, where: Where) {
-    return (await this.d(model).deleteMany({ where })).count;
+    noteWrite(model);
+    return (await this.d(model).deleteMany({ where: where })).count;
   }
   async transaction<T>(fn: (tx: Repo) => Promise<T>): Promise<T> {
     if (this.options.transactions === "none") return fn(this);
     const c = this.client as PrismaClient;
     if (typeof c.$transaction !== "function") return fn(this); // already inside a transaction
-    return c.$transaction((tx) => fn(new PrismaRepo(tx)), { timeout: 120_000 });
+    const before = bankVersion();
+    try {
+      return await c.$transaction((tx) => fn(new PrismaRepo(tx)), { timeout: 120_000 });
+    } finally {
+      // bank data written inside the transaction became visible only now: drop anything cached meanwhile
+      if (bankVersion() !== before) bumpBankVersion();
+    }
   }
 }
+

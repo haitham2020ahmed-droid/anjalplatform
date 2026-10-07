@@ -82,8 +82,12 @@ export function lessonDisplayTitle(l: Row): string {
 async function studentContext(repo: Repo, studentId: string) {
   const student = await repo.findUnique("Student", { id: studentId });
   if (!student) throw new Error("Student not found");
-  const grade = (await repo.findUnique("Grade", { id: student.gradeId }))!;
-  const curriculum = (await repo.findMany("Curriculum", { gradeId: grade.id, isActive: true }))[0];
+  const [gradeRow, curricula] = await Promise.all([
+    repo.findUnique("Grade", { id: student.gradeId }),
+    repo.findMany("Curriculum", { gradeId: student.gradeId, isActive: true }),
+  ]);
+  const grade = gradeRow!;
+  const curriculum = curricula[0];
   if (!curriculum) throw new Error(`No active curriculum for Grade ${grade.level}`);
   const book = (await repo.findUnique("Book", { id: curriculum.bookId }))!;
   return { student, grade, curriculum, book };
@@ -103,8 +107,10 @@ export async function getStudentCurriculum(repo: Repo, studentId: string): Promi
   const { grade, curriculum, book } = await studentContext(repo, studentId);
   const units = (await repo.findMany("Unit", { curriculumId: curriculum.id, deletedAt: null })).sort((a, b) => num(a.number) - num(b.number));
   const unitIds = units.map((u) => String(u.id));
-  const links = unitIds.length ? await repo.findMany("UnitSkill", { unitId: { in: unitIds } }) : [];
-  const lessons = unitIds.length ? await repo.findMany("Lesson", { unitId: { in: unitIds }, deletedAt: null }) : [];
+  const [links, lessons] = await Promise.all([
+    unitIds.length ? repo.findMany("UnitSkill", { unitId: { in: unitIds } }) : Promise.resolve([]),
+    unitIds.length ? repo.findMany("Lesson", { unitId: { in: unitIds }, deletedAt: null }) : Promise.resolve([]),
+  ]);
   const m = await masteryMap(repo, studentId, [...new Set(links.map((l) => String(l.skillId)))]);
   const t = DEFAULT_MASTERY.bands;
   const summaries: UnitSummary[] = units.map((u) => {
