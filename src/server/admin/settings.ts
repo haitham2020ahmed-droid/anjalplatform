@@ -251,7 +251,18 @@ export async function createClass(repo: Repo, actor: Actor, input: { name: strin
   const years = await repo.findMany("AcademicYear", { schoolId });
   const year = input.academicYearId ? years.find((y) => y.id === input.academicYearId) : years.find((y) => y.isCurrent);
   if (!year) throw new ValidationError("Set up the current academic year first.");
-  if ((await repo.findMany("Class", { academicYearId: year.id, name })).length) throw new ValidationError(`Class ${name} already exists in ${String(year.name)}.`);
+  const same = (await repo.findMany("Class", { academicYearId: year.id, name }))[0];
+  if (same && !same.deletedAt) {
+    // say which grade it is in, so the admin knows where to find it
+    const g = await repo.findUnique("Grade", { id: same.gradeId });
+    throw new ValidationError(`Class ${name} already exists in ${String(year.name)} (${String(g?.name ?? "another grade")}). Choose that grade to see it, or use another name.`);
+  }
+  if (same) {
+    // an archived class with this name: bring it back (in the chosen grade) instead of refusing
+    await repo.updateMany("Class", { id: same.id }, { deletedAt: null, gradeId: grade.id });
+    await audit(repo, { actorId: actor.userId, action: "class.restore", entityType: "Class", entityId: String(same.id), after: { name, grade: input.gradeLevel, year: year.name }, at: now });
+    return String(same.id);
+  }
   const c = await repo.create("Class", { schoolId, gradeId: grade.id, academicYearId: year.id, name, createdAt: now });
   await audit(repo, { actorId: actor.userId, action: "class.create", entityType: "Class", entityId: String(c.id), after: { name, grade: input.gradeLevel, year: year.name }, at: now });
   return String(c.id);
