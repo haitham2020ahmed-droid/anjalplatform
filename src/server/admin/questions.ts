@@ -421,6 +421,10 @@ export interface QuestionFilter {
   /** has = with a passage; none = without; missing = without, but the wording seems to need one */
   passage?: "has" | "none" | "missing";
   image?: "has" | "none";
+  /** Question Bank filters: subject = the skill's domain (READING, GRAMMAR…), difficulty 1–6, source = origin */
+  subject?: string;
+  difficulty?: number;
+  source?: string;
   /** page size (the list page uses 100) and 1-based page number */
   limit?: number;
   page?: number;
@@ -436,8 +440,9 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFi
   const schoolId = schoolOf(actor);
   const grades = (await repo.findMany("Grade", { schoolId })).filter((g) => !filter.gradeLevel || num(g.level) === filter.gradeLevel);
   const curricula = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }) : [];
-  const skills = curricula.length ? await repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => c.id) } }, { select: ["id", "name", "curriculumId"] }) : [];
+  const skills = curricula.length ? await repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => c.id) } }, { select: ["id", "name", "curriculumId", "domain"] }) : [];
   let skillIds = filter.skillId ? skills.filter((s) => s.id === filter.skillId).map((s) => s.id) : skills.map((s) => s.id);
+  if (filter.subject) skillIds = skillIds.filter((id) => String(skills.find((k) => k.id === id)?.domain) === filter.subject);
   if (filter.unitId) {
     const inUnit = new Set((await repo.findMany("UnitSkill", { unitId: filter.unitId }, { select: ["skillId"] })).map((x) => String(x.skillId)));
     skillIds = skillIds.filter((id) => inUnit.has(String(id)));
@@ -461,7 +466,8 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFi
     ...base,
     ...(filter.status ? { status: filter.status } : {}),
     ...(filter.mine ? { createdById: actor.userId } : {}),
-    ...(filter.aiOnly ? { origin: "AI_GENERATED" } : {}),
+    ...(filter.source ? { origin: filter.source } : filter.aiOnly ? { origin: "AI_GENERATED" } : {}),
+    ...(filter.difficulty ? { difficultyLevel: filter.difficulty } : {}),
     ...(standardIds ? { standardId: { in: standardIds } } : {}),
     ...(typeIds ? { typeId: { in: typeIds } } : {}),
     ...(filter.passage === "has" ? { passageId: { not: null } } : filter.passage ? { passageId: null } : {}),

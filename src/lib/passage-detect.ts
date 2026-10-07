@@ -20,6 +20,8 @@ const PATTERNS: RegExp[] = [
   /\bthe (?:author|poet|writer)(?:'s|’s)? (?:purpose|point of view|claim|opinion|message|main purpose)\b/i,
   /\bwhy (?:does|did) the (?:author|poet|writer) (?:include|use|mention|write|describe)\b/i,
   /\b(?:the narrator|the speaker of the poem|the main character)\b/i,
+  // “Based on the reading…”, “According to the reading…” (not “reading lesson”, “reading skills”)
+  /\b(?:based on|according to|from|after) (?:the|this) reading\b(?! (?:lesson|skill|skills|level|log|time|class|test|strategy))/i,
 ];
 
 /** Wording that clearly refers to the question's own sentence, not to a separate text. */
@@ -34,3 +36,11 @@ export function needsPassage(stem: string): boolean {
 
 /** A question without a passage whose wording seems to need one. */
 export const possibleMissingPassage = (stem: string, hasPassage: boolean) => !hasPassage && needsPassage(stem);
+
+/** The words that show the question refers to a text (for logs and reports), or null. */
+export function passageReference(stem: string): string | null {
+  const t = String(stem ?? "");
+  if (!needsPassage(t)) return null;
+  for (const p of PATTERNS) { const m = t.match(p); if (m) return m[0]; }
+  return null;
+}

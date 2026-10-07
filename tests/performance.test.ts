@@ -57,7 +57,8 @@ describe("performance: question list in the database", () => {
 
   test("search matches the question text (any case) or the reference, like before", async () => {
     const all = (await listQuestions(repo, admin, { status: "PUBLISHED" })).items;
-    const word = all[0].stem.split(" ").find((w) => w.length > 5)!.replace(/[^A-Za-z]/g, "");
+    // a whole word of letters only (trim punctuation at its ends; skip words like “Sam's”), so it really occurs
+    const word = all.flatMap((x) => x.stem.split(/\s+/)).map((w) => w.replace(/^[^A-Za-z]+|[^A-Za-z]+$/g, "")).find((w) => /^[A-Za-z]{6,}$/.test(w))!;
     const hits = await listQuestions(repo, admin, { status: "PUBLISHED", q: word.toUpperCase() });
     assert.ok(hits.items.length > 0);
     // the list shows the first 160 characters, so compare with the full text from the database

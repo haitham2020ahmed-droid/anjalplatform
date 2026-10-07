@@ -7,10 +7,15 @@ import { listQuestions, STATUSES, type QuestionStatus } from "@/server/admin/que
 import { QuestionTable } from "./question-table";
 import { editorOptions } from "./editor-data";
 import { teacherRoster } from "@/server/teacher/assign";
+import { LEVEL_LABELS } from "@/config/engine";
 
 const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
 
-type SP = { status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string; track?: string };
+type SP = { status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string; track?: string; subject?: string; level?: string; source?: string };
+const SUBJECTS: [string, string][] = [["READING", "Reading"], ["VOCABULARY", "Vocabulary"], ["GRAMMAR", "Grammar"], ["LANGUAGE", "Language"], ["WRITING", "Writing"], ["WORD_STUDY", "Word study / spelling"]];
+const SOURCES: [string, string][] = [["TEACHER_AUTHORED", "Written by teachers"], ["SCHOOL_BOOKLET", "School booklet"], ["IMPORTED", "Imported"], ["AI_GENERATED", "AI-generated"], ["DEMO", "Demo"]];
+// the platform's own difficulty scale (config/engine LEVEL_LABELS)
+const LEVELS: [string, string][] = Object.entries(LEVEL_LABELS).map(([n, l]) => [n, `${n} · ${l}`]);
 const PAGE = 100;
 const TYPES: [string, string][] = [["MULTIPLE_CHOICE", "Multiple choice"], ["MULTI_SELECT", "Multi select"], ["TRUE_FALSE", "True/false"], ["DROPDOWN", "Dropdown"], ["FILL_BLANK", "Fill in the blank"], ["SHORT_ANSWER", "Short answer"], ["MATCHING", "Matching"], ["SENTENCE_ORDER", "Sentence order"], ["WORD_ORDER", "Word order"], ["ERROR_CORRECTION", "Error correction"]];
 
@@ -33,12 +38,15 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     .map((u) => ({ id: String(u.id), label: `G${levelOfCur.get(String(u.curriculumId))} · Unit ${u.number}: ${u.title}`, g: levelOfCur.get(String(u.curriculumId)) ?? 0, n: Number(u.number) }))
     .sort((x, y) => x.g - y.g || x.n - y.n);
   const skillOptions = opts.skills.filter((k) => !grade || k.grade === grade);
-  const filter = { status, grade, q: sp.q?.slice(0, 100) || undefined, mine: sp.mine === "1" || undefined, ai: sp.ai === "1" || undefined, unitId: sp.unit || undefined, skillId: sp.skill || undefined, standard: sp.standard?.slice(0, 60) || undefined, type: sp.type || undefined, passage, image };
-  const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: grade, q: filter.q, mine: filter.mine, aiOnly: filter.ai, unitId: filter.unitId, skillId: filter.skillId, standardCode: filter.standard, typeCode: filter.type, passage, image, limit: PAGE, page });
+  const filter = { status, grade, q: sp.q?.slice(0, 100) || undefined, mine: sp.mine === "1" || undefined, ai: sp.ai === "1" || undefined, unitId: sp.unit || undefined, skillId: sp.skill || undefined, standard: sp.standard?.slice(0, 60) || undefined, type: sp.type || undefined, passage, image,
+    subject: SUBJECTS.some(([v]) => v === sp.subject) ? sp.subject : undefined,
+    difficulty: LEVELS.some(([v]) => v === sp.level) ? Number(sp.level) : undefined,
+    source: SOURCES.some(([v]) => v === sp.source) ? sp.source : undefined };
+  const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: grade, q: filter.q, mine: filter.mine, aiOnly: filter.ai, unitId: filter.unitId, skillId: filter.skillId, standardCode: filter.standard, typeCode: filter.type, passage, image, subject: filter.subject, difficulty: filter.difficulty, source: filter.source, limit: PAGE, page });
   const pages = Math.max(1, Math.ceil(total / PAGE));
   const qs = (over: Record<string, string | number | undefined>) => {
     const p = new URLSearchParams();
-    for (const [k, v] of Object.entries({ status, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, track: sp.track, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
+    for (const [k, v] of Object.entries({ status, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, track: sp.track, subject: sp.subject, level: sp.level, source: sp.source, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
     return `/admin/questions?${p.toString()}`;
   };
   const tab = (s: QuestionStatus) => qs({ status: s, page: undefined });
@@ -47,7 +55,10 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     <AppShell name={String(me.displayName)}>
       <p><Link href={actor.role === "TEACHER" ? "/teacher" : "/admin"} className="text-brand-teal hover:underline">← Back</Link></p>
       <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-3xl font-bold text-brand-navy">Questions</h1>
+        <div>
+          <h1 className="text-3xl font-bold text-brand-navy"><span aria-hidden="true">📚</span> Question Bank</h1>
+          <p className="mt-1 max-w-2xl text-sm text-slate-600">Every question on the platform, in one library. It is separate from the Curriculum Map: search, preview, select ⭐ and use questions for assignments, practice, MAP and placement tests.</p>
+        </div>
         <div className="flex flex-wrap gap-2">
           <Link href="/admin/questions?status=DRAFT&ai=1" className="rounded-xl bg-amber-100 px-4 py-2.5 font-semibold text-amber-900">AI drafts to review ({aiPending})</Link>
           <Link href="/admin/question-bank" className="rounded-xl px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">Coverage</Link>
@@ -68,6 +79,9 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <select name="type" defaultValue={sp.type ?? ""} aria-label="Question type" className={sel}><option value="">All types</option>{TYPES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="passage" defaultValue={sp.passage ?? ""} aria-label="Passage" className={sel}><option value="">Passage: any</option><option value="has">Has passage</option><option value="none">No passage</option><option value="missing">⚠ Possible missing passage</option></select>
         <select name="image" defaultValue={sp.image ?? ""} aria-label="Image" className={sel}><option value="">Image: any</option><option value="has">Has image</option><option value="none">No image</option></select>
+        <select name="subject" defaultValue={sp.subject ?? ""} aria-label="Subject" className={sel}><option value="">All subjects</option>{SUBJECTS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
+        <select name="level" defaultValue={sp.level ?? ""} aria-label="Difficulty level" className={sel}><option value="">All difficulty levels</option>{LEVELS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
+        <select name="source" defaultValue={sp.source ?? ""} aria-label="Source" className={sel}><option value="">All sources</option>{SOURCES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         {sp.track && <input type="hidden" name="track" value={sp.track} />}
         <input name="q" defaultValue={sp.q ?? ""} placeholder="Search question text or skill name" aria-label="Search" className={sel} />
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="mine" value="1" defaultChecked={sp.mine === "1"} />Only mine</label>
@@ -84,6 +98,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
           canDelete={(actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN") && can(actor, "questions:publish")}
           roster={actor.role === "TEACHER" ? await teacherRoster(repo, actor) : undefined}
           defaultTrack={sp.track === "map" ? "MAP" : "CURRICULUM"}
+          selectionKey={actor.userId}
           filter={filter}
         />
         {pages > 1 && (
