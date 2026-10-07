@@ -38,14 +38,21 @@ export function readZipEntries(buf: Buffer): Map<string, ZipEntry> {
   return out;
 }
 
+/**
+ * Some programs (the .NET Open XML SDK, several online converters and AI tools) write every tag with
+ * a namespace prefix: <x:row>, <x:c>, <x:v>. That is valid Excel, so element prefixes are removed and
+ * the file is read like any other (attributes such as r:id are not touched).
+ */
+const unprefix = (xml: string) => xml.replace(/<(\/?)[A-Za-z_][\w.-]*:(?=[A-Za-z_])/g, "<$1").replace(/^\uFEFF/, "");
+
 export function readPart(buf: Buffer, e: ZipEntry): string {
   if (e.size > MAX_PART_BYTES) throw new Error("The Excel file is too large to import.");
   const nameLen = buf.readUInt16LE(e.offset + 26);
   const extraLen = buf.readUInt16LE(e.offset + 28);
   const start = e.offset + 30 + nameLen + extraLen;
   const data = buf.subarray(start, start + e.compSize);
-  if (e.method === 0) return data.toString("utf8");
-  if (e.method === 8) return inflateRawSync(data, { maxOutputLength: MAX_PART_BYTES }).toString("utf8");
+  if (e.method === 0) return unprefix(data.toString("utf8"));
+  if (e.method === 8) return unprefix(inflateRawSync(data, { maxOutputLength: MAX_PART_BYTES }).toString("utf8"));
   throw new Error("Unsupported compression in the Excel file.");
 }
 

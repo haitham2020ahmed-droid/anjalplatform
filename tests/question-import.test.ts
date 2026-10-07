@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
 import { toCsv } from "../src/imports/csv";
-import { readXlsx } from "../src/imports/xlsx";
+import { readPart, readXlsx, readZipEntries } from "../src/imports/xlsx";
 import { zip } from "../src/reports/zip";
 import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
@@ -199,6 +199,20 @@ describe("question import: the template and its rules (pure)", () => {
     assert.throws(() => extract("q.csv", enc('Question Text\n"unclosed')), /quotation mark/);
     const book = xlsx([{ name: "Instructions", rows: [["Read me"]] }, { name: "Questions", rows: [["Question Text"], ["Q1"]] }]);
     assert.deepEqual(extract("bank.xlsx", book).table, [["Question Text"], ["Q1"]], "the Questions sheet is read even when it is not first");
+  });
+
+  test("Excel files whose tags carry a namespace prefix (<x:row>, written by .NET tools and converters) are read", () => {
+    const plain = Buffer.from(xlsx([{ name: "Questions", rows: [["Question Text", "Grade"], ["Q1 & more", "4"]] }]));
+    // rewrite every part the way the Open XML SDK does: x: on every element, rels with absolute targets
+    const parts = [...readZipEntries(plain).entries()].map(([name, e]) => {
+      let xml = readPart(plain, e);
+      if (name.endsWith(".rels")) xml = xml.replace(/Target="worksheets/g, 'Target="/xl/worksheets');
+      else xml = `\uFEFF<?xml version="1.0" encoding="utf-8"?>` + xml.replace(/<(\/?)(?![?!])/g, "<$1x:").replace(/<x:(\w+)/, '<x:$1 xmlns:x="http://schemas.openxmlformats.org/spreadsheetml/2006/main"');
+      return { name, data: xml };
+    });
+    const prefixed = zip(parts);
+    assert.match(Buffer.from(prefixed).toString("latin1"), /PK/);
+    assert.deepEqual(extract("bank.xlsx", prefixed).table, [["Question Text", "Grade"], ["Q1 & more", "4"]]);
   });
 
   test("the downloadable templates: header, example rows that are never imported, curriculum sheet", () => {
