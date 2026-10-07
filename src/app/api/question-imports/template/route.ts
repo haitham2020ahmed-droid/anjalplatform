@@ -22,7 +22,10 @@ export async function GET(req: Request) {
   const common = { "X-Content-Type-Options": "nosniff", "Cache-Control": "no-store" };
   if (format === "map-xlsx" || format === "map-csv") {
     const places = await attachmentNodes(repo, actor.schoolId!);
-    const per = Number(new URL(req.url).searchParams.get("per") ?? "") || undefined;  // ready rows per place (1–20)
+    // ?place=G4.U1.TS3.ACS.BELOW → a template for that place only (30 ready rows by default)
+    const only = (new URL(req.url).searchParams.get("place") ?? "").trim().toUpperCase();
+    if (only) { const one = places.filter((x) => x.code === only); if (!one.length) return NextResponse.json({ error: "That place is not on the Curriculum Map." }, { status: 404 }); places.splice(0, places.length, ...one); }
+    const per = Number(new URL(req.url).searchParams.get("per") ?? "") || (only ? 30 : undefined);  // ready rows per place (1–100)
     if (format === "map-csv") return new NextResponse(curriculumTemplateCsv(places, per), { headers: { ...common, "Content-Type": "text/csv; charset=utf-8", "Content-Disposition": 'attachment; filename="curriculum-import-template.csv"' } });
     return new NextResponse(Buffer.from(curriculumTemplateXlsx(places, per)), { headers: { ...common, "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Content-Disposition": 'attachment; filename="curriculum-import-template.xlsx"' } });
   }

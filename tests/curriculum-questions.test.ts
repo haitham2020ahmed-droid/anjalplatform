@@ -161,4 +161,26 @@ describe("questions on the Curriculum Map: import to Curriculum, import to Bank 
     assert.match(r.errors.join(), /do not match/);
     assert.equal(resolveMapLocation(nodes, 4, { code: "G4.U2.TS1.CV", unit: "2", set: "1", category: "Concept Vocabulary" }).node?.code, "G4.U2.TS1.CV");
   });
+
+  test("➕ Add questions on one place: its own template (30 rows), and an upload there puts rows without a place on it", async () => {
+    const places = (await attachmentNodes(repo, schoolId)).filter((p) => p.code === "G4.U1.TS3.ACS.BELOW");
+    const rows = curriculumTemplateRows(places, 30);
+    const H = rows[0], ci = (h: string) => H.indexOf(h);
+    const body = rows.slice(1).filter((r) => !String(r[ci("Question Text")]).startsWith("[Example]"));   // the ready rows
+    assert.equal(body.length, 30);
+    assert.ok(body.every((r) => r[ci("Curriculum Map ID")] === "G4.U1.TS3.ACS.BELOW"));
+    assert.equal(curriculumTemplateRows(places, 500).slice(1).filter((r) => !String(r[ci("Question Text")]).startsWith("[Example]")).length, 100, "at most 100 rows");
+    // a sheet with only question columns, uploaded from that place
+    const QH = ["Question Text", "Question Type", "Option A", "Option B", "Option C", "Option D", "Correct Answer", "Explanation"];
+    const STEMS = ["Which detail best supports the central idea of the text about rivers?", "Why does the author describe the flood season in the second paragraph about rivers?", "What is the main purpose of the heading that introduces the section on river animals and the text about rivers?"];
+    const q = (n: number) => [STEMS[n - 1], "Multiple Choice", ["the water rises each spring", "the farmers plant early", "the fish swim upstream"][n - 1], ["a dog barks loudly", "the market opens late", "the birds fly south"][n - 1], ["a car stops suddenly", "the teacher reads aloud", "the snow melts quickly"][n - 1], ["a bell rings twice", "the bridge is painted", "the wind changes direction"][n - 1], "A", "It supports the idea."];
+    const csv = new TextEncoder().encode([QH, q(1), q(2), q(3)].map((r) => r.map((c) => `"${c}"`).join(",")).join("\n") + "\n");
+    const jobId = await analyzeImport(repo, admin, { fileName: "place.csv", bytes: csv, target: "CURRICULUM", defaultMapCode: "G4.U1.TS3.ACS.BELOW" });
+    const job = await getImportJob(repo, admin, jobId);
+    assert.ok(job.rows.length === 3 && job.rows.every((r) => r.status === "VALID"), JSON.stringify(job.rows.map((r) => r.errors)));
+    await commitAll(jobId);
+    const made = (await repo.findMany("Question", {})).filter((x) => String(x.stem).includes("about rivers") && STEMS.includes(String(x.stem)));
+    assert.equal(made.length, 3);
+    for (const m of made) assert.equal(await linksOf(String(m.id)), "G4.U1.TS3.ACS.BELOW");
+  });
 });

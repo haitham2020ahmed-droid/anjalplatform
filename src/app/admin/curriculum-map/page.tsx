@@ -21,7 +21,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
         <span aria-hidden="true">📥</span> <code className="font-mono text-[11px] text-emerald-700">{n.code}</code>
       </span>
       <a href={`/admin/questions?status=PUBLISHED&map=${n.code}`} className="rounded-full px-2 py-0.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="These questions in the Question Bank">{n.questions} question{n.questions === 1 ? "" : "s"}</a>
-      {canAdd && <a href={`/admin/questions/new?map=${n.code}`} className="rounded-full bg-brand-navy px-2 py-0.5 font-semibold text-white hover:bg-brand-purple">➕ Add question</a>}
+      {canAdd && <a href={`/admin/curriculum-map/place/${n.code}`} className="rounded-full bg-brand-navy px-2 py-0.5 font-semibold text-white hover:bg-brand-purple" title="One question, or many from a ready template">➕ Add questions</a>}
       {isTeacher && n.questions > 0 && (
         <>
           <a href={`/teacher/map-assign?code=${n.code}`} className="rounded-full bg-amber-100 px-2 py-0.5 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200" title="Assign this place to the whole class or chosen students">⭐ Assign</a>

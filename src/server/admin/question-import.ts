@@ -161,7 +161,11 @@ const optionTexts = (i: EditorInput | null | undefined) => i?.options?.map((o) =
 
 // ------------------------------------------------------------------- analyze
 
-export interface AnalyzeInput { fileName: string; bytes: Uint8Array; /** BANK (default) or CURRICULUM */ target?: ImportTarget }
+export interface AnalyzeInput {
+  fileName: string; bytes: Uint8Array; /** BANK (default) or CURRICULUM */ target?: ImportTarget;
+  /** uploaded from one place of the Curriculum Map: rows without a place go there (and get its grade) */
+  defaultMapCode?: string;
+}
 
 async function recordFailure(repo: Repo, actor: Actor, fileName: string, bytes: Uint8Array, kind: string | null, stage: string, errors: string[], now: Date): Promise<string | null> {
   try {
@@ -196,12 +200,20 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
     return fail(null, "read", msg, [msg]);
   }
   const target: ImportTarget = input.target === "CURRICULUM" ? "CURRICULUM" : "BANK";
-  const parsed = parseTemplateTable(table, target);
+  const parsed = parseTemplateTable(table, target, { placeKnown: target === "CURRICULUM" && Boolean(input.defaultMapCode) });
   if (!parsed.ok) return fail(kind, "columns", parsed.errors.length === 1 ? parsed.errors[0] : "The file does not match the template.", parsed.errors);
   // Curriculum template: rows of places with no question written are skipped (the template pre-fills them)
   const QUESTION_CELLS = ["stem", "type", "optA", "optB", "optC", "optD", "answer", "explanation", "passage"] as const;
   const rowsIn = target === "CURRICULUM" ? parsed.rows.filter((r) => QUESTION_CELLS.some((k) => (r.cells[k] ?? "").trim())) : parsed.rows;
   const emptyPlaces = parsed.rows.length - rowsIn.length;
+  if (target === "CURRICULUM" && input.defaultMapCode) {
+    const code = input.defaultMapCode.trim().toUpperCase();
+    for (const r of rowsIn) {
+      const c = r.cells as Record<string, string | undefined>;
+      if (!(c.mapCode ?? "").trim() && !(c.unit ?? "").trim() && !(c.set ?? "").trim() && !(c.category ?? "").trim()) c.mapCode = code;
+      if (!(c.grade ?? "").trim()) c.grade = code.match(/^G(\d+)\./)?.[1] ?? "";
+    }
+  }
   if (!rowsIn.length) return fail(kind, "rows", "The file has the header row but no questions.", ["The file has the header row but no questions. Add one question per row under the header."]);
   if (rowsIn.length > MAX_IMPORT_ROWS) return fail(kind, "rows", `The file has ${rowsIn.length.toLocaleString("en")} questions; the limit is ${MAX_IMPORT_ROWS.toLocaleString("en")} per file.`, [`The file has ${rowsIn.length.toLocaleString("en")} questions; the limit is ${MAX_IMPORT_ROWS.toLocaleString("en")} per file. Split it into smaller files.`]);
 

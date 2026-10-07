@@ -9,7 +9,13 @@ export default function LoginPage() {
       <form action={action} className="w-full max-w-sm space-y-5 rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200" aria-describedby="login-error">
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/api/school-logo" alt="Al-Anjal Private Schools" className="mx-auto mb-4 h-28 w-auto" />
+          <img src="/api/school-logo" alt="Al-Anjal Private Schools" className="mx-auto mb-3 w-full max-w-xs" />
+          <div className="mb-4 flex items-center justify-center gap-4" aria-label="Accreditations">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/brand/ncsee.png" alt="NCSEE (Tamayuz) accredited" className="h-12 w-auto" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/brand/cognia.png" alt="Cognia School of Distinction" className="h-12 w-auto" />
+          </div>
           <p className="text-sm font-semibold tracking-wide text-brand-teal">Al-Anjal Private Schools</p>
           <h1 className="mt-1 text-2xl font-bold text-brand-navy">Sign in</h1>
         </div>

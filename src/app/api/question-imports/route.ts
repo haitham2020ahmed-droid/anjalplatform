@@ -34,10 +34,13 @@ export async function POST(req: Request) {
 
   let file: FormDataEntryValue | null;
   let target: "BANK" | "CURRICULUM" = "BANK";
+  let defaultMapCode: string | undefined;
   try {
     const form = await req.formData();
     file = form.get("file");
     if (form.get("target") === "CURRICULUM") target = "CURRICULUM";
+    const place = String(form.get("place") ?? "").trim().toUpperCase();
+    if (/^G\d+\.[A-Z0-9.]+$/.test(place)) { defaultMapCode = place; target = "CURRICULUM"; }
   } catch {
     return reply({ error: "The upload was interrupted or is not a file. Choose the file again and retry.", stage: "upload" }, 400);
   }
@@ -45,7 +48,7 @@ export async function POST(req: Request) {
 
   const started = Date.now();
   try {
-    const jobId = await analyzeImport(repo, actor, { fileName: file.name, bytes: new Uint8Array(await file.arrayBuffer()), target });
+    const jobId = await analyzeImport(repo, actor, { fileName: file.name, bytes: new Uint8Array(await file.arrayBuffer()), target, defaultMapCode });
     log("info", "question_import.analyzed", { jobId, kind: file.name.split(".").pop(), bytes: file.size, ms: Date.now() - started, user: actor.userId });
     return reply({ jobId });
   } catch (e) {

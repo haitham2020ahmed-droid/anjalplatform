@@ -176,7 +176,7 @@ export const CURRICULUM_SHEET_HEADERS = [
   "Passage/Text", "Lexile", "Difficulty Level", "Cognitive Level", "Skill", "Standard",
 ] as const;
 export const DEFAULT_ROWS_PER_PLACE = 5;
-export const MAX_ROWS_PER_PLACE = 20;
+export const MAX_ROWS_PER_PLACE = 100;
 
 /** Every place questions can go on the Curriculum Map (one row each), with its text set details. */
 export function mapPlaceRows(places: MapPlace[]): string[][] {

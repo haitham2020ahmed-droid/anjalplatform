@@ -13,7 +13,7 @@ const OK_NAME = /\.(csv|xlsx)$/i;
  * Sends the file with a visible upload percentage, then waits while the server checks every row.
  * Any reply that is not the expected JSON still produces a specific message (never just "failed").
  */
-function upload(file: File, onProgress: (p: number) => void, target: "BANK" | "CURRICULUM" = "BANK"): Promise<{ status: number; body: { jobId?: string; error?: string; details?: string[] } | null; raw: string }> {
+function upload(file: File, onProgress: (p: number) => void, target: "BANK" | "CURRICULUM" = "BANK", place?: string): Promise<{ status: number; body: { jobId?: string; error?: string; details?: string[] } | null; raw: string }> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/question-imports");
@@ -29,12 +29,13 @@ function upload(file: File, onProgress: (p: number) => void, target: "BANK" | "C
     const fd = new FormData();
     fd.set("file", file);
     fd.set("target", target);
+    if (place) fd.set("place", place);
     xhr.send(fd);
   });
 }
 
 /** target: BANK (Question Bank only) or CURRICULUM (on the Curriculum Map, and in the bank). */
-export function ImportUpload({ target = "BANK" }: { target?: "BANK" | "CURRICULUM" } = {}) {
+export function ImportUpload({ target = "BANK", place }: { target?: "BANK" | "CURRICULUM"; place?: string } = {}) {
   const router = useRouter();
   const input = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
@@ -64,7 +65,7 @@ export function ImportUpload({ target = "BANK" }: { target?: "BANK" | "CURRICULU
     setFailure(null);
     setPhase({ kind: "uploading", percent: 0 });
     try {
-      const res = await upload(file, (percent) => setPhase(percent >= 100 ? { kind: "checking" } : { kind: "uploading", percent }), target);
+      const res = await upload(file, (percent) => setPhase(percent >= 100 ? { kind: "checking" } : { kind: "uploading", percent }), target, place);
       if (res.status === 200 && res.body?.jobId) {
         router.push(`/admin/questions/import/${res.body.jobId}`);
         return;

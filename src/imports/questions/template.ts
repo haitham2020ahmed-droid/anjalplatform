@@ -56,9 +56,11 @@ export const TEMPLATE_HEADERS = TEMPLATE_COLUMNS.filter((c) => c.key !== "optE" 
 export const CURRICULUM_TEMPLATE_HEADERS = TEMPLATE_COLUMNS.filter((c) => c.key !== "optE" && c.key !== "optF" && c.key !== "use" && c.key !== "mapCode").map((c) => c.header);
 export type ImportTarget = "BANK" | "CURRICULUM";
 /** Columns that must be present for each kind of import. */
-function requiredKeys(target: ImportTarget, present: Set<ColumnKey>): ColumnKey[] {
+function requiredKeys(target: ImportTarget, present: Set<ColumnKey>, placeKnown = false): ColumnKey[] {
   const base = TEMPLATE_COLUMNS.filter((c) => c.required).map((c) => c.key);
   if (target === "BANK") return base;
+  // uploaded from one place of the Curriculum Map: the place (and its grade) is already known
+  if (placeKnown) return base.filter((k) => !["skill", "standard", "cognitive", "level", "grade"].includes(k));
   const notNeeded: ColumnKey[] = ["skill", "standard", "cognitive", "level"];
   return [...base.filter((k) => !notNeeded.includes(k)), ...(present.has("mapCode") ? [] : (["unit", "set", "category"] as ColumnKey[]))];
 }
@@ -101,7 +103,7 @@ export type ParsedTable =
  * Checks the header row and returns the data rows. The header must be the first non-empty row.
  * Every missing required column is reported by name ("Missing required column: Correct Answer").
  */
-export function parseTemplateTable(table: string[][], target: ImportTarget = "BANK"): ParsedTable {
+export function parseTemplateTable(table: string[][], target: ImportTarget = "BANK", opts: { placeKnown?: boolean } = {}): ParsedTable {
   const at = table.findIndex((r) => r.some((c) => String(c ?? "").trim() !== ""));
   if (at < 0) return { ok: false, errors: ["The file is empty."] };
   const header = table[at].map((h) => String(h ?? ""));
@@ -116,7 +118,7 @@ export function parseTemplateTable(table: string[][], target: ImportTarget = "BA
     if (col.has(spec.key)) errors.push(`The column “${spec.header}” appears twice in the header row. Keep only one.`);
     else col.set(spec.key, i);
   });
-  const required = requiredKeys(target, new Set(col.keys()));
+  const required = requiredKeys(target, new Set(col.keys()), opts.placeKnown);
   const missing = TEMPLATE_COLUMNS.filter((c) => required.includes(c.key) && !col.has(c.key));
   if (missing.length === required.length) {
     return { ok: false, errors: [`The first row must be the template’s header row (${TEMPLATE_HEADERS.slice(0, 4).join(", ")}, …). Download the template and keep its first row unchanged.`] };
