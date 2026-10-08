@@ -7,11 +7,16 @@ import { listQuestions, STATUSES, type QuestionStatus } from "@/server/admin/que
 import { QuestionTable } from "./question-table";
 import { editorOptions } from "./editor-data";
 import { teacherRoster } from "@/server/teacher/assign";
+import { countDeletionRequests } from "@/server/admin/question-requests";
+import { SkillAssignHost } from "@/components/skills/skill-assign";
+import { assignSkillInline } from "./skill-actions";
 import { LEVEL_LABELS } from "@/config/engine";
+
+export const metadata = { title: "Question Bank" };
 
 const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
 
-type SP = { status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string; track?: string; subject?: string; level?: string; source?: string; onmap?: string; use?: string; map?: string };
+type SP = { view?: string; status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string; track?: string; subject?: string; level?: string; source?: string; onmap?: string; use?: string; map?: string };
 const SUBJECTS: [string, string][] = [["READING", "Reading"], ["VOCABULARY", "Vocabulary"], ["GRAMMAR", "Grammar"], ["LANGUAGE", "Language"], ["WRITING", "Writing"], ["WORD_STUDY", "Word study / spelling"]];
 const SOURCES: [string, string][] = [["TEACHER_AUTHORED", "Written by teachers"], ["SCHOOL_BOOKLET", "School booklet"], ["IMPORTED", "Imported"], ["AI_GENERATED", "AI-generated"], ["DEMO", "Demo"]];
 // the platform's own difficulty scale (config/engine LEVEL_LABELS)
@@ -45,11 +50,15 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     onMap: sp.onmap === "map" || sp.onmap === "bank" ? (sp.onmap as "map" | "bank") : undefined,
     use: sp.use === "PLACEMENT" || sp.use === "MAP_TEST" ? (sp.use as "PLACEMENT" | "MAP_TEST") : undefined,
     mapCode: /^G\d+\.[A-Z0-9.]+$/i.test(sp.map ?? "") ? String(sp.map).toUpperCase() : undefined };
-  const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: grade, q: filter.q, mine: filter.mine, aiOnly: filter.ai, unitId: filter.unitId, skillId: filter.skillId, standardCode: filter.standard, typeCode: filter.type, passage, image, subject: filter.subject, difficulty: filter.difficulty, source: filter.source, onMap: filter.onMap, use: filter.use, mapCode: filter.mapCode, limit: PAGE, page });
-  const pages = Math.max(1, Math.ceil(total / PAGE));
+  const roster = actor.role === "TEACHER" ? await teacherRoster(repo, actor) : undefined;
+  const pendingDeletions = await countDeletionRequests(repo, actor);
+  const grouped = sp.view === "skills" || (sp.view !== "list" && Boolean(filter.q || filter.skillId));
+  const PER = grouped ? 400 : PAGE;
+  const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: grade, q: filter.q, mine: filter.mine, aiOnly: filter.ai, unitId: filter.unitId, skillId: filter.skillId, standardCode: filter.standard, typeCode: filter.type, passage, image, subject: filter.subject, difficulty: filter.difficulty, source: filter.source, onMap: filter.onMap, use: filter.use, mapCode: filter.mapCode, limit: PER, page });
+  const pages = Math.max(1, Math.ceil(total / PER));
   const qs = (over: Record<string, string | number | undefined>) => {
     const p = new URLSearchParams();
-    for (const [k, v] of Object.entries({ status, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, track: sp.track, subject: sp.subject, level: sp.level, source: sp.source, onmap: sp.onmap, use: sp.use, map: sp.map, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
+    for (const [k, v] of Object.entries({ status, view: sp.view, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, track: sp.track, subject: sp.subject, level: sp.level, source: sp.source, onmap: sp.onmap, use: sp.use, map: sp.map, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
     return `/admin/questions?${p.toString()}`;
   };
   const tab = (s: QuestionStatus) => qs({ status: s, page: undefined });
@@ -66,6 +75,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
           <Link href="/admin/questions?status=DRAFT&ai=1" className="rounded-xl bg-amber-100 px-4 py-2.5 font-semibold text-amber-900">AI drafts to review ({aiPending})</Link>
           <Link href="/admin/question-bank" className="rounded-xl px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">Coverage</Link>
           <Link href="/admin/questions/import" className="rounded-xl px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">Import questions</Link>
+          {pendingDeletions > 0 && <Link href="/admin/questions/requests" className="rounded-xl bg-red-50 px-4 py-2.5 font-semibold text-red-800 ring-1 ring-red-200">🗑 Deletion requests ({pendingDeletions})</Link>}
           <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">New question</Link>
         </div>
       </div>
@@ -89,6 +99,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <select name="use" defaultValue={sp.use ?? ""} aria-label="Use" className={sel}><option value="">Use: any</option><option value="PLACEMENT">Placement</option><option value="MAP_TEST">MAP test</option></select>
         {filter.mapCode && <><input type="hidden" name="map" value={filter.mapCode} /><span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-sm text-emerald-900 ring-1 ring-emerald-300">🧭 Place: {filter.mapCode} <a href={qs({ map: undefined, page: undefined })} aria-label="Remove the place filter" className="font-bold">✕</a></span></>}
         {sp.track && <input type="hidden" name="track" value={sp.track} />}
+        {sp.view && <input type="hidden" name="view" value={sp.view} />}
         <input name="q" defaultValue={sp.q ?? ""} placeholder="Search question text or skill name" aria-label="Search" className={sel} />
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="mine" value="1" defaultChecked={sp.mine === "1"} />Only mine</label>
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="ai" value="1" defaultChecked={sp.ai === "1"} />Only AI-drafted</label>
@@ -96,14 +107,23 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <Link href={`/admin/questions?status=${status}`} className="text-sm text-brand-teal hover:underline">Clear filters</Link>
       </form>
       <section className={card}>
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <p className="text-sm text-slate-600">{grouped ? "Grouped by skill: tap ⭐ to assign a whole skill, or ☆ to choose questions." : "Tip: search a skill (e.g. main idea) to see its questions grouped under it."}</p>
+          <div className="inline-flex rounded-xl bg-slate-100 p-1 text-sm font-semibold" role="group" aria-label="View">
+            <Link href={qs({ view: "skills", page: undefined })} aria-current={grouped ? "page" : undefined} className={`rounded-lg px-3 py-1.5 ${grouped ? "bg-white text-brand-navy shadow" : "text-slate-500"}`}>▦ By skill</Link>
+            <Link href={qs({ view: "list", page: undefined })} aria-current={!grouped ? "page" : undefined} className={`rounded-lg px-3 py-1.5 ${!grouped ? "bg-white text-brand-navy shadow" : "text-slate-500"}`}>▤ List</Link>
+          </div>
+        </div>
         {sp.deleted === "1" && <p role="status" className="mb-3 rounded-lg bg-teal-50 px-3 py-2 text-teal-900">The question was deleted.</p>}
         <QuestionTable
           rows={items.map((q) => ({ id: q.id, stem: q.stem, mine: q.mine, origin: q.origin, grade: q.grade, skill: q.skill, type: q.type, level: q.level, levelLabel: q.levelLabel, status: q.status, updatedAt: q.updatedAt, hasPassage: q.hasPassage, hasImage: q.hasImage, possibleMissingPassage: q.possibleMissingPassage, mapCode: q.mapCode ?? null, uses: q.uses ?? [] }))}
           total={total}
           canPublish={can(actor, "questions:publish")}
           canDelete={(actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN") && can(actor, "questions:publish")}
-          roster={actor.role === "TEACHER" ? await teacherRoster(repo, actor) : undefined}
-          defaultTrack={sp.track === "map" ? "MAP" : "CURRICULUM"}
+          roster={roster}
+          grouped={grouped}
+          canAssignSkill={actor.role === "TEACHER"}
+          defaultTrack={sp.track === "map" ? "MAP" : sp.track === "nafs" ? "NAFS" : "CURRICULUM"}
           selectionKey={actor.userId}
           filter={filter}
         />
@@ -115,6 +135,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
           </nav>
         )}
       </section>
+      {roster && <SkillAssignHost classes={roster} assign={assignSkillInline} />}
     </AppShell>
   );
 }

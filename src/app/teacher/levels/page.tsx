@@ -8,6 +8,8 @@ import { can } from "@/server/auth/rbac";
 import { LEXILE_SOURCE, lexileBands } from "@/server/curriculum-map/lexile";
 import { PageHeader } from "@/components/page-header";
 
+export const metadata = { title: "Levels & tests" };
+
 /** 🎯 Student levels (Above / On / Below) + Placement test and MAP practice test for a class. */
 export default async function LevelsPage({ searchParams }: { searchParams: Promise<{ classId?: string; msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "students:read" });

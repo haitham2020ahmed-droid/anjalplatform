@@ -524,7 +524,8 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
         id, externalRef: p.item.ref, skillId: p.skill.id, standardId: p.standardId, passageId: p.passage ? passageIds.get(passageRef(p.passage)) ?? null : null,
         typeId: types.get(p.item.type)!, stem: p.item.stem, content: contentPayload(p.item), hint: null, difficultyLevel: p.item.level,
         irtA: 1, irtB: LEVEL_TO_B[p.item.level] ?? 0, irtC: 0, estimatedSeconds: p.item.estimatedSeconds,
-        status: published ? "PUBLISHED" : "DRAFT", origin: "IMPORTED", aiStatus: null, lessonId: null,
+        // teachers' imports wait for an admin straight away (no need to send each one for review)
+        status: published ? "PUBLISHED" : can(actor, "questions:publish") ? "DRAFT" : "UNDER_REVIEW", origin: "IMPORTED", aiStatus: null, lessonId: null,
         lexile: p.input.lexile ?? null,
         tags: { ...(p.input.cognitiveLevel ? { cognitiveLevel: p.input.cognitiveLevel } : {}), importJob: jobId },
         createdById: actor.userId, ...(published ? { publishedAt: now, reviewedById: actor.userId } : {}), createdAt: now, updatedAt: now,

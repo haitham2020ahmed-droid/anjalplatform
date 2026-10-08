@@ -58,3 +58,21 @@ export async function importMapScoresAction(f: FormData): Promise<void> {
   } catch (e) { msg = e instanceof Error && !(e instanceof ValidationError) && !(e instanceof ForbiddenError) && /read|xlsx|csv|file/i.test(e.message) ? `The file could not be read: ${e.message}` : friendly(e); }
   back({ msg });
 }
+
+/** MAP import that stays on the page: new students (from one class) are created and their sign-ins returned. */
+export async function importMapScoresInline(f: FormData): Promise<{ ok: boolean; message: string; created: { name: string; username: string; password: string }[] }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
+  try {
+    const file = f.get("file");
+    if (!(file instanceof File) || !file.size) throw new ValidationError("Choose the CSV or Excel file with the scores.");
+    if (file.size > 5_000_000) throw new ValidationError("The file is larger than 5 MB.");
+    const { table } = extract(file.name, new Uint8Array(await file.arrayBuffer()));
+    const classId = String(f.get("classId") ?? "") || undefined;
+    const r = await importMapScores(repo, actor, table, Number(f.get("year")) || new Date().getFullYear(), new Date(), { createInClassId: classId });
+    const message = `${r.term}: ${r.imported} score(s) imported${r.created.length ? `, ${r.created.length} new student(s) added to the platform` : ""}${r.skipped ? `, ${r.skipped} row(s) without a score skipped` : ""}.${r.errors.length ? ` ${r.errors.length} problem(s): ${r.errors.slice(0, 5).map((e) => `row ${e.row}: ${e.message}`).join(" · ")}` : ""}`;
+    return { ok: true, message, created: r.created };
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message, created: [] };
+    return { ok: false, message: `The file could not be read: ${(e as Error).message}`, created: [] };
+  }
+}

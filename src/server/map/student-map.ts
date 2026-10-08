@@ -10,6 +10,8 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { accessibleClasses } from "../teacher/assign";
+import { assertClassAccess } from "../teacher/assignments";
+import { createUser } from "../admin/users";
 import { bandOf, ensureNationalNorms, nationalNorm, seasonOf } from "./rit";
 
 const s = (v: unknown) => String(v ?? "");
@@ -25,16 +27,36 @@ const COLS: Record<string, string[]> = {
 };
 export const MAP_TEMPLATE_HEADERS = ["Student Number", "Student Name", "Fall RIT", "Spring Projection", "Fall Percentile (optional)", "Fall Lexile (optional)"];
 
-export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string }
+export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[] }
+
+/**
+ * A student in the MAP file who is not on the platform yet: created in this class (teachers: their own class).
+ * Username from the student number; a temporary password the student changes at first sign-in.
+ */
+async function createStudentFromMap(repo: Repo, actor: Actor, classId: string, number: string, name: string): Promise<{ id: string; username: string; password: string }> {
+  const klass = await assertClassAccess(repo, actor, classId);
+  const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
+  const base = number.toLowerCase().replace(/[^a-z0-9._-]+/g, "") || `student${Date.now().toString(36)}`;
+  let username = base, k = 1;
+  while ((await repo.findMany("User", { username })).length) username = `${base}.${++k}`;
+  // the class check above is the teacher's authority here: creation is limited to this school and class
+  const asAdmin = { ...actor, role: "SCHOOL_ADMIN" } as Actor;
+  const r = await createUser(repo, asAdmin, { role: "STUDENT", username, displayName: name, studentNumber: number, gradeLevel: grade, classId });
+  const st = (await repo.findMany("Student", { userId: r.userId }))[0];
+  await repo.create("AuditLog", { actorId: actor.userId, action: "student.create.from-map", entityType: "Student", entityId: st ? s(st.id) : null, after: { username, classId, by: actor.role }, createdAt: new Date() });
+  return { id: s(st?.id), username, password: r.temporaryPassword };
+}
 
 /** Imports Fall RIT + Spring projection. Teachers: their own classes' students only; admins: the whole school. */
-export async function importMapScores(repo: Repo, actor: Actor, table: string[][], fallYear: number, now = new Date()): Promise<MapImportResult> {
+export async function importMapScores(repo: Repo, actor: Actor, table: string[][], fallYear: number, now = new Date(), opts: { createInClassId?: string } = {}): Promise<MapImportResult> {
   assertCan(actor, "assignments:create");
   if (!(fallYear >= 2000 && fallYear <= 2100)) throw new ValidationError("Choose the year of the Fall test (e.g. 2026).");
   const at = table.findIndex((r) => r.some((c) => s(c).trim()));
   if (at < 0) throw new ValidationError("The file is empty.");
   const header = table[at].map((h) => norm(s(h)));
   const col = (k: keyof typeof COLS) => header.findIndex((h) => COLS[k].includes(h));
+  const nameCol = header.findIndex((h) => ["studentname", "name", "fullname", "student"].includes(h));
+  const created: MapImportResult["created"] = [];
   const c = { number: col("number"), rit: col("rit"), projection: col("projection"), growth: col("growth"), percentile: col("percentile"), lexile: col("lexile") };
   if (c.number < 0 || c.rit < 0) throw new ValidationError("The file needs at least the columns “Student Number” and “Fall RIT” (download the template).");
   // students this actor may update
@@ -58,8 +80,17 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
     const ritRaw = s(r[c.rit]).trim();
     if (!key && !ritRaw) continue;
     if (!ritRaw) { skipped++; continue; }                        // a student with no score yet: skipped quietly
-    const sid = byKey.get(key.toLowerCase());
-    if (!sid) { errors.push({ row: rowNo, message: `Student “${key}” was not found in your classes.` }); continue; }
+    let sid = byKey.get(key.toLowerCase());
+    const fullName = nameCol >= 0 ? s(r[nameCol]).replace(/\s+/g, " ").trim() : "";
+    if (!sid && opts.createInClassId && key && fullName) {
+      // a new student: added to the platform in this class, then their score is saved below
+      try {
+        if ((await repo.findMany("Student", { schoolId: actor.schoolId, studentNumber: key })).length) throw new ValidationError(`Student number ${key} already belongs to a student of another class.`);
+        const n = await createStudentFromMap(repo, actor, opts.createInClassId, key, fullName);
+        sid = n.id; byKey.set(key.toLowerCase(), n.id); created.push({ name: fullName, username: n.username, password: n.password });
+      } catch (e) { errors.push({ row: rowNo, message: (e as Error).message }); continue; }
+    }
+    if (!sid) { errors.push({ row: rowNo, message: `Student “${key}” was not found in your classes${opts.createInClassId ? " (write the Student Name to add them)" : " (import from one class to add new students)"}.` }); continue; }
     const rit = Number(ritRaw);
     if (!Number.isInteger(rit) || rit < 100 || rit > 350) { errors.push({ row: rowNo, message: `Fall RIT “${ritRaw}” must be a whole number from 100 to 350.` }); continue; }
     let growth: number | null = null;
@@ -78,7 +109,7 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
     imported++;
   }
   await repo.create("AuditLog", { actorId: actor.userId, action: "map.scores.import", entityType: "MapResult", entityId: null, after: { term, imported, skipped, errors: errors.length }, createdAt: now });
-  return { imported, skipped, errors, term };
+  return { imported, skipped, errors, term, created };
 }
 
 /** Template rows: the actor's students (number + name) ready for the scores. */

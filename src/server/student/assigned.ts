@@ -30,8 +30,8 @@ const skillOf = (a: Row): string | null => (a.skillId ? s(a.skillId) : Array.isA
 export interface AssignedSkill {
   /** skill = adaptive practice on a skill; questions = a set of questions the teacher chose */
   kind: "skill" | "questions"; questionCount?: number;
-  /** CURRICULUM or MAP: the student sees two areas */
-  track: "CURRICULUM" | "MAP";
+  /** CURRICULUM, MAP or NAFS (Grade 6): the student's areas */
+  track: "CURRICULUM" | "MAP" | "NAFS";
   assignmentId: string; skillId: string; skill: string; standard: string | null; assignedAt: string; startAt: string | null; dueAt: string | null;
   status: Status; progress: number; note: string | null; startsLater: boolean; completedAt: string | null;
 }
@@ -67,7 +67,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     const skillId = skillOf(a)!;
     const startAt = d(a.startAt);
     return {
-      kind: "skill" as const, track: (a.track === "MAP" ? "MAP" : "CURRICULUM") as AssignedSkill["track"], assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
+      kind: "skill" as const, track: (a.track === "MAP" ? "MAP" : a.track === "NAFS" ? "NAFS" : "CURRICULUM") as AssignedSkill["track"], assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now),
       completedAt: d(r.completedAt)?.toISOString() ?? null,
@@ -78,7 +78,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     if (!r) continue;
     const startAt = d(a.startAt);
     items.push({
-      kind: "questions", track: a.track === "MAP" ? "MAP" : "CURRICULUM", questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: s(a.title), standard: null,
+      kind: "questions", track: (a.track === "MAP" ? "MAP" : a.track === "NAFS" ? "NAFS" : "CURRICULUM") as AssignedSkill["track"], questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: s(a.title), standard: null,
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now), completedAt: d(r.completedAt)?.toISOString() ?? null,
     });
@@ -258,8 +258,9 @@ async function questionSetReport(repo: Repo, a: Row, row: Row, studentId: string
     const order = (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).map((x) => s(x.questionId));
     const st = await adaptiveNext(repo, set, order, s(sessions[0].id), studentId);
     total2 = Math.max(answered, 1);
-    const N = { BELOW: "Below", ON: "On", ABOVE: "Above" } as const;
-    reached = `${st.done ? "Reached" : "Now at"} ${N[st.decision.level]} Level (path: ${st.decision.path.map((l) => N[l]).join(" → ")})`;
+    const N = { SUPPORT: "🛟 Support (grade below)", BELOW: "Below", ON: "On", ABOVE: "Above", CHALLENGE: "🚀 Challenge (grade above)" } as const;
+    const lv = st.decision.level;
+    reached = `${st.done ? "Reached" : "Now at"} ${N[lv]}${lv === "SUPPORT" || lv === "CHALLENGE" ? "" : " Level"} (path: ${st.decision.path.map((l) => N[l]).join(" → ")})`;
   }
   const score = total2 ? Math.round((100 * correct) / total2) : 0;
   const status = row.status as Status;

@@ -132,7 +132,9 @@ export async function addVersionQuestion(repo: Repo, actor: Actor, versionId: st
     answer: q.answer, answers: q.answers, passageText: s(v.body), lexile: Number(v.lexile),
     ...(a.standardCode ? { standardCode: s(a.standardCode) } : {}),   // the full code (as stored in Standard)
   });
+  // admins publish; a teacher's question waits for an admin's approval
   if (can(actor, "questions:publish")) await repo.updateMany("Question", { id }, { status: "PUBLISHED", publishedAt: new Date(), reviewedById: actor.userId });
+  else await repo.updateMany("Question", { id }, { status: "UNDER_REVIEW" });
   const n = await repo.count("ReadMasterQuestion", { versionId });
   await repo.create("ReadMasterQuestion", { versionId, questionId: id, order: n });
   return id;

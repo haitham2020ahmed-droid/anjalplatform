@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { questionPreviewAction, type QuestionPreview } from "./preview-actions";
 
@@ -50,7 +51,7 @@ export function PreviewDialog({ id, onClose }: { id: string; onClose: () => void
               <p className="mt-1 text-slate-800">{p.whyCorrect}</p>
               {p.tip && <p className="mt-2 text-sm text-slate-600"><span className="font-semibold">Tip:</span> {p.tip}</p>}
             </div>
-            <a href={`/admin/questions/${p.id}`} className="inline-block rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Open / edit</a>
+            <Link href={`/admin/questions/${p.id}`} className="inline-block rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Open / edit</Link>
           </div>
         )}
       </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getUnitEditor } from "@/server/curriculum-admin";
@@ -12,7 +13,7 @@ export default async function UnitEditorPage({ params }: { params: Promise<{ uni
   const ed = await getUnitEditor(repo, actor, unitId);
   return (
     <AppShell name={String(me.displayName)}>
-      <a href="/admin/curriculum" className="text-sm font-medium text-brand-teal hover:underline">All units</a>
+      <Link href="/admin/curriculum" className="text-sm font-medium text-brand-teal hover:underline">All units</Link>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">Unit {ed.unit.number}</h1>
       <div className="mt-4 max-w-xl"><RenameUnitForm unitId={ed.unit.id} title={ed.unit.title} description={ed.unit.description} /></div>
       <h2 className="mt-10 text-xl font-bold text-brand-navy">Lessons</h2>
@@ -24,7 +25,7 @@ export default async function UnitEditorPage({ params }: { params: Promise<{ uni
               <ul className="mt-2 divide-y divide-slate-100">
                 {l.skills.map((k) => (
                   <li key={k.skillId + k.label} className="flex items-center justify-between gap-3 py-2">
-                    <a href={`/admin/curriculum/skill/${k.skillId}`} className="text-slate-800 hover:text-brand-teal">{k.label}</a>
+                    <Link href={`/admin/curriculum/skill/${k.skillId}`} className="text-slate-800 hover:text-brand-teal">{k.label}</Link>
                     <form action={unlinkSkillAction}>
                       <input type="hidden" name="unitId" value={ed.unit.id} /><input type="hidden" name="lessonId" value={l.id} /><input type="hidden" name="skillId" value={k.skillId} />
                       <button className="text-sm text-red-700 hover:underline">Remove</button>

@@ -93,3 +93,17 @@ Screen: Admin → 🧭 Curriculum Map, and Teacher → 🧭 Curriculum Map (read
 - Staff: /admin/readmaster (list, create, import with ready template incl. Solar System example), article page
   (three versions, add questions one by one, publish, results). Students: /student/readmaster.
 - Deleting a question removes its ReadMaster link; question backups/restore include ReadMasterQuestion.
+
+## Skill plans, MAP recommendations, new students from MAP, Nafs
+
+- 🗂️ Skill plans (SkillPlan, SkillPlanItem): Curriculum Map places (a category = adaptive Below → On → Above;
+  Concept Vocabulary or one level = a fixed set) assigned together to a class or chosen students. Each place is
+  a real assignment; students open the plan as a map (/student/plans) and tap a place to start its questions.
+  Teachers print / save it as PDF.
+- 💡 MAP recommendations: per student, the weakest MAP goal areas (goal RITs from the MAP file, else every area)
+  and the skills there with the lowest mastery (max 4). Teachers untick and assign (track MAP). A student with no
+  MAP work sees their own recommendations on 🗺️ My MAP; the general MAP list is only a last fallback.
+- MAP import from one class adds students of the file who are not on the platform yet (Student Number + Name):
+  username from the number, a temporary password shown once (and as CSV). Teachers: their own class only.
+- 🇸🇦 Nafs: a third track (Grade 6 classes only, enforced on the server); teacher skills page has a Nafs tab for
+  Grade 6, the question assign dialog a Nafs option, and students a Nafs filter.

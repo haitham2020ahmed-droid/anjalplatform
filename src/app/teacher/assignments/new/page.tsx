@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { assertClassAccess } from "@/server/teacher/assignments";
@@ -13,7 +14,7 @@ export default async function NewAssignmentPage({ searchParams }: { searchParams
   const skills = (await repo.findMany("Skill", { curriculumId: cur.id, isActive: true, deletedAt: null })).sort((a, b) => String(a.name).localeCompare(String(b.name)));
   return (
     <AppShell name={String(me.displayName)}>
-      <a href={`/teacher/classes/${String(klass.id)}`} className="text-sm font-medium text-brand-teal hover:underline">Back to class</a>
+      <Link href={`/teacher/classes/${String(klass.id)}`} className="text-sm font-medium text-brand-teal hover:underline">Back to class</Link>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">New assignment for {String(klass.name)}</h1>
       <AssignmentForm classId={String(klass.id)} units={units.map((u) => ({ id: String(u.id), label: `Unit ${String(u.number)}` }))} skills={skills.map((k) => ({ id: String(k.id), name: String(k.name) }))} />
     </AppShell>

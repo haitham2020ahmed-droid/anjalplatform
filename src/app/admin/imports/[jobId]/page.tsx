@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -19,7 +20,7 @@ export default async function ImportJobPage({ params }: { params: Promise<{ jobI
   const summary = job.summary as { written: number; skippedDuplicates: number; replaced: number } | null;
   return (
     <AppShell name={String(me.displayName)}>
-      <a href="/admin/imports" className="text-sm font-medium text-brand-teal hover:underline">All imports</a>
+      <Link href="/admin/imports" className="text-sm font-medium text-brand-teal hover:underline">All imports</Link>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">{String(job.fileName)}</h1>
       <dl className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
         {[["Rows in file", job.totalRows], ["Ready to import", job.validRows], ["Rows with problems", job.errorRows], ["Already imported", job.duplicateRows]].map(([l, v]) => (

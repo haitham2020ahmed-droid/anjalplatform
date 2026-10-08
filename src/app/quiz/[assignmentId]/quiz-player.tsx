@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
 import { FeedbackPanel } from "@/components/practice/feedback-panel";
@@ -29,8 +30,8 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
         <h1 className="text-2xl font-bold text-brand-navy">Finished! 🎉</h1>
         <p className="mt-2 text-lg text-slate-700">{view.title}: {view.correct} of {view.total} correct.</p>
         <div className="mt-6 flex justify-center gap-3">
-          <a href={`/student/assignments/${view.assignmentId}/report`} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">View report</a>
-          <a href="/student" className="rounded-xl px-6 py-3 font-semibold text-brand-navy ring-1 ring-slate-300">My assigned work</a>
+          <Link href={`/student/assignments/${view.assignmentId}/report`} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">View report</Link>
+          <Link href="/student" className="rounded-xl px-6 py-3 font-semibold text-brand-navy ring-1 ring-slate-300">My assigned work</Link>
         </div>
       </div>
     );

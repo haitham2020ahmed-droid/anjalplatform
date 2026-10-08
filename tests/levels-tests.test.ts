@@ -7,7 +7,7 @@ import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { parseCurriculumMap } from "../src/server/curriculum-map/source";
 import { seedCurriculumMap } from "../src/server/curriculum-map/seed";
-import { assignFromMap, classLevels, giveTest, previewMapAssign, setStudentLevels, studentLevels } from "../src/server/curriculum-map/levels";
+import { assignFromMap, classLevels, giveTest, previewMapAssign, rosterForGrade, setStudentLevels, studentLevels } from "../src/server/curriculum-map/levels";
 import { curriculumResults } from "../src/server/curriculum-map/results";
 import { classifyQuestions, unclassifiedQuestions } from "../src/server/curriculum-map/questions";
 import { createDraft } from "../src/server/admin/questions";
@@ -137,5 +137,13 @@ describe("student levels, assign by level, Placement and MAP tests, curriculum r
     const after = await unclassifiedQuestions(repo, admin.schoolId!);
     assert.ok(!after.rows.some((r) => r.id === row.id));
     assert.equal(String((await repo.findMany("QuestionMapLink", { questionId: row.id }))[0].nodeId) !== "", true, "its map place is unchanged");
+  });
+
+  test("the fast roster (one set of queries) equals the per-class roster", async () => {
+    const fast = await rosterForGrade(repo, teacher, 4);
+    const cls = fast.find((c) => c.id === classId)!;
+    const slow = await classLevels(repo, teacher, classId);
+    assert.deepEqual(cls.students.map((x) => [x.id, x.level]), slow.students.map((x) => [x.id, x.level]));
+    assert.deepEqual(await rosterForGrade(repo, teacher, 6), [], "no Grade 6 class for this teacher");
   });
 });

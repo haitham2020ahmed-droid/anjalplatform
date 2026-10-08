@@ -454,6 +454,8 @@ export interface QuestionListItem {
   hasImage: boolean;
   /** no passage, but the wording seems to need one (warning only) */
   possibleMissingPassage: boolean;
+  /** the skill (for grouping the bank by skill) */
+  skillId?: string;
   /** its place on the Curriculum Map (null = Question Bank only) and Placement / MAP test uses */
   mapCode?: string | null;
   uses?: string[];
@@ -590,7 +592,7 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFi
       const sk = skillById.get(String(q.skillId));
       const hasPassage = Boolean(q.passageId);
       return {
-        id: String(q.id), ref: String(q.externalRef ?? ""), stem: String(q.stem).slice(0, 160), skill: String(sk?.name ?? ""), grade: num(sk ? gradeOfCurriculum.get(String(sk.curriculumId)) : 0),
+        id: String(q.id), ref: String(q.externalRef ?? ""), stem: String(q.stem).slice(0, 160), skill: String(sk?.name ?? ""), skillId: String(q.skillId), grade: num(sk ? gradeOfCurriculum.get(String(sk.curriculumId)) : 0),
         type: typeCode.get(String(q.typeId)) ?? "", level: num(q.difficultyLevel), levelLabel: LEVEL_LABELS[num(q.difficultyLevel)] ?? "",
         status: String(q.status) as QuestionStatus, origin: String(q.origin), mine: q.createdById === actor.userId,
         updatedAt: iso(q.updatedAt), hasPassage, hasImage: Boolean(q.imageId), possibleMissingPassage: possibleMissingPassage(String(q.stem), hasPassage),

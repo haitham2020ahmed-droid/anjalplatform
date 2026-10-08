@@ -27,7 +27,7 @@ export default async function MapAssignPage({ searchParams }: { searchParams: Pr
     <AppShell name={String(me.displayName)}>
       <p><Link href={`/admin/curriculum-map?grade=${wanted || ""}`} className="text-brand-teal hover:underline">← Curriculum Map</Link></p>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy"><span aria-hidden="true">⭐</span> Assign from the Curriculum Map</h1>
-      <p className="mt-1 text-sm text-slate-600">To choose single questions instead, use <a href={`/admin/questions?status=PUBLISHED&map=${code}`} className="font-semibold text-brand-teal underline">☆ Choose questions</a>.</p>
+      <p className="mt-1 text-sm text-slate-600">To choose single questions instead, use <Link href={`/admin/questions?status=PUBLISHED&map=${code}`} className="font-semibold text-brand-teal underline">☆ Choose questions</Link>.</p>
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {!fit.length ? <p className="mt-4 text-slate-600">You do not teach a Grade {wanted} class.</p> : (
         <>

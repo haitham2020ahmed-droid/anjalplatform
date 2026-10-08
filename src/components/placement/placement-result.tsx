@@ -1,3 +1,4 @@
+import Link from "next/link";
 /** @jsxRuntime automatic */
 /** @jsxImportSource react */
 import type { DiagnosticSummary } from "../../server/assessment/diagnostic";
@@ -50,7 +51,7 @@ export function PlacementResult({ r, firstName }: { r: DiagnosticSummary; firstN
           <h2 className="text-lg font-semibold">Start with these skills</h2>
           <ul className="mt-4 flex flex-wrap gap-3">
             {r.startWith.map((s) => (
-              <li key={s.skillId}><a href={`/practice/${s.skillId}`} className="inline-block rounded-xl bg-white px-4 py-2.5 font-semibold text-brand-navy hover:bg-brand-gold">{s.name}</a></li>
+              <li key={s.skillId}><Link href={`/practice/${s.skillId}`} className="inline-block rounded-xl bg-white px-4 py-2.5 font-semibold text-brand-navy hover:bg-brand-gold">{s.name}</Link></li>
             ))}
           </ul>
         </section>
@@ -58,7 +59,7 @@ export function PlacementResult({ r, firstName }: { r: DiagnosticSummary; firstN
       {r.support.length > 0 && (
         <p className="mt-4 text-slate-700">Your teacher may also suggest some building-block practice: {r.support.map((s) => s.name).join(", ")}.</p>
       )}
-      <a href="/student" className="mt-8 inline-block font-medium text-brand-teal hover:underline">Go to my units</a>
+      <Link href="/student" className="mt-8 inline-block font-medium text-brand-teal hover:underline">Go to my units</Link>
     </div>
   );
 }

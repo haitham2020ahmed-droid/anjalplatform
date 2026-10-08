@@ -23,7 +23,29 @@ export interface AttachmentNode {
 }
 
 /** Every node of the school's Curriculum Map that accepts questions, with its readable path. */
+/**
+ * The places of the Curriculum Map change only when the map is seeded, so they are cached briefly in memory
+ * (per database and school). Assigning, bridging and the map page no longer rebuild hundreds of nodes each time.
+ */
+const NODE_TTL_MS = 60_000;
+const nodeCache = new WeakMap<object, Map<string, { at: number; value: Promise<AttachmentNode[]> }>>();
+export function clearMapCache(): void { cacheEpoch++; }
+/** Changes whenever the map is re-seeded (other caches built on the map use it in their keys). */
+export const mapEpoch = (): number => cacheEpoch;
+let cacheEpoch = 0;
 export async function attachmentNodes(repo: Repo, schoolId: string): Promise<AttachmentNode[]> {
+  let perRepo = nodeCache.get(repo as object);
+  if (!perRepo) { perRepo = new Map(); nodeCache.set(repo as object, perRepo); }
+  const key = `${schoolId}#${cacheEpoch}`;
+  const hit = perRepo.get(key);
+  if (hit && Date.now() - hit.at < NODE_TTL_MS) return hit.value;
+  const value = loadAttachmentNodes(repo, schoolId);
+  perRepo.set(key, { at: Date.now(), value });
+  value.catch(() => perRepo!.delete(key));
+  return value;
+}
+
+async function loadAttachmentNodes(repo: Repo, schoolId: string): Promise<AttachmentNode[]> {
   const grades = await repo.findMany("Grade", { schoolId }, { select: ["id", "level"] });
   if (!grades.length) return [];
   const nodes = await repo.findMany("CurriculumMapNode", { gradeId: { in: grades.map((g) => g.id) } });

@@ -1,3 +1,4 @@
+import Link from "next/link";
 /** @jsxRuntime automatic */
 /** @jsxImportSource react */
 import type { SkillCard, UnitSummary } from "../../server/queries/student-curriculum";
@@ -11,7 +12,7 @@ export function UnitSkills({ unit, cards, grade, bookTitle }: { unit: UnitSummar
   const groups = GROUP_ORDER.map((g) => ({ g, items: cards.filter((c) => c.category === g) })).filter((x) => x.items.length);
   return (
     <div>
-      <a href="/student" className="text-sm font-medium text-brand-teal hover:underline">Back to Grade {grade} units</a>
+      <Link href="/student" className="text-sm font-medium text-brand-teal hover:underline">Back to Grade {grade} units</Link>
       <header className="mt-3 flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-sm text-slate-500">Grade {grade}, {bookTitle}</p>

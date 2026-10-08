@@ -43,7 +43,7 @@ export default async function ImportQuestionsPage({ searchParams }: { searchPara
             <div className="mt-3 flex flex-wrap gap-3">
               <a href="/api/question-imports/template?format=map-xlsx" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">Download Curriculum Excel template</a>
               <a href="/api/question-imports/template?format=map-csv" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Download Curriculum CSV template</a>
-              <a href="/admin/curriculum-map" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🧭 Open the Curriculum Map</a>
+              <Link href="/admin/curriculum-map" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🧭 Open the Curriculum Map</Link>
             </div>
             <h3 className="mt-4 font-semibold text-brand-navy">Rules</h3>
             <ul className="mt-1 list-disc space-y-1 ps-5 text-sm text-slate-700">{CURRICULUM_RULES.map((r) => <li key={r}>{r}</li>)}</ul>

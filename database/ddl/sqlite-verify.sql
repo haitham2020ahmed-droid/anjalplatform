@@ -586,7 +586,7 @@ CREATE INDEX "QuestionAttempt_questionId_createdAt_idx" ON "QuestionAttempt"("qu
 
 CREATE INDEX "QuestionAttempt_skillId_createdAt_idx" ON "QuestionAttempt"("skillId", "createdAt");
 
-CREATE INDEX "QuestionAttempt_sessionId_fk_idx" ON "QuestionAttempt"("sessionId");
+CREATE INDEX "QuestionAttempt_sessionId_idx" ON "QuestionAttempt"("sessionId");
 
 CREATE TABLE "AdaptiveDecisionLog" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -1218,3 +1218,90 @@ CREATE TABLE "ReadMasterAttempt" (
 CREATE INDEX "ReadMasterAttempt_studentId_idx" ON "ReadMasterAttempt"("studentId");
 
 CREATE INDEX "ReadMasterAttempt_articleId_idx" ON "ReadMasterAttempt"("articleId");
+
+CREATE TABLE "SkillPlan" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "gradeLevel" INTEGER NOT NULL,
+  "note" TEXT,
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "SkillPlan_schoolId_classId_idx" ON "SkillPlan"("schoolId", "classId");
+
+CREATE TABLE "SkillPlanItem" (
+  "id" TEXT NOT NULL,
+  "planId" TEXT NOT NULL,
+  "code" TEXT NOT NULL,
+  "label" TEXT NOT NULL,
+  "assignmentIds" TEXT NOT NULL,
+  "order" INTEGER NOT NULL,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "SkillPlanItem_planId_idx" ON "SkillPlanItem"("planId");
+
+CREATE TABLE "LiveGame" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT,
+  "hostId" TEXT NOT NULL,
+  "code" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "questionIds" TEXT NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'LOBBY',
+  "currentIndex" INTEGER NOT NULL DEFAULT -1,
+  "questionStartedAt" TEXT,
+  "secondsPerQuestion" INTEGER NOT NULL DEFAULT 20,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "finishedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "LiveGame_code_status_idx" ON "LiveGame"("code", "status");
+
+CREATE INDEX "LiveGame_schoolId_createdAt_idx" ON "LiveGame"("schoolId", "createdAt");
+
+CREATE TABLE "LiveGamePlayer" (
+  "id" TEXT NOT NULL,
+  "gameId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "nickname" TEXT NOT NULL,
+  "score" INTEGER NOT NULL DEFAULT 0,
+  "streak" INTEGER NOT NULL DEFAULT 0,
+  "joinedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "LiveGamePlayer_gameId_studentId_key" UNIQUE ("gameId", "studentId")
+);
+
+CREATE TABLE "LiveGameAnswer" (
+  "id" TEXT NOT NULL,
+  "gameId" TEXT NOT NULL,
+  "playerId" TEXT NOT NULL,
+  "questionIndex" INTEGER NOT NULL,
+  "choice" TEXT NOT NULL,
+  "correct" INTEGER NOT NULL,
+  "points" INTEGER NOT NULL,
+  "ms" INTEGER NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "LiveGameAnswer_playerId_questionIndex_key" UNIQUE ("playerId", "questionIndex")
+);
+
+CREATE INDEX "LiveGameAnswer_gameId_questionIndex_idx" ON "LiveGameAnswer"("gameId", "questionIndex");
+
+CREATE TABLE "CrossGradeBridge" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "fromCode" TEXT NOT NULL,
+  "challengeCode" TEXT,
+  "supportCode" TEXT,
+  "source" TEXT NOT NULL DEFAULT 'IMPORT',
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "CrossGradeBridge_schoolId_fromCode_key" UNIQUE ("schoolId", "fromCode")
+);

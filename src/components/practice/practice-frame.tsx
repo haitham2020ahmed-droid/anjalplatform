@@ -1,3 +1,4 @@
+import Link from "next/link";
 /** @jsxRuntime automatic */
 /** @jsxImportSource react */
 /**
@@ -10,6 +11,7 @@ import type { MasteryBandName } from "../../types/domain";
 import { BandMeter } from "../curriculum/band-meter";
 import { AnswerInput, type AnswerValue } from "./answer-input";
 import { FeedbackPanel } from "./feedback-panel";
+import { ListenButton } from "@/components/listen-button";
 
 const END_TEXT: Record<string, string> = {
   COMPLETED: "Great work. You finished this practice set.",
@@ -49,7 +51,7 @@ export function PracticeFrame(props: {
         <div className={["mt-6 grid gap-8", q.passage ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" : ""].join(" ")}>
           {q.passage && (
             <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200 lg:sticky lg:top-4" aria-label="Reading passage">
-              <h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2>
+              <div className="flex flex-wrap items-center justify-between gap-2"><h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2><ListenButton text={`${q.passage.title}. ${q.passage.text}`} label="Listen to the text" /></div>
               {q.passage.text.split("\n\n").map((para, i) => (
                 <p key={i} className="mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800">{para}</p>
               ))}
@@ -61,6 +63,7 @@ export function PracticeFrame(props: {
               <img src={q.image.url} alt={q.image.alt} className="mb-4 max-h-[50vh] w-auto max-w-full rounded-xl bg-white ring-1 ring-slate-200" />
             )}
             {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900">{q.stem}</p>}
+            <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
             <div className="mt-5"><AnswerInput q={q} value={props.value} onChange={props.onChange} disabled={!!fb || props.pending} /></div>
             {props.error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{props.error}</p>}
             <div className="mt-6">{fb && <FeedbackPanel fb={fb} />}</div>
@@ -75,7 +78,7 @@ export function PracticeFrame(props: {
                 <button type="button" onClick={props.onNext} autoFocus className="rounded-xl bg-brand-navy px-8 py-3 text-lg font-semibold text-white hover:bg-brand-purple">Next question</button>
               )}
               {fb && !fb.next.hasQuestion && fb.next.routeToSkillId && (
-                <a href={`/practice/${fb.next.routeToSkillId}`} className="rounded-xl bg-brand-purple px-6 py-3 text-lg font-semibold text-white">Practise {fb.next.routeToSkillName}</a>
+                <Link href={`/practice/${fb.next.routeToSkillId}`} className="rounded-xl bg-brand-purple px-6 py-3 text-lg font-semibold text-white">Practise {fb.next.routeToSkillName}</Link>
               )}
               {fb && !fb.next.hasQuestion && (
                 <a href={props.unitHref} className="rounded-xl border-2 border-slate-300 px-6 py-3 text-lg font-semibold text-brand-navy">Back to my skills</a>

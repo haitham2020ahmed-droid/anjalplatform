@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { AssignedView } from "@/server/student/assigned";
 
 const LABEL = { NOT_STARTED: "Not started", IN_PROGRESS: "In progress", COMPLETED: "Completed", OVERDUE: "Overdue" } as const;
@@ -5,7 +6,7 @@ const TONE = { NOT_STARTED: "bg-slate-100 text-slate-700", IN_PROGRESS: "bg-sky-
 const BAR = { NOT_STARTED: "bg-slate-300", IN_PROGRESS: "bg-sky-500", COMPLETED: "bg-teal-500", OVERDUE: "bg-red-500" } as const;
 const LEVEL = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" } as const;
 
-export interface StudentExtras { lexile: number | null; readingLevel: "ABOVE" | "ON" | "BELOW" | null; rit: number | null; ritGoal: number | null }
+export interface StudentExtras { lexile: number | null; readingLevel: "ABOVE" | "ON" | "BELOW" | null; rit: number | null; ritGoal: number | null; grade?: number; plans?: number; streak?: number; points?: number; activeToday?: boolean; games?: { code: string; title: string }[] }
 
 /** A completion ring (SVG). */
 function Ring({ pct }: { pct: number }) {
@@ -21,7 +22,7 @@ function Ring({ pct }: { pct: number }) {
 }
 
 /** The student's home: a welcome card, the three big doors (work, ReadMaster, MAP), then the assigned work. */
-export function AssignedSkills({ view, firstName, placement, area = "ALL", extras }: { view: AssignedView; firstName: string; placement: boolean; area?: "ALL" | "CURRICULUM" | "MAP"; extras?: StudentExtras }) {
+export function AssignedSkills({ view, firstName, placement, area = "ALL", extras }: { view: AssignedView; firstName: string; placement: boolean; area?: "ALL" | "CURRICULUM" | "MAP" | "NAFS"; extras?: StudentExtras }) {
   const { summary } = view;
   const items = area === "ALL" ? view.items : view.items.filter((i) => i.track === area);
   const pct = summary.assigned ? Math.round((100 * summary.completed) / summary.assigned) : 0;
@@ -42,6 +43,8 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
             <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{firstName} <span className="inline-block animate-float">👋</span></h1>
             <p className="mt-2 max-w-md text-white/85">{summary.assigned === 0 ? "Your teacher will assign work soon. Meanwhile, read an article in ReadMaster!" : pct === 100 ? "Everything is done. Amazing work! 🎉" : `You have ${summary.assigned - summary.completed} task${summary.assigned - summary.completed === 1 ? "" : "s"} to finish.`}</p>
             <div className="mt-4 flex flex-wrap gap-2 text-sm">
+              {extras?.streak ? <span className="animate-pop rounded-full bg-orange-500 px-3 py-1 font-bold text-white shadow" title={extras.activeToday ? "You practised today!" : "Practise today to keep your streak"}>🔥 {extras.streak}-day streak{extras.activeToday ? "" : " · practise today!"}</span> : <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">🔥 Start a streak today</span>}
+              {extras?.points ? <span className="rounded-full bg-brand-gold px-3 py-1 font-bold text-brand-navy">⭐ {extras.points.toLocaleString("en")} points</span> : null}
               {extras?.lexile != null && <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">📖 Lexile {extras.lexile}L{extras.readingLevel ? ` · ${LEVEL[extras.readingLevel]}` : ""}</span>}
               {extras?.rit != null && <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">🗺️ RIT {extras.rit}{extras.ritGoal ? ` → goal ${extras.ritGoal}` : ""}</span>}
               {summary.overdue > 0 && <span className="rounded-full bg-red-500/90 px-3 py-1 font-semibold">⏰ {summary.overdue} overdue</span>}
@@ -58,10 +61,20 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
         )}
       </section>
 
-      {placement && <a href="/student/placement" className="block rounded-2xl bg-brand-gold px-5 py-4 font-bold text-brand-navy shadow lift">📝 Your school asks you to take the placement test first →</a>}
+      {extras?.games?.map((g) => (
+
+        <Link key={g.code} href={`/play/${g.code}`} className="animate-pop lift flex items-center justify-between gap-3 rounded-2xl bg-brand-gold px-5 py-4 font-bold text-brand-navy shadow-lg">
+
+          <span>🎮 A game is open: <span className="font-black">{g.title}</span></span><span className="rounded-xl bg-brand-navy px-4 py-2 text-white">Join now ▶</span>
+
+        </Link>
+
+      ))}
+
+      {placement && <Link href="/student/placement" className="block rounded-2xl bg-brand-gold px-5 py-4 font-bold text-brand-navy shadow lift">📝 Your school asks you to take the placement test first →</Link>}
 
       {/* the three big doors */}
-      <nav aria-label="My areas" className="grid gap-4 sm:grid-cols-3">
+      <nav aria-label="My areas" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <a href="#my-work" className="lift group rounded-3xl bg-white p-5 ring-1 ring-slate-200">
           <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl bg-sky-100 text-3xl transition group-hover:scale-110">📘</span>
           <span className="mt-3 block text-xl font-bold text-brand-navy">My work</span>
@@ -72,6 +85,16 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
           <span className="mt-3 block text-xl font-bold text-brand-navy">ReadMaster</span>
           <span className="block text-sm text-slate-600">Articles at my level · my Lexile grows</span>
         </a>
+        <Link href="/student/plans" className="lift group rounded-3xl bg-gradient-to-br bg-linear-to-br from-violet-50 to-white p-5 ring-1 ring-violet-200">
+          <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl bg-violet-100 text-3xl transition group-hover:scale-110">🗂️</span>
+          <span className="mt-3 block text-xl font-bold text-brand-navy">My plans</span>
+          <span className="block text-sm text-slate-600">{extras?.plans ? `${extras.plans} plan${extras.plans === 1 ? "" : "s"} from my teacher` : "Skill plans from my teacher"}</span>
+        </Link>
+        <Link href="/play" className="lift group rounded-3xl bg-gradient-to-br bg-linear-to-br from-rose-50 to-white p-5 ring-1 ring-rose-200">
+          <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl bg-rose-100 text-3xl transition group-hover:scale-110">🎮</span>
+          <span className="mt-3 block text-xl font-bold text-brand-navy">Live game</span>
+          <span className="block text-sm text-slate-600">Join my class quiz with the PIN</span>
+        </Link>
         <a href="/student/map" className="lift group rounded-3xl bg-gradient-to-br bg-linear-to-br from-emerald-50 to-white p-5 ring-1 ring-emerald-200">
           <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl bg-emerald-100 text-3xl transition group-hover:scale-110">🗺️</span>
           <span className="mt-3 block text-xl font-bold text-brand-navy">My MAP</span>
@@ -84,9 +107,10 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-2xl font-bold text-brand-navy">My work</h2>
           <nav aria-label="Filter" className="flex gap-2">
-            <a href="/student#my-work" aria-current={area === "ALL" ? "page" : undefined} className={chip(area === "ALL")}>All</a>
-            <a href="/student?area=curriculum#my-work" aria-current={area === "CURRICULUM" ? "page" : undefined} className={chip(area === "CURRICULUM")}>📘 Curriculum</a>
-            <a href="/student?area=map#my-work" aria-current={area === "MAP" ? "page" : undefined} className={chip(area === "MAP")}>🗺️ MAP</a>
+            <Link href="/student#my-work" aria-current={area === "ALL" ? "page" : undefined} className={chip(area === "ALL")}>All</Link>
+            <Link href="/student?area=curriculum#my-work" aria-current={area === "CURRICULUM" ? "page" : undefined} className={chip(area === "CURRICULUM")}>📘 Curriculum</Link>
+            <Link href="/student?area=map#my-work" aria-current={area === "MAP" ? "page" : undefined} className={chip(area === "MAP")}>🗺️ MAP</Link>
+            {(extras?.grade === 6 || view.items.some((i) => i.track === "NAFS")) && <Link href="/student?area=nafs#my-work" aria-current={area === "NAFS" ? "page" : undefined} className={chip(area === "NAFS")}>🇸🇦 Nafs</Link>}
           </nav>
         </div>
         {items.length === 0 ? (
@@ -102,7 +126,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
                 <span aria-hidden="true" className={`absolute inset-y-0 start-0 w-1.5 ${BAR[i.status]}`} />
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <h3 className="truncate text-lg font-bold text-brand-navy" title={i.skill}><span aria-label={i.track === "MAP" ? "MAP" : "Curriculum"}>{i.track === "MAP" ? "🗺️" : "📘"}</span> {i.skill}</h3>
+                    <h3 className="truncate text-lg font-bold text-brand-navy" title={i.skill}><span aria-label={i.track === "MAP" ? "MAP" : i.track === "NAFS" ? "Nafs" : "Curriculum"}>{i.track === "MAP" ? "🗺️" : i.track === "NAFS" ? "🇸🇦" : "📘"}</span> {i.skill}</h3>
                     <p className="text-sm text-slate-600">{i.kind === "questions" ? `${i.questionCount} questions` : i.standard ?? "Practice"}{i.dueAt ? ` · due ${i.dueAt.slice(0, 10)}` : ""}</p>
                     {i.note && <p className="mt-1 rounded-lg bg-amber-50 px-2 py-1 text-sm text-amber-900">💬 {i.note}</p>}
                   </div>
@@ -118,10 +142,10 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
                   {i.startsLater ? <span className="text-sm text-slate-600">🔒 Starts {i.startAt!.slice(0, 10)}</span>
                     : i.status === "COMPLETED" ? (
                       <>
-                        <a href={`/student/assignments/${i.assignmentId}/report`} className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-purple">View report</a>
-                        {i.kind === "skill" && <a href={`/practice/${i.skillId}`} className="rounded-xl px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Practise again</a>}
+                        <Link href={`/student/assignments/${i.assignmentId}/report`} className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-purple">View report</Link>
+                        {i.kind === "skill" && <Link href={`/practice/${i.skillId}`} className="rounded-xl px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Practise again</Link>}
                       </>
-                    ) : <a href={hrefOf(i)} className="rounded-xl bg-brand-navy px-5 py-2 text-sm font-semibold text-white hover:bg-brand-purple">{i.status === "NOT_STARTED" ? "Start ▶" : "Continue ▶"}</a>}
+                    ) : <Link href={hrefOf(i)} className="rounded-xl bg-brand-navy px-5 py-2 text-sm font-semibold text-white hover:bg-brand-purple">{i.status === "NOT_STARTED" ? "Start ▶" : "Continue ▶"}</Link>}
                 </div>
               </li>
             ))}

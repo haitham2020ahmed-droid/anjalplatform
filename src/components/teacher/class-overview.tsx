@@ -1,3 +1,4 @@
+import Link from "next/link";
 /** @jsxRuntime automatic */
 /** @jsxImportSource react */
 import type { AssignmentSummary } from "../../server/teacher/assignments";
@@ -31,12 +32,12 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap }: {
   const k = o.kpis;
   return (
     <div>
-      <a href="/teacher" className="text-sm font-medium text-brand-teal hover:underline">All classes</a>
+      <Link href="/teacher" className="text-sm font-medium text-brand-teal hover:underline">All classes</Link>
       <div className="mt-2 flex flex-wrap items-end justify-between gap-4">
         <h1 className="text-3xl font-bold tracking-tight text-brand-navy">Class {o.className}</h1>
         <div className="flex flex-wrap gap-2">
-          <a href={`/teacher/classes/${o.classId}/analytics`} className="rounded-xl border-2 border-brand-navy px-5 py-2 font-semibold text-brand-navy hover:bg-white">Progress and growth</a>
-          <a href={`/teacher/assignments/new?classId=${o.classId}`} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">New assignment</a>
+          <Link href={`/teacher/classes/${o.classId}/analytics`} className="rounded-xl border-2 border-brand-navy px-5 py-2 font-semibold text-brand-navy hover:bg-white">Progress and growth</Link>
+          <Link href={`/teacher/assignments/new?classId=${o.classId}`} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">New assignment</Link>
         </div>
       </div>
 
@@ -57,7 +58,7 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap }: {
             {o.alerts.map((a) => (
               <li key={a.id} className="flex flex-wrap items-start justify-between gap-3 rounded-xl border-l-4 border-amber-400 bg-white p-4 ring-1 ring-slate-200">
                 <div className="min-w-0">
-                  <a href={`/teacher/students/${a.studentId}`} className="font-semibold text-brand-navy hover:text-brand-teal">{a.message}</a>
+                  <Link href={`/teacher/students/${a.studentId}`} className="font-semibold text-brand-navy hover:text-brand-teal">{a.message}</Link>
                   <p className="mt-1 text-sm text-slate-600">Next step: {a.nextAction}</p>
                 </div>
                 <form action={resolveAction}>
@@ -125,7 +126,7 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap }: {
             <tbody>
               {o.students.map((s) => (
                 <tr key={s.studentId} className="border-t border-slate-100">
-                  <th scope="row" className="px-4 py-2.5 text-left font-medium"><a href={`/teacher/students/${s.studentId}`} className="text-brand-navy hover:text-brand-teal">{s.name}</a></th>
+                  <th scope="row" className="px-4 py-2.5 text-left font-medium"><Link href={`/teacher/students/${s.studentId}`} className="text-brand-navy hover:text-brand-teal">{s.name}</Link></th>
                   <td className="px-4 py-2.5">{s.group ?? "–"}</td>
                   <td className="px-4 py-2.5">{s.placement ?? "Not taken"}</td>
                   <td className="px-4 py-2.5 tabular-nums">{s.avgMastery ?? "–"}</td>

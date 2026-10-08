@@ -834,6 +834,8 @@ model QuestionAttempt {
   @@index([studentId, createdAt]) // analytics: a group's answers in a date range (performance)
   @@index([questionId, createdAt])
   @@index([skillId, createdAt])
+  // every answer reads the attempts of its session (sets, tests): without this the table is scanned
+  @@index([sessionId])
 }
 
 /// Every adaptive decision, fully traceable.
@@ -1552,4 +1554,101 @@ model ReadMasterAttempt {
 
   @@index([studentId])
   @@index([articleId])
+}
+
+
+/// 🗂️ A skill plan: a set of Curriculum Map places assigned together to a class (or chosen students).
+/// Students open it as a map and tap a place to start its questions. Students come from its assignments.
+model SkillPlan {
+  id          String   @id @default(cuid())
+  schoolId    String
+  classId     String
+  title       String   @db.VarChar(191)
+  gradeLevel  Int
+  note        String?  @db.VarChar(1000)
+  createdById String?
+  createdAt   DateTime @default(now())
+
+  @@index([schoolId, classId])
+}
+
+model SkillPlanItem {
+  id            String @id @default(cuid())
+  planId        String
+  /// the Curriculum Map place or category code, e.g. G4.U1.TS2.ACS
+  code          String @db.VarChar(80)
+  label         String @db.VarChar(255)
+  /// the assignments created for this place (one, or one per level)
+  assignmentIds Json
+  order         Int
+
+  @@index([planId])
+}
+
+
+// ------------------------------------------------------------------ 🎮 Live games (Kahoot / Blooket style)
+
+/// A live quiz game a teacher hosts; students join with a code or QR. LOBBY → QUESTION → REVEAL → … → FINISHED.
+model LiveGame {
+  id                 String    @id @default(cuid())
+  schoolId           String
+  classId            String?
+  hostId             String
+  /// the 6-digit join code (unique among games that are not finished)
+  code               String    @db.VarChar(8)
+  title              String    @db.VarChar(191)
+  questionIds        Json
+  status             String    @default("LOBBY") @db.VarChar(12)
+  currentIndex       Int       @default(-1)
+  questionStartedAt  DateTime?
+  secondsPerQuestion Int       @default(20)
+  createdAt          DateTime  @default(now())
+  finishedAt         DateTime?
+
+  @@index([code, status])
+  @@index([schoolId, createdAt])
+}
+
+model LiveGamePlayer {
+  id        String   @id @default(cuid())
+  gameId    String
+  studentId String
+  nickname  String   @db.VarChar(60)
+  score     Int      @default(0)
+  streak    Int      @default(0)
+  joinedAt  DateTime @default(now())
+
+  @@unique([gameId, studentId])
+}
+
+model LiveGameAnswer {
+  id            String   @id @default(cuid())
+  gameId        String
+  playerId      String
+  questionIndex Int
+  choice        String   @db.VarChar(191)
+  correct       Boolean
+  points        Int
+  ms            Int
+  createdAt     DateTime @default(now())
+
+  @@unique([playerId, questionIndex])
+  @@index([gameId, questionIndex])
+}
+
+/// 🌉 Cross-Grade Bridge: a Text Set's category linked to the same skill one grade up (🚀 challenge path for
+/// Above Level students) and one grade down (🛟 support path for Below Level students). Rows here are the
+/// school's own (imported or edited); places without a row use the automatic match.
+model CrossGradeBridge {
+  id            String   @id @default(cuid())
+  schoolId      String
+  /// a category of the Curriculum Map, e.g. G5.U1.TS2.ACS
+  fromCode      String   @db.VarChar(80)
+  challengeCode String?  @db.VarChar(80)
+  supportCode   String?  @db.VarChar(80)
+  /// IMPORT or MANUAL
+  source        String   @default("IMPORT") @db.VarChar(12)
+  updatedAt     DateTime @updatedAt
+
+  @@unique([schoolId, fromCode])
 }

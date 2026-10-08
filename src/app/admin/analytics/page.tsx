@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { resolvePeriod } from "@/analytics/periods";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -21,7 +22,7 @@ export default async function SchoolAnalytics() {
       <ReportDownloads title="School standards report (this school year)" report={{ kind: "standards", scope: "school", period: "SCHOOL_YEAR" }} />
       <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
         <h2 className="text-lg font-bold text-brand-navy">Class progress</h2>
-        <ul className="mt-3 grid gap-2 md:grid-cols-4">{classes.map((c) => <li key={c.classId}><a href={`/teacher/classes/${c.classId}/analytics?period=SCHOOL_YEAR`} className="block rounded-lg px-3 py-2 ring-1 ring-slate-200 hover:ring-brand-teal">Grade {c.grade}, {c.name}</a></li>)}</ul>
+        <ul className="mt-3 grid gap-2 md:grid-cols-4">{classes.map((c) => <li key={c.classId}><Link href={`/teacher/classes/${c.classId}/analytics?period=SCHOOL_YEAR`} className="block rounded-lg px-3 py-2 ring-1 ring-slate-200 hover:ring-brand-teal">Grade {c.grade}, {c.name}</Link></li>)}</ul>
       </section>
       <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
         <h2 className="text-lg font-bold text-brand-navy">Standards across the school</h2>

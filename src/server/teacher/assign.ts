@@ -39,8 +39,14 @@ export function assignmentStatus(input: { answered: number; mastery: number; tar
 
 // ------------------------------------------------------------------ assign
 
-export type Track = "CURRICULUM" | "MAP";
-const trackOf = (v: unknown): Track => (v === "MAP" ? "MAP" : "CURRICULUM");
+export type Track = "CURRICULUM" | "MAP" | "NAFS";
+const trackOf = (v: unknown): Track => (v === "MAP" ? "MAP" : v === "NAFS" ? "NAFS" : "CURRICULUM");
+/** Nafs (the national test) is for Grade 6 only. */
+async function assertTrackFitsClass(repo: Repo, klass: Row, track: Track): Promise<void> {
+  if (track !== "NAFS") return;
+  const g = await repo.findUnique("Grade", { id: klass.gradeId });
+  if (Number(g?.level) !== 6) throw new ValidationError("Nafs is for Grade 6 classes only.");
+}
 
 export interface AssignSkillInput {
   /** CURRICULUM (default) or MAP */
@@ -60,6 +66,7 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
   if (!input.classId) throw new ValidationError("Choose a class.");
   if (!input.skillId) throw new ValidationError("Choose a skill to assign.");
   const klass = await assertClassAccess(repo, actor, input.classId);
+  await assertTrackFitsClass(repo, klass, trackOf(input.track));
   const teacher = await repo.findUnique("Teacher", { userId: actor.userId });
   if (!teacher) throw new ForbiddenError("Only teachers can assign skills.");
   const [skill, curs, members] = await Promise.all([
@@ -376,6 +383,7 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
   if (!ids.length) throw new ValidationError("Choose at least one question.");
   if (ids.length > (input.adaptive ? 1000 : MAX_SET_QUESTIONS)) throw new ValidationError(`Choose at most ${input.adaptive ? 1000 : MAX_SET_QUESTIONS} questions at a time.`);
   const klass = await assertClassAccess(repo, actor, input.classId);
+  await assertTrackFitsClass(repo, klass, trackOf(input.track));
   const teacher = await repo.findUnique("Teacher", { userId: actor.userId });
   if (!teacher) throw new ForbiddenError("Only teachers can assign questions.");
   const qs = await repo.findMany("Question", { id: { in: ids } }, { select: ["id", "skillId", "status", "deletedAt", "typeId"] });

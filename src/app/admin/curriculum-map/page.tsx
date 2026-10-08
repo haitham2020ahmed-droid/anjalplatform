@@ -4,15 +4,17 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { curriculumMapView, type MapViewNode } from "@/server/curriculum-map/view";
 import { can } from "@/server/auth/rbac";
 import { accessibleClasses } from "@/server/teacher/assign";
-import { classLevels } from "@/server/curriculum-map/levels";
-import { MapAssignButton, type RosterClass } from "@/components/curriculum-map/assign-button";
+import { rosterForGrade } from "@/server/curriculum-map/levels";
+import { MapAssignButton, MapAssignHost, type RosterClass } from "@/components/curriculum-map/assign-button";
 import { assignPlaceAction } from "./actions";
+
+export const metadata = { title: "Curriculum Map" };
 
 /**
  * 🧭 Curriculum Map (read only): Grade → Book → Unit → Text Set / Selection (Shared Read, Genre) → Category (skills) → Level.
  * 📥 marks the nodes questions are placed on (Concept Vocabulary; Above/On/Below levels), with their count and “➕ Add question”.
  */
-export default async function CurriculumMapPage({ searchParams }: { searchParams: Promise<{ grade?: string }> }) {
+export default async function CurriculumMapPage({ searchParams }: { searchParams: Promise<{ grade?: string; unit?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -28,13 +30,10 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
     if (!v.grades.length) v = { ...v, book: null, level: null };
   }
   // the teacher's classes of this grade, with students and levels, for the ⭐ Assign dialog
-  const roster: RosterClass[] = [];
-  if (actor.role === "TEACHER" && v.level !== null) {
-    for (const c of myClasses.sort((a, b) => String(a.name).localeCompare(String(b.name)))) {
-      const cl = await classLevels(repo, actor, String(c.id));
-      if (cl.grade === v.level) roster.push({ id: cl.classId, name: cl.className, students: cl.students.map((x) => ({ id: x.id, name: x.name, level: x.level })) });
-    }
-  }
+  const roster: RosterClass[] = actor.role === "TEACHER" && v.level !== null ? await rosterForGrade(repo, actor, v.level) : [];
+  // one unit at a time (tabs): smaller pages, faster, easier to read
+  const units = v.book?.children ?? [];
+  const unitIx = Math.min(Math.max(0, (Number(sp.unit) || 1) - 1), Math.max(0, units.length - 1));
   const canAdd = can(actor, "questions:edit");
   const isTeacher = actor.role === "TEACHER";
   const badge = (n: MapViewNode) => n.acceptsQuestions && (
@@ -42,12 +41,12 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
       <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 font-semibold text-emerald-800 ring-1 ring-emerald-300" title={`Accepts questions · ID ${n.code}`}>
         <span aria-hidden="true">📥</span> <code className="font-mono text-[11px] text-emerald-700">{n.code}</code>
       </span>
-      <a href={`/admin/questions?status=PUBLISHED&map=${n.code}`} className="rounded-full px-2 py-0.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="These questions in the Question Bank">{n.questions} question{n.questions === 1 ? "" : "s"}</a>
-      {canAdd && <a href={`/admin/curriculum-map/place/${n.code}`} className="rounded-full bg-brand-navy px-2 py-0.5 font-semibold text-white hover:bg-brand-purple" title="One question, or many from a ready template">➕ Add questions</a>}
+      <Link prefetch={false} href={`/admin/questions?status=PUBLISHED&map=${n.code}`} className="rounded-full px-2 py-0.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="These questions in the Question Bank">{n.questions} question{n.questions === 1 ? "" : "s"}</Link>
+      {canAdd && <Link prefetch={false} href={`/admin/curriculum-map/place/${n.code}`} className="rounded-full bg-brand-navy px-2 py-0.5 font-semibold text-white hover:bg-brand-purple" title="One question, or many from a ready template">➕ Add questions</Link>}
       {isTeacher && n.questions > 0 && (
         <>
-          <MapAssignButton code={n.code} label="Assign" levels={false} classes={roster} assign={assignPlaceAction} />
-          <a href={`/admin/questions?status=PUBLISHED&map=${n.code}`} className="rounded-full px-2 py-0.5 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-50" title="Open these questions, star ☆ the ones you want and assign them">☆ Choose questions</a>
+          <MapAssignButton code={n.code} label="Assign" levels={false} />
+          <Link prefetch={false} href={`/admin/questions?status=PUBLISHED&map=${n.code}`} className="rounded-full px-2 py-0.5 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-50" title="Open these questions, star ☆ the ones you want and assign them">☆ Choose questions</Link>
         </>
       )}
     </span>
@@ -55,7 +54,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
   const catColor: Record<string, string> = { CONCEPT_VOCABULARY: "border-sky-300 bg-sky-50/50", ANALYZE_CRAFT_AND_STRUCTURE: "border-amber-300 bg-amber-50/50", RESPOND_TO_READING: "border-violet-300 bg-violet-50/50" };
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href={actor.role === "TEACHER" ? "/teacher" : "/admin"} className="text-brand-teal hover:underline">← Back</Link></p>
+      <p><Link prefetch={false} href={actor.role === "TEACHER" ? "/teacher" : "/admin"} className="text-brand-teal hover:underline">← Back</Link></p>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy"><span aria-hidden="true">🧭</span> Curriculum Map</h1>
       <p className="mt-1 max-w-3xl text-sm text-slate-600">Grade → Book → Unit → Text Set / Selection → Shared Read → Genre → Category → Skill → Level. Questions are placed only on the nodes marked <span aria-hidden="true">📥</span>; they are also in the Question Bank.</p>
       {v.grades.length === 0 ? <p className="mt-6 rounded-xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">The Curriculum Map has not been created yet.</p> : (
@@ -69,9 +68,17 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
           {v.book && (
             <section className="mt-5">
               <p className="text-lg font-bold text-brand-navy">Grade {v.level} · <span aria-hidden="true">📗</span> {v.book.title} <span className="text-sm font-normal text-slate-500">· {v.attachmentNodes} question attachment nodes · {v.questions} questions placed</span>
-                <a href="/admin/questions/import?to=curriculum" className="ms-3 rounded-lg px-3 py-1 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📥 Import to Curriculum</a></p>
-              {v.book.children.map((u) => (
-                <details key={u.id} className="mt-4 rounded-2xl bg-white ring-1 ring-slate-200" open={u === v.book!.children[0]}>
+                <Link prefetch={false} href="/admin/questions/import?to=curriculum" className="ms-3 rounded-lg px-3 py-1 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📥 Import to Curriculum</Link>
+                <Link href={`/admin/curriculum-map/bridge?grade=${v.level}`} className="ms-2 rounded-lg bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-900 ring-1 ring-indigo-300 hover:bg-indigo-100">🌉 Cross-Grade Bridge</Link>
+                {actor.role === "TEACHER" && <Link href="/teacher/plans" className="ms-2 rounded-lg bg-violet-100 px-3 py-1 text-sm font-semibold text-violet-900 ring-1 ring-violet-300 hover:bg-violet-200">🗂️ Skill plans</Link>}</p>
+              <nav aria-label="Units" className="mt-4 flex flex-wrap gap-2">
+                {units.map((u, i) => (
+                  <Link key={u.id} href={`/admin/curriculum-map?grade=${v.level}&unit=${i + 1}`} prefetch={false} aria-current={i === unitIx ? "page" : undefined}
+                    className={`rounded-xl px-4 py-2 text-sm font-bold transition ${i === unitIx ? "bg-brand-teal text-white shadow" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`}>{u.title.split(":")[0]}</Link>
+                ))}
+              </nav>
+              {units.slice(unitIx, unitIx + 1).map((u) => (
+                <details key={u.id} className="mt-4 rounded-2xl bg-white ring-1 ring-slate-200" open>
                   <summary className="cursor-pointer px-5 py-3 text-lg font-bold text-brand-navy">{u.title} <span className="text-sm font-normal text-slate-500">· {u.children.length} {u.children[0]?.kind === "SELECTION" ? "selections" : "text sets"}</span></summary>
                   <div className="grid gap-4 px-5 pb-5 lg:grid-cols-2">
                     {u.children.map((s) => (
@@ -85,7 +92,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
                           {s.children.map((c) => (
                             <li key={c.id} className={`rounded-lg border-s-4 p-3 ${catColor[c.categoryType ?? ""] ?? ""}`}>
                               <p className="font-semibold text-slate-900">{c.title}{c.skills && <span className="font-normal"> ({c.skills})</span>}{badge(c)}
-                                {actor.role === "TEACHER" && c.children.length > 0 && <MapAssignButton code={c.code} label="Assign (adaptive / by level)" levels={true} classes={roster} assign={assignPlaceAction} />}</p>
+                                {actor.role === "TEACHER" && c.children.length > 0 && <MapAssignButton code={c.code} label="Assign (adaptive / by level)" levels={true} />}</p>
                               {c.children.length > 0 && (
                                 <ul className="mt-2 flex flex-wrap gap-2">
                                   {c.children.map((l) => <li key={l.id} className="rounded-lg bg-white px-2.5 py-1 text-sm ring-1 ring-slate-200">{l.title}{badge(l)}</li>)}
@@ -103,6 +110,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
           )}
         </>
       )}
+      {actor.role === "TEACHER" && <MapAssignHost classes={roster} assign={assignPlaceAction} />}
     </AppShell>
   );
 }

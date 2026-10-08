@@ -4,8 +4,11 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { classLevels } from "@/server/curriculum-map/levels";
 import { nationalNorm, ritView, SEASONS } from "@/server/map/rit";
-import { enterRitAction, importMapScoresAction, levelsFromRitAction, updateNormsAction } from "../map-rit-actions";
+import { enterRitAction, importMapScoresInline, levelsFromRitAction, updateNormsAction } from "../map-rit-actions";
+import { MapImportBox } from "@/components/map/import-box";
 import { PageHeader } from "@/components/page-header";
+
+export const metadata = { title: "MAP RIT" };
 
 const BAND_STYLE: Record<string, string> = { Low: "bg-red-100 text-red-800", LoAvg: "bg-orange-100 text-orange-800", Avg: "bg-slate-100 text-slate-700", HiAvg: "bg-teal-100 text-teal-800", High: "bg-emerald-100 text-emerald-800" };
 const VS: Record<string, [string, string]> = { ABOVE: ["Above class average", "text-emerald-700"], AT: ["At class average", "text-slate-600"], BELOW: ["Below class average", "text-red-700"] };
@@ -27,19 +30,10 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
   const tile = (label: string, value: string, extra = "") => <div className="rounded-xl bg-white p-4 ring-1 ring-slate-200"><dt className="text-xs text-slate-500">{label}</dt><dd className={`text-2xl font-bold text-brand-navy ${extra}`}>{value}</dd></div>;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: isAdmin ? "/admin" : "/teacher", label: "Back" }} icon="🗺️" title="MAP Reading · RIT" subtitle={<>Students ranked by RIT, compared with the national average for their grade and season (NWEA norms) and with their class average (±{3} RIT counts as “at” the average).</>} />
+      <PageHeader back={{ href: isAdmin ? "/admin" : "/teacher", label: "Back" }} icon="🗺️" title="MAP Reading · RIT" subtitle={<>Students ranked by RIT, compared with the national average for their grade and season (NWEA norms) and with their class average (±{3} RIT counts as “at” the average).</>}><Link href="/teacher/map-recommendations" className="rounded-xl bg-amber-100 px-4 py-2 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">💡 Recommendations</Link></PageHeader>
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {v.canEdit && (
-        <form action={importMapScoresAction} className="mt-4 rounded-2xl bg-emerald-50/60 p-4 ring-1 ring-emerald-200">
-          <h2 className="font-bold text-brand-navy">📥 Import MAP scores (Fall RIT + Spring Projection)</h2>
-          <p className="text-sm text-slate-600">1. Download the template (your students are already listed) · 2. Fill “Fall RIT”, “Spring Projection” and, if you have it, “Fall Lexile” (from the NWEA report; the Lexile decides where adaptive curriculum practice starts) · 3. Upload. Students without a score are skipped; a second import of the same Fall replaces the old scores.</p>
-          <div className="mt-2 flex flex-wrap items-end gap-3 text-sm">
-            <a href={`/api/map-scores-template${v.classId ? `?classId=${v.classId}` : ""}`} className="rounded-lg px-3 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-white">⬇ Download template</a>
-            <label className="flex flex-col">Fall of year<input type="number" name="year" min={2000} max={2100} defaultValue={new Date().getFullYear()} className={`${box} w-28`} /></label>
-            <label className="flex flex-col">File (CSV or Excel)<input type="file" name="file" accept=".csv,.xlsx" required className="text-sm" /></label>
-            <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">Import</button>
-          </div>
-        </form>
+        <MapImportBox classId={v.classId} className={v.classes.find((c) => c.id === v.classId)?.name ?? null} run={importMapScoresInline} />
       )}
       <nav aria-label="Grade" className="mt-4 flex flex-wrap gap-2">
         {v.grades.map((g) => <Link key={g} href={link({ grade: g })} className={pill(v.grade === g && !v.classId)} aria-current={v.grade === g && !v.classId ? "page" : undefined}>Grade {g} (all classes)</Link>)}

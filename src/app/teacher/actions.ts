@@ -53,12 +53,11 @@ export async function assignSkillAction(_: { error?: string; message?: string },
     const picked = f.getAll("studentIds").map(String).filter(Boolean);
     if (mode !== "class" && picked.length === 0) return { error: "Choose at least one student." };
     if (mode === "one" && picked.length !== 1) return { error: "Choose exactly one student." };
-    const r = await assignSkill(repo, actor, { track: f.get("track") === "MAP" ? "MAP" : "CURRICULUM", 
+    const r = await assignSkill(repo, actor, { track: f.get("track") === "MAP" ? "MAP" : f.get("track") === "NAFS" ? "NAFS" : "CURRICULUM", 
       classId: String(f.get("classId") ?? ""), skillId: String(f.get("skillId") ?? ""), studentIds: mode === "class" ? [] : picked,
       startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
     });
-    revalidatePath("/teacher/curriculum");
-    revalidatePath("/teacher/assignments");
+    revalidatePath("/teacher/assignments");   // not the skills page: rebuilding it after every click made assigning slow
     return { message: `Assigned to ${r.students} student${r.students === 1 ? "" : "s"}. They have been notified.` };
   } catch (e) {
     if (e instanceof ValidationError || (e as { status?: number }).status === 403) return { error: (e as Error).message };
@@ -76,7 +75,7 @@ export async function assignQuestionsAction(_: { error?: string; message?: strin
     if (mode !== "class" && picked.length === 0) return { error: "Choose at least one student." };
     if (mode === "one" && picked.length !== 1) return { error: "Choose exactly one student." };
     const r = await assignQuestions(repo, actor, {
-      track: f.get("track") === "MAP" ? "MAP" : "CURRICULUM",
+      track: f.get("track") === "MAP" ? "MAP" : f.get("track") === "NAFS" ? "NAFS" : "CURRICULUM",
       classId: String(f.get("classId") ?? ""), questionIds: f.getAll("questionIds").map(String), studentIds: mode === "class" ? [] : picked,
       title: String(f.get("title") ?? ""), startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
     });

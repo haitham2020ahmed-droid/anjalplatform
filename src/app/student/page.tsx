@@ -4,12 +4,17 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { latestDiagnostic } from "@/server/assessment/diagnostic";
 import { assignedSkills, placementRequired } from "@/server/student/assigned";
 import { readingLexile } from "@/server/readmaster/service";
+import { studentSkillPlans } from "@/server/curriculum-map/plans";
+import { streakAndPoints } from "@/server/student/streak";
+import { openGamesFor } from "@/server/game/live";
 import { lexileBands, levelForLexile } from "@/server/curriculum-map/lexile";
+
+export const metadata = { title: "My work" };
 
 /** Student home: welcome card (Lexile, RIT), the three big areas, and only the work the teacher assigned. */
 export default async function StudentHome({ searchParams }: { searchParams: Promise<{ area?: string }> }) {
   const sp = await searchParams;
-  const area = sp.area === "map" ? "MAP" : sp.area === "curriculum" ? "CURRICULUM" : "ALL";
+  const area = sp.area === "map" ? "MAP" : sp.area === "curriculum" ? "CURRICULUM" : sp.area === "nafs" ? "NAFS" : "ALL";
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
   const [view, required, diagnostic, lexile, maps, student] = await Promise.all([
@@ -20,10 +25,17 @@ export default async function StudentHome({ searchParams }: { searchParams: Prom
   const t = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : String(v)).getTime();
   const reading = maps.filter((m) => /read/i.test(String(m.subject)) && !m.goalName).sort((a, b) => t(b.testDate) - t(a.testDate));
   const withGoal = reading.find((m) => m.projectedGrowth !== null && m.projectedGrowth !== undefined);
-  const grade = student?.gradeId ? Number((await repo.findUnique("Grade", { id: student.gradeId }))?.level ?? 0) : 0;
+  // the rest in parallel (not one after another)
+  const [gradeRow, bands, plans, streak] = await Promise.all([
+    student?.gradeId ? repo.findUnique("Grade", { id: student.gradeId }) : Promise.resolve(null),
+    lexileBands(repo, actor.schoolId ?? null), studentSkillPlans(repo, actor), streakAndPoints(repo, actor.studentId!),
+  ]);
+  const grade = Number(gradeRow?.level ?? 0);
   const extras: StudentExtras = {
-    lexile: lexile.lexile, readingLevel: levelForLexile((await lexileBands(repo, actor.schoolId ?? null))[grade], lexile.lexile),
+    games: await openGamesFor(repo, actor),
+    lexile: lexile.lexile, readingLevel: levelForLexile(bands[grade], lexile.lexile),
     rit: reading[0] ? Number(reading[0].rit) : null, ritGoal: withGoal ? Number(withGoal.rit) + Number(withGoal.projectedGrowth) : null,
+    grade, plans: plans.length, ...streak,
   };
   return (
     <AppShell name={String(me.displayName)}>

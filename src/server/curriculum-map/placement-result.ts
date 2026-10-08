@@ -13,7 +13,8 @@ export async function applyPlacementResult(repo: Repo, assessmentId: string, ses
     const order = (await repo.findMany("AssessmentQuestion", { assessmentId })).map((x) => String(x.questionId));
     const st = await adaptiveNext(repo, set, order, sessionId, studentId);
     if (!st.done) return null;
-    level = st.decision.level;
+    // 🚀 beyond Above (the next grade's text) → Above; 🛟 below Below (the previous grade's text) → Below
+    level = st.decision.level === "CHALLENGE" ? "ABOVE" : st.decision.level === "SUPPORT" ? "BELOW" : st.decision.level;
   } else {
     if (String(set.type) !== "PLACEMENT") return null;
     const total = await repo.count("AssessmentQuestion", { assessmentId });

@@ -22,7 +22,8 @@ export function middleware(req: NextRequest) {
   if (!isPublic && !hasCookie) {
     const url = req.nextUrl.clone();
     url.pathname = "/login";
-    url.search = "";
+    // come back here after signing in (e.g. a game joined from a QR code); pages only, never API calls
+    url.search = req.method === "GET" && !pathname.startsWith("/api") && pathname !== "/" ? `?next=${encodeURIComponent(pathname + req.nextUrl.search)}` : "";
     return NextResponse.redirect(url);
   }
   const headers = new Headers(req.headers);

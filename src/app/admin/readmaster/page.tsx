@@ -7,6 +7,8 @@ import { gradeSkills, gradeStandards, listArticles, LEVEL_NAMES } from "@/server
 import { lexileBands } from "@/server/curriculum-map/lexile";
 import { createArticleAction, importReadMasterAction } from "./actions";
 
+export const metadata = { title: "ReadMaster" };
+
 const LV = {
   BELOW: { icon: "🟠", ring: "ring-orange-200", head: "bg-orange-50 text-orange-900", chip: "bg-orange-50 text-orange-900 ring-orange-200" },
   ON: { icon: "🔵", ring: "ring-sky-200", head: "bg-sky-50 text-sky-900", chip: "bg-sky-50 text-sky-900 ring-sky-200" },

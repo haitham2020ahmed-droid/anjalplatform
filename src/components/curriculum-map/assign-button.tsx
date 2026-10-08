@@ -1,16 +1,36 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { PlaceAssignInput } from "@/app/admin/curriculum-map/actions";
 
 export interface RosterClass { id: string; name: string; students: { id: string; name: string; level: "ABOVE" | "ON" | "BELOW" | null }[] }
 const LV = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
 
-/** ⭐ Assign: a dialog on the same page — whole class or starred students; adaptive or by level for a category. */
-export function MapAssignButton({ code, label, levels, classes, assign }: {
-  code: string; label: string; levels: boolean; classes: RosterClass[];
-  assign: (input: PlaceAssignInput) => Promise<{ ok: boolean; message: string }>;
-}) {
+const EVENT = "map-assign:open";
+
+/** A tiny ⭐ button: it only asks the page's single assign window to open for this place. */
+export function MapAssignButton({ code, label, levels }: { code: string; label: string; levels: boolean }) {
+  return (
+    <button type="button" onClick={() => window.dispatchEvent(new CustomEvent(EVENT, { detail: { code, levels } }))}
+      className="ms-1 inline-block rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-bold text-amber-900 ring-1 ring-amber-300 transition hover:bg-amber-200 active:scale-95">⭐ {label}</button>
+  );
+}
+
+/** The page's ONE assign window (the roster is sent once): whole class or starred students; adaptive or by level. */
+export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; assign: (input: PlaceAssignInput) => Promise<{ ok: boolean; message: string }> }) {
   const [open, setOpen] = useState(false);
+  const [code, setCode] = useState("");
+  const [levels, setLevels] = useState(false);
+  useEffect(() => {
+    const on = (e: Event) => { const d = (e as CustomEvent<{ code: string; levels: boolean }>).detail; setCode(d.code); setLevels(d.levels); setResult(null); setOpen(true); };
+    window.addEventListener(EVENT, on);
+    return () => window.removeEventListener(EVENT, on);
+  }, []);
+  useEffect(() => {
+    if (!open) return;
+    const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", esc);
+    return () => window.removeEventListener("keydown", esc);
+  }, [open]);
   const [classId, setClassId] = useState(classes[0]?.id ?? "");
   const [who, setWho] = useState<"all" | "some">("all");
   const [starred, setStarred] = useState<Set<string>>(new Set());
@@ -29,7 +49,6 @@ export function MapAssignButton({ code, label, levels, classes, assign }: {
   if (!classes.length) return null;
   return (
     <>
-      <button type="button" onClick={() => { setOpen(true); setResult(null); }} className="ms-1 inline-block rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">⭐ {label}</button>
       {open && (
         <div role="dialog" aria-modal="true" aria-label={`Assign ${code}`} className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4" onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}>
           <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-5 text-sm shadow-xl">
@@ -66,7 +85,7 @@ export function MapAssignButton({ code, label, levels, classes, assign }: {
               <fieldset className="mt-3">
                 <legend className="font-semibold text-slate-700">How</legend>
                 <div className="mt-1 flex flex-wrap gap-2">
-                  <button type="button" onClick={() => setMode("ADAPTIVE")} aria-pressed={mode === "ADAPTIVE"} className={`rounded-full px-3 py-1.5 font-semibold ${mode === "ADAPTIVE" ? "bg-emerald-600 text-white" : "ring-1 ring-slate-300"}`}>🔁 Adaptive (Below → On → Above)</button>
+                  <button type="button" onClick={() => setMode("ADAPTIVE")} aria-pressed={mode === "ADAPTIVE"} className={`rounded-full px-3 py-1.5 font-semibold ${mode === "ADAPTIVE" ? "bg-emerald-600 text-white" : "ring-1 ring-slate-300"}`}>🔁 Adaptive (🛟 → Below → On → Above → 🚀)</button>
                   <button type="button" onClick={() => setMode("BY_LEVEL")} aria-pressed={mode === "BY_LEVEL"} className={`rounded-full px-3 py-1.5 font-semibold ${mode === "BY_LEVEL" ? "bg-sky-600 text-white" : "ring-1 ring-slate-300"}`}>Each at their level</button>
                 </div>
               </fieldset>

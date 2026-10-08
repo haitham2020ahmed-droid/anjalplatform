@@ -9,8 +9,9 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
-import { assignQuestions } from "../teacher/assign";
+import { accessibleClasses, assignQuestions } from "../teacher/assign";
 import { attachmentNodes, type AttachmentNode } from "./questions";
+import { bridgeOf } from "./bridge";
 
 const s = (v: unknown) => String(v ?? "");
 export type Level = "ABOVE" | "ON" | "BELOW";
@@ -147,8 +148,22 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
   const byLevel = new Map(places.filter((p) => p.level).map((p) => [p.level as Level, counts.get(p.id)!]));
   if ([...byLevel.values()].every((x) => !x.length)) throw new ValidationError("There are no published questions on this place yet. Add or import questions first.");
   if ((input.mode ?? "ADAPTIVE") === "ADAPTIVE") {
-    // one adaptive set for everyone: the whole pool (Below + On + Above); each student moves between levels
+    // one adaptive set for everyone: the whole pool (Below + On + Above); each student moves between levels.
+    // 🌉 Cross-Grade Bridge: the same skill one grade up (🚀 challenge: its On + Above questions) and one grade
+    // down (🛟 support: its Below + On questions) extend the ladder — real text difficulty, no copied questions.
     const pool = (["BELOW", "ON", "ABOVE"] as Level[]).flatMap((l) => byLevel.get(l) ?? []);
+    const br = await bridgeOf(repo, actor.schoolId!, places[0].code.replace(/\.(ABOVE|ON|BELOW)$/, ""));
+    const allNodes = await attachmentNodes(repo, actor.schoolId!);
+    const bridgeIds = async (code: string | null, levels: (Level | null)[]) => {
+      if (!code) return [] as string[];
+      const ps = allNodes.filter((n) => (n.code === code || n.code.startsWith(`${code}.`)) && levels.includes(n.level));
+      return [...(await questionsOnNodes(repo, ps.map((p) => p.id))).values()].flat();
+    };
+    const challenge = await bridgeIds(br.challenge, ["ON", "ABOVE", null]);
+    const support = await bridgeIds(br.support, ["BELOW", "ON", null]);
+    pool.push(...challenge.filter((id) => !pool.includes(id)), ...support.filter((id) => !pool.includes(id)));
+    if (challenge.length) notes.push(`🚀 Challenge path: ${challenge.length} question(s) from Grade ${places[0].grade + 1} (same skill) for students who master Above Level.`);
+    if (support.length) notes.push(`🛟 Support path: ${support.length} question(s) from Grade ${places[0].grade - 1} (same skill) for students who struggle at Below Level.`);
     const r = await assignQuestions(repo, actor, {
       classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: pool, track: "CURRICULUM", exactTitle: true,
       title: `${base} (adaptive: Below → On → Above)`, adaptive: { maxQuestions: Math.max(5, Math.min(60, input.maxQuestions ?? 20)) },
@@ -224,3 +239,27 @@ export async function giveTest(repo: Repo, actor: Actor, input: { classId: strin
 
 /** Placement score → level: 80%+ Above, 50–79% On, under 50% Below. */
 export const levelFromScore = (pct: number): Level => (pct >= 80 ? "ABOVE" : pct >= 50 ? "ON" : "BELOW");
+
+/**
+ * The actor's classes of one grade with their students and levels, in a fixed number of queries
+ * (for the ⭐ Assign window on the Curriculum Map), whatever the number of classes.
+ */
+export async function rosterForGrade(repo: Repo, actor: Actor, gradeLevel: number): Promise<{ id: string; name: string; students: { id: string; name: string; level: Level | null }[] }[]> {
+  const classes = await accessibleClasses(repo, actor);
+  if (!classes.length) return [];
+  const grades = await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => s(c.gradeId)))] } }, { select: ["id", "level"] });
+  const mine = classes.filter((c) => Number(grades.find((g) => g.id === c.gradeId)?.level) === gradeLevel).sort((a, b) => s(a.name).localeCompare(s(b.name)));
+  if (!mine.length) return [];
+  const members = await repo.findMany("ClassMembership", { classId: { in: mine.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"] });
+  const ids = [...new Set(members.map((m) => s(m.studentId)))];
+  const [studs, levels] = await Promise.all([
+    ids.length ? repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }) : Promise.resolve([] as Row[]),
+    studentLevels(repo, ids),
+  ]);
+  const users = studs.length ? await repo.findMany("User", { id: { in: studs.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
+  const nameOf = new Map(studs.map((x) => [s(x.id), s(users.find((u) => u.id === x.userId)?.displayName ?? "Student")]));
+  return mine.map((c) => ({
+    id: s(c.id), name: s(c.name),
+    students: members.filter((m) => m.classId === c.id).map((m) => ({ id: s(m.studentId), name: nameOf.get(s(m.studentId)) ?? "Student", level: levels.get(s(m.studentId))?.level ?? null })).sort((a, b) => a.name.localeCompare(b.name)),
+  }));
+}

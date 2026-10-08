@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
@@ -17,7 +18,7 @@ export default async function QuizPage({ params }: { params: Promise<{ assignmen
     return (
       <AppShell name={String(me.displayName)}>
         <p className="text-lg text-slate-700">{e.message}</p>
-        <a href="/student" className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">My assigned work</a>
+        <Link href="/student" className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">My assigned work</Link>
       </AppShell>
     );
   }

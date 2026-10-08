@@ -362,7 +362,7 @@ describe("question import: upload, preview and import (database)", () => {
     assert.equal(done.status, "COMPLETED");
     assert.ok(done.errors.some((e) => /^Row 4: /.test(e)), "failed rows are kept in the job's error list with their row number");
     const q2 = (await repo.findUnique("Question", { id: done.rows.find((r) => r.rowNumber === 2)!.questionId! }))!;
-    assert.deepEqual([q2.skillId, q2.status, q2.origin, q2.difficultyLevel], [theme.id, "DRAFT", "IMPORTED", 4]);
+    assert.deepEqual([q2.skillId, q2.status, q2.origin, q2.difficultyLevel], [theme.id, "UNDER_REVIEW", "IMPORTED", 4]);   // a teacher's import waits for an admin straight away
     assert.equal(shortStandard(String((await repo.findUnique("Standard", { id: q2.standardId }))!.code)), theme.std);
     assert.equal((q2.tags as { cognitiveLevel?: string }).cognitiveLevel, "Understand");
     assert.equal((q2.tags as { importJob?: string }).importJob, jobId);

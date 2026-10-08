@@ -5,7 +5,7 @@ import { assignQuestionsAction } from "@/app/teacher/actions";
 export interface RosterClass { id: string; name: string; grade: number; students: { id: string; name: string }[] }
 
 /** ⭐ Assign selected questions: class, selected students or one student; optional title, dates and note. */
-export function AssignQuestionsDialog({ roster, questionIds, onDone, onClose, defaultTrack = "CURRICULUM" }: { roster: RosterClass[]; questionIds: string[]; onDone: () => void; onClose: () => void; defaultTrack?: "CURRICULUM" | "MAP" }) {
+export function AssignQuestionsDialog({ roster, questionIds, onDone, onClose, defaultTrack = "CURRICULUM" }: { roster: RosterClass[]; questionIds: string[]; onDone: () => void; onClose: () => void; defaultTrack?: "CURRICULUM" | "MAP" | "NAFS" }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [classId, setClassId] = useState(roster[0]?.id ?? "");
   const [mode, setMode] = useState<"class" | "students" | "one">("class");
@@ -29,7 +29,8 @@ export function AssignQuestionsDialog({ roster, questionIds, onDone, onClose, de
             <fieldset>
               <legend className="text-sm font-semibold text-slate-700">Area</legend>
               <div className="mt-1 flex flex-wrap gap-3">
-                <label className="flex items-center gap-2 rounded-xl px-3 py-2 ring-1 ring-slate-200 has-[:checked]:bg-sky-50 has-[:checked]:ring-sky-400"><input type="radio" name="track" value="CURRICULUM" defaultChecked={defaultTrack !== "MAP"} /><span aria-hidden="true">📘</span> Curriculum</label>
+                <label className="flex items-center gap-2 rounded-xl px-3 py-2 ring-1 ring-slate-200 has-[:checked]:bg-sky-50 has-[:checked]:ring-sky-400"><input type="radio" name="track" value="CURRICULUM" defaultChecked={defaultTrack === "CURRICULUM"} /><span aria-hidden="true">📘</span> Curriculum</label>
+                <label className="flex items-center gap-2 rounded-xl px-3 py-2 ring-1 ring-slate-200 has-[:checked]:bg-green-50 has-[:checked]:ring-green-500"><input type="radio" name="track" value="NAFS" defaultChecked={defaultTrack === "NAFS"} /> 🇸🇦 Nafs (Grade 6)</label>
                 <label className="flex items-center gap-2 rounded-xl px-3 py-2 ring-1 ring-slate-200 has-[:checked]:bg-emerald-50 has-[:checked]:ring-emerald-400"><input type="radio" name="track" value="MAP" defaultChecked={defaultTrack === "MAP"} /><span aria-hidden="true">🗺️</span> MAP</label>
               </div>
             </fieldset>

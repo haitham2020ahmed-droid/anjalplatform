@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { UploadForm } from "@/components/imports/upload-form";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -19,7 +20,7 @@ export default async function ImportsPage() {
         {jobs.length === 0 && <li className="p-4 text-slate-600">No imports yet.</li>}
         {jobs.map((j) => (
           <li key={String(j.id)} className="grid gap-1 p-4 md:grid-cols-[minmax(0,1fr)_12rem_10rem]">
-            <a href={`/admin/imports/${String(j.id)}`} className="font-medium text-brand-navy hover:text-brand-teal">{String(j.fileName)}</a>
+            <Link href={`/admin/imports/${String(j.id)}`} className="font-medium text-brand-navy hover:text-brand-teal">{String(j.fileName)}</Link>
             <span className="text-slate-600">{j.kind === "MAP_RESULTS" ? "MAP results" : "Other results"}</span>
             <span className="text-slate-600">{STATUS[String(j.status)] ?? String(j.status)}</span>
           </li>

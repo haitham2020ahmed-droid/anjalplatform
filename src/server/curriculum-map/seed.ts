@@ -5,6 +5,7 @@
  * linked when they exist (WONDERS-G4, WONDERS-G5, STUDYSYNC-G6).
  */
 import { randomUUID } from "node:crypto";
+import { clearMapCache } from "./questions";
 import type { Repo, Row } from "../seeding/repo";
 import type { CategoryType, MapGrade, LevelName } from "./source";
 
@@ -60,6 +61,7 @@ export interface SeedResult { schools: number; grades: { schoolId: string; level
 
 /** Seeds every school that has Grades 4, 5 or 6 (or one school). Adds missing nodes; never deletes. */
 export async function seedCurriculumMap(repo: Repo, map: MapGrade[], opts: { schoolId?: string } = {}, now = new Date()): Promise<SeedResult> {
+  clearMapCache();   // the map changes: forget cached places
   const questionsBefore = await repo.count("Question", {});
   const levels = map.map((g) => g.level);
   const grades = await repo.findMany("Grade", { level: { in: levels }, ...(opts.schoolId ? { schoolId: opts.schoolId } : {}) });

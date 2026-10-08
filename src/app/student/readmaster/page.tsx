@@ -4,6 +4,8 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { LEVEL_NAMES, studentArticles } from "@/server/readmaster/service";
 import { PageHeader } from "@/components/page-header";
 
+export const metadata = { title: "ReadMaster" };
+
 /** ⭐ ReadMaster for students: my reading Lexile and the articles of my grade. */
 export default async function StudentReadMaster() {
   const actor = await requireActor({ roles: ["STUDENT"] });

@@ -38,7 +38,7 @@ export default async function PlacePage({ params }: { params: Promise<{ code: st
         <section className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
           <h2 className="text-xl font-bold text-brand-navy">➕ One question</h2>
           <p className="mt-1 text-sm text-slate-600">Opens the question editor already set to this place.</p>
-          <a href={`/admin/questions/new?map=${code}`} className="mt-4 inline-block rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">Write a question</a>
+          <Link href={`/admin/questions/new?map=${code}`} className="mt-4 inline-block rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">Write a question</Link>
         </section>
         <section className="rounded-2xl bg-amber-50/60 p-5 ring-1 ring-amber-200">
           <h2 className="text-xl font-bold text-brand-navy">📥 Many questions</h2>
@@ -59,7 +59,7 @@ export default async function PlacePage({ params }: { params: Promise<{ code: st
       <section className="mt-8">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-xl font-bold text-brand-navy">Questions on this place</h2>
-          <a href={`/admin/questions?status=PUBLISHED&map=${code}`} className="text-sm font-semibold text-brand-teal underline">Open in the Question Bank (☆ choose / assign)</a>
+          <Link href={`/admin/questions?status=PUBLISHED&map=${code}`} className="text-sm font-semibold text-brand-teal underline">Open in the Question Bank (☆ choose / assign)</Link>
         </div>
         {pub.items.length + draft.items.length === 0 ? <p className="mt-2 text-slate-600">No questions yet.</p> : (
           <ol className="mt-3 space-y-2">

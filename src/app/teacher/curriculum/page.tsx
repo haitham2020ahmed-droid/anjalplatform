@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { teacherCurriculum, type CurriculumSkill } from "@/server/teacher/assign";
-import { AssignDialog } from "../assign-dialog";
+import { AssignDialog, AssignSkillHost } from "../assign-dialog";
 import { CcssNote } from "@/components/ccss-note";
 
 /**
@@ -15,9 +15,10 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const view = await teacherCurriculum(repo, actor, sp.classId);
+  // MAP, or Nafs for Grade 6 (curriculum work is done from the Curriculum Map and the Question Bank)
+  const nafs = sp.area === "nafs" && view?.grade.level === 6;
+  const map = !nafs;
   const canAssign = actor.role === "TEACHER";
-  // MAP only: curriculum work is done from the Curriculum Map and the Question Bank
-  const map = true; void sp.area;
   const href = (o: { classId?: string; area?: string }) => {
     const p = new URLSearchParams();
     const c = o.classId ?? view?.classId; if (c) p.set("classId", c);
@@ -31,8 +32,8 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
         <p className="text-xs text-slate-500">{k.standards.join(", ") || "No standard"}{k.lessons.length ? ` · Lessons ${k.lessons.join(", ")}` : ""}{k.openAssignments ? ` · assigned (${k.openAssignments} open)` : ""}</p>
       </div>
       <div className="flex flex-wrap items-center gap-2">
-        <a href={`/admin/questions?status=PUBLISHED&grade=${view!.grade.level}&skill=${k.id}${map ? "&track=map" : ""}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Open these questions; star ⭐ the ones you want and assign them">View questions ({k.questions})</a>
-        {canAssign && <AssignDialog classId={view!.classId} className={view!.classes.find((c) => c.id === view!.classId)!.name} skill={k} students={view!.students} track={map ? "MAP" : "CURRICULUM"} />}
+        <Link href={`/admin/questions?status=PUBLISHED&grade=${view!.grade.level}&skill=${k.id}${map ? "&track=map" : "&track=nafs"}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Open these questions; star ⭐ the ones you want and assign them">View questions ({k.questions})</Link>
+        {canAssign && <AssignDialog skill={k} />}
       </div>
     </li>
   );
@@ -41,7 +42,7 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
     <AppShell name={String(me.displayName)}>
       <p><Link href="/teacher" className="text-brand-teal hover:underline">← My classes</Link></p>
       <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
-        <h1 className="text-3xl font-bold text-brand-navy"><span aria-hidden="true">🗺️</span> MAP{view ? `: ${view.grade.name}` : ""}</h1>
+        <h1 className="text-3xl font-bold text-brand-navy"><span aria-hidden="true">{map ? "🗺️" : "🇸🇦"}</span> {map ? "MAP" : "Nafs"}{view ? `: ${view.grade.name}` : ""}</h1>
         <Link href="/teacher/assignments" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Weekly assignments</Link>
       </div>
       {!view ? <p className="mt-4 text-slate-600">You do not teach any class yet.</p> : (
@@ -52,7 +53,12 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
                 className={`rounded-full px-4 py-1.5 text-sm font-semibold ${c.id === view.classId ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{c.name} · G{c.grade}</Link>
             ))}
           </nav>
-          {void tab}
+          {view.grade.level === 6 && (
+            <nav aria-label="Area" className="mt-5 flex flex-wrap gap-3">
+              <Link href={href({ area: "map" })} aria-current={map ? "page" : undefined} className={tab(map)}><span aria-hidden="true" className="text-2xl">🗺️</span> MAP</Link>
+              <Link href={href({ area: "nafs" })} aria-current={nafs ? "page" : undefined} className={tab(nafs)}><span aria-hidden="true" className="text-2xl">🇸🇦</span> Nafs</Link>
+            </nav>
+          )}
           <CcssNote className="mt-4" />
           <p className="mt-3 text-sm text-slate-600">{view.students.length} students. {map ? "Skills grouped by MAP Growth goal area. Work assigned here appears under 🗺️ MAP skills for students." : "Skills by book unit. Work assigned here appears under 📘 Curriculum skills for students."}</p>
           {!map && (
@@ -79,6 +85,7 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
           )}
         </>
       )}
+      {canAssign && view && <AssignSkillHost classId={view.classId} className={view.classes.find((c) => c.id === view.classId)?.name ?? ""} students={view.students} track={map ? "MAP" : "NAFS"} />}
     </AppShell>
   );
 }

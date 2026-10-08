@@ -1,18 +1,20 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState , Fragment } from "react";
 import type { QuestionStatus } from "@/server/admin/questions";
 import { archiveQuestionsAction, bulkPublishAction, deleteQuestionsAction, publishableIdsAction } from "../actions";
 import { AssignQuestionsDialog, type RosterClass } from "./assign-questions-dialog";
 import { PreviewDialog } from "./preview-dialog";
 import { selectionCsvAction } from "./preview-actions";
+import { SkillAssignButton } from "@/components/skills/skill-assign";
 
 export interface TableRow {
   id: string; stem: string; mine: boolean; origin: string; grade: number; skill: string; type: string; level: number; levelLabel: string; status: QuestionStatus; updatedAt: string;
   hasPassage?: boolean; hasImage?: boolean; possibleMissingPassage?: boolean;
   /** place on the Curriculum Map (null = Question Bank only) and Placement / MAP test uses */
   mapCode?: string | null; uses?: string[];
+  skillId?: string;
 }
 
 const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
@@ -24,14 +26,16 @@ const BATCH = 50;
  * Questions table. Admins with publishing permission also get row checkboxes, “Select all”,
  * “Publish Selected” and “Publish All” (all publishable questions matching the current filters).
  */
-export function QuestionTable({ rows, total, canPublish, canDelete = false, roster, defaultTrack, selectionKey, filter }: {
+export function QuestionTable({ rows, total, canPublish, canDelete = false, roster, defaultTrack, selectionKey, filter, grouped = false, canAssignSkill = false }: {
+  /** grouped by skill: a heading per skill (name, count, ⭐ assign the skill, ☆ star all) */
+  grouped?: boolean; canAssignSkill?: boolean;
   rows: TableRow[]; total: number; canPublish: boolean; canDelete?: boolean;
   /** teachers: their classes and students; shows a ⭐ in front of every published question to assign it */
   roster?: RosterClass[];
   /** the signed-in user's id: ⭐ selection is kept in this browser across pages and searches */
   selectionKey?: string;
   /** the area preselected in the assign dialog (from the curriculum page's MAP tab) */
-  defaultTrack?: "CURRICULUM" | "MAP";
+  defaultTrack?: "CURRICULUM" | "MAP" | "NAFS";
   filter: import("../actions").ListFilterInput;
 }) {
   const router = useRouter();
@@ -185,15 +189,32 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
           </tr>
         </thead>
         <tbody>
-          {rows.map((q) => (
-            <tr key={q.id} className="border-b align-top last:border-0">
+          {(grouped ? [...rows].sort((x, y) => x.grade - y.grade || x.skill.localeCompare(y.skill)) : rows).map((q, i, list) => (
+            <Fragment key={q.id}>
+            {grouped && (i === 0 || list[i - 1].skill !== q.skill || list[i - 1].grade !== q.grade) && (() => {
+              const group = list.filter((x) => x.skill === q.skill && x.grade === q.grade);
+              const starrableIds = group.filter((x) => x.status === "PUBLISHED" && x.type !== "SHORT_ANSWER").map((x) => x.id);
+              return (
+                <tr className="bg-gradient-to-r bg-linear-to-r from-sky-50 to-white">
+                  <td colSpan={(checkboxes ? 7 : 6) + (canStar ? 1 : 0)} className="px-3 py-3">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="text-lg font-bold text-brand-navy">📘 {q.skill}</span>
+                      <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-slate-600 ring-1 ring-slate-200">Grade {q.grade} · {group.length} question{group.length === 1 ? "" : "s"}</span>
+                      {canAssignSkill && q.skillId && <SkillAssignButton skillId={q.skillId} name={q.skill} grade={q.grade} />}
+                      {canStar && starrableIds.length > 0 && <button type="button" onClick={() => setStarred([...new Set([...starred, ...starrableIds])])} className="rounded-full px-3 py-1 text-xs font-bold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-50">☆ Star all {starrableIds.length}</button>}
+                    </div>
+                  </td>
+                </tr>
+              );
+            })()}
+            <tr className="border-b align-top last:border-0">
               {canStar && <td className="py-2">{q.status === "PUBLISHED" && q.type !== "SHORT_ANSWER" && <button type="button" onClick={() => toggleStar(q.id)} aria-pressed={starred.includes(q.id)} aria-label={`${starred.includes(q.id) ? "Unselect" : "Select"} for assigning: ${q.stem.slice(0, 60)}`} className="text-xl leading-none">{starred.includes(q.id) ? "⭐" : "☆"}</button>}</td>}
               {checkboxes && <td className="py-2"><input type="checkbox" aria-label={`Select: ${q.stem.slice(0, 60)}`} checked={selected.has(q.id)} disabled={(!canDelete && !PUBLISHABLE.includes(q.status)) || !!busy} onChange={() => toggle(q.id)} /></td>}
               <td className="max-w-md py-2"><Link href={`/admin/questions/${q.id}`} className="text-brand-navy hover:underline">{q.stem}</Link> <button type="button" onClick={() => setPreview(q.id)} className="ms-1 rounded-md px-1.5 text-xs font-semibold text-brand-teal ring-1 ring-slate-200 hover:bg-slate-50" aria-label={`Preview: ${q.stem.slice(0, 60)}`}>👁 Preview</button>{q.mine && <span className="ml-2 text-xs text-brand-purple">mine</span>}{q.origin === "AI_GENERATED" && <span className="ml-2 text-xs text-amber-700">AI-drafted</span>}
                 {(q.hasPassage || q.hasImage || q.possibleMissingPassage) && (
                   <span className="mt-1 flex flex-wrap gap-1">
                     {q.hasPassage && <span className="rounded bg-sky-50 px-1.5 text-xs text-sky-800">Passage</span>}
-                    {q.mapCode && <a href={`/admin/questions?status=PUBLISHED&map=${q.mapCode}`} className="rounded bg-emerald-50 px-1.5 text-xs font-medium text-emerald-800 ring-1 ring-emerald-200" title="On the Curriculum Map (and in the Question Bank)">🧭 {q.mapCode}</a>}
+                    {q.mapCode && <Link href={`/admin/questions?status=PUBLISHED&map=${q.mapCode}`} className="rounded bg-emerald-50 px-1.5 text-xs font-medium text-emerald-800 ring-1 ring-emerald-200" title="On the Curriculum Map (and in the Question Bank)">🧭 {q.mapCode}</Link>}
                     {q.uses?.includes("PLACEMENT") && <span className="rounded bg-violet-50 px-1.5 text-xs text-violet-800">Placement</span>}
                     {q.uses?.includes("MAP_TEST") && <span className="rounded bg-orange-50 px-1.5 text-xs text-orange-800">MAP test</span>}
                     {q.hasImage && <span className="rounded bg-violet-50 px-1.5 text-xs text-violet-800">Image</span>}
@@ -206,6 +227,7 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
               <td><span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${CHIP[q.status]}`}>{STATUS_LABEL[q.status]}</span></td>
               <td>{q.updatedAt.slice(0, 10)}</td>
             </tr>
+            </Fragment>
           ))}
           {rows.length === 0 && <tr><td colSpan={(checkboxes ? 7 : 6) + (canStar ? 1 : 0)} className="py-6 text-center text-slate-500">No questions here.</td></tr>}
         </tbody>

@@ -5,6 +5,8 @@ import { accessibleClasses } from "@/server/teacher/assign";
 import { curriculumResults } from "@/server/curriculum-map/results";
 import { PageHeader } from "@/components/page-header";
 
+export const metadata = { title: "Curriculum results" };
+
 const tone = (v: number | null) => (v === null ? "text-slate-400" : v >= 75 ? "text-teal-800" : v >= 50 ? "text-amber-800" : "text-red-700");
 
 /** 📊 Class results on the Curriculum Map (teachers: their classes; admins: every class). */

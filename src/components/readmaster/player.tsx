@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
 import type { ClientQuestion } from "@/server/practice/items";
@@ -43,7 +44,7 @@ export function ReadMasterPlayer({ articleId, versionId, questions, submit }: {
           <p className="mt-1 text-lg">My reading Lexile: <b>{result.lexileBefore}L → {result.lexileAfter}L</b> {result.lexileAfter > result.lexileBefore ? "⬆" : result.lexileAfter < result.lexileBefore ? "⬇" : ""}</p>
           {result.levelAfter && result.levelAfter !== result.levelBefore && <p className="mt-1 font-semibold text-emerald-800">Next articles: {LV[result.levelAfter]} version.</p>}
           <p className="mt-1 text-sm text-slate-600">75% or more raises your Lexile; under 50% lowers it.</p>
-          <a href="/student/readmaster" className="mt-3 inline-block rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white">More articles</a>
+          <Link href="/student/readmaster" className="mt-3 inline-block rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white">More articles</Link>
         </section>
       )}
     </div>

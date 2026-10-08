@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PracticePlayer } from "@/components/practice/practice-player";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -22,7 +23,7 @@ export default async function PracticePage({ params, searchParams }: { params: P
     return (
       <AppShell name={String(me.displayName)}>
         <p className="text-lg text-slate-700">This skill has not been assigned to you. Your teacher will assign the skills to practise.</p>
-        <a href="/student" className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">My assigned skills</a>
+        <Link href="/student" className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">My assigned skills</Link>
       </AppShell>
     );
   }

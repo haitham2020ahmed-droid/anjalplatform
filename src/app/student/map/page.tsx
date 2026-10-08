@@ -2,7 +2,11 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { studentMap } from "@/server/map/student-map";
+import { myRecommendations } from "@/server/map/recommend";
+import { assignedSkills } from "@/server/student/assigned";
 import { PageHeader } from "@/components/page-header";
+
+export const metadata = { title: "My MAP" };
 
 const BAND: Record<string, string> = { Low: "bg-red-100 text-red-800", LoAvg: "bg-orange-100 text-orange-800", Avg: "bg-slate-100 text-slate-700", HiAvg: "bg-teal-100 text-teal-800", High: "bg-emerald-100 text-emerald-800" };
 
@@ -10,7 +14,10 @@ const BAND: Record<string, string> = { Low: "bg-red-100 text-red-800", LoAvg: "b
 export default async function StudentMapPage() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
-  const m = await studentMap(repo, actor);
+  const [m, work] = await Promise.all([studentMap(repo, actor), assignedSkills(repo, actor)]);
+  // MAP work my teacher assigned; when there is none, my own recommendations from my MAP score
+  const mapWork = work.items.filter((i) => i.track === "MAP");
+  const recs = mapWork.length ? null : await myRecommendations(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/student", label: "My work" }} icon="🗺️" title="My MAP" />
@@ -36,6 +43,36 @@ export default async function StudentMapPage() {
           ) : <p className="mt-2 text-slate-600">Your goal appears when your teacher imports your Fall score and projection.</p>}
         </section>
       </div>
+      {mapWork.length > 0 && (
+        <section className="mt-6">
+          <h2 className="text-xl font-bold text-brand-navy">My MAP work</h2>
+          <ul className="mt-3 grid gap-3 md:grid-cols-2">
+            {mapWork.map((w) => (
+              <li key={w.assignmentId}>
+                <Link href={w.status === "COMPLETED" ? `/student/assignments/${w.assignmentId}/report` : w.kind === "questions" ? `/quiz/${w.assignmentId}` : `/practice/${w.skillId}`} className="lift flex items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-emerald-200">
+                  <span><span className="block font-bold text-brand-navy">{w.skill}</span><span className="block text-xs text-slate-500">{Math.round(w.progress * 100)}% · {w.status === "COMPLETED" ? "done" : w.dueAt ? `due ${w.dueAt.slice(0, 10)}` : "assigned by my teacher"}</span></span>
+                  <span className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white">{w.status === "COMPLETED" ? "Report" : "Go ▶"}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {recs && (
+        <section className="mt-6 rounded-3xl bg-gradient-to-br bg-linear-to-br from-amber-50 to-white p-5 ring-1 ring-amber-200">
+          <h2 className="text-xl font-bold text-brand-navy">💡 Recommended for you</h2>
+          <p className="text-sm text-slate-600">From your MAP score{recs.areas.length ? `: work on ${recs.areas.map((a) => a.name).join(" and ")}` : ""}. Practice adapts to you.</p>
+          <ul className="mt-3 grid gap-3 md:grid-cols-2">
+            {recs.skills.map((k) => (
+              <li key={k.id}><Link href={`/practice/${k.id}?from=map`} className="lift flex items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+                <span><span className="block font-bold text-brand-navy">{k.name}</span><span className="block text-xs text-slate-500">{k.area}{k.mastery !== null ? ` · mastery ${k.mastery}%` : ""}</span></span>
+                <span className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white">Practise ▶</span>
+              </Link></li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {!mapWork.length && !recs && (
       <section className="mt-6">
         <h2 className="text-xl font-bold text-brand-navy">Practise for MAP</h2>
         <p className="text-sm text-slate-600">Practice adapts to you: it starts at your MAP level and every answer chooses the next question (harder after correct answers, easier after mistakes). Weakest areas first.</p>
@@ -45,7 +82,7 @@ export default async function StudentMapPage() {
               <li key={a.code} className="rounded-2xl bg-white p-4 ring-1 ring-emerald-200">
                 <div className="flex items-start justify-between gap-3">
                   <div><p className="font-bold text-brand-navy">{a.name}</p><p className="text-sm text-slate-600">{a.skills.length} skill(s) · {a.mastery === null ? "not started" : `mastery ${a.mastery}%`}</p></div>
-                  {a.next && <a href={`/practice/${a.next}?from=map`} className="shrink-0 rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-purple">Practise ▶</a>}
+                  {a.next && <Link href={`/practice/${a.next}?from=map`} className="shrink-0 rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-purple">Practise ▶</Link>}
                 </div>
                 <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={a.mastery ?? 0} aria-label={`${a.name} mastery`}><div className="h-full bg-brand-teal" style={{ width: `${a.mastery ?? 0}%` }} /></div>
               </li>
@@ -53,6 +90,7 @@ export default async function StudentMapPage() {
           </ul>
         )}
       </section>
+      )}
     </AppShell>
   );
 }

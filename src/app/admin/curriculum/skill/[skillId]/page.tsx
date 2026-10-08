@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -18,7 +19,7 @@ export default async function SkillEditorPage({ params }: { params: Promise<{ sk
   const name = new Map(pool.map((k) => [String(k.id), String(k.name)]));
   return (
     <AppShell name={String(me.displayName)}>
-      <a href="/admin/curriculum" className="text-sm font-medium text-brand-teal hover:underline">Curriculum</a>
+      <Link href="/admin/curriculum" className="text-sm font-medium text-brand-teal hover:underline">Curriculum</Link>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">{String(skill.name)}</h1>
       <div className="mt-4 max-w-xl"><SkillForm skillId={skillId} name={String(skill.name)} description={String(skill.description ?? "")} /></div>
 

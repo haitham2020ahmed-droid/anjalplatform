@@ -509,6 +509,8 @@ CREATE INDEX `QuestionAttempt_questionId_createdAt_idx` ON `QuestionAttempt`(`qu
 
 CREATE INDEX `QuestionAttempt_skillId_createdAt_idx` ON `QuestionAttempt`(`skillId`, `createdAt`);
 
+CREATE INDEX `QuestionAttempt_sessionId_idx` ON `QuestionAttempt`(`sessionId`);
+
 CREATE TABLE `AdaptiveDecisionLog` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `studentId` VARCHAR(191) NOT NULL,
@@ -1078,6 +1080,93 @@ CREATE TABLE `ReadMasterAttempt` (
 CREATE INDEX `ReadMasterAttempt_studentId_idx` ON `ReadMasterAttempt`(`studentId`);
 
 CREATE INDEX `ReadMasterAttempt_articleId_idx` ON `ReadMasterAttempt`(`articleId`);
+
+CREATE TABLE `SkillPlan` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `classId` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `gradeLevel` INTEGER NOT NULL,
+  `note` VARCHAR(1000),
+  `createdById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `SkillPlan_schoolId_classId_idx` ON `SkillPlan`(`schoolId`, `classId`);
+
+CREATE TABLE `SkillPlanItem` (
+  `id` VARCHAR(191) NOT NULL,
+  `planId` VARCHAR(191) NOT NULL,
+  `code` VARCHAR(80) NOT NULL,
+  `label` VARCHAR(255) NOT NULL,
+  `assignmentIds` JSON NOT NULL,
+  `order` INTEGER NOT NULL,
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `SkillPlanItem_planId_idx` ON `SkillPlanItem`(`planId`);
+
+CREATE TABLE `LiveGame` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `classId` VARCHAR(191),
+  `hostId` VARCHAR(191) NOT NULL,
+  `code` VARCHAR(8) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `questionIds` JSON NOT NULL,
+  `status` VARCHAR(12) NOT NULL DEFAULT 'LOBBY',
+  `currentIndex` INTEGER NOT NULL DEFAULT -1,
+  `questionStartedAt` DATETIME(3),
+  `secondsPerQuestion` INTEGER NOT NULL DEFAULT 20,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `finishedAt` DATETIME(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `LiveGame_code_status_idx` ON `LiveGame`(`code`, `status`);
+
+CREATE INDEX `LiveGame_schoolId_createdAt_idx` ON `LiveGame`(`schoolId`, `createdAt`);
+
+CREATE TABLE `LiveGamePlayer` (
+  `id` VARCHAR(191) NOT NULL,
+  `gameId` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `nickname` VARCHAR(60) NOT NULL,
+  `score` INTEGER NOT NULL DEFAULT 0,
+  `streak` INTEGER NOT NULL DEFAULT 0,
+  `joinedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `LiveGamePlayer_gameId_studentId_key` UNIQUE (`gameId`, `studentId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `LiveGameAnswer` (
+  `id` VARCHAR(191) NOT NULL,
+  `gameId` VARCHAR(191) NOT NULL,
+  `playerId` VARCHAR(191) NOT NULL,
+  `questionIndex` INTEGER NOT NULL,
+  `choice` VARCHAR(191) NOT NULL,
+  `correct` BOOLEAN NOT NULL,
+  `points` INTEGER NOT NULL,
+  `ms` INTEGER NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `LiveGameAnswer_playerId_questionIndex_key` UNIQUE (`playerId`, `questionIndex`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `LiveGameAnswer_gameId_questionIndex_idx` ON `LiveGameAnswer`(`gameId`, `questionIndex`);
+
+CREATE TABLE `CrossGradeBridge` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `fromCode` VARCHAR(80) NOT NULL,
+  `challengeCode` VARCHAR(80),
+  `supportCode` VARCHAR(80),
+  `source` VARCHAR(12) NOT NULL DEFAULT 'IMPORT',
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `CrossGradeBridge_schoolId_fromCode_key` UNIQUE (`schoolId`, `fromCode`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
