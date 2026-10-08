@@ -117,7 +117,9 @@ describe("question import: the template and its rules (pure)", () => {
     assert.equal(readRow(cells({ ...MC, "Correct Answer": "run fast" })).question!.options![1].correct, true, "the text of a choice works too");
     assert.match(readRow(cells({ ...MC, "Option D": "", "Correct Answer": "D" })).errors.join(), /points to Option D, which is empty/);
     assert.match(readRow(cells({ ...MC, "Option B": "" })).errors.join(), /Option B is empty but Option D is filled/);
-    assert.match(readRow(cells({ ...MC, "Option C": "be kind" })).errors.join(), /Option A and Option C are the same/);
+    assert.match(readRow(cells({ ...MC, "Option C": "Be  kind " })).errors.join(), /Option A and Option C are the same/);
+    // capitalization questions: choices that differ only in capital letters are different answers
+    assert.doesNotMatch(readRow(cells({ ...MC, "Option C": "be kind" })).errors.join(), /are the same/);
     assert.match(readRow(cells({ ...MC, "Correct Answer": "A, B" })).errors.join(), /exactly one correct answer.*use Multi Select/);
     assert.match(readRow(cells({ ...MC, "Correct Answer": "" })).errors.join(), /Correct Answer is empty/);
     assert.match(readRow(cells({ ...MC, "Correct Answer": "Z" })).errors.join(), /not a letter of a choice/);

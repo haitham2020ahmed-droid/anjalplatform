@@ -22,9 +22,9 @@ function Ring({ pct }: { pct: number }) {
 }
 
 /** The student's home: a welcome card, the three big doors (work, ReadMaster, MAP), then the assigned work. */
-export function AssignedSkills({ view, firstName, placement, area = "ALL", extras }: { view: AssignedView; firstName: string; placement: boolean; area?: "ALL" | "CURRICULUM" | "MAP" | "NAFS"; extras?: StudentExtras }) {
+export function AssignedSkills({ view, firstName, placement, area = "ALL", extras }: { view: AssignedView; firstName: string; placement: boolean; area?: "ALL" | "CURRICULUM" | "MAP" | "NAFS" | "GRAMMAR"; extras?: StudentExtras }) {
   const { summary } = view;
-  const items = area === "ALL" ? view.items : view.items.filter((i) => i.track === area);
+  const items = area === "ALL" ? view.items : area === "GRAMMAR" ? view.items.filter((i) => i.grammar) : view.items.filter((i) => i.track === area);
   const pct = summary.assigned ? Math.round((100 * summary.completed) / summary.assigned) : 0;
   const next = view.items.find((i) => i.status !== "COMPLETED" && !i.startsLater);
   const hrefOf = (i: AssignedView["items"][number]) => (i.kind === "questions" ? `/quiz/${i.assignmentId}` : `/practice/${i.skillId}`);
@@ -110,6 +110,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
             <Link href="/student#my-work" aria-current={area === "ALL" ? "page" : undefined} className={chip(area === "ALL")}>All</Link>
             <Link href="/student?area=curriculum#my-work" aria-current={area === "CURRICULUM" ? "page" : undefined} className={chip(area === "CURRICULUM")}>📘 Curriculum</Link>
             <Link href="/student?area=map#my-work" aria-current={area === "MAP" ? "page" : undefined} className={chip(area === "MAP")}>🗺️ MAP</Link>
+            {view.items.some((i) => i.grammar) && <Link href="/student?area=grammar#my-work" aria-current={area === "GRAMMAR" ? "page" : undefined} className={chip(area === "GRAMMAR")}>🔤 Grammar</Link>}
             {(extras?.grade === 6 || view.items.some((i) => i.track === "NAFS")) && <Link href="/student?area=nafs#my-work" aria-current={area === "NAFS" ? "page" : undefined} className={chip(area === "NAFS")}>🇸🇦 Nafs</Link>}
           </nav>
         </div>
@@ -126,7 +127,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
                 <span aria-hidden="true" className={`absolute inset-y-0 start-0 w-1.5 ${BAR[i.status]}`} />
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <h3 className="truncate text-lg font-bold text-brand-navy" title={i.skill}><span aria-label={i.track === "MAP" ? "MAP" : i.track === "NAFS" ? "Nafs" : "Curriculum"}>{i.track === "MAP" ? "🗺️" : i.track === "NAFS" ? "🇸🇦" : "📘"}</span> {i.skill}</h3>
+                    <h3 className="truncate text-lg font-bold text-brand-navy" title={i.skill}><span aria-label={i.grammar ? "Grammar" : i.track === "MAP" ? "MAP" : i.track === "NAFS" ? "Nafs" : "Curriculum"}>{i.grammar ? "🔤" : i.track === "MAP" ? "🗺️" : i.track === "NAFS" ? "🇸🇦" : "📘"}</span> {i.skill}</h3>
                     <p className="text-sm text-slate-600">{i.kind === "questions" ? `${i.questionCount} questions` : i.standard ?? "Practice"}{i.dueAt ? ` · due ${i.dueAt.slice(0, 10)}` : ""}</p>
                     {i.note && <p className="mt-1 rounded-lg bg-amber-50 px-2 py-1 text-sm text-amber-900">💬 {i.note}</p>}
                   </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState , Fragment } from "react";
 import type { QuestionStatus } from "@/server/admin/questions";
-import { archiveQuestionsAction, bulkPublishAction, deleteQuestionsAction, publishableIdsAction, restoreQuestionsAction } from "../actions";
+import { archivableIdsAction, archiveQuestionsAction, bulkPublishAction, deleteQuestionsAction, publishableIdsAction, restoreQuestionsAction } from "../actions";
 import { AssignQuestionsDialog, type RosterClass } from "./assign-questions-dialog";
 import { PreviewDialog } from "./preview-dialog";
 import { selectionCsvAction } from "./preview-actions";
@@ -116,6 +116,22 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
     setFeedback({ ok: `${archived} question${archived === 1 ? "" : "s"} archived.` });
     router.refresh();
   }
+  /** Archives every question matching the filters (all pages), e.g. Type = Short Answer. */
+  async function archiveAll() {
+    setFeedback(null);
+    const r = await archivableIdsAction(filter);
+    if (r.error) return setFeedback({ error: r.error });
+    const ids = r.ids ?? [];
+    if (!ids.length) return setFeedback({ error: "There are no questions here to archive." });
+    const reason = window.prompt(`Archive ALL ${ids.length} question${ids.length === 1 ? "" : "s"} that match the filters (on every page)? Archived questions never appear in practice and keep their history; you can restore them later.\n\nReason:`, "Replaced by multiple choice");
+    if (reason === null) return;
+    let archived = 0;
+    const ok = await runBatches(ids, "archived", (part) => archiveQuestionsAction(part, reason), (x) => { archived += x.archived; });
+    if (!ok) return;
+    setSelected(new Set());
+    setFeedback({ ok: `🗄 ${archived} question${archived === 1 ? "" : "s"} archived.` });
+    router.refresh();
+  }
   const toggle = (id: string) => setSelected((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; });
 
   async function restoreSelected() {
@@ -176,6 +192,7 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
           {canPublish && <button type="button" disabled={!!busy || selectedPublishable.length === 0} onClick={() => void publish(selectedPublishable)} className="rounded-xl bg-brand-teal px-4 py-2 font-semibold text-white hover:opacity-90 disabled:opacity-50">Publish Selected ({selectedPublishable.length})</button>}
           {canPublish && selectedArchived.length > 0 && <button type="button" disabled={!!busy} onClick={() => void restoreSelected()} className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white hover:bg-emerald-700 disabled:opacity-50">♻️ Restore Selected ({selectedArchived.length})</button>}
           {canPublish && <button type="button" disabled={!!busy} onClick={() => void publishAll()} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Publish All</button>}
+          {canPublish && <button type="button" disabled={!!busy || total === 0} onClick={() => void archiveAll()} className="rounded-xl px-4 py-2 font-semibold text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50 disabled:opacity-50" title="Archive every question that matches the filters, on all pages">🗄 Archive All</button>}
           {canPublish && <button type="button" disabled={!!busy || selected.size === 0} onClick={() => void archiveSelected()} className="rounded-xl px-4 py-2 font-semibold text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50 disabled:opacity-50">Archive Selected</button>}
           {canDelete && <button type="button" disabled={!!busy || selected.size === 0} onClick={() => void removeSelected()} className="rounded-xl bg-red-700 px-4 py-2 font-semibold text-white hover:bg-red-800 disabled:opacity-50">Delete Selected ({selected.size})</button>}
         </div>

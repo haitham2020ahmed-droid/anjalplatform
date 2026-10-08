@@ -194,6 +194,8 @@ export interface AnalyzeInput {
   fileName: string; bytes: Uint8Array; /** BANK (default) or CURRICULUM */ target?: ImportTarget;
   /** uploaded from one place of the Curriculum Map: rows without a place go there (and get its grade) */
   defaultMapCode?: string;
+  /** an already-read table in the template's columns (e.g. the 🔤 Grammar bank, converted on the server) */
+  table?: string[][];
 }
 
 async function recordFailure(repo: Repo, actor: Actor, fileName: string, bytes: Uint8Array, kind: string | null, stage: string, errors: string[], now: Date): Promise<string | null> {
@@ -224,7 +226,8 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
   let table: string[][];
   let images: Map<number, Uint8Array> | undefined;
   try {
-    ({ kind, table, images } = extract(fileName, input.bytes));
+    if (input.table) { kind = "xlsx"; table = input.table; }
+    else ({ kind, table, images } = extract(fileName, input.bytes));
   } catch (e) {
     const msg = e instanceof ExtractError ? e.message : `The file could not be read: ${(e as Error).message}`;
     return fail(null, "read", msg, [msg]);

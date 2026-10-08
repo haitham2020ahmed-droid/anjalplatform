@@ -13,7 +13,7 @@ const OK_NAME = /\.(csv|xlsx)$/i;
  * Sends the file with a visible upload percentage, then waits while the server checks every row.
  * Any reply that is not the expected JSON still produces a specific message (never just "failed").
  */
-function upload(file: File, onProgress: (p: number) => void, target: "BANK" | "CURRICULUM" = "BANK", place?: string): Promise<{ status: number; body: { jobId?: string; error?: string; details?: string[] } | null; raw: string }> {
+function upload(file: File, onProgress: (p: number) => void, target: "BANK" | "CURRICULUM" = "BANK", place?: string, grammarGrade?: number): Promise<{ status: number; body: { jobId?: string; error?: string; details?: string[] } | null; raw: string }> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/question-imports");
@@ -30,12 +30,13 @@ function upload(file: File, onProgress: (p: number) => void, target: "BANK" | "C
     fd.set("file", file);
     fd.set("target", target);
     if (place) fd.set("place", place);
+    if (grammarGrade) fd.set("grammarGrade", String(grammarGrade));
     xhr.send(fd);
   });
 }
 
 /** target: BANK (Question Bank only) or CURRICULUM (on the Curriculum Map, and in the bank). */
-export function ImportUpload({ target = "BANK", place }: { target?: "BANK" | "CURRICULUM"; place?: string } = {}) {
+export function ImportUpload({ target = "BANK", place, grammarGrade, accept }: { target?: "BANK" | "CURRICULUM"; place?: string; /** 🔤 the Grammar bank file, for this grade */ grammarGrade?: number; accept?: string } = {}) {
   const router = useRouter();
   const input = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
@@ -65,7 +66,7 @@ export function ImportUpload({ target = "BANK", place }: { target?: "BANK" | "CU
     setFailure(null);
     setPhase({ kind: "uploading", percent: 0 });
     try {
-      const res = await upload(file, (percent) => setPhase(percent >= 100 ? { kind: "checking" } : { kind: "uploading", percent }), target, place);
+      const res = await upload(file, (percent) => setPhase(percent >= 100 ? { kind: "checking" } : { kind: "uploading", percent }), target, place, grammarGrade);
       if (res.status === 200 && res.body?.jobId) {
         router.push(`/admin/questions/import/${res.body.jobId}`);
         return;
@@ -93,7 +94,7 @@ export function ImportUpload({ target = "BANK", place }: { target?: "BANK" | "CU
       >
         <p className="text-lg font-semibold text-brand-navy">{file ? file.name : "Drop your CSV or Excel file here, or click to choose"}</p>
         <p className="mt-1 text-sm text-slate-600">{file ? `${Math.max(1, Math.round(file.size / 1024))} KB` : "CSV (.csv) or Excel (.xlsx, pictures in the cells are imported too) · up to 50 MB · up to 5,000 questions"}</p>
-        <input ref={input} type="file" accept={ACCEPT} className="hidden" onChange={(e) => { choose(e.target.files?.[0]); e.target.value = ""; }} />
+        <input ref={input} type="file" accept={accept ?? ACCEPT} className="hidden" onChange={(e) => { choose(e.target.files?.[0]); e.target.value = ""; }} />
       </div>
 
       {failure && (

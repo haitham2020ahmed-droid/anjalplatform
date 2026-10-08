@@ -14,7 +14,7 @@ export const metadata = { title: "My work" };
 /** Student home: welcome card (Lexile, RIT), the three big areas, and only the work the teacher assigned. */
 export default async function StudentHome({ searchParams }: { searchParams: Promise<{ area?: string }> }) {
   const sp = await searchParams;
-  const area = sp.area === "map" ? "MAP" : sp.area === "curriculum" ? "CURRICULUM" : sp.area === "nafs" ? "NAFS" : "ALL";
+  const area = sp.area === "map" ? "MAP" : sp.area === "curriculum" ? "CURRICULUM" : sp.area === "nafs" ? "NAFS" : sp.area === "grammar" ? "GRAMMAR" : "ALL";
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
   const [view, required, diagnostic, lexile, maps, student] = await Promise.all([

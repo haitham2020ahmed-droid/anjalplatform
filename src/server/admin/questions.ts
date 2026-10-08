@@ -400,6 +400,13 @@ export async function publishableIds(repo: Repo, actor: Actor, filter: Parameter
   return items.filter((q) => PUBLISHABLE.includes(q.status)).map((q) => q.id);
 }
 
+/** Every question matching the filters that is not archived yet (“Archive All”, e.g. every Short Answer). */
+export async function archivableIds(repo: Repo, actor: Actor, filter: Parameters<typeof listQuestions>[2] = {}): Promise<string[]> {
+  assertCan(actor, "questions:publish");
+  const { items } = await listQuestions(repo, actor, filter);
+  return items.filter((q) => q.status !== "ARCHIVED").map((q) => q.id);
+}
+
 export async function archiveQuestion(repo: Repo, actor: Actor, id: string, reason: string, now = new Date()): Promise<void> {
   assertCan(actor, "questions:publish");
   const q = await questionInSchool(repo, actor, id);

@@ -7,6 +7,7 @@ import { apiActor, repo } from "@/server/auth/next";
 import { can, ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { analyzeImport, ImportFileError, shortDbMessage } from "@/server/admin/question-import";
+import { ensureGrammarSkills, grammarTable, readGrammarWorkbook } from "@/server/grammar/grammar";
 import { log } from "@/server/monitoring/log";
 
 export const runtime = "nodejs";
@@ -35,9 +36,11 @@ export async function POST(req: Request) {
   let file: FormDataEntryValue | null;
   let target: "BANK" | "CURRICULUM" = "BANK";
   let defaultMapCode: string | undefined;
+  let grammarGrade = 0;
   try {
     const form = await req.formData();
     file = form.get("file");
+    grammarGrade = [4, 5, 6].includes(Number(form.get("grammarGrade"))) ? Number(form.get("grammarGrade")) : 0;
     if (form.get("target") === "CURRICULUM") target = "CURRICULUM";
     const place = String(form.get("place") ?? "").trim().toUpperCase();
     if (/^G\d+\.[A-Z0-9.]+$/.test(place)) { defaultMapCode = place; target = "CURRICULUM"; }
@@ -48,7 +51,16 @@ export async function POST(req: Request) {
 
   const started = Date.now();
   try {
-    const jobId = await analyzeImport(repo, actor, { fileName: file.name, bytes: new Uint8Array(await file.arrayBuffer()), target, defaultMapCode });
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    let jobId: string;
+    if (grammarGrade) {
+      // 🔤 the Grammar bank: its skills first (created or updated), then its questions through the normal preview
+      const wb = readGrammarWorkbook(bytes);
+      await ensureGrammarSkills(repo, actor, wb, grammarGrade);
+      const table = grammarTable(wb, grammarGrade);
+      if (table.length < 2) return reply({ error: `The Grammar file has no Grade ${grammarGrade} questions.`, stage: "file" }, 422);
+      jobId = await analyzeImport(repo, actor, { fileName: `Grammar Grade ${grammarGrade} - ${file.name}`, bytes, target: "BANK", table });
+    } else jobId = await analyzeImport(repo, actor, { fileName: file.name, bytes, target, defaultMapCode });
     log("info", "question_import.analyzed", { jobId, kind: file.name.split(".").pop(), bytes: file.size, ms: Date.now() - started, user: actor.userId });
     return reply({ jobId });
   } catch (e) {

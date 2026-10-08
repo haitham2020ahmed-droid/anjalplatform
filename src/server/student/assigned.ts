@@ -32,7 +32,9 @@ export interface AssignedSkill {
   kind: "skill" | "questions"; questionCount?: number;
   /** CURRICULUM, MAP or NAFS (Grade 6): the student's areas */
   track: "CURRICULUM" | "MAP" | "NAFS";
-  assignmentId: string; skillId: string; skill: string; standard: string | null; assignedAt: string; startAt: string | null; dueAt: string | null;
+  assignmentId: string; skillId: string; skill: string; standard: string | null;
+  /** a 🔤 Grammar skill (shown with the grammar icon and under the Grammar filter) */
+  grammar?: boolean; assignedAt: string; startAt: string | null; dueAt: string | null;
   status: Status; progress: number; note: string | null; startsLater: boolean; completedAt: string | null;
 }
 export interface AssignedView { summary: { assigned: number; completed: number; inProgress: number; notStarted: number; overdue: number }; newThisWeek: number; items: AssignedSkill[] }
@@ -53,7 +55,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
   if (sets.length) for (const x of await repo.findMany("Assessment", { id: { in: sets.map((a) => a.assessmentId) }, isAdaptive: true }, { select: ["id", "maxQuestions"] })) setSize.set(s(x.id), Math.min(setSize.get(s(x.id)) ?? 0, Number(x.maxQuestions) || 0));
   const skillIds = [...new Set(assignments.map((a) => skillOf(a)!))];
   const [skills, links] = await Promise.all([
-    skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
+    skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
     skillIds.length ? repo.findMany("SkillStandard", { skillId: { in: skillIds } }) : Promise.resolve([] as Row[]),
   ]);
   const stds = links.length ? await repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => l.standardId))] } }, { select: ["id", "code"] }) : [];
@@ -68,6 +70,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     const startAt = d(a.startAt);
     return {
       kind: "skill" as const, track: (a.track === "MAP" ? "MAP" : a.track === "NAFS" ? "NAFS" : "CURRICULUM") as AssignedSkill["track"], assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
+      grammar: s(skills.find((k) => k.id === skillId)?.code).toLowerCase().includes(".grammar."),
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now),
       completedAt: d(r.completedAt)?.toISOString() ?? null,

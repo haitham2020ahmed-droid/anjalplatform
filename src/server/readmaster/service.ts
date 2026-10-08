@@ -154,6 +154,23 @@ export async function setArticleStatus(repo: Repo, actor: Actor, articleId: stri
   await repo.updateMany("ReadMasterArticle", { id: articleId }, { status, updatedAt: new Date() });
 }
 
+/** Publishes (or moves back to draft) several articles at once; an article without questions is skipped and named. */
+export async function setArticlesStatus(repo: Repo, actor: Actor, articleIds: string[], status: "DRAFT" | "PUBLISHED"): Promise<{ changed: number; skipped: string[] }> {
+  assertCan(actor, "questions:edit"); staff(actor);
+  const ids = [...new Set(articleIds.filter(Boolean))];
+  if (!ids.length) throw new ValidationError("Tick at least one article first.");
+  let changed = 0; const skipped: string[] = [];
+  for (const id of ids) {
+    try { await setArticleStatus(repo, actor, id, status); changed++; }
+    catch (e) {
+      if (!(e instanceof ValidationError)) throw e;
+      const a = await repo.findUnique("ReadMasterArticle", { id });
+      skipped.push(a ? s(a.title) : id);
+    }
+  }
+  return { changed, skipped };
+}
+
 export interface ArticleDetail extends ArticleSummary { versionsFull: { id: string; level: Level; lexile: number; body: string; wordCount: number; questions: { id: string; stem: string; status: string }[] }[]; results: { student: string; level: Level; correct: number; total: number; lexileBefore: number; lexileAfter: number; at: string }[] }
 
 export async function articleDetail(repo: Repo, actor: Actor, articleId: string): Promise<ArticleDetail> {

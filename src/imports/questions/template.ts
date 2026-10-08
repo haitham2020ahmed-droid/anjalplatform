@@ -263,7 +263,8 @@ export function readRow(cells: Partial<Record<ColumnKey, string>>, target: Impor
         const seen = new Map<string, number>();
         texts.forEach((v, i) => {
           if (!v) return;
-          const k = v.toLowerCase();
+          // capital letters count: “central park” and “Central Park” are different choices in a capitalization question
+          const k = v.replace(/\s+/g, " ").trim();
           if (seen.has(k)) errors.push(`Option ${LETTERS[seen.get(k)!]} and Option ${LETTERS[i]} are the same (“${v}”). Each choice must be different.`);
           else seen.set(k, i);
         });

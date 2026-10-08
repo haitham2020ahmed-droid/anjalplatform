@@ -5,7 +5,7 @@ import { PageHeader, Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { gradeSkills, gradeStandards, listArticles, LEVEL_NAMES } from "@/server/readmaster/service";
 import { lexileBands } from "@/server/curriculum-map/lexile";
-import { createArticleAction, importReadMasterAction } from "./actions";
+import { bulkStatusAction, createArticleAction, importReadMasterAction } from "./actions";
 
 export const metadata = { title: "ReadMaster" };
 
@@ -23,6 +23,7 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
   const grade = [4, 5, 6].includes(Number(sp.grade)) ? Number(sp.grade) : 4;
   const [arts, skills, bands, standards] = await Promise.all([listArticles(repo, actor, grade), gradeSkills(repo, actor.schoolId!, grade), lexileBands(repo, actor.schoolId ?? null), gradeStandards(repo, grade)]);
   const b = bands[grade];
+  const published = arts.filter((a) => a.status === "PUBLISHED").length;
   const range = { BELOW: `< ${b.onMin}L`, ON: `${b.onMin}–${b.onMax}L`, ABOVE: `> ${b.onMax}L` } as const;
   const suggested = { BELOW: b.onMin - 100, ON: Math.round((b.onMin + b.onMax) / 2), ABOVE: b.onMax + 80 } as const;
   const field = "w-full rounded-xl border border-slate-300 bg-white px-3 py-2";
@@ -92,10 +93,21 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
         </Section>
         <Section title={`Grade ${grade} articles (${arts.length})`} icon="📚" className="lg:col-span-2">
           {arts.length === 0 ? <p className="text-slate-600">No articles yet. Create one above or import the template.</p> : (
+            <form action={bulkStatusAction}>
+              <input type="hidden" name="grade" value={grade} />
+              <div className="mb-4 flex flex-wrap items-center gap-2 rounded-2xl bg-slate-50 p-3 text-sm ring-1 ring-slate-200">
+                <span className="me-auto font-semibold text-slate-700">{published} of {arts.length} published · tick articles, then:</span>
+                <button name="op" value="publish" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">✅ Publish ticked</button>
+                <button name="op" value="draft" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">↩ Ticked back to draft</button>
+                {published < arts.length && <button name="op" value="publishAll" className="rounded-xl bg-teal-600 px-4 py-2 font-semibold text-white hover:bg-teal-700">🚀 Publish all {arts.length - published} draft(s)</button>}
+              </div>
             <ul className="grid gap-3 md:grid-cols-2">
               {arts.map((a) => (
-                <li key={a.id}>
-                  <Link href={`/admin/readmaster/${a.id}`} className="lift block rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+                <li key={a.id} className="relative">
+                  <label className="absolute start-3 top-3 z-10 flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg bg-white ring-1 ring-slate-300" title="Tick to publish or unpublish">
+                    <input type="checkbox" name="ids" value={a.id} aria-label={`Select ${a.title}`} className="h-4 w-4 accent-teal-600" />
+                  </label>
+                  <Link href={`/admin/readmaster/${a.id}`} className="lift block rounded-2xl bg-white p-4 ps-12 ring-1 ring-slate-200">
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0"><p className="truncate text-lg font-bold text-brand-navy">{a.title}</p><p className="truncate text-xs text-slate-500">{[a.code, a.standard, a.skill !== a.standard ? a.skill : null, a.topic].filter(Boolean).join(" · ")}</p></div>
                       <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-bold ${a.status === "PUBLISHED" ? "bg-teal-100 text-teal-800" : "bg-slate-100 text-slate-600"}`}>{a.status === "PUBLISHED" ? "Published" : "Draft"}</span>
@@ -108,6 +120,7 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
                 </li>
               ))}
             </ul>
+            </form>
           )}
         </Section>
       </div>

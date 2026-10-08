@@ -317,7 +317,7 @@ export async function archiveImportAction(_: Result, f: FormData): Promise<Resul
 
 // ------------------------------------------------------- bulk publish
 
-import { BULK_PUBLISH_MAX, publishableIds, publishQuestions, STATUSES, type BulkPublishResult, type QuestionStatus } from "@/server/admin/questions";
+import { archivableIds, BULK_PUBLISH_MAX, publishableIds, publishQuestions, STATUSES, type BulkPublishResult, type QuestionStatus } from "@/server/admin/questions";
 import { BULK_MAX, archiveQuestions, restoreArchived, deleteQuestions, type ArchiveResult, type DeleteResult } from "@/server/admin/question-delete";
 import { redirect as goTo } from "next/navigation";
 
@@ -337,6 +337,18 @@ export async function publishableIdsAction(filter: ListFilterInput): Promise<{ i
     const f = ListFilter.parse(filter);
     // the same filters as the list on screen, so “Publish All” never includes hidden questions
     return { ids: await publishableIds(repo, actor, { status: f.status, gradeLevel: f.grade, q: f.q, mine: f.mine, aiOnly: f.ai, unitId: f.unitId, skillId: f.skillId, standardCode: f.standard, typeCode: f.type, passage: f.passage, image: f.image, subject: f.subject, difficulty: f.difficulty, source: f.source, onMap: f.onMap, use: f.use, mapCode: f.mapCode }) };
+  } catch (e) {
+    if (e instanceof z.ZodError) return { error: "Invalid filter." };
+    throw e;
+  }
+}
+
+/** The ids “Archive All” archives: every non-archived question matching the filters on screen. */
+export async function archivableIdsAction(filter: ListFilterInput): Promise<{ ids?: string[]; error?: string }> {
+  const actor = await requireActor({ permission: "questions:publish" });
+  try {
+    const f = ListFilter.parse(filter);
+    return { ids: await archivableIds(repo, actor, { status: f.status, gradeLevel: f.grade, q: f.q, mine: f.mine, aiOnly: f.ai, unitId: f.unitId, skillId: f.skillId, standardCode: f.standard, typeCode: f.type, passage: f.passage, image: f.image, subject: f.subject, difficulty: f.difficulty, source: f.source, onMap: f.onMap, use: f.use, mapCode: f.mapCode }) };
   } catch (e) {
     if (e instanceof z.ZodError) return { error: "Invalid filter." };
     throw e;

@@ -5,7 +5,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { importReadMaster, rmTemplateRows } from "../src/server/readmaster/import";
-import { addVersionQuestion, articleDetail, gradeStandards, listArticles, openArticle, readingLexile, saveArticle, saveVersion, setArticleStatus, studentArticles, submitArticle } from "../src/server/readmaster/service";
+import { addVersionQuestion, articleDetail, gradeStandards, listArticles, openArticle, readingLexile, saveArticle, saveVersion, setArticleStatus, setArticlesStatus, studentArticles, submitArticle } from "../src/server/readmaster/service";
 import { loadQuestionItems } from "../src/server/practice/items";
 import { demoDatabase } from "./helpers/db";
 
@@ -90,5 +90,17 @@ describe("⭐ ReadMaster: one article, three reading levels, Lexile that moves",
     const d = await articleDetail(repo, teacher, ids[0]);
     assert.equal(d.results.length, 2);
     await assert.rejects(listArticles(repo, strong), ForbiddenError, "students cannot manage ReadMaster");
+  });
+
+  test("publish several articles at once; one without questions is skipped and named", async () => {
+    const a = await saveArticle(repo, admin, { title: "Bulk One", grade: 5 });
+    const b = await saveArticle(repo, admin, { title: "Bulk Empty", grade: 5 });
+    const v = await saveVersion(repo, admin, a, "ON", { lexile: 900, body: "Bees are small insects that live together in large groups. Every sunny day the busy bees fly out of the hive and visit many bright flowers to collect sweet nectar." });
+    await addVersionQuestion(repo, admin, v, { stem: "What do bees visit?", options: [{ label: "A", text: "flowers", correct: true }, { label: "B", text: "cars", correct: false }], whyCorrect: "The text says flowers." });
+    const r = await setArticlesStatus(repo, teacher, [a, b, a], "PUBLISHED");
+    assert.deepEqual(r, { changed: 1, skipped: ["Bulk Empty"] });
+    assert.equal((await repo.findUnique("ReadMasterArticle", { id: a }))!.status, "PUBLISHED");
+    assert.deepEqual(await setArticlesStatus(repo, teacher, [a], "DRAFT"), { changed: 1, skipped: [] });
+    await assert.rejects(setArticlesStatus(repo, teacher, [], "PUBLISHED"), /Tick at least one article/);
   });
 });

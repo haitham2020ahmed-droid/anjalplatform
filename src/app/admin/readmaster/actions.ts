@@ -5,7 +5,7 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { extract } from "@/imports/questions/extract";
 import { importReadMaster } from "@/server/readmaster/import";
-import { addVersionQuestion, saveArticle, saveVersion, setArticleStatus } from "@/server/readmaster/service";
+import { addVersionQuestion, listArticles, saveArticle, saveVersion, setArticleStatus, setArticlesStatus } from "@/server/readmaster/service";
 import type { Level } from "@/server/curriculum-map/lexile";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "questions:edit" as const };
@@ -72,4 +72,23 @@ export async function setStatusAction(f: FormData): Promise<void> {
   try { await setArticleStatus(repo, actor, articleId, f.get("status") === "PUBLISHED" ? "PUBLISHED" : "DRAFT"); msg = f.get("status") === "PUBLISHED" ? "Published: students of this grade can read it." : "Back to draft."; }
   catch (e) { msg = msgOf(e); }
   redirect(`/admin/readmaster/${articleId}?msg=${encodeURIComponent(msg)}`);
+}
+
+/** Publishes or unpublishes the ticked articles, or every draft of the grade at once. */
+export async function bulkStatusAction(f: FormData): Promise<void> {
+  const actor = await requireActor(STAFF);
+  const grade = [4, 5, 6].includes(Number(f.get("grade"))) ? Number(f.get("grade")) : 4;
+  const op = String(f.get("op") ?? "");
+  let msg: string;
+  try {
+    const status = op === "draft" ? "DRAFT" : "PUBLISHED";
+    const ids = op === "publishAll"
+      ? (await listArticles(repo, actor, grade)).filter((a) => a.status !== "PUBLISHED").map((a) => a.id)
+      : f.getAll("ids").map(String);
+    if (op === "publishAll" && !ids.length) throw new ValidationError(`Every Grade ${grade} article is already published.`);
+    const r = await setArticlesStatus(repo, actor, ids, status);
+    msg = status === "PUBLISHED" ? `Published ${r.changed} article(s): students of Grade ${grade} can read them.` : `${r.changed} article(s) moved back to draft.`;
+    if (r.skipped.length) msg += ` Not published (no questions yet): ${r.skipped.join(", ")}.`;
+  } catch (e) { msg = msgOf(e); }
+  redirect(`/admin/readmaster?grade=${grade}&msg=${encodeURIComponent(msg)}`);
 }

@@ -5,7 +5,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { ValidationError } from "../src/server/curriculum-admin";
 import { loadSkillItems } from "../src/server/practice/items";
-import { publishableIds, publishQuestions, reviewQuestion, reviseQuestion, submitForReview } from "../src/server/admin/questions";
+import { archivableIds, publishableIds, publishQuestions, reviewQuestion, reviseQuestion, submitForReview } from "../src/server/admin/questions";
 import { demoDatabase } from "./helpers/db";
 import { publishGrade4Bank } from "./helpers/practice";
 
@@ -72,6 +72,17 @@ describe("bulk publishing", () => {
     assert.ok(all.length >= ids.length);
     const statuses = (await repo.findMany("Question", { id: { in: all } })).map((q) => q.status);
     assert.ok(statuses.every((s) => s === "DRAFT" || s === "UNDER_REVIEW"), "never archived or published");
+  });
+
+  test("Archive All covers every non-archived question matching the filters (e.g. one question type)", async () => {
+    const ids = await archivableIds(repo, admin, { gradeLevel: 4, status: "PUBLISHED" });
+    assert.ok(ids.length > 0);
+    const qs = await repo.findMany("Question", { id: { in: ids } });
+    assert.ok(qs.every((q) => q.status === "PUBLISHED"));
+    const mc = await archivableIds(repo, admin, { gradeLevel: 4, status: "PUBLISHED", typeCode: "MULTIPLE_CHOICE" });
+    const types = new Map((await repo.findMany("QuestionType", {})).map((x) => [String(x.id), String(x.code)]));
+    assert.ok(mc.length > 0 && (await repo.findMany("Question", { id: { in: mc } })).every((q) => types.get(String(q.typeId)) === "MULTIPLE_CHOICE"), "only the chosen type");
+    await assert.rejects(archivableIds(repo, teacher, {}), ForbiddenError);
   });
 
   test("only staff with publishing permission; batches are limited; other schools' questions are not found", async () => {
