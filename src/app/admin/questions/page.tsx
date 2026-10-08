@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { MapPlacePicker } from "@/components/curriculum-map/place-picker";
+import { attachmentNodes } from "@/server/curriculum-map/questions";
 import { AppShell } from "@/components/app-shell";
 import { card } from "@/components/admin/styles";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -54,6 +56,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
   const pendingDeletions = await countDeletionRequests(repo, actor);
   const grouped = sp.view === "skills" || (sp.view !== "list" && Boolean(filter.q || filter.skillId));
   const PER = grouped ? 400 : PAGE;
+  const mapPlaces = (await attachmentNodes(repo, actor.schoolId!)).map((n) => ({ code: n.code, grade: n.grade, unit: n.unit, path: n.path }));
   const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: grade, q: filter.q, mine: filter.mine, aiOnly: filter.ai, unitId: filter.unitId, skillId: filter.skillId, standardCode: filter.standard, typeCode: filter.type, passage, image, subject: filter.subject, difficulty: filter.difficulty, source: filter.source, onMap: filter.onMap, use: filter.use, mapCode: filter.mapCode, limit: PER, page });
   const pages = Math.max(1, Math.ceil(total / PER));
   const qs = (over: Record<string, string | number | undefined>) => {
@@ -97,7 +100,9 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <select name="source" defaultValue={sp.source ?? ""} aria-label="Source" className={sel}><option value="">All sources</option>{SOURCES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="onmap" defaultValue={sp.onmap ?? ""} aria-label="Curriculum Map" className={sel}><option value="">Curriculum Map: any</option><option value="map">🧭 On the Curriculum Map</option><option value="bank">📚 Question Bank only</option></select>
         <select name="use" defaultValue={sp.use ?? ""} aria-label="Use" className={sel}><option value="">Use: any</option><option value="PLACEMENT">Placement</option><option value="MAP_TEST">MAP test</option></select>
-        {filter.mapCode && <><input type="hidden" name="map" value={filter.mapCode} /><span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-sm text-emerald-900 ring-1 ring-emerald-300">🧭 Place: {filter.mapCode} <a href={qs({ map: undefined, page: undefined })} aria-label="Remove the place filter" className="font-bold">✕</a></span></>}
+        <div className="basis-full rounded-2xl bg-emerald-50/50 p-2 ring-1 ring-emerald-200">
+          <MapPlacePicker places={mapPlaces} value={filter.mapCode ?? null} mode="filter" name="map" />
+        </div>
         {sp.track && <input type="hidden" name="track" value={sp.track} />}
         {sp.view && <input type="hidden" name="view" value={sp.view} />}
         <input name="q" defaultValue={sp.q ?? ""} placeholder="Search question text or skill name" aria-label="Search" className={sel} />

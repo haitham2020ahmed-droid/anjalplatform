@@ -6,7 +6,7 @@ import { lexileBands, levelForLexile } from "./lexile";
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
 /** A question's level: its Curriculum Map level, else from its difficulty (1–3 Below, 4 On, 5–7 Above). */
-const fromDifficulty = (d: number): Level => (d <= 3 ? "BELOW" : d >= 5 ? "ABOVE" : "ON");
+export const fromDifficulty = (d: number): Level => (d <= 3 ? "BELOW" : d >= 5 ? "ABOVE" : "ON");
 
 export interface PoolItem { id: string; level: Rung; lexile: number | null; difficulty: number }
 /**

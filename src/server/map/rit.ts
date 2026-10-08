@@ -61,7 +61,9 @@ export const bandOf = (pct: number) => (pct < 21 ? "Low" : pct <= 40 ? "LoAvg" :
 
 export interface RitRow {
   rank: number; studentId: string; name: string; className: string; classId: string; grade: number; rit: number; term: string;
-  national: { mean: number; diff: number; percentile: number; estimated: boolean; band: string } | null;
+  national: { mean: number; diff: number; percentile: number | null; estimated: boolean; band: string | null } | null;
+  /** NWEA rapid-guessing % of this test (30%+: NWEA suggests a retest) */
+  rapidGuess: number | null;
   vsClass: "ABOVE" | "AT" | "BELOW"; classAvg: number; diffClass: number;
   /** Spring projection from the Fall test (Fall RIT + NWEA projected growth); vsProjection = RIT − projection (Winter/Spring) */
   projection: number | null; vsProjection: number | null;
@@ -78,7 +80,7 @@ export interface RitView {
 }
 
 /** Ranked RIT list for a grade (all the actor's classes of it) or one class, for one term (default: latest). */
-export async function ritView(repo: Repo, actor: Actor, opts: { grade?: number; classId?: string; term?: string } = {}): Promise<RitView> {
+export async function ritView(repo: Repo, actor: Actor, opts: { grade?: number; classId?: string; term?: string; subject?: "READING" | "LANGUAGE" } = {}): Promise<RitView> {
   assertCan(actor, "reports:read");
   await ensureNationalNorms(repo);
   const all = await accessibleClasses(repo, actor);
@@ -95,14 +97,20 @@ export async function ritView(repo: Repo, actor: Actor, opts: { grade?: number; 
   const members = scope.length ? await repo.findMany("ClassMembership", { classId: { in: scope.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"] }) : [];
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
   if (!ids.length) return empty;
-  const results = (await repo.findMany("MapResult", { studentId: { in: ids } })).filter((r) => isReading(r.subject) && !r.goalName);
+  const wantLanguage = opts.subject === "LANGUAGE";
+  const results = (await repo.findMany("MapResult", { studentId: { in: ids } })).filter((r) => (wantLanguage ? /language/i.test(s(r.subject)) : isReading(r.subject)) && !r.goalName);
   const time = (r: Row) => new Date(iso(r.testDate)).getTime();
   const termOf = (r: Row) => { if (s(r.termName).trim()) return s(r.termName).trim(); const se = seasonOf(null, r.testDate); return `${se[0]}${se.slice(1).toLowerCase()} ${new Date(iso(r.testDate)).getUTCFullYear()}`; };
   const terms = [...new Set([...results].sort((a, b) => time(b) - time(a)).map(termOf))];
   const term = opts.term && terms.includes(opts.term) ? opts.term : terms[0] ?? null;
   if (!term) return { ...empty, terms };
   const season = seasonOf(term);
-  const norm = await nationalNorm(repo, grade, season);
+  // Reading: mean + SD (2025 norms). Language Usage: the grade-level mean from NWEA's Grade Report (Fall);
+  // its SD is not known here, so its percentile is NWEA's own from the file (never estimated)
+  const LANGUAGE_FALL_MEAN: Record<number, number> = { 4: 194.7, 5: 201.9, 6: 206.5 };
+  const norm = wantLanguage
+    ? (season === "FALL" && LANGUAGE_FALL_MEAN[grade] ? { mean: LANGUAGE_FALL_MEAN[grade], sd: 0, source: "NWEA 2025 norms · Language Usage grade-level mean (Grade Report, Fall)" } : null)
+    : await nationalNorm(repo, grade, season);
   // one result per student for the term (their most recent test in it)
   const best = new Map<string, Row>();
   for (const r of results.filter((x) => termOf(x) === term)) { const cur = best.get(s(r.studentId)); if (!cur || time(r) > time(cur)) best.set(s(r.studentId), r); }
@@ -118,19 +126,19 @@ export async function ritView(repo: Repo, actor: Actor, opts: { grade?: number; 
     let national: RitRow["national"] = null;
     if (norm) {
       const imported = r.achievementPercentile !== null && r.achievementPercentile !== undefined;
-      const pct = imported ? Number(r.achievementPercentile) : Math.max(1, Math.min(99, Math.round(100 * phi((rit - norm.mean) / norm.sd))));
-      national = { mean: norm.mean, diff: rit - norm.mean, percentile: pct, estimated: !imported, band: bandOf(pct) };
+      const pct = imported ? Number(r.achievementPercentile) : norm.sd > 0 ? Math.max(1, Math.min(99, Math.round(100 * phi((rit - norm.mean) / norm.sd)))) : null;
+      national = { mean: norm.mean, diff: Math.round((rit - norm.mean) * 10) / 10, percentile: pct, estimated: !imported && pct !== null, band: pct === null ? null : bandOf(pct) };
     }
     const diffClass = Math.round((rit - classAvg) * 10) / 10;
     const fall = results.filter((x) => s(x.studentId) === sid && seasonOf(x.termName, x.testDate) === "FALL" && x.projectedGrowth !== null && x.projectedGrowth !== undefined && time(x) <= time(r)).sort((a, b) => time(b) - time(a))[0];
     const projection = fall ? Number(fall.rit) + Number(fall.projectedGrowth) : null;
     const vsProjection = projection !== null && season !== "FALL" ? rit - projection : null;
     const lexRow = r.lexile !== null && r.lexile !== undefined ? r : results.filter((x) => s(x.studentId) === sid && x.lexile !== null && x.lexile !== undefined).sort((a, b) => time(b) - time(a))[0];
-    return { lexile: lexRow ? Number(lexRow.lexile) : null, projection, vsProjection, rank: 0, studentId: sid, name: nameOf.get(sid) ?? "Student", className: scope.find((c) => c.id === cid)?.name ?? "", classId: cid, grade, rit, term, national, vsClass: diffClass > CLASS_BAND_RIT ? "ABOVE" : diffClass < -CLASS_BAND_RIT ? "BELOW" : "AT", classAvg, diffClass };
+    return { rapidGuess: r.rapidGuessPct === null || r.rapidGuessPct === undefined ? null : Number(r.rapidGuessPct), lexile: lexRow ? Number(lexRow.lexile) : null, projection, vsProjection, rank: 0, studentId: sid, name: nameOf.get(sid) ?? "Student", className: scope.find((c) => c.id === cid)?.name ?? "", classId: cid, grade, rit, term, national, vsClass: diffClass > CLASS_BAND_RIT ? "ABOVE" : diffClass < -CLASS_BAND_RIT ? "BELOW" : "AT", classAvg, diffClass };
   }).sort((a, b) => b.rit - a.rit || a.name.localeCompare(b.name));
   rows.forEach((r, i) => { r.rank = i > 0 && rows[i - 1].rit === r.rit ? rows[i - 1].rank : i + 1; });
   const bands: Record<string, number> = { Low: 0, LoAvg: 0, Avg: 0, HiAvg: 0, High: 0 };
-  for (const r of rows) if (r.national) bands[r.national.band]++;
+  for (const r of rows) if (r.national?.band) bands[r.national.band]++;
   return {
     grades, classes, terms, grade, classId: cls?.id ?? null, term, season, norm, rows, canEdit,
     summary: {

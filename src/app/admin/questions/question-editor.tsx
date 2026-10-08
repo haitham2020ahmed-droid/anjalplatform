@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { MapPlacePicker } from "@/components/curriculum-map/place-picker";
 import { useState, useTransition } from "react";
 import type { EditorInput } from "@/server/admin/questions";
 import { field, label } from "@/components/admin/styles";
@@ -81,14 +82,10 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
             </div>
           </fieldset>
           {q.mapNodeCode && (
-            <label className={label}>Place on the Curriculum Map
-              <select value={q.mapNodeCode} onChange={(e) => set({ mapNodeCode: e.target.value })} className={field}>
-                {[...new Set(places.map((p) => `${p.grade}|${p.unit}`))].map((gu) => {
-                  const [g, u] = gu.split("|").map(Number);
-                  return <optgroup key={gu} label={`Grade ${g} · Unit ${u}`}>{places.filter((p) => p.grade === g && p.unit === u).map((p) => <option key={p.code} value={p.code}>{p.path.split(" › ").slice(2).join(" › ")}</option>)}</optgroup>;
-                })}
-              </select>
-            </label>
+            <div className={label}>Place on the Curriculum Map <span className="font-normal text-slate-500">(Grade → Unit → Text Set → Category → Level)</span>
+              {/* an unfinished choice is never saved to the previous place: “?” makes saving ask for a place */}
+              <MapPlacePicker places={places} value={q.mapNodeCode === "?" ? null : q.mapNodeCode} mode="place" onChange={(c) => set({ mapNodeCode: c ?? "?" })} className="mt-1" />
+            </div>
           )}
           <fieldset>
             <legend className="text-sm font-semibold text-slate-700">Also use for (optional)</legend>

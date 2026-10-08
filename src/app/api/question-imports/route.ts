@@ -30,7 +30,7 @@ export async function POST(req: Request) {
   const actor = await apiActor();
   if (!actor) return reply({ error: "Your session has ended. Sign in again, then upload the file.", stage: "session" }, 401);
   if (!can(actor, "questions:edit")) return reply({ error: "You do not have permission to import questions.", stage: "permission" }, 403);
-  if (Number(h.get("content-length") ?? 0) > MAX_IMPORT_BYTES + 64_000) return reply({ error: "The file is larger than 10 MB. Split it into smaller files.", stage: "upload" }, 413);
+  if (Number(h.get("content-length") ?? 0) > MAX_IMPORT_BYTES + 64_000) return reply({ error: "The file is larger than 50 MB. Split it into smaller files.", stage: "upload" }, 413);
 
   let file: FormDataEntryValue | null;
   let target: "BANK" | "CURRICULUM" = "BANK";

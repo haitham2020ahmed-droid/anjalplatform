@@ -14,7 +14,7 @@ const t = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).g
 export interface Recommendation { studentId: string; name: string; rit: number | null; areas: { name: string; rit: number | null }[]; skills: { id: string; name: string; area: string; mastery: number | null }[] }
 
 /** Skills of a grade grouped by MAP goal area (skills with questions to practise). */
-async function gradeAreaSkills(repo: Repo, schoolId: string, grade: number): Promise<{ areaId: string; area: string; skills: { id: string; name: string }[] }[]> {
+export async function gradeAreaSkills(repo: Repo, schoolId: string, grade: number, includeEmpty = false): Promise<{ areaId: string; area: string; skills: { id: string; name: string }[] }[]> {
   const gs = await repo.findMany("Grade", { schoolId, level: grade }, { select: ["id"] });
   const curs = gs.length ? await repo.findMany("Curriculum", { gradeId: { in: gs.map((g) => g.id) } }, { select: ["id"] }) : [];
   const skills = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, isActive: true, deletedAt: null }, { select: ["id", "name", "familyId"] }) : [];
@@ -23,7 +23,7 @@ async function gradeAreaSkills(repo: Repo, schoolId: string, grade: number): Pro
   const areas = await repo.findMany("MapGoalArea", { id: { in: [...new Set(fams.map((f) => s(f.mapGoalAreaId)).filter(Boolean))] } }, { select: ["id", "name"] });
   const withQ = new Set((await repo.findMany("Question", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId"] })).map((q) => s(q.skillId)));
   const areaOf = new Map(fams.map((f) => [s(f.id), s(f.mapGoalAreaId)]));
-  return areas.map((a) => ({ areaId: s(a.id), area: s(a.name), skills: skills.filter((k) => areaOf.get(s(k.familyId)) === a.id && withQ.has(s(k.id))).map((k) => ({ id: s(k.id), name: s(k.name) })) })).filter((a) => a.skills.length);
+  return areas.map((a) => ({ areaId: s(a.id), area: s(a.name), skills: skills.filter((k) => areaOf.get(s(k.familyId)) === a.id && (includeEmpty || withQ.has(s(k.id)))).map((k) => ({ id: s(k.id), name: s(k.name) })) })).filter((a) => a.skills.length);
 }
 
 async function recommendFor(repo: Repo, studentIds: string[], areaSkills: Awaited<ReturnType<typeof gradeAreaSkills>>, names: Map<string, string>): Promise<Recommendation[]> {
@@ -36,9 +36,10 @@ async function recommendFor(repo: Repo, studentIds: string[], areaSkills: Awaite
   const openA = open.filter((o) => o.status !== "COMPLETED");
   const aRows = openA.length ? await repo.findMany("Assignment", { id: { in: [...new Set(openA.map((o) => o.assignmentId))] }, deletedAt: null }, { select: ["id", "skillId", "track"] }) : [];
   return studentIds.map((sid) => {
-    const mine = results.filter((r) => s(r.studentId) === sid && /read/i.test(s(r.subject))).sort((a, b) => t(b.testDate) - t(a.testDate));
-    const overall = mine.find((r) => !r.goalName);
-    const term = overall ? s(overall.termName) : null;
+    // Reading overall for the RIT; goal areas of Reading AND Language Usage from the latest term
+    const mine = results.filter((r) => s(r.studentId) === sid).sort((a, b) => t(b.testDate) - t(a.testDate));
+    const overall = mine.find((r) => !r.goalName && /read/i.test(s(r.subject)));
+    const term = overall ? s(overall.termName) : s(mine.find((r) => r.goalName)?.termName ?? "") || null;
     const goals = mine.filter((r) => r.goalName && (!term || s(r.termName) === term));
     // weakest areas: by goal RIT when the MAP file had goals; otherwise every area (lowest mastery first)
     const rankedAreas = goals.length

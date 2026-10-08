@@ -15,26 +15,32 @@ const VS: Record<string, [string, string]> = { ABOVE: ["Above class average", "t
 const signed = (n: number) => (n > 0 ? `+${n}` : String(n));
 
 /** 🗺️ MAP Reading RIT: ranking against the national average and the class average (Grades 4–6). */
-export default async function MapRitPage({ searchParams }: { searchParams: Promise<{ grade?: string; classId?: string; term?: string; msg?: string }> }) {
+export default async function MapRitPage({ searchParams }: { searchParams: Promise<{ grade?: string; classId?: string; term?: string; msg?: string; subject?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
-  const v = await ritView(repo, actor, { grade: Number(sp.grade) || undefined, classId: sp.classId || undefined, term: sp.term || undefined });
+  const subject = sp.subject === "language" ? "LANGUAGE" : "READING";
+  const v = await ritView(repo, actor, { grade: Number(sp.grade) || undefined, classId: sp.classId || undefined, term: sp.term || undefined, subject });
   const isAdmin = actor.role !== "TEACHER";
   const roster = v.classId ? await classLevels(repo, actor, v.classId) : null;
   const ritOf = new Map(v.rows.map((r) => [r.studentId, r.rit]));
   const norms = isAdmin && can(actor, "settings:school") ? await Promise.all([4, 5, 6].map(async (g) => ({ g, s: await Promise.all(SEASONS.map(async (se) => ({ se, n: await nationalNorm(repo, g, se) }))) }))) : null;
-  const link = (p: Record<string, string | number | null | undefined>) => `/teacher/map-rit?${new URLSearchParams(Object.entries(p).filter(([, x]) => x !== null && x !== undefined && x !== "").map(([k, x]) => [k, String(x)]))}`;
+  const link = (p0: Record<string, string | number | null | undefined>) => { const p = { ...p0, subject: subject === "LANGUAGE" ? "language" : undefined }; return `/teacher/map-rit?${new URLSearchParams(Object.entries(p).filter(([, x]) => x !== null && x !== undefined && x !== "").map(([k, x]) => [k, String(x)]))}`; };
   const pill = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`;
   const box = "rounded-lg border border-slate-300 px-3 py-2";
   const tile = (label: string, value: string, extra = "") => <div className="rounded-xl bg-white p-4 ring-1 ring-slate-200"><dt className="text-xs text-slate-500">{label}</dt><dd className={`text-2xl font-bold text-brand-navy ${extra}`}>{value}</dd></div>;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: isAdmin ? "/admin" : "/teacher", label: "Back" }} icon="🗺️" title="MAP Reading · RIT" subtitle={<>Students ranked by RIT, compared with the national average for their grade and season (NWEA norms) and with their class average (±{3} RIT counts as “at” the average).</>}><Link href="/teacher/map-recommendations" className="rounded-xl bg-amber-100 px-4 py-2 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">💡 Recommendations</Link></PageHeader>
+      <PageHeader back={{ href: isAdmin ? "/admin" : "/teacher", label: "Back" }} icon="🗺️" title="MAP Reading · RIT" subtitle={<>Students ranked by RIT, compared with the national average for their grade and season (NWEA norms) and with their class average (±{3} RIT counts as “at” the average).</>}><Link href="/teacher/map-recommendations" className="rounded-xl bg-amber-100 px-4 py-2 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">💡 Recommendations</Link>
+          <Link href="/teacher/personal-plan" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📋 Personalized plan</Link>
+          <Link href="/teacher/intervention" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🚨 Intervention</Link></PageHeader>
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {v.canEdit && (
         <MapImportBox classId={v.classId} className={v.classes.find((c) => c.id === v.classId)?.name ?? null} run={importMapScoresInline} />
       )}
+      <nav aria-label="Subject" className="mt-4 flex flex-wrap gap-2">
+        {([["READING", "📖 Reading"], ["LANGUAGE", "✍️ Language Usage"]] as const).map(([k, l]) => <Link key={k} href={`/teacher/map-rit?${new URLSearchParams({ ...(v.classId ? { classId: v.classId } : v.grade ? { grade: String(v.grade) } : {}), ...(k === "LANGUAGE" ? { subject: "language" } : {}) })}`} aria-current={subject === k ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-bold ${subject === k ? "bg-emerald-600 text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{l}</Link>)}
+      </nav>
       <nav aria-label="Grade" className="mt-4 flex flex-wrap gap-2">
         {v.grades.map((g) => <Link key={g} href={link({ grade: g })} className={pill(v.grade === g && !v.classId)} aria-current={v.grade === g && !v.classId ? "page" : undefined}>Grade {g} (all classes)</Link>)}
       </nav>
@@ -43,7 +49,7 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
       </nav>
       {v.terms.length > 1 && (
         <form className="mt-3 flex items-center gap-2 text-sm">
-          {v.classId ? <input type="hidden" name="classId" value={v.classId} /> : <input type="hidden" name="grade" value={v.grade ?? ""} />}
+          {v.classId ? <input type="hidden" name="classId" value={v.classId} /> : <input type="hidden" name="grade" value={v.grade ?? ""} />}{subject === "LANGUAGE" && <input type="hidden" name="subject" value="language" />}
           <label>Term <select name="term" defaultValue={v.term ?? ""} className={box}>{v.terms.map((t) => <option key={t}>{t}</option>)}</select></label>
           <button className="rounded-lg px-3 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">Show</button>
         </form>
@@ -69,10 +75,10 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
               <tbody>{v.rows.map((r) => (
                 <tr key={r.studentId} className="border-b last:border-0">
                   <td className="p-3 font-bold tabular-nums">{r.rank}</td><td className="font-medium">{r.name}</td>{!v.classId && <td>{r.className}</td>}
-                  <td className="font-semibold tabular-nums">{r.rit}</td>
+                  <td className="font-semibold tabular-nums">{r.rit}{r.rapidGuess !== null && r.rapidGuess >= 15 && <span className={`ms-1 rounded px-1 text-xs font-bold ${r.rapidGuess >= 30 ? "bg-red-100 text-red-800" : "bg-amber-100 text-amber-900"}`} title={`Rapid guessing ${r.rapidGuess}% — ${r.rapidGuess >= 30 ? "NWEA suggests a retest: the score may be lower than the student’s real level" : "interpret with care"}`}>{r.rapidGuess >= 30 ? "⚠️" : "⚑"} {r.rapidGuess}%</span>}</td>
                   <td className={`tabular-nums ${r.national && r.national.diff >= 0 ? "text-emerald-700" : "text-red-700"}`}>{r.national ? signed(r.national.diff) : "—"}</td>
-                  <td className="tabular-nums">{r.national ? `${r.national.estimated ? "≈" : ""}${r.national.percentile}` : "—"}</td>
-                  <td>{r.national && <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${BAND_STYLE[r.national.band]}`}>{r.national.band}</span>}</td>
+                  <td className="tabular-nums">{r.national?.percentile != null ? `${r.national.estimated ? "≈" : ""}${r.national.percentile}` : "—"}</td>
+                  <td>{r.national?.band && <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${BAND_STYLE[r.national.band]}`}>{r.national.band}</span>}</td>
                   <td className={VS[r.vsClass][1]}>{VS[r.vsClass][0]} <span className="text-xs text-slate-500">({signed(r.diffClass)})</span></td>
                   <td className="tabular-nums">{r.projection === null ? "—" : <>{r.projection}{r.vsProjection !== null && <span className={`ms-1 text-xs font-semibold ${r.vsProjection >= 0 ? "text-emerald-700" : "text-red-700"}`}>({r.vsProjection >= 0 ? "met" : `${signed(r.vsProjection)} to go`})</span>}</>}</td>
                   <td className="tabular-nums">{r.lexile === null ? "—" : `${r.lexile}L`}</td>

@@ -84,7 +84,7 @@ describe("adaptive curriculum levels (Below → On → Above) driven by Lexile",
     });
 
     test("a student whose MAP Lexile is high starts at Above, with the text closest to their Lexile", async () => {
-      await importMapScores(repo, teacher, [MAP_TEMPLATE_HEADERS, [String((await repo.findUnique("Student", { id: roster[1].id }))!.studentNumber), "", "215", "220", "", "955"]], 2026);
+      await importMapScores(repo, teacher, [MAP_TEMPLATE_HEADERS, [String((await repo.findUnique("Student", { id: roster[1].id }))!.studentNumber), "", "", "215", "", "220", "955"]], 2026);
       const st = await student(roster[1].id);
       const v = await startQuiz(repo, st, adaptiveId);
       const q = (await repo.findUnique("Question", { id: v.question!.questionId }))!;

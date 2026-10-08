@@ -57,6 +57,8 @@ export interface RosterLine {
   parentOf: string[]; // student numbers
   relationship: string | null;
   existingUserId: string | null;
+  /** an archived account (Clean roster) that this roster brings back: reactivated with a new temporary password */
+  restore?: boolean;
 }
 
 export interface RosterPlan {
@@ -178,6 +180,7 @@ export async function planRoster(repo: Repo, actor: Actor, fileName: string, byt
       line, action: existing ? "update" : "create", role, username, displayName, email, studentNumber, grade,
       classes: classNames, title: get("title") || null, parentOf: split(get("parent_of")), relationship: get("relationship") || null,
       existingUserId: existing ? String(existing.id) : null,
+      restore: Boolean(existing && (existing.deletedAt || existing.isActive === false || existing.isActive === 0)),
     });
   });
 
@@ -201,9 +204,11 @@ export async function planRoster(repo: Repo, actor: Actor, fileName: string, byt
 export interface RosterResult {
   created: number;
   updated: number;
+  /** archived accounts brought back (they get a new temporary password too) */
+  restored: number;
   classesCreated: number;
   links: number;
-  /** username, display name, role, temporary password — for NEW users only; shown once. */
+  /** username, display name, role, temporary password — for new and restored users; shown once. */
   credentialsCsv: string;
 }
 
@@ -215,7 +220,7 @@ export async function applyRoster(repo: Repo, actor: Actor, fileName: string, by
   // hash passwords before the transaction (scrypt is deliberately slow)
   const creds: [string, string, string, string][] = [];
   const hashes = new Map<string, string>();
-  for (const l of plan.lines.filter((x) => x.action === "create")) {
+  for (const l of plan.lines.filter((x) => x.action === "create" || x.restore)) {
     const temp = temporaryPassword();
     hashes.set(l.username, await hashPassword(temp));
     creds.push([l.username, l.displayName, l.role, temp]);
@@ -248,6 +253,12 @@ export async function applyRoster(repo: Repo, actor: Actor, fileName: string, by
         }
       } else {
         await tx.updateMany("User", { id: userId }, { displayName: l.displayName, ...(l.email ? { email: l.email } : {}), updatedAt: now });
+        if (l.restore) {
+          // back from the archive (Clean roster): active again, a new temporary password, history kept
+          const u0 = await tx.findUnique("User", { id: userId });
+          await tx.updateMany("User", { id: userId }, { isActive: true, deletedAt: null, passwordHash: hashes.get(l.username), mustChangePassword: true, failedLogins: 0, lockedUntil: null, sessionVersion: Number(u0?.sessionVersion ?? 0) + 1 });
+          if (l.role === "STUDENT") await tx.updateMany("Student", { userId }, { deletedAt: null });
+        }
         if (l.role === "TEACHER" && l.title) await tx.updateMany("Teacher", { userId }, { title: l.title });
       }
       if (l.role === "STUDENT" && l.classes.length) {
@@ -282,7 +293,7 @@ export async function applyRoster(repo: Repo, actor: Actor, fileName: string, by
     return { classesCreated, links };
   });
   return {
-    created: plan.summary.create, updated: plan.summary.update, ...res,
+    created: plan.summary.create, updated: plan.summary.update, restored: plan.lines.filter((l) => l.restore).length, ...res,
     credentialsCsv: toCsv([["username", "display_name", "role", "temporary_password"], ...creds]),
   };
 }

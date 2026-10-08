@@ -16,8 +16,8 @@ const GROUPS = [
   { key: "school", icon: "🏫", title: "School & data" },
 ] as const;
 function groupOf(href: string): (typeof GROUPS)[number]["key"] {
-  if (/curriculum-map|\/questions|readmaster|question-bank|\/plans|\/curriculum$/.test(href)) return "content";
-  if (/map-rit|map-recommendations|curriculum-results|levels|performance|analytics/.test(href)) return "results";
+  if (/curriculum-map|\/questions|readmaster|question-bank|bank-gaps|\/plans|\/curriculum$/.test(href)) return "content";
+  if (/map-rit|map-recommendations|curriculum-results|levels|performance|analytics|intervention|personal-plan/.test(href)) return "results";
   if (/users|roster/.test(href)) return "people";
   return "school";
 }
@@ -29,6 +29,10 @@ export default async function AdminHome() {
     { href: "/admin/performance", title: "Teacher & student performance", text: "Every teacher, class and student at a glance: mastery, completion, overdue work, skills that need work.", show: can(actor, "analytics:school") },
     { href: "/admin/users", title: "Users", text: "Students, teachers, parents and admins; classes and parent links.", show: can(actor, "students:manage") || can(actor, "teachers:manage") },
     { href: "/admin/roster", title: "Import users", text: "Add or update many users at once from a CSV or Excel file.", show: can(actor, "students:manage") },
+    { href: "/admin/bank-gaps", title: "🕳 Question bank gaps", text: "Where to write questions first: questions per MAP goal area vs. the students who need it.", show: can(actor, "questions:read") },
+    { href: "/teacher/intervention", title: "🚨 Intervention", text: "Students who need attention now, from MAP and the platform.", show: can(actor, "assignments:create") },
+    { href: "/teacher/personal-plan", title: "📋 Personalized plans", text: "Generated from MAP for every class: Word / PDF.", show: can(actor, "assignments:create") },
+    { href: "/admin/roster/clean", title: "🧹 Clean roster", text: "Archive or delete students (school, grade or class) before loading a new roster.", show: can(actor, "students:manage") },
     { href: "/admin/readmaster", title: "⭐ ReadMaster", text: "Leveled articles (Achieve3000-style): the same text in Below / On / Above versions; each student reads their Lexile's version, which moves after every article.", show: can(actor, "questions:read") },
     { href: "/teacher/plans", title: "🗂️ Skill plans", text: "Curriculum Map places assigned together; students open the plan as a map.", show: can(actor, "assignments:read") },
     { href: "/teacher/map-recommendations", title: "💡 MAP recommendations", text: "Skills each student needs, from their MAP scores.", show: can(actor, "reports:read") },

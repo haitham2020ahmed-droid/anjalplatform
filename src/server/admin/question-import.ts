@@ -16,6 +16,7 @@
  * FAILED job with the reasons, so the import history shows failed attempts too. No AI is used.
  */
 import { createHash, randomBytes } from "node:crypto";
+import { saveQuestionImage } from "./question-images";
 import { LEVEL_TO_B } from "../../config/engine";
 import { ExtractError, extract, type FileKind } from "../../imports/questions/extract";
 import {
@@ -98,7 +99,7 @@ function toInput(q: RowQuestion, skillId: string, standardCode: string | null, j
  * Checks an editor input against the curriculum and the bank rules without any database access.
  * Returns every problem (empty = valid).
  */
-export function checkInput(idx: CurriculumIndex, input: EditorInput, opts: { allowNoStandard?: boolean } = {}): string[] {
+export function checkInput(idx: CurriculumIndex, input: EditorInput, opts: { allowNoStandard?: boolean; allowUnlinkedStandard?: boolean } = {}): string[] {
   const skill = input.skillId ? skillById(idx, input.skillId) : null;
   if (!skill) return ["Choose a skill that exists on the platform."];
   const errors: string[] = [];
@@ -109,7 +110,7 @@ export function checkInput(idx: CurriculumIndex, input: EditorInput, opts: { all
   }
   if (!input.standardCode) errors.push("Choose the standard this question assesses.");
   else if (!std) errors.push(`Standard “${input.standardCode}” does not exist on the platform.`);
-  else if (skill.standards.length && !skill.standards.some((s) => shortStandard(s.code) === shortStandard(std.code))) {
+  else if (!opts.allowUnlinkedStandard && skill.standards.length && !skill.standards.some((s) => shortStandard(s.code) === shortStandard(std.code))) {
     errors.push(`Standard ${shortStandard(std.code)} is not linked to skill “${skill.name}”. Its standards are: ${skill.standards.map((s) => shortStandard(s.code)).join(", ")}.`);
   }
   if (errors.length) return errors;
@@ -137,10 +138,33 @@ function friendlyBankErrors(message: string): string[] {
 
 // ------------------------------------------------------------- duplicates
 
-async function duplicateIndex(repo: Repo, skillIds: string[]): Promise<{ index: DuplicateIndex; stems: Map<string, { stem: string; status: string }> }> {
-  const index = new DuplicateIndex();
+/** A passage's fingerprint (“” when there is none): the same question text about another passage is another question. */
+export const passageKey = (text: unknown) => String(text ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "").slice(0, 600);
+
+/**
+ * Duplicate lookup that respects passages: a question WITH a passage is compared only with questions about the
+ * same passage (“What is the main idea?” about two texts = two questions); a question WITHOUT a passage cannot be
+ * about another text, so it is compared with every question (as before).
+ */
+export class PassageDuplicates {
+  private byPassage = new Map<string, DuplicateIndex>();
+  private all = new DuplicateIndex();
+  add(id: string, stem: string, options: string[], passage: string): void {
+    let ix = this.byPassage.get(passage);
+    if (!ix) { ix = new DuplicateIndex(); this.byPassage.set(passage, ix); }
+    ix.add(id, stem, options);
+    this.all.add(id, stem, options);
+  }
+  find(stem: string, options: string[], passage: string) {
+    return passage ? this.byPassage.get(passage)?.find(stem, options) ?? null : this.all.find(stem, options);
+  }
+}
+
+async function duplicateIndex(repo: Repo, skillIds: string[]): Promise<{ index: PassageDuplicates; stems: Map<string, { stem: string; status: string }>; passageOf: Map<string, string> }> {
+  const index = new PassageDuplicates();
   const stems = new Map<string, { stem: string; status: string }>();
-  if (!skillIds.length) return { index, stems };
+  const passageOf = new Map<string, string>();
+  if (!skillIds.length) return { index, stems, passageOf };
   const qs = (await repo.findMany("Question", { skillId: { in: skillIds } })).filter((q) => !q.deletedAt && q.status !== "ARCHIVED");
   const opts = qs.length ? await repo.findMany("QuestionOption", { questionId: { in: qs.map((q) => q.id) } }) : [];
   const byQ = new Map<string, Row[]>();
@@ -149,12 +173,17 @@ async function duplicateIndex(repo: Repo, skillIds: string[]): Promise<{ index: 
     if (!byQ.has(k)) byQ.set(k, []);
     byQ.get(k)!.push(o);
   }
+  const pIds = [...new Set(qs.map((q) => q.passageId).filter(Boolean).map(String))];
+  const passages = pIds.length ? await repo.findMany("ReadingPassage", { id: { in: pIds } }, { select: ["id", "body"] }) : [];
+  const bodyOf = new Map(passages.map((x) => [String(x.id), passageKey(x.body)]));
   for (const q of qs) {
     const o = (byQ.get(String(q.id)) ?? []).sort((a, b) => Number(a.order) - Number(b.order)).map((x) => String(x.text));
-    index.add(String(q.id), String(q.stem), o);
+    const pk = q.passageId ? bodyOf.get(String(q.passageId)) ?? "" : "";
+    index.add(String(q.id), String(q.stem), o, pk);
     stems.set(String(q.id), { stem: String(q.stem), status: String(q.status) });
+    passageOf.set(String(q.id), pk);
   }
-  return { index, stems };
+  return { index, stems, passageOf };
 }
 
 const optionTexts = (i: EditorInput | null | undefined) => i?.options?.map((o) => o.text) ?? [];
@@ -193,8 +222,9 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
 
   let kind: FileKind;
   let table: string[][];
+  let images: Map<number, Uint8Array> | undefined;
   try {
-    ({ kind, table } = extract(fileName, input.bytes));
+    ({ kind, table, images } = extract(fileName, input.bytes));
   } catch (e) {
     const msg = e instanceof ExtractError ? e.message : `The file could not be read: ${(e as Error).message}`;
     return fail(null, "read", msg, [msg]);
@@ -236,9 +266,27 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
       // no platform skill: the grade's Unclassified skill (the question is still on the map and in the bank)
       const sid = rr.grade ? unclassified.get(rr.grade) : undefined;
       const sk = sid ? skillById(idx, sid) : null;
-      cm = { skill: sk, standard: null, errors: sk ? [] : rr.grade ? [`Grade ${rr.grade} has no Curriculum Map.`] : [], warnings: [] };
+      // the file's standard is kept when it is a real CCSS code (e.g. L.4.4.a), even without a skill
+      const stdCell = (r.cells.standard ?? "").trim();
+      const fileStd = stdCell ? idx.standards.get(shortStandard(stdCell)) ?? null : null;
+      cm = { skill: sk, standard: fileStd, errors: sk ? [] : rr.grade ? [`Grade ${rr.grade} has no Curriculum Map.`] : [], warnings: stdCell && !fileStd ? [`Standard “${stdCell}” is not a CCSS code: saved without a standard.`] : [] };
     } else {
       cm = matchCurriculum(idx, rr.grade, r.cells.skill ?? "", r.cells.standard ?? "");
+      if (target === "CURRICULUM" && place?.node) {
+        // On the Curriculum Map the PLACE decides where the question goes: a skill name the platform does not
+        // know, or a standard not linked to the skill, is a warning here, never a reason to lose the question.
+        const fileStd = idx.standards.get(shortStandard(r.cells.standard ?? "")) ?? null;
+        const notFound = cm.errors.some((e) => /was not found in Grade/.test(e));
+        const notLinked = cm.errors.filter((e) => /is not linked to skill/.test(e));
+        if (notFound) {
+          const sid = unclassified.get(place.node.grade);
+          const sk = sid ? skillById(idx, sid) : null;
+          if (sk) cm = { skill: sk, standard: fileStd, errors: cm.errors.filter((e) => !/was not found in Grade|is not linked to skill|does not exist on the platform/.test(e)), warnings: [...cm.warnings, `Skill “${(r.cells.skill ?? "").trim()}” is not a platform skill: the question is placed by its Curriculum Map place.`] };
+        } else if (notLinked.length) {
+          cm = { ...cm, standard: fileStd ?? cm.standard, errors: cm.errors.filter((e) => !/is not linked to skill/.test(e)), warnings: [...cm.warnings, ...notLinked.map((e) => `${e} The file's standard is kept.`)] };
+        }
+        if (cm.errors.some((e) => /does not exist on the platform/.test(e))) cm = { ...cm, standard: null, errors: cm.errors.filter((e) => !/does not exist on the platform/.test(e)), warnings: [...cm.warnings, `Standard “${(r.cells.standard ?? "").trim()}” is not a CCSS code: saved without a standard.`] };
+      }
       if (target === "CURRICULUM" && !(r.cells.standard ?? "").trim()) {
         // standard optional here: the skill's primary standard when it has one
         cm.errors = cm.errors.filter((e) => !e.startsWith("Standard is empty"));
@@ -250,7 +298,7 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
   });
   const gradesInFile = new Set(read.map((x) => x.cm.skill?.grade).filter((g): g is number => g !== undefined));
   const { index: existing } = await duplicateIndex(repo, [...gradesInFile].flatMap((g) => idx.grades.get(g) ?? []).map((s) => s.id));
-  const inFile = new DuplicateIndex();
+  const inFile = new PassageDuplicates();
   const rowOfStem = new Map<string, number>();
 
   const logs: Row[] = [];
@@ -268,13 +316,23 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
       if (lv && lv !== place.node.level) warnings.push(`Lexile ${lexile}L is in the ${LN[lv]} Level band for Grade ${place.node.grade} (On Level ${bands[place.node.grade].onMin}–${bands[place.node.grade].onMax}L), but the question is placed at ${LN[place.node.level]} Level.`);
     }
     const editor = rr.question ? { ...toInput(rr.question, cm.skill?.id ?? "", standardCode, null), ...(place?.node ? { mapNodeCode: place.node.code } : {}), ...(uses.uses.length ? { uses: uses.uses } : {}), ...(lexile !== null ? { lexile } : {}) } : null;
-    if (editor && !errors.length) errors.push(...checkInput(idx, editor, { allowNoStandard: target === "CURRICULUM" }));
-    let dup = editor && editor.stem ? existing.find(editor.stem, optionTexts(editor)) : null;
-    const fileDup = editor && editor.stem ? inFile.find(editor.stem, optionTexts(editor)) : null;
+    // a picture placed on this row of the sheet is this question's picture (saved once, shared if identical)
+    const pic = images?.get(r.row - 1);
+    if (editor && pic && !errors.length) {
+      try { editor.imageId = (await saveQuestionImage(repo, actor, pic, null, now)).id; }
+      catch (e) { errors.push(`The picture on this row cannot be used: ${(e as Error).message}`); }
+    }
+    if (editor && !errors.length) errors.push(...checkInput(idx, editor, { allowNoStandard: target === "CURRICULUM", allowUnlinkedStandard: target === "CURRICULUM" }));
+    // an open-response question (a long model answer) cannot be marked automatically: say so plainly
+    for (let k = 0; k < errors.length; k++) if (/^Accepted answer must be \d+ characters or fewer/.test(errors[k])) errors[k] = "Open-response question: its answer is a model answer, and the platform marks only short answers automatically (up to 200 characters each). Put the model answer in Explanation and one or more short accepted answers in Correct Answer (separated by |), or leave this question out.";
+    // the same words about ANOTHER passage are another question (e.g. “What is the main idea of the text?”)
+    const myPassage = passageKey(r.cells.passage);
+    let dup = editor && editor.stem ? existing.find(editor.stem, optionTexts(editor), myPassage) : null;
+    const fileDup = editor && editor.stem ? inFile.find(editor.stem, optionTexts(editor), myPassage) : null;
     if (dup) warnings.push(dup.exact ? "This question already exists in the question bank." : `A similar question already exists in the question bank (${Math.round(dup.score * 100)}% similar).`);
     if (fileDup) warnings.push(`${fileDup.exact ? "Same question as" : "Very similar to"} row ${rowOfStem.get(fileDup.id)} in this file.`);
     if (editor?.stem) {
-      inFile.add(`r${i}`, editor.stem, optionTexts(editor));
+      inFile.add(`r${i}`, editor.stem, optionTexts(editor), myPassage);
       rowOfStem.set(`r${i}`, r.row);
     }
     if (!dup && fileDup) dup = { ...fileDup, id: "" };
@@ -431,10 +489,10 @@ export async function updateImportRow(repo: Repo, actor: Actor, jobId: string, r
     const curriculum = parseJ<{ target?: string }>(job.options)?.target === "CURRICULUM";
     const input: EditorInput = { mapNodeCode: prev.input?.mapNodeCode, uses: prev.input?.uses, ...patch.input, imported: true, batch: jobId };
     const idx = await loadCurriculumIndex(repo, actor, { includeUnclassified: curriculum });
-    const errors = checkInput(idx, input, { allowNoStandard: curriculum });
+    const errors = checkInput(idx, input, { allowNoStandard: curriculum, allowUnlinkedStandard: curriculum });
     const skill = skillById(idx, input.skillId);
     const { index } = await duplicateIndex(repo, skill ? (idx.grades.get(skill.grade) ?? []).map((s) => s.id) : []);
-    const dup = errors.length ? null : index.find(input.stem, optionTexts(input));
+    const dup = errors.length ? null : index.find(input.stem, optionTexts(input), passageKey(prev.meta?.passage));
     const std = input.standardCode ? idx.standards.get(shortStandard(input.standardCode)) : undefined;
     Object.assign(data, {
       detected: { input, meta: { ...prev.meta, grade: skill?.grade ?? prev.meta.grade, skillName: skill?.name ?? null, standardCode: std ? shortStandard(std.code) : null, duplicateExact: Boolean(dup?.exact) } } satisfies DetectedRow,
@@ -527,6 +585,7 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
         // teachers' imports wait for an admin straight away (no need to send each one for review)
         status: published ? "PUBLISHED" : can(actor, "questions:publish") ? "DRAFT" : "UNDER_REVIEW", origin: "IMPORTED", aiStatus: null, lessonId: null,
         lexile: p.input.lexile ?? null,
+        imageId: p.input.imageId ?? null,   // the picture placed on the question's row in the Excel file
         tags: { ...(p.input.cognitiveLevel ? { cognitiveLevel: p.input.cognitiveLevel } : {}), importJob: jobId },
         createdById: actor.userId, ...(published ? { publishedAt: now, reviewedById: actor.userId } : {}), createdAt: now, updatedAt: now,
       });
@@ -592,7 +651,7 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
     if (l.status === "INVALID" || !det.input) { failed.push({ id: String(l.id), errors: parseJ<string[] | null>(l.errors) ?? ["the question has errors"] }); continue; }
     if (!l.selected || l.decision === "SKIP") { skip.push(String(l.id)); continue; }
     const input = det.input;
-    const problems = checkInput(idx!, input, { allowNoStandard: target === "CURRICULUM" }); // the curriculum may have changed since the preview
+    const problems = checkInput(idx!, input, { allowNoStandard: target === "CURRICULUM", allowUnlinkedStandard: target === "CURRICULUM" }); // the curriculum may have changed since the preview
     if (problems.length) { failed.push({ id: String(l.id), errors: problems }); continue; }
     const skill = skillById(idx!, input.skillId)!;
     const std = input.standardCode ? idx!.standards.get(shortStandard(input.standardCode)) ?? null : null;

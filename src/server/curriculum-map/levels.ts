@@ -12,6 +12,7 @@ import { assertClassAccess } from "../teacher/assignments";
 import { accessibleClasses, assignQuestions } from "../teacher/assign";
 import { attachmentNodes, type AttachmentNode } from "./questions";
 import { bridgeOf } from "./bridge";
+import { fromDifficulty } from "./leveled-run";
 
 const s = (v: unknown) => String(v ?? "");
 export type Level = "ABOVE" | "ON" | "BELOW";
@@ -142,6 +143,21 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
   if (places.length === 1 && !places[0].level) {
     const ids = counts.get(places[0].id)!;
     if (!ids.length) throw new ValidationError("There are no published questions on this place yet. Add or import questions first.");
+    // a place without map levels (e.g. Concept Vocabulary) whose questions have different difficulties is adaptive
+    // too: each student starts at their level and moves Below → On → Above by their answers (difficulty ≤3 / 4 / ≥5)
+    const diffs = await repo.findMany("Question", { id: { in: ids } }, { select: ["difficultyLevel"] });
+    const spread = new Set(diffs.map((q) => fromDifficulty(Number(q.difficultyLevel ?? 4))));
+    if ((input.mode ?? "ADAPTIVE") === "ADAPTIVE" && spread.size >= 2) {
+      const maxQ = Math.max(5, Math.min(60, input.maxQuestions ?? 20));
+      const r = await assignQuestions(repo, actor, {
+        classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: ids, track: "CURRICULUM", exactTitle: true,
+        title: `${base} (adaptive: Below → On → Above)`, adaptive: { maxQuestions: maxQ },
+        dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
+      }, now);
+      groups.push({ level: null, students: chosen.length, questions: ids.length, assignmentId: r.assignmentId, usedLevel: null });
+      notes.push(`🔁 Adaptive by difficulty: ${ids.length} question(s); each student answers up to ${maxQ}, starting at their level.`);
+      return { groups, notes };
+    }
     await send(null, null, chosen.map((x) => x.id), ids);
     return { groups, notes };
   }

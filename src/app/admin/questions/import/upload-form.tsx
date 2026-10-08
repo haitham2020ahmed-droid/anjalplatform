@@ -52,9 +52,9 @@ export function ImportUpload({ target = "BANK", place }: { target?: "BANK" | "CU
       setFailure({ message: `“${f.name}” cannot be imported. Only CSV (.csv) and Excel (.xlsx) files are accepted. Use the official CSV or Excel template for the highest import accuracy.`, details: [] });
       return;
     }
-    if (f.size > 10 * 1024 * 1024) {
+    if (f.size > 50 * 1024 * 1024) {
       setFile(null);
-      setFailure({ message: "The file is larger than 10 MB. Split it into smaller files.", details: [] });
+      setFailure({ message: "The file is larger than 50 MB. Split it into smaller files.", details: [] });
       return;
     }
     setFile(f);
@@ -92,7 +92,7 @@ export function ImportUpload({ target = "BANK", place }: { target?: "BANK" | "CU
         className={`flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed p-10 text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal ${over ? "border-brand-teal bg-teal-50" : "border-slate-300 bg-slate-50"}`}
       >
         <p className="text-lg font-semibold text-brand-navy">{file ? file.name : "Drop your CSV or Excel file here, or click to choose"}</p>
-        <p className="mt-1 text-sm text-slate-600">{file ? `${Math.max(1, Math.round(file.size / 1024))} KB` : "CSV (.csv) or Excel (.xlsx) · up to 10 MB · up to 5,000 questions"}</p>
+        <p className="mt-1 text-sm text-slate-600">{file ? `${Math.max(1, Math.round(file.size / 1024))} KB` : "CSV (.csv) or Excel (.xlsx, pictures in the cells are imported too) · up to 50 MB · up to 5,000 questions"}</p>
         <input ref={input} type="file" accept={ACCEPT} className="hidden" onChange={(e) => { choose(e.target.files?.[0]); e.target.value = ""; }} />
       </div>
 

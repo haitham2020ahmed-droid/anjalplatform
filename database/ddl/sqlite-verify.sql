@@ -827,6 +827,7 @@ CREATE TABLE "MapResult" (
   "termName" TEXT,
   "importedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "lexile" INTEGER,
+  "rapidGuessPct" INTEGER,
   PRIMARY KEY ("id"),
   CONSTRAINT "MapResult_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "MapResult_goalAreaId_fkey" FOREIGN KEY ("goalAreaId") REFERENCES "MapGoalArea"("id") ON DELETE SET NULL ON UPDATE CASCADE

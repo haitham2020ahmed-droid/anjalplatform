@@ -232,6 +232,7 @@ async function placeOnMap(repo: Repo, actor: Actor, input: EditorInput): Promise
   if (input.mapNodeCode === undefined) return { input, nodeId: undefined };
   const code = String(input.mapNodeCode ?? "").trim();
   if (!code) return { input, nodeId: null };
+  if (code === "?") throw new ValidationError("Finish choosing the Curriculum Map place: Grade → Unit → Text Set → Category → Level.");
   const node = (await attachmentNodes(repo, schoolOf(actor))).find((n) => n.code.toUpperCase() === code.toUpperCase());
   if (!node) throw new ValidationError(`The Curriculum Map place “${code}” does not exist or does not accept questions.`);
   if (!input.skillId) return { input: { ...input, skillId: await unclassifiedSkillId(repo, schoolOf(actor), node.grade) }, nodeId: node.id };

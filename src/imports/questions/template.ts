@@ -341,7 +341,8 @@ export interface CurriculumIndex {
 }
 
 /** "CCSS.ELA-LITERACY.RL.4.1" or "rl.4.1" → "RL.4.1" (sub-letters keep their case: "L.4.1.a" → "L.4.1.A" for matching only). */
-export const shortStandard = (code: string) => String(code ?? "").trim().replace(/^CCSS\.ELA-LITERACY\./i, "").replace(/^CCSS\./i, "").replace(/\s+/g, "").toUpperCase();
+export const shortStandard = (code: string) => String(code ?? "").trim().replace(/^CCSS\.ELA-LITERACY\./i, "").replace(/^CCSS\./i, "").replace(/\s+/g, "").toUpperCase()
+  .replace(/^([A-Z]+\.\d+\.\d+)([A-Z])$/, "$1.$2");   // “L.4.4a” (a common way to write it) = “L.4.4.a”
 const normName = (s: string) => String(s ?? "").toLowerCase().replace(/[‘’`´]/g, "'").replace(/[“”]/g, '"').replace(/[–—]/g, "-").replace(/\s+/g, " ").trim();
 
 export function buildCurriculumIndex(skills: SkillRef[], standards: StandardRef[], gradeLevels: number[]): CurriculumIndex {

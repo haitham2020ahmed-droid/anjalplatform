@@ -1090,6 +1090,8 @@ model MapResult {
   @@index([studentId, subject, testDate])
   /// the student's Lexile measure from the MAP report
   lexile                Int?
+  /// NWEA rapid-guessing % of the test (30%+ = NWEA suggests the score may not reflect the student: retest)
+  rapidGuessPct         Int?
 }
 
 /// Benchmark reference values (class/grade/school computed; district/national ONLY when imported).

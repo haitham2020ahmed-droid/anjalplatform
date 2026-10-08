@@ -17,15 +17,87 @@ import { bandOf, ensureNationalNorms, nationalNorm, seasonOf } from "./rit";
 const s = (v: unknown) => String(v ?? "");
 // “Fall Percentile (optional)” → “fallpercentile”: the template's own headers must always be recognised
 const norm = (h: string) => h.toLowerCase().replace(/\((optional|اختياري)\)/g, "").replace(/[^a-z]/g, "");
+/** Overall columns (Reading and Language Usage). Old one-subject templates still work: “Fall RIT” = Reading. */
 const COLS: Record<string, string[]> = {
   number: ["studentnumber", "studentid", "studentno", "id", "number", "username"],
-  rit: ["fallrit", "rit", "fall", "testritscore", "ritscore", "fallritscore"],
-  projection: ["springprojection", "projectedrit", "projection", "springprojectedrit", "projectedspringrit", "springprojected"],
-  growth: ["projectedgrowth", "growthprojection", "expectedgrowth"],
-  percentile: ["percentile", "fallpercentile", "testpercentile", "achievementpercentile"],
-  lexile: ["lexile", "falllexile", "lexilescore", "testlexile", "lexilemeasure"],
+  rit: ["readingfallrit", "readingrit", "fallrit", "rit", "fall", "testritscore", "ritscore", "fallritscore"],
+  projection: ["readingspringprojection", "readingprojection", "springprojection", "projectedrit", "projection", "springprojectedrit", "projectedspringrit", "springprojected"],
+  growth: ["readingprojectedgrowth", "projectedgrowth", "growthprojection", "expectedgrowth"],
+  percentile: ["readingfallpercentile", "readingpercentile", "percentile", "fallpercentile", "testpercentile", "achievementpercentile"],
+  lexile: ["falllexile", "readingfalllexile", "lexile", "lexilescore", "testlexile", "lexilemeasure"],
+  langRit: ["languagefallrit", "languageusagefallrit", "languagerit", "languageusagerit", "lufallrit"],
+  langProjection: ["languagespringprojection", "languageusagespringprojection", "languageprojection", "luspringprojection"],
+  langPercentile: ["languagefallpercentile", "languageusagefallpercentile", "languagepercentile", "lufallpercentile"],
+  rapid: ["readingrapidguessing", "readingrapidguessingpercent", "readingrapidguess"],
+  langRapid: ["languagerapidguessing", "languagerapidguessingpercent", "languagerapidguess"],
 };
-export const MAP_TEMPLATE_HEADERS = ["Student Number", "Student Name", "Fall RIT", "Spring Projection", "Fall Percentile (optional)", "Fall Lexile (optional)"];
+/** Goal-area columns (Fall RIT per MAP goal area): they make the skill recommendations precise. */
+export const GOAL_COLUMNS: { header: string; code: string; subject: "READING" | "LANGUAGE_USAGE" }[] = [
+  { header: "R: Literary Structure", code: "LIT_STRUCTURE", subject: "READING" },
+  { header: "R: Literary Theme", code: "LIT_THEME", subject: "READING" },
+  { header: "R: Info Structure", code: "INFO_STRUCTURE", subject: "READING" },
+  { header: "R: Info Central Idea", code: "INFO_CENTRAL_IDEA", subject: "READING" },
+  { header: "R: Vocabulary", code: "VOCAB", subject: "READING" },
+  { header: "L: Writing Style", code: "WRITING_STYLE", subject: "LANGUAGE_USAGE" },
+  { header: "L: Writing Organization", code: "WRITING_ORG", subject: "LANGUAGE_USAGE" },
+  { header: "L: Writing Support", code: "WRITING_SUPPORT", subject: "LANGUAGE_USAGE" },
+  { header: "L: Grammar & Usage", code: "LANG_GRAMMAR", subject: "LANGUAGE_USAGE" },
+  { header: "L: Mechanics", code: "LANG_MECHANICS", subject: "LANGUAGE_USAGE" },
+];
+export const MAP_TEMPLATE_HEADERS = [
+  "Student Number", "Student Name", "Grade",
+  "Reading Fall RIT", "Reading Fall Percentile", "Reading Spring Projection", "Fall Lexile",
+  ...GOAL_COLUMNS.filter((g) => g.subject === "READING").map((g) => g.header),
+  "Language Fall RIT", "Language Fall Percentile", "Language Spring Projection",
+  ...GOAL_COLUMNS.filter((g) => g.subject === "LANGUAGE_USAGE").map((g) => g.header),
+  "Reading Rapid-Guessing %", "Language Rapid-Guessing %",
+];
+
+/**
+ * NWEA's own export (one row per student and course: Student ID, names, Grade, Course, RIT Score,
+ * Rapid-Guessing %, LexileScore, goal-area RIT ranges) → one template row per student. Goal ranges use their
+ * middle (151-160 → 156). The 2–5 / 6+ goal areas are spread over the platform's areas (Literary Text → both
+ * Literary areas, Informational Text → both Informational, Writing → the three Writing areas).
+ * Returns null when the table is not an NWEA export.
+ */
+export function fromNweaExport(table: string[][]): { table: string[][]; term: string; season: "FALL" | "WINTER" | "SPRING"; year: number } | null {
+  const at = table.findIndex((r) => r.some((c) => s(c).trim()));
+  const head = (table[at] ?? []).map((h) => norm(s(h)));
+  const ix = (n: string) => head.indexOf(n);
+  if (ix("course") < 0 || ix("ritscore") < 0 || ix("studentid") < 0) return null;
+  const goalIx = (needle: string) => head.findIndex((h) => h.includes(needle));
+  const G = { lit: goalIx("literarytext"), info: goalIx("informationaltext"), vocab: goalIx("vocabulary"), grammar: goalIx("grammarusage"), mech: goalIx("mechanics"), writing: goalIx("writingwrite") };
+  const mid = (v: string) => { const m = s(v).match(/(\d{3})\s*-\s*(\d{3})/); return m ? String(Math.round((Number(m[1]) + Number(m[2])) / 2)) : ""; };
+  const lex = (v: string) => { const t = s(v).trim().toUpperCase(); if (!t) return ""; if (t.startsWith("BR")) return "0"; return t.replace(/L$/, ""); };
+  const H = [...MAP_TEMPLATE_HEADERS], col = (h: string) => H.indexOf(h);
+  const byStudent = new Map<string, string[]>();
+  let termText = "";
+  for (const r of table.slice(at + 1)) {
+    const id = s(r[ix("studentid")]).trim(); if (!id) continue;
+    termText = termText || s(r[ix("termtested")]);
+    const row = byStudent.get(id) ?? H.map(() => "");
+    row[0] = id; row[1] = `${s(r[ix("studentfirstname")])} ${s(r[ix("studentlastname")])}`.replace(/\s+/g, " ").trim(); row[2] = s(r[ix("grade")]).trim();
+    const course = s(r[ix("course")]).toLowerCase(), rit = s(r[ix("ritscore")]).trim(), rapid = ix("rapidguessing") >= 0 ? s(r[ix("rapidguessing")]).trim() : "";
+    if (/read/.test(course)) {
+      row[col("Reading Fall RIT")] = rit; row[col("Reading Rapid-Guessing %")] = rapid;
+      if (ix("lexilescore") >= 0) row[col("Fall Lexile")] = lex(r[ix("lexilescore")]);
+      if (G.lit >= 0) row[col("R: Literary Structure")] = row[col("R: Literary Theme")] = mid(r[G.lit]);
+      if (G.info >= 0) row[col("R: Info Structure")] = row[col("R: Info Central Idea")] = mid(r[G.info]);
+      if (G.vocab >= 0) row[col("R: Vocabulary")] = mid(r[G.vocab]);
+    } else if (/language/.test(course)) {
+      row[col("Language Fall RIT")] = rit; row[col("Language Rapid-Guessing %")] = rapid;
+      if (G.grammar >= 0) row[col("L: Grammar & Usage")] = mid(r[G.grammar]);
+      if (G.mech >= 0) row[col("L: Mechanics")] = mid(r[G.mech]);
+      if (G.writing >= 0) row[col("L: Writing Style")] = row[col("L: Writing Organization")] = row[col("L: Writing Support")] = mid(r[G.writing]);
+    }
+    byStudent.set(id, row);
+  }
+  const m = termText.match(/(Fall|Winter|Spring)\s+(\d{4})-(\d{4})/i);
+  const season = (m ? m[1].toUpperCase() : "FALL") as "FALL" | "WINTER" | "SPRING";
+  const year = m ? (season === "FALL" ? Number(m[2]) : Number(m[3])) : new Date().getFullYear();
+  return { table: [H, ...byStudent.values()], term: `${season[0]}${season.slice(1).toLowerCase()} ${year}`, season, year };
+}
+const SUBJECT_NAME = { READING: "Reading", LANGUAGE_USAGE: "Language Usage" } as const;
 
 export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[] }
 
@@ -51,74 +123,126 @@ async function createStudentFromMap(repo: Repo, actor: Actor, classId: string, n
 export async function importMapScores(repo: Repo, actor: Actor, table: string[][], fallYear: number, now = new Date(), opts: { createInClassId?: string } = {}): Promise<MapImportResult> {
   assertCan(actor, "assignments:create");
   if (!(fallYear >= 2000 && fallYear <= 2100)) throw new ValidationError("Choose the year of the Fall test (e.g. 2026).");
+  // NWEA's own export: converted, its term taken from the file; it covers whole grades without classes,
+  // so it only updates students who are already on the platform (no student is created from it)
+  const nwea = fromNweaExport(table);
+  let termName = `Fall ${fallYear}`, testDate = new Date(Date.UTC(fallYear, 8, 15));
+  if (nwea) {
+    table = nwea.table; termName = nwea.term;
+    testDate = new Date(Date.UTC(nwea.year, nwea.season === "FALL" ? 8 : nwea.season === "WINTER" ? 0 : 3, 15));
+    opts = { ...opts, createInClassId: undefined };
+  }
   const at = table.findIndex((r) => r.some((c) => s(c).trim()));
   if (at < 0) throw new ValidationError("The file is empty.");
   const header = table[at].map((h) => norm(s(h)));
   const col = (k: keyof typeof COLS) => header.findIndex((h) => COLS[k].includes(h));
+  const c = { number: col("number"), rit: col("rit"), projection: col("projection"), growth: col("growth"), percentile: col("percentile"), lexile: col("lexile"), langRit: col("langRit"), langProjection: col("langProjection"), langPercentile: col("langPercentile"), rapid: col("rapid"), langRapid: col("langRapid") };
+  if (c.number < 0 || (c.rit < 0 && c.langRit < 0)) throw new ValidationError("The file needs “Student Number” and at least “Reading Fall RIT” or “Language Fall RIT” (download the template).");
   const nameCol = header.findIndex((h) => ["studentname", "name", "fullname", "student"].includes(h));
+  // goal-area columns, matched by the template header, the area's full name or its code
+  const areas = await repo.findMany("MapGoalArea", {}, { select: ["id", "code", "name", "subject"] });
+  const goalCols = GOAL_COLUMNS.map((g) => {
+    const area = areas.find((a) => s(a.code) === g.code);
+    const ix = header.findIndex((h) => h === norm(g.header) || (area && (h === norm(s(area.name)) || h === norm(s(area.code)))));
+    return { ...g, ix, area };
+  }).filter((g) => g.ix >= 0 && g.area);
   const created: MapImportResult["created"] = [];
-  const c = { number: col("number"), rit: col("rit"), projection: col("projection"), growth: col("growth"), percentile: col("percentile"), lexile: col("lexile") };
-  if (c.number < 0 || c.rit < 0) throw new ValidationError("The file needs at least the columns “Student Number” and “Fall RIT” (download the template).");
   // students this actor may update
   const classes = await accessibleClasses(repo, actor);
   const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((k) => k.id) }, leftAt: null }, { select: ["studentId"] }) : [];
   const allowed = new Set(members.map((m) => s(m.studentId)));
   const students = allowed.size ? await repo.findMany("Student", { id: { in: [...allowed] } }, { select: ["id", "userId", "studentNumber"] }) : [];
-  const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "username"] }) : [];
+  const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "username", "displayName"] }) : [];
   const byKey = new Map<string, string>();
+  // names, as a fallback when the file's number is not the platform's (e.g. NWEA IDs): “AALBAQSHI, AHMED” = “Ahmed Aalbaqshi”
+  const nameKey = (n: string) => n.toLowerCase().replace(/[^a-z0-9\u0600-\u06ff ]+/g, " ").split(/\s+/).filter(Boolean).sort().join(" ");
+  const byName = new Map<string, string | null>();
+  for (const st of students) { const u = users.find((x) => x.id === st.userId); if (!u) continue; const k = nameKey(s(u.displayName)); byName.set(k, byName.has(k) ? null : s(st.id)); }
+  const gradeCol = header.findIndex((h) => h === "grade" || h === "grd");
+  const classGrade = opts.createInClassId ? Number((await repo.findUnique("Grade", { id: (await repo.findUnique("Class", { id: opts.createInClassId }))?.gradeId }))?.level ?? 0) : 0;
   for (const st of students) {
     if (s(st.studentNumber).trim()) byKey.set(s(st.studentNumber).trim().toLowerCase(), s(st.id));
     const u = users.find((x) => x.id === st.userId); if (u) byKey.set(s(u.username).toLowerCase(), s(st.id));
   }
-  const term = `Fall ${fallYear}`;
+  const term = termName;
   const errors: MapImportResult["errors"] = [];
+  let notInClasses = 0;
   let imported = 0, skipped = 0;
+  const cell = (r: string[], ix: number) => (ix >= 0 ? s(r[ix]).trim() : "");
+  const ritOf = (raw: string, what: string): number | null => { if (!raw) return null; const n = Number(raw); if (!Number.isInteger(n) || n < 100 || n > 350) throw new ValidationError(`${what} “${raw}” must be a whole number from 100 to 350.`); return n; };
   for (let i = at + 1; i < table.length; i++) {
     const r = table[i]; const rowNo = i + 1;
     if (!r.some((x) => s(x).trim())) continue;
-    const key = s(r[c.number]).trim();
-    const ritRaw = s(r[c.rit]).trim();
-    if (!key && !ritRaw) continue;
-    if (!ritRaw) { skipped++; continue; }                        // a student with no score yet: skipped quietly
-    let sid = byKey.get(key.toLowerCase());
-    const fullName = nameCol >= 0 ? s(r[nameCol]).replace(/\s+/g, " ").trim() : "";
-    if (!sid && opts.createInClassId && key && fullName) {
-      // a new student: added to the platform in this class, then their score is saved below
-      try {
-        if ((await repo.findMany("Student", { schoolId: actor.schoolId, studentNumber: key })).length) throw new ValidationError(`Student number ${key} already belongs to a student of another class.`);
+    const key = cell(r, c.number);
+    const readRaw = cell(r, c.rit), langRaw = cell(r, c.langRit);
+    if (!key && !readRaw && !langRaw) continue;
+    if (!readRaw && !langRaw) { skipped++; continue; }                      // no score yet: skipped quietly
+    try {
+      // every value is checked before anything is saved for this row
+      const readRit = ritOf(readRaw, "Reading Fall RIT"), langRit = ritOf(langRaw, "Language Fall RIT");
+      const proj = (raw: string, base: number | null, what: string) => { if (!raw || base === null) return null; const p = Number(raw); if (!Number.isFinite(p) || p < 100 || p > 350) throw new ValidationError(`${what} “${raw}” must be a RIT from 100 to 350.`); return Math.round(p) - base; };
+      let readGrowth = proj(cell(r, c.projection), readRit, "Reading Spring Projection");
+      if (readGrowth === null && cell(r, c.growth) && readRit !== null) { const g = Number(cell(r, c.growth)); if (!Number.isFinite(g) || g < -50 || g > 100) throw new ValidationError(`Projected growth “${cell(r, c.growth)}” is not valid.`); readGrowth = Math.round(g); }
+      const langGrowth = proj(cell(r, c.langProjection), langRit, "Language Spring Projection");
+      const pctOf = (raw: string, what: string) => { if (!raw) return null; const n = Number(raw); if (!Number.isInteger(n) || n < 1 || n > 99) throw new ValidationError(`${what} “${raw}” must be from 1 to 99.`); return n; };
+      const readPct = pctOf(cell(r, c.percentile), "Reading Fall Percentile"), langPct = pctOf(cell(r, c.langPercentile), "Language Fall Percentile");
+      const lexRaw = /^br/i.test(cell(r, c.lexile)) ? "0" : cell(r, c.lexile).replace(/l$/i, "");   // BR (Beginning Reader) = below 0L
+      const lexile = lexRaw ? Number(lexRaw) : null;
+      if (lexile !== null && (!Number.isInteger(lexile) || lexile < 0 || lexile > 2000)) throw new ValidationError(`Lexile “${lexRaw}” must be a whole number from 0 to 2000.`);
+      const goals = goalCols.map((g) => ({ g, rit: ritOf(cell(r, g.ix), g.header) })).filter((x) => x.rit !== null);
+      const rapidOf = (raw: string) => { if (!raw) return null; const n = Number(raw); if (!Number.isFinite(n) || n < 0 || n > 100) throw new ValidationError(`Rapid-Guessing % “${raw}” must be from 0 to 100.`); return Math.round(n); };
+      const readRapid = rapidOf(cell(r, c.rapid)), langRapid = rapidOf(cell(r, c.langRapid));
+      let sid = byKey.get(key.toLowerCase());
+      const fullName = nameCol >= 0 ? s(r[nameCol]).replace(/\s+/g, " ").trim() : "";
+      if (!sid && fullName) { const hit = byName.get(nameKey(fullName)); if (hit) sid = hit; }   // same student, other number: no duplicate
+      const rowGrade = gradeCol >= 0 ? Number(cell(r, gradeCol)) : 0;
+      if (!sid && opts.createInClassId && rowGrade && classGrade && rowGrade !== classGrade) throw new ValidationError(`${fullName || key} is in Grade ${rowGrade} in the file, but this class is Grade ${classGrade}: import them from their own class.`);
+      if (!sid && opts.createInClassId && key && fullName) {
+        // a new student: added to the platform in this class, then their scores are saved below
+        const taken = (await repo.findMany("Student", { schoolId: actor.schoolId, studentNumber: key }))[0];
+        if (taken?.deletedAt) throw new ValidationError(`Student number ${key} belongs to an archived student: bring them back with the roster import (Admin → Import users).`);
+        if (taken) throw new ValidationError(`Student number ${key} already belongs to a student of another class.`);
         const n = await createStudentFromMap(repo, actor, opts.createInClassId, key, fullName);
         sid = n.id; byKey.set(key.toLowerCase(), n.id); created.push({ name: fullName, username: n.username, password: n.password });
-      } catch (e) { errors.push({ row: rowNo, message: (e as Error).message }); continue; }
+      }
+      if (!sid && nwea) { notInClasses++; continue; }   // a grade-wide NWEA file: other classes' students are expected
+      if (!sid) throw new ValidationError(`Student “${key}” was not found in your classes${opts.createInClassId ? " (write the Student Name to add them)" : " (import from one class to add new students)"}.`);
+      for (const [subject, rit, growth, pct, rapid] of [["READING", readRit, readGrowth, readPct, readRapid], ["LANGUAGE_USAGE", langRit, langGrowth, langPct, langRapid]] as const) {
+        const subjGoals = goals.filter((x) => x.g.subject === subject);
+        if (rit === null && !subjGoals.length) continue;
+        const name = SUBJECT_NAME[subject];
+        // the same term imported again REPLACES — but a value the new file does not have is kept
+        // (e.g. the NWEA export has no projection: the projection imported from the ASG file stays)
+        const old = (await repo.findMany("MapResult", { studentId: sid, termName: term })).filter((x) => (subject === "READING" ? /read/i : /language/i).test(s(x.subject)));
+        const oldOverall = old.find((x) => !x.goalName);
+        const keep = <T,>(v: T | null, k: string) => (v !== null && v !== undefined ? v : oldOverall && oldOverall[k] !== null && oldOverall[k] !== undefined ? (oldOverall[k] as T) : null);
+        const toDelete = old.filter((x) => (x.goalName ? subjGoals.length > 0 : rit !== null));
+        if (toDelete.length) await repo.deleteMany("MapResult", { id: { in: toDelete.map((x) => x.id) } });
+        if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: subject === "READING" ? keep(lexile, "lexile") : null, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now });
+        for (const x of subjGoals) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: s(x.g.area!.name), goalAreaId: s(x.g.area!.id), rit: x.rit, termName: term, importedAt: now });
+      }
+      imported++;
+    } catch (e) {
+      if (e instanceof ValidationError || e instanceof ForbiddenError) { errors.push({ row: rowNo, message: e.message }); continue; }
+      throw e;
     }
-    if (!sid) { errors.push({ row: rowNo, message: `Student “${key}” was not found in your classes${opts.createInClassId ? " (write the Student Name to add them)" : " (import from one class to add new students)"}.` }); continue; }
-    const rit = Number(ritRaw);
-    if (!Number.isInteger(rit) || rit < 100 || rit > 350) { errors.push({ row: rowNo, message: `Fall RIT “${ritRaw}” must be a whole number from 100 to 350.` }); continue; }
-    let growth: number | null = null;
-    const proj = c.projection >= 0 ? s(r[c.projection]).trim() : "", gr = c.growth >= 0 ? s(r[c.growth]).trim() : "";
-    if (proj) { const p = Number(proj); if (!Number.isFinite(p) || p < 100 || p > 350) { errors.push({ row: rowNo, message: `Spring Projection “${proj}” must be a RIT from 100 to 350.` }); continue; } growth = Math.round(p) - rit; }
-    else if (gr) { const g = Number(gr); if (!Number.isFinite(g) || g < -50 || g > 100) { errors.push({ row: rowNo, message: `Projected growth “${gr}” is not valid.` }); continue; } growth = Math.round(g); }
-    const pctRaw = c.percentile >= 0 ? s(r[c.percentile]).trim() : "";
-    const pct = pctRaw ? Number(pctRaw) : null;
-    if (pct !== null && (!Number.isInteger(pct) || pct < 1 || pct > 99)) { errors.push({ row: rowNo, message: `Percentile “${pctRaw}” must be from 1 to 99.` }); continue; }
-    const lexRaw = c.lexile >= 0 ? s(r[c.lexile]).trim().replace(/l$/i, "") : "";
-    const lexile = lexRaw ? Number(lexRaw) : null;
-    if (lexile !== null && (!Number.isInteger(lexile) || lexile < 0 || lexile > 2000)) { errors.push({ row: rowNo, message: `Lexile “${lexRaw}” must be a whole number from 0 to 2000.` }); continue; }
-    const old = (await repo.findMany("MapResult", { studentId: sid, termName: term })).filter((x) => /read/i.test(s(x.subject)) && !x.goalName);
-    if (old.length) await repo.deleteMany("MapResult", { id: { in: old.map((x) => x.id) } });
-    await repo.create("MapResult", { studentId: sid, testDate: new Date(Date.UTC(fallYear, 8, 15)), subject: "Reading", goalName: null, rit, achievementPercentile: pct, projectedGrowth: growth, lexile, termName: term, importedAt: now });
-    imported++;
   }
-  await repo.create("AuditLog", { actorId: actor.userId, action: "map.scores.import", entityType: "MapResult", entityId: null, after: { term, imported, skipped, errors: errors.length }, createdAt: now });
+  await repo.create("AuditLog", { actorId: actor.userId, action: "map.scores.import", entityType: "MapResult", entityId: null, after: { term, imported, skipped, errors: errors.length, goals: goalCols.length }, createdAt: now });
+  if (notInClasses) errors.push({ row: 0, message: `${notInClasses} student(s) of the NWEA file are not in ${actor.role === "TEACHER" ? "your classes" : "the school's classes"} (other classes / not on the platform yet): skipped.` });
   return { imported, skipped, errors, term, created };
 }
 
-/** Template rows: the actor's students (number + name) ready for the scores. */
+/** Template rows: the actor's students (number, name, grade) ready for the scores. */
 export async function mapTemplateRows(repo: Repo, actor: Actor, classId?: string): Promise<string[][]> {
   const classes = (await accessibleClasses(repo, actor)).filter((k) => !classId || k.id === classId);
-  const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((k) => k.id) }, leftAt: null }, { select: ["studentId"] }) : [];
-  const students = members.length ? await repo.findMany("Student", { id: { in: [...new Set(members.map((m) => m.studentId))] } }, { select: ["id", "userId", "studentNumber"] }) : [];
-  const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "username", "displayName"] }) : [];
-  const rows = students.map((st) => { const u = users.find((x) => x.id === st.userId); return [s(st.studentNumber) || s(u?.username), s(u?.displayName), "", "", "", ""]; }).sort((a, b) => a[1].localeCompare(b[1]));
+  const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((k) => k.id) }, leftAt: null }, { select: ["studentId", "classId"] }) : [];
+  const students = members.length ? await repo.findMany("Student", { id: { in: [...new Set(members.map((m) => m.studentId))] } }, { select: ["id", "userId", "studentNumber", "gradeId"] }) : [];
+  const [users, grades] = await Promise.all([
+    students.length ? repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "username", "displayName"] }) : Promise.resolve([]),
+    students.length ? repo.findMany("Grade", { id: { in: [...new Set(students.map((x) => s(x.gradeId)))] } }, { select: ["id", "level"] }) : Promise.resolve([]),
+  ]);
+  const blank = MAP_TEMPLATE_HEADERS.slice(3).map(() => "");
+  const rows = students.map((st) => { const u = users.find((x) => x.id === st.userId); return [s(st.studentNumber) || s(u?.username), s(u?.displayName), s(grades.find((g) => g.id === st.gradeId)?.level ?? ""), ...blank]; }).sort((a, b) => a[1].localeCompare(b[1]));
   return [MAP_TEMPLATE_HEADERS, ...rows];
 }
 

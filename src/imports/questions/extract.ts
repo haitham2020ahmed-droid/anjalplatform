@@ -7,16 +7,19 @@
  * Word, PDF, images, JSON and plain text are refused with a message that says what to do instead.
  */
 import { parseCsv } from "../csv";
-import { readXlsx, readZipEntries } from "../xlsx";
+import { readXlsx, readXlsxImages, readZipEntries } from "../xlsx";
 
 export type FileKind = "csv" | "xlsx";
-export const MAX_IMPORT_BYTES = 10 * 1024 * 1024;
+/** Excel files may carry the questions' pictures: up to 50 MB. */
+export const MAX_IMPORT_BYTES = 50 * 1024 * 1024;
 /** The sheet the template keeps its questions on (other sheets hold instructions and the curriculum list). */
 export const QUESTIONS_SHEET = "Questions";
 
 export interface Extracted {
   kind: FileKind;
   table: string[][];
+  /** pictures in the cells, by 0-based sheet row (xlsx only) */
+  images?: Map<number, Uint8Array>;
 }
 
 export class ExtractError extends Error {}
@@ -53,11 +56,11 @@ export function detectKind(fileName: string, bytes: Uint8Array): FileKind {
 /** Reads the file as rows of cells. Throws ExtractError with a message a teacher can act on. */
 export function extract(fileName: string, bytes: Uint8Array): Extracted {
   if (bytes.length === 0) throw new ExtractError("The file is empty.");
-  if (bytes.length > MAX_IMPORT_BYTES) throw new ExtractError("The file is larger than 10 MB. Split it into smaller files.");
+  if (bytes.length > MAX_IMPORT_BYTES) throw new ExtractError("The file is larger than 50 MB. Split it into smaller files.");
   const kind = detectKind(fileName, bytes);
   if (kind === "xlsx") {
     try {
-      return { kind, table: readXlsx(Buffer.from(bytes), { sheet: QUESTIONS_SHEET }) };
+      return { kind, table: readXlsx(Buffer.from(bytes), { sheet: QUESTIONS_SHEET }), images: readXlsxImages(Buffer.from(bytes), { sheet: QUESTIONS_SHEET }) };
     } catch (e) {
       throw new ExtractError(`The Excel file could not be read: ${(e as Error).message}`);
     }

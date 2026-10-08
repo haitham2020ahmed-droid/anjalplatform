@@ -64,7 +64,7 @@ describe("skill plans, MAP recommendations, new students from MAP, Nafs", () => 
 
   test("MAP: new students in the file are added to the class; recommendations follow the scores; assigned work reaches the student", async () => {
     const num = (id: string) => repo.findUnique("Student", { id }).then((s) => String(s!.studentNumber));
-    const rows = [[...MAP_TEMPLATE_HEADERS], [await num(roster[1].id), roster[1].name, "182", "190", "", ""], [await num(roster[2].id), roster[2].name, "214", "219", "", ""], ["NEW-777", "Mariam New", "199", "205", "", "760"], ["NEW-778", "", "199", "205", "", ""]];
+    const rows = [[...MAP_TEMPLATE_HEADERS], [await num(roster[1].id), roster[1].name, "", "182", "", "190", ""], [await num(roster[2].id), roster[2].name, "", "214", "", "219", ""], ["NEW-777", "Mariam New", "", "199", "", "205", "760"], ["NEW-778", "", "", "199", "", "205", ""]];
     const r = await importMapScores(repo, teacher, rows, 2026, new Date(), { createInClassId: classId });
     assert.equal(r.imported, 3);
     assert.deepEqual(r.created.map((c) => [c.name, c.username]), [["Mariam New", "new-777"]]);

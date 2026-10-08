@@ -26,13 +26,13 @@ export default async function StudentHome({ searchParams }: { searchParams: Prom
   const reading = maps.filter((m) => /read/i.test(String(m.subject)) && !m.goalName).sort((a, b) => t(b.testDate) - t(a.testDate));
   const withGoal = reading.find((m) => m.projectedGrowth !== null && m.projectedGrowth !== undefined);
   // the rest in parallel (not one after another)
-  const [gradeRow, bands, plans, streak] = await Promise.all([
+  const [gradeRow, bands, plans, streak, games] = await Promise.all([
     student?.gradeId ? repo.findUnique("Grade", { id: student.gradeId }) : Promise.resolve(null),
-    lexileBands(repo, actor.schoolId ?? null), studentSkillPlans(repo, actor), streakAndPoints(repo, actor.studentId!),
+    lexileBands(repo, actor.schoolId ?? null), studentSkillPlans(repo, actor), streakAndPoints(repo, actor.studentId!), openGamesFor(repo, actor),
   ]);
   const grade = Number(gradeRow?.level ?? 0);
   const extras: StudentExtras = {
-    games: await openGamesFor(repo, actor),
+    games,
     lexile: lexile.lexile, readingLevel: levelForLexile(bands[grade], lexile.lexile),
     rit: reading[0] ? Number(reading[0].rit) : null, ritGoal: withGoal ? Number(withGoal.rit) + Number(withGoal.projectedGrowth) : null,
     grade, plans: plans.length, ...streak,

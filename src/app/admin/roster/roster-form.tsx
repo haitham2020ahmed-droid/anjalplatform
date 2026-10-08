@@ -49,7 +49,7 @@ export function RosterForm() {
       {error && <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-red-700">{error}</p>}
       {plan && (
         <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <p className="font-semibold text-brand-navy">{plan.summary.create} new · {plan.summary.update} updated{plan.newClasses.length ? ` · new classes: ${plan.newClasses.map((c) => `${c.name} (G${c.grade})`).join(", ")}` : ""}</p>
+          <p className="font-semibold text-brand-navy">{plan.summary.create} new · {plan.summary.update} updated{plan.lines.some((l) => l.restore) ? ` (${plan.lines.filter((l) => l.restore).length} back from the archive: new temporary passwords)` : ""}{plan.newClasses.length ? ` · new classes: ${plan.newClasses.map((c) => `${c.name} (G${c.grade})`).join(", ")}` : ""}</p>
           {plan.problems.length > 0 ? (
             <>
               <p className="mt-2 text-red-700">{plan.problems.length} problem(s). Nothing will be imported until the file is fixed.</p>

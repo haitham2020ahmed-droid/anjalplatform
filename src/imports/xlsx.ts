@@ -96,10 +96,13 @@ export function readXlsx(buf: Buffer, opts: { sheet?: string } = {}): string[][]
   if (!sheet) throw new Error("The Excel file has no worksheet.");
   const xml = readPart(buf, sheet);
   const rows: string[][] = [];
-  for (const rm of xml.matchAll(/<row\b[^>]*>([\s\S]*?)<\/row>/g)) {
+  for (const rm of xml.matchAll(/<row\b([^>]*)>([\s\S]*?)<\/row>/g)) {
+    // keep the sheet's own row numbers (rows Excel leaves out are empty): pictures are anchored to them
+    const rn = Number(rm[1].match(/\br="(\d+)"/)?.[1] ?? 0);
+    while (rn > 0 && rows.length < rn - 1 && rows.length < MAX_ROWS) rows.push([]);
     if (rows.length >= MAX_ROWS) throw new Error(`The file has more than ${MAX_ROWS} rows. Split it into smaller files.`);
     const row: string[] = [];
-    for (const cm of rm[1].matchAll(/<c\b([^>]*?)(?:\/>|>([\s\S]*?)<\/c>)/g)) {
+    for (const cm of rm[2].matchAll(/<c\b([^>]*?)(?:\/>|>([\s\S]*?)<\/c>)/g)) {
       const attrs = cm[1];
       const body = cm[2] ?? "";
       const ref = attrs.match(/\br="([A-Z]+\d+)"/)?.[1];
@@ -122,4 +125,60 @@ export function readXlsx(buf: Buffer, opts: { sheet?: string } = {}): string[][]
 /** Excel stores dates as serial day numbers (1900 system). */
 export function excelSerialToDate(n: number): Date {
   return new Date(Date.UTC(1899, 11, 30) + Math.round(n * 86_400_000));
+}
+
+
+/** Raw bytes of one part (pictures). */
+function readBytes(buf: Buffer, e: ZipEntry): Buffer {
+  if (e.size > MAX_PART_BYTES) throw new Error("The Excel file is too large to import.");
+  const nameLen = buf.readUInt16LE(e.offset + 26), extraLen = buf.readUInt16LE(e.offset + 28);
+  const start = e.offset + 30 + nameLen + extraLen;
+  const data = buf.subarray(start, start + e.compSize);
+  return e.method === 8 ? inflateRawSync(data, { maxOutputLength: MAX_PART_BYTES }) : Buffer.from(data);
+}
+
+const partPath = (from: string, target: string) => {
+  if (target.startsWith("/")) return target.slice(1);
+  const parts = from.split("/").slice(0, -1);
+  for (const seg of target.split("/")) { if (seg === "..") parts.pop(); else if (seg !== ".") parts.push(seg); }
+  return parts.join("/");
+};
+const relsOf = (path: string) => { const i = path.lastIndexOf("/"); return `${path.slice(0, i)}/_rels/${path.slice(i + 1)}.rels`; };
+const relTarget = (xml: string, id: string) => xml.match(new RegExp(`<Relationship\\b[^>]*Id="${id}"[^>]*Target="([^"]+)"`))?.[1] ?? xml.match(new RegExp(`<Relationship\\b[^>]*Target="([^"]+)"[^>]*Id="${id}"`))?.[1];
+
+/**
+ * Pictures placed in the cells of a sheet (Insert → Picture), by the 0-based row of their top-left
+ * corner: the question on that row is the picture's question. The first picture of a row wins.
+ */
+export function readXlsxImages(buf: Buffer, opts: { sheet?: string } = {}): Map<number, Uint8Array> {
+  const out = new Map<number, Uint8Array>();
+  if (buf.length < 4 || buf.readUInt32LE(0) !== 0x04034b50) return out;
+  const entries = readZipEntries(buf);
+  const wbE = entries.get("xl/workbook.xml"), wbRelsE = entries.get("xl/_rels/workbook.xml.rels");
+  if (!wbE || !wbRelsE) return out;
+  const sheets = [...readPart(buf, wbE).matchAll(/<sheet\b[^>]*>/g)].map((m) => ({ name: unescape(m[0].match(/\bname="([^"]*)"/)?.[1] ?? ""), rid: m[0].match(/\br:id="([^"]+)"/)?.[1] ?? "" }));
+  const wanted = (opts.sheet ? sheets.find((x) => x.name.trim().toLowerCase() === opts.sheet!.toLowerCase()) : undefined) ?? sheets[0];
+  if (!wanted) return out;
+  const sheetTarget = relTarget(readPart(buf, wbRelsE), wanted.rid);
+  if (!sheetTarget) return out;
+  const sheetPath = partPath("xl/workbook.xml", sheetTarget);
+  const sheetRels = entries.get(relsOf(sheetPath));
+  if (!sheetRels) return out;
+  const relXml = readPart(buf, sheetRels);
+  for (const dm of relXml.matchAll(/<Relationship\b[^>]*Type="[^"]*\/drawing"[^>]*>/g)) {
+    const t = dm[0].match(/Target="([^"]+)"/)?.[1]; if (!t) continue;
+    const drawingPath = partPath(sheetPath, t);
+    const dE = entries.get(drawingPath), dRelsE = entries.get(relsOf(drawingPath));
+    if (!dE || !dRelsE) continue;
+    const dXml = readPart(buf, dE), dRels = readPart(buf, dRelsE);
+    for (const am of dXml.matchAll(/<(oneCellAnchor|twoCellAnchor|absoluteAnchor)\b[\s\S]*?<\/\1>/g)) {
+      const row = Number(am[0].match(/<from>[\s\S]*?<row>(\d+)<\/row>/)?.[1] ?? -1);
+      const rid = am[0].match(/r:embed="([^"]+)"/)?.[1];
+      if (row < 0 || !rid || out.has(row)) continue;
+      const mt = relTarget(dRels, rid); if (!mt) continue;
+      const mE = entries.get(partPath(drawingPath, mt)); if (!mE) continue;
+      out.set(row, new Uint8Array(readBytes(buf, mE)));
+    }
+  }
+  return out;
 }
