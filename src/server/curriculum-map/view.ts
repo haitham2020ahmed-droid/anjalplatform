@@ -12,6 +12,7 @@ export interface MapViewNode {
 }
 /** The number of adaptive questions each level of a place should have. */
 export const LEVEL_TARGET = 20;
+const LEVEL_RANK: Record<string, number> = { BELOW: 1, ON: 2, ABOVE: 3 };
 export interface LevelCoverage { category: string; level: "BELOW" | "ON" | "ABOVE"; places: number; atTarget: number }
 export interface MapView { grades: { level: number; name: string }[]; level: number | null; book: MapViewNode | null; attachmentNodes: number; questions: number; coverage: LevelCoverage[] }
 
@@ -49,7 +50,8 @@ export async function curriculumMapView(repo: Repo, actor: Actor, level?: number
     skills: r.skills ? String(r.skills) : null, level: r.level ? String(r.level) : null, acceptsQuestions: Boolean(r.acceptsQuestions),
     questions: counts.get(String(r.id))?.adaptive ?? 0,
     counts: counts.get(String(r.id)) ?? { adaptive: 0, teacher: 0, waiting: 0 },
-    children: (kids.get(String(r.id)) ?? []).sort((a, b) => Number(a.sortOrder) - Number(b.sortOrder)).map(build),
+    // levels always read Below → On → Above (the order students climb)
+    children: (kids.get(String(r.id)) ?? []).sort((a, b) => (LEVEL_RANK[String(a.level)] ?? 0) - (LEVEL_RANK[String(b.level)] ?? 0) || Number(a.sortOrder) - Number(b.sortOrder)).map(build),
   });
   const root = (kids.get("") ?? []).find((r) => r.kind === "BOOK");
   // per category with levels (Analyze Craft and Structure, Respond to Reading) and per level

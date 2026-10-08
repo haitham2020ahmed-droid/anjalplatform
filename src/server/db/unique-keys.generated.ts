@@ -84,4 +84,5 @@ export const UNIQUE_KEYS: Record<string, readonly (readonly string[])[]> = {
   LiveGameAnswer: [["id"], ["playerId", "questionIndex"]],
   CrossGradeBridge: [["id"], ["schoolId", "fromCode"]],
   StudentCategoryLevel: [["studentId", "category"]],
+  RespondActivity: [["id"], ["schoolId", "code"]],
 };

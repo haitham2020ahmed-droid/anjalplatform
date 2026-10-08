@@ -140,11 +140,32 @@ const LETTERS = ["A", "B", "C", "D"];
 
 /**
  * The grade's questions in the Question Bank template's columns. Multiple-choice answers are moved so the
- * correct letter is spread evenly over A–D in each skill (the file had far more A's than D's).
+ * correct letter is spread evenly over A–D in each skill, in a shuffled order (never a fixed A-B-C-D pattern).
  */
+/** A small seeded random generator (the same file always gives the same order). */
+function seeded(text: string): () => number {
+  let h = 2166136261;
+  for (let i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return () => { h = (h + 0x6d2b79f5) | 0; let x = Math.imul(h ^ (h >>> 15), 1 | h); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+}
+
 export function grammarTable(wb: GrammarWorkbook, grade: number): string[][] {
   const codeOf = new Map((wb.skills.get(grade) ?? []).map((k) => [k.id, k.code]));
-  const turn = new Map<string, number>();
+  // per skill and number of choices: a shuffled bag of positions (each letter once per bag, random order)
+  const bags = new Map<string, { rnd: () => number; bag: number[]; last: number[] }>();
+  const nextPosition = (key: string, n: number) => {
+    const b = bags.get(key) ?? { rnd: seeded(key), bag: [], last: [] };
+    bags.set(key, b);
+    if (!b.bag.length) {
+      b.bag = Array.from({ length: n }, (_, i) => i);
+      for (let i = n - 1; i > 0; i--) { const j = Math.floor(b.rnd() * (i + 1)); [b.bag[i], b.bag[j]] = [b.bag[j], b.bag[i]]; }
+      // no three in a row across two bags
+      if (b.last.length === 2 && b.last[0] === b.last[1] && b.bag[0] === b.last[1] && n > 1) b.bag.push(b.bag.shift()!);
+    }
+    const p = b.bag.shift()!;
+    b.last = [...b.last, p].slice(-2);
+    return p;
+  };
   const rows: string[][] = [[...TEMPLATE_HEADERS]];
   const col = (h: string) => TEMPLATE_HEADERS.indexOf(h as (typeof TEMPLATE_HEADERS)[number]);
   for (const q of wb.questions) {
@@ -158,10 +179,8 @@ export function grammarTable(wb: GrammarWorkbook, grade: number): string[][] {
       let at = LETTERS.indexOf(q.letter);
       if (at < 0 || at >= opts.length) at = opts.findIndex((o) => o === q.answer);
       if (at < 0) at = 0;
-      // spread the correct letter: move the right answer to the next letter of this skill's turn
-      const key = `${q.skillId}|${opts.length}`;
-      const want = (turn.get(key) ?? 0) % opts.length;
-      turn.set(key, (turn.get(key) ?? 0) + 1);
+      // spread the correct letter evenly, in a random order (no A-B-C-D pattern)
+      const want = nextPosition(`${grade}|${q.skillId}|${opts.length}`, opts.length);
       if (want !== at) { const t = opts[want]; opts[want] = opts[at]; opts[at] = t; at = want; }
       answer = LETTERS[at];
     } else { type = "Fill in the Blank"; answer = q.accepted || q.answer; opts = []; }

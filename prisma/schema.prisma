@@ -1667,3 +1667,23 @@ model StudentCategoryLevel {
 
   @@id([studentId, category])
 }
+
+/// ✍️ A Respond to Reading activity for one level of a Text Set (code G4.U1.TS1.RTR.BELOW / .ON / .ABOVE):
+/// the writing prompt with the level's support (steps, word bank, sentence starters, checklist, hidden hint).
+model RespondActivity {
+  id               String   @id @default(cuid())
+  schoolId         String
+  code             String   @db.VarChar(120)
+  title            String   @db.VarChar(255)
+  prompt           String   @db.Text
+  instructions     Json
+  wordBank         Json
+  sentenceStarters Json
+  checklist        Json
+  hint             String?  @db.Text
+  updatedById      String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@unique([schoolId, code])
+}

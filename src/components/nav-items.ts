@@ -30,6 +30,7 @@ export function navItemsFor(role: string): NavItem[] {
   if (role === "STUDENT") return [
     { href: "/student", label: "Home", icon: "🏠" },
     { href: "/student/readmaster", label: "ReadMaster", icon: "⭐" },
+    { href: "/student/respond", label: "Respond", icon: "✍️" },
     { href: "/student/map", label: "My MAP", icon: "🗺️" },
     { href: "/student/plans", label: "My plans", icon: "🗂️" },
     { href: "/play", label: "Join a game", icon: "🎮" },

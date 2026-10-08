@@ -1315,3 +1315,21 @@ CREATE TABLE "StudentCategoryLevel" (
   "updatedAt" TEXT NOT NULL,
   PRIMARY KEY ("studentId", "category")
 );
+
+CREATE TABLE "RespondActivity" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "code" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "prompt" TEXT NOT NULL,
+  "instructions" TEXT NOT NULL,
+  "wordBank" TEXT NOT NULL,
+  "sentenceStarters" TEXT NOT NULL,
+  "checklist" TEXT NOT NULL,
+  "hint" TEXT,
+  "updatedById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "RespondActivity_schoolId_code_key" UNIQUE ("schoolId", "code")
+);

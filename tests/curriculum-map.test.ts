@@ -93,7 +93,7 @@ describe("Curriculum Map (Grade → Book → Unit → Text Set/Selection → Cat
     const ts = v.book!.children[0].children[0];
     assert.deepEqual([ts.heading, ts.sharedRead, ts.genre], ["Text Set 1: Expository Text", "“A World of Change”", "Expository Text"]);
     assert.deepEqual(ts.children.map((c) => c.title), ["1- Concept Vocabulary", "2- Analyze Craft and Structure", "3- Respond to Reading"]);
-    assert.deepEqual(ts.children[1].children.map((l) => l.title), ["Above Level", "On Level", "Below Level"]);
+    assert.deepEqual(ts.children[1].children.map((l) => l.title), ["Below Level", "On Level", "Above Level"], "levels read Below → On → Above");
     assert.equal(v.attachmentNodes, 126);
     const g6 = await curriculumMapView(repo, teacher, 6);
     assert.deepEqual(g6.book!.children.map((u) => u.children.length), [3, 3, 2, 4, 4, 7]);

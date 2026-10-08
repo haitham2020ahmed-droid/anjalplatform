@@ -8,6 +8,7 @@ import { accessibleClasses } from "@/server/teacher/assign";
 import { rosterForGrade } from "@/server/curriculum-map/levels";
 import { MapAssignButton, MapAssignHost, type RosterClass } from "@/components/curriculum-map/assign-button";
 import { assignPlaceAction } from "./actions";
+import { respondCodes } from "@/server/curriculum-map/respond";
 
 export const metadata = { title: "Curriculum Map" };
 
@@ -34,6 +35,8 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
   const roster: RosterClass[] = actor.role === "TEACHER" && v.level !== null ? await rosterForGrade(repo, actor, v.level) : [];
   const planClassId = roster[0]?.id ?? null;
   // ReadMaster articles written for a Text Set (Article Code RM-G4-U1-TS1)
+  // ✍️ Respond to Reading level pages that have their activity
+  const respond = await respondCodes(repo, actor.schoolId!);
   const rmByCode = new Map((await repo.findMany("ReadMasterArticle", { schoolId: actor.schoolId }, { select: ["id", "code", "status"] })).map((x) => [String(x.code).toUpperCase(), { id: String(x.id) }]));
   // one unit at a time (tabs): smaller pages, faster, easier to read
   const units = v.book?.children ?? [];
@@ -70,6 +73,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
         {!isTeacher && <>
           <Link prefetch={false} href="/admin/questions/import?to=curriculum" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📥 Import</Link>
           <Link href={`/admin/curriculum-map/coverage?grade=${v.level ?? 4}`} className="rounded-xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-900 ring-1 ring-emerald-300 hover:bg-emerald-100">🧮 Coverage</Link>
+          <Link href="/admin/curriculum-map/respond" className="rounded-xl bg-violet-50 px-3 py-2 text-sm font-semibold text-violet-900 ring-1 ring-violet-300 hover:bg-violet-100">✍️ Respond to Reading</Link>
           <Link href={`/admin/curriculum-map/bridge?grade=${v.level ?? 5}`} className="rounded-xl bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-900 ring-1 ring-indigo-300 hover:bg-indigo-100">🌉 Bridge</Link>
         </>}
         {isTeacher && <Link prefetch={false} href="/admin/questions/new" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Write a question in the Question Bank; it asks where on the Curriculum Map it goes">➕ Add a question (Question Bank)</Link>}
@@ -126,7 +130,11 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
                                 {isTeacher && c.children.length > 0 && teacherActions(c.code, true)}</p>
                               {c.children.length > 0 && (
                                 <ul className="mt-2 flex flex-wrap gap-2">
-                                  {c.children.map((l) => <li key={l.id} className="rounded-lg bg-white px-2.5 py-1 text-sm ring-1 ring-slate-200">{l.title}{isTeacher ? teacherCount(l) : badge(l)}</li>)}
+                                  {c.children.map((l) => <li key={l.id} className="rounded-lg bg-white px-2.5 py-1 text-sm ring-1 ring-slate-200">
+                                    {c.categoryType === "RESPOND_TO_READING"
+                                      ? <Link prefetch={false} href={`/admin/curriculum-map/respond/${c.code}?level=${l.level}`} className="font-semibold text-violet-900 hover:underline" title="Open this level's activity page">{respond.has(l.code) ? "✍️ " : isTeacher ? "" : "➕ "}{l.title}</Link>
+                                      : l.title}
+                                    {isTeacher ? teacherCount(l) : badge(l)}</li>)}
                                 </ul>
                               )}
                             </li>

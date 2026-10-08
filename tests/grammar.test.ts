@@ -60,6 +60,9 @@ describe("🔤 Grammar: one bank, real skills, assigned and practised like every
     const col = (h: string) => table[0].indexOf(h);
     const s1 = table.slice(1).filter((x) => x[col("Skill")] === grammarCode(4, "G4-U1W1-S1"));
     assert.deepEqual([...new Set(s1.map((x) => x[col("Correct Answer")]))].sort(), ["A", "B", "C", "D"], "the correct letter is spread over A–D");
+    const order = s1.map((x) => x[col("Correct Answer")]).join("");
+    assert.notEqual(order, "ABCDABCDABCD", "a shuffled order, never a fixed A-B-C-D pattern");
+    for (const l of "ABCD") assert.equal(order.split(l).length - 1, 3, "each letter equally often");
     for (const x of s1) assert.match(x[col(`Option ${x[col("Correct Answer")]}`)], /^The (dog|teacher|river|farmer|pilot|baker|rabbit|doctor|painter|sailor|singer|miner) (?!\w+\.$)/, "the right text moves with its letter");
     assert.deepEqual(table.slice(1).map((x) => x[col("Question Type")]).slice(12), ["True/False", "Multiple Choice", "Multiple Choice"]);
 

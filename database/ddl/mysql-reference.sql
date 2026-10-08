@@ -1178,6 +1178,24 @@ CREATE TABLE `StudentCategoryLevel` (
   PRIMARY KEY (`studentId`, `category`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+CREATE TABLE `RespondActivity` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `code` VARCHAR(120) NOT NULL,
+  `title` VARCHAR(255) NOT NULL,
+  `prompt` TEXT NOT NULL,
+  `instructions` JSON NOT NULL,
+  `wordBank` JSON NOT NULL,
+  `sentenceStarters` JSON NOT NULL,
+  `checklist` JSON NOT NULL,
+  `hint` TEXT,
+  `updatedById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `RespondActivity_schoolId_code_key` UNIQUE (`schoolId`, `code`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 ALTER TABLE `Session` ADD CONSTRAINT `Session_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
