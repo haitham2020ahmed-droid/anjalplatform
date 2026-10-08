@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { LogoutButton } from "./logout-button";
 import { NotificationBell } from "./notification-bell";
+import { NavProgress } from "./ui/nav-progress";
 
 /** Shared page frame: brand stripe, sticky header (logo, accreditations, bell, person), content that fades in. */
 export function AppShell({ name, children }: { name: string; children: React.ReactNode }) {
@@ -8,8 +9,9 @@ export function AppShell({ name, children }: { name: string; children: React.Rea
   return (
     <div className="min-h-screen">
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-brand-navy focus:px-4 focus:py-2 focus:font-semibold focus:text-white">Skip to content</a>
-      <div className="brand-stripe h-1.5" aria-hidden="true" />
-      <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95">
+      <Suspense fallback={null}><NavProgress /></Suspense>
+      <div className="brand-stripe h-1.5 print:hidden" aria-hidden="true" />
+      <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 print:hidden">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6">
           <a href="/" className="flex items-center gap-3 font-bold text-brand-navy">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -33,7 +35,7 @@ export function AppShell({ name, children }: { name: string; children: React.Rea
           </div>
         </div>
       </header>
-      <main id="main" tabIndex={-1} className="animate-fade-up mx-auto max-w-6xl px-4 py-8 outline-none sm:px-6">{children}</main>
+      <main id="main" tabIndex={-1} className="animate-fade-up mx-auto max-w-6xl px-4 py-8 outline-none sm:px-6 print:max-w-none print:p-0">{children}</main>
     </div>
   );
 }

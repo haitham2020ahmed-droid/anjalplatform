@@ -1,11 +1,12 @@
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
+import { AutoPrint } from "@/components/plans/auto-print";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { skillPlanForStaff } from "@/server/curriculum-map/plans";
 
 /** One skill plan (teacher): places by unit with progress; printable / PDF. */
-export default async function PlanPage({ params, searchParams }: { params: Promise<{ planId: string }>; searchParams: Promise<{ msg?: string }> }) {
+export default async function PlanPage({ params, searchParams }: { params: Promise<{ planId: string }>; searchParams: Promise<{ msg?: string; print?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:read" });
   const me = (await getActor())!.user;
   const p = await skillPlanForStaff(repo, actor, (await params).planId);
@@ -14,7 +15,12 @@ export default async function PlanPage({ params, searchParams }: { params: Promi
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/plans", label: "Skill plans" }} icon="🗂️" title={p.title} subtitle={`${p.className} · Grade ${p.grade} · ${p.places.length} place(s) · ${p.createdAt}`}><PrintButton /></PageHeader>
-      {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
+      {sp.print === "1" && <AutoPrint />}
+      {sp.msg && (
+        <div role="status" className="animate-pop mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">
+          <span>✅ {sp.msg}</span><PrintButton />
+        </div>
+      )}
       {p.note && <p className="mb-4 rounded-2xl bg-amber-50 px-4 py-3 text-amber-900">💬 {p.note}</p>}
       <div className="space-y-5">
         {units.map((u) => (

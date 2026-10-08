@@ -6,11 +6,12 @@ import { accessibleClasses } from "@/server/teacher/assign";
 import { classLevels } from "@/server/curriculum-map/levels";
 import { listSkillPlans, planPlaces } from "@/server/curriculum-map/plans";
 import { createPlanAction } from "./actions";
+import { SelectAll } from "@/components/ui/select-all";
 
 export const metadata = { title: "Skill plans" };
 
 /** 🗂️ Skill plans: choose Curriculum Map places, assign them together; students open the plan as a map. */
-export default async function PlansPage({ searchParams }: { searchParams: Promise<{ classId?: string; msg?: string }> }) {
+export default async function PlansPage({ searchParams }: { searchParams: Promise<{ classId?: string; msg?: string; unit?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -19,6 +20,8 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
   const [plans, roster] = await Promise.all([listSkillPlans(repo, actor), classId ? classLevels(repo, actor, classId) : Promise.resolve(null)]);
   const groups = roster ? await planPlaces(repo, actor.schoolId!, roster.grade) : [];
   const units = [...new Set(groups.map((g) => g.unit))];
+  // “🗂️ Plan this unit” from the Curriculum Map: that unit opens with everything ticked
+  const preUnit = Number(sp.unit) > 0 ? units[Number(sp.unit) - 1] ?? null : null;
   const isTeacher = actor.role === "TEACHER";
   const box = "rounded-xl border border-slate-300 px-3 py-2";
   return (
@@ -30,11 +33,14 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
         <Section title="Plans" icon="📋" className="mb-6">
           <ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
             {plans.map((p) => (
-              <li key={p.id}><Link href={`/teacher/plans/${p.id}`} className="lift block rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-                <p className="font-bold text-brand-navy">{p.title}</p>
-                <p className="text-sm text-slate-600">{p.className} · Grade {p.grade} · {p.items} place(s) · {p.students} student(s)</p>
-                <p className="text-xs text-slate-400">{p.createdAt}</p>
-              </Link></li>
+              <li key={p.id} className="lift flex items-start justify-between gap-2 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+                <Link href={`/teacher/plans/${p.id}`} className="min-w-0 flex-1">
+                  <p className="font-bold text-brand-navy">{p.title}</p>
+                  <p className="text-sm text-slate-600">{p.className} · Grade {p.grade} · {p.items} place(s) · {p.students} student(s)</p>
+                  <p className="text-xs text-slate-400">{p.createdAt}</p>
+                </Link>
+                <Link href={`/teacher/plans/${p.id}?print=1`} className="shrink-0 rounded-lg bg-brand-navy px-3 py-1.5 text-xs font-bold text-white hover:bg-brand-purple" title="Download as PDF">⬇ PDF</Link>
+              </li>
             ))}
           </ul>
         </Section>
@@ -53,13 +59,15 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
             <div className="space-y-3">
               <p className="text-sm font-semibold text-slate-700">Places (Grade {roster.grade})</p>
               {units.map((u, i) => (
-                <details key={u} open={i === 0} className="rounded-2xl ring-1 ring-slate-200">
-                  <summary className="cursor-pointer px-4 py-2 font-bold text-brand-navy">{u}</summary>
-                  <div className="grid gap-3 px-4 pb-4 md:grid-cols-2 lg:grid-cols-3">
-                    {groups.filter((g) => g.unit === u).map((g) => (
-                      <fieldset key={g.set} className="rounded-xl bg-slate-50 p-3">
-                        <legend className="px-1 text-sm font-semibold text-slate-700">{g.set}</legend>
-                        {g.places.map((p) => <label key={p.code} className="flex items-center gap-2 py-0.5 text-sm"><input type="checkbox" name="codes" value={p.code} />{p.label}</label>)}
+                <details key={u} id={`unit-${i}`} open={preUnit ? u === preUnit : i === 0} className="rounded-2xl ring-1 ring-slate-200">
+                  <summary className="cursor-pointer px-4 py-2 font-bold text-brand-navy">{u} <span className="text-xs font-semibold text-slate-400">· {groups.filter((g) => g.unit === u).reduce((n, g) => n + g.places.length, 0)} places</span></summary>
+                  <div className="flex justify-end px-4"><SelectAll scope={`unit-${i}`} label="Select the whole unit" /></div>
+                  <div className="grid gap-3 px-4 pb-4 pt-2 md:grid-cols-2 lg:grid-cols-3">
+                    {groups.filter((g) => g.unit === u).map((g, j) => (
+                      <fieldset key={g.set} id={`set-${i}-${j}`} className="rounded-xl bg-slate-50 p-3">
+                        <legend className="flex w-full items-center justify-between gap-2 px-1 text-sm font-semibold text-slate-700"><span>{g.set}</span></legend>
+                        <div className="mb-1 flex justify-end"><SelectAll scope={`set-${i}-${j}`} label="All" /></div>
+                        {g.places.map((p) => <label key={p.code} className="flex items-center gap-2 py-0.5 text-sm"><input type="checkbox" name="codes" value={p.code} defaultChecked={u === preUnit} />{p.label}</label>)}
                       </fieldset>
                     ))}
                   </div>
