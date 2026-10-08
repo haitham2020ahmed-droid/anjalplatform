@@ -5,6 +5,7 @@
  *   - MAP practice test: from questions marked “MAP test”; the report groups results by MAP goal area.
  * All three reuse teacher question sets (statuses, notifications, the answer page, reports).
  */
+import { recordLevel } from "./student-level";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -55,7 +56,7 @@ export async function setStudentLevels(repo: Repo, actor: Actor, classId: string
     if (!inClass.has(e.studentId)) throw new ForbiddenError("That student is not in this class.");
     if (e.level && !["ABOVE", "ON", "BELOW"].includes(e.level)) throw new ValidationError("Level must be Above, On or Below.");
     if (!e.level) { n += await repo.deleteMany("StudentLevel", { studentId: e.studentId }); continue; }
-    await repo.upsert("StudentLevel", { studentId: e.studentId }, { level: e.level, source: "TEACHER", setById: actor.userId, updatedAt: now }, { level: e.level, source: "TEACHER", setById: actor.userId, updatedAt: now });
+    await recordLevel(repo, { studentId: e.studentId, level: e.level as Level, source: "TEACHER", setById: actor.userId, now });
     n++;
   }
   return n;

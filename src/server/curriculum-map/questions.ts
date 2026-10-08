@@ -223,3 +223,41 @@ export async function classifyQuestions(repo: Repo, schoolId: string, actorId: s
   }
   return n;
 }
+
+/**
+ * 🪄 Auto-classify: an Unclassified question with a CCSS standard goes to the platform skill of its grade that is
+ * linked to that standard — when exactly one skill is. Several candidates: the one whose name shares the most
+ * words with the question's Curriculum Map place skills. No standard / no candidate: left for a person.
+ */
+export async function autoClassify(repo: Repo, schoolId: string, actorId: string, now = new Date()): Promise<{ classified: number; left: number }> {
+  const grades = await repo.findMany("Grade", { schoolId }, { select: ["id", "level"] });
+  const curs = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id", "gradeId"] }) : [];
+  const skills = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, deletedAt: null }, { select: ["id", "name", "code", "curriculumId"] }) : [];
+  const gradeOf = new Map(curs.map((c) => [String(c.id), Number(grades.find((g) => g.id === c.gradeId)?.level ?? 0)]));
+  const unclassified = skills.filter((k) => String(k.code).endsWith(".curriculum-map-unclassified"));
+  const real = skills.filter((k) => !String(k.code).endsWith(".curriculum-map-unclassified"));
+  if (!unclassified.length) return { classified: 0, left: 0 };
+  const qs = await repo.findMany("Question", { skillId: { in: unclassified.map((k) => k.id) }, deletedAt: null }, { select: ["id", "skillId", "standardId"] });
+  const links = real.length ? await repo.findMany("SkillStandard", { skillId: { in: real.map((k) => k.id) } }, { select: ["skillId", "standardId"] }) : [];
+  const nodes = qs.length ? await repo.findMany("QuestionMapLink", { questionId: { in: qs.map((q) => q.id) } }, { select: ["questionId", "nodeId"] }) : [];
+  const nodeRows = nodes.length ? await repo.findMany("CurriculumMapNode", { id: { in: [...new Set(nodes.map((n) => String(n.nodeId)))] } }, { select: ["id", "skills", "parentId"] }) : [];
+  const words = (t: unknown) => new Set(String(t ?? "").toLowerCase().split(/[^a-z]+/).filter((w) => w.length > 3));
+  const items: { questionId: string; skillId: string }[] = [];
+  for (const q of qs) {
+    const g = gradeOf.get(String(unclassified.find((k) => k.id === q.skillId)?.curriculumId)) ?? 0;
+    if (!q.standardId) continue;
+    const cands = real.filter((k) => gradeOf.get(String(k.curriculumId)) === g && links.some((l) => l.skillId === k.id && l.standardId === q.standardId));
+    if (!cands.length) continue;
+    let pick = cands[0];
+    if (cands.length > 1) {
+      const node = nodeRows.find((n) => n.id === nodes.find((x) => x.questionId === q.id)?.nodeId);
+      const parent = node?.parentId ? nodeRows.find((n) => n.id === node.parentId) : undefined;
+      const placeWords = new Set([...words(node?.skills), ...words(parent?.skills)]);
+      const score = (k: (typeof cands)[number]) => [...words(k.name)].filter((w) => placeWords.has(w)).length;
+      pick = [...cands].sort((a, b) => score(b) - score(a))[0];
+    }
+    items.push({ questionId: String(q.id), skillId: String(pick.id) });
+  }
+  const classified = items.length ? await classifyQuestions(repo, schoolId, actorId, items, now) : 0;
+  return { classified, left: qs.length - classified };
+}

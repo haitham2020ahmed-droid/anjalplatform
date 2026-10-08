@@ -20,9 +20,25 @@ export function bandOf(percentile: number | null, diffFromNational: number | nul
   return "ON";
 }
 
-export interface PlanGoal { area: string; areaId: string; meanRit: number | null; skills: { id: string; name: string; standards: string[] }[] }
+/** What happened since the decision: the group's answers on this goal's standards (last 28 days). */
+export interface GoalResult { practiced: number; students: number; answers: number; accuracy: number | null; trend: number | null }
+export interface PlanGoal { area: string; areaId: string; meanRit: number | null; skills: { id: string; name: string; standards: string[] }[]; result?: GoalResult }
+
+/** A MAP goal area ↔ the CCSS standards that measure it (questions are linked to areas by their standard). */
+export function areaMatchesStandard(area: string, code: string): boolean {
+  const c = code.replace(/^CCSS\.ELA-LITERACY\./i, "").toUpperCase();
+  if (/literary/i.test(area)) return /^RL\./.test(c) && !/^RL\.\d+\.4$/.test(c);
+  if (/informational/i.test(area)) return /^RI\./.test(c) && !/^RI\.\d+\.4$/.test(c);
+  if (/vocabulary/i.test(area)) return /^L\.\d+\.[456]/.test(c) || /^R[LI]\.\d+\.4$/.test(c);
+  if (/grammar|usage/i.test(area)) return /^L\.\d+\.1/.test(c);
+  if (/mechanic/i.test(area)) return /^L\.\d+\.2/.test(c);
+  if (/writ/i.test(area)) return /^W\./.test(c) || /^L\.\d+\.3/.test(c);
+  return false;
+}
 export interface PlanBand {
   band: Band; ritRange: string | null;
+  /** level moves of the group's students in their adaptive sets (last 28 days) */
+  moves: { up: number; down: number };
   students: { studentId: string; name: string; rit: number; projection: number | null; percentile: number | null; rapidGuess: number | null }[];
   goals: PlanGoal[]; strengths: PlanGoal[]; resources: string[]; monitoring: string[];
 }
@@ -53,6 +69,22 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
   const stds = links.length ? await repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => s(l.standardId)))] } }, { select: ["id", "code"] }) : [];
   const stdOf = (skillId: string) => [...new Set(links.filter((l) => s(l.skillId) === skillId).map((l) => s(stds.find((x) => x.id === l.standardId)?.code).replace(/^CCSS\.ELA-LITERACY\./, "")).filter(Boolean))];
   const areas = await repo.findMany("MapGoalArea", { subject: subject === "READING" ? "READING" : "LANGUAGE_USAGE" }, { select: ["id", "name"] });
+  // 📈 results since the decisions: answers of the last 28 days, each linked to its standard
+  const now = new Date(), d28 = new Date(now.getTime() - 28 * 86_400_000), d14 = now.getTime() - 14 * 86_400_000;
+  const atts = ids.length ? await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: d28 } }, { select: ["studentId", "questionId", "isCorrect", "createdAt"] }) : [];
+  const aq = atts.length ? await repo.findMany("Question", { id: { in: [...new Set(atts.map((a) => s(a.questionId)))] } }, { select: ["id", "standardId"] }) : [];
+  const astd = aq.length ? await repo.findMany("Standard", { id: { in: [...new Set(aq.map((q) => s(q.standardId)).filter(Boolean))] } }, { select: ["id", "code"] }) : [];
+  const codeOfQ = new Map(aq.map((q) => [s(q.id), s(astd.find((x) => x.id === q.standardId)?.code)]));
+  const tms = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
+  const resultOf = (area: string, members: Set<string>): GoalResult => {
+    const mine = atts.filter((a) => members.has(s(a.studentId)) && areaMatchesStandard(area, codeOfQ.get(s(a.questionId)) ?? ""));
+    const acc = (xs: typeof mine) => (xs.length ? Math.round((100 * xs.filter((a) => a.isCorrect).length) / xs.length) : null);
+    const recent = mine.filter((a) => tms(a.createdAt) >= d14), older = mine.filter((a) => tms(a.createdAt) < d14);
+    const a1 = acc(recent), a0 = acc(older);
+    return { practiced: new Set(mine.map((a) => s(a.studentId))).size, students: members.size, answers: mine.length, accuracy: acc(mine), trend: a1 !== null && a0 !== null && recent.length >= 5 && older.length >= 5 ? a1 - a0 : null };
+  };
+  const logs = ids.length ? (await repo.findMany("AuditLog", { entityType: "Student", action: "level.change", createdAt: { gte: d28 } })).filter((l) => ids.includes(s(l.entityId)) && (l.after as Record<string, unknown>)?.outcome === "CHANGED") : [];
+  const RANK: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
   const bands: PlanBand[] = (["BELOW", "ON", "ABOVE"] as Band[]).map((band) => {
     const rows = v.rows.filter((r) => bandOf(r.national?.percentile ?? null, r.national?.diff ?? null) === band);
     const mine = new Set(rows.map((r) => r.studentId));
@@ -76,8 +108,14 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
     const goals = withData.length ? withData.slice(0, 3) : merged.slice(0, 3);
     const strengths = withData.length > 3 ? withData.slice(-2).reverse() : [];
     const rits = rows.map((r) => r.rit);
+    for (const g of [...goals, ...strengths]) g.result = resultOf(g.area, mine);
+    let up = 0, down = 0;
+    for (const l of logs) if (mine.has(s(l.entityId))) {
+      const from = RANK[s(((l.before ?? {}) as Record<string, unknown>).level)], to = RANK[s(((l.after ?? {}) as Record<string, unknown>).level)];
+      if (from !== undefined && to !== undefined) { if (to > from) up++; else if (to < from) down++; }
+    }
     return {
-      band, ritRange: rits.length ? `${Math.min(...rits)}–${Math.max(...rits)}` : null,
+      band, ritRange: rits.length ? `${Math.min(...rits)}–${Math.max(...rits)}` : null, moves: { up, down },
       students: rows.map((r) => ({ studentId: r.studentId, name: r.name, rit: r.rit, projection: r.projection, percentile: r.national?.percentile ?? null, rapidGuess: r.rapidGuess })).sort((a, b) => a.rit - b.rit),
       goals, strengths, resources: RESOURCES[band], monitoring: MONITORING,
     };

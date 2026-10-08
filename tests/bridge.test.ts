@@ -9,7 +9,7 @@ import { parseCurriculumMap } from "../src/server/curriculum-map/source";
 import { seedCurriculumMap } from "../src/server/curriculum-map/seed";
 import { bridgeOf, bridges, importBridges, resetBridges } from "../src/server/curriculum-map/bridge";
 import { decideLevel } from "../src/server/curriculum-map/leveled";
-import { assignFromMap, studentLevels } from "../src/server/curriculum-map/levels";
+import { assignFromMap } from "../src/server/curriculum-map/levels";
 import { createDraft } from "../src/server/admin/questions";
 import { teacherRoster } from "../src/server/teacher/assign";
 import { assignmentReport } from "../src/server/student/assigned";
@@ -67,14 +67,15 @@ describe("🌉 Cross-Grade Bridge: the same skill one grade up (challenge) and o
     assert.ok(r.notes.some((n) => /Challenge path: 5 question/.test(n)));
     const st = await resolveActor(repo, (await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: roster[0].students[0].id }))!.userId }))!);
     const aid = r.groups[0].assignmentId;
-    let v = await startQuiz(repo, st, aid); const seen: string[] = [];
+    let clock = Date.now(); let v = await startQuiz(repo, st, aid, new Date(clock)); const seen: string[] = [];   // a reader: 30 s a question
     while (v.question) {
       const it = (await loadQuestionItems(repo, [v.question.questionId]))[0];
       seen.push(String((await repo.findUnique("Question", { id: it.questionId }))!.stem).split(" ")[0]);
-      v = (await submitQuizAnswer(repo, st, { assignmentId: aid, questionId: it.questionId, response: it.options!.find((o) => o.correct)!.label })).view;
+      v = (await submitQuizAnswer(repo, st, { assignmentId: aid, questionId: it.questionId, response: it.options!.find((o) => o.correct)!.label }, new Date((clock += 30_000)))).view;
     }
     assert.deepEqual(seen, [...Array(4).fill("BELOW"), ...Array(4).fill("ON"), ...Array(4).fill("ABOVE"), ...Array(4).fill("CHALLENGE")]);
     assert.match((await assignmentReport(repo, st, aid)).masteryLevel, /Reached 🚀 Challenge.*Below → On → Above → 🚀 Challenge/);
-    assert.equal((await studentLevels(repo, [roster[0].students[0].id])).get(roster[0].students[0].id)?.level, "ABOVE");
+    // mastered past Above (🚀): the category's level is Above, where its next set starts
+    assert.equal(String((await repo.findMany("StudentCategoryLevel", { studentId: roster[0].students[0].id }))[0]?.level), "ABOVE");
   });
 });

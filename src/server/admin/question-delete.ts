@@ -106,3 +106,17 @@ export async function archiveQuestions(repo: Repo, actor: Actor, ids: string[], 
   }
   return { archived: todo.length, alreadyArchived: qs.length - todo.length };
 }
+
+
+/** ♻️ Archived questions back in use: published again (an admin's decision, recorded in the audit log). */
+export async function restoreArchived(repo: Repo, actor: Actor, ids: string[], now = new Date()): Promise<{ restored: number }> {
+  assertCan(actor, "questions:publish");
+  const qs = (await questionsInSchool(repo, actor, ids)).filter((q) => q.status === "ARCHIVED");
+  for (const part of chunks(qs)) {
+    await repo.transaction(async (tx) => {
+      await tx.updateMany("Question", { id: { in: part.map((q) => q.id) } }, { status: "PUBLISHED", publishedAt: now, reviewedById: actor.userId, updatedAt: now });
+      await tx.createMany("AuditLog", part.map((q) => ({ actorId: actor.userId, action: "question.restore", entityType: "Question", entityId: s(q.id), before: { status: "ARCHIVED" }, after: { status: "PUBLISHED" }, createdAt: now })));
+    });
+  }
+  return { restored: qs.length };
+}

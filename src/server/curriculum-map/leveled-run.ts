@@ -1,4 +1,5 @@
 /** Runs the level progression (leveled.ts) for an adaptive question set, from the database. */
+import { categoryOfQuestions } from "./student-level";
 import type { Repo, Row } from "../seeding/repo";
 import { decideLevel, LADDER, pickNext, type Decision, type Level, type Rung } from "./leveled";
 import { lexileBands, levelForLexile } from "./lexile";
@@ -41,7 +42,21 @@ export async function studentLexile(repo: Repo, studentId: string): Promise<numb
 }
 
 /** Where a student starts: their Lexile (MAP) → level; else their saved level; else the default. */
-export async function startLevel(repo: Repo, studentId: string, fallback: Level): Promise<{ level: Level; from: "LEXILE" | "LEVEL" | "DEFAULT" }> {
+/**
+ * Where an adaptive set starts, from the most specific and recent evidence to the most general:
+ *   1. the teacher's level (chosen in the last 30 days) — an explicit decision
+ *   2. the student's level in THIS category, learned from their own adaptive sets
+ *   3. a placement test   4. the MAP Lexile   5. the MAP RIT level   6. the default
+ */
+export async function startLevel(repo: Repo, studentId: string, fallback: Level, category: string | null = null, now = new Date()): Promise<{ level: Level; from: "TEACHER" | "CATEGORY" | "LEVEL" | "LEXILE" | "DEFAULT" }> {
+  const saved = await repo.findUnique("StudentLevel", { studentId });
+  const savedAt = saved ? new Date(s(saved.updatedAt instanceof Date ? saved.updatedAt.toISOString() : saved.updatedAt)).getTime() : 0;
+  if (saved && s(saved.source) === "TEACHER" && now.getTime() - savedAt < 30 * 86_400_000) return { level: s(saved.level) as Level, from: "TEACHER" };
+  if (category) {
+    const cat = (await repo.findMany("StudentCategoryLevel", { studentId, category }))[0];
+    if (cat) return { level: s(cat.level) as Level, from: "CATEGORY" };
+  }
+  if (saved && s(saved.source) === "PLACEMENT") return { level: s(saved.level) as Level, from: "LEVEL" };
   const st = await repo.findUnique("Student", { id: studentId });
   const lex = await studentLexile(repo, studentId);
   if (st && lex !== null) {
@@ -49,7 +64,6 @@ export async function startLevel(repo: Repo, studentId: string, fallback: Level)
     const lv = g ? levelForLexile((await lexileBands(repo, s(st.schoolId)))[Number(g.level)], lex) : null;
     if (lv) return { level: lv, from: "LEXILE" };
   }
-  const saved = await repo.findUnique("StudentLevel", { studentId });
   return saved ? { level: s(saved.level) as Level, from: "LEVEL" } : { level: fallback, from: "DEFAULT" };
 }
 
@@ -57,14 +71,19 @@ export interface AdaptiveState { nextId: string | null; total: number; done: boo
 
 /** Next question of an adaptive set for this session (null = finished). */
 export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessionId: string, studentId: string): Promise<AdaptiveState> {
-  const attempts = (await repo.findMany("QuestionAttempt", { sessionId }, { select: ["questionId", "isCorrect", "createdAt"] })).sort((a, b) => time(a.createdAt) - time(b.createdAt));
+  const attempts = (await repo.findMany("QuestionAttempt", { sessionId }, { select: ["questionId", "isCorrect", "rapidGuess", "createdAt"] })).sort((a, b) => time(a.createdAt) - time(b.createdAt));
   const pool = await poolOf(repo, order);
   const levelOf = new Map(pool.map((q) => [q.id, q.level]));
   // the start is fixed by the first question the student answered (later level changes never rewrite the path)
-  const start: Rung = attempts.length && levelOf.has(s(attempts[0].questionId)) ? levelOf.get(s(attempts[0].questionId))! : (await startLevel(repo, studentId, String(set.type) === "PLACEMENT" ? "ON" : "BELOW")).level;
+  const start: Rung = attempts.length && levelOf.has(s(attempts[0].questionId)) ? levelOf.get(s(attempts[0].questionId))! : (await startLevel(repo, studentId, String(set.type) === "PLACEMENT" ? "ON" : "BELOW", String(set.type) === "PLACEMENT" ? null : await categoryOfQuestions(repo, order))).level;
   const total = Math.min(Number(set.maxQuestions) || order.length, order.length);
   const rungs = LADDER.filter((r) => pool.some((q) => q.level === r) || r === "BELOW" || r === "ON" || r === "ABOVE");
-  const decision = decideLevel(start, attempts.map((a) => ({ level: levelOf.get(s(a.questionId)) ?? "ON", correct: Boolean(a.isCorrect) })), total, rungs);
+  // ⚡ answers given too fast to have read the question (rapid guesses) never move the level, up or down —
+  // as on MAP itself; they still count toward the set's length, so a guessing student does not go on forever
+  const careful = attempts.filter((a) => !a.rapidGuess);
+  const moved = decideLevel(start, careful.map((a) => ({ level: levelOf.get(s(a.questionId)) ?? "ON", correct: Boolean(a.isCorrect) })), Number.MAX_SAFE_INTEGER, rungs);
+  const decision = moved.reason === "MASTERED_ABOVE" ? moved
+    : attempts.length >= total ? { ...moved, done: true, reason: "LIMIT" as const } : { ...moved, done: false, reason: null };
   if (decision.done) return { nextId: null, total, done: true, decision, start };
   const answered = new Set(attempts.map((a) => s(a.questionId)));
   const lex = await studentLexile(repo, studentId);

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState , Fragment } from "react";
 import type { QuestionStatus } from "@/server/admin/questions";
-import { archiveQuestionsAction, bulkPublishAction, deleteQuestionsAction, publishableIdsAction } from "../actions";
+import { archiveQuestionsAction, bulkPublishAction, deleteQuestionsAction, publishableIdsAction, restoreQuestionsAction } from "../actions";
 import { AssignQuestionsDialog, type RosterClass } from "./assign-questions-dialog";
 import { PreviewDialog } from "./preview-dialog";
 import { selectionCsvAction } from "./preview-actions";
@@ -75,6 +75,7 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
   const selectable = canDelete ? rows : eligible;
   const allChecked = selectable.length > 0 && selectable.every((r) => selected.has(r.id));
   const selectedPublishable = rows.filter((r) => selected.has(r.id) && PUBLISHABLE.includes(r.status)).map((r) => r.id);
+  const selectedArchived = rows.filter((r) => selected.has(r.id) && r.status === "ARCHIVED").map((r) => r.id);
   const checkboxes = canPublish || canDelete;
 
   async function runBatches<T>(ids: string[], verb: string, call: (part: string[]) => Promise<{ result?: T; error?: string }>, onResult: (r: T) => void): Promise<boolean> {
@@ -117,8 +118,17 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
   }
   const toggle = (id: string) => setSelected((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; });
 
+  async function restoreSelected() {
+    if (!window.confirm(`Restore ${selectedArchived.length} archived question(s)? They will be published again.`)) return;
+    let restored = 0;
+    const ok = await runBatches(selectedArchived, "restored", (part) => restoreQuestionsAction(part), (r) => { restored += r.restored; });
+    if (!ok) return;
+    setSelected(new Set());
+    setFeedback({ ok: `♻️ ${restored} question(s) restored and published.` });
+    router.refresh();
+  }
   async function publish(ids: string[]) {
-    if (!ids.length) return setFeedback({ error: "There are no questions here that can be published." });
+    if (!ids.length) return setFeedback({ error: selectedArchived.length ? "The selected questions are archived: press ♻️ Restore Selected to publish them again." : "There are no questions here that can be published." });
     if (!window.confirm(`Are you sure you want to publish ${ids.length} question${ids.length === 1 ? "" : "s"}?`)) return;
     setFeedback(null);
     let published = 0;
@@ -164,6 +174,7 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
         <div className="mb-3 flex flex-wrap items-center justify-end gap-2">
           <span className="me-auto text-sm font-semibold text-slate-700" aria-live="polite">Selected: {selected.size}</span>
           {canPublish && <button type="button" disabled={!!busy || selectedPublishable.length === 0} onClick={() => void publish(selectedPublishable)} className="rounded-xl bg-brand-teal px-4 py-2 font-semibold text-white hover:opacity-90 disabled:opacity-50">Publish Selected ({selectedPublishable.length})</button>}
+          {canPublish && selectedArchived.length > 0 && <button type="button" disabled={!!busy} onClick={() => void restoreSelected()} className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white hover:bg-emerald-700 disabled:opacity-50">♻️ Restore Selected ({selectedArchived.length})</button>}
           {canPublish && <button type="button" disabled={!!busy} onClick={() => void publishAll()} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Publish All</button>}
           {canPublish && <button type="button" disabled={!!busy || selected.size === 0} onClick={() => void archiveSelected()} className="rounded-xl px-4 py-2 font-semibold text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50 disabled:opacity-50">Archive Selected</button>}
           {canDelete && <button type="button" disabled={!!busy || selected.size === 0} onClick={() => void removeSelected()} className="rounded-xl bg-red-700 px-4 py-2 font-semibold text-white hover:bg-red-800 disabled:opacity-50">Delete Selected ({selected.size})</button>}

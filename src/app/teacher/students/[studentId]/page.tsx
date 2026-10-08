@@ -1,3 +1,5 @@
+import { LearningPathView } from "@/components/student/learning-path-view";
+import { studentLearningPath } from "@/server/student/learning-path";
 import { AppShell } from "@/components/app-shell";
 import { StudentDetailView } from "@/components/teacher/student-detail";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -22,6 +24,7 @@ export default async function StudentPage({ params }: { params: Promise<{ studen
   return (
     <AppShell name={String(me.displayName)}>
       <StudentDetailView d={d} classHref={member ? `/teacher/classes/${String(member.classId)}` : "/teacher"} />
+      <LearningPathView p={await studentLearningPath(repo, actor, studentId)} classId={member ? String(member.classId) : null} />
       <StudentAnalyticsView a={analytics} />
       <MapComparisonView data={await mapComparison(repo, actor, studentId)} />
       <ReportDownloads title="Student progress report (this school year)" report={{ kind: "student", studentId, period: "SCHOOL_YEAR" }} />

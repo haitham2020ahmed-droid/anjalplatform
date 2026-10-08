@@ -34,4 +34,6 @@ export function middleware(req: NextRequest) {
   return res;
 }
 
-export const config = { matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"] };
+// The question upload route is left out: Next.js cuts request bodies passing through middleware at 10 MB, and
+// Excel files with their pictures can be up to 50 MB. That route checks the session and the origin itself.
+export const config = { matcher: ["/((?!_next/static|_next/image|favicon.ico|api/question-imports).*)"] };

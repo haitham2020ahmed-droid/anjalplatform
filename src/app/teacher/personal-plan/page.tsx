@@ -13,7 +13,7 @@ const TITLE = { BELOW: "🟠 Below level", ON: "🔵 On level", ABOVE: "🟢 Abo
 
 /** 📋 The Personalized Plan, generated from MAP: print / PDF, Word, and assign each group's goals. */
 export default async function PersonalPlanPage({ searchParams }: { searchParams: Promise<{ classId?: string; subject?: string; msg?: string }> }) {
-  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const classes = (await accessibleClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
@@ -36,6 +36,11 @@ export default async function PersonalPlanPage({ searchParams }: { searchParams:
       </div>
       {!p ? <p className="text-slate-600">You do not teach a class yet.</p> : (
         <article className="space-y-6">
+          <ol className="flex flex-wrap items-center gap-2 text-sm print:hidden" aria-label="Data-driven cycle">
+            {[["📊", "Data", "MAP + platform answers"], ["📋", "Decision", "groups and goals below"], ["⭐", "Action", "assign each group's goals"], ["📈", "Results", "under every goal, last 28 days"]].map(([i, t, d], k) => (
+              <li key={t} className="flex items-center gap-2">{k > 0 && <span aria-hidden="true" className="text-slate-400">→</span>}<span className="rounded-xl bg-white px-3 py-1.5 ring-1 ring-slate-200"><b>{i} {t}</b> <span className="text-slate-500">· {d}</span></span></li>
+            ))}
+          </ol>
           <header className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:shadow-none">
             <h1 className="text-2xl font-extrabold text-brand-navy">Personalized Plan – {p.className} – {subject === "READING" ? "Reading" : "Language"}</h1>
             <p className="mt-1 text-slate-600">Grade {p.grade} · Subject: L.A · Teacher: {p.teacher || "—"} · MAP term: {p.term ?? "no scores yet"}</p>
@@ -43,7 +48,7 @@ export default async function PersonalPlanPage({ searchParams }: { searchParams:
           {p.bands.map((b) => (
             <section key={b.band} className={`break-inside-avoid rounded-3xl border-s-8 bg-white p-6 shadow-sm ring-1 ring-slate-200 ${TONE[b.band]}`}>
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <h2 className="text-xl font-extrabold text-brand-navy">{TITLE[b.band]} {b.ritRange && <span className="text-base font-bold text-slate-500">{`{${b.ritRange}}`}</span>} <span className="text-sm font-semibold text-slate-500">· {BAND_RULE[b.band]} · {b.students.length} student(s)</span></h2>
+                <h2 className="text-xl font-extrabold text-brand-navy">{(b.moves.up > 0 || b.moves.down > 0) && <span className="me-2 rounded-full bg-white px-2 py-0.5 align-middle text-xs font-bold ring-1 ring-slate-200" title="Level changes in adaptive sets, last 28 days">{b.moves.up > 0 && <span className="text-emerald-700">▲{b.moves.up}</span>} {b.moves.down > 0 && <span className="text-red-700">▼{b.moves.down}</span>}</span>}{TITLE[b.band]} {b.ritRange && <span className="text-base font-bold text-slate-500">{`{${b.ritRange}}`}</span>} <span className="text-sm font-semibold text-slate-500">· {BAND_RULE[b.band]} · {b.students.length} student(s)</span></h2>
                 {b.students.length > 0 && b.goals.some((g) => g.skills.length) && (
                   <form action={assignBandGoalsAction} className="flex items-center gap-2 print:hidden">
                     <input type="hidden" name="classId" value={classId} /><input type="hidden" name="subject" value={subject} /><input type="hidden" name="band" value={b.band} />
@@ -58,7 +63,7 @@ export default async function PersonalPlanPage({ searchParams }: { searchParams:
               </table>
               <div className="mt-4 grid gap-4 md:grid-cols-2">
                 <div><h3 className="font-bold text-brand-navy">🎯 Academic Goals – {subject === "READING" ? "Reading" : "Language"} + Standards</h3>
-                  <ol className="mt-1 space-y-2 text-sm">{b.goals.map((g) => <li key={g.areaId}><b>{g.area}</b>{g.meanRit !== null && <span className="text-slate-500"> · mean RIT {g.meanRit}</span>}<ul className="ms-4 list-disc text-slate-700">{g.skills.map((k) => <li key={k.id}>{k.standards.length > 0 && <code className="me-1 text-xs text-emerald-800">{k.standards.join(", ")}</code>}{k.name}</li>)}</ul></li>)}</ol>
+                  <ol className="mt-1 space-y-2 text-sm">{b.goals.map((g) => <li key={g.areaId}><b>{g.area}</b>{g.meanRit !== null && <span className="text-slate-500"> · mean RIT {g.meanRit}</span>}{g.result && <ResultChip r={g.result} />}<ul className="ms-4 list-disc text-slate-700">{g.skills.map((k) => <li key={k.id}>{k.standards.length > 0 && <code className="me-1 text-xs text-emerald-800">{k.standards.join(", ")}</code>}{k.name}</li>)}</ul></li>)}</ol>
                 </div>
                 <div className="space-y-3 text-sm">
                   {b.strengths.length > 0 && <div><h3 className="font-bold text-brand-navy">💪 Areas of Strength</h3><ul className="ms-4 list-disc">{b.strengths.map((g) => <li key={g.areaId}>{g.area}{g.meanRit !== null && <span className="text-slate-500"> · {g.meanRit}</span>}</li>)}</ul></div>}
@@ -72,5 +77,16 @@ export default async function PersonalPlanPage({ searchParams }: { searchParams:
         </article>
       )}
     </AppShell>
+  );
+}
+
+/** 📈 What happened on a goal: the group's practice and accuracy on its standards (last 28 days). */
+function ResultChip({ r }: { r: { practiced: number; students: number; answers: number; accuracy: number | null; trend: number | null } }) {
+  if (!r.answers) return <span className="ms-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600" title="No answers on this goal's standards in the last 28 days">📈 not practiced yet</span>;
+  const tone = r.accuracy !== null && r.accuracy >= 75 ? "bg-emerald-50 text-emerald-800 ring-emerald-200" : r.accuracy !== null && r.accuracy >= 50 ? "bg-amber-50 text-amber-900 ring-amber-200" : "bg-red-50 text-red-800 ring-red-200";
+  return (
+    <span className={`ms-2 inline-flex flex-wrap items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${tone}`} title="The group's answers on this goal's standards, last 28 days">
+      📈 {r.practiced}/{r.students} practiced · {r.answers} answers · {r.accuracy}%{r.trend !== null && <b className={r.trend >= 0 ? "text-emerald-700" : "text-red-700"}>{r.trend >= 0 ? ` ▲+${r.trend}` : ` ▼${r.trend}`}</b>}
+    </span>
   );
 }

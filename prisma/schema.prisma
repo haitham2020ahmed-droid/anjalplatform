@@ -1654,3 +1654,16 @@ model CrossGradeBridge {
 
   @@unique([schoolId, fromCode])
 }
+
+
+/// A student's working level in one Curriculum Map category (CV = Concept Vocabulary, ACS = Analyze Craft and
+/// Structure, RTR = Respond to Reading), learned from their adaptive sets. The next set of that category starts here.
+model StudentCategoryLevel {
+  studentId String
+  category  String   @db.VarChar(8)
+  level     MapLevel
+  source    String   @db.VarChar(20)
+  updatedAt DateTime @updatedAt
+
+  @@id([studentId, category])
+}

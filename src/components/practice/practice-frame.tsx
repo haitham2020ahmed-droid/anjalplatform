@@ -12,6 +12,7 @@ import { BandMeter } from "../curriculum/band-meter";
 import { AnswerInput, type AnswerValue } from "./answer-input";
 import { FeedbackPanel } from "./feedback-panel";
 import { ListenButton } from "@/components/listen-button";
+import { PassageText, plainPassage } from "@/components/passage-text";
 
 const END_TEXT: Record<string, string> = {
   COMPLETED: "Great work. You finished this practice set.",
@@ -51,10 +52,8 @@ export function PracticeFrame(props: {
         <div className={["mt-6 grid gap-8", q.passage ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" : ""].join(" ")}>
           {q.passage && (
             <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200 lg:sticky lg:top-4" aria-label="Reading passage">
-              <div className="flex flex-wrap items-center justify-between gap-2"><h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2><ListenButton text={`${q.passage.title}. ${q.passage.text}`} label="Listen to the text" /></div>
-              {q.passage.text.split("\n\n").map((para, i) => (
-                <p key={i} className="mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800">{para}</p>
-              ))}
+              <div className="flex flex-wrap items-center justify-between gap-2"><h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2><ListenButton text={`${q.passage.title}. ${plainPassage(q.passage.text)}`} label="Listen to the text" /></div>
+              <PassageText text={q.passage.text} />
             </article>
           )}
           <div>

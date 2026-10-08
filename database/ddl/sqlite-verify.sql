@@ -1306,3 +1306,12 @@ CREATE TABLE "CrossGradeBridge" (
   PRIMARY KEY ("id"),
   CONSTRAINT "CrossGradeBridge_schoolId_fromCode_key" UNIQUE ("schoolId", "fromCode")
 );
+
+CREATE TABLE "StudentCategoryLevel" (
+  "studentId" TEXT NOT NULL,
+  "category" TEXT NOT NULL,
+  "level" TEXT NOT NULL CHECK ("level" IN ('ABOVE', 'ON', 'BELOW')),
+  "source" TEXT NOT NULL,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("studentId", "category")
+);

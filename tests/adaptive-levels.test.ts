@@ -68,19 +68,22 @@ describe("adaptive curriculum levels (Below → On → Above) driven by Lexile",
       const aid = r.groups[0].assignmentId; adaptiveId = aid;
       const st = await student(roster[0].id);
       assert.equal((await assignedSkills(repo, st)).items.find((i) => i.assignmentId === aid)!.questionCount, 18 > 20 ? 20 : 18);
-      let v = await startQuiz(repo, st, aid);
+      let clock = Date.now(); let v = await startQuiz(repo, st, aid, new Date(clock));   // a reader: 30 s a question
+
       const seen: string[] = [];
       while (v.question) {
         const it = (await loadQuestionItems(repo, [v.question.questionId]))[0];
         const q = (await repo.findUnique("Question", { id: it.questionId }))!;
         seen.push(String(q.stem).split(" ")[0]);
-        v = (await submitQuizAnswer(repo, st, { assignmentId: aid, questionId: it.questionId, response: it.options!.find((o) => o.correct)!.label })).view;
+        v = (await submitQuizAnswer(repo, st, { assignmentId: aid, questionId: it.questionId, response: it.options!.find((o) => o.correct)!.label }, new Date((clock += 30_000)))).view;
       }
       assert.deepEqual(seen, [...Array(4).fill("BELOW"), ...Array(4).fill("ON"), ...Array(4).fill("ABOVE")], "4 at each level, then done");
       const rep = await assignmentReport(repo, st, aid);
       assert.match(rep.masteryLevel, /Reached Above Level \(path: Below → On → Above\)/);
       assert.equal((await assignedSkills(repo, st)).items.find((i) => i.assignmentId === aid)!.status, "COMPLETED");
-      assert.deepEqual((await studentLevels(repo, [roster[0].id])).get(roster[0].id), { level: "ABOVE", source: "ADAPTIVE" });
+      // the level reached is kept for THIS category (the next set of the category starts there); the overall level is MAP / teacher
+      const cat = (await repo.findMany("StudentCategoryLevel", { studentId: roster[0].id }))[0];
+      assert.deepEqual([String(cat.level), String(cat.source)], ["ABOVE", "ADAPTIVE"]);
     });
 
     test("a student whose MAP Lexile is high starts at Above, with the text closest to their Lexile", async () => {

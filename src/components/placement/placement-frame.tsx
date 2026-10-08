@@ -3,6 +3,7 @@
 /** One placement question at a time. No right/wrong marks during the check. */
 import type { ClientQuestion } from "../../server/practice/items";
 import { AnswerInput, type AnswerValue } from "../practice/answer-input";
+import { PassageText, plainPassage } from "@/components/passage-text";
 
 export function PlacementFrame(props: {
   q: ClientQuestion;
@@ -29,7 +30,7 @@ export function PlacementFrame(props: {
         {q.passage && (
           <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200" aria-label="Reading passage">
             <h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2>
-            {q.passage.text.split("\n\n").map((p, i) => <p key={i} className="mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800">{p}</p>)}
+            <PassageText text={q.passage.text} paraClassName="mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800" />
           </article>
         )}
         <div>

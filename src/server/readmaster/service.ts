@@ -120,7 +120,7 @@ export async function saveVersion(repo: Repo, actor: Actor, articleId: string, l
 const DIFFICULTY: Record<Level, number> = { BELOW: 3, ON: 4, ABOVE: 5 };
 
 /** A question for one version (it is created as a regular question: it is in the Question Bank too). */
-export async function addVersionQuestion(repo: Repo, actor: Actor, versionId: string, q: { type?: string; stem: string; options?: { label: string; text: string; correct: boolean; rationale?: string | null }[]; answer?: boolean; answers?: string[]; whyCorrect: string }): Promise<string> {
+export async function addVersionQuestion(repo: Repo, actor: Actor, versionId: string, q: { type?: string; stem: string; standardCode?: string | null; mapNodeCode?: string | null; options?: { label: string; text: string; correct: boolean; rationale?: string | null }[]; answer?: boolean; answers?: string[]; whyCorrect: string }): Promise<string> {
   assertCan(actor, "questions:edit"); staff(actor);
   const v = await repo.findUnique("ReadMasterVersion", { id: versionId });
   if (!v) throw new ForbiddenError("Version not found.");
@@ -130,7 +130,10 @@ export async function addVersionQuestion(repo: Repo, actor: Actor, versionId: st
     skillId, type: (q.type ?? "MULTIPLE_CHOICE") as never, stem: q.stem, level: DIFFICULTY[s(v.level) as Level], whyCorrect: q.whyCorrect,
     options: q.options?.map((o) => ({ label: o.label, text: o.text, correct: o.correct, rationale: o.correct ? null : o.rationale || "Read the text again." })),
     answer: q.answer, answers: q.answers, passageText: s(v.body), lexile: Number(v.lexile),
-    ...(a.standardCode ? { standardCode: s(a.standardCode) } : {}),   // the full code (as stored in Standard)
+    // the question's own standard when given (e.g. vocabulary L.4.4.a in a reading article), else the article's
+    ...(q.standardCode ? { standardCode: q.standardCode } : a.standardCode ? { standardCode: s(a.standardCode) } : {}),   // the full code (as stored in Standard)
+    // its Curriculum Map place (e.g. G4.U1.TS1.ACS.ON): ReadMaster questions then serve the map's sets too
+    ...(q.mapNodeCode ? { mapNodeCode: q.mapNodeCode } : {}),
   });
   // admins publish; a teacher's question waits for an admin's approval
   if (can(actor, "questions:publish")) await repo.updateMany("Question", { id }, { status: "PUBLISHED", publishedAt: new Date(), reviewedById: actor.userId });

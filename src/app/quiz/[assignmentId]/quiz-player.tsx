@@ -5,6 +5,7 @@ import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/pract
 import { FeedbackPanel } from "@/components/practice/feedback-panel";
 import type { Feedback, QuizView } from "@/server/practice/session";
 import { submitQuizAnswerAction } from "./actions";
+import { PassageText, plainPassage } from "@/components/passage-text";
 
 /** The teacher's chosen questions, one by one; the correct answer after each; a report at the end. */
 export function QuizPlayer({ initial }: { initial: QuizView }) {
@@ -49,7 +50,7 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
         {q.passage && (
           <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200 lg:sticky lg:top-4" aria-label="Reading passage">
             <h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2>
-            {q.passage.text.split("\n\n").map((para, i) => <p key={i} className="mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800">{para}</p>)}
+            <PassageText text={q.passage.text} paraClassName="mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800" />
           </article>
         )}
         <div>

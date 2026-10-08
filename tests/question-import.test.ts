@@ -411,7 +411,9 @@ describe("question import: upload, preview and import (database)", () => {
     const rows = (await getImportJob(repo, admin, jobId)).rows;
     const [mc, sa] = await Promise.all(rows.map((r) => repo.findUnique("Question", { id: r.questionId! })));
     assert.deepEqual([mc!.status, mc!.reviewedById], ["PUBLISHED", admin.userId]);
-    assert.equal(sa!.status, "DRAFT", "short answers stay drafts");
+    // teacher-scored Short Answers are published too (teachers find them in the bank); the adaptive engine and the
+    // Curriculum Map sets never serve them, since the platform cannot mark them
+    assert.equal(sa!.status, "PUBLISHED");
     assert.deepEqual((await repo.findMany("QuestionAnswer", { questionId: sa!.id })).map((a) => a.value), ["Sharing makes friends."]);
 
     const before = await repo.count("Question", {});

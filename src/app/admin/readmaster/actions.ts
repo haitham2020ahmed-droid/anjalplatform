@@ -38,7 +38,7 @@ export async function importReadMasterAction(f: FormData): Promise<void> {
     if (!(file instanceof File) || !file.size) throw new ValidationError("Choose the CSV or Excel file.");
     const { table } = extract(file.name, new Uint8Array(await file.arrayBuffer()));
     const r = await importReadMaster(repo, actor, table);
-    msg = `${r.articles} new article(s), ${r.versions} version(s), ${r.questions} question(s) imported.${r.errors.length ? ` ${r.errors.length} problem(s): ${r.errors.slice(0, 5).map((e) => `row ${e.row}: ${e.message}`).join(" · ")}` : ""}`;
+    msg = `${r.articles} new article(s), ${r.versions} version(s), ${r.questions} question(s) imported${r.skipped ? ` (${r.skipped} already there, skipped)` : ""}.${r.errors.length ? ` ${r.errors.length} problem(s): ${r.errors.slice(0, 5).map((e) => `row ${e.row}: ${e.message}`).join(" · ")}` : ""}`;
   } catch (e) { msg = e instanceof Error && !(e instanceof ValidationError) && !(e instanceof ForbiddenError) ? `The file could not be read: ${e.message}` : msgOf(e); }
   redirect(`/admin/readmaster?msg=${encodeURIComponent(msg)}`);
 }

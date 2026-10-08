@@ -149,7 +149,8 @@ export function buildBankItem(input: EditorInput, ctx: { ref: string; grade: num
     estimatedSeconds: Math.min(600, Math.max(10, Math.round(num(input.estimatedSeconds ?? 45)))),
     irt: { a: 1, b: LEVEL_TO_B[Math.round(num(input.level))] ?? 0, c: 0 },
     options: input.options?.map((o, i) => ({ label: o.label?.trim() || "ABCDEFGH"[i], text: text(o.text, `Option ${i + 1}`, 500), correct: Boolean(o.correct), rationale: o.rationale ? text(o.rationale, `Feedback for option ${i + 1}`, 500) : null })),
-    answer: input.answer, answers: input.answers?.map((a) => text(a, "Accepted answer", 200)).filter(Boolean),
+    answer: input.answer, // auto-marked answers stay short; a teacher-scored Short Answer keeps its full model answer (read by the teacher)
+    answers: input.answers?.map((a) => (input.type === "SHORT_ANSWER" ? text(a, "Model answer", 2000) : text(a, "Accepted answer", 200))).filter(Boolean),
     sequence: input.sequence?.map((s) => text(s, "Item", 300)), segments: input.segments?.map((s) => text(s, "Segment", 300)),
     errorIndex: input.errorIndex === undefined ? undefined : num(input.errorIndex), correction: input.correction ? text(input.correction, "Correction", 300) : undefined,
     pairs: input.pairs?.map((p) => ({ left: text(p.left, "Left", 200), right: text(p.right, "Right", 200) })),

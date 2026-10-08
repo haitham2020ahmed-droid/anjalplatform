@@ -13,17 +13,24 @@ import { accessibleClasses } from "./assign";
 
 const s = (v: unknown) => String(v ?? "");
 const t = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
-export type Flag = "URGENT" | "RETEST" | "BEGINNER" | "NOT_TESTED" | "GUESSING" | "INACTIVE";
-export interface InterventionRow { studentId: string; name: string; className: string; classId: string; flags: { flag: Flag; detail: string }[] }
+export type Flag = "URGENT" | "RETEST" | "BEGINNER" | "NOT_TESTED" | "GUESSING" | "INACTIVE" | "REVIEW";
+/** 🔁 spaced review: a skill mastered at least this many days ago and not practised since */
+export const REVIEW_AFTER_DAYS = 21;
+export interface InterventionRow { studentId: string; name: string; className: string; classId: string; flags: { flag: Flag; detail: string }[]; reviewSkills: { id: string; name: string }[] }
 
 export async function interventionBoard(repo: Repo, actor: Actor, now = new Date()): Promise<{ rows: InterventionRow[]; counts: Record<Flag, number>; term: string | null }> {
   assertCan(actor, "assignments:create");
   const classes = await accessibleClasses(repo, actor);
   const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"] }) : [];
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
-  const counts: Record<Flag, number> = { URGENT: 0, RETEST: 0, BEGINNER: 0, NOT_TESTED: 0, GUESSING: 0, INACTIVE: 0 };
+  const counts: Record<Flag, number> = { URGENT: 0, RETEST: 0, BEGINNER: 0, NOT_TESTED: 0, GUESSING: 0, INACTIVE: 0, REVIEW: 0 };
   if (!ids.length) return { rows: [], counts, term: null };
   const since = new Date(now.getTime() - 30 * 86_400_000);
+  const reviewBefore = now.getTime() - REVIEW_AFTER_DAYS * 86_400_000;
+  const tm = (v: unknown) => (v ? new Date(v instanceof Date ? v.toISOString() : s(v)).getTime() : 0);
+  const mastered = (await repo.findMany("StudentSkillMastery", { studentId: { in: ids }, isMastered: true }, { select: ["studentId", "skillId", "masteredAt", "lastPracticedAt"] }))
+    .filter((m) => tm(m.masteredAt) && tm(m.masteredAt) < reviewBefore && tm(m.lastPracticedAt) < reviewBefore);
+  const reviewSkillRows = mastered.length ? await repo.findMany("Skill", { id: { in: [...new Set(mastered.map((m) => s(m.skillId)))] } }, { select: ["id", "name"] }) : [];
   const [students, results, attempts] = await Promise.all([
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
     repo.findMany("MapResult", { studentId: { in: ids } }),
@@ -51,10 +58,12 @@ export async function interventionBoard(repo: Repo, actor: Actor, now = new Date
     if (att.length >= 10 && rapid / att.length >= 0.3) flags.push({ flag: "GUESSING", detail: `Platform: ${Math.round((100 * rapid) / att.length)}% of ${att.length} answers were rapid guesses` });
     const last = att.reduce((x, a) => Math.max(x, t(a.createdAt)), 0);
     if (!last || now.getTime() - last > 10 * 86_400_000) flags.push({ flag: "INACTIVE", detail: last ? `No practice for ${Math.floor((now.getTime() - last) / 86_400_000)} days` : "No practice in the last 30 days" });
+    const due = mastered.filter((m) => s(m.studentId) === sid).map((m) => ({ id: s(m.skillId), name: s(reviewSkillRows.find((k) => k.id === m.skillId)?.name), weeks: Math.floor((now.getTime() - tm(m.masteredAt)) / (7 * 86_400_000)) }));
+    if (due.length) flags.push({ flag: "REVIEW", detail: `Review due: ${due.slice(0, 3).map((d) => `${d.name} (mastered ${d.weeks} wk ago)`).join(", ")}${due.length > 3 ? ` +${due.length - 3}` : ""}` });
     for (const f of new Set(flags.map((f) => f.flag))) counts[f]++;
-    if (flags.length) rows.push({ studentId: sid, name, className: s(klass.name), classId: s(klass.id), flags });
+    if (flags.length) rows.push({ studentId: sid, name, className: s(klass.name), classId: s(klass.id), flags, reviewSkills: due.map((d) => ({ id: d.id, name: d.name })) });
   }
-  const weight: Record<Flag, number> = { URGENT: 6, RETEST: 5, BEGINNER: 4, GUESSING: 3, NOT_TESTED: 2, INACTIVE: 1 };
+  const weight: Record<Flag, number> = { URGENT: 6, RETEST: 5, BEGINNER: 4, GUESSING: 3, NOT_TESTED: 2, INACTIVE: 1, REVIEW: 1 };
   rows.sort((a, b) => b.flags.reduce((n, f) => n + weight[f.flag], 0) - a.flags.reduce((n, f) => n + weight[f.flag], 0) || a.name.localeCompare(b.name));
   return { rows, counts, term };
 }

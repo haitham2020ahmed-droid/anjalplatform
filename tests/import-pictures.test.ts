@@ -26,7 +26,7 @@ describe("📥 Curriculum import: pictures in the cells, placed by the map", () 
     assert.deepEqual(mc.errors, [], JSON.stringify(mc.errors));
     assert.ok(mc.warnings.some((w) => /not a platform skill: the question is placed by its Curriculum Map place/.test(w)));
     assert.ok((mc.detected as { input?: { imageId?: string } }).input?.imageId, "the picture is attached in the preview");
-    assert.match(open.errors.join(" "), /Open-response question/);
+    assert.deepEqual(open.errors, [], "an open-response question with a long model answer is accepted (teacher-scored)");
     let p; do { p = await commitImportChunk(repo, admin, id, { publish: true }); } while (!p.done);
     const q = (await repo.findMany("Question", {})).find((x) => String(x.stem).includes("pictures in the fixture text"))!;
     assert.ok(q.imageId, "saved with its picture");
@@ -35,6 +35,10 @@ describe("📥 Curriculum import: pictures in the cells, placed by the map", () 
     const node = await repo.findUnique("CurriculumMapNode", { id: (await repo.findMany("QuestionMapLink", { questionId: q.id }))[0].nodeId });
     assert.equal(node!.code, "G5.U5.TS1.ACS.ABOVE");
     assert.equal(q.status, "PUBLISHED");
+    const sa = (await repo.findMany("Question", {})).find((x) => String(x.stem).startsWith("Give two reasons from the fixture text"))!;
+    const ans = await repo.findMany("QuestionAnswer", { questionId: sa.id });
+    assert.ok(String(JSON.stringify(ans[0].value)).length > 200, "the full model answer is kept");
+    assert.equal(sa.status, "PUBLISHED");
   });
 
   test("a question without a skill keeps the file's CCSS standard (e.g. vocabulary: L.5.4.a)", async () => {

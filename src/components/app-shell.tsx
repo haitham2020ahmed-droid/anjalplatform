@@ -2,9 +2,15 @@ import { Suspense } from "react";
 import { LogoutButton } from "./logout-button";
 import { NotificationBell } from "./notification-bell";
 import { NavProgress } from "./ui/nav-progress";
+import { MainNav } from "./ui/main-nav";
+import { navItemsFor } from "./nav-items";
+import { getActor } from "@/server/auth/next";
 
-/** Shared page frame: brand stripe, sticky header (logo, accreditations, bell, person), content that fades in. */
-export function AppShell({ name, children }: { name: string; children: React.ReactNode }) {
+/** Shared page frame: brand stripe, sticky header (logo, accreditations, bell, person) with the role's main
+ *  sections under it (one click between them), content that fades in. */
+export async function AppShell({ name, children }: { name: string; children: React.ReactNode }) {
+  const me = await getActor();   // cached for the request: no extra query
+  const items = navItemsFor(String(me?.actor.role ?? ""));
   const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase()).join("");
   return (
     <div className="min-h-screen">
@@ -34,6 +40,7 @@ export function AppShell({ name, children }: { name: string; children: React.Rea
             <LogoutButton />
           </div>
         </div>
+        {items.length > 0 && <MainNav items={items} />}
       </header>
       <main id="main" tabIndex={-1} className="animate-fade-up mx-auto max-w-6xl px-4 py-8 outline-none sm:px-6 print:max-w-none print:p-0">{children}</main>
     </div>

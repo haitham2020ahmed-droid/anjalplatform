@@ -249,7 +249,7 @@ export async function aiReviewAction(_: Result, f: FormData): Promise<Result> {
 
 // ------------------------------------------------------- question import
 
-import { cancelImport, commitImportChunk, selectAll, shortDbMessage, updateImportRow, type CommitProgress, type ImportDecision, type PreviewRow } from "@/server/admin/question-import";
+import { archiveImportQuestions, cancelImport, commitImportChunk, selectAll, shortDbMessage, updateImportRow, type CommitProgress, type ImportDecision, type PreviewRow } from "@/server/admin/question-import";
 import { log } from "@/server/monitoring/log";
 
 const ImportPatch = z.object({ selected: z.boolean().optional(), decision: z.enum(["IMPORT", "SKIP", "REPLACE", "FORCE"]).optional(), input: z.record(z.unknown()).optional() });
@@ -306,10 +306,19 @@ export async function cancelImportAction(_: Result, f: FormData): Promise<Result
   });
 }
 
+/** 🗄 Archives every question of one import (to replace an older version of a file). */
+export async function archiveImportAction(_: Result, f: FormData): Promise<Result> {
+  const actor = await requireActor({ permission: "questions:publish" });
+  return run(["/admin/questions/import", "/admin/questions"], async () => {
+    const n = await archiveImportQuestions(repo, actor, id.parse(f.get("jobId")));
+    return { message: n ? `🗄 ${n} question(s) of this import archived: they no longer appear to students or in adaptive sets. Students' past answers are kept.` : "This import has no questions left to archive." };
+  });
+}
+
 // ------------------------------------------------------- bulk publish
 
 import { BULK_PUBLISH_MAX, publishableIds, publishQuestions, STATUSES, type BulkPublishResult, type QuestionStatus } from "@/server/admin/questions";
-import { BULK_MAX, archiveQuestions, deleteQuestions, type ArchiveResult, type DeleteResult } from "@/server/admin/question-delete";
+import { BULK_MAX, archiveQuestions, restoreArchived, deleteQuestions, type ArchiveResult, type DeleteResult } from "@/server/admin/question-delete";
 import { redirect as goTo } from "next/navigation";
 
 const ListFilter = z.object({
@@ -367,6 +376,15 @@ export async function deleteQuestionsAction(ids: string[]): Promise<{ result?: D
 }
 
 /** Archive a batch of questions (kept with their history, never shown in practice). */
+export async function restoreQuestionsAction(ids: string[]): Promise<{ result?: { restored: number }; error?: string }> {
+  const actor = await requireActor({ permission: "questions:publish" });
+  try {
+    const result = await restoreArchived(repo, actor, z.array(id).min(1).max(BULK_MAX).parse(ids));
+    revalidatePath("/admin/questions");
+    return { result };
+  } catch (e) { if (e instanceof ValidationError || (e as { status?: number }).status === 403) return { error: (e as Error).message }; throw e; }
+}
+
 export async function archiveQuestionsAction(ids: string[], reason: string): Promise<{ result?: ArchiveResult; error?: string }> {
   const actor = await requireActor({ permission: "questions:publish" });
   try {

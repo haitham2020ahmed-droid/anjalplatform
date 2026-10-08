@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound , redirect } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { attachmentNodes } from "@/server/curriculum-map/questions";
@@ -13,6 +13,8 @@ const LV = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" } as con
 /** One place of the Curriculum Map: add one question, or many from a template made for this place. */
 export default async function PlacePage({ params }: { params: Promise<{ code: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:edit" });
+  // teachers add questions in the Question Bank (it asks where each one goes), not from the map
+  if (actor.role === "TEACHER") redirect("/admin/questions/new");
   const me = (await getActor())!.user;
   const code = decodeURIComponent((await params).code).toUpperCase();
   const place = (await attachmentNodes(repo, actor.schoolId!)).find((p) => p.code === code);

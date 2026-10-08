@@ -7,6 +7,7 @@
  *   - Class: Above / At / Below the class average, with a ±3 RIT band (MAP's typical standard error).
  * RIT scores come from imported MAP files (MapResult) or are entered by staff here.
  */
+import { recordLevel } from "../curriculum-map/student-level";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -176,7 +177,7 @@ export async function levelsFromClassAverage(repo: Repo, actor: Actor, classId: 
   const out = { above: 0, on: 0, below: 0 };
   for (const r of v.rows) {
     const level = r.vsClass === "ABOVE" ? "ABOVE" : r.vsClass === "BELOW" ? "BELOW" : "ON";
-    await repo.upsert("StudentLevel", { studentId: r.studentId }, { level, source: "MAP_RIT", setById: actor.userId, updatedAt: now }, { level, source: "MAP_RIT", setById: actor.userId, updatedAt: now });
+    await recordLevel(repo, { studentId: r.studentId, level, source: "MAP_RIT", setById: actor.userId, reason: `RIT ${r.rit}`, now });
     out[level === "ABOVE" ? "above" : level === "BELOW" ? "below" : "on"]++;
   }
   return out;

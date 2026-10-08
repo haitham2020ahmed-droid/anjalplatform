@@ -45,10 +45,11 @@ describe("student levels, assign by level, Placement and MAP tests, curriculum r
   const mc = (stem: string, map: string) => createDraft(repo, admin, { skillId: "", type: "MULTIPLE_CHOICE", stem, level: 4, whyCorrect: "Because.", mapNodeCode: map,
     options: [{ label: "A", text: `right ${stem}`, correct: true, rationale: null }, { label: "B", text: `wrong one ${stem}`, correct: false, rationale: "No." }, { label: "C", text: `wrong two ${stem}`, correct: false, rationale: "No." }] });
   const takeAll = async (st: Actor, assignmentId: string, correct: boolean) => {
-    let v = await startQuiz(repo, st, assignmentId);
+    let clock = Date.now();   // a reader: 30 s a question (an instant answer is a rapid guess, which never moves a level)
+    let v = await startQuiz(repo, st, assignmentId, new Date(clock));
     while (v.question) {
       const it = (await loadQuestionItems(repo, [v.question.questionId]))[0];
-      v = (await submitQuizAnswer(repo, st, { assignmentId, questionId: it.questionId, response: correct ? right(it) : wrong(it) })).view;
+      v = (await submitQuizAnswer(repo, st, { assignmentId, questionId: it.questionId, response: correct ? right(it) : wrong(it) }, new Date((clock += 30_000)))).view;
     }
   };
   before(async () => {

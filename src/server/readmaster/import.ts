@@ -7,13 +7,14 @@ import type { Actor } from "../auth/rbac";
 import { readRow, GENERIC_WRONG_FEEDBACK, type ColumnKey } from "../../imports/questions/template";
 import { toCsv } from "../../imports/csv";
 import { workbookXlsx } from "../../imports/questions/template-files";
+import { shortStandard } from "../../imports/questions/template";
 import { addVersionQuestion, gradeSkills, saveArticle, saveVersion } from "./service";
 import type { Level } from "../curriculum-map/lexile";
 
-export const RM_HEADERS = ["Article Code", "Title", "Grade", "Standard", "Skill", "Topic", "Level", "Lexile", "Passage", "Question Text", "Question Type", "Option A", "Option B", "Option C", "Option D", "Correct Answer", "Explanation"] as const;
+export const RM_HEADERS = ["Article Code", "Title", "Grade", "Standard", "Skill", "Topic", "Level", "Lexile", "Passage", "Question Text", "Question Type", "Option A", "Option B", "Option C", "Option D", "Correct Answer", "Explanation", "Question Standard", "Curriculum Map ID"] as const;
 
 const EX = (code: string, title: string, level: string, lexile: string, passage: string, q: string, a: string, b: string, c: string, d: string, why: string) =>
-  [code, title, "4", "RI.4.2", "Main Idea and Key Details", "Science · Space", level, lexile, passage, q, "Multiple Choice", a, b, c, d, "A", why];
+  [code, title, "4", "RI.4.2", "Main Idea and Key Details", "Science · Space", level, lexile, passage, q, "Multiple Choice", a, b, c, d, "A", why, "", ""];
 export function rmTemplateRows(): string[][] {
   return [
     [...RM_HEADERS],
@@ -25,11 +26,11 @@ export function rmTemplateRows(): string[][] {
 }
 export const rmTemplateCsv = () => "\ufeff" + toCsv(rmTemplateRows());
 export const rmTemplateXlsx = () => workbookXlsx([
-  { name: "ReadMaster", rows: rmTemplateRows(), widths: [12, 22, 6, 10, 26, 16, 8, 8, 60, 40, 16, 22, 22, 22, 22, 9, 40], headerStyle: true, freeze: true },
+  { name: "ReadMaster", rows: rmTemplateRows(), widths: [12, 22, 6, 10, 26, 16, 8, 8, 60, 40, 16, 22, 22, 22, 22, 9, 40, 12, 22], headerStyle: true, freeze: true },
   { name: "Instructions", widths: [110], rows: [["⭐ ReadMaster import"], ["One article = one Article Code, written at up to three levels (Below / On / Above): same topic and skill, different words and length."], ["The FIRST row of each level has the Passage and its Lexile; the next rows of that level only need the question columns."], ["Grade: 4, 5 or 6. Standard: a Common Core standard of that grade, e.g. RI.4.2 (recommended). Skill: any name you like (optional). Lexile: e.g. 650, 820, 960."], ["Question Type: Multiple Choice, Multi Select, True/False, Dropdown or Fill in the Blank. Correct Answer: the letter (A–D), True/False, or the word(s)."], ["Every question also goes to the Question Bank. Publish the article on the ReadMaster page when it is ready."]] },
 ]);
 
-export interface RmImportResult { articles: number; versions: number; questions: number; errors: { row: number; message: string }[] }
+export interface RmImportResult { articles: number; versions: number; questions: number; skipped?: number; errors: { row: number; message: string }[] }
 
 export async function importReadMaster(repo: Repo, actor: Actor, table: string[][]): Promise<RmImportResult> {
   const at = table.findIndex((r) => r.some((c) => String(c ?? "").trim()));
@@ -39,8 +40,21 @@ export async function importReadMaster(repo: Repo, actor: Actor, table: string[]
   const get = (r: string[], name: string) => (col(name) >= 0 ? String(r[col(name)] ?? "").trim() : "");
   const LV: Record<string, Level> = { below: "BELOW", on: "ON", above: "ABOVE" };
   const articleOf = new Map<string, string>(), versionOf = new Map<string, string>();
-  const out: RmImportResult = { articles: 0, versions: 0, questions: 0, errors: [] };
+  const out: RmImportResult = { articles: 0, versions: 0, questions: 0, skipped: 0, errors: [] };
   for (const a of await repo.findMany("ReadMasterArticle", { schoolId: actor.schoolId })) articleOf.set(String(a.code).toUpperCase(), String(a.id));
+  // per-question standard (short code → the full stored code) and the questions already in each version
+  const fullStd = new Map((await repo.findMany("Standard", {}, { select: ["code"] })).map((x) => [shortStandard(String(x.code)), String(x.code)]));
+  const stemKey = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const stemsOf = new Map<string, Set<string>>();
+  const versionStems = async (versionId: string) => {
+    let set = stemsOf.get(versionId);
+    if (!set) {
+      const links = await repo.findMany("ReadMasterQuestion", { versionId });
+      const qs = links.length ? await repo.findMany("Question", { id: { in: links.map((l) => l.questionId) } }, { select: ["stem"] }) : [];
+      set = new Set(qs.map((q) => stemKey(String(q.stem)))); stemsOf.set(versionId, set);
+    }
+    return set;
+  };
   for (let i = at + 1; i < table.length; i++) {
     const r = table[i].map((c) => String(c ?? "")); const row = i + 1;
     if (!r.some((c) => c.trim())) continue;
@@ -71,7 +85,14 @@ export async function importReadMaster(repo: Repo, actor: Actor, table: string[]
       const rr = readRow(cells, "CURRICULUM");
       if (rr.errors.length || !rr.question) throw new Error(rr.errors.join(" "));
       const q = rr.question;
-      await addVersionQuestion(repo, actor, versionId, { type: q.type, stem: q.stem, whyCorrect: q.explanation, answer: q.answer, answers: q.answers, options: q.options?.map((o) => ({ ...o, rationale: o.correct ? null : o.rationale ?? GENERIC_WRONG_FEEDBACK })) });
+      // importing the same file again does not add the same question twice
+      const seen = await versionStems(versionId);
+      if (seen.has(stemKey(q.stem))) { out.skipped = (out.skipped ?? 0) + 1; continue; }
+      const qStd = get(r, "Question Standard");
+      if (qStd && !fullStd.has(shortStandard(qStd))) throw new Error(`Question Standard “${qStd}” is not a CCSS code.`);
+      const mapCode = get(r, "Curriculum Map ID").toUpperCase();
+      await addVersionQuestion(repo, actor, versionId, { standardCode: qStd ? fullStd.get(shortStandard(qStd)) : null, mapNodeCode: mapCode || null, type: q.type, stem: q.stem, whyCorrect: q.explanation, answer: q.answer, answers: q.answers, options: q.options?.map((o) => ({ ...o, rationale: o.correct ? null : o.rationale ?? GENERIC_WRONG_FEEDBACK })) });
+      seen.add(stemKey(q.stem));
       out.questions++;
     } catch (e) { out.errors.push({ row, message: (e as Error).message }); }
   }

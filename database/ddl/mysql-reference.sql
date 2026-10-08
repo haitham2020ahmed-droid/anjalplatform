@@ -1169,6 +1169,15 @@ CREATE TABLE `CrossGradeBridge` (
   CONSTRAINT `CrossGradeBridge_schoolId_fromCode_key` UNIQUE (`schoolId`, `fromCode`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+CREATE TABLE `StudentCategoryLevel` (
+  `studentId` VARCHAR(191) NOT NULL,
+  `category` VARCHAR(8) NOT NULL,
+  `level` ENUM('ABOVE', 'ON', 'BELOW') NOT NULL,
+  `source` VARCHAR(20) NOT NULL,
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`studentId`, `category`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 ALTER TABLE `Session` ADD CONSTRAINT `Session_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

@@ -577,7 +577,8 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
     for (const p of plans) {
       const id = newId();
       ids.set(String(p.log.id), id);
-      const published = publish && p.item.type !== "SHORT_ANSWER";
+      // teacher-scored Short Answers are published too: the adaptive engine and the Curriculum Map sets never serve them
+      const published = publish;
       questions.push({
         id, externalRef: p.item.ref, skillId: p.skill.id, standardId: p.standardId, passageId: p.passage ? passageIds.get(passageRef(p.passage)) ?? null : null,
         typeId: types.get(p.item.type)!, stem: p.item.stem, content: contentPayload(p.item), hint: null, difficultyLevel: p.item.level,
@@ -701,4 +702,19 @@ export async function importProblemRows(repo: Repo, actor: Actor, jobId: string)
     out.push([String(r.rowNumber), r.status, r.detected.input?.stem ?? "", r.errors.join(" | "), r.warnings.join(" | ")]);
   }
   return out;
+}
+
+/**
+ * 🗄 Archives every question an import created (e.g. to replace an older version of a file). Archived questions
+ * leave the bank, the Curriculum Map sets and adaptive practice; students' past answers are kept.
+ */
+export async function archiveImportQuestions(repo: Repo, actor: Actor, jobId: string, now = new Date()): Promise<number> {
+  assertCan(actor, "questions:publish");
+  await jobInSchool(repo, actor, jobId);
+  const qs = (await repo.findMany("Question", { status: { in: ["PUBLISHED", "DRAFT", "UNDER_REVIEW"] } }, { select: ["id", "tags"] }))
+    .filter((q) => (q.tags as Record<string, unknown> | null)?.importJob === jobId);
+  if (!qs.length) return 0;
+  await repo.updateMany("Question", { id: { in: qs.map((q) => q.id) } }, { status: "ARCHIVED", updatedAt: now });
+  await repo.create("AuditLog", { actorId: actor.userId, action: "import.archive", entityType: "ImportJob", entityId: jobId, after: { archived: qs.length }, createdAt: now });
+  return qs.length;
 }

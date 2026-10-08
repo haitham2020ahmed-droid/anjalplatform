@@ -8,7 +8,7 @@ import { can } from "@/server/auth/rbac";
 import { getImportJob, type ImportJobView } from "@/server/admin/question-import";
 import { schoolOf } from "@/server/admin/users";
 import { editorOptions } from "../../editor-data";
-import { cancelImportAction } from "../../../actions";
+import { archiveImportAction, cancelImportAction } from "../../../actions";
 import { ImportPreview } from "./preview";
 
 export default async function ImportJobPage({ params }: { params: Promise<{ jobId: string }> }) {
@@ -54,6 +54,14 @@ export default async function ImportJobPage({ params }: { params: Promise<{ jobI
             Result: {done.imported} imported, {done.replaced} replaced, {done.skipped} skipped, {done.failed} failed.{" "}
             <Link className="text-brand-teal hover:underline" href={`/admin/questions?status=${job.options.publish ? "PUBLISHED" : "DRAFT"}`}>Open the imported questions</Link>
           </p>
+        )}
+        {done && done.imported > 0 && can(actor, "questions:publish") && (
+          <div className="mt-4 rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200">
+            <p className="text-sm text-slate-700"><b>Replacing this file with a newer version?</b> Archive the questions of this import first, then import the new file. Students' past answers are kept.</p>
+            <ActionForm action={archiveImportAction} submit={`🗄 Archive the ${done.imported} question(s) of this import`} danger className="mt-2">
+              <input type="hidden" name="jobId" value={job.id} />
+            </ActionForm>
+          </div>
         )}
         {done && job.errors.length > 0 && (
           <details className="mt-2 text-sm text-red-800"><summary className="cursor-pointer">Rows that failed ({job.errors.length})</summary><ul className="mt-1 list-disc ps-5">{job.errors.map((e) => <li key={e}>{e}</li>)}</ul></details>
