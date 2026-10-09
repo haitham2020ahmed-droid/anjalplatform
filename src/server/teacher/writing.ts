@@ -75,7 +75,7 @@ export async function taskForTeacher(repo: Repo, actor: Actor, taskId: string): 
   return { id: s(t.id), kind, classId: s(t.classId), title: s(t.title), prompt: s(t.prompt), passage: t.passage ? s(t.passage) : null, minWords: t.minWords ? Number(t.minWords) : null, dueAt: iso(t.dueAt), rubric: RUBRIC[kind], subs: ids.map((id) => subView(subs.find((x) => x.studentId === id), id, names.get(id)?.name ?? "Student")).sort((a, b) => ["SUBMITTED", "SCORED", "DRAFT", "NOT_STARTED"].indexOf(a.status) - ["SUBMITTED", "SCORED", "DRAFT", "NOT_STARTED"].indexOf(b.status) || a.name.localeCompare(b.name)), canScore };
 }
 
-export async function scoreSubmission(repo: Repo, actor: Actor, taskId: string, studentId: string, scores: Record<string, number>, comment: string | null, now = new Date()): Promise<void> {
+export async function scoreSubmission(repo: Repo, actor: Actor, taskId: string, studentId: string, scores: Record<string, number>, comment: string | null, now = new Date(), wcpm?: number | null): Promise<void> {
   assertCan(actor, "assignments:create");
   const t = await repo.findUnique("WritingTask", { id: taskId });
   if (!t) throw new ForbiddenError("Task not found.");
@@ -84,7 +84,11 @@ export async function scoreSubmission(repo: Repo, actor: Actor, taskId: string, 
   if (!sub || sub.status === "DRAFT") throw new ValidationError("The student has not submitted yet.");
   const clean: Record<string, number> = {};
   for (const r of RUBRIC[s(t.kind) as TaskKind]) { const v = Number(scores[r.key]); if (!Number.isInteger(v) || v < 0 || v > 4) throw new ValidationError(`${r.name}: choose 0 to 4.`); clean[r.key] = v; }
-  await repo.updateMany("WritingSubmission", { taskId, studentId }, { scores: clean, comment: s(comment).trim().slice(0, 2000) || null, status: "SCORED", scoredById: actor.userId, scoredAt: now });
+  // 🔊 reading aloud: the words correct per minute the teacher counted (kept as a fluency check too)
+  const w = s(t.kind) === "READ_ALOUD" && wcpm !== undefined && wcpm !== null && String(wcpm) !== "" ? Math.round(Number(wcpm)) : null;
+  if (w !== null && (!Number.isFinite(w) || w < 0 || w > 400)) throw new ValidationError("Words correct per minute must be a number from 0 to 400.");
+  await repo.updateMany("WritingSubmission", { taskId, studentId }, { scores: clean, comment: s(comment).trim().slice(0, 2000) || null, status: "SCORED", scoredById: actor.userId, scoredAt: now, ...(w !== null ? { wcpm: w } : {}) });
+  if (w !== null) await repo.create("FluencyCheck", { studentId, wcpm: w, accuracy: null, note: `Reading aloud: ${s(t.title).slice(0, 120)}`, source: "RECORDING", checkedById: actor.userId, checkedAt: now });
   const st = await repo.findUnique("Student", { id: studentId });
   if (st) await repo.create("Notification", { userId: st.userId, type: "TEACHER_FEEDBACK", title: "✍️ Your teacher scored your work", body: s(t.title).slice(0, 160), link: `/student/writing/${taskId}`, createdAt: now });
 }

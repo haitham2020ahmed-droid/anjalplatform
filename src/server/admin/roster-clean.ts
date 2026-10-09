@@ -15,6 +15,7 @@ export type RosterScope = { kind: "SCHOOL" } | { kind: "GRADE"; grade: number } 
 /** Every table that holds a student's data (deleted before the student). */
 const STUDENT_TABLES = ["AdaptiveDecisionLog", "QuestionAttempt", "PracticeSession", "StudentAbility", "AbilitySnapshot", "StudentSkillMastery", "StudentReadingRange",
   "AssignmentStudent", "ExternalAssessmentResult", "MapResult", "Recommendation", "InterventionAlert", "StudentBadge", "XpEvent", "StudentDailyActivity", "DiagnosticResult",
+  "DiagnosticScore", "FluencyCheck", "WeeklyCheck",
   "StudentLevel", "StudentReadingLexile", "ReadMasterAttempt", "ParentStudent", "ClassMembership"] as const;
 
 function adminOnly(actor: Actor): void {

@@ -2142,6 +2142,8 @@ model WritingSubmission {
   scores      Json?
   comment     String?   @db.VarChar(2000)
   scoredById  String?
+  /// reading aloud: words correct per minute (the teacher's count)
+  wcpm        Int?
   submittedAt DateTime?
   scoredAt    DateTime?
   updatedAt   DateTime  @updatedAt
@@ -2162,4 +2164,85 @@ model ErrorLog {
   createdAt DateTime @default(now())
 
   @@index([createdAt])
+}
+
+/// 📝 The beginning-of-year Diagnostic Test of a grade (replaces the separate placement test / placement check):
+/// one fixed set of ~50 questions covering every strand and standard, the same for every student of the grade.
+model DiagnosticTest {
+  id           String    @id @default(cuid())
+  schoolId     String
+  grade        Int
+  /// school year, e.g. "2026-2027"
+  year         String    @db.VarChar(9)
+  title        String    @db.VarChar(191)
+  assessmentId String
+  /// DRAFT (being reviewed) | OPEN (students can take it) | CLOSED
+  status       String    @default("DRAFT") @db.VarChar(10)
+  opensAt      DateTime?
+  closesAt     DateTime?
+  /// level bands in % { above: 85, on: 65 }
+  bands        Json?
+  createdById  String?
+  createdAt    DateTime  @default(now())
+
+  @@index([schoolId, grade])
+}
+
+/// A student's Diagnostic result (written when they finish), with the analysis by standard and strand.
+model DiagnosticScore {
+  id           String    @id @default(cuid())
+  diagnosticId String
+  studentId    String
+  assignmentId String
+  correct      Int
+  total        Int
+  pct          Float
+  /// BELOW | ON | ABOVE
+  level        String    @db.VarChar(6)
+  /// [{ code, label, strand, correct, total }]
+  byStandard   Json
+  /// [{ strand, label, correct, total }]
+  byStrand     Json
+  rapid        Int       @default(0)
+  minutes      Int       @default(0)
+  completedAt  DateTime
+  /// shared with the student and the family (their Family Report)
+  sharedAt     DateTime?
+  teacherNote  String?   @db.VarChar(1000)
+
+  @@unique([diagnosticId, studentId])
+  @@index([studentId])
+}
+
+/// 🔊 Oral reading fluency: words correct per minute, from a teacher's check or a scored reading-aloud recording.
+model FluencyCheck {
+  id          String   @id @default(cuid())
+  studentId   String
+  wcpm        Int
+  /// % of words read correctly
+  accuracy    Int?
+  note        String?  @db.VarChar(500)
+  /// TEACHER | RECORDING
+  source      String   @default("TEACHER") @db.VarChar(10)
+  checkedById String?
+  checkedAt   DateTime @default(now())
+
+  @@index([studentId, checkedAt])
+}
+
+/// 🗓️ The weekly check: a few questions a week that keep each student's level and RIT estimate current.
+model WeeklyCheck {
+  id           String    @id @default(cuid())
+  studentId    String
+  /// Sunday of the week (yyyy-mm-dd)
+  week         String    @db.VarChar(10)
+  assignmentId String
+  correct      Int       @default(0)
+  total        Int       @default(0)
+  ritBefore    Int?
+  ritAfter     Int?
+  completedAt  DateTime?
+  createdAt    DateTime  @default(now())
+
+  @@unique([studentId, week])
 }

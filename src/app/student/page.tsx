@@ -7,6 +7,9 @@ import { readingLexile } from "@/server/readmaster/service";
 import { studentSkillPlans, todaysPlanStep } from "@/server/curriculum-map/plans";
 import { reviewDue, weekStats } from "@/server/student/weekly";
 import { TodayPlanCard } from "@/components/student/today-plan";
+import { myDiagnostic } from "@/server/diagnostic/test";
+import { weeklyCheck } from "@/server/student/weekly-check";
+import Link from "next/link";
 import { streakAndPoints } from "@/server/student/streak";
 import { openGamesFor } from "@/server/game/live";
 import { lexileBands, levelForLexile } from "@/server/curriculum-map/lexile";
@@ -42,7 +45,7 @@ export default async function StudentHome({ searchParams }: { searchParams: Prom
   ]);
   const [week, exitTicket, review, comments, tests] = await Promise.all([studentWeek(repo, actor), myExitTicket(repo, actor), dueMistakes(repo, actor.studentId!), repo.findMany("WorkComment", { studentId: actor.studentId! }, { select: ["createdAt"] }), myTests(repo, actor)]);
   const [qotd, challenge, writing] = await Promise.all([questionOfTheDay(repo, actor), student?.gradeId ? classChallenge(repo, String(student.schoolId), String(student.gradeId)) : Promise.resolve([]), myTasks(repo, actor)]);
-  const [today, myWeek, spaced] = await Promise.all([todaysPlanStep(repo, actor), weekStats(repo, actor.studentId!), reviewDue(repo, actor.studentId!)]);
+  const [today, myWeek, spaced, diag, check] = await Promise.all([todaysPlanStep(repo, actor), weekStats(repo, actor.studentId!), reviewDue(repo, actor.studentId!), myDiagnostic(repo, actor), weeklyCheck(repo, actor)]);
   const myClass = (await repo.findMany("ClassMembership", { studentId: actor.studentId!, leftAt: null }, { select: ["classId"] }))[0]?.classId;
   const testsToDo = tests.windows.filter((w) => w.open).reduce((n, w) => n + w.sessions.filter((x) => x.status !== "DONE").length, 0);
   const fresh = badges.filter((b) => b.earnedAt && Date.now() - new Date(b.earnedAt).getTime() < 3 * 86_400_000).sort((a, b) => String(b.earnedAt).localeCompare(String(a.earnedAt)))[0];
@@ -62,7 +65,13 @@ export default async function StudentHome({ searchParams }: { searchParams: Prom
   return (
     <AppShell name={String(me.displayName)}>
       <StudentTour />
-      <TodayPlanCard step={today} week={myWeek} review={spaced} />
+      {diag && diag.status !== "DONE" && (
+        <Link href={diag.href} className="lift mb-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-amber-400 to-orange-400 p-5 text-amber-950 shadow-md">
+          <span><span className="block text-xs font-bold uppercase tracking-wider">📝 Start of the year</span><span className="block text-2xl font-extrabold">{diag.status === "STARTED" ? "Finish your Diagnostic Test" : "Take your Diagnostic Test"}</span><span className="block text-sm">{diag.status === "STARTED" ? `${diag.answered} of ${diag.total} answered — your answers are saved.` : `${diag.total} questions. Do your best: it shows your strengths and what to learn next.`}</span></span>
+          <span className="rounded-xl bg-brand-navy px-6 py-3 text-lg font-bold text-white">{diag.status === "STARTED" ? "Continue ▶" : "Start ▶"}</span>
+        </Link>
+      )}
+      <TodayPlanCard step={today} week={myWeek} review={spaced} check={diag && diag.status !== "DONE" ? null : check} />
       {extras.rit !== null && (
         <nav aria-label="My learning path" className="mb-5 grid gap-2 sm:grid-cols-3">
           {[

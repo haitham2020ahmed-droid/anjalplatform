@@ -90,7 +90,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
           <fieldset>
             <legend className="text-sm font-semibold text-slate-700">Also use for (optional)</legend>
             <div className="mt-1 flex flex-wrap gap-4 text-sm">
-              {([["PLACEMENT", "Placement test"], ["MAP_TEST", "MAP test"]] as const).map(([v, l]) => (
+              {([["PLACEMENT", "Diagnostic Test (preferred)"], ["MAP_TEST", "MAP test"]] as const).map(([v, l]) => (
                 <label key={v} className="flex items-center gap-2"><input type="checkbox" checked={(q.uses ?? []).includes(v)} onChange={(e) => set({ uses: e.target.checked ? [...new Set([...(q.uses ?? []), v])] : (q.uses ?? []).filter((x) => x !== v) })} />{l}</label>
               ))}
             </div>

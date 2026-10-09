@@ -51,6 +51,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     source: SOURCES.some(([v]) => v === sp.source) ? sp.source : undefined,
     onMap: sp.onmap === "map" || sp.onmap === "bank" ? (sp.onmap as "map" | "bank") : undefined,
     use: sp.use === "PLACEMENT" || sp.use === "MAP_TEST" ? (sp.use as "PLACEMENT" | "MAP_TEST") : undefined,
+    readMaster: sp.use === "READMASTER",
     mapCode: /^G\d+\.[A-Z0-9.]+$/i.test(sp.map ?? "") ? String(sp.map).toUpperCase() : undefined };
   const roster = actor.role === "TEACHER" ? await teacherRoster(repo, actor) : undefined;
   const pendingDeletions = await countDeletionRequests(repo, actor);
@@ -99,7 +100,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <select name="level" defaultValue={sp.level ?? ""} aria-label="Difficulty level" className={sel}><option value="">All difficulty levels</option>{LEVELS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="source" defaultValue={sp.source ?? ""} aria-label="Source" className={sel}><option value="">All sources</option>{SOURCES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="onmap" defaultValue={sp.onmap ?? ""} aria-label="Curriculum Map" className={sel}><option value="">Curriculum Map: any</option><option value="map">🧭 On the Curriculum Map</option><option value="bank">📚 Question Bank only</option></select>
-        <select name="use" defaultValue={sp.use ?? ""} aria-label="Use" className={sel}><option value="">Use: any</option><option value="PLACEMENT">Placement</option><option value="MAP_TEST">MAP test</option></select>
+        <select name="use" defaultValue={sp.use ?? ""} aria-label="Use" className={sel}><option value="">Use: any</option><option value="PLACEMENT">Diagnostic</option><option value="MAP_TEST">MAP test</option><option value="READMASTER">ReadMaster</option></select>
         <div className="basis-full rounded-2xl bg-emerald-50/50 p-2 ring-1 ring-emerald-200">
           <MapPlacePicker places={mapPlaces} value={filter.mapCode ?? null} mode="filter" name="map" />
         </div>

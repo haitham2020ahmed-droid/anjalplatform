@@ -12,6 +12,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, can, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { createDraft } from "../admin/questions";
+import { attachmentNodes } from "../curriculum-map/questions";
 import { unclassifiedSkillId } from "../curriculum-map/questions";
 import { lexileBands, levelForLexile, type Level } from "../curriculum-map/lexile";
 import { loadQuestionItems, toClientQuestion, correctAnswerText, type ClientQuestion } from "../practice/items";
@@ -130,8 +131,9 @@ export async function addVersionQuestion(repo: Repo, actor: Actor, versionId: st
     answer: q.answer, answers: q.answers, passageText: s(v.body), lexile: Number(v.lexile),
     // the question's own standard when given (e.g. vocabulary L.4.4.a in a reading article), else the article's
     ...(q.standardCode ? { standardCode: q.standardCode } : a.standardCode ? { standardCode: s(a.standardCode) } : {}),   // the full code (as stored in Standard)
-    // its Curriculum Map place (e.g. G4.U1.TS1.ACS.ON): ReadMaster questions then serve the map's sets too
-    ...(q.mapNodeCode ? { mapNodeCode: q.mapNodeCode } : {}),
+    // its Curriculum Map place (e.g. G4.U1.TS1.ACS.ON): ReadMaster questions then serve the map's adaptive sets,
+    // plans and the Diagnostic too. An article coded RM-G4-U1-TS1 is placed on its Text Set automatically.
+    ...(q.mapNodeCode ? { mapNodeCode: q.mapNodeCode } : await (async () => { const code = await readMasterPlace(repo, s(actor.schoolId), s(a.code), s(v.level) as Level, q.standardCode ?? (a.standardCode ? s(a.standardCode) : null)); return code ? { mapNodeCode: code } : {}; })()),
   });
   // admins publish; a teacher's question waits for an admin's approval
   if (can(actor, "questions:publish")) await repo.updateMany("Question", { id }, { status: "PUBLISHED", publishedAt: new Date(), reviewedById: actor.userId });
@@ -271,4 +273,52 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
   await repo.create("ReadMasterAttempt", { studentId: actor.studentId, articleId, versionId, level: open.level, lexileBefore: before, lexileAfter: after, correct, total, createdAt: now });
   await repo.upsert("StudentReadingLexile", { studentId: actor.studentId }, { lexile: after, source: "READMASTER", updatedAt: now }, { lexile: after, source: "READMASTER", updatedAt: now });
   return { correct, total, pct, lexileBefore: before, lexileAfter: after, levelBefore: levelForLexile(band, before), levelAfter: levelForLexile(band, after), review };
+}
+
+/**
+ * The Curriculum Map place of a ReadMaster question: the article's Text Set (code RM-G4-U1-TS1 → G4.U1.TS1), its
+ * Concept Vocabulary place for vocabulary standards (RL/RI.x.4, L.x.4–6), else Analyze Craft and Structure at the
+ * version's level. Null when the article is not coded for a Text Set or the place does not exist.
+ */
+export async function readMasterPlace(repo: Repo, schoolId: string, articleCode: string, level: Level, standardCode: string | null): Promise<string | null> {
+  const m = articleCode.toUpperCase().match(/^RM-G(\d+)-U(\d+)-(TS|SEL)(\d+)/);
+  if (!m) return null;
+  const section = `G${m[1]}.U${m[2]}.${m[3]}${m[4]}`;
+  const std = s(standardCode).replace(/^CCSS\.ELA-LITERACY\./i, "").toUpperCase();
+  const vocab = /^(RL|RI)\.\d+\.4|^L\.\d+\.[456]/.test(std);
+  const nodes = (await attachmentNodes(repo, schoolId)).filter((n) => n.code.startsWith(`${section}.`));
+  const cv = nodes.find((n) => n.code === `${section}.CV` || (n.category === "CONCEPT_VOCABULARY" && !n.level));
+  const acs = nodes.find((n) => n.code === `${section}.ACS.${level}`);
+  return (vocab && cv ? cv.code : acs?.code ?? cv?.code) ?? null;
+}
+
+/** 🔗 Places every ReadMaster question that is not on the Curriculum Map yet (articles coded for a Text Set). */
+export async function linkReadMasterToMap(repo: Repo, actor: Actor): Promise<{ linked: number; articles: number }> {
+  assertCan(actor, "questions:edit"); staff(actor);
+  const schoolId = s(actor.schoolId);
+  const arts = (await repo.findMany("ReadMasterArticle", { schoolId })).filter((x) => /^RM-G\d+-U\d+-(TS|SEL)\d+/i.test(s(x.code)));
+  const nodes = await attachmentNodes(repo, schoolId);
+  const idOf = new Map(nodes.map((n) => [n.code, n.id]));
+  let linked = 0, touched = 0;
+  for (const a of arts) {
+    const vers = await repo.findMany("ReadMasterVersion", { articleId: a.id });
+    const links = vers.length ? await repo.findMany("ReadMasterQuestion", { versionId: { in: vers.map((v) => v.id) } }) : [];
+    if (!links.length) continue;
+    const already = new Set((await repo.findMany("QuestionMapLink", { questionId: { in: links.map((l) => s(l.questionId)) } }, { select: ["questionId"] })).map((x) => s(x.questionId)));
+    const qs = await repo.findMany("Question", { id: { in: links.map((l) => s(l.questionId)) } }, { select: ["id", "standardId"] });
+    const stds = await repo.findMany("Standard", { id: { in: [...new Set(qs.map((q) => s(q.standardId)).filter(Boolean))] } }, { select: ["id", "code"] });
+    let any = false;
+    for (const l of links) {
+      if (already.has(s(l.questionId))) continue;
+      const v = vers.find((x) => x.id === l.versionId)!;
+      const q = qs.find((x) => x.id === l.questionId);
+      const code = await readMasterPlace(repo, schoolId, s(a.code), s(v.level) as Level, s(stds.find((x) => x.id === q?.standardId)?.code) || (a.standardCode ? s(a.standardCode) : null));
+      const nodeId = code ? idOf.get(code) : null;
+      if (!nodeId) continue;
+      await repo.create("QuestionMapLink", { questionId: l.questionId, nodeId, createdById: actor.userId });
+      linked++; any = true;
+    }
+    if (any) touched++;
+  }
+  return { linked, articles: touched };
 }

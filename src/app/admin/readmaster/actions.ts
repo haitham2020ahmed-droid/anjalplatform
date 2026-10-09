@@ -5,7 +5,7 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { extract } from "@/imports/questions/extract";
 import { importReadMaster } from "@/server/readmaster/import";
-import { addVersionQuestion, listArticles, saveArticle, saveVersion, setArticleStatus, setArticlesStatus } from "@/server/readmaster/service";
+import { addVersionQuestion, linkReadMasterToMap, listArticles, saveArticle, saveVersion, setArticleStatus, setArticlesStatus } from "@/server/readmaster/service";
 import type { Level } from "@/server/curriculum-map/lexile";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "questions:edit" as const };
@@ -91,4 +91,13 @@ export async function bulkStatusAction(f: FormData): Promise<void> {
     if (r.skipped.length) msg += ` Not published (no questions yet): ${r.skipped.join(", ")}.`;
   } catch (e) { msg = msgOf(e); }
   redirect(`/admin/readmaster?grade=${grade}&msg=${encodeURIComponent(msg)}`);
+}
+
+/** 🔗 Puts every ReadMaster question on its Text Set of the Curriculum Map (adaptive sets, plans, Diagnostic). */
+export async function linkToMapAction(f: FormData): Promise<void> {
+  const actor = await requireActor(STAFF);
+  let msg: string;
+  try { const r = await linkReadMasterToMap(repo, actor); msg = r.linked ? `🔗 ${r.linked} ReadMaster question(s) of ${r.articles} article(s) are now on the Curriculum Map: they serve the adaptive sets, plans and the Diagnostic.` : "All ReadMaster questions are already on the Curriculum Map."; }
+  catch (e) { msg = msgOf(e); }
+  redirect(`/admin/readmaster?grade=${encodeURIComponent(String(f.get("grade") ?? ""))}&msg=${encodeURIComponent(msg)}`);
 }

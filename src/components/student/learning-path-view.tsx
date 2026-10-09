@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { LearningPath } from "@/server/student/learning-path";
 
 const RUNG: Record<string, [string, string]> = { SUPPORT: ["🛟", "Support"], BELOW: ["🟠", "Below"], ON: ["🔵", "On"], ABOVE: ["🟢", "Above"], CHALLENGE: ["🚀", "Challenge"] };
-const SRC: Record<string, string> = { MAP_RIT: "MAP scores", TEACHER: "the teacher", PLACEMENT: "a placement test", ADAPTIVE: "an adaptive set" };
+const SRC: Record<string, string> = { MAP_RIT: "MAP scores", TEACHER: "the teacher", PLACEMENT: "the Diagnostic Test", ADAPTIVE: "an adaptive set" };
 const OUT: Record<string, string> = { CHANGED: "", KEPT_TEACHER: "kept the teacher's level (suggestion only)", TOO_FEW_ANSWERS: "not changed: too few answers" };
 const day = (v: string) => (v ? new Date(v).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "");
 const r = (x: string) => <span className="whitespace-nowrap">{RUNG[x]?.[0]} {RUNG[x]?.[1] ?? x}</span>;

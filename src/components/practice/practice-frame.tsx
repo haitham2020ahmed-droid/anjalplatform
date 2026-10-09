@@ -65,7 +65,7 @@ export function PracticeFrame(props: {
             <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
             <div className="mt-5"><AnswerInput q={q} value={props.value} onChange={props.onChange} disabled={!!fb || props.pending} /></div>
             {props.error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{props.error}</p>}
-            <div className="mt-6">{fb && <FeedbackPanel fb={fb} />}</div>
+            <div className="mt-6">{fb && <FeedbackPanel fb={fb} questionId={q.questionId} />}</div>
             <div className="mt-6 flex flex-wrap gap-3">
               {!fb && (
                 <button type="button" onClick={props.onCheck} disabled={!props.ready || props.pending}

@@ -5,7 +5,7 @@ import { PageHeader, Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { gradeSkills, gradeStandards, listArticles, LEVEL_NAMES } from "@/server/readmaster/service";
 import { lexileBands } from "@/server/curriculum-map/lexile";
-import { bulkStatusAction, createArticleAction, importReadMasterAction } from "./actions";
+import { bulkStatusAction, createArticleAction, importReadMasterAction, linkToMapAction } from "./actions";
 
 export const metadata = { title: "ReadMaster" };
 
@@ -35,6 +35,11 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
         <nav aria-label="Grade" className="flex gap-2">{[4, 5, 6].map((g) => <Link key={g} href={`/admin/readmaster?grade=${g}`} aria-current={g === grade ? "page" : undefined} className={`rounded-full px-5 py-2 text-sm font-bold transition ${g === grade ? "bg-brand-navy text-white shadow" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`}>Grade {g}</Link>)}</nav>
       </PageHeader>
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
+      <form action={linkToMapAction} className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-amber-50 to-white px-4 py-3 ring-1 ring-amber-200">
+        <input type="hidden" name="grade" value={grade} />
+        <p className="text-sm text-slate-700"><b className="text-brand-navy">📚 Every ReadMaster question is in the Question Bank.</b> Articles coded for a Text Set (e.g. RM-G4-U1-TS1) also go on that Text Set of the Curriculum Map, so their questions serve the adaptive sets, the plans and the Diagnostic Test.</p>
+        <button className="rounded-xl bg-amber-500 px-4 py-2 text-sm font-bold text-amber-950 hover:bg-amber-400">🔗 Connect all to the Curriculum Map</button>
+      </form>
 
       <div className="mb-6 flex flex-wrap items-center gap-2 text-sm">
         <span className="font-semibold text-slate-600">Grade {grade} Lexile levels:</span>

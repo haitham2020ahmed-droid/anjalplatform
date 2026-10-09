@@ -1726,6 +1726,7 @@ CREATE TABLE "WritingSubmission" (
   "scores" TEXT,
   "comment" TEXT,
   "scoredById" TEXT,
+  "wcpm" INTEGER,
   "submittedAt" TEXT,
   "scoredAt" TEXT,
   "updatedAt" TEXT NOT NULL,
@@ -1746,3 +1747,72 @@ CREATE TABLE "ErrorLog" (
 );
 
 CREATE INDEX "ErrorLog_createdAt_idx" ON "ErrorLog"("createdAt");
+
+CREATE TABLE "DiagnosticTest" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "grade" INTEGER NOT NULL,
+  "year" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "assessmentId" TEXT NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'DRAFT',
+  "opensAt" TEXT,
+  "closesAt" TEXT,
+  "bands" TEXT,
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "DiagnosticTest_schoolId_grade_idx" ON "DiagnosticTest"("schoolId", "grade");
+
+CREATE TABLE "DiagnosticScore" (
+  "id" TEXT NOT NULL,
+  "diagnosticId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "assignmentId" TEXT NOT NULL,
+  "correct" INTEGER NOT NULL,
+  "total" INTEGER NOT NULL,
+  "pct" REAL NOT NULL,
+  "level" TEXT NOT NULL,
+  "byStandard" TEXT NOT NULL,
+  "byStrand" TEXT NOT NULL,
+  "rapid" INTEGER NOT NULL DEFAULT 0,
+  "minutes" INTEGER NOT NULL DEFAULT 0,
+  "completedAt" TEXT NOT NULL,
+  "sharedAt" TEXT,
+  "teacherNote" TEXT,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "DiagnosticScore_diagnosticId_studentId_key" UNIQUE ("diagnosticId", "studentId")
+);
+
+CREATE INDEX "DiagnosticScore_studentId_idx" ON "DiagnosticScore"("studentId");
+
+CREATE TABLE "FluencyCheck" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "wcpm" INTEGER NOT NULL,
+  "accuracy" INTEGER,
+  "note" TEXT,
+  "source" TEXT NOT NULL DEFAULT 'TEACHER',
+  "checkedById" TEXT,
+  "checkedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "FluencyCheck_studentId_checkedAt_idx" ON "FluencyCheck"("studentId", "checkedAt");
+
+CREATE TABLE "WeeklyCheck" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "week" TEXT NOT NULL,
+  "assignmentId" TEXT NOT NULL,
+  "correct" INTEGER NOT NULL DEFAULT 0,
+  "total" INTEGER NOT NULL DEFAULT 0,
+  "ritBefore" INTEGER,
+  "ritAfter" INTEGER,
+  "completedAt" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "WeeklyCheck_studentId_week_key" UNIQUE ("studentId", "week")
+);

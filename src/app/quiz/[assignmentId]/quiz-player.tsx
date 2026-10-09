@@ -27,11 +27,22 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
     const r = await submitQuizAnswerAction({ assignmentId: view.assignmentId, questionId: q.questionId, response: value });
     setPending(false);
     if (r.error) return setError(r.error);
+    if (view.testMode) { setView(r.view!); setValue(null); setShown(r.view!.question); return; }
     setFb(r.feedback!); setView(r.view!);
     if (r.feedback!.next.endReason === "GOAL") setCelebrate(true);
   }
   const nextHref = view.nextHref ?? "/student/plans";
   function next() { setFb(null); setValue(null); setShown(view.question); }
+  if (!q && view.testMode) {
+    return (
+      <div className="rounded-3xl bg-white p-10 text-center ring-1 ring-slate-200">
+        <p className="text-5xl" aria-hidden="true">🎉</p>
+        <h1 className="mt-2 text-3xl font-bold text-brand-navy">You finished the Diagnostic Test!</h1>
+        <p className="mx-auto mt-3 max-w-xl text-lg text-slate-700">Thank you for doing your best. Your teacher now knows your strengths and what to learn next. Your plans start at the right level for you.</p>
+        <Link href="/student" className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">Back to My Work</Link>
+      </div>
+    );
+  }
   if (!q) {
     return (
       <div className="rounded-2xl bg-white p-8 text-center ring-1 ring-slate-200">
@@ -63,7 +74,8 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
           </div>
         )}
       </header>
-      {view.breakHint && <p role="status" className="mt-4 rounded-xl bg-sky-50 px-4 py-3 text-sky-900 ring-1 ring-sky-200">⏸️ You have practised more than 25 minutes today. Take a short break if you like — your progress is saved and you continue from here.</p>}
+      {view.testMode && <p className="mt-4 rounded-xl bg-indigo-50 px-4 py-3 text-indigo-900 ring-1 ring-indigo-200">📝 This is a test: read each question carefully and choose your best answer. You will not see if it is right or wrong. You can stop and continue later — your answers are saved.</p>}
+      {view.breakHint && !view.testMode && <p role="status" className="mt-4 rounded-xl bg-sky-50 px-4 py-3 text-sky-900 ring-1 ring-sky-200">⏸️ You have practised more than 25 minutes today. Take a short break if you like — your progress is saved and you continue from here.</p>}
       {g?.struggling && !fb && <p role="status" className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-amber-900 ring-1 ring-amber-200">💡 This one is tricky. Read the question slowly, use 🔊 Listen, and look back at the explanation of the last answer. The questions you missed will come back so you can get them right.</p>}
       {celebrate && g && (
         <div className="fixed inset-0 z-50 grid place-items-center bg-slate-900/50 p-4" role="dialog" aria-modal="true" aria-labelledby="goal-h">
@@ -94,10 +106,10 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
           <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
           <div className="mt-5"><AnswerInput q={q} value={value} onChange={setValue} disabled={!!fb || pending} /></div>
           {error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{error}</p>}
-          <div className="mt-6">{fb && <FeedbackPanel fb={fb} />}</div>
-          <FlagButton key={q.questionId} questionId={q.questionId} />
+          <div className="mt-6">{fb && <FeedbackPanel fb={fb} questionId={q.questionId} />}</div>
+          {!view.testMode && <FlagButton key={q.questionId} questionId={q.questionId} />}
           <div className="mt-6">
-            {!fb ? <button type="button" disabled={pending || !isAnswerReady(q, value)} onClick={() => void submit()} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white disabled:opacity-50">{pending ? "Checking…" : "Check answer"}</button>
+            {!fb ? <button type="button" disabled={pending || !isAnswerReady(q, value)} onClick={() => void submit()} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white disabled:opacity-50">{view.testMode ? (pending ? "Saving…" : view.answered + 1 >= view.total ? "Finish the test" : "Next ▶") : pending ? "Checking…" : "Check answer"}</button>
               : <button type="button" onClick={next} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">{view.question ? "Next question" : "Finish"}</button>}
           </div>
         </div>

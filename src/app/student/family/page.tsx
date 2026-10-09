@@ -6,6 +6,7 @@ import { isReportShared } from "@/server/insights/parent-report";
 import { myMap } from "@/server/map/map-more";
 import { studentSkillPlans } from "@/server/curriculum-map/plans";
 import { weekStats } from "@/server/student/weekly";
+import { studentDiagnosticReport } from "@/server/diagnostic/report";
 import { subjectName } from "@/components/map/map-ui";
 
 export const metadata = { title: "Family Report" };
@@ -18,7 +19,7 @@ export default async function FamilyReport() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
   const id = actor.studentId!;
-  const [shared, m, plans, week] = await Promise.all([isReportShared(repo, String(actor.schoolId), id), myMap(repo, actor), studentSkillPlans(repo, actor), weekStats(repo, id)]);
+  const [shared, m, plans, week, diag] = await Promise.all([isReportShared(repo, String(actor.schoolId), id), myMap(repo, actor), studentSkillPlans(repo, actor), weekStats(repo, id), studentDiagnosticReport(repo, actor, id)]);
   const hasMap = m.subjects.some((x) => x.profile.term);
   const card = "lift flex items-start gap-4 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200";
   return (
@@ -43,6 +44,9 @@ export default async function FamilyReport() {
         <li>{shared ? (
           <Link href="/student/family/teacher-report" className={`${card} ring-emerald-300`}><span className="text-4xl" aria-hidden="true">📄</span><span><span className="block text-lg font-bold text-brand-navy">Report from My Teacher</span><span className="block text-sm text-slate-600">My teacher’s report about my progress, strengths and what to practise next.</span></span></Link>
         ) : <div className={`${card} opacity-70`}><span className="text-4xl" aria-hidden="true">📄</span><span><span className="block text-lg font-bold text-slate-600">Report from My Teacher</span><span className="block text-sm text-slate-500">Appears when your teacher shares it.</span></span></div>}</li>
+        <li>{diag ? (
+          <Link href="/student/family/diagnostic" className={`${card} ring-indigo-300`}><span className="text-4xl" aria-hidden="true">📝</span><span><span className="block text-lg font-bold text-brand-navy">Diagnostic Report</span><span className="block text-sm text-slate-600">{diag.pct}% · {diag.level === "ABOVE" ? "Above" : diag.level === "ON" ? "On" : "Below"} Level · my strengths and next steps.</span></span></Link>
+        ) : <div className={`${card} opacity-70`}><span className="text-4xl" aria-hidden="true">📝</span><span><span className="block text-lg font-bold text-slate-600">Diagnostic Report</span><span className="block text-sm text-slate-500">Appears when your teacher shares it.</span></span></div>}</li>
         <li><Link href={`/map-report/study-plan/${id}`} className={card}><span className="text-4xl" aria-hidden="true">🧭</span><span><span className="block text-lg font-bold text-brand-navy">My Study Plan</span><span className="block text-sm text-slate-600">The skills to work on next, from my MAP results.</span></span></Link></li>
         <li><Link href="/student/plans" className={card}><span className="text-4xl" aria-hidden="true">🗂️</span><span><span className="block text-lg font-bold text-brand-navy">My Plans</span><span className="block text-sm text-slate-600">{plans.length ? plans.map((p) => `${p.title}: ${p.done}/${p.places} done`).join(" · ") : "No plans yet."}</span></span></Link></li>
       </ul>

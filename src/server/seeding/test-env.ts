@@ -37,7 +37,7 @@ const s = (v: unknown) => String(v ?? "");
 export interface TestEnvReport { admins: number; teachers: number; students: number; classes: number; questions: number; assignments: number; statuses: Record<string, number>; notifications: number; answers: number }
 
 /** A correct response for any auto-scored item (used to practise like a strong student). */
-function rightAnswer(it: PracticeItem): unknown {
+export function rightAnswer(it: PracticeItem): unknown {
   switch (it.type) {
     case "MULTI_SELECT": return it.options!.filter((o) => o.correct).map((o) => o.label);
     case "MULTIPLE_CHOICE": case "DROPDOWN": return it.options!.find((o) => o.correct)!.label;

@@ -244,7 +244,7 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
                   <span className="mt-1 flex flex-wrap gap-1">
                     {q.hasPassage && <span className="rounded bg-sky-50 px-1.5 text-xs text-sky-800">Passage</span>}
                     {q.mapCode && <Link href={`/admin/questions?status=PUBLISHED&map=${q.mapCode}`} className="rounded bg-emerald-50 px-1.5 text-xs font-medium text-emerald-800 ring-1 ring-emerald-200" title="On the Curriculum Map (and in the Question Bank)">🧭 {q.mapCode}</Link>}
-                    {q.uses?.includes("PLACEMENT") && <span className="rounded bg-violet-50 px-1.5 text-xs text-violet-800">Placement</span>}
+                    {q.uses?.includes("PLACEMENT") && <span className="rounded bg-violet-50 px-1.5 text-xs text-violet-800">Diagnostic</span>}
                     {q.uses?.includes("MAP_TEST") && <span className="rounded bg-orange-50 px-1.5 text-xs text-orange-800">MAP test</span>}
                     {q.hasImage && <span className="rounded bg-violet-50 px-1.5 text-xs text-violet-800">Image</span>}
                     {q.possibleMissingPassage && <span className="rounded bg-amber-100 px-1.5 text-xs font-semibold text-amber-900" title="The question mentions a passage, story or paragraph, but has no passage.">⚠ Possible missing passage</span>}

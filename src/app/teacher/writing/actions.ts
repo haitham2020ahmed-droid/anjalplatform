@@ -22,6 +22,6 @@ export async function scoreAction(f: FormData): Promise<void> {
   const scores: Record<string, number> = {};
   for (const [k, v] of f.entries()) if (k.startsWith("s.")) scores[k.slice(2)] = Number(v);
   let msg = "✓ Scored. The student can see it.";
-  try { await scoreSubmission(repo, actor, taskId, studentId, scores, String(f.get("comment") ?? "")); } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = `⚠️ ${e.message}`; else throw e; }
+  try { await scoreSubmission(repo, actor, taskId, studentId, scores, String(f.get("comment") ?? ""), new Date(), f.get("wcpm") ? Number(f.get("wcpm")) : null); } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = `⚠️ ${e.message}`; else throw e; }
   redirect(`/teacher/writing?classId=${String(f.get("classId"))}&task=${taskId}&msg=${encodeURIComponent(msg)}#s-${studentId}`);
 }

@@ -58,6 +58,7 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
                     <form action={scoreAction} className="mt-3 flex flex-wrap items-end gap-3 text-sm print:hidden">
                       <input type="hidden" name="taskId" value={task.id} /><input type="hidden" name="studentId" value={x.studentId} /><input type="hidden" name="classId" value={task.classId} />
                       {task.rubric.map((r) => <label key={r.key} className="font-semibold" title={r.what}>{r.name}<select name={`s.${r.key}`} defaultValue={x.scores?.[r.key] ?? ""} required className="mt-1 block rounded-lg border border-slate-300 px-2 py-1.5"><option value="" disabled>–</option>{[0, 1, 2, 3, 4].map((n) => <option key={n} value={n}>{n}</option>)}</select></label>)}
+                      {task.kind === "READ_ALOUD" && <label className="font-semibold" title="Words read correctly in one minute">WCPM<input type="number" name="wcpm" min={0} max={400} placeholder="e.g. 95" className="mt-1 block w-24 rounded-lg border border-slate-300 px-2 py-1.5 font-normal" /></label>}
                       <label className="min-w-[14rem] flex-1 font-semibold">Comment<input name="comment" defaultValue={x.comment ?? ""} maxLength={2000} className="mt-1 block w-full rounded-lg border border-slate-300 px-2 py-1.5 font-normal" /></label>
                       <button className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white">{x.status === "SCORED" ? "Update" : "Save score"}</button>
                     </form>

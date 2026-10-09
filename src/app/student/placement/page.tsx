@@ -1,24 +1,23 @@
+import Link from "next/link";
+import { redirect } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
-import { PlacementPlayer } from "@/components/placement/placement-player";
-import { PlacementResult } from "@/components/placement/placement-result";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { latestDiagnostic, startDiagnostic } from "@/server/assessment/diagnostic";
-import { ValidationError } from "@/server/curriculum-admin";
-import { submitPlacementAction } from "./actions";
+import { myDiagnostic } from "@/server/diagnostic/test";
 
-/** Placement check: shows the latest result, or starts/resumes the check (?retake=1 to take it again). */
-export default async function PlacementPage({ searchParams }: { searchParams: Promise<{ retake?: string }> }) {
+/** The placement check is now the Diagnostic Test: go to it when it is open. */
+export default async function Placement() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
-  const firstName = String(me.displayName).split(" ")[0];
-  const { retake } = await searchParams;
-  const last = await latestDiagnostic(repo, actor.studentId!);
-  if (last && retake !== "1") return <AppShell name={String(me.displayName)}><PlacementResult r={last} firstName={firstName} /></AppShell>;
-  try {
-    const view = await startDiagnostic(repo, actor);
-    return <AppShell name={String(me.displayName)}><PlacementPlayer initial={view} firstName={firstName} submit={submitPlacementAction} /></AppShell>;
-  } catch (e) {
-    if (!(e instanceof ValidationError)) throw e;
-    return <AppShell name={String(me.displayName)}><p className="text-lg text-slate-700">{e.message}</p></AppShell>;
-  }
+  const d = await myDiagnostic(repo, actor);
+  if (d && d.status !== "DONE") redirect(d.href);
+  return (
+    <AppShell name={String(me.displayName)}>
+      <div className="rounded-3xl bg-white p-8 text-center ring-1 ring-slate-200">
+        <p className="text-5xl" aria-hidden="true">📝</p>
+        <h1 className="mt-2 text-2xl font-bold text-brand-navy">{d ? "You finished the Diagnostic Test 🎉" : "The Diagnostic Test is not open yet"}</h1>
+        <p className="mt-2 text-slate-700">{d ? "Your teacher will share your report. Your plans already start at the right level for you." : "Your school opens it at the start of the year. Until then, keep practising your plans."}</p>
+        <Link href="/student" className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">My Work</Link>
+      </div>
+    </AppShell>
+  );
 }

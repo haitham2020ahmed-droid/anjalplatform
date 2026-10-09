@@ -10,6 +10,8 @@ import { scanAlerts } from "@/server/insights/alerts";
 import { FirstWeekChecklist } from "@/components/teacher/checklist";
 import { ClassRows } from "@/components/home/class-rows";
 import { classesAtAGlance } from "@/server/insights/overview";
+import { goalProgress } from "@/server/admin/school-goals";
+import { GoalsTable } from "@/components/home/goals-table";
 
 export const metadata = { title: "My classes" };
 
@@ -33,6 +35,7 @@ export default async function TeacherHome() {
   const dueWeek = classIds.length ? (await repo.findMany("Assignment", { classId: { in: classIds }, deletedAt: null }, { select: ["dueAt"] })).filter((a) => a.dueAt && new Date(a.dueAt instanceof Date ? a.dueAt.toISOString() : String(a.dueAt)).getTime() >= now.getTime() && new Date(a.dueAt instanceof Date ? a.dueAt.toISOString() : String(a.dueAt)).getTime() <= weekEnd).length : 0;
   const draftPlans = classIds.length ? await repo.count("MapPlan", { classId: { in: classIds }, status: "DRAFT" }) : 0;
   const rows = await classesAtAGlance(repo, actor, now);
+  const goalRows = classIds.length ? await goalProgress(repo, actor, await repo.findMany("Class", { id: { in: classIds } }), now) : null;
   const first = String(me.displayName).split(" ")[0];
   const hour = (now.getUTCHours() + 3) % 24;   // Riyadh
   const greet = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
@@ -74,6 +77,13 @@ export default async function TeacherHome() {
       </dl>
 
       {ob && !ob.hidden && ob.done < ob.steps.length && <div className="mt-6"><FirstWeekChecklist steps={ob.steps} back="/teacher" /></div>}
+
+      {goalRows && (
+        <section aria-labelledby="goals-h" className="mt-6 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+          <div className="mb-2 flex items-baseline justify-between"><h2 id="goals-h" className="text-lg font-semibold text-brand-navy">🎯 School goals this week</h2><span className="text-xs text-slate-500">set by the school</span></div>
+          <GoalsTable data={goalRows} />
+        </section>
+      )}
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
         <section aria-labelledby="classes-h">

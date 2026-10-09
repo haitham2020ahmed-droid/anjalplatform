@@ -13,7 +13,7 @@ export function UnitList({ curriculum, firstName, needsPlacement = false }: { cu
       </header>
       {needsPlacement && (
         <a href="/student/placement" className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-brand-navy p-5 text-white hover:bg-brand-purple">
-          <span><span className="block text-lg font-semibold">Take your placement check</span><span className="text-white/80">About 20 questions. It helps us start your practice at the right level.</span></span>
+          <span><span className="block text-lg font-semibold">Take the Diagnostic Test</span><span className="text-white/80">About 50 questions. It shows your strengths and starts your practice at the right level.</span></span>
           <span className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy">Start the check</span>
         </a>
       )}

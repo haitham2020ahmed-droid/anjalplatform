@@ -32,15 +32,20 @@ export async function weekStats(repo: Repo, studentId: string, now = new Date())
   if (aids.length) {
     const as = await repo.findMany("Assignment", { id: { in: aids } }, { select: ["id", "title", "curriculumPlanId"] });
     const items = await planItemsFor(repo, aids);
-    for (const a of as) if (a.curriculumPlanId || items.has(s(a.id))) parts.push(items.get(s(a.id)) ?? s(a.title));
+    for (const a of as) if ((a.curriculumPlanId && s(a.curriculumPlanId) !== "WEEKLY_CHECK") || items.has(s(a.id))) parts.push(items.get(s(a.id)) ?? s(a.title));
   }
   const inWeek = attempts.filter((x) => { const t = d(x.createdAt); return t && t <= now; });
   const days = new Set(inWeek.map((x) => d(x.createdAt)!.toISOString().slice(0, 10))).size;
   const partsDone = [...new Set(parts)].length;
+  // the school's weekly goal of parts (School Goals), else 3
+  const st = await repo.findUnique("Student", { id: studentId });
+  const goalRow = st ? (await repo.findMany("SchoolSetting", { schoolId: st.schoolId, key: "school.goals" }))[0] : null;
+  const goalVal = (typeof goalRow?.value === "string" ? JSON.parse(s(goalRow.value)) : goalRow?.value) as { weeklyParts?: number } | undefined;
+  const partsGoal = Number(goalVal?.weeklyParts) || WEEKLY_PARTS_GOAL;
   return {
-    since: since.toISOString().slice(0, 10), partsGoal: WEEKLY_PARTS_GOAL, partsDone, parts: [...new Set(parts)],
+    since: since.toISOString().slice(0, 10), partsGoal, partsDone, parts: [...new Set(parts)],
     answers: inWeek.length, correct: inWeek.filter((x) => x.isCorrect).length,
-    minutes: Math.round(inWeek.reduce((t, x) => t + Math.min(Number(x.responseMs ?? 0), 180_000), 0) / 60_000), days, reached: partsDone >= WEEKLY_PARTS_GOAL,
+    minutes: Math.round(inWeek.reduce((t, x) => t + Math.min(Number(x.responseMs ?? 0), 180_000), 0) / 60_000), days, reached: partsDone >= partsGoal,
   };
 }
 

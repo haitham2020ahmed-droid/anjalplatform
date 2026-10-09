@@ -18,7 +18,7 @@ import { classMembers, levelsOf, mapSummaries, practiceStats, studentNames, type
 
 const s = (v: unknown) => String(v ?? "");
 export type Evidence = "CATEGORY" | "PLATFORM" | "PLACEMENT" | "LEXILE" | "MAP" | "NO_DATA";
-export const EVIDENCE_NAME: Record<Evidence, string> = { CATEGORY: "Their work in this section", PLATFORM: "Platform results (last 30 days)", PLACEMENT: "Placement test", LEXILE: "MAP Lexile", MAP: "MAP score", NO_DATA: "No data yet" };
+export const EVIDENCE_NAME: Record<Evidence, string> = { CATEGORY: "Their work in this section", PLATFORM: "Platform results (last 30 days)", PLACEMENT: "Diagnostic Test", LEXILE: "MAP Lexile", MAP: "MAP score", NO_DATA: "No data yet" };
 
 export interface Suggestion { studentId: string; name: string; current: Level | null; currentSource: string | null; suggested: Level; from: Evidence; reason: string }
 
@@ -40,7 +40,7 @@ export async function suggestLevels(repo: Repo, actor: Actor, classId: string, o
       const l: Level = p.recentAccuracy >= rules.upPct ? "ABOVE" : p.recentAccuracy < 50 ? "BELOW" : "ON";
       return { ...base, suggested: l, from: "PLATFORM" as const, reason: `${p.recentAccuracy}% correct on ${p.recentAnswers} answers (last 30 days).` };
     }
-    if (lv.level && lv.source === "PLACEMENT") return { ...base, suggested: lv.level, from: "PLACEMENT" as const, reason: "From the Placement test." };
+    if (lv.level && lv.source === "PLACEMENT") return { ...base, suggested: lv.level, from: "PLACEMENT" as const, reason: "From the Diagnostic Test." };
     const lexLevel = subject === "READING" ? levelForLexile(band, m?.lexile ?? null) : null;
     if (lexLevel) return { ...base, suggested: lexLevel, from: "LEXILE" as const, reason: `Lexile ${m!.lexile}L (On Level ${band.onMin}–${band.onMax}L).` };
     if (m?.band && m.latest) return { ...base, suggested: m.band, from: "MAP" as const, reason: `MAP ${m.latest.term}: RIT ${m.latest.rit}${m.latest.percentile !== null ? `, ${m.latest.percentile}th percentile` : ""}.` };

@@ -1588,6 +1588,7 @@ CREATE TABLE `WritingSubmission` (
   `scores` JSON,
   `comment` VARCHAR(2000),
   `scoredById` VARCHAR(191),
+  `wcpm` INTEGER,
   `submittedAt` DATETIME(3),
   `scoredAt` DATETIME(3),
   `updatedAt` DATETIME(3) NOT NULL,
@@ -1608,6 +1609,75 @@ CREATE TABLE `ErrorLog` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `ErrorLog_createdAt_idx` ON `ErrorLog`(`createdAt`);
+
+CREATE TABLE `DiagnosticTest` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `grade` INTEGER NOT NULL,
+  `year` VARCHAR(9) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `assessmentId` VARCHAR(191) NOT NULL,
+  `status` VARCHAR(10) NOT NULL DEFAULT 'DRAFT',
+  `opensAt` DATETIME(3),
+  `closesAt` DATETIME(3),
+  `bands` JSON,
+  `createdById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `DiagnosticTest_schoolId_grade_idx` ON `DiagnosticTest`(`schoolId`, `grade`);
+
+CREATE TABLE `DiagnosticScore` (
+  `id` VARCHAR(191) NOT NULL,
+  `diagnosticId` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `assignmentId` VARCHAR(191) NOT NULL,
+  `correct` INTEGER NOT NULL,
+  `total` INTEGER NOT NULL,
+  `pct` DOUBLE NOT NULL,
+  `level` VARCHAR(6) NOT NULL,
+  `byStandard` JSON NOT NULL,
+  `byStrand` JSON NOT NULL,
+  `rapid` INTEGER NOT NULL DEFAULT 0,
+  `minutes` INTEGER NOT NULL DEFAULT 0,
+  `completedAt` DATETIME(3) NOT NULL,
+  `sharedAt` DATETIME(3),
+  `teacherNote` VARCHAR(1000),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `DiagnosticScore_diagnosticId_studentId_key` UNIQUE (`diagnosticId`, `studentId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `DiagnosticScore_studentId_idx` ON `DiagnosticScore`(`studentId`);
+
+CREATE TABLE `FluencyCheck` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `wcpm` INTEGER NOT NULL,
+  `accuracy` INTEGER,
+  `note` VARCHAR(500),
+  `source` VARCHAR(10) NOT NULL DEFAULT 'TEACHER',
+  `checkedById` VARCHAR(191),
+  `checkedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `FluencyCheck_studentId_checkedAt_idx` ON `FluencyCheck`(`studentId`, `checkedAt`);
+
+CREATE TABLE `WeeklyCheck` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `week` VARCHAR(10) NOT NULL,
+  `assignmentId` VARCHAR(191) NOT NULL,
+  `correct` INTEGER NOT NULL DEFAULT 0,
+  `total` INTEGER NOT NULL DEFAULT 0,
+  `ritBefore` INTEGER,
+  `ritAfter` INTEGER,
+  `completedAt` DATETIME(3),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `WeeklyCheck_studentId_week_key` UNIQUE (`studentId`, `week`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

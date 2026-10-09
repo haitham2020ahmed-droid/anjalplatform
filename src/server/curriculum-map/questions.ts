@@ -11,7 +11,7 @@ import type { Repo, Row } from "../seeding/repo";
 const s = (v: unknown) => String(v ?? "");
 export type QuestionUseKind = "PLACEMENT" | "MAP_TEST";
 export const USE_KINDS: QuestionUseKind[] = ["PLACEMENT", "MAP_TEST"];
-export const USE_LABELS: Record<QuestionUseKind, string> = { PLACEMENT: "Placement", MAP_TEST: "MAP test" };
+export const USE_LABELS: Record<QuestionUseKind, string> = { PLACEMENT: "Diagnostic", MAP_TEST: "MAP test" };
 
 export interface AttachmentNode {
   id: string; code: string; grade: number; unit: number; unitTitle: string;

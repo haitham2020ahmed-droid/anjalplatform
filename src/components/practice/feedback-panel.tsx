@@ -1,9 +1,10 @@
 /** @jsxRuntime automatic */
 /** @jsxImportSource react */
 import type { Feedback } from "../../server/practice/session";
+import { ExplainButton } from "./explain-button";
 
 /** Immediate feedback after every answer: reinforcement when right, a full explanation when not. */
-export function FeedbackPanel({ fb }: { fb: Feedback }) {
+export function FeedbackPanel({ fb, questionId }: { fb: Feedback; questionId?: string }) {
   const ok = fb.correct;
   return (
     <section role="status" aria-live="polite"
@@ -22,6 +23,7 @@ export function FeedbackPanel({ fb }: { fb: Feedback }) {
         </dl>
       )}
       {fb.tip && <p className="mt-4 rounded-xl bg-white/70 px-4 py-3 text-slate-800"><span className="font-semibold text-brand-purple">Tip: </span>{fb.tip}</p>}
+      {!ok && questionId && <ExplainButton key={questionId} questionId={questionId} />}
       {fb.rapidGuess && <p className="mt-3 text-slate-700">That was very quick. Take your time to read each question; careful answers count more.</p>}
       <p className="mt-4 text-sm text-slate-600">
         Mastery {fb.masteryBefore} → <span className="font-semibold text-brand-navy">{fb.masteryAfter}</span>{fb.xp > 0 ? `, +${fb.xp} XP` : ""}

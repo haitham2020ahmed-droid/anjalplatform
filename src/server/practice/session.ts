@@ -27,6 +27,8 @@ import { correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText
 import { openAssignmentFor, refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
 import { applyPlacementResult } from "../curriculum-map/placement-result";
 import { adaptiveNext, STUCK_AFTER, type AdaptiveState } from "../curriculum-map/leveled-run";
+import { diagnosticOfAssessment, recordDiagnosticResult } from "../diagnostic/test";
+import { finishWeeklyCheck, WEEKLY_CHECK_MARK } from "../student/weekly-check";
 
 export const SESSION_RESUME_MINUTES = 120;
 export const MAX_QUESTIONS_PER_SESSION = 20;
@@ -408,6 +410,8 @@ export interface QuizView {
   breakHint: boolean;
   /** where “Next” goes after the goal (the plan's next place), when the set belongs to a plan */
   nextHref: string | null;
+  /** 📝 a test (the Diagnostic): no right/wrong feedback, answers are only saved */
+  testMode: boolean;
 }
 
 async function quizContext(repo: Repo, actor: Actor, assignmentId: string) {
@@ -451,6 +455,7 @@ async function quizView(repo: Repo, a: Row, order: string[], s: Row): Promise<Qu
     index: goal ? answered + 1 : Math.min(total, answered + 1), total, answered, correct: goal ? goal.correct : Number(s.correctCount ?? 0), ended: !nextId,
     goal: goal ? { target: goal.target, correct: goal.correct, reached: goal.reached || Boolean(s.goalReachedAt), early: goal.early, struggling: goal.struggling } : null,
     breakHint: todayMs >= 25 * 60_000, nextHref: goal ? await nextPlanHref(repo, a, String(s.studentId)) : null,
+    testMode: String((await repo.findUnique("Assessment", { id: a.assessmentId }))?.type ?? "") === "DIAGNOSTIC",
   };
 }
 
@@ -542,6 +547,15 @@ export async function submitQuizAnswer(repo: Repo, actor: Actor, input: { assign
   });
   await refreshQuestionSets(repo, [a], [actor.studentId!], now);
   const s = (await repo.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" }))[0];
+  // 🗓️ the Weekly Check: its result and the new RIT estimate when the last answer is in
+  if (String(a.curriculumPlanId ?? "") === WEEKLY_CHECK_MARK && !feedback.next.hasQuestion) await finishWeeklyCheck(repo, String(a.id), actor.studentId!, String(s.id), String(actor.schoolId), now);
+  // 📝 the Diagnostic Test: analysed when the last answer is in; the student sees no right/wrong while testing
+  const diag = await diagnosticOfAssessment(repo, String(a.assessmentId));
+  if (diag) {
+    if (!feedback.next.hasQuestion) await recordDiagnosticResult(repo, diag, String(a.id), actor.studentId!, String(s.id), now);
+    const blank: Feedback = { ...feedback, correct: false, credit: 0, correctAnswer: "", whyCorrect: "", whyYoursIsWrong: null, tip: "", masteryBefore: 0, masteryAfter: 0, xp: 0 };
+    return { feedback: blank, view: await quizView(repo, a, order, s) };
+  }
   // a finished Placement test sets the student's level
   if (!feedback.next.hasQuestion && a.assessmentId) await applyPlacementResult(repo, String(a.assessmentId), String(s.id), actor.studentId!, now);
   return { feedback, view: await quizView(repo, a, order, s) };

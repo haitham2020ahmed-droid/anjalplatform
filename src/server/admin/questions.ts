@@ -471,6 +471,8 @@ export interface QuestionListItem {
 }
 
 export interface QuestionFilter {
+  /** only ReadMaster questions (they are regular bank questions with their passage) */
+  readMaster?: boolean;
   status?: QuestionStatus; gradeLevel?: number; skillId?: string; q?: string; mine?: boolean; aiOnly?: boolean;
   /** only skills placed in this unit */
   unitId?: string;
@@ -503,7 +505,7 @@ export interface QuestionFilter {
  */
 /** Curriculum Map / use filters as an id condition (one or two small queries). */
 async function placeFilter(repo: Repo, schoolId: string, filter: QuestionFilter): Promise<Record<string, unknown>> {
-  if (!filter.onMap && !filter.mapCode && !filter.use) return {};
+  if (!filter.onMap && !filter.mapCode && !filter.use && !filter.readMaster) return {};
   let allow: Set<string> | null = null;
   const keep = (ids: string[]) => { const n = new Set(ids); allow = allow ? new Set([...allow].filter((x) => n.has(x))) : n; };
   if (filter.mapCode) {
@@ -513,6 +515,7 @@ async function placeFilter(repo: Repo, schoolId: string, filter: QuestionFilter)
     const nodes = grades.length ? (await repo.findMany("CurriculumMapNode", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id", "code"] })).filter((n) => String(n.code) === code || String(n.code).startsWith(`${code}.`)) : [];
     keep(nodes.length ? (await repo.findMany("QuestionMapLink", { nodeId: { in: nodes.map((n) => n.id) } }, { select: ["questionId"] })).map((l) => String(l.questionId)) : []);
   }
+  if (filter.readMaster) keep((await repo.findMany("ReadMasterQuestion", {}, { select: ["questionId"] })).map((u) => String(u.questionId)));
   if (filter.use) keep((await repo.findMany("QuestionUse", { use: filter.use }, { select: ["questionId"] })).map((u) => String(u.questionId)));
   const linked = filter.onMap ? (await repo.findMany("QuestionMapLink", {}, { select: ["questionId"] })).map((l) => String(l.questionId)) : [];
   if (filter.onMap === "map") keep(linked);

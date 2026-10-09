@@ -24,7 +24,7 @@ export default async function LevelsPage({ searchParams }: { searchParams: Promi
   const sug = classId ? await suggestLevels(repo, actor, classId) : null;
   const sugOf = new Map((sug?.rows ?? []).map((r) => [r.studentId, r]));
   const noData = v ? v.students.filter((x) => !x.level && sugOf.get(x.id)?.from === "NO_DATA").length : 0;
-  const SRC: Record<string, string> = { PLACEMENT: "Placement test", TEACHER: "Set by you", MAP_RIT: "MAP", ADAPTIVE: "Their work" };
+  const SRC: Record<string, string> = { PLACEMENT: "Diagnostic Test", TEACHER: "Set by you", MAP_RIT: "MAP", ADAPTIVE: "Their work" };
   const board: BoardStudent[] = (v?.students ?? []).map((x) => {
     const sg = sugOf.get(x.id);
     const start = auto && sg ? sg.suggested : x.level ?? "ON";
@@ -37,7 +37,7 @@ export default async function LevelsPage({ searchParams }: { searchParams: Promi
   const editBands = actor.role !== "TEACHER" && can(actor, "settings:school");
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: isTeacher ? "/teacher" : "/admin", label: "Back" }} icon="🎯" title="Student Levels &amp; Tests" subtitle={<>Each student’s level decides which Curriculum Map questions they get (Above / On / Below Level). Set it here, or give the Placement test: its score sets the level automatically (80%+ Above, 50–79% On, under 50% Below).</>} />
+      <PageHeader back={{ href: isTeacher ? "/teacher" : "/admin", label: "Back" }} icon="🎯" title="Student Levels &amp; Tests" subtitle={<>Each student’s level decides which Curriculum Map questions they get (Above / On / Below Level). Set it here, or let the Diagnostic Test set it automatically from its score.</>} />
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {!v ? <p className="mt-6 text-slate-600">No classes yet.</p> : (
         <>
@@ -46,7 +46,12 @@ export default async function LevelsPage({ searchParams }: { searchParams: Promi
           </nav>
           {isTeacher && (
             <section className="mt-5 grid gap-4 md:grid-cols-2">
-              {([["PLACEMENT", "📝 Placement test", "Sets each student’s level from the score. Uses questions marked “Placement”."], ["MAP_TEST", "🗺️ MAP practice test", "Results by MAP goal area. Uses questions marked “MAP test”."]] as const).map(([kind, title, text]) => (
+              <Link href="/teacher/diagnostic" className="lift rounded-2xl bg-gradient-to-br from-amber-50 to-white p-5 ring-1 ring-amber-300">
+                <h2 className="text-lg font-bold text-brand-navy">📝 Diagnostic Test</h2>
+                <p className="text-sm text-slate-600">The start-of-year test (about 50 questions, every standard). Its score sets each student’s level automatically, and you get the full class analysis and support plan.</p>
+                <p className="mt-3 text-sm font-semibold text-brand-navy">Open the Diagnostic ▶</p>
+              </Link>
+              {([["MAP_TEST", "🗺️ MAP practice test", "Results by MAP goal area. Uses questions marked “MAP test”."]] as const).map(([kind, title, text]) => (
                 <form key={kind} action={giveTestAction} className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
                   <input type="hidden" name="classId" value={classId} /><input type="hidden" name="kind" value={kind} />
                   <h2 className="text-lg font-bold text-brand-navy">{title}</h2>

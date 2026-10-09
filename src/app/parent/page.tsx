@@ -29,6 +29,7 @@ export default async function ParentHome() {
             <p className="text-sm text-slate-500">Grade {c.grade}{c.className ? `, class ${c.className}` : ""}</p>
             {shared.get(c.studentId) && <Link href={`/parent/report/${c.studentId}`} className="lift mt-3 flex items-center justify-between rounded-2xl bg-emerald-50 px-5 py-4 font-bold text-emerald-900 ring-1 ring-emerald-300"><span>📄 Report from the teacher</span><span>Open ▶</span></Link>}
             {shared.get(c.studentId) && <div className="mt-2 flex flex-wrap gap-2"><Link href={`/map-report/family/${c.studentId}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📈 MAP Family Report</Link><Link href={`/map-report/study-plan/${c.studentId}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🧭 Study Plan</Link></div>}
+            <Link href={`/parent/family/${c.studentId}`} className="lift mt-3 flex items-center justify-between rounded-2xl bg-brand-navy px-5 py-4 font-bold text-white"><span>👪 Family Report — everything in one place</span><span>Open ▶</span></Link>
             <ParentWeek w={weeks.get(c.studentId)!} />
             <ParentMonthly s={summaries.get(c.studentId)!} />
             <ReportDownloads title="Progress report (this term)" report={{ kind: "student", studentId: c.studentId, period: "TERM" }} formats={["pdf"]} />

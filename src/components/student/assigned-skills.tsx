@@ -161,7 +161,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
         </section>
       )}
 
-      {placement && <Link href="/student/placement" className="block rounded-2xl bg-brand-gold px-5 py-4 font-bold text-brand-navy shadow lift">📝 Your school asks you to take the placement test first →</Link>}
+      {placement && <Link href="/student/placement" className="block rounded-2xl bg-brand-gold px-5 py-4 font-bold text-brand-navy shadow lift">📝 Your school asks you to take the Diagnostic Test first →</Link>}
 
       {/* the three big doors */}
       <nav aria-label="My areas" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">

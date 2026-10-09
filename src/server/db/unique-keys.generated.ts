@@ -109,4 +109,8 @@ export const UNIQUE_KEYS: Record<string, readonly (readonly string[])[]> = {
   WritingTask: [["id"]],
   WritingSubmission: [["taskId", "studentId"]],
   ErrorLog: [["id"]],
+  DiagnosticTest: [["id"]],
+  DiagnosticScore: [["id"], ["diagnosticId", "studentId"]],
+  FluencyCheck: [["id"]],
+  WeeklyCheck: [["id"], ["studentId", "week"]],
 };
