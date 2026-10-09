@@ -35,8 +35,19 @@ export function seasonOf(termName: unknown, testDate?: unknown): Season {
 
 const isReading = (subject: unknown) => /read/i.test(s(subject));
 
-/** Puts the bundled national norms in the database once (never overwrites values an admin changed). */
-export async function ensureNationalNorms(repo: Repo): Promise<void> {
+/** Puts the bundled national norms in the database once (never overwrites values an admin changed).
+ *  Safe when many requests arrive at the same time (one insert per process; a duplicate insert is ignored),
+ *  and after the first success it costs no query. */
+const normsReady = new WeakMap<object, Promise<void>>();
+export function ensureNationalNorms(repo: Repo): Promise<void> {
+  let p = normsReady.get(repo);
+  if (!p) {
+    p = insertNorms(repo).catch((e) => { normsReady.delete(repo); if (/unique|duplicate|constraint/i.test(String((e as Error)?.message ?? e))) return; throw e; });
+    normsReady.set(repo, p);
+  }
+  return p;
+}
+async function insertNorms(repo: Repo): Promise<void> {
   if (await repo.count("BenchmarkReference", { scope: "NATIONAL", metric: MEAN })) return;
   const rows: Row[] = [];
   for (const [g, bySeason] of Object.entries(NATIONAL_READING_NORMS)) for (const season of SEASONS) {

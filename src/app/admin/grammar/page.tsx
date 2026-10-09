@@ -4,7 +4,7 @@ import { PageHeader, Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { grammarView, type GrammarSkillRow } from "@/server/grammar/grammar";
-import { AssignDialog, AssignSkillHost } from "../../teacher/assign-dialog";
+import { AssignSkillHost } from "../../teacher/assign-dialog";
 import { ImportUpload } from "../questions/import/upload-form";
 
 export const metadata = { title: "Grammar" };
@@ -32,25 +32,29 @@ export default async function GrammarPage({ searchParams }: { searchParams: Prom
         {k.rule && <details className="mt-1 text-xs text-slate-600"><summary className="cursor-pointer font-semibold text-brand-teal">The rule</summary><p className="mt-1 max-w-3xl leading-relaxed">{k.rule}</p></details>}
       </div>
       <div className="flex flex-wrap items-center gap-1.5">
-        {level(k.counts.below, "🟠 Below", "bg-orange-50 text-orange-900 ring-orange-200")}
-        {level(k.counts.on, "🔵 On", "bg-sky-50 text-sky-900 ring-sky-200")}
-        {level(k.counts.above, "🟢 Above", "bg-emerald-50 text-emerald-900 ring-emerald-200")}
-        <Link href={`/admin/questions?status=PUBLISHED&grade=${v.grade}&skill=${k.id}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">View questions ({k.counts.total})</Link>
-        {isTeacher && klass && k.counts.total > 0 && <AssignDialog skill={{ id: k.id, name: k.name, standards: k.standards }} />}
+        {!isTeacher && <>
+          {level(k.counts.below, "🟠 Below", "bg-orange-50 text-orange-900 ring-orange-200")}
+          {level(k.counts.on, "🔵 On", "bg-sky-50 text-sky-900 ring-sky-200")}
+          {level(k.counts.above, "🟢 Above", "bg-emerald-50 text-emerald-900 ring-emerald-200")}
+          <Link href={`/admin/questions?status=PUBLISHED&grade=${v.grade}&skill=${k.id}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">View questions ({k.counts.total})</Link>
+        </>}
+        {k.counts.total > 0 && <Link href={`/teacher/preview?skillId=${k.id}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Preview</Link>}
+        {isTeacher && klass && k.counts.total > 0 && <Link href={`/teacher/skill-assign?skillId=${k.id}&classId=${klass.id}`} className="rounded-lg bg-brand-navy px-3 py-1.5 text-sm font-semibold text-white hover:bg-brand-purple">⭐ Assign</Link>}
+        {isTeacher && k.counts.total === 0 && <span className="text-xs text-slate-500">Questions coming soon</span>}
       </div>
     </li>
   );
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: isTeacher ? "/teacher" : "/admin", label: "Back" }} icon="🔤" title="Grammar"
-        subtitle="Every grammar, mechanics and revision skill of the grade, week by week. ⭐ Assign a skill: students find it in their assigned work and practise it adaptively, Below → On → Above; their results join their skill mastery, MAP Language goals and the analytics.">
-        {!isTeacher && <nav aria-label="Grade" className="flex gap-2">{v.grades.map((g) => <Link key={g} href={`/admin/grammar?grade=${g}`} aria-current={g === v.grade ? "page" : undefined} className={chip(g === v.grade)}>Grade {g}</Link>)}</nav>}
+        subtitle="Every grammar, mechanics and revision skill of the grade, week by week. ⭐ Assign a skill: students find it in their work and each one practises at their own level; their results join their progress and MAP Language goals.">
+        {<nav aria-label="Grade" className="flex gap-2">{v.grades.map((g) => <Link key={g} href={`/admin/grammar?grade=${g}`} aria-current={g === v.grade ? "page" : undefined} className={chip(g === v.grade)}>Grade {g}</Link>)}</nav>}
       </PageHeader>
 
       {isTeacher && (
-        v.classes.length === 0 ? <p className="mb-5 rounded-2xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">You do not teach any class yet.</p> : (
+        !v.classes.some((c) => c.grade === v.grade) ? <p className="mb-5 rounded-2xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">You can preview Grade {v.grade} Grammar. To assign it, you need a Grade {v.grade} class.</p> : (
           <nav aria-label="Classes" className="mb-5 flex flex-wrap gap-2">
-            {v.classes.map((c) => <Link key={c.id} href={`/admin/grammar?classId=${c.id}`} aria-current={c.id === v.classId ? "page" : undefined} className={chip(c.id === v.classId)}>{c.name} · G{c.grade}</Link>)}
+            {v.classes.filter((c) => c.grade === v.grade).map((c) => <Link key={c.id} href={`/admin/grammar?classId=${c.id}`} aria-current={c.id === v.classId ? "page" : undefined} className={chip(c.id === v.classId)}>{c.name} · G{c.grade}</Link>)}
           </nav>
         )
       )}

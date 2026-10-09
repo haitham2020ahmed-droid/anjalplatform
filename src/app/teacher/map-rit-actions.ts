@@ -4,8 +4,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { enterRitScores, levelsFromClassAverage, SEASONS, updateNationalNorms, type Season } from "@/server/map/rit";
-import { importMapScores } from "@/server/map/student-map";
-import { extract } from "@/imports/questions/extract";
+import { importMapFile, importMessage } from "@/server/map/map-files";
 
 const back = (p: Record<string, string>) => redirect(`/teacher/map-rit?${new URLSearchParams(p)}`);
 const friendly = (e: unknown) => { if (e instanceof ValidationError || e instanceof ForbiddenError) return e.message; throw e; };
@@ -50,11 +49,10 @@ export async function importMapScoresAction(f: FormData): Promise<void> {
   const file = f.get("file");
   let msg: string;
   try {
-    if (!(file instanceof File) || !file.size) throw new ValidationError("Choose the CSV or Excel file with the scores.");
-    if (file.size > 5_000_000) throw new ValidationError("The file is larger than 5 MB.");
-    const { table } = extract(file.name, new Uint8Array(await file.arrayBuffer()));
-    const r = await importMapScores(repo, actor, table, Number(f.get("year")) || new Date().getFullYear());
-    msg = `${r.term}: ${r.imported} student score(s) imported${r.skipped ? `, ${r.skipped} row(s) without a score skipped` : ""}.${r.errors.length ? ` ${r.errors.length} problem(s): ${r.errors.slice(0, 5).map((e) => `row ${e.row}: ${e.message}`).join(" · ")}${r.errors.length > 5 ? " …" : ""}` : ""}`;
+    if (!(file instanceof File) || !file.size) throw new ValidationError("Choose the file with the scores (template, NWEA CSV export, or the ASG report PDF).");
+    if (file.size > 4_000_000) throw new ValidationError("The file is larger than 4 MB.");
+    const r = await importMapFile(repo, actor, file.name, new Uint8Array(await file.arrayBuffer()), Number(f.get("year")) || new Date().getFullYear());
+    msg = importMessage(r);
   } catch (e) { msg = e instanceof Error && !(e instanceof ValidationError) && !(e instanceof ForbiddenError) && /read|xlsx|csv|file/i.test(e.message) ? `The file could not be read: ${e.message}` : friendly(e); }
   back({ msg });
 }
@@ -64,12 +62,11 @@ export async function importMapScoresInline(f: FormData): Promise<{ ok: boolean;
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
   try {
     const file = f.get("file");
-    if (!(file instanceof File) || !file.size) throw new ValidationError("Choose the CSV or Excel file with the scores.");
-    if (file.size > 5_000_000) throw new ValidationError("The file is larger than 5 MB.");
-    const { table } = extract(file.name, new Uint8Array(await file.arrayBuffer()));
+    if (!(file instanceof File) || !file.size) throw new ValidationError("Choose the file with the scores (template, NWEA CSV export, or the ASG report PDF).");
+    if (file.size > 4_000_000) throw new ValidationError("The file is larger than 4 MB.");
     const classId = String(f.get("classId") ?? "") || undefined;
-    const r = await importMapScores(repo, actor, table, Number(f.get("year")) || new Date().getFullYear(), new Date(), { createInClassId: classId });
-    const message = `${r.term}: ${r.imported} score(s) imported${r.created.length ? `, ${r.created.length} new student(s) added to the platform` : ""}${r.skipped ? `, ${r.skipped} row(s) without a score skipped` : ""}.${r.errors.length ? ` ${r.errors.length} problem(s): ${r.errors.slice(0, 5).map((e) => `row ${e.row}: ${e.message}`).join(" · ")}` : ""}`;
+    const r = await importMapFile(repo, actor, file.name, new Uint8Array(await file.arrayBuffer()), Number(f.get("year")) || new Date().getFullYear(), { createInClassId: classId });
+    const message = importMessage(r);
     return { ok: true, message, created: r.created };
   } catch (e) {
     if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message, created: [] };

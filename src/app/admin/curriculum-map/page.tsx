@@ -9,6 +9,7 @@ import { rosterForGrade } from "@/server/curriculum-map/levels";
 import { MapAssignButton, MapAssignHost, type RosterClass } from "@/components/curriculum-map/assign-button";
 import { assignPlaceAction } from "./actions";
 import { respondCodes } from "@/server/curriculum-map/respond";
+import { sectionStatuses, type SectionStatus } from "@/server/curriculum-map/status";
 
 export const metadata = { title: "Curriculum Map" };
 
@@ -16,7 +17,7 @@ export const metadata = { title: "Curriculum Map" };
  * 🧭 Curriculum Map (read only): Grade → Book → Unit → Text Set / Selection (Shared Read, Genre) → Category (skills) → Level.
  * 📥 marks the nodes questions are placed on (Concept Vocabulary; Above/On/Below levels), with their count and “➕ Add question”.
  */
-export default async function CurriculumMapPage({ searchParams }: { searchParams: Promise<{ grade?: string; unit?: string }> }) {
+export default async function CurriculumMapPage({ searchParams }: { searchParams: Promise<{ grade?: string; unit?: string; classId?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -33,7 +34,9 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
   }
   // the teacher's classes of this grade, with students and levels, for the ⭐ Assign dialog
   const roster: RosterClass[] = actor.role === "TEACHER" && v.level !== null ? await rosterForGrade(repo, actor, v.level) : [];
-  const planClassId = roster[0]?.id ?? null;
+  const planClassId = roster.find((c) => c.id === sp.classId)?.id ?? roster[0]?.id ?? null;
+  // a simple status per section for the chosen class (teachers)
+  const status: Map<string, SectionStatus> = actor.role === "TEACHER" && planClassId ? await sectionStatuses(repo, actor, planClassId) : new Map();
   // ReadMaster articles written for a Text Set (Article Code RM-G4-U1-TS1)
   // ✍️ Respond to Reading level pages that have their activity
   const respond = await respondCodes(repo, actor.schoolId!);
@@ -69,15 +72,21 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="🧭" title="Curriculum Map"
-        subtitle={isTeacher ? "Choose a unit and a lesson, then Assign: Analyze Craft and Respond to Reading are adaptive (🛟 → Below → On → Above → 🚀). ☆ Choose questions to pick single ones. New questions are added in the Question Bank, which asks where each one goes." : "Grade → Book → Unit → Text Set / Selection → Category → Level. Questions are placed only on the 📥 places; they are also in the Question Bank."}>
+        subtitle={isTeacher ? "Choose a unit, then for each section: ⭐ Assign (automatic or manual) or 👀 Preview. The label shows how your class is doing." : "Grade → Book → Unit → Text Set / Selection → Category → Level. Questions are placed only on the 📥 places; they are also in the Question Bank."}>
         {!isTeacher && <>
           <Link prefetch={false} href="/admin/questions/import?to=curriculum" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📥 Import</Link>
           <Link href={`/admin/curriculum-map/coverage?grade=${v.level ?? 4}`} className="rounded-xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-900 ring-1 ring-emerald-300 hover:bg-emerald-100">🧮 Coverage</Link>
           <Link href="/admin/curriculum-map/respond" className="rounded-xl bg-violet-50 px-3 py-2 text-sm font-semibold text-violet-900 ring-1 ring-violet-300 hover:bg-violet-100">✍️ Respond to Reading</Link>
           <Link href={`/admin/curriculum-map/bridge?grade=${v.level ?? 5}`} className="rounded-xl bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-900 ring-1 ring-indigo-300 hover:bg-indigo-100">🌉 Bridge</Link>
         </>}
-        {isTeacher && <Link prefetch={false} href="/admin/questions/new" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Write a question in the Question Bank; it asks where on the Curriculum Map it goes">➕ Add a question (Question Bank)</Link>}
-        {isTeacher && <Link href="/teacher/plans" className="rounded-xl bg-violet-100 px-3 py-2 text-sm font-semibold text-violet-900 ring-1 ring-violet-300 hover:bg-violet-200">🗂️ Skill plans</Link>}
+        {isTeacher && <>
+          <Link href="/admin/grammar" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🔤 Grammar</Link>
+          <Link href="/teacher/respond" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">✍️ Respond</Link>
+          <Link href="/admin/readmaster" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⭐ ReadMaster</Link>
+          <Link href="/teacher/games" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🎮 Games</Link>
+          <Link href="/teacher/plans" className="rounded-xl bg-violet-100 px-3 py-2 text-sm font-semibold text-violet-900 ring-1 ring-violet-300 hover:bg-violet-200">🗂️ Skill plans</Link>
+          <Link href="/admin/questions?status=PUBLISHED" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📚 Question Bank</Link>
+        </>}
       </PageHeader>
       {v.grades.length === 0 ? <p className="mt-6 rounded-xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">The Curriculum Map has not been created yet.</p> : (
         <>
@@ -94,6 +103,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
                     className={`rounded-xl px-4 py-2 text-sm font-bold transition ${i === unitIx ? "bg-brand-teal text-white shadow" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`}>{u.title.split(":")[0]}</Link>
                 ))}
               </nav>)}
+            {isTeacher && roster.length > 1 && <nav aria-label="Class" className="mt-2 flex flex-wrap gap-2">{roster.map((c) => <Link key={c.id} href={`/admin/curriculum-map?grade=${v.level}&unit=${unitIx + 1}&classId=${c.id}`} aria-current={c.id === planClassId ? "page" : undefined} className={`rounded-full px-3 py-1 text-xs font-bold ${c.id === planClassId ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>Status for {c.name}</Link>)}</nav>}
           </div>
           {v.book && (
             <section className="mt-5">
@@ -114,7 +124,58 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
                 </div>
               )}
 
-              {units.slice(unitIx, unitIx + 1).map((u) => (
+              {isTeacher && units.slice(unitIx, unitIx + 1).map((u) => (
+                <section key={u.id} className="mt-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h2 className="text-xl font-extrabold text-brand-navy">{u.title}</h2>
+                    <div className="flex flex-wrap gap-2 text-sm font-semibold">
+                      {planClassId && <Link href={`/teacher/plans?classId=${planClassId}&unit=${unitIx + 1}`} className="rounded-xl bg-violet-600 px-3 py-1.5 text-white hover:bg-violet-700">🗂️ Plan this unit</Link>}
+                      <Link href={`/admin/grammar?grade=${v.level}`} className="rounded-xl bg-white px-3 py-1.5 text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🔤 Grammar</Link>
+                      <Link href={`/teacher/games/qr${planClassId ? `?classId=${planClassId}` : ""}`} className="rounded-xl bg-white px-3 py-1.5 text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🎮 Games</Link>
+                    </div>
+                  </div>
+                  <div className="mt-3 grid gap-4 lg:grid-cols-2">
+                    {u.children.map((s) => {
+                      const rm = rmByCode.get(`RM-${String(s.code).replace(/\./g, "-")}`);
+                      return (
+                        <article key={s.id} className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                          <h3 className="text-lg font-bold text-slate-900">{s.heading}</h3>
+                          {s.sharedRead && <p className="text-sm text-slate-500">📖 {s.sharedRead}</p>}
+                          <ul className="mt-3 space-y-2">
+                            {s.children.map((c) => {
+                              const st = status.get(c.code);
+                              const rtr = c.categoryType === "RESPOND_TO_READING";
+                              const icon = rtr ? "✍️" : c.categoryType === "CONCEPT_VOCABULARY" ? "🔤" : "🔍";
+                              return (
+                                <li key={c.id} className={`rounded-2xl border-s-4 p-3 ${catColor[c.categoryType ?? ""] ?? ""}`}>
+                                  <div className="flex flex-wrap items-center justify-between gap-2">
+                                    <span className="font-semibold text-slate-900">{icon} {c.title.replace(/^\d+-\s*/, "")}</span>
+                                    <span className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${!st ? "bg-slate-100 text-slate-600" : st.state === "FINISHED" ? "bg-emerald-100 text-emerald-800" : st.state === "NEEDS_HELP" ? "bg-red-100 text-red-800" : "bg-sky-100 text-sky-900"}`}>{!st ? "Not assigned" : st.state === "FINISHED" ? "✅ Finished" : st.state === "NEEDS_HELP" ? `🆘 Needs help · ${st.done}/${st.total}` : `⏳ ${st.done}/${st.total} done`}</span>
+                                  </div>
+                                  <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
+                                    {rtr ? (planClassId && <Link href={`/teacher/respond/assign?classId=${planClassId}&code=${c.code}`} className="rounded-full bg-amber-100 px-3 py-1 font-bold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">⭐ Assign</Link>)
+                                      : <MapAssignButton code={c.code} label="Assign" levels={c.children.length > 0} />}
+                                    <Link prefetch={false} href={rtr ? `/admin/curriculum-map/respond/${c.code}` : `/teacher/preview?code=${c.code}`} className="rounded-full bg-white px-3 py-1 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Preview</Link>
+                                    <details className="w-full text-xs text-slate-600">
+                                      <summary className="cursor-pointer font-semibold text-slate-500">Details</summary>
+                                      {c.skills && <p className="mt-1">Skills: {c.skills}</p>}
+                                      {c.children.length > 0 && <p className="mt-1">{c.children.map((l) => `${l.title}: ${l.counts.adaptive}`).join(" · ")} questions</p>}
+                                      {!c.children.length && <p className="mt-1">{c.counts.adaptive} questions</p>}
+                                      {!rtr && <Link prefetch={false} href={`/admin/questions?status=PUBLISHED&map=${c.code}`} className="mt-1 inline-block font-semibold text-amber-900 underline">☆ Choose single questions</Link>}
+                                    </details>
+                                  </div>
+                                </li>
+                              );
+                            })}
+                            {rm && <li className="rounded-2xl border-s-4 border-amber-300 bg-amber-50/50 p-3"><div className="flex flex-wrap items-center justify-between gap-2"><span className="font-semibold text-slate-900">⭐ ReadMaster article</span><Link href={`/admin/readmaster/${rm.id}`} className="rounded-full bg-white px-3 py-1 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">👀 Preview</Link></div></li>}
+                          </ul>
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+              ))}
+              {!isTeacher && units.slice(unitIx, unitIx + 1).map((u) => (
                 <details key={u.id} className="mt-4 rounded-2xl bg-white ring-1 ring-slate-200" open>
                   {isTeacher && planClassId && <div className="flex justify-end px-5 pt-3"><Link href={`/teacher/plans?classId=${planClassId}&unit=${unitIx + 1}`} className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-bold text-white shadow hover:bg-violet-700">🗂️ Plan this unit (select all + assign + PDF)</Link></div>}
                   <summary className="cursor-pointer px-5 py-3 text-lg font-bold text-brand-navy">{u.title} <span className="text-sm font-normal text-slate-500">· {u.children.length} {u.children[0]?.kind === "SELECTION" ? "selections" : "text sets"}</span></summary>

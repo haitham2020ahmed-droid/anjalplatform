@@ -5,7 +5,7 @@ import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/pract
 import type { ClientQuestion } from "@/server/practice/items";
 import type { ArticleResult } from "@/server/readmaster/service";
 
-const LV: Record<string, string> = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" };
+const RANK: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
 
 /** Reads one ReadMaster version, answers its questions once, shows the score and the Lexile change. */
 export function ReadMasterPlayer({ articleId, versionId, questions, submit }: {
@@ -42,7 +42,7 @@ export function ReadMasterPlayer({ articleId, versionId, questions, submit }: {
         <section role="status" className="animate-pop rounded-3xl bg-gradient-to-br bg-linear-to-br from-amber-50 to-white p-6 ring-2 ring-amber-300 shadow">
           <p className="text-2xl font-bold text-brand-navy">{result.correct} of {result.total} correct ({result.pct}%)</p>
           <p className="mt-1 text-lg">My reading Lexile: <b>{result.lexileBefore}L → {result.lexileAfter}L</b> {result.lexileAfter > result.lexileBefore ? "⬆" : result.lexileAfter < result.lexileBefore ? "⬇" : ""}</p>
-          {result.levelAfter && result.levelAfter !== result.levelBefore && <p className="mt-1 font-semibold text-emerald-800">Next articles: {LV[result.levelAfter]} version.</p>}
+          {result.levelAfter && result.levelAfter !== result.levelBefore && <p className="mt-1 font-semibold text-emerald-800">{RANK[result.levelAfter] > RANK[result.levelBefore ?? "ON"] ? "🚀 Great reading! Your next articles will be more challenging." : "Your next articles will give you a bit more support."}</p>}
           <p className="mt-1 text-sm text-slate-600">75% or more raises your Lexile; under 50% lowers it.</p>
           <Link href="/student/readmaster" className="mt-3 inline-block rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white">More articles</Link>
         </section>

@@ -1327,9 +1327,398 @@ CREATE TABLE "RespondActivity" (
   "sentenceStarters" TEXT NOT NULL,
   "checklist" TEXT NOT NULL,
   "hint" TEXT,
+  "modelAnswer" TEXT,
   "updatedById" TEXT,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "updatedAt" TEXT NOT NULL,
   PRIMARY KEY ("id"),
   CONSTRAINT "RespondActivity_schoolId_code_key" UNIQUE ("schoolId", "code")
 );
+
+CREATE TABLE "RespondAssignment" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT NOT NULL,
+  "setCode" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "dueAt" TEXT,
+  "note" TEXT,
+  "createdById" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "deletedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "RespondAssignment_classId_createdAt_idx" ON "RespondAssignment"("classId", "createdAt");
+
+CREATE INDEX "RespondAssignment_schoolId_setCode_idx" ON "RespondAssignment"("schoolId", "setCode");
+
+CREATE TABLE "RespondAssignmentStudent" (
+  "assignmentId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "level" TEXT NOT NULL CHECK ("level" IN ('ABOVE', 'ON', 'BELOW')),
+  "finishedAt" TEXT,
+  "score" INTEGER,
+  "feedback" TEXT,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("assignmentId", "studentId")
+);
+
+CREATE INDEX "RespondAssignmentStudent_studentId_idx" ON "RespondAssignmentStudent"("studentId");
+
+CREATE TABLE "AiJob" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "tool" TEXT NOT NULL,
+  "scope" TEXT NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'QUEUED',
+  "total" INTEGER NOT NULL DEFAULT 0,
+  "done" INTEGER NOT NULL DEFAULT 0,
+  "failed" INTEGER NOT NULL DEFAULT 0,
+  "note" TEXT,
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL,
+  "finishedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "AiJob_schoolId_createdAt_idx" ON "AiJob"("schoolId", "createdAt");
+
+CREATE TABLE "AiJobItem" (
+  "id" TEXT NOT NULL,
+  "jobId" TEXT NOT NULL,
+  "targetId" TEXT NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'PENDING',
+  "attempts" INTEGER NOT NULL DEFAULT 0,
+  "error" TEXT,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "AiJobItem_jobId_status_idx" ON "AiJobItem"("jobId", "status");
+
+CREATE TABLE "AiSuggestion" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "jobId" TEXT,
+  "tool" TEXT NOT NULL,
+  "kind" TEXT NOT NULL,
+  "questionId" TEXT,
+  "passageId" TEXT,
+  "severity" INTEGER NOT NULL DEFAULT 3,
+  "detail" TEXT NOT NULL,
+  "data" TEXT NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'SUGGESTED',
+  "reviewedById" TEXT,
+  "reviewedAt" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "AiSuggestion_schoolId_tool_status_idx" ON "AiSuggestion"("schoolId", "tool", "status");
+
+CREATE INDEX "AiSuggestion_questionId_idx" ON "AiSuggestion"("questionId");
+
+CREATE TABLE "AiRequestLog" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "tool" TEXT NOT NULL,
+  "provider" TEXT NOT NULL,
+  "model" TEXT NOT NULL,
+  "ok" INTEGER NOT NULL,
+  "items" INTEGER NOT NULL DEFAULT 0,
+  "ms" INTEGER NOT NULL DEFAULT 0,
+  "error" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "AiRequestLog_schoolId_createdAt_idx" ON "AiRequestLog"("schoolId", "createdAt");
+
+CREATE TABLE "MapPlan" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "subject" TEXT NOT NULL,
+  "term" TEXT NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'DRAFT',
+  "items" TEXT NOT NULL,
+  "note" TEXT,
+  "dueAt" TEXT,
+  "assignmentIds" TEXT,
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL,
+  "sentAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "MapPlan_classId_subject_term_idx" ON "MapPlan"("classId", "subject", "term");
+
+CREATE INDEX "MapPlan_studentId_idx" ON "MapPlan"("studentId");
+
+CREATE TABLE "StudentAlert" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT,
+  "studentId" TEXT NOT NULL,
+  "kind" TEXT NOT NULL,
+  "key" TEXT NOT NULL,
+  "detail" TEXT NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'OPEN',
+  "action" TEXT,
+  "handledById" TEXT,
+  "handledAt" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "StudentAlert_studentId_key_key" UNIQUE ("studentId", "key")
+);
+
+CREATE INDEX "StudentAlert_schoolId_status_idx" ON "StudentAlert"("schoolId", "status");
+
+CREATE INDEX "StudentAlert_classId_status_idx" ON "StudentAlert"("classId", "status");
+
+CREATE TABLE "WordEntry" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "word" TEXT NOT NULL,
+  "phonetic" TEXT,
+  "audioUrl" TEXT,
+  "meanings" TEXT NOT NULL,
+  "source" TEXT NOT NULL DEFAULT 'API',
+  "isVocab" INTEGER NOT NULL DEFAULT 0,
+  "updatedById" TEXT,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "WordEntry_schoolId_word_key" UNIQUE ("schoolId", "word")
+);
+
+CREATE TABLE "StudentWord" (
+  "studentId" TEXT NOT NULL,
+  "word" TEXT NOT NULL,
+  "lookups" INTEGER NOT NULL DEFAULT 1,
+  "firstAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "lastAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "quizRight" INTEGER NOT NULL DEFAULT 0,
+  "quizWrong" INTEGER NOT NULL DEFAULT 0,
+  "lastQuizAt" TEXT,
+  PRIMARY KEY ("studentId", "word")
+);
+
+CREATE INDEX "StudentWord_studentId_lastAt_idx" ON "StudentWord"("studentId", "lastAt");
+
+CREATE TABLE "WorkComment" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "assignmentId" TEXT,
+  "authorId" TEXT NOT NULL,
+  "body" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "WorkComment_studentId_createdAt_idx" ON "WorkComment"("studentId", "createdAt");
+
+CREATE INDEX "WorkComment_assignmentId_idx" ON "WorkComment"("assignmentId");
+
+CREATE TABLE "QuestionFlag" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "questionId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "reason" TEXT NOT NULL,
+  "note" TEXT,
+  "status" TEXT NOT NULL DEFAULT 'OPEN',
+  "resolvedById" TEXT,
+  "resolvedAt" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "QuestionFlag_questionId_studentId_key" UNIQUE ("questionId", "studentId")
+);
+
+CREATE INDEX "QuestionFlag_schoolId_status_idx" ON "QuestionFlag"("schoolId", "status");
+
+CREATE TABLE "WeeklyGoal" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "scope" TEXT NOT NULL,
+  "ownerId" TEXT NOT NULL,
+  "weekStart" TEXT NOT NULL,
+  "kind" TEXT NOT NULL,
+  "target" INTEGER NOT NULL,
+  "title" TEXT,
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "WeeklyGoal_scope_ownerId_weekStart_key" UNIQUE ("scope", "ownerId", "weekStart")
+);
+
+CREATE TABLE "ExitTicket" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT NOT NULL,
+  "createdById" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "questionIds" TEXT NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'OPEN',
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "closedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "ExitTicket_classId_status_idx" ON "ExitTicket"("classId", "status");
+
+CREATE TABLE "ExitTicketAnswer" (
+  "ticketId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "questionId" TEXT NOT NULL,
+  "isCorrect" INTEGER NOT NULL,
+  "response" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("ticketId", "studentId", "questionId")
+);
+
+CREATE INDEX "ExitTicketAnswer_ticketId_idx" ON "ExitTicketAnswer"("ticketId");
+
+CREATE TABLE "Worksheet" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "createdById" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "grade" INTEGER,
+  "questionIds" TEXT NOT NULL,
+  "shared" INTEGER NOT NULL DEFAULT 0,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "Worksheet_schoolId_shared_idx" ON "Worksheet"("schoolId", "shared");
+
+CREATE INDEX "Worksheet_createdById_idx" ON "Worksheet"("createdById");
+
+CREATE TABLE "MapSimWindow" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "grade" INTEGER,
+  "season" TEXT NOT NULL,
+  "subjects" TEXT NOT NULL,
+  "items" INTEGER NOT NULL DEFAULT 50,
+  "opensAt" TEXT NOT NULL,
+  "closesAt" TEXT NOT NULL,
+  "createdById" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "MapSimWindow_schoolId_closesAt_idx" ON "MapSimWindow"("schoolId", "closesAt");
+
+CREATE TABLE "MapSimSession" (
+  "id" TEXT NOT NULL,
+  "windowId" TEXT,
+  "schoolId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "subject" TEXT NOT NULL,
+  "kind" TEXT NOT NULL DEFAULT 'SIM',
+  "status" TEXT NOT NULL DEFAULT 'IN_PROGRESS',
+  "total" INTEGER NOT NULL,
+  "startRit" REAL NOT NULL,
+  "rit" REAL NOT NULL,
+  "se" REAL NOT NULL DEFAULT 15,
+  "answered" INTEGER NOT NULL DEFAULT 0,
+  "correct" INTEGER NOT NULL DEFAULT 0,
+  "rapid" INTEGER NOT NULL DEFAULT 0,
+  "servedQuestionId" TEXT,
+  "servedAt" TEXT,
+  "resultRit" INTEGER,
+  "resultLow" INTEGER,
+  "resultHigh" INTEGER,
+  "areas" TEXT,
+  "startedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "finishedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "MapSimSession_windowId_studentId_idx" ON "MapSimSession"("windowId", "studentId");
+
+CREATE INDEX "MapSimSession_studentId_status_idx" ON "MapSimSession"("studentId", "status");
+
+CREATE TABLE "MapSimAnswer" (
+  "sessionId" TEXT NOT NULL,
+  "n" INTEGER NOT NULL,
+  "questionId" TEXT NOT NULL,
+  "area" TEXT NOT NULL,
+  "itemRit" REAL NOT NULL,
+  "isCorrect" INTEGER NOT NULL,
+  "responseMs" INTEGER NOT NULL,
+  "rapid" INTEGER NOT NULL DEFAULT 0,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("sessionId", "n")
+);
+
+CREATE INDEX "MapSimAnswer_questionId_idx" ON "MapSimAnswer"("questionId");
+
+CREATE TABLE "TeacherNote" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "authorId" TEXT NOT NULL,
+  "body" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "TeacherNote_studentId_createdAt_idx" ON "TeacherNote"("studentId", "createdAt");
+
+CREATE TABLE "WritingTask" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT NOT NULL,
+  "createdById" TEXT NOT NULL,
+  "kind" TEXT NOT NULL DEFAULT 'WRITE',
+  "title" TEXT NOT NULL,
+  "prompt" TEXT NOT NULL,
+  "passage" TEXT,
+  "minWords" INTEGER,
+  "dueAt" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "deletedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "WritingTask_classId_createdAt_idx" ON "WritingTask"("classId", "createdAt");
+
+CREATE TABLE "WritingSubmission" (
+  "taskId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "text" TEXT,
+  "audio" BLOB,
+  "audioType" TEXT,
+  "status" TEXT NOT NULL DEFAULT 'DRAFT',
+  "scores" TEXT,
+  "comment" TEXT,
+  "scoredById" TEXT,
+  "submittedAt" TEXT,
+  "scoredAt" TEXT,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("taskId", "studentId")
+);
+
+CREATE INDEX "WritingSubmission_studentId_status_idx" ON "WritingSubmission"("studentId", "status");
+
+CREATE TABLE "ErrorLog" (
+  "id" TEXT NOT NULL,
+  "source" TEXT NOT NULL,
+  "message" TEXT NOT NULL,
+  "path" TEXT,
+  "digest" TEXT,
+  "userId" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "ErrorLog_createdAt_idx" ON "ErrorLog"("createdAt");

@@ -56,3 +56,14 @@ body {
 @utility reading { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; font-size: 1.2rem; line-height: 1.85; letter-spacing: .005em; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 @keyframes loadbar { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
+
+/* a button whose form is being sent (SubmitFeedback) */
+.is-busy { position: relative; cursor: progress; opacity: .75; }
+.is-busy::after { content: ""; display: inline-block; width: .9em; height: .9em; margin-inline-start: .5em; vertical-align: -0.1em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 9999px; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+/* buttons and links feel pressed */
+button:not(:disabled):active, a.lift:active { transform: scale(.98); }
+/* comfortable reading mode (students can switch it on) */
+html[data-comfort="1"] main { font-size: 1.12rem; line-height: 1.8; }
+html[data-comfort="1"] main p, html[data-comfort="1"] main li { letter-spacing: .01em; }
+html[data-comfort="1"] body { background: #fbf7ee; }

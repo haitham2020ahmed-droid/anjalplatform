@@ -32,7 +32,6 @@ export function ReportDownloads({ title, report, formats = ["pdf", "xlsx", "csv"
       <h2 className="text-lg font-bold text-brand-navy">{title}</h2>
       <div className="mt-3 grid gap-2">
         {row("en", "English")}
-        {row("ar", "العربية")}
       </div>
     </section>
   );

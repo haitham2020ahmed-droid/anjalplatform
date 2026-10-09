@@ -3,7 +3,11 @@ import { useEffect } from "react";
 
 /** A friendly page when something fails (instead of a technical error). */
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
-  useEffect(() => { console.error(error); }, [error]);
+  useEffect(() => {
+    console.error(error);
+    // tell the school's error log (message and page only)
+    try { void fetch("/api/client-error", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: error.message, digest: error.digest, path: window.location.pathname }) }); } catch { /* offline */ }
+  }, [error]);
   const stale = /Failed to find Server Action|older or newer deployment/i.test(error.message);
   return (
     <main className="flex min-h-[70vh] items-center justify-center p-6">

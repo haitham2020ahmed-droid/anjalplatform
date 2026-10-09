@@ -37,7 +37,8 @@ export function bandTargets(total: number): Record<Band, number> {
   return { easy, medium: total - easy - hard, hard };
 }
 const BAND_LEVELS: Record<Band, number[]> = { easy: [2, 1], medium: [4, 3, 5], hard: [6, 7] };
-export const MAX_PER_REQUEST = 20;
+/** Smaller requests are far more reliable on the free tier (no cut-off replies). */
+export const MAX_PER_REQUEST = 10;
 
 /** Difficulty plan: how many of each band, spread over the band's levels. */
 export function planSlots(counts: Record<Band, number>): { slot: number; level: number }[] {
@@ -277,12 +278,20 @@ export async function generateQuestions(repo: Repo, actor: Actor, provider: AiPr
     slots, avoid: existing.map((e) => e.stem), examples: await examplesFor(repo, String(c.skill.id)),
   };
   const prompt = buildPrompt(ctx);
-  let raw: unknown[];
-  try {
-    raw = parseGenerated(await provider.complete(prompt.system, prompt.user));
-  } catch (e) {
-    throw new ValidationError(`The AI reply could not be used: ${(e as Error).message}`);
+  // one retry when the reply is not usable JSON (common with long replies on the free tier); every call is logged
+  let raw: unknown[] | null = null, lastError = "";
+  for (let attempt = 0; attempt < 2 && !raw; attempt++) {
+    const started = Date.now();
+    try {
+      raw = parseGenerated(await provider.complete(prompt.system, attempt ? `${prompt.user}\n\nYour previous reply could not be read (${lastError}). Return ONLY the JSON object.` : prompt.user));
+      await logAi(repo, actor, true, Date.now() - started, null, slots.length);
+    } catch (e) {
+      lastError = (e as Error).message;
+      await logAi(repo, actor, false, Date.now() - started, lastError, slots.length);
+      if (/limit|429|not valid|not found|not set|unavailable/i.test(lastError)) break;   // retrying would not help
+    }
   }
+  if (!raw) throw new ValidationError(`The AI reply could not be used: ${lastError}`);
   const { items, checks } = validateGenerated(raw, { skillCode: ctx.skill.code, standardCodes: c.standardCodes, requestedStandard: ctx.standard.code, slots }, existing);
   const batch = `ai-${now.toISOString().slice(0, 10)}-${randomBytes(3).toString("hex")}`;
   const saved: GenerateResult["saved"] = [];
@@ -294,8 +303,9 @@ export async function generateQuestions(repo: Repo, actor: Actor, provider: AiPr
       continue;
     }
     try {
-      // correct option first; the bank validator then checks the full item before it is saved
-      const options = [...g.options].sort((a, b) => Number(b.correct) - Number(a.correct)).map((o, k) => ({ label: "ABCD"[k], text: o.text.trim(), correct: o.correct, rationale: o.correct ? null : String(o.rationale).trim() }));
+      // the bank validator checks the full item before it is saved
+      // shuffled positions: the correct answer is not always A
+      const options = [...g.options].map((o) => ({ o, r: randomBytes(2).readUInt16BE(0) })).sort((a, b) => a.r - b.r).map((x) => x.o).map((o, k) => ({ label: "ABCD"[k], text: o.text.trim(), correct: o.correct, rationale: o.correct ? null : String(o.rationale).trim() }));
       const id = await createDraft(repo, actor, {
         skillId: String(c.skill.id), type: "MULTIPLE_CHOICE", stem: g.stem.trim(), level: slots[i].level, standardCode: String(c.standard.code),
         lessonId: c.lesson ? String(c.lesson.id) : null, whyCorrect: g.explanation.trim(), tip: g.tip ? String(g.tip).trim() : null,
@@ -335,4 +345,9 @@ export async function generateMissing(repo: Repo, actor: Actor, provider: AiProv
   if (!primary) throw new ValidationError("This skill has no linked standard yet.");
   const lesson = (await repo.findMany("LessonSkill", { skillId }))[0];
   return generateQuestions(repo, actor, provider, { skillId, standardId: String(primary.standardId), lessonId: lesson ? String(lesson.lessonId) : null, byBand }, now);
+}
+
+async function logAi(repo: Repo, actor: Actor, ok: boolean, ms: number, error: string | null, items: number): Promise<void> {
+  if (!actor.schoolId) return;
+  await repo.create("AiRequestLog", { schoolId: actor.schoolId, tool: "GENERATE", provider: "configured", model: "-", ok, items, ms, error: error ? error.slice(0, 500) : null, createdAt: new Date() });
 }

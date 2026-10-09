@@ -85,8 +85,8 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
               <fieldset className="mt-3">
                 <legend className="font-semibold text-slate-700">How</legend>
                 <div className="mt-1 flex flex-wrap gap-2">
-                  <button type="button" onClick={() => setMode("ADAPTIVE")} aria-pressed={mode === "ADAPTIVE"} className={`rounded-full px-3 py-1.5 font-semibold ${mode === "ADAPTIVE" ? "bg-emerald-600 text-white" : "ring-1 ring-slate-300"}`}>🔁 Adaptive (🛟 → Below → On → Above → 🚀)</button>
-                  <button type="button" onClick={() => setMode("BY_LEVEL")} aria-pressed={mode === "BY_LEVEL"} className={`rounded-full px-3 py-1.5 font-semibold ${mode === "BY_LEVEL" ? "bg-sky-600 text-white" : "ring-1 ring-slate-300"}`}>Each at their level</button>
+                  <button type="button" onClick={() => setMode("ADAPTIVE")} aria-pressed={mode === "ADAPTIVE"} className={`rounded-full px-3 py-1.5 font-semibold ${mode === "ADAPTIVE" ? "bg-emerald-600 text-white" : "ring-1 ring-slate-300"}`}>🤖 Automatic (each student moves to their level)</button>
+                  <button type="button" onClick={() => setMode("BY_LEVEL")} aria-pressed={mode === "BY_LEVEL"} className={`rounded-full px-3 py-1.5 font-semibold ${mode === "BY_LEVEL" ? "bg-sky-600 text-white" : "ring-1 ring-slate-300"}`}>✋ Manual (the levels I set on the Levels board)</button>
                 </div>
               </fieldset>
             )}

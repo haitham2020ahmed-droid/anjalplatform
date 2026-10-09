@@ -220,10 +220,12 @@ export async function grammarView(repo: Repo, actor: Actor, opts: { grade?: numb
   let klass: { id: string; name: string; grade: number } | undefined;
   if (isTeacher) {
     classes = (await accessibleClasses(repo, actor)).map((c) => ({ id: s(c.id), name: s(c.name), grade: levelOf.get(s(c.gradeId)) ?? 0 })).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name));
-    klass = opts.classId ? classes.find((c) => c.id === opts.classId) : classes.find((c) => !opts.grade || c.grade === opts.grade) ?? classes[0];
+    // a chosen grade shows its class (if the teacher has one there); otherwise the chosen / first class
+    klass = opts.classId ? classes.find((c) => c.id === opts.classId) : opts.grade ? classes.find((c) => c.grade === opts.grade) : classes[0];
     if (opts.classId && !klass) throw new ForbiddenError("You do not teach this class.");
   }
-  const grades = [...new Set((isTeacher ? classes.map((c) => c.grade) : allGrades.map((g) => Number(g.level))))].filter((g) => g >= 4 && g <= 6).sort();
+  // every teacher can browse the Grammar of every grade (4–6); assigning needs one of their classes of that grade
+  const grades = [...new Set(allGrades.map((g) => Number(g.level)))].filter((g) => g >= 4 && g <= 6).sort();
   const grade = klass?.grade ?? (opts.grade && grades.includes(opts.grade) ? opts.grade : grades[0] ?? 4);
   const empty: GrammarView = { grade, grades, classes, classId: klass?.id ?? null, students: [], units: [], totals: { skills: 0, questions: 0, below: 0, on: 0, above: 0 }, loaded: false };
   const g = allGrades.find((x) => Number(x.level) === grade);

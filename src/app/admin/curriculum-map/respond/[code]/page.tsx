@@ -6,6 +6,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { RESPOND_LEVEL_NAME, RESPOND_LEVELS, respondPage, type RespondLevel } from "@/server/curriculum-map/respond";
 import { saveActivityAction } from "../actions";
+import { PrintButton } from "@/components/plans/print-button";
 
 export const metadata = { title: "Respond to Reading" };
 
@@ -29,7 +30,11 @@ export default async function RespondLevelPage({ params, searchParams }: { param
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: `/admin/curriculum-map?grade=${p.grade}&unit=${Number(p.setCode.match(/\.U(\d+)\./)?.[1] ?? 1)}`, label: "Curriculum Map" }} icon="✍️" title="Respond to Reading"
-        subtitle={<>Grade {p.grade} · {p.unit} · <b>{p.heading}</b>{p.sharedRead ? <> · 📖 {p.sharedRead}</> : null}{p.genre ? ` · ${p.genre}` : ""}</>} />
+        subtitle={<>Grade {p.grade} · {p.unit} · <b>{p.heading}</b>{p.sharedRead ? <> · 📖 {p.sharedRead}</> : null}{p.genre ? ` · ${p.genre}` : ""}</>}>
+        <PrintButton />
+        {canEdit && <Link href={`/admin/curriculum-map/respond/${p.setCode}/all`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal print:hidden">📝 Edit all 3 levels</Link>}
+        {actor.role === "TEACHER" && <Link href="/teacher/respond" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple print:hidden">⭐ Assign</Link>}
+      </PageHeader>
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
 
       <nav aria-label="Level" className="mb-5 flex flex-wrap items-center gap-3 print:hidden">
@@ -57,6 +62,7 @@ export default async function RespondLevelPage({ params, searchParams }: { param
               <label className={label}>Checklist <span className="font-normal text-slate-400">(one per line)</span><textarea name="checklist" rows={5} defaultValue={a?.checklist.join("\n") ?? ""} className={field} /></label>
             </div>
             <label className={label}>Hint <span className="font-normal text-slate-400">(optional, hidden until the student opens it)</span><textarea name="hint" rows={2} maxLength={2000} defaultValue={a?.hint ?? ""} className={field} /></label>
+            <label className={label}>Model answer <span className="font-normal text-slate-400">(teachers only — students never see it)</span><textarea name="modelAnswer" rows={4} maxLength={5000} defaultValue={a?.modelAnswer ?? ""} className={field} /></label>
             <div className="flex justify-end"><button className="rounded-xl bg-brand-navy px-6 py-2.5 font-bold text-white hover:bg-brand-purple">Save</button></div>
           </form>
         </details>

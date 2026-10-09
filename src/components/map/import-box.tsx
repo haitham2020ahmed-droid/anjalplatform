@@ -25,7 +25,7 @@ export function MapImportBox({ classId, className, run }: { classId: string | nu
       <div className="mt-3 flex flex-wrap items-end gap-3 text-sm">
         <a href={`/api/map-scores-template${classId ? `?classId=${classId}` : ""}`} className="rounded-xl bg-white px-3 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇ Template</a>
         <label className="flex flex-col">Fall of year<input type="number" name="year" min={2000} max={2100} defaultValue={new Date().getFullYear()} className="w-28 rounded-xl border border-slate-300 px-3 py-2" /></label>
-        <label className="flex flex-col">File (CSV or Excel)<input type="file" name="file" accept=".csv,.xlsx" required className="text-sm" /></label>
+        <label className="flex flex-col">File (template, NWEA CSV export, or ASG report PDF)<input type="file" name="file" accept=".csv,.xlsx,.pdf" required className="text-sm" /></label>
         <button disabled={busy} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple disabled:opacity-60">{busy ? "Importing…" : "Import"}</button>
       </div>
       {res && <p role="status" className={`animate-pop mt-3 rounded-xl px-3 py-2 text-sm ${res.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{res.message}</p>}

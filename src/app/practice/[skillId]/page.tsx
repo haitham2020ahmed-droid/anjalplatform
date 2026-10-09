@@ -8,6 +8,7 @@ import { startPractice } from "@/server/practice/session";
 import { isAssignedSkill } from "@/server/student/assigned";
 import { isMapPracticeSkill, seedAbilityFromRit } from "@/server/map/student-map";
 import { submitAnswerAction } from "./actions";
+import { canPlaySkill } from "@/server/game/skill-games";
 
 /** Starts (or resumes) adaptive practice for a skill. */
 export default async function PracticePage({ params, searchParams }: { params: Promise<{ skillId: string }>; searchParams: Promise<{ from?: string }> }) {
@@ -16,10 +17,11 @@ export default async function PracticePage({ params, searchParams }: { params: P
   const me = (await getActor())!.user;
   // MAP practice: a skill of the student's own grade linked to a MAP goal area (adaptive, starts at their RIT level)
   const fromMap = (await searchParams).from === "map" && (await isMapPracticeSkill(repo, actor, skillId));
-  const unitHref = fromMap ? "/student/map" : "/student";
+  const unitHref = fromMap ? "/student/map" : (await searchParams).from === "free" ? "/student/skills" : "/student";
   if (fromMap) await seedAbilityFromRit(repo, actor, skillId);
-  // otherwise students practise assigned work only (checked on the server)
-  if (!fromMap && !(await isAssignedSkill(repo, actor, skillId))) {
+  // otherwise: assigned work, or free practice of any skill of their own grade (“My skills”), checked on the server
+  const free = (await searchParams).from === "free" && (await canPlaySkill(repo, actor, skillId));
+  if (!fromMap && !free && !(await isAssignedSkill(repo, actor, skillId))) {
     return (
       <AppShell name={String(me.displayName)}>
         <p className="text-lg text-slate-700">This skill has not been assigned to you. Your teacher will assign the skills to practise.</p>

@@ -153,7 +153,7 @@ describe("AI-assisted question bank", () => {
     const links = await repo.findMany("LessonSkill", { skillId });
     const bad = lessons.find((l) => !links.some((k) => k.lessonId === l.id))!;
     await assert.rejects(generateQuestions(repo, admin, fakeAi(skillCode, stdCode), { skillId, standardId, lessonId: String(bad.id), count: 2 }), /does not teach/);
-    await assert.rejects(generateQuestions(repo, admin, fakeAi(skillCode, stdCode), { skillId, standardId, count: 21 }), /between 1 and 20/);
+    await assert.rejects(generateQuestions(repo, admin, fakeAi(skillCode, stdCode), { skillId, standardId, count: 11 }), /between 1 and 10/);
   });
 
   test("teachers review, edit, approve and reject; only approved questions reach the adaptive engine", async () => {
@@ -188,7 +188,9 @@ describe("AI-assisted question bank", () => {
     const stdC = (await repo.findMany("Standard", { id: (await repo.findMany("SkillStandard", { skillId: row.skillId }))[0].standardId }))[0];
     const res = await generateMissing(repo, admin, fakeAi(row.code, String(stdC.code).replace(/^CCSS\.ELA-LITERACY\./, "")), row.skillId, 12, now);
     assert.ok(!("nothingNeeded" in res));
-    if (!("nothingNeeded" in res)) assert.equal(res.requested, Math.min(20, row.needed));
+    if (!("nothingNeeded" in res)) assert.equal(res.requested, Math.min(10, row.needed));
+    // at most 10 per request (reliable on the free tier): the next “Generate Missing” continues
+    if (row.needed > 10) await generateMissing(repo, admin, fakeAi(row.code, String(stdC.code).replace(/^CCSS\.ELA-LITERACY\./, "")), row.skillId, 12, now);
     const after = (await skillCoverage(repo, admin, 4)).find((x) => x.skillId === row.skillId)!;
     assert.equal(after.needed, 0, "pending drafts count toward the target, so nothing more is generated");
     assert.deepEqual(await generateMissing(repo, admin, fakeAi(row.code, "x"), row.skillId, 12, now), { nothingNeeded: true });

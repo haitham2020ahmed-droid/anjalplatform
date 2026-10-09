@@ -1681,9 +1681,450 @@ model RespondActivity {
   sentenceStarters Json
   checklist        Json
   hint             String?  @db.Text
+  /// the teacher's model answer (never shown to students)
+  modelAnswer      String?  @db.Text
   updatedById      String?
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
   @@unique([schoolId, code])
+}
+
+/// ✍️ Respond to Reading given to a class: each student gets ONE level's activity of the Text Set (set by the
+/// teacher, automatically from the student's data or by hand). Students write the answer in their book and tap
+/// “I finished my answer in my book”; the teacher tracks it and may give a score (0–4) and a short comment.
+model RespondAssignment {
+  id          String    @id @default(cuid())
+  schoolId    String
+  classId     String
+  /// the Text Set's Respond to Reading code, e.g. G4.U1.TS1.RTR
+  setCode     String    @db.VarChar(120)
+  title       String    @db.VarChar(255)
+  dueAt       DateTime?
+  note        String?   @db.VarChar(1000)
+  createdById String
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
+
+  @@index([classId, createdAt])
+  @@index([schoolId, setCode])
+}
+
+model RespondAssignmentStudent {
+  assignmentId String
+  studentId    String
+  level        MapLevel
+  finishedAt   DateTime?
+  /// teacher's score 0–4 (optional)
+  score        Int?
+  feedback     String?   @db.VarChar(1000)
+  updatedAt    DateTime  @updatedAt
+
+  @@id([assignmentId, studentId])
+  @@index([studentId])
+}
+
+// ------------------------------------------------------------------ 🤖 AI tools (admin)
+
+/// One run of an AI tool (Quality Check, Auto-Tag, Reading Level) over a set of questions / passages. Processed in
+/// small batches that respect the provider's rate limits; it resumes where it stopped (items keep their status).
+model AiJob {
+  id          String    @id @default(cuid())
+  schoolId    String
+  /// QUALITY | TAG | READING
+  tool        String    @db.VarChar(20)
+  /// what it covers, e.g. {"grade":4,"skillId":"…"} or {"new":true}
+  scope       Json
+  /// QUEUED | RUNNING | DONE | STOPPED
+  status      String    @default("QUEUED") @db.VarChar(12)
+  total       Int       @default(0)
+  done        Int       @default(0)
+  failed      Int       @default(0)
+  note        String?   @db.VarChar(500)
+  createdById String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  finishedAt  DateTime?
+
+  @@index([schoolId, createdAt])
+}
+
+model AiJobItem {
+  id        String   @id @default(cuid())
+  jobId     String
+  /// a question id (QUALITY, TAG) or a passage id (READING)
+  targetId  String   @db.VarChar(60)
+  /// PENDING | DONE | FAILED
+  status    String   @default("PENDING") @db.VarChar(10)
+  attempts  Int      @default(0)
+  error     String?  @db.VarChar(500)
+  updatedAt DateTime @updatedAt
+
+  @@index([jobId, status])
+}
+
+/// What an AI tool (or a code check) suggests about one question / passage. Nothing changes until an admin approves.
+model AiSuggestion {
+  id           String    @id @default(cuid())
+  schoolId     String
+  jobId        String?
+  /// QUALITY | TAG | READING | DUPLICATE
+  tool         String    @db.VarChar(20)
+  /// KEY_ERROR | MULTIPLE_CORRECT | WEAK_DISTRACTOR | SPELLING | UNCLEAR | TAG | READING_LEVEL | DUPLICATE
+  kind         String    @db.VarChar(20)
+  questionId   String?   @db.VarChar(60)
+  passageId    String?   @db.VarChar(60)
+  /// 1 = most serious (wrong key, several correct answers) … 5 = minor
+  severity     Int       @default(3)
+  detail       String    @db.Text
+  data         Json
+  /// SUGGESTED | APPROVED | REJECTED
+  status       String    @default("SUGGESTED") @db.VarChar(12)
+  reviewedById String?
+  reviewedAt   DateTime?
+  createdAt    DateTime  @default(now())
+
+  @@index([schoolId, tool, status])
+  @@index([questionId])
+}
+
+/// Every call to the AI provider (success or failure), for the admin's log and the rate limits.
+model AiRequestLog {
+  id        String   @id @default(cuid())
+  schoolId  String
+  tool      String   @db.VarChar(20)
+  provider  String   @db.VarChar(20)
+  model     String   @db.VarChar(80)
+  ok        Boolean
+  items     Int      @default(0)
+  ms        Int      @default(0)
+  error     String?  @db.VarChar(500)
+  createdAt DateTime @default(now())
+
+  @@index([schoolId, createdAt])
+}
+
+// ------------------------------------------------------------------ 🗺️ MAP plans (one per student, subject and term)
+
+/// A student's MAP plan, built from their MAP goal areas (RIT band per area). DRAFT until the teacher reviews and
+/// sends it; then each area becomes an adaptive question set of the student's band. Rebuilt after new MAP scores.
+model MapPlan {
+  id            String    @id @default(cuid())
+  schoolId      String
+  classId       String
+  studentId     String
+  /// READING | LANGUAGE
+  subject       String    @db.VarChar(10)
+  /// the MAP term the plan comes from, e.g. "Fall 2026"
+  term          String    @db.VarChar(40)
+  /// DRAFT | SENT
+  status        String    @default("DRAFT") @db.VarChar(10)
+  /// the areas: [{group, rit, low, high, status, skillIds, count}]
+  items         Json
+  note          String?   @db.VarChar(1000)
+  dueAt         DateTime?
+  assignmentIds Json?
+  createdById   String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  sentAt        DateTime?
+
+  @@index([classId, subject, term])
+  @@index([studentId])
+}
+
+// ------------------------------------------------------------------ Update 19: follow-up, words, worksheets, goals
+
+/// 🚨 A student who needs attention (no practice, persistent weakness, level drops, late work, MAP risk, rapid
+/// guessing). Teachers of the class and the head of department see it; the teacher records what was done.
+model StudentAlert {
+  id          String    @id @default(cuid())
+  schoolId    String
+  classId     String?
+  studentId   String
+  /// NO_PRACTICE | WEAK_SKILL | DROPPED | LATE_WORK | MAP_RISK | RAPID_GUESS
+  kind        String    @db.VarChar(20)
+  /// one alert per student and key (e.g. NO_PRACTICE|2026-W41): it is not raised again the same week
+  key         String    @db.VarChar(120)
+  detail      String    @db.VarChar(500)
+  /// OPEN | HANDLED
+  status      String    @default("OPEN") @db.VarChar(10)
+  action      String?   @db.VarChar(1000)
+  handledById String?
+  handledAt   DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@unique([studentId, key])
+  @@index([schoolId, status])
+  @@index([classId, status])
+}
+
+/// 📖 Dictionary cache: the English meaning of a word (free dictionary API), editable by the school.
+model WordEntry {
+  id          String   @id @default(cuid())
+  schoolId    String
+  word        String   @db.VarChar(64)
+  phonetic    String?  @db.VarChar(120)
+  audioUrl    String?  @db.VarChar(500)
+  /// [{partOfSpeech, definition, example, synonyms[], antonyms[]}]
+  meanings    Json
+  /// API | SCHOOL (a teacher or admin wrote or edited it) | NONE (not found)
+  source      String   @default("API") @db.VarChar(10)
+  /// a curriculum vocabulary word: the school's own definition is shown first
+  isVocab     Boolean  @default(false)
+  updatedById String?
+  updatedAt   DateTime @updatedAt
+
+  @@unique([schoolId, word])
+}
+
+/// 📒 The student's word notebook: every word looked up, with a weekly quiz.
+model StudentWord {
+  studentId   String
+  word        String    @db.VarChar(64)
+  lookups     Int       @default(1)
+  firstAt     DateTime  @default(now())
+  lastAt      DateTime  @default(now())
+  quizRight   Int       @default(0)
+  quizWrong   Int       @default(0)
+  lastQuizAt  DateTime?
+
+  @@id([studentId, word])
+  @@index([studentId, lastAt])
+}
+
+/// 💬 A teacher's comment on a student's work (seen by the student and the parent).
+model WorkComment {
+  id           String   @id @default(cuid())
+  schoolId     String
+  studentId    String
+  assignmentId String?
+  authorId     String
+  body         String   @db.VarChar(2000)
+  createdAt    DateTime @default(now())
+
+  @@index([studentId, createdAt])
+  @@index([assignmentId])
+}
+
+/// 🚩 A student marks a question as unclear; the admin checks it.
+model QuestionFlag {
+  id           String    @id @default(cuid())
+  schoolId     String
+  questionId   String
+  studentId    String
+  reason       String    @db.VarChar(40)
+  note         String?   @db.VarChar(500)
+  /// OPEN | FIXED | DISMISSED
+  status       String    @default("OPEN") @db.VarChar(10)
+  resolvedById String?
+  resolvedAt   DateTime?
+  createdAt    DateTime  @default(now())
+
+  @@unique([questionId, studentId])
+  @@index([schoolId, status])
+}
+
+/// 🎯 Weekly goals: a student's own goal (studentId) or a class goal set by the teacher (classId).
+model WeeklyGoal {
+  id          String   @id @default(cuid())
+  schoolId    String
+  /// STUDENT | CLASS
+  scope       String   @db.VarChar(10)
+  ownerId     String
+  /// Monday of the week (UTC date)
+  weekStart   DateTime
+  /// ANSWERS | MINUTES | TASKS
+  kind        String   @db.VarChar(10)
+  target      Int
+  title       String?  @db.VarChar(160)
+  createdById String?
+  createdAt   DateTime @default(now())
+
+  @@unique([scope, ownerId, weekStart])
+}
+
+/// 🎫 Exit ticket: 3 quick questions at the end of a lesson, results live for the teacher.
+model ExitTicket {
+  id          String    @id @default(cuid())
+  schoolId    String
+  classId     String
+  createdById String
+  title       String    @db.VarChar(191)
+  questionIds Json
+  /// OPEN | CLOSED
+  status      String    @default("OPEN") @db.VarChar(10)
+  createdAt   DateTime  @default(now())
+  closedAt    DateTime?
+
+  @@index([classId, status])
+}
+
+model ExitTicketAnswer {
+  ticketId   String
+  studentId  String
+  questionId String
+  isCorrect  Boolean
+  response   Json
+  createdAt  DateTime @default(now())
+
+  @@id([ticketId, studentId, questionId])
+  @@index([ticketId])
+}
+
+/// 🖨 A worksheet a teacher built from chosen questions (kept to print again or share with colleagues).
+model Worksheet {
+  id          String   @id @default(cuid())
+  schoolId    String
+  createdById String
+  title       String   @db.VarChar(191)
+  grade       Int?
+  questionIds Json
+  /// shared with the other English teachers of the school
+  shared      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([schoolId, shared])
+  @@index([createdById])
+}
+
+// ------------------------------------------------------------------ Update 20: MAP practice test (simulation)
+
+/// 🗺️ A window when students take the MAP practice test (e.g. two weeks before Winter), for one grade or all.
+model MapSimWindow {
+  id          String    @id @default(cuid())
+  schoolId    String
+  title       String    @db.VarChar(160)
+  /// null = every grade
+  grade       Int?
+  /// the real MAP season it prepares for: WINTER | SPRING | FALL
+  season      String    @db.VarChar(10)
+  /// ["READING","LANGUAGE"]
+  subjects    Json
+  /// questions per subject (MAP-like: 50)
+  items       Int       @default(50)
+  opensAt     DateTime
+  closesAt    DateTime
+  createdById String
+  createdAt   DateTime  @default(now())
+
+  @@index([schoolId, closesAt])
+}
+
+/// One student's adaptive test in one subject (or a 5-question warm-up when kind = WARMUP).
+model MapSimSession {
+  id           String    @id @default(cuid())
+  windowId     String?
+  schoolId     String
+  studentId    String
+  subject      String    @db.VarChar(10)
+  /// SIM | WARMUP
+  kind         String    @default("SIM") @db.VarChar(10)
+  /// IN_PROGRESS | DONE
+  status       String    @default("IN_PROGRESS") @db.VarChar(12)
+  total        Int
+  startRit     Float
+  rit          Float
+  se           Float     @default(15)
+  answered     Int       @default(0)
+  correct      Int       @default(0)
+  rapid        Int       @default(0)
+  servedQuestionId String?
+  servedAt     DateTime?
+  /// the result (DONE): RIT range and each goal-area group
+  resultRit    Int?
+  resultLow    Int?
+  resultHigh   Int?
+  areas        Json?
+  startedAt    DateTime  @default(now())
+  finishedAt   DateTime?
+
+  @@index([windowId, studentId])
+  @@index([studentId, status])
+}
+
+model MapSimAnswer {
+  sessionId  String
+  n          Int
+  questionId String
+  /// LIT | INFO | VOCAB | GRAMMAR | MECH | WRITING
+  area       String   @db.VarChar(10)
+  itemRit    Float
+  isCorrect  Boolean
+  responseMs Int
+  rapid      Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  @@id([sessionId, n])
+  @@index([questionId])
+}
+
+// ------------------------------------------------------------------ Update 20: notes, writing & reading aloud, errors
+
+/// 🔒 A private note about a student (staff only: never shown to the student or the parent).
+model TeacherNote {
+  id        String   @id @default(cuid())
+  schoolId  String
+  studentId String
+  authorId  String
+  body      String   @db.VarChar(1000)
+  createdAt DateTime @default(now())
+
+  @@index([studentId, createdAt])
+}
+
+/// ✍️ A writing task (scored with a 4-point rubric) or a 🎙 reading-aloud task (recorded, fluency 1–4).
+model WritingTask {
+  id          String    @id @default(cuid())
+  schoolId    String
+  classId     String
+  createdById String
+  /// WRITE | READ_ALOUD
+  kind        String    @default("WRITE") @db.VarChar(12)
+  title       String    @db.VarChar(191)
+  prompt      String    @db.Text
+  /// the text to read (READ_ALOUD) or a passage to write about
+  passage     String?   @db.Text
+  minWords    Int?
+  dueAt       DateTime?
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
+
+  @@index([classId, createdAt])
+}
+
+model WritingSubmission {
+  taskId      String
+  studentId   String
+  text        String?   @db.Text
+  /// the recording (READ_ALOUD), webm/ogg/mp4 audio, at most 2 MB
+  audio       Bytes?    @db.MediumBlob
+  audioType   String?   @db.VarChar(60)
+  /// DRAFT | SUBMITTED | SCORED
+  status      String    @default("DRAFT") @db.VarChar(10)
+  /// rubric 0–4 each: {ideas, organization, language, conventions} or {fluency, accuracy, expression}
+  scores      Json?
+  comment     String?   @db.VarChar(2000)
+  scoredById  String?
+  submittedAt DateTime?
+  scoredAt    DateTime?
+  updatedAt   DateTime  @updatedAt
+
+  @@id([taskId, studentId])
+  @@index([studentId, status])
+}
+
+/// 🩺 Errors the platform met (server and browser), for the developer. No student data, only the message.
+model ErrorLog {
+  id        String   @id @default(cuid())
+  /// SERVER | BROWSER
+  source    String   @db.VarChar(10)
+  message   String   @db.VarChar(1000)
+  path      String?  @db.VarChar(300)
+  digest    String?  @db.VarChar(100)
+  userId    String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
 }

@@ -63,6 +63,8 @@ export async function recordLevel(repo: Repo, e: LevelEvent): Promise<"CHANGED" 
         after: { level: e.level, source: e.source, outcome, category: e.category, reason: e.reason ?? null, path: e.path ?? null, answers: e.answers ?? null }, createdAt: now });
       // 🔔 a second drop in a row in the same category: tell the teacher
       const RANK: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
+      // 🚀 moving up by their own answers: 50 bonus points (and the Level Up badge)
+      if (outcome === "CHANGED" && e.source === "ADAPTIVE" && from && RANK[e.level] > RANK[from]) await repo.create("XpEvent", { studentId: e.studentId, points: 50, reason: `level.up:${e.category}`, createdAt: now });
       if (outcome === "CHANGED" && from && RANK[e.level] < RANK[from]) {
         const pb = prevChange ? String(((prevChange.before ?? {}) as Record<string, unknown>).level ?? "") : "";
         const pa = prevChange ? String(((prevChange.after ?? {}) as Record<string, unknown>).level ?? "") : "";

@@ -22,12 +22,12 @@ export const RESPOND_LEVEL_NAME: Record<RespondLevel, string> = { BELOW: "Below 
 const s = (v: unknown) => String(v ?? "").trim();
 const list = (v: unknown): string[] => (Array.isArray(v) ? v.map((x) => s(x)).filter(Boolean) : []);
 
-export interface RespondActivityView { code: string; level: RespondLevel; title: string; prompt: string; instructions: string[]; wordBank: string[]; sentenceStarters: string[]; checklist: string[]; hint: string | null; updatedAt: string | null }
+export interface RespondActivityView { code: string; level: RespondLevel; title: string; prompt: string; instructions: string[]; wordBank: string[]; sentenceStarters: string[]; checklist: string[]; hint: string | null; updatedAt: string | null; /** staff only (removed for students) */ modelAnswer?: string | null }
 export interface RespondPage {
   grade: number; setCode: string; heading: string; sharedRead: string | null; genre: string | null; unit: string;
   levels: { level: RespondLevel; code: string; activity: RespondActivityView | null }[];
 }
-export interface ActivityInput { title: string; prompt: string; instructions: string[]; wordBank: string[]; sentenceStarters: string[]; checklist: string[]; hint?: string | null }
+export interface ActivityInput { title: string; prompt: string; instructions: string[]; wordBank: string[]; sentenceStarters: string[]; checklist: string[]; hint?: string | null; modelAnswer?: string | null }
 
 /** "G4.U1.TS1.RTR" (or a level code under it) → the Text Set's RTR code. */
 export function rtrSetCode(code: string): string {
@@ -40,7 +40,7 @@ export function rtrSetCode(code: string): string {
 function view(r: Row, level: RespondLevel): RespondActivityView {
   return {
     code: s(r.code), level, title: s(r.title), prompt: s(r.prompt), instructions: list(r.instructions), wordBank: list(r.wordBank),
-    sentenceStarters: list(r.sentenceStarters), checklist: list(r.checklist), hint: s(r.hint) || null,
+    sentenceStarters: list(r.sentenceStarters), checklist: list(r.checklist), hint: s(r.hint) || null, modelAnswer: s(r.modelAnswer) || null,
     updatedAt: r.updatedAt ? new Date(s(r.updatedAt instanceof Date ? r.updatedAt.toISOString() : r.updatedAt)).toISOString() : null,
   };
 }
@@ -103,7 +103,7 @@ export async function saveActivity(repo: Repo, actor: Actor, code: string, input
   const data = {
     title, prompt, instructions: clean(input.instructions, 12, "Instructions"), wordBank: clean(input.wordBank, 30, "Word bank"),
     sentenceStarters: clean(input.sentenceStarters, 12, "Sentence starters"), checklist: clean(input.checklist, 12, "Checklist"),
-    hint: s(input.hint).slice(0, 2000) || null, updatedById: actor.userId, updatedAt: now,
+    hint: s(input.hint).slice(0, 2000) || null, ...(input.modelAnswer !== undefined ? { modelAnswer: s(input.modelAnswer).slice(0, 5000) || null } : {}), updatedById: actor.userId, updatedAt: now,
   };
   const before = (await repo.findMany("RespondActivity", { schoolId: actor.schoolId, code: c }))[0];
   await repo.upsert("RespondActivity", { schoolId: actor.schoolId, code: c }, { ...data, createdAt: now }, data);
@@ -113,7 +113,7 @@ export async function saveActivity(repo: Repo, actor: Actor, code: string, input
 /** Splits a cell into lines: new lines, or " | " between items. */
 export const cellLines = (v: string) => s(v).split(/\r?\n|\s\|\s/).map((x) => x.replace(/^\s*(?:[-•*]|\d+[.)])\s*/, "").trim()).filter(Boolean);
 
-export const RESPOND_HEADERS = ["Curriculum Map ID", "Title", "Prompt", "Instructions", "Word Bank", "Sentence Starters", "Checklist", "Hint"] as const;
+export const RESPOND_HEADERS = ["Curriculum Map ID", "Title", "Prompt", "Instructions", "Word Bank", "Sentence Starters", "Checklist", "Hint", "Model Answer"] as const;
 
 /** Admin: one activity per row (Curriculum Map ID = the level, e.g. G4.U1.TS1.RTR.BELOW). Rows with problems are reported, the rest saved. */
 export async function importActivities(repo: Repo, actor: Actor, table: string[][], now = new Date()): Promise<{ saved: number; errors: { row: number; message: string }[] }> {
@@ -128,10 +128,12 @@ export async function importActivities(repo: Repo, actor: Actor, table: string[]
   for (let i = at + 1; i < table.length; i++) {
     const r = table[i];
     if (!r.some((c) => s(c))) continue;
+    if (!get(r, "Title") && !get(r, "Prompt")) continue;   // a template row not filled in yet
     try {
       await saveActivity(repo, actor, get(r, "Curriculum Map ID"), {
         title: get(r, "Title"), prompt: get(r, "Prompt"), instructions: cellLines(get(r, "Instructions")), wordBank: cellLines(get(r, "Word Bank")),
         sentenceStarters: cellLines(get(r, "Sentence Starters")), checklist: cellLines(get(r, "Checklist")), hint: get(r, "Hint") || null,
+        ...(col("Model Answer") >= 0 ? { modelAnswer: get(r, "Model Answer") || null } : {}),
       }, now);
       out.saved++;
     } catch (e) {
@@ -200,9 +202,14 @@ export async function studentRespond(repo: Repo, actor: Actor, code: string): Pr
   const setCode = rtrSetCode(code);
   if (Number(setCode.match(/^G(\d+)\./)?.[1]) !== me.grade) throw new ForbiddenError("This activity is for another grade.");
   const { grade, parent, unit } = await setNode(repo, actor.schoolId!, setCode);
-  const level = await studentRespondLevel(repo, me.studentId);
+  const assigned = (await repo.findMany("RespondAssignmentStudent", { studentId: me.studentId }));
+  const live = assigned.length ? (await repo.findMany("RespondAssignment", { id: { in: assigned.map((a) => a.assignmentId) }, setCode })).filter((a) => !a.deletedAt) : [];
+  const task = assigned.find((a) => live.some((l) => l.id === a.assignmentId));
+  // the level the teacher sent wins; otherwise the student's own level
+  const level = task ? (String(task.level) as RespondLevel) : await studentRespondLevel(repo, me.studentId);
   const acts = await activitiesOf(repo, actor.schoolId!, setCode);
   const r = acts.get(`${setCode}.${level}`) ?? acts.get(`${setCode}.ON`);
   const page = { grade: Number(grade.level), setCode, heading: s(parent?.heading ?? parent?.title), sharedRead: parent?.sharedRead ? s(parent.sharedRead) : null, genre: parent?.genre ? s(parent.genre) : null, unit: s(unit?.title) };
-  return { page, activity: r ? view(r, (s(r.code).split(".").pop() as RespondLevel)) : null, level };
+  // the model answer is for teachers only
+  return { page, activity: r ? { ...view(r, (s(r.code).split(".").pop() as RespondLevel)), modelAnswer: null } : null, level };
 }

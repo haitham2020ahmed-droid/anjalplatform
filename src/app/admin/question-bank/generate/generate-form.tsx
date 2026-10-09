@@ -25,7 +25,7 @@ export function GenerateForm({ tree }: { tree: TreeGrade[] }) {
         <label className={label}>Lesson<select className={field} value={l} onChange={(e) => { setL(Number(e.target.value)); reset(4); }}>{unit?.lessons.map((x, i) => <option key={x.id} value={i}>{x.code} · {x.title}</option>)}</select></label>
         <label className={label}>Skill<select className={field} value={s} onChange={(e) => { setS(Number(e.target.value)); reset(5); }}>{lesson?.skills.map((x, i) => <option key={x.id} value={i}>{x.name}</option>)}</select></label>
         <label className={label}>Standard<select className={field} value={st} onChange={(e) => { setSt(Number(e.target.value)); setRes(null); }}>{skill?.standards.map((x, i) => <option key={x.id} value={i}>{x.code}</option>)}</select></label>
-        <label className={label}>Number of questions (1–20)<input type="number" min={1} max={20} value={count} onChange={(e) => setCount(Math.max(1, Math.min(20, Number(e.target.value) || 1)))} className={field} /></label>
+        <label className={label}>Number of questions (1–10)<input type="number" min={1} max={10} value={count} onChange={(e) => setCount(Math.max(1, Math.min(10, Number(e.target.value) || 1)))} className={field} /></label>
       </div>
       {standard?.description && <p className="text-sm text-slate-600"><strong>{standard.code}:</strong> {standard.description}</p>}
       {skill && skill.standards.length === 0 && <p className="text-sm text-red-700">This skill has no linked standard, so questions cannot be generated for it.</p>}

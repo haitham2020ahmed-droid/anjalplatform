@@ -2,22 +2,35 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { accessibleClasses } from "@/server/teacher/assign";
-import { classLevels, LEVEL_NAMES } from "@/server/curriculum-map/levels";
+import { classLevels } from "@/server/curriculum-map/levels";
 import { giveTestAction, saveLevelsAction, saveLexileBandsAction } from "../levels-actions";
 import { can } from "@/server/auth/rbac";
 import { LEXILE_SOURCE, lexileBands } from "@/server/curriculum-map/lexile";
 import { PageHeader } from "@/components/page-header";
+import { LevelBoard, type BoardStudent } from "@/components/teacher/level-board";
+import { EVIDENCE_NAME, suggestLevels } from "@/server/curriculum-map/auto-levels";
 
 export const metadata = { title: "Levels & tests" };
 
 /** 🎯 Student levels (Above / On / Below) + Placement test and MAP practice test for a class. */
-export default async function LevelsPage({ searchParams }: { searchParams: Promise<{ classId?: string; msg?: string }> }) {
+export default async function LevelsPage({ searchParams }: { searchParams: Promise<{ classId?: string; msg?: string; auto?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "students:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const classes = (await accessibleClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
   const classId = classes.some((c) => c.id === sp.classId) ? String(sp.classId) : classes[0] ? String(classes[0].id) : "";
   const v = classId ? await classLevels(repo, actor, classId) : null;
+  const auto = sp.auto === "1";
+  const sug = classId ? await suggestLevels(repo, actor, classId) : null;
+  const sugOf = new Map((sug?.rows ?? []).map((r) => [r.studentId, r]));
+  const noData = v ? v.students.filter((x) => !x.level && sugOf.get(x.id)?.from === "NO_DATA").length : 0;
+  const SRC: Record<string, string> = { PLACEMENT: "Placement test", TEACHER: "Set by you", MAP_RIT: "MAP", ADAPTIVE: "Their work" };
+  const board: BoardStudent[] = (v?.students ?? []).map((x) => {
+    const sg = sugOf.get(x.id);
+    const start = auto && sg ? sg.suggested : x.level ?? "ON";
+    return { id: x.id, name: x.name, start, original: x.level, tag: !x.level && sg?.from === "NO_DATA" ? "No data" : null,
+      note: auto && sg ? `${EVIDENCE_NAME[sg.from]}: ${sg.reason}` : x.source ? SRC[x.source] ?? x.source : sg && sg.from !== "NO_DATA" ? `Suggested: ${sg.suggested.toLowerCase()} (${EVIDENCE_NAME[sg.from]})` : null };
+  });
   const isTeacher = actor.role === "TEACHER";
   const box = "rounded-lg border border-slate-300 px-3 py-2";
   const bands = await lexileBands(repo, actor.schoolId ?? null);
@@ -51,18 +64,15 @@ export default async function LevelsPage({ searchParams }: { searchParams: Promi
             <input type="hidden" name="classId" value={classId} />
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h2 className="text-lg font-bold text-brand-navy">{v.className} · Grade {v.grade} · {v.students.length} students</h2>
-              <p className="text-sm text-slate-600">{(["ABOVE", "ON", "BELOW"] as const).map((l) => `${LEVEL_NAMES[l]}: ${v.students.filter((x) => x.level === l).length}`).join(" · ")} · Not set: {v.students.filter((x) => !x.level).length}</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href={`/teacher/levels?classId=${classId}&auto=1`} className="rounded-xl bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">🤖 Place automatically</Link>
+                {auto && <Link href={`/teacher/levels?classId=${classId}`} className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-700 ring-1 ring-slate-300">Undo suggestions</Link>}
+              </div>
             </div>
-            <table className="mt-3 w-full text-left text-sm">
-              <thead><tr className="border-b text-slate-500"><th className="py-2">Student</th><th>Level</th><th>Set by</th></tr></thead>
-              <tbody>{v.students.map((x) => (
-                <tr key={x.id} className="border-b last:border-0">
-                  <td className="py-2 font-medium">{x.name}</td>
-                  <td><select name={`level:${x.id}`} defaultValue={x.level ?? ""} aria-label={`Level of ${x.name}`} className="rounded-lg border border-slate-300 px-2 py-1"><option value="">Not set (On Level)</option><option value="ABOVE">Above Level</option><option value="ON">On Level</option><option value="BELOW">Below Level</option></select></td>
-                  <td className="text-slate-500">{x.source === "PLACEMENT" ? "Placement test" : x.source === "TEACHER" ? "Teacher" : x.source === "MAP_RIT" ? "MAP RIT (class average)" : "—"}</td>
-                </tr>
-              ))}</tbody>
-            </table>
+            {auto ? <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900">🤖 Suggested from each student’s data (their results on the platform, Placement test, MAP). Move anyone you want, then <b>Save levels</b>. Nothing changes until you save.</p>
+              : <p className="mt-2 text-sm text-slate-600">Drag a student to another column (or use ◀ ▶), then <b>Save levels</b>. Students never see these names.</p>}
+            {noData > 0 && <p className="mt-2 rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-900">ℹ️ {noData} student(s) have no data yet, so they start at On Level. Their level will adjust by itself as they work.</p>}
+            <div className="mt-3"><LevelBoard students={board} /></div>
             <button className="mt-4 rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">Save levels</button>
           </form>
         </>

@@ -13,6 +13,7 @@
  * question currently served (no replays or double-submits); response time comes from
  * the server clock, not the browser.
  */
+import { hideLevels } from "../../lib/hide-levels";
 import { modelVersion } from "../cache/bank-version";
 import { resolveEngineConfig, ENGINE_VERSION, type AdaptiveConfig, type MasteryThresholds } from "../../config/engine";
 import { processAnswer } from "../../adaptive/engine";
@@ -425,7 +426,7 @@ async function quizView(repo: Repo, a: Row, order: string[], s: Row): Promise<Qu
   const { nextId, total } = await nextInSet(repo, a, order, String(s.id), String(s.studentId));
   const item = nextId ? (await loadQuestionItems(repo, [nextId]))[0] : undefined;
   return {
-    assignmentId: String(a.id), sessionId: String(s.id), title: String(a.title), question: item ? toClientQuestion(item, `${s.id}:${item.questionId}`) : null,
+    assignmentId: String(a.id), sessionId: String(s.id), title: hideLevels(String(a.title)), question: item ? toClientQuestion(item, `${s.id}:${item.questionId}`) : null,
     index: Math.min(total, answeredIds.size + 1), total, answered: answeredIds.size, correct: Number(s.correctCount ?? 0), ended: !nextId,
   };
 }

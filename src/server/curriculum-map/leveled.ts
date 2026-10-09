@@ -16,13 +16,15 @@ export type Level = "ABOVE" | "ON" | "BELOW";
 export type Rung = "SUPPORT" | Level | "CHALLENGE";
 export const LADDER: Rung[] = ["SUPPORT", "BELOW", "ON", "ABOVE", "CHALLENGE"];
 const CLASSIC: Rung[] = ["BELOW", "ON", "ABOVE"];
-export const RULES = { promoteCorrect: 4, promoteWindow: 5, minAtLevel: 4, demoteMaxCorrect: 1, demoteWindow: 4 } as const;
+export interface Rules { promoteCorrect: number; promoteWindow: number; minAtLevel: number; demoteMaxCorrect: number; demoteWindow: number }
+/** The defaults; each school can change them in Settings (ladder-settings.ts). */
+export const RULES: Rules = { promoteCorrect: 4, promoteWindow: 5, minAtLevel: 4, demoteMaxCorrect: 1, demoteWindow: 4 };
 
 export interface Step { level: Rung; correct: boolean }
 export interface Decision { level: Rung; done: boolean; reason: "MASTERED_ABOVE" | "LIMIT" | "NO_QUESTIONS" | null; path: Rung[] }
 
 /** Replays the answers given so far and decides the current level (pure, testable). */
-export function decideLevel(start: Rung, steps: Step[], limit: number, rungs: Rung[] = CLASSIC): Decision {
+export function decideLevel(start: Rung, steps: Step[], limit: number, rungs: Rung[] = CLASSIC, rules: Rules = RULES): Decision {
   const ladder = LADDER.filter((r) => rungs.includes(r));
   const up = (r: Rung) => ladder[ladder.indexOf(r) + 1] ?? null;
   const down = (r: Rung) => (ladder.indexOf(r) > 0 ? ladder[ladder.indexOf(r) - 1] : null);
@@ -32,12 +34,12 @@ export function decideLevel(start: Rung, steps: Step[], limit: number, rungs: Ru
   for (const st of steps) {
     if (st.level !== level) continue;            // (only answers at the current rung move it)
     atLevel.push(st.correct);
-    const lastP = atLevel.slice(-RULES.promoteWindow), lastD = atLevel.slice(-RULES.demoteWindow);
-    if (atLevel.length >= RULES.minAtLevel && lastP.filter(Boolean).length >= RULES.promoteCorrect) {
+    const lastP = atLevel.slice(-rules.promoteWindow), lastD = atLevel.slice(-rules.demoteWindow);
+    if (atLevel.length >= rules.minAtLevel && lastP.filter(Boolean).length >= rules.promoteCorrect) {
       const nxt = up(level);
       if (!nxt) return { level, done: true, reason: "MASTERED_ABOVE", path };
       level = nxt; path.push(level); atLevel = [];
-    } else if (lastD.length >= RULES.demoteWindow && lastD.filter(Boolean).length <= RULES.demoteMaxCorrect && down(level)) {
+    } else if (lastD.length >= rules.demoteWindow && lastD.filter(Boolean).length <= rules.demoteMaxCorrect && down(level)) {
       level = down(level)!; path.push(level); atLevel = [];
     }
   }

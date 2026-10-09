@@ -3,6 +3,7 @@ import { categoryOfQuestions } from "./student-level";
 import type { Repo, Row } from "../seeding/repo";
 import { decideLevel, LADDER, pickNext, type Decision, type Level, type Rung } from "./leveled";
 import { lexileBands, levelForLexile } from "./lexile";
+import { ladderRulesForStudent } from "./ladder-settings";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -75,13 +76,13 @@ export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessio
   const pool = await poolOf(repo, order);
   const levelOf = new Map(pool.map((q) => [q.id, q.level]));
   // the start is fixed by the first question the student answered (later level changes never rewrite the path)
-  const start: Rung = attempts.length && levelOf.has(s(attempts[0].questionId)) ? levelOf.get(s(attempts[0].questionId))! : (await startLevel(repo, studentId, String(set.type) === "PLACEMENT" ? "ON" : "BELOW", String(set.type) === "PLACEMENT" ? null : await categoryOfQuestions(repo, order))).level;
+  const start: Rung = attempts.length && levelOf.has(s(attempts[0].questionId)) ? levelOf.get(s(attempts[0].questionId))! : (await startLevel(repo, studentId, "ON", String(set.type) === "PLACEMENT" ? null : await categoryOfQuestions(repo, order))).level;
   const total = Math.min(Number(set.maxQuestions) || order.length, order.length);
   const rungs = LADDER.filter((r) => pool.some((q) => q.level === r) || r === "BELOW" || r === "ON" || r === "ABOVE");
   // ⚡ answers given too fast to have read the question (rapid guesses) never move the level, up or down —
   // as on MAP itself; they still count toward the set's length, so a guessing student does not go on forever
   const careful = attempts.filter((a) => !a.rapidGuess);
-  const moved = decideLevel(start, careful.map((a) => ({ level: levelOf.get(s(a.questionId)) ?? "ON", correct: Boolean(a.isCorrect) })), Number.MAX_SAFE_INTEGER, rungs);
+  const moved = decideLevel(start, careful.map((a) => ({ level: levelOf.get(s(a.questionId)) ?? "ON", correct: Boolean(a.isCorrect) })), Number.MAX_SAFE_INTEGER, rungs, await ladderRulesForStudent(repo, studentId));
   const decision = moved.reason === "MASTERED_ABOVE" ? moved
     : attempts.length >= total ? { ...moved, done: true, reason: "LIMIT" as const } : { ...moved, done: false, reason: null };
   if (decision.done) return { nextId: null, total, done: true, decision, start };

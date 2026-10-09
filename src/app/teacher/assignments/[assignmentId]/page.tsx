@@ -2,23 +2,39 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { assignmentDetail, type AssignmentDetail } from "@/server/teacher/assign";
+import { accessibleClasses, assignmentDetail, type AssignmentDetail } from "@/server/teacher/assign";
+import { copyAssignmentAction } from "./actions";
 
 const LABEL = { NOT_STARTED: "Not started", IN_PROGRESS: "In progress", COMPLETED: "Completed", OVERDUE: "Overdue" } as const;
 const TONE = { NOT_STARTED: "bg-slate-100 text-slate-700", IN_PROGRESS: "bg-sky-100 text-sky-900", COMPLETED: "bg-teal-100 text-teal-900", OVERDUE: "bg-red-100 text-red-800" } as const;
 
 /** One assignment: every student's status and results. */
-export default async function AssignmentResultsPage({ params }: { params: Promise<{ assignmentId: string }> }) {
+export default async function AssignmentResultsPage({ params, searchParams }: { params: Promise<{ assignmentId: string }>; searchParams: Promise<{ msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:read" });
   const me = (await getActor())!.user;
   let a: AssignmentDetail;
-  try { a = await assignmentDetail(repo, actor, (await params).assignmentId); } catch { notFound(); }
+  const { assignmentId } = await params;
+  const sp = await searchParams;
+  try { a = await assignmentDetail(repo, actor, assignmentId); } catch { notFound(); }
+  const row = await repo.findUnique("Assignment", { id: assignmentId });
+  const here = row ? await repo.findUnique("Class", { id: row.classId }) : null;
+  const twins = here ? (await accessibleClasses(repo, actor)).filter((c) => c.id !== here.id && c.gradeId === here.gradeId) : [];
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/teacher/assignments" className="text-brand-teal hover:underline">← Weekly assignments</Link></p>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">{a.skill}</h1>
       <p className="mt-1 text-slate-600">{a.className} · {a.startAt ? `starts ${a.startAt.slice(0, 10)} · ` : ""}{a.dueAt ? `due ${a.dueAt.slice(0, 10)}` : "no due date"} · completed at {a.targetMastery}% mastery after 10+ answers</p>
       {a.note && <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900">Note: {a.note}</p>}
+      {sp.msg && <p role="status" className="mt-3 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
+      {twins.length > 0 && (
+        <form action={copyAssignmentAction} className="mt-3 flex flex-wrap items-end gap-2 rounded-2xl bg-white p-3 text-sm ring-1 ring-slate-200 print:hidden">
+          <input type="hidden" name="assignmentId" value={assignmentId} />
+          <span className="font-semibold text-brand-navy">📋 Copy to another class:</span>
+          <select name="classId" className="rounded-lg border border-slate-300 px-2 py-1.5">{twins.map((c) => <option key={String(c.id)} value={String(c.id)}>{String(c.name)}</option>)}</select>
+          <label className="flex items-center gap-1">due <input type="date" name="dueAt" className="rounded-lg border border-slate-300 px-2 py-1" /></label>
+          <button className="rounded-lg bg-brand-navy px-3 py-1.5 font-semibold text-white">Copy</button>
+        </form>
+      )}
       <div className="mt-4 overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
         <table className="w-full text-left text-sm">
           <thead><tr className="border-b text-slate-500"><th className="p-3">Student</th><th>Status</th><th>Progress</th><th>Answered</th><th>Accuracy</th><th>Last activity</th><th /></tr></thead>

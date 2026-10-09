@@ -18,6 +18,10 @@ export function contentSecurityPolicy(opts: { production: boolean; nonce?: strin
     "style-src 'self' 'unsafe-inline'", // Next.js/Tailwind inject critical CSS; styles cannot run code
     "img-src 'self' data: blob:",
     "font-src 'self' data:",
+    // recordings (blob:) and word pronunciations from the free dictionary
+    "media-src 'self' blob: https://api.dictionaryapi.dev https://ssl.gstatic.com",
+    "manifest-src 'self'",
+    "worker-src 'self'",
     "connect-src 'self'",
     "frame-ancestors 'none'",
     "base-uri 'self'",

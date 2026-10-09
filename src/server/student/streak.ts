@@ -1,7 +1,7 @@
 /**
  * Daily streak and points (motivation): a day counts when the student answered at least one question
  * (practice, assigned sets, tests) or finished a ReadMaster article. Days in Saudi time (UTC+3).
- * Points: 10 per correct answer + 25 per ReadMaster article.
+ * Points: 10 per correct answer + 25 per ReadMaster article + 10 per Respond to Reading answer + 50 per level moved up.
  */
 import type { Repo } from "../seeding/repo";
 
@@ -18,11 +18,14 @@ export function streakFromDays(days: number[], today: number): number {
 }
 
 export async function streakAndPoints(repo: Repo, studentId: string, now = new Date()): Promise<{ streak: number; points: number; activeToday: boolean }> {
-  const [attempts, articles] = await Promise.all([
+  const [attempts, articles, bonus] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId }, { select: ["createdAt", "isCorrect"] }),
     repo.findMany("ReadMasterAttempt", { studentId }, { select: ["createdAt"] }),
+    repo.findMany("XpEvent", { studentId }, { select: ["points", "reason"] }),
   ]);
+  // bonus points: a Respond to Reading answer finished, a level moved up
+  const extra = bonus.filter((x) => /^(respond\.finished|level\.up)/.test(String(x.reason))).reduce((t, x) => t + Number(x.points ?? 0), 0);
   const days = [...attempts.map((a) => dayOf(a.createdAt)), ...articles.map((a) => dayOf(a.createdAt))];
   const today = dayOf(now);
-  return { streak: streakFromDays(days, today), points: attempts.filter((a) => a.isCorrect).length * 10 + articles.length * 25, activeToday: days.includes(today) };
+  return { streak: streakFromDays(days, today), points: attempts.filter((a) => a.isCorrect).length * 10 + articles.length * 25 + extra, activeToday: days.includes(today) };
 }

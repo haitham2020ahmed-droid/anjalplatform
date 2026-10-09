@@ -8,6 +8,7 @@ import { AssignQuestionsDialog, type RosterClass } from "./assign-questions-dial
 import { PreviewDialog } from "./preview-dialog";
 import { selectionCsvAction } from "./preview-actions";
 import { SkillAssignButton } from "@/components/skills/skill-assign";
+import { PrintToggle } from "@/components/print/print-toggle";
 
 export interface TableRow {
   id: string; stem: string; mine: boolean; origin: string; grade: number; skill: string; type: string; level: number; levelLabel: string; status: QuestionStatus; updatedAt: string;
@@ -238,7 +239,7 @@ export function QuestionTable({ rows, total, canPublish, canDelete = false, rost
             <tr className="border-b align-top last:border-0">
               {canStar && <td className="py-2">{q.status === "PUBLISHED" && q.type !== "SHORT_ANSWER" && <button type="button" onClick={() => toggleStar(q.id)} aria-pressed={starred.includes(q.id)} aria-label={`${starred.includes(q.id) ? "Unselect" : "Select"} for assigning: ${q.stem.slice(0, 60)}`} className="text-xl leading-none">{starred.includes(q.id) ? "⭐" : "☆"}</button>}</td>}
               {checkboxes && <td className="py-2"><input type="checkbox" aria-label={`Select: ${q.stem.slice(0, 60)}`} checked={selected.has(q.id)} disabled={(!canDelete && !PUBLISHABLE.includes(q.status)) || !!busy} onChange={() => toggle(q.id)} /></td>}
-              <td className="max-w-md py-2"><Link href={`/admin/questions/${q.id}`} className="text-brand-navy hover:underline">{q.stem}</Link> <button type="button" onClick={() => setPreview(q.id)} className="ms-1 rounded-md px-1.5 text-xs font-semibold text-brand-teal ring-1 ring-slate-200 hover:bg-slate-50" aria-label={`Preview: ${q.stem.slice(0, 60)}`}>👁 Preview</button>{q.mine && <span className="ml-2 text-xs text-brand-purple">mine</span>}{q.origin === "AI_GENERATED" && <span className="ml-2 text-xs text-amber-700">AI-drafted</span>}
+              <td className="max-w-md py-2"><Link href={`/admin/questions/${q.id}`} className="text-brand-navy hover:underline">{q.stem}</Link> <button type="button" onClick={() => setPreview(q.id)} className="ms-1 rounded-md px-1.5 text-xs font-semibold text-brand-teal ring-1 ring-slate-200 hover:bg-slate-50" aria-label={`Preview: ${q.stem.slice(0, 60)}`}>👁 Preview</button>{q.status === "PUBLISHED" && <PrintToggle id={q.id} stem={q.stem} className="ms-1" />}{q.mine && <span className="ml-2 text-xs text-brand-purple">mine</span>}{q.origin === "AI_GENERATED" && <span className="ml-2 text-xs text-amber-700">AI-drafted</span>}
                 {(q.hasPassage || q.hasImage || q.possibleMissingPassage) && (
                   <span className="mt-1 flex flex-wrap gap-1">
                     {q.hasPassage && <span className="rounded bg-sky-50 px-1.5 text-xs text-sky-800">Passage</span>}

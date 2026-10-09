@@ -47,6 +47,12 @@ export function RespondActivityCard({ a, showLevel = true }: { a: RespondActivit
             <ul className="mt-2 space-y-1.5">{a.checklist.map((x, i) => <li key={i}><label className="flex items-start gap-2 text-slate-800"><input type="checkbox" className="mt-1 h-4 w-4 accent-teal-600" /> <span>{x}</span></label></li>)}</ul>
           </section>
         )}
+        {a.modelAnswer && (
+          <details className="rounded-2xl bg-emerald-50 p-4 ring-1 ring-emerald-200 print:hidden">
+            <summary className="cursor-pointer font-bold text-emerald-900">🔑 Model answer (teachers only)</summary>
+            <p className="mt-2 whitespace-pre-line text-emerald-950">{a.modelAnswer}</p>
+          </details>
+        )}
         {a.hint && (
           <details className="rounded-2xl bg-amber-50 p-4 ring-1 ring-amber-200 print:hidden">
             <summary className="cursor-pointer font-bold text-amber-900">💡 Need a hint? (open only if you are stuck)</summary>

@@ -73,8 +73,8 @@ describe("🌉 Cross-Grade Bridge: the same skill one grade up (challenge) and o
       seen.push(String((await repo.findUnique("Question", { id: it.questionId }))!.stem).split(" ")[0]);
       v = (await submitQuizAnswer(repo, st, { assignmentId: aid, questionId: it.questionId, response: it.options!.find((o) => o.correct)!.label }, new Date((clock += 30_000)))).view;
     }
-    assert.deepEqual(seen, [...Array(4).fill("BELOW"), ...Array(4).fill("ON"), ...Array(4).fill("ABOVE"), ...Array(4).fill("CHALLENGE")]);
-    assert.match((await assignmentReport(repo, st, aid)).masteryLevel, /Reached 🚀 Challenge.*Below → On → Above → 🚀 Challenge/);
+    assert.deepEqual(seen, [...Array(4).fill("ON"), ...Array(4).fill("ABOVE"), ...Array(4).fill("CHALLENGE")], "no data → starts On Level");
+    assert.match((await assignmentReport(repo, st, aid)).masteryLevel, /Reached 🚀 Challenge.*On → Above → 🚀 Challenge/);
     // mastered past Above (🚀): the category's level is Above, where its next set starts
     assert.equal(String((await repo.findMany("StudentCategoryLevel", { studentId: roster[0].students[0].id }))[0]?.level), "ABOVE");
   });

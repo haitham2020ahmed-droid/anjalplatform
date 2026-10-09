@@ -187,6 +187,8 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
       dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
     }, now);
     groups.push({ level: null, students: chosen.length, questions: pool.length, assignmentId: r.assignmentId, usedLevel: null });
+    const noLevel = chosen.filter((x) => !levels.has(x.id)).length;
+    if (noLevel) notes.push(`ℹ️ ${noLevel} student(s) have no level yet: they start at On Level (or from their MAP Lexile) and move by their answers.`);
     for (const l of ["BELOW", "ON", "ABOVE"] as Level[]) if (!(byLevel.get(l) ?? []).length) notes.push(`${LEVEL_NAMES[l]} has no questions yet: students cannot move to it until you add some.`);
     return { groups, notes };
   }

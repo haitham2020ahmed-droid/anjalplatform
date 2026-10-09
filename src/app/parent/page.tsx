@@ -3,6 +3,8 @@ import { AppShell } from "@/components/app-shell";
 import { ReportDownloads } from "@/components/reports/report-downloads";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { parentChildren } from "@/server/queries/parent";
+import Link from "next/link";
+import { isReportShared } from "@/server/insights/parent-report";
 
 /** Parent home: each linked child with their progress report (Arabic or English PDF). */
 export default async function ParentHome() {
@@ -11,10 +13,11 @@ export default async function ParentHome() {
   const children = await parentChildren(repo, actor);
   // each child's monthly summary, in parallel
   const summaries = new Map(await Promise.all(children.map(async (c) => [c.studentId, await parentSummary(repo, actor, c.studentId)] as const)));
+  const shared = new Map(await Promise.all(children.map(async (c) => [c.studentId, await isReportShared(repo, String(actor.schoolId), c.studentId)] as const)));
   return (
     <AppShell name={String(me.displayName)}>
       <h1 className="text-3xl font-bold text-brand-navy">My children</h1>
-      <p className="mt-1 text-slate-600" dir="rtl" lang="ar">أبنائي: تقارير التقدّم في اللغة الإنجليزية</p>
+      <p className="mt-1 text-slate-600">English progress reports</p>
       {children.length === 0 ? (
         <p className="mt-6 text-slate-600">No children are linked to your account yet. Please contact the school.</p>
       ) : (
@@ -22,8 +25,9 @@ export default async function ParentHome() {
           <div key={c.studentId} className="mt-6">
             <h2 className="text-xl font-bold text-brand-navy"><bdi>{c.name}</bdi></h2>
             <p className="text-sm text-slate-500">Grade {c.grade}{c.className ? `, class ${c.className}` : ""}</p>
+            {shared.get(c.studentId) && <Link href={`/parent/report/${c.studentId}`} className="lift mt-3 flex items-center justify-between rounded-2xl bg-emerald-50 px-5 py-4 font-bold text-emerald-900 ring-1 ring-emerald-300"><span>📄 Report from the teacher</span><span>Open ▶</span></Link>}
             <ParentMonthly s={summaries.get(c.studentId)!} />
-            <ReportDownloads title="Progress report (this term) · تقرير التقدّم (الفصل الحالي)" report={{ kind: "student", studentId: c.studentId, period: "TERM" }} formats={["pdf"]} />
+            <ReportDownloads title="Progress report (this term)" report={{ kind: "student", studentId: c.studentId, period: "TERM" }} formats={["pdf"]} />
           </div>
         ))
       )}
@@ -31,26 +35,26 @@ export default async function ParentHome() {
   );
 }
 
-const LV: Record<string, [string, string]> = { BELOW: ["🟠 Below level", "دون المستوى"], ON: ["🔵 On level", "في المستوى"], ABOVE: ["🟢 Above level", "فوق المستوى"] };
+const LV: Record<string, string> = { BELOW: "🟠 Below level", ON: "🔵 On level", ABOVE: "🟢 Above level" };
 
-/** 👪 This month, in plain words (English · العربية). */
+/** 👪 This month, in plain words. */
 function ParentMonthly({ s }: { s: ParentSummary }) {
   return (
     <div className="mt-3 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-      <p className="font-bold text-brand-navy">This month · <span dir="rtl" lang="ar">هذا الشهر</span></p>
+      <p className="font-bold text-brand-navy">This month</p>
       <div className="mt-3 grid gap-3 sm:grid-cols-3">
-        <div className="rounded-xl bg-slate-50 p-3"><p className="text-xs text-slate-500">Practice · <span lang="ar">التدريب</span></p><p className="text-xl font-extrabold text-brand-navy">{s.answers30}</p><p className="text-xs text-slate-500">answers · إجابة</p></div>
-        <div className="rounded-xl bg-slate-50 p-3"><p className="text-xs text-slate-500">Correct · <span lang="ar">الإجابات الصحيحة</span></p><p className="text-xl font-extrabold text-brand-navy">{s.accuracy30 ?? "—"}{s.accuracy30 !== null && "%"}</p></div>
-        <div className="rounded-xl bg-slate-50 p-3"><p className="text-xs text-slate-500">MAP Reading · <span lang="ar">القراءة</span></p>
+        <div className="rounded-xl bg-slate-50 p-3"><p className="text-xs text-slate-500">Practice</p><p className="text-xl font-extrabold text-brand-navy">{s.answers30}</p><p className="text-xs text-slate-500">answers</p></div>
+        <div className="rounded-xl bg-slate-50 p-3"><p className="text-xs text-slate-500">Correct</p><p className="text-xl font-extrabold text-brand-navy">{s.accuracy30 ?? "—"}{s.accuracy30 !== null && "%"}</p></div>
+        <div className="rounded-xl bg-slate-50 p-3"><p className="text-xs text-slate-500">MAP Reading</p>
           <p className="text-xl font-extrabold text-brand-navy">{s.map ? s.map.rit : "—"}{s.map?.goal ? <span className="text-sm font-semibold text-slate-500"> → goal {s.map.goal}</span> : null}</p>{s.map && <p className="text-xs text-slate-500">{s.map.term}</p>}</div>
       </div>
       {(s.categories.length > 0 || s.overall) && (
         <ul className="mt-3 space-y-1 text-sm">
-          {s.categories.length ? s.categories.map((c) => <li key={c.name} className="flex flex-wrap justify-between gap-2"><span>{c.name}</span><b>{LV[c.level]?.[0]} · <span lang="ar">{LV[c.level]?.[1]}</span></b></li>)
-            : <li className="flex flex-wrap justify-between gap-2"><span>Reading level · مستوى القراءة</span><b>{LV[s.overall!]?.[0]} · <span lang="ar">{LV[s.overall!]?.[1]}</span></b></li>}
+          {s.categories.length ? s.categories.map((c) => <li key={c.name} className="flex flex-wrap justify-between gap-2"><span>{c.name}</span><b>{LV[c.level]}</b></li>)
+            : <li className="flex flex-wrap justify-between gap-2"><span>Reading level</span><b>{LV[s.overall!]}</b></li>}
         </ul>
       )}
-      <p className="mt-3 rounded-xl bg-teal-50 px-3 py-2 text-sm text-teal-900">🏠 {s.tip.en}<br /><span dir="rtl" lang="ar">{s.tip.ar}</span></p>
+      <p className="mt-3 rounded-xl bg-teal-50 px-3 py-2 text-sm text-teal-900">🏠 {s.tip.en}</p>
     </div>
   );
 }

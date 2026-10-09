@@ -12,6 +12,7 @@
  * Only practice done FOR the assignment counts (sessions with this assignmentId), so a skill
  * practised months ago is not "completed" the moment it is assigned.
  */
+import { hideLevels } from "../../lib/hide-levels";
 import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -267,6 +268,14 @@ export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: stri
     students: students.map((x) => ({ id: s(x.id), name: names.get(s(x.userId)) ?? "Student" })).sort((a, b) => a.name.localeCompare(b.name)),
     mapAreas: [],
   };
+  // 🧩 master list: skills of the grade that are in no unit (Grammar, imported skill banks…) are listed too
+  const inUnits = new Set(view.units.flatMap((u) => u.skills.map((k) => k.id)));
+  const more = skills.filter((k) => !inUnits.has(s(k.id)) && !s(k.code).endsWith(".curriculum-map-unclassified")).sort((a, b) => s(a.name).localeCompare(s(b.name)));
+  if (more.length) view.units.push({ id: "more", number: 0, title: "More skills (Grammar and other skills not in a unit)", skills: more.map((k) => ({
+    id: s(k.id), name: s(k.name), code: s(k.code), lessons: [],
+    standards: links.filter((l) => l.skillId === k.id).sort((a, b) => Number(b.isPrimary) - Number(a.isPrimary)).map((l) => stdCode.get(s(l.standardId)) ?? "").filter(Boolean),
+    openAssignments: openBySkill.get(s(k.id)) ?? 0, questions: questionCount.get(s(k.id)) ?? 0,
+  })) });
   view.mapAreas = await mapAreasFor(repo, skills, view.units.flatMap((u) => u.skills));
   return view;
 }
@@ -418,7 +427,7 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
     const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";
     await tx.createMany("Notification", students.map((st) => ({
       userId: st.userId, type: "NEW_ASSIGNMENT", title: "Your teacher assigned you questions",
-      body: `${title}.${due}${note ? ` Note: ${note}` : ""}`, link: `/student/assignments/${s(a.id)}`, createdAt: now,
+      body: `${hideLevels(title)}.${due}${note ? ` Note: ${note}` : ""}`, link: `/student/assignments/${s(a.id)}`, createdAt: now,
     })));
     await audit(tx, { actorId: actor.userId, action: "assignment.assign_questions", entityType: "Assignment", entityId: s(a.id), after: { classId: klass.id, questions: ids.length, students: recipients.length, scope: chosen.length ? "students" : "class", dueAt } });
     return s(a.id);

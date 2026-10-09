@@ -9,3 +9,15 @@ export async function register(): Promise<void> {
     loadEnv();
   }
 }
+
+/**
+ * Server errors of any request go to the school's error log (Admin → Errors), message and path only.
+ * The Node-only code lives in instrumentation-node.ts and is imported inside a NEXT_RUNTIME check, so the Edge
+ * build never includes it (it uses node:crypto through the database layer).
+ */
+export async function onRequestError(err: unknown, request: { path?: string }): Promise<void> {
+  if (process.env.NEXT_RUNTIME === "nodejs") {
+    const { logRequestError } = await import("./instrumentation-node");
+    await logRequestError(err, request);
+  }
+}

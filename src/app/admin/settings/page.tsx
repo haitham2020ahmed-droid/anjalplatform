@@ -8,6 +8,9 @@ import { ADAPTIVE_LIMITS, getBranding, getEngineSettings, listAcademicYears } fr
 import { archiveClassAction, brandingAction, createClassAction, engineSettingsAction, renameClassAction, yearAction } from "../actions";
 import { placementRequired } from "@/server/student/assigned";
 import { placementAction } from "./placement-actions";
+import { coordinatorsAction, ladderAction } from "./ladder-actions";
+import { ladderSettings, LADDER_LIMITS, type LadderSettings } from "@/server/curriculum-map/ladder-settings";
+import { coordinatorMap } from "@/server/teacher/coordinators";
 
 export default async function SettingsPage() {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
@@ -20,6 +23,10 @@ export default async function SettingsPage() {
   const current = years.find((y) => y.isCurrent);
   const gradeOf = new Map((await repo.findMany("Grade", { schoolId: actor.schoolId! })).map((g) => [String(g.id), Number(g.level)]));
   const classes = current ? (await repo.findMany("Class", { academicYearId: current.id, deletedAt: null })).map((c) => ({ id: String(c.id), name: String(c.name), grade: gradeOf.get(String(c.gradeId)) ?? 0 })).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name)) : [];
+  const ladder = school ? await ladderSettings(repo, actor.schoolId) : null;
+  const coords = school ? await coordinatorMap(repo, actor.schoolId) : {};
+  const teacherUsers = school ? (await repo.findMany("User", { schoolId: actor.schoolId, role: "TEACHER", deletedAt: null }, { select: ["id", "displayName"] })).map((u) => ({ id: String(u.id), name: String(u.displayName) })).sort((a, b) => a.name.localeCompare(b.name)) : [];
+  const gradeList = [...new Set(gradeOf.values())].sort((a, b) => a - b);
   const termRows = [...(current?.terms ?? []), { name: "", start: "", end: "" }, { name: "", start: "", end: "" }].slice(0, Math.max(3, (current?.terms.length ?? 0) + 1));
   return (
     <AppShell name={String(me.displayName)}>
@@ -87,6 +94,41 @@ export default async function SettingsPage() {
             <label className={label}>School name (Arabic)<input name="nameAr" defaultValue={branding.nameAr ?? ""} dir="rtl" lang="ar" maxLength={120} placeholder="مدارس الأنجال الأهلية" className={field} /></label>
             <label className={label}>Logo {branding.logoUrl ? <span className="text-slate-500">(current: {branding.logoUrl.startsWith("db:") ? "uploaded" : branding.logoUrl})</span> : null}<input type="file" name="logo" accept="image/png,image/jpeg,image/svg+xml" className="mt-1 block" /></label>
             {branding.logoUrl && <label className="flex items-center gap-2 pt-6 text-sm"><input type="checkbox" name="removeLogo" value="true" />Remove the logo</label>}
+          </ActionForm>
+        </section>
+      )}
+
+      {ladder && (
+        <section className={card}>
+          <h2 className={h2}>🎯 Level movement &amp; mastery</h2>
+          <p className="text-sm text-slate-600">How students move between Below, On and Above Level during their work, and when a skill counts as mastered. Students never see the level names.</p>
+          <ActionForm action={ladderAction} submit="Save rules" className="mt-3 space-y-3">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {(Object.keys(LADDER_LIMITS) as (keyof LadderSettings)[]).map((k) => (
+                <label key={k} className={label}>{LADDER_LIMITS[k].label}
+                  <input name={k} type="number" min={LADDER_LIMITS[k].min} max={LADDER_LIMITS[k].max} defaultValue={ladder[k]} className={field} />
+                  <span className="text-xs text-slate-500">{LADDER_LIMITS[k].min}–{LADDER_LIMITS[k].max}</span>
+                </label>
+              ))}
+            </div>
+            <p className="text-sm text-slate-600">Now: up when {ladder.upPct}% of the last {ladder.upWindow} answers are correct · down at {ladder.downPct}% or less of the last {ladder.downWindow} · mastered at {ladder.masteredPct}% over {ladder.masteredMin}+ answers. A student with no data starts at On Level.</p>
+          </ActionForm>
+          <ActionForm action={ladderAction} submit="Restore defaults" danger className="mt-2"><input type="hidden" name="reset" value="true" /></ActionForm>
+        </section>
+      )}
+
+      {school && (
+        <section className={card}>
+          <h2 className={h2}>🧑‍🏫 Grade coordinators</h2>
+          <p className="text-sm text-slate-600">A coordinator can see every class of their grade(s): progress, MAP, Respond to Reading and the grade summary. They can only assign work to their own classes.</p>
+          <ActionForm action={coordinatorsAction} submit="Save coordinators" className="mt-3 space-y-2">
+            {teacherUsers.length === 0 ? <p className="text-sm text-slate-500">No teachers yet.</p> : (
+              <table className="text-sm"><thead><tr className="text-slate-500"><th className="pe-6 text-left">Teacher</th>{gradeList.map((g) => <th key={g} className="px-3">Grade {g}</th>)}</tr></thead>
+                <tbody>{teacherUsers.map((u) => (
+                  <tr key={u.id} className="border-t"><td className="py-1.5 pe-6">{u.name}<input type="hidden" name="teacher" value={u.id} /></td>
+                    {gradeList.map((g) => <td key={g} className="px-3 text-center"><input type="checkbox" name={`coord:${u.id}`} value={g} defaultChecked={(coords[u.id] ?? []).includes(g)} aria-label={`${u.name} coordinates Grade ${g}`} /></td>)}</tr>
+                ))}</tbody></table>
+            )}
           </ActionForm>
         </section>
       )}

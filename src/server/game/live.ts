@@ -5,6 +5,7 @@
  * Points: 1000 for an instant correct answer, down to 500 at the last second, plus a streak bonus
  * (+100 per correct answer in a row, up to +500). Screens refresh by polling (no extra service needed).
  */
+import { masterSkills } from "../skills/master";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -27,11 +28,8 @@ export function pointsFor(correct: boolean, elapsedMs: number, limitMs: number, 
 }
 
 async function skillsOfActor(repo: Repo, actor: Actor): Promise<{ id: string; name: string; grade: number }[]> {
-  const grades = await repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] });
-  const curs = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id", "gradeId"] }) : [];
-  const skills = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, deletedAt: null }, { select: ["id", "name", "curriculumId", "code"] }) : [];
-  const levelOf = new Map(curs.map((c) => [s(c.id), Number(grades.find((g) => g.id === c.gradeId)?.level ?? 0)]));
-  return skills.filter((k) => !s(k.code).endsWith(".curriculum-map-unclassified")).map((k) => ({ id: s(k.id), name: s(k.name), grade: levelOf.get(s(k.curriculumId)) ?? 0 }));
+  // 🧩 the master skills list: every active skill of every grade (Grammar included)
+  return (await masterSkills(repo, s(actor.schoolId))).map((k) => ({ id: k.id, name: k.name, grade: k.grade }));
 }
 
 async function gameQuestionIds(repo: Repo, skillIds: string[]): Promise<{ skillId: string; id: string }[]> {

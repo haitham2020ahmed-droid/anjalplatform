@@ -1,12 +1,13 @@
 import Link from "next/link";
 import type { AssignedView } from "@/server/student/assigned";
+import type { StudentWeek } from "@/server/teacher/classroom";
+import { setMyGoalAction } from "@/app/student/goal-actions";
 
 const LABEL = { NOT_STARTED: "Not started", IN_PROGRESS: "In progress", COMPLETED: "Completed", OVERDUE: "Overdue" } as const;
 const TONE = { NOT_STARTED: "bg-slate-100 text-slate-700", IN_PROGRESS: "bg-sky-100 text-sky-900", COMPLETED: "bg-teal-100 text-teal-900", OVERDUE: "bg-red-100 text-red-800" } as const;
 const BAR = { NOT_STARTED: "bg-slate-300", IN_PROGRESS: "bg-sky-500", COMPLETED: "bg-teal-500", OVERDUE: "bg-red-500" } as const;
-const LEVEL = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" } as const;
 
-export interface StudentExtras { lexile: number | null; readingLevel: "ABOVE" | "ON" | "BELOW" | null; rit: number | null; ritGoal: number | null; grade?: number; plans?: number; streak?: number; points?: number; activeToday?: boolean; games?: { code: string; title: string }[] }
+export interface StudentExtras { lexile: number | null; readingLevel: "ABOVE" | "ON" | "BELOW" | null; rit: number | null; ritGoal: number | null; grade?: number; plans?: number; streak?: number; points?: number; activeToday?: boolean; games?: { code: string; title: string }[]; respond?: { todo: number; next: string | null }; badges?: number; newBadge?: { icon: string; name: string } | null; week?: StudentWeek; exitTicket?: { id: string; title: string } | null; reviewDue?: number; newComments?: number; goalMsg?: string | null; mapTests?: number; challenge?: { mine: { name: string; perStudent: number; rank: number } | null; all: { classId: string; name: string; perStudent: number; rank: number }[] } | null; writingTodo?: number }
 
 /** A completion ring (SVG). */
 function Ring({ pct }: { pct: number }) {
@@ -22,11 +23,17 @@ function Ring({ pct }: { pct: number }) {
 }
 
 /** The student's home: a welcome card, the three big doors (work, ReadMaster, MAP), then the assigned work. */
-export function AssignedSkills({ view, firstName, placement, area = "ALL", extras }: { view: AssignedView; firstName: string; placement: boolean; area?: "ALL" | "CURRICULUM" | "MAP" | "NAFS" | "GRAMMAR"; extras?: StudentExtras }) {
+export function AssignedSkills({ view, firstName, placement, area = "ALL", extras, qotd }: { view: AssignedView; firstName: string; placement: boolean; area?: "ALL" | "CURRICULUM" | "MAP" | "NAFS" | "GRAMMAR"; extras?: StudentExtras; qotd?: React.ReactNode }) {
   const { summary } = view;
-  const items = area === "ALL" ? view.items : area === "GRAMMAR" ? view.items.filter((i) => i.grammar) : view.items.filter((i) => i.track === area);
+  // MAP work lives in My MAP: here only a reminder
+  const mapTodo = view.items.filter((i) => i.track === "MAP" && i.status !== "COMPLETED");
+  const mapLate = mapTodo.some((i) => i.status === "OVERDUE");
+  const items = area === "ALL" ? view.items.filter((i) => i.track !== "MAP") : area === "GRAMMAR" ? view.items.filter((i) => i.grammar) : view.items.filter((i) => i.track === area);
   const pct = summary.assigned ? Math.round((100 * summary.completed) / summary.assigned) : 0;
-  const next = view.items.find((i) => i.status !== "COMPLETED" && !i.startsLater);
+  const next = view.items.find((i) => i.status !== "COMPLETED" && !i.startsLater && i.track !== "MAP") ?? view.items.find((i) => i.status !== "COMPLETED" && !i.startsLater);
+  const workTodo = view.items.filter((i) => i.track !== "MAP" && i.status !== "COMPLETED" && !i.startsLater).length;
+  const wk = extras?.week;
+  const bar = (p: number, t: number) => <div className="mt-2 h-3 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuemin={0} aria-valuemax={t} aria-valuenow={Math.min(p, t)}><div className="h-full rounded-full bg-gradient-to-r bg-linear-to-r from-brand-teal to-emerald-500" style={{ width: `${Math.min(100, Math.round((100 * p) / Math.max(1, t)))}%` }} /></div>;
   const hrefOf = (i: AssignedView["items"][number]) => (i.kind === "questions" ? `/quiz/${i.assignmentId}` : `/practice/${i.skillId}`);
   const hour = new Date().getUTCHours() + 3; // Saudi time
   const greet = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
@@ -45,7 +52,8 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
             <div className="mt-4 flex flex-wrap gap-2 text-sm">
               {extras?.streak ? <span className="animate-pop rounded-full bg-orange-500 px-3 py-1 font-bold text-white shadow" title={extras.activeToday ? "You practised today!" : "Practise today to keep your streak"}>🔥 {extras.streak}-day streak{extras.activeToday ? "" : " · practise today!"}</span> : <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">🔥 Start a streak today</span>}
               {extras?.points ? <span className="rounded-full bg-brand-gold px-3 py-1 font-bold text-brand-navy">⭐ {extras.points.toLocaleString("en")} points</span> : null}
-              {extras?.lexile != null && <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">📖 Lexile {extras.lexile}L{extras.readingLevel ? ` · ${LEVEL[extras.readingLevel]}` : ""}</span>}
+              <a href="/student/badges" className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25 hover:bg-white/25">🏅 {extras?.badges ?? 0} badge{extras?.badges === 1 ? "" : "s"}</a>
+              {extras?.lexile != null && <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">📖 Lexile {extras.lexile}L</span>}
               {extras?.rit != null && <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">🗺️ RIT {extras.rit}{extras.ritGoal ? ` → goal ${extras.ritGoal}` : ""}</span>}
               {summary.overdue > 0 && <span className="rounded-full bg-red-500/90 px-3 py-1 font-semibold">⏰ {summary.overdue} overdue</span>}
               {view.newThisWeek > 0 && <span className="rounded-full bg-brand-gold px-3 py-1 font-semibold text-brand-navy">✨ {view.newThisWeek} new this week</span>}
@@ -71,14 +79,101 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
 
       ))}
 
+      {extras?.newBadge && (
+        <a href="/student/badges" className="animate-pop lift flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-r bg-linear-to-r from-amber-300 to-brand-gold px-5 py-4 font-bold text-brand-navy shadow-lg">
+          <span>🎉 New badge: {extras.newBadge.icon} {extras.newBadge.name}!</span><span className="rounded-xl bg-brand-navy px-4 py-2 text-white">See ▶</span>
+        </a>
+      )}
+
+      {extras?.respond && extras.respond.todo > 0 && (
+        <Link href={extras.respond.next ? `/student/respond/${extras.respond.next}` : "/student/respond"} className="animate-pop lift flex items-center justify-between gap-3 rounded-2xl bg-violet-600 px-5 py-4 font-bold text-white shadow-lg">
+          <span>✍️ Respond to Reading: {extras.respond.todo} to write in your book</span><span className="rounded-xl bg-white px-4 py-2 text-violet-700">Open ▶</span>
+        </Link>
+      )}
+
+      {extras?.exitTicket && (
+        <Link href={`/student/exit/${extras.exitTicket.id}`} className="animate-pop lift flex items-center justify-between gap-3 rounded-2xl bg-sky-600 px-5 py-4 font-bold text-white shadow-lg">
+          <span>{extras.exitTicket.title}: 3 quick questions</span><span className="rounded-xl bg-white px-4 py-2 text-sky-700">Answer ▶</span>
+        </Link>
+      )}
+      {(extras?.mapTests ?? 0) > 0 && (
+        <Link href="/student/map-test" className="animate-pop lift flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-r bg-linear-to-r from-sky-600 to-brand-navy px-5 py-4 font-bold text-white shadow-lg">
+          <span>🧭 MAP practice test is open ({extras!.mapTests} to do) — try the warm-up first!</span><span className="rounded-xl bg-white px-4 py-2 text-brand-navy">Start ▶</span>
+        </Link>
+      )}
+      {mapTodo.length > 0 && (
+        <Link href="/student/map" className={`lift flex items-center justify-between gap-3 rounded-2xl px-5 py-4 font-bold shadow ${mapLate ? "bg-red-50 text-red-900 ring-1 ring-red-200" : "bg-emerald-50 text-emerald-900 ring-1 ring-emerald-200"}`}>
+          <span>🗺️ You have {mapTodo.length} MAP task{mapTodo.length === 1 ? "" : "s"}{mapLate ? " (late)" : ""} — they are in My MAP</span><span className="rounded-xl bg-brand-navy px-4 py-2 text-white">My MAP ▶</span>
+        </Link>
+      )}
+      {(extras?.reviewDue ?? 0) > 0 && (
+        <Link href="/student/review" className="lift flex items-center justify-between gap-3 rounded-2xl bg-white px-5 py-4 font-bold text-brand-navy shadow ring-1 ring-slate-200">
+          <span>🔁 {extras!.reviewDue} question{extras!.reviewDue === 1 ? "" : "s"} to review today (your past mistakes)</span><span className="rounded-xl bg-brand-navy px-4 py-2 text-white">Review ▶</span>
+        </Link>
+      )}
+      {(extras?.newComments ?? 0) > 0 && (
+        <Link href="/student/comments" className="lift flex items-center justify-between gap-3 rounded-2xl bg-white px-5 py-4 font-bold text-brand-navy shadow ring-1 ring-amber-200">
+          <span>💬 {extras!.newComments} new comment{extras!.newComments === 1 ? "" : "s"} from your teacher</span><span className="rounded-xl bg-amber-400 px-4 py-2 text-brand-navy">Read ▶</span>
+        </Link>
+      )}
+
+      {(extras?.writingTodo ?? 0) > 0 && (
+        <Link href="/student/writing" className="lift flex items-center justify-between gap-3 rounded-2xl bg-rose-50 px-5 py-4 font-bold text-rose-900 shadow ring-1 ring-rose-200">
+          <span>✍️ {extras!.writingTodo} writing / reading-aloud task{extras!.writingTodo === 1 ? "" : "s"} from your teacher</span><span className="rounded-xl bg-brand-navy px-4 py-2 text-white">Open ▶</span>
+        </Link>
+      )}
+      {(qotd || extras?.challenge) && (
+        <div className="grid gap-4 md:grid-cols-2">
+          {qotd}
+          {extras?.challenge && (
+            <section className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-indigo-50 to-white p-5 ring-1 ring-indigo-200">
+              <h2 className="font-bold text-brand-navy">🏁 Class challenge this week</h2>
+              <p className="text-sm text-slate-600">Answers per student, class by class. Every answer helps your class!</p>
+              <ol className="mt-2 space-y-1">{extras.challenge.all.map((c) => <li key={c.classId} className={`flex items-center justify-between rounded-xl px-3 py-1.5 ${c.classId === extras.challenge!.all.find((x) => x.name === extras.challenge!.mine?.name)?.classId ? "bg-indigo-600 font-bold text-white" : "bg-white ring-1 ring-slate-200"}`}><span>{c.rank === 1 ? "🥇" : c.rank === 2 ? "🥈" : c.rank === 3 ? "🥉" : `${c.rank}.`} {c.name}</span><span className="tabular-nums">{c.perStudent}</span></li>)}</ol>
+            </section>
+          )}
+        </div>
+      )}
+      {wk && (
+        <section id="my-week" className="scroll-mt-24 grid gap-4 md:grid-cols-3">
+          <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
+            <h2 className="font-bold text-brand-navy">🎯 My goal this week</h2>
+            {extras?.goalMsg && <p className="mt-1 text-sm text-emerald-800">{extras.goalMsg}</p>}
+            {wk.mine ? (
+              <><p className="mt-1 text-2xl font-extrabold text-brand-navy">{wk.mine.progress} / {wk.mine.target} <span className="text-base font-semibold text-slate-500">{wk.mine.kind === "MINUTES" ? "minutes" : "answers"}</span> {wk.mine.done ? "🎉" : ""}</p>{bar(wk.mine.progress, wk.mine.target)}</>
+            ) : (
+              <form action={setMyGoalAction} className="mt-2 flex flex-wrap items-center gap-2 text-sm">
+                <input name="target" type="number" min={5} max={600} defaultValue={50} aria-label="My goal" className="w-20 rounded-lg border border-slate-300 px-2 py-1.5" />
+                <select name="kind" aria-label="Goal kind" className="rounded-lg border border-slate-300 px-2 py-1.5"><option value="ANSWERS">answers</option><option value="MINUTES">minutes</option></select>
+                <button className="rounded-lg bg-brand-navy px-3 py-1.5 font-semibold text-white">Set my goal</button>
+              </form>
+            )}
+            <p className="mt-2 text-xs text-slate-500">This week: {wk.answers} answers · {wk.minutes} min</p>
+          </div>
+          <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
+            <h2 className="font-bold text-brand-navy">👥 Our class goal</h2>
+            {wk.klass ? <><p className="mt-1 text-sm text-slate-600">{wk.klass.title ?? `${wk.klass.target} ${wk.klass.kind.toLowerCase()}`}</p><p className="text-2xl font-extrabold text-brand-navy">{wk.klass.progress} / {wk.klass.target} {wk.klass.done ? "🎉" : ""}</p>{bar(wk.klass.progress, wk.klass.target)}</> : <p className="mt-1 text-sm text-slate-500">Your teacher has not set a class goal this week.</p>}
+          </div>
+          <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
+            <h2 className="font-bold text-brand-navy">📅 Practice days</h2>
+            {wk.rhythm ? <><p className="mt-1 text-2xl font-extrabold text-brand-navy">{wk.rhythm.daysDone} / {wk.rhythm.days} <span className="text-base font-semibold text-slate-500">days</span></p><p className="text-sm text-slate-600">About {wk.rhythm.minutes} minutes each day.</p>{bar(wk.rhythm.daysDone, wk.rhythm.days)}</> : <p className="mt-1 text-sm text-slate-500">Practise a little every day: it works better than a lot at once.</p>}
+          </div>
+        </section>
+      )}
+
       {placement && <Link href="/student/placement" className="block rounded-2xl bg-brand-gold px-5 py-4 font-bold text-brand-navy shadow lift">📝 Your school asks you to take the placement test first →</Link>}
 
       {/* the three big doors */}
-      <nav aria-label="My areas" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <nav aria-label="My areas" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         <a href="#my-work" className="lift group rounded-3xl bg-white p-5 ring-1 ring-slate-200">
           <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl bg-sky-100 text-3xl transition group-hover:scale-110">📘</span>
-          <span className="mt-3 block text-xl font-bold text-brand-navy">My work</span>
+          <span className="mt-3 flex items-center gap-2 text-xl font-bold text-brand-navy">My work {workTodo > 0 && <span className={`rounded-full px-2 py-0.5 text-sm font-bold text-white ${view.items.some((i) => i.track !== "MAP" && i.status === "OVERDUE") ? "bg-red-600" : "bg-sky-600"}`}>{workTodo}</span>}</span>
           <span className="block text-sm text-slate-600">{summary.completed}/{summary.assigned} done</span>
+        </a>
+        <a href="/student/skills" className="lift group rounded-3xl bg-gradient-to-br bg-linear-to-br from-teal-50 to-white p-5 ring-1 ring-teal-200">
+          <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl bg-teal-100 text-3xl transition group-hover:scale-110">🧩</span>
+          <span className="mt-3 block text-xl font-bold text-brand-navy">My skills</span>
+          <span className="block text-sm text-slate-600">Practise or 🎮 play any skill</span>
         </a>
         <a href="/student/readmaster" className="lift group rounded-3xl bg-gradient-to-br bg-linear-to-br from-amber-50 to-white p-5 ring-1 ring-amber-200">
           <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl bg-amber-100 text-3xl transition group-hover:scale-110">⭐</span>
@@ -97,8 +192,8 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
         </Link>
         <a href="/student/map" className="lift group rounded-3xl bg-gradient-to-br bg-linear-to-br from-emerald-50 to-white p-5 ring-1 ring-emerald-200">
           <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl bg-emerald-100 text-3xl transition group-hover:scale-110">🗺️</span>
-          <span className="mt-3 block text-xl font-bold text-brand-navy">My MAP</span>
-          <span className="block text-sm text-slate-600">My RIT, my goal, adaptive practice</span>
+          <span className="mt-3 flex items-center gap-2 text-xl font-bold text-brand-navy">My MAP {mapTodo.length > 0 && <span className={`rounded-full px-2 py-0.5 text-sm font-bold text-white ${mapLate ? "bg-red-600" : "bg-sky-600"}`}>{mapTodo.length}</span>}</span>
+          <span className="block text-sm text-slate-600">My results, my goal, my plan</span>
         </a>
       </nav>
 
@@ -109,7 +204,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
           <nav aria-label="Filter" className="flex gap-2">
             <Link href="/student#my-work" aria-current={area === "ALL" ? "page" : undefined} className={chip(area === "ALL")}>All</Link>
             <Link href="/student?area=curriculum#my-work" aria-current={area === "CURRICULUM" ? "page" : undefined} className={chip(area === "CURRICULUM")}>📘 Curriculum</Link>
-            <Link href="/student?area=map#my-work" aria-current={area === "MAP" ? "page" : undefined} className={chip(area === "MAP")}>🗺️ MAP</Link>
+            <Link href="/student/map" className={chip(false)}>🗺️ MAP{mapTodo.length ? ` (${mapTodo.length})` : ""} →</Link>
             {view.items.some((i) => i.grammar) && <Link href="/student?area=grammar#my-work" aria-current={area === "GRAMMAR" ? "page" : undefined} className={chip(area === "GRAMMAR")}>🔤 Grammar</Link>}
             {(extras?.grade === 6 || view.items.some((i) => i.track === "NAFS")) && <Link href="/student?area=nafs#my-work" aria-current={area === "NAFS" ? "page" : undefined} className={chip(area === "NAFS")}>🇸🇦 Nafs</Link>}
           </nav>

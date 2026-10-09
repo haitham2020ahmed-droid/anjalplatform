@@ -1,3 +1,4 @@
+import { hideLevels } from "@/lib/hide-levels";
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
@@ -20,7 +21,7 @@ export default async function MyPlan({ params }: { params: Promise<{ planId: str
   const done = p.places.filter((x) => x.status === "COMPLETED").length;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student/plans", label: "My plans" }} icon="🗂️" title={p.title} subtitle={`${done} of ${p.places.length} places done · tap a place to start`}><PrintButton /></PageHeader>
+      <PageHeader back={{ href: "/student/plans", label: "My plans" }} icon="🗂️" title={hideLevels(p.title)} subtitle={`${done} of ${p.places.length} places done · tap a place to start`}><PrintButton /></PageHeader>
       {p.note && <p className="mb-4 rounded-2xl bg-amber-50 px-4 py-3 text-amber-900">💬 {p.note}</p>}
       <div className="space-y-6">
         {units.map((u) => (
@@ -35,7 +36,7 @@ export default async function MyPlan({ params }: { params: Promise<{ planId: str
                     return (
                       <li key={x.code}>
                         <Link href={x.href ?? "#"} className={`lift flex items-center justify-between gap-3 rounded-2xl p-4 ring-2 ${TONE[st]}`}>
-                          <span><span className="block font-bold text-brand-navy">{x.label}</span><span className="block text-xs text-slate-500">{Math.round(x.progress * 100)}%</span></span>
+                          <span><span className="block font-bold text-brand-navy">{hideLevels(x.label)}</span><span className="block text-xs text-slate-500">{Math.round(x.progress * 100)}%</span></span>
                           <span aria-hidden="true" className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-navy text-white">{ICON[st]}</span>
                         </Link>
                       </li>

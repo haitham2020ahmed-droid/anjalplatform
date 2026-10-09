@@ -66,7 +66,7 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
               {view.units.length === 0 && <p className="mt-4 text-slate-600">This grade has no units yet.</p>}
               {view.units.map((u) => (
                 <section key={u.id} className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200" aria-labelledby={`u-${u.id}`}>
-                  <h2 id={`u-${u.id}`} className="text-lg font-bold text-brand-navy">Unit {u.number}: {u.title}</h2>
+                  <h2 id={`u-${u.id}`} className="text-lg font-bold text-brand-navy">{u.id === "more" ? u.title : `Unit ${u.number}: ${u.title}`}</h2>
                   {u.skills.length === 0 ? <p className="mt-2 text-sm text-slate-600">No skills in this unit.</p> : <ul className="mt-2 divide-y divide-slate-100">{u.skills.map(row)}</ul>}
                 </section>
               ))}

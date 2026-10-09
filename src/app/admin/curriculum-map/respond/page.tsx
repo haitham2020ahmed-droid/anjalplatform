@@ -28,8 +28,14 @@ export default async function RespondOverviewPage({ searchParams }: { searchPara
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {canEdit && (
         <Section title="Import activities" icon="📥" tone="amber" className="mb-6" hint={`One row per level. Columns: ${RESPOND_HEADERS.join(", ")}. Curriculum Map ID is the level, e.g. G4.U1.TS1.RTR.BELOW. In the list columns write one item per line. Importing again replaces the activity of that level.`}>
+          <p className="mb-3 flex flex-wrap gap-2 text-sm">
+            <span className="font-semibold text-slate-700">Templates for Grade {grade?.grade ?? 4}:</span>
+            <a href={`/api/respond-template?grade=${grade?.grade ?? 4}&format=docx`} className="rounded-lg bg-white px-3 py-1 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇️ Word</a>
+            <a href={`/api/respond-template?grade=${grade?.grade ?? 4}&format=xlsx`} className="rounded-lg bg-white px-3 py-1 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇️ Excel</a>
+            <span className="text-slate-500">Fill in only the activities you have; empty ones are skipped. A PDF: save it as Word first.</span>
+          </p>
           <form action={importRespondAction} className="flex flex-wrap items-center gap-3 text-sm">
-            <input type="file" name="file" accept=".xlsx,.csv" required />
+            <input type="file" name="file" accept=".xlsx,.csv,.docx,.txt" required />
             <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">Import</button>
           </form>
         </Section>

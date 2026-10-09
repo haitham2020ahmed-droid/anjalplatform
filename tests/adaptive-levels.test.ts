@@ -62,7 +62,7 @@ describe("adaptive curriculum levels (Below → On → Above) driven by Lexile",
       await repo.updateMany("Question", { id: { in: ids } }, { status: "PUBLISHED" });
     });
 
-    test("a student with no data starts at Below, climbs to On then Above, and finishes when Above is mastered", async () => {
+    test("a student with no data starts at On Level, climbs to Above, and finishes when Above is mastered", async () => {
       const r = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS2.ACS", studentIds: [roster[0].id, roster[1].id], maxQuestions: 20 });
       assert.deepEqual([r.groups.length, r.groups[0].questions], [1, 18], "one adaptive set with the whole pool");
       const aid = r.groups[0].assignmentId; adaptiveId = aid;
@@ -77,9 +77,9 @@ describe("adaptive curriculum levels (Below → On → Above) driven by Lexile",
         seen.push(String(q.stem).split(" ")[0]);
         v = (await submitQuizAnswer(repo, st, { assignmentId: aid, questionId: it.questionId, response: it.options!.find((o) => o.correct)!.label }, new Date((clock += 30_000)))).view;
       }
-      assert.deepEqual(seen, [...Array(4).fill("BELOW"), ...Array(4).fill("ON"), ...Array(4).fill("ABOVE")], "4 at each level, then done");
+      assert.deepEqual(seen, [...Array(4).fill("ON"), ...Array(4).fill("ABOVE")], "no data → On Level; 4 at each level, then done");
       const rep = await assignmentReport(repo, st, aid);
-      assert.match(rep.masteryLevel, /Reached Above Level \(path: Below → On → Above\)/);
+      assert.match(rep.masteryLevel, /Reached Above Level \(path: On → Above\)/);
       assert.equal((await assignedSkills(repo, st)).items.find((i) => i.assignmentId === aid)!.status, "COMPLETED");
       // the level reached is kept for THIS category (the next set of the category starts there); the overall level is MAP / teacher
       const cat = (await repo.findMany("StudentCategoryLevel", { studentId: roster[0].id }))[0];

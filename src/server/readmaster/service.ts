@@ -7,6 +7,7 @@
  *     benchmark). The version shown is the one whose level matches the student's Lexile (grade Lexile bands);
  *     crossing a band edge moves them to the next version — real adaptivity between versions.
  */
+import { masterSkills } from "../skills/master";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, can, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -50,11 +51,8 @@ async function articleInSchool(repo: Repo, actor: Actor, id: string): Promise<Ro
 
 /** Skills of a grade for the article form (name → the article's skill). */
 export async function gradeSkills(repo: Repo, schoolId: string, grade: number): Promise<{ id: string; name: string }[]> {
-  const gs = await repo.findMany("Grade", { schoolId, level: grade }, { select: ["id"] });
-  const curs = gs.length ? await repo.findMany("Curriculum", { gradeId: { in: gs.map((g) => g.id) } }, { select: ["id"] }) : [];
-  if (!curs.length) return [];
-  const all = await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, isActive: true, deletedAt: null }, { select: ["id", "name", "code"] });
-  return all.filter((k) => !s(k.code).endsWith(".curriculum-map-unclassified")).map((k) => ({ id: s(k.id), name: s(k.name) })).sort((a, b) => a.name.localeCompare(b.name));
+  // 🧩 the master skills list
+  return (await masterSkills(repo, schoolId, { grade })).map((k) => ({ id: k.id, name: k.name }));
 }
 
 /** Common Core standards of a grade (shared by all schools), grouped by strand. */

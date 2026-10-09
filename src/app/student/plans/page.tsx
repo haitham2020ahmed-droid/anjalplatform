@@ -1,3 +1,4 @@
+import { hideLevels } from "@/lib/hide-levels";
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
@@ -18,7 +19,7 @@ export default async function MyPlans() {
         <ul className="grid gap-4 md:grid-cols-2">
           {plans.map((p) => (
             <li key={p.id}><Link href={`/student/plans/${p.id}`} className="lift block rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-              <p className="text-xl font-bold text-brand-navy">🗂️ {p.title}</p>
+              <p className="text-xl font-bold text-brand-navy">🗂️ {hideLevels(p.title)}</p>
               <div className="mt-3 flex items-center gap-3"><div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-brand-teal" style={{ width: `${p.places ? Math.round((100 * p.done) / p.places) : 0}%` }} /></div><span className="text-sm font-semibold tabular-nums text-slate-700">{p.done}/{p.places}</span></div>
             </Link></li>
           ))}

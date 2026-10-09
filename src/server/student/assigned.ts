@@ -7,6 +7,7 @@
  *   assignmentReport → the completion report (student; teacher of the class; admin)
  *   placement switch → the placement test is shown only when the school requires it
  */
+import { hideLevels } from "../../lib/hide-levels";
 import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -81,7 +82,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     if (!r) continue;
     const startAt = d(a.startAt);
     items.push({
-      kind: "questions", track: (a.track === "MAP" ? "MAP" : a.track === "NAFS" ? "NAFS" : "CURRICULUM") as AssignedSkill["track"], questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: s(a.title), standard: null,
+      kind: "questions", track: (a.track === "MAP" ? "MAP" : a.track === "NAFS" ? "NAFS" : "CURRICULUM") as AssignedSkill["track"], questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: hideLevels(s(a.title)), standard: null,
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now), completedAt: d(r.completedAt)?.toISOString() ?? null,
     });

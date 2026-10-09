@@ -99,7 +99,7 @@ export function fromNweaExport(table: string[][]): { table: string[][]; term: st
 }
 const SUBJECT_NAME = { READING: "Reading", LANGUAGE_USAGE: "Language Usage" } as const;
 
-export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[] }
+export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) */ unmatched?: { number: string; name: string }[] }
 
 /**
  * A student in the MAP file who is not on the platform yet: created in this class (teachers: their own class).
@@ -120,7 +120,7 @@ async function createStudentFromMap(repo: Repo, actor: Actor, classId: string, n
 }
 
 /** Imports Fall RIT + Spring projection. Teachers: their own classes' students only; admins: the whole school. */
-export async function importMapScores(repo: Repo, actor: Actor, table: string[][], fallYear: number, now = new Date(), opts: { createInClassId?: string } = {}): Promise<MapImportResult> {
+export async function importMapScores(repo: Repo, actor: Actor, table: string[][], fallYear: number, now = new Date(), opts: { createInClassId?: string; term?: { name: string; date: Date }; wholeFile?: boolean } = {}): Promise<MapImportResult> {
   assertCan(actor, "assignments:create");
   if (!(fallYear >= 2000 && fallYear <= 2100)) throw new ValidationError("Choose the year of the Fall test (e.g. 2026).");
   // NWEA's own export: converted, its term taken from the file; it covers whole grades without classes,
@@ -131,7 +131,7 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
     table = nwea.table; termName = nwea.term;
     testDate = new Date(Date.UTC(nwea.year, nwea.season === "FALL" ? 8 : nwea.season === "WINTER" ? 0 : 3, 15));
     opts = { ...opts, createInClassId: undefined };
-  }
+  } else if (opts.term) { termName = opts.term.name; testDate = opts.term.date; }   // manual entry: Fall, Winter or Spring
   const at = table.findIndex((r) => r.some((c) => s(c).trim()));
   if (at < 0) throw new ValidationError("The file is empty.");
   const header = table[at].map((h) => norm(s(h)));
@@ -167,6 +167,7 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   const term = termName;
   const errors: MapImportResult["errors"] = [];
   let notInClasses = 0;
+  const unmatched: { number: string; name: string }[] = [];
   let imported = 0, skipped = 0;
   const cell = (r: string[], ix: number) => (ix >= 0 ? s(r[ix]).trim() : "");
   const ritOf = (raw: string, what: string): number | null => { if (!raw) return null; const n = Number(raw); if (!Number.isInteger(n) || n < 100 || n > 350) throw new ValidationError(`${what} “${raw}” must be a whole number from 100 to 350.`); return n; };
@@ -205,7 +206,7 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
         const n = await createStudentFromMap(repo, actor, opts.createInClassId, key, fullName);
         sid = n.id; byKey.set(key.toLowerCase(), n.id); created.push({ name: fullName, username: n.username, password: n.password });
       }
-      if (!sid && nwea) { notInClasses++; continue; }   // a grade-wide NWEA file: other classes' students are expected
+      if (!sid && (nwea || opts.wholeFile)) { notInClasses++; unmatched.push({ number: key, name: fullName }); continue; }   // a grade-wide file: other classes' students are expected
       if (!sid) throw new ValidationError(`Student “${key}” was not found in your classes${opts.createInClassId ? " (write the Student Name to add them)" : " (import from one class to add new students)"}.`);
       for (const [subject, rit, growth, pct, rapid] of [["READING", readRit, readGrowth, readPct, readRapid], ["LANGUAGE_USAGE", langRit, langGrowth, langPct, langRapid]] as const) {
         const subjGoals = goals.filter((x) => x.g.subject === subject);
@@ -229,7 +230,7 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   }
   await repo.create("AuditLog", { actorId: actor.userId, action: "map.scores.import", entityType: "MapResult", entityId: null, after: { term, imported, skipped, errors: errors.length, goals: goalCols.length }, createdAt: now });
   if (notInClasses) errors.push({ row: 0, message: `${notInClasses} student(s) of the NWEA file are not in ${actor.role === "TEACHER" ? "your classes" : "the school's classes"} (other classes / not on the platform yet): skipped.` });
-  return { imported, skipped, errors, term, created };
+  return { imported, skipped, errors, term, created, unmatched };
 }
 
 /** Template rows: the actor's students (number, name, grade) ready for the scores. */
