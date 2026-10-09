@@ -17,7 +17,7 @@ export default async function VisitPage({ searchParams }: { searchParams: Promis
   const tile = (l: string, val: string | number, tone = "text-brand-navy") => <div className="rounded-2xl bg-white p-4 ring-1 ring-slate-200"><p className="text-xs text-slate-500">{l}</p><p className={`text-2xl font-extrabold ${tone}`}>{val}</p></div>;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin", label: "Home" }} icon="👀" title="Class visit" subtitle="Choose a teacher and a class to see their work as they see it. Read only — nothing can be changed from here, and it is not a live screen or camera."><PrintButton /></PageHeader>
+      <PageHeader back={{ href: "/admin", label: "Home" }} icon="👀" title="Class Visit" subtitle="Choose a teacher and a class to see their work as they see it. Read only — nothing can be changed from here, and it is not a live screen or camera."><PrintButton /></PageHeader>
       <nav aria-label="Teachers" className="flex flex-wrap gap-2 print:hidden">{teachers.map((t) => <Link key={t.id} href={`/admin/visit?t=${t.id}`} className={chip(v?.teacher.id === t.id)}>{t.name}</Link>)}</nav>
       {!v ? <p className="mt-5 rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">↑ Choose a teacher.</p> : (
         <>
@@ -33,7 +33,7 @@ export default async function VisitPage({ searchParams }: { searchParams: Promis
                 {tile("Exit tickets", v.tickets)}{tile("Comments to students", v.comments)}{tile("Class goal this week", v.goals ?? "—")}{tile("Weekly rhythm", v.rhythm ?? "—")}
               </div>
               <section className="mt-5 rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-                <h3 className="font-bold text-brand-navy">📝 Recent work</h3>
+                <h3 className="font-bold text-brand-navy">📝 Recent Work</h3>
                 {!v.work.length ? <p className="mt-1 text-slate-500">Nothing assigned yet.</p> : <ul className="mt-2 divide-y divide-slate-100 text-sm">{v.work.map((w, i) => <li key={i} className="flex flex-wrap justify-between gap-2 py-1.5"><Link href={w.href} className="font-semibold text-brand-navy hover:underline">{w.title}</Link><span className="text-slate-600">{w.done}/{w.total} done{w.late ? <span className="text-red-700"> · {w.late} late</span> : ""}{w.dueAt ? ` · due ${w.dueAt.slice(0, 10)}` : ""}</span></li>)}</ul>}
               </section>
               <section className="mt-5 rounded-3xl bg-white p-5 ring-1 ring-slate-200">

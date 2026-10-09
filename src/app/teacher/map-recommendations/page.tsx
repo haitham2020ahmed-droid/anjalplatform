@@ -19,7 +19,7 @@ export default async function MapRecommendations({ searchParams }: { searchParam
   const isTeacher = actor.role === "TEACHER";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/map-rit", label: "MAP RIT" }} icon="💡" title="MAP recommendations"
+      <PageHeader back={{ href: "/teacher/map-rit", label: "MAP RIT" }} icon="💡" title="MAP Recommendations"
         subtitle="After the MAP scores are uploaded, the platform suggests skills for each student (their weakest MAP goal areas, then the skills where their mastery is lowest). Untick what you do not want and assign: it goes to the student's 🗺️ My MAP." />
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <nav aria-label="Classes" className="mb-4 flex flex-wrap gap-2">

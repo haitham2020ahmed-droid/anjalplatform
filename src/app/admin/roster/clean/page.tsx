@@ -21,10 +21,10 @@ export default async function CleanRosterPage({ searchParams }: { searchParams: 
   const pill = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-bold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin/roster", label: "Roster" }} icon="🧹" title="Clean roster"
+      <PageHeader back={{ href: "/admin/roster", label: "Roster" }} icon="🧹" title="Clean Roster"
         subtitle="Remove students before loading a new roster. Archive keeps everything (recommended). Delete permanently removes the students and all their data. Teachers and parents are never touched." />
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      <Section title="1 · Which students" icon="🎯">
+      <Section title="1 · Which Students" icon="🎯">
         <div className="flex flex-wrap gap-2">
           <Link href="/admin/roster/clean" className={pill(scope.kind === "SCHOOL")}>Whole school</Link>
           {grades.sort((a, b) => Number(a.level) - Number(b.level)).map((g) => <Link key={String(g.id)} href={`/admin/roster/clean?scope=grade&grade=${g.level}`} className={pill(scope.kind === "GRADE" && scope.grade === Number(g.level))}>Grade {String(g.level)}</Link>)}
@@ -36,10 +36,10 @@ export default async function CleanRosterPage({ searchParams }: { searchParams: 
         <p className="mt-2 text-sm text-slate-600">Scope: <b>{p.label}</b></p>
       </Section>
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
-        <Section title="2a · Archive (recommended)" icon="📦" tone="sky" hint="Students cannot sign in and leave their classes. Their answers, MAP scores and reports are kept, so nothing is lost.">
+        <Section title="2a · Archive (Recommended)" icon="📦" tone="sky" hint="Students cannot sign in and leave their classes. Their answers, MAP scores and reports are kept, so nothing is lost.">
           <form action={archiveRosterAction}>{hidden}<button disabled={!p.students} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">📦 Archive {p.students} student(s)</button></form>
         </Section>
-        <Section title="2b · Delete permanently" icon="🗑" tone="amber" hint="Removes the students and ALL their data (answers, MAP, levels, ReadMaster, games…). This cannot be undone: download the backup first.">
+        <Section title="2b · Delete Permanently" icon="🗑" tone="amber" hint="Removes the students and ALL their data (answers, MAP, levels, ReadMaster, games…). This cannot be undone: download the backup first.">
           <a href={`/api/roster-backup?${q}`} className="inline-block rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇ Download backup (JSON)</a>
           <form action={deleteRosterAction} className="mt-3 space-y-2">{hidden}
             <label className="block text-sm">Type <code className="rounded bg-red-50 px-1.5 py-0.5 font-bold text-red-800">{p.confirm}</code> to confirm<input name="confirm" autoComplete="off" required className="mt-1 w-full rounded-xl border border-red-300 px-3 py-2" /></label>
@@ -47,7 +47,7 @@ export default async function CleanRosterPage({ searchParams }: { searchParams: 
           </form>
         </Section>
       </div>
-      <Section title="3 · Add the new roster" icon="➕" className="mt-6" hint="Upload the roster file (role, username, display_name, student_number, grade, class). New classes are created automatically.">
+      <Section title="3 · Add the New Roster" icon="➕" className="mt-6" hint="Upload the roster file (role, username, display_name, student_number, grade, class). New classes are created automatically.">
         <Link href="/admin/roster" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">➕ Import roster</Link>
       </Section>
     </AppShell>

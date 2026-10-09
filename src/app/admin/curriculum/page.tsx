@@ -27,7 +27,7 @@ export default async function CurriculumAdmin() {
       </div>
 
       <section className={card}>
-        <h2 className="font-semibold text-brand-navy">Add a grade</h2>
+        <h2 className="font-semibold text-brand-navy">Add a Grade</h2>
         <p className="text-sm text-slate-600">Grades are only created here, by an admin. Each new grade starts with an empty curriculum.</p>
         <ActionForm action={createGradeAction} submit="Create grade" className="mt-2 flex flex-wrap items-end gap-3">
           <label className="text-sm">Grade number<input name="level" type="number" min={0} max={12} required className={`${input} ms-2 w-20`} /></label>

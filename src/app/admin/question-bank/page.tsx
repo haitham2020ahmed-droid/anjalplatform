@@ -25,7 +25,7 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
     <AppShell name={String(me.displayName)}>
       <p><Link href={actor.role === "TEACHER" ? "/teacher" : "/admin"} className="text-brand-teal hover:underline">← Back</Link></p>
       <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-3xl font-bold text-brand-navy">Question bank coverage</h1>
+        <h1 className="text-3xl font-bold text-brand-navy">Question Bank Coverage</h1>
         <div className="flex flex-wrap gap-2">
           <Link href="/admin/questions?status=DRAFT&ai=1" className="rounded-xl bg-amber-100 px-4 py-2 font-semibold text-amber-900">AI drafts to review ({aiPending})</Link>
           {mayGenerate && <Link href="/admin/question-bank/generate" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">Generate questions</Link>}

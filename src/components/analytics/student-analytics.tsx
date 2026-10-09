@@ -34,12 +34,12 @@ export function StudentAnalyticsView({ a }: { a: StudentAnalytics }) {
       </dl>
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
         <div>
-          <h3 className="font-semibold text-brand-navy">Mastery by month</h3>
+          <h3 className="font-semibold text-brand-navy">Mastery by Month</h3>
           <LineChart title="Average mastery by month" labels={g.series.map((p) => p.label)} series={[{ name: "Average mastery", color: "#1f3a68", points: g.series.map((p) => p.mastery) }]} height={200} />
           <p className="text-sm text-slate-600">Start {g.start ?? "–"}, now {g.current ?? "–"}{g.growth !== null ? `, growth ${g.growth > 0 ? "+" : ""}${g.growth}${g.growthPct !== null ? ` (${g.growthPct > 0 ? "+" : ""}${g.growthPct}%)` : ""}` : ""}.</p>
         </div>
         <div>
-          <h3 className="font-semibold text-brand-navy">Growth by skill</h3>
+          <h3 className="font-semibold text-brand-navy">Growth by Skill</h3>
           <ul className="mt-2 divide-y divide-slate-100 text-sm">
             {g.skills.map((s) => <li key={s.skillId} className="flex justify-between py-1.5"><span>{s.name}</span><span className="tabular-nums">{s.start} → {s.now} ({s.growth >= 0 ? "+" : ""}{s.growth})</span></li>)}
           </ul>
@@ -48,7 +48,7 @@ export function StudentAnalyticsView({ a }: { a: StudentAnalytics }) {
         </div>
       </div>
       <div className="mt-6 rounded-xl bg-slate-50 p-4">
-        <h3 className="font-semibold text-brand-navy">Imported MAP Growth results</h3>
+        <h3 className="font-semibold text-brand-navy">Imported MAP Growth Results</h3>
         {a.importedMap.length === 0 ? <p className="mt-1 text-sm text-slate-600">No MAP results have been imported for this student.</p> : (
           <ul className="mt-1 text-sm">{a.importedMap.map((m, i) => <li key={i}>{m.testDate}: {m.subject}{m.goalArea ? `, ${m.goalArea}` : ""}, RIT {m.rit}{m.percentile !== null ? `, percentile ${m.percentile}` : ""}</li>)}</ul>
         )}

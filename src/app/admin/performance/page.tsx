@@ -17,7 +17,7 @@ export default async function PerformancePage() {
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/admin" className="text-brand-teal hover:underline">← Administration</Link></p>
-      <h1 className="mt-2 text-3xl font-bold text-brand-navy">Teacher &amp; student performance</h1>
+      <h1 className="mt-2 text-3xl font-bold text-brand-navy">Teacher &amp; Student Performance</h1>
       <p className="mt-1 text-slate-600">Mastery is the students' average across the skills they practised. Completion is the share of assigned work completed.</p>
       <dl className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
         {tile("Teachers", String(t.teachers))}{tile("Classes", String(t.classes))}{tile("Students", String(t.students))}{tile("Active this week", `${t.activeThisWeek} of ${t.students}`)}
@@ -59,14 +59,14 @@ export default async function PerformancePage() {
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         <section>
-          <h2 className="text-xl font-bold text-brand-navy">Skills needing the most work</h2>
+          <h2 className="text-xl font-bold text-brand-navy">Skills Needing the Most Work</h2>
           <ul className="mt-2 divide-y rounded-2xl bg-white ring-1 ring-slate-200">
             {p.weakSkills.length === 0 && <li className="p-4 text-sm text-slate-600">Not enough practice yet.</li>}
             {p.weakSkills.map((k) => <li key={k.name + k.grade} className="flex items-center justify-between gap-3 p-3 text-sm"><span>G{k.grade} · {k.name} <span className="text-slate-500">({k.students} students)</span></span><span className={`font-semibold tabular-nums ${tone(k.avgMastery)}`}>{k.avgMastery}%</span></li>)}
           </ul>
         </section>
         <section>
-          <h2 className="text-xl font-bold text-brand-navy">Students who need attention</h2>
+          <h2 className="text-xl font-bold text-brand-navy">Students Who Need Attention</h2>
           <p className="text-sm text-slate-600">Mastery under 40% or 2+ overdue assignments.</p>
           <ul className="mt-2 divide-y rounded-2xl bg-white ring-1 ring-slate-200">
             {p.attention.length === 0 && <li className="p-4 text-sm text-slate-600">No student needs attention right now.</li>}

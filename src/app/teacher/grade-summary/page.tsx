@@ -20,7 +20,7 @@ export default async function GradeSummaryPage({ searchParams }: { searchParams:
   const pct = (n: number, d: number) => (d ? `${Math.round((n / d) * 100)}%` : "—");
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="🏫" title="Grade summary" subtitle="Each class at a glance. Click a class to see its students.">
+      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="🏫" title="Grade Summary" subtitle="Each class at a glance. Click a class to see its students.">
         {(["READING", "LANGUAGE"] as const).map((x) => <Link key={x} href={`/teacher/grade-summary?subject=${x}`} className={`${chip(x === subject)} print:hidden`}>{x === "READING" ? "📖 Reading" : "✏️ Language"}</Link>)}
         <PrintButton />
       </PageHeader>

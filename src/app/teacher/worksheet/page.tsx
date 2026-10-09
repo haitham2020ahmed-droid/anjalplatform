@@ -38,7 +38,7 @@ export default async function WorksheetPage({ searchParams }: { searchParams: Pr
     return (
       <AppShell name={String(me.displayName)}>
         <div className="print:hidden">
-          <PageHeader back={{ href: url({ levels: "" }), label: "One sheet" }} icon="🎚" title="Worksheet in 3 levels" subtitle={<>The same skills on three sheets: <b>● easier</b>, <b>●● on level</b>, <b>●●● harder</b>. Each sheet starts on a new page and has its own answer key. Students see only the dots.</>}>
+          <PageHeader back={{ href: url({ levels: "" }), label: "One sheet" }} icon="🎚" title="Worksheet in 3 Levels" subtitle={<>The same skills on three sheets: <b>● easier</b>, <b>●● on level</b>, <b>●●● harder</b>. Each sheet starts on a new page and has its own answer key. Students see only the dots.</>}>
             <PrintButton />
           </PageHeader>
           <div className="mb-5 grid gap-3 sm:grid-cols-3">{sheets.map((x) => <div key={x.level} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200"><p className="text-lg font-bold text-brand-navy">{x.mark} {x.name}</p><p className="text-sm text-slate-600">{x.view.count} questions{x.filled ? ` · ${x.filled} taken from the same skills` : ""}</p></div>)}</div>
@@ -105,12 +105,12 @@ export default async function WorksheetPage({ searchParams }: { searchParams: Pr
           {sp.skillId ? (
             <form action="/teacher/worksheet" className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
               <input type="hidden" name="keep" value={keep.join(",")} /><input type="hidden" name="title" value={title} /><input type="hidden" name="grade" value={grade} />
-              <div className="flex items-center justify-between gap-2"><h2 className="font-bold text-brand-navy">Tick the questions you want</h2><button className="rounded-lg bg-brand-navy px-4 py-2 font-semibold text-white">＋ Add to the worksheet</button></div>
+              <div className="flex items-center justify-between gap-2"><h2 className="font-bold text-brand-navy">Tick the Questions You Want</h2><button className="rounded-lg bg-brand-navy px-4 py-2 font-semibold text-white">＋ Add to the worksheet</button></div>
               <ul className="mt-3 space-y-1 text-sm">{qs.map((q) => <li key={q.id} className="flex items-start gap-1"><PrintToggle id={q.id} stem={q.stem} className="mt-1.5" /><label className="flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-slate-50"><input type="checkbox" name="q" value={q.id} defaultChecked={keep.includes(q.id)} className="mt-1" /><span><span className="me-1 rounded bg-slate-100 px-1 text-xs">{q.type.replace(/_/g, " ").toLowerCase()} · {q.level <= 2 ? "easier" : q.level >= 6 ? "harder" : "middle"}</span>{q.passage && <span className="me-1 text-xs text-sky-700">📖 {q.passage}</span>}{q.stem}</span></label></li>)}</ul>
             </form>
           ) : <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">← Choose a skill to see its questions.</p>}
           <div className="mt-5 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-            <h2 className="font-bold text-brand-navy">📁 My worksheets and shared ones</h2>
+            <h2 className="font-bold text-brand-navy">📁 My Worksheets and Shared Ones</h2>
             {!list.length ? <p className="mt-2 text-sm text-slate-500">None yet.</p> : (
               <ul className="mt-2 space-y-1 text-sm">{list.map((w) => <li key={w.id} className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-slate-50 px-3 py-1.5"><Link href={`/teacher/worksheet?w=${w.id}`} className="font-semibold text-brand-navy hover:underline">{w.title}</Link><span className="text-slate-500">{w.count} questions · {w.mine ? (w.shared ? "mine · shared" : "mine") : `by ${w.author}`} · {w.updatedAt.slice(0, 10)}</span>{w.mine && <form action={deleteWorksheetAction}><input type="hidden" name="id" value={w.id} /><button className="text-xs text-red-700 underline">delete</button></form>}</li>)}</ul>
             )}

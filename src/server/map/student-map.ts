@@ -12,6 +12,7 @@ import { ValidationError } from "../curriculum-admin";
 import { accessibleClasses } from "../teacher/assign";
 import { assertClassAccess } from "../teacher/assignments";
 import { createUser } from "../admin/users";
+import { draftPlansFor, type AutoPlans } from "./map-auto";
 import { bandOf, ensureNationalNorms, nationalNorm, seasonOf } from "./rit";
 
 const s = (v: unknown) => String(v ?? "");
@@ -99,7 +100,7 @@ export function fromNweaExport(table: string[][]): { table: string[][]; term: st
 }
 const SUBJECT_NAME = { READING: "Reading", LANGUAGE_USAGE: "Language Usage" } as const;
 
-export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) */ unmatched?: { number: string; name: string }[] }
+export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) */ unmatched?: { number: string; name: string }[]; /** individual plan drafts made from these scores */ plans?: AutoPlans }
 
 /**
  * A student in the MAP file who is not on the platform yet: created in this class (teachers: their own class).
@@ -169,6 +170,7 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   let notInClasses = 0;
   const unmatched: { number: string; name: string }[] = [];
   let imported = 0, skipped = 0;
+  const touched = new Set<string>();
   const cell = (r: string[], ix: number) => (ix >= 0 ? s(r[ix]).trim() : "");
   const ritOf = (raw: string, what: string): number | null => { if (!raw) return null; const n = Number(raw); if (!Number.isInteger(n) || n < 100 || n > 350) throw new ValidationError(`${what} “${raw}” must be a whole number from 100 to 350.`); return n; };
   for (let i = at + 1; i < table.length; i++) {
@@ -222,7 +224,7 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
         if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: subject === "READING" ? keep(lexile, "lexile") : null, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now });
         for (const x of subjGoals) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: s(x.g.area!.name), goalAreaId: s(x.g.area!.id), rit: x.rit, termName: term, importedAt: now });
       }
-      imported++;
+      imported++; touched.add(sid);
     } catch (e) {
       if (e instanceof ValidationError || e instanceof ForbiddenError) { errors.push({ row: rowNo, message: e.message }); continue; }
       throw e;
@@ -230,7 +232,9 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   }
   await repo.create("AuditLog", { actorId: actor.userId, action: "map.scores.import", entityType: "MapResult", entityId: null, after: { term, imported, skipped, errors: errors.length, goals: goalCols.length }, createdAt: now });
   if (notInClasses) errors.push({ row: 0, message: `${notInClasses} student(s) of the NWEA file are not in ${actor.role === "TEACHER" ? "your classes" : "the school's classes"} (other classes / not on the platform yet): skipped.` });
-  return { imported, skipped, errors, term, created, unmatched };
+  // the new scores make the individual plans (drafts) and the 3-level groups at once
+  const plans = await draftPlansFor(repo, actor, [...touched], now);
+  return { imported, skipped, errors, term, created, unmatched, plans };
 }
 
 /** Template rows: the actor's students (number, name, grade) ready for the scores. */

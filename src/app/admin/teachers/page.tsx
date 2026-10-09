@@ -19,7 +19,7 @@ export default async function TeachersFollowupPage({ searchParams }: { searchPar
   const warned = rows.filter((r) => r.warnings.length);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin", label: "Administration" }} icon="🧑‍🏫" title="Teacher follow-up" subtitle="Who signs in, assigns work, checks results and helps students at risk. Warnings show each teacher's classes so you can judge fairly."><PrintButton /></PageHeader>
+      <PageHeader back={{ href: "/admin", label: "Administration" }} icon="🧑‍🏫" title="Teacher Follow-Up" subtitle="Who signs in, assigns work, checks results and helps students at risk. Warnings show each teacher's classes so you can judge fairly."><PrintButton /></PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <dl className="grid gap-3 sm:grid-cols-4">
         <Tile label="Teachers" value={String(rows.length)} /><Tile label="With warnings" value={String(warned.length)} tone={warned.length ? "text-red-700" : "text-emerald-700"} />

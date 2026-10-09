@@ -60,3 +60,4 @@ export async function saveBandsAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "settings:school" });
   await run(f, async () => { await setBandSettings(repo, actor, { size: Number(f.get("size")), min: Number(f.get("min")), max: Number(f.get("max")) }); return "✓ RIT bands saved."; }, "matrix");
 }
+

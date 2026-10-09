@@ -24,7 +24,7 @@ export default async function AlertsPage({ searchParams }: { searchParams: Promi
   const old = rows.filter((r) => r.status === "OPEN" && r.ageDays >= 7).length;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: isAdmin ? "/admin" : "/teacher", label: "Home" }} icon="🚨" title="Student alerts"
+      <PageHeader back={{ href: isAdmin ? "/admin" : "/teacher", label: "Home" }} icon="🚨" title="Student Alerts"
         subtitle={isAdmin ? <>Every class. <b>{rows.filter((r) => r.status === "OPEN").length}</b> not handled{old ? <>, <b className="text-red-700">{old} for a week or more</b></> : ""}.</> : "Students who need attention now. Do something small, write what you did, and mark it handled: your head of department sees it."}>
         <PrintButton />
         <Link href={`/api/alerts-export?status=${status}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal print:hidden">⬇ Excel</Link>

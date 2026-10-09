@@ -1828,6 +1828,8 @@ model MapPlan {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   sentAt        DateTime?
+  /// set when the teacher edits the draft: new MAP scores then keep it (untouched drafts are made again)
+  editedAt      DateTime?
 
   @@index([classId, subject, term])
   @@index([studentId])

@@ -17,7 +17,7 @@ export default async function LoginsPage({ searchParams }: { searchParams: Promi
   const chip = (on: boolean) => `rounded-full px-3 py-1 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin", label: "Home" }} icon="🔑" title="Sign-ins" subtitle={`Last 7 days: ${v.logins7} sign-ins · ${v.failed7} failed attempts. Students who never signed in or not for a week are listed first.`} />
+      <PageHeader back={{ href: "/admin", label: "Home" }} icon="🔑" title="Sign-Ins" subtitle={`Last 7 days: ${v.logins7} sign-ins · ${v.failed7} failed attempts. Students who never signed in or not for a week are listed first.`} />
       <div className="flex flex-wrap gap-2">{(["STUDENT", "TEACHER", "PARENT", "SCHOOL_ADMIN"] as const).map((r) => <Link key={r} href={`/admin/logins?role=${r}`} className={chip(r === role)}>{r === "SCHOOL_ADMIN" ? "Admins" : `${r[0]}${r.slice(1).toLowerCase()}s`}</Link>)}</div>
       <p className="mt-3 text-slate-700"><b className="text-red-700">{never}</b> never signed in · <b className="text-amber-700">{week}</b> not in the last 7 days · {list.length} in all</p>
       <div className="mt-3 overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200"><table className="min-w-full text-left text-sm"><thead><tr className="border-b text-xs text-slate-500"><th className="p-3">Name</th><th>Class</th><th>Last sign-in</th><th>Days ago</th></tr></thead>

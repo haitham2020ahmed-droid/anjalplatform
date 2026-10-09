@@ -34,7 +34,7 @@ export default async function SettingsPage() {
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">Settings</h1>
 
       <section className={card}>
-          <h2 className={h2}>Placement test</h2>
+          <h2 className={h2}>Placement Test</h2>
           <p className="text-sm text-slate-600">Students see only the skills their teachers assign. Turn this on to also ask students who have not taken the placement test to take it.</p>
           <ActionForm action={placementAction} submit="Save" className="mt-2 flex flex-wrap items-center gap-4">
             <label className="flex items-center gap-2"><input type="radio" name="required" value="1" defaultChecked={placementOn} /> Required</label>
@@ -44,7 +44,7 @@ export default async function SettingsPage() {
 
       {school && (
         <section className={card}>
-          <h2 className={h2}>School calendar</h2>
+          <h2 className={h2}>School Calendar</h2>
           <p className="text-sm text-slate-600">Terms decide the “this term” period on dashboards and reports. Saving a year with the same name replaces it.</p>
           <ActionForm action={yearAction} submit="Save calendar" className="mt-3 space-y-3">
             <div className="grid gap-3 sm:grid-cols-4">
@@ -87,7 +87,7 @@ export default async function SettingsPage() {
 
       {branding && (
         <section className={card}>
-          <h2 className={h2}>Report branding</h2>
+          <h2 className={h2}>Report Branding</h2>
           <p className="text-sm text-slate-600">Shown at the top of every PDF and Excel report. Logo: PNG, JPEG or SVG, up to 1 MB.</p>
           <ActionForm action={brandingAction} submit="Save branding" className="mt-3 grid gap-3 sm:grid-cols-2">
             <label className={label}>School name (English)<input value={branding.name} disabled className={field} /></label>
@@ -100,7 +100,7 @@ export default async function SettingsPage() {
 
       {ladder && (
         <section className={card}>
-          <h2 className={h2}>🎯 Level movement &amp; mastery</h2>
+          <h2 className={h2}>🎯 Level Movement &amp; Mastery</h2>
           <p className="text-sm text-slate-600">How students move between Below, On and Above Level during their work, and when a skill counts as mastered. Students never see the level names.</p>
           <ActionForm action={ladderAction} submit="Save rules" className="mt-3 space-y-3">
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -119,7 +119,7 @@ export default async function SettingsPage() {
 
       {school && (
         <section className={card}>
-          <h2 className={h2}>🧑‍🏫 Grade coordinators</h2>
+          <h2 className={h2}>🧑‍🏫 Grade Coordinators</h2>
           <p className="text-sm text-slate-600">A coordinator can see every class of their grade(s): progress, MAP, Respond to Reading and the grade summary. They can only assign work to their own classes.</p>
           <ActionForm action={coordinatorsAction} submit="Save coordinators" className="mt-3 space-y-2">
             {teacherUsers.length === 0 ? <p className="text-sm text-slate-500">No teachers yet.</p> : (
@@ -135,7 +135,7 @@ export default async function SettingsPage() {
 
       {engine && (
         <section className={card}>
-          <h2 className={h2}>Adaptive engine</h2>
+          <h2 className={h2}>Adaptive Engine</h2>
           <p className="text-sm text-slate-600">Change these only with care: they affect every student&apos;s practice. Values outside the safe range are refused. Empty fields keep the default.</p>
           <ActionForm action={engineSettingsAction} submit="Save engine settings" className="mt-3 space-y-4">
             <div className="grid gap-3 sm:grid-cols-3">

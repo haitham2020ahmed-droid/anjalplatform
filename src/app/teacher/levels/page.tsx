@@ -37,7 +37,7 @@ export default async function LevelsPage({ searchParams }: { searchParams: Promi
   const editBands = actor.role !== "TEACHER" && can(actor, "settings:school");
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: isTeacher ? "/teacher" : "/admin", label: "Back" }} icon="🎯" title="Student levels &amp; tests" subtitle={<>Each student’s level decides which Curriculum Map questions they get (Above / On / Below Level). Set it here, or give the Placement test: its score sets the level automatically (80%+ Above, 50–79% On, under 50% Below).</>} />
+      <PageHeader back={{ href: isTeacher ? "/teacher" : "/admin", label: "Back" }} icon="🎯" title="Student Levels &amp; Tests" subtitle={<>Each student’s level decides which Curriculum Map questions they get (Above / On / Below Level). Set it here, or give the Placement test: its score sets the level automatically (80%+ Above, 50–79% On, under 50% Below).</>} />
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {!v ? <p className="mt-6 text-slate-600">No classes yet.</p> : (
         <>

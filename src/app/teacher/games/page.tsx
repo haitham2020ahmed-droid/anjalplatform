@@ -20,14 +20,14 @@ export default async function GamesPage({ searchParams }: { searchParams: Promis
   const box = "rounded-xl border border-slate-300 px-3 py-2";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="🎮" title="Live game"
+      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="🎮" title="Live Game"
         subtitle="A quiz competition like Kahoot: choose the skills, show the PIN and QR code on the board, students join from their page or by scanning, then you start. Points for correct and fast answers, with a streak bonus." />
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-red-50 px-4 py-3 text-red-800 ring-1 ring-red-200">{sp.msg}</p>}
       <Link href="/teacher/games/qr" className="lift mb-5 flex items-center justify-between gap-3 rounded-3xl bg-gradient-to-br bg-linear-to-br from-amber-50 to-white p-5 ring-1 ring-amber-200">
         <span><span className="block text-lg font-extrabold text-brand-navy">📱 Skill games with QR codes</span><span className="block text-sm text-slate-600">Every skill has a game. Each student plays at their own level and it counts toward their progress. Print QR cards or show one on the board.</span></span>
         <span className="rounded-xl bg-brand-navy px-4 py-2 font-bold text-white">Open ▶</span>
       </Link>
-      <Section title="New live game (whole class together)" icon="➕">
+      <Section title="New Live Game (Whole Class Together)" icon="➕">
         <nav aria-label="Classes" className="mb-4 flex flex-wrap gap-2">
           {classes.map((c) => <Link key={String(c.id)} href={`/teacher/games?classId=${c.id}`} aria-current={c.id === klass?.id ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-bold ${c.id === klass?.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{String(c.name)}</Link>)}
         </nav>
@@ -50,7 +50,7 @@ export default async function GamesPage({ searchParams }: { searchParams: Promis
         )}
       </Section>
       {games.length > 0 && (
-        <Section title="My games" icon="🕹️" className="mt-6">
+        <Section title="My Games" icon="🕹️" className="mt-6">
           <ul className="grid gap-2 md:grid-cols-2">
             {games.map((g) => <li key={g.id}><Link href={`/teacher/games/${g.id}`} className="lift flex items-center justify-between rounded-2xl bg-white p-3 ring-1 ring-slate-200"><span><span className="block font-bold text-brand-navy">{g.title}</span><span className="text-xs text-slate-500">PIN {g.code} · {g.players} player(s) · {g.createdAt}</span></span><span className={`rounded-full px-2 py-0.5 text-xs font-bold ${g.status === "FINISHED" ? "bg-slate-100 text-slate-600" : "bg-emerald-100 text-emerald-800"}`}>{g.status === "FINISHED" ? "Finished" : "Open"}</span></Link></li>)}
           </ul>

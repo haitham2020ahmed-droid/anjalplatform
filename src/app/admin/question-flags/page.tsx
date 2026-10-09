@@ -17,7 +17,7 @@ export default async function FlagsPage({ searchParams }: { searchParams: Promis
   const chip = (on: boolean) => `rounded-full px-3 py-1 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin", label: "Home" }} icon="🚩" title="Flagged questions" subtitle="Students pressed “This question is not clear”. Most reported first. Open the question, fix it, then mark it fixed." />
+      <PageHeader back={{ href: "/admin", label: "Home" }} icon="🚩" title="Flagged Questions" subtitle="Students pressed “This question is not clear”. Most reported first. Open the question, fix it, then mark it fixed." />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <div className="mb-4 flex gap-2">{([["OPEN", "To check"], ["FIXED", "Fixed"], ["DISMISSED", "Not a problem"]] as const).map(([k, l]) => <Link key={k} href={`/admin/question-flags?status=${k}`} className={chip(status === k)}>{l}</Link>)}</div>
       {!rows.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">Nothing here. ✅</p> : (

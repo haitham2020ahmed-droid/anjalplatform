@@ -12,10 +12,10 @@ export default async function ImportsPage() {
   const jobs = await listImports(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
-      <h1 className="text-3xl font-bold text-brand-navy">Import results</h1>
+      <h1 className="text-3xl font-bold text-brand-navy">Import Results</h1>
       <p className="mt-1 text-slate-600">Bring in MAP Growth and other assessment results. Official values are stored exactly as in the file.</p>
       <div className="mt-6"><UploadForm /></div>
-      <h2 className="mt-10 text-xl font-bold text-brand-navy">Recent imports</h2>
+      <h2 className="mt-10 text-xl font-bold text-brand-navy">Recent Imports</h2>
       <ul className="mt-3 divide-y divide-slate-200 rounded-2xl bg-white ring-1 ring-slate-200">
         {jobs.length === 0 && <li className="p-4 text-slate-600">No imports yet.</li>}
         {jobs.map((j) => (

@@ -32,7 +32,7 @@ export function StudentDetailView({ d, classHref }: { d: StudentDetail; classHre
           ) : <p className="mt-1 text-slate-600">Not taken yet.</p>}
         </section>
         <section className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Skills practised</h2>
+          <h2 className="text-lg font-bold text-brand-navy">Skills Practised</h2>
           <ul className="mt-2 divide-y divide-slate-100">
             {d.skills.map((s) => (
               <li key={s.skillId} className="grid grid-cols-[minmax(0,1fr)_auto] gap-2 py-1.5">
@@ -45,7 +45,7 @@ export function StudentDetailView({ d, classHref }: { d: StudentDetail; classHre
       </div>
 
       <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-        <h2 className="text-lg font-bold text-brand-navy">Recent answers</h2>
+        <h2 className="text-lg font-bold text-brand-navy">Recent Answers</h2>
         <div className="mt-2 overflow-x-auto">
           <table className="min-w-full text-sm">
             <thead className="text-left text-slate-500"><tr>{["When", "Skill", "Question", "Answer", "Result", "Time"].map((h) => <th key={h} scope="col" className="px-2 py-2 font-medium">{h}</th>)}</tr></thead>
@@ -66,7 +66,7 @@ export function StudentDetailView({ d, classHref }: { d: StudentDetail; classHre
       </section>
 
       <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-        <h2 className="text-lg font-bold text-brand-navy">Why the platform chose each question</h2>
+        <h2 className="text-lg font-bold text-brand-navy">Why the Platform Chose Each Question</h2>
         <p className="text-sm text-slate-500">Every adaptive decision is recorded: ability before and after (θ), the question&apos;s difficulty, and the reason.</p>
         <ol className="mt-3 space-y-2">
           {d.decisions.map((x, i) => (

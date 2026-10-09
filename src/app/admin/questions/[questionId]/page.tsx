@@ -42,7 +42,7 @@ export default async function QuestionPage({ params, searchParams }: { params: P
 
       {d.canReviewAi && (
         <section className={card}>
-          <h2 className={h2}>Review this AI-drafted question</h2>
+          <h2 className={h2}>Review This AI-Drafted Question</h2>
           <p className="text-sm text-slate-600">Check the question, the correct answer and the explanation below (edit if needed), then approve it for students or reject it.</p>
           <div className="mt-3 grid gap-4 sm:grid-cols-2">
             <ActionForm action={aiReviewAction} submit="Approve for students" className="space-y-2">
@@ -58,7 +58,7 @@ export default async function QuestionPage({ params, searchParams }: { params: P
 
       {flash && <p role="status" className="animate-pop mb-4 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{flash}</p>}
       <section className={card}>
-        <h2 className={h2}>Next step</h2>
+        <h2 className={h2}>Next Step</h2>
         <div className="mt-3 grid gap-4 sm:grid-cols-2">
           {d.status === "DRAFT" && d.canEdit && step("submit", "Send for review")}
           {d.canReview && step("approve", "Approve and publish", { note: "optional" })}

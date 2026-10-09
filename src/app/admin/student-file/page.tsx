@@ -14,7 +14,7 @@ export default async function FindStudentPage({ searchParams }: { searchParams: 
   const found = await searchStudents(repo, actor, q);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader icon="🔎" title="Find a student" subtitle={actor.role === "TEACHER" ? "Students of your classes: name, student ID or username." : "Any student of the school: name, student ID or username."} />
+      <PageHeader icon="🔎" title="Find a Student" subtitle={actor.role === "TEACHER" ? "Students of your classes: name, student ID or username." : "Any student of the school: name, student ID or username."} />
       <form action="/admin/student-file" className="flex gap-2">
         <input name="q" defaultValue={q} autoFocus placeholder="e.g. Ahmed, 20231045, ahmed.k" className="flex-1 rounded-2xl border border-slate-300 bg-white px-4 py-3 text-lg" />
         <button className="rounded-2xl bg-brand-navy px-6 py-3 font-semibold text-white">Search</button>

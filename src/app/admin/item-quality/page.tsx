@@ -19,7 +19,7 @@ export default async function ItemQualityPage() {
   const { rows, checked } = await itemQuality(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin/questions", label: "Question Bank" }} icon="🔬" title="Question quality"
+      <PageHeader back={{ href: "/admin/questions", label: "Question Bank" }} icon="🔬" title="Question Quality"
         subtitle={`From the students' own answers: every published question with ${MIN_ANSWERS}+ answers is checked against its level. ${checked} checked · ${rows.length} need attention.`}>
         <Link href="/admin/bank-gaps" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">🕳 Bank gaps</Link>
       </PageHeader>

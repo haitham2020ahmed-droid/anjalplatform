@@ -16,7 +16,7 @@ export default async function GrowthPage({ searchParams }: { searchParams: Promi
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/map-rit", label: "MAP" }} icon="📈" title="MAP growth" subtitle="Growth from Fall to the latest MAP test, compared with what NWEA projected (Winter ≈ 55% of the year's projected growth, Spring = 100%).">
+      <PageHeader back={{ href: "/teacher/map-rit", label: "MAP" }} icon="📈" title="MAP Growth" subtitle="Growth from Fall to the latest MAP test, compared with what NWEA projected (Winter ≈ 55% of the year's projected growth, Spring = 100%).">
         <Link href="/teacher/growth" className={chip(subject === "READING")}>📖 Reading</Link><Link href="/teacher/growth?subject=LANGUAGE" className={chip(subject === "LANGUAGE")}>✏️ Language</Link><PrintButton />
       </PageHeader>
       {!classes.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">The growth report appears when a Winter or Spring MAP score is imported after the Fall one.</p> : (

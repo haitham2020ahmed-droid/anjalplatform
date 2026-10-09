@@ -18,7 +18,7 @@ export function RespondActivityCard({ a, showLevel = true }: { a: RespondActivit
       </header>
       <div className="space-y-4 p-5">
         <section className="rounded-2xl bg-violet-50 p-4 ring-1 ring-violet-200">
-          <h3 className="text-sm font-bold uppercase tracking-wide text-violet-800">✍️ Your task</h3>
+          <h3 className="text-sm font-bold uppercase tracking-wide text-violet-800">✍️ Your Task</h3>
           <p className="mt-1 text-lg font-semibold leading-relaxed text-slate-900">{a.prompt}</p>
         </section>
         {a.instructions.length > 0 && (
@@ -30,13 +30,13 @@ export function RespondActivityCard({ a, showLevel = true }: { a: RespondActivit
         <div className="grid gap-4 md:grid-cols-2">
           {a.wordBank.length > 0 && (
             <section className={box}>
-              <h3 className="font-bold text-brand-navy">🔤 Word bank</h3>
+              <h3 className="font-bold text-brand-navy">🔤 Word Bank</h3>
               <ul className="mt-2 space-y-1 text-slate-800">{a.wordBank.map((x, i) => { const [w, ...m] = x.split(/\s+[—–-]\s+/); return <li key={i}><b>{w}</b>{m.length ? <span className="text-slate-600"> — {m.join(" — ")}</span> : null}</li>; })}</ul>
             </section>
           )}
           {a.sentenceStarters.length > 0 && (
             <section className={box}>
-              <h3 className="font-bold text-brand-navy">💬 Sentence starters</h3>
+              <h3 className="font-bold text-brand-navy">💬 Sentence Starters</h3>
               <ul className="mt-2 space-y-1.5 text-slate-800">{a.sentenceStarters.map((x, i) => <li key={i} className="rounded-lg bg-slate-50 px-3 py-1.5">{x}</li>)}</ul>
             </section>
           )}

@@ -62,7 +62,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
       </span>)}
       <Link prefetch={false} href={`/admin/questions?status=PUBLISHED&map=${n.code}`}
         className={`rounded-full px-2 py-0.5 font-bold ring-1 ${n.level ? (n.counts.adaptive >= LEVEL_TARGET ? "bg-emerald-50 text-emerald-800 ring-emerald-300" : n.counts.adaptive > 0 ? "bg-amber-50 text-amber-900 ring-amber-300" : "bg-red-50 text-red-800 ring-red-300") : "text-brand-navy ring-slate-300"} hover:ring-brand-teal`}
-        title="Adaptive questions: published and marked automatically — exactly what the adaptive sets use">🔁 {n.counts.adaptive}{n.level ? `/${LEVEL_TARGET}` : ""} adaptive</Link>
+        title="Adaptive questions: published and marked automatically — exactly what the adaptive sets use">🔁 {n.counts.adaptive} adaptive</Link>
       {n.counts.teacher > 0 && <span className="rounded-full bg-violet-50 px-2 py-0.5 font-semibold text-violet-800 ring-1 ring-violet-200" title="Open-response questions with a model answer: the teacher marks them; never in adaptive sets">✍️ {n.counts.teacher} teacher-scored</span>}
       {!isTeacher && n.counts.waiting > 0 && <Link prefetch={false} href={`/admin/questions?status=DRAFT&map=${n.code}`} className="rounded-full bg-slate-100 px-2 py-0.5 font-semibold text-slate-700 ring-1 ring-slate-200" title="Drafts and questions waiting for review: not used until published">📝 {n.counts.waiting} waiting</Link>}
       {canAdd && <Link prefetch={false} href={`/admin/curriculum-map/place/${n.code}`} className="rounded-full bg-brand-navy px-2 py-0.5 font-semibold text-white hover:bg-brand-purple" title="One question, or many from a ready template">➕ Add questions</Link>}
@@ -110,7 +110,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
               <p className="text-lg font-bold text-brand-navy">Grade {v.level} · <span aria-hidden="true">📗</span> {v.book.title} {!isTeacher && <span className="text-sm font-normal text-slate-500">· {v.attachmentNodes} places · {v.questions} adaptive questions</span>}</p>
               {!isTeacher && v.coverage.some((c) => c.places) && (
                 <div className="mt-2 space-y-1.5 text-sm" aria-label="Adaptive questions per level">
-                  <p className="font-semibold text-slate-600">🔁 Places with {LEVEL_TARGET}+ adaptive questions per level:</p>
+                  <p className="font-semibold text-slate-600">🔁 Places that have adaptive questions, per level:</p>
                   {[...new Set(v.coverage.map((c) => c.category))].map((cat) => (
                     <div key={cat} className="flex flex-wrap items-center gap-2">
                       <span className="w-56 text-slate-700">{cat}</span>

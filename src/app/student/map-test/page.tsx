@@ -14,7 +14,7 @@ export default async function MapTestHome() {
   const btn = "rounded-xl px-5 py-2.5 font-semibold";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student/map", label: "My MAP" }} icon="🧭" title="MAP practice test" subtitle="Just like MAP Growth: the questions adapt to you, one at a time. No time limit, and you can pause and come back. Do your best!" />
+      <PageHeader back={{ href: "/student/map", label: "My MAP" }} icon="🧭" title="MAP Practice Test" subtitle="Just like MAP Growth: the questions adapt to you, one at a time. No time limit, and you can pause and come back. Do your best!" />
       <section className="mb-6 rounded-3xl bg-gradient-to-br bg-linear-to-br from-sky-50 to-white p-5 ring-1 ring-sky-200">
         <h2 className="text-lg font-bold text-brand-navy">🧪 Warm-up {t.warmupDone && <span className="text-sm font-normal text-emerald-700">· done ✓</span>}</h2>
         <p className="text-slate-700">5 questions to see how the test screen works. It does not count.</p>

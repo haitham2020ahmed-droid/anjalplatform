@@ -15,10 +15,10 @@ export function AssignmentReportView({ r, backHref, backLabel }: { r: Assignment
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         <section className="rounded-2xl bg-teal-50 p-4 ring-1 ring-teal-200"><h2 className="font-semibold text-teal-900">Strengths</h2>
           {r.strengths.length ? <ul className="mt-1 list-disc ps-5 text-sm text-teal-900">{r.strengths.map((x) => <li key={x}>{x}</li>)}</ul> : <p className="mt-1 text-sm text-teal-900">Answer a few more questions to see your strengths.</p>}</section>
-        <section className="rounded-2xl bg-amber-50 p-4 ring-1 ring-amber-200"><h2 className="font-semibold text-amber-900">Needs practice</h2>
+        <section className="rounded-2xl bg-amber-50 p-4 ring-1 ring-amber-200"><h2 className="font-semibold text-amber-900">Needs Practice</h2>
           {r.needsPractice.length ? <ul className="mt-1 list-disc ps-5 text-sm text-amber-900">{r.needsPractice.map((x) => <li key={x}>{x}</li>)}</ul> : <p className="mt-1 text-sm text-amber-900">Nothing stands out. Good work!</p>}</section>
       </div>
-      <section className="mt-4 rounded-2xl bg-white p-4 ring-1 ring-slate-200"><h2 className="font-semibold text-brand-navy">Recommended next step</h2><p className="mt-1 text-slate-700">{r.nextStep}</p></section>
+      <section className="mt-4 rounded-2xl bg-white p-4 ring-1 ring-slate-200"><h2 className="font-semibold text-brand-navy">Recommended Next Step</h2><p className="mt-1 text-slate-700">{r.nextStep}</p></section>
     </div>
   );
 }

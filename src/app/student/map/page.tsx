@@ -90,7 +90,7 @@ export default async function StudentMapPage() {
 
       {m.plans.length > 0 && (
         <section className="mb-6 rounded-3xl bg-gradient-to-br bg-linear-to-br from-violet-50 to-white p-5 ring-1 ring-violet-200">
-          <h2 className="text-xl font-bold text-brand-navy">📋 My MAP plan</h2>
+          <h2 className="text-xl font-bold text-brand-navy">📋 My MAP Plan</h2>
           {m.plans.map((d) => (
             <div key={d.id} className="mt-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
               <div className="flex flex-wrap items-center justify-between gap-2">
@@ -127,7 +127,7 @@ export default async function StudentMapPage() {
 
       {mapWork.some((w) => w.status === "COMPLETED") && (
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-brand-navy">✅ Finished MAP work</h2>
+          <h2 className="text-lg font-bold text-brand-navy">✅ Finished MAP Work</h2>
           <ul className="mt-2 flex flex-wrap gap-2">{mapWork.filter((w) => w.status === "COMPLETED").map((w) => <li key={w.assignmentId}><Link href={hrefOf(w)} className="inline-block rounded-xl bg-white px-3 py-1.5 text-sm ring-1 ring-slate-200 hover:ring-brand-teal">{w.skill} · report</Link></li>)}</ul>
         </section>
       )}

@@ -20,15 +20,15 @@ export default async function UsersPage({ searchParams }: { searchParams: Promis
     <AppShell name={String(me.displayName)}>
       <p><Link href="/admin" className="text-brand-teal hover:underline">← Administration</Link></p>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">Users</h1>
-      <p className="mt-1 text-slate-600">To add many users at once, use <Link href="/admin/roster" className="text-brand-teal hover:underline">Import users</Link>.</p>
+      <p className="mt-1 text-slate-600">To add many users at once, use <Link href="/admin/roster" className="text-brand-teal hover:underline">Import Users</Link>, or <Link href="/admin/quick-students" className="text-brand-teal hover:underline">⚡ paste a class's names</Link>.</p>
 
       <section className={card} aria-labelledby="new-user">
-        <h2 id="new-user" className={h2}>New account</h2>
+        <h2 id="new-user" className={h2}>New Account</h2>
         <div className="mt-3"><CreateUserForm grades={grades} classes={classes} /></div>
       </section>
 
       <section className={card} aria-labelledby="all-users">
-        <h2 id="all-users" className={h2}>All accounts</h2>
+        <h2 id="all-users" className={h2}>All Accounts</h2>
         <form className="mt-3 flex flex-wrap items-end gap-3" method="get">
           <label className={label}>Role<select name="role" defaultValue={role ?? ""} className={field}><option value="">All</option>{MANAGED_ROLES.map((r) => <option key={r} value={r}>{ROLE_LABEL[r]}</option>)}</select></label>
           <label className={label}>Search<input name="q" defaultValue={q.q ?? ""} placeholder="Name, username or number" className={field} /></label>

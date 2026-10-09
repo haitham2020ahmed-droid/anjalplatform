@@ -12,7 +12,7 @@ export default async function CommentsPage() {
   const list = await commentsFor(repo, actor, actor.studentId!);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student", label: "My work" }} icon="💬" title="Comments from my teachers" />
+      <PageHeader back={{ href: "/student", label: "My work" }} icon="💬" title="Comments from My Teachers" />
       {!list.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No comments yet.</p> : (
         <ul className="space-y-3">{list.map((c) => (
           <li key={c.id} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">

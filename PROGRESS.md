@@ -107,3 +107,12 @@ Tests: `tests/update20.test.ts` (19 tests) + `scripts/load/school-sim.ts` (100 s
 - Parent pages in English only.
 - **🔎 Find a student / full file** (admin: the whole school; teachers: their classes): everything about one student on one page, and 👁 “See it as the student does” (view only).
 - **Respond to Reading: Model Answer** column (teachers only, never shown to students) in the Excel / Word import and the editor.
+
+## Update 22
+- ⚡ Students & MAP Setup (/admin/quick-students): paste a class's names → accounts (username from the name, AJ26-### numbers when the school has none, temporary passwords) + printable sign-in cards; links to the roster and MAP templates and manual MAP entry.
+- MAP scores (template, NWEA file, ASG PDF or typed) → individual plan drafts for both subjects at once; class teachers are notified when an admin imports. Untouched drafts are rebuilt from new scores; drafts the teacher edited (MapPlan.editedAt) are kept.
+- Plans from overall RIT only (no goal-area scores): every area of the subject at the student's band, status from the descriptor.
+- 🖨 Print all individual plans of a class (/teacher/map-plans/print), one per page; 3-Level Group Plan (Personalized plan) linked from MAP plans and the MAP menu.
+- The questions import recognises Respond to Reading, ReadMaster, MAP and roster files and says where they go.
+- Headings, page titles and menu labels in Title Case.
+- Schema: MapPlan.editedAt (run `npx prisma db push`).

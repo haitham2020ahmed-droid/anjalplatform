@@ -17,7 +17,7 @@ export default async function PlayPage({ searchParams }: { searchParams: Promise
       <div className="mx-auto max-w-md space-y-5">
         <form action={joinGameAction} className="animate-pop rounded-3xl bg-gradient-to-br bg-linear-to-br from-brand-navy to-brand-purple p-8 text-center text-white shadow-xl">
           <p className="animate-float text-6xl" aria-hidden="true">🎮</p>
-          <h1 className="mt-2 text-3xl font-black">Join a game</h1>
+          <h1 className="mt-2 text-3xl font-black">Join a Game</h1>
           <label className="mt-5 block"><span className="sr-only">Game PIN</span>
             <input name="code" inputMode="numeric" autoComplete="off" required maxLength={8} placeholder="Game PIN" className="w-full rounded-2xl bg-white px-4 py-4 text-center font-mono text-3xl font-black tracking-[0.3em] text-brand-navy" />
           </label>

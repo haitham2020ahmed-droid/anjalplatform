@@ -25,7 +25,7 @@ export default async function ImportQuestionsPage({ searchParams }: { searchPara
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/admin/questions" className="text-brand-teal hover:underline">← Questions</Link></p>
-      <h1 className="mt-2 text-3xl font-bold text-brand-navy">Import questions</h1>
+      <h1 className="mt-2 text-3xl font-bold text-brand-navy">Import Questions</h1>
       <CcssNote className="mt-3" />
       <p className="mt-1 max-w-3xl text-slate-600">Prepare your Excel file, upload it, review every question, then import. Nothing is added to the question bank until you confirm, and imported questions go through the normal review before students see them.</p>
 
@@ -91,7 +91,7 @@ export default async function ImportQuestionsPage({ searchParams }: { searchPara
       )}
 
       <section className={card}>
-        <h2 className={h2}>Import history</h2>
+        <h2 className={h2}>Import History</h2>
         {jobs.length === 0 ? <p className="text-slate-600">No imports yet.</p> : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">

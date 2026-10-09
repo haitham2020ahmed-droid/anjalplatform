@@ -196,13 +196,20 @@ export function pickBand(pool: PoolQ[], low: number, high: number, size: number,
 export interface PlanItem { group: GroupKey; status: AreaStatus | null; rit: number | null; low: number; high: number; skillIds: string[]; count: number }
 export interface PlanView { id: string; studentId: string; name: string; subject: Subject; term: string; status: "DRAFT" | "SENT"; items: (PlanItem & { name: string; icon: string; band: string; questions: number; skills: { id: string; name: string }[]; allSkills: { id: string; name: string }[] })[]; note: string | null; dueAt: string | null; sentAt: string | null; profile: MapProfile }
 
-/** The automatic plan for one profile: up to 2 FOCUS areas, weakest first (no FOCUS → the weakest area). */
+/** The automatic plan for one profile: up to 2 FOCUS areas, weakest first (no FOCUS → the weakest area).
+ *  Without goal-area scores (only the overall RIT, e.g. a school list): every area of the subject at the
+ *  overall band — status from the overall descriptor (Low/LoAvg → focus, HiAvg/High → extend). */
 export function autoItems(p: MapProfile, skillsByGroup: Map<GroupKey, string[]>, bands: BandSettings, count = 15): PlanItem[] {
   const withRit = p.areas.filter((a) => a.rit !== null);
   const overall = p.overall?.rit ?? null;
-  // no goal-area scores: use the overall RIT for every area of the subject, weakest by nothing → the first two
-  const base = withRit.length ? withRit : overall !== null ? p.areas.map((a) => ({ ...a, rit: overall, low: ritBand(overall, bands).low, high: ritBand(overall, bands).high, status: "MAINTAIN" as AreaStatus })) : [];
-  const ordered = [...base].sort((a, b) => Number(a.status !== "FOCUS") - Number(b.status !== "FOCUS") || (a.rit ?? 0) - (b.rit ?? 0));
+  if (!withRit.length) {
+    if (overall === null) return [];
+    const d = p.overall?.descriptor ?? null;
+    const status: AreaStatus = d === "Low" || d === "LoAvg" ? "FOCUS" : d === "HiAvg" || d === "High" ? "EXTEND" : "MAINTAIN";
+    const b = ritBand(overall, bands);
+    return p.areas.map((a) => ({ group: a.group, status, rit: overall, low: b.low, high: b.high, skillIds: (skillsByGroup.get(a.group) ?? []).slice(0, 3), count: Math.max(8, Math.round(count * 2 / 3)) }));
+  }
+  const ordered = [...withRit].sort((a, b) => Number(a.status !== "FOCUS") - Number(b.status !== "FOCUS") || (a.rit ?? 0) - (b.rit ?? 0));
   const chosen = ordered.filter((a) => a.status === "FOCUS").slice(0, 2);
   if (!chosen.length && ordered.length) chosen.push(ordered[0]);
   return chosen.map((a) => ({ group: a.group, status: a.status, rit: a.rit, low: a.low!, high: a.high!, skillIds: (skillsByGroup.get(a.group) ?? []).slice(0, 3), count }));
@@ -290,7 +297,7 @@ export async function updatePlan(repo: Repo, actor: Actor, planId: string, input
     next.push({ group: input.addGroup, status: a?.status ?? null, rit, low: b.low, high: b.high, skillIds: [], count: 15 });
   }
   if (!next.length) throw new ValidationError("Keep at least one area in the plan.");
-  await repo.updateMany("MapPlan", { id: planId }, { items: next, note: s(input.note).slice(0, 1000) || null, dueAt: input.dueAt ?? null, updatedAt: now });
+  await repo.updateMany("MapPlan", { id: planId }, { items: next, note: s(input.note).slice(0, 1000) || null, dueAt: input.dueAt ?? null, updatedAt: now, editedAt: now });
 }
 
 /** Sends plans: each area becomes one adaptive set of the student's band (track MAP); the student is notified. */

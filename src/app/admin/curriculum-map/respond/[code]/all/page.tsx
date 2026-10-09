@@ -18,7 +18,7 @@ export default async function RespondAllLevels({ params, searchParams }: { param
   const label = "flex flex-col gap-1 text-sm font-semibold text-slate-700";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: `/admin/curriculum-map/respond/${p.setCode}`, label: "Respond to Reading" }} icon="✍️" title="All three levels"
+      <PageHeader back={{ href: `/admin/curriculum-map/respond/${p.setCode}`, label: "Respond to Reading" }} icon="✍️" title="All Three Levels"
         subtitle={<>Grade {p.grade} · {p.unit} · <b>{p.heading}</b>{p.sharedRead ? <> · 📖 {p.sharedRead}</> : null}. Lists: one item per line. A level left without Title and Prompt is not changed.</>} />
       {sp.msg && <p role="status" className="mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <form action={saveAllLevelsAction}>

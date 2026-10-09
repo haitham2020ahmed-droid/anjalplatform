@@ -11,7 +11,7 @@ export function QuestionOfTheDay({ q, area, answered }: { q: ClientQuestion; are
   const [res, setRes] = useState<Graded | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  if (answered && !res) return <section className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-yellow-50 to-white p-5 ring-1 ring-yellow-200"><h2 className="font-bold text-brand-navy">☀️ Question of the day</h2><p className="mt-1 text-slate-700">Done for today ✓ Come back tomorrow for a new one!</p></section>;
+  if (answered && !res) return <section className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-yellow-50 to-white p-5 ring-1 ring-yellow-200"><h2 className="font-bold text-brand-navy">☀️ Question of the Day</h2><p className="mt-1 text-slate-700">Done for today ✓ Come back tomorrow for a new one!</p></section>;
   return (
     <section className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-yellow-50 to-white p-5 ring-1 ring-yellow-200">
       <h2 className="font-bold text-brand-navy">☀️ Question of the day <span className="text-sm font-normal text-slate-500">· {area} · +5 points</span></h2>

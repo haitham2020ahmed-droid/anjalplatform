@@ -34,6 +34,7 @@ export async function importMapFile(repo: Repo, actor: Actor, fileName: string, 
 export function importMessage(r: MapImportResult & { kind?: string; norms?: string | null }): string {
   const parts = [`${r.term}: ${r.imported} student(s) imported${r.kind === "ASG" ? " with their Spring projection" : ""}${r.norms ? ` (${r.norms})` : ""}`];
   if (r.created.length) parts.push(`${r.created.length} new student(s) added`);
+  if (r.plans?.plans) parts.push(`📋 ${r.plans.plans} individual MAP plan draft(s) ready (${r.plans.classes.filter((c) => c.plans).map((c) => c.name).join(", ")}) — MAP → MAP plans`);
   if (r.skipped) parts.push(`${r.skipped} row(s) without a score skipped`);
   if (r.unmatched?.length) parts.push(`⚠️ not found on the platform (check their Student ID): ${r.unmatched.slice(0, 12).map((u) => `${u.name || "?"} (${u.number})`).join(", ")}${r.unmatched.length > 12 ? ` and ${r.unmatched.length - 12} more` : ""}`);
   const errs = r.errors.filter((e) => !/not in your classes|not in the school's classes/.test(e.message));

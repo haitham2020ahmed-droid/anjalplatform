@@ -32,7 +32,7 @@ export default async function ExitResultsPage({ params, searchParams }: { params
         ))}
       </section>
       <section className="mt-5 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-        <h2 className="font-bold text-brand-navy">Students (lowest first)</h2>
+        <h2 className="font-bold text-brand-navy">Students (Lowest First)</h2>
         <ul className="mt-2 grid gap-1 sm:grid-cols-2 lg:grid-cols-3">{r.students.map((s) => <li key={s.id} className="flex justify-between rounded-lg bg-slate-50 px-3 py-1.5 text-sm"><span>{s.name}</span><span className={`font-semibold tabular-nums ${s.score === null ? "text-slate-400" : s.score === s.total ? "text-emerald-700" : s.score <= 1 ? "text-red-700" : "text-amber-700"}`}>{s.score === null ? "not yet" : `${s.score}/${s.total}`}</span></li>)}</ul>
       </section>
     </AppShell>

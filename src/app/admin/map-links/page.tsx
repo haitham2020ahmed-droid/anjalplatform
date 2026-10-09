@@ -17,7 +17,7 @@ export default async function MapLinksPage({ searchParams }: { searchParams: Pro
   const nameOf = (c: string | null) => v.areas.find((a) => a.code === c);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin/skills", label: "Skills" }} icon="🔗" title="Question bank ↔ MAP goal areas"
+      <PageHeader back={{ href: "/admin/skills", label: "Skills" }} icon="🔗" title="Question Bank ↔ MAP Goal Areas"
         subtitle={<>A skill’s questions are used for MAP plans, small groups and the mid-unit check only when the skill has a MAP goal area. <b>{missing.length}</b> of {v.rows.length} skills have none. The suggestion comes from the skill’s CCSS standard (L.x.1 → Grammar, L.x.2 → Mechanics, L.x.4–6 and RL/RI.x.4 → Vocabulary, RL → Literary, RI → Informational, W → Writing).</>}>
         {missing.some((r) => r.suggested) && <form action={applySuggestionsAction}><button className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white hover:bg-emerald-700">✓ Apply all suggestions ({missing.filter((r) => r.suggested).length})</button></form>}
         <a href={sp.all ? "/admin/map-links" : "/admin/map-links?all=1"} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">{sp.all ? "Only unlinked" : "Show all skills"}</a>

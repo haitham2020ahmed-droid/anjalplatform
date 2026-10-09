@@ -1452,6 +1452,7 @@ CREATE TABLE "MapPlan" (
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "updatedAt" TEXT NOT NULL,
   "sentAt" TEXT,
+  "editedAt" TEXT,
   PRIMARY KEY ("id")
 );
 

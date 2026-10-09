@@ -20,7 +20,7 @@ export function PlacementFrame(props: {
   return (
     <div className="mx-auto max-w-5xl">
       <header className="border-b border-slate-200 pb-4">
-        <h1 className="text-2xl font-bold text-brand-navy">Placement check</h1>
+        <h1 className="text-2xl font-bold text-brand-navy">Placement Check</h1>
         <p className="text-slate-600">Question {props.answered + 1}. Most students finish in about 20 questions. Do your best; there are no marks.</p>
         <div className="mt-3 h-2 w-full max-w-md rounded-full bg-slate-200" aria-hidden="true">
           <div className="h-2 rounded-full bg-brand-teal" style={{ width: `${Math.min(100, Math.round(((props.answered) / props.max) * 100))}%` }} />

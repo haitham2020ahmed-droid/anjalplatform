@@ -22,7 +22,7 @@ export async function saveMapEntryAction(f: FormData): Promise<void> {
       classId, subject, season, year,
       rows: ids.map((id) => ({ studentId: id, rit: val(`rit:${id}`), percentile: val(`pct:${id}`), projection: val(`proj:${id}`), lexile: val(`lex:${id}`), goals: Object.fromEntries(goalCodes.map((c) => [c, val(`g:${c}:${id}`)])) })),
     });
-    msg = `${r.imported} student(s) saved for ${r.term}.${r.errors.length ? ` ⚠️ ${r.errors.map((e) => e.message).join(" · ")}` : ""}`;
+    msg = `${r.imported} student(s) saved for ${r.term}.${r.plans?.plans ? ` 📋 ${r.plans.plans} MAP plan draft(s) ready in MAP plans.` : ""}${r.errors.length ? ` ⚠️ ${r.errors.map((e) => e.message).join(" · ")}` : ""}`;
   } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = e.message; else throw e; }
   redirect(`/teacher/map-entry?${new URLSearchParams({ classId, subject, season, year: String(year), msg })}`);
 }

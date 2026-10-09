@@ -29,7 +29,7 @@ export default async function DepartmentPage() {
         {tile("Alerts handled", d.totals.alertsHandled, "text-emerald-700")}
       </dl>
       <section className="mt-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-        <h2 className="text-xl font-bold text-brand-navy">Class comparison</h2>
+        <h2 className="text-xl font-bold text-brand-navy">Class Comparison</h2>
         <div className="mt-3 overflow-x-auto">
           <table className="min-w-full text-left text-sm">
             <thead><tr className="border-b text-xs text-slate-500"><th className="py-2 pe-3">Class</th><th className="px-2">Teacher</th><th className="px-2">Students</th><th className="px-2">Practised (week)</th><th className="px-2">Answers</th><th className="px-2">Minutes</th><th className="px-2">Accuracy</th><th className="px-2">Tasks done</th><th className="px-2">Late</th><th className="px-2">MAP tested</th><th className="px-2">On track</th><th className="px-2">At risk</th><th className="px-2">Alerts open</th><th className="px-2">Handled</th></tr></thead>

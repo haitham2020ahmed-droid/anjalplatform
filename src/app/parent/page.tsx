@@ -16,7 +16,7 @@ export default async function ParentHome() {
   const shared = new Map(await Promise.all(children.map(async (c) => [c.studentId, await isReportShared(repo, String(actor.schoolId), c.studentId)] as const)));
   return (
     <AppShell name={String(me.displayName)}>
-      <h1 className="text-3xl font-bold text-brand-navy">My children</h1>
+      <h1 className="text-3xl font-bold text-brand-navy">My Children</h1>
       <p className="mt-1 text-slate-600">English progress reports</p>
       {children.length === 0 ? (
         <p className="mt-6 text-slate-600">No children are linked to your account yet. Please contact the school.</p>

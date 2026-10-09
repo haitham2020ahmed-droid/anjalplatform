@@ -114,7 +114,7 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
       )}
       {norms && (
         <form action={updateNormsAction} className="mt-8 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">National averages (NWEA norms) · admins</h2>
+          <h2 className="text-lg font-bold text-brand-navy">National Averages (NWEA Norms) · Admins</h2>
           <p className="text-sm text-slate-600">Mean RIT and standard deviation for Reading. Update them when NWEA publishes new norms.</p>
           <table className="mt-3 text-sm">
             <thead><tr className="text-slate-500"><th className="pe-4 text-left">Grade</th>{SEASONS.map((se) => <th key={se} className="px-2 text-left">{se.charAt(0) + se.slice(1).toLowerCase()} (mean / SD)</th>)}</tr></thead>

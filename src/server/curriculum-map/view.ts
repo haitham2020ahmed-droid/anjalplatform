@@ -11,7 +11,8 @@ export interface MapViewNode {
   counts: { adaptive: number; teacher: number; waiting: number };
 }
 /** The number of adaptive questions each level of a place should have. */
-export const LEVEL_TARGET = 20;
+/** A level place counts as ready once it has questions (the real count is shown; no fixed target). */
+export const LEVEL_TARGET = 1;
 const LEVEL_RANK: Record<string, number> = { BELOW: 1, ON: 2, ABOVE: 3 };
 export interface LevelCoverage { category: string; level: "BELOW" | "ON" | "ABOVE"; places: number; atTarget: number }
 export interface MapView { grades: { level: number; name: string }[]; level: number | null; book: MapViewNode | null; attachmentNodes: number; questions: number; coverage: LevelCoverage[] }

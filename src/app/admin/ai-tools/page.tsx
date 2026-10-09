@@ -46,7 +46,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
   const field = "rounded-lg border border-slate-300 px-3 py-2";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin", label: "Administration" }} icon="🤖" title="AI tools"
+      <PageHeader back={{ href: "/admin", label: "Administration" }} icon="🤖" title="AI Tools"
         subtitle="Clean and complete the question bank with the help of AI — one skill at a time. The AI reads questions and passages only, never student data. Nothing changes until you approve it." />
       <div className={`mb-4 flex flex-wrap items-center gap-3 rounded-2xl px-4 py-3 text-sm ring-1 ${picked.ok ? "bg-emerald-50 text-emerald-900 ring-emerald-200" : "bg-amber-50 text-amber-900 ring-amber-200"}`}>
         {picked.ok ? <span>✅ Connected: <b>{picked.name === "gemini" ? "Google Gemini" : "Claude"}</b> · model <code>{picked.model}</code></span> : <span>⚠️ {picked.reason}</span>}
@@ -98,7 +98,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
               </form>
             ))}
               <div className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-amber-50 to-white p-5 ring-1 ring-amber-200">
-                <h3 className="text-lg font-bold text-brand-navy">🆕 New questions</h3><p className="text-sm text-slate-600">Every week the new questions get a Quality Check and Auto-Tag by themselves. {weekly.newQuestions} new question(s) now.</p>
+                <h3 className="text-lg font-bold text-brand-navy">🆕 New Questions</h3><p className="text-sm text-slate-600">Every week the new questions get a Quality Check and Auto-Tag by themselves. {weekly.newQuestions} new question(s) now.</p>
                 <form action={weeklyAction}><button disabled={!picked.ok} className="mt-3 rounded-xl bg-amber-500 px-4 py-2 font-semibold text-white hover:bg-amber-600 disabled:opacity-50">▶ Run now</button></form>
               </div>
             </div>
@@ -110,7 +110,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
               </section>
             )}
             <section className="mt-5 rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-              <h3 className="font-bold text-brand-navy">Recent runs</h3>
+              <h3 className="font-bold text-brand-navy">Recent Runs</h3>
               <ul className="mt-2 divide-y divide-slate-100 text-sm">{jobs.map((j) => <li key={j.id} className="flex flex-wrap items-center justify-between gap-2 py-1.5"><span>{j.toolName} · {j.scope.new ? "new questions" : `Grade ${j.scope.grade ?? "all"}`}{j.scope.skillId ? " · 1 skill" : ""} · {j.createdAt.slice(0, 16).replace("T", " ")}</span><span className="flex items-center gap-2"><span className="tabular-nums">{j.done}/{j.total}{j.failed ? ` · ${j.failed} failed` : ""}</span><span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold">{j.status}</span>{(j.status === "RUNNING" || j.status === "QUEUED") && <form action={stopJobAction}><input type="hidden" name="jobId" value={j.id} /><button className="text-xs font-semibold text-red-700 underline">Stop</button></form>}<Link href={`/admin/ai-tools?tab=review&job=${j.id}`} className="text-xs font-semibold text-brand-teal underline">Results</Link></span></li>)}</ul>
             </section>
           </>
@@ -144,7 +144,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
         const l = logSummary;
         return (
           <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-            <h2 className="text-lg font-bold text-brand-navy">AI requests · last 7 days</h2>
+            <h2 className="text-lg font-bold text-brand-navy">AI Requests · Last 7 Days</h2>
             <p className="mt-1 text-sm">{l.requests} requests · {l.ok} OK · {l.invalid} invalid replies (retried) · {l.rate} limit reached · {l.down} provider down · {l.other} other · error rate {l.errorPct ?? 0}%</p>
             <ul className="mt-3 divide-y divide-slate-100 text-sm">{l.recent.map((r, i) => <li key={i} className="flex flex-wrap justify-between gap-2 py-1"><span>{r.at.slice(0, 19).replace("T", " ")} · {TOOL_NAME[r.tool as keyof typeof TOOL_NAME] ?? r.tool} · {r.ms} ms</span><span className={r.ok ? "text-emerald-700" : "text-red-700"}>{r.ok ? "OK" : r.error}</span></li>)}</ul>
           </section>
@@ -153,7 +153,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
 
       {tab === "settings" && (
         <form action={settingsAction} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">AI settings</h2>
+          <h2 className="text-lg font-bold text-brand-navy">AI Settings</h2>
           <p className="text-sm text-slate-600">The API key is kept only in the server settings (Render → Environment: GEMINI_API_KEY or ANTHROPIC_API_KEY), never in the browser. Set the limits to what Google AI Studio shows for your project (aistudio.google.com/rate-limit).</p>
           <div className="mt-3 flex flex-wrap items-end gap-3 text-sm">
             <label className="flex flex-col">Provider<select name="provider" defaultValue={settings.provider} className={field}><option value="auto">Automatic (Gemini if its key is set)</option><option value="gemini">Google Gemini</option><option value="anthropic">Claude</option><option value="off">Off</option></select></label>

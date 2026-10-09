@@ -31,7 +31,7 @@ export default async function QuestionReviewPage({ searchParams }: { searchParam
   );
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin", label: "Administration" }} icon="🏷️" title="Question tags & review"
+      <PageHeader back={{ href: "/admin", label: "Administration" }} icon="🏷️" title="Question Tags & Review"
         subtitle={<>Every question is in one bank. Its tags come from its place on the Curriculum Map, its skill and standard, and its difficulty — marked <b>Suggested</b> until you check them. Open a skill (one batch), look at the random ~10% sample, fix anything with <b>Edit</b>, then verify the ticked questions or the whole batch.</>}>
         <form action={reviewAction}><input type="hidden" name="grade" value={grade} /><input type="hidden" name="op" value="recalibrate" /><button className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Uses real answers of students with a MAP score">📐 Recalibrate RIT (Grade {grade})</button></form>
       </PageHeader>
@@ -40,7 +40,7 @@ export default async function QuestionReviewPage({ searchParams }: { searchParam
       <p className="mt-3 text-sm text-slate-600">Grade {grade}: <b>{verified}</b> of <b>{total}</b> questions verified ({total ? Math.round((verified / total) * 100) : 0}%).</p>
       <div className="mt-4 grid gap-5 lg:grid-cols-[18rem_minmax(0,1fr)]">
         <aside className="max-h-[75vh] overflow-y-auto rounded-3xl bg-white p-3 shadow-sm ring-1 ring-slate-200">
-          <h2 className="px-2 text-sm font-bold uppercase tracking-wide text-slate-500">Batches (skills)</h2>
+          <h2 className="px-2 text-sm font-bold uppercase tracking-wide text-slate-500">Batches (Skills)</h2>
           <ul className="mt-1">{batches.map((b) => (
             <li key={b.skillId}><Link href={`/admin/question-review?grade=${grade}&skillId=${b.skillId}`} aria-current={b.skillId === skillId ? "page" : undefined} className={`flex items-center justify-between gap-2 rounded-xl px-2 py-1.5 text-sm ${b.skillId === skillId ? "bg-brand-navy text-white" : "hover:bg-slate-50"}`}>
               <span className="min-w-0 truncate">{b.skill}</span><span className={`shrink-0 text-xs ${b.verified === b.questions ? "text-emerald-600" : ""}`}>{b.verified === b.questions ? "✓" : `${b.verified}/${b.questions}`}</span>

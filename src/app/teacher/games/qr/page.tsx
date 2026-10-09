@@ -27,7 +27,7 @@ export default async function SkillQrPage({ searchParams }: { searchParams: Prom
   const joins = klass ? await qrJoins(repo, actor, String(klass.id)) : [];
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/games", label: "Games" }} icon="📱" title="Skill game QR codes"
+      <PageHeader back={{ href: "/teacher/games", label: "Games" }} icon="📱" title="Skill Game QR Codes"
         subtitle="Each student plays alone at their own level; every answer counts toward their progress. Show one QR on the board, or print a sheet of cards. Students scan with a tablet or phone, sign in, and the game opens.">
         {picked.length > 0 && <PrintButton />}
       </PageHeader>

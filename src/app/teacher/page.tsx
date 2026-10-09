@@ -52,7 +52,7 @@ export default async function TeacherHome() {
       </div>
       {ob && !ob.hidden && ob.done < ob.steps.length && <div className="mt-6"><FirstWeekChecklist steps={ob.steps} back="/teacher" /></div>}
       <section className="mt-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-amber-200" aria-labelledby="alerts-h">
-        <div className="flex flex-wrap items-center justify-between gap-2"><h2 id="alerts-h" className="text-lg font-extrabold text-brand-navy">🔔 Students who need attention</h2><Link href="/teacher/alerts" className="rounded-lg bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-800 ring-1 ring-red-200 hover:bg-red-100">🚨 Alerts &amp; follow-up →</Link></div>
+        <div className="flex flex-wrap items-center justify-between gap-2"><h2 id="alerts-h" className="text-lg font-extrabold text-brand-navy">🔔 Students Who Need Attention</h2><Link href="/teacher/alerts" className="rounded-lg bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-800 ring-1 ring-red-200 hover:bg-red-100">🚨 Alerts &amp; follow-up →</Link></div>
         {alerts.length === 0 ? <p className="mt-2 text-slate-600">All good — no alerts right now. 🎉</p> : (
           <ul className="mt-2 divide-y divide-slate-100">
             {alerts.slice(0, 12).map((a, i) => (
@@ -86,7 +86,7 @@ export default async function TeacherHome() {
           </section>
         ))}
       </div>
-      <h2 className="mt-8 text-2xl font-bold text-brand-navy">My classes</h2>
+      <h2 className="mt-8 text-2xl font-bold text-brand-navy">My Classes</h2>
       {classes.length === 0 ? <p className="mt-4 text-slate-600">You are not assigned to any classes yet. Ask your school admin to add you to a class.</p> : (
         <ul className="mt-6 grid gap-4 md:grid-cols-3">
           {classes.map((c) => (

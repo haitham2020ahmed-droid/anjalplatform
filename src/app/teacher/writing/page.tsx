@@ -21,7 +21,7 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
   const box = "mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 font-normal";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="✍️" title="Writing & reading aloud" subtitle="Short writing scored with a 4-point rubric (Ideas · Organization · Language · Conventions), and reading aloud: students record themselves, you listen and score fluency."><PrintButton /></PageHeader>
+      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="✍️" title="Writing & Reading Aloud" subtitle="Short writing scored with a 4-point rubric (Ideas · Organization · Language · Conventions), and reading aloud: students record themselves, you listen and score fluency."><PrintButton /></PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
       <nav className="flex flex-wrap gap-2 print:hidden">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/writing?classId=${String(c.id)}`} className={chip(c.id === classId)}>{String(c.name)}</Link>)}</nav>
       <div className="mt-5 grid gap-5 lg:grid-cols-[22rem_1fr]">

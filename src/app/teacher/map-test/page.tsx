@@ -32,7 +32,7 @@ export default async function MapTestPage({ searchParams }: { searchParams: Prom
   const today = new Date().toISOString().slice(0, 10), in14 = new Date(Date.now() + 14 * 86_400_000).toISOString().slice(0, 10);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/map-plans", label: "MAP plans" }} icon="🧭" title="MAP practice test" subtitle="A MAP-like adaptive test for every student before Winter and Spring: 50 Reading + 50 Language questions, shared between the goal areas. It shows who is on track for the Spring goal before the real test.">
+      <PageHeader back={{ href: "/teacher/map-plans", label: "MAP plans" }} icon="🧭" title="MAP Practice Test" subtitle="A MAP-like adaptive test for every student before Winter and Spring: 50 Reading + 50 Language questions, shared between the goal areas. It shows who is on track for the Spring goal before the real test.">
         <PrintButton />
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
@@ -77,7 +77,7 @@ export default async function MapTestPage({ searchParams }: { searchParams: Prom
 
           {school && (
             <section className="mt-5 rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-              <h2 className="text-lg font-bold text-brand-navy">🏫 All classes</h2>
+              <h2 className="text-lg font-bold text-brand-navy">🏫 All Classes</h2>
               <table className="mt-2 min-w-full text-left text-sm"><thead><tr className="border-b text-xs text-slate-500"><th className="py-1">Class</th><th>Finished</th><th>Average</th><th>On track</th><th>Need support</th><th>Retest?</th></tr></thead>
                 <tbody>{school.classes.map((c) => <tr key={c.classId} className="border-b last:border-0"><td className="py-1.5 font-semibold"><Link href={link({ classId: c.classId })} className="hover:underline">G{c.grade} · {c.className}</Link></td><td>{c.done}/{c.members}</td><td>{c.avg ?? "—"}</td><td className="text-emerald-700">{c.onTrack}</td><td className="text-red-700">{c.offTrack}</td><td>{c.retest || ""}</td></tr>)}</tbody></table>
             </section>

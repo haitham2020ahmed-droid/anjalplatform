@@ -17,7 +17,7 @@ export default async function ParentReportPage({ params, searchParams }: { param
   const r = await parentReport(repo, actor, studentId);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: `/teacher/progress/${studentId}`, label: r.name }} icon="👪" title="Parent report" subtitle={r.share.shared ? `✅ Shared with the parent on ${r.share.sharedAt?.slice(0, 10)}.` : "Not shared yet. The parent sees it only after you share it."}><PrintButton /></PageHeader>
+      <PageHeader back={{ href: `/teacher/progress/${studentId}`, label: r.name }} icon="👪" title="Parent Report" subtitle={r.share.shared ? `✅ Shared with the parent on ${r.share.sharedAt?.slice(0, 10)}.` : "Not shared yet. The parent sees it only after you share it."}><PrintButton /></PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
       {actor.role === "TEACHER" && (
         <form action={shareReportAction} className="mb-5 flex flex-wrap items-end gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 print:hidden">

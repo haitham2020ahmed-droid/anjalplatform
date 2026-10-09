@@ -22,7 +22,7 @@ export default async function SkillsPage({ searchParams }: { searchParams: Promi
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin", label: "Administration" }} icon="🧩" title="Skills (master list)"
+      <PageHeader back={{ href: "/admin", label: "Administration" }} icon="🧩" title="Skills (Master List)"
         subtitle={<>Every skill of the platform, once. All skill lists (Curriculum, Assign, Games, Grammar, ReadMaster, Question Bank, MAP plans) read this list, so a new skill appears everywhere by itself.</>}>
         <Link href="/admin/map-links" className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white hover:bg-emerald-700">🔗 Link skills to MAP goal areas</Link>
       </PageHeader>

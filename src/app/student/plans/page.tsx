@@ -14,7 +14,7 @@ export default async function MyPlans() {
   const plans = await studentSkillPlans(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student", label: "My work" }} icon="🗂️" title="My plans" subtitle="Open a plan, then tap a place on the map to start its questions." />
+      <PageHeader back={{ href: "/student", label: "My work" }} icon="🗂️" title="My Plans" subtitle="Open a plan, then tap a place on the map to start its questions." />
       {plans.length === 0 ? <p className="rounded-3xl bg-white p-8 text-center text-slate-600 ring-1 ring-slate-200">No plans yet. Your teacher will send you one.</p> : (
         <ul className="grid gap-4 md:grid-cols-2">
           {plans.map((p) => (

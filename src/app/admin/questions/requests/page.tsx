@@ -15,7 +15,7 @@ export default async function DeletionRequests({ searchParams }: { searchParams:
   const list = await listDeletionRequests(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin/questions", label: "Question Bank" }} icon="🗑" title="Deletion requests"
+      <PageHeader back={{ href: "/admin/questions", label: "Question Bank" }} icon="🗑" title="Deletion Requests"
         subtitle="Teachers can ask to delete a question; nothing is removed until you approve. A question students already answered is archived instead, so their history is kept." />
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <Section>

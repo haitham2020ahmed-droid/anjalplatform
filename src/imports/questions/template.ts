@@ -119,6 +119,14 @@ export function parseTemplateTable(table: string[][], target: ImportTarget = "BA
     else col.set(spec.key, i);
   });
   const required = requiredKeys(target, new Set(col.keys()), opts.placeKnown);
+  if (!col.has("stem")) {
+    // a file for another page, uploaded here by mistake: say where it goes
+    const hs = header.map((h) => normHeader(h));
+    if (hs.includes(normHeader("Sentence Starters")) || hs.includes(normHeader("Word Bank"))) return { ok: false, errors: ["This is a Respond to Reading file, not a questions file. Upload it here instead: Curriculum Map → ✍️ Respond to Reading → 📥 Import activities (/admin/curriculum-map/respond)."] };
+    if (hs.includes(normHeader("Article Code"))) return { ok: false, errors: ["This is a ReadMaster file, not a questions file. Upload it in ReadMaster → Import many (/admin/readmaster)."] };
+    if (hs.includes(normHeader("Reading Fall RIT")) || hs.includes(normHeader("Language Fall RIT"))) return { ok: false, errors: ["This is a MAP scores file, not a questions file. Upload it in MAP → MAP Data (/teacher/map-rit)."] };
+    if (hs.includes("role") && hs.includes(normHeader("display_name"))) return { ok: false, errors: ["This is a users (roster) file, not a questions file. Upload it in School → Users → Import Users (/admin/roster)."] };
+  }
   const missing = TEMPLATE_COLUMNS.filter((c) => required.includes(c.key) && !col.has(c.key));
   if (missing.length === required.length) {
     return { ok: false, errors: [`The first row must be the template’s header row (${TEMPLATE_HEADERS.slice(0, 4).join(", ")}, …). Download the template and keep its first row unchanged.`] };

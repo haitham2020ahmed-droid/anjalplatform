@@ -162,7 +162,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
       )}
       {q.type === "MATCHING" && <label className={label}>Pairs (one per line: left = right; at least 3)<textarea style={{ width: "100%" }} rows={4} value={(q.pairs ?? []).map((p) => `${p.left} = ${p.right}`).join("\n")} onChange={(e) => set({ pairs: lines(e.target.value).map((l) => { const [left, ...r] = l.split("="); return { left: left.trim(), right: r.join("=").trim() }; }) })} className={field} /></label>}
 
-      <h3 className="border-t border-slate-200 pt-4 text-base font-bold text-brand-navy">Feedback for the student</h3>
+      <h3 className="border-t border-slate-200 pt-4 text-base font-bold text-brand-navy">Feedback for the Student</h3>
       <div className="grid gap-3">
         <label className={label}>Why the answer is correct (shown after answering)<textarea style={{ width: "100%" }} rows={4} value={q.whyCorrect} onChange={(e) => set({ whyCorrect: e.target.value })} maxLength={1000} className={field} /></label>
         <label className={label}>Tip (optional)<textarea style={{ width: "100%" }} rows={3} value={q.tip ?? ""} onChange={(e) => set({ tip: e.target.value })} maxLength={500} className={field} /></label>

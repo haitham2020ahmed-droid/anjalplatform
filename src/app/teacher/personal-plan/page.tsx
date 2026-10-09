@@ -25,7 +25,7 @@ export default async function PersonalPlanPage({ searchParams }: { searchParams:
   return (
     <AppShell name={String(me.displayName)}>
       <div className="print:hidden">
-        <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="📋" title="Personalized plan"
+        <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="📋" title="Personalized Plan"
           subtitle="Generated from the class's MAP scores: students in three groups (one percentile rule for every class), each group's goals from its weakest goal areas with the grade's skills and CCSS standards. Download it, print it, or assign each group's goals.">
           {p && <><PrintButton /><a href={`/api/personal-plan-doc?classId=${classId}&subject=${subject.toLowerCase()}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇ Word</a></>}
           <Link href="/teacher/intervention" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🚨 Intervention</Link>

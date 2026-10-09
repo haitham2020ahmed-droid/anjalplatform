@@ -18,7 +18,7 @@ export default async function StudentRespondList() {
       <PageHeader back={{ href: "/student", label: "My work" }} icon="✍️" title="Respond to Reading" subtitle="Read the task, write your answer in your book, then tap “I finished”." />
       {tasks.length > 0 && (
         <section className="rounded-3xl bg-gradient-to-br from-violet-50 to-white p-5 ring-1 ring-violet-200">
-          <h2 className="text-xl font-bold text-brand-navy">📝 My tasks</h2>
+          <h2 className="text-xl font-bold text-brand-navy">📝 My Tasks</h2>
           <ul className="mt-3 grid gap-3 md:grid-cols-2">
             {[...todo, ...done].map((t) => (
               <li key={t.assignmentId}><Link href={`/student/respond/${t.setCode}`} className={`lift block rounded-2xl p-4 ring-1 ${t.finishedAt ? "bg-emerald-50 ring-emerald-200" : "bg-white ring-violet-200"}`}>

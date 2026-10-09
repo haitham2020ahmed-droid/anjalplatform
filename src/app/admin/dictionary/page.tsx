@@ -32,7 +32,7 @@ export default async function DictionaryPage({ searchParams }: { searchParams: P
         </section>
         <section className="space-y-5">
           <form action={saveDefinitionAction} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-            <h2 className="font-bold text-brand-navy">✏️ Write / correct a definition</h2>
+            <h2 className="font-bold text-brand-navy">✏️ Write / Correct a Definition</h2>
             <div className="mt-2 grid gap-2 sm:grid-cols-2">
               <label className="text-sm font-semibold">Word<input name="word" required defaultValue={one?.word ?? sp.q ?? ""} className={box} /></label>
               <label className="text-sm font-semibold">Part of speech<input name="pos" list="pos" defaultValue={one?.meanings[0]?.partOfSpeech ?? ""} className={box} /></label>

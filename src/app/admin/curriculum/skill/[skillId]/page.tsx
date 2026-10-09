@@ -34,7 +34,7 @@ export default async function SkillEditorPage({ params }: { params: Promise<{ sk
       </ul>
       <div className="mt-3"><StandardForm skillId={skillId} /></div>
 
-      <h2 className="mt-10 text-xl font-bold text-brand-navy">Learn first (prerequisites)</h2>
+      <h2 className="mt-10 text-xl font-bold text-brand-navy">Learn First (Prerequisites)</h2>
       {pre.length === 0 ? <p className="mt-2 text-slate-600">None. Students can start this skill straight away.</p> : (
         <ul className="mt-2 max-w-3xl divide-y divide-slate-200">
           {pre.map((p) => (

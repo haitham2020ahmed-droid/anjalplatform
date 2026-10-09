@@ -25,24 +25,24 @@ export function ClassAnalyticsView({ className, classHref, period, periodKey, c,
 
       <section className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
         <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Average mastery by month</h2>
+          <h2 className="text-lg font-bold text-brand-navy">Average Mastery by Month</h2>
           <LineChart title="Class average mastery by month" labels={g.series.map((p) => p.label)} series={[{ name: "Class average", color: "#1fa3a3", points: g.series.map((p) => p.mastery) }]} />
         </div>
         <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Growth this period</h2>
+          <h2 className="text-lg font-bold text-brand-navy">Growth This Period</h2>
           <dl className="mt-3 grid grid-cols-2 gap-4">
             <div><dt className="text-sm text-slate-500">Average growth</dt><dd className="text-3xl font-bold tabular-nums text-brand-navy">{g.meanGrowth === null ? "–" : `${g.meanGrowth > 0 ? "+" : ""}${g.meanGrowth}`}</dd></div>
             <div><dt className="text-sm text-slate-500">Median growth</dt><dd className="text-3xl font-bold tabular-nums text-brand-navy">{g.medianGrowth === null ? "–" : `${g.medianGrowth > 0 ? "+" : ""}${g.medianGrowth}`}</dd></div>
             <div className="col-span-2"><dt className="text-sm text-slate-500">Students with practice data</dt><dd className="tabular-nums text-slate-800">{g.withData} of {g.students}</dd></div>
           </dl>
-          <h3 className="mt-5 font-semibold text-brand-navy">Spread of mastery</h3>
+          <h3 className="mt-5 font-semibold text-brand-navy">Spread of Mastery</h3>
           <div className="mt-2"><BarList items={c.distribution.map((d) => ({ label: d.label, value: d.count }))} /></div>
           <p className="mt-2 text-sm text-slate-500">Median {v(c.masterySummary.median)}, middle half {v(c.masterySummary.p25)}–{v(c.masterySummary.p75)}</p>
         </div>
       </section>
 
       <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-        <h2 className="text-lg font-bold text-brand-navy">How the class compares</h2>
+        <h2 className="text-lg font-bold text-brand-navy">How the Class Compares</h2>
         <div className="mt-3 overflow-x-auto">
           <table className="min-w-full text-sm">
             <thead className="text-left text-slate-500"><tr>{["Group", "Students with data", "Average mastery", "Accuracy", "Average growth"].map((h) => <th key={h} scope="col" className="px-3 py-2 font-medium">{h}</th>)}</tr></thead>
@@ -69,7 +69,7 @@ export function ClassAnalyticsView({ className, classHref, period, periodKey, c,
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <section className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Skill growth</h2>
+          <h2 className="text-lg font-bold text-brand-navy">Skill Growth</h2>
           <p className="text-sm text-slate-500">Each skill compared with its own starting point, averaged over the students who practised it.</p>
           <div className="mt-3"><BarList items={g.skills.slice(0, 8).map((s) => ({ label: s.name, value: Math.max(0, s.meanGrowth) }))} suffix=" pts" /></div>
           {g.skills.length === 0 && <p className="mt-2 text-slate-600">Growth appears after students practise a skill at least twice.</p>}

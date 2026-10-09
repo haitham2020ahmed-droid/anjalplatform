@@ -28,9 +28,9 @@ export default async function MySkillsPage() {
   );
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student", label: "Home" }} icon="🧩" title="My skills" subtitle="Start with the skills from your teacher. Then pick any skill to practise or play — it opens at the right level for you." />
+      <PageHeader back={{ href: "/student", label: "Home" }} icon="🧩" title="My Skills" subtitle="Start with the skills from your teacher. Then pick any skill to practise or play — it opens at the right level for you." />
       <section>
-        <h2 className="text-xl font-extrabold text-brand-navy">⭐ From my teacher</h2>
+        <h2 className="text-xl font-extrabold text-brand-navy">⭐ From My Teacher</h2>
         {v.assigned.length === 0 ? <p className="mt-2 rounded-2xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">Nothing assigned right now. Pick a skill below!</p> : <ul className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{v.assigned.map(card)}</ul>}
       </section>
       {v.free.map((g) => (

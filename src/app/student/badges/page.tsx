@@ -14,7 +14,7 @@ export default async function MyBadgesPage() {
   const earned = badges.filter((b) => b.earned).length;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student", label: "Home" }} icon="🏅" title="My badges" subtitle="Badges for finishing skills and tasks, moving up, reading and writing, and practising every day." />
+      <PageHeader back={{ href: "/student", label: "Home" }} icon="🏅" title="My Badges" subtitle="Badges for finishing skills and tasks, moving up, reading and writing, and practising every day." />
       <section className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-brand-navy to-brand-purple p-6 text-white shadow-lg">
         <div className="flex flex-wrap items-center gap-6">
           <p><span className="block text-sm text-white/80">Badges</span><span className="text-4xl font-black">{earned}<span className="text-xl text-white/70"> / {badges.length}</span></span></p>

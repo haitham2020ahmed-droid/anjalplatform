@@ -127,7 +127,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
           {qotd}
           {extras?.challenge && (
             <section className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-indigo-50 to-white p-5 ring-1 ring-indigo-200">
-              <h2 className="font-bold text-brand-navy">🏁 Class challenge this week</h2>
+              <h2 className="font-bold text-brand-navy">🏁 Class Challenge This Week</h2>
               <p className="text-sm text-slate-600">Answers per student, class by class. Every answer helps your class!</p>
               <ol className="mt-2 space-y-1">{extras.challenge.all.map((c) => <li key={c.classId} className={`flex items-center justify-between rounded-xl px-3 py-1.5 ${c.classId === extras.challenge!.all.find((x) => x.name === extras.challenge!.mine?.name)?.classId ? "bg-indigo-600 font-bold text-white" : "bg-white ring-1 ring-slate-200"}`}><span>{c.rank === 1 ? "🥇" : c.rank === 2 ? "🥈" : c.rank === 3 ? "🥉" : `${c.rank}.`} {c.name}</span><span className="tabular-nums">{c.perStudent}</span></li>)}</ol>
             </section>
@@ -137,7 +137,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
       {wk && (
         <section id="my-week" className="scroll-mt-24 grid gap-4 md:grid-cols-3">
           <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-            <h2 className="font-bold text-brand-navy">🎯 My goal this week</h2>
+            <h2 className="font-bold text-brand-navy">🎯 My Goal This Week</h2>
             {extras?.goalMsg && <p className="mt-1 text-sm text-emerald-800">{extras.goalMsg}</p>}
             {wk.mine ? (
               <><p className="mt-1 text-2xl font-extrabold text-brand-navy">{wk.mine.progress} / {wk.mine.target} <span className="text-base font-semibold text-slate-500">{wk.mine.kind === "MINUTES" ? "minutes" : "answers"}</span> {wk.mine.done ? "🎉" : ""}</p>{bar(wk.mine.progress, wk.mine.target)}</>
@@ -151,11 +151,11 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
             <p className="mt-2 text-xs text-slate-500">This week: {wk.answers} answers · {wk.minutes} min</p>
           </div>
           <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-            <h2 className="font-bold text-brand-navy">👥 Our class goal</h2>
+            <h2 className="font-bold text-brand-navy">👥 Our Class Goal</h2>
             {wk.klass ? <><p className="mt-1 text-sm text-slate-600">{wk.klass.title ?? `${wk.klass.target} ${wk.klass.kind.toLowerCase()}`}</p><p className="text-2xl font-extrabold text-brand-navy">{wk.klass.progress} / {wk.klass.target} {wk.klass.done ? "🎉" : ""}</p>{bar(wk.klass.progress, wk.klass.target)}</> : <p className="mt-1 text-sm text-slate-500">Your teacher has not set a class goal this week.</p>}
           </div>
           <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-            <h2 className="font-bold text-brand-navy">📅 Practice days</h2>
+            <h2 className="font-bold text-brand-navy">📅 Practice Days</h2>
             {wk.rhythm ? <><p className="mt-1 text-2xl font-extrabold text-brand-navy">{wk.rhythm.daysDone} / {wk.rhythm.days} <span className="text-base font-semibold text-slate-500">days</span></p><p className="text-sm text-slate-600">About {wk.rhythm.minutes} minutes each day.</p>{bar(wk.rhythm.daysDone, wk.rhythm.days)}</> : <p className="mt-1 text-sm text-slate-500">Practise a little every day: it works better than a lot at once.</p>}
           </div>
         </section>
@@ -200,7 +200,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
       {/* my work */}
       <section id="my-work" className="scroll-mt-24">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-2xl font-bold text-brand-navy">My work</h2>
+          <h2 className="text-2xl font-bold text-brand-navy">My Work</h2>
           <nav aria-label="Filter" className="flex gap-2">
             <Link href="/student#my-work" aria-current={area === "ALL" ? "page" : undefined} className={chip(area === "ALL")}>All</Link>
             <Link href="/student?area=curriculum#my-work" aria-current={area === "CURRICULUM" ? "page" : undefined} className={chip(area === "CURRICULUM")}>📘 Curriculum</Link>

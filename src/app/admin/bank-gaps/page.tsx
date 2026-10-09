@@ -15,7 +15,7 @@ export default async function BankGapsPage() {
   const grades = [...new Set(rows.map((r) => r.grade))];
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="🕳" title="Question bank gaps"
+      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="🕳" title="Question Bank Gaps"
         subtitle="For each grade and MAP goal area: the published questions on its skills, and how many students have it as their weakest area. 🔴 and 🟠 first: that is where new questions help most (aim for 5+ questions per student who needs the area).">
         <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">➕ New question</Link>
         <Link href="/admin/questions/import?to=curriculum" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">📥 Import questions</Link>

@@ -40,7 +40,7 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
 
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/map-rit", label: "MAP" }} icon="🗺️" title="MAP plans"
+      <PageHeader back={{ href: "/teacher/map-rit", label: "MAP" }} icon="🗺️" title="MAP Plans"
         subtitle={<>From the NWEA results: each student’s goal areas in <b>RIT bands of {bands.size}</b>, a <b>draft plan</b> you check and edit before sending, and <b>small groups</b> of students who need the same thing.</>}>
         <PrintButton />
         <Link href={`/api/map-matrix-export?${new URLSearchParams({ classId, subject })}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal print:hidden">⬇ Excel</Link>
@@ -52,7 +52,8 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
           <div className="mt-3 flex flex-wrap items-center gap-2 print:hidden">
             {(["READING", "LANGUAGE"] as const).map((x) => <Link key={x} href={link({ subject: x })} className={chip(x === subject)}>{x === "READING" ? "📖 Reading" : "✏️ Language Usage"}</Link>)}
             <span className="mx-2 h-6 w-px bg-slate-300" aria-hidden="true" />
-            {([["matrix", "📊 Class matrix"], ["plans", "📋 Plans"], ["groups", "👥 Small groups"]] as const).map(([k, l]) => <Link key={k} href={link({ tab: k })} aria-current={tab === k ? "page" : undefined} className={chip(tab === k)}>{l}</Link>)}
+            {([["matrix", "📊 Class Matrix"], ["plans", "📋 Individual Plans"], ["groups", "👥 Small Groups"]] as const).map(([k, l]) => <Link key={k} href={link({ tab: k })} aria-current={tab === k ? "page" : undefined} className={chip(tab === k)}>{l}</Link>)}
+            <Link href={`/teacher/personal-plan?${new URLSearchParams({ classId, subject: subject.toLowerCase() })}`} className={chip(false)}>🎚 3-Level Group Plan</Link>
           </div>
 
           {matrix && (
@@ -111,9 +112,12 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
             <section className="mt-5 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
                 <p className="text-slate-700"><b>{plans.plans.filter((p) => p.status === "DRAFT").length}</b> draft(s) · <b>{plans.plans.filter((p) => p.status === "SENT").length}</b> sent. Each area becomes one adaptive MAP set at the student’s band. {plans.noScores.length > 0 && <span className="text-slate-500">No scores: {plans.noScores.length} student(s).</span>}</p>
+                <div className="flex flex-wrap gap-2 print:hidden">
+                <Link href={`/teacher/map-plans/print?${new URLSearchParams({ classId, subject })}`} className="rounded-xl px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🖨 Print all plans</Link>
                 {plans.canEdit && plans.plans.some((p) => p.status === "DRAFT") && (
                   <form action={sendPlanAction} className="print:hidden">{hidden("plans")}{plans.plans.filter((p) => p.status === "DRAFT").map((p) => <input key={p.id} type="hidden" name="planId" value={p.id} />)}<button className="rounded-xl bg-emerald-600 px-4 py-2.5 font-semibold text-white hover:bg-emerald-700">📤 Send all drafts ({plans.plans.filter((p) => p.status === "DRAFT").length})</button></form>
                 )}
+                </div>
               </div>
               {!plans.plans.length && <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No plans: no student of this class has {subjectName(subject)} MAP scores yet.</p>}
               {plans.plans.map((p) => (

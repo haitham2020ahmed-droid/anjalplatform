@@ -19,18 +19,18 @@ export function ParentReportView({ r }: { r: ParentReport }) {
         ))}
       </section>
       <div className="grid gap-4 md:grid-cols-3">
-        <section className={box}><h2 className="font-bold text-brand-navy">✅ Skills completed</h2>{list(r.completed.slice(0, 12), "None yet — keep practising!")}</section>
+        <section className={box}><h2 className="font-bold text-brand-navy">✅ Skills Completed</h2>{list(r.completed.slice(0, 12), "None yet — keep practising!")}</section>
         <section className={box}><h2 className="font-bold text-brand-navy">💪 Strengths</h2>{list(r.strengths, "We will see them soon.")}</section>
-        <section className={box}><h2 className="font-bold text-brand-navy">🎯 Practise next</h2>{list(r.practiseNext, "Nothing urgent.")}</section>
+        <section className={box}><h2 className="font-bold text-brand-navy">🎯 Practise Next</h2>{list(r.practiseNext, "Nothing urgent.")}</section>
       </div>
       {r.map.length > 0 && (
-        <section className={box}><h2 className="font-bold text-brand-navy">🗺️ MAP test</h2>
+        <section className={box}><h2 className="font-bold text-brand-navy">🗺️ MAP Test</h2>
           <ul className="mt-2 space-y-1">{r.map.map((m) => <li key={m.subject}><b>{m.subject}</b>: Fall {m.fall ?? "—"}{m.latest ? ` → ${m.latestTerm} ${m.latest}` : ""}{m.target ? ` · Spring goal ${m.target}` : ""} — {m.status}</li>)}</ul>
           <p className="mt-2 text-xs text-slate-500">The MAP score (RIT) grows during the year. The goal is the score NWEA expects by Spring.</p>
         </section>
       )}
       {r.mapPlans.length > 0 && (
-        <section className={box}><h2 className="font-bold text-brand-navy">📋 MAP plan</h2>
+        <section className={box}><h2 className="font-bold text-brand-navy">📋 MAP Plan</h2>
           {r.mapPlans.map((pl) => (
             <div key={pl.id} className="mt-2">
               <p className="font-semibold">{pl.subject} · {pl.term}{pl.goal ? ` · Spring goal ${pl.goal}` : ""}</p>
@@ -41,7 +41,7 @@ export function ParentReportView({ r }: { r: ParentReport }) {
         </section>
       )}
       {r.comments.length > 0 && (
-        <section className={box}><h2 className="font-bold text-brand-navy">💬 Teacher comments</h2>
+        <section className={box}><h2 className="font-bold text-brand-navy">💬 Teacher Comments</h2>
           <ul className="mt-2 space-y-2">{r.comments.map((c, i) => <li key={i}><span className="text-xs text-slate-500">{c.date}</span><p className="whitespace-pre-line">{c.body}</p></li>)}</ul>
         </section>
       )}

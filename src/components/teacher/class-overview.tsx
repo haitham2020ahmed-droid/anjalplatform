@@ -53,7 +53,7 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap }: {
 
       {o.alerts.length > 0 && (
         <section aria-labelledby="alerts" className="mt-8">
-          <h2 id="alerts" className="text-xl font-bold text-brand-navy">Students who may need support</h2>
+          <h2 id="alerts" className="text-xl font-bold text-brand-navy">Students Who May Need Support</h2>
           <ul className="mt-3 space-y-2">
             {o.alerts.map((a) => (
               <li key={a.id} className="flex flex-wrap items-start justify-between gap-3 rounded-xl border-l-4 border-amber-400 bg-white p-4 ring-1 ring-slate-200">
@@ -85,18 +85,18 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap }: {
       </section>
 
       <section aria-labelledby="map" className="mt-8">
-        <h2 id="map" className="text-xl font-bold text-brand-navy">Mastery by skill</h2>
+        <h2 id="map" className="text-xl font-bold text-brand-navy">Mastery by Skill</h2>
         <div className="mt-3">{heatMap}</div>
       </section>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         <section className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Skills to reteach</h2>
+          <h2 className="text-lg font-bold text-brand-navy">Skills to Reteach</h2>
           <ul className="mt-2 divide-y divide-slate-100">{o.weakSkills.map((s) => <li key={s.skillId} className="flex justify-between py-2"><span>{s.name}</span><span className="tabular-nums text-slate-600">{s.avgMastery} avg, {s.students} students</span></li>)}</ul>
           {o.weakSkills.length === 0 && <p className="mt-2 text-slate-600">No skill averages below 60. Skills appear once 3 or more students have practised them.</p>}
         </section>
         <section className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Class strengths</h2>
+          <h2 className="text-lg font-bold text-brand-navy">Class Strengths</h2>
           <ul className="mt-2 divide-y divide-slate-100">{o.strongSkills.map((s) => <li key={s.skillId} className="flex justify-between py-2"><span>{s.name}</span><span className="tabular-nums text-slate-600">{s.avgMastery} avg, {s.students} students</span></li>)}</ul>
           {o.strongSkills.length === 0 && <p className="mt-2 text-slate-600">No skill averages 60 or more across the class yet.</p>}
         </section>
@@ -104,7 +104,7 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap }: {
 
       {o.hardQuestions.length > 0 && (
         <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Hardest questions for this class</h2>
+          <h2 className="text-lg font-bold text-brand-navy">Hardest Questions for This Class</h2>
           <ul className="mt-2 divide-y divide-slate-100">
             {o.hardQuestions.map((q) => (
               <li key={q.questionId} className="grid gap-1 py-2 md:grid-cols-[minmax(0,1fr)_10rem]">

@@ -24,7 +24,7 @@ export function UnitSkills({ unit, cards, grade, bookTitle }: { unit: UnitSummar
 
       {next.length > 0 && (
         <section aria-labelledby="next" className="mt-8 rounded-2xl bg-brand-navy p-6 text-white">
-          <h2 id="next" className="text-lg font-semibold">Up next for you</h2>
+          <h2 id="next" className="text-lg font-semibold">Up Next for You</h2>
           <ol className="mt-4 grid gap-3 md:grid-cols-3">
             {next.map((c) => (
               <li key={c.skillId}>

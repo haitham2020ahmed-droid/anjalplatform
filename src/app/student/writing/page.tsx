@@ -13,7 +13,7 @@ export default async function MyWritingPage() {
   const list = await myTasks(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student", label: "My work" }} icon="✍️" title="Writing & reading aloud" />
+      <PageHeader back={{ href: "/student", label: "My work" }} icon="✍️" title="Writing & Reading Aloud" />
       {!list.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No writing task yet.</p> : (
         <ul className="grid gap-3 md:grid-cols-2">{list.map((t) => (
           <li key={t.id}><Link href={`/student/writing/${t.id}`} className="lift flex items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200">

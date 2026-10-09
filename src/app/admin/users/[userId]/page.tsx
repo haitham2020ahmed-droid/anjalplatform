@@ -59,7 +59,7 @@ export default async function UserPage({ params }: { params: Promise<{ userId: s
 
       {teacher && can(actor, "classes:manage") && (
         <section className={card}>
-          <h2 className={h2}>Classes taught</h2>
+          <h2 className={h2}>Classes Taught</h2>
           <ActionForm action={teacherClassesAction} submit="Save classes" className="mt-3 space-y-3">
             <input type="hidden" name="userId" value={userId} />
             <div className="flex flex-wrap gap-4">

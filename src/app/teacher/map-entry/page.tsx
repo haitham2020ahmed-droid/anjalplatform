@@ -27,7 +27,7 @@ export default async function MapEntryPage({ searchParams }: { searchParams: Pro
   const cell = "w-20 rounded-md border border-slate-300 px-2 py-1 text-center tabular-nums";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/map-rit", label: "MAP" }} icon="✏️" title="Enter MAP scores"
+      <PageHeader back={{ href: "/teacher/map-rit", label: "MAP" }} icon="✏️" title="Enter MAP Scores"
         subtitle={<>Type the scores from the NWEA report for the whole class, then press <b>Save</b>. Students are matched by their Student ID. Goal areas: write the RIT or the word on the report (Low, LoAvg, Avg, HiAvg, High). Prefer a file? <Link href="/teacher/map-rit" className="font-semibold text-brand-teal underline">Upload the template or the NWEA export</Link>.</>} />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {!classes.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">You do not teach any class yet.</p> : (

@@ -17,7 +17,7 @@ export default async function WeeklyAssignmentsPage({ searchParams }: { searchPa
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/teacher/curriculum" className="text-brand-teal hover:underline">← Curriculum</Link></p>
-      <h1 className="mt-2 text-3xl font-bold text-brand-navy">Weekly assignments</h1>
+      <h1 className="mt-2 text-3xl font-bold text-brand-navy">Weekly Assignments</h1>
       <div className="mt-2 flex flex-wrap items-center gap-3 text-sm">
         <Link href={`/teacher/assignments?week=${iso(prev)}`} className="rounded-lg px-3 py-1 ring-1 ring-slate-300">← Previous week</Link>
         <span className="font-semibold">{iso(start)} – {iso(last)}</span>

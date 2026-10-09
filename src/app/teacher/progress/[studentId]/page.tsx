@@ -62,7 +62,7 @@ export default async function StudentProgressPage({ params, searchParams }: { pa
           )}
         </section>
         <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">🎯 Levels (staff only)</h2>
+          <h2 className="text-lg font-bold text-brand-navy">🎯 Levels (Staff Only)</h2>
           <p className="mt-2 text-sm">Working level: <LevelBadge level={r.level} /> <Link href={`/teacher/levels?classId=${v.classId}`} className="ms-2 text-sm font-semibold text-brand-teal underline print:hidden">Change</Link></p>
           <ul className="mt-2 space-y-1 text-sm">{Object.entries(CAT).map(([k, n]) => <li key={k} className="flex justify-between gap-2"><span className="text-slate-600">{n}</span><LevelBadge level={r.categories[k] as "BELOW" | "ON" | "ABOVE" | undefined} /></li>)}</ul>
           <h3 className="mt-4 font-semibold text-slate-700">History</h3>
@@ -90,7 +90,7 @@ export default async function StudentProgressPage({ params, searchParams }: { pa
         )}
       </section>
       <section className="mt-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-        <h2 className="text-lg font-bold text-brand-navy">🗓️ Recent work</h2>
+        <h2 className="text-lg font-bold text-brand-navy">🗓️ Recent Work</h2>
         {v.recent.length === 0 ? <p className="mt-2 text-slate-600">Nothing assigned yet.</p> : (
           <ul className="mt-2 divide-y divide-slate-100 text-sm">{v.recent.map((a, i) => <li key={i} className="flex flex-wrap justify-between gap-2 py-1.5"><span>{a.title}</span><span className="text-slate-500">{a.status.replace("_", " ").toLowerCase()}{a.dueAt ? ` · due ${day(a.dueAt)}` : ""}</span></li>)}</ul>
         )}

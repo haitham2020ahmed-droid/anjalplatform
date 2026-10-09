@@ -25,7 +25,7 @@ export default async function WeekPage({ searchParams }: { searchParams: Promise
   const box = "rounded-lg border border-slate-300 px-2 py-1.5";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="📅" title="My week" subtitle="What each class needs next week, with the plan in one click. Goals and the weekly rhythm motivate students; exit tickets show at once what the lesson left behind." />
+      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="📅" title="My Week" subtitle="What each class needs next week, with the plan in one click. Goals and the weekly rhythm motivate students; exit tickets show at once what the lesson left behind." />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {ob && !ob.hidden && ob.done < ob.steps.length && <FirstWeekChecklist steps={ob.steps} back="/teacher/week" />}
       {!sug.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">You do not teach a class yet.</p> : (
@@ -46,7 +46,7 @@ export default async function WeekPage({ searchParams }: { searchParams: Promise
           {wk && (
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               <section className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-                <h2 className="font-bold text-brand-navy">👥 Class goal this week</h2>
+                <h2 className="font-bold text-brand-navy">👥 Class Goal This Week</h2>
                 {wk.goal && <p className="mt-1 text-2xl font-extrabold text-brand-navy">{wk.goal.progress} / {wk.goal.target} <span className="text-sm font-semibold text-slate-500">{wk.goal.kind.toLowerCase()}</span> {wk.goal.done ? "🎉" : ""}</p>}
                 <form action={classGoalAction} className="mt-2 space-y-2 text-sm">
                   <input type="hidden" name="classId" value={classId} />
@@ -57,7 +57,7 @@ export default async function WeekPage({ searchParams }: { searchParams: Promise
                 </form>
               </section>
               <section className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-                <h2 className="font-bold text-brand-navy">📅 Weekly rhythm</h2>
+                <h2 className="font-bold text-brand-navy">📅 Weekly Rhythm</h2>
                 <p className="mt-1 text-sm text-slate-600">{wk.rhythm ? <>{wk.onRhythm} of {wk.members} students on rhythm this week.</> : "Short practice on several days works better than a lot at once."}</p>
                 <form action={rhythmAction} className="mt-2 flex flex-wrap items-end gap-2 text-sm">
                   <input type="hidden" name="classId" value={classId} />
@@ -67,7 +67,7 @@ export default async function WeekPage({ searchParams }: { searchParams: Promise
                 </form>
               </section>
               <section className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-                <h2 className="font-bold text-brand-navy">🎫 Exit ticket</h2>
+                <h2 className="font-bold text-brand-navy">🎫 Exit Ticket</h2>
                 <p className="mt-1 text-sm text-slate-600">3 quick questions at the end of the lesson; results live.</p>
                 <form action={exitTicketAction} className="mt-2 space-y-2 text-sm">
                   <input type="hidden" name="classId" value={classId} />

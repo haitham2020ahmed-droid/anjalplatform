@@ -13,7 +13,7 @@ export default async function UnclassifiedPage({ searchParams }: { searchParams:
   const { rows, skills } = await unclassifiedQuestions(repo, actor.schoolId!);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin/questions", label: "Question Bank" }} icon="🏷️" title="Classify curriculum questions" subtitle={<>These questions are on the Curriculum Map but have no platform skill yet (“Unclassified”). Give each a skill of its grade: they then also count in adaptive practice and skill reports. Their place on the map does not change.</>} />
+      <PageHeader back={{ href: "/admin/questions", label: "Question Bank" }} icon="🏷️" title="Classify Curriculum Questions" subtitle={<>These questions are on the Curriculum Map but have no platform skill yet (“Unclassified”). Give each a skill of its grade: they then also count in adaptive practice and skill reports. Their place on the map does not change.</>} />
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {rows.length === 0 ? <p className="mt-6 rounded-xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">Nothing to classify. ✅</p> : (
         <>

@@ -24,7 +24,7 @@ export default async function BridgePage({ searchParams }: { searchParams: Promi
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <nav aria-label="Grade" className="mb-4 flex gap-2">{[4, 5, 6].map((g) => <Link key={g} href={`/admin/curriculum-map/bridge?grade=${g}`} aria-current={g === grade ? "page" : undefined} className={`rounded-full px-5 py-2 text-sm font-bold ${g === grade ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>Grade {g}</Link>)}</nav>
       {isAdmin && (
-        <Section title="Use your own bridge sheet" icon="📥" tone="amber" className="mb-6" hint="Columns: From, Challenge, Support (Curriculum Map codes, e.g. G5.U1.TS2.ACS). Download the current bridge to start from it. Rows in your sheet replace the automatic match for those places.">
+        <Section title="Use Your Own Bridge Sheet" icon="📥" tone="amber" className="mb-6" hint="Columns: From, Challenge, Support (Curriculum Map codes, e.g. G5.U1.TS2.ACS). Download the current bridge to start from it. Rows in your sheet replace the automatic match for those places.">
           <div className="flex flex-wrap items-center gap-3">
             <form action={importBridgesAction} className="flex flex-wrap items-center gap-3 text-sm"><input type="file" name="file" accept=".csv,.xlsx" required /><button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Import</button></form>
             <form action={resetBridgesAction}><button className="text-sm font-semibold text-slate-500 underline">Back to the automatic match</button></form>

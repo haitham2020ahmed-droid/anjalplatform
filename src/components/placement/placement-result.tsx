@@ -13,7 +13,7 @@ export function PlacementResult({ r, firstName }: { r: DiagnosticSummary; firstN
       <p className="mt-2 text-lg text-slate-600">You answered {r.questions} questions. This is a starting point for practice, not a grade.</p>
 
       <section aria-labelledby="areas" className="mt-8 rounded-2xl bg-white p-6 ring-1 ring-slate-200">
-        <h2 id="areas" className="text-xl font-bold text-brand-navy">Where you are in each area</h2>
+        <h2 id="areas" className="text-xl font-bold text-brand-navy">Where You Are in Each Area</h2>
         <ul className="mt-4 space-y-5">
           {r.domains.map((d) => {
             const idx = LEVELS.indexOf(d.level);
@@ -37,18 +37,18 @@ export function PlacementResult({ r, firstName }: { r: DiagnosticSummary; firstN
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         <section className="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Your strengths</h2>
+          <h2 className="text-lg font-bold text-brand-navy">Your Strengths</h2>
           <p className="mt-2 text-slate-700">{r.strong.length ? r.strong.join(", ") : "Keep practising and your strengths will show here."}</p>
         </section>
         <section className="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Areas to grow</h2>
+          <h2 className="text-lg font-bold text-brand-navy">Areas to Grow</h2>
           <p className="mt-2 text-slate-700">{r.growth.length ? r.growth.join(", ") : "No weak areas found. Great start."}</p>
         </section>
       </div>
 
       {r.startWith.length > 0 && (
         <section className="mt-6 rounded-2xl bg-brand-navy p-6 text-white">
-          <h2 className="text-lg font-semibold">Start with these skills</h2>
+          <h2 className="text-lg font-semibold">Start with These Skills</h2>
           <ul className="mt-4 flex flex-wrap gap-3">
             {r.startWith.map((s) => (
               <li key={s.skillId}><Link href={`/practice/${s.skillId}`} className="inline-block rounded-xl bg-white px-4 py-2.5 font-semibold text-brand-navy hover:bg-brand-gold">{s.name}</Link></li>

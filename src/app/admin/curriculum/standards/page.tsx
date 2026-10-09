@@ -25,7 +25,7 @@ export default async function StandardsPage({ searchParams }: { searchParams: Pr
       <p className="mt-1 text-slate-600">Link standards to skills on each skill's page. A standard used by a skill or question can be deactivated but not deleted.</p>
 
       <section className={card}>
-        <h2 className="font-semibold text-brand-navy">Add a standard</h2>
+        <h2 className="font-semibold text-brand-navy">Add a Standard</h2>
         <ActionForm action={createStandardAction} submit="Create standard" className="mt-2 space-y-2">
           <div className="flex flex-wrap gap-2">
             <select name="framework" aria-label="Framework" className={input}>{STANDARD_FRAMEWORKS.map((f) => <option key={f} value={f}>{f.replace(/_/g, " ")}</option>)}</select>

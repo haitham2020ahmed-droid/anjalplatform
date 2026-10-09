@@ -42,7 +42,7 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
       </div>
 
       {/* one big form: the article + its three versions */}
-      <Section title="New article" icon="➕" hint="Write the article once per level. You can leave a level empty and add it later.">
+      <Section title="New Article" icon="➕" hint="Write the article once per level. You can leave a level empty and add it later.">
         <form action={createArticleAction} className="space-y-5">
           <input type="hidden" name="grade" value={grade} />
           <div className="grid gap-4 md:grid-cols-2">
@@ -80,7 +80,7 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
       </Section>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-3">
-        <Section title="Import many" icon="📥" tone="amber" className="lg:col-span-1"
+        <Section title="Import Many" icon="📥" tone="amber" className="lg:col-span-1"
           hint="One row per question; the first row of each level carries the Passage and its Lexile. The template has a complete example.">
           <form action={importReadMasterAction} className="space-y-3 text-sm">
             <div className="flex flex-wrap gap-2">

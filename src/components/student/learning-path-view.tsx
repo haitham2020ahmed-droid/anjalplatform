@@ -12,7 +12,7 @@ export function LearningPathView({ p, classId }: { p: LearningPath; classId: str
   return (
     <section className="mt-8 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200" aria-labelledby="lp">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 id="lp" className="text-xl font-extrabold text-brand-navy">🧭 Adaptive learning path</h2>
+        <h2 id="lp" className="text-xl font-extrabold text-brand-navy">🧭 Adaptive Learning Path</h2>
         <div className="flex flex-wrap gap-2 text-sm">
           {classId && <Link href={`/teacher/personal-plan?classId=${classId}`} className="rounded-xl bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📋 Class plan</Link>}
           <Link href="/teacher/intervention" className="rounded-xl bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🚨 Intervention</Link>
@@ -41,7 +41,7 @@ export function LearningPathView({ p, classId }: { p: LearningPath; classId: str
           ))}
         </ul>
       )}
-      <h3 className="mt-6 font-bold text-brand-navy">How the level changed</h3>
+      <h3 className="mt-6 font-bold text-brand-navy">How the Level Changed</h3>
       {p.history.length === 0 ? <p className="mt-1 text-sm text-slate-600">No change recorded yet.</p> : (
         <ul className="mt-2 space-y-1.5 text-sm">
           {p.history.map((h, i) => (

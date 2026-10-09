@@ -9,7 +9,7 @@ export default function ChangePasswordPage() {
   return (
     <main className="flex min-h-screen items-center justify-center p-6">
       <form action={action} className="w-full max-w-sm space-y-4 rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-        <h1 className="text-2xl font-bold text-brand-navy">Choose a new password</h1>
+        <h1 className="text-2xl font-bold text-brand-navy">Choose a New Password</h1>
         <p className="text-sm text-slate-600">At least 10 characters, with letters and at least one number.</p>
         <label className="block"><span className="text-sm font-medium">Current or temporary password</span>
           <input name="current" type="password" autoComplete="current-password" required className={field} /></label>

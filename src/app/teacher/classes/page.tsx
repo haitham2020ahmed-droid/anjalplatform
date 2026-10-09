@@ -13,7 +13,7 @@ export default async function MyClassesPage() {
   const classes = await teacherClasses(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="👥" title="My classes" subtitle="Open a class to see its students, or go straight to the students dashboard." />
+      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="👥" title="My Classes" subtitle="Open a class to see its students, or go straight to the students dashboard." />
       {classes.length === 0 ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">You are not assigned to any classes yet. Ask your school admin to add you to a class.</p> : (
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {classes.map((c) => (

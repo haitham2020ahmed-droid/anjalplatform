@@ -9,7 +9,7 @@ export function MapComparisonView({ data }: { data: MapComparison[] }) {
   if (!data.length) return null;
   return (
     <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-      <h2 className="text-lg font-bold text-brand-navy">MAP Growth and platform practice</h2>
+      <h2 className="text-lg font-bold text-brand-navy">MAP Growth and Platform Practice</h2>
       <p className="text-sm text-slate-500">MAP RIT values are imported official results. Platform mastery is this platform&apos;s own measure. They are shown side by side and are not converted into each other.</p>
       {data.map((c) => (
         <div key={c.subject} className="mt-4">

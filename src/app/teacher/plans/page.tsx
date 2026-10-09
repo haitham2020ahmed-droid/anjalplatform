@@ -26,7 +26,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
   const box = "rounded-xl border border-slate-300 px-3 py-2";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: isTeacher ? "/teacher" : "/admin", label: "Back" }} icon="🗂️" title="Skill plans"
+      <PageHeader back={{ href: isTeacher ? "/teacher" : "/admin", label: "Back" }} icon="🗂️" title="Skill Plans"
         subtitle="Pick places of the Curriculum Map and assign them together. Students open the plan as a map and tap a place to start its questions (Analyze Craft / Respond to Reading are adaptive: Below → On → Above). Print it or save it as PDF to send." />
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {plans.length > 0 && (
@@ -46,7 +46,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
         </Section>
       )}
       {isTeacher && roster && (
-        <Section title="New plan" icon="➕">
+        <Section title="New Plan" icon="➕">
           <nav aria-label="Classes" className="mb-4 flex flex-wrap gap-2">
             {classes.map((c) => <Link key={String(c.id)} href={`/teacher/plans?classId=${c.id}`} aria-current={c.id === classId ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-bold ${c.id === classId ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{String(c.name)}</Link>)}
           </nav>

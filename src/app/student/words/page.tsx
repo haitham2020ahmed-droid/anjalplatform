@@ -16,11 +16,11 @@ export default async function WordsPage({ searchParams }: { searchParams: Promis
   const [ok, total] = (sp.score ?? "").split("-").map(Number);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student", label: "My work" }} icon="📒" title="My words" subtitle="Double-click a word in any reading to see its meaning: it is saved here. Learn them with the weekly quiz." />
+      <PageHeader back={{ href: "/student", label: "My work" }} icon="📒" title="My Words" subtitle="Double-click a word in any reading to see its meaning: it is saved here. Learn them with the weekly quiz." />
       {sp.score && <p role="status" className="mb-4 rounded-2xl bg-emerald-50 px-5 py-4 text-lg font-bold text-emerald-900 ring-1 ring-emerald-200">Quiz: {ok} of {total} correct {ok === total ? "🎉" : ""}{sp.wrong ? <span className="block text-sm font-normal">Practise again: {sp.wrong.split(",").join(", ")}</span> : null}</p>}
       {quiz.length > 0 && (sp.quiz === "1" ? (
         <form action={wordQuizAction} className="mb-6 space-y-4 rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-xl font-bold text-brand-navy">🧠 Weekly word quiz</h2>
+          <h2 className="text-xl font-bold text-brand-navy">🧠 Weekly Word Quiz</h2>
           {quiz.map((q, i) => (
             <fieldset key={q.word} className="rounded-xl bg-slate-50 p-3">
               <legend className="font-semibold text-slate-900">{i + 1}. Which word means: “{q.definition}”</legend>
