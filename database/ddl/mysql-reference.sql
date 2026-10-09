@@ -311,6 +311,22 @@ CREATE TABLE `SkillStandard` (
 
 CREATE INDEX `SkillStandard_standardId_idx` ON `SkillStandard`(`standardId`);
 
+CREATE TABLE `LearningStatement` (
+  `id` VARCHAR(191) NOT NULL,
+  `subject` VARCHAR(10) NOT NULL,
+  `ritLow` INTEGER NOT NULL,
+  `ritHigh` INTEGER NOT NULL,
+  `goalArea` VARCHAR(120) NOT NULL,
+  `topic` VARCHAR(120) NOT NULL,
+  `statement` TEXT NOT NULL,
+  `standards` VARCHAR(500) NOT NULL,
+  `sortOrder` INTEGER NOT NULL DEFAULT 0,
+  `importedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `LearningStatement_subject_ritLow_idx` ON `LearningStatement`(`subject`, `ritLow`);
+
 CREATE TABLE `MapGoalArea` (
   `id` VARCHAR(191) NOT NULL,
   `code` VARCHAR(191) NOT NULL,
@@ -477,6 +493,7 @@ CREATE TABLE `PracticeSession` (
   `currentOrder` JSON,
   `lastTargetB` DOUBLE,
   `endReason` VARCHAR(191),
+  `goalReachedAt` DATETIME(3),
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -621,6 +638,7 @@ CREATE TABLE `Assignment` (
   `track` VARCHAR(16) NOT NULL DEFAULT 'CURRICULUM',
   `assessmentId` VARCHAR(191),
   `targetMastery` INTEGER,
+  `curriculumPlanId` VARCHAR(191),
   `dueAt` DATETIME(3),
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `deletedAt` DATETIME(3),
@@ -649,6 +667,7 @@ CREATE TABLE `Assessment` (
   `unitId` VARCHAR(191),
   `isAdaptive` BOOLEAN NOT NULL DEFAULT false,
   `maxQuestions` INTEGER,
+  `targetCorrect` INTEGER,
   `timeLimitMin` INTEGER,
   `status` ENUM('DRAFT', 'UNDER_REVIEW', 'PUBLISHED', 'ARCHIVED') NOT NULL DEFAULT 'DRAFT',
   `createdById` VARCHAR(191),
@@ -1087,6 +1106,10 @@ CREATE TABLE `SkillPlan` (
   `schoolId` VARCHAR(191) NOT NULL,
   `classId` VARCHAR(191) NOT NULL,
   `title` VARCHAR(191) NOT NULL,
+  `kind` VARCHAR(12) NOT NULL DEFAULT 'PLACES',
+  `targetCorrect` INTEGER,
+  `openUnits` JSON,
+  `unitDates` JSON,
   `gradeLevel` INTEGER NOT NULL,
   `note` VARCHAR(1000),
   `createdById` VARCHAR(191),

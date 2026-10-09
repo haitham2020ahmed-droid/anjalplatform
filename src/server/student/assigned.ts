@@ -44,7 +44,8 @@ export interface AssignedView { summary: { assigned: number; completed: number; 
 export async function assignedSkills(repo: Repo, actor: Actor, now = new Date()): Promise<AssignedView> {
   const studentId = ownStudentId(actor);
   const rows = await repo.findMany("AssignmentStudent", { studentId });
-  const all = rows.length ? await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }) : [];
+  // places of a full-curriculum plan live in the plan (My Plans), not in the work list
+  const all = (rows.length ? await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }) : []).filter((a) => !a.curriculumPlanId);
   const assignments = all.filter((a) => skillOf(a));
   const sets = all.filter((a) => a.assessmentId && !skillOf(a));
   // bring statuses up to date (writes only what changed)
@@ -53,7 +54,8 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
   const setSize = new Map<string, number>();
   if (sets.length) for (const x of await repo.findMany("AssessmentQuestion", { assessmentId: { in: sets.map((a) => a.assessmentId) } }, { select: ["assessmentId"] })) setSize.set(s(x.assessmentId), (setSize.get(s(x.assessmentId)) ?? 0) + 1);
   // adaptive sets: the student answers up to maxQuestions of the pool
-  if (sets.length) for (const x of await repo.findMany("Assessment", { id: { in: sets.map((a) => a.assessmentId) }, isAdaptive: true }, { select: ["id", "maxQuestions"] })) setSize.set(s(x.id), Math.min(setSize.get(s(x.id)) ?? 0, Number(x.maxQuestions) || 0));
+  // (a goal of correct answers: the goal is the size)
+  if (sets.length) for (const x of await repo.findMany("Assessment", { id: { in: sets.map((a) => a.assessmentId) }, isAdaptive: true }, { select: ["id", "maxQuestions", "targetCorrect"] })) setSize.set(s(x.id), Number(x.targetCorrect) > 0 ? Number(x.targetCorrect) : Math.min(setSize.get(s(x.id)) ?? 0, Number(x.maxQuestions) || 0));
   const skillIds = [...new Set(assignments.map((a) => skillOf(a)!))];
   const [skills, links] = await Promise.all([
     skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
@@ -268,7 +270,7 @@ async function questionSetReport(repo: Repo, a: Row, row: Row, studentId: string
   }
   const score = total2 ? Math.round((100 * correct) / total2) : 0;
   const status = row.status as Status;
-  const nextStep = status !== "COMPLETED" ? (set?.isAdaptive ? "Keep going: 4 correct answers out of 5 move you up a level." : `Answer the remaining ${Math.max(0, total - answered)} question(s) to finish.`)
+  const nextStep = status !== "COMPLETED" ? (set?.isAdaptive ? (Number(set.targetCorrect) > 0 ? `Keep going: ${set.targetCorrect} correct answers finish this part.` : "Keep going: 4 correct answers out of 5 move you up a level.") : `Answer the remaining ${Math.max(0, total - answered)} question(s) to finish.`)
     : score >= 90 ? "Excellent work! Ask your teacher for a new challenge."
     : needs.length ? `Good effort. Review ${needs[0].split(":")[0]} and ask your teacher about the questions you missed.` : "Well done! Keep practising to stay strong.";
   return {

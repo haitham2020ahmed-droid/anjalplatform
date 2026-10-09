@@ -8,7 +8,7 @@
   --color-brand-purple: #5b3fa0;
   --color-brand-teal: #1fa3a3;
   --color-brand-gold: #f5b800;
-  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-lexend), "Lexend", "Segoe UI", system-ui, sans-serif;
 }
 
 body { @apply bg-slate-50 text-slate-900 antialiased; }
@@ -45,6 +45,7 @@ body {
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 @keyframes ring-fill { from { stroke-dashoffset: var(--ring-full); } }
 @utility animate-fade-up { animation: fade-up .22s ease-out both; }
+@utility animate-slide-in { animation: slide-in .2s ease-out both; }
 @utility animate-pop { animation: pop .35s ease-out both; }
 @utility animate-shake { animation: shake .45s ease-in-out both; }
 @utility animate-float { animation: float 3s ease-in-out infinite; }
@@ -67,3 +68,8 @@ button:not(:disabled):active, a.lift:active { transform: scale(.98); }
 html[data-comfort="1"] main { font-size: 1.12rem; line-height: 1.8; }
 html[data-comfort="1"] main p, html[data-comfort="1"] main li { letter-spacing: .01em; }
 html[data-comfort="1"] body { background: #fbf7ee; }
+/* printed reports keep their colours (headers, bars, charts) and use the whole page */
+.report-doc, .report-doc * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+@media print { @page { size: A4; margin: 12mm; } .report-doc { background: #fff; } }
+@keyframes slide-in { from { transform: translateX(-100%); } to { transform: none; } }
+[dir="rtl"] .animate-slide-in { animation-name: none; }

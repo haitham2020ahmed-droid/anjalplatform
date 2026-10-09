@@ -54,6 +54,8 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
             <span className="mx-2 h-6 w-px bg-slate-300" aria-hidden="true" />
             {([["matrix", "📊 Class Matrix"], ["plans", "📋 Individual Plans"], ["groups", "👥 Small Groups"]] as const).map(([k, l]) => <Link key={k} href={link({ tab: k })} aria-current={tab === k ? "page" : undefined} className={chip(tab === k)}>{l}</Link>)}
             <Link href={`/teacher/personal-plan?${new URLSearchParams({ classId, subject: subject.toLowerCase() })}`} className={chip(false)}>🎚 3-Level Group Plan</Link>
+            <Link href={`/teacher/map-skill-plan?${new URLSearchParams({ classId, group: subject === "READING" ? "LIT" : "GRAMMAR" })}`} className={chip(false)}>🧭 Skill Plan by RIT</Link>
+            <Link href={`/teacher/map-reports?${new URLSearchParams({ classId })}`} className={chip(false)}>📑 MAP Reports</Link>
           </div>
 
           {matrix && (
@@ -160,7 +162,7 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
                         </div>
                       </>
                     ) : (
-                      <ul className="space-y-1 text-sm text-slate-700">{p.items.map((it) => <li key={it.group}>{it.icon} <b>{it.name}</b> · band {it.band} · {it.count} questions{it.skills.length ? ` · ${it.skills.map((k) => k.name).join(", ")}` : ""}</li>)}</ul>
+                      <ul className="space-y-1 text-sm text-slate-700">{p.items.map((it) => <li key={it.group}>{it.icon} <b>{it.name}</b> · band {it.band} · {it.count} questions{it.skills.length ? ` · ${it.skills.map((k) => k.name).join(", ")}` : " · all skills of the area"}</li>)}</ul>
                     )}
                   </div>
                 </details>

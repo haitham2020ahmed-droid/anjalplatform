@@ -109,7 +109,7 @@ export async function previewMapAssign(repo: Repo, actor: Actor, classId: string
  * Analyze Craft / Respond to Reading → one set per level, each student in the set of their level
  * (no level yet = On Level; a level with no questions falls back to On Level, then to any level).
  */
-export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: string; categoryCode: string; studentIds?: string[]; dueAt?: Date | null; startAt?: Date | null; note?: string | null; maxQuestions?: number; mode?: "ADAPTIVE" | "BY_LEVEL" }, now = new Date()): Promise<MapAssignResult> {
+export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: string; categoryCode: string; studentIds?: string[]; dueAt?: Date | null; startAt?: Date | null; note?: string | null; maxQuestions?: number; mode?: "ADAPTIVE" | "BY_LEVEL"; targetCorrect?: number | null; silent?: boolean; curriculumPlanId?: string | null }, now = new Date()): Promise<MapAssignResult> {
   assertCan(actor, "assignments:create");
   const klass = await assertClassAccess(repo, actor, input.classId);
   const places = categoryPlaces(await attachmentNodes(repo, actor.schoolId!), input.categoryCode);
@@ -130,7 +130,7 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
   const send = async (level: Level | null, usedLevel: Level | null, students: string[], ids: string[]) => {
     const r = await assignQuestions(repo, actor, {
       classId: input.classId, studentIds: students, questionIds: pick(ids), track: "CURRICULUM", exactTitle: true,
-      title: `${base}${usedLevel ? ` (${LEVEL_NAMES[usedLevel]})` : ""}`, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
+      title: `${base}${usedLevel ? ` (${LEVEL_NAMES[usedLevel]})` : ""}`, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
     }, now);
     groups.push({ level, students: students.length, questions: Math.min(ids.length, max), assignmentId: r.assignmentId, usedLevel });
   };
@@ -148,11 +148,11 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     // too: each student starts at their level and moves Below → On → Above by their answers (difficulty ≤3 / 4 / ≥5)
     const diffs = await repo.findMany("Question", { id: { in: ids } }, { select: ["difficultyLevel"] });
     const spread = new Set(diffs.map((q) => fromDifficulty(Number(q.difficultyLevel ?? 4))));
-    if ((input.mode ?? "ADAPTIVE") === "ADAPTIVE" && spread.size >= 2) {
+    if ((input.mode ?? "ADAPTIVE") === "ADAPTIVE" && (spread.size >= 2 || (input.targetCorrect ?? 0) > 0)) {
       const maxQ = Math.max(5, Math.min(60, input.maxQuestions ?? 20));
       const r = await assignQuestions(repo, actor, {
         classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: ids, track: "CURRICULUM", exactTitle: true,
-        title: `${base} (adaptive: Below → On → Above)`, adaptive: { maxQuestions: maxQ },
+        title: `${base} (adaptive: Below → On → Above)`, adaptive: { maxQuestions: maxQ, targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
         dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
       }, now);
       groups.push({ level: null, students: chosen.length, questions: ids.length, assignmentId: r.assignmentId, usedLevel: null });
@@ -183,7 +183,7 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     if (support.length) notes.push(`🛟 Support path: ${support.length} question(s) from Grade ${places[0].grade - 1} (same skill) for students who struggle at Below Level.`);
     const r = await assignQuestions(repo, actor, {
       classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: pool, track: "CURRICULUM", exactTitle: true,
-      title: `${base} (adaptive: Below → On → Above)`, adaptive: { maxQuestions: Math.max(5, Math.min(60, input.maxQuestions ?? 20)) },
+      title: `${base} (adaptive: Below → On → Above)`, adaptive: { maxQuestions: Math.max(5, Math.min(60, input.maxQuestions ?? 20)), targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
       dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
     }, now);
     groups.push({ level: null, students: chosen.length, questions: pool.length, assignmentId: r.assignmentId, usedLevel: null });

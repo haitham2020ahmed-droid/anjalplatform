@@ -4,7 +4,9 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { latestDiagnostic } from "@/server/assessment/diagnostic";
 import { assignedSkills, placementRequired } from "@/server/student/assigned";
 import { readingLexile } from "@/server/readmaster/service";
-import { studentSkillPlans } from "@/server/curriculum-map/plans";
+import { studentSkillPlans, todaysPlanStep } from "@/server/curriculum-map/plans";
+import { reviewDue, weekStats } from "@/server/student/weekly";
+import { TodayPlanCard } from "@/components/student/today-plan";
 import { streakAndPoints } from "@/server/student/streak";
 import { openGamesFor } from "@/server/game/live";
 import { lexileBands, levelForLexile } from "@/server/curriculum-map/lexile";
@@ -40,6 +42,7 @@ export default async function StudentHome({ searchParams }: { searchParams: Prom
   ]);
   const [week, exitTicket, review, comments, tests] = await Promise.all([studentWeek(repo, actor), myExitTicket(repo, actor), dueMistakes(repo, actor.studentId!), repo.findMany("WorkComment", { studentId: actor.studentId! }, { select: ["createdAt"] }), myTests(repo, actor)]);
   const [qotd, challenge, writing] = await Promise.all([questionOfTheDay(repo, actor), student?.gradeId ? classChallenge(repo, String(student.schoolId), String(student.gradeId)) : Promise.resolve([]), myTasks(repo, actor)]);
+  const [today, myWeek, spaced] = await Promise.all([todaysPlanStep(repo, actor), weekStats(repo, actor.studentId!), reviewDue(repo, actor.studentId!)]);
   const myClass = (await repo.findMany("ClassMembership", { studentId: actor.studentId!, leftAt: null }, { select: ["classId"] }))[0]?.classId;
   const testsToDo = tests.windows.filter((w) => w.open).reduce((n, w) => n + w.sessions.filter((x) => x.status !== "DONE").length, 0);
   const fresh = badges.filter((b) => b.earnedAt && Date.now() - new Date(b.earnedAt).getTime() < 3 * 86_400_000).sort((a, b) => String(b.earnedAt).localeCompare(String(a.earnedAt)))[0];
@@ -59,6 +62,21 @@ export default async function StudentHome({ searchParams }: { searchParams: Prom
   return (
     <AppShell name={String(me.displayName)}>
       <StudentTour />
+      <TodayPlanCard step={today} week={myWeek} review={spaced} />
+      {extras.rit !== null && (
+        <nav aria-label="My learning path" className="mb-5 grid gap-2 sm:grid-cols-3">
+          {[
+            { href: "/student/map", icon: "🗺️", title: "My MAP", sub: `RIT ${extras.rit}${extras.ritGoal ? ` · goal ${extras.ritGoal}` : ""}` },
+            { href: `/map-report/study-plan/${actor.studentId}`, icon: "📑", title: "My study plan", sub: "What I am ready to learn next" },
+            { href: "/student/skills", icon: "🧩", title: "My skills", sub: "Practise at my level" },
+          ].map((x, i) => (
+            <a key={x.href} href={x.href} className="group flex items-center gap-3 rounded-2xl bg-white p-3 ring-1 ring-slate-200 transition hover:ring-brand-teal">
+              <span aria-hidden="true" className="grid h-10 w-10 place-items-center rounded-xl bg-brand-navy text-lg text-white">{x.icon}</span>
+              <span className="min-w-0"><span className="block font-semibold text-brand-navy"><span className="text-slate-400">{i + 1}.</span> {x.title}</span><span className="block truncate text-xs text-slate-500">{x.sub}</span></span>
+            </a>
+          ))}
+        </nav>
+      )}
       <AssignedSkills view={view} firstName={String(me.displayName).split(" ")[0]} placement={required && !diagnostic} area={area} extras={extras}
         qotd={qotd ? <QuestionOfTheDay q={qotd.question} area={qotd.area} answered={qotd.answered} /> : null} />
     </AppShell>

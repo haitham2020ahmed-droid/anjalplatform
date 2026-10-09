@@ -26,6 +26,7 @@ export const UNIQUE_KEYS: Record<string, readonly (readonly string[])[]> = {
   UnitSkill: [["unitId", "skillId"]],
   Standard: [["id"], ["framework", "code"]],
   SkillStandard: [["skillId", "standardId"]],
+  LearningStatement: [["id"]],
   MapGoalArea: [["id"], ["code"]],
   SkillPrerequisite: [["skillId", "prerequisiteSkillId"]],
   ReadingPassage: [["id"], ["externalRef"]],

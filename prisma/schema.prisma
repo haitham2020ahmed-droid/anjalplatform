@@ -602,6 +602,25 @@ model SkillStandard {
   @@index([standardId])
 }
 
+/// MAP Growth Learning Continuum: what a student in a RIT band is ready to learn (imported by an admin from
+/// the school's own continuum file); linked to the platform's skills through the CCSS codes.
+model LearningStatement {
+  id         String   @id @default(cuid())
+  /// READING | LANGUAGE
+  subject    String   @db.VarChar(10)
+  ritLow     Int
+  ritHigh    Int
+  goalArea   String   @db.VarChar(120)
+  topic      String   @db.VarChar(120)
+  statement  String   @db.Text
+  /// CCSS codes separated by spaces, e.g. "RL.4.2 RL.5.2"
+  standards  String   @db.VarChar(500)
+  sortOrder  Int      @default(0)
+  importedAt DateTime @default(now())
+
+  @@index([subject, ritLow])
+}
+
 /// MAP-style goal areas (names only, matching the school's MAP skills documents).
 model MapGoalArea {
   id       String @id @default(cuid())
@@ -808,6 +827,8 @@ model PracticeSession {
 
   @@index([studentId, startedAt])
   @@index([assignmentId])
+  /// when the set's goal (correct answers) was reached; the student may go on practising
+  goalReachedAt DateTime?
 }
 
 model QuestionAttempt {
@@ -961,6 +982,8 @@ model Assignment {
   track        String   @default("CURRICULUM") @db.VarChar(16)
   assessmentId String?
   targetMastery Int?           // e.g. 75
+  /// a full-curriculum plan's place: opened by a student, hidden from the work lists (shown in the plan)
+  curriculumPlanId String?
   dueAt       DateTime?
   createdAt   DateTime         @default(now())
   deletedAt   DateTime?
@@ -996,6 +1019,8 @@ model Assessment {
   unitId       String?
   isAdaptive   Boolean        @default(false)
   maxQuestions Int?
+  /// adaptive sets: done after this many correct answers (the student may keep practising after it)
+  targetCorrect Int?
   timeLimitMin Int?
   status       ContentStatus  @default(DRAFT)
   createdById  String?
@@ -1566,6 +1591,14 @@ model SkillPlan {
   schoolId    String
   classId     String
   title       String   @db.VarChar(191)
+  /// PLACES (chosen places, assigned at once) | CURRICULUM (the whole grade; each place opens when a student starts it)
+  kind        String   @default("PLACES") @db.VarChar(12)
+  /// correct answers to finish each place (default 20)
+  targetCorrect Int?
+  /// CURRICULUM plans: the units students can open (null = all)
+  openUnits   Json?
+  /// CURRICULUM plans: unit calendar { "Unit 2: …": "2026-11-01" } — a unit opens by itself on its date
+  unitDates   Json?
   gradeLevel  Int
   note        String?  @db.VarChar(1000)
   createdById String?

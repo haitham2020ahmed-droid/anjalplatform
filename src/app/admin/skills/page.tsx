@@ -59,7 +59,7 @@ export default async function SkillsPage({ searchParams }: { searchParams: Promi
           <thead><tr className="border-b text-xs text-slate-500"><th className="py-2 pe-3">Skill</th><th className="px-2">Kind</th><th className="px-2">MAP goal area</th><th className="px-2">Standards</th><th className="px-2">Questions</th><th className="px-2">In a unit</th><th className="px-2"></th></tr></thead>
           <tbody>{list.map((k) => (
             <tr key={k.id} className="border-b last:border-0">
-              <td className="py-1.5 pe-3 font-medium">{k.name}</td><td className="px-2">{KIND_NAME[k.kind]}</td><td className="px-2">{k.area ?? <span className="text-amber-700">—</span>}</td>
+              <td className="py-1.5 pe-3 font-medium"><Link href={`/skill/${k.id}`} className="text-brand-navy hover:underline">{k.name}</Link></td><td className="px-2">{KIND_NAME[k.kind]}</td><td className="px-2">{k.area ?? <span className="text-amber-700">—</span>}</td>
               <td className="px-2 text-xs">{k.standards.join(", ") || <span className="text-amber-700">—</span>}</td>
               <td className={`px-2 tabular-nums ${k.questions ? "" : "text-amber-700"}`}>{k.questions}</td><td className="px-2">{k.inUnit ? "✓" : "—"}</td>
               <td className="px-2"><Link href={`/admin/questions?status=PUBLISHED&grade=${grade}&skill=${k.id}`} className="text-brand-teal underline">Questions</Link></td>

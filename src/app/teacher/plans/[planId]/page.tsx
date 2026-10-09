@@ -4,13 +4,27 @@ import { PrintButton } from "@/components/plans/print-button";
 import { AutoPrint } from "@/components/plans/auto-print";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { skillPlanForStaff } from "@/server/curriculum-map/plans";
+import { curriculumPlanGrid } from "@/server/curriculum-map/curriculum-plan";
+import { CurriculumGrid } from "@/components/plans/curriculum-grid";
 
 /** One skill plan (teacher): places by unit with progress; printable / PDF. */
 export default async function PlanPage({ params, searchParams }: { params: Promise<{ planId: string }>; searchParams: Promise<{ msg?: string; print?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:read" });
   const me = (await getActor())!.user;
-  const p = await skillPlanForStaff(repo, actor, (await params).planId);
+  const planId = (await params).planId;
   const sp = await searchParams;
+  const row = await repo.findUnique("SkillPlan", { id: planId });
+  if (row && String(row.kind) === "CURRICULUM") {
+    const g = await curriculumPlanGrid(repo, actor, planId);
+    return (
+      <AppShell name={String(me.displayName)}>
+        <PageHeader back={{ href: "/teacher/plans", label: "Skill plans" }} icon="📘" title={g.title} subtitle={`${g.className} · ${g.items.length} parts · ${g.students.length} students · ${g.target} correct answers finish a part`}><PrintButton /></PageHeader>
+        {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">✅ {sp.msg}</p>}
+        <CurriculumGrid g={g} canEdit />
+      </AppShell>
+    );
+  }
+  const p = await skillPlanForStaff(repo, actor, planId);
   const units = [...new Set(p.places.map((x) => x.unit))];
   return (
     <AppShell name={String(me.displayName)}>

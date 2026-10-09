@@ -5,7 +5,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { accessibleClasses } from "@/server/teacher/assign";
 import { classLevels } from "@/server/curriculum-map/levels";
 import { listSkillPlans, planPlaces } from "@/server/curriculum-map/plans";
-import { createPlanAction } from "./actions";
+import { createPlanAction, sendCurriculumPlanAction } from "./actions";
 import { SelectAll } from "@/components/ui/select-all";
 
 export const metadata = { title: "Skill plans" };
@@ -35,7 +35,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
             {plans.map((p) => (
               <li key={p.id} className="lift flex items-start justify-between gap-2 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
                 <Link href={`/teacher/plans/${p.id}`} className="min-w-0 flex-1">
-                  <p className="font-bold text-brand-navy">{p.title}</p>
+                  <p className="font-bold text-brand-navy">{p.kind === "CURRICULUM" ? "📘 " : ""}{p.title}</p>
                   <p className="text-sm text-slate-600">{p.className} · Grade {p.grade} · {p.items} place(s) · {p.students} student(s)</p>
                   <p className="text-xs text-slate-400">{p.createdAt}</p>
                 </Link>
@@ -45,11 +45,38 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
           </ul>
         </Section>
       )}
-      {isTeacher && roster && (
-        <Section title="New Plan" icon="➕">
-          <nav aria-label="Classes" className="mb-4 flex flex-wrap gap-2">
+      {isTeacher && classes.length > 1 && (
+        <div className="mb-4">
+          <nav aria-label="Classes" className="flex flex-wrap gap-2">
             {classes.map((c) => <Link key={String(c.id)} href={`/teacher/plans?classId=${c.id}`} aria-current={c.id === classId ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-bold ${c.id === classId ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{String(c.name)}</Link>)}
           </nav>
+        </div>
+      )}
+      {isTeacher && roster && (() => {
+        const cur = plans.find((p) => p.kind === "CURRICULUM" && p.classId === classId);
+        return (
+          <Section title="Full Curriculum Plan" icon="📘" className="mb-6">
+            <div className="flex flex-wrap items-end justify-between gap-4 rounded-2xl bg-gradient-to-r from-teal-50 to-sky-50 p-4 ring-1 ring-teal-200">
+              <div className="max-w-2xl text-sm text-slate-700">
+                <p className="text-base font-bold text-brand-navy">{cur ? `${roster.className} already has the Grade ${roster.grade} curriculum plan.` : `Send the whole Grade ${roster.grade} curriculum to ${roster.className}.`}</p>
+                <p className="mt-1">Every unit, text set and skill of the Curriculum Map goes to every student’s <b>My Plans</b> as one printable plan. Nothing floods <b>My Work</b>: a part opens only when a student taps it, and the questions follow the student’s level. You choose which units are open.</p>
+              </div>
+              {cur ? (
+                <Link href={`/teacher/plans/${cur.id}`} className="rounded-xl bg-brand-navy px-6 py-3 font-bold text-white shadow hover:bg-brand-purple">📊 Open the class progress</Link>
+              ) : (
+                <form action={sendCurriculumPlanAction} className="flex flex-wrap items-end gap-3">
+                  <input type="hidden" name="classId" value={classId} />
+                  <input type="hidden" name="back" value={`/teacher/plans?classId=${classId}`} />
+                  <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Correct answers to finish each part<input type="number" name="target" min={5} max={50} defaultValue={20} className={`${box} w-28 bg-white`} /></label>
+                  <button className="rounded-xl bg-brand-teal px-6 py-3 font-bold text-white shadow hover:bg-brand-navy">📘 Send the full curriculum plan</button>
+                </form>
+              )}
+            </div>
+          </Section>
+        );
+      })()}
+      {isTeacher && roster && (
+        <Section title="New Plan" icon="➕">
           <form action={createPlanAction} className="space-y-5">
             <input type="hidden" name="classId" value={classId} />
             <div className="grid gap-3 md:grid-cols-3">
@@ -80,7 +107,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
               <div className="mt-2 grid gap-1 sm:grid-cols-2 lg:grid-cols-4">{roster.students.map((s) => <label key={s.id} className="flex items-center gap-2"><input type="checkbox" name="studentIds" value={s.id} />{s.name}</label>)}</div>
             </fieldset>
             <div className="flex flex-wrap items-end justify-between gap-3">
-              <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Questions per place (max)<input type="number" name="max" min={5} max={60} defaultValue={15} className={`${box} w-28`} /></label>
+              <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Correct answers to finish each place<input type="number" name="max" min={5} max={50} defaultValue={20} className={`${box} w-28`} /></label>
               <button className="rounded-xl bg-brand-navy px-8 py-3 text-lg font-bold text-white shadow hover:bg-brand-purple">🗂️ Assign plan</button>
             </div>
           </form>

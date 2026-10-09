@@ -123,6 +123,7 @@ export function parseTemplateTable(table: string[][], target: ImportTarget = "BA
     // a file for another page, uploaded here by mistake: say where it goes
     const hs = header.map((h) => normHeader(h));
     if (hs.includes(normHeader("Sentence Starters")) || hs.includes(normHeader("Word Bank"))) return { ok: false, errors: ["This is a Respond to Reading file, not a questions file. Upload it here instead: Curriculum Map → ✍️ Respond to Reading → 📥 Import activities (/admin/curriculum-map/respond)."] };
+    if (hs.includes(normHeader("RIT Low")) && hs.includes(normHeader("Statement"))) return { ok: false, errors: ["This is a Learning Continuum file, not a questions file. Upload it in MAP → Learning Continuum (/admin/map-continuum)."] };
     if (hs.includes(normHeader("Article Code"))) return { ok: false, errors: ["This is a ReadMaster file, not a questions file. Upload it in ReadMaster → Import many (/admin/readmaster)."] };
     if (hs.includes(normHeader("Reading Fall RIT")) || hs.includes(normHeader("Language Fall RIT"))) return { ok: false, errors: ["This is a MAP scores file, not a questions file. Upload it in MAP → MAP Data (/teacher/map-rit)."] };
     if (hs.includes("role") && hs.includes(normHeader("display_name"))) return { ok: false, errors: ["This is a users (roster) file, not a questions file. Upload it in School → Users → Import Users (/admin/roster)."] };

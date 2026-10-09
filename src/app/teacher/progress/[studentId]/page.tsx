@@ -73,7 +73,7 @@ export default async function StudentProgressPage({ params, searchParams }: { pa
       </div>
       <section className="mt-6 rounded-3xl bg-gradient-to-br bg-linear-to-br from-amber-50 to-white p-5 shadow-sm ring-1 ring-amber-200">
         <h2 className="text-lg font-bold text-brand-navy">📋 Plan for {r.name.split(" ")[0]} <IntensityBadge intensity={v.plan.intensity} /></h2>
-        <p className="mt-1 text-sm text-slate-600">{v.plan.intensity ? `${INTENSITY_NAME[v.plan.intensity]}. ` : ""}Starts at <LevelBadge level={v.plan.startLevel} /> ({v.plan.why}) and moves up or down by their answers. Skills come from the weakest goal areas{m?.goals.length ? "" : " (no goal-area scores yet: all areas, weakest mastery first)"}.</p>
+        <p className="mt-1 text-sm text-slate-600">{v.plan.intensity ? `${INTENSITY_NAME[v.plan.intensity]}. ` : ""}Starts at <LevelBadge level={v.plan.startLevel} /> ({v.plan.why}) and moves up or down by their answers. Skills come from the weakest goal areas{m?.goals.length ? "" : " (no goal-area scores yet: every area of the subject)"}. These are the <b>first skills to focus on</b> (weakest first), not the only ones: the MAP plan practises all the skills of each area at the student&apos;s RIT band, and this list changes as they answer.</p>
         {v.plan.areas.length === 0 ? <p className="mt-3 text-slate-600">No skills with questions for this grade yet.</p> : (
           <form action={assignPlanAction} className="mt-3">
             <input type="hidden" name="classId" value={v.classId} /><input type="hidden" name="studentId" value={studentId} /><input type="hidden" name="subject" value={subject} />

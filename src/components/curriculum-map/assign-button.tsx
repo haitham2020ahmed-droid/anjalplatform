@@ -91,7 +91,7 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
               </fieldset>
             )}
             <div className="mt-3 flex flex-wrap gap-3">
-              <label className="flex flex-col font-semibold text-slate-700">Questions per student<input type="number" min={1} max={60} value={max} onChange={(e) => setMax(Number(e.target.value) || 20)} className="mt-1 w-28 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
+              <label className="flex flex-col font-semibold text-slate-700">{mode === "ADAPTIVE" ? "Correct answers to finish" : "Questions per student"}<input type="number" min={mode === "ADAPTIVE" ? 5 : 1} max={mode === "ADAPTIVE" ? 50 : 60} value={max} onChange={(e) => setMax(Number(e.target.value) || 20)} className="mt-1 w-28 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
               <label className="flex flex-col font-semibold text-slate-700">Due date (optional)<input type="date" value={due} onChange={(e) => setDue(e.target.value)} className="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
             </div>
             {result && <p role="status" className={`mt-3 rounded-lg px-3 py-2 ${result.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{result.message}</p>}

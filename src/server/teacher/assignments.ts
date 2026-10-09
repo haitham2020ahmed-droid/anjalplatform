@@ -112,7 +112,7 @@ export interface AssignmentSummary {
 
 export async function classAssignments(repo: Repo, actor: Actor, classId: string, now = new Date()): Promise<AssignmentSummary[]> {
   await assertClassAccess(repo, actor, classId);
-  const list = (await repo.findMany("Assignment", { classId, deletedAt: null })).sort((x, y) => String(y.createdAt).localeCompare(String(x.createdAt)));
+  const list = (await repo.findMany("Assignment", { classId, deletedAt: null })).filter((a) => !a.curriculumPlanId).sort((x, y) => String(y.createdAt).localeCompare(String(x.createdAt)));
   // batched: skill assignments refreshed together; older multi-skill ones keep their own refresh
   await refreshSkillAssignments(repo, list.filter((a) => a.skillId), null, now);
   for (const a of list.filter((x) => !x.skillId)) await refreshAssignmentProgress(repo, String(a.id), now);

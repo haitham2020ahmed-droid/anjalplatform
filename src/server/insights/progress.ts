@@ -122,7 +122,10 @@ export async function studentProgress(repo: Repo, actor: Actor, studentId: strin
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const [row] = await rowsFor(repo, [studentId], grade, subject, actor.schoolId, now);
   // plan: weakest goal areas (by goal RIT) → that area's skills, weakest mastery first; without goal scores: all areas
-  const areas = await gradeAreaSkills(repo, actor.schoolId!, grade);
+  // only the goal areas of this subject (Reading: Literary, Informational, Vocabulary · Language: Grammar, Mechanics, Writing)
+  const allAreas = await gradeAreaSkills(repo, actor.schoolId!, grade);
+  const subjOf = new Map((allAreas.length ? await repo.findMany("MapGoalArea", { id: { in: allAreas.map((a) => a.areaId) } }, { select: ["id", "subject"] }) : []).map((a) => [s(a.id), s(a.subject)]));
+  const areas = allAreas.filter((a) => (subject === "READING" ? /read/i : /lang/i).test(subjOf.get(a.areaId) ?? ""));
   const [mastery, open] = await Promise.all([
     repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "score"] }),
     repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId", "status"] }),
@@ -137,7 +140,7 @@ export async function studentProgress(repo: Repo, actor: Actor, studentId: strin
     : areas.map((a) => ({ a, rit: null as number | null }));
   const planAreas: PlanArea[] = ranked.slice(0, goals.length ? 2 : 3).map(({ a, rit }) => ({
     area: a.area, rit,
-    skills: a.skills.map((k) => ({ id: k.id, name: k.name, mastery: mOf.get(k.id) ?? null, assigned: openSkills.has(k.id) })).sort((x, y) => (x.mastery ?? -1) - (y.mastery ?? -1) || x.name.localeCompare(y.name)).slice(0, 3),
+    skills: a.skills.map((k) => ({ id: k.id, name: k.name, mastery: mOf.get(k.id) ?? null, assigned: openSkills.has(k.id) })).sort((x, y) => (x.mastery ?? -1) - (y.mastery ?? -1) || x.name.localeCompare(y.name)).slice(0, 4),
   })).filter((x) => x.skills.length);
   const pct = row.map?.latest?.percentile ?? null;
   const startLevel: Level = row.level ?? (pct === null ? "ON" : pct < 41 ? "BELOW" : pct > 60 ? "ABOVE" : "ON");

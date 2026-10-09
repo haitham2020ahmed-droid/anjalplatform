@@ -26,7 +26,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
 import { openAssignmentFor, refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
 import { applyPlacementResult } from "../curriculum-map/placement-result";
-import { adaptiveNext } from "../curriculum-map/leveled-run";
+import { adaptiveNext, STUCK_AFTER, type AdaptiveState } from "../curriculum-map/leveled-run";
 
 export const SESSION_RESUME_MINUTES = 120;
 export const MAX_QUESTIONS_PER_SESSION = 20;
@@ -402,6 +402,12 @@ export async function endPractice(repo: Repo, actor: Actor, sessionId: string, n
 export interface QuizView {
   assignmentId: string; sessionId: string; title: string; question: ClientQuestion | null;
   index: number; total: number; answered: number; correct: number; ended: boolean;
+  /** sets with a goal of correct answers (Curriculum Map places, plans): the goal and how far the student is */
+  goal: { target: number; correct: number; reached: boolean; early: boolean; struggling: boolean } | null;
+  /** more than 25 minutes of answers in this set today: suggest a break */
+  breakHint: boolean;
+  /** where “Next” goes after the goal (the plan's next place), when the set belongs to a plan */
+  nextHref: string | null;
 }
 
 async function quizContext(repo: Repo, actor: Actor, assignmentId: string) {
@@ -414,20 +420,37 @@ async function quizContext(repo: Repo, actor: Actor, assignmentId: string) {
 }
 
 /** The next question of a set: fixed sets in the teacher's order; adaptive sets by level (Below → On → Above). */
-async function nextInSet(repo: Repo, a: Row, order: string[], sessionId: string, studentId: string): Promise<{ nextId: string | null; total: number }> {
+async function nextInSet(repo: Repo, a: Row, order: string[], sessionId: string, studentId: string): Promise<{ nextId: string | null; total: number; goal: AdaptiveState["goal"] }> {
   const set = await repo.findUnique("Assessment", { id: a.assessmentId });
-  if (set?.isAdaptive) { const st = await adaptiveNext(repo, set, order, sessionId, studentId); return { nextId: st.nextId, total: st.total }; }
+  if (set?.isAdaptive) { const st = await adaptiveNext(repo, set, order, sessionId, studentId); return { nextId: st.nextId, total: st.total, goal: st.goal }; }
   const answered = new Set((await repo.findMany("QuestionAttempt", { sessionId }, { select: ["questionId"] })).map((x) => String(x.questionId)));
-  return { nextId: order.find((id) => !answered.has(id)) ?? null, total: order.length };
+  return { nextId: order.find((id) => !answered.has(id)) ?? null, total: order.length, goal: null };
+}
+
+/** The plan place after this one (a student working through a plan goes on to the next place). */
+async function nextPlanHref(repo: Repo, a: Row, studentId: string): Promise<string | null> {
+  const plans = await repo.findMany("SkillPlan", { classId: a.classId }, { select: ["id"] });
+  if (!plans.length) return null;
+  const items = await repo.findMany("SkillPlanItem", { planId: { in: plans.map((p) => p.id) } }, { select: ["id", "planId", "assignmentIds", "order"] });
+  const mine = items.find((i) => { const x = typeof i.assignmentIds === "string" ? JSON.parse(String(i.assignmentIds)) : i.assignmentIds; return Array.isArray(x) && x.map(String).includes(String(a.id)); });
+  if (!mine) return null;
+  const nextItem = items.filter((i) => i.planId === mine.planId && Number(i.order) > Number(mine.order)).sort((x, y) => Number(x.order) - Number(y.order))[0];
+  void studentId;
+  return nextItem ? `/student/plans/${String(mine.planId)}/open/${String(nextItem.id)}` : `/student/plans/${String(mine.planId)}`;
 }
 
 async function quizView(repo: Repo, a: Row, order: string[], s: Row): Promise<QuizView> {
-  const answeredIds = new Set((await repo.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId"] })).map((x) => String(x.questionId)));
-  const { nextId, total } = await nextInSet(repo, a, order, String(s.id), String(s.studentId));
+  const attempts = await repo.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId", "responseMs", "createdAt"] });
+  const answered = attempts.length;
+  const { nextId, total, goal } = await nextInSet(repo, a, order, String(s.id), String(s.studentId));
   const item = nextId ? (await loadQuestionItems(repo, [nextId]))[0] : undefined;
+  const dayAgo = Date.now() - 86_400_000;
+  const todayMs = attempts.filter((x) => d(x.createdAt).getTime() >= dayAgo).reduce((t2, x) => t2 + Number(x.responseMs ?? 0), 0);
   return {
-    assignmentId: String(a.id), sessionId: String(s.id), title: hideLevels(String(a.title)), question: item ? toClientQuestion(item, `${s.id}:${item.questionId}`) : null,
-    index: Math.min(total, answeredIds.size + 1), total, answered: answeredIds.size, correct: Number(s.correctCount ?? 0), ended: !nextId,
+    assignmentId: String(a.id), sessionId: String(s.id), title: hideLevels(String(a.title)), question: item ? toClientQuestion(item, `${s.id}:${item.questionId}:${answered}`) : null,
+    index: goal ? answered + 1 : Math.min(total, answered + 1), total, answered, correct: goal ? goal.correct : Number(s.correctCount ?? 0), ended: !nextId,
+    goal: goal ? { target: goal.target, correct: goal.correct, reached: goal.reached || Boolean(s.goalReachedAt), early: goal.early, struggling: goal.struggling } : null,
+    breakHint: todayMs >= 25 * 60_000, nextHref: goal ? await nextPlanHref(repo, a, String(s.studentId)) : null,
   };
 }
 
@@ -447,7 +470,12 @@ export async function submitQuizAnswer(repo: Repo, actor: Actor, input: { assign
   const feedback = await repo.transaction(async (tx) => {
     const s = (await tx.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" }))[0];
     if (!s) throw new ValidationError("Start the assignment first.");
-    if ((await tx.findMany("QuestionAttempt", { sessionId: s.id, questionId: input.questionId }, { select: ["id"] })).length) throw new ValidationError("You already answered this question.");
+    // one answer per question — except in a goal set, where a question the student missed may come back
+    const before = await tx.findMany("QuestionAttempt", { sessionId: s.id, questionId: input.questionId }, { select: ["id", "isCorrect"] });
+    if (before.length) {
+      const set = await tx.findUnique("Assessment", { id: a.assessmentId });
+      if (!(Number(set?.targetCorrect) > 0 && before.every((x) => !x.isCorrect))) throw new ValidationError("You already answered this question.");
+    }
     const item = (await loadQuestionItems(tx, [input.questionId]))[0];
     if (!item) throw new ValidationError("This question is no longer available.");
     const response = normalizeResponse(item, input.response);
@@ -488,16 +516,27 @@ export async function submitQuizAnswer(repo: Repo, actor: Actor, input: { assign
     };
     await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
     const answered = (await tx.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId"] })).length;
-    const done = answered >= order.length || !(await nextInSet(tx, a, order, String(s.id), studentId)).nextId;
+    const after = await nextInSet(tx, a, order, String(s.id), studentId);
+    const goalSet = after.goal !== null;
+    const done = goalSet ? !after.nextId : answered >= order.length || !after.nextId;
+    // 🎯 the goal is reached once: the work is done (the student may keep practising)
+    const goalNow = goalSet && after.goal!.reached && !s.goalReachedAt;
     await tx.updateMany("PracticeSession", { id: s.id }, {
       questionCount: answered, correctCount: Number(s.correctCount ?? 0) + (correct ? 1 : 0), activeMs: Number(s.activeMs ?? 0) + responseMs,
-      currentServedAt: done ? null : now, ...(done ? { endedAt: now, endReason: "COMPLETED" } : {}),
+      currentServedAt: done ? null : now, ...(done ? { endedAt: now, endReason: "COMPLETED" } : {}), ...(goalNow ? { goalReachedAt: now } : {}),
     });
+    // stuck: many answers without reaching the goal — the class's teachers are told once
+    if (goalSet && answered === STUCK_AFTER && !after.goal!.reached) {
+      const teachers = await tx.findMany("ClassTeacher", { classId: a.classId }, { select: ["teacherId"] });
+      const tRows = teachers.length ? await tx.findMany("Teacher", { id: { in: teachers.map((x) => x.teacherId) } }, { select: ["userId"] }) : [];
+      const me = await tx.findUnique("User", { id: (await tx.findUnique("Student", { id: studentId }))?.userId });
+      if (tRows.length) await tx.createMany("Notification", tRows.map((x) => ({ userId: x.userId, type: "PARENT_PROGRESS", title: `🆘 ${String(me?.displayName ?? "A student")} is stuck`, body: `${STUCK_AFTER} answers on “${hideLevels(String(a.title))}” and only ${after.goal!.correct} of ${after.goal!.target} correct. A short reteach may help.`, link: `/admin/student-file/${studentId}`, readAt: null, createdAt: now })));
+    }
     const fb: Feedback = {
       correct, credit, yourAnswer: studentAnswerText(item, response), correctAnswer: correctAnswerText(item), whyCorrect: item.explanation.whyCorrect,
       whyYoursIsWrong: correct ? null : whyChosenWrong(item, response), tip: item.explanation.tip, rapidGuess: step.rapidGuess,
       masteryBefore: Math.round(seenBefore), masteryAfter: Math.round(mst.score), band: mst.band, xp: 0,
-      next: { hasQuestion: !done, endReason: done ? "COMPLETED" : null, routeToSkillId: null, routeToSkillName: null },
+      next: { hasQuestion: !done, endReason: goalNow ? "GOAL" : done ? "COMPLETED" : null, routeToSkillId: null, routeToSkillName: null },
     };
     return fb;
   });

@@ -47,10 +47,15 @@ describe("⭐ assign chosen questions from the question list", () => {
     assert.ok(!(await assignedSkills(repo, outsider)).items.some((i) => i.assignmentId === assignmentId), "not for other students");
   });
 
-  test("the rules: own classes only, published questions only, 1–50 questions, teachers only", async () => {
+  test("the rules: own classes only, published questions only, 1–50 questions, teachers (or the admin for the class teacher)", async () => {
     await assert.rejects(assignQuestions(repo, otherTeacher, { classId, questionIds: chosen }), ForbiddenError);
     await assert.rejects(assignQuestions(repo, student, { classId, questionIds: chosen }), ForbiddenError);
-    await assert.rejects(assignQuestions(repo, admin, { classId, questionIds: chosen }), /Only teachers/);
+    // a school admin sends on behalf of the class's teacher (Update 22)
+    const byAdmin = await assignQuestions(repo, admin, { classId, questionIds: chosen });
+    const t1 = (await repo.findMany("ClassTeacher", { classId }))[0];
+    assert.equal(String((await repo.findUnique("Assignment", { id: byAdmin.assignmentId }))!.createdById), String(t1.teacherId));
+    await repo.deleteMany("AssignmentStudent", { assignmentId: byAdmin.assignmentId });
+    await repo.updateMany("Assignment", { id: byAdmin.assignmentId }, { deletedAt: new Date() });
     await assert.rejects(assignQuestions(repo, teacher, { classId, questionIds: [] }), /at least one question/);
     // a short answer (marked by a teacher) cannot go into a set
     const testAdmin = await resolveActor(repo, (await repo.findUnique("User", { username: "test.admin" }))!);

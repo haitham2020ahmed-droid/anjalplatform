@@ -354,6 +354,22 @@ CREATE TABLE "SkillStandard" (
 
 CREATE INDEX "SkillStandard_standardId_idx" ON "SkillStandard"("standardId");
 
+CREATE TABLE "LearningStatement" (
+  "id" TEXT NOT NULL,
+  "subject" TEXT NOT NULL,
+  "ritLow" INTEGER NOT NULL,
+  "ritHigh" INTEGER NOT NULL,
+  "goalArea" TEXT NOT NULL,
+  "topic" TEXT NOT NULL,
+  "statement" TEXT NOT NULL,
+  "standards" TEXT NOT NULL,
+  "sortOrder" INTEGER NOT NULL DEFAULT 0,
+  "importedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "LearningStatement_subject_ritLow_idx" ON "LearningStatement"("subject", "ritLow");
+
 CREATE TABLE "MapGoalArea" (
   "id" TEXT NOT NULL,
   "code" TEXT NOT NULL,
@@ -547,6 +563,7 @@ CREATE TABLE "PracticeSession" (
   "currentOrder" TEXT,
   "lastTargetB" REAL,
   "endReason" TEXT,
+  "goalReachedAt" TEXT,
   PRIMARY KEY ("id"),
   CONSTRAINT "PracticeSession_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "PracticeSession_assessmentId_fkey" FOREIGN KEY ("assessmentId") REFERENCES "Assessment"("id") ON DELETE SET NULL ON UPDATE CASCADE
@@ -703,6 +720,7 @@ CREATE TABLE "Assignment" (
   "track" TEXT NOT NULL DEFAULT 'CURRICULUM',
   "assessmentId" TEXT,
   "targetMastery" INTEGER,
+  "curriculumPlanId" TEXT,
   "dueAt" TEXT,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "deletedAt" TEXT,
@@ -743,6 +761,7 @@ CREATE TABLE "Assessment" (
   "unitId" TEXT,
   "isAdaptive" INTEGER NOT NULL DEFAULT 0,
   "maxQuestions" INTEGER,
+  "targetCorrect" INTEGER,
   "timeLimitMin" INTEGER,
   "status" TEXT NOT NULL DEFAULT 'DRAFT' CHECK ("status" IN ('DRAFT', 'UNDER_REVIEW', 'PUBLISHED', 'ARCHIVED')),
   "createdById" TEXT,
@@ -1225,6 +1244,10 @@ CREATE TABLE "SkillPlan" (
   "schoolId" TEXT NOT NULL,
   "classId" TEXT NOT NULL,
   "title" TEXT NOT NULL,
+  "kind" TEXT NOT NULL DEFAULT 'PLACES',
+  "targetCorrect" INTEGER,
+  "openUnits" TEXT,
+  "unitDates" TEXT,
   "gradeLevel" INTEGER NOT NULL,
   "note" TEXT,
   "createdById" TEXT,

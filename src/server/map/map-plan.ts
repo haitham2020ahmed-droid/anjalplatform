@@ -237,7 +237,8 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
     if (existing.some((x) => x.studentId === id && x.term === p.term)) continue;   // this term's plan exists (draft or sent)
     // skills of each group: weakest mastery first (not started first)
     const m = new Map(mastery.filter((x) => x.studentId === id).map((x) => [s(x.skillId), Number(x.score)]));
-    const skillsByGroup = new Map<GroupKey, string[]>(GROUPS.map((g) => [g.key, [...new Set((pools.get(g.key) ?? []).map((q) => q.skillId))].sort((a, b) => (m.get(a) ?? -1) - (m.get(b) ?? -1))]));
+    // no answers yet in an area → no skill chosen = all the skills of the area (at the student's band)
+    const skillsByGroup = new Map<GroupKey, string[]>(GROUPS.map((g) => { const ids = [...new Set((pools.get(g.key) ?? []).map((q) => q.skillId))]; return [g.key, ids.some((k) => m.has(k)) ? ids.sort((a, b) => (m.get(a) ?? -1) - (m.get(b) ?? -1)) : []]; }));
     const items = autoItems(p, skillsByGroup, bands);
     if (!items.length) continue;
     await repo.create("MapPlan", { schoolId: actor.schoolId!, classId, studentId: id, subject, term: p.term, status: "DRAFT", items, note: null, dueAt: null, assignmentIds: null, createdById: actor.userId, createdAt: now, updatedAt: now, sentAt: null });

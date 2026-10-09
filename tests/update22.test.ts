@@ -90,3 +90,36 @@ describe("Update 22 · a file uploaded on the wrong page", () => {
     assert.match(say(["role", "username", "display_name"]), /roster/);
   });
 });
+
+describe("Update 22 · MAP Skill Plan by RIT range", () => {
+  let repo: SqliteRepo; let admin: Actor; let classId = "";
+  const now = new Date(Date.UTC(2026, 9, 1, 8));
+  before(async () => {
+    ({ repo } = await demoDatabase());
+    await seedTestEnvironment(repo, { root: process.cwd(), passwordHash: "x".repeat(60), practice: "none" });
+    admin = await resolveActor(repo, (await repo.findUnique("User", { username: "test.admin" }))!);
+    const u = (await repo.findUnique("User", { username: "test.teacher.2" }))!;
+    const t = (await repo.findMany("Teacher", { userId: u.id }))[0];
+    classId = String((await repo.findMany("ClassTeacher", { teacherId: t.id }))[0].classId);
+  });
+  test("six ranges around the grade norm (Grade 6: the published Reading 6 cut points)", async () => {
+    const { skillRanges } = await import("../src/server/map/skill-plan");
+    assert.deepEqual((await skillRanges(repo, 6)).map((r) => r.label), ["Less than 198", "198–204", "205–210", "211–214", "215–218", "219+"]);
+  });
+  test("every student lands in one range; empty ranges show the nearest skills; an admin assigns for the class teacher", async () => {
+    const { skillPlan, assignRange } = await import("../src/server/map/skill-plan");
+    const ids = (await repo.findMany("ClassMembership", { classId, leftAt: null })).map((m) => String(m.studentId));
+    const H = [...MAP_TEMPLATE_HEADERS];
+    const sts = await repo.findMany("Student", { id: { in: ids } });
+    const rows = sts.map((st, i) => { const r = H.map(() => ""); r[0] = String(st.studentNumber); r[H.indexOf("Reading Fall RIT")] = String(170 + i * 3); return r; });
+    await importMapScores(repo, admin, [H, ...rows], 2026, now);
+    const v = await skillPlan(repo, admin, { grade: 0, group: "LIT", classId });
+    assert.equal(v.ranges.reduce((t, r) => t + r.students.length, 0), ids.length);
+    assert.ok(v.ranges.every((r) => r.skills > 0), "no empty range");
+    const r = v.ranges.find((x) => x.students.length)!;
+    const a = await assignRange(repo, admin, { classId, group: "LIT", range: r.index, skillIds: r.areas.flatMap((x) => x.topics.flatMap((t) => t.skills.map((k) => k.id))), studentIds: r.students.map((x) => x.id) }, now);
+    assert.equal(a.students, r.students.length);
+    const asg = await repo.findUnique("Assignment", { id: a.assignmentId });
+    assert.ok(asg?.createdById, "made on behalf of the class teacher");
+  });
+});

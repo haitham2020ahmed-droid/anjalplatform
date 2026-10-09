@@ -68,7 +68,15 @@ export async function startLevel(repo: Repo, studentId: string, fallback: Level,
   return saved ? { level: s(saved.level) as Level, from: "LEVEL" } : { level: fallback, from: "DEFAULT" };
 }
 
-export interface AdaptiveState { nextId: string | null; total: number; done: boolean; decision: Decision; start: Rung }
+export interface GoalState { target: number; correct: number; reached: boolean; early: boolean; streak: number; struggling: boolean; stuck: boolean }
+export interface AdaptiveState { nextId: string | null; total: number; done: boolean; decision: Decision; start: Rung; goal: GoalState | null; attempts: number }
+
+/** In a row at the end: careful correct answers at On level or higher (a strong student finishes early). */
+const STRONG_STREAK = 10;
+/** Careful wrong answers in a row: the student gets help (and the questions they missed come back later). */
+const STRUGGLE_RUN = 5;
+/** Answers without reaching the goal: the teacher is told the student is stuck. */
+export const STUCK_AFTER = 60;
 
 /** Next question of an adaptive set for this session (null = finished). */
 export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessionId: string, studentId: string): Promise<AdaptiveState> {
@@ -77,20 +85,45 @@ export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessio
   const levelOf = new Map(pool.map((q) => [q.id, q.level]));
   // the start is fixed by the first question the student answered (later level changes never rewrite the path)
   const start: Rung = attempts.length && levelOf.has(s(attempts[0].questionId)) ? levelOf.get(s(attempts[0].questionId))! : (await startLevel(repo, studentId, "ON", String(set.type) === "PLACEMENT" ? null : await categoryOfQuestions(repo, order))).level;
-  const total = Math.min(Number(set.maxQuestions) || order.length, order.length);
+  const target = Number(set.targetCorrect) > 0 ? Number(set.targetCorrect) : null;
+  const total = target ? target : Math.min(Number(set.maxQuestions) || order.length, order.length);
   const rungs = LADDER.filter((r) => pool.some((q) => q.level === r) || r === "BELOW" || r === "ON" || r === "ABOVE");
   // ⚡ answers given too fast to have read the question (rapid guesses) never move the level, up or down —
   // as on MAP itself; they still count toward the set's length, so a guessing student does not go on forever
   const careful = attempts.filter((a) => !a.rapidGuess);
   const moved = decideLevel(start, careful.map((a) => ({ level: levelOf.get(s(a.questionId)) ?? "ON", correct: Boolean(a.isCorrect) })), Number.MAX_SAFE_INTEGER, rungs, await ladderRulesForStudent(repo, studentId));
-  const decision = moved.reason === "MASTERED_ABOVE" ? moved
+  // 🎯 a goal of correct answers (Curriculum Map places, plans): the goal, not the number of questions, ends the set
+  let goal: GoalState | null = null;
+  if (target) {
+    const correct = careful.filter((a) => a.isCorrect).length;
+    let streak = 0;
+    for (let i = careful.length - 1; i >= 0 && careful[i].isCorrect && ["ON", "ABOVE", "CHALLENGE"].includes(levelOf.get(s(careful[i].questionId)) ?? "ON"); i--) streak++;
+    let wrongRun = 0;
+    for (let i = careful.length - 1; i >= 0 && !careful[i].isCorrect; i--) wrongRun++;
+    const early = correct < target && (streak >= STRONG_STREAK || moved.reason === "MASTERED_ABOVE");
+    goal = { target, correct, reached: correct >= target || early, early, streak, struggling: wrongRun >= STRUGGLE_RUN, stuck: attempts.length >= STUCK_AFTER && correct < target };
+  }
+  const cap = Number(set.maxQuestions) || order.length;
+  const decision = target
+    ? (attempts.length >= Math.max(cap, target) ? { ...moved, done: true, reason: "LIMIT" as const } : { ...moved, done: false, reason: null })
+    : moved.reason === "MASTERED_ABOVE" ? moved
     : attempts.length >= total ? { ...moved, done: true, reason: "LIMIT" as const } : { ...moved, done: false, reason: null };
-  if (decision.done) return { nextId: null, total, done: true, decision, start };
+  if (decision.done) return { nextId: null, total, done: true, decision, start, goal, attempts: attempts.length };
   const answered = new Set(attempts.map((a) => s(a.questionId)));
   const lex = await studentLexile(repo, studentId);
   let nextId = pickNext(pool, decision.level, answered, lex);
   // the level has no question left: the nearest level that still has one
   const near: Record<Rung, Rung[]> = { SUPPORT: ["BELOW", "ON"], BELOW: ["ON", "SUPPORT", "ABOVE"], ON: ["BELOW", "ABOVE"], ABOVE: ["ON", "CHALLENGE", "BELOW"], CHALLENGE: ["ABOVE", "ON"] };
   for (const alt of near[decision.level]) { if (nextId) break; nextId = pickNext(pool, alt, answered, lex); }
-  return { nextId, total, done: !nextId, decision: nextId ? decision : { ...decision, done: true, reason: "NO_QUESTIONS" }, start };
+  // 🔁 a goal set whose questions have all been seen: the questions the student missed come back (never one of
+  // the last 5 answered), nearest to their level first
+  if (!nextId && target) {
+    const recent = new Set(attempts.slice(-5).map((a) => s(a.questionId)));
+    const lastOf = new Map<string, boolean>();
+    for (const a of attempts) lastOf.set(s(a.questionId), Boolean(a.isCorrect));
+    const missed = new Set([...lastOf].filter(([id, ok]) => !ok && !recent.has(id)).map(([id]) => id));
+    const notMissed = new Set(pool.map((q) => q.id).filter((id) => !missed.has(id)));
+    for (const lv of [decision.level, ...near[decision.level]]) { if (nextId) break; nextId = pickNext(pool, lv, notMissed, lex); }
+  }
+  return { nextId, total, done: !nextId, decision: nextId ? decision : { ...decision, done: true, reason: "NO_QUESTIONS" }, start, goal, attempts: attempts.length };
 }

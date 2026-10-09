@@ -52,7 +52,7 @@ export function PlanDocView({ d, forStudent = false }: { d: PlanDoc; forStudent?
                 <p className="font-bold text-brand-navy">{i + 1}. {it.icon} {it.name} <span className="font-normal text-slate-600">· questions at RIT {it.band} and a little above · {it.count} questions</span></p>
                 {it.progress !== null && <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${it.done ? "bg-emerald-100 text-emerald-800" : "bg-white text-slate-700 ring-1 ring-slate-200"}`}>{it.done ? "✅ Done" : `${it.progress}%`}</span>}
               </div>
-              {it.skills.length > 0 && <p className="mt-1 text-sm text-slate-700">Skills: {it.skills.join(" · ")}</p>}
+              <p className="mt-1 text-sm text-slate-700">Skills: {it.skills.length > 0 ? it.skills.join(" · ") : "all the skills of this area"}</p>
             </li>
           ))}
         </ol>

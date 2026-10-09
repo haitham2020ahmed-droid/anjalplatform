@@ -51,6 +51,10 @@ async function checkAccess(repo: Repo, actor: Actor, studentId: string): Promise
   if (actor.role === "PARENT") {
     if (!actor.parentChildIds?.has(studentId)) throw new ForbiddenError("Student not found.");
     if (!(await shareState(repo, s(st.schoolId), studentId)).shared) throw new ForbiddenError("The teacher has not shared this report yet.");
+  } else if (actor.role === "STUDENT") {
+    // a student opens their own report with the family, once the teacher shared it
+    if (actor.studentId !== studentId) throw new ForbiddenError("Student not found.");
+    if (!(await shareState(repo, s(st.schoolId), studentId)).shared) throw new ForbiddenError("Your teacher has not shared this report yet.");
   } else if (actor.role === "TEACHER") {
     if (!(await readableClasses(repo, actor)).some((c) => klass && c.id === klass.id)) throw new ForbiddenError("This student is not in your classes.");
   } else if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError();
@@ -58,7 +62,7 @@ async function checkAccess(repo: Repo, actor: Actor, studentId: string): Promise
 }
 
 export async function parentReport(repo: Repo, actor: Actor, studentId: string, now = new Date()): Promise<ParentReport> {
-  if (actor.role !== "PARENT") assertCan(actor, "reports:read");
+  if (actor.role !== "PARENT" && actor.role !== "STUDENT") assertCan(actor, "reports:read");
   const { grade, className, schoolId } = await checkAccess(repo, actor, studentId);
   const ids = [studentId];
   const [names, practice, work, reading, language, rules, badges, share] = await Promise.all([

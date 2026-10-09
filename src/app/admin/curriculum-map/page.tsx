@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
+import { sendCurriculumPlanAction } from "@/app/teacher/plans/actions";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { curriculumMapView, LEVEL_TARGET, type MapViewNode } from "@/server/curriculum-map/view";
@@ -37,6 +38,9 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
   const planClassId = roster.find((c) => c.id === sp.classId)?.id ?? roster[0]?.id ?? null;
   // a simple status per section for the chosen class (teachers)
   const status: Map<string, SectionStatus> = actor.role === "TEACHER" && planClassId ? await sectionStatuses(repo, actor, planClassId) : new Map();
+  // 📘 the class's full-curriculum plan (if it was sent)
+  const curPlan = planClassId ? (await repo.findMany("SkillPlan", { classId: planClassId, kind: "CURRICULUM" }, { select: ["id"] }))[0] : undefined;
+  const planClassName = roster.find((c) => c.id === planClassId)?.name ?? "";
   // ReadMaster articles written for a Text Set (Article Code RM-G4-U1-TS1)
   // ✍️ Respond to Reading level pages that have their activity
   const respond = await respondCodes(repo, actor.schoolId!);
@@ -88,6 +92,19 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
           <Link href="/admin/questions?status=PUBLISHED" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📚 Question Bank</Link>
         </>}
       </PageHeader>
+      {isTeacher && planClassId && (
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-teal-50 to-sky-50 px-4 py-3 ring-1 ring-teal-200">
+          <p className="text-sm text-slate-700"><b className="text-brand-navy">📘 Full curriculum plan · {planClassName}</b><span className="block">{curPlan ? "Sent: every student has the whole year in My Plans. See who is done, working or stuck." : "One button sends the whole grade (every unit, text set and skill) to every student’s My Plans. Parts open when a student taps them — no flood of assignments."}</span></p>
+          {curPlan ? <Link href={`/teacher/plans/${curPlan.id}`} className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-bold text-white hover:bg-brand-purple">📊 Class progress</Link> : (
+            <form action={sendCurriculumPlanAction} className="flex items-center gap-2">
+              <input type="hidden" name="classId" value={planClassId} />
+              <input type="hidden" name="back" value={`/admin/curriculum-map?classId=${planClassId}`} />
+              <label className="text-xs font-semibold text-slate-600">Correct to finish <input type="number" name="target" min={5} max={50} defaultValue={20} className="ms-1 w-16 rounded-lg border border-slate-300 px-2 py-1 text-sm" /></label>
+              <button className="rounded-xl bg-brand-teal px-4 py-2 text-sm font-bold text-white shadow hover:bg-brand-navy">📘 Send the full curriculum plan</button>
+            </form>
+          )}
+        </div>
+      )}
       {v.grades.length === 0 ? <p className="mt-6 rounded-xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">The Curriculum Map has not been created yet.</p> : (
         <>
           <div className="sticky top-[60px] z-30 -mx-2 rounded-2xl bg-slate-50/95 px-2 py-2 print:static">

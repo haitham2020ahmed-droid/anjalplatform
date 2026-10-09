@@ -4,6 +4,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { studentMap } from "@/server/map/student-map";
 import { myMap } from "@/server/map/map-more";
 import { assignedSkills } from "@/server/student/assigned";
+import { mySkillPlan } from "@/server/map/skill-plan";
 import { PageHeader } from "@/components/page-header";
 import { DESC_STYLE, StatusChip, subjectName } from "@/components/map/map-ui";
 
@@ -16,7 +17,7 @@ export const metadata = { title: "My MAP" };
 export default async function StudentMapPage() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
-  const [m, work, old] = await Promise.all([myMap(repo, actor), assignedSkills(repo, actor), studentMap(repo, actor)]);
+  const [m, work, old, mine] = await Promise.all([myMap(repo, actor), assignedSkills(repo, actor), studentMap(repo, actor), mySkillPlan(repo, actor)]);
   const mapWork = work.items.filter((i) => i.track === "MAP");
   const todo = mapWork.filter((w) => w.status !== "COMPLETED");
   const withScores = m.subjects.filter((x) => x.profile.term);
@@ -25,7 +26,40 @@ export default async function StudentMapPage() {
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/student", label: "My work" }} icon="🗺️" title="My MAP" subtitle="My MAP Growth results, my goal, my plan and my MAP work — all here.">
         <Link href="/student/map-test" className="rounded-xl bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800">🧭 MAP practice test</Link>
+        {actor.studentId && <Link href={`/map-report/study-plan/${actor.studentId}`} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">📑 My Study Plan</Link>}
+        {actor.studentId && <Link href={`/map-report/family/${actor.studentId}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📈 My MAP Report</Link>}
       </PageHeader>
+
+      {/* 🎯 my MAP at a glance: where I started, where I am going, how far is left */}
+      <section aria-label="My MAP at a glance" className="mb-6 grid gap-4 md:grid-cols-2">
+        {(["READING", "LANGUAGE"] as const).map((subj) => {
+          const sub = m.subjects.find((x) => x.subject === subj);
+          const g = sub?.goal ?? null, o = sub?.profile.overall ?? null;
+          const fall = g?.from ?? sub?.profile.history.find((h) => /fall/i.test(h.term))?.rit ?? null;
+          const pct = g ? Math.max(0, Math.min(100, Math.round((100 * (g.now - g.from)) / Math.max(1, g.target - g.from)))) : 0;
+          return (
+            <div key={subj} className="rounded-3xl bg-gradient-to-br from-brand-navy to-indigo-800 p-5 text-white shadow-md">
+              <div className="flex items-center justify-between"><h2 className="text-lg font-bold">{subj === "READING" ? "📖" : "✏️"} {subjectName(subj)}</h2>{g?.reached && <span className="rounded-full bg-emerald-400 px-3 py-0.5 text-sm font-bold text-emerald-950">🎉 Goal reached</span>}</div>
+              {!sub || (!o && fall === null) ? <p className="mt-3 text-white/80">No MAP results yet. They appear here when your school adds them.</p> : (
+                <>
+                  <dl className="mt-3 grid grid-cols-4 gap-2 text-center">
+                    <div className="rounded-2xl bg-white/10 p-2"><dt className="text-[11px] font-semibold uppercase tracking-wide text-white/70">Fall</dt><dd className="text-2xl font-extrabold tabular-nums">{fall ?? "—"}</dd></div>
+                    <div className="rounded-2xl bg-white/10 p-2"><dt className="text-[11px] font-semibold uppercase tracking-wide text-white/70">Now</dt><dd className="text-2xl font-extrabold tabular-nums">{g ? `${g.nowIsEstimate ? "~" : ""}${g.now}` : o?.rit ?? "—"}</dd></div>
+                    <div className="rounded-2xl bg-amber-400/90 p-2 text-amber-950"><dt className="text-[11px] font-semibold uppercase tracking-wide">Spring goal</dt><dd className="text-2xl font-extrabold tabular-nums">{g?.target ?? "—"}</dd></div>
+                    <div className="rounded-2xl bg-white/10 p-2"><dt className="text-[11px] font-semibold uppercase tracking-wide text-white/70">Points left</dt><dd className="text-2xl font-extrabold tabular-nums">{g ? (g.reached ? "0" : g.left) : "—"}</dd></div>
+                  </dl>
+                  {g ? (
+                    <div className="mt-3">
+                      <div className="h-3 overflow-hidden rounded-full bg-white/20" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} aria-label={`${subjectName(subj)}: progress to my Spring goal`}><div className="h-full rounded-full bg-gradient-to-r from-amber-300 to-emerald-400" style={{ width: `${pct}%` }} /></div>
+                      <p className="mt-1 text-xs text-white/80">{pct}% of the way from Fall to my Spring goal{g.nowIsEstimate ? " · “now” is estimated from my practice" : ""}</p>
+                    </div>
+                  ) : <p className="mt-3 text-xs text-white/80">Your Spring goal appears when your teacher adds the Fall projection.</p>}
+                </>
+              )}
+            </div>
+          );
+        })}
+      </section>
 
       {todo.length > 0 && (
         <section className="mb-6 rounded-3xl bg-gradient-to-br bg-linear-to-br from-emerald-50 to-white p-5 ring-1 ring-emerald-200">
@@ -122,6 +156,22 @@ export default async function StudentMapPage() {
               </li>
             ))}
           </ul>
+        </section>
+      )}
+
+      {mine.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-brand-navy">🧭 Skills at My Level</h2>
+          <p className="text-sm text-slate-600">For each MAP goal area: your RIT range and skills to practise there, easiest first. Tap one to practise it.</p>
+          <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            {mine.map((g) => (
+              <div key={g.group} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+                <p className="font-bold text-brand-navy">{g.icon} {g.name}</p>
+                <p className="text-xs text-slate-500">{g.subject === "READING" ? "Reading" : "Language Usage"} · my RIT {g.rit} · range {g.range}</p>
+                <ul className="mt-2 flex flex-wrap gap-1.5">{g.skills.map((k) => <li key={k.id}><Link href={`/practice/${k.id}?from=map`} className="inline-block rounded-lg bg-slate-50 px-2.5 py-1 text-sm text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">{k.name}</Link></li>)}</ul>
+              </div>
+            ))}
+          </div>
         </section>
       )}
 

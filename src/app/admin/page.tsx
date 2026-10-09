@@ -7,6 +7,10 @@ import { scanAlerts } from "@/server/insights/alerts";
 import { can } from "@/server/auth/rbac";
 import { ToolFinder } from "@/components/ui/tool-finder";
 import { readiness } from "@/server/map/sim";
+import { classesAtAGlance } from "@/server/insights/overview";
+import { connectionsCached } from "@/server/admin/connections";
+import { ClassRows } from "@/components/home/class-rows";
+import { HEALTH_UI } from "@/components/connect/thread";
 
 export const metadata = { title: "Administration" };
 
@@ -33,6 +37,10 @@ export default async function AdminHome() {
   const me = (await getActor())!.user;
   if (actor.schoolId) await scanAlerts(repo, actor.schoolId).catch(() => 0);
   const areas = [
+    { href: "/admin/connections", title: "🔗 Connections", text: "Is everything joined up? Curriculum Map, skills, questions, MAP goal areas, the Learning Continuum, students and plans — each link checked, gaps listed with where to fix them.", show: can(actor, "reports:read") },
+    { href: "/teacher/map-reports", title: "📑 MAP reports", text: "Personal study plans, family reports and group study plans for every class.", show: can(actor, "reports:read") },
+    { href: "/admin/map-continuum", title: "📘 Learning Continuum", text: "Import the MAP Growth Learning Continuum: what each RIT band is ready to learn.", show: can(actor, "settings:school") },
+    { href: "/admin/quick-students", title: "⚡ Students & MAP setup", text: "Add students by template or by hand, MAP scores, then the plans.", show: can(actor, "students:manage") },
     { href: "/admin/student-file", title: "🔎 Find a student · full file", text: "Any student of the school: results, MAP, plans, writing, badges, alerts, comments, notes, sign-ins — and see their pages as they do.", show: can(actor, "reports:read") },
     { href: "/admin/department", title: "🏫 Department week", text: "Every class side by side this week: practice, accuracy, work, MAP, alerts and the hardest skills per grade. PDF and Excel.", show: can(actor, "reports:read") },
     { href: "/teacher/alerts", title: "🚨 Student alerts & follow-up", text: "Students who need attention, what each teacher did, and what is not handled yet.", show: can(actor, "reports:read") },
@@ -97,39 +105,66 @@ export default async function AdminHome() {
     { href: "/admin/question-flags", label: "Flagged questions", value: String(flags), sub: "marked unclear by students", tone: flags ? "text-amber-700" : "text-emerald-700" },
     { href: "/teacher/map-test", label: "MAP question bank", value: short.length ? `⚠️ ${short.length}` : "✅", sub: short.length ? `areas short of questions: ${short.slice(0, 3).join(", ")}${short.length > 3 ? "…" : ""}` : "ready for plans and the practice test", tone: short.length ? "text-amber-700" : "text-emerald-700" },
   ];
+  const [rows, conn] = await Promise.all([classesAtAGlance(repo, actor), connectionsCached(repo, actor).catch(() => null)]);
+  const now = new Date();
+  const hour = (now.getUTCHours() + 3) % 24;
+  const greet = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
+  const today = now.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", timeZone: "Asia/Riyadh" });
+  const weak = conn ? conn.stages.flatMap((st) => st.checks.filter((c) => c.health === "BAD" || c.health === "WARN").map((c) => ({ st, c }))).slice(0, 4) : [];
   return (
     <AppShell name={String(me.displayName)}>
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br bg-linear-to-br from-brand-navy via-[#2b3f8f] to-brand-purple p-6 text-white shadow-lg">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-12 h-48 w-48 rounded-full bg-brand-teal/30 blur-2xl" />
-        <p className="relative text-sm text-white/80">School administration</p>
-        <h1 className="relative text-3xl font-extrabold tracking-tight">Welcome, {String(me.displayName).split(" ")[0]} 👋</h1>
-      </section>
+      <header className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p className="text-sm text-slate-500">{today}</p>
+          <h1 className="text-3xl font-semibold tracking-tight text-brand-navy">{greet}, {String(me.displayName).split(" ")[0]}</h1>
+          <p className="mt-1 text-slate-600">School administration · {rows.length} classes · {students} students</p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Link href="/admin/department" className="rounded-xl bg-brand-navy px-4 py-2.5 font-medium text-white hover:bg-brand-purple">🏫 Department week</Link>
+          <Link href="/teacher/map-reports" className="rounded-xl bg-white px-4 py-2.5 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📑 MAP reports</Link>
+          <Link href="/admin/student-file" className="rounded-xl bg-white px-4 py-2.5 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🔎 Find a student</Link>
+        </div>
+      </header>
       <section className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
-        {tiles.map((x, i) => <Link key={x.href} href={x.href} className="lift animate-fade-up rounded-2xl bg-white p-4 ring-1 ring-slate-200" style={{ animationDelay: `${i * 60}ms` }}><span className="block text-xs font-semibold uppercase tracking-wide text-slate-500">{x.label}</span><span className={`block text-3xl font-extrabold ${x.tone}`}>{x.value}</span><span className="block text-xs text-slate-500">{x.sub}</span></Link>)}
+        {tiles.map((x) => <Link key={x.href} href={x.href} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal"><span className="block text-sm text-slate-500">{x.label}</span><span className={`mt-1 block text-3xl font-semibold tabular-nums ${x.tone}`}>{x.value}</span><span className="block truncate text-xs text-slate-500">{x.sub}</span></Link>)}
       </section>
-      {canApprove && (
-        <section className="mt-6 grid gap-3 sm:grid-cols-2">
-          <Link href="/admin/questions?status=UNDER_REVIEW" className="lift flex items-center justify-between gap-3 rounded-2xl bg-white p-5 ring-1 ring-amber-300">
-            <span><span className="block text-lg font-bold text-brand-navy">✅ Questions waiting for approval</span><span className="block text-sm text-slate-600">New questions and teachers’ edits</span></span>
-            <span className={`grid h-12 min-w-12 place-items-center rounded-2xl px-3 text-xl font-extrabold ${waiting ? "bg-amber-400 text-brand-navy" : "bg-slate-100 text-slate-400"}`}>{waiting}</span>
-          </Link>
-          <Link href="/admin/questions/requests" className="lift flex items-center justify-between gap-3 rounded-2xl bg-white p-5 ring-1 ring-red-200">
-            <span><span className="block text-lg font-bold text-brand-navy">🗑 Deletion requests</span><span className="block text-sm text-slate-600">Teachers asking to remove a question</span></span>
-            <span className={`grid h-12 min-w-12 place-items-center rounded-2xl px-3 text-xl font-extrabold ${deletions ? "bg-red-500 text-white" : "bg-slate-100 text-slate-400"}`}>{deletions}</span>
-          </Link>
+      <div className="mt-6 grid gap-4 lg:grid-cols-3">
+          {conn && (
+            <Link href="/admin/connections" className="block rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
+              <span className="flex items-baseline justify-between"><span className="text-lg font-semibold text-brand-navy">🔗 Connections</span><span className="text-2xl font-semibold tabular-nums text-brand-navy">{conn.score}%</span></span>
+              <span className="mt-1 block text-sm text-slate-600">How well the curriculum, questions, MAP, the continuum, students and plans are joined.</span>
+              {weak.length > 0 && <ul className="mt-3 space-y-1.5">{weak.map(({ c }) => <li key={c.id} className="flex items-center justify-between gap-2 text-sm"><span className="truncate text-slate-700">{c.label}</span><span className={`shrink-0 rounded-full px-2 py-0.5 text-xs ring-1 ${HEALTH_UI[c.health].chip}`}>{c.ok}/{c.total}</span></li>)}</ul>}
+            </Link>
+          )}
+          {canApprove && (
+            <>
+              <Link href="/admin/questions?status=UNDER_REVIEW" className="flex items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
+                <span><span className="block font-semibold text-brand-navy">Questions waiting for approval</span><span className="block text-xs text-slate-500">New questions and teachers&apos; edits</span></span>
+                <span className={`grid h-10 min-w-10 place-items-center rounded-xl px-2 text-lg font-semibold ${waiting ? "bg-amber-400 text-brand-navy" : "bg-slate-100 text-slate-400"}`}>{waiting}</span>
+              </Link>
+              <Link href="/admin/questions/requests" className="flex items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
+                <span><span className="block font-semibold text-brand-navy">Deletion requests</span><span className="block text-xs text-slate-500">Teachers asking to remove a question</span></span>
+                <span className={`grid h-10 min-w-10 place-items-center rounded-xl px-2 text-lg font-semibold ${deletions ? "bg-red-500 text-white" : "bg-slate-100 text-slate-400"}`}>{deletions}</span>
+              </Link>
+            </>
+          )}
+      </div>
+      <section aria-labelledby="classes-h" className="mt-8">
+          <h2 id="classes-h" className="mb-3 text-lg font-semibold text-brand-navy">Classes at a glance</h2>
+          <ClassRows rows={rows} admin />
         </section>
-      )}
+      <h2 className="mt-8 text-lg font-semibold text-brand-navy">Everything you can do</h2>
       <div className="mt-6"><ToolFinder /></div>
       {GROUPS.map((g) => {
         const list = areas.filter((a) => groupOf(a.href) === g.key);
         if (!list.length) return null;
         return (
-          <section key={g.key} data-tool-group="" className="mt-8">
-            <h2 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500"><span aria-hidden="true" className="text-base">{g.icon}</span>{g.title}</h2>
+          <section key={g.key} data-tool-group="" className="mt-6">
+            <h3 className="flex items-center gap-2 text-sm font-semibold text-slate-500"><span aria-hidden="true" className="text-base">{g.icon}</span>{g.title}</h3>
             <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {list.map((a) => (
-                <Link key={a.href} href={a.href} data-tool={`${a.title} ${a.text}`} className="lift group block rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-                  <h3 className="text-lg font-bold text-brand-navy group-hover:text-brand-purple">{a.title}</h3>
+                <Link key={a.href} href={a.href} data-tool={`${a.title} ${a.text}`} className="group block rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
+                  <h4 className="font-semibold text-brand-navy">{a.title}</h4>
                   <p className="mt-1 text-sm text-slate-600">{a.text}</p>
                 </Link>
               ))}

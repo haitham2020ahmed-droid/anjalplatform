@@ -108,7 +108,20 @@ Tests: `tests/update20.test.ts` (19 tests) + `scripts/load/school-sim.ts` (100 s
 - **🔎 Find a student / full file** (admin: the whole school; teachers: their classes): everything about one student on one page, and 👁 “See it as the student does” (view only).
 - **Respond to Reading: Model Answer** column (teachers only, never shown to students) in the Excel / Word import and the editor.
 
-## Update 22
+## Update 22 (+ 22c: MAP Skill Plan by RIT range, Skills at My Level, admin assigns for the class teacher)
+
+## Update 24
+- New look for every page: side bar with the role's whole map, Lexend type, one search for pages / students / classes / skills (Ctrl K).
+- Teacher and admin homes: today's numbers, classes at a glance (practice, MAP split, plans, alerts — every number a link), needs-attention list; students get a 1-2-3 path (My MAP → study plan → skills).
+- 🔗 Connections (/admin/connections): the learning thread Curriculum Map → skills → questions → MAP goal areas → Learning Continuum → students → plans, every link checked with gaps and fixes.
+- 🧩 Skill Hub (/skill/[id]) linked from search, skills list, MAP Skill Plan and study plans.
+
+## Update 23
+- 📑 MAP Reports hub (/teacher/map-reports): Group Study Plan, Study Plans for the whole class, Family Reports for the whole class, links per student.
+- 📘 Learning Continuum import (/admin/map-continuum) → Personal Study Plans (Reinforce · Develop · Introduce + linked skills and status), Group Study Plans (students by 10-point band, what to develop, mastery counts, send).
+- 👪 Family Report: achievement, growth (estimated), RIT history vs national average, goal, platform practice.
+- Students: 📑 My Study Plan and 📈 My MAP Report in My MAP. Parents: both once the report is shared.
+- Schema: LearningStatement (run `npx prisma db push`).
 - ⚡ Students & MAP Setup (/admin/quick-students): paste a class's names → accounts (username from the name, AJ26-### numbers when the school has none, temporary passwords) + printable sign-in cards; links to the roster and MAP templates and manual MAP entry.
 - MAP scores (template, NWEA file, ASG PDF or typed) → individual plan drafts for both subjects at once; class teachers are notified when an admin imports. Untouched drafts are rebuilt from new scores; drafts the teacher edited (MapPlan.editedAt) are kept.
 - Plans from overall RIT only (no goal-area scores): every area of the subject at the student's band, status from the descriptor.
