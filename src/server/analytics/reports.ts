@@ -14,6 +14,7 @@ import type { Period } from "../../analytics/periods";
 import { getStudentCurriculum } from "../queries/student-curriculum";
 import type { Repo, Row } from "../seeding/repo";
 import { assertClassAccess } from "../teacher/assignments";
+import { isHiddenSkill } from "../skills/master";
 import { groupGrowth, studentGrowth, type GroupGrowth, type StudentGrowth } from "./growth";
 
 export const MIN_GROUP_FOR_COMPARISON = 5;
@@ -71,6 +72,10 @@ export async function studentAnalytics(repo: Repo, actor: Actor, studentId: stri
     mapRows.some((m) => m.goalAreaId) ? repo.findMany("MapGoalArea", { id: { in: mapRows.map((m) => m.goalAreaId).filter(Boolean) } }) : Promise.resolve([] as Row[]),
   ]);
   const level = new Map(questions.map((q) => [String(q.id), num(q.difficultyLevel)]));
+  // “skills needing support” (readiness I-19): mastery-based — practised skills under 40 with 5+ answers — plus any
+  // skill with an open support flag; the hidden “Unclassified (Curriculum Map)” skill is never counted
+  const needIds = new Set([...mastery.filter((m) => num(m.attempts) >= 5 && num(m.score) < 40).map((m) => String(m.skillId)), ...alerts.map((a) => String(a.skillId)).filter((x) => x && x !== "null")]);
+  const needSkills = needIds.size ? (await repo.findMany("Skill", { id: { in: [...needIds] } }, { select: ["id", "code"] })).filter((k) => !isHiddenSkill(k.code)) : [];
   const practised = mastery.filter((m) => num(m.attempts) > 0);
   const global = abilities.find((a) => a.scope === "GLOBAL");
   const reading = abilities.find((a) => a.scope === "DOMAIN:READING");
@@ -91,7 +96,7 @@ export async function studentAnalytics(repo: Repo, actor: Actor, studentId: stri
     skillsAttempted: practised.length,
     skillsMastered: practised.filter((m) => m.isMastered).length,
     skillsDeveloping: practised.filter((m) => ["DEVELOPING", "APPROACHING"].includes(String(m.band))).length,
-    skillsNeedingIntervention: new Set(alerts.map((a) => String(a.skillId))).size,
+    skillsNeedingIntervention: needSkills.length,
     ability: ability === null ? null : Math.round(ability * 100) / 100,
     readingRange: reading ? studentReadingRange(num(grade.level), num(reading.theta), num(reading.thetaSE)).label : null,
     streakCorrect: streaks(seq, true),

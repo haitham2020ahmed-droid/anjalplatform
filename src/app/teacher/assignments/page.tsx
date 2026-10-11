@@ -7,10 +7,11 @@ const weekStartOf = (date: Date) => { const d = new Date(Date.UTC(date.getUTCFul
 const iso = (d: Date) => d.toISOString().slice(0, 10);
 
 /** Weekly assignments: skills assigned or due this week, with Not Started / In Progress / Completed / Overdue. */
-export default async function WeeklyAssignmentsPage({ searchParams }: { searchParams: Promise<{ week?: string }> }) {
+export default async function WeeklyAssignmentsPage({ searchParams }: { searchParams: Promise<{ week?: string; msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:read" });
   const me = (await getActor())!.user;
-  const w = (await searchParams).week;
+  const sp = await searchParams;
+  const w = sp.week;
   const start = /^\d{4}-\d{2}-\d{2}$/.test(w ?? "") ? weekStartOf(new Date(`${w}T00:00:00Z`)) : weekStartOf(new Date());
   const prev = new Date(start.getTime() - 7 * 86_400_000), next = new Date(start.getTime() + 7 * 86_400_000), last = new Date(start.getTime() + 6 * 86_400_000);
   const rows = await weeklyAssignments(repo, actor, start);
@@ -18,6 +19,7 @@ export default async function WeeklyAssignmentsPage({ searchParams }: { searchPa
     <AppShell name={String(me.displayName)}>
       <p><Link href="/teacher/curriculum" className="text-brand-teal hover:underline">← Curriculum</Link></p>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">Weekly Assignments</h1>
+      {sp.msg && <p role="status" className="mt-3 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{String(sp.msg).slice(0, 300)}</p>}
       <div className="mt-2 flex flex-wrap items-center gap-3 text-sm">
         <Link href={`/teacher/assignments?week=${iso(prev)}`} className="rounded-lg px-3 py-1 ring-1 ring-slate-300">← Previous week</Link>
         <span className="font-semibold">{iso(start)} – {iso(last)}</span>

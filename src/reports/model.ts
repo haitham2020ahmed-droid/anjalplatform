@@ -9,9 +9,9 @@
  */
 import type { Locale } from "./i18n";
 
-export type ReportKind = "student" | "class" | "standards" | "school";
+export type ReportKind = "student" | "class" | "standards" | "school" | "grammar" | "games" | "rti" | "levels" | "readmaster" | "readrise";
 export type ReportFormat = "pdf" | "xlsx" | "csv";
-export const REPORT_KINDS: readonly ReportKind[] = ["student", "class", "standards", "school"];
+export const REPORT_KINDS: readonly ReportKind[] = ["student", "class", "standards", "school", "grammar", "games", "rti", "levels", "readmaster", "readrise"];
 export const REPORT_FORMATS: readonly ReportFormat[] = ["pdf", "xlsx", "csv"];
 
 /**

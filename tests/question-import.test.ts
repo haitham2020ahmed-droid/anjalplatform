@@ -66,10 +66,11 @@ const NO_OPTS: RowSpec = { "Option A": "", "Option B": "", "Option C": "", "Opti
 
 describe("question import: the template and its rules (pure)", () => {
   test("header row: every missing required column is named; case, spaces and _ are ignored", () => {
+    // only the question itself is required: missing columns are completed by the platform (rules, then its AI)
     const noAnswer = TEMPLATE_HEADERS.filter((h) => h !== "Correct Answer" && h !== "Skill");
-    const t = parseTemplateTable([noAnswer, ["x"]]);
-    assert.equal(t.ok, false);
-    assert.deepEqual(!t.ok && t.errors, ["Missing required column: Correct Answer", "Missing required column: Skill"]);
+    assert.equal(parseTemplateTable([noAnswer, ["x"]]).ok, true, "a file without Correct Answer and Skill is accepted");
+    const noStem = parseTemplateTable([TEMPLATE_HEADERS.filter((h) => h !== "Question Text"), ["x"]]);
+    assert.deepEqual(!noStem.ok && noStem.errors, ["Missing required column: Question Text"]);
     const loose = TEMPLATE_HEADERS.map((h) => h.toUpperCase().replace(/ /g, "_"));
     const ok = parseTemplateTable([loose, asRow(MC), ["", ""], asRow(MC)]);
     assert.ok(ok.ok && ok.rows.length === 2 && ok.rows[0].row === 2 && ok.rows[1].row === 4, "blank rows are skipped, row numbers kept");
@@ -121,7 +122,8 @@ describe("question import: the template and its rules (pure)", () => {
     // capitalization questions: choices that differ only in capital letters are different answers
     assert.doesNotMatch(readRow(cells({ ...MC, "Option C": "be kind" })).errors.join(), /are the same/);
     assert.match(readRow(cells({ ...MC, "Correct Answer": "A, B" })).errors.join(), /exactly one correct answer.*use Multi Select/);
-    assert.match(readRow(cells({ ...MC, "Correct Answer": "" })).errors.join(), /Correct Answer is empty/);
+    const noKey = readRow(cells({ ...MC, "Correct Answer": "" }));
+    assert.deepEqual([noKey.errors, noKey.needs.includes("answer")], [[], true], "an empty answer is left for the AI (the question stays a draft)");
     assert.match(readRow(cells({ ...MC, "Correct Answer": "Z" })).errors.join(), /not a letter of a choice/);
 
     const ms = readRow(cells({ ...MC, "Question Type": "Multi Select", "Correct Answer": "A and C" }));
@@ -308,7 +310,7 @@ describe("question import: upload, preview and import (database)", () => {
 
   const T = (r: RowSpec): RowSpec => ({ ...MC, Skill: theme.name, Standard: theme.std, ...r });
 
-  test("small CSV: valid rows, curriculum errors with exact reasons, duplicates; nothing saved before confirming", async () => {
+  test("small CSV: valid rows, unknown skill / standard completed with a warning, a wrong grade refused, duplicates; nothing saved before confirming", async () => {
     const before = await repo.count("Question", {});
     const passage = "Lina found a lost kite in the park. She asked everyone nearby, and finally returned it to its owner, a little boy named Sami.";
     const rows: RowSpec[] = [
@@ -326,14 +328,16 @@ describe("question import: upload, preview and import (database)", () => {
     const jobId = await analyzeImport(repo, teacher, { fileName: "unit3.csv", bytes: csvOf(rows) });
     assert.equal(await repo.count("Question", {}), before, "the preview adds nothing to the bank");
     const job = await getImportJob(repo, teacher, jobId);
-    assert.deepEqual(job.totals, { total: 10, valid: 4, invalid: 4, duplicates: 2 });
+    assert.deepEqual(job.totals, { total: 10, valid: 6, invalid: 1, duplicates: 3 }, "row 4 now counts as very similar to row 3 (same choices)");
     const byRow = new Map(job.rows.map((r) => [r.rowNumber, r]));
     assert.equal(byRow.get(2)!.status, "VALID");
     assert.equal(byRow.get(2)!.detected.meta.skillName, theme.name);
     assert.equal(byRow.get(2)!.detected.meta.standardCode, theme.std);
-    assert.match(byRow.get(3)!.errors.join(), /Skill “Theme Parks” was not found in Grade 4/);
-    assert.match(byRow.get(4)!.errors.join(), /Standard “RL\.9\.9” does not exist on the platform/);
-    assert.match(byRow.get(5)!.errors.join(), new RegExp(`Standard ${unlinked.replace(/\./g, "\\.")} is not linked to skill “${theme.name}”`));
+    // never lost over the curriculum: an unknown skill gets the closest skill, an unknown or unlinked standard a warning
+    assert.deepEqual([byRow.get(3)!.errors, byRow.get(4)!.errors, byRow.get(5)!.errors], [[], [], []]);
+    assert.match(byRow.get(3)!.warnings.join(), /Skill “Theme Parks” was not found/);
+    assert.match(byRow.get(4)!.warnings.join(), /Standard “RL\.9\.9” does not exist on the platform/);
+    assert.match(byRow.get(5)!.warnings.join(), new RegExp(`Standard ${unlinked.replace(/\./g, "\\.")} is not linked to skill “${theme.name}”`));
     assert.match(byRow.get(6)!.errors.join(), /Grade 9 does not exist on the platform\. Available grades: 4, 5, 6\./);
     const dup = byRow.get(7)!;
     assert.deepEqual([dup.status, dup.decision, dup.duplicate?.exact], ["DUPLICATE", "SKIP", true]);
@@ -341,28 +345,28 @@ describe("question import: upload, preview and import (database)", () => {
     assert.equal(byRow.get(8)!.status, "DUPLICATE");
     assert.match(byRow.get(8)!.warnings.join(), /row 2 in this file/);
     assert.ok(byRow.get(8)!.inFileDuplicate);
-    for (const n of [3, 4, 5, 6]) assert.equal(byRow.get(n)!.selected, false);
+    assert.equal(byRow.get(6)!.selected, false);
     assert.equal((await loadCurriculumIndex(repo, admin)).grades.get(4)!.length, idx.grades.get(4)!.length, "no skill was created");
     const problems = await importProblemRows(repo, teacher, jobId);
-    assert.ok(problems.some((r) => r[0] === "3" && /Theme Parks/.test(r[3])), "problems CSV gives the spreadsheet row");
+    assert.ok(problems.some((r) => r[0] === "6" && /Grade 9/.test(r[3])), "problems CSV gives the spreadsheet row");
 
     // decisions: import the in-file repeat anyway, keep skipping the bank duplicate
     await updateImportRow(repo, teacher, jobId, byRow.get(8)!.id, { decision: "FORCE", selected: true });
-    await assert.rejects(updateImportRow(repo, teacher, jobId, byRow.get(3)!.id, { selected: true }), /Fix the errors/);
+    await assert.rejects(updateImportRow(repo, teacher, jobId, byRow.get(6)!.id, { selected: true }), /Fix the errors/);
     // fix row 3 in the preview by choosing the right skill
     const fixed = await updateImportRow(repo, teacher, jobId, byRow.get(3)!.id, { input: { ...byRow.get(3)!.detected.input!, skillId: theme.id, standardCode: `CCSS.ELA-LITERACY.${theme.std}` } });
     assert.deepEqual([fixed.status, fixed.selected, fixed.errors], ["VALID", true, []]);
 
     await assert.rejects(commitImportChunk(repo, teacher, jobId, { publish: true }), ForbiddenError, "teachers cannot approve on import");
     const { last } = await commitAll(repo, teacher, jobId);
-    assert.equal(last.counts.imported, 6);
-    assert.equal(last.counts.skipped, 1);
-    assert.equal(last.counts.failed, 3);
-    assert.equal(await repo.count("Question", {}), before + 6);
+    assert.equal(last.counts.imported, 7);
+    assert.equal(last.counts.skipped, 2);
+    assert.equal(last.counts.failed, 1);
+    assert.equal(await repo.count("Question", {}), before + 7);
 
     const done = await getImportJob(repo, teacher, jobId);
     assert.equal(done.status, "COMPLETED");
-    assert.ok(done.errors.some((e) => /^Row 4: /.test(e)), "failed rows are kept in the job's error list with their row number");
+    assert.ok(done.errors.some((e) => /^Row 6: /.test(e)), "failed rows are kept in the job's error list with their row number");
     const q2 = (await repo.findUnique("Question", { id: done.rows.find((r) => r.rowNumber === 2)!.questionId! }))!;
     assert.deepEqual([q2.skillId, q2.status, q2.origin, q2.difficultyLevel], [theme.id, "UNDER_REVIEW", "IMPORTED", 4]);   // a teacher's import waits for an admin straight away
     assert.equal(shortStandard(String((await repo.findUnique("Standard", { id: q2.standardId }))!.code)), theme.std);
@@ -381,18 +385,18 @@ describe("question import: upload, preview and import (database)", () => {
     const pass = (await repo.findUnique("ReadingPassage", { id: p9.passageId as string }))!;
     assert.deepEqual([pass.origin, pass.body], ["IMPORTED", passage]);
     const hist = (await listImportJobs(repo, teacher)).find((j) => j.id === jobId)!;
-    assert.deepEqual(hist.summary, { imported: 6, replaced: 0, skipped: 1, failed: 3 });
+    assert.deepEqual(hist.summary, { imported: 7, replaced: 0, skipped: 2, failed: 1 });
     await assert.rejects(commitImportChunk(repo, teacher, jobId), /already finished/);
   });
 
   test("files that cannot be imported are refused with every reason and kept in the history as FAILED", async () => {
-    const headers = TEMPLATE_HEADERS.filter((h) => h !== "Correct Answer" && h !== "Standard");
+    // only the question text is required (the rest is completed by the platform)
+    const headers = TEMPLATE_HEADERS.filter((h) => h !== "Question Text");
     const err = await analyzeImport(repo, teacher, { fileName: "no-answers.csv", bytes: csvOf([T({})], headers) }).catch((e) => e);
     assert.ok(err instanceof ImportFileError && err instanceof ValidationError, String(err));
-    assert.deepEqual(err.details, ["Missing required column: Correct Answer", "Missing required column: Standard"]);
     assert.ok(err.jobId);
     const failed = await getImportJob(repo, teacher, err.jobId!);
-    assert.deepEqual([failed.status, failed.errors], ["FAILED", ["Missing required column: Correct Answer", "Missing required column: Standard"]]);
+    assert.equal(failed.status, "FAILED");
     await assert.rejects(commitImportChunk(repo, teacher, err.jobId!), /could not be read/);
 
     const word = zip([{ name: "word/document.xml", data: "<w:document/>" }]);

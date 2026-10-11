@@ -1,3 +1,4 @@
+import { NameList } from "@/components/name-list";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
@@ -17,7 +18,7 @@ export default async function LessonPage({ searchParams }: { searchParams: Promi
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: `/teacher/groups?classId=${sp.classId ?? ""}`, label: "Support Groups" }} icon="📄" title={`Mini-Lesson: ${l.title}`} subtitle={`${l.className} · Grade ${l.grade} · ${l.code} · 20–30 minutes`}><PrintButton /></PageHeader>
       <div className="mx-auto max-w-4xl space-y-4">
-        <section className={box}><h2 className="text-lg font-bold text-brand-navy">🎯 Objective</h2><p className="mt-1 text-slate-800">{l.objective}</p>{l.students.length > 0 && <p className="mt-2 text-sm text-slate-600"><b>Group:</b> {l.students.map((x) => `${x.name} (${x.detail})`).join(" · ")}</p>}</section>
+        <section className={box}><h2 className="text-lg font-bold text-brand-navy">🎯 Objective</h2><p className="mt-1 text-slate-800">{l.objective}</p>{l.students.length > 0 && <p className="mt-2 text-sm text-slate-600"><b>Group:</b> <NameList items={l.students.map((x) => ({ name: x.name, note: `(${x.detail})` }))} /></p>}</section>
         <section className="grid gap-4 md:grid-cols-3">
           <div className={box}><h3 className="font-bold text-brand-navy">1 · I do <span className="text-xs font-normal text-slate-500">5 min</span></h3><p className="mt-1 text-sm text-slate-700">{l.iDo}</p></div>
           <div className={box}><h3 className="font-bold text-brand-navy">2 · We do <span className="text-xs font-normal text-slate-500">10–15 min</span></h3><ul className="mt-1 list-disc space-y-1 ps-5 text-sm text-slate-700">{l.weDo.map((x) => <li key={x}>{x}</li>)}</ul></div>

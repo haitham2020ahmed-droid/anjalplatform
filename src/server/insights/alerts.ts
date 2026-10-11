@@ -6,8 +6,11 @@
  *
  * Reasons: NO_PRACTICE (7 days without an answer), WEAK_SKILL (a skill under 40% after 8+ answers), DROPPED (a level
  * dropped twice in a row), LATE_WORK (2+ tasks not started by their due date), MAP_RISK (MAP Low, or at risk of
- * missing the Spring goal), RAPID_GUESS (NWEA rapid guessing 30%+ → retest; or many too-fast answers here).
+ * missing the Spring goal), RAPID_GUESS (NWEA rapid guessing 30%+ → retest; or many too-fast answers here),
+ * DECLINING (a sustained drop in recent answers, from the daily level check), INVALID_TEST (a Diagnostic or check with
+ * 30%+ rapid guesses: not used for decisions; re-test).
  */
+import { conflictsFor } from "./level-story";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -15,11 +18,12 @@ import { audit } from "../audit";
 import { coordinatorGrades, readableClasses } from "../teacher/coordinators";
 import { mapSummaries, practiceStats, studentNames } from "./student-data";
 import { statusOf } from "./progress";
+import { isHiddenSkill } from "../skills/master";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
 const DAY = 86_400_000;
-export type AlertKind = "NO_PRACTICE" | "WEAK_SKILL" | "DROPPED" | "LATE_WORK" | "MAP_RISK" | "RAPID_GUESS";
+export type AlertKind = "NO_PRACTICE" | "WEAK_SKILL" | "DROPPED" | "LATE_WORK" | "MAP_RISK" | "RAPID_GUESS" | "LEVEL_CONFLICT" | "DECLINING" | "INVALID_TEST";
 export const ALERT_INFO: Record<AlertKind, { icon: string; title: string; tip: string }> = {
   MAP_RISK: { icon: "🗺️", title: "MAP: at risk", tip: "Check the MAP plan; a small group for the focus area helps." },
   RAPID_GUESS: { icon: "⚡", title: "Rapid guessing", tip: "Talk with the student; if it is the MAP test, ask about a retest." },
@@ -27,8 +31,11 @@ export const ALERT_INFO: Record<AlertKind, { icon: string; title: string; tip: s
   WEAK_SKILL: { icon: "🧩", title: "Weak in a skill", tip: "Reteach the skill or send it again at a lower level." },
   LATE_WORK: { icon: "⏰", title: "Late work", tip: "Remind the student; contact the parent if it continues." },
   NO_PRACTICE: { icon: "💤", title: "No practice for 7 days", tip: "Check in with the student; a short task to restart." },
+  DECLINING: { icon: "📉", title: "Declining", tip: "Their recent answers are clearly weaker than before: check in with the student, look at the skills that fell, and give support now." },
+  INVALID_TEST: { icon: "⚡", title: "Invalid result — re-test", tip: "Too many answers were too fast to read: the result is not used for the level or the tier. Talk with the student and let them take it again." },
+  LEVEL_CONFLICT: { icon: "⚖️", title: "Data disagree", tip: "Open their Level Story: one source says Above, another Below. Decide the level, or check for guessing." },
 };
-const ORDER: AlertKind[] = ["MAP_RISK", "RAPID_GUESS", "DROPPED", "WEAK_SKILL", "LATE_WORK", "NO_PRACTICE"];
+const ORDER: AlertKind[] = ["DECLINING", "INVALID_TEST", "MAP_RISK", "RAPID_GUESS", "LEVEL_CONFLICT", "DROPPED", "WEAK_SKILL", "LATE_WORK", "NO_PRACTICE"];
 
 /** ISO week label of a date, e.g. 2026-W41. */
 export function weekKey(d: Date): string {
@@ -70,6 +77,20 @@ export async function findAlerts(repo: Repo, schoolId: string, now = new Date())
   const rgCount = new Map<string, [number, number]>();
   for (const a of recent) { const c = rgCount.get(s(a.studentId)) ?? [0, 0]; c[0]++; if (a.rapidGuess) c[1]++; rgCount.set(s(a.studentId), c); }
   for (const [id, [n, fast]] of rgCount) if (n >= 20 && fast / n >= 0.3) add(id, "RAPID_GUESS", `platform|${wk}`, `${Math.round((100 * fast) / n)}% of the last ${n} answers were too fast to be read (last 14 days).`);
+  // 📉 a sustained decline (the daily level check: the last 2 weeks clearly under the 4 weeks before) — Update 39B
+  const states = await repo.findMany("StudentLevelState", { studentId: { in: ids }, declining: true }, { select: ["studentId", "thetaRecent", "thetaPrior", "level"] });
+  const sg = (v: unknown) => { const x = Number(v); return `${x >= 0 ? "+" : "−"}${Math.abs(x).toFixed(1)}`; };
+  for (const st of states) add(s(st.studentId), "DECLINING", wk, `Ability fell from ${sg(st.thetaPrior)} (the 4 weeks before) to ${sg(st.thetaRecent)} in the last 2 weeks (0 = grade level). Confirmed level: ${s(st.level) === "BELOW" ? "Below" : s(st.level) === "ABOVE" ? "Above" : "On"} Level.`);
+  // ⚡ invalid results (30%+ rapid guesses): Diagnostic (last 30 days) and checks (last 14 days) — not used; re-test
+  const { isInvalidResult } = await import("../curriculum-map/level-evidence");
+  const diags = await repo.findMany("DiagnosticScore", { studentId: { in: ids }, completedAt: { gte: new Date(now.getTime() - 30 * DAY) } }, { select: ["studentId", "rapid", "total", "completedAt", "pct"] });
+  for (const dg of diags) if (isInvalidResult(Number(dg.rapid ?? 0), Number(dg.total ?? 0))) add(s(dg.studentId), "INVALID_TEST", `diagnostic|${new Date(time(dg.completedAt)).toISOString().slice(0, 10)}`, `Diagnostic Test (${new Date(time(dg.completedAt)).toISOString().slice(0, 10)}): ${Number(dg.rapid)} of ${Number(dg.total)} answers were rapid guesses. Invalid — re-test; not used for the level or the tier.`);
+  const wks = await repo.findMany("WeeklyCheck", { studentId: { in: ids }, completedAt: { gte: new Date(now.getTime() - 14 * DAY) } }, { select: ["studentId", "assignmentId", "week"] });
+  if (wks.length) {
+    const { checkDetails } = await import("../tiers/tiers");
+    const det = await checkDetails(repo, wks.map((w) => ({ assignmentId: s(w.assignmentId), studentId: s(w.studentId) })));
+    for (const w of wks) { const x = det.get(`${s(w.assignmentId)}|${s(w.studentId)}`); if (x && isInvalidResult(x.rapid, x.items + x.rapid)) add(s(w.studentId), "INVALID_TEST", `weekly|${s(w.week)}`, `Weekly Check of ${s(w.week)}: ${x.rapid} of ${x.items + x.rapid} answers were rapid guesses. Invalid — not used for the support tier.`); }
+  }
   // no practice for 7 days (students who had at least one week on the platform)
   for (const id of ids) {
     const p = practice.get(id), created = time(students.find((x) => x.id === id)?.createdAt);
@@ -77,11 +98,21 @@ export async function findAlerts(repo: Repo, schoolId: string, now = new Date())
     const last = p?.lastActive ? time(p.lastActive) : 0;
     if (last < now.getTime() - 7 * DAY) add(id, "NO_PRACTICE", wk, last ? `No answer since ${new Date(last).toISOString().slice(0, 10)}.` : "Has not practised on the platform yet.");
   }
-  // weak skill: under 40% after 8+ answers, practised in the last 3 weeks
-  const mastery = await repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "attempts", "correct", "lastPracticedAt"] });
-  const weak = mastery.filter((m) => Number(m.attempts) >= 8 && Number(m.correct) / Number(m.attempts) < 0.4 && time(m.lastPracticedAt) >= now.getTime() - 21 * DAY);
-  const skillNames = weak.length ? new Map((await repo.findMany("Skill", { id: { in: [...new Set(weak.map((w) => s(w.skillId)))] } }, { select: ["id", "name"] })).map((k) => [s(k.id), s(k.name)])) : new Map<string, string>();
-  for (const w of weak) add(s(w.studentId), "WEAK_SKILL", `${s(w.skillId)}|${wk}`, `${skillNames.get(s(w.skillId)) ?? "A skill"}: ${Math.round((100 * Number(w.correct)) / Number(w.attempts))}% correct after ${Number(w.attempts)} answers.`);
+  // weak skill (readiness I-2/4): aligned with mastery, not raw accuracy — mastery under 40 (Developing or below) with
+  // enough evidence (effective answers ≥ 5, and 5+ answers that were NOT rapid guesses in the last 3 weeks); a skill
+  // practised in the last 3 weeks; the hidden “Unclassified (Curriculum Map)” skill is never named in an alert
+  const mastery = await repo.findMany("StudentSkillMastery", { studentId: { in: ids }, score: { lt: WEAK_MASTERY } }, { select: ["studentId", "skillId", "attempts", "score", "band", "components", "lastPracticedAt"] });
+  const recentSkill = mastery.length ? await repo.findMany("QuestionAttempt", { studentId: { in: [...new Set(mastery.map((m) => s(m.studentId)))] }, createdAt: { gte: new Date(now.getTime() - 21 * DAY) }, rapidGuess: false }, { select: ["studentId", "skillId"] }) : [];
+  const valid = new Map<string, number>();
+  for (const a of recentSkill) valid.set(`${s(a.studentId)}|${s(a.skillId)}`, (valid.get(`${s(a.studentId)}|${s(a.skillId)}`) ?? 0) + 1);
+  const weakRows = mastery.filter((m) => isWeakSkill({ score: Number(m.score), attempts: Number(m.attempts), components: m.components, validRecent: valid.get(`${s(m.studentId)}|${s(m.skillId)}`) ?? 0 }) && time(m.lastPracticedAt) >= now.getTime() - 21 * DAY);
+  const skillRows = weakRows.length ? await repo.findMany("Skill", { id: { in: [...new Set(weakRows.map((w) => s(w.skillId)))] } }, { select: ["id", "name", "code"] }) : [];
+  const skillNames = new Map(skillRows.filter((k) => !isHiddenSkill(k.code)).map((k) => [s(k.id), s(k.name)]));
+  for (const w of weakRows) {
+    const name = skillNames.get(s(w.skillId));
+    if (!name) continue; // hidden skill
+    add(s(w.studentId), "WEAK_SKILL", `${s(w.skillId)}|${wk}`, `${name}: mastery ${Math.round(Number(w.score))} (${BAND_TEXT[s(w.band)] ?? "Developing"}) after ${valid.get(`${s(w.studentId)}|${s(w.skillId)}`) ?? 0} answers in 3 weeks (rapid guesses not counted).`);
+  }
   // dropped a level twice in a row (same category), last 30 days
   const RANK: Record<string, number> = { SUPPORT: -1, BELOW: 0, ON: 1, ABOVE: 2, CHALLENGE: 3 };
   const logs = await repo.findMany("AuditLog", { entityType: "Student", entityId: { in: ids }, action: "level.change" });
@@ -101,10 +132,29 @@ export async function findAlerts(repo: Repo, schoolId: string, now = new Date())
   const late = new Map<string, number>();
   for (const r of asg) if (due.has(s(r.assignmentId)) && Number(r.progress ?? 0) === 0) late.set(s(r.studentId), (late.get(s(r.studentId)) ?? 0) + 1);
   for (const [id, n] of late) if (n >= 2) add(id, "LATE_WORK", wk, `${n} tasks not started by their due date.`);
+  // ⚖️ the data disagree (MAP / Diagnostic / platform / Weekly Checks): once a month per pair of sources
+  for (const c of await conflictsFor(repo, schoolId, ids, gradeOf, now)) add(c.studentId, "LEVEL_CONFLICT", `${c.key}|${now.toISOString().slice(0, 7)}`, c.detail);
   return out;
 }
 
 const SCAN_KEY = "alerts.scan";
+/** After a teacher handles an alert, the same kind is not raised again for this many days. */
+export const HANDLED_QUIET_DAYS = 7;
+/** WEAK_SKILL threshold: the top of the Developing band. */
+export const WEAK_MASTERY = 40;
+const BAND_TEXT: Record<string, string> = { BEGINNING: "Beginning", DEVELOPING: "Developing", APPROACHING: "Approaching", PROFICIENT: "Proficient", MASTERED: "Mastered" };
+
+/** A weak skill for an alert: mastery < 40 with enough evidence (effective N ≥ 5) and 5+ non-rapid recent answers. */
+export function isWeakSkill(m: { score: number; attempts: number; components?: unknown; validRecent: number }): boolean {
+  if (!(m.score < WEAK_MASTERY)) return false;
+  let c: unknown = m.components;
+  if (typeof c === "string") { try { c = JSON.parse(c); } catch { c = null; } }
+  const effN = Number((c as { effectiveN?: unknown } | null)?.effectiveN);
+  const enough = Number.isFinite(effN) ? effN >= 5 : m.attempts >= 8;
+  return enough && m.validRecent >= 5;
+}
+/** Status of an alert merged into an older open alert of the same student and kind (kept for history, never shown). */
+export const MERGED = "MERGED";
 
 /** Keeps new alerts and sends ONE notification per teacher / admin. Runs at most every 3 hours (force = now). */
 export async function scanAlerts(repo: Repo, schoolId: string, now = new Date(), force = false): Promise<number> {
@@ -113,11 +163,49 @@ export async function scanAlerts(repo: Repo, schoolId: string, now = new Date(),
   if (!force && now.getTime() - last < 3 * 3600_000) return 0;
   await repo.upsert("SchoolSetting", { schoolId, key: SCAN_KEY }, { value: { at: now.getTime() }, updatedAt: now }, { value: { at: now.getTime() }, updatedAt: now });
   const found = await findAlerts(repo, schoolId, now);
-  if (!found.length) return 0;
-  const have = await repo.findMany("StudentAlert", { studentId: { in: [...new Set(found.map((f) => f.studentId))] } }, { select: ["studentId", "key"] });
+  // readiness I-5: ONE open alert per student and kind. Findings of the same kind are merged (e.g. two weak skills);
+  // an alert that is still open is refreshed ("still true on …"), not raised again every week
+  const merged = new Map<string, Found>();
+  for (const f of found) {
+    const k = `${f.studentId}|${f.kind}`, prev = merged.get(k);
+    if (!prev) merged.set(k, { ...f });
+    else if (!prev.detail.includes(f.detail)) prev.detail = `${prev.detail} ${f.detail}`.slice(0, 500);
+  }
+  const open = await repo.findMany("StudentAlert", { schoolId, status: "OPEN" }, { select: ["id", "studentId", "kind", "key", "detail", "createdAt"] });
+  // older data: several open alerts of the same kind for one student → the oldest stays open, the others are merged
+  const openBy = new Map<string, Row>();
+  const dupes: string[] = [];
+  for (const r of [...open].sort((a, b) => time(a.createdAt) - time(b.createdAt) || s(a.id).localeCompare(s(b.id)))) {
+    const k = `${s(r.studentId)}|${s(r.kind)}`;
+    if (openBy.has(k)) dupes.push(s(r.id)); else openBy.set(k, r);
+  }
+  if (dupes.length) await repo.updateMany("StudentAlert", { id: { in: dupes } }, { status: MERGED, action: "Merged into the older open alert of the same kind.", handledAt: now });
+  // 📉 a DECLINING alert closes itself when the daily level check no longer sees the decline (Update 39B): it is a
+  // state, not an event — an up-and-down week must not leave a "declining" flag open for weeks
+  const cleared = [...openBy.entries()].filter(([k]) => k.endsWith("|DECLINING") && !merged.has(k)).map(([, r]) => s(r.id));
+  if (cleared.length) await repo.updateMany("StudentAlert", { id: { in: cleared } }, { status: "HANDLED", action: `Cleared automatically on ${now.toISOString().slice(0, 10)}: the recent answers no longer show a decline.`, handledAt: now });
+  if (!merged.size) return 0;
+  const studentIds = [...new Set([...merged.values()].map((f) => f.studentId))];
+  const [have, recentHandled] = await Promise.all([
+    repo.findMany("StudentAlert", { studentId: { in: studentIds } }, { select: ["studentId", "key"] }),
+    repo.findMany("StudentAlert", { studentId: { in: studentIds }, status: "HANDLED", handledById: { not: null }, handledAt: { gte: new Date(now.getTime() - HANDLED_QUIET_DAYS * DAY) } }, { select: ["studentId", "kind"] }), // closed by a person (not cleared automatically)
+  ]);
   const seen = new Set(have.map((h) => `${s(h.studentId)}#${s(h.key)}`));
-  const fresh = found.filter((f) => !seen.has(`${f.studentId}#${f.key}`));
-  const unique = [...new Map(fresh.map((f) => [`${f.studentId}#${f.key}`, f])).values()];
+  const quiet = new Set(recentHandled.map((h) => `${s(h.studentId)}|${s(h.kind)}`));
+  const unique: Found[] = [];
+  const day = now.toISOString().slice(0, 10);
+  for (const [k, f] of merged) {
+    const cur = openBy.get(k);
+    if (cur) {
+      const since = new Date(time(cur.createdAt)).toISOString().slice(0, 10);
+      const detail = (since === day ? f.detail : `${f.detail} Still true on ${day} (open since ${since}).`).slice(0, 500);
+      if (detail !== s(cur.detail)) await repo.updateMany("StudentAlert", { id: cur.id }, { detail });
+      continue;
+    }
+    if (quiet.has(k)) continue; // the teacher acted on this in the last week: give it time
+    if (seen.has(`${f.studentId}#${f.key}`)) continue;
+    unique.push(f);
+  }
   if (!unique.length) return 0;
   await repo.createMany("StudentAlert", unique.map((f) => ({ schoolId, classId: f.classId || null, studentId: f.studentId, kind: f.kind, key: f.key.slice(0, 120), detail: f.detail, status: "OPEN", createdAt: now })));
   // one notification per person: the teachers of the classes concerned, and the school admins
@@ -146,7 +234,7 @@ export async function alertList(repo: Repo, actor: Actor, opts: { status?: "OPEN
   if (opts.status && opts.status !== "ALL") where.status = opts.status;
   if (opts.kind) where.kind = opts.kind;
   let rows = await repo.findMany("StudentAlert", where);
-  rows = rows.filter((r) => (isAdmin || allowed.has(s(r.classId))) && (!opts.classId || r.classId === opts.classId));
+  rows = rows.filter((r) => r.status !== MERGED && (isAdmin || allowed.has(s(r.classId))) && (!opts.classId || r.classId === opts.classId));
   const names = await studentNames(repo, [...new Set(rows.map((r) => s(r.studentId)))]);
   const handlers = [...new Set(rows.map((r) => s(r.handledById)).filter(Boolean))];
   const users = handlers.length ? await repo.findMany("User", { id: { in: handlers } }, { select: ["id", "displayName"] }) : [];
@@ -187,6 +275,7 @@ export async function alertStats(repo: Repo, schoolId: string): Promise<Map<stri
   const rows = await repo.findMany("StudentAlert", { schoolId }, { select: ["classId", "status", "createdAt"] });
   const out = new Map<string, { open: number; handled: number; oldestOpenDays: number | null }>();
   for (const r of rows) {
+    if (r.status === MERGED) continue;
     const k = s(r.classId), v = out.get(k) ?? { open: 0, handled: 0, oldestOpenDays: null };
     if (r.status === "OPEN") { v.open++; const d = Math.floor((Date.now() - time(r.createdAt)) / DAY); v.oldestOpenDays = Math.max(v.oldestOpenDays ?? 0, d); } else v.handled++;
     out.set(k, v);

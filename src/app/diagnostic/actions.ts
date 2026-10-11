@@ -3,8 +3,10 @@ import { redirect } from "next/navigation";
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { buildDiagnostic, closeDiagnostic, openDiagnostic, swapDiagnosticQuestion } from "@/server/diagnostic/test";
+import { buildAllDiagnostics, buildDiagnostic, closeDiagnostic, openDiagnostic, swapDiagnosticQuestion } from "@/server/diagnostic/test";
 import { shareDiagnosticResults } from "@/server/diagnostic/report";
+import { draftReflection, type Reflection } from "@/server/diagnostic/reflection";
+import { aiEnv } from "@/server/ai/env";
 
 const day = (v: FormDataEntryValue | null, end = false) => { const x = String(v ?? ""); return /^\d{4}-\d{2}-\d{2}$/.test(x) ? new Date(`${x}T${end ? "23:59:59" : "00:00:00"}`) : null; };
 const msg = (path: string, m: string) => `${path}${path.includes("?") ? "&" : "?"}msg=${encodeURIComponent(m)}`;
@@ -14,14 +16,25 @@ async function run(back: string, fn: () => Promise<string>): Promise<never> {
   redirect(to);
 }
 
+/** period (BOY | MOY | EOY; empty = by today's date) and form (full | focus, MOY / EOY only) come from the form when given */
+const periodOpt = (f?: FormData | null) => ({ period: String(f?.get("period") ?? "") || null, form: String(f?.get("form") ?? "") || null });
 export async function buildDiagnosticAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN"], permission: "assignments:create" });
-  await run("/admin/diagnostic", async () => { const r = await buildDiagnostic(repo, actor, { grade: Number(f.get("grade")), size: Number(f.get("size")) || 50 }); return msg(`/admin/diagnostic/${r.id}`, `Test built: ${r.questions} questions. Review them, then open the test.`); });
+  const back = String(f.get("back") || "/admin/diagnostic");
+  await run(back, async () => { const r = await buildDiagnostic(repo, actor, { grade: Number(f.get("grade")), ...periodOpt(f) }); return msg(`/admin/diagnostic/${r.id}`, `${r.period}${r.form === "focus" ? " focus form" : ""} test built: ${r.questions} skill slots, adapting over ${r.pool} questions. Review it, then open the test.`); });
+}
+export async function buildAllDiagnosticsAction(f?: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN"], permission: "assignments:create" });
+  await run("/admin/diagnostic", async () => {
+    const r = await buildAllDiagnostics(repo, actor, new Date(), periodOpt(f));
+    const done = r.built.map((b) => `Grade ${b.grade}`).join(", ");
+    return msg("/admin/diagnostic", `${done ? `Built: ${done} (the same 50 skills).` : "No test built."}${r.skipped.length ? ` ⚠️ ${r.skipped.map((x) => x.reason).join(" ")}` : ""}`);
+  });
 }
 export async function swapQuestionAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN"], permission: "assignments:create" });
   const id = String(f.get("id"));
-  await run(`/admin/diagnostic/${id}`, async () => { await swapDiagnosticQuestion(repo, actor, id, String(f.get("questionId"))); return msg(`/admin/diagnostic/${id}`, `Question ${String(f.get("n"))} replaced.`); });
+  await run(`/admin/diagnostic/${id}`, async () => { await swapDiagnosticQuestion(repo, actor, id, String(f.get("questionId"))); return msg(`/admin/diagnostic/${id}`, `Question ${String(f.get("n"))} left out of the test.`); });
 }
 export async function openDiagnosticAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN"], permission: "assignments:create" });
@@ -42,6 +55,13 @@ export async function shareDiagnosticAction(f: FormData): Promise<void> {
     const shared = String(f.get("shared")) !== "0";
     const note = f.has("note") ? String(f.get("note") ?? "") : undefined;
     const n = await shareDiagnosticResults(repo, actor, { testId: String(f.get("testId")), studentIds: ids, shared, note });
-    return msg(back, shared ? `Shared with ${n} student(s) and their families.` : `Stopped sharing ${n} report(s).`);
+    return msg(back, !shared ? `Stopped sharing ${n} report(s).` : actor.role === "TEACHER" ? `📨 Sent ${n} report(s) to the school admin for approval. The families see them once approved.` : `Shared with ${n} student(s) and their families.`);
   });
+}
+
+/** 🪞 Draft the reflection (Findings & Discussion) of the class analysis; the teacher edits it. */
+export async function draftReflectionAction(testId: string, classId: string | null): Promise<Reflection | { error: string }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
+  try { return await draftReflection(repo, actor, testId, classId, aiEnv()); }
+  catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) return { error: e.message }; throw e; }
 }

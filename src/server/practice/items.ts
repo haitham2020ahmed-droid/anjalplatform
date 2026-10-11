@@ -3,10 +3,15 @@
  * payload sent to the browser (no keys, no rationales, no explanations).
  */
 import { createHash } from "node:crypto";
-import type { BankItem, BankOption, QuestionTypeCode } from "../../imports/questions/validate";
+import { combineGuidance, errorKey, isClassicErrorItem, readErrorResponse, storedParts, twoPartScores, scoreResponse, type BankItem, type BankOption, type QuestionTypeCode } from "../../imports/questions/validate";
+import { chosenMisconception } from "../../insights/misconceptions";
 import type { CandidateItem } from "../../types/domain";
 import type { Repo, Row } from "../seeding/repo";
 import { bankVersion } from "../cache/bank-version";
+import { heldBackQuestionIds } from "../questions/held-back";
+import { diagnoseSpelling } from "../word-study/spelling-diagnosis";
+import { encodeSpeech } from "../word-study/speech-code";
+import { effectiveGuessing } from "../../adaptive/guessing";
 
 export interface PracticeItem extends BankItem {
   questionId: string;
@@ -31,6 +36,18 @@ export interface ClientQuestion {
   segments?: string[]; // error correction
   left?: string[]; // matching
   right?: string[]; // matching: shuffled
+  /** ERROR_CORRECTION (newer items): a “No error” choice, a typed fix after the tap, several errors */
+  errorMode?: { noError: boolean; typeFix: boolean; multiple: boolean };
+  /** TWO_PART: Part A and Part B, shown together (no key) */
+  parts?: { a: { stem: string; options: { label: string; text: string }[] }; b: { stem: string; options: { label: string; text: string }[]; multiple: boolean } };
+  /** GRID: rows and columns (one choice per row) */
+  grid?: { rows: { id: string; text: string }[]; columns: { id: string; text: string }[] };
+  /** HOT_TEXT: the excerpt's selectable sentences */
+  hot?: { segments: { id: string; text: string }[]; maxSelect: number };
+  /** DICTATION: what the browser says, scrambled with the question id (src/server/word-study/speech-code.ts) */
+  dictation?: { say: string; hasSentence: boolean };
+  /** SENTENCE_COMBINE: the short sentences to join and the joining word to use (no accepted answers) */
+  combine?: { sentences: string[]; connector: string | null };
   hasHint: boolean;
 }
 
@@ -61,7 +78,7 @@ export async function loadSkillItems(repo: Repo, skillId: string): Promise<Pract
 export async function loadItemsForSkills(repo: Repo, skillIds: string[]): Promise<PracticeItem[]> {
   if (!skillIds.length) return [];
   const qs = await repo.findMany("Question", { skillId: { in: skillIds }, status: "PUBLISHED", deletedAt: null });
-  return buildItems(repo, qs);
+  return buildItems(repo, qs, true);
 }
 
 /** Specific PUBLISHED questions (a teacher's question set), in the order given. Missing ones are skipped. */
@@ -73,7 +90,8 @@ export async function loadQuestionItems(repo: Repo, questionIds: string[]): Prom
   return items.sort((a, b) => (pos.get(a.questionId) ?? 0) - (pos.get(b.questionId) ?? 0));
 }
 
-async function buildItems(repo: Repo, qs: Row[]): Promise<PracticeItem[]> {
+async function buildItems(repo: Repo, qs: Row[], holdBack = false): Promise<PracticeItem[]> {
+  // holdBack (adaptive pools only, never a teacher's own set): misleading questions are held back, see below
   if (!qs.length) return [];
   const ids = qs.map((q) => q.id);
   const [opts, answers, expl, types] = await Promise.all([
@@ -91,6 +109,14 @@ async function buildItems(repo: Repo, qs: Row[]): Promise<PracticeItem[]> {
   const imageAlt = new Map((imageIds.length ? await repo.findMany("QuestionImage", { id: { in: imageIds } }, { select: ["id", "altText"] }) : []).map((x) => [str(x.id), str(x.altText ?? "")]));
   // adaptive practice needs automatic scoring: teacher-scored types (SHORT_ANSWER) are never served
   const autoScored = new Set(types.filter((t) => t.isAutoScored !== false && t.code !== "SHORT_ANSWER").map((t) => str(t.id)));
+  // 🔁 question effectiveness: a question whose data says it misleads (strong students miss it more, or the key looks
+  // wrong) is held back for review while the skill has 4+ other questions
+  const stats = holdBack ? await repo.findMany("QuestionStats", { questionId: { in: ids } }, { select: ["questionId", "flags"] }) : [];
+  const bad = new Set(stats.filter((x) => { const f = typeof x.flags === "string" ? JSON.parse(x.flags) : x.flags; return Array.isArray(f) && f.some((k) => k === "NEGATIVE_DISCRIMINATION" || k === "POSSIBLE_KEY_ERROR"); }).map((x) => str(x.questionId)));
+  if (holdBack) for (const id of await heldBackQuestionIds(repo, qs.map((q) => str(q.id)))) bad.add(id); // open data alerts (src/server/questions/reclassify.ts)
+  const perSkill = new Map<string, number>();
+  for (const q of qs) if (!bad.has(str(q.id))) perSkill.set(str(q.skillId), (perSkill.get(str(q.skillId)) ?? 0) + 1);
+  qs = qs.filter((q) => !bad.has(str(q.id)) || (perSkill.get(str(q.skillId)) ?? 0) < 4);
   return qs.filter((q) => autoScored.has(str(q.typeId))).map((q) => ({ ...toPracticeItem(q, opts, answers, expl, typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
 }
 
@@ -105,7 +131,7 @@ function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCo
   };
   const options: BankOption[] | undefined = ["MULTIPLE_CHOICE", "MULTI_SELECT", "DROPDOWN"].includes(type)
     ? opts.filter((o) => o.questionId === q.id).sort((a, b) => Number(a.order) - Number(b.order))
-        .map((o) => ({ label: str(o.label), text: str(o.text), correct: Boolean(o.isCorrect), rationale: o.rationale ? str(o.rationale) : null }))
+        .map((o) => ({ label: str(o.label), text: str(o.text), correct: Boolean(o.isCorrect), rationale: o.rationale ? str(o.rationale) : null, misconception: o.misconception ? str(o.misconception) : null }))
     : undefined;
   const p = q.passageId ? passage.get(str(q.passageId)) : undefined;
   const item: PracticeItem = {
@@ -122,7 +148,8 @@ function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCo
     subskill: null,
     explanation: { whyCorrect: text("WHY_CORRECT"), tip: text("TIP") },
     estimatedSeconds: Number(q.estimatedSeconds),
-    irt: { a: Number(q.irtA), b: Number(q.irtB), c: Number(q.irtC) },
+    // c: the stored value or the item format's guessing floor (1/options for multiple choice, 0.5 true/false)
+    irt: { a: Number(q.irtA), b: Number(q.irtB), c: effectiveGuessing(q.irtC, type, options?.length ?? null) },
     options,
     passageText: p ? str(p.body) : null,
     passageTitle: p ? str(p.title) : null,
@@ -132,13 +159,11 @@ function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCo
   if (type === "TRUE_FALSE") item.answer = Boolean(ans[0]);
   if (type === "FILL_BLANK") item.answers = ans.map(str);
   if (type === "SENTENCE_ORDER" || type === "WORD_ORDER") item.sequence = (content.elements as string[]) ?? (ans[0] as string[]);
-  if (type === "ERROR_CORRECTION") {
-    item.segments = content.segments as string[];
-    const a = ans[0] as { errorIndex: number; correction: string };
-    item.errorIndex = a.errorIndex;
-    item.correction = a.correction;
-  }
+  if (type === "ERROR_CORRECTION") Object.assign(item, storedParts(type, content, ans[0]));
   if (type === "MATCHING") item.pairs = ans[0] as { left: string; right: string }[];
+  if (type === "TWO_PART" || type === "GRID" || type === "HOT_TEXT" || type === "DICTATION" || type === "SENTENCE_COMBINE") Object.assign(item, storedParts(type, content, ans[0]));
+  // sentence combining: the item's own hint (content) when the question has none
+  if (type === "SENTENCE_COMBINE" && !item.hint && item.combine?.hint) item.hint = item.combine.hint;
   return item;
 }
 
@@ -168,7 +193,7 @@ export function toClientQuestion(item: PracticeItem, seed: string): ClientQuesti
     level: item.level,
     passage: item.passageText ? { title: item.passageTitle ?? "", text: item.passageText } : null,
     image: item.image ? { url: `/api/question-images/${item.image.id}`, alt: item.image.alt || "Picture for this question" } : null,
-    hasHint: Boolean(item.hint),
+    hasHint: Boolean(item.hint || item.explanation.tip),
   };
   switch (item.type) {
     case "MULTIPLE_CHOICE":
@@ -179,9 +204,25 @@ export function toClientQuestion(item: PracticeItem, seed: string): ClientQuesti
     case "WORD_ORDER":
       return { ...base, elements: seededShuffle(item.sequence!, seed) };
     case "ERROR_CORRECTION":
-      return { ...base, segments: item.segments };
+      return isClassicErrorItem(item) ? { ...base, segments: item.segments } : { ...base, segments: item.segments, errorMode: { noError: Boolean(item.noErrorOption), typeFix: Boolean(item.typeCorrection), multiple: errorKey(item).indexes.length > 1 } };
     case "MATCHING":
       return { ...base, left: item.pairs!.map((p) => p.left), right: seededShuffle(item.pairs!.map((p) => p.right), seed) };
+    case "TWO_PART": {
+      const safe = (o: BankOption) => ({ label: o.label, text: o.text });
+      const tp = item.twoPart!;
+      // Part A's question is not repeated when it is the question text itself (imported items)
+      return { ...base, parts: { a: { stem: tp.partA.stem.trim() === item.stem.trim() ? "" : tp.partA.stem, options: tp.partA.options.map(safe) }, b: { stem: tp.partB.stem, options: tp.partB.options.map(safe), multiple: Boolean(tp.partB.multiple) } } };
+    }
+    case "GRID":
+      return { ...base, grid: { rows: item.grid!.rows.map((r) => ({ id: r.id, text: r.text })), columns: item.grid!.columns.map((c) => ({ id: c.id, text: c.text })) } };
+    case "HOT_TEXT":
+      return { ...base, hot: { segments: item.hotText!.segments.map((x) => ({ id: x.id, text: x.text })), maxSelect: item.hotText!.maxSelect } };
+    case "DICTATION": {
+      const d = item.dictation!;
+      return { ...base, dictation: { say: encodeSpeech({ w: d.word, s: d.sentence ?? null }, item.questionId), hasSentence: Boolean(d.sentence) } };
+    }
+    case "SENTENCE_COMBINE":
+      return { ...base, combine: { sentences: [...item.combine!.sentences], connector: item.combine!.connector?.trim() || null } };
     default:
       return base; // TRUE_FALSE, FILL_BLANK, SHORT_ANSWER
   }
@@ -202,10 +243,26 @@ export function correctAnswerText(i: PracticeItem): string {
     case "SENTENCE_ORDER":
     case "WORD_ORDER":
       return i.sequence!.map((s, k) => `${k + 1}. ${s}`).join("  ");
-    case "ERROR_CORRECTION":
-      return `“${i.segments![i.errorIndex!]}” should be “${i.correction}”`;
+    case "ERROR_CORRECTION": {
+      const { indexes, corrections } = errorKey(i);
+      if (!indexes.length) return "No error: the sentence is correct.";
+      return indexes.map((k, n) => `“${i.segments![k]}” should be “${String(corrections[n] ?? "").split("|")[0].trim()}”`).join("; ");
+    }
     case "MATCHING":
       return i.pairs!.map((p) => `${p.left} = ${p.right}`).join("; ");
+    case "TWO_PART": {
+      const tp = i.twoPart!;
+      const c = (os: BankOption[]) => os.filter((o) => o.correct).map((o) => `${o.label}. ${o.text}`).join("; ");
+      return `Part A: ${c(tp.partA.options)}  Part B: ${c(tp.partB.options)}`;
+    }
+    case "GRID":
+      return i.grid!.rows.map((r) => `${r.text} = ${i.grid!.columns.find((c) => c.id === i.grid!.answer[r.id])?.text ?? ""}`).join("; ");
+    case "HOT_TEXT":
+      return i.hotText!.segments.filter((x) => i.hotText!.correct.includes(x.id)).map((x) => `“${x.text}”`).join(" ");
+    case "DICTATION":
+      return i.dictation!.word;
+    case "SENTENCE_COMBINE":
+      return i.combine!.accepted[0] ?? "";
     default:
       return "";
   }
@@ -228,18 +285,92 @@ export function studentAnswerText(i: PracticeItem, response: unknown): string {
     case "SENTENCE_ORDER":
     case "WORD_ORDER":
       return Array.isArray(response) ? (response as string[]).map((s, k) => `${k + 1}. ${s}`).join("  ") : "No answer";
-    case "ERROR_CORRECTION":
-      return typeof response === "number" && i.segments![response] !== undefined ? `“${i.segments![response]}”` : "No answer";
+    case "ERROR_CORRECTION": {
+      const r = readErrorResponse(response);
+      if (r.none) return "No error";
+      const parts = r.picks.filter((k) => i.segments![k] !== undefined).map((k) => `“${i.segments![k]}”${r.fixes[k]?.trim() ? ` → “${r.fixes[k].trim()}”` : ""}`);
+      return parts.join("; ") || "No answer";
+    }
     case "MATCHING":
       return Object.entries((response ?? {}) as Record<string, string>).map(([l, r]) => `${l} = ${r}`).join("; ") || "No answer";
+    case "TWO_PART": {
+      const r = (response && typeof response === "object" ? response : {}) as { a?: unknown; b?: unknown };
+      const tp = i.twoPart!;
+      const a = tp.partA.options.find((o) => o.label === r.a);
+      const bl = (Array.isArray(r.b) ? r.b : r.b ? [r.b] : []).map(String);
+      const b = tp.partB.options.filter((o) => bl.includes(o.label));
+      if (!a && !b.length) return "No answer";
+      return `Part A: ${a ? `${a.label}. ${a.text}` : "no answer"}  Part B: ${b.length ? b.map((o) => `${o.label}. ${o.text}`).join("; ") : "no answer"}`;
+    }
+    case "GRID": {
+      const map = (response && typeof response === "object" && !Array.isArray(response) ? response : {}) as Record<string, string>;
+      const out = i.grid!.rows.filter((r) => map[r.id]).map((r) => `${r.text} = ${i.grid!.columns.find((c) => c.id === map[r.id])?.text ?? "?"}`);
+      return out.join("; ") || "No answer";
+    }
+    case "HOT_TEXT": {
+      const ids = Array.isArray(response) ? (response as unknown[]).map(String) : [];
+      return i.hotText!.segments.filter((x) => ids.includes(x.id)).map((x) => `“${x.text}”`).join(" ") || "No answer";
+    }
+    case "DICTATION":
+    case "SENTENCE_COMBINE":
+      return typeof response === "string" && response.trim() ? response.trim() : "No answer";
     default:
       return "";
   }
 }
 
-/** Why the chosen option was wrong (single-choice types only). */
+/** Why the chosen option was wrong (single-choice types, and Part A / Part B of a two-part item). */
 export function whyChosenWrong(i: PracticeItem, response: unknown): string | null {
+  if (i.type === "TWO_PART") {
+    const r = (response && typeof response === "object" ? response : {}) as { a?: unknown; b?: unknown };
+    const a = i.twoPart!.partA.options.find((o) => o.label === r.a);
+    if (a && !a.correct) return a.rationale;
+    const bl = (Array.isArray(r.b) ? r.b : r.b ? [r.b] : []).map(String);
+    const b = i.twoPart!.partB.options.find((o) => !o.correct && bl.includes(o.label));
+    if (b) return b.rationale || "Your answer to Part A is right, but the sentence you chose in Part B does not prove it. Find the sentence that shows your answer is true.";
+    return null;
+  }
+  // dictation: the spelling pattern that was missed (never the word itself)
+  if (i.type === "DICTATION") return typeof response === "string" ? diagnoseSpelling(i.dictation!.word, response)?.message ?? null : null;
+  // sentence combining: what to check (the joining word, a missing idea, the comma), never the model answer itself
+  if (i.type === "SENTENCE_COMBINE") return combineGuidance(i.combine!, response);
   if (i.type !== "MULTIPLE_CHOICE" && i.type !== "DROPDOWN") return null;
   const o = i.options!.find((x) => x.label === response);
   return o && !o.correct ? o.rationale : null;
 }
+
+/**
+ * The misconception recorded on a wrong (or partly right) attempt. TWO_PART: right answer with wrong evidence →
+ * EVIDENCE_MISMATCH; a wrong Part A → its option's misconception. ERROR_CORRECTION: the item's errorKind.
+ * Other types: the chosen option's misconception.
+ */
+export function attemptMisconception(i: BankItem, response: unknown): string | null {
+  if (i.type === "TWO_PART") {
+    const s = twoPartScores(i, response);
+    if (s.a >= 1 && s.b < 1) return "EVIDENCE_MISMATCH";
+    if (s.a < 1) {
+      const r = (response && typeof response === "object" ? response : {}) as { a?: unknown };
+      return i.twoPart!.partA.options.find((o) => o.label === r.a && !o.correct)?.misconception ?? null;
+    }
+    return null;
+  }
+  if (i.type === "ERROR_CORRECTION") return i.errorKind && scoreResponse(i, response) < 1 ? i.errorKind : null;
+  // dictation: the pattern the typed spelling missed (vowel team, doubling, silent letter, y → i …)
+  if (i.type === "DICTATION") return typeof response === "string" ? diagnoseSpelling(i.dictation!.word, response)?.code ?? null : null;
+  // sentence combining: a wrong join is a sentence-boundary error (fragment, run-on, missing comma or joining word)
+  if (i.type === "SENTENCE_COMBINE") return scoreResponse(i, response) < 1 ? "SENTENCE_BOUNDARY" : null;
+  return chosenMisconception(i.type, i.options, response);
+}
+
+/** Every text that would give the answer away (the tutor must not say any of them before guiding). */
+export function answerTexts(i: PracticeItem): string[] {
+  const out = [correctAnswerText(i), ...(i.options ?? []).filter((o) => o.correct).map((o) => o.text)];
+  if (i.twoPart) out.push(...[...i.twoPart.partA.options, ...i.twoPart.partB.options].filter((o) => o.correct).map((o) => o.text));
+  if (i.hotText) out.push(...i.hotText.segments.filter((x) => i.hotText!.correct.includes(x.id)).map((x) => x.text));
+  if (i.grid) out.push(...i.grid.rows.map((r) => `${r.text} ${i.grid!.columns.find((c) => c.id === i.grid!.answer[r.id])?.text ?? ""}`));
+  if (i.type === "ERROR_CORRECTION") out.push(...errorKey(i).corrections.flatMap((c) => c.split("|").map((x) => x.trim())).filter(Boolean));
+  if (i.dictation) out.push(i.dictation.word);
+  if (i.combine) out.push(...i.combine.accepted);
+  return out.filter(Boolean);
+}
+

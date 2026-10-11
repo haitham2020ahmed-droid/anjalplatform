@@ -165,7 +165,9 @@ export function planCurriculum(tax: Taxonomy, file: GradeFile): CurriculumPlan {
       seenLessonCodes.add(l.code);
       const { skills: links, ...rest } = l;
       lessons.push({ ...rest, unitNumber: u.number });
-      for (const link of links) {
+      // A lesson without a skill can never be recommended or reported on; fail the import instead.
+      if (!links?.length) errors.push(`Lesson ${l.code} "${l.title}" has no skills`);
+      for (const link of links ?? []) {
         const key = ensureSkill(link.familyCode, `${l.code} "${link.label}"`);
         if (!key) continue;
         const sub = addSub(key, link);

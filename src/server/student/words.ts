@@ -15,8 +15,8 @@ const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
 const DAY = 86_400_000;
 
-export interface Meaning { partOfSpeech: string; definition: string; example: string | null; synonyms: string[]; antonyms: string[] }
-export interface WordView { word: string; phonetic: string | null; audioUrl: string | null; meanings: Meaning[]; source: "API" | "SCHOOL" | "NONE"; isVocab: boolean }
+export interface Meaning { partOfSpeech: string; definition: string; example: string | null; synonyms: string[]; antonyms: string[]; /** a school-written sentence that is NOT an example of the word */ nonExample?: string | null }
+export interface WordView { word: string; phonetic: string | null; audioUrl: string | null; meanings: Meaning[]; source: "API" | "SCHOOL" | "NONE"; isVocab: boolean; arabicGloss: string | null; contextSentence: string | null }
 
 /** “Running,” → “running”; refuses anything that is not one English word. */
 export function cleanWord(raw: string): string | null {
@@ -66,9 +66,10 @@ export async function vocabWords(repo: Repo, schoolId: string): Promise<Set<stri
   return out;
 }
 
-const viewOf = (r: Row): WordView => {
+/** A WordEntry row → its view (meanings parsed). */
+export const viewOf = (r: Row): WordView => {
   let m: unknown = r.meanings; if (typeof m === "string") { try { m = JSON.parse(m); } catch { m = []; } }
-  return { word: s(r.word), phonetic: r.phonetic ? s(r.phonetic) : null, audioUrl: r.audioUrl ? s(r.audioUrl) : null, meanings: (Array.isArray(m) ? m : []) as Meaning[], source: s(r.source) as WordView["source"], isVocab: Boolean(r.isVocab) };
+  return { word: s(r.word), phonetic: r.phonetic ? s(r.phonetic) : null, audioUrl: r.audioUrl ? s(r.audioUrl) : null, meanings: (Array.isArray(m) ? m : []) as Meaning[], source: s(r.source) as WordView["source"], isVocab: Boolean(r.isVocab), arabicGloss: r.arabicGloss ? s(r.arabicGloss) : null, contextSentence: r.contextSentence ? s(r.contextSentence) : null };
 };
 
 /** Looks a word up (cache first, then the API) and, for a student, adds it to the notebook. */
@@ -92,13 +93,13 @@ export async function lookupWord(repo: Repo, actor: Actor, raw: string, now = ne
   if (actor.role === "STUDENT" && actor.studentId) {
     const have = await repo.findUnique("StudentWord", { studentId: actor.studentId, word });
     if (have) await repo.updateMany("StudentWord", { studentId: actor.studentId, word }, { lookups: Number(have.lookups) + 1, lastAt: now });
-    else await repo.create("StudentWord", { studentId: actor.studentId, word, lookups: 1, firstAt: now, lastAt: now, quizRight: 0, quizWrong: 0 });
+    else await repo.create("StudentWord", { studentId: actor.studentId, word, lookups: 1, firstAt: now, lastAt: now, quizRight: 0, quizWrong: 0, nextReviewAt: new Date(now.getTime() + DAY), reviewStep: 0 });
   }
   return viewOf(row!);
 }
 
 /** A teacher or admin writes / corrects the school's definition (shown before the API's). */
-export async function saveDefinition(repo: Repo, actor: Actor, raw: string, input: { partOfSpeech: string; definition: string; example?: string; synonyms?: string; antonyms?: string; isVocab?: boolean }, now = new Date()): Promise<void> {
+export async function saveDefinition(repo: Repo, actor: Actor, raw: string, input: { partOfSpeech: string; definition: string; example?: string; synonyms?: string; antonyms?: string; isVocab?: boolean; nonExample?: string }, now = new Date()): Promise<void> {
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Teachers and admins edit definitions.");
   const word = cleanWord(raw);
   if (!word) throw new ValidationError("Write one English word.");
@@ -107,6 +108,9 @@ export async function saveDefinition(repo: Repo, actor: Actor, raw: string, inpu
   const list = (v?: string) => s(v).split(/[,;]/).map((x) => x.trim()).filter(Boolean).slice(0, 8);
   const mine: Meaning = { partOfSpeech: s(input.partOfSpeech).trim().slice(0, 30) || "word", definition: def.slice(0, 400), example: s(input.example).trim().slice(0, 300) || null, synonyms: list(input.synonyms), antonyms: list(input.antonyms) };
   const row = await repo.findUnique("WordEntry", { schoolId: actor.schoolId, word });
+  const same = row ? viewOf(row).meanings.find((m) => m.partOfSpeech === mine.partOfSpeech) : undefined;
+  const nonEx = input.nonExample === undefined ? same?.nonExample ?? null : s(input.nonExample).trim().slice(0, 300) || null;
+  if (nonEx) mine.nonExample = nonEx;
   const old = row ? viewOf(row).meanings.filter((m) => m.partOfSpeech !== mine.partOfSpeech) : [];
   const data = { meanings: [mine, ...old].slice(0, 4), source: "SCHOOL", isVocab: input.isVocab ?? Boolean(row?.isVocab), updatedById: actor.userId, updatedAt: now };
   if (row) await repo.updateMany("WordEntry", { id: row.id }, data); else await repo.create("WordEntry", { schoolId: actor.schoolId!, word, phonetic: null, audioUrl: null, ...data });
@@ -123,13 +127,18 @@ export async function wordList(repo: Repo, actor: Actor, q = ""): Promise<{ voca
 
 // ------------------------------------------------------------------ notebook & weekly quiz
 
-export interface NotebookWord { word: string; lookups: number; lastAt: string; definition: string | null; partOfSpeech: string | null; known: boolean }
+export interface NotebookWord {
+  word: string; lookups: number; lastAt: string; definition: string | null; partOfSpeech: string | null; known: boolean;
+  /** spaced review: when the word is next due (ISO) and its step (0..4 → 1, 3, 7, 21, 60 days) */
+  nextReviewAt: string | null; reviewStep: number;
+  myExample: string | null; notExample: string | null; arabicGloss: string | null; contextSentence: string | null; isVocab: boolean;
+}
 
 export async function notebook(repo: Repo, actor: Actor): Promise<NotebookWord[]> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Students only.");
   const mine = await repo.findMany("StudentWord", { studentId: actor.studentId });
   const entries = mine.length ? await repo.findMany("WordEntry", { schoolId: actor.schoolId, word: { in: mine.map((w) => s(w.word)) } }) : [];
-  return mine.map((w) => { const e = entries.find((x) => x.word === w.word); const m = e ? viewOf(e).meanings[0] : undefined; return { word: s(w.word), lookups: Number(w.lookups), lastAt: new Date(time(w.lastAt)).toISOString(), definition: m?.definition ?? null, partOfSpeech: m?.partOfSpeech ?? null, known: Number(w.quizRight) >= 2 && Number(w.quizRight) > Number(w.quizWrong) }; }).sort((a, b) => b.lastAt.localeCompare(a.lastAt));
+  return mine.map((w) => { const e = entries.find((x) => x.word === w.word); const m = e ? viewOf(e).meanings[0] : undefined; return { word: s(w.word), lookups: Number(w.lookups), lastAt: new Date(time(w.lastAt)).toISOString(), definition: m?.definition ?? null, partOfSpeech: m?.partOfSpeech ?? null, known: Number(w.quizRight) >= 2 && Number(w.quizRight) > Number(w.quizWrong), nextReviewAt: w.nextReviewAt ? new Date(time(w.nextReviewAt)).toISOString() : null, reviewStep: Number(w.reviewStep ?? 0), myExample: w.myExample ? s(w.myExample) : null, notExample: w.notExample ? s(w.notExample) : null, arabicGloss: e?.arabicGloss ? s(e.arabicGloss) : null, contextSentence: e?.contextSentence ? s(e.contextSentence) : null, isVocab: Boolean(e?.isVocab) }; }).sort((a, b) => b.lastAt.localeCompare(a.lastAt));
 }
 
 export interface WordQuizQ { word: string; definition: string; choices: string[] }

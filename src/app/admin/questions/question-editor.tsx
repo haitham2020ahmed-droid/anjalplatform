@@ -4,7 +4,8 @@ import { MapPlacePicker } from "@/components/curriculum-map/place-picker";
 import { useState, useTransition } from "react";
 import type { EditorInput } from "@/server/admin/questions";
 import { field, label } from "@/components/admin/styles";
-import { saveQuestionAction } from "../actions";
+import { saveQuestionWithTypesAction } from "./save-actions";
+import { MISCONCEPTIONS } from "@/insights/misconceptions";
 import { possibleMissingPassage } from "@/lib/passage-detect";
 import { ImageField } from "./image-field";
 import { createSkillAction, createStandardAction } from "../curriculum/manage-actions";
@@ -14,8 +15,15 @@ type Skill = { id: string; grade: number; name: string };
 const TYPES: [string, string][] = [
   ["MULTIPLE_CHOICE", "Multiple choice"], ["MULTI_SELECT", "Multiple select"], ["DROPDOWN", "Dropdown"], ["TRUE_FALSE", "True / false"],
   ["FILL_BLANK", "Fill in the blank"], ["SENTENCE_ORDER", "Sentence order"], ["WORD_ORDER", "Word order"], ["ERROR_CORRECTION", "Error correction"], ["MATCHING", "Matching"],
+  ["TWO_PART", "Two-part (Part A / Part B evidence)"], ["GRID", "Table match (grid)"], ["HOT_TEXT", "Hot text (select sentences)"],
+  ["DICTATION", "Dictation (hear the word, type it)"],
+  ["SENTENCE_COMBINE", "Sentence combining (join short sentences)"],
   ["SHORT_ANSWER", "Short answer (teacher-scored)"],
 ];
+type Opt = NonNullable<EditorInput["options"]>[number];
+const blankOpts = (n: number): Opt[] => Array.from({ length: n }, (_, i) => ({ label: "ABCDEFGH"[i], text: "", correct: i === 0, rationale: i === 0 ? null : "" }));
+/** error kinds a teacher can tag an error-correction item with (grammar and mechanics misconceptions) */
+const ERROR_KINDS = MISCONCEPTIONS.filter((m) => m.area === "GRAMMAR" || m.area === "MECHANICS");
 const LEVELS = ["Very easy", "Easy", "Below grade level", "Grade level", "Above grade level", "Challenging", "Advanced"];
 const lines = (s: string) => s.split("\n").map((x) => x.trim()).filter(Boolean);
 
@@ -47,22 +55,42 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
   const opts = q.options ?? [];
   const setOpt = (i: number, patch: Partial<NonNullable<EditorInput["options"]>[number]>) =>
     set({ options: opts.map((o, j) => (j === i ? { ...o, ...patch } : q.type !== "MULTI_SELECT" && patch.correct ? { ...o, correct: false } : o)) });
+  // error correction: the errors (old items have one errorIndex + correction)
+  const errIdx = q.errorIndexes ?? (q.errorIndex !== undefined ? [q.errorIndex] : []);
+  const errFix = q.corrections ?? (q.correction ? [q.correction] : []);
+  const setErr = (i: number, on: boolean, fix?: string) => {
+    const pairs = errIdx.map((k, n) => [k, errFix[n] ?? ""] as [number, string]).filter(([k]) => k !== i);
+    if (on) pairs.push([i, fix ?? errFix[errIdx.indexOf(i)] ?? (q.segments ?? [])[i] ?? ""]);
+    pairs.sort((a, b) => a[0] - b[0]);
+    set({ errorIndexes: pairs.map((x) => x[0]), corrections: pairs.map((x) => x[1]), errorIndex: undefined, correction: undefined });
+  };
+  const twoPart = q.twoPart ?? { partA: { stem: "", options: blankOpts(4) }, partB: { stem: "Which sentence from the passage best supports the answer to Part A?", options: blankOpts(4), multiple: false } };
+  const combine = q.combine ?? { sentences: [], connector: null, hint: null, accepted: [] };
+  const lineCells = (v: string, prefix: string) => lines(v).map((text, i) => ({ id: `${prefix}${i + 1}`, text }));
 
   function save() {
     const payload: EditorInput = { ...q, tip: q.tip || null };
-    for (const k of ["options", "answer", "answers", "sequence", "segments", "errorIndex", "correction", "pairs"] as const) delete payload[k];
+    for (const k of ["options", "answer", "answers", "sequence", "segments", "errorIndex", "correction", "pairs", "errorIndexes", "corrections", "noErrorOption", "typeCorrection", "errorKind", "twoPart", "grid", "hotText", "dictation", "combine"] as const) delete payload[k];
     if (optionTypes) payload.options = opts.map((o, i) => ({ ...o, label: "ABCDEFGH"[i], rationale: o.correct ? o.rationale || null : o.rationale ?? "" }));
     if (q.type === "TRUE_FALSE") payload.answer = q.answer ?? true;
     if (q.type === "FILL_BLANK" || q.type === "SHORT_ANSWER") payload.answers = q.answers ?? [];
     if (q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") payload.sequence = q.sequence ?? [];
-    if (q.type === "ERROR_CORRECTION") Object.assign(payload, { segments: q.segments ?? [], errorIndex: q.errorIndex ?? 0, correction: q.correction ?? "" });
+    if (q.type === "ERROR_CORRECTION") {
+      const segs = q.segments ?? [];
+      Object.assign(payload, { segments: segs, errorIndexes: errIdx, corrections: errIdx.map((i) => errFix[errIdx.indexOf(i)] ?? ""), noErrorOption: Boolean(q.noErrorOption), typeCorrection: Boolean(q.typeCorrection), errorKind: q.errorKind || null });
+    }
     if (q.type === "MATCHING") payload.pairs = q.pairs ?? [];
+    if (q.type === "TWO_PART") payload.twoPart = twoPart;
+    if (q.type === "GRID") payload.grid = q.grid ?? { rows: [], columns: [], answer: {} };
+    if (q.type === "DICTATION") payload.dictation = { word: q.dictation?.word ?? "", sentence: q.dictation?.sentence || null };
+    if (q.type === "SENTENCE_COMBINE") payload.combine = { sentences: q.combine?.sentences ?? [], connector: q.combine?.connector || null, hint: q.combine?.hint || null, accepted: q.combine?.accepted ?? [] };
+    if (q.type === "HOT_TEXT") payload.hotText = { segments: q.hotText?.segments ?? [], correct: q.hotText?.correct ?? [], maxSelect: q.hotText?.maxSelect || (q.hotText?.correct.length ?? 1) || 1 };
     start(async () => {
       if (onSave) {
         const o = await onSave(payload);
         return setMsg(o.error ? { error: o.error } : { ok: o.message ?? "Saved." });
       }
-      const r = await saveQuestionAction(questionId, payload);
+      const r = await saveQuestionWithTypesAction(questionId, payload);
       if (r.error) return setMsg({ error: r.error });
       setMsg({ ok: r.message });
       if (!questionId && r.id) router.push(`/admin/questions/${r.id}`);
@@ -105,6 +133,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
         <datalist id="standards">{standards.map((s) => <option key={s} value={s} />)}</datalist>
         <CcssNote className="sm:col-span-2" />
         <label className={label}>Cognitive level (optional)<select value={q.cognitiveLevel ?? ""} onChange={(e) => set({ cognitiveLevel: e.target.value || null })} className={field}><option value="">—</option>{["Remember", "Understand", "Apply", "Analyze", "Evaluate", "Create"].map((c) => <option key={c} value={c}>{c}</option>)}</select></label>
+        <label className={label}>MAP Instructional Area<select value={q.mapArea ?? ""} onChange={(e) => set({ mapArea: e.target.value || null })} className={field}><option value="">Automatic (from the standard)</option><optgroup label="MAP Reading">{["Literary Text", "Informational Text", "Vocabulary"].map((a) => <option key={a} value={a}>{a}</option>)}</optgroup><optgroup label="MAP Language Usage">{["Language: Understand, Edit for Grammar, Usage", "Language: Understand, Edit for Mechanics", "Writing: Write, Revise Texts for Purpose and Audience"].map((a) => <option key={a} value={a}>{a}</option>)}</optgroup></select></label>
         <label className={label}>Lexile (optional)<input type="number" min={0} max={2000} value={q.lexile ?? ""} onChange={(e) => set({ lexile: e.target.value === "" ? null : Number(e.target.value) })} placeholder="e.g. 820" className={field} /></label>
         <label className={label}>Expected time (seconds)<input type="number" min={10} max={600} value={q.estimatedSeconds ?? 45} onChange={(e) => set({ estimatedSeconds: Number(e.target.value) })} className={field} /></label>
         <label className="flex items-center gap-2 pt-6 text-sm"><input type="checkbox" checked={!!q.aiDrafted} onChange={(e) => set({ aiDrafted: e.target.checked })} disabled={!!questionId} />Drafted with AI help</label>
@@ -154,10 +183,76 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
       {q.type === "FILL_BLANK" && <label className={label}>Accepted answers (one per line)<textarea style={{ width: "100%" }} rows={5} value={(q.answers ?? []).join("\n")} onChange={(e) => set({ answers: lines(e.target.value) })} className={field} /></label>}
       {(q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") && <label className={label}>Items in the CORRECT order (one per line; students see them shuffled)<textarea style={{ width: "100%" }} rows={5} value={(q.sequence ?? []).join("\n")} onChange={(e) => set({ sequence: lines(e.target.value) })} className={field} /></label>}
       {q.type === "ERROR_CORRECTION" && (
-        <div className="grid gap-3 sm:grid-cols-3">
-          <label className={`${label} sm:col-span-3`}>Sentence parts (one per line; one part contains the mistake)<textarea style={{ width: "100%" }} rows={4} value={(q.segments ?? []).join("\n")} onChange={(e) => set({ segments: lines(e.target.value) })} className={field} /></label>
-          <label className={label}>Part with the mistake<select value={q.errorIndex ?? 0} onChange={(e) => set({ errorIndex: Number(e.target.value) })} className={field}>{(q.segments ?? []).map((s, i) => <option key={i} value={i}>{i + 1}: {s}</option>)}</select></label>
-          <label className={label}>Correction<input value={q.correction ?? ""} onChange={(e) => set({ correction: e.target.value })} className={field} /></label>
+        <div className="space-y-3">
+          <label className={label}>Sentence parts (one per line)<textarea style={{ width: "100%" }} rows={4} value={(q.segments ?? []).join("\n")} onChange={(e) => set({ segments: lines(e.target.value) })} className={field} /></label>
+          <fieldset className="space-y-2">
+            <legend className="text-sm font-medium text-slate-700">Tick every part with a mistake and write it correctly (accepted variants separated by |). Tick none for a “No error” item.</legend>
+            {(q.segments ?? []).map((seg, i) => (
+              <div key={i} className="grid items-center gap-2 sm:grid-cols-[auto_1fr_1fr]">
+                <input type="checkbox" checked={errIdx.includes(i)} onChange={(e) => setErr(i, e.target.checked)} aria-label={`Part ${i + 1} has a mistake`} />
+                <span className="text-sm">{i + 1}: {seg}</span>
+                {errIdx.includes(i) && <input value={errFix[errIdx.indexOf(i)] ?? ""} onChange={(e) => setErr(i, true, e.target.value)} placeholder="Correct part" aria-label={`Correction of part ${i + 1}`} className={field} />}
+              </div>
+            ))}
+          </fieldset>
+          <div className="flex flex-wrap gap-4 text-sm">
+            <label className="flex items-center gap-2"><input type="checkbox" checked={Boolean(q.noErrorOption)} onChange={(e) => set({ noErrorOption: e.target.checked })} />Show a “No error” choice</label>
+            <label className="flex items-center gap-2"><input type="checkbox" checked={Boolean(q.typeCorrection)} onChange={(e) => set({ typeCorrection: e.target.checked })} />Student types the correction (tap = half credit, right fix = full)</label>
+            <label className="flex items-center gap-2">Kind of mistake<select value={q.errorKind ?? ""} onChange={(e) => set({ errorKind: e.target.value || null })} className={field}><option value="">—</option>{ERROR_KINDS.map((m) => <option key={m.code} value={m.code}>{m.label}</option>)}</select></label>
+          </div>
+        </div>
+      )}
+      {q.type === "TWO_PART" && (
+        <div className="space-y-4">
+          <p className="text-sm text-slate-600">Part A asks the question; Part B asks for the evidence (usually sentences from the passage). Each part is worth half. A right Part A with wrong evidence is recorded as “right answer, wrong evidence”.</p>
+          {(["partA", "partB"] as const).map((k) => (
+            <PartEditor key={k} name={k === "partA" ? "Part A" : "Part B"} part={twoPart[k]} allowMultiple={k === "partB"}
+              onChange={(p) => set({ twoPart: { ...twoPart, [k]: p } as EditorInput["twoPart"] })} />
+          ))}
+        </div>
+      )}
+      {q.type === "GRID" && (
+        <div className="grid gap-3 sm:grid-cols-2">
+          <label className={label}>Columns (one per line, at least 2)<textarea style={{ width: "100%" }} rows={3} value={(q.grid?.columns ?? []).map((c) => c.text).join("\n")} onChange={(e) => set({ grid: { rows: q.grid?.rows ?? [], answer: q.grid?.answer ?? {}, columns: lineCells(e.target.value, "c") } })} className={field} /></label>
+          <label className={label}>Rows (one per line)<textarea style={{ width: "100%" }} rows={4} value={(q.grid?.rows ?? []).map((r) => r.text).join("\n")} onChange={(e) => set({ grid: { columns: q.grid?.columns ?? [], answer: q.grid?.answer ?? {}, rows: lineCells(e.target.value, "r") } })} className={field} /></label>
+          <fieldset className="space-y-2 sm:col-span-2">
+            <legend className="text-sm font-medium text-slate-700">Correct column for each row</legend>
+            {(q.grid?.rows ?? []).map((r) => (
+              <label key={r.id} className="grid items-center gap-2 text-sm sm:grid-cols-[1fr_1fr]">{r.text}
+                <select value={q.grid?.answer[r.id] ?? ""} onChange={(e) => set({ grid: { ...q.grid!, answer: { ...q.grid!.answer, [r.id]: e.target.value } } })} className={field}>
+                  <option value="">choose…</option>{(q.grid?.columns ?? []).map((c) => <option key={c.id} value={c.id}>{c.text}</option>)}
+                </select>
+              </label>
+            ))}
+          </fieldset>
+        </div>
+      )}
+      {q.type === "HOT_TEXT" && (
+        <div className="space-y-3">
+          <label className={label}>Sentences of the excerpt (one per line; students tap them)<textarea style={{ width: "100%" }} rows={5} value={(q.hotText?.segments ?? []).map((x) => x.text).join("\n")} onChange={(e) => { const segments = lineCells(e.target.value, "s"); set({ hotText: { segments, correct: (q.hotText?.correct ?? []).filter((c) => segments.some((x) => x.id === c)), maxSelect: q.hotText?.maxSelect ?? 1 } }); }} className={field} /></label>
+          <fieldset className="space-y-1">
+            <legend className="text-sm font-medium text-slate-700">Tick the correct sentence(s)</legend>
+            {(q.hotText?.segments ?? []).map((x) => (
+              <label key={x.id} className="flex items-center gap-2 text-sm"><input type="checkbox" checked={(q.hotText?.correct ?? []).includes(x.id)} onChange={(e) => { const correct = e.target.checked ? [...(q.hotText?.correct ?? []), x.id] : (q.hotText?.correct ?? []).filter((c) => c !== x.id); set({ hotText: { ...q.hotText!, correct, maxSelect: Math.max(q.hotText?.maxSelect ?? 1, correct.length) } }); }} />{x.text}</label>
+            ))}
+          </fieldset>
+          <label className={label}>How many sentences may the student select?<input type="number" min={1} max={20} value={q.hotText?.maxSelect ?? 1} onChange={(e) => set({ hotText: { segments: q.hotText?.segments ?? [], correct: q.hotText?.correct ?? [], maxSelect: Number(e.target.value) } })} className={field} /></label>
+        </div>
+      )}
+      {q.type === "DICTATION" && (
+        <div className="grid gap-3 sm:grid-cols-2">
+          <label className={label}>Word to say (students type it)<input value={q.dictation?.word ?? ""} maxLength={40} onChange={(e) => set({ dictation: { word: e.target.value, sentence: q.dictation?.sentence ?? null } })} className={field} /></label>
+          <label className={label}>Sentence that uses the word (optional, said after the word)<input value={q.dictation?.sentence ?? ""} maxLength={300} onChange={(e) => set({ dictation: { word: q.dictation?.word ?? "", sentence: e.target.value || null } })} className={field} /></label>
+          <p className="text-xs text-slate-500 sm:col-span-2">The browser says the word aloud (no recording needed). Spelling is checked exactly (capital letters do not matter); a wrong spelling is matched to the pattern that was missed.</p>
+        </div>
+      )}
+      {q.type === "SENTENCE_COMBINE" && (
+        <div className="grid gap-3 sm:grid-cols-2">
+          <label className={label}>Short sentences to join (one per line, 2–4)<textarea style={{ width: "100%" }} rows={4} value={(combine.sentences ?? []).join("\n")} onChange={(e) => set({ combine: { ...combine, sentences: lines(e.target.value) } })} className={field} /></label>
+          <label className={label}>Accepted combined sentences (one per line; the first is the model answer)<textarea style={{ width: "100%" }} rows={4} value={(combine.accepted ?? []).join("\n")} onChange={(e) => set({ combine: { ...combine, accepted: lines(e.target.value) } })} className={field} /></label>
+          <label className={label}>Joining word students must use (optional)<input value={combine.connector ?? ""} maxLength={30} placeholder="e.g. because, but, who" onChange={(e) => set({ combine: { ...combine, connector: e.target.value || null } })} className={field} /></label>
+          <label className={label}>Hint (optional, before answering)<input value={combine.hint ?? ""} maxLength={300} onChange={(e) => set({ combine: { ...combine, hint: e.target.value || null } })} className={field} /></label>
+          <p className="text-xs text-slate-500 sm:col-span-2">Students type one sentence. Case, spaces, contractions (didn&apos;t = did not) and the end mark do not matter; commas do. After a wrong answer students get guidance first, then the model answer.</p>
         </div>
       )}
       {q.type === "MATCHING" && <label className={label}>Pairs (one per line: left = right; at least 3)<textarea style={{ width: "100%" }} rows={4} value={(q.pairs ?? []).map((p) => `${p.left} = ${p.right}`).join("\n")} onChange={(e) => set({ pairs: lines(e.target.value).map((l) => { const [left, ...r] = l.split("="); return { left: left.trim(), right: r.join("=").trim() }; }) })} className={field} /></label>}
@@ -179,6 +274,28 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
   );
 }
 
+
+/** One part (A or B) of a two-part item: its question and options (tick the correct one(s)). */
+function PartEditor({ name, part, allowMultiple, onChange }: { name: string; part: { stem: string; options: Opt[]; multiple?: boolean }; allowMultiple: boolean; onChange: (p: { stem: string; options: Opt[]; multiple?: boolean }) => void }) {
+  const multi = allowMultiple && Boolean(part.multiple);
+  const setOpt = (i: number, patch: Partial<Opt>) => onChange({ ...part, options: part.options.map((o, j) => (j === i ? { ...o, ...patch } : !multi && patch.correct ? { ...o, correct: false } : o)) });
+  return (
+    <fieldset className="space-y-2 rounded-xl p-3 ring-1 ring-slate-200">
+      <legend className="px-1 text-sm font-bold text-brand-navy">{name}</legend>
+      <label className={label}>Question<input value={part.stem} onChange={(e) => onChange({ ...part, stem: e.target.value })} maxLength={1000} className={field} /></label>
+      {allowMultiple && <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={multi} onChange={(e) => onChange({ ...part, multiple: e.target.checked })} />Students choose more than one (e.g. “Which TWO sentences…”)</label>}
+      {part.options.map((o, i) => (
+        <div key={i} className="grid items-start gap-2 sm:grid-cols-[auto_1fr_1fr_auto]">
+          <input type={multi ? "checkbox" : "radio"} name={`correct-${name}`} checked={o.correct} onChange={(e) => setOpt(i, { correct: e.target.checked })} aria-label={`${name} option ${"ABCDEFGH"[i]} is correct`} className="mt-3" />
+          <input value={o.text} onChange={(e) => setOpt(i, { text: e.target.value })} placeholder={`Option ${"ABCDEFGH"[i]}`} className={field} />
+          <input value={o.rationale ?? ""} onChange={(e) => setOpt(i, { rationale: e.target.value })} placeholder={o.correct ? "(correct answer)" : "Why is this wrong? (optional)"} disabled={o.correct} className={field} />
+          <button type="button" onClick={() => onChange({ ...part, options: part.options.filter((_, j) => j !== i).map((x, j) => ({ ...x, label: "ABCDEFGH"[j] })) })} disabled={part.options.length <= 2} className="mt-2 text-sm text-red-700">Remove</button>
+        </div>
+      ))}
+      {part.options.length < 6 && <button type="button" onClick={() => onChange({ ...part, options: [...part.options, { label: "ABCDEFGH"[part.options.length], text: "", correct: false, rationale: "" }] })} className="text-sm text-brand-teal">+ Add option</button>}
+    </fieldset>
+  );
+}
 
 const DOMAINS = ["READING", "VOCABULARY", "GRAMMAR", "LANGUAGE", "WRITING", "WORD_STUDY"];
 const CATEGORIES = ["COMPREHENSION", "LITERATURE", "INFORMATIONAL", "VOCABULARY", "WORD_STUDY", "GRAMMAR", "MECHANICS", "PHONICS_WORD_STUDY", "WRITING"];

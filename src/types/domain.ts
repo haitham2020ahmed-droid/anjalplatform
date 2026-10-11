@@ -26,6 +26,12 @@ export interface ResponseEvidence extends ItemParams {
   responseMs: number;
   estimatedSeconds: number;
   usedHint: boolean;
+  /** the student already answered this question before (in the recent window): a remembered answer counts less */
+  repeat?: boolean;
+  /** evidence weight of the activity it came from (Update 39B): live game 0.5, ReadRise / writing / RTR lower; 1 = practice */
+  sourceWeight?: number;
+  /** where it came from (QuestionAttempt.source or SkillEvidence.source); undefined = practice / assigned sets */
+  source?: string;
   /** ISO timestamp. */
   at: string;
 }

@@ -3,9 +3,11 @@ import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
 import { ClassDiagnosticView, DownloadBar } from "@/components/diagnostic/class-report";
+import { ReflectionPanel } from "@/components/diagnostic/reflection-panel";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
-import { classDiagnosticReport } from "@/server/diagnostic/report";
+import { classBenchmarkReport, classDiagnosticReport } from "@/server/diagnostic/report";
+import { BenchmarkPanel } from "@/app/diagnostic/panels";
 
 export const metadata = { title: "Diagnostic Analysis" };
 
@@ -18,6 +20,7 @@ export default async function DiagnosticReportPage({ params, searchParams }: { p
   let r;
   try { r = await classDiagnosticReport(repo, actor, id, sp.classId || null); }
   catch (e) { if (!(e instanceof ForbiddenError)) throw e; return <AppShell name={String(me.displayName)}><p className="text-lg text-slate-700">{e.message}</p></AppShell>; }
+  const bench = await classBenchmarkReport(repo, actor, id, r.classId);
   const back = `/diagnostic/${id}/report${r.classId ? `?classId=${r.classId}` : ""}`;
   const isTeacher = actor.role === "TEACHER";
   return (
@@ -30,7 +33,9 @@ export default async function DiagnosticReportPage({ params, searchParams }: { p
         {!isTeacher && <Link href={`/diagnostic/${id}/report`} aria-current={!r.classId ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-bold ${!r.classId ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>All classes</Link>}
         {r.classes.map((c) => <Link key={c.id} href={`/diagnostic/${id}/report?classId=${c.id}`} aria-current={r.classId === c.id ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-bold ${r.classId === c.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{c.name}</Link>)}
       </nav>
+      <BenchmarkPanel b={bench} />
       <ClassDiagnosticView r={r} canShare back={back} />
+      <ReflectionPanel testId={id} classId={r.classId} />
     </AppShell>
   );
 }

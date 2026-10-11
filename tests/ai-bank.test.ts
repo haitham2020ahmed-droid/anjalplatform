@@ -177,10 +177,10 @@ describe("AI-assisted question bank", () => {
 
   test("coverage shows approved counts by difficulty and what is still needed; Generate Missing makes exactly that", async () => {
     const before = (await skillCoverage(repo, admin, 4)).find((x) => x.skillId === skillId)!;
-    assert.equal(before.target, 12);
+    assert.equal(before.target, 20, "20 per skill: mastery needs 15 independent answers");
     assert.equal(before.approvedByBand.easy + before.approvedByBand.medium + before.approvedByBand.hard, before.approved);
     // another skill with nothing pending: needed equals target minus approved per band
-    const rows = await skillCoverage(repo, admin, 4);
+    const rows = await skillCoverage(repo, admin, 4, 12);
     const row = rows.find((x) => x.needed > 0 && x.pendingReview === 0 && x.skillId !== skillId)!;
     assert.ok(row, "a skill that still needs questions");
     const t = bandTargets(12);
@@ -191,7 +191,7 @@ describe("AI-assisted question bank", () => {
     if (!("nothingNeeded" in res)) assert.equal(res.requested, Math.min(10, row.needed));
     // at most 10 per request (reliable on the free tier): the next “Generate Missing” continues
     if (row.needed > 10) await generateMissing(repo, admin, fakeAi(row.code, String(stdC.code).replace(/^CCSS\.ELA-LITERACY\./, "")), row.skillId, 12, now);
-    const after = (await skillCoverage(repo, admin, 4)).find((x) => x.skillId === row.skillId)!;
+    const after = (await skillCoverage(repo, admin, 4, 12)).find((x) => x.skillId === row.skillId)!;
     assert.equal(after.needed, 0, "pending drafts count toward the target, so nothing more is generated");
     assert.deepEqual(await generateMissing(repo, admin, fakeAi(row.code, "x"), row.skillId, 12, now), { nothingNeeded: true });
   });

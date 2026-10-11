@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 export function PageHeader({ back, icon, title, subtitle, children }: { back?: { href: string; label: string }; icon?: string; title: string; subtitle?: ReactNode; children?: ReactNode }) {
   return (
     <header className="mb-6">
-      {back && <Link href={back.href} className="inline-flex items-center gap-1 rounded-md text-sm font-medium text-slate-500 hover:text-brand-teal"><span aria-hidden="true">‹</span> {back.label}</Link>}
+      {back && <Link href={back.href} className="inline-flex min-h-10 items-center gap-1 rounded-md text-sm font-medium text-slate-500 hover:text-brand-teal"><span aria-hidden="true">‹</span> {back.label}</Link>}
       <div className="mt-1.5 flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
           <h1 className="flex items-center gap-3 text-[28px] font-semibold leading-tight tracking-tight text-brand-navy">

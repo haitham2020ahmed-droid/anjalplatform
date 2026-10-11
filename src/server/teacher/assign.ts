@@ -344,6 +344,23 @@ export interface AssignmentDetail {
 }
 
 /** One assignment with every student's result (teacher of the class or school admin). */
+/**
+ * ✖ Cancel an assignment (readiness S-11): a soft delete (deletedAt). It disappears from every student's list and
+ * further answers are refused; answers already given stay in the history and still count for mastery. Only the
+ * class's teacher or a school admin; the reason is kept in the audit log.
+ */
+export async function cancelAssignment(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<{ title: string; students: number; completed: number }> {
+  assertCan(actor, "assignments:create");
+  const a = await repo.findUnique("Assignment", { id: assignmentId });
+  if (!a || a.deletedAt) throw new ForbiddenError("Assignment not found.");
+  await assertClassAccess(repo, actor, s(a.classId));
+  const rows = await repo.findMany("AssignmentStudent", { assignmentId }, { select: ["status"] });
+  const completed = rows.filter((r) => r.status === "COMPLETED").length;
+  await repo.updateMany("Assignment", { id: assignmentId, deletedAt: null }, { deletedAt: now });
+  await audit(repo, { actorId: actor.userId, action: "assignment.cancel", entityType: "Assignment", entityId: assignmentId, before: { title: s(a.title), students: rows.length, completed }, after: { deletedAt: now.toISOString() }, at: now });
+  return { title: s(a.title), students: rows.length, completed };
+}
+
 export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<AssignmentDetail> {
   assertCan(actor, "assignments:read");
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only teachers and admins can see assignment results.");
@@ -477,6 +494,7 @@ export async function refreshQuestionSets(repo: Repo, assignments: Row[], studen
   const writes: Promise<unknown>[] = [];
   for (const r of rows) {
     const a = byId.get(s(r.assignmentId))!;
+    if (r.status === "COMPLETED" || d(r.completedAt)) continue; // C-1: finished work is never moved back
     const pool = total.get(s(a.assessmentId)) ?? 0;
     const n = adaptive.has(s(a.assessmentId)) ? Math.min(pool, adaptive.get(s(a.assessmentId)) || pool) : pool;
     const k = answered.get(`${s(a.id)}|${s(r.studentId)}`) ?? 0;

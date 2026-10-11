@@ -5,7 +5,8 @@ import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { workbookXlsx } from "../src/imports/questions/template-files";
 import { analyzeImport, commitImportChunk } from "../src/server/admin/question-import";
-import { ensureGrammarSkills, grammarCode, grammarTable, grammarView, readGrammarWorkbook } from "../src/server/grammar/grammar";
+import { ensureGrammarSkills, grammarCode, grammarLibrary, grammarTable, grammarView, readGrammarWorkbook } from "../src/server/grammar/grammar";
+import { assignSkillByLevel } from "../src/server/teacher/skill-assign";
 import { assignSkill } from "../src/server/teacher/assign";
 import { assignedSkills, isAssignedSkill } from "../src/server/student/assigned";
 import { loadSkillItems } from "../src/server/practice/items";
@@ -99,4 +100,18 @@ describe("🔤 Grammar: one bank, real skills, assigned and practised like every
     assert.equal((await loadSkillItems(repo, skillId)).length, 12, "every published question is ready for adaptive practice");
     assert.equal((await grammarView(repo, teacher, { classId })).units[0].weeks[0].skills[0].openAssignments, 1);
   });
+
+  test("🔤 one library: every grammar lesson in one list for every teacher; any lesson goes to any class", async () => {
+    const lib = await grammarLibrary(repo, teacher);
+    assert.ok(["Sentences and Sentence Fragments", "Four Types of Sentences", "Capital Letters"].every((n) => lib.lessons.some((l) => l.name === n)), "all the lessons, no grade or unit split");
+    assert.deepEqual((await grammarLibrary(repo, admin)).lessons.map((l) => l.id), lib.lessons.map((l) => l.id), "the same list for everyone");
+    // a Grade 4 lesson to a class of another grade (grammar only)
+    const skillId = (await repo.findMany("Skill", { code: grammarCode(4, "G4-U1W2-S1") }))[0].id as string;
+    const t5 = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.5a" }))!).catch(() => null);
+    if (t5) {
+      const c5 = (await grammarView(repo, t5, {})).classId;
+      if (c5) { const r = await assignSkillByLevel(repo, t5, { classId: c5, skillId, mode: "AUTOMATIC" }); assert.ok(r.groups.some((g) => g.students > 0)); }
+    }
+  });
 });
+

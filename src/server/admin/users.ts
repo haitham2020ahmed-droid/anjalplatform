@@ -14,8 +14,10 @@
  *  - Every change is audited with before/after values (secrets redacted).
  */
 import { audit } from "../audit";
+import { resetLevelsForNewGrade, withdrawOldClassWork } from "./student-move";
 import { hashPassword } from "../auth/password";
 import { temporaryPassword } from "../auth/passwords-admin";
+import { studentPasswordIsUsername } from "./student-cards";
 import { assertCan, can, ForbiddenError, type Actor, type Permission, type Role } from "../auth/rbac";
 import { revokeAllSessions } from "../auth/sessions";
 import { ValidationError } from "../curriculum-admin";
@@ -167,10 +169,12 @@ export async function createUser(repo: Repo, actor: Actor, input: NewUser, now =
     }
   }
 
-  const temp = temporaryPassword();
+  // the school's choice for students: password = username (no forced change), else a temporary one
+  const sameAsUsername = input.role === "STUDENT" && (await studentPasswordIsUsername(repo, schoolId));
+  const temp = sameAsUsername ? username : temporaryPassword();
   const passwordHash = await hashPassword(temp);
   const userId = await repo.transaction(async (tx) => {
-    const u = await tx.create("User", { username, displayName, email, role: input.role, schoolId, passwordHash, mustChangePassword: true, isActive: true, createdAt: now, updatedAt: now });
+    const u = await tx.create("User", { username, displayName, email, role: input.role, schoolId, passwordHash, mustChangePassword: !sameAsUsername, isActive: true, createdAt: now, updatedAt: now });
     if (input.role === "TEACHER") await tx.create("Teacher", { userId: u.id, schoolId, title: input.title ? cleanName(input.title, "Title", 20) : null });
     if (input.role === "PARENT") await tx.create("Parent", { userId: u.id });
     if (input.role === "STUDENT") {
@@ -245,8 +249,13 @@ export async function moveStudent(repo: Repo, actor: Actor, studentUserId: strin
       const prior = await tx.findUnique("ClassMembership", { classId: target.id, studentId: st.id });
       if (prior) await tx.updateMany("ClassMembership", { classId: target.id, studentId: st.id }, { leftAt: null, joinedAt: now });
       else await tx.create("ClassMembership", { classId: target.id, studentId: st.id, joinedAt: now });
-      if (target.gradeId !== st.gradeId) await tx.updateMany("Student", { id: st.id }, { gradeId: target.gradeId });
+      if (target.gradeId !== st.gradeId) {
+        await tx.updateMany("Student", { id: st.id }, { gradeId: target.gradeId });
+        await resetLevelsForNewGrade(tx, String(st.id), actor.userId, now, String(st.gradeId), String(target.gradeId));
+      }
     }
+    // unfinished work of the old class leaves the student's list (S-9)
+    await withdrawOldClassWork(tx, String(st.id), open.map((m) => String(m.classId)), target ? String(target.id) : null);
   });
   await audit(repo, { actorId: actor.userId, action: "student.class.move", entityType: "Student", entityId: String(st.id), before: { classIds: open.map((m) => String(m.classId)), gradeId: st.gradeId }, after: { classId, gradeId: target?.gradeId ?? st.gradeId }, at: now });
 }

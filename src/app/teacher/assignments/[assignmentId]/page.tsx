@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { accessibleClasses, assignmentDetail, type AssignmentDetail } from "@/server/teacher/assign";
-import { copyAssignmentAction } from "./actions";
+import { cancelAssignmentAction, copyAssignmentAction } from "./actions";
 
 const LABEL = { NOT_STARTED: "Not started", IN_PROGRESS: "In progress", COMPLETED: "Completed", OVERDUE: "Overdue" } as const;
 const TONE = { NOT_STARTED: "bg-slate-100 text-slate-700", IN_PROGRESS: "bg-sky-100 text-sky-900", COMPLETED: "bg-teal-100 text-teal-900", OVERDUE: "bg-red-100 text-red-800" } as const;
@@ -35,6 +35,15 @@ export default async function AssignmentResultsPage({ params, searchParams }: { 
           <button className="rounded-lg bg-brand-navy px-3 py-1.5 font-semibold text-white">Copy</button>
         </form>
       )}
+      <details className="mt-3 rounded-2xl bg-white p-3 text-sm ring-1 ring-slate-200 print:hidden">
+        <summary className="cursor-pointer font-semibold text-red-800">✖ Cancel this assignment</summary>
+        <form action={cancelAssignmentAction} className="mt-2 space-y-2">
+          <input type="hidden" name="assignmentId" value={assignmentId} />
+          <p className="text-slate-700">It disappears from the students&apos; lists and no more answers are accepted. Answers already given are kept and still count.</p>
+          <label className="flex min-h-10 items-center gap-2"><input type="checkbox" name="confirm" value="yes" required /> Yes, cancel “{a.skill}” for {a.students.length} student{a.students.length === 1 ? "" : "s"}</label>
+          <button className="min-h-10 rounded-lg bg-red-700 px-3 py-1.5 font-semibold text-white hover:bg-red-800">Cancel assignment</button>
+        </form>
+      </details>
       <div className="mt-4 overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
         <table className="w-full text-left text-sm">
           <thead><tr className="border-b text-slate-500"><th className="p-3">Student</th><th>Status</th><th>Progress</th><th>Answered</th><th>Accuracy</th><th>Last activity</th><th /></tr></thead>

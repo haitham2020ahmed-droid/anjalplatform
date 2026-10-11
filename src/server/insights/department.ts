@@ -4,6 +4,7 @@
  * Printable (PDF) and as Excel.
  */
 import type { Repo } from "../seeding/repo";
+import { isHiddenSkill } from "../skills/master";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { classMembers, practiceStats } from "./student-data";
 import { gradeSummary, type GradeSummary } from "./progress";
@@ -46,7 +47,9 @@ export async function weakestSkills(repo: Repo, studentIds: string[], now = new 
   const at = await repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: new Date(now.getTime() - 30 * DAY) } }, { select: ["skillId", "studentId", "isCorrect", "rapidGuess"] });
   const by = new Map<string, { n: number; ok: number; who: Set<string> }>();
   for (const a of at) { if (a.rapidGuess) continue; const v = by.get(s(a.skillId)) ?? { n: 0, ok: 0, who: new Set<string>() }; v.n++; if (a.isCorrect) v.ok++; v.who.add(s(a.studentId)); by.set(s(a.skillId), v); }
-  const list = [...by].filter(([, v]) => v.n >= 20).map(([id, v]) => ({ skillId: id, answers: v.n, accuracy: Math.round((100 * v.ok) / v.n), students: v.who.size })).sort((a, b) => a.accuracy - b.accuracy).slice(0, n);
-  const names = list.length ? await repo.findMany("Skill", { id: { in: list.map((x) => x.skillId) } }, { select: ["id", "name"] }) : [];
+  const all = [...by].filter(([, v]) => v.n >= 20).map(([id, v]) => ({ skillId: id, answers: v.n, accuracy: Math.round((100 * v.ok) / v.n), students: v.who.size })).sort((a, b) => a.accuracy - b.accuracy);
+  // the hidden “Unclassified (Curriculum Map)” skill is never listed (readiness I-18)
+  const names = all.length ? (await repo.findMany("Skill", { id: { in: all.slice(0, n + 3).map((x) => x.skillId) } }, { select: ["id", "name", "code"] })).filter((k) => !isHiddenSkill(k.code)) : [];
+  const list = all.filter((x) => names.some((k) => k.id === x.skillId)).slice(0, n);
   return list.map((x) => ({ ...x, name: s(names.find((k) => k.id === x.skillId)?.name) || "Skill" }));
 }

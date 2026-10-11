@@ -32,6 +32,13 @@ export interface SkillState {
   previousTargetB: number | null;
   candidates: CandidateItem[];
   prerequisites: PrerequisiteStatus[];
+  /**
+   * Correct/wrong of the answers already given in THIS session (oldest first, excluding the new one).
+   * The prerequisite-routing streak is counted only over these, so a streak never spans sessions
+   * (e.g. a student returning from a prerequisite detour is not re-routed by one wrong answer).
+   * When omitted (pure simulations), the whole skill history is used.
+   */
+  sessionCorrect?: boolean[];
 }
 
 export interface AdaptiveLogRecord {
@@ -100,7 +107,7 @@ export function processAnswer(
     previousTargetB: state.previousTargetB ?? response.b,
     candidates: state.candidates,
     recentItemIds: history.map((h) => h.itemId),
-    recentCorrect: history.slice(-adaptive.recentWindow).map((h) => h.correct),
+    recentCorrect: (state.sessionCorrect ? [...state.sessionCorrect, response.correct] : history.map((h) => h.correct)).slice(-adaptive.recentWindow),
     prerequisites: state.prerequisites,
     config: adaptive,
     random,

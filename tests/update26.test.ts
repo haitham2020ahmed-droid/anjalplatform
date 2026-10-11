@@ -17,6 +17,8 @@ import { buildDiagnostic, diagnosticQuestions, myDiagnostic, openDiagnostic, pic
 import { classDiagnosticReport, shareDiagnosticResults, studentDiagnosticReport } from "../src/server/diagnostic/report";
 import { areaOfStandard } from "../src/server/diagnostic/standards";
 import { demoDatabase } from "./helpers/db";
+import { pendingApprovals, reviewFamilyReport } from "../src/server/reports/family-reports";
+const approveAll = async (repo: { [k: string]: unknown }, admin: Actor) => { for (const r of await pendingApprovals(repo as never, admin)) await reviewFamilyReport(repo as never, admin, r.id, { approve: true }); };
 
 describe("Update 26 · the Diagnostic Test", () => {
   let repo: SqliteRepo; let teacher: Actor; let admin: Actor; let classId: string; let roster: { id: string; name: string }[]; let testId = "";
@@ -32,7 +34,7 @@ describe("Update 26 · the Diagnostic Test", () => {
     const g = (await repo.findMany("Grade", { schoolId: admin.schoolId, level: 4 }))[0];
     const cur = (await repo.findMany("Curriculum", { gradeId: g.id }))[0];
     const skill = (await repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null }))[0];
-    const codes = ["RL.4.1", "RL.4.2", "RL.4.3", "RI.4.2", "RI.4.3", "RI.4.5", "L.4.4", "L.4.1"];
+    const codes = ["RL.4.1", "RL.4.2", "RL.4.3", "RI.4.2", "RI.4.3", "RI.4.5", "L.4.4", "L.4.5", "L.4.1", "L.4.2"];
     for (const code of codes) if (!(await repo.findMany("Standard", { code: `CCSS.ELA-LITERACY.${code}` })).length) await repo.create("Standard", { framework: "CCSS", code: `CCSS.ELA-LITERACY.${code}`, description: code, gradeLevel: 4, strand: code.split(".")[0], isActive: true });
     // only this test's multiple-choice questions in Grade 4 (simple to answer right or wrong)
     await repo.updateMany("Question", { status: "PUBLISHED" }, { status: "DRAFT" });
@@ -60,16 +62,16 @@ describe("Update 26 · the Diagnostic Test", () => {
 
   test("admin builds, reviews and swaps; a teacher cannot build", async () => {
     await assert.rejects(buildDiagnostic(repo, teacher, { grade: 4 }), ForbiddenError);
-    const b = await buildDiagnostic(repo, admin, { grade: 4, size: 40 });
+    const b = await buildDiagnostic(repo, admin, { grade: 4 });
     testId = b.id;
-    assert.equal(b.questions, 40);
+    assert.equal(b.questions, 50, "always 50 questions for every student");
     const v = await diagnosticQuestions(repo, admin, testId);
-    assert.equal(v.questions.length, 40);
+    assert.equal(v.test.questions, 50);
+    assert.equal(v.questions.length, 80, "the pool the test adapts over");
     assert.ok(v.byStandard.length >= 8, "every standard of the bank is in the test");
     const first = v.questions[0].id;
-    const replaced = await swapDiagnosticQuestion(repo, admin, testId, first);
-    assert.notEqual(replaced, first);
-    assert.equal((await diagnosticQuestions(repo, admin, testId)).questions[0].area.code, v.questions[0].area.code, "swapped for the same standard");
+    await swapDiagnosticQuestion(repo, admin, testId, first);
+    assert.ok(!(await diagnosticQuestions(repo, admin, testId)).questions.some((q) => q.id === first), "left out of the pool");
   });
 
   test("open → every class gets it; the student takes it without feedback; the result sets the level", async () => {
@@ -91,10 +93,11 @@ describe("Update 26 · the Diagnostic Test", () => {
       assert.equal(out.feedback.correctAnswer, "", "no answer is revealed during the test");
       v = out.view; i++;
     }
-    assert.equal(i, 40);
+    assert.equal(i, 50);
     const res = (await repo.findMany("DiagnosticScore", { studentId: roster[0].id }))[0];
-    assert.deepEqual([Number(res.correct), Number(res.pct), String(res.level)], [28, 70, "ON"]);
-    assert.equal(String((await repo.findUnique("StudentLevel", { studentId: roster[0].id }))!.level), "ON");
+    assert.equal(Number(res.correct), 35);
+    assert.ok(Number(res.pct) > 0 && res.theta !== null && Number(res.ritEstimate) > 150);
+    assert.equal(String((await repo.findUnique("StudentLevel", { studentId: roster[0].id }))!.level), String(res.level));
     assert.equal((await myDiagnostic(repo, st))!.status, "DONE");
   });
 
@@ -109,15 +112,15 @@ describe("Update 26 · the Diagnostic Test", () => {
     const rep = await classDiagnosticReport(repo, teacher, testId, classId);
     assert.equal(rep.summary.assessed, 3);
     assert.equal(rep.summary.notStarted, rep.summary.roster - 3);
-    assert.deepEqual([rep.summary.max, rep.summary.min, rep.summary.median], [100, 30, 70]);
-    assert.deepEqual(rep.students.map((x) => x.pct), [100, 70, 30], "sorted by score");
-    assert.deepEqual(rep.summary.levels, { ABOVE: 1, ON: 1, BELOW: 1 });
-    assert.equal(rep.tiers.find((t) => t.key === "INTENSIVE")!.students.length, 1);
+    assert.deepEqual(rep.students.map((x) => x.id), [roster[1].id, roster[0].id, roster[2].id], "sorted by score");
+    assert.ok(rep.summary.max > rep.summary.median && rep.summary.median > rep.summary.min);
+    assert.equal(rep.students[0].level, "ABOVE"); assert.equal(rep.students[2].level, "BELOW");
+    assert.equal(rep.tiers.reduce((n, t) => n + t.students.length, 0), 3);
     assert.ok(rep.standards.length >= 8 && rep.standards.every((x) => x.objective && x.activities.length));
     assert.equal(rep.supportPlan.length, 8);
     assert.equal(rep.supportPlan[7].code, "REVIEW");
     assert.ok(rep.supportPlan[0].students.some((x) => x.id === roster[2].id));
-    assert.equal(rep.items.length, 40);
+    assert.ok(rep.items.length >= 50 && rep.items.length <= 80, "the questions students met");
     assert.equal(rep.notTaken.length, rep.summary.roster - 3);
     await assert.rejects(classDiagnosticReport(repo, await resolveActor(repo, (await repo.findUnique("User", { username: "test.teacher.3" }))!), testId, classId), ForbiddenError);
   });
@@ -129,6 +132,8 @@ describe("Update 26 · the Diagnostic Test", () => {
     assert.equal(staff.level, "BELOW");
     assert.ok(staff.needs.length > 0 && staff.standards.every((x) => x.classPct !== null));
     await shareDiagnosticResults(repo, teacher, { testId, studentIds: [roster[2].id], shared: true, note: "Great effort — we will work on main idea together." });
+    assert.equal(await studentDiagnosticReport(repo, st, roster[2].id), null, "waits for the admin's approval");
+    await approveAll(repo as never, admin);
     const mine = (await studentDiagnosticReport(repo, st, roster[2].id))!;
     assert.equal(mine.note, "Great effort — we will work on main idea together.");
     await assert.rejects(studentDiagnosticReport(repo, st, roster[1].id), ForbiddenError, "not another student's report");

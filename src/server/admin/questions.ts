@@ -19,7 +19,7 @@
  */
 import { randomBytes } from "node:crypto";
 import { LEVEL_LABELS, LEVEL_TO_B } from "../../config/engine";
-import { answerValues, contentPayload, QUESTION_TYPES, validateItem, type BankItem, type BankOption, type QuestionTypeCode } from "../../imports/questions/validate";
+import { answerValues, contentPayload, QUESTION_TYPES, storedParts, validateItem, type BankItem, type BankOption, type Combine, type Dictation, type Grid, type HotText, type QuestionTypeCode, type TwoPart } from "../../imports/questions/validate";
 import { audit } from "../audit";
 import { assertCan, can, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -70,6 +70,20 @@ export interface EditorInput {
   errorIndex?: number;
   correction?: string;
   pairs?: { left: string; right: string }[];
+  /** ERROR_CORRECTION, newer form: several errors (one correction each), a “No error” choice, a typed fix, the kind of mistake */
+  errorIndexes?: number[];
+  corrections?: string[];
+  noErrorOption?: boolean;
+  typeCorrection?: boolean;
+  errorKind?: string | null;
+  /** TWO_PART (Part A / Part B), GRID (table match), HOT_TEXT (select sentences) */
+  twoPart?: TwoPart;
+  grid?: Grid;
+  hotText?: HotText;
+  /** DICTATION: the word the player says (and an optional sentence that uses it) */
+  dictation?: Dictation;
+  /** SENTENCE_COMBINE: the short sentences, the joining word, a hint and the accepted combined sentences */
+  combine?: Combine;
   /** AI-drafted items must be marked so (they go through the same review). */
   aiDrafted?: boolean;
   /** Lesson the question belongs to (optional; must teach the skill). */
@@ -80,6 +94,15 @@ export interface EditorInput {
   batch?: string | null;
   /** Created by the question-bank importer (origin IMPORTED; import job id stored in tags). */
   imported?: boolean;
+  /** NWEA MAP: the test and the instructional area given by the import file or set by an admin (else automatic). */
+  mapTest?: string | null;
+  mapArea?: string | null;
+  /** extra columns of an import file (kept in tags): Depth of Knowledge, domain, passage title */
+  dok?: string | null;
+  domain?: string | null;
+  passageTitle?: string | null;
+  /** fields the import could not fill: the platform's AI completes them after saving (answer, explanation, skill, standard, grade) */
+  aiNeeds?: string[];
 }
 
 const num = (v: unknown) => Number(v ?? 0);
@@ -154,12 +177,78 @@ export function buildBankItem(input: EditorInput, ctx: { ref: string; grade: num
     sequence: input.sequence?.map((s) => text(s, "Item", 300)), segments: input.segments?.map((s) => text(s, "Segment", 300)),
     errorIndex: input.errorIndex === undefined ? undefined : num(input.errorIndex), correction: input.correction ? text(input.correction, "Correction", 300) : undefined,
     pairs: input.pairs?.map((p) => ({ left: text(p.left, "Left", 200), right: text(p.right, "Right", 200) })),
+    ...newTypeFields(input),
   };
   const passages = new Set(item.passage ? [item.passage] : []);
   const noStandardOk = !ctx.standardCode && ctx.allowNoStandard;
   const issues = validateItem(item, { skillKeys: new Set([item.skillKey]), standards: new Set(ctx.standardCode ? [ctx.standardCode] : noStandardOk ? [item.standard] : []), passages });
   if (issues.length) throw new ValidationError(issues.map((i) => i.message.replace(/^unknown standard.*/, "Choose the standard this question assesses.")).join("; "));
   return item;
+}
+
+const shortId = (v: unknown, fallback: string) => String(v ?? "").trim().replace(/[^A-Za-z0-9_-]/g, "").slice(0, 20) || fallback;
+
+/** The fields of the newer types (and of the upgraded error correction), cleaned: only those of the chosen type. */
+function newTypeFields(input: EditorInput): Partial<BankItem> {
+  const opt = (o: Partial<BankOption> | undefined, i: number, part: string): BankOption => ({
+    label: String(o?.label ?? "").trim().slice(0, 4) || "ABCDEFGH"[i], text: text(o?.text, `${part} option ${i + 1}`, 500), correct: Boolean(o?.correct),
+    rationale: o?.rationale ? text(o.rationale, `${part} feedback for option ${i + 1}`, 500) : null, ...(o?.misconception ? { misconception: String(o.misconception).slice(0, 40) } : {}),
+  });
+  switch (input.type) {
+    case "ERROR_CORRECTION": {
+      const out: Partial<BankItem> = {};
+      if (Array.isArray(input.errorIndexes)) {
+        out.errorIndexes = input.errorIndexes.slice(0, 20).map((x) => Math.round(num(x)));
+        out.corrections = (input.corrections ?? []).slice(0, 20).map((c) => text(c, "Correction", 300, false));
+        // the old fields follow the first error (older readers of the item keep working)
+        out.errorIndex = out.errorIndexes[0];
+        out.correction = out.corrections[0] || undefined;
+      }
+      if (input.noErrorOption) out.noErrorOption = true;
+      if (input.typeCorrection) out.typeCorrection = true;
+      if (input.errorKind) out.errorKind = String(input.errorKind).trim().slice(0, 40);
+      return out;
+    }
+    case "TWO_PART": {
+      const tp = input.twoPart;
+      if (!tp) return {};
+      return { options: undefined, twoPart: {
+        partA: { stem: text(tp.partA?.stem, "Part A question", 1000), options: (tp.partA?.options ?? []).slice(0, 8).map((o, i) => opt(o, i, "Part A")) },
+        partB: { stem: text(tp.partB?.stem, "Part B question", 1000), options: (tp.partB?.options ?? []).slice(0, 8).map((o, i) => opt(o, i, "Part B")), multiple: Boolean(tp.partB?.multiple) },
+      } };
+    }
+    case "GRID": {
+      const g = input.grid;
+      if (!g) return {};
+      const rows = (g.rows ?? []).slice(0, 12).map((r, i) => ({ id: shortId(r?.id, `r${i + 1}`), text: text(r?.text, `Row ${i + 1}`, 300) }));
+      const columns = (g.columns ?? []).slice(0, 6).map((c, i) => ({ id: shortId(c?.id, `c${i + 1}`), text: text(c?.text, `Column ${i + 1}`, 120) }));
+      const answer = Object.fromEntries(Object.entries(g.answer ?? {}).filter(([, v]) => v).map(([k, v]) => [shortId(k, k), shortId(v, String(v))]));
+      return { grid: { rows, columns, answer } };
+    }
+    case "HOT_TEXT": {
+      const h = input.hotText;
+      if (!h) return {};
+      const segments = (h.segments ?? []).slice(0, 20).map((x, i) => ({ id: shortId(x?.id, `s${i + 1}`), text: text(x?.text, `Sentence ${i + 1}`, 500) }));
+      const correct = [...new Set((h.correct ?? []).map((c) => shortId(c, String(c))))];
+      return { hotText: { segments, correct, maxSelect: Math.round(num(h.maxSelect || correct.length)) } };
+    }
+    case "DICTATION": {
+      const d = input.dictation;
+      if (!d) return {};
+      return { options: undefined, dictation: { word: text(d.word, "Dictation word", 40), sentence: text(d.sentence, "Dictation sentence", 300, false) || null } };
+    }
+    case "SENTENCE_COMBINE": {
+      const c = input.combine;
+      if (!c) return {};
+      return { options: undefined, combine: {
+        sentences: (c.sentences ?? []).slice(0, 6).map((x, i) => text(x, `Sentence ${i + 1}`, 300, false)).filter(Boolean),
+        connector: text(c.connector, "Joining word", 30, false) || null, hint: text(c.hint, "Hint", 300, false) || null,
+        accepted: (c.accepted ?? []).slice(0, 10).map((x, i) => text(x, `Accepted answer ${i + 1}`, 400, false)).filter(Boolean),
+      } };
+    }
+    default:
+      return {};
+  }
 }
 
 async function toBankItem(repo: Repo, actor: Actor, input: EditorInput, ref: string): Promise<{ item: BankItem; grade: number; standardId: string | null; passageId: string | null }> {
@@ -202,8 +291,34 @@ function tagsFor(input: EditorInput, existing: unknown): Record<string, unknown>
   const t: Record<string, unknown> = { ...((typeof existing === "string" ? JSON.parse(existing) : existing) ?? {}) as Record<string, unknown> };
   if (input.cognitiveLevel !== undefined) t.cognitiveLevel = input.cognitiveLevel ? text(input.cognitiveLevel, "Cognitive level", 20) : undefined;
   if (input.batch) t[input.imported ? "importJob" : "aiBatch"] = input.batch;
+  if (input.dok) t.dok = String(input.dok).slice(0, 20);
+  if (input.domain) t.domain = String(input.domain).slice(0, 80);
+  if (input.passageTitle) t.passageTitle = String(input.passageTitle).slice(0, 190);
+  if (input.aiNeeds?.length) t.aiNeeds = input.aiNeeds;
   for (const k of Object.keys(t)) if (t[k] === undefined) delete t[k];
   return Object.keys(t).length ? t : null;
+}
+
+/**
+ * 🧭 NWEA MAP area: the one the import file or the admin gave (kept), else decided automatically from the standard,
+ * the skill and the wording (and a clearly wrong standard is fixed). See map/question-areas.ts.
+ */
+export async function saveMapArea(repo: Repo, schoolId: string, ids: string[], input: Pick<EditorInput, "mapArea" | "mapTest" | "imported">, now = new Date()): Promise<void> {
+  const { areaFromName, areaByKey, testFromName } = await import("../map/nwea-area");
+  const key = input.mapArea !== undefined ? areaFromName(input.mapArea) : null;
+  if (key && (!input.mapTest || testFromName(input.mapTest) === areaByKey(key).test)) {
+    await repo.updateMany("Question", { id: { in: ids } }, { mapTest: areaByKey(key).test, mapInstructionalArea: areaByKey(key).name, mapAreaSource: input.imported ? "IMPORT" : "ADMIN" });
+  } else if (input.mapArea === null || (input.mapArea !== undefined && !key)) {
+    // cleared in the editor: back to the automatic area
+    await repo.updateMany("Question", { id: { in: ids }, mapAreaSource: { in: ["ADMIN", "IMPORT"] } }, { mapAreaSource: null });
+  }
+  const { autoClassify } = await import("../map/question-areas");
+  await autoClassify(repo, schoolId, ids, now);
+  // 🧭 a Curriculum-Map question saved without a skill gets its real skill from the map place (Update 39C)
+  { const { remapNewQuestions } = await import("../curriculum-map/remap-skills"); await remapNewQuestions(repo, schoolId, ids, null, now).catch(() => 0); }
+  { const { tagOptions } = await import("../insights/misconception-tags"); await tagOptions(repo, { questionIds: ids }).catch(() => 0); }
+  // 🧠 the edited questions are analysed again (DOK, difficulty estimate, text level); a person's values are kept
+  { const { analyzeQuestions } = await import("../questions/intelligence"); await analyzeQuestions(repo, schoolId, { questionIds: ids }, now).catch(() => null); }
 }
 
 // ------------------------------------------------------------- workflow
@@ -272,6 +387,7 @@ export async function createDraft(repo: Repo, actor: Actor, inputIn: EditorInput
   });
   if (placed.nodeId) await setQuestionMapNode(repo, id, placed.nodeId, actor.userId);
   if (input.uses?.length) await setQuestionUses(repo, id, input.uses);
+  await saveMapArea(repo, schoolOf(actor), [id], input, now);
   await audit(repo, { actorId: actor.userId, action: "question.create", entityType: "Question", entityId: id, after: { ref, skillId: input.skillId, type: item.type, level: item.level, aiDrafted: !!input.aiDrafted }, at: now });
   return id;
 }
@@ -292,6 +408,8 @@ export async function updateDraft(repo: Repo, actor: Actor, id: string, inputIn:
       skillId: input.skillId, standardId, passageId, typeId: await typeIdFor(tx, item.type), stem: item.stem, content: contentPayload(item),
       hint: input.hint ? text(input.hint, "Hint", 500) : null, difficultyLevel: item.level, estimatedSeconds: item.estimatedSeconds,
       ...(q.calibrated ? {} : { irtB: item.irt.b }), status, updatedAt: now,
+      // a person chose a new level: automatic re-classification only suggests for this question from now on
+      ...(Number(q.difficultyLevel) !== item.level ? { difficultySource: "MANUAL" } : {}),
       ...(input.lessonId !== undefined ? { lessonId: input.lessonId } : {}), tags: tagsFor(input, q.tags),
       ...(input.imageId !== undefined ? { imageId: await checkedImage(tx, input) } : {}),
       ...(input.lexile !== undefined ? { lexile: cleanLexile(input.lexile) } : {}),
@@ -301,6 +419,9 @@ export async function updateDraft(repo: Repo, actor: Actor, id: string, inputIn:
   if (input.imageId !== undefined && q.imageId && q.imageId !== (input.imageId || null)) await removeUnusedImages(repo, [String(q.imageId)]);
   if (placed.nodeId !== undefined) await setQuestionMapNode(repo, id, placed.nodeId, actor.userId);
   if (input.uses !== undefined) await setQuestionUses(repo, id, input.uses);
+  await saveMapArea(repo, schoolOf(actor), [id], input, now);
+  // (again after the analysis saveMapArea runs, which writes its own difficultySource)
+  if (Number(q.difficultyLevel) !== item.level) await repo.updateMany("Question", { id }, { difficultySource: "MANUAL" });
   await audit(repo, { actorId: actor.userId, action: q.status === "PUBLISHED" ? "question.update_published" : "question.update", entityType: "Question", entityId: id, before: { stem: q.stem, level: q.difficultyLevel, status: q.status, passageId: q.passageId ?? null }, after: { stem: item.stem, level: item.level, status, passage: passageText === undefined ? "unchanged" : passageText ? "set" : "removed" }, at: now });
 }
 
@@ -432,6 +553,7 @@ export async function reviseQuestion(repo: Repo, actor: Actor, id: string, now =
       externalRef: ref, skillId: q.skillId, standardId, passageId, typeId: q.typeId, stem: item.stem, content: contentPayload(item), hint: q.hint ?? null,
       difficultyLevel: item.level, irtA: q.irtA, irtB: q.irtB, irtC: q.irtC, calibrated: q.calibrated, estimatedSeconds: item.estimatedSeconds,
       tags: { ...((q.tags as Record<string, unknown> | null) ?? {}), revisionOf: id }, status: "DRAFT", origin: q.origin, aiStatus: q.aiStatus ?? null,
+      mapTest: q.mapTest ?? null, mapInstructionalArea: q.mapInstructionalArea ?? null, mapAreaSource: q.mapAreaSource ?? null,
       version, createdById: actor.userId, createdAt: now, updatedAt: now,
     });
     await writeParts(tx, String(n.id), item);
@@ -468,9 +590,16 @@ export interface QuestionListItem {
   /** its place on the Curriculum Map (null = Question Bank only) and Placement / MAP test uses */
   mapCode?: string | null;
   uses?: string[];
+  /** NWEA MAP instructional area (short label) and whether the AI filled the answer (to check) */
+  mapArea?: string | null;
+  aiCheck?: boolean;
 }
 
 export interface QuestionFilter {
+  /** NWEA MAP instructional area: an area key (LIT, INFO, VOCAB, GRAMMAR, MECH, WRITING) or NONE (not classified) */
+  mapArea?: string;
+  /** imported questions whose answer the AI chose (or that still wait for the AI) */
+  aiCheck?: boolean;
   /** only ReadMaster questions (they are regular bank questions with their passage) */
   readMaster?: boolean;
   status?: QuestionStatus; gradeLevel?: number; skillId?: string; q?: string; mine?: boolean; aiOnly?: boolean;
@@ -564,10 +693,11 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFi
     ...(typeIds ? { typeId: { in: typeIds } } : {}),
     ...(filter.passage === "has" ? { passageId: { not: null } } : filter.passage ? { passageId: null } : {}),
     ...(filter.image === "has" ? { imageId: { not: null } } : filter.image === "none" ? { imageId: null } : {}),
+    ...(await mapAreaFilter(repo, base, filter)),
   };
   const needle = (filter.q ?? "").trim();
   const limit = filter.limit, page = Math.max(1, Math.floor(filter.page ?? 1));
-  const COLS = ["id", "externalRef", "stem", "skillId", "typeId", "difficultyLevel", "status", "origin", "createdById", "updatedAt", "passageId", "imageId"];
+  const COLS = ["id", "externalRef", "stem", "skillId", "typeId", "difficultyLevel", "status", "origin", "createdById", "updatedAt", "passageId", "imageId", "mapInstructionalArea", "tags"];
   const ORDER = [{ field: "updatedAt", dir: "desc" as const }, { field: "id", dir: "asc" as const }];
   const read = (w: Record<string, unknown>, take?: number, skip?: number) => repo.findMany("Question", w, { select: COLS, orderBy: ORDER, ...(take !== undefined ? { take } : {}), ...(skip ? { skip } : {}) });
   // in JavaScript only when needed: text search (two fields) and the wording check
@@ -608,6 +738,7 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFi
         type: typeCode.get(String(q.typeId)) ?? "", level: num(q.difficultyLevel), levelLabel: LEVEL_LABELS[num(q.difficultyLevel)] ?? "",
         status: String(q.status) as QuestionStatus, origin: String(q.origin), mine: q.createdById === actor.userId,
         updatedAt: iso(q.updatedAt), hasPassage, hasImage: Boolean(q.imageId), possibleMissingPassage: possibleMissingPassage(String(q.stem), hasPassage),
+        mapArea: q.mapInstructionalArea ? String(q.mapInstructionalArea) : null, aiCheck: aiCheckOf(q.tags),
       };
     })
     .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt) || a.id.localeCompare(b.id));
@@ -631,6 +762,8 @@ export interface QuestionDetail {
   canReviewAi: boolean;
   revisionOf: string | null;
   input: EditorInput;
+  /** NWEA MAP: the saved area and how it was decided (STANDARD, SKILL, TEXT, IMPORT, ADMIN, AI …) */
+  map: { test: string | null; area: string | null; source: string | null };
   history: { at: string; action: string; by: string; note: string | null }[];
 }
 
@@ -668,17 +801,15 @@ export async function getQuestion(repo: Repo, actor: Actor, id: string): Promise
   if (code === "TRUE_FALSE" && primary) input.answer = Boolean(val(primary));
   if (code === "FILL_BLANK") input.answers = answers.map((a) => String(val(a)));
   if ((code === "SENTENCE_ORDER" || code === "WORD_ORDER") && primary) input.sequence = (val(primary) as string[]) ?? (content.elements as string[]);
-  if (code === "ERROR_CORRECTION" && primary) {
-    const v = val(primary) as { errorIndex: number; correction: string };
-    input.segments = content.segments as string[];
-    input.errorIndex = v.errorIndex;
-    input.correction = v.correction;
-  }
+  // error correction (old and new form) and the newer types: the stored content + key, read back the same way practice reads them
+  if ((code === "ERROR_CORRECTION" || code === "TWO_PART" || code === "GRID" || code === "HOT_TEXT" || code === "DICTATION" || code === "SENTENCE_COMBINE") && primary) Object.assign(input, storedParts(code, content, val(primary)) as Partial<EditorInput>);
   // its Curriculum Map place and Placement / MAP test uses
   const place = (await placesOf(repo, [String(q.id)])).get(String(q.id))!;
   input.mapNodeCode = place.code;
   input.uses = place.uses;
   input.lexile = q.lexile === null || q.lexile === undefined ? null : Number(q.lexile);
+  // an area set by hand or by the import file shows in the editor; the automatic one stays automatic
+  if (q.mapAreaSource === "ADMIN" || q.mapAreaSource === "IMPORT") input.mapArea = q.mapInstructionalArea ? String(q.mapInstructionalArea) : null;
   if (code === "MATCHING" && primary) input.pairs = val(primary) as { left: string; right: string }[];
   const users = logs.length ? await repo.findMany("User", { id: { in: [...new Set(logs.map((l) => l.actorId).filter(Boolean))] } }, { select: ["id", "displayName"] }) : [];
   const after = (l: Row) => (typeof l.after === "string" ? JSON.parse(l.after) : l.after ?? {}) as { note?: string; reason?: string };
@@ -688,6 +819,7 @@ export async function getQuestion(repo: Repo, actor: Actor, id: string): Promise
     canEdit: editable, canReview: q.status === "UNDER_REVIEW" && can(actor, "questions:publish") && (q.createdById !== actor.userId || isAdmin(actor)),
     canReviewAi: q.origin === "AI_GENERATED" && (q.status === "DRAFT" || q.status === "UNDER_REVIEW") && can(actor, "questions:review") && (q.createdById !== actor.userId || isAdmin(actor)),
     revisionOf: (q.tags as { revisionOf?: string } | null)?.revisionOf ?? null, input,
+    map: { test: q.mapTest ? String(q.mapTest) : null, area: q.mapInstructionalArea ? String(q.mapInstructionalArea) : null, source: q.mapAreaSource ? String(q.mapAreaSource) : null },
     history: logs
       .map((l) => ({ at: (l.createdAt instanceof Date ? l.createdAt : new Date(String(l.createdAt))).toISOString(), action: String(l.action), by: String(users.find((u) => u.id === l.actorId)?.displayName ?? ""), note: after(l).note ?? after(l).reason ?? null }))
       .sort((a, b) => a.at.localeCompare(b.at)),
@@ -726,3 +858,24 @@ export async function rejectAiDraft(repo: Repo, actor: Actor, id: string, reason
   await audit(repo, { actorId: actor.userId, action: "question.ai.reject", entityType: "Question", entityId: id, before: { status: q.status }, after: { status: "ARCHIVED", reason: r }, at: now });
 }
 
+
+/** “AI filled · check”: the AI chose the answer (or the import still waits for it). */
+function aiCheckOf(tags: unknown): boolean {
+  let t: unknown = tags; if (typeof t === "string") { try { t = JSON.parse(t); } catch { t = null; } }
+  const o = (t ?? {}) as { aiFilled?: { review?: boolean }; aiNeeds?: unknown[] };
+  return Boolean(o.aiFilled?.review) || (Array.isArray(o.aiNeeds) && o.aiNeeds.includes("answer"));
+}
+/** The MAP area filter (and “AI filled · check”, read from the tags). */
+async function mapAreaFilter(repo: Repo, base: Record<string, unknown>, filter: QuestionFilter): Promise<Record<string, unknown>> {
+  const out: Record<string, unknown> = {};
+  if (filter.mapArea) {
+    const { MAP_AREAS } = await import("../map/nwea-area");
+    const a = MAP_AREAS.find((x) => x.key === filter.mapArea);
+    out.mapInstructionalArea = filter.mapArea === "NONE" ? null : a ? a.name : "—";
+  }
+  if (filter.aiCheck) {
+    const rows = await repo.findMany("Question", base, { select: ["id", "tags"] });
+    out.id = { in: rows.filter((q) => aiCheckOf(q.tags)).map((q) => String(q.id)) };
+  }
+  return out;
+}

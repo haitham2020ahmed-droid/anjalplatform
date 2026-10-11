@@ -6,6 +6,7 @@
  *   MANUAL    → the teacher places students in Below / On / Above; each gets only that level's questions.
  * A question's level comes from its difficulty (1–3 Below, 4 On, 5–7 Above).
  */
+import { isGrammarCode } from "../grammar/grammar";
 import type { Repo } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -18,7 +19,7 @@ type Level = "BELOW" | "ON" | "ABOVE";
 const NAME: Record<Level, string> = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" };
 
 /** The skill's auto-marked published questions, by level. */
-export async function skillPool(repo: Repo, schoolId: string, skillId: string): Promise<{ skill: { id: string; name: string; grade: number }; byLevel: Record<Level, string[]> }> {
+export async function skillPool(repo: Repo, schoolId: string, skillId: string): Promise<{ skill: { id: string; name: string; grade: number; grammar: boolean }; byLevel: Record<Level, string[]> }> {
   const skill = await repo.findUnique("Skill", { id: skillId });
   if (!skill || skill.deletedAt) throw new ValidationError("Skill not found.");
   const cur = await repo.findUnique("Curriculum", { id: skill.curriculumId });
@@ -29,7 +30,7 @@ export async function skillPool(repo: Repo, schoolId: string, skillId: string): 
   const manual = new Set(types.filter((t) => t.code === "SHORT_ANSWER" || t.isAutoScored === false).map((t) => s(t.id)));
   const byLevel: Record<Level, string[]> = { BELOW: [], ON: [], ABOVE: [] };
   for (const q of qs) if (!manual.has(s(q.typeId))) byLevel[fromDifficulty(Number(q.difficultyLevel ?? 4))].push(s(q.id));
-  return { skill: { id: s(skill.id), name: s(skill.name), grade: Number(grade.level) }, byLevel };
+  return { skill: { id: s(skill.id), name: s(skill.name), grade: Number(grade.level), grammar: isGrammarCode(skill.code) }, byLevel };
 }
 
 export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { classId: string; skillId: string; mode: "AUTOMATIC" | "MANUAL"; levels?: Record<string, string>; skip?: string[]; dueAt?: Date | null; note?: string | null; max?: number }, now = new Date()): Promise<{ groups: { level: Level | null; students: number; questions: number }[]; notes: string[] }> {
@@ -37,7 +38,8 @@ export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { clas
   const klass = await assertClassAccess(repo, actor, input.classId);
   const classGrade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const { skill, byLevel } = await skillPool(repo, actor.schoolId!, input.skillId);
-  if (skill.grade !== classGrade) throw new ValidationError(`This class is Grade ${classGrade}; the skill is Grade ${skill.grade}.`);
+  // Grammar is one library for every grade: any lesson may go to any class; other skills stay in their grade
+  if (skill.grade !== classGrade && !skill.grammar) throw new ValidationError(`This class is Grade ${classGrade}; the skill is Grade ${skill.grade}.`);
   const all = [...byLevel.BELOW, ...byLevel.ON, ...byLevel.ABOVE];
   if (!all.length) throw new ValidationError("This skill has no published questions yet.");
   const members = (await repo.findMany("ClassMembership", { classId: input.classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));

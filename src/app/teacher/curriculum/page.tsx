@@ -33,6 +33,7 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
       </div>
       <div className="flex flex-wrap items-center gap-2">
         <Link href={`/admin/questions?status=PUBLISHED&grade=${view!.grade.level}&skill=${k.id}${map ? "&track=map" : "&track=nafs"}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Open these questions; star ⭐ the ones you want and assign them">View questions ({k.questions})</Link>
+        {canAssign && <Link href={`/teacher/skill-assign?${new URLSearchParams({ skillId: k.id, classId: view!.classId })}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Questions linked to the lesson, the same skill and the same standard; assign adaptive practice or a ready set">🔎 Questions from the bank</Link>}
         {canAssign && <AssignDialog skill={k} />}
       </div>
     </li>

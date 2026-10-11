@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
 import type { ClientQuestion } from "@/server/practice/items";
 import type { ArticleResult } from "@/server/readmaster/service";
@@ -10,16 +10,22 @@ const RANK: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
 /** Reads one ReadMaster version, answers its questions once, shows the score and the Lexile change. */
 export function ReadMasterPlayer({ articleId, versionId, questions, submit }: {
   articleId: string; versionId: string; questions: ClientQuestion[];
-  submit: (articleId: string, versionId: string, responses: Record<string, unknown>) => Promise<{ ok: true; result: ArticleResult } | { ok: false; error: string }>;
+  submit: (articleId: string, versionId: string, responses: Record<string, unknown>, timing?: { elapsedMs: number; perQuestion: Record<string, number> }) => Promise<{ ok: true; result: ArticleResult } | { ok: false; error: string }>;
 }) {
   const [values, setValues] = useState<Record<string, AnswerValue>>({});
+  // ⏱ time per question (Update 39C): from the previous answer (the first from opening the article) to this one's
+  // first answer — so a rapid guess on a ReadMaster question is seen like in practice
+  const opened = useRef<number>(Date.now());
+  const lastAt = useRef<number>(Date.now());
+  const perQuestion = useRef<Record<string, number>>({});
+  const stamp = (id: string) => { if (perQuestion.current[id] === undefined) { const t = Date.now(); perQuestion.current[id] = t - lastAt.current; lastAt.current = t; } };
   const [result, setResult] = useState<ArticleResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const ready = questions.every((q) => isAnswerReady(q, values[q.questionId] ?? null));
   const send = async () => {
     setBusy(true); setError(null);
-    const r = await submit(articleId, versionId, values as Record<string, unknown>);
+    const r = await submit(articleId, versionId, values as Record<string, unknown>, { elapsedMs: Date.now() - opened.current, perQuestion: { ...perQuestion.current } });
     setBusy(false);
     if (r.ok) setResult(r.result); else setError(r.error);
   };
@@ -30,7 +36,7 @@ export function ReadMasterPlayer({ articleId, versionId, questions, submit }: {
         return (
           <section key={q.questionId} className={`rounded-2xl bg-white p-5 ring-1 ${rv ? (rv.correct ? "animate-pop ring-2 ring-emerald-400" : "animate-shake ring-2 ring-red-300") : "ring-slate-200"}`}>
             <p className="font-semibold text-slate-900">{i + 1}. {q.stem}</p>
-            <div className="mt-3"><AnswerInput q={q} value={values[q.questionId] ?? null} onChange={(v) => setValues((s) => ({ ...s, [q.questionId]: v }))} disabled={Boolean(result) || busy} /></div>
+            <div className="mt-3"><AnswerInput q={q} value={values[q.questionId] ?? null} onChange={(v) => { stamp(q.questionId); setValues((s) => ({ ...s, [q.questionId]: v })); }} disabled={Boolean(result) || busy} /></div>
             {rv && <p className={`mt-3 text-sm ${rv.correct ? "text-emerald-800" : "text-red-800"}`}>{rv.correct ? "✓ Correct." : `✗ The answer is: ${rv.correctAnswer}.`} {rv.why}</p>}
           </section>
         );

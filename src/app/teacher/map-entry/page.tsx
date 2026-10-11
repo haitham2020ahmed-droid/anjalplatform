@@ -28,7 +28,12 @@ export default async function MapEntryPage({ searchParams }: { searchParams: Pro
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/map-rit", label: "MAP" }} icon="✏️" title="Enter MAP Scores"
-        subtitle={<>Type the scores from the NWEA report for the whole class, then press <b>Save</b>. Students are matched by their Student ID. Goal areas: write the RIT or the word on the report (Low, LoAvg, Avg, HiAvg, High). Prefer a file? <Link href="/teacher/map-rit" className="font-semibold text-brand-teal underline">Upload the template or the NWEA export</Link>.</>} />
+        subtitle={<>Type the scores from the NWEA report for the whole class, then press <b>Save</b>. Students are matched by their Student ID. Instructional areas (3 for Reading, 3 for Language Usage, as on the NWEA report): write the RIT or the word on the report (Low, LoAvg, Avg, HiAvg, High).</>} />
+      {classId && <div className="mb-4 flex flex-wrap items-center gap-2 rounded-2xl bg-sky-50 px-4 py-3 text-sm text-sky-950 ring-1 ring-sky-200">
+        <span>📄 Prefer a file?</span>
+        <a href={`/api/map-scores-template?classId=${classId}`} className="rounded-lg bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇️ Download the template (this class, names filled in)</a>
+        <Link href="/teacher/map-rit" className="rounded-lg bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📥 Upload the filled template or the NWEA file</Link>
+      </div>}
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {!classes.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">You do not teach any class yet.</p> : (
         <>

@@ -2649,8 +2649,8 @@
    "minimumMastery": 60
   },
   {
-   "skill": "central-idea",
-   "prerequisite": "summarize",
+   "skill": "summarize",
+   "prerequisite": "central-idea",
    "weight": 0.6,
    "minimumMastery": 60
   },

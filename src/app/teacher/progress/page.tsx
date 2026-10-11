@@ -56,6 +56,10 @@ export default async function ProgressPage({ searchParams }: { searchParams: Pro
                 <Tile label="Late tasks" value={String(v.summary.late)} tone={v.summary.late ? "text-amber-700" : ""} />
                 <Tile label={`MAP ${subject === "READING" ? "Reading" : "Language"}: Fall → target`} value={v.summary.avgFall ? `${v.summary.avgFall} → ${v.summary.avgTarget ?? "—"}` : "—"} />
               </dl>
+              <section className="mt-4 rounded-2xl bg-indigo-50 px-4 py-3 text-sm text-indigo-950 ring-1 ring-indigo-200" aria-label="Class statistics">
+                <b>📐 Class picture (accuracy on the platform):</b> mean {v.stats.mean ?? "—"}% · spread (SD) {v.stats.sd === null ? "—" : `±${v.stats.sd}`} — {v.stats.spread}
+                <span className="block">Last 4 weeks vs the 4 before: <b className="text-emerald-700">{v.stats.improved} improved</b> · <b className="text-rose-700">{v.stats.declined} declined</b> · {v.stats.maintained} maintained · Levels: {v.stats.levels.map((l) => `${l.level === "ABOVE" ? "Above" : l.level === "ON" ? "On" : "Below"} ${l.count} (${l.pct}%)`).join(" · ")}</span>
+              </section>
               <div className="mt-5 flex flex-wrap items-center gap-2 print:hidden">
                 {(["READING", "LANGUAGE"] as const).map((x) => <Link key={x} href={link({ subject: x })} className={chip(x === subject)}>{x === "READING" ? "📖 Reading" : "✏️ Language"}</Link>)}
                 <span className="mx-1 h-6 w-px bg-slate-300" aria-hidden="true" />
@@ -67,7 +71,7 @@ export default async function ProgressPage({ searchParams }: { searchParams: Pro
               <div className="mt-4 overflow-x-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
                 <table className="min-w-full text-left text-sm">
                   <thead><tr className="border-b text-xs text-slate-500">
-                    <th className="py-2 pe-3">Student</th><th className="px-2">Status</th><th className="px-2">Level</th><th className="px-2">Answers</th><th className="px-2">Accuracy</th>
+                    <th className="py-2 pe-3">Student</th><th className="px-2">Status</th><th className="px-2">Level</th><th className="px-2">Answers</th><th className="px-2">Accuracy</th><th className="px-2" title="Weekly accuracy, last 6 weeks: trend, consistency, last 4 weeks vs the 4 before, percentile rank in the class">Trend</th>
                     <th className="px-2">Skills mastered / need work</th><th className="px-2">Time (week · month)</th><th className="px-2">Tasks done · pending · late</th><th className="px-2">Last active</th><th className="px-2">MAP Fall → now → target</th><th className="px-2">Plan</th>
                   </tr></thead>
                   <tbody>{rows.map((r) => (
@@ -77,12 +81,19 @@ export default async function ProgressPage({ searchParams }: { searchParams: Pro
                       <td className="px-2"><LevelBadge level={r.level} /></td>
                       <td className="px-2 tabular-nums">{r.practice.answers} <span className="text-xs text-slate-500">({r.practice.correct}✓ {r.practice.answers - r.practice.correct}✗)</span></td>
                       <td className="px-2 tabular-nums">{r.practice.accuracy === null ? "—" : `${r.practice.accuracy}%`}</td>
+                      {(() => { const tr = v.trends[r.studentId]; return (
+                        <td className="whitespace-nowrap px-2 text-xs" title={tr?.weeks.map((w) => (w === null ? "–" : `${w}%`)).join(" · ")}>
+                          {tr?.trend ? <span className={`me-1 text-base font-bold ${tr.trend === "UP" ? "text-emerald-600" : tr.trend === "DOWN" ? "text-rose-600" : "text-slate-500"}`} aria-label={tr.trend === "UP" ? "improving" : tr.trend === "DOWN" ? "declining" : "stable"}>{tr.trend === "UP" ? "↑" : tr.trend === "DOWN" ? "↓" : "→"}</span> : <span className="text-slate-400">—</span>}
+                          {tr?.consistency && <span className={`rounded px-1 ${tr.consistency === "Uneven" ? "bg-amber-100 text-amber-900" : "bg-slate-100 text-slate-700"}`}>{tr.consistency}</span>}
+                          {tr?.change && <span className={`ms-1 ${tr.change.label === "Improved" ? "text-emerald-700" : tr.change.label === "Declined" ? "text-rose-700" : "text-slate-500"}`}>{tr.change.diff > 0 ? "+" : ""}{tr.change.diff}</span>}
+                          {tr?.percentile !== null && tr?.percentile !== undefined && <span className="ms-1 text-slate-500">P{tr.percentile}</span>}
+                        </td>); })()}
                       <td className="px-2 tabular-nums">{r.mastered} / {r.needsWork}</td>
                       <td className="px-2 tabular-nums">{r.practice.week.minutes}m · {r.practice.month.minutes}m <span className="text-xs text-slate-500">(total {r.practice.totalMinutes}m)</span></td>
                       <td className="px-2 tabular-nums">{r.work.done} · {r.work.pending} · <span className={r.work.late ? "font-bold text-red-700" : ""}>{r.work.late}</span></td>
                       <td className="px-2">{day(r.practice.lastActive)}</td>
                       <td className="px-2 tabular-nums">{r.map ? `${r.map.fall?.rit ?? "—"} → ${r.map.latest && r.map.latest.season !== "FALL" ? r.map.latest.rit : "…"} → ${r.map.springTarget ?? "—"}` : "—"}</td>
-                      <td className="px-2"><IntensityBadge intensity={r.intensity} /></td>
+                      <td className="px-2"><IntensityBadge intensity={r.intensity} from={r.intensityFrom} /></td>
                     </tr>
                   ))}</tbody>
                 </table>

@@ -46,6 +46,7 @@ export function rightAnswer(it: PracticeItem): unknown {
     case "SENTENCE_ORDER": case "WORD_ORDER": return it.sequence;
     case "ERROR_CORRECTION": return it.errorIndex;
     case "MATCHING": return Object.fromEntries(it.pairs!.map((p) => [p.left, p.right]));
+    case "SENTENCE_COMBINE": return it.combine!.accepted[0];
     default: throw new Error(`No automatic answer for ${it.type}`);
   }
 }
@@ -183,26 +184,57 @@ export async function testEnvironmentReport(repo: Repo, now = new Date()): Promi
 const OWNED_OPTIONAL = new Set(["User.schoolId", "AuditLog.actorId"]);
 
 /**
- * Removes the Test School and everything that depends on it. Walks the schema relations from the
- * School row: rows linked by a REQUIRED foreign key are deleted; rows linked by an OPTIONAL one are
- * only unlinked (set empty), except OWNED_OPTIONAL. Deletes children before parents.
+ * Columns that point at another table WITHOUT a Prisma @relation (readiness I-6: 45 such tables kept 27,445 rows
+ * after a reset). The four ownership columns are matched by name in every model; the others are listed by model.
+ */
+const OWNER_COLUMNS: Record<string, string> = { studentId: "Student", userId: "User", classId: "Class", schoolId: "School" };
+const PARENT_COLUMNS: Record<string, string> = {
+  "ReadMasterVersion.articleId": "ReadMasterArticle", "ReadMasterAttempt.articleId": "ReadMasterArticle", "ReadMasterQuestion.versionId": "ReadMasterVersion", "ReadMasterAttempt.versionId": "ReadMasterVersion",
+  "RRVersion.articleId": "RRArticle", "RRQuestion.articleId": "RRArticle", "RRPrompt.articleId": "RRArticle", "RRRun.articleId": "RRArticle", "RRClassArticle.articleId": "RRArticle",
+  "SkillPlanItem.planId": "SkillPlan", "LiveGamePlayer.gameId": "LiveGame", "LiveGameAnswer.gameId": "LiveGame", "LiveGameAnswer.playerId": "LiveGamePlayer",
+  "RespondAssignmentStudent.assignmentId": "RespondAssignment", "AiJobItem.jobId": "AiJob", "AiSuggestion.jobId": "AiJob",
+  "ExitTicketAnswer.ticketId": "ExitTicket", "MapSimSession.windowId": "MapSimWindow", "MapSimAnswer.sessionId": "MapSimSession",
+  "WritingSubmission.taskId": "WritingTask", "DiagnosticScore.diagnosticId": "DiagnosticTest", "AdminMessageRecipient.messageId": "AdminMessage",
+  "WeeklyCheck.assignmentId": "Assignment", "DiagnosticScore.assignmentId": "Assignment", "ProgressCheck.assignmentId": "Assignment", "WorkComment.assignmentId": "Assignment",
+};
+
+type Edge = { child: string; fk: string; optional: boolean };
+
+/** Every way a row of one model belongs to a row of another: Prisma relations and the plain id columns above. */
+export function ownershipEdges(schema: Schema): Map<string, Edge[]> {
+  const edges = new Map<string, Edge[]>();
+  const add = (parent: string, e: Edge) => { if (!schema.models.has(parent) || !schema.models.has(e.child)) return; const l = edges.get(parent) ?? []; if (!l.some((x) => x.child === e.child && x.fk === e.fk)) l.push(e); edges.set(parent, l); };
+  for (const m of schema.models.values()) {
+    const relFks = new Set<string>();
+    for (const f of m.fields) {
+      if (!f.relation?.fields.length || f.relation.references[0] !== "id") continue;
+      const fk = f.relation.fields[0];
+      relFks.add(fk);
+      const fkField = m.fields.find((x) => x.name === fk)!;
+      add(f.type, { child: m.name, fk, optional: fkField.optional && !OWNED_OPTIONAL.has(`${m.name}.${fk}`) });
+    }
+    for (const f of m.fields) {
+      if (f.relation || relFks.has(f.name)) continue;
+      const parent = PARENT_COLUMNS[`${m.name}.${f.name}`] ?? OWNER_COLUMNS[f.name];
+      if (parent && parent !== m.name) add(parent, { child: m.name, fk: f.name, optional: false }); // no foreign key: delete
+    }
+  }
+  return edges;
+}
+
+/**
+ * Removes the Test School and everything that depends on it. Walks the schema relations AND the plain id columns
+ * (ownershipEdges) from the School row: rows linked by a REQUIRED foreign key or an owner column are deleted; rows
+ * linked by an OPTIONAL foreign key are only unlinked (set empty), except OWNED_OPTIONAL. Deletes children before
+ * parents. Refuses any school that is not marked as test data.
  */
 export async function resetTestEnvironment(repo: Repo, schemaPath = join(process.cwd(), "prisma/schema.prisma"), code = TEST_SCHOOL_CODE): Promise<Record<string, number>> {
   const school = await repo.findUnique("School", { code });
   if (!school) return {};
   if (school.isDemo !== true && school.isDemo !== 1) throw new Error(`School ${code} is not marked as test data; refusing to delete it.`);
   const schema: Schema = parseSchema(schemaPath);
-  const models = [...schema.models.values()];
   // edges: parent model → (child model, fk field, optional?)
-  const edges = new Map<string, { child: string; fk: string; optional: boolean }[]>();
-  for (const m of models) for (const f of m.fields) {
-    if (!f.relation?.fields.length || f.relation.references[0] !== "id") continue;
-    const fk = f.relation.fields[0];
-    const fkField = m.fields.find((x) => x.name === fk)!;
-    const list = edges.get(f.type) ?? [];
-    list.push({ child: m.name, fk, optional: fkField.optional && !OWNED_OPTIONAL.has(`${m.name}.${fk}`) });
-    edges.set(f.type, list);
-  }
+  const edges = ownershipEdges(schema);
   const doomed = new Map<string, Set<string>>([["School", new Set([s(school.id)])]]);
   const joins: { model: string; fk: string; ids: string[] }[] = []; // tables without a single id column
   const unlink: { model: string; fk: string; ids: string[] }[] = [];

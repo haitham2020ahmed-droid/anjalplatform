@@ -43,7 +43,9 @@ export function JumpTo({ items, people }: { items: NavItem[]; people: boolean })
     return items.filter((i) => words.every((w) => `${i.label} ${i.group ?? ""}`.toLowerCase().includes(w))).slice(0, words.length ? 8 : 12)
       .map((i) => ({ kind: "page", label: i.label, sub: i.group ? `Page · ${i.group}` : "Page", href: i.href, icon: i.icon }));
   }, [q, items]);
-  const hits = [...remote, ...pages];
+  // staff: the last line opens the full search (lessons, map places, articles, questions … with ⭐ Assign)
+  const all: Hit[] = people && q.trim().length >= 2 ? [{ kind: "page", label: `Search everything for “${q.trim()}”`, sub: "Skills, grammar lessons, map places, articles, questions — and ⭐ Assign", href: `/teacher/search?q=${encodeURIComponent(q.trim())}`, icon: "🔎" }] : [];
+  const hits = [...remote, ...pages, ...all];
   useEffect(() => { setAt(0); }, [q, remote.length]);
   const go = (h: Hit | undefined) => { if (!h) return; setOpen(false); router.push(h.href); };
 

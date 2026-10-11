@@ -66,8 +66,34 @@ export function securityHeaders(production: boolean): { key: string; value: stri
   return h;
 }
 
-/** Best-effort client IP from proxy headers (only trust these behind your own reverse proxy). */
-export function clientIp(headers: { get(name: string): string | null }): string {
-  return headers.get("x-forwarded-for")?.split(",")[0].trim() || headers.get("x-real-ip") || "unknown";
+/**
+ * Client IP from proxy headers. X-Forwarded-For is "client, proxy1, proxy2, ..."
+ * where every proxy APPENDS the address it saw. Everything left of what our own
+ * trusted proxies appended is client-controlled (a client can send any XFF it
+ * likes), so we take the address TRUSTED_PROXY_HOPS positions from the right
+ * (default 1 = the address appended by the single trusted proxy, e.g. Render).
+ * Taking the left-most value would let a client rotate fake IPs and bypass
+ * per-IP login rate limits.
+ */
+export function clientIp(
+  headers: { get(name: string): string | null },
+  hops: number = trustedProxyHops(),
+): string {
+  // Render sits behind Cloudflare: Cloudflare overwrites these with the address it saw, so a client cannot fake them,
+  // and every user does not collapse onto one Cloudflare edge address (which the right-most XFF entry can be there).
+  const edge = headers.get("cf-connecting-ip")?.trim() || headers.get("true-client-ip")?.trim();
+  if (edge) return edge;
+  const parts = (headers.get("x-forwarded-for") ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+  if (parts.length) {
+    const n = Math.max(1, Math.floor(hops) || 1);
+    // fewer entries than hops: the left-most one is the closest we can get
+    return parts[Math.max(0, parts.length - n)];
+  }
+  return headers.get("x-real-ip")?.trim() || "unknown";
+}
+
+function trustedProxyHops(): number {
+  const n = Number(process.env.TRUSTED_PROXY_HOPS ?? 1);
+  return Number.isFinite(n) && n >= 1 ? Math.floor(n) : 1;
 }
 export { contentSecurityPolicy, newNonce } from "./csp";

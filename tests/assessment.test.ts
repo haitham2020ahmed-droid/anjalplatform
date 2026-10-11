@@ -145,9 +145,15 @@ describe("calibration", () => {
 
   test("too little data leaves the item untouched", () => {
     const meta: ItemMeta = { questionId: "q", estimatedSeconds: 40, optionLabels: [], keyLabels: [], a: 1, b: 0.75, c: 0, authoredB: 0.75 };
-    const r = calibrateItem(meta, sim(-1, 50));
+    const r = calibrateItem(meta, sim(-1, 20));
     assert.equal(r.calibrated, false);
     assert.equal(r.newB, 0.75);
+    // 30–199 answers: only b moves (pulled by the prior); a needs 200
+    // (fixed answers, not the shared random generator, so the tests after this one see the same random draws)
+    const r50 = calibrateItem(meta, Array.from({ length: 50 }, (_, i) => ({ questionId: "q", correct: i % 5 !== 0, responseMs: 30_000, rapid: false, chosen: null, ability: 0 })));
+    assert.equal(r50.calibrated, true);
+    assert.ok(r50.newB < 0.75 && r50.newB >= 0.25, `b=${r50.newB}`);
+    assert.equal(r50.newA, 1);
   });
 });
 

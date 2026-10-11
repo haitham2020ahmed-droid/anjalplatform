@@ -396,7 +396,7 @@
   "source": "G4 Wonders",
   "externalCode": "G2S",
   "externalName": "Capitalizing the names of places and geographic features",
-  "familyCode": "text-features"
+  "familyCode": "capitalization"
  },
  {
   "grade": 4,
@@ -508,7 +508,7 @@
   "source": "G4 Wonders",
   "externalCode": "9QM",
   "externalName": "Form and use irregular plurals",
-  "familyCode": "poetry-elements"
+  "familyCode": "plural-nouns"
  },
  {
   "grade": 4,
@@ -711,7 +711,7 @@
   "source": "G4 Wonders",
   "externalCode": "29B",
   "externalName": "Form and use the regular past tense",
-  "familyCode": "poetry-elements"
+  "familyCode": "verb-tenses"
  },
  {
   "grade": 4,
@@ -732,7 +732,7 @@
   "source": "G4 Wonders",
   "externalCode": "6DS",
   "externalName": "Which definition matches the sentence?",
-  "familyCode": "sentences"
+  "familyCode": "multiple-meaning"
  },
  {
   "grade": 4,
@@ -907,7 +907,7 @@
   "source": "G4 Wonders",
   "externalCode": "6DS",
   "externalName": "Which definition matches the sentence?",
-  "familyCode": "sentences"
+  "familyCode": "multiple-meaning"
  },
  {
   "grade": 4,
@@ -928,7 +928,7 @@
   "source": "G4 Wonders",
   "externalCode": "29B",
   "externalName": "Form and use the regular past tense",
-  "familyCode": "poetry-elements"
+  "familyCode": "verb-tenses"
  },
  {
   "grade": 4,
@@ -1187,7 +1187,7 @@
   "source": "G4 Wonders",
   "externalCode": "VBG",
   "externalName": "Which sentence matches the definition?",
-  "familyCode": "sentences"
+  "familyCode": "multiple-meaning"
  },
  {
   "grade": 4,
@@ -1215,7 +1215,7 @@
   "source": "G4 Wonders",
   "externalCode": "9QM",
   "externalName": "Form and use irregular plurals",
-  "familyCode": "poetry-elements"
+  "familyCode": "plural-nouns"
  },
  {
   "grade": 4,
@@ -2055,7 +2055,7 @@
   "source": "G5 Wonders",
   "externalCode": "MYY",
   "externalName": "Form and use plurals of nouns ending in f, fe, o, and y",
-  "familyCode": "poetry-elements"
+  "familyCode": "plural-nouns"
  },
  {
   "grade": 5,
@@ -2076,7 +2076,7 @@
   "source": "G5 Wonders",
   "externalCode": "KWD",
   "externalName": "Determine the themes of short stories",
-  "familyCode": "plot-events"
+  "familyCode": "theme"
  },
  {
   "grade": 5,
@@ -2104,7 +2104,7 @@
   "source": "G5 Wonders",
   "externalCode": "S7F",
   "externalName": "Form and use the regular past tense",
-  "familyCode": "poetry-elements"
+  "familyCode": "verb-tenses"
  },
  {
   "grade": 5,
@@ -2118,7 +2118,7 @@
   "source": "G5 Wonders",
   "externalCode": "VPE",
   "externalName": "Form and use plurals: review",
-  "familyCode": "poetry-elements"
+  "familyCode": "plural-nouns"
  },
  {
   "grade": 5,
@@ -2160,7 +2160,7 @@
   "source": "G5 Wonders",
   "externalCode": "SWG",
   "externalName": "Which definition matches the sentence?",
-  "familyCode": "sentences"
+  "familyCode": "multiple-meaning"
  },
  {
   "grade": 5,
@@ -2321,7 +2321,7 @@
   "source": "G5 Wonders",
   "externalCode": "B54",
   "externalName": "Form and use the simple past, present, and future tense",
-  "familyCode": "poetry-elements"
+  "familyCode": "verb-tenses"
  },
  {
   "grade": 5,
@@ -2503,7 +2503,7 @@
   "source": "G5 Wonders",
   "externalCode": "42P",
   "externalName": "Form and use the irregular past tense",
-  "familyCode": "poetry-elements"
+  "familyCode": "irregular-verbs"
  },
  {
   "grade": 5,
@@ -2629,7 +2629,7 @@
   "source": "G5 Wonders",
   "externalCode": "7PS",
   "externalName": "Which sentence matches the definition?",
-  "familyCode": "sentences"
+  "familyCode": "multiple-meaning"
  },
  {
   "grade": 5,
@@ -3077,7 +3077,7 @@
   "source": "G5 Wonders",
   "externalCode": "KWD",
   "externalName": "Determine the themes of short stories",
-  "familyCode": "plot-events"
+  "familyCode": "theme"
  },
  {
   "grade": 5,
@@ -3427,7 +3427,7 @@
   "source": "G6 StudySync",
   "externalCode": "RMB",
   "externalName": "Form and use comparative and superlative adverbs",
-  "familyCode": "poetry-elements"
+  "familyCode": "adverbs"
  },
  {
   "grade": 6,
@@ -3518,7 +3518,7 @@
   "source": "G6 StudySync",
   "externalCode": "KWD",
   "externalName": "Determine the themes of short stories",
-  "familyCode": "plot-events"
+  "familyCode": "theme"
  },
  {
   "grade": 6,
@@ -3728,7 +3728,7 @@
   "source": "G6 StudySync",
   "externalCode": "BDD",
   "externalName": "Determine the themes of short stories",
-  "familyCode": "plot-events"
+  "familyCode": "theme"
  },
  {
   "grade": 6,
@@ -3861,7 +3861,7 @@
   "source": "G6 StudySync",
   "externalCode": "4J8",
   "externalName": "Match the quotations with their themes",
-  "familyCode": "quotations-dialogue"
+  "familyCode": "theme"
  },
  {
   "grade": 6,
@@ -3980,21 +3980,21 @@
   "source": "G6 StudySync",
   "externalCode": "CVE",
   "externalName": "What does the punctuation suggest?",
-  "familyCode": "puns"
+  "familyCode": "commas"
  },
  {
   "grade": 6,
   "source": "G6 StudySync",
   "externalCode": "DXX",
   "externalName": "Which definition matches the sentence?",
-  "familyCode": "sentences"
+  "familyCode": "multiple-meaning"
  },
  {
   "grade": 6,
   "source": "G6 StudySync",
   "externalCode": "RMZ",
   "externalName": "Which sentence matches the definition?",
-  "familyCode": "sentences"
+  "familyCode": "multiple-meaning"
  },
  {
   "grade": 6,
@@ -4197,14 +4197,14 @@
   "source": "G6 StudySync",
   "externalCode": "DXX",
   "externalName": "Which definition matches the sentence?",
-  "familyCode": "sentences"
+  "familyCode": "multiple-meaning"
  },
  {
   "grade": 6,
   "source": "G6 StudySync",
   "externalCode": "RMZ",
   "externalName": "Which sentence matches the definition?",
-  "familyCode": "sentences"
+  "familyCode": "multiple-meaning"
  },
  {
   "grade": 6,

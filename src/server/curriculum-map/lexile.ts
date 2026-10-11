@@ -31,5 +31,5 @@ export async function setLexileBands(repo: Repo, actor: Actor, bands: Record<num
   for (const [g, b] of Object.entries(bands)) {
     if (!(b.onMin >= 0 && b.onMax <= 2000 && b.onMin < b.onMax)) throw new ValidationError(`Grade ${g}: the On Level range must go from a lower to a higher Lexile (0–2000).`);
   }
-  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY }, { value: bands, updatedById: actor.userId, updatedAt: now }, { value: bands, updatedById: actor.userId, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY }, { value: bands, updatedBy: actor.userId, updatedAt: now }, { value: bands, updatedBy: actor.userId, updatedAt: now });
 }

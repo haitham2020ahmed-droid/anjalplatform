@@ -35,7 +35,7 @@ describe("📊→📋→⭐→📈 the data-driven cycle: plan results, question
     for (const [i, pct] of [[0, 8], [1, 20], [2, 50], [3, 80]] as const) {
       const row = H.map(() => ""); row[0] = String((await repo.findUnique("Student", { id: kids[i] }))!.studentNumber);
       row[at("Reading Fall RIT")] = String(170 + i * 10); row[at("Reading Fall Percentile")] = String(pct);
-      row[at("R: Literary Theme")] = "160"; row[at("R: Vocabulary")] = "180"; row[at("R: Info Central Idea")] = "175"; table.push(row);
+      row[at("R: Literary Text")] = "160"; row[at("R: Vocabulary")] = "180"; row[at("R: Informational Text")] = "175"; table.push(row);
     }
     await importMapScores(repo, teacher, table, 2026);
   });
@@ -52,6 +52,8 @@ describe("📊→📋→⭐→📈 the data-driven cycle: plan results, question
     const skillId = (await repo.findUnique("Question", { id: q }))!.skillId;
     for (const sid of [kids[0], kids[1]]) { for (let d = 0; d < 6; d++) await attempt(sid, q, skillId, d < 4, 20); for (let d = 0; d < 6; d++) await attempt(sid, q, skillId, true, 3); }
     await recordLevel(repo, { studentId: kids[0], level: "ON", source: "ADAPTIVE", answers: 10, category: "ACS" });
+    // Update 39B (stability): a move needs two sets pointing the same way (the first is kept as pending)
+    await recordLevel(repo, { studentId: kids[0], level: "ABOVE", source: "ADAPTIVE", answers: 10, category: "ACS" });
     await recordLevel(repo, { studentId: kids[0], level: "ABOVE", source: "ADAPTIVE", answers: 10, category: "ACS" });
     const p = await personalPlan(repo, teacher, classId, "READING");
     const below = p.bands.find((b) => b.band === "BELOW")!;

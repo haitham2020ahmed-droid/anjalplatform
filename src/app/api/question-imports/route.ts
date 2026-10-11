@@ -31,7 +31,10 @@ export async function POST(req: Request) {
   const actor = await apiActor();
   if (!actor) return reply({ error: "Your session has ended. Sign in again, then upload the file.", stage: "session" }, 401);
   if (!can(actor, "questions:edit")) return reply({ error: "You do not have permission to import questions.", stage: "permission" }, 403);
-  if (Number(h.get("content-length") ?? 0) > MAX_IMPORT_BYTES + 64_000) return reply({ error: "The file is larger than 50 MB. Split it into smaller files.", stage: "upload" }, 413);
+  // the size must be declared up front (a body without Content-Length could be any size); the form overhead is allowed
+  const declared = req.headers.get("content-length") ?? h.get("content-length");
+  if (declared === null || !/^\d+$/.test(declared.trim())) return reply({ error: "The upload did not say how large the file is. Choose the file again and retry.", stage: "upload" }, 411);
+  if (Number(declared) > MAX_IMPORT_BYTES + 64_000) return reply({ error: "The file is larger than 50 MB. Split it into smaller files.", stage: "upload" }, 413);
 
   let file: FormDataEntryValue | null;
   let target: "BANK" | "CURRICULUM" = "BANK";
@@ -48,6 +51,7 @@ export async function POST(req: Request) {
     return reply({ error: "The upload was interrupted or is not a file. Choose the file again and retry.", stage: "upload" }, 400);
   }
   if (!(file instanceof File) || !file.size) return reply({ error: "Choose a CSV or Excel (.xlsx) file to upload.", stage: "upload" }, 400);
+  if (file.size > MAX_IMPORT_BYTES) return reply({ error: "The file is larger than 50 MB. Split it into smaller files.", stage: "upload" }, 413);
 
   const started = Date.now();
   try {

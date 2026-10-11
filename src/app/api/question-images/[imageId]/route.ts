@@ -8,7 +8,8 @@ export const runtime = "nodejs";
 export async function GET(_req: Request, { params }: { params: Promise<{ imageId: string }> }) {
   const actor = await apiActor();
   if (!actor) return new NextResponse("Please sign in.", { status: 401 });
-  const img = await readQuestionImage(repo, (await params).imageId);
+  // same school only (a super admin without a school may see any image)
+  const img = await readQuestionImage(repo, (await params).imageId, actor.role === "SUPER_ADMIN" && !actor.schoolId ? undefined : actor.schoolId ?? null);
   if (!img) return new NextResponse("Not found.", { status: 404 });
   return new NextResponse(Buffer.from(img.bytes), {
     headers: { "Content-Type": img.mime, "Cache-Control": "private, max-age=31536000, immutable", "X-Content-Type-Options": "nosniff", "Content-Security-Policy": "default-src 'none'" },

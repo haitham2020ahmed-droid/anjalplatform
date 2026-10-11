@@ -28,6 +28,8 @@ body { @apply bg-slate-50 text-slate-900 antialiased; }
     outline-offset: 1px;
   }
   textarea { min-height: 4.5rem; }
+  /* touch targets (readiness S-2): checkboxes and radios are at least 20 px; their labels carry the rest of the 40 px */
+  input[type="checkbox"], input[type="radio"] { width: 1.25rem; height: 1.25rem; flex-shrink: 0; }
 }
 
 

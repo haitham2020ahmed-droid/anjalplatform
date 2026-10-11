@@ -2,7 +2,11 @@
 import { useEffect, useState } from "react";
 import type { PlaceAssignInput } from "@/app/admin/curriculum-map/actions";
 
-export interface RosterClass { id: string; name: string; students: { id: string; name: string; level: "ABOVE" | "ON" | "BELOW" | null }[] }
+type Lv = "ABOVE" | "ON" | "BELOW";
+interface RosterLevel { level: Lv; from: string; reason: string }
+export interface RosterClass { id: string; name: string; students: { id: string; name: string; level: Lv | null; auto: RosterLevel; byCategory: Record<"CV" | "ACS" | "RTR", RosterLevel> }[] }
+/** where the level comes from, in a word */
+const FROM: Record<string, string> = { TEACHER: "teacher", CATEGORY: "own work", PLATFORM: "platform", PLACEMENT: "Diagnostic", LEXILE: "Lexile", MAP: "MAP", SAVED: "saved", NO_DATA: "no data" };
 const LV = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
 
 const EVENT = "map-assign:open";
@@ -42,21 +46,28 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
   const klass = classes.find((c) => c.id === classId);
-  const levelOf = (id: string): "ABOVE" | "ON" | "BELOW" => picked[id] ?? klass?.students.find((s) => s.id === id)?.level ?? "ON";
-  const chosen = (klass?.students ?? []).filter((s) => who === "all" || starred.has(s.id));
-  const noLevel = chosen.filter((s) => !s.level).length;
+  const all = klass?.students ?? [];
+  const cat = (code.match(/\.(CV|ACS|RTR)(\.|$)/)?.[1] ?? null) as "CV" | "ACS" | "RTR" | null;
+  /** 🤖 the level the platform gives this student here, from all their data */
+  const autoOf = (st: RosterClass["students"][number]): RosterLevel => (cat ? st.byCategory[cat] : st.auto);
+  /** ✋ Manual: only the level the teacher chose here (no silent default) */
+  const levelOf = (id: string): "ABOVE" | "ON" | "BELOW" | null => picked[id] ?? null;
+  const chosen = mode === "MANUAL" ? all : all.filter((s) => who === "all" || starred.has(s.id));
+  const manualIds = all.filter((s) => picked[s.id]).map((s) => s.id);
+  const noLevel = chosen.filter((s) => autoOf(s).from === "NO_DATA").length;
   /** ✋ students ticked in the level list: one click sets all of them to Below / On / Above */
   const [sel, setSel] = useState<Set<string>>(new Set());
   const setLevel = (ids: string[], lv: "ABOVE" | "ON" | "BELOW") => { setPicked((p) => ({ ...p, ...Object.fromEntries(ids.map((id) => [id, lv])) })); setSel(new Set()); };
   const tick = (id: string) => setSel((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; });
-  const counts = { BELOW: 0, ON: 0, ABOVE: 0 } as Record<"ABOVE" | "ON" | "BELOW", number>;
-  for (const s of chosen) counts[levelOf(s.id)]++;
+  const counts = { BELOW: 0, ON: 0, ABOVE: 0, NONE: 0 } as Record<"ABOVE" | "ON" | "BELOW" | "NONE", number>;
+  for (const s of all) counts[levelOf(s.id) ?? "NONE"]++;
   const toggle = (id: string) => setStarred((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; });
   const send = async () => {
     setBusy(true); setResult(null);
-    const ids = who === "some" ? [...starred] : (klass?.students ?? []).map((s) => s.id);
-    const startLevels = levels && mode === "MANUAL" ? ids.map((id) => ({ studentId: id, level: levelOf(id) })) : undefined;
-    const r = await assign({ classId, code, studentIds: who === "some" ? [...starred] : undefined, mode: "ADAPTIVE", startLevels, max, dueAt: due || null });
+    // ✋ Manual: exactly the students given a level here, each starting at it; 🤖 Automatic: the class or the starred
+    const r = mode === "MANUAL"
+      ? await assign({ classId, code, studentIds: manualIds, mode: "ADAPTIVE", startLevels: manualIds.map((id) => ({ studentId: id, level: picked[id]! })), max, dueAt: due || null })
+      : await assign({ classId, code, studentIds: who === "some" ? [...starred] : undefined, mode: "ADAPTIVE", max, dueAt: due || null });
     setBusy(false); setResult(r);
   };
   if (!classes.length) return null;
@@ -75,82 +86,87 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
               </label>
             )}
             <fieldset className="mt-3">
-              <legend className="font-semibold text-slate-700">Students</legend>
-              <div className="mt-1 flex gap-2">
-                {(["all", "some"] as const).map((w) => <button key={w} type="button" onClick={() => setWho(w)} aria-pressed={who === w} className={`rounded-full px-4 py-1.5 font-semibold ${who === w ? "bg-brand-navy text-white" : "ring-1 ring-slate-300"}`}>{w === "all" ? `All students (${klass?.students.length ?? 0})` : "Some students"}</button>)}
+              <legend className="font-semibold text-slate-700">How</legend>
+              <div className="mt-1 grid gap-2 sm:grid-cols-2">
+                <button type="button" onClick={() => setMode("AUTO")} aria-pressed={mode === "AUTO"} className={`rounded-xl px-3 py-2 text-start font-semibold ${mode === "AUTO" ? "bg-emerald-600 text-white" : "ring-1 ring-slate-300 hover:bg-slate-50"}`}>🤖 Automatic<span className="block text-xs font-normal opacity-90">The platform puts each student at their level (Diagnostic, MAP, their results).</span></button>
+                <button type="button" onClick={() => setMode("MANUAL")} aria-pressed={mode === "MANUAL"} className={`rounded-xl px-3 py-2 text-start font-semibold ${mode === "MANUAL" ? "bg-sky-600 text-white" : "ring-1 ring-slate-300 hover:bg-slate-50"}`}>✋ Manual<span className="block text-xs font-normal opacity-90">I tick students and choose their level: Below, On or Above.</span></button>
               </div>
-              {who === "some" && (
-                <ul className="mt-2 max-h-56 space-y-1 overflow-y-auto rounded-xl p-2 ring-1 ring-slate-200">
-                  {klass?.students.map((s) => (
-                    <li key={s.id}>
-                      <button type="button" onClick={() => toggle(s.id)} aria-pressed={starred.has(s.id)} className={`flex w-full items-center gap-2 rounded-lg px-2 py-1 text-start ${starred.has(s.id) ? "bg-amber-50" : "hover:bg-slate-50"}`}>
-                        <span aria-hidden="true" className="text-lg">{starred.has(s.id) ? "⭐" : "☆"}</span>
-                        <span className="flex-1">{s.name}</span>
-                        <span className="rounded bg-slate-100 px-1.5 text-xs text-slate-600">{s.level ? LV[s.level] : "no level"}</span>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {who === "some" && (
-                <p className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500">{starred.size} starred
-                  <button type="button" onClick={() => setStarred(new Set((klass?.students ?? []).map((s) => s.id)))} className="font-semibold text-brand-navy hover:underline">Star all</button>
-                  <button type="button" onClick={() => setStarred(new Set((klass?.students ?? []).filter((s) => !s.level).map((s) => s.id)))} className="font-semibold text-amber-800 hover:underline">Star “no level”</button>
-                  <button type="button" onClick={() => setStarred(new Set())} className="font-semibold text-slate-600 hover:underline">Clear</button>
-                </p>
-              )}
             </fieldset>
-            {levels && (
+            {mode === "AUTO" && (
               <fieldset className="mt-3">
-                <legend className="font-semibold text-slate-700">Starting level</legend>
-                <div className="mt-1 flex flex-wrap gap-2">
-                  <button type="button" onClick={() => setMode("AUTO")} aria-pressed={mode === "AUTO"} className={`rounded-full px-3 py-1.5 font-semibold ${mode === "AUTO" ? "bg-emerald-600 text-white" : "ring-1 ring-slate-300"}`}>🤖 Automatic (the platform decides)</button>
-                  <button type="button" onClick={() => setMode("MANUAL")} aria-pressed={mode === "MANUAL"} className={`rounded-full px-3 py-1.5 font-semibold ${mode === "MANUAL" ? "bg-sky-600 text-white" : "ring-1 ring-slate-300"}`}>✋ I choose each student’s level</button>
+                <legend className="font-semibold text-slate-700">Students</legend>
+                <div className="mt-1 flex gap-2">
+                  {(["all", "some"] as const).map((w) => <button key={w} type="button" onClick={() => setWho(w)} aria-pressed={who === w} className={`rounded-full px-4 py-1.5 font-semibold ${who === w ? "bg-brand-navy text-white" : "ring-1 ring-slate-300"}`}>{w === "all" ? `All students (${all.length})` : "Some students"}</button>)}
                 </div>
-                {noLevel > 0 && <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200">⚠️ <b>{noLevel}</b> of {chosen.length} student(s) have no level yet.{mode === "AUTO" ? " They start from their platform results, or On Level." : " Choose their level below."}</p>}
-                {mode === "MANUAL" && (
-                  <div className="mt-2 rounded-xl ring-1 ring-slate-200">
-                    <div className="sticky top-0 z-10 space-y-2 rounded-t-xl bg-slate-50 p-2 text-xs">
-                      <div className="flex flex-wrap items-center gap-1.5">
-                        <span className="font-semibold text-slate-600">Tick:</span>
-                        <button type="button" onClick={() => setSel(new Set(chosen.map((s) => s.id)))} className="rounded-full bg-white px-2.5 py-1 font-semibold ring-1 ring-slate-300 hover:bg-slate-100">All</button>
-                        <button type="button" onClick={() => setSel(new Set(chosen.filter((s) => !s.level).map((s) => s.id)))} className="rounded-full bg-white px-2.5 py-1 font-semibold ring-1 ring-amber-300 hover:bg-amber-50">No level ({noLevel})</button>
-                        <button type="button" onClick={() => setSel(new Set())} className="rounded-full bg-white px-2.5 py-1 font-semibold ring-1 ring-slate-300 hover:bg-slate-100">None</button>
-                        <span className="ms-auto tabular-nums text-slate-500">Below {counts.BELOW} · On {counts.ON} · Above {counts.ABOVE}</span>
-                      </div>
-                      <div className="flex flex-wrap items-center gap-1.5">
-                        <span className="font-semibold text-slate-600">{sel.size} ticked → set to:</span>
-                        {(["BELOW", "ON", "ABOVE"] as const).map((lv) => <button key={lv} type="button" disabled={!sel.size} onClick={() => setLevel([...sel], lv)} className={`rounded-lg px-3 py-1.5 font-bold text-white disabled:opacity-40 ${lv === "BELOW" ? "bg-rose-500 hover:bg-rose-600" : lv === "ON" ? "bg-sky-600 hover:bg-sky-700" : "bg-emerald-600 hover:bg-emerald-700"}`}>{LV[lv]}</button>)}
-                      </div>
-                    </div>
-                    <ul className="max-h-64 space-y-0.5 overflow-y-auto p-2" aria-label="Starting level of each student">
-                      {chosen.map((s) => {
-                        const lv = levelOf(s.id);
-                        const chip = lv === "BELOW" ? "bg-rose-100 text-rose-800" : lv === "ON" ? "bg-sky-100 text-sky-800" : "bg-emerald-100 text-emerald-800";
-                        return (
-                          <li key={s.id}>
-                            <label className={`flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1.5 ${sel.has(s.id) ? "bg-amber-50" : "hover:bg-slate-50"}`}>
-                              <input type="checkbox" checked={sel.has(s.id)} onChange={() => tick(s.id)} className="h-4 w-4 accent-brand-navy" />
-                              <span className="min-w-0 flex-1 truncate">{s.name}{!s.level && !picked[s.id] && <span className="ms-2 rounded bg-amber-100 px-1.5 text-[11px] font-semibold text-amber-900">no level</span>}</span>
-                              <span className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${chip}`}>{LV[lv]}</span>
-                            </label>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
+                {who === "some" && (
+                  <ul className="mt-2 max-h-56 space-y-1 overflow-y-auto rounded-xl p-2 ring-1 ring-slate-200">
+                    {all.map((s) => (
+                      <li key={s.id}>
+                        <button type="button" onClick={() => toggle(s.id)} aria-pressed={starred.has(s.id)} className={`flex w-full items-center gap-2 rounded-lg px-2 py-1 text-start ${starred.has(s.id) ? "bg-amber-50" : "hover:bg-slate-50"}`}>
+                          <span aria-hidden="true" className="text-lg">{starred.has(s.id) ? "⭐" : "☆"}</span>
+                          <span className="flex-1">{s.name}</span>
+                          <span className="rounded bg-slate-100 px-1.5 text-xs text-slate-600" title={autoOf(s).reason}>{autoOf(s).from === "NO_DATA" ? "no data yet" : `${LV[autoOf(s).level]} · ${FROM[autoOf(s).from] ?? ""}`}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
                 )}
-                <p className="mt-2 text-xs text-slate-500">{mode === "MANUAL" ? "Tick students, then press Below, On or Above. " : "The platform uses each student’s Diagnostic, MAP and platform results. "}Each student starts at {mode === "MANUAL" ? "the level you choose" : "their level"}, then moves up when they answer well and down when it is too hard (Below ↔ On ↔ Above).</p>
+                {who === "some" && (
+                  <p className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500">{starred.size} starred
+                    <button type="button" onClick={() => setStarred(new Set(all.map((s) => s.id)))} className="font-semibold text-brand-navy hover:underline">Star all</button>
+                    <button type="button" onClick={() => setStarred(new Set())} className="font-semibold text-slate-600 hover:underline">Clear</button>
+                  </p>
+                )}
+                {who === "all" && <p className="mt-2 text-xs text-slate-600">Levels from the data: Below <b>{chosen.filter((s) => autoOf(s).level === "BELOW").length}</b> · On <b>{chosen.filter((s) => autoOf(s).level === "ON").length}</b> · Above <b>{chosen.filter((s) => autoOf(s).level === "ABOVE").length}</b></p>}
+                {noLevel > 0 && <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200">⚠️ <b>{noLevel}</b> of {chosen.length} student(s) have no data at all yet (no MAP, no Diagnostic, no results on the platform): they start at On Level and move up or down with their answers. To choose their level, use ✋ Manual.</p>}
+              </fieldset>
+            )}
+            {mode === "MANUAL" && (
+              <fieldset className="mt-3">
+                <legend className="font-semibold text-slate-700">Students and their level</legend>
+                <div className="mt-1 rounded-xl ring-1 ring-slate-200">
+                  <div className="sticky top-0 z-10 space-y-2 rounded-t-xl bg-slate-50 p-2 text-xs">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="font-semibold text-slate-600">1. Tick:</span>
+                      <button type="button" onClick={() => setSel(new Set(all.map((s) => s.id)))} className="rounded-full bg-white px-2.5 py-1 font-semibold ring-1 ring-slate-300 hover:bg-slate-100">All</button>
+                      <button type="button" onClick={() => setSel(new Set(all.filter((s) => !picked[s.id]).map((s) => s.id)))} className="rounded-full bg-white px-2.5 py-1 font-semibold ring-1 ring-amber-300 hover:bg-amber-50">Not chosen yet ({counts.NONE})</button>
+                      <button type="button" onClick={() => setSel(new Set())} className="rounded-full bg-white px-2.5 py-1 font-semibold ring-1 ring-slate-300 hover:bg-slate-100">None</button>
+                      <button type="button" onClick={() => setPicked((p) => ({ ...Object.fromEntries(all.filter((s) => autoOf(s).from !== "NO_DATA").map((s) => [s.id, autoOf(s).level])), ...p }))} className="rounded-full bg-white px-2.5 py-1 font-semibold text-brand-navy ring-1 ring-brand-teal hover:bg-teal-50" title="Fill every student who has data with the platform's level (you can still change any)">Fill from the data</button>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="font-semibold text-slate-600">2. {sel.size} ticked → level:</span>
+                      {(["BELOW", "ON", "ABOVE"] as const).map((lv) => <button key={lv} type="button" disabled={!sel.size} onClick={() => setLevel([...sel], lv)} className={`rounded-lg px-4 py-1.5 font-bold text-white disabled:opacity-40 ${lv === "BELOW" ? "bg-rose-500 hover:bg-rose-600" : lv === "ON" ? "bg-sky-600 hover:bg-sky-700" : "bg-emerald-600 hover:bg-emerald-700"}`}>{LV[lv]}</button>)}
+                      {sel.size > 0 && [...sel].some((id) => picked[id]) && <button type="button" onClick={() => { setPicked((p) => { const n = { ...p }; for (const id of sel) delete n[id]; return n; }); setSel(new Set()); }} className="rounded-lg px-3 py-1.5 font-semibold text-slate-600 ring-1 ring-slate-300 hover:bg-white">Remove</button>}
+                    </div>
+                    <p className="tabular-nums text-slate-600">Below <b>{counts.BELOW}</b> · On <b>{counts.ON}</b> · Above <b>{counts.ABOVE}</b> · not assigned <b>{counts.NONE}</b></p>
+                  </div>
+                  <ul className="max-h-64 space-y-0.5 overflow-y-auto p-2" aria-label="Students and their starting level">
+                    {all.map((s) => {
+                      const lv = levelOf(s.id);
+                      const chip = lv === "BELOW" ? "bg-rose-500 text-white" : lv === "ON" ? "bg-sky-600 text-white" : lv === "ABOVE" ? "bg-emerald-600 text-white" : "bg-slate-100 text-slate-500";
+                      return (
+                        <li key={s.id}>
+                          <label className={`flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1.5 ${sel.has(s.id) ? "bg-amber-50" : "hover:bg-slate-50"}`}>
+                            <input type="checkbox" checked={sel.has(s.id)} onChange={() => tick(s.id)} className="h-4 w-4 accent-brand-navy" />
+                            <span className="min-w-0 flex-1 truncate" title={autoOf(s).reason}>{s.name}<span className="ms-2 text-[11px] text-slate-400">{autoOf(s).from === "NO_DATA" ? "no data yet" : `data says ${LV[autoOf(s).level]} (${FROM[autoOf(s).from] ?? ""})`}</span></span>
+                            <span className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${chip}`}>{lv ? LV[lv] : "—"}</span>
+                          </label>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                <p className="mt-2 text-xs text-slate-500">Only the students with a level here get this work. Each starts at the level you chose, then moves up when they answer well and down when it is too hard (Below ↔ On ↔ Above).</p>
               </fieldset>
             )}
             <div className="mt-3 flex flex-wrap gap-3">
-              <label className="flex flex-col font-semibold text-slate-700">{levels ? "Correct answers to finish" : "Questions per student"}<input type="number" min={levels ? 5 : 1} max={levels ? 50 : 60} value={max} onChange={(e) => setMax(Number(e.target.value) || 20)} className="mt-1 w-28 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
+              <label className="flex flex-col font-semibold text-slate-700">Correct answers to finish<input type="number" min={5} max={50} value={max} onChange={(e) => setMax(Number(e.target.value) || 20)} className="mt-1 w-28 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
               <label className="flex flex-col font-semibold text-slate-700">Due date (optional)<input type="date" value={due} onChange={(e) => setDue(e.target.value)} className="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
             </div>
             {result && <p role="status" className={`mt-3 rounded-lg px-3 py-2 ${result.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{result.message}</p>}
             <div className="mt-4 flex justify-end gap-2">
               <button type="button" onClick={() => setOpen(false)} className="rounded-xl px-4 py-2 font-semibold ring-1 ring-slate-300">{result?.ok ? "Done" : "Cancel"}</button>
-              {!result?.ok && <button type="button" onClick={send} disabled={busy || (who === "some" && !starred.size)} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white disabled:opacity-50">{busy ? "Assigning…" : who === "some" ? `Assign to ${starred.size} student(s)` : "Assign to the class"}</button>}
+              {!result?.ok && <button type="button" onClick={send} disabled={busy || (mode === "MANUAL" ? !manualIds.length : who === "some" && !starred.size)} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white disabled:opacity-50">{busy ? "Assigning…" : mode === "MANUAL" ? (manualIds.length ? `Assign to ${manualIds.length} student(s)` : "Choose a level first") : who === "some" ? `Assign to ${starred.size} student(s)` : "Assign to the class"}</button>}
             </div>
           </div>
         </div>

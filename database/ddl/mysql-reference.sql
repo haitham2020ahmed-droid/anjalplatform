@@ -423,6 +423,18 @@ CREATE TABLE `Question` (
   `updatedAt` DATETIME(3) NOT NULL,
   `deletedAt` DATETIME(3),
   `lexile` INTEGER,
+  `mapTest` VARCHAR(20),
+  `mapInstructionalArea` VARCHAR(80),
+  `mapAreaSource` VARCHAR(16),
+  `dok` INTEGER,
+  `dokSource` VARCHAR(8),
+  `estimatedLevel` INTEGER,
+  `estimatedB` DOUBLE,
+  `difficultyFactors` JSON,
+  `difficultySource` VARCHAR(12),
+  `textLevel` INTEGER,
+  `intelligenceAt` DATETIME(3),
+  `metaReviewedAt` DATETIME(3),
   PRIMARY KEY (`id`),
   CONSTRAINT `Question_skillId_externalRef_key` UNIQUE (`skillId`, `externalRef`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -433,6 +445,10 @@ CREATE INDEX `Question_status_origin_idx` ON `Question`(`status`, `origin`);
 
 CREATE INDEX `Question_standardId_idx` ON `Question`(`standardId`);
 
+CREATE INDEX `Question_mapInstructionalArea_status_idx` ON `Question`(`mapInstructionalArea`, `status`);
+
+CREATE INDEX `Question_intelligenceAt_idx` ON `Question`(`intelligenceAt`);
+
 CREATE TABLE `QuestionOption` (
   `id` VARCHAR(191) NOT NULL,
   `questionId` VARCHAR(191) NOT NULL,
@@ -441,6 +457,8 @@ CREATE TABLE `QuestionOption` (
   `isCorrect` BOOLEAN NOT NULL DEFAULT false,
   `rationale` TEXT,
   `order` INTEGER NOT NULL,
+  `misconception` VARCHAR(40),
+  `misconceptionSource` VARCHAR(8),
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -494,6 +512,7 @@ CREATE TABLE `PracticeSession` (
   `lastTargetB` DOUBLE,
   `endReason` VARCHAR(191),
   `goalReachedAt` DATETIME(3),
+  `hintQuestionId` VARCHAR(191),
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -515,6 +534,8 @@ CREATE TABLE `QuestionAttempt` (
   `rapidGuess` BOOLEAN NOT NULL DEFAULT false,
   `difficultyB` DOUBLE NOT NULL,
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `misconception` VARCHAR(40),
+  `source` VARCHAR(12),
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -527,6 +548,8 @@ CREATE INDEX `QuestionAttempt_questionId_createdAt_idx` ON `QuestionAttempt`(`qu
 CREATE INDEX `QuestionAttempt_skillId_createdAt_idx` ON `QuestionAttempt`(`skillId`, `createdAt`);
 
 CREATE INDEX `QuestionAttempt_sessionId_idx` ON `QuestionAttempt`(`sessionId`);
+
+CREATE INDEX `QuestionAttempt_studentId_misconception_idx` ON `QuestionAttempt`(`studentId`, `misconception`);
 
 CREATE TABLE `AdaptiveDecisionLog` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -555,6 +578,10 @@ CREATE TABLE `AdaptiveDecisionLog` (
 CREATE INDEX `AdaptiveDecisionLog_studentId_createdAt_idx` ON `AdaptiveDecisionLog`(`studentId`, `createdAt`);
 
 CREATE INDEX `AdaptiveDecisionLog_sessionId_idx` ON `AdaptiveDecisionLog`(`sessionId`);
+
+CREATE INDEX `AdaptiveDecisionLog_questionId_idx` ON `AdaptiveDecisionLog`(`questionId`);
+
+CREATE INDEX `AdaptiveDecisionLog_attemptId_idx` ON `AdaptiveDecisionLog`(`attemptId`);
 
 CREATE TABLE `StudentAbility` (
   `id` VARCHAR(191) NOT NULL,
@@ -598,6 +625,8 @@ CREATE TABLE `StudentSkillMastery` (
   `lastPracticedAt` DATETIME(3),
   `components` JSON,
   `updatedAt` DATETIME(3) NOT NULL,
+  `nextReviewAt` DATETIME(3),
+  `reviewStep` INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (`studentId`, `skillId`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -738,12 +767,23 @@ CREATE TABLE `MapResult` (
   `importedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `lexile` INTEGER,
   `rapidGuessPct` INTEGER,
+  `observedGrowth` INTEGER,
+  `conditionalGrowthIndex` DOUBLE,
+  `metProjectedGrowth` VARCHAR(8),
+  `testMinutes` INTEGER,
+  `lexileLow` INTEGER,
+  `lexileHigh` INTEGER,
+  `typicalGrowth` INTEGER,
+  `proficiency` VARCHAR(40),
+  `descriptor` VARCHAR(10),
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `MapResult_studentId_testDate_idx` ON `MapResult`(`studentId`, `testDate`);
 
 CREATE INDEX `MapResult_studentId_subject_testDate_idx` ON `MapResult`(`studentId`, `subject`, `testDate`);
+
+CREATE INDEX `MapResult_termName_idx` ON `MapResult`(`termName`);
 
 CREATE TABLE `BenchmarkReference` (
   `id` VARCHAR(191) NOT NULL,
@@ -790,10 +830,20 @@ CREATE TABLE `Recommendation` (
   `reasons` JSON NOT NULL,
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `dismissedAt` DATETIME(3),
+  `source` VARCHAR(16),
+  `masteryAtRec` DOUBLE,
+  `followedAt` DATETIME(3),
+  `evaluatedAt` DATETIME(3),
+  `masteryAfter` DOUBLE,
+  `outcome` VARCHAR(12),
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `Recommendation_studentId_createdAt_idx` ON `Recommendation`(`studentId`, `createdAt`);
+
+CREATE INDEX `Recommendation_studentId_skillId_createdAt_idx` ON `Recommendation`(`studentId`, `skillId`, `createdAt`);
+
+CREATE INDEX `Recommendation_evaluatedAt_createdAt_idx` ON `Recommendation`(`evaluatedAt`, `createdAt`);
 
 CREATE TABLE `InterventionAlert` (
   `id` VARCHAR(191) NOT NULL,
@@ -812,7 +862,7 @@ CREATE INDEX `InterventionAlert_studentId_resolvedAt_idx` ON `InterventionAlert`
 CREATE TABLE `Notification` (
   `id` VARCHAR(191) NOT NULL,
   `userId` VARCHAR(191) NOT NULL,
-  `type` ENUM('NEW_ASSIGNMENT', 'ASSIGNMENT_DUE', 'SKILL_MASTERED', 'TEACHER_FEEDBACK', 'NEW_BADGE', 'ASSESSMENT_AVAILABLE', 'PARENT_PROGRESS', 'INTERVENTION_ALERT') NOT NULL,
+  `type` ENUM('NEW_ASSIGNMENT', 'ASSIGNMENT_DUE', 'SKILL_MASTERED', 'TEACHER_FEEDBACK', 'NEW_BADGE', 'ASSESSMENT_AVAILABLE', 'PARENT_PROGRESS', 'INTERVENTION_ALERT', 'REPORT_APPROVAL', 'DAILY_DIGEST', 'ADMIN_MESSAGE', 'TIER_CHANGE') NOT NULL,
   `title` VARCHAR(191) NOT NULL,
   `body` TEXT NOT NULL,
   `link` VARCHAR(191),
@@ -822,6 +872,8 @@ CREATE TABLE `Notification` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `Notification_userId_readAt_idx` ON `Notification`(`userId`, `readAt`);
+
+CREATE INDEX `Notification_userId_createdAt_idx` ON `Notification`(`userId`, `createdAt`);
 
 CREATE TABLE `Badge` (
   `id` VARCHAR(191) NOT NULL,
@@ -1093,6 +1145,8 @@ CREATE TABLE `ReadMasterAttempt` (
   `lexileAfter` INTEGER NOT NULL,
   `correct` INTEGER NOT NULL,
   `total` INTEGER NOT NULL,
+  `seconds` INTEGER,
+  `rapid` INTEGER,
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -1375,6 +1429,8 @@ CREATE TABLE `WordEntry` (
   `meanings` JSON NOT NULL,
   `source` VARCHAR(10) NOT NULL DEFAULT 'API',
   `isVocab` BOOLEAN NOT NULL DEFAULT false,
+  `arabicGloss` VARCHAR(200),
+  `contextSentence` VARCHAR(300),
   `updatedById` VARCHAR(191),
   `updatedAt` DATETIME(3) NOT NULL,
   PRIMARY KEY (`id`),
@@ -1390,6 +1446,10 @@ CREATE TABLE `StudentWord` (
   `quizRight` INTEGER NOT NULL DEFAULT 0,
   `quizWrong` INTEGER NOT NULL DEFAULT 0,
   `lastQuizAt` DATETIME(3),
+  `nextReviewAt` DATETIME(3),
+  `reviewStep` INTEGER NOT NULL DEFAULT 0,
+  `myExample` VARCHAR(300),
+  `notExample` VARCHAR(300),
   PRIMARY KEY (`studentId`, `word`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -1571,6 +1631,12 @@ CREATE TABLE `WritingTask` (
   `passage` TEXT,
   `minWords` INTEGER,
   `dueAt` DATETIME(3),
+  `genre` VARCHAR(14) NOT NULL DEFAULT 'FREE',
+  `skillId` VARCHAR(191),
+  `staged` BOOLEAN NOT NULL DEFAULT false,
+  `sources` JSON,
+  `research` JSON,
+  `aiFeedback` BOOLEAN NOT NULL DEFAULT false,
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `deletedAt` DATETIME(3),
   PRIMARY KEY (`id`)
@@ -1591,6 +1657,13 @@ CREATE TABLE `WritingSubmission` (
   `wcpm` INTEGER,
   `submittedAt` DATETIME(3),
   `scoredAt` DATETIME(3),
+  `stage` VARCHAR(8),
+  `plan` JSON,
+  `firstDraft` TEXT,
+  `checklist` JSON,
+  `researchAnswers` JSON,
+  `aiDraft` JSON,
+  `aiStatus` VARCHAR(9) NOT NULL DEFAULT 'NONE',
   `updatedAt` DATETIME(3) NOT NULL,
   PRIMARY KEY (`taskId`, `studentId`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -1621,6 +1694,9 @@ CREATE TABLE `DiagnosticTest` (
   `opensAt` DATETIME(3),
   `closesAt` DATETIME(3),
   `bands` JSON,
+  `adaptive` BOOLEAN NOT NULL DEFAULT false,
+  `design` JSON,
+  `period` VARCHAR(3) NOT NULL DEFAULT 'BOY',
   `createdById` VARCHAR(191),
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   PRIMARY KEY (`id`)
@@ -1641,6 +1717,10 @@ CREATE TABLE `DiagnosticScore` (
   `byStrand` JSON NOT NULL,
   `rapid` INTEGER NOT NULL DEFAULT 0,
   `minutes` INTEGER NOT NULL DEFAULT 0,
+  `theta` DOUBLE,
+  `thetaSE` DOUBLE,
+  `ritEstimate` INTEGER,
+  `byArea` JSON,
   `completedAt` DATETIME(3) NOT NULL,
   `sharedAt` DATETIME(3),
   `teacherNote` VARCHAR(1000),
@@ -1659,6 +1739,10 @@ CREATE TABLE `FluencyCheck` (
   `source` VARCHAR(10) NOT NULL DEFAULT 'TEACHER',
   `checkedById` VARCHAR(191),
   `checkedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `season` VARCHAR(6),
+  `percentile` INTEGER,
+  `prosody` JSON,
+  `comprehension` INTEGER,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -1678,6 +1762,554 @@ CREATE TABLE `WeeklyCheck` (
   PRIMARY KEY (`id`),
   CONSTRAINT `WeeklyCheck_studentId_week_key` UNIQUE (`studentId`, `week`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `FluencyPractice` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `mode` VARCHAR(8) NOT NULL,
+  `passageKey` VARCHAR(60) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `lexile` INTEGER,
+  `wordsRead` INTEGER NOT NULL,
+  `wordsCorrect` INTEGER NOT NULL,
+  `seconds` INTEGER NOT NULL,
+  `wcpm` INTEGER NOT NULL,
+  `accuracy` INTEGER NOT NULL,
+  `expression` INTEGER,
+  `level` VARCHAR(6),
+  `errors` JSON NOT NULL,
+  `patterns` JSON,
+  `plan` JSON,
+  `prosody` JSON,
+  `hesitations` INTEGER,
+  `comprehension` INTEGER,
+  `practiceKind` VARCHAR(10),
+  `trial` INTEGER,
+  `percentile` INTEGER,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `FluencyPractice_studentId_createdAt_idx` ON `FluencyPractice`(`studentId`, `createdAt`);
+
+CREATE TABLE `FamilyReport` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `kind` VARCHAR(12) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `content` JSON NOT NULL,
+  `refId` VARCHAR(40),
+  `status` VARCHAR(10) NOT NULL,
+  `createdById` VARCHAR(191) NOT NULL,
+  `submittedAt` DATETIME(3),
+  `reviewedById` VARCHAR(191),
+  `reviewedAt` DATETIME(3),
+  `reviewNote` TEXT,
+  `seenByParentAt` DATETIME(3),
+  `seenByStudentAt` DATETIME(3),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `FamilyReport_schoolId_status_idx` ON `FamilyReport`(`schoolId`, `status`);
+
+CREATE INDEX `FamilyReport_studentId_status_idx` ON `FamilyReport`(`studentId`, `status`);
+
+CREATE TABLE `QuestionStandardFix` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `questionId` VARCHAR(191) NOT NULL,
+  `fromCode` VARCHAR(40),
+  `toCode` VARCHAR(40) NOT NULL,
+  `reason` VARCHAR(255) NOT NULL,
+  `status` VARCHAR(10) NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `reviewedById` VARCHAR(191),
+  `reviewedAt` DATETIME(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `QuestionStandardFix_schoolId_status_idx` ON `QuestionStandardFix`(`schoolId`, `status`);
+
+CREATE INDEX `QuestionStandardFix_questionId_idx` ON `QuestionStandardFix`(`questionId`);
+
+CREATE TABLE `StudentProfile` (
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `level` VARCHAR(8) NOT NULL,
+  `levelSource` VARCHAR(16) NOT NULL,
+  `levelAt` DATETIME(3),
+  `readingRit` INTEGER,
+  `languageRit` INTEGER,
+  `estReadingRit` INTEGER,
+  `estLanguageRit` INTEGER,
+  `lexile` INTEGER,
+  `theta` DOUBLE,
+  `practiceDays14` INTEGER NOT NULL DEFAULT 0,
+  `predictedTerm` VARCHAR(12),
+  `predictedReading` INTEGER,
+  `predictedLanguage` INTEGER,
+  `predictedRange` INTEGER,
+  `goalReading` INTEGER,
+  `goalChance` INTEGER,
+  `misconceptions` JSON,
+  `weakestArea` VARCHAR(12),
+  `updatedAt` DATETIME(3) NOT NULL,
+  `intelligence` JSON,
+  `riskScore` INTEGER,
+  `riskReasons` JSON,
+  PRIMARY KEY (`studentId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `StudentProfile_schoolId_level_idx` ON `StudentProfile`(`schoolId`, `level`);
+
+CREATE TABLE `Intervention` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `classId` VARCHAR(191) NOT NULL,
+  `skillId` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `studentIds` JSON NOT NULL,
+  `createdById` VARCHAR(191) NOT NULL,
+  `startedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `endsAt` DATETIME(3) NOT NULL,
+  `baseline` JSON NOT NULL,
+  `result` JSON,
+  `evaluatedAt` DATETIME(3),
+  `status` VARCHAR(10) NOT NULL DEFAULT 'ACTIVE',
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `Intervention_classId_status_idx` ON `Intervention`(`classId`, `status`);
+
+CREATE INDEX `Intervention_schoolId_status_idx` ON `Intervention`(`schoolId`, `status`);
+
+CREATE TABLE `RiskSnapshot` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `takenOn` DATE NOT NULL,
+  `score` INTEGER NOT NULL,
+  `features` JSON NOT NULL,
+  `model` VARCHAR(16) NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `RiskSnapshot_studentId_takenOn_key` UNIQUE (`studentId`, `takenOn`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `RiskSnapshot_schoolId_takenOn_idx` ON `RiskSnapshot`(`schoolId`, `takenOn`);
+
+CREATE TABLE `PredictionModel` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `kind` VARCHAR(20) NOT NULL,
+  `weights` JSON NOT NULL,
+  `metrics` JSON NOT NULL,
+  `n` INTEGER NOT NULL DEFAULT 0,
+  `trainedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `PredictionModel_schoolId_kind_key` UNIQUE (`schoolId`, `kind`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `AdminMessage` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `senderId` VARCHAR(191) NOT NULL,
+  `subject` VARCHAR(150) NOT NULL,
+  `body` TEXT NOT NULL,
+  `link` VARCHAR(300),
+  `audience` JSON NOT NULL,
+  `recipients` INTEGER NOT NULL DEFAULT 0,
+  `emailed` INTEGER NOT NULL DEFAULT 0,
+  `emailFailed` INTEGER NOT NULL DEFAULT 0,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `AdminMessage_schoolId_createdAt_idx` ON `AdminMessage`(`schoolId`, `createdAt`);
+
+CREATE TABLE `AdminMessageRecipient` (
+  `id` VARCHAR(191) NOT NULL,
+  `messageId` VARCHAR(191) NOT NULL,
+  `userId` VARCHAR(191) NOT NULL,
+  `notificationId` VARCHAR(191),
+  `emailStatus` VARCHAR(10) NOT NULL,
+  `readAt` DATETIME(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `AdminMessageRecipient_messageId_userId_key` UNIQUE (`messageId`, `userId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `AdminMessageRecipient_userId_idx` ON `AdminMessageRecipient`(`userId`);
+
+CREATE TABLE `StudentTier` (
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `tier` INTEGER NOT NULL DEFAULT 1,
+  `source` VARCHAR(8) NOT NULL DEFAULT 'AUTO',
+  `locked` BOOLEAN NOT NULL DEFAULT false,
+  `reason` TEXT NOT NULL,
+  `focusSkillId` VARCHAR(191),
+  `since` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `reviewAt` DATETIME(3),
+  `monitorEveryDays` INTEGER NOT NULL DEFAULT 0,
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`studentId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `StudentTier_schoolId_tier_idx` ON `StudentTier`(`schoolId`, `tier`);
+
+CREATE TABLE `TierChange` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `fromTier` INTEGER NOT NULL,
+  `toTier` INTEGER NOT NULL,
+  `source` VARCHAR(8) NOT NULL,
+  `reason` TEXT NOT NULL,
+  `evidence` JSON,
+  `changedById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `TierChange_studentId_createdAt_idx` ON `TierChange`(`studentId`, `createdAt`);
+
+CREATE INDEX `TierChange_schoolId_createdAt_idx` ON `TierChange`(`schoolId`, `createdAt`);
+
+CREATE TABLE `DataMeeting` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `classId` VARCHAR(191),
+  `gradeLevel` INTEGER,
+  `heldOn` DATETIME(3) NOT NULL,
+  `createdById` VARCHAR(191) NOT NULL,
+  `snapshot` JSON NOT NULL,
+  `decisions` JSON NOT NULL,
+  `notes` TEXT,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `DataMeeting_schoolId_heldOn_idx` ON `DataMeeting`(`schoolId`, `heldOn`);
+
+CREATE INDEX `DataMeeting_classId_heldOn_idx` ON `DataMeeting`(`classId`, `heldOn`);
+
+CREATE TABLE `DecodingScreen` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `reason` VARCHAR(8) NOT NULL DEFAULT 'TEACHER',
+  `items` JSON NOT NULL,
+  `result` JSON,
+  `startedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `completedAt` DATETIME(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `DecodingScreen_studentId_startedAt_idx` ON `DecodingScreen`(`studentId`, `startedAt`);
+
+CREATE INDEX `DecodingScreen_schoolId_completedAt_idx` ON `DecodingScreen`(`schoolId`, `completedAt`);
+
+CREATE TABLE `ProgressCheck` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `classId` VARCHAR(191) NOT NULL,
+  `lessonId` VARCHAR(191) NOT NULL,
+  `assignmentId` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `categories` JSON NOT NULL,
+  `createdById` VARCHAR(191) NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `ProgressCheck_assignmentId_key` UNIQUE (`assignmentId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `ProgressCheck_classId_createdAt_idx` ON `ProgressCheck`(`classId`, `createdAt`);
+
+CREATE TABLE `StrategySurvey` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `answers` JSON NOT NULL,
+  `result` JSON NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `StrategySurvey_studentId_createdAt_idx` ON `StrategySurvey`(`studentId`, `createdAt`);
+
+CREATE TABLE `LessonRun` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `skillId` VARCHAR(191) NOT NULL,
+  `source` VARCHAR(10) NOT NULL DEFAULT 'STUDENT',
+  `phase` VARCHAR(12) NOT NULL DEFAULT 'MODEL',
+  `attempts` INTEGER NOT NULL DEFAULT 0,
+  `approach` INTEGER NOT NULL DEFAULT 0,
+  `log` JSON NOT NULL,
+  `organizer` JSON,
+  `checkPct` INTEGER,
+  `passed` BOOLEAN,
+  `startedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL,
+  `finishedAt` DATETIME(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `LessonRun_studentId_skillId_idx` ON `LessonRun`(`studentId`, `skillId`);
+
+CREATE INDEX `LessonRun_schoolId_updatedAt_idx` ON `LessonRun`(`schoolId`, `updatedAt`);
+
+CREATE TABLE `RRArticle` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191),
+  `code` VARCHAR(40) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `topic` VARCHAR(60) NOT NULL,
+  `summary` VARCHAR(400),
+  `pollStatement` VARCHAR(300) NOT NULL,
+  `status` VARCHAR(10) NOT NULL DEFAULT 'DRAFT',
+  `createdById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL,
+  `deletedAt` DATETIME(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `RRArticle_schoolId_status_idx` ON `RRArticle`(`schoolId`, `status`);
+
+CREATE INDEX `RRArticle_code_idx` ON `RRArticle`(`code`);
+
+CREATE TABLE `RRVersion` (
+  `id` VARCHAR(191) NOT NULL,
+  `articleId` VARCHAR(191) NOT NULL,
+  `level` INTEGER NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `body` TEXT NOT NULL,
+  `wordCount` INTEGER NOT NULL,
+  `estLevel` INTEGER NOT NULL,
+  `officialLexile` INTEGER,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `RRVersion_articleId_level_key` UNIQUE (`articleId`, `level`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `RRQuestion` (
+  `id` VARCHAR(191) NOT NULL,
+  `articleId` VARCHAR(191) NOT NULL,
+  `band` VARCHAR(4) NOT NULL,
+  `number` INTEGER NOT NULL,
+  `stem` TEXT NOT NULL,
+  `options` JSON NOT NULL,
+  `answer` VARCHAR(1) NOT NULL,
+  `skill` VARCHAR(30) NOT NULL,
+  `rationale` JSON,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `RRQuestion_articleId_band_number_key` UNIQUE (`articleId`, `band`, `number`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `RRPrompt` (
+  `id` VARCHAR(191) NOT NULL,
+  `articleId` VARCHAR(191) NOT NULL,
+  `band` VARCHAR(4) NOT NULL,
+  `prompt` TEXT NOT NULL,
+  `checklist` JSON,
+  `keyWords` JSON,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `RRPrompt_articleId_band_key` UNIQUE (`articleId`, `band`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `RRStudent` (
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `level` INTEGER NOT NULL,
+  `startLevel` INTEGER NOT NULL,
+  `source` VARCHAR(10) NOT NULL,
+  `placedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `articlesDone` INTEGER NOT NULL DEFAULT 0,
+  `weeklyGoal` INTEGER NOT NULL DEFAULT 2,
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`studentId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `RRStudent_schoolId_idx` ON `RRStudent`(`schoolId`);
+
+CREATE TABLE `RRLevelChange` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `fromLevel` INTEGER NOT NULL,
+  `toLevel` INTEGER NOT NULL,
+  `reason` VARCHAR(300) NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `RRLevelChange_studentId_createdAt_idx` ON `RRLevelChange`(`studentId`, `createdAt`);
+
+CREATE INDEX `RRLevelChange_schoolId_createdAt_idx` ON `RRLevelChange`(`schoolId`, `createdAt`);
+
+CREATE TABLE `RRRun` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `articleId` VARCHAR(191) NOT NULL,
+  `versionLevel` INTEGER NOT NULL,
+  `band` VARCHAR(4) NOT NULL,
+  `step` VARCHAR(8) NOT NULL DEFAULT 'PREPOLL',
+  `prePoll` INTEGER,
+  `postPoll` INTEGER,
+  `readSeconds` INTEGER,
+  `answers` JSON,
+  `score` INTEGER,
+  `writing` TEXT,
+  `writingScore` INTEGER,
+  `writingComment` VARCHAR(1000),
+  `writingScoredById` VARCHAR(191),
+  `levelBefore` INTEGER NOT NULL,
+  `levelAfter` INTEGER,
+  `firstTry` BOOLEAN NOT NULL DEFAULT true,
+  `stretch` BOOLEAN NOT NULL DEFAULT false,
+  `annotations` JSON,
+  `listened` BOOLEAN NOT NULL DEFAULT false,
+  `startedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `completedAt` DATETIME(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `RRRun_studentId_completedAt_idx` ON `RRRun`(`studentId`, `completedAt`);
+
+CREATE INDEX `RRRun_schoolId_completedAt_idx` ON `RRRun`(`schoolId`, `completedAt`);
+
+CREATE INDEX `RRRun_articleId_idx` ON `RRRun`(`articleId`);
+
+CREATE TABLE `RRPlacement` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `startLevel` INTEGER NOT NULL,
+  `steps` JSON NOT NULL,
+  `result` INTEGER,
+  `startedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `completedAt` DATETIME(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `RRPlacement_studentId_startedAt_idx` ON `RRPlacement`(`studentId`, `startedAt`);
+
+CREATE TABLE `RRClassArticle` (
+  `id` VARCHAR(191) NOT NULL,
+  `classId` VARCHAR(191) NOT NULL,
+  `articleId` VARCHAR(191) NOT NULL,
+  `assignedById` VARCHAR(191) NOT NULL,
+  `dueAt` DATETIME(3),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `RRClassArticle_classId_articleId_key` UNIQUE (`classId`, `articleId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `QuestionGradeStat` (
+  `id` VARCHAR(191) NOT NULL,
+  `questionId` VARCHAR(191) NOT NULL,
+  `grade` INTEGER NOT NULL,
+  `responses` INTEGER NOT NULL,
+  `correct` INTEGER NOT NULL,
+  `pct` DOUBLE NOT NULL,
+  `responsesOnLevel` INTEGER NOT NULL DEFAULT 0,
+  `pctOnLevel` DOUBLE,
+  `optionShares` JSON,
+  `discrimination` DOUBLE,
+  `medianMs` INTEGER,
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `QuestionGradeStat_questionId_grade_key` UNIQUE (`questionId`, `grade`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `QuestionGradeStat_grade_responses_idx` ON `QuestionGradeStat`(`grade`, `responses`);
+
+CREATE TABLE `QuestionLevelChange` (
+  `id` VARCHAR(191) NOT NULL,
+  `questionId` VARCHAR(191) NOT NULL,
+  `grade` INTEGER NOT NULL,
+  `fromLevel` VARCHAR(6) NOT NULL,
+  `toLevel` VARCHAR(6) NOT NULL,
+  `fromDifficulty` INTEGER NOT NULL,
+  `toDifficulty` INTEGER NOT NULL,
+  `pct` DOUBLE NOT NULL,
+  `responses` INTEGER NOT NULL,
+  `basis` VARCHAR(20) NOT NULL,
+  `source` VARCHAR(10) NOT NULL,
+  `reason` VARCHAR(400) NOT NULL,
+  `approvedById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `QuestionLevelChange_questionId_createdAt_idx` ON `QuestionLevelChange`(`questionId`, `createdAt`);
+
+CREATE INDEX `QuestionLevelChange_createdAt_idx` ON `QuestionLevelChange`(`createdAt`);
+
+CREATE TABLE `QuestionAlert` (
+  `id` VARCHAR(191) NOT NULL,
+  `questionId` VARCHAR(191) NOT NULL,
+  `grade` INTEGER NOT NULL,
+  `kind` VARCHAR(24) NOT NULL,
+  `detail` VARCHAR(400) NOT NULL,
+  `data` JSON,
+  `status` VARCHAR(10) NOT NULL DEFAULT 'OPEN',
+  `heldBack` BOOLEAN NOT NULL DEFAULT false,
+  `resolvedById` VARCHAR(191),
+  `resolvedAt` DATETIME(3),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `QuestionAlert_questionId_grade_kind_key` UNIQUE (`questionId`, `grade`, `kind`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `QuestionAlert_questionId_status_idx` ON `QuestionAlert`(`questionId`, `status`);
+
+CREATE INDEX `QuestionAlert_status_createdAt_idx` ON `QuestionAlert`(`status`, `createdAt`);
+
+CREATE TABLE `SkillEvidence` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `skillId` VARCHAR(191) NOT NULL,
+  `source` VARCHAR(12) NOT NULL,
+  `refId` VARCHAR(120) NOT NULL,
+  `credit` DOUBLE NOT NULL,
+  `difficultyB` DOUBLE NOT NULL DEFAULT 0,
+  `guessC` DOUBLE NOT NULL DEFAULT 0,
+  `weight` DOUBLE NOT NULL DEFAULT 1,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `SkillEvidence_studentId_source_refId_key` UNIQUE (`studentId`, `source`, `refId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `SkillEvidence_studentId_skillId_createdAt_idx` ON `SkillEvidence`(`studentId`, `skillId`, `createdAt`);
+
+CREATE TABLE `StudentLevelState` (
+  `studentId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `level` ENUM('ABOVE', 'ON', 'BELOW') NOT NULL,
+  `source` VARCHAR(12) NOT NULL,
+  `reason` VARCHAR(500) NOT NULL,
+  `since` DATETIME(3) NOT NULL,
+  `pending` ENUM('ABOVE', 'ON', 'BELOW'),
+  `pendingSince` DATETIME(3),
+  `pendingCount` INTEGER NOT NULL DEFAULT 0,
+  `theta` DOUBLE,
+  `thetaSE` DOUBLE,
+  `effN` DOUBLE NOT NULL DEFAULT 0,
+  `thetaRecent` DOUBLE,
+  `thetaPrior` DOUBLE,
+  `declining` BOOLEAN NOT NULL DEFAULT false,
+  `evaluatedAt` DATETIME(3) NOT NULL,
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`studentId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `StudentLevelState_schoolId_level_idx` ON `StudentLevelState`(`schoolId`, `level`);
 
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

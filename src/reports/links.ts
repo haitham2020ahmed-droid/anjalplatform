@@ -15,8 +15,10 @@ export interface ReportRequest {
   to?: string;
   studentId?: string;
   classId?: string;
-  /** standards report only: one class (classId) or the whole school */
+  /** standards, grammar and ReadRise reports: one class (classId) or the whole school */
   scope?: "class" | "school";
+  /** Update 39C reports (grammar, games, ReadMaster): the window in days (7, 30, 90 or 365) */
+  days?: number;
 }
 
 /** Download URL for a report (used by the UI). */
@@ -27,5 +29,6 @@ export function reportHref(r: Partial<ReportRequest> & Pick<ReportRequest, "kind
   if (r.studentId) q.set("studentId", r.studentId);
   if (r.classId) q.set("classId", r.classId);
   if (r.scope) q.set("scope", r.scope);
+  if (r.days) q.set("days", String(r.days));
   return `/api/reports?${q.toString()}`;
 }

@@ -4,6 +4,7 @@ import { attachmentNodes } from "@/server/curriculum-map/questions";
 import { AppShell } from "@/components/app-shell";
 import { card } from "@/components/admin/styles";
 import { getActor, repo, requireActor } from "@/server/auth/next";
+import { MAP_AREAS } from "@/server/map/nwea-area";
 import { can } from "@/server/auth/rbac";
 import { listQuestions, STATUSES, type QuestionStatus } from "@/server/admin/questions";
 import { QuestionTable } from "./question-table";
@@ -18,13 +19,13 @@ export const metadata = { title: "Question Bank" };
 
 const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
 
-type SP = { view?: string; status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string; track?: string; subject?: string; level?: string; source?: string; onmap?: string; use?: string; map?: string };
+type SP = { view?: string; status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string; track?: string; subject?: string; level?: string; source?: string; onmap?: string; use?: string; map?: string; area?: string; aicheck?: string };
 const SUBJECTS: [string, string][] = [["READING", "Reading"], ["VOCABULARY", "Vocabulary"], ["GRAMMAR", "Grammar"], ["LANGUAGE", "Language"], ["WRITING", "Writing"], ["WORD_STUDY", "Word study / spelling"]];
 const SOURCES: [string, string][] = [["TEACHER_AUTHORED", "Written by teachers"], ["SCHOOL_BOOKLET", "School booklet"], ["IMPORTED", "Imported"], ["AI_GENERATED", "AI-generated"], ["DEMO", "Demo"]];
 // the platform's own difficulty scale (config/engine LEVEL_LABELS)
 const LEVELS: [string, string][] = Object.entries(LEVEL_LABELS).map(([n, l]) => [n, `${n} · ${l}`]);
 const PAGE = 100;
-const TYPES: [string, string][] = [["MULTIPLE_CHOICE", "Multiple choice"], ["MULTI_SELECT", "Multi select"], ["TRUE_FALSE", "True/false"], ["DROPDOWN", "Dropdown"], ["FILL_BLANK", "Fill in the blank"], ["SHORT_ANSWER", "Short answer"], ["MATCHING", "Matching"], ["SENTENCE_ORDER", "Sentence order"], ["WORD_ORDER", "Word order"], ["ERROR_CORRECTION", "Error correction"]];
+const TYPES: [string, string][] = [["MULTIPLE_CHOICE", "Multiple choice"], ["MULTI_SELECT", "Multi select"], ["TRUE_FALSE", "True/false"], ["DROPDOWN", "Dropdown"], ["FILL_BLANK", "Fill in the blank"], ["SHORT_ANSWER", "Short answer"], ["MATCHING", "Matching"], ["SENTENCE_ORDER", "Sentence order"], ["WORD_ORDER", "Word order"], ["ERROR_CORRECTION", "Error correction"], ["TWO_PART", "Two-part (A/B)"], ["GRID", "Table match (grid)"], ["HOT_TEXT", "Hot text"], ["DICTATION", "Dictation"], ["SENTENCE_COMBINE", "Sentence combining"]];
 
 export default async function QuestionsPage({ searchParams }: { searchParams: Promise<SP> }) {
   const actor = await requireActor({ permission: "questions:read" });
@@ -52,17 +53,18 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     onMap: sp.onmap === "map" || sp.onmap === "bank" ? (sp.onmap as "map" | "bank") : undefined,
     use: sp.use === "PLACEMENT" || sp.use === "MAP_TEST" ? (sp.use as "PLACEMENT" | "MAP_TEST") : undefined,
     readMaster: sp.use === "READMASTER",
-    mapCode: /^G\d+\.[A-Z0-9.]+$/i.test(sp.map ?? "") ? String(sp.map).toUpperCase() : undefined };
+    mapCode: /^G\d+\.[A-Z0-9.]+$/i.test(sp.map ?? "") ? String(sp.map).toUpperCase() : undefined,
+    mapArea: ["LIT", "INFO", "VOCAB", "GRAMMAR", "MECH", "WRITING", "NONE"].includes(sp.area ?? "") ? sp.area : undefined, aiCheck: sp.aicheck === "1" || undefined };
   const roster = actor.role === "TEACHER" ? await teacherRoster(repo, actor) : undefined;
   const pendingDeletions = await countDeletionRequests(repo, actor);
   const grouped = sp.view === "skills" || (sp.view !== "list" && Boolean(filter.q || filter.skillId));
   const PER = grouped ? 400 : PAGE;
   const mapPlaces = (await attachmentNodes(repo, actor.schoolId!)).map((n) => ({ code: n.code, grade: n.grade, unit: n.unit, path: n.path }));
-  const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: grade, q: filter.q, mine: filter.mine, aiOnly: filter.ai, unitId: filter.unitId, skillId: filter.skillId, standardCode: filter.standard, typeCode: filter.type, passage, image, subject: filter.subject, difficulty: filter.difficulty, source: filter.source, onMap: filter.onMap, use: filter.use, mapCode: filter.mapCode, limit: PER, page });
+  const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: grade, q: filter.q, mine: filter.mine, aiOnly: filter.ai, unitId: filter.unitId, skillId: filter.skillId, standardCode: filter.standard, typeCode: filter.type, passage, image, subject: filter.subject, difficulty: filter.difficulty, source: filter.source, onMap: filter.onMap, use: filter.use, mapCode: filter.mapCode, mapArea: filter.mapArea, aiCheck: filter.aiCheck, limit: PER, page });
   const pages = Math.max(1, Math.ceil(total / PER));
   const qs = (over: Record<string, string | number | undefined>) => {
     const p = new URLSearchParams();
-    for (const [k, v] of Object.entries({ status, view: sp.view, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, track: sp.track, subject: sp.subject, level: sp.level, source: sp.source, onmap: sp.onmap, use: sp.use, map: sp.map, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
+    for (const [k, v] of Object.entries({ status, view: sp.view, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, track: sp.track, subject: sp.subject, level: sp.level, source: sp.source, onmap: sp.onmap, use: sp.use, map: sp.map, area: sp.area, aicheck: sp.aicheck, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
     return `/admin/questions?${p.toString()}`;
   };
   const tab = (s: QuestionStatus) => qs({ status: s, page: undefined });
@@ -78,6 +80,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <div className="flex flex-wrap gap-2">
           <Link href="/admin/questions?status=DRAFT&ai=1" className="rounded-xl bg-amber-100 px-4 py-2.5 font-semibold text-amber-900">AI drafts to review ({aiPending})</Link>
           <Link href="/admin/question-bank" className="rounded-xl px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">Coverage</Link>
+          {actor.role !== "TEACHER" && <Link href="/admin/map-classification" className="rounded-xl bg-indigo-50 px-4 py-2.5 font-semibold text-indigo-900 ring-1 ring-indigo-200">🧭 MAP Classification</Link>}
           <Link href="/admin/questions/import" className="rounded-xl px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">Import questions</Link>
           {pendingDeletions > 0 && <Link href="/admin/questions/requests" className="rounded-xl bg-red-50 px-4 py-2.5 font-semibold text-red-800 ring-1 ring-red-200">🗑 Deletion requests ({pendingDeletions})</Link>}
           <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">New question</Link>
@@ -100,6 +103,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <select name="level" defaultValue={sp.level ?? ""} aria-label="Difficulty level" className={sel}><option value="">All difficulty levels</option>{LEVELS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="source" defaultValue={sp.source ?? ""} aria-label="Source" className={sel}><option value="">All sources</option>{SOURCES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="onmap" defaultValue={sp.onmap ?? ""} aria-label="Curriculum Map" className={sel}><option value="">Curriculum Map: any</option><option value="map">🧭 On the Curriculum Map</option><option value="bank">📚 Question Bank only</option></select>
+        <select name="area" defaultValue={sp.area ?? ""} aria-label="MAP Instructional Area" className={`${sel} max-w-[18rem]`}><option value="">MAP Instructional Area: any</option><optgroup label="Reading">{MAP_AREAS.filter((a) => a.test === "Reading").map((a) => <option key={a.key} value={a.key}>{a.name}</option>)}</optgroup><optgroup label="Language Usage">{MAP_AREAS.filter((a) => a.test === "Language Usage").map((a) => <option key={a.key} value={a.key}>{a.name}</option>)}</optgroup><option value="NONE">Not classified yet</option></select>
         <select name="use" defaultValue={sp.use ?? ""} aria-label="Use" className={sel}><option value="">Use: any</option><option value="PLACEMENT">Diagnostic</option><option value="MAP_TEST">MAP test</option><option value="READMASTER">ReadMaster</option></select>
         <div className="basis-full rounded-2xl bg-emerald-50/50 p-2 ring-1 ring-emerald-200">
           <MapPlacePicker places={mapPlaces} value={filter.mapCode ?? null} mode="filter" name="map" />
@@ -109,6 +113,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <input name="q" defaultValue={sp.q ?? ""} placeholder="Search question text or skill name" aria-label="Search" className={sel} />
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="mine" value="1" defaultChecked={sp.mine === "1"} />Only mine</label>
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="ai" value="1" defaultChecked={sp.ai === "1"} />Only AI-drafted</label>
+        <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="aicheck" value="1" defaultChecked={sp.aicheck === "1"} />✨ AI filled · check</label>
         <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Filter</button>
         <Link href={`/admin/questions?status=${status}`} className="text-sm text-brand-teal hover:underline">Clear filters</Link>
       </form>
@@ -122,7 +127,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         </div>
         {sp.deleted === "1" && <p role="status" className="mb-3 rounded-lg bg-teal-50 px-3 py-2 text-teal-900">The question was deleted.</p>}
         <QuestionTable
-          rows={items.map((q) => ({ id: q.id, stem: q.stem, mine: q.mine, origin: q.origin, grade: q.grade, skill: q.skill, type: q.type, level: q.level, levelLabel: q.levelLabel, status: q.status, updatedAt: q.updatedAt, hasPassage: q.hasPassage, hasImage: q.hasImage, possibleMissingPassage: q.possibleMissingPassage, mapCode: q.mapCode ?? null, uses: q.uses ?? [] }))}
+          rows={items.map((q) => ({ id: q.id, stem: q.stem, mine: q.mine, origin: q.origin, grade: q.grade, skill: q.skill, type: q.type, level: q.level, levelLabel: q.levelLabel, status: q.status, updatedAt: q.updatedAt, hasPassage: q.hasPassage, hasImage: q.hasImage, possibleMissingPassage: q.possibleMissingPassage, mapCode: q.mapCode ?? null, uses: q.uses ?? [], mapArea: q.mapArea ?? null, aiCheck: q.aiCheck ?? false }))}
           total={total}
           canPublish={can(actor, "questions:publish")}
           canDelete={(actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN") && can(actor, "questions:publish")}

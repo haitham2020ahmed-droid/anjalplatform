@@ -18,6 +18,10 @@ export interface SkillSnapshot {
   assignedDueInDays: number | null; // teacher assignment
   prerequisiteGap: boolean; // this skill is an unmet prerequisite of something the student is working on
   mapGoalAreaWeak: boolean; // IMPORTED MAP shows this skill's goal area as a relative weakness
+  /** spaced review: a mastered skill whose review date has come */
+  reviewDue?: boolean;
+  /** the misconception behind most recent wrong answers on this skill (src/insights/misconceptions.ts) */
+  misconception?: string | null;
 }
 
 export interface Recommendation {
@@ -47,14 +51,16 @@ export function recommendSkills(skills: SkillSnapshot[], currentUnit: number, li
     const reasons: Recommendation["reasons"] = [];
     const add = (code: string, detail: string, weight: number) => reasons.push({ code, detail, weight });
 
-    const needsReview = s.mastery >= 90 && (s.daysSincePractice ?? 0) > 30;
+    const needsReview = s.mastery >= 90 && ((s.daysSincePractice ?? 0) > 30 || Boolean(s.reviewDue));
     if (s.mastery >= 90 && !needsReview) continue;
 
     if (s.assignedDueInDays !== null) add("ASSIGNED", s.assignedDueInDays <= 0 ? "Your teacher assigned this. It is due today" : `Your teacher assigned this. It is due in ${s.assignedDueInDays} ${s.assignedDueInDays === 1 ? "day" : "days"}`, s.assignedDueInDays <= 2 ? 40 : 25);
     if (s.prerequisiteGap) add("PREREQ_GAP", "It will help with other skills you are practising", 30);
     if (s.attempts > 0 && s.mastery < 60) add("LOW_MASTERY", `You are at ${s.mastery.toFixed(0)}. A little more practice will move you up`, (60 - s.mastery) * 0.4);
     if (s.recentErrors >= 3) add("RECENT_ERRORS", "A few recent answers were tricky. Let's try again", s.recentErrors * 3);
-    if (needsReview) add("REVIEW", "Time for a quick review so you keep this skill strong", 12);
+    // ability well below grade level on a skill already started: practise it before new skills
+    if (s.attempts >= 5 && s.theta <= -1 && s.mastery < 75) add("LOW_ABILITY", "Let's build this skill up step by step", 8);
+    if (needsReview) add(s.reviewDue ? "REVIEW_DUE" : "REVIEW", "Time for a quick review so you keep this skill strong", s.reviewDue ? 16 : 12);
     if (s.unitNumber === currentUnit && s.attempts === 0) add("CURRENT_UNIT", "New in this unit", 18);
     if (s.unitNumber === currentUnit && s.attempts > 0 && s.mastery < 75) add("CURRENT_UNIT_PROGRESS", "Part of this unit", 10);
     // imported evidence outranks "new in this unit"; teacher assignments still rank highest

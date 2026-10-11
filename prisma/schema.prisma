@@ -160,6 +160,10 @@ enum NotificationType {
   ASSESSMENT_AVAILABLE
   PARENT_PROGRESS
   INTERVENTION_ALERT
+  REPORT_APPROVAL
+  DAILY_DIGEST
+  ADMIN_MESSAGE
+  TIER_CHANGE
 }
 
 // ------------------------------------------------------ identity & access ----
@@ -749,6 +753,28 @@ model Question {
   uses                  QuestionUse[]
   /// text complexity of the question (or its passage), e.g. 820 for 820L; drives Below / On / Above
   lexile                Int?
+  /// NWEA MAP Growth: the test ("Reading" | "Language Usage") and the instructional area, e.g. "Literary Text",
+  /// "Language: Understand, Edit for Mechanics"; how it was decided: IMPORT · ADMIN · SKILL · STANDARD ·
+  /// SKILL_STANDARD · CATEGORY · TEXT · AI
+  mapTest               String?  @db.VarChar(20)
+  mapInstructionalArea  String?  @db.VarChar(80)
+  mapAreaSource         String?  @db.VarChar(16)
+
+  @@index([mapInstructionalArea, status])
+  /// 🧠 question intelligence (src/questions/intelligence.ts): Depth of Knowledge 1–4 and how it was set (RULE · AI · ADMIN · IMPORT);
+  /// the difficulty estimated before any student data (level 1–7, IRT b, the five factors); where the difficulty in use
+  /// comes from (AUTHORED · ESTIMATE · CALIBRATED); the text complexity (Lexile-like estimate); when it was analysed
+  dok                   Int?
+  dokSource             String?  @db.VarChar(8)
+  estimatedLevel        Int?
+  estimatedB            Float?
+  difficultyFactors     Json?
+  difficultySource      String?  @db.VarChar(12)
+  textLevel             Int?
+  intelligenceAt        DateTime?
+  metaReviewedAt        DateTime?
+
+  @@index([intelligenceAt])
 }
 
 model QuestionOption {
@@ -763,6 +789,9 @@ model QuestionOption {
   question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@index([questionId])
+  /// misconception code for a wrong option (e.g. DETAIL_NOT_MAIN), see src/insights/misconceptions.ts; how it was set: RULE | AI | ADMIN
+  misconception      String?  @db.VarChar(40)
+  misconceptionSource String? @db.VarChar(8)
 }
 
 /// Accepted answers for non-option types (fill-in, short answer, ordering keys).
@@ -829,6 +858,8 @@ model PracticeSession {
   @@index([assignmentId])
   /// when the set's goal (correct answers) was reached; the student may go on practising
   goalReachedAt DateTime?
+  /// the question the student asked a hint for (set by the server when the hint is shown; the answer then counts half)
+  hintQuestionId    String?
 }
 
 model QuestionAttempt {
@@ -857,6 +888,13 @@ model QuestionAttempt {
   @@index([skillId, createdAt])
   // every answer reads the attempts of its session (sets, tests): without this the table is scanned
   @@index([sessionId])
+  /// the misconception of the wrong option the student chose (copied at answer time, so reports need no joins)
+  misconception  String?  @db.VarChar(40)
+  /// where the answer came from (Update 39B, for reports): null = practice / assigned sets / checks · LESSON ·
+  /// REVIEW (Review my mistakes) · READMASTER · GAME (live game)
+  source         String?  @db.VarChar(12)
+
+  @@index([studentId, misconception])
 }
 
 /// Every adaptive decision, fully traceable.
@@ -886,6 +924,8 @@ model AdaptiveDecisionLog {
 
   @@index([studentId, createdAt])
   @@index([sessionId])
+  @@index([questionId])
+  @@index([attemptId])
 }
 
 /// Current internal ability estimate per student x skill (and a per-domain/global row with skillId null).
@@ -941,6 +981,9 @@ model StudentSkillMastery {
 
   @@id([studentId, skillId])
   @@index([skillId, band])
+  /// spaced review of a mastered skill: when it is due and which step (0 = 2 weeks, 1 = 6 weeks, 2+ = 12 weeks)
+  nextReviewAt    DateTime?
+  reviewStep      Int         @default(0)
 }
 
 model ReadingLevelBand {
@@ -1117,6 +1160,20 @@ model MapResult {
   lexile                Int?
   /// NWEA rapid-guessing % of the test (30%+ = NWEA suggests the score may not reflect the student: retest)
   rapidGuessPct         Int?
+  /// from NWEA's comprehensive data file: the growth since the previous comparable term, its conditional growth
+  /// index, whether the projected growth was met, the test's minutes, the Lexile range, typical growth, the
+  /// projected proficiency, and (goal rows) the goal's descriptor (Low · LoAvg · Avg · HiAvg · High)
+  observedGrowth        Int?
+  conditionalGrowthIndex Float?
+  metProjectedGrowth    String?  @db.VarChar(8)
+  testMinutes           Int?
+  lexileLow             Int?
+  lexileHigh            Int?
+  typicalGrowth         Int?
+  proficiency           String?  @db.VarChar(40)
+  descriptor            String?  @db.VarChar(10)
+
+  @@index([termName])
 }
 
 /// Benchmark reference values (class/grade/school computed; district/national ONLY when imported).
@@ -1174,6 +1231,16 @@ model Recommendation {
   student Student @relation(fields: [studentId], references: [id])
 
   @@index([studentId, createdAt])
+  /// where it was shown (STUDENT_HOME | NEXT_STEP), the mastery when recommended, and the outcome 7+ days later
+  source         String?   @db.VarChar(16)
+  masteryAtRec   Float?
+  followedAt     DateTime?
+  evaluatedAt    DateTime?
+  masteryAfter   Float?
+  outcome        String?   @db.VarChar(12) // IMPROVED | SAME | DROPPED | NOT_FOLLOWED
+
+  @@index([studentId, skillId, createdAt])
+  @@index([evaluatedAt, createdAt])
 }
 
 model InterventionAlert {
@@ -1204,6 +1271,7 @@ model Notification {
   user User @relation(fields: [userId], references: [id])
 
   @@index([userId, readAt])
+  @@index([userId, createdAt])
 }
 
 model Badge {
@@ -1577,6 +1645,11 @@ model ReadMasterAttempt {
   lexileAfter  Int
   correct      Int
   total        Int
+  /// Update 39C: seconds from opening the article to submitting it (reading + answering), recorded by the page;
+  /// null for attempts saved before it was recorded
+  seconds      Int?
+  /// Update 39C: answers given faster than the rapid-guess line (per-question times from the page); null = not timed
+  rapid        Int?
   createdAt    DateTime @default(now())
 
   @@index([studentId])
@@ -1907,6 +1980,10 @@ model WordEntry {
   source      String   @default("API") @db.VarChar(10)
   /// a curriculum vocabulary word: the school's own definition is shown first
   isVocab     Boolean  @default(false)
+  /// optional Arabic meaning, shown to students only as a help (tap to see)
+  arabicGloss String?  @db.VarChar(200)
+  /// original example sentence in context (used by the in-context word quiz)
+  contextSentence String? @db.VarChar(300)
   updatedById String?
   updatedAt   DateTime @updatedAt
 
@@ -1923,6 +2000,12 @@ model StudentWord {
   quizRight   Int       @default(0)
   quizWrong   Int       @default(0)
   lastQuizAt  DateTime?
+  /// spaced review of this word: when it is due and which step (1, 3, 7, 21, 60 days)
+  nextReviewAt DateTime?
+  reviewStep  Int       @default(0)
+  /// the student added it on purpose (word journal), with their own example and a not-example
+  myExample   String?   @db.VarChar(300)
+  notExample  String?   @db.VarChar(300)
 
   @@id([studentId, word])
   @@index([studentId, lastAt])
@@ -2123,6 +2206,17 @@ model WritingTask {
   passage     String?   @db.Text
   minWords    Int?
   dueAt       DateTime?
+  /// NARRATIVE | INFORMATIONAL | OPINION | HOW_TO | RESEARCH | FREE (genre rubric and checklist)
+  genre       String    @default("FREE") @db.VarChar(14)
+  /// the skill the writing practises (scores feed its mastery and reteach routing)
+  skillId     String?
+  /// plan → draft → revise stages (with an organizer and sentence frames)
+  staged      Boolean   @default(false)
+  /// source-based writing: up to 3 sources [{ title, text }] and research questions [{ q, kind, options?, answer? }]
+  sources     Json?
+  research    Json?
+  /// AI trait feedback drafts for the teacher to approve
+  aiFeedback  Boolean   @default(false)
   createdAt   DateTime  @default(now())
   deletedAt   DateTime?
 
@@ -2146,6 +2240,20 @@ model WritingSubmission {
   wcpm        Int?
   submittedAt DateTime?
   scoredAt    DateTime?
+  /// PLAN | DRAFT | REVISE | FINAL (staged tasks)
+  stage       String?   @db.VarChar(8)
+  /// the organizer the student filled in at the plan stage
+  plan        Json?
+  /// the first draft kept when the student revises
+  firstDraft  String?   @db.Text
+  /// the student's self-check before submitting { itemId: true }
+  checklist   Json?
+  /// research question answers (source-based writing)
+  researchAnswers Json?
+  /// AI draft: { traits: { name: { score, comment } }, conventions: [{ code, example }], summary } — PENDING until the teacher approves
+  aiDraft     Json?
+  /// NONE | PENDING | APPROVED | DISMISSED
+  aiStatus    String    @default("NONE") @db.VarChar(9)
   updatedAt   DateTime  @updatedAt
 
   @@id([taskId, studentId])
@@ -2182,6 +2290,12 @@ model DiagnosticTest {
   closesAt     DateTime?
   /// level bands in % { above: 85, on: 65 }
   bands        Json?
+  /// adaptive (cross-grade): the same 50 skill slots for every grade, the difficulty follows each student
+  adaptive     Boolean   @default(false)
+  /// adaptive tests: { blueprint: [anchor…], items: [{ id, a, st, d, p, g }] } frozen when built
+  design       Json?
+  /// BOY | MOY | EOY — beginning, middle or end of year (growth across the three)
+  period       String    @default("BOY") @db.VarChar(3)
   createdById  String?
   createdAt    DateTime  @default(now())
 
@@ -2205,6 +2319,12 @@ model DiagnosticScore {
   byStrand     Json
   rapid        Int       @default(0)
   minutes      Int       @default(0)
+  /// adaptive tests: ability in grade units (5.3 = reading like a Grade 5 student early in the year), its error,
+  /// the estimated MAP Reading RIT and the result by MAP goal area [{ group, name, theta, score }]
+  theta        Float?
+  thetaSE      Float?
+  ritEstimate  Int?
+  byArea       Json?
   completedAt  DateTime
   /// shared with the student and the family (their Family Report)
   sharedAt     DateTime?
@@ -2222,10 +2342,18 @@ model FluencyCheck {
   /// % of words read correctly
   accuracy    Int?
   note        String?  @db.VarChar(500)
-  /// TEACHER | RECORDING
+  /// TEACHER | RECORDING | COACH (the Fluency Coach's 1-minute check)
   source      String   @default("TEACHER") @db.VarChar(10)
   checkedById String?
   checkedAt   DateTime @default(now())
+  /// FALL | WINTER | SPRING (Hasbrouck–Tindal norm season at the time of the check)
+  season      String?  @db.VarChar(6)
+  /// national percentile (Hasbrouck & Tindal 2017) for the grade and season
+  percentile  Int?
+  /// prosody traits 1–4: { phrasing, smoothness, pace, intonation }
+  prosody     Json?
+  /// comprehension check after the reading, 0–100
+  comprehension Int?
 
   @@index([studentId, checkedAt])
 }
@@ -2245,4 +2373,657 @@ model WeeklyCheck {
   createdAt    DateTime  @default(now())
 
   @@unique([studentId, week])
+}
+
+/// 🎙 One Fluency Coach reading (the audio itself is never kept: it is scored, then dropped).
+/// MINUTE = the 1-minute check (official: it sets the fluency level on the rubric); PASSAGE = the whole passage (practice).
+model FluencyPractice {
+  id           String   @id @default(cuid())
+  studentId    String
+  mode         String   @db.VarChar(8)
+  /// "RM:<ReadMasterVersion id>" or "RP:<ReadingPassage id>"
+  passageKey   String   @db.VarChar(60)
+  title        String   @db.VarChar(191)
+  lexile       Int?
+  wordsRead    Int
+  wordsCorrect Int
+  seconds      Int
+  wcpm         Int
+  /// % of the words read that were read correctly
+  accuracy     Int
+  /// 1–4 (NAEP oral reading fluency scale), when the AI could judge it
+  expression   Int?
+  /// BELOW | ON | ABOVE on the school's WCPM rubric (1-minute checks)
+  level        String?  @db.VarChar(6)
+  /// [{ i, word, heard, kind }] — the words to practise
+  errors       Json
+  /// sound / spelling patterns behind the errors, e.g. "-tion endings"
+  patterns     Json?
+  /// the plan made after this reading (goal, steps, next check)
+  plan         Json?
+  /// prosody traits 1–4: { phrasing, smoothness, pace, intonation }
+  prosody      Json?
+  /// words the student hesitated on for more than 3 seconds (counted as errors)
+  hesitations  Int?
+  /// comprehension check after the reading, 0–100
+  comprehension Int?
+  /// which practice: PASSAGE | MINUTE | ECHO | PHRASED | DRILL | REPEATED
+  practiceKind String?  @db.VarChar(10)
+  /// the repeated-reading trial number on this passage (1, 2, 3 …)
+  trial        Int?
+  /// national percentile for the grade and season (official 1-minute checks)
+  percentile   Int?
+  createdAt    DateTime @default(now())
+
+  @@index([studentId, createdAt])
+}
+
+/// 👪 A report for the family, prepared by the platform or written by the teacher. Teachers' reports reach the
+/// family only after a school admin approves them (status PENDING → APPROVED, or RETURNED with a note).
+model FamilyReport {
+  id              String    @id @default(cuid())
+  schoolId        String
+  studentId       String
+  /// AUTO (prepared by the platform) | MANUAL (written by the teacher) | PROGRESS (the progress report) | DIAGNOSTIC
+  kind            String    @db.VarChar(12)
+  title           String    @db.VarChar(191)
+  /// { summary, sections: [{ heading, lines[] }], message } — what the family sees
+  content         Json
+  /// DIAGNOSTIC: the Diagnostic test id
+  refId           String?   @db.VarChar(40)
+  /// DRAFT | PENDING | RETURNED | APPROVED | WITHDRAWN
+  status          String    @db.VarChar(10)
+  createdById     String
+  submittedAt     DateTime?
+  reviewedById    String?
+  reviewedAt      DateTime?
+  reviewNote      String?   @db.Text
+  seenByParentAt  DateTime?
+  seenByStudentAt DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @default(now())
+
+  @@index([schoolId, status])
+  @@index([studentId, status])
+}
+
+/// 🧭 A change (or a suggested change) of a question's CCSS standard made by the MAP classification:
+/// APPLIED (clearly wrong: written wrongly, another grade, a code that does not exist, a Mechanics skill),
+/// SUGGESTED (read from the wording: waits for an admin), APPROVED / REJECTED. The old standard is kept here.
+model QuestionStandardFix {
+  id             String    @id @default(cuid())
+  schoolId       String
+  questionId     String
+  fromCode       String?   @db.VarChar(40)
+  toCode         String    @db.VarChar(40)
+  reason         String    @db.VarChar(255)
+  status         String    @db.VarChar(10)
+  createdAt      DateTime  @default(now())
+  reviewedById   String?
+  reviewedAt     DateTime?
+
+  @@index([schoolId, status])
+  @@index([questionId])
+}
+
+/// One place for "where is this student": the unified level and its source, the latest MAP RITs, Lexile, the
+/// overall ability, the predicted RIT for the next MAP term and the chance of reaching the goal, the active
+/// misconceptions. Rebuilt by src/server/insights/student-profile.ts (after MAP imports, Weekly Checks, nightly).
+model StudentProfile {
+  studentId        String   @id
+  schoolId         String
+  level            String   @db.VarChar(8) // BELOW | ON | ABOVE | UNKNOWN
+  levelSource      String   @db.VarChar(16) // MAP | WEEKLY_CHECK | DIAGNOSTIC | PRACTICE | NONE
+  levelAt          DateTime?
+  readingRit       Int?
+  languageRit      Int?
+  estReadingRit    Int?
+  estLanguageRit   Int?
+  lexile           Int?
+  theta            Float?
+  practiceDays14   Int      @default(0)
+  predictedTerm    String?  @db.VarChar(12)
+  predictedReading Int?
+  predictedLanguage Int?
+  predictedRange   Int?
+  goalReading      Int?
+  goalChance       Int?
+  misconceptions   Json?
+  weakestArea      String?  @db.VarChar(12)
+  updatedAt        DateTime @updatedAt
+
+  @@index([schoolId, level])
+  /// mastered / developing skills, missing prerequisites (root gaps), the learning path, the trajectory and growth rate
+  intelligence     Json?
+  /// 🚨 early warning: probability (0–100) of NOT reaching the MAP goal, its reasons and the actions to take
+  riskScore        Int?
+  riskReasons      Json?
+}
+
+/// A teacher's intervention: a small group on one skill for a period; the platform compares mastery before and after.
+model Intervention {
+  id          String    @id @default(cuid())
+  schoolId    String
+  classId     String
+  skillId     String
+  title       String
+  studentIds  Json
+  createdById String
+  startedAt   DateTime  @default(now())
+  endsAt      DateTime
+  baseline    Json // { studentId: mastery }
+  result      Json? // { studentId: mastery } at evaluation
+  evaluatedAt DateTime?
+  status      String    @default("ACTIVE") @db.VarChar(10) // ACTIVE | DONE
+
+  @@index([classId, status])
+  @@index([schoolId, status])
+}
+
+/// One point of a student's risk history (features → score), kept to learn which signals predict the MAP outcome.
+model RiskSnapshot {
+  id        BigInt   @id @default(autoincrement())
+  studentId String
+  schoolId  String
+  takenOn   DateTime @db.Date
+  score     Int
+  features  Json
+  model     String   @db.VarChar(16) // EXPERT | LEARNED
+  createdAt DateTime @default(now())
+
+  @@unique([studentId, takenOn])
+  @@index([schoolId, takenOn])
+}
+
+/// Models the platform learns from its own data per school: RISK (logistic weights of the early warning) and
+/// ACTION_WEIGHTS (how well each kind of learning-path step works). Kept with their quality metrics.
+model PredictionModel {
+  id        String   @id @default(cuid())
+  schoolId  String
+  kind      String   @db.VarChar(20)
+  weights   Json
+  metrics   Json
+  n         Int      @default(0)
+  trainedAt DateTime @default(now())
+
+  @@unique([schoolId, kind])
+}
+
+
+// ------------------------------------------------------ update 36 ----
+
+/// 📨 A message (or a report link) the school admin sent to teachers: in the platform and by email.
+model AdminMessage {
+  id          String   @id @default(cuid())
+  schoolId    String
+  senderId    String
+  subject     String   @db.VarChar(150)
+  body        String   @db.Text
+  /// optional platform page the teacher can open (a report)
+  link        String?  @db.VarChar(300)
+  /// { kind: ALL | GRADE | SELECTED, grades?, userIds? }
+  audience    Json
+  recipients  Int      @default(0)
+  emailed     Int      @default(0)
+  emailFailed Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  @@index([schoolId, createdAt])
+}
+
+model AdminMessageRecipient {
+  id             String    @id @default(cuid())
+  messageId      String
+  userId         String
+  notificationId String?
+  /// SENT | FAILED | NO_EMAIL | OFF
+  emailStatus    String    @db.VarChar(10)
+  readAt         DateTime?
+
+  @@unique([messageId, userId])
+  @@index([userId])
+}
+
+/// 🧭 The student's current support tier (RTI/MTSS): 1 core · 2 small group · 3 intensive. Changed automatically by
+/// the daily rules (the teacher can override and lock it).
+model StudentTier {
+  studentId    String   @id
+  schoolId     String
+  tier         Int      @default(1)
+  /// AUTO | TEACHER
+  source       String   @default("AUTO") @db.VarChar(8)
+  /// a teacher's choice that the daily rules must not change
+  locked       Boolean  @default(false)
+  reason       String   @db.Text
+  /// the skill the support is for, when there is one
+  focusSkillId String?
+  since        DateTime @default(now())
+  reviewAt     DateTime?
+  /// how often progress is checked: days between checks (Tier 1: 0 = 3 times a year)
+  monitorEveryDays Int  @default(0)
+  updatedAt    DateTime @updatedAt
+
+  @@index([schoolId, tier])
+}
+
+model TierChange {
+  id         String   @id @default(cuid())
+  studentId  String
+  schoolId   String
+  fromTier   Int
+  toTier     Int
+  source     String   @db.VarChar(8)
+  reason     String   @db.Text
+  /// the evidence behind it (scores, dates)
+  evidence   Json?
+  changedById String?
+  createdAt  DateTime @default(now())
+
+  @@index([studentId, createdAt])
+  @@index([schoolId, createdAt])
+}
+
+/// 🗂️ A data meeting: what changed since the last one and the decisions (who · what · how · owner · review date).
+model DataMeeting {
+  id         String   @id @default(cuid())
+  schoolId   String
+  classId    String?
+  /// grade-team meeting when classId is null
+  gradeLevel Int?
+  heldOn     DateTime
+  createdById String
+  /// the snapshot the platform prepared (changes, tiers, weak skills, interventions)
+  snapshot   Json
+  /// [{ who, what, how, owner, reviewOn }]
+  decisions  Json
+  notes      String?  @db.Text
+  createdAt  DateTime @default(now())
+
+  @@index([schoolId, heldOn])
+  @@index([classId, heldOn])
+}
+
+
+// ------------------------------------------------------ update 37 ----
+
+/// 🔤 Decoding (phonics) screener: the student hears a word and picks its spelling, real and made-up words,
+/// 8 strands from short vowels to multisyllable words. 80% per strand = mastered; more than one miss = reteach.
+model DecodingScreen {
+  id          String    @id @default(cuid())
+  studentId   String
+  schoolId    String
+  /// who asked for it: TEACHER | TIER (both comprehension and fluency low) | SELF
+  reason      String    @default("TEACHER") @db.VarChar(8)
+  /// [{ strand, items:[{ word, real, choices, answer, picked, correct }] }]
+  items       Json
+  /// { strand: { correct, total, pct, status: MASTERED | REVIEW | RETEACH } }
+  result      Json?
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+
+  @@index([studentId, startedAt])
+  @@index([schoolId, completedAt])
+}
+
+/// 📋 A short progress check at the end of a text set (a curriculum lesson): ~10 items on the skills just taught,
+/// Comprehension and Vocabulary subscores, 80% to pass (Wonders-style model, original items from the bank).
+model ProgressCheck {
+  id           String   @id @default(cuid())
+  schoolId     String
+  classId      String
+  lessonId     String
+  assignmentId String
+  title        String   @db.VarChar(191)
+  /// { questionId: "COMPREHENSION" | "VOCABULARY" | "OTHER" }
+  categories   Json
+  createdById  String
+  createdAt    DateTime @default(now())
+
+  @@unique([assignmentId])
+  @@index([classId, createdAt])
+}
+
+/// 🧠 Metacomprehension survey: which reading strategies a student says they use (before / during / after) —
+/// used for strategy groups, never for placement.
+model StrategySurvey {
+  id          String   @id @default(cuid())
+  studentId   String
+  schoolId    String
+  /// { itemId: choiceIndex }
+  answers     Json
+  /// { BEFORE: 0–100, DURING: 0–100, AFTER: 0–100, weakStrategies: [] }
+  result      Json
+  createdAt   DateTime @default(now())
+
+  @@index([studentId, createdAt])
+}
+
+
+// ------------------------------------------------------ update 38 ----
+
+/// 🧩 An interactive intervention lesson on one skill (gradual release): MODEL (worked example + think-aloud) →
+/// GUIDED (items with highlighted clues and a hint ladder) → INDEPENDENT → CHECK (80% to pass). A failed check goes
+/// back one phase with a different approach (organizer / sentence frames / easier text), never the same one again.
+model LessonRun {
+  id         String    @id @default(cuid())
+  studentId  String
+  schoolId   String
+  skillId    String
+  /// who started it: STUDENT | TEACHER | TIER | ASSIGNMENT
+  source     String    @default("STUDENT") @db.VarChar(10)
+  /// MODEL | GUIDED | INDEPENDENT | CHECK | DONE
+  phase      String    @default("MODEL") @db.VarChar(12)
+  /// how many times the check was tried, and which alternate approach is in use (0 = standard)
+  attempts   Int       @default(0)
+  approach   Int       @default(0)
+  /// [{ phase, questionId, correct, hints, at }]
+  log        Json
+  /// the organizer the student filled in (structure skills)
+  organizer  Json?
+  checkPct   Int?
+  passed     Boolean?
+  startedAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  finishedAt DateTime?
+
+  @@index([studentId, skillId])
+  @@index([schoolId, updatedAt])
+}
+
+// ------------------------------------------------------ ReadRise ----
+// 🚀 ReadRise: an independent nonfiction reading tool (separate from ReadMaster and the curriculum). Each article is
+// written at 12 levels (300–1400 on the ReadRise Level scale — an estimate on a Lexile-like scale, NOT an official
+// Lexile measure unless officialLexile is filled from a licensed analyzer). Every student has a personal level that
+// rises or falls with quiz scores. 5-step routine: pre-poll · read · 8 questions · short written answer · post-poll.
+
+model RRArticle {
+  id          String    @id @default(cuid())
+  /// null = the platform library (every school); else a school's own article
+  schoolId    String?
+  code        String    @db.VarChar(40)
+  title       String    @db.VarChar(191)
+  topic       String    @db.VarChar(60)
+  summary     String?   @db.VarChar(400)
+  /// the poll statement students agree/disagree with before and after reading
+  pollStatement String  @db.VarChar(300)
+  /// DRAFT | PUBLISHED
+  status      String    @default("DRAFT") @db.VarChar(10)
+  createdById String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  @@index([schoolId, status])
+  @@index([code])
+}
+
+model RRVersion {
+  id         String  @id @default(cuid())
+  articleId  String
+  /// the ReadRise Level of this version: 300, 400 … 1400
+  level      Int
+  title      String  @db.VarChar(191)
+  body       String  @db.Text
+  wordCount  Int
+  /// the platform's estimate of the text's level (checks the writer hit the target)
+  estLevel   Int
+  /// an official Lexile measure, when the school has a licensed analyzer
+  officialLexile Int?
+
+  @@unique([articleId, level])
+}
+
+model RRQuestion {
+  id        String @id @default(cuid())
+  articleId String
+  /// LOW (300–600) | MID (700–1000) | HIGH (1100–1400)
+  band      String @db.VarChar(4)
+  number    Int
+  stem      String @db.Text
+  /// ["…","…","…","…"]
+  options   Json
+  /// A | B | C | D
+  answer    String @db.VarChar(1)
+  /// central-idea | detail | inference | vocabulary | text-structure | author-purpose | cause-effect | sequence | compare
+  skill     String @db.VarChar(30)
+  /// { A: "why…", … }
+  rationale Json?
+
+  @@unique([articleId, band, number])
+}
+
+model RRPrompt {
+  id        String @id @default(cuid())
+  articleId String
+  band      String @db.VarChar(4)
+  prompt    String @db.Text
+  /// what a strong answer includes (shown to the student as a checklist, used by the teacher when scoring)
+  checklist Json?
+  /// 5 key words taught before reading: [{ word, partOfSpeech, definition, example }]
+  keyWords  Json?
+
+  @@unique([articleId, band])
+}
+
+/// the student's personal ReadRise Level
+model RRStudent {
+  studentId    String   @id
+  schoolId     String
+  level        Int
+  startLevel   Int
+  /// PLACEMENT | MAP | DEFAULT | TEACHER
+  source       String   @db.VarChar(10)
+  placedAt     DateTime @default(now())
+  articlesDone Int      @default(0)
+  /// weekly goal: articles per week at 75%+ on the first try (Achieve3000-style usage goal)
+  weeklyGoal   Int      @default(2)
+  updatedAt    DateTime @updatedAt
+
+  @@index([schoolId])
+}
+
+model RRLevelChange {
+  id        String   @id @default(cuid())
+  studentId String
+  schoolId  String
+  fromLevel Int
+  toLevel   Int
+  reason    String   @db.VarChar(300)
+  createdAt DateTime @default(now())
+
+  @@index([studentId, createdAt])
+  @@index([schoolId, createdAt])
+}
+
+/// one student's work on one article (the 5 steps)
+model RRRun {
+  id           String    @id @default(cuid())
+  studentId    String
+  schoolId     String
+  articleId    String
+  /// the version shown (its level) and the question band used
+  versionLevel Int
+  band         String    @db.VarChar(4)
+  /// PREPOLL | READ | QUIZ | WRITE | POSTPOLL | DONE
+  step         String    @default("PREPOLL") @db.VarChar(8)
+  /// 0 strongly agree … 3 strongly disagree
+  prePoll      Int?
+  postPoll     Int?
+  readSeconds  Int?
+  /// { "1": "B", … }
+  answers      Json?
+  /// % correct of the 8 questions
+  score        Int?
+  writing      String?   @db.Text
+  /// 0–4, by the teacher
+  writingScore Int?
+  writingComment String? @db.VarChar(1000)
+  writingScoredById String?
+  /// the student's level before and after this article
+  levelBefore  Int
+  levelAfter   Int?
+  /// only the first completed reading of an article counts (first-try score, level changes, goals)
+  firstTry     Boolean   @default(true)
+  /// a "stretch" reading: one level above the student's level (extra challenge, never lowers the level)
+  stretch      Boolean   @default(false)
+  /// highlights and notes made while reading: [{ start, end, color, note? }]
+  annotations  Json?
+  /// the student listened to the read-aloud
+  listened     Boolean   @default(false)
+  startedAt    DateTime  @default(now())
+  completedAt  DateTime?
+
+  @@index([studentId, completedAt])
+  @@index([schoolId, completedAt])
+  @@index([articleId])
+}
+
+/// placement test: short passages at rising levels, 3 questions each, the level moves up or down after each passage
+model RRPlacement {
+  id          String    @id @default(cuid())
+  studentId   String
+  schoolId    String
+  startLevel  Int
+  /// [{ level, passageId, answers, correct }]
+  steps       Json
+  result      Int?
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+
+  @@index([studentId, startedAt])
+}
+
+/// a teacher can put an article on a class's list (students still read their own level)
+model RRClassArticle {
+  id           String    @id @default(cuid())
+  classId      String
+  articleId    String
+  assignedById String
+  dueAt        DateTime?
+  createdAt    DateTime  @default(now())
+
+  @@unique([classId, articleId])
+}
+
+// ------------------------------------------------------ question re-classification ----
+
+/// 📊 A question's statistics per grade from students' FIRST answers (no retries, rapid guesses or hinted answers).
+model QuestionGradeStat {
+  id               String   @id @default(cuid())
+  questionId       String
+  grade            Int
+  responses        Int
+  correct          Int
+  pct              Float
+  /// answers and % right of students whose level is On (the basis for the level)
+  responsesOnLevel Int      @default(0)
+  pctOnLevel       Float?
+  /// { "A": 0.12, … } share of each option among all answers
+  optionShares     Json?
+  /// point-biserial (strong vs weak students); negative = strong students get it wrong more
+  discrimination   Float?
+  medianMs         Int?
+  updatedAt        DateTime @updatedAt
+
+  @@unique([questionId, grade])
+  @@index([grade, responses])
+}
+
+/// 🔁 Every change of a question's level (automatic or approved), with its reason.
+model QuestionLevelChange {
+  id             String   @id @default(cuid())
+  questionId     String
+  grade          Int
+  /// BELOW | ON | ABOVE
+  fromLevel      String   @db.VarChar(6)
+  toLevel        String   @db.VarChar(6)
+  fromDifficulty Int
+  toDifficulty   Int
+  pct            Float
+  responses      Int
+  /// ON_LEVEL_STUDENTS | ALL_STUDENTS (non-adaptive work only)
+  basis          String   @db.VarChar(20)
+  /// AUTO | APPROVED
+  source         String   @db.VarChar(10)
+  reason         String   @db.VarChar(400)
+  approvedById   String?
+  createdAt      DateTime @default(now())
+
+  @@index([questionId, createdAt])
+  @@index([createdAt])
+}
+
+/// ⚠️ A possible problem with a question, found in students' answers: KEY_SUSPECT (under 20% right) ·
+/// DISTRACTOR_MAGNET (one wrong option chosen by over 50%) · NEGATIVE_DISCRIMINATION (strong students wrong more
+/// than weak) · TOO_EASY (over 95% right) · SLOW (much slower than similar questions).
+model QuestionAlert {
+  id           String    @id @default(cuid())
+  questionId   String
+  grade        Int
+  kind         String    @db.VarChar(24)
+  detail       String    @db.VarChar(400)
+  data         Json?
+  /// OPEN | RESOLVED | DISMISSED
+  status       String    @default("OPEN") @db.VarChar(10)
+  /// kept out of adaptive practice until an admin reviews it
+  heldBack     Boolean   @default(false)
+  resolvedById String?
+  resolvedAt   DateTime?
+  createdAt    DateTime  @default(now())
+
+  @@unique([questionId, grade, kind])
+  @@index([questionId, status])
+  @@index([status, createdAt])
+}
+
+/// 🔗 Skill evidence from activities whose questions are not bank questions (Update 39B, closing the loop): ReadRise
+/// article questions, word reviews, teacher-scored writing and Respond to Reading. Each row is one scored response
+/// feeding the skill's mastery through the same engine (computeMastery) with a weight; (studentId, source, refId) is
+/// unique, so the same response is never counted twice.
+model SkillEvidence {
+  id          String   @id @default(cuid())
+  studentId   String
+  skillId     String
+  /// READRISE | VOCAB | WRITING | RTR
+  source      String   @db.VarChar(12)
+  /// the source row (e.g. "<runId>:3" = ReadRise run, question 3)
+  refId       String   @db.VarChar(120)
+  /// 0..1 credit (a rubric score is scaled to 0..1)
+  credit      Float
+  /// difficulty on the student's grade scale (0 = grade level) and the guessing floor
+  difficultyB Float    @default(0)
+  guessC      Float    @default(0)
+  /// evidence weight 0..1 (lower for indirect evidence)
+  weight      Float    @default(1)
+  createdAt   DateTime @default(now())
+
+  @@unique([studentId, source, refId])
+  @@index([studentId, skillId, createdAt])
+}
+
+/// ⚖️ The student's overall level (Below / On / Above) as the daily job last confirmed it (Update 39B, hysteresis):
+/// the level changes only when new evidence crosses the boundary by a margin, rests on enough new answers and holds on
+/// two evaluations in a row (or 7+ days). Also keeps the recent ability (θ, 0 = grade level) and the decline check.
+model StudentLevelState {
+  studentId    String    @id
+  schoolId     String
+  level        MapLevel
+  /// the evidence that set it: PLATFORM | PLACEMENT | LEXILE | MAP | TEACHER | SAVED | NO_DATA
+  source       String    @db.VarChar(12)
+  reason       String    @db.VarChar(500)
+  since        DateTime
+  /// a different level the evidence points to, not confirmed yet
+  pending      MapLevel?
+  pendingSince DateTime?
+  pendingCount Int       @default(0)
+  theta        Float?
+  thetaSE      Float?
+  effN         Float     @default(0)
+  thetaRecent  Float?
+  thetaPrior   Float?
+  declining    Boolean   @default(false)
+  evaluatedAt  DateTime
+  updatedAt    DateTime  @updatedAt
+
+  @@index([schoolId, level])
 }

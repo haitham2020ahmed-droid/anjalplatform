@@ -88,15 +88,18 @@ describe("end to end: admin → teacher → student → teacher", () => {
     assert.equal(await isAssignedSkill(repo, student, skillId), true);
     const items = new Map((await loadSkillItems(repo, skillId)).map((i) => [i.questionId, i]));
     let v = await startPractice(repo, student, skillId);
-    // with 5–7 questions per skill, reaching 75% mastery takes about 35 correct answers (repeats count less)
-    for (let i = 0; i < 50; i++) {
+    // with 5–7 questions per skill, a question met again within 2 days counts half (it may be remembered), so the
+    // student practises over several days (7 hours between answers here); about 40 correct answers reach 75% mastery
+    let at = Date.now();
+    for (let i = 0; i < 100; i++) {
+      at += 7 * 3_600_000;
       const it = items.get(v.question!.questionId)!;
       const r = it.options ? (it.type === "MULTI_SELECT" ? it.options.filter((o) => o.correct).map((o) => o.label) : it.options.find((o) => o.correct)!.label) : it.type === "TRUE_FALSE" ? it.answer : it.type === "MATCHING" ? Object.fromEntries(it.pairs!.map((p) => [p.left, p.right])) : it.answers?.[0] ?? it.sequence ?? it.errorIndex;
-      ({ view: v } = await submitAnswer(repo, student, { sessionId: v.sessionId, questionId: it.questionId, response: r }));
+      ({ view: v } = await submitAnswer(repo, student, { sessionId: v.sessionId, questionId: it.questionId, response: r }, new Date(at)));
       await assignmentUpdatesSettled();
       const row = (await repo.findMany("AssignmentStudent", { assignmentId, studentId: student.studentId! }))[0];
       if (row.status === "COMPLETED") break;
-      if (!v.question) v = await startPractice(repo, student, skillId);
+      if (!v.question) v = await startPractice(repo, student, skillId, new Date(at));
     }
     const after = await assignedSkills(repo, student);
     const mine = after.items.find((i) => i.assignmentId === assignmentId)!;

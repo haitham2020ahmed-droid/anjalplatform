@@ -26,7 +26,8 @@ export async function submitExitTicketAction(ticketId: string, responses: Record
   try { return { ok: true, value: await submitExitTicket(repo, actor, String(ticketId), responses ?? {}) }; } catch (e) { return fail(e); }
 }
 
-export async function submitReviewAction(_id: string, responses: Record<string, unknown>): Promise<R<{ correct: number; total: number; review: Graded[] }>> {
+export async function submitReviewAction(_id: string, responses: Record<string, unknown>, timesMs?: Record<string, number>): Promise<R<{ correct: number; total: number; review: Graded[] }>> {
   const actor = await requireActor({ roles: ["STUDENT"] });
-  try { return { ok: true, value: await submitReview(repo, actor, responses ?? {}) }; } catch (e) { return fail(e); }
+  const times = timesMs && typeof timesMs === "object" && !Array.isArray(timesMs) ? timesMs : {};
+  try { return { ok: true, value: await submitReview(repo, actor, responses ?? {}, new Date(), times) }; } catch (e) { return fail(e); }
 }

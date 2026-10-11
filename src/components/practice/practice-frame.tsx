@@ -20,6 +20,7 @@ const END_TEXT: Record<string, string> = {
   POOL_EXHAUSTED: "You have answered every question available right now. More questions are on the way.",
   PREREQ_ROUTE: "Let's build a skill that will make this one easier.",
   STUDENT_EXIT: "Practice saved. You can continue any time.",
+  LEVEL_CONFIRMED: "Great work. The platform is now sure of your level on this skill. Try your next step!",
 };
 
 export function PracticeFrame(props: {
@@ -41,7 +42,7 @@ export function PracticeFrame(props: {
     <div className="mx-auto max-w-5xl">
       <header className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div className="min-w-0">
-          <a href={props.unitHref} className="text-sm font-medium text-brand-teal hover:underline">Leave practice</a>
+          <a href={props.unitHref} className="inline-flex min-h-10 items-center rounded-lg px-2 text-sm font-medium text-brand-teal hover:underline">Leave practice</a>
           <h1 className="truncate text-2xl font-bold text-brand-navy">{view.skillName}</h1>
           <p className="text-sm text-slate-500">{view.answered} answered, {view.correct} correct</p>
         </div>

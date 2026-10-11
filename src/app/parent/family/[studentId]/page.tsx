@@ -7,6 +7,7 @@ import { isReportShared } from "@/server/insights/parent-report";
 import { studentDiagnosticReport } from "@/server/diagnostic/report";
 import { weekStats } from "@/server/student/weekly";
 import { ForbiddenError } from "@/server/auth/rbac";
+import { approvedForFamily } from "@/server/reports/family-reports";
 
 export const metadata = { title: "Family Report" };
 const s = (v: unknown) => String(v ?? "");
@@ -23,6 +24,7 @@ export default async function ParentFamily({ params }: { params: Promise<{ stude
     studentDiagnosticReport(repo, actor, studentId).catch((e) => { if (e instanceof ForbiddenError) return null; throw e; }),
     repo.findMany("MapResult", { studentId }, { select: ["goalName"] }),
   ]);
+  const reports = await approvedForFamily(repo, actor, studentId);
   // the curriculum plan's progress
   const m = (await repo.findMany("ClassMembership", { studentId, leftAt: null }))[0];
   const plan = m ? (await repo.findMany("SkillPlan", { classId: m.classId, kind: "CURRICULUM" }))[0] : null;
@@ -40,6 +42,17 @@ export default async function ParentFamily({ params }: { params: Promise<{ stude
         <h1 className="mt-1 text-3xl font-extrabold"><bdi>{child.name}</bdi></h1>
         <p className="text-white/80">Grade {child.grade}{child.className ? ` · ${child.className}` : ""}</p>
       </header>
+      {reports.length > 0 && (
+        <section className="mb-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-emerald-200">
+          <h2 className="text-lg font-bold text-brand-navy">📬 Reports from the school</h2>
+          <ul className="mt-3 space-y-2">{reports.map((r) => (
+            <li key={r.id}><Link href={`/family-report/${r.id}`} className="lift flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-emerald-50 px-4 py-3 ring-1 ring-emerald-200">
+              <span><span className="block font-semibold text-brand-navy">{r.title}</span><span className="block text-sm text-slate-600">{r.content.summary.slice(0, 140)}{r.content.summary.length > 140 ? "…" : ""}</span></span>
+              <span className="text-sm text-slate-500">{r.reviewedAt}{!r.seenByParentAt ? " · 🆕" : ""}</span>
+            </Link></li>
+          ))}</ul>
+        </section>
+      )}
       <section className="mb-5 rounded-3xl bg-gradient-to-r from-teal-50 to-sky-50 p-5 ring-1 ring-teal-200">
         <h2 className="text-lg font-bold text-brand-navy">🗓️ This Week <span className="text-sm font-normal text-slate-500">since {week.since}</span></h2>
         <div className="mt-3 grid gap-3 sm:grid-cols-4">

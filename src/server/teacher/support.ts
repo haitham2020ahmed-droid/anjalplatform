@@ -9,8 +9,10 @@ import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "./assignments";
 import { readableClasses } from "./coordinators";
 import { studentNames } from "../insights/student-data";
-import { prescriptionFor, WCPM_BENCHMARK } from "../diagnostic/standards";
+import { fluencyBands, fluencyLevel, fluencyRubricText, prescriptionFor, WCPM_BENCHMARK } from "../diagnostic/standards";
+import { fluencySeason, isSeason, normView, SEASON_NAME, type Season } from "../fluency/norms";
 import { audit } from "../audit";
+import { levelConflicts } from "../insights/level-story";
 import { loadQuestionItems } from "../practice/items";
 
 const s = (v: unknown) => String(v ?? "");
@@ -19,19 +21,42 @@ const json = <T>(v: unknown, dflt: T): T => { if (v === null || v === undefined 
 
 // ------------------------------------------------------------------ 🔊 fluency
 
-export interface FluencyRow { id: string; name: string; latest: { wcpm: number; accuracy: number | null; date: string; source: string } | null; history: { wcpm: number; date: string }[] }
-export async function classFluency(repo: Repo, actor: Actor, classId: string): Promise<{ className: string; grade: number; benchmark: number; rows: FluencyRow[] }> {
+export interface FluencyRow {
+  id: string; name: string;
+  /** the latest official check, on the norms of its own season (Hasbrouck & Tindal 2017) */
+  latest: { wcpm: number; accuracy: number | null; date: string; source: string; level: "BELOW" | "ON" | "ABOVE"; season: Season; percentile: number | null; text: string; needsWork: boolean; prosody: Record<string, number> | null; comprehension: number | null } | null;
+  history: { wcpm: number; date: string }[];
+  /** 🎙 the Fluency Coach: practice readings in the last 14 days, the latest goal */
+  coach: { practices: number; goal: number | null; expression: number | null };
+}
+const checkSeason = (c: Row): Season => (isSeason(c.season) ? (c.season as Season) : fluencySeason(d(c.checkedAt) ?? new Date()));
+export async function classFluency(repo: Repo, actor: Actor, classId: string): Promise<{ className: string; grade: number; benchmark: number; rubric: string; bands: { below: number; above: number }; season: Season; rows: FluencyRow[]; missed: { word: string; students: number }[] }> {
   assertCan(actor, "reports:read");
   const klass = await assertClassAccess(repo, actor, classId);
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const ids = (await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));
-  const [names, checks] = await Promise.all([studentNames(repo, ids), ids.length ? repo.findMany("FluencyCheck", { studentId: { in: ids } }) : Promise.resolve([] as Row[])]);
+  const [names, checks, practice] = await Promise.all([studentNames(repo, ids), ids.length ? repo.findMany("FluencyCheck", { studentId: { in: ids } }) : Promise.resolve([] as Row[]), ids.length ? repo.findMany("FluencyPractice", { studentId: { in: ids } }, { select: ["studentId", "errors", "plan", "expression", "createdAt"] }) : Promise.resolve([] as Row[])]);
+  const twoWeeks = Date.now() - 14 * 86_400_000;
   const rows = ids.map((id) => {
     const mine = checks.filter((c) => s(c.studentId) === id).sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0));
     const l = mine[0];
-    return { id, name: names.get(id)?.name ?? "Student", latest: l ? { wcpm: Number(l.wcpm), accuracy: l.accuracy === null || l.accuracy === undefined ? null : Number(l.accuracy), date: d(l.checkedAt)!.toISOString().slice(0, 10), source: s(l.source) } : null, history: mine.slice(0, 6).reverse().map((c) => ({ wcpm: Number(c.wcpm), date: d(c.checkedAt)!.toISOString().slice(0, 10) })) };
+    const pr = practice.filter((x) => s(x.studentId) === id).sort((a, b) => (d(b.createdAt)?.getTime() ?? 0) - (d(a.createdAt)?.getTime() ?? 0));
+    const plan = json<{ goal?: number } | null>(pr[0]?.plan, null);
+    const se = l ? checkSeason(l) : fluencySeason();
+    const nv = l ? normView(grade, Number(l.wcpm), se) : null;
+    return {
+      id, name: names.get(id)?.name ?? "Student",
+      latest: l && nv ? { wcpm: Number(l.wcpm), accuracy: l.accuracy === null || l.accuracy === undefined ? null : Number(l.accuracy), date: d(l.checkedAt)!.toISOString().slice(0, 10), source: s(l.source), level: fluencyLevel(Number(l.wcpm), grade, se), season: se, percentile: l.percentile === null || l.percentile === undefined ? nv.percentile : Number(l.percentile), text: nv.text, needsWork: nv.needsWork, prosody: json<Record<string, number> | null>(l.prosody, null), comprehension: l.comprehension === null || l.comprehension === undefined ? null : Number(l.comprehension) } : null,
+      history: mine.slice(0, 6).reverse().map((c) => ({ wcpm: Number(c.wcpm), date: d(c.checkedAt)!.toISOString().slice(0, 10) })),
+      coach: { practices: pr.filter((x) => (d(x.createdAt)?.getTime() ?? 0) >= twoWeeks).length, goal: plan?.goal ?? null, expression: pr.find((x) => x.expression !== null && x.expression !== undefined)?.expression as number ?? null },
+    };
   }).sort((a, b) => a.name.localeCompare(b.name));
-  return { className: s(klass.name), grade, benchmark: WCPM_BENCHMARK[grade] ?? 120, rows };
+  // the words the class misses most in the Fluency Coach (one count per student)
+  const byWord = new Map<string, Set<string>>();
+  for (const x of practice) for (const e of json<{ word?: string }[]>(x.errors, [])) { const w = s(e.word).toLowerCase().replace(/[^a-z'-]/g, ""); if (w.length < 2) continue; if (!byWord.has(w)) byWord.set(w, new Set()); byWord.get(w)!.add(s(x.studentId)); }
+  const missed = [...byWord].map(([word, st]) => ({ word, students: st.size })).filter((x) => x.students >= 2).sort((a, b) => b.students - a.students || a.word.localeCompare(b.word)).slice(0, 20);
+  const season = fluencySeason();
+  return { className: s(klass.name), grade, benchmark: WCPM_BENCHMARK[grade] ?? 120, rubric: fluencyRubricText(grade, season), bands: fluencyBands(grade, season), season, rows, missed };
 }
 
 export async function saveFluency(repo: Repo, actor: Actor, classId: string, entries: { studentId: string; wcpm: number; accuracy?: number | null; note?: string | null }[], now = new Date()): Promise<number> {
@@ -45,7 +70,10 @@ export async function saveFluency(repo: Repo, actor: Actor, classId: string, ent
     if (!Number.isFinite(w) || w < 0 || w > 400) throw new ValidationError("Words correct per minute must be a number from 0 to 400.");
     const acc = e.accuracy === null || e.accuracy === undefined || String(e.accuracy) === "" ? null : Math.round(Number(e.accuracy));
     if (acc !== null && (acc < 0 || acc > 100)) throw new ValidationError("Accuracy is a percentage from 0 to 100.");
-    await repo.create("FluencyCheck", { studentId: e.studentId, wcpm: w, accuracy: acc, note: e.note ? s(e.note).slice(0, 500) : null, source: "TEACHER", checkedById: actor.userId, checkedAt: now });
+    // every official check keeps its norm season and national percentile (Hasbrouck & Tindal 2017)
+    const season = fluencySeason(now);
+    const grade = Number((await repo.findUnique("Grade", { id: (await repo.findUnique("Student", { id: e.studentId }))?.gradeId }))?.level ?? 0);
+    await repo.create("FluencyCheck", { studentId: e.studentId, wcpm: w, accuracy: acc, note: e.note ? s(e.note).slice(0, 500) : null, source: "TEACHER", checkedById: actor.userId, checkedAt: now, season, percentile: grade >= 4 && grade <= 6 ? normView(grade, w, season).percentile : null });
     n++;
   }
   return n;
@@ -53,7 +81,7 @@ export async function saveFluency(repo: Repo, actor: Actor, classId: string, ent
 
 // ------------------------------------------------------------------ 🛟 support groups
 
-export interface SupportGroup { key: string; kind: "STANDARD" | "STUCK" | "FLUENCY"; title: string; code: string; why: string; students: { id: string; name: string; detail: string }[]; lessonHref: string }
+export interface SupportGroup { key: string; kind: "STANDARD" | "STUCK" | "FLUENCY" | "CHECK"; title: string; code: string; why: string; students: { id: string; name: string; detail: string }[]; lessonHref: string }
 
 /** Small groups for a class: weak Diagnostic standards (2+ students under 60%), stuck plan parts, low fluency. */
 export async function supportGroups(repo: Repo, actor: Actor, classId: string): Promise<{ className: string; grade: number; groups: SupportGroup[] }> {
@@ -69,8 +97,9 @@ export async function supportGroups(repo: Repo, actor: Actor, classId: string): 
   const latest = new Map<string, Row>();
   for (const r of results.sort((a, b) => (d(a.completedAt)?.getTime() ?? 0) - (d(b.completedAt)?.getTime() ?? 0))) latest.set(s(r.studentId), r);
   const byStd = new Map<string, { label: string; anchor: string; students: { id: string; pct: number }[] }>();
-  for (const [id, r] of latest) for (const x of json<{ code: string; label: string; anchor: string; correct: number; total: number }[]>(r.byStandard, [])) {
-    const pct = x.total ? Math.round((100 * x.correct) / x.total) : 0;
+  for (const [id, r] of latest) for (const x of json<{ code: string; label: string; anchor: string; correct: number; total: number; score?: number }[]>(r.byStandard, [])) {
+    // adaptive results carry a score on the grade scale; fixed ones the share correct
+    const pct = typeof x.score === "number" ? Math.round(x.score) : x.total ? Math.round((100 * x.correct) / x.total) : 0;
     if (pct >= 60) continue;
     const g = byStd.get(x.code) ?? { label: x.label, anchor: x.anchor, students: [] }; g.students.push({ id, pct }); byStd.set(x.code, g);
   }
@@ -94,10 +123,12 @@ export async function supportGroups(repo: Repo, actor: Actor, classId: string): 
     }
   }
   // 3. fluency well below the benchmark
-  const bench = WCPM_BENCHMARK[grade] ?? 120;
   const flu = ids.length ? await repo.findMany("FluencyCheck", { studentId: { in: ids } }) : [];
-  const low = ids.map((id) => ({ id, c: flu.filter((f) => s(f.studentId) === id).sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0] })).filter((x) => x.c && Number(x.c.wcpm) < bench * 0.75);
-  if (low.length) groups.push({ key: "fluency", kind: "FLUENCY", title: "Reading Fluency", code: `RF.${grade}.4`, why: `Under 75% of the Grade ${grade} benchmark (${bench} WCPM)`, students: low.map((x) => ({ id: x.id, name: nm(x.id), detail: `${Number(x.c!.wcpm)} WCPM` })), lessonHref: `/teacher/groups/lesson?classId=${classId}&code=${encodeURIComponent(`RF.${grade}.4`)}` });
+  const low = ids.map((id) => ({ id, c: flu.filter((f) => s(f.studentId) === id).sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0] })).filter((x) => x.c && fluencyLevel(Number(x.c.wcpm), grade, checkSeason(x.c)) === "BELOW");
+  if (low.length) groups.push({ key: "fluency", kind: "FLUENCY", title: "Reading Fluency", code: `RF.${grade}.4`, why: `Below Level on the fluency rubric (${fluencyRubricText(grade)}, ${SEASON_NAME[fluencySeason()]} norms, Hasbrouck & Tindal 2017)`, students: low.map((x) => ({ id: x.id, name: nm(x.id), detail: normView(grade, Number(x.c!.wcpm), checkSeason(x.c!)).text })), lessonHref: `/teacher/groups/lesson?classId=${classId}&code=${encodeURIComponent(`RF.${grade}.4`)}` });
+  // 4. the data disagree (MAP says Above, the platform says Below…): look at these levels again
+  const conflicts = await levelConflicts(repo, actor, [classId]);
+  if (conflicts.length) groups.push({ key: "check", kind: "CHECK", title: "Check Their Level", code: "", why: "Their data disagree (one source says Above, another Below)", students: conflicts.map((c) => ({ id: c.studentId, name: c.name, detail: `${c.high.source} ↑ · ${c.low.source} ↓` })), lessonHref: `/admin/data-health?classId=${classId}` });
   return { className: s(klass.name), grade, groups };
 }
 

@@ -28,7 +28,7 @@ export const DEFAULT_AUTH: AuthConfig = {
   maxFailedLogins: 5,
   lockoutMinutes: 15,
   rateLimitPerAccount: 8,
-  rateLimitPerIp: 60,
+  rateLimitPerIp: 300, // a whole school can share one public address (NAT); accounts are protected by the per-username limits
   rateLimitWindowMinutes: 15,
 };
 

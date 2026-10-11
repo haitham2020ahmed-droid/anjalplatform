@@ -23,11 +23,16 @@
  * returned once as a credentials CSV and stored only as hashes.
  */
 import { createHash } from "node:crypto";
+import { withdrawOldClassWork } from "./student-move";
 import { parseCsv, toCsv } from "../../imports/csv";
 import { readXlsx } from "../../imports/xlsx";
 import { audit } from "../audit";
 import { hashPassword } from "../auth/password";
+
+/** Passwords hashed at the same time during a roster import (Node runs 4 scrypt jobs in parallel by default). */
+export const HASH_CONCURRENCY = 4;
 import { temporaryPassword } from "../auth/passwords-admin";
+import { studentPasswordIsUsername } from "./student-cards";
 import { assertCan, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
@@ -220,10 +225,21 @@ export async function applyRoster(repo: Repo, actor: Actor, fileName: string, by
   // hash passwords before the transaction (scrypt is deliberately slow)
   const creds: [string, string, string, string][] = [];
   const hashes = new Map<string, string>();
+  const studentsSame = await studentPasswordIsUsername(repo, schoolId); // the school's choice: student password = username
+  const sameAsUsername = new Set<string>();
+  const todo: { username: string; temp: string }[] = [];
   for (const l of plan.lines.filter((x) => x.action === "create" || x.restore)) {
-    const temp = temporaryPassword();
-    hashes.set(l.username, await hashPassword(temp));
+    const same = studentsSame && l.role === "STUDENT";
+    if (same) sameAsUsername.add(l.username);
+    const temp = same ? l.username : temporaryPassword();
+    todo.push({ username: l.username, temp });
     creds.push([l.username, l.displayName, l.role, temp]);
+  }
+  // readiness S-6: HASH_CONCURRENCY hashes at a time (scrypt runs on Node's thread pool; ~32 MB each), not one by one
+  for (let i = 0; i < todo.length; i += HASH_CONCURRENCY) {
+    const part = todo.slice(i, i + HASH_CONCURRENCY);
+    const done = await Promise.all(part.map((x) => hashPassword(x.temp)));
+    part.forEach((x, k) => hashes.set(x.username, done[k]));
   }
   const res = await repo.transaction(async (tx) => {
     let classesCreated = 0, links = 0;
@@ -243,7 +259,7 @@ export async function applyRoster(repo: Repo, actor: Actor, fileName: string, by
     for (const l of [...plan.lines].sort((a, b) => order.indexOf(a.role) - order.indexOf(b.role))) {
       let userId = l.existingUserId;
       if (!userId) {
-        const u = await tx.create("User", { username: l.username, displayName: l.displayName, email: l.email, role: l.role, schoolId, passwordHash: hashes.get(l.username), mustChangePassword: true, isActive: true, createdAt: now, updatedAt: now });
+        const u = await tx.create("User", { username: l.username, displayName: l.displayName, email: l.email, role: l.role, schoolId, passwordHash: hashes.get(l.username), mustChangePassword: !sameAsUsername.has(l.username), isActive: true, createdAt: now, updatedAt: now });
         userId = String(u.id);
         if (l.role === "TEACHER") await tx.create("Teacher", { userId, schoolId, title: l.title });
         if (l.role === "PARENT") await tx.create("Parent", { userId });
@@ -256,7 +272,7 @@ export async function applyRoster(repo: Repo, actor: Actor, fileName: string, by
         if (l.restore) {
           // back from the archive (Clean roster): active again, a new temporary password, history kept
           const u0 = await tx.findUnique("User", { id: userId });
-          await tx.updateMany("User", { id: userId }, { isActive: true, deletedAt: null, passwordHash: hashes.get(l.username), mustChangePassword: true, failedLogins: 0, lockedUntil: null, sessionVersion: Number(u0?.sessionVersion ?? 0) + 1 });
+          await tx.updateMany("User", { id: userId }, { isActive: true, deletedAt: null, passwordHash: hashes.get(l.username), mustChangePassword: !sameAsUsername.has(l.username), failedLogins: 0, lockedUntil: null, sessionVersion: Number(u0?.sessionVersion ?? 0) + 1 });
           if (l.role === "STUDENT") await tx.updateMany("Student", { userId }, { deletedAt: null });
         }
         if (l.role === "TEACHER" && l.title) await tx.updateMany("Teacher", { userId }, { title: l.title });
@@ -267,6 +283,7 @@ export async function applyRoster(repo: Repo, actor: Actor, fileName: string, by
         const open = await tx.findMany("ClassMembership", { studentId: sid, leftAt: null });
         if (!(open.length === 1 && open[0].classId === target)) {
           for (const m of open) await tx.updateMany("ClassMembership", { classId: m.classId, studentId: sid }, { leftAt: now });
+          await withdrawOldClassWork(tx, sid, open.map((m) => String(m.classId)), target);
           if (await tx.findUnique("ClassMembership", { classId: target, studentId: sid })) await tx.updateMany("ClassMembership", { classId: target, studentId: sid }, { leftAt: null, joinedAt: now });
           else await tx.create("ClassMembership", { classId: target, studentId: sid, joinedAt: now });
         }

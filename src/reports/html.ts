@@ -201,7 +201,8 @@ th.num, td.num { text-align: center; }
 table.wide { font-size: 7.6pt; }
 table.wide th, table.wide td { padding: 4px 3px; }
 table.wide th { font-size: 7pt; line-height: 1.25; }
-th { overflow-wrap: anywhere; }
+/* headers break between words, never inside one (readiness S-5: “mastere/d”); a word too long for its column is hyphenated */
+th { overflow-wrap: normal; word-break: normal; hyphens: auto; }
 td.nowrap { white-space: nowrap; overflow-wrap: normal; }
 td.empty { text-align: center; color: #64748b; padding: 10px; }
 .chip { display: inline-block; padding: 0 7px; border-radius: 9px; font-size: 7.8pt; font-weight: 700; white-space: nowrap; }

@@ -11,6 +11,7 @@ import { resolveActor } from "../auth/actor";
 import { assertClassAccess } from "../teacher/assignments";
 import { DEFAULT_TARGET_CORRECT } from "../teacher/assign";
 import { assignFromMap } from "./levels";
+import { withLock } from "../lib/key-lock";
 import { planPlaces, isUnitOpen, openUnitsOf, unitDatesOf } from "./plans";
 
 const s = (v: unknown) => String(v ?? "");
@@ -60,7 +61,11 @@ export { isUnitOpen };
  * A student opens a place of a plan: their set if they have one; else the class's set for this place (they
  * are added to it if they joined later); else it is made now for the whole class (silently).
  */
-export async function openPlanItem(repo: Repo, actor: Actor, planId: string, itemId: string, now = new Date()): Promise<string> {
+export function openPlanItem(repo: Repo, actor: Actor, planId: string, itemId: string, now = new Date()): Promise<string> {
+  // the whole class may open the same part in the same second: one set for the class, made once
+  return withLock(`plan-item:${itemId}`, () => openPlanItemUnlocked(repo, actor, planId, itemId, now));
+}
+async function openPlanItemUnlocked(repo: Repo, actor: Actor, planId: string, itemId: string, now: Date): Promise<string> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Students only.");
   const [plan, item] = await Promise.all([repo.findUnique("SkillPlan", { id: planId }), repo.findUnique("SkillPlanItem", { id: itemId })]);
   if (!plan || !item || s(item.planId) !== s(plan.id)) throw new ForbiddenError("This part of the plan was not found.");

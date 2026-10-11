@@ -2,33 +2,34 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader, Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { previewClean, type RosterScope } from "@/server/admin/roster-clean";
-import { archiveRosterAction, deleteRosterAction } from "./actions";
+import { parseScope, previewClean, rosterList, scopeQuery } from "@/server/admin/roster-clean";
+import { archiveRosterAction, deleteRosterAction, oneStudentAction } from "./actions";
 
-export const metadata = { title: "Clean roster" };
+export const metadata = { title: "Clear Roster" };
 
-/** 🧹 Clean roster: archive or permanently delete a school's / grade's / class's students, then load a new roster. */
-export default async function CleanRosterPage({ searchParams }: { searchParams: Promise<{ scope?: string; grade?: string; classId?: string; msg?: string }> }) {
+/** 🧹 Clear Roster (admins only): archive or permanently delete the students of the school / a grade / a class / one student, restore archived ones, edit them, then load a new roster. Classes, teachers, parents, questions and plans are never touched. */
+export default async function CleanRosterPage({ searchParams }: { searchParams: Promise<{ scope?: string; grade?: string; classId?: string; id?: string; msg?: string }> }) {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "students:manage" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const [grades, classes] = await Promise.all([repo.findMany("Grade", { schoolId: actor.schoolId }), repo.findMany("Class", { schoolId: actor.schoolId })]);
   const liveClasses = classes.filter((c) => !c.deletedAt).sort((a, b) => String(a.name).localeCompare(String(b.name)));
-  const scope: RosterScope = sp.scope === "grade" && sp.grade ? { kind: "GRADE", grade: Number(sp.grade) } : sp.scope === "class" && sp.classId ? { kind: "CLASS", classId: sp.classId } : { kind: "SCHOOL" };
-  const p = await previewClean(repo, actor, scope);
-  const q = new URLSearchParams({ scope: scope.kind.toLowerCase(), ...(scope.kind === "GRADE" ? { grade: String(scope.grade) } : {}), ...(scope.kind === "CLASS" ? { classId: scope.classId } : {}) }).toString();
-  const hidden = <><input type="hidden" name="scope" value={scope.kind.toLowerCase()} />{scope.kind === "GRADE" && <input type="hidden" name="grade" value={scope.grade} />}{scope.kind === "CLASS" && <input type="hidden" name="classId" value={scope.classId} />}<input type="hidden" name="q" value={q} /></>;
+  const scope = parseScope((k) => (sp as Record<string, string | undefined>)[k]);
+  const [p, list] = await Promise.all([previewClean(repo, actor, scope), rosterList(repo, actor, scope)]);
+  const q = scopeQuery(scope);
+  const hidden = <>{[...new URLSearchParams(q)].map(([k, v]) => <input key={k} type="hidden" name={k} value={v} />)}<input type="hidden" name="q" value={q} /></>;
   const pill = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-bold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin/roster", label: "Roster" }} icon="🧹" title="Clean Roster"
-        subtitle="Remove students before loading a new roster. Archive keeps everything (recommended). Delete permanently removes the students and all their data. Teachers and parents are never touched." />
+      <PageHeader back={{ href: "/admin/quick-students", label: "Students & MAP Setup" }} icon="🧹" title="Clear Roster"
+        subtitle="Remove students — the whole school, a grade, a class or one student — before loading a new roster, or edit and remove them one by one. Archive keeps everything and can be restored (recommended). Delete permanently removes the students and their data. Classes, teachers, parents, questions, plans and settings are never touched." />
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <Section title="1 · Which Students" icon="🎯">
         <div className="flex flex-wrap gap-2">
           <Link href="/admin/roster/clean" className={pill(scope.kind === "SCHOOL")}>Whole school</Link>
           {grades.sort((a, b) => Number(a.level) - Number(b.level)).map((g) => <Link key={String(g.id)} href={`/admin/roster/clean?scope=grade&grade=${g.level}`} className={pill(scope.kind === "GRADE" && scope.grade === Number(g.level))}>Grade {String(g.level)}</Link>)}
           {liveClasses.map((c) => <Link key={String(c.id)} href={`/admin/roster/clean?scope=class&classId=${c.id}`} className={pill(scope.kind === "CLASS" && scope.classId === c.id)}>{String(c.name)}</Link>)}
+          {scope.kind === "STUDENTS" && <span className={pill(true)}>One student</span>}
         </div>
         <dl className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {[["Students", p.students], ["With answers", p.withHistory], ["Answers", p.answers], ["MAP scores", p.mapScores]].map(([l, n]) => <div key={String(l)} className="rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200"><dt className="text-xs text-slate-500">{l}</dt><dd className="text-2xl font-extrabold text-brand-navy">{n}</dd></div>)}
@@ -47,6 +48,25 @@ export default async function CleanRosterPage({ searchParams }: { searchParams: 
           </form>
         </Section>
       </div>
+      <Section title="Students One by One" icon="🧑‍🎓" className="mt-6" hint="Edit a student (name, number, class, password) or remove just one. Archived students can be restored.">
+        {list.length ? (
+          <div className="overflow-x-auto"><table className="min-w-full text-left text-sm">
+            <thead><tr className="border-b text-xs text-slate-500"><th className="py-2 pe-3">Student</th><th className="px-2">Number</th><th className="px-2">Grade</th><th className="px-2">Class</th><th className="px-2">Answers</th><th className="px-2">Status</th><th className="px-2" /></tr></thead>
+            <tbody>{list.map((r) => (
+              <tr key={r.id} className={`border-b last:border-0 ${r.archived ? "text-slate-400" : ""}`}>
+                <td className="py-1.5 pe-3 font-medium"><bdi>{r.name}</bdi> <span className="text-xs text-slate-400">{r.username}</span></td>
+                <td className="px-2 tabular-nums">{r.number || "—"}</td><td className="px-2">{r.grade || "—"}</td><td className="px-2">{r.className || "—"}</td><td className="px-2 tabular-nums">{r.answers}</td>
+                <td className="px-2">{r.archived ? <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">Archived</span> : <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-700">Active</span>}</td>
+                <td className="px-2"><span className="flex flex-wrap items-center justify-end gap-1.5">
+                  {!r.archived && <Link href={`/admin/users?q=${encodeURIComponent(r.username)}`} className="rounded-lg bg-white px-2.5 py-1 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">✏️ Edit</Link>}
+                  <form action={oneStudentAction}><input type="hidden" name="studentId" value={r.id} /><input type="hidden" name="q" value={q} /><button name="op" value={r.archived ? "restore" : "archive"} className="rounded-lg bg-white px-2.5 py-1 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{r.archived ? "↩️ Restore" : "📦 Archive"}</button></form>
+                  <Link href={`/admin/roster/clean?scope=student&id=${r.id}`} className="rounded-lg bg-white px-2.5 py-1 text-xs font-semibold text-red-700 ring-1 ring-red-200 hover:ring-red-400">🗑 Delete…</Link>
+                </span></td>
+              </tr>
+            ))}</tbody>
+          </table></div>
+        ) : <p className="text-slate-600">No students here.</p>}
+      </Section>
       <Section title="3 · Add the New Roster" icon="➕" className="mt-6" hint="Upload the roster file (role, username, display_name, student_number, grade, class). New classes are created automatically.">
         <Link href="/admin/roster" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">➕ Import roster</Link>
       </Section>

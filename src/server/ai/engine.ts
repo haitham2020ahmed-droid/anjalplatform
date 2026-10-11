@@ -42,7 +42,7 @@ export async function setAiSettings(repo: Repo, actor: Actor, input: Partial<AiS
     v[k] = x;
   };
   set("perMinute", 1, 60, "Requests per minute"); set("perDay", 1, 10000, "Requests per day"); set("batch", 1, 10, "Questions per request");
-  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY }, { value: v, updatedById: actor.userId, updatedAt: now }, { value: v, updatedById: actor.userId, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY }, { value: v, updatedBy: actor.userId, updatedAt: now }, { value: v, updatedBy: actor.userId, updatedAt: now });
   return v;
 }
 

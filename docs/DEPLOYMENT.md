@@ -310,3 +310,39 @@ Accounts: `test.admin`, `test.teacher.1` … `test.teacher.6` (one class each: T
 which is never printed or stored in the code. To recreate: `reset`, then `seed`.
 `reset` follows the database relations from the Test School only; shared data (standards, books,
 reading passages) and other schools are never touched. It refuses any school not marked as test data.
+
+## Email (SMTP)
+
+The admin's **Messages to Teachers** page (`/admin/messages`) delivers every message to the teachers'
+platform inbox (`/teacher/messages`, plus a bell notification). When SMTP is configured, each teacher
+with an email address on their account also receives it by email (a copy of the text and an
+"Open on the platform" button to `APP_URL/teacher/messages/<id>`). The mailer is built in (no extra
+package). Email never stops a message: each recipient gets a status — SENT, FAILED, NO_EMAIL or OFF —
+and the history table shows emailed / failed / read counts. At most 20 messages a day per admin.
+
+| Variable | Value |
+|---|---|
+| `SMTP_HOST` | e.g. `smtp.gmail.com` (empty = email OFF) |
+| `SMTP_PORT` | `465` (with `SMTP_SECURE=true`) or `587` (STARTTLS, `SMTP_SECURE=false`) |
+| `SMTP_SECURE` | `true` for port 465 |
+| `SMTP_USER` | the login (for Gmail: the full Gmail address) |
+| `SMTP_PASS` | the password (for Gmail: an **app password**) |
+| `MAIL_FROM` | sender, e.g. `Al-Anjal Platform <school.platform@gmail.com>` (Gmail: same address as `SMTP_USER`) |
+| `APP_URL` | already required; used for the link in the email |
+
+**Gmail app password (step by step)**
+1. Sign in to the Gmail account that will send the emails (a dedicated school account is best).
+2. Turn on 2-Step Verification: myaccount.google.com → Security → 2-Step Verification.
+3. Open myaccount.google.com/apppasswords, type a name (e.g. "Anjal platform") and press Create.
+4. Copy the 16-letter password (spaces do not matter). It is shown once.
+
+**On Render:** Web Service → Environment → add `SMTP_HOST=smtp.gmail.com`, `SMTP_PORT=465`,
+`SMTP_SECURE=true`, `SMTP_USER=<gmail address>`, `SMTP_PASS=<app password>`,
+`MAIL_FROM=Al-Anjal Platform <gmail address>` → Save Changes (Render redeploys). Open
+`/admin/messages`: the status line says "Email is ON". Send a test message to one chosen teacher whose
+account has your own address. If it shows as failed, the server log has a line starting with `[mail]`
+(e.g. "Login to the mail server failed (535)" = wrong user or app password). If port 465 is blocked by
+the host, try `SMTP_PORT=587` with `SMTP_SECURE=false`.
+
+Teachers' email addresses are the `email` field of their user accounts (Users page / roster import).
+Gmail sends at most about 500 emails a day from a normal account.

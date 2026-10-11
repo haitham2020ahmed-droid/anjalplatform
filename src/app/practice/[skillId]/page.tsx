@@ -7,7 +7,7 @@ import { ValidationError } from "@/server/curriculum-admin";
 import { startPractice } from "@/server/practice/session";
 import { isAssignedSkill } from "@/server/student/assigned";
 import { isMapPracticeSkill, seedAbilityFromRit } from "@/server/map/student-map";
-import { submitAnswerAction } from "./actions";
+import { hintAction, submitAnswerAction } from "./actions";
 import { canPlaySkill } from "@/server/game/skill-games";
 
 /** Starts (or resumes) adaptive practice for a skill. */
@@ -33,7 +33,7 @@ export default async function PracticePage({ params, searchParams }: { params: P
     const view = await startPractice(repo, actor, skillId);
     return (
       <AppShell name={String(me.displayName)}>
-        <PracticePlayer initial={view} unitHref={unitHref} submit={submitAnswerAction} />
+        <PracticePlayer initial={view} unitHref={unitHref} submit={submitAnswerAction} hint={hintAction} />
       </AppShell>
     );
   } catch (e) {

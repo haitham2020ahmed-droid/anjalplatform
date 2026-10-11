@@ -95,6 +95,7 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
     repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct", "isMastered"] }),
     isReportShared(repo, s(actor.schoolId), studentId),
   ]);
+  const profile = await repo.findUnique("StudentProfile", { studentId });
   const windows = sims.length ? await repo.findMany("MapSimWindow", { id: { in: [...new Set(sims.map((x) => s(x.windowId)).filter(Boolean))] } }, { select: ["id", "title"] }) : [];
   const tasks = subs.length ? await repo.findMany("WritingTask", { id: { in: subs.map((x) => x.taskId) } }, { select: ["id", "title", "kind"] }) : [];
   const asg = asgRows.length ? await repo.findMany("Assignment", { id: { in: asgRows.map((a) => a.assignmentId) }, deletedAt: null }, { select: ["id", "title", "dueAt", "createdAt"] }) : [];
@@ -104,7 +105,7 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
   const lv = levels.get(studentId);
   return {
     id: studentId, name: s(user?.displayName), number: s(st.studentNumber), username: s(user?.username), grade: Number(grade?.level ?? 0), className: s(klass?.name), classId: klass ? s(klass.id) : null, teachers: tUsers.map((u) => s(u.displayName)),
-    lastLogin: iso(user?.lastLoginAt), signIns30: logins.length, level: lv?.level ?? null, reportShared: shared,
+    lastLogin: iso(user?.lastLoginAt), signIns30: logins.length, level: (profile && ["BELOW", "ON", "ABOVE"].includes(s(profile.level)) ? s(profile.level) as NonNullable<typeof lv>["level"] : null) ?? lv?.level ?? null, reportShared: shared,
     practice: practice.get(studentId)!, work: work.get(studentId)!, streakDays: 0,
     skills: { strong: [...tried].sort((a, b) => b.pct - a.pct).filter((x) => x.pct >= 70).slice(0, 5), weak: [...tried].sort((a, b) => a.pct - b.pct).filter((x) => x.pct < 60).slice(0, 5), mastered: mastery.filter((m) => m.isMastered).length, started: mastery.length },
     map: [reading.get(studentId)!, language.get(studentId)!].filter((p) => p.term), plans, draftPlans,
@@ -113,7 +114,7 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
     words: { count: wordsRows.length, recent: wordsRows.sort((a, b) => time(b.lastAt) - time(a.lastAt)).slice(0, 12).map((w) => s(w.word)) },
     review: { due: review.due.length, learned: review.learned },
     badges: badges.filter((b) => b.earned).map((b) => ({ icon: b.icon, name: b.name, earnedAt: b.earnedAt })),
-    alerts: alerts.sort((a, b) => time(b.createdAt) - time(a.createdAt)).map((a) => { const info = ALERT_INFO[s(a.kind) as AlertKind]; return { title: info?.title ?? s(a.kind), icon: info?.icon ?? "•", detail: s(a.detail), status: s(a.status), action: a.action ? s(a.action) : null, date: iso(a.createdAt)!.slice(0, 10) }; }),
+    alerts: alerts.filter((a) => a.status !== "MERGED").sort((a, b) => time(b.createdAt) - time(a.createdAt)).map((a) => { const info = ALERT_INFO[s(a.kind) as AlertKind]; return { title: info?.title ?? s(a.kind), icon: info?.icon ?? "•", detail: s(a.detail), status: s(a.status), action: a.action ? s(a.action) : null, date: iso(a.createdAt)!.slice(0, 10) }; }),
     comments, notes: notes.map((n) => ({ body: n.body, author: n.author, date: n.date })),
     work10: asg.sort((a, b) => time(b.createdAt) - time(a.createdAt)).slice(0, 10).map((a) => { const r = asgRows.find((x) => x.assignmentId === a.id)!; return { title: s(a.title), status: s(r.status), progress: Math.round(Number(r.progress) * 100), dueAt: iso(a.dueAt), href: `/teacher/assignments/${s(a.id)}` }; }),
     exitTickets: tickets.sort((a, b) => time(b.createdAt) - time(a.createdAt)).map((t) => { const mine = exitAns.filter((x) => x.ticketId === t.id); return { title: s(t.title), score: mine.filter((x) => x.isCorrect).length, total: mine.length, date: iso(t.createdAt)!.slice(0, 10) }; }),

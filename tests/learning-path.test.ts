@@ -39,7 +39,10 @@ describe("🧭 adaptive learning path: the level carries over, with history, gua
     assert.equal(await recordLevel(repo, { studentId: sid, level: "ABOVE", source: "ADAPTIVE", answers: 3, now }), "TOO_FEW_ANSWERS");
     assert.equal(await recordLevel(repo, { studentId: sid, level: "ABOVE", source: "ADAPTIVE", answers: 12, now }), "KEPT_TEACHER");
     assert.equal(String((await repo.findUnique("StudentLevel", { studentId: sid }))!.level), "BELOW");
-    assert.equal(await recordLevel(repo, { studentId: sid, level: "ABOVE", source: "ADAPTIVE", answers: 12, now: new Date(now.getTime() + 31 * 86_400_000) }), "CHANGED");
+    // Update 39B (stability): after the teacher's 30 days, one set is kept as pending; the next set confirms the move
+    assert.equal(await recordLevel(repo, { studentId: sid, level: "ABOVE", source: "ADAPTIVE", answers: 12, now: new Date(now.getTime() + 31 * 86_400_000) }), "PENDING");
+    assert.equal(String((await repo.findUnique("StudentLevel", { studentId: sid }))!.level), "BELOW");
+    assert.equal(await recordLevel(repo, { studentId: sid, level: "ABOVE", source: "ADAPTIVE", answers: 12, now: new Date(now.getTime() + 33 * 86_400_000) }), "CHANGED");
   });
 
   test("a student climbs Below → On → Above in an adaptive set; the next set starts at Above; the page shows it all", async () => {
@@ -62,7 +65,8 @@ describe("🧭 adaptive learning path: the level carries over, with history, gua
     // a Concept Vocabulary set (no evidence there yet) starts from the Lexile
     await repo.create("MapResult", { studentId: sid, testDate: new Date(), subject: "Reading", goalName: null, rit: 170, lexile: 300, termName: "Fall 2026", importedAt: new Date() });
     assert.deepEqual(await startLevel(repo, sid, "ON", "ACS"), { level: "ABOVE", from: "CATEGORY" });
-    assert.equal((await startLevel(repo, sid, "ON", "CV")).from, "LEXILE");
+    // another section: no level there yet → their recent platform results (10+ careful answers) come before the MAP Lexile
+    assert.equal((await startLevel(repo, sid, "ON", "CV")).from, "LEVEL");
     const p = await studentLearningPath(repo, teacher, sid);
     assert.equal(p.level?.level, "BELOW", "the overall (MAP) level is unchanged");
     assert.deepEqual(p.categories.map((c) => [c.category, c.level]), [["ACS", "ABOVE"]]);
@@ -80,8 +84,11 @@ describe("🧭 adaptive learning path: the level carries over, with history, gua
     const tUser = String((await repo.findUnique("Teacher", { id: (await repo.findMany("ClassTeacher", { classId }))[0].teacherId }))!.userId);
     const before = await repo.count("Notification", { userId: tUser });
     await recordLevel(repo, { studentId: sid, level: "ABOVE", source: "ADAPTIVE", answers: 10, category: "ACS" });
-    await recordLevel(repo, { studentId: sid, level: "ON", source: "ADAPTIVE", answers: 10, category: "ACS" });
+    // Update 39B (stability): each move needs a second set pointing the same way (the first is kept as pending)
+    assert.equal(await recordLevel(repo, { studentId: sid, level: "ON", source: "ADAPTIVE", answers: 10, category: "ACS" }), "PENDING");
+    assert.equal(await recordLevel(repo, { studentId: sid, level: "ON", source: "ADAPTIVE", answers: 10, category: "ACS" }), "CHANGED");
     assert.equal(await repo.count("Notification", { userId: tUser }), before, "one drop: no alert yet");
+    await recordLevel(repo, { studentId: sid, level: "BELOW", source: "ADAPTIVE", answers: 10, category: "ACS" });
     await recordLevel(repo, { studentId: sid, level: "BELOW", source: "ADAPTIVE", answers: 10, category: "ACS" });
     const n = (await repo.findMany("Notification", { userId: tUser })).filter((x) => /dropped twice/.test(String(x.title)));
     assert.equal(n.length, 1);
@@ -100,7 +107,8 @@ describe("🧭 adaptive learning path: the level carries over, with history, gua
       await repo.create("QuestionAttempt", { sessionId: session.id, studentId: kids[3], questionId: q.id, skillId: q.skillId, response: { value: "B" }, isCorrect: k % 3 === 0, partialCredit: null, responseMs: 900, usedHint: false, rapidGuess: true, difficultyB: 0, createdAt: new Date((t += 1000)) });
     }
     await applyPlacementResult(repo, String(set.id), String(session.id), kids[3]);
-    assert.ok((await repo.findMany("Notification", { userId: tUser })).some((x) => /answered too fast/.test(String(x.title))));
+    // Update 39B: 30%+ rapid guesses → the set is invalid (the level is not moved) and the teacher is asked to re-test
+    assert.ok((await repo.findMany("Notification", { userId: tUser })).some((x) => /is invalid — re-test/.test(String(x.title))));
   });
 
   test("⚡ a student who guesses fast is not moved down for it: only careful answers move the level", async () => {

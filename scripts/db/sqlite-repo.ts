@@ -24,6 +24,12 @@ export class SqliteRepo implements Repo {
     return m;
   }
 
+  /** Same as Prisma: a field the model does not have is an error (silently dropping it hid real bugs). */
+  private known(m: Model, data: Row, model: string): void {
+    const names = new Set(columns(m, this.schema).map((c) => c.name));
+    for (const k of Object.keys(data)) if (data[k] !== undefined && !names.has(k)) throw new Error(`Unknown argument \`${k}\` for ${model}. Available fields: ${[...names].join(", ")}`);
+  }
+
   private toDb(m: Model, data: Row): Record<string, unknown> {
     const out: Record<string, unknown> = {};
     for (const c of columns(m, this.schema)) {
@@ -39,15 +45,21 @@ export class SqliteRepo implements Repo {
     return out;
   }
 
-  private fromDb(m: Model, row: Record<string, unknown> | undefined): Row | null {
+  /** per model: the columns read back as JSON / as booleans (worked out once, not for every row — Update 40) */
+  private readonly conv = new Map<string, { json: string[]; bool: string[] }>();
+  private fromDb(m: Model, row: Record<string, unknown> | undefined, keys?: string[]): Row | null {
     if (!row) return null;
-    const out: Row = { ...row };
-    for (const c of columns(m, this.schema)) {
-      const v = row[c.name];
-      if (v === null || v === undefined) continue;
-      if (c.type === "Json") out[c.name] = JSON.parse(String(v));
-      else if (c.type === "Boolean") out[c.name] = v === 1;
+    let cv = this.conv.get(m.name);
+    if (!cv) {
+      const cols = columns(m, this.schema);
+      cv = { json: cols.filter((c) => c.type === "Json").map((c) => c.name), bool: cols.filter((c) => c.type === "Boolean").map((c) => c.name) };
+      this.conv.set(m.name, cv);
     }
+    // a plain copy (rows of one query share their keys: a key loop is ~4× faster than a spread of the driver's rows)
+    let out: Row;
+    if (keys) { out = {}; for (const k of keys) out[k] = row[k]; } else out = { ...row };
+    for (const k of cv.json) { const v = row[k]; if (v !== null && v !== undefined) out[k] = JSON.parse(String(v)); }
+    for (const k of cv.bool) { const v = row[k]; if (v !== null && v !== undefined) out[k] = v === 1; }
     return out;
   }
 
@@ -94,6 +106,7 @@ export class SqliteRepo implements Repo {
   async create(model: string, data: Row): Promise<Row> {
     noteWrite(model);
     const m = this.model(model);
+    this.known(m, data, model);
     const d: Row = { ...data };
     for (const c of columns(m, this.schema)) {
       if (d[c.name] === undefined && c.default?.kind === "cuid") d[c.name] = cuidLike();
@@ -115,6 +128,7 @@ export class SqliteRepo implements Repo {
     const m = this.model(model);
     let n = 0;
     for (const data of rows) {
+      this.known(m, data, model);
       const d: Row = { ...data };
       for (const c of columns(m, this.schema)) {
         if (d[c.name] === undefined && c.default?.kind === "cuid") d[c.name] = cuidLike();
@@ -143,7 +157,9 @@ export class SqliteRepo implements Repo {
     const cols = opts.select?.length ? opts.select.map((c) => `"${c}"`).join(", ") : "*";
     const order = opts.orderBy?.length ? ` ORDER BY ${opts.orderBy.map((o) => `"${o.field}" ${o.dir === "desc" ? "DESC" : "ASC"}`).join(", ")}` : "";
     const limit = opts.take !== undefined ? ` LIMIT ${Math.max(0, Math.floor(opts.take))}${opts.skip ? ` OFFSET ${Math.max(0, Math.floor(opts.skip))}` : ""}` : opts.skip ? ` LIMIT -1 OFFSET ${Math.max(0, Math.floor(opts.skip))}` : "";
-    return (this.db.prepare(`SELECT ${cols} FROM "${model}"${w.sql}${order}${limit}`).all(...(w.params as never[])) as Record<string, unknown>[]).map((r) => this.fromDb(m, r)!);
+    const rows = this.db.prepare(`SELECT ${cols} FROM "${model}"${w.sql}${order}${limit}`).all(...(w.params as never[])) as Record<string, unknown>[];
+    const keys = rows.length ? Object.keys(rows[0]) : [];
+    return rows.map((r) => this.fromDb(m, r, keys)!);
   }
 
   async count(model: string, where?: Where): Promise<number> {
@@ -156,6 +172,7 @@ export class SqliteRepo implements Repo {
     noteWrite(model);
     const m = this.model(model);
     const existing = await this.findUnique(model, where);
+    this.known(m, update, model);
     if (!existing) return this.create(model, { ...where, ...create });
     if (Object.keys(update).length === 0) return existing;
     const d: Row = { ...update };
@@ -170,6 +187,7 @@ export class SqliteRepo implements Repo {
   async updateMany(model: string, where: Where, data: Row): Promise<number> {
     noteWrite(model);
     const m = this.model(model);
+    this.known(m, data, model);
     const d: Row = { ...data };
     for (const c of columns(m, this.schema)) if (c.isUpdatedAt) d[c.name] = new Date();
     const row = this.toDb(m, d);

@@ -1,0 +1,49 @@
+/**
+ * 🚀 ReadRise — platform library seed: data/readrise/articles/*.json → RRArticle (schoolId null, PUBLISHED).
+ * Idempotent by code (re-running updates the same rows); a broken file is skipped and reported, never half-written.
+ * Called by the platform seeds (prisma/seed/questions.ts and prisma/seed/readrise.ts) — never by the demo / test school seed.
+ */
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import type { Repo } from "../seeding/repo";
+import { importArticleJson } from "./import";
+
+export interface LibrarySeedReport { files: number; created: number; updated: number; skipped: { file: string; problems: string[] }[] }
+
+export async function seedReadRiseLibrary(repo: Repo, root: string, log: (m: string) => void = console.log): Promise<LibrarySeedReport> {
+  const dir = join(root, "data", "readrise", "articles");
+  const rep: LibrarySeedReport = { files: 0, created: 0, updated: 0, skipped: [] };
+  if (!existsSync(dir)) return rep;
+  for (const f of readdirSync(dir).filter((n) => n.endsWith(".json")).sort()) {
+    rep.files++;
+    let json: unknown;
+    try { json = JSON.parse(readFileSync(join(dir, f), "utf8")); }
+    catch (e) { rep.skipped.push({ file: f, problems: [`not valid JSON: ${(e as Error).message}`] }); log(`  ReadRise: skipped ${f} (not valid JSON)`); continue; }
+    const r = await importArticleJson(repo, null, json, { schoolId: null, publish: true });
+    if (!r.ok) {
+      rep.skipped.push({ file: f, problems: r.errors.map((e) => `${e.where}: ${e.message}`) });
+      log(`  ReadRise: skipped ${f} (${r.errors.length} problem${r.errors.length === 1 ? "" : "s"}: ${r.errors.slice(0, 2).map((e) => `${e.where}: ${e.message}`).join("; ")})`);
+      continue;
+    }
+    if (r.created) rep.created++; else rep.updated++;
+  }
+  log(`  ReadRise library: ${rep.created} new, ${rep.updated} updated, ${rep.skipped.length} skipped (${rep.files} files).`);
+  return rep;
+}
+
+/**
+ * Loads the platform library on a live site without any manual step: when there are fewer platform articles than
+ * article files (first deploy, or new files shipped in an update), the missing/changed files are imported.
+ * Cheap when nothing is missing (one count query). Safe to call from pages and the daily job.
+ */
+let ensuring: Promise<LibrarySeedReport | null> | null = null;
+export async function ensureReadRiseLibrary(repo: Repo, root: string = process.cwd()): Promise<LibrarySeedReport | null> {
+  const dir = join(root, "data", "readrise", "articles");
+  if (!existsSync(dir)) return null;
+  const files = readdirSync(dir).filter((n) => n.endsWith(".json")).length;
+  if (!files) return null;
+  const have = (await repo.findMany("RRArticle", { schoolId: null, deletedAt: null }, { select: ["id"] })).length;
+  if (have >= files) return null;
+  ensuring ??= seedReadRiseLibrary(repo, root, () => undefined).finally(() => { ensuring = null; });
+  return ensuring;
+}

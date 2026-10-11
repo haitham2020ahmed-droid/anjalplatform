@@ -12,8 +12,10 @@
  *     pool, so small pools keep working without immediate repeats).
  *  3. Among the best `topK` candidates one is chosen at random (exposure control,
  *     so classmates don't all see identical sequences).
- *  4. After `prereqRouteAfterWrong` consecutive errors, if a prerequisite skill is
- *     below its minimum mastery, the engine recommends routing there.
+ *  4. After `prereqRouteAfterWrong` consecutive errors IN THIS SESSION, if a prerequisite skill
+ *     is below its minimum mastery, the engine recommends routing there. A prerequisite the
+ *     student was already routed to (`visited`) is not routed to again, and an untested
+ *     prerequisite (no mastery yet) is a "check it" — routed to at most once.
  */
 import type { AdaptiveConfig } from "../config/engine";
 import type { CandidateItem, NextItemDecision } from "../types/domain";
@@ -25,6 +27,10 @@ export interface PrerequisiteStatus {
   mastery: number;
   minimumMastery: number;
   weight: number;
+  /** false when the student has no mastery row for it yet (mastery 0 means "untested", not "weak") */
+  tested?: boolean;
+  /** already routed to from this skill in this session (or its detour): never routed to again */
+  visited?: boolean;
 }
 
 export interface SelectionInput {
@@ -33,13 +39,16 @@ export interface SelectionInput {
   previousTargetB: number | null;
   candidates: CandidateItem[];
   recentItemIds: string[];
-  /** Most recent last. */
+  /** Most recent last — answers of the CURRENT session only (the wrong-answer streak never spans sessions). */
   recentCorrect: boolean[];
   prerequisites: PrerequisiteStatus[];
   config: AdaptiveConfig;
   /** Injectable RNG for deterministic tests. */
   random?: () => number;
 }
+
+/** In practice, an item is never more than this far above the student's ability (2 authoring levels of 0.75). */
+export const MAX_ABOVE_THETA = 1.5;
 
 export function consecutiveWrong(recentCorrect: boolean[]): number {
   let n = 0;
@@ -59,7 +68,7 @@ export function selectNextItem(input: SelectionInput): NextItemDecision {
   const wrongStreak = consecutiveWrong(input.recentCorrect);
   if (input.mode === "PRACTICE" && wrongStreak >= cfg.prereqRouteAfterWrong) {
     const gaps = input.prerequisites
-      .filter((p) => p.mastery < p.minimumMastery)
+      .filter((p) => !p.visited && p.mastery < p.minimumMastery)
       .map((p) => ({ p, priority: p.weight * (p.minimumMastery - p.mastery) }))
       .sort((x, y) => y.priority - x.priority);
     if (gaps.length > 0) {
@@ -68,7 +77,9 @@ export function selectNextItem(input: SelectionInput): NextItemDecision {
         itemId: null,
         targetB: theta,
         reasonCode: "PREREQ_ROUTE",
-        reason: `${wrongStreak} incorrect in a row; prerequisite "${g.name}" is at ${g.mastery.toFixed(0)} (needs ${g.minimumMastery}). Route there before continuing.`,
+        reason: g.tested === false
+          ? `${wrongStreak} incorrect in a row; prerequisite "${g.name}" has not been checked yet (needs ${g.minimumMastery}). Route there to check it before continuing.`
+          : `${wrongStreak} incorrect in a row; prerequisite "${g.name}" is at ${g.mastery.toFixed(0)} (needs ${g.minimumMastery}). Route there before continuing.`,
         routeToSkillId: g.skillId,
       };
     }
@@ -108,8 +119,27 @@ export function selectNextItem(input: SelectionInput): NextItemDecision {
     };
   }
 
+  // 4b. Bank gaps (readiness I-22): in practice an item is never more than MAX_ABOVE_THETA (2 authoring levels) above
+  // the student's estimate. When no unseen item is in reach, nothing is served: the set ends early (fewer items) and
+  // the gap is logged (NO_ITEM_IN_RANGE) for the admin's Question Bank Gaps page. (Reusing a question seen a moment
+  // ago would repeat it inside the same session.)
+  let usable = pool;
+  if (input.mode === "PRACTICE") {
+    const cap = theta + MAX_ABOVE_THETA;
+    usable = pool.filter((c) => c.b <= cap);
+    if (!usable.length) {
+      const easiest = pool.reduce((m, c) => (c.b < m.b ? c : m), pool[0]);
+      return {
+        itemId: null,
+        targetB: target,
+        reasonCode: "NO_ITEM_IN_RANGE",
+        reason: `Content gap: no unseen question within 2 levels of the student (θ=${fmt(theta)}); the easiest available is b=${fmt(easiest.b)} (level ${easiest.level}). The set ends early; the bank needs easier questions for this skill.`,
+      };
+    }
+  }
+
   // 5. Score: closeness to target (practice) or information at theta (diagnostic)
-  const scored = pool
+  const scored = usable
     .map((item) => ({
       item,
       dist: Math.abs(item.b - target),
@@ -119,7 +149,10 @@ export function selectNextItem(input: SelectionInput): NextItemDecision {
           : -Math.abs(item.b - target) + 0.05 * information(theta, item, 2),
     }))
     .sort((x, y) => y.score - x.score);
-  const top = scored.slice(0, Math.max(1, cfg.topK));
+  // when the nearest item is already far from the target, only the nearest ones are used (no random far pick)
+  const nearest = scored.reduce((m, x) => Math.min(m, x.dist), Infinity);
+  const near = nearest > 1.0 ? scored.filter((x) => x.dist <= nearest + 0.25) : scored;
+  const top = near.slice(0, Math.max(1, cfg.topK));
   const pick = top[Math.min(top.length - 1, Math.floor(rnd() * top.length))];
 
   if (pick.dist > 1.0) reasonCode = "NO_ITEM_IN_RANGE";

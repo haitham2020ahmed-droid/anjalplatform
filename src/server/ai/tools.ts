@@ -5,8 +5,10 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import { masterSkills, type MasterSkill } from "../skills/master";
+import { MISCONCEPTIONS, MISCONCEPTION_BY_CODE } from "../../insights/misconceptions";
 import { fromDifficulty } from "../curriculum-map/leveled-run";
 import { analyzeText, platformReadingLevel } from "../../reading/prl";
+import { CLUE_TYPES, literacyValue, QAR_TYPES, SPELLING_PATTERNS, THINKING_LEVELS } from "../../questions/intelligence";
 import type { Validator } from "./engine";
 
 const s = (v: unknown) => String(v ?? "");
@@ -103,7 +105,7 @@ export function qualityValidator(qs: QItem[]): Validator<QualityResult[]> {
 // ------------------------------------------------------------------ Auto-Tag (AI)
 
 export interface TagContext { grade: number; skills: { code: string; title: string }[]; standards: { code: string; text: string }[]; goalAreas: string[] }
-export interface TagResult { id: string; skillCode: string; standard: string; goalArea: string; level: Level; difficulty: number; confidence: number }
+export interface TagResult { id: string; skillCode: string; standard: string; goalArea: string; level: Level; difficulty: number; confidence: number; dok?: number; misconceptions?: Record<string, string>; qar?: string; thinking?: string; clueType?: string; pattern?: string }
 
 export async function tagContext(repo: Repo, schoolId: string, grade: number): Promise<{ ctx: TagContext; skills: MasterSkill[] }> {
   const skills = await masterSkills(repo, schoolId, { grade });
@@ -118,10 +120,17 @@ export function tagPrompt(c: TagContext, qs: (QItem & { currentSkill: string; cu
       `You tag Grade ${c.grade} English Language Arts questions. For each question choose:`,
       "skillCode (ONLY from allowed.skills codes), standard (ONLY from allowed.standards codes, e.g. RL.4.3), goalArea (ONLY from allowed.goalAreas),",
       "level (BELOW, ON or ABOVE for this grade), difficulty (a whole number 1–7: 1–3 below grade level, 4 on grade level, 5–7 above), confidence (0 to 1).",
+      "Also give dok (Depth of Knowledge 1–4: 1 recall, 2 skill/concept, 3 strategic thinking, 4 extended thinking) and misconceptions:",
+      "for EACH WRONG option label, the code (ONLY from allowed.misconceptions) of the mistaken idea a student who picks it most likely has.",
+      "For READING comprehension questions also give qar (Question-Answer Relationship: RIGHT_THERE = the answer is stated in one place; THINK_AND_SEARCH = put together from several places;",
+      "AUTHOR_AND_ME = the text plus what the reader already knows; ON_MY_OWN = from the reader's own experience) and thinking (LOCATE = find it; COMBINE = put parts together;",
+      "CONNECT = link the text with what the reader knows; ANALYZE = how or why the author built the text).",
+      "For questions about a word's meaning from context also give clueType (ONLY from allowed.clueTypes; NONE when the text gives no clue). For spelling questions also give pattern (ONLY from allowed.spellingPatterns).",
+      "Leave out qar, thinking, clueType and pattern when they do not apply.",
       "Keep the current skill and standard when they fit. Never invent codes.",
-      'Return ONLY JSON: {"results":[{"id":"…","skillCode":"…","standard":"RL.4.3","goalArea":"…","level":"ON","difficulty":4,"confidence":0.8}]} — one result for EVERY question id.',
+      'Return ONLY JSON: {"results":[{"id":"…","skillCode":"…","standard":"RL.4.3","goalArea":"…","level":"ON","difficulty":4,"confidence":0.8,"dok":2,"misconceptions":{"B":"DETAIL_NOT_MAIN"},"qar":"THINK_AND_SEARCH","thinking":"COMBINE"}]} — one result for EVERY question id.',
     ].join(" "),
-    user: { task: "Tag questions", grade: c.grade, allowed: { skills: c.skills, standards: c.standards, goalAreas: c.goalAreas, levels: ["BELOW", "ON", "ABOVE"] }, questions: qs.map((q) => ({ ...qPayload(q), currentSkill: q.currentSkill, currentStandard: q.currentStandard })) },
+    user: { task: "Tag questions", grade: c.grade, allowed: { skills: c.skills, standards: c.standards, goalAreas: c.goalAreas, levels: ["BELOW", "ON", "ABOVE"], misconceptions: MISCONCEPTIONS.map((m) => ({ code: m.code, meaning: m.label })), qar: QAR_TYPES, thinking: THINKING_LEVELS, clueTypes: CLUE_TYPES, spellingPatterns: SPELLING_PATTERNS }, questions: qs.map((q) => ({ ...qPayload(q), currentSkill: q.currentSkill, currentStandard: q.currentStandard })) },
   };
 }
 
@@ -143,7 +152,13 @@ export function tagValidator(c: TagContext, qs: QItem[]): Validator<TagResult[]>
       const d = Number(r.difficulty);
       if (!(Number.isInteger(d) && d >= 1 && d <= 7)) return { ok: false, error: `question ${s(r.id)}: difficulty must be a whole number 1–7` };
       const conf = Math.max(0, Math.min(1, Number(r.confidence ?? 0.5) || 0.5));
-      out.push({ id: s(r.id), skillCode: s(r.skillCode), standard: std, goalArea: s(r.goalArea), level: level as Level, difficulty: d, confidence: conf });
+      // optional: kept only when valid (an unknown code or a DOK outside 1–4 is dropped, never invented)
+      const dok = Number(r.dok);
+      const mis = r.misconceptions && typeof r.misconceptions === "object" ? Object.fromEntries(Object.entries(r.misconceptions as Record<string, unknown>).filter(([, v]) => MISCONCEPTION_BY_CODE.has(s(v))).map(([k, v]) => [k, s(v)])) : undefined;
+      // literacy tags: optional, kept only when they are one of the allowed values (a draft for review, like the rest)
+      const lit: Partial<Record<"qar" | "thinking" | "clueType" | "pattern", string>> = {};
+      for (const k of ["qar", "thinking", "clueType", "pattern"] as const) { const v = literacyValue(k, r[k]); if (v) lit[k] = v; }
+      out.push({ id: s(r.id), skillCode: s(r.skillCode), standard: std, goalArea: s(r.goalArea), level: level as Level, difficulty: d, confidence: conf, ...(Number.isInteger(dok) && dok >= 1 && dok <= 4 ? { dok } : {}), ...(mis && Object.keys(mis).length ? { misconceptions: mis } : {}), ...lit });
     }
     return { ok: true, value: out };
   };
@@ -257,11 +272,13 @@ export async function gapReport(repo: Repo, schoolId: string, grade: number, ski
 export interface Suspicious { id: string; stem: string; answers: number; correctPct: number; strongAnswers: number; strongCorrectPct: number | null; key: string; topWrong: { label: string; count: number } | null; keyCount: number; reasons: string[] }
 
 /** Questions where most students are wrong — strong students too — or a wrong option beats the keyed answer. */
-export async function suspiciousQuestions(repo: Repo, schoolId: string, opts: { minAnswers?: number; grade?: number } = {}): Promise<Suspicious[]> {
+export async function suspiciousQuestions(repo: Repo, schoolId: string, opts: { minAnswers?: number; grade?: number; now?: Date } = {}): Promise<Suspicious[]> {
   const min = opts.minAnswers ?? 10;
   const skills = await masterSkills(repo, schoolId, opts.grade ? { grade: opts.grade } : {});
   if (!skills.length) return [];
-  const attempts = await repo.findMany("QuestionAttempt", { skillId: { in: skills.map((k) => k.id) } }, { select: ["questionId", "studentId", "isCorrect", "response", "rapidGuess"] });
+  // the last year of answers only: bounded scan, and reflects the questions as they are now
+  const since = new Date((opts.now ?? new Date()).getTime() - 365 * 86_400_000);
+  const attempts = await repo.findMany("QuestionAttempt", { skillId: { in: skills.map((k) => k.id) }, createdAt: { gte: since } }, { select: ["questionId", "studentId", "isCorrect", "response", "rapidGuess"] });
   const careful = attempts.filter((a) => !a.rapidGuess);
   const byQ = new Map<string, Row[]>();
   for (const a of careful) byQ.set(s(a.questionId), [...(byQ.get(s(a.questionId)) ?? []), a]);

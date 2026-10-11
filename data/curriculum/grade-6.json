@@ -19,7 +19,18 @@
      "texts": {
       "selection": "Eleven"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Context Clues",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "context-clues"
+      },
+      {
+       "label": "Adjectives, Articles and Order of Adjectives",
+       "role": "GRAMMAR",
+       "familyCode": "adjectives"
+      }
+     ]
     },
     {
      "number": 2,
@@ -29,7 +40,18 @@
      "texts": {
       "selection": "The Mighty Miss Malone"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Cite Text Evidence",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "text-evidence"
+      },
+      {
+       "label": "Adverbs and Relative Adverbs",
+       "role": "GRAMMAR",
+       "familyCode": "adverbs"
+      }
+     ]
     },
     {
      "number": 3,
@@ -39,7 +61,18 @@
      "texts": {
       "selection": "Red Scarf Girl / Hatchet"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Make Inferences",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "inference"
+      },
+      {
+       "label": "Pronouns and Antecedents",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns"
+      }
+     ]
     },
     {
      "number": 4,
@@ -49,7 +82,18 @@
      "texts": {
       "selection": "The Magic Marker Mystery"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Figurative Language (Similes, Metaphors, Personification, Hyperbole)",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "figurative-language"
+      },
+      {
+       "label": "Nouns: Common, Proper, Concrete, Abstract, Collective",
+       "role": "GRAMMAR",
+       "familyCode": "nouns"
+      }
+     ]
     },
     {
      "number": 5,
@@ -59,7 +103,18 @@
      "texts": {
       "selection": "Scout's Honor"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Character Traits & Development",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "character"
+      },
+      {
+       "label": "Kinds of Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "sentences"
+      }
+     ]
     },
     {
      "number": 6,
@@ -69,7 +124,18 @@
      "texts": {
       "selection": "The Good Samaritan"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Compare and Contrast Texts",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "compare-texts"
+      },
+      {
+       "label": "Sentence Fragments",
+       "role": "GRAMMAR",
+       "familyCode": "fragments-run-ons"
+      }
+     ]
     },
     {
      "number": 7,
@@ -79,7 +145,18 @@
      "texts": {
       "selection": "Jabberwocky / Gathering Blue / A Wrinkle in Time"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Summarize",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "summarize"
+      },
+      {
+       "label": "Nouns: Singular and Plural",
+       "role": "GRAMMAR",
+       "familyCode": "plural-nouns"
+      }
+     ]
     }
    ],
    "unitSkills": [
@@ -198,7 +275,23 @@
      "texts": {
       "selection": "Walk Two Moons"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Imagery and Sensory Language",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "imagery"
+      },
+      {
+       "label": "Author's Claim and Evidence",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-claim"
+      },
+      {
+       "label": "Nouns: Common, Proper, Concrete, Abstract, Collective",
+       "role": "GRAMMAR",
+       "familyCode": "nouns"
+      }
+     ]
     },
     {
      "number": 2,
@@ -208,7 +301,18 @@
      "texts": {
       "selection": "Roll of Thunder, Hear My Cry"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Figurative Language (Similes, Metaphors, Personification, Hyperbole)",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "figurative-language"
+      },
+      {
+       "label": "Fragments and Run-On Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "fragments-run-ons"
+      }
+     ]
     },
     {
      "number": 3,
@@ -218,7 +322,18 @@
      "texts": {
       "selection": "Teenagers"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Cite Text Evidence",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "text-evidence"
+      },
+      {
+       "label": "Subjects and Predicates",
+       "role": "GRAMMAR",
+       "familyCode": "subjects-predicates"
+      }
+     ]
     },
     {
      "number": 4,
@@ -228,7 +343,23 @@
      "texts": {
       "selection": "Tableau"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Poetry: Structure, Rhyme, Meter and Form",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "poetry-elements"
+      },
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Punctuation and Commas",
+       "role": "GRAMMAR",
+       "familyCode": "commas"
+      }
+     ]
     },
     {
      "number": 5,
@@ -238,7 +369,18 @@
      "texts": {
       "selection": "The Voice in My Head / We're on the Same Team"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Connotation and Denotation",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "connotation"
+      },
+      {
+       "label": "Spelling Patterns",
+       "role": "GRAMMAR",
+       "familyCode": "spelling"
+      }
+     ]
     },
     {
      "number": 6,
@@ -248,7 +390,23 @@
      "texts": {
       "selection": "The Treasure of Lemon Brown"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Point of View and Perspective",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "point-of-view"
+      },
+      {
+       "label": "Pronouns, Contractions and Homophones",
+       "role": "GRAMMAR",
+       "familyCode": "pronoun-homophones"
+      }
+     ]
     },
     {
      "number": 7,
@@ -258,7 +416,23 @@
      "texts": {
       "selection": "The Circuit / That Day / A Poem for My Librarian, Mrs. Long"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Poetry: Structure, Rhyme, Meter and Form",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "poetry-elements"
+      },
+      {
+       "label": "Compare and Contrast Texts",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "compare-texts"
+      },
+      {
+       "label": "Verb Tenses: Present, Past, and Future",
+       "role": "GRAMMAR",
+       "familyCode": "verb-tenses"
+      }
+     ]
     }
    ],
    "unitSkills": [
@@ -402,7 +576,23 @@
      "texts": {
       "selection": "Heroes Every Child Should Know: Perseus"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Character Traits & Development",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "character"
+      },
+      {
+       "label": "Make Inferences",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "inference"
+      },
+      {
+       "label": "Compound Sentences and Conjunctions",
+       "role": "GRAMMAR",
+       "familyCode": "compound-sentences"
+      }
+     ]
     },
     {
      "number": 2,
@@ -412,7 +602,18 @@
      "texts": {
       "selection": "The Lightning Thief"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Dictionary, Glossary and Thesaurus",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "reference-materials"
+      },
+      {
+       "label": "Adjectives, Articles and Order of Adjectives",
+       "role": "GRAMMAR",
+       "familyCode": "adjectives"
+      }
+     ]
     },
     {
      "number": 3,
@@ -422,7 +623,23 @@
      "texts": {
       "selection": "Elena / Hatshepsut"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Plot: Sequence of Events",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "plot-events"
+      },
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Prefixes",
+       "role": "GRAMMAR",
+       "familyCode": "prefixes"
+      }
+     ]
     },
     {
      "number": 4,
@@ -432,7 +649,23 @@
      "texts": {
       "selection": "I, Too"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Poetry: Structure, Rhyme, Meter and Form",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "poetry-elements"
+      },
+      {
+       "label": "Central Idea and Relevant Details",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "central-idea"
+      },
+      {
+       "label": "Compound Sentences and Conjunctions",
+       "role": "GRAMMAR",
+       "familyCode": "compound-sentences"
+      }
+     ]
     },
     {
      "number": 5,
@@ -442,7 +675,23 @@
      "texts": {
       "selection": "Everybody Jump"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Central Idea and Relevant Details",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "central-idea"
+      },
+      {
+       "label": "Text Structure: Cause and Effect",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "cause-effect"
+      },
+      {
+       "label": "Adjectives, Articles and Order of Adjectives",
+       "role": "GRAMMAR",
+       "familyCode": "adjectives"
+      }
+     ]
     },
     {
      "number": 6,
@@ -452,7 +701,18 @@
      "texts": {
       "selection": "Hoot"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Synonyms and Antonyms",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "synonyms-antonyms"
+      },
+      {
+       "label": "Prefixes",
+       "role": "GRAMMAR",
+       "familyCode": "prefixes"
+      }
+     ]
     },
     {
      "number": 7,
@@ -462,7 +722,18 @@
      "texts": {
       "selection": "Donna O'Meara / Dare to be Creative! / Margaret Bourke-White"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Compound Sentences and Conjunctions",
+       "role": "GRAMMAR",
+       "familyCode": "compound-sentences"
+      }
+     ]
     }
    ],
    "unitSkills": [
@@ -546,7 +817,23 @@
      "texts": {
       "selection": "I Am Malala"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Author's Purpose",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-purpose"
+      },
+      {
+       "label": "Connotation and Denotation",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "connotation"
+      },
+      {
+       "label": "Punctuation and Commas",
+       "role": "GRAMMAR",
+       "familyCode": "commas"
+      }
+     ]
     },
     {
      "number": 2,
@@ -556,7 +843,18 @@
      "texts": {
       "selection": "Malala Yousafzai – Nobel Lecture"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Author's Purpose",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-purpose"
+      },
+      {
+       "label": "Pronouns and Antecedents",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns"
+      }
+     ]
     },
     {
      "number": 3,
@@ -566,7 +864,23 @@
      "texts": {
       "selection": "Priscilla and the Wimps / All Summer in a Day"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Author's Perspective",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-perspective"
+      },
+      {
+       "label": "Homographs and Homophones",
+       "role": "GRAMMAR",
+       "familyCode": "homographs-homophones"
+      }
+     ]
     },
     {
      "number": 4,
@@ -576,7 +890,23 @@
      "texts": {
       "selection": "Bullying in Schools"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Author's Claim and Evidence",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-claim"
+      },
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Punctuation and Commas",
+       "role": "GRAMMAR",
+       "familyCode": "commas"
+      }
+     ]
     },
     {
      "number": 5,
@@ -586,7 +916,18 @@
      "texts": {
       "selection": "Freedom Walkers / Letter to Xavier High School / Freedom's Daughters"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Author's Claim and Evidence",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-claim"
+      },
+      {
+       "label": "Pronouns and Antecedents",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns"
+      }
+     ]
     },
     {
      "number": 6,
@@ -596,7 +937,23 @@
      "texts": {
       "selection": "Celebrities as Heroes"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Author's Claim and Evidence",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-claim"
+      },
+      {
+       "label": "Central Idea and Relevant Details",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "central-idea"
+      },
+      {
+       "label": "Homographs and Homophones",
+       "role": "GRAMMAR",
+       "familyCode": "homographs-homophones"
+      }
+     ]
     },
     {
      "number": 7,
@@ -606,7 +963,23 @@
      "texts": {
       "selection": "Famous"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Poetry: Structure, Rhyme, Meter and Form",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "poetry-elements"
+      },
+      {
+       "label": "Compare and Contrast Texts",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "compare-texts"
+      },
+      {
+       "label": "Punctuation and Commas",
+       "role": "GRAMMAR",
+       "familyCode": "commas"
+      }
+     ]
     }
    ],
    "unitSkills": [
@@ -685,7 +1058,28 @@
      "texts": {
       "selection": "Warriors Don't Cry"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Context Clues",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "context-clues"
+      },
+      {
+       "label": "Point of View and Perspective",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "point-of-view"
+      },
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Pronouns and Antecedents",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns"
+      }
+     ]
     },
     {
      "number": 2,
@@ -695,7 +1089,23 @@
      "texts": {
       "selection": "Damon and Pythias"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Elements of Drama",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "drama-elements"
+      },
+      {
+       "label": "Greek and Latin Roots",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "greek-latin-roots"
+      },
+      {
+       "label": "Clauses and Complex Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "clauses-complex"
+      }
+     ]
     },
     {
      "number": 3,
@@ -705,7 +1115,28 @@
      "texts": {
       "selection": "Amigo Brothers"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Theme",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "theme"
+      },
+      {
+       "label": "Cite Text Evidence",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "text-evidence"
+      },
+      {
+       "label": "Character Traits & Development",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "character"
+      },
+      {
+       "label": "Sentences and Sentence Types",
+       "role": "GRAMMAR",
+       "familyCode": "sentences"
+      }
+     ]
     },
     {
      "number": 4,
@@ -715,7 +1146,23 @@
      "texts": {
       "selection": "Listen, Slowly"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Precise Language, Style and Tone",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "precise-language"
+      },
+      {
+       "label": "Character Traits & Development",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "character"
+      },
+      {
+       "label": "Pronouns and Antecedents",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns"
+      }
+     ]
     },
     {
      "number": 5,
@@ -725,7 +1172,18 @@
      "texts": {
       "selection": "Charles"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Point of View and Perspective",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "point-of-view"
+      },
+      {
+       "label": "Clauses and Complex Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "clauses-complex"
+      }
+     ]
     },
     {
      "number": 6,
@@ -735,7 +1193,18 @@
      "texts": {
       "selection": "Saying Yes / The All American Slurp"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Imagery and Sensory Language",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "imagery"
+      },
+      {
+       "label": "Sentences and Sentence Types",
+       "role": "GRAMMAR",
+       "familyCode": "sentences"
+      }
+     ]
     },
     {
      "number": 7,
@@ -745,7 +1214,23 @@
      "texts": {
       "selection": "Helen Keller / The Story of My Life (Ch. IV) / The Miracle Worker"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Cite Text Evidence",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "text-evidence"
+      },
+      {
+       "label": "Elements of Drama",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "drama-elements"
+      },
+      {
+       "label": "Pronouns and Antecedents",
+       "role": "GRAMMAR",
+       "familyCode": "pronouns"
+      }
+     ]
     }
    ],
    "unitSkills": [
@@ -829,7 +1314,23 @@
      "texts": {
       "selection": "Bronx Masquerade"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Central Idea and Relevant Details",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "central-idea"
+      },
+      {
+       "label": "Author's Purpose",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "author-purpose"
+      },
+      {
+       "label": "Quotation Marks and Dialogue",
+       "role": "GRAMMAR",
+       "familyCode": "quotations-dialogue"
+      }
+     ]
     },
     {
      "number": 2,
@@ -839,7 +1340,18 @@
      "texts": {
       "selection": "A BEACON of Hope / Shree Bose"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Homographs and Homophones",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "homographs-homophones"
+      },
+      {
+       "label": "Fragments and Run-On Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "fragments-run-ons"
+      }
+     ]
     },
     {
      "number": 3,
@@ -849,7 +1361,18 @@
      "texts": {
       "selection": "Letter to His Daughter"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Figurative Language (Similes, Metaphors, Personification, Hyperbole)",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "figurative-language"
+      },
+      {
+       "label": "Punctuation and Commas",
+       "role": "GRAMMAR",
+       "familyCode": "commas"
+      }
+     ]
     },
     {
      "number": 4,
@@ -859,7 +1382,18 @@
      "texts": {
       "selection": "The Story Behind the Bus / Rosa / Rosa Parks: My Story"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Idioms, Adages and Proverbs",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "idioms-adages"
+      },
+      {
+       "label": "Quotation Marks and Dialogue",
+       "role": "GRAMMAR",
+       "familyCode": "quotations-dialogue"
+      }
+     ]
     },
     {
      "number": 5,
@@ -869,7 +1403,18 @@
      "texts": {
       "selection": "Eleanor Roosevelt / Brave"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Text Structure: Cause and Effect",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "cause-effect"
+      },
+      {
+       "label": "Fragments and Run-On Sentences",
+       "role": "GRAMMAR",
+       "familyCode": "fragments-run-ons"
+      }
+     ]
     },
     {
      "number": 6,
@@ -879,7 +1424,23 @@
      "texts": {
       "selection": "I Never Had It Made (Jackie Robinson)"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Central Idea and Relevant Details",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "central-idea"
+      },
+      {
+       "label": "Text Structure: Compare and Contrast",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "compare-contrast"
+      },
+      {
+       "label": "Punctuation and Commas",
+       "role": "GRAMMAR",
+       "familyCode": "commas"
+      }
+     ]
     },
     {
      "number": 7,
@@ -889,7 +1450,18 @@
      "texts": {
       "selection": "Touching Spirit Bear"
      },
-     "skills": []
+     "skills": [
+      {
+       "label": "Character Traits & Development",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "character"
+      },
+      {
+       "label": "Quotation Marks and Dialogue",
+       "role": "GRAMMAR",
+       "familyCode": "quotations-dialogue"
+      }
+     ]
     }
    ],
    "unitSkills": [

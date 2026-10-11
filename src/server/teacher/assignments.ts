@@ -7,7 +7,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
-import { refreshSkillAssignment, refreshSkillAssignments } from "./assign";
+import { refreshQuestionSets, refreshSkillAssignments } from "./assign";
 
 export interface NewAssignment {
   classId: string;
@@ -79,26 +79,58 @@ export async function createAssignment(repo: Repo, actor: Actor, input: NewAssig
   return a;
 }
 
-/** Recompute every student's status/progress for one assignment from current mastery. */
+/**
+ * Recompute every student's status/progress for one assignment from current mastery.
+ * Readiness fix C-1: question sets (assessmentId) are owned by refreshQuestionSets; an assignment with no
+ * target skills is never recomputed from mastery (it would read as 0 % and wipe finished work); a row that
+ * is already COMPLETED / has completedAt is never moved back; only rows whose values change are written.
+ */
 export async function refreshAssignmentProgress(repo: Repo, assignmentId: string, now = new Date()): Promise<void> {
-  const a = (await repo.findUnique("Assignment", { id: assignmentId }))!;
-  // single-skill assignments (⭐ Assign) count only practice done for the assignment
-  if (a.skillId) return refreshSkillAssignment(repo, a, null, now);
-  const skills = await targetSkills(repo, a);
-  const rows = await repo.findMany("AssignmentStudent", { assignmentId });
-  const mastery = skills.length && rows.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: rows.map((r) => r.studentId) }, skillId: { in: skills } }) : [];
-  const target = Number(a.targetMastery ?? 75);
-  const due = a.dueAt ? new Date(String(a.dueAt instanceof Date ? a.dueAt.toISOString() : a.dueAt)) : null;
+  const a = await repo.findUnique("Assignment", { id: assignmentId });
+  if (!a || a.deletedAt) return;
+  await refreshAssignmentsBatch(repo, [a], now);
+}
+
+/** Batched refresh for every kind of assignment; writes only rows whose status/progress changed. */
+export async function refreshAssignmentsBatch(repo: Repo, list: Row[], now = new Date()): Promise<void> {
+  const live = list.filter((a) => !a.deletedAt);
+  const skill = live.filter((a) => a.skillId);
+  const sets = live.filter((a) => !a.skillId && a.assessmentId);
+  const legacy = live.filter((a) => !a.skillId && !a.assessmentId);
+  await Promise.all([refreshSkillAssignments(repo, skill, null, now), refreshQuestionSets(repo, sets, null, now), refreshMultiSkill(repo, legacy, now)]);
+}
+
+/** Older multi-skill / unit assignments: progress = share of target skills at the target mastery. */
+async function refreshMultiSkill(repo: Repo, list: Row[], now: Date): Promise<void> {
+  const withSkills: { a: Row; skills: string[] }[] = [];
+  for (const a of list) {
+    const skills = await targetSkills(repo, a);
+    if (skills.length) withSkills.push({ a, skills }); // no target skills ⇒ progress is tracked elsewhere: never touch
+  }
+  if (!withSkills.length) return;
+  const rows = await repo.findMany("AssignmentStudent", { assignmentId: { in: withSkills.map((x) => x.a.id) } });
+  if (!rows.length) return;
+  const allSkills = [...new Set(withSkills.flatMap((x) => x.skills))];
+  const mastery = await repo.findMany("StudentSkillMastery", { studentId: { in: [...new Set(rows.map((r) => String(r.studentId)))] }, skillId: { in: allSkills } }, { select: ["studentId", "skillId", "score", "attempts"] });
+  const byKey = new Map(mastery.map((m) => [`${String(m.studentId)}|${String(m.skillId)}`, m]));
+  const byId = new Map(withSkills.map((x) => [String(x.a.id), x]));
+  const writes: Promise<unknown>[] = [];
   for (const r of rows) {
-    const mine = mastery.filter((m) => m.studentId === r.studentId);
+    const x = byId.get(String(r.assignmentId));
+    if (!x) continue;
+    if (r.status === "COMPLETED" || r.completedAt) continue; // finished work is never moved back
+    const { a, skills } = x;
+    const target = Number(a.targetMastery ?? 75);
+    const due = a.dueAt ? new Date(String(a.dueAt instanceof Date ? a.dueAt.toISOString() : a.dueAt)) : null;
+    const mine = skills.map((k) => byKey.get(`${String(r.studentId)}|${k}`)).filter(Boolean) as Row[];
     const reached = mine.filter((m) => Number(m.score) >= target).length;
-    const progress = skills.length ? reached / skills.length : 0;
+    const progress = Math.round((reached / skills.length) * 1000) / 1000;
     const started = mine.some((m) => Number(m.attempts) > 0);
     const status = progress >= 1 ? "COMPLETED" : due && now > due ? "OVERDUE" : started ? "IN_PROGRESS" : "NOT_STARTED";
-    await repo.updateMany("AssignmentStudent", { assignmentId, studentId: r.studentId }, {
-      status, progress: Math.round(progress * 1000) / 1000, completedAt: status === "COMPLETED" ? (r.completedAt ?? now) : null,
-    });
+    if (status === r.status && Math.abs(progress - Number(r.progress ?? 0)) <= 0.0005) continue;
+    writes.push(repo.updateMany("AssignmentStudent", { assignmentId: a.id, studentId: r.studentId }, { status, progress, completedAt: status === "COMPLETED" ? now : null }));
   }
+  await Promise.all(writes);
 }
 
 export interface AssignmentSummary {
@@ -113,9 +145,8 @@ export interface AssignmentSummary {
 export async function classAssignments(repo: Repo, actor: Actor, classId: string, now = new Date()): Promise<AssignmentSummary[]> {
   await assertClassAccess(repo, actor, classId);
   const list = (await repo.findMany("Assignment", { classId, deletedAt: null })).filter((a) => !a.curriculumPlanId).sort((x, y) => String(y.createdAt).localeCompare(String(x.createdAt)));
-  // batched: skill assignments refreshed together; older multi-skill ones keep their own refresh
-  await refreshSkillAssignments(repo, list.filter((a) => a.skillId), null, now);
-  for (const a of list.filter((x) => !x.skillId)) await refreshAssignmentProgress(repo, String(a.id), now);
+  // C-1: one batched refresh per kind; only rows whose values changed are written, finished work is never reset
+  await refreshAssignmentsBatch(repo, list, now);
   const allRows = list.length ? await repo.findMany("AssignmentStudent", { assignmentId: { in: list.map((a) => a.id) } }, { select: ["assignmentId", "status"] }) : [];
   const out: AssignmentSummary[] = [];
   for (const a of list) {

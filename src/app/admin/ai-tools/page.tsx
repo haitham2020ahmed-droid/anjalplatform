@@ -12,7 +12,8 @@ import { aiLogSummary, aiSince, listJobs, runWeekly, suggestions, TOOL_NAME, wee
 import { gapReport, suspiciousQuestions } from "@/server/ai/tools";
 import { wizardList } from "@/server/ai/wizard";
 import { masterSkills } from "@/server/skills/master";
-import { settingsAction, startToolAction, stopJobAction, tickAction, weeklyAction } from "./actions";
+import { coachSettingsAction, settingsAction, startToolAction, stopJobAction, tickAction, weeklyAction } from "./actions";
+import { coachSettings } from "@/server/fluency/coach";
 
 export const metadata = { title: "AI tools" };
 const TABS = [["wizard", "🪄 Prepare a Skill"], ["tools", "🧰 Tools"], ["review", "✅ Review"], ["suspicious", "🔍 Suspicious questions"], ["log", "📜 Log"], ["settings", "⚙️ Settings"], ["guide", "📘 Guide"]] as const;
@@ -26,6 +27,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
   const tab = TABS.some(([k]) => k === sp.tab) ? sp.tab! : "wizard";
   await aiSince(repo, actor.schoolId!);
   const settings = await aiSettings(repo, actor.schoolId);
+  const coach = await coachSettings(repo, actor.schoolId);
   const picked = pickProvider(aiEnv(), settings);
   const rate = await rateState(repo, actor.schoolId!, settings);
   // 🗓️ weekly routine: due → queue the check of new questions (it runs while this page is open)
@@ -121,7 +123,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
         const rows = reviewRows;
         return (
           <>
-            <div className="mb-3 flex flex-wrap gap-2">{[["", "All"], ["QUALITY", "Quality"], ["DUPLICATE", "Duplicates"], ["TAG", "Tags"], ["READING", "Reading level"]].map(([k, l]) => <Link key={k} href={`/admin/ai-tools?tab=review${k ? `&tool=${k}` : ""}`} className={chip((sp.tool ?? "") === k)}>{l}</Link>)}</div>
+            <div className="mb-3 flex flex-wrap gap-2">{[["", "All"], ["QUALITY", "Quality"], ["DUPLICATE", "Duplicates"], ["TAG", "Tags"], ["INTEL", "Difficulty"], ["READING", "Reading level"]].map(([k, l]) => <Link key={k} href={`/admin/ai-tools?tab=review${k ? `&tool=${k}` : ""}`} className={chip((sp.tool ?? "") === k)}>{l}</Link>)}</div>
             <ReviewTable rows={rows} back={`/admin/ai-tools?tab=review${sp.tool ? `&tool=${sp.tool}` : ""}`} />
           </>
         );
@@ -164,6 +166,21 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
           </div>
         </form>
       )}
+
+      {tab === "settings" && (() => {
+        const c = coach;
+        return (
+          <form action={coachSettingsAction} className="mt-5 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+            <h2 className="text-lg font-bold text-brand-navy">🎙 Fluency Coach</h2>
+            <p className="text-sm text-slate-600">Students read a passage aloud and Gemini marks the words (WCPM on the school&apos;s fluency rubric, mispronounced and skipped words, expression). The recording is scored in memory and deleted right after; only the passage text and the audio are sent — never a name. Each reading is one AI request (shared with the limits above); when many students read at once they wait in a short queue.</p>
+            <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
+              <span className={`rounded-full px-3 py-1 font-bold ${c.enabled ? "bg-emerald-100 text-emerald-900" : "bg-slate-200 text-slate-700"}`}>{c.enabled ? "On" : "Off"}</span>
+              <input type="hidden" name="enabled" value={c.enabled ? "0" : "1"} />
+              <button disabled={!can(actor, "settings:engine")} className="rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">{c.enabled ? "Switch off" : "Switch on"}</button>
+            </div>
+          </form>
+        );
+      })()}
 
       {tab === "guide" && <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200"><AiGuide /></section>}
     </AppShell>

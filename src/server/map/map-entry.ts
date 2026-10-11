@@ -9,9 +9,10 @@ import type { Repo } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
-import { GOAL_COLUMNS, MAP_TEMPLATE_HEADERS, importMapScores, type MapImportResult } from "./student-map";
+import { AREA_COLUMNS, MAP_TEMPLATE_HEADERS, importMapScores, type MapImportResult } from "./student-map";
 import { ensureNationalNorms, nationalNorm, type Season } from "./rit";
 import { classMembers, studentNames } from "../insights/student-data";
+import { notifyMapScores } from "./map-notify";
 
 const s = (v: unknown) => String(v ?? "").trim();
 export type EntrySubject = "READING" | "LANGUAGE";
@@ -23,7 +24,8 @@ const SEASON_NAME: Record<Season, string> = { FALL: "Fall", WINTER: "Winter", SP
 export interface EntryRow { studentId: string; name: string; number: string; rit: string; percentile: string; projection: string; lexile: string; goals: Record<string, string> }
 export interface EntryGrid { classId: string; className: string; grade: number; subject: EntrySubject; season: Season; year: number; term: string; goals: { code: string; header: string }[]; rows: EntryRow[]; missingNumbers: number }
 
-const subjectGoals = (subject: EntrySubject) => GOAL_COLUMNS.filter((g) => g.subject === (subject === "READING" ? "READING" : "LANGUAGE_USAGE"));
+/** the 3 instructional areas of the subject (as on NWEA's report); `code` is the area key (lit, info …) */
+const subjectGoals = (subject: EntrySubject) => AREA_COLUMNS.filter((g) => g.subject === (subject === "READING" ? "READING" : "LANGUAGE_USAGE")).map((a) => ({ code: a.key, header: a.header, codes: a.codes }));
 export const termName = (season: Season, year: number) => `${SEASON_NAME[season]} ${year}`;
 
 /** Inverse of the standard normal CDF (Acklam's rational approximation; plenty for a percentile → RIT). */
@@ -69,7 +71,7 @@ export async function mapEntryGrid(repo: Repo, actor: Actor, input: { classId: s
     const mine = results.filter((r) => s(r.studentId) === id);
     const o = mine.find((r) => !r.goalName);
     const g: Record<string, string> = {};
-    for (const r of mine.filter((x) => x.goalName)) { const code = codeOfArea.get(s(r.goalAreaId)); if (code) g[code] = s(r.rit); }
+    for (const r of mine.filter((x) => x.goalName)) { const code = codeOfArea.get(s(r.goalAreaId)); const a = goals.find((x) => code && x.codes.includes(code)); if (a && !g[a.code]) g[a.code] = s(r.rit); }
     const n = names.get(id);
     return {
       studentId: id, name: n?.name ?? "Student", number: n?.number ?? "", rit: o ? s(o.rit) : "", percentile: o?.achievementPercentile !== null && o?.achievementPercentile !== undefined ? s(o.achievementPercentile) : "",
@@ -108,7 +110,17 @@ export async function saveMapEntry(repo: Repo, actor: Actor, input: { classId: s
   }
   if (table.length === 1) return { imported: 0, skipped: 0, errors: errors.length ? errors : [{ row: 0, message: "Nothing to save: write at least one RIT." }], term: grid.term, created: [] };
   const date = new Date(Date.UTC(input.season === "FALL" ? input.year : input.year, input.season === "FALL" ? 8 : input.season === "WINTER" ? 0 : 3, 15));
+  // readiness S-4: a Winter/Spring test dated before these students' Fall test is almost always the wrong year
+  if (input.season !== "FALL") {
+    const ids = table.slice(1).map((row) => grid.rows.find((x) => x.number === row[0])?.studentId).filter(Boolean) as string[];
+    const falls = ids.length ? (await repo.findMany("MapResult", { studentId: { in: ids }, goalName: null }, { select: ["termName", "testDate", "subject"] }))
+      .filter((x) => /^fall /i.test(s(x.termName)) && (read ? /read/i : /language/i).test(s(x.subject))) : [];
+    const latestFall = falls.reduce((m, x) => Math.max(m, new Date(x.testDate instanceof Date ? x.testDate.toISOString() : s(x.testDate)).getTime()), 0);
+    if (latestFall && date.getTime() < latestFall) errors.push({ row: 0, message: `Warning: ${grid.term} is dated ${date.toISOString().slice(0, 10)}, before these students' Fall test (${new Date(latestFall).toISOString().slice(0, 10)}). If this is the ${SEASON_NAME[input.season]} test of the school year that started with that Fall, choose the year ${input.year + 1}.` });
+  }
   const r = await importMapScores(repo, actor, table, input.year, now, { term: { name: grid.term, date } });
+  // like the file import: each student is told “Your MAP results are in” (readiness S-17)
+  await notifyMapScores(repo, actor, r, now);
   // the file import numbers rows by line: here a name is clearer
   const nameOfRow = (row: number) => table[row - 1]?.[1] ?? "";
   return { ...r, errors: [...errors, ...r.errors.map((e) => ({ row: 0, message: e.row ? `${nameOfRow(e.row)}: ${e.message}` : e.message }))] };

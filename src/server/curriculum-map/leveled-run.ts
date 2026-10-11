@@ -3,6 +3,7 @@ import { categoryOfQuestions } from "./student-level";
 import type { Repo, Row } from "../seeding/repo";
 import { decideLevel, LADDER, pickNext, type Decision, type Level, type Rung } from "./leveled";
 import { lexileBands, levelForLexile } from "./lexile";
+import { evidenceLevels } from "./evidence-level";
 import { ladderRulesForStudent } from "./ladder-settings";
 
 const s = (v: unknown) => String(v ?? "");
@@ -42,30 +43,18 @@ export async function studentLexile(repo: Repo, studentId: string): Promise<numb
   return r ? Number(r.lexile) : null;
 }
 
-/** Where a student starts: their Lexile (MAP) → level; else their saved level; else the default. */
 /**
- * Where an adaptive set starts, from the most specific and recent evidence to the most general:
- *   1. the teacher's level (chosen in the last 30 days) — an explicit decision
- *   2. the student's level in THIS category, learned from their own adaptive sets
- *   3. a placement test   4. the MAP Lexile   5. the MAP RIT level   6. the default
+ * Where a student starts an adaptive set: from ALL their data (see evidence-level.ts — the teacher's recent choice,
+ * their work in this section, their platform results, the Diagnostic, MAP Lexile and RIT), else the fallback.
  */
 export async function startLevel(repo: Repo, studentId: string, fallback: Level, category: string | null = null, now = new Date()): Promise<{ level: Level; from: "TEACHER" | "CATEGORY" | "LEVEL" | "LEXILE" | "DEFAULT" }> {
-  const saved = await repo.findUnique("StudentLevel", { studentId });
-  const savedAt = saved ? new Date(s(saved.updatedAt instanceof Date ? saved.updatedAt.toISOString() : saved.updatedAt)).getTime() : 0;
-  if (saved && s(saved.source) === "TEACHER" && now.getTime() - savedAt < 30 * 86_400_000) return { level: s(saved.level) as Level, from: "TEACHER" };
-  if (category) {
-    const cat = (await repo.findMany("StudentCategoryLevel", { studentId, category }))[0];
-    if (cat) return { level: s(cat.level) as Level, from: "CATEGORY" };
-  }
-  if (saved && s(saved.source) === "PLACEMENT") return { level: s(saved.level) as Level, from: "LEVEL" };
   const st = await repo.findUnique("Student", { id: studentId });
-  const lex = await studentLexile(repo, studentId);
-  if (st && lex !== null) {
-    const g = st.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null;
-    const lv = g ? levelForLexile((await lexileBands(repo, s(st.schoolId)))[Number(g.level)], lex) : null;
-    if (lv) return { level: lv, from: "LEXILE" };
-  }
-  return saved ? { level: s(saved.level) as Level, from: "LEVEL" } : { level: fallback, from: "DEFAULT" };
+  const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 0);
+  const cat = category === "CV" || category === "ACS" || category === "RTR" ? category : null;
+  const e = (await evidenceLevels(repo, st ? s(st.schoolId) : null, [studentId], grade, { category: cat }, now)).get(studentId);
+  if (!e || e.from === "NO_DATA") return { level: fallback, from: "DEFAULT" };
+  const from = e.from === "TEACHER" ? "TEACHER" : e.from === "CATEGORY" ? "CATEGORY" : e.from === "LEXILE" ? "LEXILE" : "LEVEL";
+  return { level: e.level as Level, from };
 }
 
 export interface GoalState { target: number; correct: number; reached: boolean; early: boolean; streak: number; struggling: boolean; stuck: boolean }

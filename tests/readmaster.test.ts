@@ -50,7 +50,8 @@ describe("⭐ ReadMaster: one article, three reading levels, Lexile that moves",
 
   test("students read the version that matches their Lexile; staff see results", async () => {
     await assert.rejects(openArticle(repo, await st("test.student.001"), articleId), ForbiddenError, "not published yet");
-    await setArticleStatus(repo, teacher, articleId, "PUBLISHED");
+    await assert.rejects(setArticleStatus(repo, teacher, articleId, "PUBLISHED"), ForbiddenError, "publishing needs the publish permission");
+    await setArticleStatus(repo, admin, articleId, "PUBLISHED");
     const s1 = await st("test.student.001");                 // no MAP: starts mid On band (G4 740–875 → 808)
     assert.deepEqual(await readingLexile(repo, s1.studentId!), { lexile: 808, source: "START" });
     assert.equal((await openArticle(repo, s1, articleId)).level, "ON");
@@ -97,10 +98,10 @@ describe("⭐ ReadMaster: one article, three reading levels, Lexile that moves",
     const b = await saveArticle(repo, admin, { title: "Bulk Empty", grade: 5 });
     const v = await saveVersion(repo, admin, a, "ON", { lexile: 900, body: "Bees are small insects that live together in large groups. Every sunny day the busy bees fly out of the hive and visit many bright flowers to collect sweet nectar." });
     await addVersionQuestion(repo, admin, v, { stem: "What do bees visit?", options: [{ label: "A", text: "flowers", correct: true }, { label: "B", text: "cars", correct: false }], whyCorrect: "The text says flowers." });
-    const r = await setArticlesStatus(repo, teacher, [a, b, a], "PUBLISHED");
+    const r = await setArticlesStatus(repo, admin, [a, b, a], "PUBLISHED");
     assert.deepEqual(r, { changed: 1, skipped: ["Bulk Empty"] });
     assert.equal((await repo.findUnique("ReadMasterArticle", { id: a }))!.status, "PUBLISHED");
     assert.deepEqual(await setArticlesStatus(repo, teacher, [a], "DRAFT"), { changed: 1, skipped: [] });
-    await assert.rejects(setArticlesStatus(repo, teacher, [], "PUBLISHED"), /Tick at least one article/);
+    await assert.rejects(setArticlesStatus(repo, admin, [], "PUBLISHED"), /Tick at least one article/);
   });
 });

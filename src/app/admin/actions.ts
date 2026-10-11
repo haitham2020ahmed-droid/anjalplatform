@@ -206,7 +206,7 @@ export async function questionStepAction(_: Result, f: FormData): Promise<Result
 // ------------------------------------------------------- AI question bank
 
 import { aiProvider } from "@/server/ai/runtime";
-import { generateMissing, generateQuestions, type GenerateResult } from "@/server/admin/ai-bank";
+import { fillGrade, generateMissing, generateQuestions, type GenerateResult } from "@/server/admin/ai-bank";
 import { approveAiDraft, rejectAiDraft } from "@/server/admin/questions";
 
 export type AiResult = { error?: string; result?: GenerateResult; nothingNeeded?: boolean };
@@ -231,6 +231,17 @@ export async function generateMissingAction(_: Result, f: FormData): Promise<Res
     const r = await generateMissing(repo, actor, aiProvider(), id.parse(f.get("skillId")));
     if ("nothingNeeded" in r) return { message: "Nothing needed: this skill has reached its target (counting drafts awaiting review)." };
     return { message: `${r.saved.length} draft(s) saved for review${r.rejected.length ? `; ${r.rejected.length} rejected by validation` : ""}.` };
+  });
+}
+
+/** ✨ Fill to target: the next 5 skills of a grade below the target get AI drafts (to review before students see them). */
+export async function fillGradeAction(_: Result, f: FormData): Promise<Result> {
+  const actor = await requireActor({ permission: "questions:generate" });
+  return run(["/admin/question-bank", "/admin/questions"], async () => {
+    const grade = z.coerce.number().int().min(1).max(12).parse(f.get("grade"));
+    const r = await fillGrade(repo, actor, aiProvider(), grade, 5);
+    if (!r.skills && !r.errors.length) return { message: "Every skill of this grade has reached the target (counting drafts awaiting review)." };
+    return { message: `${r.saved} draft(s) saved for review across ${r.skills} skill(s)${r.rejected ? `; ${r.rejected} rejected by validation` : ""}. ${r.remaining ? `${r.remaining} skill(s) still below target: press again to continue.` : "All skills of this grade are covered."}${r.errors.length ? ` Problems: ${r.errors.join(" · ")}` : ""}` };
   });
 }
 

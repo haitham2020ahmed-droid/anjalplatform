@@ -1,4 +1,5 @@
 "use client";
+import { NameList } from "@/components/name-list";
 import { useActionState } from "react";
 import { quickAddAction, type QuickState } from "./actions";
 
@@ -21,7 +22,7 @@ export function QuickAddForm({ classes }: { classes: { id: string; name: string;
       {r && (
         <section className="mt-6">
           <div className="flex flex-wrap items-center justify-between gap-2 print:hidden">
-            <p role="status" className="rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">✓ {r.created.length} student(s) added to {r.className}.{r.skipped.length > 0 && ` Skipped ${r.skipped.length}: ${r.skipped.map((x) => `${x.name} (${x.reason})`).join(", ")}.`} The passwords are shown only now: print or save them.</p>
+            <p role="status" className="rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">✓ {r.created.length} student(s) added to {r.className}.{r.skipped.length > 0 && <> Skipped {r.skipped.length}: <NameList items={r.skipped.map((x) => ({ name: x.name, note: `(${x.reason})` }))} sep=", " />.</>} The passwords are shown only now: print or save them.</p>
             {r.created.length > 0 && <button type="button" onClick={() => window.print()} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">🖨 Print sign-in cards</button>}
           </div>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 print:grid-cols-3">
@@ -31,7 +32,7 @@ export function QuickAddForm({ classes }: { classes: { id: string; name: string;
                 <p className="text-slate-500">{r.className} · {c.number}</p>
                 <p className="mt-2">Username: <b className="font-mono">{c.username}</b></p>
                 <p>Password: <b className="font-mono">{c.password}</b></p>
-                <p className="mt-1 text-xs text-slate-500">Change the password at the first sign-in.</p>
+                {c.password !== c.username && <p className="mt-1 text-xs text-slate-500">Change the password at the first sign-in.</p>}
               </div>
             ))}
           </div>

@@ -8,6 +8,7 @@
  *   setFinished         → student: “I finished my answer in my book” (and undo)
  *   studentRespondWork  → student: their Respond to Reading tasks (due date, finished or not)
  */
+import { feedRespond, safeFeed } from "../practice/skill-evidence";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -109,6 +110,8 @@ export async function saveRespondMarks(repo: Repo, actor: Actor, id: string, mar
     if (m.finished === true && !row.finishedAt) data.finishedAt = now;
     if (m.finished === false && row.finishedAt) data.finishedAt = null;
     n += await repo.updateMany("RespondAssignmentStudent", { assignmentId: id, studentId: m.studentId }, data);
+    // 🔗 the teacher's mark feeds Cite Text Evidence (Update 39B)
+    if (m.score !== null) await safeFeed("respond", () => feedRespond(repo, m.studentId, id, Number(m.score), now));
   }
   return n;
 }

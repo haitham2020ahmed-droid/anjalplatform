@@ -5,7 +5,7 @@ import type { ClassRow } from "@/server/insights/overview";
 export function ClassRows({ rows, admin }: { rows: ClassRow[]; admin: boolean }) {
   if (!rows.length) return <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No class yet.{admin ? " Import users to create the classes." : " Ask the school admin to add you to your classes."}</p>;
   return (
-    <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
+    <div className="relative overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
       <table className="w-full min-w-[820px] text-sm">
         <thead>
           <tr className="border-b border-slate-200 bg-slate-50/80 text-left text-[13px] text-slate-500">
@@ -28,7 +28,7 @@ export function ClassRows({ rows, admin }: { rows: ClassRow[]; admin: boolean })
                   <Link href={`/teacher/classes/${r.id}`} className="font-semibold text-brand-navy hover:underline">{r.name}</Link>
                   <span className="block text-xs text-slate-500">Grade {r.grade} · {r.students} students</span>
                 </td>
-                {admin && <td className="px-3 py-3 text-slate-700">{r.teachers.join(", ") || <span className="text-red-700">No teacher</span>}</td>}
+                {admin && <td className="px-3 py-3 text-slate-700">{r.teachers.length ? r.teachers.map((t, i) => <span key={i}>{i ? ", " : ""}<bdi>{t}</bdi></span>) : <span className="text-red-700">No teacher</span>}</td>}
                 <td className="px-3 py-3">
                   <span className="flex items-center gap-2"><span className="block h-1.5 w-20 overflow-hidden rounded-full bg-slate-100"><span className={`block h-full rounded-full ${act >= 70 ? "bg-brand-teal" : act >= 40 ? "bg-amber-400" : "bg-red-500"}`} style={{ width: `${act}%` }} /></span><span className="tabular-nums text-slate-700">{r.active}/{r.students}</span></span>
                 </td>

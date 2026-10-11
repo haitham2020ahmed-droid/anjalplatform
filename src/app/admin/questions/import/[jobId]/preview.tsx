@@ -12,6 +12,7 @@ type Filter = "all" | "ready" | "errors" | "duplicates" | "done";
 const TYPE: Record<string, string> = {
   MULTIPLE_CHOICE: "Multiple Choice", MULTI_SELECT: "Multi Select", TRUE_FALSE: "True/False", DROPDOWN: "Dropdown", FILL_BLANK: "Fill in the Blank",
   SENTENCE_ORDER: "Sentence order", WORD_ORDER: "Word order", ERROR_CORRECTION: "Error correction", MATCHING: "Matching", SHORT_ANSWER: "Short Answer",
+  TWO_PART: "Two-Part", GRID: "Grid", HOT_TEXT: "Hot Text", DICTATION: "Dictation", SENTENCE_COMBINE: "Sentence Combining",
 };
 const STATUS: Record<string, { text: string; cls: string }> = {
   VALID: { text: "Ready", cls: "bg-teal-100 text-teal-900" }, INVALID: { text: "Error", cls: "bg-red-100 text-red-800" }, DUPLICATE: { text: "Duplicate", cls: "bg-amber-100 text-amber-900" },

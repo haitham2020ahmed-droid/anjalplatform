@@ -471,6 +471,18 @@ CREATE TABLE "Question" (
   "updatedAt" TEXT NOT NULL,
   "deletedAt" TEXT,
   "lexile" INTEGER,
+  "mapTest" TEXT,
+  "mapInstructionalArea" TEXT,
+  "mapAreaSource" TEXT,
+  "dok" INTEGER,
+  "dokSource" TEXT,
+  "estimatedLevel" INTEGER,
+  "estimatedB" REAL,
+  "difficultyFactors" TEXT,
+  "difficultySource" TEXT,
+  "textLevel" INTEGER,
+  "intelligenceAt" TEXT,
+  "metaReviewedAt" TEXT,
   PRIMARY KEY ("id"),
   CONSTRAINT "Question_skillId_externalRef_key" UNIQUE ("skillId", "externalRef"),
   CONSTRAINT "Question_skillId_fkey" FOREIGN KEY ("skillId") REFERENCES "Skill"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -486,6 +498,10 @@ CREATE INDEX "Question_skillId_status_irtB_idx" ON "Question"("skillId", "status
 CREATE INDEX "Question_status_origin_idx" ON "Question"("status", "origin");
 
 CREATE INDEX "Question_standardId_idx" ON "Question"("standardId");
+
+CREATE INDEX "Question_mapInstructionalArea_status_idx" ON "Question"("mapInstructionalArea", "status");
+
+CREATE INDEX "Question_intelligenceAt_idx" ON "Question"("intelligenceAt");
 
 CREATE INDEX "Question_subskillId_fk_idx" ON "Question"("subskillId");
 
@@ -503,6 +519,8 @@ CREATE TABLE "QuestionOption" (
   "isCorrect" INTEGER NOT NULL DEFAULT 0,
   "rationale" TEXT,
   "order" INTEGER NOT NULL,
+  "misconception" TEXT,
+  "misconceptionSource" TEXT,
   PRIMARY KEY ("id"),
   CONSTRAINT "QuestionOption_questionId_fkey" FOREIGN KEY ("questionId") REFERENCES "Question"("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -564,6 +582,7 @@ CREATE TABLE "PracticeSession" (
   "lastTargetB" REAL,
   "endReason" TEXT,
   "goalReachedAt" TEXT,
+  "hintQuestionId" TEXT,
   PRIMARY KEY ("id"),
   CONSTRAINT "PracticeSession_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "PracticeSession_assessmentId_fkey" FOREIGN KEY ("assessmentId") REFERENCES "Assessment"("id") ON DELETE SET NULL ON UPDATE CASCADE
@@ -589,6 +608,8 @@ CREATE TABLE "QuestionAttempt" (
   "rapidGuess" INTEGER NOT NULL DEFAULT 0,
   "difficultyB" REAL NOT NULL,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "misconception" TEXT,
+  "source" TEXT,
   CONSTRAINT "QuestionAttempt_sessionId_fkey" FOREIGN KEY ("sessionId") REFERENCES "PracticeSession"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "QuestionAttempt_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "QuestionAttempt_questionId_fkey" FOREIGN KEY ("questionId") REFERENCES "Question"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -604,6 +625,8 @@ CREATE INDEX "QuestionAttempt_questionId_createdAt_idx" ON "QuestionAttempt"("qu
 CREATE INDEX "QuestionAttempt_skillId_createdAt_idx" ON "QuestionAttempt"("skillId", "createdAt");
 
 CREATE INDEX "QuestionAttempt_sessionId_idx" ON "QuestionAttempt"("sessionId");
+
+CREATE INDEX "QuestionAttempt_studentId_misconception_idx" ON "QuestionAttempt"("studentId", "misconception");
 
 CREATE TABLE "AdaptiveDecisionLog" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -632,6 +655,10 @@ CREATE TABLE "AdaptiveDecisionLog" (
 CREATE INDEX "AdaptiveDecisionLog_studentId_createdAt_idx" ON "AdaptiveDecisionLog"("studentId", "createdAt");
 
 CREATE INDEX "AdaptiveDecisionLog_sessionId_idx" ON "AdaptiveDecisionLog"("sessionId");
+
+CREATE INDEX "AdaptiveDecisionLog_questionId_idx" ON "AdaptiveDecisionLog"("questionId");
+
+CREATE INDEX "AdaptiveDecisionLog_attemptId_idx" ON "AdaptiveDecisionLog"("attemptId");
 
 CREATE TABLE "StudentAbility" (
   "id" TEXT NOT NULL,
@@ -677,6 +704,8 @@ CREATE TABLE "StudentSkillMastery" (
   "lastPracticedAt" TEXT,
   "components" TEXT,
   "updatedAt" TEXT NOT NULL,
+  "nextReviewAt" TEXT,
+  "reviewStep" INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY ("studentId", "skillId"),
   CONSTRAINT "StudentSkillMastery_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "StudentSkillMastery_skillId_fkey" FOREIGN KEY ("skillId") REFERENCES "Skill"("id") ON DELETE RESTRICT ON UPDATE CASCADE
@@ -847,6 +876,15 @@ CREATE TABLE "MapResult" (
   "importedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "lexile" INTEGER,
   "rapidGuessPct" INTEGER,
+  "observedGrowth" INTEGER,
+  "conditionalGrowthIndex" REAL,
+  "metProjectedGrowth" TEXT,
+  "testMinutes" INTEGER,
+  "lexileLow" INTEGER,
+  "lexileHigh" INTEGER,
+  "typicalGrowth" INTEGER,
+  "proficiency" TEXT,
+  "descriptor" TEXT,
   PRIMARY KEY ("id"),
   CONSTRAINT "MapResult_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "MapResult_goalAreaId_fkey" FOREIGN KEY ("goalAreaId") REFERENCES "MapGoalArea"("id") ON DELETE SET NULL ON UPDATE CASCADE
@@ -855,6 +893,8 @@ CREATE TABLE "MapResult" (
 CREATE INDEX "MapResult_studentId_testDate_idx" ON "MapResult"("studentId", "testDate");
 
 CREATE INDEX "MapResult_studentId_subject_testDate_idx" ON "MapResult"("studentId", "subject", "testDate");
+
+CREATE INDEX "MapResult_termName_idx" ON "MapResult"("termName");
 
 CREATE INDEX "MapResult_goalAreaId_fk_idx" ON "MapResult"("goalAreaId");
 
@@ -906,11 +946,21 @@ CREATE TABLE "Recommendation" (
   "reasons" TEXT NOT NULL,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "dismissedAt" TEXT,
+  "source" TEXT,
+  "masteryAtRec" REAL,
+  "followedAt" TEXT,
+  "evaluatedAt" TEXT,
+  "masteryAfter" REAL,
+  "outcome" TEXT,
   PRIMARY KEY ("id"),
   CONSTRAINT "Recommendation_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student"("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE INDEX "Recommendation_studentId_createdAt_idx" ON "Recommendation"("studentId", "createdAt");
+
+CREATE INDEX "Recommendation_studentId_skillId_createdAt_idx" ON "Recommendation"("studentId", "skillId", "createdAt");
+
+CREATE INDEX "Recommendation_evaluatedAt_createdAt_idx" ON "Recommendation"("evaluatedAt", "createdAt");
 
 CREATE TABLE "InterventionAlert" (
   "id" TEXT NOT NULL,
@@ -930,7 +980,7 @@ CREATE INDEX "InterventionAlert_studentId_resolvedAt_idx" ON "InterventionAlert"
 CREATE TABLE "Notification" (
   "id" TEXT NOT NULL,
   "userId" TEXT NOT NULL,
-  "type" TEXT NOT NULL CHECK ("type" IN ('NEW_ASSIGNMENT', 'ASSIGNMENT_DUE', 'SKILL_MASTERED', 'TEACHER_FEEDBACK', 'NEW_BADGE', 'ASSESSMENT_AVAILABLE', 'PARENT_PROGRESS', 'INTERVENTION_ALERT')),
+  "type" TEXT NOT NULL CHECK ("type" IN ('NEW_ASSIGNMENT', 'ASSIGNMENT_DUE', 'SKILL_MASTERED', 'TEACHER_FEEDBACK', 'NEW_BADGE', 'ASSESSMENT_AVAILABLE', 'PARENT_PROGRESS', 'INTERVENTION_ALERT', 'REPORT_APPROVAL', 'DAILY_DIGEST', 'ADMIN_MESSAGE', 'TIER_CHANGE')),
   "title" TEXT NOT NULL,
   "body" TEXT NOT NULL,
   "link" TEXT,
@@ -941,6 +991,8 @@ CREATE TABLE "Notification" (
 );
 
 CREATE INDEX "Notification_userId_readAt_idx" ON "Notification"("userId", "readAt");
+
+CREATE INDEX "Notification_userId_createdAt_idx" ON "Notification"("userId", "createdAt");
 
 CREATE TABLE "Badge" (
   "id" TEXT NOT NULL,
@@ -1231,6 +1283,8 @@ CREATE TABLE "ReadMasterAttempt" (
   "lexileAfter" INTEGER NOT NULL,
   "correct" INTEGER NOT NULL,
   "total" INTEGER NOT NULL,
+  "seconds" INTEGER,
+  "rapid" INTEGER,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   PRIMARY KEY ("id")
 );
@@ -1513,6 +1567,8 @@ CREATE TABLE "WordEntry" (
   "meanings" TEXT NOT NULL,
   "source" TEXT NOT NULL DEFAULT 'API',
   "isVocab" INTEGER NOT NULL DEFAULT 0,
+  "arabicGloss" TEXT,
+  "contextSentence" TEXT,
   "updatedById" TEXT,
   "updatedAt" TEXT NOT NULL,
   PRIMARY KEY ("id"),
@@ -1528,6 +1584,10 @@ CREATE TABLE "StudentWord" (
   "quizRight" INTEGER NOT NULL DEFAULT 0,
   "quizWrong" INTEGER NOT NULL DEFAULT 0,
   "lastQuizAt" TEXT,
+  "nextReviewAt" TEXT,
+  "reviewStep" INTEGER NOT NULL DEFAULT 0,
+  "myExample" TEXT,
+  "notExample" TEXT,
   PRIMARY KEY ("studentId", "word")
 );
 
@@ -1709,6 +1769,12 @@ CREATE TABLE "WritingTask" (
   "passage" TEXT,
   "minWords" INTEGER,
   "dueAt" TEXT,
+  "genre" TEXT NOT NULL DEFAULT 'FREE',
+  "skillId" TEXT,
+  "staged" INTEGER NOT NULL DEFAULT 0,
+  "sources" TEXT,
+  "research" TEXT,
+  "aiFeedback" INTEGER NOT NULL DEFAULT 0,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "deletedAt" TEXT,
   PRIMARY KEY ("id")
@@ -1729,6 +1795,13 @@ CREATE TABLE "WritingSubmission" (
   "wcpm" INTEGER,
   "submittedAt" TEXT,
   "scoredAt" TEXT,
+  "stage" TEXT,
+  "plan" TEXT,
+  "firstDraft" TEXT,
+  "checklist" TEXT,
+  "researchAnswers" TEXT,
+  "aiDraft" TEXT,
+  "aiStatus" TEXT NOT NULL DEFAULT 'NONE',
   "updatedAt" TEXT NOT NULL,
   PRIMARY KEY ("taskId", "studentId")
 );
@@ -1759,6 +1832,9 @@ CREATE TABLE "DiagnosticTest" (
   "opensAt" TEXT,
   "closesAt" TEXT,
   "bands" TEXT,
+  "adaptive" INTEGER NOT NULL DEFAULT 0,
+  "design" TEXT,
+  "period" TEXT NOT NULL DEFAULT 'BOY',
   "createdById" TEXT,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   PRIMARY KEY ("id")
@@ -1779,6 +1855,10 @@ CREATE TABLE "DiagnosticScore" (
   "byStrand" TEXT NOT NULL,
   "rapid" INTEGER NOT NULL DEFAULT 0,
   "minutes" INTEGER NOT NULL DEFAULT 0,
+  "theta" REAL,
+  "thetaSE" REAL,
+  "ritEstimate" INTEGER,
+  "byArea" TEXT,
   "completedAt" TEXT NOT NULL,
   "sharedAt" TEXT,
   "teacherNote" TEXT,
@@ -1797,6 +1877,10 @@ CREATE TABLE "FluencyCheck" (
   "source" TEXT NOT NULL DEFAULT 'TEACHER',
   "checkedById" TEXT,
   "checkedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "season" TEXT,
+  "percentile" INTEGER,
+  "prosody" TEXT,
+  "comprehension" INTEGER,
   PRIMARY KEY ("id")
 );
 
@@ -1816,3 +1900,550 @@ CREATE TABLE "WeeklyCheck" (
   PRIMARY KEY ("id"),
   CONSTRAINT "WeeklyCheck_studentId_week_key" UNIQUE ("studentId", "week")
 );
+
+CREATE TABLE "FluencyPractice" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "mode" TEXT NOT NULL,
+  "passageKey" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "lexile" INTEGER,
+  "wordsRead" INTEGER NOT NULL,
+  "wordsCorrect" INTEGER NOT NULL,
+  "seconds" INTEGER NOT NULL,
+  "wcpm" INTEGER NOT NULL,
+  "accuracy" INTEGER NOT NULL,
+  "expression" INTEGER,
+  "level" TEXT,
+  "errors" TEXT NOT NULL,
+  "patterns" TEXT,
+  "plan" TEXT,
+  "prosody" TEXT,
+  "hesitations" INTEGER,
+  "comprehension" INTEGER,
+  "practiceKind" TEXT,
+  "trial" INTEGER,
+  "percentile" INTEGER,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "FluencyPractice_studentId_createdAt_idx" ON "FluencyPractice"("studentId", "createdAt");
+
+CREATE TABLE "FamilyReport" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "kind" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "content" TEXT NOT NULL,
+  "refId" TEXT,
+  "status" TEXT NOT NULL,
+  "createdById" TEXT NOT NULL,
+  "submittedAt" TEXT,
+  "reviewedById" TEXT,
+  "reviewedAt" TEXT,
+  "reviewNote" TEXT,
+  "seenByParentAt" TEXT,
+  "seenByStudentAt" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "FamilyReport_schoolId_status_idx" ON "FamilyReport"("schoolId", "status");
+
+CREATE INDEX "FamilyReport_studentId_status_idx" ON "FamilyReport"("studentId", "status");
+
+CREATE TABLE "QuestionStandardFix" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "questionId" TEXT NOT NULL,
+  "fromCode" TEXT,
+  "toCode" TEXT NOT NULL,
+  "reason" TEXT NOT NULL,
+  "status" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "reviewedById" TEXT,
+  "reviewedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "QuestionStandardFix_schoolId_status_idx" ON "QuestionStandardFix"("schoolId", "status");
+
+CREATE INDEX "QuestionStandardFix_questionId_idx" ON "QuestionStandardFix"("questionId");
+
+CREATE TABLE "StudentProfile" (
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "level" TEXT NOT NULL,
+  "levelSource" TEXT NOT NULL,
+  "levelAt" TEXT,
+  "readingRit" INTEGER,
+  "languageRit" INTEGER,
+  "estReadingRit" INTEGER,
+  "estLanguageRit" INTEGER,
+  "lexile" INTEGER,
+  "theta" REAL,
+  "practiceDays14" INTEGER NOT NULL DEFAULT 0,
+  "predictedTerm" TEXT,
+  "predictedReading" INTEGER,
+  "predictedLanguage" INTEGER,
+  "predictedRange" INTEGER,
+  "goalReading" INTEGER,
+  "goalChance" INTEGER,
+  "misconceptions" TEXT,
+  "weakestArea" TEXT,
+  "updatedAt" TEXT NOT NULL,
+  "intelligence" TEXT,
+  "riskScore" INTEGER,
+  "riskReasons" TEXT,
+  PRIMARY KEY ("studentId")
+);
+
+CREATE INDEX "StudentProfile_schoolId_level_idx" ON "StudentProfile"("schoolId", "level");
+
+CREATE TABLE "Intervention" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT NOT NULL,
+  "skillId" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "studentIds" TEXT NOT NULL,
+  "createdById" TEXT NOT NULL,
+  "startedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "endsAt" TEXT NOT NULL,
+  "baseline" TEXT NOT NULL,
+  "result" TEXT,
+  "evaluatedAt" TEXT,
+  "status" TEXT NOT NULL DEFAULT 'ACTIVE',
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "Intervention_classId_status_idx" ON "Intervention"("classId", "status");
+
+CREATE INDEX "Intervention_schoolId_status_idx" ON "Intervention"("schoolId", "status");
+
+CREATE TABLE "RiskSnapshot" (
+  "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "takenOn" TEXT NOT NULL,
+  "score" INTEGER NOT NULL,
+  "features" TEXT NOT NULL,
+  "model" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  CONSTRAINT "RiskSnapshot_studentId_takenOn_key" UNIQUE ("studentId", "takenOn")
+);
+
+CREATE INDEX "RiskSnapshot_schoolId_takenOn_idx" ON "RiskSnapshot"("schoolId", "takenOn");
+
+CREATE TABLE "PredictionModel" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "kind" TEXT NOT NULL,
+  "weights" TEXT NOT NULL,
+  "metrics" TEXT NOT NULL,
+  "n" INTEGER NOT NULL DEFAULT 0,
+  "trainedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "PredictionModel_schoolId_kind_key" UNIQUE ("schoolId", "kind")
+);
+
+CREATE TABLE "AdminMessage" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "senderId" TEXT NOT NULL,
+  "subject" TEXT NOT NULL,
+  "body" TEXT NOT NULL,
+  "link" TEXT,
+  "audience" TEXT NOT NULL,
+  "recipients" INTEGER NOT NULL DEFAULT 0,
+  "emailed" INTEGER NOT NULL DEFAULT 0,
+  "emailFailed" INTEGER NOT NULL DEFAULT 0,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "AdminMessage_schoolId_createdAt_idx" ON "AdminMessage"("schoolId", "createdAt");
+
+CREATE TABLE "AdminMessageRecipient" (
+  "id" TEXT NOT NULL,
+  "messageId" TEXT NOT NULL,
+  "userId" TEXT NOT NULL,
+  "notificationId" TEXT,
+  "emailStatus" TEXT NOT NULL,
+  "readAt" TEXT,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "AdminMessageRecipient_messageId_userId_key" UNIQUE ("messageId", "userId")
+);
+
+CREATE INDEX "AdminMessageRecipient_userId_idx" ON "AdminMessageRecipient"("userId");
+
+CREATE TABLE "StudentTier" (
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "tier" INTEGER NOT NULL DEFAULT 1,
+  "source" TEXT NOT NULL DEFAULT 'AUTO',
+  "locked" INTEGER NOT NULL DEFAULT 0,
+  "reason" TEXT NOT NULL,
+  "focusSkillId" TEXT,
+  "since" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "reviewAt" TEXT,
+  "monitorEveryDays" INTEGER NOT NULL DEFAULT 0,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("studentId")
+);
+
+CREATE INDEX "StudentTier_schoolId_tier_idx" ON "StudentTier"("schoolId", "tier");
+
+CREATE TABLE "TierChange" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "fromTier" INTEGER NOT NULL,
+  "toTier" INTEGER NOT NULL,
+  "source" TEXT NOT NULL,
+  "reason" TEXT NOT NULL,
+  "evidence" TEXT,
+  "changedById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "TierChange_studentId_createdAt_idx" ON "TierChange"("studentId", "createdAt");
+
+CREATE INDEX "TierChange_schoolId_createdAt_idx" ON "TierChange"("schoolId", "createdAt");
+
+CREATE TABLE "DataMeeting" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT,
+  "gradeLevel" INTEGER,
+  "heldOn" TEXT NOT NULL,
+  "createdById" TEXT NOT NULL,
+  "snapshot" TEXT NOT NULL,
+  "decisions" TEXT NOT NULL,
+  "notes" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "DataMeeting_schoolId_heldOn_idx" ON "DataMeeting"("schoolId", "heldOn");
+
+CREATE INDEX "DataMeeting_classId_heldOn_idx" ON "DataMeeting"("classId", "heldOn");
+
+CREATE TABLE "DecodingScreen" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "reason" TEXT NOT NULL DEFAULT 'TEACHER',
+  "items" TEXT NOT NULL,
+  "result" TEXT,
+  "startedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "completedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "DecodingScreen_studentId_startedAt_idx" ON "DecodingScreen"("studentId", "startedAt");
+
+CREATE INDEX "DecodingScreen_schoolId_completedAt_idx" ON "DecodingScreen"("schoolId", "completedAt");
+
+CREATE TABLE "ProgressCheck" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT NOT NULL,
+  "lessonId" TEXT NOT NULL,
+  "assignmentId" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "categories" TEXT NOT NULL,
+  "createdById" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "ProgressCheck_assignmentId_key" UNIQUE ("assignmentId")
+);
+
+CREATE INDEX "ProgressCheck_classId_createdAt_idx" ON "ProgressCheck"("classId", "createdAt");
+
+CREATE TABLE "StrategySurvey" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "answers" TEXT NOT NULL,
+  "result" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "StrategySurvey_studentId_createdAt_idx" ON "StrategySurvey"("studentId", "createdAt");
+
+CREATE TABLE "LessonRun" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "skillId" TEXT NOT NULL,
+  "source" TEXT NOT NULL DEFAULT 'STUDENT',
+  "phase" TEXT NOT NULL DEFAULT 'MODEL',
+  "attempts" INTEGER NOT NULL DEFAULT 0,
+  "approach" INTEGER NOT NULL DEFAULT 0,
+  "log" TEXT NOT NULL,
+  "organizer" TEXT,
+  "checkPct" INTEGER,
+  "passed" INTEGER,
+  "startedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL,
+  "finishedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "LessonRun_studentId_skillId_idx" ON "LessonRun"("studentId", "skillId");
+
+CREATE INDEX "LessonRun_schoolId_updatedAt_idx" ON "LessonRun"("schoolId", "updatedAt");
+
+CREATE TABLE "RRArticle" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT,
+  "code" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "topic" TEXT NOT NULL,
+  "summary" TEXT,
+  "pollStatement" TEXT NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'DRAFT',
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL,
+  "deletedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "RRArticle_schoolId_status_idx" ON "RRArticle"("schoolId", "status");
+
+CREATE INDEX "RRArticle_code_idx" ON "RRArticle"("code");
+
+CREATE TABLE "RRVersion" (
+  "id" TEXT NOT NULL,
+  "articleId" TEXT NOT NULL,
+  "level" INTEGER NOT NULL,
+  "title" TEXT NOT NULL,
+  "body" TEXT NOT NULL,
+  "wordCount" INTEGER NOT NULL,
+  "estLevel" INTEGER NOT NULL,
+  "officialLexile" INTEGER,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "RRVersion_articleId_level_key" UNIQUE ("articleId", "level")
+);
+
+CREATE TABLE "RRQuestion" (
+  "id" TEXT NOT NULL,
+  "articleId" TEXT NOT NULL,
+  "band" TEXT NOT NULL,
+  "number" INTEGER NOT NULL,
+  "stem" TEXT NOT NULL,
+  "options" TEXT NOT NULL,
+  "answer" TEXT NOT NULL,
+  "skill" TEXT NOT NULL,
+  "rationale" TEXT,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "RRQuestion_articleId_band_number_key" UNIQUE ("articleId", "band", "number")
+);
+
+CREATE TABLE "RRPrompt" (
+  "id" TEXT NOT NULL,
+  "articleId" TEXT NOT NULL,
+  "band" TEXT NOT NULL,
+  "prompt" TEXT NOT NULL,
+  "checklist" TEXT,
+  "keyWords" TEXT,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "RRPrompt_articleId_band_key" UNIQUE ("articleId", "band")
+);
+
+CREATE TABLE "RRStudent" (
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "level" INTEGER NOT NULL,
+  "startLevel" INTEGER NOT NULL,
+  "source" TEXT NOT NULL,
+  "placedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "articlesDone" INTEGER NOT NULL DEFAULT 0,
+  "weeklyGoal" INTEGER NOT NULL DEFAULT 2,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("studentId")
+);
+
+CREATE INDEX "RRStudent_schoolId_idx" ON "RRStudent"("schoolId");
+
+CREATE TABLE "RRLevelChange" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "fromLevel" INTEGER NOT NULL,
+  "toLevel" INTEGER NOT NULL,
+  "reason" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "RRLevelChange_studentId_createdAt_idx" ON "RRLevelChange"("studentId", "createdAt");
+
+CREATE INDEX "RRLevelChange_schoolId_createdAt_idx" ON "RRLevelChange"("schoolId", "createdAt");
+
+CREATE TABLE "RRRun" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "articleId" TEXT NOT NULL,
+  "versionLevel" INTEGER NOT NULL,
+  "band" TEXT NOT NULL,
+  "step" TEXT NOT NULL DEFAULT 'PREPOLL',
+  "prePoll" INTEGER,
+  "postPoll" INTEGER,
+  "readSeconds" INTEGER,
+  "answers" TEXT,
+  "score" INTEGER,
+  "writing" TEXT,
+  "writingScore" INTEGER,
+  "writingComment" TEXT,
+  "writingScoredById" TEXT,
+  "levelBefore" INTEGER NOT NULL,
+  "levelAfter" INTEGER,
+  "firstTry" INTEGER NOT NULL DEFAULT 1,
+  "stretch" INTEGER NOT NULL DEFAULT 0,
+  "annotations" TEXT,
+  "listened" INTEGER NOT NULL DEFAULT 0,
+  "startedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "completedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "RRRun_studentId_completedAt_idx" ON "RRRun"("studentId", "completedAt");
+
+CREATE INDEX "RRRun_schoolId_completedAt_idx" ON "RRRun"("schoolId", "completedAt");
+
+CREATE INDEX "RRRun_articleId_idx" ON "RRRun"("articleId");
+
+CREATE TABLE "RRPlacement" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "startLevel" INTEGER NOT NULL,
+  "steps" TEXT NOT NULL,
+  "result" INTEGER,
+  "startedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "completedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "RRPlacement_studentId_startedAt_idx" ON "RRPlacement"("studentId", "startedAt");
+
+CREATE TABLE "RRClassArticle" (
+  "id" TEXT NOT NULL,
+  "classId" TEXT NOT NULL,
+  "articleId" TEXT NOT NULL,
+  "assignedById" TEXT NOT NULL,
+  "dueAt" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "RRClassArticle_classId_articleId_key" UNIQUE ("classId", "articleId")
+);
+
+CREATE TABLE "QuestionGradeStat" (
+  "id" TEXT NOT NULL,
+  "questionId" TEXT NOT NULL,
+  "grade" INTEGER NOT NULL,
+  "responses" INTEGER NOT NULL,
+  "correct" INTEGER NOT NULL,
+  "pct" REAL NOT NULL,
+  "responsesOnLevel" INTEGER NOT NULL DEFAULT 0,
+  "pctOnLevel" REAL,
+  "optionShares" TEXT,
+  "discrimination" REAL,
+  "medianMs" INTEGER,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "QuestionGradeStat_questionId_grade_key" UNIQUE ("questionId", "grade")
+);
+
+CREATE INDEX "QuestionGradeStat_grade_responses_idx" ON "QuestionGradeStat"("grade", "responses");
+
+CREATE TABLE "QuestionLevelChange" (
+  "id" TEXT NOT NULL,
+  "questionId" TEXT NOT NULL,
+  "grade" INTEGER NOT NULL,
+  "fromLevel" TEXT NOT NULL,
+  "toLevel" TEXT NOT NULL,
+  "fromDifficulty" INTEGER NOT NULL,
+  "toDifficulty" INTEGER NOT NULL,
+  "pct" REAL NOT NULL,
+  "responses" INTEGER NOT NULL,
+  "basis" TEXT NOT NULL,
+  "source" TEXT NOT NULL,
+  "reason" TEXT NOT NULL,
+  "approvedById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "QuestionLevelChange_questionId_createdAt_idx" ON "QuestionLevelChange"("questionId", "createdAt");
+
+CREATE INDEX "QuestionLevelChange_createdAt_idx" ON "QuestionLevelChange"("createdAt");
+
+CREATE TABLE "QuestionAlert" (
+  "id" TEXT NOT NULL,
+  "questionId" TEXT NOT NULL,
+  "grade" INTEGER NOT NULL,
+  "kind" TEXT NOT NULL,
+  "detail" TEXT NOT NULL,
+  "data" TEXT,
+  "status" TEXT NOT NULL DEFAULT 'OPEN',
+  "heldBack" INTEGER NOT NULL DEFAULT 0,
+  "resolvedById" TEXT,
+  "resolvedAt" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "QuestionAlert_questionId_grade_kind_key" UNIQUE ("questionId", "grade", "kind")
+);
+
+CREATE INDEX "QuestionAlert_questionId_status_idx" ON "QuestionAlert"("questionId", "status");
+
+CREATE INDEX "QuestionAlert_status_createdAt_idx" ON "QuestionAlert"("status", "createdAt");
+
+CREATE TABLE "SkillEvidence" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "skillId" TEXT NOT NULL,
+  "source" TEXT NOT NULL,
+  "refId" TEXT NOT NULL,
+  "credit" REAL NOT NULL,
+  "difficultyB" REAL NOT NULL DEFAULT 0,
+  "guessC" REAL NOT NULL DEFAULT 0,
+  "weight" REAL NOT NULL DEFAULT 1,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "SkillEvidence_studentId_source_refId_key" UNIQUE ("studentId", "source", "refId")
+);
+
+CREATE INDEX "SkillEvidence_studentId_skillId_createdAt_idx" ON "SkillEvidence"("studentId", "skillId", "createdAt");
+
+CREATE TABLE "StudentLevelState" (
+  "studentId" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "level" TEXT NOT NULL CHECK ("level" IN ('ABOVE', 'ON', 'BELOW')),
+  "source" TEXT NOT NULL,
+  "reason" TEXT NOT NULL,
+  "since" TEXT NOT NULL,
+  "pending" TEXT CHECK ("pending" IN ('ABOVE', 'ON', 'BELOW')),
+  "pendingSince" TEXT,
+  "pendingCount" INTEGER NOT NULL DEFAULT 0,
+  "theta" REAL,
+  "thetaSE" REAL,
+  "effN" REAL NOT NULL DEFAULT 0,
+  "thetaRecent" REAL,
+  "thetaPrior" REAL,
+  "declining" INTEGER NOT NULL DEFAULT 0,
+  "evaluatedAt" TEXT NOT NULL,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("studentId")
+);
+
+CREATE INDEX "StudentLevelState_schoolId_level_idx" ON "StudentLevelState"("schoolId", "level");

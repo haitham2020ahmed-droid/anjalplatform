@@ -130,7 +130,7 @@ describe("Update 15", () => {
   test("MAP manual entry: by Student ID, descriptors become RITs, Winter adds a mid-year point", async () => {
     const grid = await mapEntryGrid(repo, teacher, { classId, subject: "READING", season: "FALL", year: 2026 });
     assert.equal(grid.rows.length, students.length);
-    assert.ok(grid.goals.length >= 4);
+    assert.deepEqual(grid.goals.map((g) => g.header), ["Informational Text", "Literary Text", "Vocabulary"], "the 3 instructional areas of NWEA's report");
     const [a, b] = grid.rows.filter((r) => r.studentId !== students[0]);
     const goal = grid.goals[0].code;
     const r = await saveMapEntry(repo, teacher, { classId, subject: "READING", season: "FALL", year: 2026, rows: [

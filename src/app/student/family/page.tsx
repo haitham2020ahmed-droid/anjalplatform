@@ -8,6 +8,9 @@ import { studentSkillPlans } from "@/server/curriculum-map/plans";
 import { weekStats } from "@/server/student/weekly";
 import { studentDiagnosticReport } from "@/server/diagnostic/report";
 import { subjectName } from "@/components/map/map-ui";
+import { coachSummary } from "@/server/fluency/coach";
+import { FluencyCoachIcon } from "@/components/fluency/coach-icon";
+import { approvedForFamily } from "@/server/reports/family-reports";
 
 export const metadata = { title: "Family Report" };
 
@@ -19,13 +22,24 @@ export default async function FamilyReport() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
   const id = actor.studentId!;
-  const [shared, m, plans, week, diag] = await Promise.all([isReportShared(repo, String(actor.schoolId), id), myMap(repo, actor), studentSkillPlans(repo, actor), weekStats(repo, id), studentDiagnosticReport(repo, actor, id)]);
+  const [shared, m, plans, week, diag, coach, reports] = await Promise.all([isReportShared(repo, String(actor.schoolId), id), myMap(repo, actor), studentSkillPlans(repo, actor), weekStats(repo, id), studentDiagnosticReport(repo, actor, id), coachSummary(repo, id), approvedForFamily(repo, actor, id)]);
   const hasMap = m.subjects.some((x) => x.profile.term);
   const card = "lift flex items-start gap-4 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200";
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/student", label: "Home" }} icon="👪" title="Family Report" subtitle="Show these to your family. Open one, then use Download PDF / Print." />
 
+      {reports.length > 0 && (
+        <section className="mb-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-emerald-200">
+          <h2 className="text-lg font-bold text-brand-navy">📬 Reports from the school</h2>
+          <ul className="mt-3 space-y-2">{reports.map((r) => (
+            <li key={r.id}><Link href={`/family-report/${r.id}`} className="lift flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-emerald-50 px-4 py-3 ring-1 ring-emerald-200">
+              <span><span className="block font-semibold text-brand-navy">{r.title}</span><span className="block text-sm text-slate-600">{r.content.summary.slice(0, 140)}{r.content.summary.length > 140 ? "…" : ""}</span></span>
+              <span className="text-sm text-slate-500">{r.reviewedAt}{!r.seenByStudentAt ? " · 🆕" : ""}</span>
+            </Link></li>
+          ))}</ul>
+        </section>
+      )}
       <section className="mb-6 rounded-3xl bg-gradient-to-r from-teal-50 to-sky-50 p-5 ring-1 ring-teal-200">
         <h2 className="text-lg font-bold text-brand-navy">🗓️ This Week <span className="text-sm font-normal text-slate-500">since {week.since}</span></h2>
         <div className="mt-3 grid gap-3 sm:grid-cols-4">
@@ -47,6 +61,7 @@ export default async function FamilyReport() {
         <li>{diag ? (
           <Link href="/student/family/diagnostic" className={`${card} ring-indigo-300`}><span className="text-4xl" aria-hidden="true">📝</span><span><span className="block text-lg font-bold text-brand-navy">Diagnostic Report</span><span className="block text-sm text-slate-600">{diag.pct}% · {diag.level === "ABOVE" ? "Above" : diag.level === "ON" ? "On" : "Below"} Level · my strengths and next steps.</span></span></Link>
         ) : <div className={`${card} opacity-70`}><span className="text-4xl" aria-hidden="true">📝</span><span><span className="block text-lg font-bold text-slate-600">Diagnostic Report</span><span className="block text-sm text-slate-500">Appears when your teacher shares it.</span></span></div>}</li>
+        <li><Link href="/student/fluency-coach" className={card}><span aria-hidden="true"><FluencyCoachIcon size={44} /></span><span><span className="block text-lg font-bold text-brand-navy">Reading Fluency</span><span className="block text-sm text-slate-600">{coach.latest ? `${coach.latest.wcpm} words correct per minute (${coach.latest.date}) · ${coach.latest.level === "ABOVE" ? "Above" : coach.latest.level === "ON" ? "On" : "Below"} Level` : "No 1-minute check yet."}{coach.plan ? ` · goal ${coach.plan.goal} · next check ${coach.plan.nextCheck}` : ""}{coach.readings14 ? ` · ${coach.readings14} reading(s) in 2 weeks` : ""}</span></span></Link></li>
         <li><Link href={`/map-report/study-plan/${id}`} className={card}><span className="text-4xl" aria-hidden="true">🧭</span><span><span className="block text-lg font-bold text-brand-navy">My Study Plan</span><span className="block text-sm text-slate-600">The skills to work on next, from my MAP results.</span></span></Link></li>
         <li><Link href="/student/plans" className={card}><span className="text-4xl" aria-hidden="true">🗂️</span><span><span className="block text-lg font-bold text-brand-navy">My Plans</span><span className="block text-sm text-slate-600">{plans.length ? plans.map((p) => `${p.title}: ${p.done}/${p.places} done`).join(" · ") : "No plans yet."}</span></span></Link></li>
       </ul>

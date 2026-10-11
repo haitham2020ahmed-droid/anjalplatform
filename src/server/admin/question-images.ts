@@ -71,12 +71,32 @@ export function cleanAlt(v: string | null | undefined): string | null {
   return t || null;
 }
 
-/** The bytes to send to the browser. */
-export async function readQuestionImage(repo: Repo, id: string): Promise<{ mime: string; bytes: Uint8Array } | null> {
+/**
+ * The bytes to send to the browser. With `schoolId` (always passed by the HTTP route),
+ * only an image used by a question of that school, or uploaded by a user of that
+ * school, is returned; anything else is "not found". Images are de-duplicated by
+ * content across schools, so either link proves the school may see these bytes.
+ */
+export async function readQuestionImage(repo: Repo, id: string, schoolId?: string | null): Promise<{ mime: string; bytes: Uint8Array } | null> {
   const row = await repo.findUnique("QuestionImage", { id });
   if (!row) return null;
+  if (schoolId !== undefined && !(await imageVisibleToSchool(repo, row, schoolId))) return null;
   const b = row.bytes as Uint8Array | string;
   return { mime: String(row.mime), bytes: typeof b === "string" ? Buffer.from(b, "base64") : b };
+}
+
+async function imageVisibleToSchool(repo: Repo, img: Record<string, unknown>, schoolId: string | null): Promise<boolean> {
+  if (!schoolId) return false;
+  if (img.createdById) {
+    const u = await repo.findUnique("User", { id: String(img.createdById) });
+    if (u && String(u.schoolId ?? "") === schoolId) return true;
+  }
+  const qs = await repo.findMany("Question", { imageId: String(img.id) }, { select: ["skillId"] });
+  if (!qs.length) return false;
+  const skills = await repo.findMany("Skill", { id: { in: [...new Set(qs.map((q) => String(q.skillId)))] } }, { select: ["curriculumId"] });
+  const curs = skills.length ? await repo.findMany("Curriculum", { id: { in: [...new Set(skills.map((k) => String(k.curriculumId)))] } }, { select: ["gradeId"] }) : [];
+  const grades = curs.length ? await repo.findMany("Grade", { id: { in: [...new Set(curs.map((c) => String(c.gradeId)))] } }, { select: ["schoolId"] }) : [];
+  return grades.some((g) => String(g.schoolId) === schoolId);
 }
 
 /** Deletes images that no question uses any more (after a replace or remove). */

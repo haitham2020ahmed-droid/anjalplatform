@@ -7,11 +7,15 @@ import { PrerequisiteForm, SkillForm, StandardForm } from "./skill-forms";
 
 /** Edit one skill: name/description, linked standards (official wording shown), prerequisites. */
 export default async function SkillEditorPage({ params }: { params: Promise<{ skillId: string }> }) {
-  await requireActor({ permission: "curriculum:edit" });
+  const actor = await requireActor({ permission: "curriculum:edit" });
   const { skillId } = await params;
   const me = (await getActor())!.user;
   const skill = await repo.findUnique("Skill", { id: skillId });
-  if (!skill) notFound();
+  if (!skill || skill.deletedAt) return notFound();
+  // only a skill of the admin's own school (Skill → Curriculum → Grade.schoolId)
+  const cur = await repo.findUnique("Curriculum", { id: skill.curriculumId });
+  const grade = cur ? await repo.findUnique("Grade", { id: cur.gradeId }) : null;
+  if (!grade || String(grade.schoolId) !== String(actor.schoolId ?? "")) return notFound();
   const stdLinks = await repo.findMany("SkillStandard", { skillId });
   const standards = stdLinks.length ? await repo.findMany("Standard", { id: { in: stdLinks.map((l) => l.standardId) } }) : [];
   const pre = await repo.findMany("SkillPrerequisite", { skillId });

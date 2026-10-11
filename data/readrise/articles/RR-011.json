@@ -1,0 +1,605 @@
+{
+  "code": "RR-011",
+  "title": "Robots Around Us",
+  "topic": "Technology",
+  "summary": "How robots sense, think, and act, where they work today, and why they still depend on people.",
+  "poll": "Robots will one day do most of the jobs that people do today.",
+  "versions": [
+    {
+      "level": 300,
+      "title": "Robots Help Us",
+      "text": "A robot is a machine. It can do a job on its own. It has three main parts. Sensors help it sense things. They are like eyes and ears. A computer is its brain. It thinks. Motors help it move.\n\nRobots work in a car factory. Big robot arms lift and paint. They do the same job all day. They do not get tired.\n\nA doctor can move a robot arm in a hospital. It makes small cuts. At home, a robot can clean the floor. Its sensors stop it at the stairs.\n\nA rover is a robot on Mars. It drives. It takes photos of rocks. Mars is far away. A message from Earth takes a long time to get to it. So the rover must make some choices. It does this by itself.\n\nEach robot needs a program. It is a list of steps. People write it. Is a step wrong? Then the robot gets it wrong. Robots are not good at new jobs. People must plan and fix them. You can learn to make robots, too. One day, it may be your job."
+    },
+    {
+      "level": 400,
+      "title": "Robots Help Us",
+      "text": "A robot is a machine. It can do a job by itself. Most robots have three parts. Sensors help the robot sense what is around it. They work like eyes and ears. A small computer is the brain. It thinks. Then motors make the robot move. Sense, think, act. That is how robots work.\n\nMany robots work in a factory. Big robot arms help make cars. They lift and paint. They do the same job again and again. They never get tired.\n\nIn a hospital, a doctor can guide a robot arm. It makes tiny cuts. At home, a robot can clean the floor. Its sensors stop it at the stairs.\n\nA rover is a robot that drives on Mars. It takes photos of rocks. Mars is very far away. A message from Earth takes minutes to get there. So the rover must make some choices. It does this on its own.\n\nEvery robot needs a program. A program is a list of steps. People write it. If a step is wrong, the robot makes a mistake. Robots are not good at new problems. People must plan, build, and fix them. Many kids now join robot clubs. One day, some will build robots as their job."
+    },
+    {
+      "level": 500,
+      "title": "Robots Around Us",
+      "text": "A robot is a machine that can do a job on its own. Most robots have three main parts. Sensors let the robot sense what is around it. They work like eyes, ears, and skin. A small computer is the robot's brain. It thinks about what the sensors find. Then motors make the robot act. Sense, think, act: that is how robots work.\n\nMany robots work in a factory. Huge robot arms help build cars. They lift heavy parts, paint, and join metal. They do the same task again and again. They never get tired or bored.\n\nRobots help in hospitals, too. A doctor can guide a robot arm to make tiny, careful cuts. Other robots carry medicine down the halls. At home, a robot vacuum cleans the floor. Its sensors stop it from falling down the stairs.\n\nSome robots explore space. A rover is a robot that drives on Mars. It takes photos and studies rocks. Mars is very far away, so messages take minutes to get there. The rover must make some choices by itself.\n\nEvery robot needs a program. A program is a list of steps that people write. The robot follows the steps exactly. If a step is wrong, the robot makes a mistake. Robots are not good at new problems. People must still plan, build, and fix them. Many students join robot clubs. One day, they may build robots as their job."
+    },
+    {
+      "level": 600,
+      "title": "Robots Around Us",
+      "text": "A robot is a machine that can do a job without a person controlling every move. Most robots have three main parts. Sensors let the robot sense what is around it, a bit like eyes, ears, and skin. A small computer acts as the robot's brain. It thinks about what the sensors find and decides what to do. Then motors make the robot act by moving, lifting, or grabbing. Sense, think, act: this is how robots work.\n\nMany robots work in a factory. In car factories, huge robot arms lift heavy parts, paint, and join pieces of metal. They do the same task again and again, and they never get tired. They also do jobs that are dangerous for people.\n\nRobots help in hospitals, too. A doctor can guide a robot arm to make tiny, careful cuts during an operation. Other robots carry medicine and supplies down long halls. At home, a robot vacuum cleans the floor. Its sensors help it go around chairs and stop at the top of the stairs.\n\nSome robots explore space. A rover is a robot that drives on Mars. It takes photos and studies rocks. Mars is so far away that messages take many minutes to arrive. So the rover must make some choices by itself.\n\nEvery robot needs a program. A program is a list of steps that people write. The robot follows these steps exactly. If a step is wrong, the robot makes a mistake. Robots are good at jobs they know, but they find new problems hard. People must still plan, build, and fix them. Many students now join robot clubs. One day, they may design robots as their job."
+    },
+    {
+      "level": 700,
+      "title": "Robots Around Us",
+      "text": "A robot is a machine that can do a job without a person controlling every move. Most robots have three main parts. Sensors gather information about the world around the robot, a bit like our eyes, ears, and skin. A computer acts as the robot's brain. It thinks about what the sensors find and decides what to do next. Then motors make the robot act by moving, lifting, or grabbing. Engineers sum this up in three words: sense, think, act.\n\nMany robots work in a factory. In car factories, huge robot arms lift heavy parts, paint car bodies, and join pieces of metal together. They repeat the same task thousands of times without getting tired, so they are good at repetitive work. They also take on jobs that would be dangerous for people, such as handling hot metal.\n\nRobots are useful in hospitals, too. A surgeon can guide a robot arm to make tiny, precise cuts during an operation. The robot does not decide anything by itself; the doctor controls every move. Other robots carry medicine and supplies down long halls. At home, a robot vacuum cleans the floor. Its sensors help it steer around furniture and stop at the edge of the stairs.\n\nSome robots explore space. A rover is a robot that drives across the surface of Mars, taking photos and studying rocks. Mars is so far away that a message from Earth can take up to about twenty minutes to arrive. For this reason, the rover must make some decisions on its own.\n\nEvery robot needs a program, which is a set of instructions that people write. The robot follows these instructions exactly. If an instruction is wrong, the robot makes a mistake. Robots are good at tasks they know, but they struggle with new problems. People must still plan, build, and repair them. Many students now join robot clubs and contests. One day, they may design robots as engineers."
+    },
+    {
+      "level": 800,
+      "title": "Robots Around Us",
+      "text": "A robot is a machine that can carry out a task without a person controlling every move. Most robots have three main parts. Sensors gather information about the world around the robot, much like our eyes, ears, and skin. A computer works as the robot's brain. It studies what the sensors detect and decides what to do next. Then motors make the robot act by moving, lifting, or gripping. Engineers often describe this cycle in three words: sense, think, act.\n\nMany robots work in factories. In car factories, huge robot arms lift heavy parts, paint car bodies, and join pieces of metal together. They can repeat the same task thousands of times without getting tired, so they are ideal for repetitive work. They also take on jobs that would be dangerous for people, such as handling hot metal or harmful chemicals.\n\nRobots are useful in hospitals, too. A surgeon can guide a robot arm to make tiny, precise cuts during an operation. The robot does not make medical decisions; the doctor controls every movement. Other hospital robots carry medicine and supplies along busy hallways. At home, a robot vacuum cleans the floor. Its sensors help it steer around furniture and stop at the edge of the stairs.\n\nSome robots explore space. A rover is a robot that drives across the surface of Mars, taking photos and studying rocks. Mars is so far from Earth that a signal can take up to about twenty minutes to arrive. Because of this delay, a rover must make some decisions on its own.\n\nEvery robot needs a program, a set of instructions written by people. The robot follows these instructions exactly. If an instruction contains an error, the robot will make a mistake. Robots are excellent at tasks they know, but they struggle with new or unexpected problems. People are still needed to design, build, program, and repair them. Many students now join robotics clubs and contests. Someday, some of them may become engineers who invent the next robots."
+    },
+    {
+      "level": 900,
+      "title": "Robots Around Us",
+      "text": "A robot is a machine that can carry out a task without a person controlling every movement. Most robots have three main parts. Sensors gather information about the world around the robot, much like our eyes, ears, and skin. A computer works as the robot's brain, examining what the sensors detect and deciding what to do next. Then motors make the robot act by moving, lifting, or gripping. Engineers often describe this cycle in three words: sense, think, act.\n\nMany robots work in factories. In car factories, huge robot arms lift heavy parts, paint car bodies, and join pieces of metal together. They can repeat the same task thousands of times without getting tired, which makes them ideal for repetitive work. They also take on jobs that would be dangerous for people, such as handling hot metal or harmful chemicals.\n\nRobots are valuable in hospitals, too. A surgeon can guide a robotic arm to make tiny, precise cuts during an operation. The robot does not make medical decisions; the doctor controls every movement. Other hospital robots deliver medicine and supplies along busy hallways. At home, a robot vacuum cleans the floor. Its sensors help it steer around furniture and stop at the edge of the stairs.\n\nSome robots explore space. A rover is a robot that drives across the surface of Mars, taking photos and studying rocks. Mars is so far from Earth that a signal can take up to about twenty minutes to arrive. Because of this delay, a rover must make some decisions on its own.\n\nEvery robot needs a program, a set of instructions written by people. The robot follows these instructions exactly, so if an instruction contains an error, the robot will make a mistake. Robots are excellent at familiar tasks, but they struggle with new or unexpected problems. People are still needed to design, build, program, and repair them. Many students now join robotics clubs and competitions. Someday, some of them may become engineers who invent the next generation of robots."
+    },
+    {
+      "level": 1000,
+      "title": "Robots Around Us",
+      "text": "A robot is a machine that can carry out a task without a person directing every movement. Most robots have three essential parts. Sensors collect information about the robot's surroundings, functioning much like our eyes, ears, and skin. A computer serves as the robot's brain, analyzing what the sensors detect and deciding what to do next. Motors then make the robot act by moving, lifting, or gripping. Engineers often summarize this continuous cycle in three simple words: sense, think, act.\n\nMany robots work in factories. In automobile factories, enormous robot arms lift heavy parts, paint car bodies, and weld pieces of metal together. They can repeat the same task thousands of times without becoming tired, which makes them ideal for repetitive work. They also take on jobs that would be hazardous for human workers, such as handling scorching metal or harmful chemicals.\n\nRobots have become valuable in hospitals as well. A surgeon can guide a robotic arm to make tiny, precise cuts during an operation. The robot does not make medical decisions; the doctor controls every movement from a nearby screen. Other hospital robots deliver medicine and supplies along busy hallways. At home, a robot vacuum cleans the floor while its sensors help it navigate around furniture and stop at the edge of the stairs.\n\nSome robots explore space. A rover is a robot that travels across the surface of Mars, photographing the landscape and examining rocks. Mars is so distant from Earth that a radio signal can take up to about twenty minutes to arrive. Because of this delay, engineers cannot steer a rover the way someone steers a toy car, so it must make some decisions independently.\n\nEvery robot depends on a program, which is a set of instructions written by people. The robot follows these instructions exactly, so if an instruction contains an error, the robot will make a mistake. Robots are excellent at familiar tasks, but they struggle with new or unexpected situations that their programs did not prepare them for. People are still needed to design, build, program, and repair them. Many students now participate in robotics clubs and competitions. Someday, some of them may become engineers who invent the next generation of robots."
+    },
+    {
+      "level": 1100,
+      "title": "Robots Around Us",
+      "text": "A robot is a machine capable of carrying out a task without a person directing every movement. Most robots rely on three essential components. Sensors, such as cameras, microphones, and touch pads, collect information about the robot's surroundings, functioning much like human eyes, ears, and skin. A computer serves as the robot's brain, analyzing the sensor data and determining what to do next. Finally, actuators, which are usually electric motors, make the robot act by moving, lifting, or gripping. Engineers frequently summarize this continuous cycle in three words: sense, think, act.\n\nMany robots are employed in manufacturing. In automobile factories, enormous robotic arms lift heavy components, paint car bodies, and weld sections of metal together. They can repeat an identical task thousands of times with great precision and without becoming fatigued, which makes them ideal for repetitive work. They also perform jobs that would be hazardous for human workers, such as handling scorching metal or toxic chemicals.\n\nRobots have become valuable in hospitals as well. During some operations, a surgeon guides a robotic arm to make tiny, precise incisions. The robot does not make medical decisions; the surgeon controls every movement from a nearby console. Other hospital robots transport medicine and supplies along busy corridors. In homes, a robot vacuum cleans the floor while its sensors help it navigate around furniture and avoid tumbling down a staircase.\n\nSome robots explore other worlds. A rover is a robot that travels across the surface of Mars, photographing the landscape and examining rocks. Because Mars is so distant, a radio signal from Earth can take up to about twenty minutes to arrive. Engineers therefore cannot steer a rover the way someone operates a remote-control car; instead, the rover must be partly autonomous, making certain decisions, such as how to avoid a boulder, on its own.\n\nEvery robot depends on a program, a set of step-by-step instructions, or algorithm, written by people. The robot follows these instructions exactly, so a single error in the code can cause the robot to make a mistake. Robots excel at familiar tasks, but they struggle with unexpected situations that their programs did not anticipate. Human beings therefore remain essential to design, build, program, and maintain them. Many students now participate in robotics clubs and competitions, and some may eventually become engineers or technicians who invent and care for the next generation of robots."
+    },
+    {
+      "level": 1200,
+      "title": "Robots Around Us",
+      "text": "A robot is a machine capable of carrying out a task without a person directing every movement. Most robots rely on three essential components. Sensors, such as cameras, microphones, and pressure pads, collect information about the robot's surroundings, functioning much like human eyes, ears, and skin. A computer serves as the robot's brain, analyzing the sensor data and determining an appropriate response. Finally, actuators, which are typically electric motors, enable the robot to act by moving, lifting, or gripping. Engineers frequently summarize this continuous cycle in three words: sense, think, act.\n\nMany robots are employed in manufacturing. In automobile factories, enormous robotic arms lift heavy components, spray-paint car bodies, and weld sections of metal together. They can repeat an identical operation thousands of times with remarkable precision and without becoming fatigued, which makes them ideal for repetitive work. They also perform jobs that would be hazardous for human employees, such as handling scorching metal or toxic chemicals.\n\nRobots have become increasingly valuable in hospitals as well. During certain operations, a surgeon guides a robotic arm to make tiny, precise incisions. The robot does not make medical decisions; the surgeon controls every movement from a nearby console. Other hospital robots transport medication and supplies along busy corridors. In homes, a robot vacuum cleans the floor while its sensors help it navigate around furniture and avoid tumbling down a staircase.\n\nSome robots explore other worlds. A rover is a robot that travels across the surface of Mars, photographing the landscape and analyzing rocks. Because Mars is so distant, a radio signal from Earth can take up to about twenty minutes to arrive. Engineers therefore cannot steer a rover the way someone operates a remote-control car; instead, the rover must be partially autonomous, making certain decisions, such as how to avoid a boulder, independently.\n\nEvery robot depends on a program, a precise sequence of instructions, or algorithm, written by people. The robot executes these instructions exactly, so a single error in the code can cause the robot to malfunction. Robots excel at familiar tasks, but they struggle with unexpected situations that their programs did not anticipate, and they cannot truly understand human feelings. Human beings therefore remain essential to design, build, program, and maintain them. Many students now participate in robotics clubs and competitions, and some may eventually become engineers, programmers, or technicians who invent and care for the next generation of robots."
+    },
+    {
+      "level": 1300,
+      "title": "Robots Around Us",
+      "text": "A robot is a machine capable of carrying out a task without a person directing every movement, and most robots rely on three essential components. Sensors, such as cameras, microphones, and pressure pads, collect information about the robot's surroundings, functioning much like human eyes, ears, and skin. A computer serves as the robot's brain, analyzing the sensor data and determining an appropriate response, while actuators, which are typically electric motors, enable the robot to act by moving, lifting, or gripping. Engineers frequently summarize this continuous cycle in three words: sense, think, act.\n\nMany robots are employed in industrial manufacturing. In automobile factories, enormous robotic arms lift heavy components, spray-paint car bodies, and weld sections of metal together, repeating an identical operation thousands of times with remarkable precision and without becoming fatigued. This endurance makes them ideal for repetitive work. They also perform responsibilities that would be hazardous for human employees, such as handling scorching metal or toxic chemicals.\n\nRobots have become increasingly valuable in medical settings as well. During certain operations, a surgeon guides a robotic arm to make tiny, precise incisions. The robot does not make medical decisions independently; the surgeon controls every movement from a nearby console. Other hospital robots transport medication and supplies along busy corridors, and in homes, a robot vacuum cleans the floor while its sensors help it navigate around furniture and avoid tumbling down a staircase.\n\nSome robots explore other worlds. A rover is a robot that travels across the surface of Mars, photographing the landscape and analyzing the chemistry of rocks. Because Mars is so distant, a radio signal from Earth can take up to approximately twenty minutes to arrive, so engineers cannot steer a rover the way someone operates a remote-control car. Instead, the rover must be partially autonomous, making certain decisions, such as how to avoid a boulder, without immediate human guidance.\n\nEvery robot depends on a program, a precise sequence of instructions, or algorithm, written by people. The robot executes these instructions exactly, so a single error in the code can cause the robot to malfunction. Robots excel at familiar, predictable tasks, but they struggle with unexpected circumstances that their programs did not anticipate, and they cannot genuinely understand human emotions. Human beings therefore remain essential to design, build, program, and maintain them. Many students now participate in robotics clubs and competitions, where some discover ambitions to become engineers, programmers, or technicians who will invent and maintain the next generation of robots."
+    },
+    {
+      "level": 1400,
+      "title": "Robots Around Us",
+      "text": "A robot is a machine capable of carrying out a task without a person directing every individual movement, and most robots rely on three essential, interconnected components. Sensors, such as cameras, microphones, and pressure-sensitive pads, collect information about the robot's surroundings, functioning much like human eyes, ears, and skin. A computer serves as the robot's brain, analyzing the sensor data and determining an appropriate response, while actuators, which are typically electric motors, enable the robot to act by moving, lifting, or gripping. Engineers frequently summarize this continuous cycle in three deceptively simple words: sense, think, act.\n\nMany robots are employed in industrial manufacturing. In automobile factories, enormous robotic arms lift heavy components, spray-paint vehicle bodies, and weld sections of metal together, repeating an identical operation thousands of times with remarkable precision and without becoming fatigued. This tireless endurance makes them ideal for repetitive work, and they additionally perform responsibilities that would be hazardous for human employees, such as handling scorching metal or toxic chemicals.\n\nRobots have become increasingly valuable in medical settings as well. During certain operations, a surgeon guides a robotic arm to make tiny, precise incisions, although the robot does not make medical decisions independently; the surgeon controls every movement from a nearby console. Other hospital robots transport medication and supplies along busy corridors. In residential settings, a robot vacuum cleans the floor while its sensors help it navigate around furniture and avoid tumbling down a staircase.\n\nSome robots explore other worlds. A rover is a robot that travels across the surface of Mars, photographing the landscape and analyzing the chemical composition of rocks. Because Mars is so distant, a radio signal from Earth can require approximately twenty minutes to arrive, which means engineers cannot steer a rover the way someone operates a remote-control car. Instead, the rover must be partially autonomous, making certain decisions, such as how to circumvent a boulder, without immediate human guidance.\n\nEvery robot depends on a program, a precise sequence of instructions, or algorithm, written by people. The robot executes these instructions exactly, so a single error in the code can cause the robot to malfunction in unpredictable ways. Robots excel at familiar, predictable tasks, but they struggle with unexpected circumstances that their programs did not anticipate, and they cannot genuinely comprehend human emotions. Human beings therefore remain indispensable to design, construct, program, and maintain them, and many students now participate in robotics clubs and competitions, where some discover ambitions to become engineers, programmers, or technicians who will invent and maintain the next generation of intelligent machines."
+    }
+  ],
+  "bands": {
+    "LOW": {
+      "keyWords": [
+        {
+          "word": "machine",
+          "partOfSpeech": "noun",
+          "definition": "a thing with parts that work together to do a job",
+          "example": "A washing machine cleans our clothes with water and soap."
+        },
+        {
+          "word": "sensor",
+          "partOfSpeech": "noun",
+          "definition": "a part that notices things like light, sound, touch, or distance",
+          "example": "The door opens by itself when its sensor sees a person."
+        },
+        {
+          "word": "program",
+          "partOfSpeech": "noun",
+          "definition": "a list of steps that tells a computer or robot what to do",
+          "example": "My brother wrote a program that makes a game character jump."
+        },
+        {
+          "word": "factory",
+          "partOfSpeech": "noun",
+          "definition": "a large building where people and machines make things",
+          "example": "The juice factory fills thousands of bottles every day."
+        },
+        {
+          "word": "rover",
+          "partOfSpeech": "noun",
+          "definition": "a robot car that drives over the ground of another world, such as Mars",
+          "example": "The rover rolled slowly over the red rocks."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "What is the article mostly about?",
+          "options": [
+            "How to build a robot that cleans floors",
+            "What robots are, where they work, and what they need from people",
+            "Why the rover on Mars takes photos of rocks",
+            "Why robots will soon do every job in every home, school, and city"
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The article tells what a robot is, shows robots in factories, hospitals, homes, and space, and explains that people still plan and fix them.",
+          "wrong": {
+            "A": "The article does not teach how to build a robot.",
+            "C": "The rover is only one part of the article.",
+            "D": "The article says robots are not good at new jobs and still need people."
+          }
+        },
+        {
+          "stem": "What do a robot's sensors do?",
+          "options": [
+            "They help it move its arms",
+            "They write its program",
+            "They help it sense things around it",
+            "They stop it from getting tired after work"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article says sensors help a robot sense the world, like eyes and ears.",
+          "wrong": {
+            "A": "Motors help a robot move, not sensors.",
+            "B": "People write the program.",
+            "D": "Robots do not get tired, but that is not because of their sensors."
+          }
+        },
+        {
+          "stem": "Where does a rover work?",
+          "options": [
+            "On Mars",
+            "In a car factory",
+            "In a hospital",
+            "In a school club"
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The article says a rover is a robot that drives on Mars.",
+          "wrong": {
+            "B": "Robot arms work in car factories.",
+            "C": "Doctors use robot arms in hospitals.",
+            "D": "Kids join robot clubs, but rovers do not work there."
+          }
+        },
+        {
+          "stem": "The article says, \"A program is a list of steps.\" What is a program in this article?",
+          "options": [
+            "A show you watch on TV",
+            "A part inside the robot that helps it move",
+            "A trip from Earth to Mars",
+            "Steps people write for a robot to follow"
+          ],
+          "answer": "D",
+          "skill": "vocabulary",
+          "why": "In the article, a program is the list of steps that people write and the robot follows.",
+          "wrong": {
+            "A": "A TV show can be called a program, but that is not the meaning here.",
+            "B": "Motors are the parts that help a robot move.",
+            "C": "A program is not a trip."
+          }
+        },
+        {
+          "stem": "Why must the rover make some choices by itself?",
+          "options": [
+            "It has no sensors",
+            "It does not need people",
+            "Messages from Earth take a long time to reach Mars",
+            "Mars has no rocks for the rover to study or take photos of"
+          ],
+          "answer": "C",
+          "skill": "cause-effect",
+          "why": "Mars is far away, so a message from Earth takes a long time. The rover cannot wait, so it makes some choices itself.",
+          "wrong": {
+            "A": "The rover has sensors; it takes photos and checks rocks.",
+            "B": "The article says people still plan and fix robots.",
+            "D": "The rover takes photos of rocks on Mars."
+          }
+        },
+        {
+          "stem": "A robot arm in a factory paints cars all day. What can you tell about it?",
+          "options": [
+            "It is good at doing one job over and over",
+            "It needs a long rest every night",
+            "It can pick a new job when it is bored",
+            "It needs a doctor to move it"
+          ],
+          "answer": "A",
+          "skill": "inference",
+          "why": "The article says factory robots do the same job all day and do not get tired, so they are good at doing one job again and again.",
+          "wrong": {
+            "B": "The article says these robots do not get tired.",
+            "C": "Robots are not good at new jobs.",
+            "D": "A doctor moves a robot arm in a hospital, not in a factory."
+          }
+        },
+        {
+          "stem": "A person writes one wrong step in a robot's program. What will most likely happen?",
+          "options": [
+            "The robot will fix the step itself",
+            "The robot will stop being a machine",
+            "The robot will ask the rover for help",
+            "The robot will make a mistake"
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "The robot follows its steps exactly, so a wrong step leads to a wrong action.",
+          "wrong": {
+            "A": "Robots are not good at new problems, so they cannot fix their own steps.",
+            "B": "A robot is still a machine, even with a mistake.",
+            "C": "Robots in the article do not ask a rover for help."
+          }
+        },
+        {
+          "stem": "Why does the author end the article by talking about kids who learn to make robots?",
+          "options": [
+            "To show that robots are bad at new jobs",
+            "To help readers think of robots as a job one day",
+            "To explain how sensors work",
+            "To warn readers that robots are unsafe to be around"
+          ],
+          "answer": "B",
+          "skill": "author-purpose",
+          "why": "The ending speaks to young readers and says that making robots could be their job one day.",
+          "wrong": {
+            "A": "Robots being bad at new jobs comes before the ending and is not its purpose.",
+            "C": "Sensors are explained at the start of the article.",
+            "D": "The article does not say robots are unsafe."
+          }
+        }
+      ],
+      "prompt": "A robot can sense, think, and act. Pick one robot from the article. Tell what job it does and how it uses its parts to do that job.",
+      "checklist": [
+        "I named one robot from the article and its job.",
+        "I told how it senses, thinks, or acts.",
+        "I used complete sentences with capital letters and periods."
+      ]
+    },
+    "MID": {
+      "keyWords": [
+        {
+          "word": "repetitive",
+          "partOfSpeech": "adjective",
+          "definition": "done the same way again and again",
+          "example": "Copying the same word fifty times is a repetitive task."
+        },
+        {
+          "word": "precise",
+          "partOfSpeech": "adjective",
+          "definition": "exact and careful, with no mistakes",
+          "example": "The tailor took precise measurements before cutting the cloth."
+        },
+        {
+          "word": "surgeon",
+          "partOfSpeech": "noun",
+          "definition": "a doctor who does operations to fix problems inside the body",
+          "example": "The surgeon washed her hands carefully before the operation."
+        },
+        {
+          "word": "instructions",
+          "partOfSpeech": "noun",
+          "definition": "steps or directions that tell how to do something",
+          "example": "We followed the instructions on the box to build the shelf."
+        },
+        {
+          "word": "engineer",
+          "partOfSpeech": "noun",
+          "definition": "a person who plans, designs, and builds machines, roads, or buildings",
+          "example": "The engineer checked the new bridge before cars could cross it."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which sentence best states the central idea of the article?",
+          "options": [
+            "Robots sense, think, and act to help in many places, but still need people.",
+            "Robots in car factories work faster than all other robots.",
+            "Mars rovers are the smartest robots ever built by engineers.",
+            "Robot vacuums will soon replace all workers who clean."
+          ],
+          "answer": "A",
+          "skill": "central-idea",
+          "why": "The article explains the sense–think–act cycle, shows robots in factories, hospitals, homes, and space, and ends with what robots cannot do without people.",
+          "wrong": {
+            "B": "The article does not compare the speed of different robots.",
+            "C": "The article does not rank rovers as the smartest robots.",
+            "D": "The article never says robot vacuums will replace workers."
+          }
+        },
+        {
+          "stem": "What does a surgeon do with a robot arm during an operation?",
+          "options": [
+            "Lets the robot decide where to cut",
+            "Uses it to carry medicine to rooms",
+            "Programs it once and leaves the room",
+            "Controls every movement to make precise cuts"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article says the robot does not make medical decisions; the surgeon controls every movement to make tiny, precise cuts.",
+          "wrong": {
+            "A": "The article says the robot does not make the decisions.",
+            "B": "Other hospital robots carry medicine; the robot arm is used in operations.",
+            "C": "The surgeon guides the arm the whole time."
+          }
+        },
+        {
+          "stem": "Read the sentence: \"They can repeat the same task thousands of times without getting tired, so they are ideal for repetitive work.\" What does repetitive mean?",
+          "options": [
+            "Hot and dangerous",
+            "Done the same way again and again",
+            "New and surprising",
+            "Done very slowly"
+          ],
+          "answer": "B",
+          "skill": "vocabulary",
+          "why": "The sentence explains that the robots repeat the same task thousands of times, so repetitive means done again and again.",
+          "wrong": {
+            "A": "Dangerous jobs are mentioned in the next sentence, but that is a different idea.",
+            "C": "Repeating a task is the opposite of something new.",
+            "D": "The sentence is about repeating, not about speed."
+          }
+        },
+        {
+          "stem": "Why must a Mars rover make some decisions on its own?",
+          "options": [
+            "Its sensors cannot see the rocks",
+            "No engineers know how to program it",
+            "A signal from Earth can take up to about twenty minutes",
+            "The ground on Mars is too hot for its motors to work in the day"
+          ],
+          "answer": "C",
+          "skill": "cause-effect",
+          "why": "Because a signal takes so long to reach Mars, people cannot steer the rover moment by moment, so it must decide some things itself.",
+          "wrong": {
+            "A": "The rover uses its sensors to take photos and study rocks.",
+            "B": "Engineers do program rovers.",
+            "D": "The article does not say Mars is too hot for motors."
+          }
+        },
+        {
+          "stem": "Which is an example of a robot doing a job that would be dangerous for people?",
+          "options": [
+            "A robot vacuum stopping at the stairs",
+            "A rover taking photos of rocks",
+            "A robot built for a student contest",
+            "A robot arm handling hot metal"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article says factory robots take on dangerous jobs, such as handling hot metal or harmful chemicals.",
+          "wrong": {
+            "A": "Cleaning floors is not described as dangerous for people.",
+            "B": "The rover explores Mars because it is far away, not because photos are dangerous.",
+            "C": "Student contests are about learning, not dangerous work."
+          }
+        },
+        {
+          "stem": "A factory robot has always sorted red boxes and blue boxes. One day it is given a green box. What will most likely happen?",
+          "options": [
+            "It may struggle, since its program did not plan for green",
+            "It will paint the green box red to match the others",
+            "It will ask a surgeon what to do with the box",
+            "It will invent a new rule for green boxes by itself"
+          ],
+          "answer": "A",
+          "skill": "inference",
+          "why": "The article says robots follow their instructions exactly and struggle with new or unexpected problems.",
+          "wrong": {
+            "B": "Nothing in its instructions tells it to paint boxes.",
+            "C": "Surgeons work with robots in hospitals, not factories.",
+            "D": "Robots cannot invent new rules; people write their instructions."
+          }
+        },
+        {
+          "stem": "How does the author organize the middle of the article?",
+          "options": [
+            "By telling events in the order they happened",
+            "By listing problems and then solutions",
+            "By showing how robots help in one place after another",
+            "By comparing robots with animals"
+          ],
+          "answer": "C",
+          "skill": "text-structure",
+          "why": "After explaining sense, think, act, the author describes robots in factories, then hospitals and homes, then space.",
+          "wrong": {
+            "A": "The article does not tell a story in time order.",
+            "B": "The paragraphs do not each present a problem and a solution.",
+            "D": "The article compares sensors to eyes and ears once, but it is not organized as a comparison with animals."
+          }
+        },
+        {
+          "stem": "A robot follows its instructions exactly. What can the reader infer from this?",
+          "options": [
+            "Robots never make any mistakes",
+            "People who write programs must check them carefully",
+            "Robots can change their own instructions",
+            "Instructions are only needed for robots in space"
+          ],
+          "answer": "B",
+          "skill": "inference",
+          "why": "If a robot does exactly what its instructions say, an error in the instructions becomes an error in the robot's work, so programmers must be careful.",
+          "wrong": {
+            "A": "The article says a wrong instruction makes the robot make a mistake.",
+            "C": "The article says people write the instructions.",
+            "D": "Every robot needs a program, not only rovers."
+          }
+        }
+      ],
+      "prompt": "Robots are very good at some jobs but still need people. Explain one thing robots do well and one thing they cannot do well. Use details from the article.",
+      "checklist": [
+        "I explained one strength of robots with a detail from the article.",
+        "I explained one limit of robots with a detail from the article.",
+        "I told why people are still needed."
+      ]
+    },
+    "HIGH": {
+      "keyWords": [
+        {
+          "word": "actuator",
+          "partOfSpeech": "noun",
+          "definition": "the part of a machine, often a motor, that makes it move",
+          "example": "When the actuator turned on, the gate slowly swung open."
+        },
+        {
+          "word": "algorithm",
+          "partOfSpeech": "noun",
+          "definition": "a set of step-by-step instructions for solving a problem or doing a task",
+          "example": "Our class wrote an algorithm for making tea, from boiling water to pouring the cup."
+        },
+        {
+          "word": "autonomous",
+          "partOfSpeech": "adjective",
+          "definition": "able to act or make decisions on its own, without someone controlling it",
+          "example": "The autonomous train runs between stations with no driver on board."
+        },
+        {
+          "word": "precision",
+          "partOfSpeech": "noun",
+          "definition": "the quality of being very exact and accurate",
+          "example": "The watchmaker fitted each tiny gear with great precision."
+        },
+        {
+          "word": "technician",
+          "partOfSpeech": "noun",
+          "definition": "a skilled worker who checks, fixes, and takes care of machines or equipment",
+          "example": "A technician came to repair the school's air conditioner."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which statement best expresses the central idea of the article?",
+          "options": [
+            "Robotic surgery has replaced human surgeons in most hospitals.",
+            "Autonomous rovers show that robots no longer need programmers.",
+            "Robots' sense–think–act cycle makes them useful, but people remain essential.",
+            "Factory robots are valuable mainly because they never need repairs."
+          ],
+          "answer": "C",
+          "skill": "central-idea",
+          "why": "The article explains how robots sense, think, and act, shows them at work in several fields, and stresses that humans design, program, and maintain them.",
+          "wrong": {
+            "A": "The article says surgeons control the robotic arms; robots have not replaced them.",
+            "B": "Rovers are only partially autonomous and still depend on people's programs.",
+            "D": "The article says people must maintain robots."
+          }
+        },
+        {
+          "stem": "The article says actuators are \"typically electric motors.\" What is an actuator?",
+          "options": [
+            "A part that makes a robot move",
+            "A sensor that detects sound",
+            "The code that controls a robot",
+            "A screen that a surgeon uses"
+          ],
+          "answer": "A",
+          "skill": "vocabulary",
+          "why": "Actuators make the robot act by moving, lifting, or gripping, and they are usually motors.",
+          "wrong": {
+            "B": "Microphones are sensors; actuators produce movement.",
+            "C": "The code is the program or algorithm.",
+            "D": "The surgeon uses a console, not an actuator."
+          }
+        },
+        {
+          "stem": "According to the article, what is an algorithm?",
+          "options": [
+            "A type of sensor that collects data",
+            "A console used by surgeons",
+            "A radio signal sent to Mars",
+            "A set of instructions that people write"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article describes a program as a sequence of instructions, or algorithm, written by people.",
+          "wrong": {
+            "A": "Sensors collect data; they are not algorithms.",
+            "B": "A console is a control station, not a set of instructions.",
+            "C": "Radio signals carry messages; they are not algorithms."
+          }
+        },
+        {
+          "stem": "Why must a Mars rover be partially autonomous?",
+          "options": [
+            "Engineers want to save fuel on each trip",
+            "Signals take up to twenty minutes, so live steering is impossible",
+            "Its actuators are stronger than those of factory robots",
+            "The surface of Mars has no boulders to avoid"
+          ],
+          "answer": "B",
+          "skill": "cause-effect",
+          "why": "The long signal delay means engineers cannot steer the rover moment by moment, so it must make some decisions itself.",
+          "wrong": {
+            "A": "The article does not mention fuel.",
+            "C": "The article does not compare the strength of actuators.",
+            "D": "The article gives avoiding a boulder as an example of a rover decision."
+          }
+        },
+        {
+          "stem": "From where does a surgeon control a robotic arm during an operation?",
+          "options": [
+            "A nearby console",
+            "A room on another floor",
+            "A rover's control center",
+            "The robot's own sensors"
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The article says the surgeon controls every movement from a nearby console.",
+          "wrong": {
+            "B": "The article says the console is nearby.",
+            "C": "Rover control is about Mars, not surgery.",
+            "D": "Sensors gather data; they are not where the surgeon works."
+          }
+        },
+        {
+          "stem": "Based on the article, which task would a factory robot most likely handle WORST?",
+          "options": [
+            "Welding the same joint on thousands of cars",
+            "Spray-painting identical car bodies",
+            "Solving a problem its program never anticipated",
+            "Lifting heavy components all day"
+          ],
+          "answer": "C",
+          "skill": "inference",
+          "why": "Robots excel at familiar, repeated tasks but struggle with unexpected circumstances their programs did not anticipate.",
+          "wrong": {
+            "A": "Repeating a weld is exactly the kind of work robots do well.",
+            "B": "Painting identical bodies is familiar and repetitive.",
+            "D": "Lifting heavy parts tirelessly is a strength of factory robots."
+          }
+        },
+        {
+          "stem": "Why does the author end the article with robotics clubs and careers?",
+          "options": [
+            "To argue that robots will soon replace engineers",
+            "To suggest readers could help build future robots",
+            "To describe how rovers are tested on Earth",
+            "To explain why algorithms contain errors"
+          ],
+          "answer": "B",
+          "skill": "author-purpose",
+          "why": "After showing that people remain essential, the author points to students and careers, inviting readers to see themselves in that role.",
+          "wrong": {
+            "A": "The article says people remain essential, the opposite of this claim.",
+            "C": "Rover testing is not described.",
+            "D": "Errors in code are mentioned earlier, not explained in the ending."
+          }
+        },
+        {
+          "stem": "Which conclusion is best supported by the article?",
+          "options": [
+            "Robots can now handle any task they meet.",
+            "Robots will soon understand human feelings.",
+            "Robotic surgery no longer needs trained doctors.",
+            "Robots far from people need more ability to decide."
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "The rover must be partly autonomous because people are too far away to guide it, which suggests distance from people increases the need for independent decisions.",
+          "wrong": {
+            "A": "The article says robots struggle with unexpected situations.",
+            "B": "The article says robots cannot genuinely understand human emotions.",
+            "C": "The surgeon controls every movement of the robotic arm."
+          }
+        }
+      ],
+      "prompt": "Some people worry that robots will take over human jobs. Using evidence from the article, explain whether robots can fully replace people. Consider both what robots do well and their limits.",
+      "checklist": [
+        "I stated a clear claim in my first sentence.",
+        "I used at least two pieces of evidence, including one strength and one limit of robots.",
+        "I explained how my evidence supports my claim."
+      ]
+    }
+  }
+}

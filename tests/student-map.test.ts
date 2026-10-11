@@ -90,7 +90,7 @@ describe("MAP: simple score import (Fall RIT + Spring projection), the student's
     const row = H.map(() => "");
     row[0] = String((await repo.findUnique("Student", { id: sid }))!.studentNumber);
     row[at("Reading Fall RIT")] = "201"; row[at("Reading Spring Projection")] = "209"; row[at("Fall Lexile")] = "780L";
-    row[at("R: Literary Theme")] = "185"; row[at("R: Vocabulary")] = "214"; row[at("R: Info Central Idea")] = "203";
+    row[at("R: Literary Text")] = "185"; row[at("R: Vocabulary")] = "214"; row[at("R: Informational Text")] = "203";
     row[at("Language Fall RIT")] = "196"; row[at("Language Spring Projection")] = "204"; row[at("Language Fall Percentile")] = "41";
     row[at("L: Mechanics")] = "180"; row[at("L: Grammar & Usage")] = "199";
     const r = await importMapScores(repo, teacher, [H, row, H.map((_, i) => (i === 0 ? "X" : i === at("R: Vocabulary") ? "500" : ""))], 2026);
@@ -99,7 +99,7 @@ describe("MAP: simple score import (Fall RIT + Spring projection), the student's
     const overall = (subj: RegExp) => saved.find((x) => !x.goalName && subj.test(String(x.subject)))!;
     assert.deepEqual([overall(/read/i).rit, overall(/read/i).projectedGrowth, overall(/read/i).lexile], [201, 8, 780]);
     assert.deepEqual([overall(/language/i).rit, overall(/language/i).projectedGrowth, overall(/language/i).achievementPercentile], [196, 8, 41]);
-    assert.equal(saved.filter((x) => x.goalName).length, 5, "3 Reading + 2 Language goal areas");
+    assert.equal(saved.filter((x) => x.goalName).length, 7, "3 Reading areas (Literary + Informational fill 2 platform goals each) + 2 Language");
     assert.ok(saved.filter((x) => x.goalName).every((x) => x.goalAreaId));
     // the Language view of the RIT page
     const lang = await ritView(repo, teacher, { classId, term: "Fall 2026", subject: "LANGUAGE" });
@@ -128,7 +128,7 @@ describe("MAP: simple score import (Fall RIT + Spring projection), the student's
     const NW = ["Student ID", "Student Last Name", "Student First Name", "Student Middle Initial", "Term Tested", "Term Rostered", "School", "Grade", "Subject", "Course", "RIT Score", "Rapid-Guessing %", "RIT Score 10 Point Range", "LexileScore", "LexileRange", "QuantileScore", "QuantileRange", "Test Name", "Language Arts: Informational Text", "Language Arts: Literary Text", "Language Arts: Vocabulary", "Language Arts: Language: Understand, Edit for Grammar, Usage", "Language Arts: Language: Understand, Edit for Mechanics", "Language Arts: Writing: Write, Revise Texts for Purpose and Audience"];
     const sid = roster[10].id, num = String((await repo.findUnique("Student", { id: sid }))!.studentNumber);
     const w = fromNweaExport([NW, ["9", "x", "y", "", "Winter 2026-2027", "", "", "4", "Language Arts", "Reading", "180", "0", "", "BR120L", "", "", "", "", "171-180", "161-170", "181-190", "", "", ""]])!;
-    assert.deepEqual([w.term, w.table[1][MAP_TEMPLATE_HEADERS.indexOf("Fall Lexile")], w.table[1][MAP_TEMPLATE_HEADERS.indexOf("R: Info Central Idea")], w.table[1][MAP_TEMPLATE_HEADERS.indexOf("R: Literary Theme")]], ["Winter 2027", "0", "176", "166"]);
+    assert.deepEqual([w.term, w.table[1][MAP_TEMPLATE_HEADERS.indexOf("Fall Lexile")], w.table[1][MAP_TEMPLATE_HEADERS.indexOf("R: Informational Text")], w.table[1][MAP_TEMPLATE_HEADERS.indexOf("R: Literary Text")]], ["Winter 2027", "0", "176", "166"]);
     // 1) the ASG data (with the projection) through the template, 2) NWEA's export for the same Fall
     const H = [...MAP_TEMPLATE_HEADERS], row = H.map(() => "");
     row[0] = num; row[H.indexOf("Reading Fall RIT")] = "190"; row[H.indexOf("Reading Spring Projection")] = "198"; row[H.indexOf("Reading Fall Percentile")] = "22";

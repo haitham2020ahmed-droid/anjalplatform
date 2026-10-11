@@ -25,13 +25,13 @@ export async function studentLearningPath(repo: Repo, actor: Actor, studentId: s
   const [lv, cats, logs, sessions, recent] = await Promise.all([
     repo.findUnique("StudentLevel", { studentId }),
     repo.findMany("StudentCategoryLevel", { studentId }),
-    repo.findMany("AuditLog", { entityType: "Student", entityId: studentId, action: "level.change" }),
+    repo.findMany("AuditLog", { entityType: "Student", entityId: studentId, action: { in: ["level.change", "level.pending"] } }),
     repo.findMany("PracticeSession", { studentId }, { select: ["id", "assessmentId", "assignmentId", "startedAt", "endedAt"] }),
     repo.findMany("QuestionAttempt", { studentId, createdAt: { gte: since } }, { select: ["isCorrect", "rapidGuess"] }),
   ]);
   const history = logs.sort((a, b) => iso(b.createdAt).localeCompare(iso(a.createdAt))).slice(0, 12).map((l) => {
     const after = (l.after ?? {}) as Record<string, unknown>, before = (l.before ?? {}) as Record<string, unknown>;
-    return { at: iso(l.createdAt), from: before.level ? s(before.level) : null, to: s(after.level), source: s(after.source), outcome: s(after.outcome), reason: after.reason ? s(after.reason) : null, path: Array.isArray(after.path) ? (after.path as string[]) : null, answers: typeof after.answers === "number" ? after.answers : null, category: after.category ? CATEGORY_NAME[s(after.category) as Category] ?? s(after.category) : null };
+    return { at: iso(l.createdAt), from: before.level ? s(before.level) : null, to: s(after.level), source: s(after.source), outcome: s(after.outcome), reason: after.reason ? s(after.reason) : null, path: Array.isArray(after.path) ? (after.path as string[]) : null, answers: typeof after.answers === "number" ? after.answers : null, category: after.category ? (s(after.category) === "OVERALL" ? "Overall" : CATEGORY_NAME[s(after.category) as Category] ?? s(after.category)) : null };
   });
   // the last 8 sessions of adaptive sets, replayed exactly as the engine decided them
   const sets = new Map<string, Record<string, unknown>>();

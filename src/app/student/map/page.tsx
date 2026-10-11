@@ -39,7 +39,7 @@ export default async function StudentMapPage() {
           const pct = g ? Math.max(0, Math.min(100, Math.round((100 * (g.now - g.from)) / Math.max(1, g.target - g.from)))) : 0;
           return (
             <div key={subj} className="rounded-3xl bg-gradient-to-br from-brand-navy to-indigo-800 p-5 text-white shadow-md">
-              <div className="flex items-center justify-between"><h2 className="text-lg font-bold">{subj === "READING" ? "📖" : "✏️"} {subjectName(subj)}</h2>{g?.reached && <span className="rounded-full bg-emerald-400 px-3 py-0.5 text-sm font-bold text-emerald-950">🎉 Goal reached</span>}</div>
+              <div className="flex items-center justify-between"><h2 className="text-lg font-bold">{subj === "READING" ? "📖" : "✏️"} {subjectName(subj)}</h2>{g?.reached ? <span className="rounded-full bg-emerald-400 px-3 py-0.5 text-sm font-bold text-emerald-950">🎉 Goal reached</span> : g?.onCourse ? <span className="rounded-full bg-white/20 px-3 py-0.5 text-sm font-bold">🎯 On course (estimate)</span> : null}</div>
               {!sub || (!o && fall === null) ? <p className="mt-3 text-white/80">No MAP results yet. They appear here when your school adds them.</p> : (
                 <>
                   <dl className="mt-3 grid grid-cols-4 gap-2 text-center">
@@ -98,7 +98,7 @@ export default async function StudentMapPage() {
                 <p className="text-sm font-semibold text-amber-900">My Spring goal</p>
                 {g ? (
                   <>
-                    <p className="text-3xl font-extrabold text-brand-navy">{g.reached ? "🎉 Goal reached!" : `${g.left} RIT point${g.left === 1 ? "" : "s"} to my goal`}</p>
+                    <p className="text-3xl font-extrabold text-brand-navy">{g.reached ? "🎉 Goal reached!" : g.onCourse ? "🎯 On course for my goal (estimate)" : `${g.left} RIT point${g.left === 1 ? "" : "s"} to my goal`}</p>
                     <p className="text-sm text-slate-700">Fall {g.from} → goal <b>{g.target}</b> · now {g.nowIsEstimate ? "about " : ""}<b>{g.now}</b>{g.nowIsEstimate ? " (from my practice)" : ""}</p>
                     <div className="mt-3 h-4 overflow-hidden rounded-full bg-white ring-1 ring-amber-200" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} aria-label="Progress to my goal"><div className="h-full rounded-full bg-gradient-to-r bg-linear-to-r from-amber-400 to-emerald-500" style={{ width: `${pct}%` }} /></div>
                   </>

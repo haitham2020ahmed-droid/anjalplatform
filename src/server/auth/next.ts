@@ -27,6 +27,7 @@ export function getAuthConfig(): AuthConfig {
     sessionTtlMinutes: env.SESSION_TTL_MINUTES,
     idleMinutes: env.SESSION_IDLE_MINUTES,
     rateLimitPerAccount: env.LOGIN_RATE_LIMIT,
+    rateLimitPerIp: env.LOGIN_RATE_LIMIT_PER_IP,
     maxFailedLogins: env.LOGIN_LOCKOUT_ATTEMPTS,
     lockoutMinutes: env.LOGIN_LOCKOUT_MINUTES,
   };

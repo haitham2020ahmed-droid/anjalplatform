@@ -46,7 +46,7 @@ export default async function AlertsPage({ searchParams }: { searchParams: Promi
             <li key={r.id} className={`rounded-2xl bg-white p-4 ring-1 ${r.status === "HANDLED" ? "ring-emerald-200" : r.ageDays >= 7 ? "ring-red-300" : "ring-slate-200"}`}>
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div>
-                  <p className="font-bold text-brand-navy">{r.icon} {r.title} · <Link href={`/teacher/progress/${r.studentId}`} className="hover:underline">{r.name}</Link> <span className="font-normal text-slate-500">· {r.className} · {r.createdAt.slice(0, 10)}{r.status === "OPEN" && r.ageDays >= 7 ? ` · open ${r.ageDays} days` : ""}</span></p>
+                  <p className="font-bold text-brand-navy">{r.icon} {r.title} · <Link href={r.kind === "LEVEL_CONFLICT" ? `/teacher/level-story/${r.studentId}` : `/teacher/progress/${r.studentId}`} className="hover:underline">{r.name}</Link> <span className="font-normal text-slate-500">· {r.className} · {r.createdAt.slice(0, 10)}{r.status === "OPEN" && r.ageDays >= 7 ? ` · open ${r.ageDays} days` : ""}</span></p>
                   <p className="text-slate-700">{r.detail}</p>
                   {r.status === "OPEN" && <p className="text-sm text-slate-500">💡 {r.tip}</p>}
                   {r.status === "HANDLED" && <p className="mt-1 text-sm text-emerald-800">✅ {r.action} — {r.handledBy} · {r.handledAt?.slice(0, 10)}</p>}

@@ -1,0 +1,925 @@
+{
+ "_note": "Original sample items for the TWO_PART, GRID and HOT_TEXT types and the upgraded ERROR_CORRECTION (written for this platform; ideas only from benchmark item formats). Loaded by the question-bank seed when this file is present.",
+ "passages": [
+  {
+   "id": "NT-G4-P1",
+   "grade": 4,
+   "title": "The Seed Swap",
+   "genre": "Realistic Fiction",
+   "text": "Layla wanted the biggest garden on Palm Street. Every spring she planted twice as many seeds as her neighbors, but every summer half of her plants wilted. She never had time to water them all.\n\nThis year, old Mr. Daoud from next door knocked on her gate holding a paper bag. \"I have too many tomato seeds,\" he said, \"and you have too many bean seeds. Shall we trade?\"\n\nLayla hesitated. Then she shared half her beans and planted only one neat row of each crop. She watered every plant each evening.\n\nBy August her small garden was full of shiny red tomatoes and long green beans. Layla filled a basket and carried it next door. \"Your seeds grew best of all,\" she told Mr. Daoud."
+  },
+  {
+   "id": "NT-G5-P1",
+   "grade": 5,
+   "title": "Second Chair",
+   "genre": "Realistic Fiction",
+   "text": "Samir had practiced the violin solo for six weeks. When Ms. Rahim posted the concert list, his name sat in the second chair, under Nadia's. He read it twice, then walked straight to the practice room without speaking to anyone.\n\nThat afternoon he played the hardest passage slowly, ten times in a row. His fingers ached, but he wrote the tricky notes on a card and taped it inside his case.\n\nAt rehearsal the next day, Nadia's bow string snapped just before her solo. Samir opened his case, handed her his spare bow, and nodded. \"You know it better than anyone,\" he whispered.\n\nAfter the concert, Ms. Rahim stopped Samir at the door. \"Next term,\" she said, \"I want you to teach the beginners.\""
+  },
+  {
+   "id": "NT-G6-P1",
+   "grade": 6,
+   "title": "Gardens on the Rooftops",
+   "genre": "Expository Text",
+   "text": "On a summer afternoon, a black tar roof can become hot enough to fry an egg. Multiply that by thousands of buildings, and a whole city grows several degrees warmer than the countryside around it. Scientists call this the urban heat island effect.\n\nGreen roofs offer one solution. A green roof is covered with soil and hardy plants instead of tar. The plants shade the roof and release water vapor, which cools the air the way sweat cools skin. Buildings with green roofs need less air conditioning, so they also use less electricity.\n\nGreen roofs are not free. They cost more to build, and the roof must be strong enough to hold wet soil. Still, many cities now offer money to owners who install them, because cooler streets help everyone."
+  },
+  {
+   "id": "NT-G4-P2",
+   "grade": 4,
+   "title": "The Bees of Hilltop Farm",
+   "genre": "Expository Text",
+   "text": "For years, Hilltop Farm grew more apples than any farm in the valley. Then, one spring, the farmer sprayed a strong bug spray on every tree to stop worms. The worms disappeared, but so did the bees. Without bees to carry pollen from flower to flower, most of the apple blossoms never turned into fruit. That fall, the farm picked only a few baskets of apples.\n\nThe next year the farmer tried a new plan. She stopped spraying while the trees were in bloom and planted rows of clover between them. Bees returned to feed on the clover and visited the apple blossoms too. By autumn the branches were heavy again."
+  }
+ ],
+ "items": [
+  {
+   "ref": "NT-G4-theme-TP1",
+   "grade": 4,
+   "family": "theme",
+   "skillKey": "G4.theme",
+   "standard": "CCSS.ELA-LITERACY.RL.4.2",
+   "level": 4,
+   "type": "TWO_PART",
+   "stem": "Answer Part A, then Part B.",
+   "passage": "NT-G4-P1",
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "Layla stops planting more than she can care for. Her one neat row of each crop, watered every evening, gives her a garden “full of” vegetables: caring well for a few things worked better than having too many.",
+    "tip": "A theme is a lesson. In Part B, choose the sentence that PROVES the lesson, not just any sentence about the topic."
+   },
+   "estimatedSeconds": 120,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "twoPart": {
+    "partA": {
+     "stem": "Which sentence best states a theme of “The Seed Swap”?",
+     "options": [
+      {
+       "label": "A",
+       "text": "Caring well for a few things can be better than having too many.",
+       "correct": true,
+       "rationale": null
+      },
+      {
+       "label": "B",
+       "text": "Tomatoes grow better than beans in the summer.",
+       "correct": false,
+       "rationale": "This is a detail about plants, not a lesson about life.",
+       "misconception": "EVENT_NOT_THEME"
+      },
+      {
+       "label": "C",
+       "text": "Neighbors should never borrow things from each other.",
+       "correct": false,
+       "rationale": "The trade between neighbors helps Layla, so the story shows the opposite.",
+       "misconception": "CONTRADICTS_TEXT"
+      },
+      {
+       "label": "D",
+       "text": "Gardens need sunshine more than water.",
+       "correct": false,
+       "rationale": "The story never compares sunshine and water.",
+       "misconception": "NOT_SUPPORTED"
+      }
+     ]
+    },
+    "partB": {
+     "stem": "Which sentence from the story best supports the answer to Part A?",
+     "options": [
+      {
+       "label": "A",
+       "text": "“Layla wanted the biggest garden on Palm Street.”",
+       "correct": false,
+       "rationale": "This shows what Layla wanted at first, not what she learned."
+      },
+      {
+       "label": "B",
+       "text": "“\"I have too many tomato seeds,\" he said, \"and you have too many bean seeds.\"”",
+       "correct": false,
+       "rationale": "This explains the trade, not the result of caring for fewer plants."
+      },
+      {
+       "label": "C",
+       "text": "“By August her small garden was full of shiny red tomatoes and long green beans.”",
+       "correct": true,
+       "rationale": null
+      },
+      {
+       "label": "D",
+       "text": "“Layla filled a basket and carried it next door.”",
+       "correct": false,
+       "rationale": "This shows sharing, but not why the small garden did so well."
+      }
+     ],
+     "multiple": false
+    }
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G5-inference-TP1",
+   "grade": 5,
+   "family": "inference",
+   "skillKey": "G5.inference",
+   "standard": "CCSS.ELA-LITERACY.RL.5.1",
+   "level": 5,
+   "type": "TWO_PART",
+   "stem": "Answer Part A, then Part B.",
+   "passage": "NT-G5-P1",
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "Samir is disappointed (he walks off without speaking), but he practices the hard passage ten times and later lends Nadia his spare bow. Those actions show he keeps working and still helps others.",
+    "tip": "An inference is a smart guess built from clues. Look for what the character DOES after the problem."
+   },
+   "estimatedSeconds": 130,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "twoPart": {
+    "partA": {
+     "stem": "What can the reader infer about Samir?",
+     "options": [
+      {
+       "label": "A",
+       "text": "He is disappointed but keeps working and still helps others.",
+       "correct": true,
+       "rationale": null
+      },
+      {
+       "label": "B",
+       "text": "He is angry at Nadia and wants her to fail.",
+       "correct": false,
+       "rationale": "Samir helps Nadia when her bow breaks, so he does not want her to fail.",
+       "misconception": "CONTRADICTS_TEXT"
+      },
+      {
+       "label": "C",
+       "text": "He plans to quit the orchestra after the concert.",
+       "correct": false,
+       "rationale": "Nothing in the story says Samir wants to quit.",
+       "misconception": "NOT_SUPPORTED"
+      },
+      {
+       "label": "D",
+       "text": "He does not care where his name is on the list.",
+       "correct": false,
+       "rationale": "He reads the list twice and walks away silently, so he does care.",
+       "misconception": "CONTRADICTS_TEXT"
+      }
+     ]
+    },
+    "partB": {
+     "stem": "Which TWO sentences from the story best support the answer to Part A?",
+     "options": [
+      {
+       "label": "A",
+       "text": "“Samir had practiced the violin solo for six weeks.”",
+       "correct": false,
+       "rationale": "This happens before the disappointment, so it does not show how he reacts."
+      },
+      {
+       "label": "B",
+       "text": "“That afternoon he played the hardest passage slowly, ten times in a row.”",
+       "correct": true,
+       "rationale": null
+      },
+      {
+       "label": "C",
+       "text": "“Samir opened his case, handed her his spare bow, and nodded.”",
+       "correct": true,
+       "rationale": null
+      },
+      {
+       "label": "D",
+       "text": "“After the concert, Ms. Rahim stopped Samir at the door.”",
+       "correct": false,
+       "rationale": "This tells what the teacher does, not what Samir is like."
+      }
+     ],
+     "multiple": true
+    }
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G6-central-idea-TP1",
+   "grade": 6,
+   "family": "central-idea",
+   "skillKey": "G6.central-idea",
+   "standard": "CCSS.ELA-LITERACY.RI.6.2",
+   "level": 5,
+   "type": "TWO_PART",
+   "stem": "Answer Part A, then Part B.",
+   "passage": "NT-G6-P1",
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "Most of the passage explains how green roofs cool buildings and cut electricity use, and the last paragraph admits they cost more. The sentence about needing less air conditioning supports this central idea directly.",
+    "tip": "The central idea covers the WHOLE passage. Evidence for it explains the main point, not just an interesting fact."
+   },
+   "estimatedSeconds": 130,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "twoPart": {
+    "partA": {
+     "stem": "What is the central idea of the passage?",
+     "options": [
+      {
+       "label": "A",
+       "text": "Green roofs can cool cities and save energy, even though they cost more to build.",
+       "correct": true,
+       "rationale": null
+      },
+      {
+       "label": "B",
+       "text": "A tar roof can become hot enough to cook an egg.",
+       "correct": false,
+       "rationale": "This is a detail from the first sentence, not the idea of the whole passage.",
+       "misconception": "DETAIL_NOT_MAIN"
+      },
+      {
+       "label": "C",
+       "text": "Sweat helps people stay cool on hot days.",
+       "correct": false,
+       "rationale": "Sweat is only used as a comparison.",
+       "misconception": "DETAIL_NOT_MAIN"
+      },
+      {
+       "label": "D",
+       "text": "Cities should stop building new buildings.",
+       "correct": false,
+       "rationale": "The passage never says this.",
+       "misconception": "NOT_SUPPORTED"
+      }
+     ]
+    },
+    "partB": {
+     "stem": "Which sentence from the passage best supports the answer to Part A?",
+     "options": [
+      {
+       "label": "A",
+       "text": "“Scientists call this the urban heat island effect.”",
+       "correct": false,
+       "rationale": "This names the problem but says nothing about green roofs."
+      },
+      {
+       "label": "B",
+       "text": "“Buildings with green roofs need less air conditioning, so they also use less electricity.”",
+       "correct": true,
+       "rationale": null
+      },
+      {
+       "label": "C",
+       "text": "“A green roof is covered with soil and hardy plants instead of tar.”",
+       "correct": false,
+       "rationale": "This defines a green roof but does not show why it matters."
+      },
+      {
+       "label": "D",
+       "text": "“On a summer afternoon, a black tar roof can become hot enough to fry an egg.”",
+       "correct": false,
+       "rationale": "This is an attention-grabbing detail, not support for the central idea."
+      }
+     ],
+     "multiple": false
+    }
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G4-cause-effect-TP1",
+   "grade": 4,
+   "family": "cause-effect",
+   "skillKey": "G4.cause-effect",
+   "standard": "CCSS.ELA-LITERACY.RI.4.3",
+   "level": 4,
+   "type": "TWO_PART",
+   "stem": "Answer Part A, then Part B.",
+   "passage": "NT-G4-P2",
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "The spray drove the bees away. Without bees to carry pollen, the blossoms did not become apples, so the farm picked only a few baskets.",
+    "tip": "Ask “why did this happen?” The cause comes first; the effect is what it led to."
+   },
+   "estimatedSeconds": 110,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "twoPart": {
+    "partA": {
+     "stem": "Why did Hilltop Farm pick only a few baskets of apples that fall?",
+     "options": [
+      {
+       "label": "A",
+       "text": "The bug spray drove away the bees that carry pollen.",
+       "correct": true,
+       "rationale": null
+      },
+      {
+       "label": "B",
+       "text": "Worms ate most of the apples on the trees.",
+       "correct": false,
+       "rationale": "The passage says the worms disappeared.",
+       "misconception": "CONTRADICTS_TEXT"
+      },
+      {
+       "label": "C",
+       "text": "The farmer planted clover between the trees.",
+       "correct": false,
+       "rationale": "The clover was planted the NEXT year, and it helped the trees.",
+       "misconception": "SEQUENCE_TIME"
+      },
+      {
+       "label": "D",
+       "text": "The trees were too old to grow fruit.",
+       "correct": false,
+       "rationale": "The passage never says the trees were old.",
+       "misconception": "NOT_SUPPORTED"
+      }
+     ]
+    },
+    "partB": {
+     "stem": "Which sentence from the passage best supports the answer to Part A?",
+     "options": [
+      {
+       "label": "A",
+       "text": "“For years, Hilltop Farm grew more apples than any farm in the valley.”",
+       "correct": false,
+       "rationale": "This describes the farm before the problem."
+      },
+      {
+       "label": "B",
+       "text": "“Without bees to carry pollen from flower to flower, most of the apple blossoms never turned into fruit.”",
+       "correct": true,
+       "rationale": null
+      },
+      {
+       "label": "C",
+       "text": "“She stopped spraying while the trees were in bloom and planted rows of clover between them.”",
+       "correct": false,
+       "rationale": "This is the solution the next year, not the cause of the small harvest."
+      },
+      {
+       "label": "D",
+       "text": "“By autumn the branches were heavy again.”",
+       "correct": false,
+       "rationale": "This is the happy ending, not the reason for the problem."
+      }
+     ],
+     "multiple": false
+    }
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G4-point-of-view-GR1",
+   "grade": 4,
+   "family": "point-of-view",
+   "skillKey": "G4.point-of-view",
+   "standard": "CCSS.ELA-LITERACY.RL.4.6",
+   "level": 3,
+   "type": "GRID",
+   "stem": "Read each sentence. Is it told in first-person or third-person point of view?",
+   "passage": null,
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "Sentences with I, me, we or us are told by a character in the story (first person). Sentences with he, she or a name are told by an outside narrator (third person).",
+    "tip": "Look for the pronouns: I and we mean first person; he, she and they mean third person."
+   },
+   "estimatedSeconds": 75,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "I grabbed my umbrella and ran to the bus stop."
+     },
+     {
+      "id": "r2",
+      "text": "Mina laughed when the puppy chased its tail."
+     },
+     {
+      "id": "r3",
+      "text": "We could hear the thunder getting closer."
+     },
+     {
+      "id": "r4",
+      "text": "He wondered if the old bridge would hold."
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "First person"
+     },
+     {
+      "id": "c2",
+      "text": "Third person"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c1",
+     "r4": "c2"
+    }
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G5-verb-tenses-GR1",
+   "grade": 5,
+   "family": "verb-tenses",
+   "skillKey": "G5.verb-tenses",
+   "standard": "CCSS.ELA-LITERACY.L.5.1.b",
+   "level": 4,
+   "type": "GRID",
+   "stem": "Read each sentence. Which perfect tense does its verb use?",
+   "passage": null,
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "had + verb = past perfect; has/have + verb = present perfect; will have + verb = future perfect.",
+    "tip": "Find the helping verb first: had, has/have, or will have."
+   },
+   "estimatedSeconds": 90,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "By noon, the team had finished the mural."
+     },
+     {
+      "id": "r2",
+      "text": "Omar has visited the museum three times."
+     },
+     {
+      "id": "r3",
+      "text": "By next June, I will have learned forty new songs."
+     },
+     {
+      "id": "r4",
+      "text": "The bakers had sold every loaf before we arrived."
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "Past perfect"
+     },
+     {
+      "id": "c2",
+      "text": "Present perfect"
+     },
+     {
+      "id": "c3",
+      "text": "Future perfect"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c3",
+     "r4": "c1"
+    }
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G6-figurative-language-GR1",
+   "grade": 6,
+   "family": "figurative-language",
+   "skillKey": "G6.figurative-language",
+   "standard": "CCSS.ELA-LITERACY.L.6.5.a",
+   "level": 5,
+   "type": "GRID",
+   "stem": "Identify the figure of speech in each sentence.",
+   "passage": null,
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "A simile compares with like or as; a metaphor says one thing IS another; personification gives human actions to things that are not human.",
+    "tip": "Check for like or as first. If there is none, ask: is a thing acting like a person?"
+   },
+   "estimatedSeconds": 90,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "The old truck groaned up the steep hill."
+     },
+     {
+      "id": "r2",
+      "text": "Her voice was as soft as a feather pillow."
+     },
+     {
+      "id": "r3",
+      "text": "Before the bell, the classroom was a beehive."
+     },
+     {
+      "id": "r4",
+      "text": "The stars winked at the sleepy town."
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "Simile"
+     },
+     {
+      "id": "c2",
+      "text": "Metaphor"
+     },
+     {
+      "id": "c3",
+      "text": "Personification"
+     }
+    ],
+    "answer": {
+     "r1": "c3",
+     "r2": "c1",
+     "r3": "c2",
+     "r4": "c3"
+    }
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G5-sentences-GR1",
+   "grade": 5,
+   "family": "sentences",
+   "skillKey": "G5.sentences",
+   "standard": "CCSS.ELA-LITERACY.L.5.1",
+   "level": 4,
+   "type": "GRID",
+   "stem": "Is each sentence simple, compound or complex?",
+   "passage": null,
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "A simple sentence has one main clause. A compound sentence joins two main clauses with a comma and and/but/so. A complex sentence has a main clause and a clause that starts with a word like when or because.",
+    "tip": "Count the clauses, then look at the joining word: FANBOYS words make compound sentences; when, because and if make complex ones."
+   },
+   "estimatedSeconds": 90,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "The rain stopped."
+     },
+     {
+      "id": "r2",
+      "text": "The rain stopped, and the children ran outside."
+     },
+     {
+      "id": "r3",
+      "text": "When the rain stopped, the children ran outside."
+     },
+     {
+      "id": "r4",
+      "text": "Dad cooked the rice, but my sister made the salad."
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "Simple"
+     },
+     {
+      "id": "c2",
+      "text": "Compound"
+     },
+     {
+      "id": "c3",
+      "text": "Complex"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c3",
+     "r4": "c2"
+    }
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G4-text-evidence-HT1",
+   "grade": 4,
+   "family": "text-evidence",
+   "skillKey": "G4.text-evidence",
+   "standard": "CCSS.ELA-LITERACY.RI.4.1",
+   "level": 3,
+   "type": "HOT_TEXT",
+   "stem": "Select the sentence that best supports the idea that camels can survive a long time without food.",
+   "passage": null,
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "The fat in the hump gives the camel energy when food is scarce, so it can go a long time without eating.",
+    "tip": "Match the evidence to the exact idea in the question: here it is FOOD, not water or sand."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "hotText": {
+    "segments": [
+     {
+      "id": "s1",
+      "text": "Camels are well suited to life in the desert."
+     },
+     {
+      "id": "s2",
+      "text": "Their thick eyelashes keep blowing sand out of their eyes."
+     },
+     {
+      "id": "s3",
+      "text": "A camel can drink a huge amount of water in just a few minutes."
+     },
+     {
+      "id": "s4",
+      "text": "Many tourists enjoy riding camels."
+     },
+     {
+      "id": "s5",
+      "text": "The fat stored in a camel's hump gives it energy when food is scarce."
+     }
+    ],
+    "correct": [
+     "s5"
+    ],
+    "maxSelect": 1
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G5-character-HT1",
+   "grade": 5,
+   "family": "character",
+   "skillKey": "G5.character",
+   "standard": "CCSS.ELA-LITERACY.RL.5.3",
+   "level": 4,
+   "type": "HOT_TEXT",
+   "stem": "Select TWO sentences that show Rana does not give up.",
+   "passage": null,
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "Rana checks the knots again and then tries once more with a longer tail. Both actions show she keeps going after the kite fails.",
+    "tip": "Character traits are shown by actions. Choose what the character DOES, not what happens around her."
+   },
+   "estimatedSeconds": 70,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "hotText": {
+    "segments": [
+     {
+      "id": "s1",
+      "text": "The kite tangled in the tree for the third time."
+     },
+     {
+      "id": "s2",
+      "text": "Rana sighed, climbed down, and checked the knots again."
+     },
+     {
+      "id": "s3",
+      "text": "Her brother called her in for dinner."
+     },
+     {
+      "id": "s4",
+      "text": "She tied on a longer tail and ran into the wind once more."
+     },
+     {
+      "id": "s5",
+      "text": "The sky was turning orange behind the hills."
+     }
+    ],
+    "correct": [
+     "s2",
+     "s4"
+    ],
+    "maxSelect": 2
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G6-author-purpose-HT1",
+   "grade": 6,
+   "family": "author-purpose",
+   "skillKey": "G6.author-purpose",
+   "standard": "CCSS.ELA-LITERACY.RI.6.6",
+   "level": 4,
+   "type": "HOT_TEXT",
+   "stem": "Select the sentence that shows the author's point of view about the library.",
+   "passage": null,
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "“A serious mistake” is the author's opinion. The other sentences give facts that can be checked.",
+    "tip": "Opinion words such as serious, mistake, best and should show the author's point of view."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "hotText": {
+    "segments": [
+     {
+      "id": "s1",
+      "text": "The town library opened in 1952."
+     },
+     {
+      "id": "s2",
+      "text": "It holds about forty thousand books and a small map room."
+     },
+     {
+      "id": "s3",
+      "text": "Closing it on weekends would be a serious mistake for families who work all week."
+     },
+     {
+      "id": "s4",
+      "text": "Last year, more than two thousand people borrowed books on Saturdays."
+     }
+    ],
+    "correct": [
+     "s3"
+    ],
+    "maxSelect": 1
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G4-fragments-run-ons-HT1",
+   "grade": 4,
+   "family": "fragments-run-ons",
+   "skillKey": "G4.fragments-run-ons",
+   "standard": "CCSS.ELA-LITERACY.L.4.1.f",
+   "level": 4,
+   "type": "HOT_TEXT",
+   "stem": "Select the TWO groups of words that are sentence fragments.",
+   "passage": null,
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "“Because the bus was late.” does not finish its thought, and “Running past the dinosaur bones.” has no subject. Both are fragments.",
+    "tip": "A complete sentence needs a subject and a verb AND a complete thought."
+   },
+   "estimatedSeconds": 70,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "hotText": {
+    "segments": [
+     {
+      "id": "s1",
+      "text": "Our class visited the science center on Tuesday."
+     },
+     {
+      "id": "s2",
+      "text": "Because the bus was late."
+     },
+     {
+      "id": "s3",
+      "text": "We saw a model of a volcano erupt."
+     },
+     {
+      "id": "s4",
+      "text": "Running past the dinosaur bones."
+     },
+     {
+      "id": "s5",
+      "text": "Everyone wanted to stay longer."
+     }
+    ],
+    "correct": [
+     "s2",
+     "s4"
+    ],
+    "maxSelect": 2
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G4-capitalization-EC1",
+   "grade": 4,
+   "family": "capitalization",
+   "skillKey": "G4.capitalization",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.a",
+   "level": 4,
+   "type": "ERROR_CORRECTION",
+   "stem": "Tap each part that has a capitalization mistake. Then type the part correctly.",
+   "passage": null,
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "A sentence begins with a capital letter (Last), and the name of a place is a proper noun (Lake Tahoe).",
+    "tip": "Capitalize the first word of a sentence and every word in the name of a place."
+   },
+   "estimatedSeconds": 80,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "segments": [
+    "last summer",
+    "my family drove",
+    "to lake tahoe",
+    "and camped for a week."
+   ],
+   "errorIndexes": [
+    0,
+    2
+   ],
+   "corrections": [
+    "Last summer",
+    "to Lake Tahoe"
+   ],
+   "noErrorOption": true,
+   "typeCorrection": true,
+   "errorKind": "CAPITALIZATION",
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  },
+  {
+   "ref": "NT-G5-subject-verb-agreement-EC1",
+   "grade": 5,
+   "family": "subject-verb-agreement",
+   "skillKey": "G5.subject-verb-agreement",
+   "standard": "CCSS.ELA-LITERACY.L.5.1",
+   "level": 5,
+   "type": "ERROR_CORRECTION",
+   "stem": "Tap the part with the mistake and type it correctly. If there is no mistake, choose No error.",
+   "passage": null,
+   "subskill": null,
+   "explanation": {
+    "whyCorrect": "The subject is “box” (one box), so the verb must be singular: was sitting. “Of crayons” only describes the box.",
+    "tip": "Cross out the phrase between the subject and the verb, then say them together: the box was."
+   },
+   "estimatedSeconds": 75,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "segments": [
+    "The box of crayons",
+    "were sitting",
+    "on the top shelf",
+    "of the art room."
+   ],
+   "errorIndexes": [
+    1
+   ],
+   "corrections": [
+    "was sitting"
+   ],
+   "noErrorOption": true,
+   "typeCorrection": true,
+   "errorKind": "AGREEMENT",
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED"
+  }
+ ]
+}

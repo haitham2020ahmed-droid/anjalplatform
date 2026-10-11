@@ -1,0 +1,96 @@
+{
+ "students": 500,
+ "weeks": 6,
+ "seconds": 159,
+ "missedGoal": 289,
+ "prediction": {
+  "auc": 0.736,
+  "brier": 0.208,
+  "top20Precision": 82,
+  "baseRate": 58,
+  "byFifth": [
+   {
+    "predicted": 88,
+    "actual": 82
+   },
+   {
+    "predicted": 70,
+    "actual": 71
+   },
+   {
+    "predicted": 55,
+    "actual": 63
+   },
+   {
+    "predicted": 37,
+    "actual": 49
+   },
+   {
+    "predicted": 19,
+    "actual": 24
+   }
+  ]
+ },
+ "learnedModel": {
+  "aucExpertOnUnseen": 0.755,
+  "aucLearnedOnUnseen": 0.753,
+  "brierExpertOnUnseen": 0.2,
+  "brierLearnedOnUnseen": 0.204,
+  "weights": {
+   "bias": 0.3477426469286435,
+   "w": {
+    "lowPractice": 0.8767001853376829,
+    "decliningPractice": 0.052913628110419594,
+    "slowGrowth": -0.20341090953822316,
+    "lowAbility": 0.8548018210319664,
+    "lowGoalChance": 1.1698660370918463,
+    "weakFoundations": 0.004509687887798838,
+    "guessing": 0.5551618793309376,
+    "weeklyDrop": 0.3,
+    "interventionFailed": 0.4,
+    "noMap": 0.2
+   }
+  }
+ },
+ "byBehaviour": {
+  "DILIGENT": {
+   "n": 175,
+   "missed": 67,
+   "avgRisk": 40
+  },
+  "LATE_START": {
+   "n": 71,
+   "missed": 32,
+   "avgRisk": 31
+  },
+  "DECLINING": {
+   "n": 81,
+   "missed": 64,
+   "avgRisk": 86
+  },
+  "IRREGULAR": {
+   "n": 110,
+   "missed": 84,
+   "avgRisk": 57
+  },
+  "GUESSER": {
+   "n": 63,
+   "missed": 42,
+   "avgRisk": 71
+  }
+ },
+ "tutor": {
+  "wrongAnswers": 23939,
+  "withTutor": 23939,
+  "namedMistakePct": 83,
+  "answerLeaks": 0,
+  "wordsPerSentenceBelow": 7,
+  "wordsPerSentenceOthers": 8.8
+ },
+ "copilot": {
+  "foundationGroupCorrectPct": 72,
+  "foundationGroupStudents": 88,
+  "misconceptionGroupCorrectPct": 0,
+  "misconceptionGroupStudents": 0
+ }
+}

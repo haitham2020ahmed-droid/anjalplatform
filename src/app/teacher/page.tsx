@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
+import { maybeRunDaily } from "@/server/insights/daily";
 import { teacherClasses } from "@/server/teacher/queries";
 import { teacherAlerts } from "@/server/insights/progress";
 import { practiceStats } from "@/server/insights/student-data";
@@ -12,11 +13,14 @@ import { ClassRows } from "@/components/home/class-rows";
 import { classesAtAGlance } from "@/server/insights/overview";
 import { goalProgress } from "@/server/admin/school-goals";
 import { GoalsTable } from "@/components/home/goals-table";
+import { SearchBox } from "@/components/search/search-box";
 
 export const metadata = { title: "My classes" };
 
 export default async function TeacherHome() {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
+  // the daily learning job (decay, misconceptions, profiles, advice outcomes, digests): once a day, in the background
+  await maybeRunDaily(repo, actor.schoolId).catch(() => false);
   const me = (await getActor())!.user;
   const classes = await teacherClasses(repo, actor);
   // new student alerts (at most every 3 hours; teachers and the head of department get one notification)
@@ -47,7 +51,7 @@ export default async function TeacherHome() {
     { href: "/teacher/map-plans?tab=plans", label: "MAP plans to send", value: String(draftPlans), of: "drafts", tone: draftPlans ? "text-brand-purple" : "text-emerald-700" },
   ];
   const groups = [
-          ["Teach", "from-sky-50", [["📅", "My week", "Suggested plan · goals · rhythm · exit tickets", "/teacher/week"], ["🧭", "Curriculum Map", "Assign by place, level or student", "/admin/curriculum-map"], ["📋", "MAP plans & groups", "Bands, draft plans to check and send, small groups", "/teacher/map-plans"], ["🖨", "Worksheets", "Printable sheets from chosen questions + key", "/teacher/worksheet"], ["✍️", "Writing & reading aloud", "Rubric scoring · students record themselves reading", "/teacher/writing"], ["🗂️", "Skill plans", "A map of places to send to students", "/teacher/plans"], ["🎮", "Live game", "A Kahoot-style quiz with a PIN and QR code", "/teacher/games"], ["📋", "Personalized plan", "From MAP: groups, goals, standards — Word / PDF", "/teacher/personal-plan"], ["🚨", "Intervention", "Who needs attention now (MAP + platform)", "/teacher/intervention"], ["📚", "Question Bank", "Find, ☆ star and assign questions", "/admin/questions?status=PUBLISHED"], ["⭐", "ReadMaster", "Leveled articles (Lexile)", "/admin/readmaster"], ["🗺️", "MAP", "MAP skills by goal area", "/teacher/curriculum"], ["✍️", "Respond to Reading", "Send by level · track “I finished”", "/teacher/respond"], ["🔤", "Grammar", "Grammar skills of every grade", "/admin/grammar"]]],
+          ["Teach", "from-sky-50", [["📅", "My week", "Suggested plan · goals · rhythm · exit tickets", "/teacher/week"], ["🧭", "Curriculum Map", "Assign by place, level or student", "/admin/curriculum-map"], ["📋", "MAP plans & groups", "Bands, draft plans to check and send, small groups", "/teacher/map-plans"], ["🖨", "Worksheets", "Printable sheets from chosen questions + key", "/teacher/worksheet"], ["✍️", "Writing & reading aloud", "Rubric scoring · students record themselves reading", "/teacher/writing"], ["🗂️", "Skill plans", "A map of places to send to students", "/teacher/plans"], ["🎮", "Live game", "A Kahoot-style quiz with a PIN and QR code", "/teacher/games"], ["📋", "Personalized plan", "From MAP: groups, goals, standards — Word / PDF", "/teacher/personal-plan"], ["🚨", "Intervention", "Who needs attention now (MAP + platform)", "/teacher/intervention"], ["📚", "Question Bank", "Find, ☆ star and assign questions", "/admin/questions?status=PUBLISHED"], ["⭐", "ReadMaster", "Leveled articles (Lexile)", "/admin/readmaster"], ["🗺️", "MAP", "MAP skills by goal area", "/teacher/curriculum"], ["✍️", "Respond to Reading", "Send by level · track “I finished”", "/teacher/respond"], ["🔤", "Grammar", "Every grammar lesson · search and assign", "/admin/grammar"]]],
           ["Track", "from-emerald-50", [["🚨", "Alerts", "Act, write what you did, mark handled", "/teacher/alerts"], ["🗓️", "Calendar", "Due dates, exit tickets, tests — five weeks", "/teacher/calendar"], ["🧭", "MAP practice test", "Who is on track before the real MAP", "/teacher/map-test"], ["📈", "MAP growth", "Fall → Winter → Spring, met growth or not", "/teacher/growth"], ["📈", "Students dashboard", "Work, accuracy, time, MAP progress, plans", "/teacher/progress"], ["✏️", "Enter MAP data", "Type the class scores (Reading / Language)", "/teacher/map-entry"], ["🎯", "Levels & tests", "Above / On / Below · Placement", "/teacher/levels"], ["📊", "Curriculum results", "How the class did on each section", "/teacher/curriculum-results"], ["📈", "MAP scores", "Compared with the national average", "/teacher/map-rit"], ["💡", "MAP recommendations", "Skills each student needs, from MAP", "/teacher/map-recommendations"], ["🗓️", "Weekly assignments", "Status of everything assigned", "/teacher/assignments"]]],
           ["Review", "from-amber-50", [["📖", "Dictionary", "Meanings students look up · unit vocabulary", "/admin/dictionary"], ["🤖", "Review AI questions", "Drafts waiting for you", "/admin/questions?status=DRAFT&ai=1"], ["✍️", "My questions", "Questions you wrote", "/admin/questions?status=DRAFT&mine=1"]]],
   ] as const;
@@ -61,11 +65,16 @@ export default async function TeacherHome() {
         </div>
         <div className="flex flex-wrap gap-2">
           <Link href="/admin/curriculum-map" className="rounded-xl bg-brand-navy px-4 py-2.5 font-medium text-white hover:bg-brand-purple">⭐ Assign work</Link>
+          <Link href="/teacher/learning-loop" className="rounded-xl bg-gradient-to-r from-indigo-600 to-teal-600 px-4 py-2.5 font-medium text-white hover:opacity-90">🔄 Learning Loop</Link>
+          <Link href="/teacher/reports" className="rounded-xl bg-brand-teal px-4 py-2.5 font-medium text-white hover:bg-teal-700">📊 Reports</Link>
+          <Link href="/teacher/family-reports" className="rounded-xl bg-white px-4 py-2.5 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👪 Family reports</Link>
           <Link href="/teacher/map-reports" className="rounded-xl bg-white px-4 py-2.5 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📑 MAP reports</Link>
           <Link href="/teacher/week" className="rounded-xl bg-white px-4 py-2.5 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📅 My week</Link>
           {coordinator && <Link href="/teacher/grade-summary" className="rounded-xl bg-white px-4 py-2.5 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🏫 Grade summary</Link>}
         </div>
       </header>
+
+      <div className="mt-6"><SearchBox /></div>
 
       <dl className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
         {kpis.map((k) => (
@@ -85,12 +94,12 @@ export default async function TeacherHome() {
         </section>
       )}
 
-      <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
-        <section aria-labelledby="classes-h">
+      <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
+        <section aria-labelledby="classes-h" className="min-w-0">
           <div className="mb-3 flex items-baseline justify-between"><h2 id="classes-h" className="text-lg font-semibold text-brand-navy">My classes</h2><Link href="/teacher/classes" className="text-sm font-medium text-brand-teal hover:underline">All class pages</Link></div>
           <ClassRows rows={rows} admin={false} />
         </section>
-        <section aria-labelledby="alerts-h" className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+        <section aria-labelledby="alerts-h" className="min-w-0 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
           <div className="flex items-baseline justify-between"><h2 id="alerts-h" className="text-lg font-semibold text-brand-navy">Needs your attention</h2><Link href="/teacher/alerts" className="text-sm font-medium text-brand-teal hover:underline">Alerts</Link></div>
           {alerts.length === 0 ? <p className="mt-3 text-sm text-slate-600">No student needs attention right now.</p> : (
             <ul className="mt-2 divide-y divide-slate-100">
@@ -110,9 +119,9 @@ export default async function TeacherHome() {
 
       <section className="mt-8" aria-labelledby="tools-h">
         <h2 id="tools-h" className="text-lg font-semibold text-brand-navy">Everything you can do</h2>
-        <div className="mt-3 grid gap-4 lg:grid-cols-3">
+        <div className="mt-3 grid grid-cols-1 gap-4 lg:grid-cols-3">
           {groups.map(([group, , tools]) => (
-            <div key={group} className="rounded-2xl bg-white p-3 ring-1 ring-slate-200">
+            <div key={group} className="min-w-0 rounded-2xl bg-white p-3 ring-1 ring-slate-200">
               <h3 className="px-2 pb-1 pt-1 text-sm font-semibold text-slate-500">{group === "Teach" ? "Teach" : group === "Track" ? "Track progress" : "Review content"}</h3>
               <ul>
                 {tools.map(([icon, title, text, href]) => (

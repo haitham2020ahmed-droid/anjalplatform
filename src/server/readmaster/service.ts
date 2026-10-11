@@ -7,6 +7,9 @@
  *     benchmark). The version shown is the one whose level matches the student's Lexile (grade Lexile bands);
  *     crossing a band edge moves them to the next version — real adaptivity between versions.
  */
+import { safeFeed } from "../practice/skill-evidence";
+import { isRapidGuess } from "../../adaptive/evidence";
+import { DEFAULT_ADAPTIVE } from "../../config/engine";
 import { masterSkills } from "../skills/master";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, can, type Actor } from "../auth/rbac";
@@ -140,11 +143,15 @@ export async function addVersionQuestion(repo: Repo, actor: Actor, versionId: st
   else await repo.updateMany("Question", { id }, { status: "UNDER_REVIEW" });
   const n = await repo.count("ReadMasterQuestion", { versionId });
   await repo.create("ReadMasterQuestion", { versionId, questionId: id, order: n });
+  // 🧭 an article without a skill: its question gets one from the map place / the article's skill name (Update 39C)
+  if (!a.skillId) { const { remapNewQuestions } = await import("../curriculum-map/remap-skills"); await remapNewQuestions(repo, actor.schoolId!, [id], actor.userId).catch(() => 0); }
   return id;
 }
 
 export async function setArticleStatus(repo: Repo, actor: Actor, articleId: string, status: "DRAFT" | "PUBLISHED"): Promise<void> {
   assertCan(actor, "questions:edit"); staff(actor);
+  // making an article live for students is publishing: a teacher with only edit rights cannot
+  if (status === "PUBLISHED") assertCan(actor, "questions:publish");
   await articleInSchool(repo, actor, articleId);
   if (status === "PUBLISHED") {
     const vers = await repo.findMany("ReadMasterVersion", { articleId });
@@ -157,6 +164,7 @@ export async function setArticleStatus(repo: Repo, actor: Actor, articleId: stri
 /** Publishes (or moves back to draft) several articles at once; an article without questions is skipped and named. */
 export async function setArticlesStatus(repo: Repo, actor: Actor, articleIds: string[], status: "DRAFT" | "PUBLISHED"): Promise<{ changed: number; skipped: string[] }> {
   assertCan(actor, "questions:edit"); staff(actor);
+  if (status === "PUBLISHED") assertCan(actor, "questions:publish");
   const ids = [...new Set(articleIds.filter(Boolean))];
   if (!ids.length) throw new ValidationError("Tick at least one article first.");
   let changed = 0; const skipped: string[] = [];
@@ -253,7 +261,18 @@ export async function openArticle(repo: Repo, actor: Actor, articleId: string): 
 export interface ArticleResult { correct: number; total: number; pct: number; lexileBefore: number; lexileAfter: number; levelBefore: Level | null; levelAfter: Level | null; review: { questionId: string; correct: boolean; correctAnswer: string; why: string }[] }
 
 /** Scores the article once; moves the student's reading Lexile (75%+ up, under 50% down). */
-export async function submitArticle(repo: Repo, actor: Actor, articleId: string, versionId: string, responses: Record<string, unknown>, now = new Date()): Promise<ArticleResult> {
+/** Times the page measured (Update 39C): whole article and per question (ms from the previous answer, the first one
+ *  from opening the article). Untrusted input: only finite numbers are kept, each capped. */
+export interface ArticleTiming { elapsedMs?: unknown; perQuestion?: unknown }
+export function cleanTiming(t: ArticleTiming | null | undefined, questionIds: string[]): { seconds: number | null; perQuestion: Map<string, number> } {
+  const per = new Map<string, number>();
+  const raw = t && typeof t.perQuestion === "object" && t.perQuestion !== null ? (t.perQuestion as Record<string, unknown>) : {};
+  for (const id of questionIds) { const v = Number(raw[id]); if (Number.isFinite(v) && v >= 0) per.set(id, Math.min(30 * 60_000, Math.round(v))); }
+  const e = Number(t?.elapsedMs);
+  return { seconds: Number.isFinite(e) && e > 0 ? Math.min(3 * 3600, Math.round(e / 1000)) : null, perQuestion: per };
+}
+
+export async function submitArticle(repo: Repo, actor: Actor, articleId: string, versionId: string, responses: Record<string, unknown>, now = new Date(), timing?: ArticleTiming | null): Promise<ArticleResult> {
   const open = await openArticle(repo, actor, articleId);
   if (open.done) throw new ValidationError("You already finished this article.");
   if (open.versionId !== versionId) throw new ValidationError("Your reading level changed: open the article again.");
@@ -270,8 +289,25 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
   const after = Math.max(RULES.min, Math.min(RULES.max, before + (pct >= RULES.up ? RULES.step : pct < RULES.down ? -RULES.step : 0)));
   const { grade, schoolId } = await studentInfo(repo, actor.studentId!);
   const band = (await lexileBands(repo, schoolId))[grade];
-  await repo.create("ReadMasterAttempt", { studentId: actor.studentId, articleId, versionId, level: open.level, lexileBefore: before, lexileAfter: after, correct, total, createdAt: now });
+  // per-question time (Update 39C): a real time makes rapid-guess detection work for ReadMaster answers too
+  const tm = cleanTiming(timing, ids);
+  const timed = tm.perQuestion.size === items.length && items.length > 0;
+  const msOf = (it: (typeof items)[number]) => tm.perQuestion.get(it.questionId) ?? Math.max(1, Number(it.estimatedSeconds) || 45) * 1000;
+  const rapid = timed ? items.filter((it) => isRapidGuess({ responseMs: msOf(it), estimatedSeconds: Number(it.estimatedSeconds) || 45 }, DEFAULT_ADAPTIVE)).length : null;
+  await repo.create("ReadMasterAttempt", { studentId: actor.studentId, articleId, versionId, level: open.level, lexileBefore: before, lexileAfter: after, correct, total, seconds: tm.seconds, rapid, createdAt: now });
   await repo.upsert("StudentReadingLexile", { studentId: actor.studentId }, { lexile: after, source: "READMASTER", updatedAt: now }, { lexile: after, source: "READMASTER", updatedAt: now });
+  // 🔗 the article's questions are bank questions: each answer goes through the engine like practice (source
+  // READMASTER), so the skills they measure learn from the article (Update 39B)
+  await safeFeed("readmaster", async () => {
+    const { recordEngineAttempt } = await import("../lessons/run");
+    const ses = await repo.create("PracticeSession", { studentId: actor.studentId, mode: "ADAPTIVE_PRACTICE", startedAt: now, endedAt: now, endReason: "READMASTER", questionCount: items.length, correctCount: correct });
+    for (const it of items) {
+      if (!it.skillKey) continue;
+      let credit = 0;
+      try { credit = scoreResponse(it as never, normalizeResponse(it, responses[it.questionId])); } catch { credit = 0; }
+      await recordEngineAttempt(repo, { sessionId: s(ses.id), studentId: actor.studentId!, skillId: s(it.skillKey), schoolId: schoolId ?? null, item: it, response: responses[it.questionId] ?? null, credit, usedHint: false, responseMs: msOf(it), now, reasonCode: "READMASTER", reason: "ReadMaster article answer: ability and mastery updated.", source: "READMASTER" });
+    }
+  });
   return { correct, total, pct, lexileBefore: before, lexileAfter: after, levelBefore: levelForLexile(band, before), levelAfter: levelForLexile(band, after), review };
 }
 

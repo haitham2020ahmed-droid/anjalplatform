@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { bankGaps } from "@/server/map/bank-gaps";
+import { bankGaps, levelGaps, MIN_PER_LEVEL, practiceGaps } from "@/server/map/bank-gaps";
 
 export const metadata = { title: "Question bank gaps" };
 const STATUS = { GAP: ["🔴 No questions", "bg-red-100 text-red-900"], LOW: ["🟠 Too few", "bg-amber-100 text-amber-900"], OK: ["🟢 OK", "bg-emerald-100 text-emerald-900"] } as const;
@@ -11,7 +11,7 @@ const STATUS = { GAP: ["🔴 No questions", "bg-red-100 text-red-900"], LOW: ["�
 export default async function BankGapsPage() {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN", "TEACHER"], permission: "questions:read" });
   const me = (await getActor())!.user;
-  const rows = await bankGaps(repo, actor);
+  const [rows, gaps, lv] = await Promise.all([bankGaps(repo, actor), practiceGaps(repo, actor), levelGaps(repo, actor)]);
   const grades = [...new Set(rows.map((r) => r.grade))];
   return (
     <AppShell name={String(me.displayName)}>
@@ -21,6 +21,29 @@ export default async function BankGapsPage() {
         <Link href="/admin/questions/import?to=curriculum" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">📥 Import questions</Link>
         <Link href="/admin/item-quality" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">🔬 Question quality</Link>
       </PageHeader>
+      {gaps.length > 0 && (
+        <section className="mb-6 overflow-x-auto rounded-3xl bg-white shadow-sm ring-1 ring-amber-300">
+          <h2 className="border-b px-4 py-3 text-lg font-bold text-brand-navy">Practice gaps (last 30 days)</h2>
+          <p className="px-4 pt-2 text-sm text-slate-600">Skills where practice found no question within 2 levels of a student, so the session ended early. Add easier questions to these skills first.</p>
+          <table className="w-full text-left text-sm">
+            <thead><tr className="border-b text-slate-500"><th className="p-3">Skill</th><th className="p-3">Times</th><th className="p-3">Students</th><th className="p-3">Lowest ability (θ)</th></tr></thead>
+            <tbody>{gaps.map((x) => <tr key={x.skillId} className="border-b last:border-0"><td className="p-3 font-medium">{x.skill}</td><td className="p-3 tabular-nums">{x.times}</td><td className="p-3 tabular-nums">{x.students}</td><td className="p-3 tabular-nums">{x.lowestAbility ?? "—"}</td></tr>)}</tbody>
+          </table>
+        </section>
+      )}
+      {lv.length > 0 && (
+        <details className="mb-6 rounded-3xl bg-white shadow-sm ring-1 ring-amber-300" open={lv.some((x) => x.missing.includes("Below"))}>
+          <summary className="min-h-10 cursor-pointer px-4 py-3 text-lg font-bold text-brand-navy">Levels lacking questions · {lv.length} skill(s)</summary>
+          <p className="px-4 text-sm text-slate-600">Published questions per skill at each level (difficulty 1–3 Below, 4 On, 5–7 Above). A level with fewer than {MIN_PER_LEVEL} questions makes adaptive practice run out of items for students at that level — easier (Below) questions first.</p>
+          <div className="overflow-x-auto"><table className="w-full min-w-[560px] text-left text-sm">
+            <thead><tr className="border-b text-slate-500"><th className="p-3">Grade</th><th className="p-3">Skill</th><th className="p-3">Below</th><th className="p-3">On</th><th className="p-3">Above</th><th className="p-3">Needs</th></tr></thead>
+            <tbody>{lv.slice(0, 120).map((x) => {
+              const cell = (n: number) => <td className={`p-3 tabular-nums ${n < MIN_PER_LEVEL ? "font-semibold text-red-700" : ""}`}>{n}</td>;
+              return <tr key={x.skillId} className="border-b last:border-0"><td className="p-3">{x.grade}</td><td className="p-3 font-medium">{x.skill}</td>{cell(x.below)}{cell(x.on)}{cell(x.above)}<td className="p-3">{x.missing.join(", ")}</td></tr>;
+            })}</tbody>
+          </table></div>
+        </details>
+      )}
       {grades.map((g) => (
         <section key={g} className="mb-6 overflow-x-auto rounded-3xl bg-white shadow-sm ring-1 ring-slate-200">
           <h2 className="border-b px-4 py-3 text-lg font-bold text-brand-navy">Grade {g}</h2>

@@ -30,8 +30,11 @@ import { schoolOf } from "./users";
 
 export type Band = "easy" | "medium" | "hard";
 export const bandOf = (level: number): Band => (level <= 2 ? "easy" : level <= 5 ? "medium" : "hard");
-/** Default target per skill: 12 approved questions = 3 easy, 6 medium, 3 hard. */
-export const DEFAULT_TARGET = 12;
+/**
+ * Default target per skill: 20 approved questions = 5 easy, 10 medium, 5 hard. Mastery needs 15 independent answers,
+ * so a skill with fewer questions forces repeats (a remembered answer counts half: src/adaptive/evidence.ts).
+ */
+export const DEFAULT_TARGET = 20;
 export function bandTargets(total: number): Record<Band, number> {
   const easy = Math.round(total * 0.25), hard = Math.round(total * 0.25);
   return { easy, medium: total - easy - hard, hard };
@@ -350,4 +353,23 @@ export async function generateMissing(repo: Repo, actor: Actor, provider: AiProv
 async function logAi(repo: Repo, actor: Actor, ok: boolean, ms: number, error: string | null, items: number): Promise<void> {
   if (!actor.schoolId) return;
   await repo.create("AiRequestLog", { schoolId: actor.schoolId, tool: "GENERATE", provider: "configured", model: "-", ok, items, ms, error: error ? error.slice(0, 500) : null, createdAt: new Date() });
+}
+
+/**
+ * Fills the next skills of a grade that are below the target (one AI request per skill, at most `maxSkills`
+ * per run so a click never times out). Everything is saved as DRAFT for a teacher or admin to review.
+ */
+export async function fillGrade(repo: Repo, actor: Actor, provider: AiProvider, gradeLevel: number, maxSkills = 5, now = new Date()): Promise<{ skills: number; saved: number; rejected: number; remaining: number; errors: string[] }> {
+  assertCan(actor, "questions:generate");
+  const rows = (await skillCoverage(repo, actor, gradeLevel)).filter((r) => r.needed > 0).sort((a, b) => b.needed - a.needed);
+  let saved = 0, rejected = 0, skills = 0;
+  const errors: string[] = [];
+  for (const r of rows.slice(0, maxSkills)) {
+    try {
+      const res = await generateMissing(repo, actor, provider, r.skillId, DEFAULT_TARGET, now);
+      if ("nothingNeeded" in res) continue;
+      skills++; saved += res.saved.length; rejected += res.rejected.length;
+    } catch (e) { errors.push(`${r.name}: ${(e as Error).message}`); }
+  }
+  return { skills, saved, rejected, remaining: Math.max(0, rows.length - skills), errors: errors.slice(0, 5) };
 }

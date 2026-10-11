@@ -97,7 +97,7 @@ export async function onboarding(repo: Repo, actor: Actor): Promise<{ steps: Che
 }
 
 export async function hideOnboarding(repo: Repo, actor: Actor, hidden: boolean, now = new Date()): Promise<void> {
-  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: OKEY(actor.userId) }, { value: { hidden }, updatedById: actor.userId, updatedAt: now }, { value: { hidden }, updatedById: actor.userId, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: OKEY(actor.userId) }, { value: { hidden }, updatedBy: actor.userId, updatedAt: now }, { value: { hidden }, updatedBy: actor.userId, updatedAt: now });
 }
 
 // ------------------------------------------------------------------ 🔢 numbers on the navigation icons

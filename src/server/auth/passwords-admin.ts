@@ -15,6 +15,7 @@ import { audit } from "../audit";
 import { hashPassword, validatePasswordStrength, verifyPassword } from "./password";
 import { canAccessStudent, ForbiddenError, type Actor } from "./rbac";
 import { revokeAllSessions } from "./sessions";
+import { studentPasswordIsUsername } from "../admin/student-cards";
 
 const WORDS = ["Blue", "Green", "Sunny", "Quick", "Brave", "Calm", "Bright", "Happy", "Silver", "Golden", "River", "Falcon", "Desert", "Palm", "Star", "Ocean", "Cedar", "Tiger", "Comet", "Maple"];
 
@@ -57,9 +58,11 @@ export async function resetPassword(repo: Repo, actor: Actor, targetUserId: stri
     await audit(repo, { actorId: actor.userId, action: "user.password.reset.denied", entityType: "User", entityId: targetUserId, ip: meta.ip ?? null });
     throw new ForbiddenError("You cannot reset this user's password.");
   }
-  const temp = temporaryPassword();
+  // the school chose "a student's password is their username": a reset puts it back to the username
+  const sameAsUsername = target.role === "STUDENT" && (await studentPasswordIsUsername(repo, target.schoolId ? String(target.schoolId) : null));
+  const temp = sameAsUsername ? String(target.username) : temporaryPassword();
   await repo.updateMany("User", { id: targetUserId }, {
-    passwordHash: await hashPassword(temp), mustChangePassword: true, failedLogins: 0, lockedUntil: null, passwordChangedAt: new Date(),
+    passwordHash: await hashPassword(temp), mustChangePassword: !sameAsUsername, failedLogins: 0, lockedUntil: null, passwordChangedAt: new Date(),
   });
   await revokeAllSessions(repo, targetUserId);
   await audit(repo, { actorId: actor.userId, action: "user.password.reset", entityType: "User", entityId: targetUserId, ip: meta.ip ?? null });

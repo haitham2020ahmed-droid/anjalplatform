@@ -7,12 +7,13 @@
  *   gradeSummary    → admin / grade coordinators: each grade and class in numbers
  * Students never see these pages; level names are for staff only.
  */
+import { changeOf, consistencyOf, distribution, mean, percentRank, spreadNote, stdev, trendOf, type Trend } from "./stats";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassRead, coordinatorGrades, readableClasses } from "../teacher/coordinators";
 import { gradeAreaSkills } from "../map/recommend";
+import { intensityFor, reconcileStatus, tiersOf } from "./student-status";
 import { classMembers, levelsOf, mapSummaries, practiceStats, studentNames, workStats, type Level, type MapSummary, type PracticeStats, type Subject, type WorkStats } from "./student-data";
-import { ladderSettings } from "../curriculum-map/ladder-settings";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -30,6 +31,7 @@ export function intensityOf(gap: number | null, percentile: number | null): Inte
 /** On track / at risk from MAP, or — without a mid-year MAP score — from platform work (last 30 days). */
 export function statusOf(m: MapSummary | undefined, p: PracticeStats | undefined): { status: "ON_TRACK" | "AT_RISK" | "MET" | "MISSED" | "NO_DATA"; why: string } {
   if (m && (m.status === "MET" || m.status === "MISSED" || (m.latest && m.latest.season !== "FALL"))) return { status: m.status, why: m.statusWhy };
+  if (p && p.recentAnswers >= 10 && p.recentTheta !== null && p.recentTheta <= -1.25) return { status: "AT_RISK", why: `Working well below grade level on the platform (ability ${p.recentTheta.toFixed(1)}, last 30 days).` };
   if (p && p.recentAnswers >= 10 && p.recentAccuracy !== null) {
     if (p.recentAccuracy < 50) return { status: "AT_RISK", why: `${p.recentAccuracy}% correct on the platform (last 30 days).` };
     if (m?.status === "AT_RISK") return { status: "AT_RISK", why: m.statusWhy };
@@ -42,33 +44,57 @@ export function statusOf(m: MapSummary | undefined, p: PracticeStats | undefined
 export interface ProgressRow {
   studentId: string; name: string; number: string;
   map: MapSummary | null; status: ReturnType<typeof statusOf>["status"]; statusWhy: string; intensity: Intensity | null;
+  /** where the intensity label comes from: "Tier 2" or the MAP test with its season and date ("Fall MAP · 2026-09-15") */
+  intensityFrom: string | null;
   level: Level | null; categories: Record<string, Level>; practice: PracticeStats; work: WorkStats; weakest: string[]; mastered: number; needsWork: number;
 }
-export interface ClassProgress { classId: string; className: string; grade: number; subject: Subject; rows: ProgressRow[]; summary: { students: number; tested: number; onTrack: number; atRisk: number; activeWeek: number; late: number; avgFall: number | null; avgTarget: number | null }; canAssign: boolean }
+export interface StudentTrend { weeks: (number | null)[]; trend: Trend | null; consistency: "Steady" | "Uneven" | null; sd: number | null; change: ReturnType<typeof changeOf>; percentile: number | null }
+export interface ClassProgress {
+  classId: string; className: string; grade: number; subject: Subject; rows: ProgressRow[]; summary: { students: number; tested: number; onTrack: number; atRisk: number; activeWeek: number; late: number; avgFall: number | null; avgTarget: number | null }; canAssign: boolean;
+  /** 📐 from the school's analysis workbooks: weekly accuracy trend, consistency, change, percentile; the class spread */
+  trends: Record<string, StudentTrend>;
+  stats: { mean: number | null; sd: number | null; spread: string; improved: number; declined: number; maintained: number; levels: { level: string; count: number; pct: number }[] };
+}
 
-async function masteryCounts(repo: Repo, ids: string[], schoolId: string | null): Promise<Map<string, { mastered: number; needsWork: number }>> {
+/** Weekly accuracy (last 6 weeks, oldest first; null = fewer than 5 answers that week) and the 4-week change. */
+async function weeklyAccuracy(repo: Repo, ids: string[], now: Date): Promise<Map<string, { weeks: (number | null)[]; last4: number | null; prev4: number | null }>> {
+  const out = new Map<string, { weeks: (number | null)[]; last4: number | null; prev4: number | null }>();
+  if (!ids.length) return out;
+  const since = now.getTime() - 56 * 86_400_000;
+  const rows = (await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(since) } }, { select: ["studentId", "isCorrect", "createdAt"] })).filter((a) => time(a.createdAt) >= since);
+  const pct = (list: Row[]) => (list.length >= 5 ? Math.round((100 * list.filter((a) => a.isCorrect).length) / list.length) : null);
+  for (const id of ids) {
+    const mine = rows.filter((a) => s(a.studentId) === id);
+    const ago = (a: Row) => Math.floor((now.getTime() - time(a.createdAt)) / (7 * 86_400_000));
+    const weeks = [5, 4, 3, 2, 1, 0].map((w) => pct(mine.filter((a) => ago(a) === w)));
+    out.set(id, { weeks, last4: pct(mine.filter((a) => ago(a) < 4)), prev4: pct(mine.filter((a) => ago(a) >= 4 && ago(a) < 8)) });
+  }
+  return out;
+}
+
+async function masteryCounts(repo: Repo, ids: string[], _schoolId: string | null): Promise<Map<string, { mastered: number; needsWork: number }>> {
   const out = new Map(ids.map((id) => [id, { mastered: 0, needsWork: 0 }]));
   if (!ids.length) return out;
-  const rules = await ladderSettings(repo, schoolId);
-  const rows = await repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "correct", "attempts"] });
+  const rows = await repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "attempts", "isMastered"] });
   for (const r of rows) {
     const o = out.get(s(r.studentId)); if (!o) continue;
-    // “mastered” = accuracy at or above the school's threshold over at least its minimum number of answers
-    const n = Number(r.attempts ?? 0), sc = n ? (Number(r.correct ?? 0) / n) * 100 : 0;
-    if (n >= rules.masteredMin && sc >= rules.masteredPct) o.mastered++; else if (n >= 3) o.needsWork++;
+    // “mastered” = the adaptive engine's mastery decision (the same flag the teacher views use)
+    if (r.isMastered) o.mastered++; else if (Number(r.attempts ?? 0) >= 3) o.needsWork++;
   }
   return out;
 }
 
 async function rowsFor(repo: Repo, ids: string[], grade: number, subject: Subject, schoolId: string | null, now: Date): Promise<ProgressRow[]> {
-  const [names, maps, practice, work, levels, mastery] = await Promise.all([
-    studentNames(repo, ids), mapSummaries(repo, ids, subject, new Map(ids.map((id) => [id, grade]))), practiceStats(repo, ids, now), workStats(repo, ids, now), levelsOf(repo, ids), masteryCounts(repo, ids, schoolId),
+  const [names, maps, practice, work, levels, mastery, tiers] = await Promise.all([
+    studentNames(repo, ids), mapSummaries(repo, ids, subject, new Map(ids.map((id) => [id, grade]))), practiceStats(repo, ids, now), workStats(repo, ids, now), levelsOf(repo, ids), masteryCounts(repo, ids, schoolId), tiersOf(repo, ids),
   ]);
   return ids.map((id) => {
-    const m = maps.get(id) ?? null, p = practice.get(id)!, st = statusOf(m ?? undefined, p);
+    // one status for every page: MAP + platform work, made consistent with the support tier (student-status.ts)
+    const m = maps.get(id) ?? null, p = practice.get(id)!, st = reconcileStatus(statusOf(m ?? undefined, p), tiers.get(id));
     return {
       studentId: id, name: names.get(id)?.name ?? "Student", number: names.get(id)?.number ?? "", map: m && (m.latest || m.fall) ? m : null,
-      status: st.status, statusWhy: st.why, intensity: m ? intensityOf(m.gap, m.latest?.percentile ?? null) : null,
+      status: st.status, statusWhy: st.why, intensity: intensityFor(tiers.get(id), m ? intensityOf(m.gap, m.latest?.percentile ?? null) : null),
+      intensityFrom: tiers.get(id) && tiers.get(id)!.tier > 1 ? `Tier ${tiers.get(id)!.tier}` : m?.asOf ?? null,
       level: levels.get(id)?.level ?? null, categories: levels.get(id)?.categories ?? {}, practice: p, work: work.get(id)!,
       weakest: (m?.goals ?? []).slice(0, 2).map((g) => g.name), mastered: mastery.get(id)?.mastered ?? 0, needsWork: mastery.get(id)?.needsWork ?? 0,
     };
@@ -86,8 +112,19 @@ export async function classProgress(repo: Repo, actor: Actor, classId: string, s
   const week = now.getTime() - 7 * 86_400_000;
   let canAssign = false;
   if (actor.role === "TEACHER") { const t = await repo.findUnique("Teacher", { userId: actor.userId }); canAssign = Boolean(t && (await repo.findUnique("ClassTeacher", { classId, teacherId: t.id }))); }
+  const wk = await weeklyAccuracy(repo, ids, now);
+  const accs = rows.map((r) => r.practice.accuracy).filter((x): x is number => x !== null);
+  const trends: Record<string, StudentTrend> = {};
+  for (const r of rows) {
+    const w = wk.get(r.studentId) ?? { weeks: [], last4: null, prev4: null };
+    const c = consistencyOf(w.weeks);
+    trends[r.studentId] = { weeks: w.weeks, trend: trendOf(w.weeks)?.trend ?? null, consistency: c?.label ?? null, sd: c?.sd ?? null, change: changeOf(w.prev4, w.last4, 2), percentile: r.practice.accuracy === null || new Set(accs).size < 2 ? null : percentRank(accs, r.practice.accuracy) };
+  }
+  const changes = Object.values(trends).map((x) => x.change?.label).filter(Boolean);
+  const sdAll = stdev(accs);
+  const stats = { mean: accs.length ? Math.round(mean(accs) * 10) / 10 : null, sd: sdAll, spread: spreadNote(sdAll), improved: changes.filter((x) => x === "Improved").length, declined: changes.filter((x) => x === "Declined").length, maintained: changes.filter((x) => x === "Maintained").length, levels: distribution(rows.map((r) => s(r.level ?? "NONE")), ["ABOVE", "ON", "BELOW"] as const) };
   return {
-    classId, className: s(klass.name), grade, subject, rows, canAssign,
+    classId, className: s(klass.name), grade, subject, rows, canAssign, trends, stats,
     summary: {
       students: rows.length, tested: rows.filter((r) => r.map).length, onTrack: rows.filter((r) => r.status === "ON_TRACK" || r.status === "MET").length,
       atRisk: rows.filter((r) => r.status === "AT_RISK" || r.status === "MISSED").length, activeWeek: rows.filter((r) => r.practice.lastActive && time(r.practice.lastActive) >= week).length,
@@ -174,11 +211,11 @@ export async function teacherAlerts(repo: Repo, actor: Actor, now = new Date()):
   const names = await studentNames(repo, ids);
   const grades = await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => s(c.gradeId)))] } }, { select: ["id", "level"] });
   const gradeOfStudent = new Map(members.map((m) => [s(m.studentId), Number(grades.find((g) => g.id === classes.find((c) => c.id === m.classId)?.gradeId)?.level ?? 0)]));
-  const [maps, practice] = await Promise.all([mapSummaries(repo, ids, "READING", gradeOfStudent), practiceStats(repo, ids, now)]);
+  const [maps, practice, tiers] = await Promise.all([mapSummaries(repo, ids, "READING", gradeOfStudent), practiceStats(repo, ids, now), tiersOf(repo, ids)]);
   const out: Alert[] = [];
   const nameOf = (id: string) => names.get(id)?.name ?? "Student";
   for (const id of ids) {
-    const st = statusOf(maps.get(id), practice.get(id));
+    const st = reconcileStatus(statusOf(maps.get(id), practice.get(id)), tiers.get(id));
     if (st.status === "AT_RISK" || st.status === "MISSED") out.push({ kind: "AT_RISK", studentId: id, name: nameOf(id), className: classOf.get(id) ?? "", detail: st.why, at: now.toISOString() });
   }
   // dropped a level twice in a row (same category), in the last 30 days

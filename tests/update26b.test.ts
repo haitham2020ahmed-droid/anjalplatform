@@ -56,7 +56,7 @@ describe("Update 26 · data-driven support", () => {
     assert.equal((await linkReadMasterToMap(repo, admin)).linked, 0);
   });
 
-  test("Weekly Check: 5 questions around the student's level, out of My Work, result kept", async () => {
+  test("Weekly Check: 8 questions around the student's level, out of My Work, result kept", async () => {
     const st = await student(roster[0].id);
     const before = await weeklyCheck(repo, st);
     assert.ok(before, "the test bank has MAP pools");
@@ -66,7 +66,7 @@ describe("Update 26 · data-driven support", () => {
     const aid = href.split("/")[2];
     assert.equal((await assignedSkills(repo, st)).items.some((x) => x.assignmentId === aid), false, "not in My Work");
     let clock = Date.now() - 600_000; let v = await startQuiz(repo, st, aid, new Date(clock));
-    assert.equal(v.total, 5);
+    assert.equal(v.total, 8, "Update 39B: 8 questions");
     while (v.question) { const it = (await loadQuestionItems(repo, [v.question.questionId]))[0]; v = (await submitQuizAnswer(repo, st, { assignmentId: aid, questionId: it.questionId, response: rightAnswer(it) }, new Date((clock += 30_000)))).view; }
     const after = (await weeklyCheck(repo, st))!;
     assert.equal(after.status, "DONE");
@@ -127,10 +127,10 @@ describe("Update 26 · data-driven support", () => {
 
   test("report files: the analysis renders to Excel and CSV", () => {
     const r = { testId: "t", title: "Diagnostic Test · Grade 4", grade: 4, year: "2026-2027", scope: "4A", classId: "c", date: "2026-10-09", bands: { above: 85, on: 65 }, classes: [],
-      summary: { roster: 2, assessed: 1, inProgress: 0, notStarted: 1, mean: 70, median: 70, min: 70, max: 70, minutes: 20, rapidFlags: 0, best: { code: "RL.4.2", label: "Theme & Summary", pct: 80 }, focus: [], levels: { ABOVE: 0, ON: 1, BELOW: 0 } },
+      summary: { roster: 2, assessed: 1, inProgress: 0, notStarted: 1, mean: 70, median: 70, min: 70, max: 70, sd: null, spread: "Not enough results yet.", minutes: 20, rapidFlags: 0, best: { code: "RL.4.2", label: "Theme & Summary", pct: 80 }, focus: [], levels: { ABOVE: 0, ON: 1, BELOW: 0 } },
       standards: [{ code: "RL.4.2", label: "Theme & Summary", strand: "LIT" as const, questions: 5, pct: 80, level: "Strength", below50: 0, objective: "o", activities: ["a"] }], strands: [{ strand: "LIT" as const, label: "Reading Literature", pct: 80 }],
-      students: [{ id: "s", name: "Test Student", number: "1", className: "4A", correct: 7, total: 10, pct: 70, rank: 50, level: "ON" as const, tier: "PROFICIENT", standards: { "RL.4.2": 80 }, strands: { LIT: 80 }, minutes: 20, rapid: 0, rit: 200, wcpm: 110, shared: false, resultId: "r" }],
-      notTaken: [{ id: "n", name: "Other Student", className: "4A", status: "Not started" as const, answered: 0, action: "Schedule" }], tiers: [], supportPlan: [], fluency: { benchmark: 120, checked: 1, below: [] }, items: [] };
+      students: [{ id: "s", name: "Test Student", number: "1", className: "4A", correct: 7, total: 10, pct: 70, rank: 50, level: "ON" as const, tier: "PROFICIENT", standards: { "RL.4.2": 80 }, strands: { LIT: 80 }, minutes: 20, rapid: 0, rit: 200, wcpm: 110, shared: false, resultId: "r", readingLevel: null, ritEstimate: null, theta: null }],
+      notTaken: [{ id: "n", name: "Other Student", className: "4A", status: "Not started" as const, answered: 0, action: "Schedule" }], tiers: [], supportPlan: [], fluency: { benchmark: 120, checked: 1, below: [] }, items: [], adaptive: false, growth: null };
     const doc = classDoc(r, { branding: { name: "Test School", nameAr: null, logo: null }, generatedAt: new Date(), generatedBy: "T" });
     assert.ok(renderXlsx(doc).length > 1000);
     assert.match(renderCsv(doc), /Test Student/);

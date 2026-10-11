@@ -17,6 +17,8 @@ const EnvSchema = z.object({
   SESSION_TTL_MINUTES: z.coerce.number().int().min(15).max(43_200).default(720),
   SESSION_IDLE_MINUTES: z.coerce.number().int().min(5).max(1_440).default(60),
   LOGIN_RATE_LIMIT: z.coerce.number().int().min(3).max(50).default(8),
+  /** sign-ins per IP address per window (a whole school can share one public address; readiness S-1) */
+  LOGIN_RATE_LIMIT_PER_IP: z.coerce.number().int().min(20).max(100_000).default(300),
   LOGIN_LOCKOUT_ATTEMPTS: z.coerce.number().int().min(3).max(20).default(5),
   LOGIN_LOCKOUT_MINUTES: z.coerce.number().int().min(1).max(1440).default(15),
   UPLOAD_DIR: z.string().default("./storage/uploads"),

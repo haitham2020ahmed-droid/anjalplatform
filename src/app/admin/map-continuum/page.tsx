@@ -18,9 +18,9 @@ export default async function ContinuumPage({ searchParams }: { searchParams: Pr
       <PageHeader back={{ href: "/teacher/map-reports", label: "MAP Reports" }} icon="📘" title="Learning Continuum"
         subtitle="What a student in each RIT band is ready to learn, by goal area and sub-topic, with the CCSS codes. The study plans and group plans use it: Reinforce (band below) · Develop (their band) · Introduce (band above), each statement linked to the platform's skills." />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      <Section title="Import" icon="📥" tone="amber" className="mb-6" hint={`One row per statement. Columns: ${CONTINUUM_HEADERS.join(", ")}. Subject: Reading or Language Usage. Standards: CCSS codes separated by spaces (RL.4.2 RL.5.2). Importing again replaces the statements of the subjects in the file.`}>
+      <Section title="Import" icon="📥" tone="amber" className="mb-6" hint={`The NWEA Learning Continuum PDF (Language Usage & Reading) as it is, or an Excel / CSV with one row per statement. Columns: ${CONTINUUM_HEADERS.join(", ")}. Subject: Reading or Language Usage. Standards: CCSS codes separated by spaces (RL.4.2 RL.5.2). Importing again replaces the statements of the subjects in the file.`}>
         <form action={importContinuumAction} className="flex flex-wrap items-center gap-3">
-          <input type="file" name="file" accept=".xlsx,.csv" required />
+          <input type="file" name="file" accept=".pdf,.xlsx,.csv" required />
           <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">Import</button>
         </form>
       </Section>

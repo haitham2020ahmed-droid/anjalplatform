@@ -59,6 +59,7 @@ export const ADAPTIVE_LIMITS: Record<keyof AdaptiveConfig, { min: number; max: n
   rapidGuessFraction: { min: 0.05, max: 0.5, label: "Rapid guess: fraction of expected time" },
   rapidGuessWeight: { min: 0, max: 1, label: "Weight of a rapid guess" },
   hintWeight: { min: 0, max: 1, label: "Weight of an answer after a hint" },
+  repeatWeight: { min: 0, max: 1, label: "Weight of a repeated question (already answered before)" },
   noRepeatWindow: { min: 0, max: 50, int: true, label: "Questions before one may repeat" },
   topK: { min: 1, max: 10, int: true, label: "Random choice among the best questions" },
 };
@@ -101,9 +102,10 @@ export function validateMastery(input: Partial<MasteryThresholds>): Partial<Mast
   const out: Partial<MasteryThresholds> = {};
   if (input.bands) out.bands = Object.fromEntries(Object.entries({ ...DEFAULT_MASTERY.bands, ...input.bands }).map(([k, v]) => [k, num(v, 0, 100, `Band "${k}"`)])) as MasteryThresholds["bands"];
   if (input.weights) out.weights = Object.fromEntries(Object.entries({ ...DEFAULT_MASTERY.weights, ...input.weights }).map(([k, v]) => [k, num(v, 0, 1, `Weight "${k}"`)])) as MasteryThresholds["weights"];
+  // decayPerWeek is a fraction of mastery lost per idle week (0.02 = 2%), so at most 0.2 (20%/week)
   const scalars: [keyof MasteryThresholds, number, number][] = [
     ["minAttemptsForProficient", 1, 50], ["minAttemptsForMastered", 1, 100], ["minLevelReachedForMastered", 1, 7], ["minRecentAccuracyForMastered", 0.5, 1],
-    ["evidenceScale", 1, 50], ["decayAfterDays", 1, 365], ["decayPerWeek", 0, 20], ["decayFloor", 0, 1],
+    ["evidenceScale", 1, 50], ["decayAfterDays", 1, 365], ["decayPerWeek", 0, 0.2], ["decayFloor", 0, 1],
   ];
   for (const [k, lo, hi] of scalars) if (input[k] !== undefined && input[k] !== null && (input[k] as unknown) !== "") (out as Record<string, unknown>)[k] = num(input[k], lo, hi, k);
   try {

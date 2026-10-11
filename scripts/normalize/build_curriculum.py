@@ -115,86 +115,10 @@ fam("writing-poetry", "Poetry Writing", "WRITING", "WRITING", "WRITING_STYLE", [
 fam("writing-research", "Research and Sources", "WRITING", "WRITING", "WRITING_SUPPORT", ["W.{g}.7", "W.{g}.8"])
 fam("precise-language", "Precise Language, Style and Tone", "WRITING", "WRITING", "WRITING_STYLE", ["W.{g}.2.d", "L.{g}.3"])
 
-# keyword -> family (order matters: first match wins)
-KW = [
-    (r"assonance|consonance|alliteration|sound device", "sound-devices"),
-    (r"imagery", "imagery"), (r"flashback", "flashback"), (r"foreshadow", "plot-foreshadowing"),
-    (r"character perspective|character’s perspective", "character-perspective"),
-    (r"point of view", "point-of-view"), (r"characterization|character development|character", "character"),
-    (r"conflict", "plot-conflict"), (r"setting", "plot-setting"), (r"plot: events|^plot$|plot\b", "plot-events"),
-    (r"theme", "theme"), (r"summariz", "summarize"), (r"predict", "make-predictions"), (r"visualize", "visualize"),
-    (r"ask and answer", "ask-answer-questions"), (r"reread", "reread"),
-    (r"play|drama", "drama-elements"),
-    (r"rhyme|meter|stanza|line break|form and|free verse|lyric|haiku|narrative poetry|repetition|structure/", "poetry-elements"),
-    (r"central idea|main idea", "central-idea"), (r"compare and contrast|comparison", "compare-contrast"),
-    (r"cause and effect", "cause-effect"), (r"problem and solution", "problem-solution"),
-    (r"sequence|chronology|timeline", "sequence"),
-    (r"diagram|heading|caption|photograph|graph|chart|map|sidebar|primary and secondary|print and graphic|pronunciation", "text-features"),
-    (r"author.s perspective", "author-perspective"), (r"author.s purpose", "author-purpose"),
-    (r"author.s claim", "author-claim"), (r"description", "description"),
-    (r"multiple-meaning", "multiple-meaning"), (r"homograph|homophone", "homographs-homophones"),
-    (r"synonym|antonym", "synonyms-antonyms"), (r"prefix", "prefixes"), (r"suffix", "suffixes"),
-    (r"root|mythology", "greek-latin-roots"), (r"idiom|adage|proverb", "idioms-adages"),
-    (r"simile|metaphor|personification|hyperbole|figurative|literal", "figurative-language"),
-    (r"connotation", "connotation"), (r"dictionary|glossary|thesaurus", "reference-materials"),
-    (r"context clue|paragraph clue|sentence clue", "context-clues"), (r"pun", "puns"),
-]
-def family_of(label: str):
-    l = label.lower()
-    for rx, code in KW:
-        if re.search(rx, l):
-            return "plot-flashback" if code == "flashback" else code
-    return None
-
-GRAMMAR_KW = [
-    (r"run-on|fragment", "fragments-run-ons"), (r"subject.*predicate", "subjects-predicates"),
-    (r"pronoun.*homophone|homophone|contraction", "pronoun-homophones"), (r"pronoun", "pronouns"),
-    (r"adverb", "adverbs"), (r"preposition", "prepositions"),
-    (r"compound sentence|conjunction|simple and compound", "compound-sentences"),
-    (r"clause|complex", "clauses-complex"), (r"combining", "combining-sentences"),
-    (r"possessive noun|plural possessive", "possessive-nouns"),
-    (r"plural|irregular plural|collective", "plural-nouns"), (r"\bnouns?\b", "nouns"),
-    (r"irregular verb|irregular past", "irregular-verbs"), (r"agreement", "subject-verb-agreement"),
-    (r"tense|participle|perfect|progressive", "verb-tenses"), (r"\bverbs?\b", "verbs"),
-    (r"compare|comparing|good|bad|more and most", "comparatives"),
-    (r"adjective|article|this, that", "adjectives"), (r"negative", "negatives"),
-    (r"sentence", "sentences"),
-]
-MECH_KW = [
-    (r"capitaliz", "capitalization"), (r"comma|punctuat|colon|dash|hyphen|parenthes", "commas"), (r"dialogue|quotation", "quotations-dialogue"),
-    (r"title|abbreviation|letter|e-mail|poetry", "titles-abbreviations"),
-    (r"apostrophe|contraction|possessive", "apostrophes-contractions"),
-]
-def grammar_family(title: str, default="sentences"):
-    t = title.lower()
-    table = MECH_KW + GRAMMAR_KW if t.startswith("mechanics") else GRAMMAR_KW + MECH_KW
-    for rx, code in table:
-        if re.search(rx, t):
-            return code
-    return default
-
-SPELL_KW = r"spell|vowel|syllable|blend|digraph|silent|plural with|word sort|soft c|diphthong|r-controlled|compound word"
-WRITE_KW = [(r"opinion|reason|counterclaim|thesis|claim", "writing-argument"), (r"topic sentence|concluding|transition|linking|organize|order", "writing-informative"),
-            (r"plagiarism|citation|works cited|source|research", "writing-research"), (r"formal|tone|stronger verb|precise|sensory|imagery to stories|varied sentences", "precise-language")]
-def ixl_family(name: str):
-    n = name.lower()
-    EXTRA = [(r"purpose", "author-purpose"), (r"text feature|graphic organizer", "text-features"), (r"causes and effects", "cause-effect"),
-             (r"problems with their solutions", "problem-solution"), (r"points? of view", "point-of-view"), (r"text structure", "compare-contrast"),
-             (r"context", "context-clues"), (r"story elements|read .*(fiction|fantasy|drama|poetry)|^read about", "plot-events"),
-             (r"with (pre-|re-|mis-|un-|dis-|sub-)|words with (pre|mis|sub|un|dis)", "prefixes"),
-             (r"-ful|-less|-ly|-ness|-able|-ment|-ible|suffix", "suffixes"), (r"abbreviat", "titles-abbreviations"),
-             (r"frequently confused|signs|errors in everyday", "pronoun-homophones"), (r"related words", "connotation"),
-             (r"fallac|trace an argument|argumentative", "author-claim"), (r"quotation|dialogue", "quotations-dialogue"),
-             (r"sensory", "imagery"), (r"figures of speech", "figurative-language"), (r"antecedent", "pronouns"), (r"guide words", "reference-materials"), (r"ellipses", "commas"), (r"revisions", "precise-language"), (r"short stories", "plot-events"), (r"compare information|two texts|different genres", "compare-texts"),
-             (r"emotions and traits|actions and dialogue", "character")]
-    if re.search(SPELL_KW, n) and "context" not in n: return "spelling"
-    for rx, code in EXTRA:
-        if re.search(rx, n): return code
-    for rx, code in WRITE_KW:
-        if re.search(rx, n): return code
-    return family_of(name) or grammar_family(name, default=None) or (
-        "inference" if "inference" in n else "text-evidence" if "supporting details" in n else
-        "academic-vocabulary" if re.search(r"academic|domain-specific|read about", n) else None)
+# label -> family matchers (word-boundary based; see family_match.py for why)
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from family_match import family_of, grammar_family, ixl_family  # noqa: E402
+from g6_lesson_skills import fill_grade6  # noqa: E402
 
 WRITING = {"argumentative essay": "writing-argument", "expository essay": "writing-informative",
            "personal narrative": "writing-narrative", "fictional narrative": "writing-narrative",
@@ -309,15 +233,18 @@ def build_studysync():
         lessons = []
         for i, sel in enumerate(selections, 1):
             lessons.append(dict(number=i, code=f"G6-U{n}-L{i}", title=sel, genre=None, texts={"selection": sel}, skills=[]))
-        # skill pool attached at unit level (lesson-level mapping refined by teachers in the admin UI)
+        # skill pool attached at unit level; lesson links are filled by fill_grade6 below
         unit_skills = [dict(label=F[c]["name"], role="COMPREHENSION_SKILL", familyCode=c) for c in reading] + \
                       [dict(label=F[c]["name"], role="GRAMMAR", familyCode=c) for c in lang]
         units.append(dict(number=n, title=f"Unit {n}: {title}", lessons=lessons, unitSkills=unit_skills,
                           writing=[dict(title="Writing Project", familyCode=["writing-narrative", "writing-argument", "writing-informative", "writing-argument", "writing-informative", "writing-research"][n - 1])]))
     units[0]["unitSkills"] += [dict(label=t, role="GRAMMAR", familyCode=grammar_family(t)) for t in G6_GRAMMAR_BOOKLET[:7]]
     units[1]["unitSkills"] += [dict(label=t, role="GRAMMAR", familyCode=grammar_family(t)) for t in G6_GRAMMAR_BOOKLET[7:]]
-    return dict(grade=6, book=dict(code="STUDYSYNC-G6", title="StudySync ELA", publisher="McGraw Hill", edition=None),
+    data = dict(grade=6, book=dict(code="STUDYSYNC-G6", title="StudySync ELA", publisher="McGraw Hill", edition=None),
                 units=units)
+    # lesson-level links: curriculum-map skills within the unit pool, then the pool spread across lessons
+    fill_grade6(data, Path(__file__).resolve().parents[2] / "data" / "curriculum-map" / "source.txt")
+    return data
 
 # --------------------------------------------------------------------------
 # 4. Standards: CCSS ELA codes referenced by the families for grades 4-6 + MAP areas

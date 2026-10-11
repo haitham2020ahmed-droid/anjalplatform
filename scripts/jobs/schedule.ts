@@ -13,6 +13,7 @@ export interface JobSpec {
 export const JOBS: JobSpec[] = [
   { name: "rollups", script: "jobs:rollups", at: "daily 02:15" }, // analytics, interventions, session purge
   { name: "security-digest", script: "jobs:security", at: "daily 06:30" }, // before the school day
+  { name: "learning", script: "jobs:learning", at: "daily 02:45" }, // decay, misconceptions, profiles, advice outcomes, digests
   { name: "item-analysis", script: "jobs:items", at: "weekly Fri 03:00" }, // question quality + calibration
 ];
 

@@ -32,6 +32,9 @@ import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
 import { buildBankItem, type EditorInput } from "./questions";
 import { schoolOf } from "./users";
+import { gradeFromRow, pickSkill } from "../../imports/questions/autofill";
+import { log } from "../monitoring/log";
+import { areaByKey, areaFromName, areaFromText, defaultStandard, parseCcss } from "../map/nwea-area";
 
 export type ImportDecision = "IMPORT" | "SKIP" | "REPLACE" | "FORCE";
 export type RowStatus = "VALID" | "INVALID" | "DUPLICATE" | "IMPORTED" | "REPLACED" | "SKIPPED" | "FAILED";
@@ -92,14 +95,68 @@ function toInput(q: RowQuestion, skillId: string, standardCode: string | null, j
     skillId, type: q.type, stem: q.stem, level: q.level, standardCode, whyCorrect: q.explanation, tip: null, cognitiveLevel: q.cognitiveLevel,
     options: q.options?.map((o) => ({ ...o, rationale: o.correct ? null : o.rationale ?? GENERIC_WRONG_FEEDBACK })),
     answer: q.answer, answers: q.answers, imported: true, batch: jobId,
+    // the newer types and error correction (read from their own columns)
+    ...(q.twoPart ? { twoPart: q.twoPart } : {}), ...(q.grid ? { grid: q.grid } : {}), ...(q.hotText ? { hotText: q.hotText } : {}), ...(q.dictation ? { dictation: q.dictation } : {}),
+    ...(q.segments ? { segments: q.segments, errorIndexes: q.errorIndexes, corrections: q.corrections, noErrorOption: q.noErrorOption, typeCorrection: q.typeCorrection } : {}),
+    ...(q.combine ? { combine: q.combine } : {}), ...(q.sequence ? { sequence: q.sequence } : {}),
   };
+}
+
+const OPTION_TYPES = new Set(["MULTIPLE_CHOICE", "DROPDOWN", "MULTI_SELECT"]);
+
+/** True when the question has a correct answer (a marked choice, a True/False value or an accepted answer). */
+export function hasAnswerKey(input: Pick<EditorInput, "type" | "options" | "answer" | "answers">): boolean {
+  if (OPTION_TYPES.has(input.type)) return Boolean(input.options?.some((o) => o.correct));
+  if (input.type === "TRUE_FALSE") return typeof input.answer === "boolean";
+  if (input.type === "FILL_BLANK") return Boolean(input.answers?.some((a) => String(a ?? "").trim()));
+  return true; // other types carry their key in their own fields (checked by the bank validator)
+}
+
+/** The question waits for the platform's AI to choose its correct answer (no key was given). */
+export const waitsForAnswer = (input: EditorInput) => Boolean(input.aiNeeds?.includes("answer")) && !hasAnswerKey(input);
+
+/**
+ * A question that waits for its answer is checked against every OTHER bank rule with a stand-in key (the first
+ * choice(s), True, “answer”). The stand-in is used only for this check: it is never saved, and the question is saved
+ * with NO correct answer, as a draft (publishing refuses it until the answer is set).
+ */
+function withStandInKey(input: EditorInput): EditorInput {
+  if (!waitsForAnswer(input)) return input;
+  if (OPTION_TYPES.has(input.type)) {
+    const n = input.type === "MULTI_SELECT" ? 2 : 1;
+    return { ...input, options: input.options?.map((o, i) => ({ ...o, correct: i < n, rationale: i < n ? null : o.rationale ?? GENERIC_WRONG_FEEDBACK })) };
+  }
+  if (input.type === "TRUE_FALSE") return { ...input, answer: true };
+  if (input.type === "FILL_BLANK") return { ...input, answers: ["answer"] };
+  return input;
+}
+
+/** The bank item to SAVE for a question that waits for its answer: no choice correct, no answer rows. */
+function withoutKey(item: BankItem, input: EditorInput): BankItem {
+  if (!waitsForAnswer(input)) return item;
+  return { ...item, options: item.options?.map((o) => ({ ...o, correct: false, rationale: o.rationale ?? GENERIC_WRONG_FEEDBACK })), answer: undefined, answers: item.type === "FILL_BLANK" ? [] : item.answers };
+}
+
+/** Rules of the importer on top of the bank validator (choices of option questions). */
+function optionRules(input: EditorInput): string[] {
+  if (!OPTION_TYPES.has(input.type)) return [];
+  const opts = input.options ?? [];
+  const name = input.type === "MULTI_SELECT" ? "Multi Select" : input.type === "DROPDOWN" ? "Dropdown" : "Multiple Choice";
+  const out: string[] = [];
+  if (opts.filter((o) => String(o.text ?? "").trim()).length < 2) out.push(`${name} needs at least 2 answer choices.`);
+  if (input.type === "MULTI_SELECT" && hasAnswerKey(input) && !opts.some((o) => !o.correct)) out.push("Multi Select needs at least one wrong answer choice: not every choice can be correct.");
+  return out;
 }
 
 /**
  * Checks an editor input against the curriculum and the bank rules without any database access.
- * Returns every problem (empty = valid).
+ * Returns every problem (empty = valid). A question with no correct answer is valid ONLY while it waits for the
+ * AI to choose it (aiNeeds “answer”); it is then saved as a draft without a key.
  */
-export function checkInput(idx: CurriculumIndex, input: EditorInput, opts: { allowNoStandard?: boolean; allowUnlinkedStandard?: boolean } = {}): string[] {
+export function checkInput(idx: CurriculumIndex, inputIn: EditorInput, opts: { allowNoStandard?: boolean; allowUnlinkedStandard?: boolean } = {}): string[] {
+  const rules = optionRules(inputIn);
+  if (rules.length) return rules;
+  const input = withStandInKey(inputIn);
   const skill = input.skillId ? skillById(idx, input.skillId) : null;
   if (!skill) return ["Choose a skill that exists on the platform."];
   const errors: string[] = [];
@@ -130,6 +187,8 @@ const BANK_MESSAGES: [RegExp, string][] = [
   [/true\/false needs a boolean answer/, "Correct Answer must be True or False."],
   [/fill-in needs accepted answers/, "Correct Answer is empty: write the accepted answer(s)."],
   [/duplicate options/, "Two answer choices are the same."],
+  [/^needs at least 2 options/, "Add at least 2 answer choices."],
+  [/multi-select needs at least one wrong option/, "Multi Select needs at least one wrong answer choice: not every choice can be correct."],
   [/level .* out of range/, "Difficulty Level must be from 1 to 7."],
 ];
 function friendlyBankErrors(message: string): string[] {
@@ -187,6 +246,7 @@ async function duplicateIndex(repo: Repo, skillIds: string[]): Promise<{ index: 
 }
 
 const optionTexts = (i: EditorInput | null | undefined) => i?.options?.map((o) => o.text) ?? [];
+const SAME_WORDING_NOTE = "A question with the same wording but different answer choices is already in the question bank. It is imported as a new question.";
 
 // ------------------------------------------------------------------- analyze
 
@@ -255,13 +315,22 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
   if (target === "CURRICULUM" && !mapNodes.length) return fail(kind, "curriculum", "The Curriculum Map has not been created yet.", ["The Curriculum Map has not been created yet. Run: npx tsx scripts/curriculum-map.ts seed"]);
   const unclassified = new Map<number, string>();
   for (const g of [...new Set(mapNodes.map((n) => n.grade))]) unclassified.set(g, await unclassifiedSkillId(repo, schoolOf(actor), g));
-  const idx = await loadCurriculumIndex(repo, actor, { includeUnclassified: target === "CURRICULUM" });
+  const idx = await loadCurriculumIndex(repo, actor, { includeUnclassified: true });
   const bands = await lexileBands(repo, schoolOf(actor));
   if (!idx.grades.size) return fail(kind, "curriculum", "No grades are set up for this school yet.", ["No grades are set up for this school yet. Load the curriculum before importing questions."]);
 
-  // read and match every row (pure, no database work per row)
-  const read = rowsIn.map((r) => {
+  // empty Grade cells: the standard's grade, else the skill's, else the grade most rows of the file give
+  const gradeVotes = new Map<number, number>();
+  for (const r of rowsIn) { const g = Number(String(r.cells.grade ?? "").match(/\d+/)?.[0] ?? gradeFromRow(idx, r.cells) ?? 0); if (idx.grades.has(g)) gradeVotes.set(g, (gradeVotes.get(g) ?? 0) + 1); }
+  const fileGrade = [...gradeVotes].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+  const unclassifiedOf = async (g: number) => { if (!unclassified.has(g)) { try { unclassified.set(g, await unclassifiedSkillId(repo, schoolOf(actor), g)); } catch { return undefined; } } return unclassified.get(g); };
+
+  // read and match every row (no database work per row, except a grade's Unclassified skill once)
+  const read: { r: (typeof rowsIn)[number]; rr: ReturnType<typeof readRow>; cm: CurriculumMatch; place: ReturnType<typeof resolveMapLocation> | null; uses: ReturnType<typeof usesFrom>; fill: { warnings: string[]; aiNeeds: string[] } }[] = [];
+  for (const r of rowsIn) {
     const rr = readRow(r.cells, target);
+    // ✨ empty or unknown Grade / Skill / Standard: completed by rules here, by the AI after the import
+    const fill = target === "BANK" ? await completeRow(idx, r.cells, rr, fileGrade, unclassifiedOf) : { warnings: [] as string[], aiNeeds: [] as string[] };
     const place = target === "CURRICULUM" ? resolveMapLocation(mapNodes, rr.grade, { code: r.cells.mapCode, unit: r.cells.unit, set: r.cells.set, category: r.cells.category, level: r.cells.mapLevel }) : null;
     const uses = usesFrom(r.cells.use ?? "");
     let cm: CurriculumMatch;
@@ -286,7 +355,7 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
           const sk = sid ? skillById(idx, sid) : null;
           if (sk) cm = { skill: sk, standard: fileStd, errors: cm.errors.filter((e) => !/was not found in Grade|is not linked to skill|does not exist on the platform/.test(e)), warnings: [...cm.warnings, `Skill “${(r.cells.skill ?? "").trim()}” is not a platform skill: the question is placed by its Curriculum Map place.`] };
         } else if (notLinked.length) {
-          cm = { ...cm, standard: fileStd ?? cm.standard, errors: cm.errors.filter((e) => !/is not linked to skill/.test(e)), warnings: [...cm.warnings, ...notLinked.map((e) => `${e} The file's standard is kept.`)] };
+          cm = { ...cm, standard: fileStd ?? cm.standard, errors: cm.errors.filter((e) => !/is not linked to skill/.test(e)), warnings: [...cm.warnings, ...notLinked.map((e) => `${e} The file's standard is kept, and the question stays a draft until someone reviews it.`)] };
         }
         if (cm.errors.some((e) => /does not exist on the platform/.test(e))) cm = { ...cm, standard: null, errors: cm.errors.filter((e) => !/does not exist on the platform/.test(e)), warnings: [...cm.warnings, `Standard “${(r.cells.standard ?? "").trim()}” is not a CCSS code: saved without a standard.`] };
       }
@@ -297,8 +366,18 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
         cm.standard = primary ? { id: primary.id, code: primary.code } : null;
       }
     }
-    return { r, rr, cm, place, uses };
-  });
+    if (target === "BANK") {
+      // the bank import never loses a question over its standard: a standard the platform does not have, or one
+      // not linked to the skill, becomes a warning (the MAP classification checks it after the import)
+      const notLinked = cm.errors.filter((e) => /is not linked to skill/.test(e));
+      const missingStd = cm.errors.filter((e) => /^Standard “.*” does not exist on the platform|^Standard is empty/.test(e));
+      if (notLinked.length || missingStd.length) {
+        const primary = cm.skill?.standards.find((x) => x.isPrimary) ?? cm.skill?.standards[0];
+        cm = { ...cm, standard: missingStd.length ? (primary ? { id: primary.id, code: primary.code } : null) : cm.standard, errors: cm.errors.filter((e) => !notLinked.includes(e) && !missingStd.includes(e)), warnings: [...cm.warnings, ...notLinked.map((e) => `${e} The file's standard is kept, and the question stays a draft until someone reviews it.`), ...missingStd.map((e) => `${e.replace(/ Use .*$/, "")} ${primary ? `The skill's standard ${shortStandard(primary.code)} is used.` : "Saved without a standard for now."}`)] };
+      }
+    }
+    read.push({ r, rr, cm, place, uses, fill });
+  }
   const gradesInFile = new Set(read.map((x) => x.cm.skill?.grade).filter((g): g is number => g !== undefined));
   const { index: existing } = await duplicateIndex(repo, [...gradesInFile].flatMap((g) => idx.grades.get(g) ?? []).map((s) => s.id));
   const inFile = new PassageDuplicates();
@@ -306,10 +385,10 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
 
   const logs: Row[] = [];
   let valid = 0, invalid = 0, dups = 0;
-  for (const [i, { r, rr, cm, place, uses }] of read.entries()) {
+  for (const [i, { r, rr, cm, place, uses, fill }] of read.entries()) {
     const errors = [...rr.errors, ...cm.errors, ...(place?.errors ?? []), ...(uses.error ? [uses.error] : [])];
     if (place?.node && cm.skill && cm.skill.grade !== place.node.grade) errors.push(`The skill is in Grade ${cm.skill.grade}, but the Curriculum Map place is in Grade ${place.node.grade}.`);
-    const warnings = [...rr.warnings, ...cm.warnings];
+    const warnings = [...fill.warnings, ...rr.warnings, ...cm.warnings];
     const standardCode = cm.standard ? String(cm.standard.code) : null;
     let lexile: number | null = null;
     try { lexile = cleanLexile(r.cells.lexile); } catch (e) { errors.push((e as Error).message); }
@@ -318,20 +397,26 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
       const LN = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
       if (lv && lv !== place.node.level) warnings.push(`Lexile ${lexile}L is in the ${LN[lv]} Level band for Grade ${place.node.grade} (On Level ${bands[place.node.grade].onMin}–${bands[place.node.grade].onMax}L), but the question is placed at ${LN[place.node.level]} Level.`);
     }
-    const editor = rr.question ? { ...toInput(rr.question, cm.skill?.id ?? "", standardCode, null), ...(place?.node ? { mapNodeCode: place.node.code } : {}), ...(uses.uses.length ? { uses: uses.uses } : {}), ...(lexile !== null ? { lexile } : {}) } : null;
+    const c = r.cells;
+    const extras = { ...(c.mapArea?.trim() ? { mapArea: c.mapArea.trim(), mapTest: c.mapTest?.trim() || null } : {}), ...(c.dok?.trim() ? { dok: c.dok.trim() } : {}), ...(c.domain?.trim() ? { domain: c.domain.trim() } : {}), ...(c.passageTitle?.trim() ? { passageTitle: c.passageTitle.trim() } : {}) };
+    const aiNeeds = [...new Set([...rr.needs, ...fill.aiNeeds])];
+    const editor = rr.question ? { ...toInput(rr.question, cm.skill?.id ?? "", standardCode, null), ...(place?.node ? { mapNodeCode: place.node.code } : {}), ...(uses.uses.length ? { uses: uses.uses } : {}), ...(lexile !== null ? { lexile } : {}), ...extras, ...(aiNeeds.length ? { aiNeeds } : {}) } : null;
     // a picture placed on this row of the sheet is this question's picture (saved once, shared if identical)
     const pic = images?.get(r.row - 1);
     if (editor && pic && !errors.length) {
       try { editor.imageId = (await saveQuestionImage(repo, actor, pic, null, now)).id; }
       catch (e) { errors.push(`The picture on this row cannot be used: ${(e as Error).message}`); }
     }
-    if (editor && !errors.length) errors.push(...checkInput(idx, editor, { allowNoStandard: target === "CURRICULUM", allowUnlinkedStandard: target === "CURRICULUM" }));
+    if (editor && !errors.length) errors.push(...checkInput(idx, editor, { allowNoStandard: true, allowUnlinkedStandard: true }));
     // an open-response question (a long model answer) cannot be marked automatically: say so plainly
     for (let k = 0; k < errors.length; k++) if (/^Accepted answer must be \d+ characters or fewer/.test(errors[k])) errors[k] = "Open-response question: its answer is a model answer, and the platform marks only short answers automatically (up to 200 characters each). Put the model answer in Explanation and one or more short accepted answers in Correct Answer (separated by |), or leave this question out.";
     // the same words about ANOTHER passage are another question (e.g. “What is the main idea of the text?”)
     const myPassage = passageKey(r.cells.passage);
     let dup = editor && editor.stem ? existing.find(editor.stem, optionTexts(editor), myPassage) : null;
-    const fileDup = editor && editor.stem ? inFile.find(editor.stem, optionTexts(editor), myPassage) : null;
+    let fileDup = editor && editor.stem ? inFile.find(editor.stem, optionTexts(editor), myPassage) : null;
+    // the same wording with other answer choices is another question: a note only, imported by default
+    if (dup?.stemOnly) { warnings.push(SAME_WORDING_NOTE); dup = null; }
+    if (fileDup?.stemOnly) { warnings.push(`Same wording as row ${rowOfStem.get(fileDup.id)} in this file, but with different answer choices.`); fileDup = null; }
     if (dup) warnings.push(dup.exact ? "This question already exists in the question bank." : `A similar question already exists in the question bank (${Math.round(dup.score * 100)}% similar).`);
     if (fileDup) warnings.push(`${fileDup.exact ? "Same question as" : "Very similar to"} row ${rowOfStem.get(fileDup.id)} in this file.`);
     if (editor?.stem) {
@@ -388,6 +473,62 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
   }
   await audit(repo, { actorId: actor.userId, action: "question.import.analyze", entityType: "ImportJob", entityId: jobId, after: { fileName, kind, total: logs.length, valid, invalid, duplicates: dups }, at: now });
   return jobId;
+}
+
+/**
+ * ✨ A Question Bank row with empty (or unknown) Grade, Skill or Standard is completed here by rules — the grade from
+ * the standard / the skill / the file; the skill from the standard's linked skills, else the closest skill of the
+ * row's MAP area; the standard from the skill, else read from the wording — and what the rules cannot decide
+ * surely is left for the platform's AI after the import (aiNeeds). The cells are filled in place.
+ */
+async function completeRow(idx: CurriculumIndex, cells: Partial<Record<string, string>>, rr: ReturnType<typeof readRow>, fileGrade: number | null, unclassifiedOf: (g: number) => Promise<string | undefined>): Promise<{ warnings: string[]; aiNeeds: string[] }> {
+  const warnings: string[] = [], aiNeeds: string[] = [];
+  if (!rr.question) return { warnings, aiNeeds };
+  const get = (k: string) => String(cells[k] ?? "").trim();
+  // grade
+  if (rr.grade === null && !get("grade")) {
+    const g = gradeFromRow(idx, cells) ?? fileGrade;
+    if (g) {
+      cells.grade = String(g); rr.grade = g;
+      const fromStd = parseCcss(get("standard"))?.grade === g;
+      warnings.push(`Grade was empty: Grade ${g} (${fromStd ? "from the standard" : "the grade of the other questions in the file"}).`);
+      if (!fromStd) aiNeeds.push("grade");
+    }
+  }
+  const grade = rr.grade;
+  if (grade === null || !idx.grades.has(grade)) return { warnings, aiNeeds };
+  const skills = idx.grades.get(grade)!;
+  const norm = (x: string) => x.toLowerCase().replace(/\s+/g, " ").trim();
+  const skillText = get("skill");
+  const known = skillText ? skills.filter((k) => norm(k.code) === norm(skillText) || norm(k.code).replace(/^g\d+\./, "") === norm(skillText) || norm(k.name) === norm(skillText)) : [];
+  const options = [cells.optA, cells.optB, cells.optC, cells.optD].map((x) => String(x ?? "")).filter(Boolean);
+  // skill
+  if (known.length !== 1) {
+    const pick = pickSkill(idx, grade, { skill: skillText, standard: get("standard"), stem: rr.question.stem, domain: get("domain"), mapArea: get("mapArea"), options, passage: rr.question.passage });
+    if (pick) {
+      cells.skill = pick.skill.code;
+      warnings.push(`${skillText ? `Skill “${skillText}” was not found` : "Skill was empty"}: ${pick.skill.name} (${pick.how}).`);
+      if (!pick.sure) aiNeeds.push("skill");
+    } else {
+      const id = await unclassifiedOf(grade);
+      const sk = id ? skills.find((k) => k.id === id) ?? [...idx.grades.values()].flat().find((k) => k.id === id) : undefined;
+      if (sk) { cells.skill = sk.code; warnings.push(`${skillText ? `Skill “${skillText}” was not found` : "Skill was empty"}: kept as Unclassified until the AI chooses the skill.`); aiNeeds.push("skill"); }
+    }
+  }
+  // standard
+  if (!get("standard")) {
+    const sk = skills.find((k) => k.code === cells.skill) ?? known[0];
+    const primary = sk?.standards.find((x) => x.isPrimary) ?? sk?.standards[0];
+    const text = areaFromText({ stem: rr.question.stem, options, passage: rr.question.passage, grade });
+    const area = areaFromName(get("mapArea")) ?? text?.area ?? null;
+    const guess = primary ? shortStandard(primary.code) : text && (!area || text.area === area) ? text.standard : area ? defaultStandard(area, grade) : null;
+    if (guess && (primary || idx.standards.has(shortStandard(guess)))) {
+      cells.standard = guess;
+      warnings.push(`Standard was empty: ${guess} (${primary ? "the skill's standard" : "read from the question"}).`);
+      if (!primary) aiNeeds.push("standard");
+    } else aiNeeds.push("standard");
+  }
+  return { warnings, aiNeeds };
 }
 
 /** A database error in one line, without stack or SQL (for teachers and the import history). */
@@ -490,17 +631,22 @@ export async function updateImportRow(repo: Repo, actor: Actor, jobId: string, r
   if (patch.input) {
     const prev = parseJ<DetectedRow>(row.detected);
     const curriculum = parseJ<{ target?: string }>(job.options)?.target === "CURRICULUM";
-    const input: EditorInput = { mapNodeCode: prev.input?.mapNodeCode, uses: prev.input?.uses, ...patch.input, imported: true, batch: jobId };
+    const merged: EditorInput = { mapNodeCode: prev.input?.mapNodeCode, uses: prev.input?.uses, ...patch.input, imported: true, batch: jobId };
+    // an answer chosen in the preview replaces the AI's job (the AI must not overwrite it)
+    const left = hasAnswerKey(merged) ? merged.aiNeeds?.filter((n) => n !== "answer") : merged.aiNeeds;
+    const input: EditorInput = { ...merged, aiNeeds: left?.length ? left : undefined };
+    if (!input.aiNeeds) delete input.aiNeeds;
     const idx = await loadCurriculumIndex(repo, actor, { includeUnclassified: curriculum });
     const errors = checkInput(idx, input, { allowNoStandard: curriculum, allowUnlinkedStandard: curriculum });
     const skill = skillById(idx, input.skillId);
     const { index } = await duplicateIndex(repo, skill ? (idx.grades.get(skill.grade) ?? []).map((s) => s.id) : []);
-    const dup = errors.length ? null : index.find(input.stem, optionTexts(input), passageKey(prev.meta?.passage));
+    const hit = errors.length ? null : index.find(input.stem, optionTexts(input), passageKey(prev.meta?.passage));
+    const dup = hit?.stemOnly ? null : hit;
     const std = input.standardCode ? idx.standards.get(shortStandard(input.standardCode)) : undefined;
     Object.assign(data, {
       detected: { input, meta: { ...prev.meta, grade: skill?.grade ?? prev.meta.grade, skillName: skill?.name ?? null, standardCode: std ? shortStandard(std.code) : null, duplicateExact: Boolean(dup?.exact) } } satisfies DetectedRow,
       errors,
-      warnings: dup ? [dup.exact ? "This question already exists in the question bank." : `A similar question already exists in the question bank (${Math.round(dup.score * 100)}% similar).`] : [],
+      warnings: dup ? [dup.exact ? "This question already exists in the question bank." : `A similar question already exists in the question bank (${Math.round(dup.score * 100)}% similar).`] : hit?.stemOnly ? [SAME_WORDING_NOTE] : [],
       duplicateOfId: dup?.id ?? null, similarity: dup ? Math.round(dup.score * 100) / 100 : null,
       status: errors.length ? "INVALID" : dup ? "DUPLICATE" : "VALID",
       ...(errors.length ? { selected: false } : patch.selected === undefined && row.status === "INVALID" ? { selected: true } : {}),
@@ -538,7 +684,7 @@ export async function cancelImport(repo: Repo, actor: Actor, jobId: string, now 
 
 export interface CommitProgress { processed: number; total: number; done: boolean; counts: { imported: number; replaced: number; skipped: number; failed: number; duplicates: number } }
 
-interface Planned { log: Row; input: EditorInput; item: BankItem; skill: SkillRef; standardId: string | null; passage: string | null; replaceId: string | null }
+interface Planned { log: Row; input: EditorInput; item: BankItem; skill: SkillRef; standardId: string | null; passage: string | null; replaceId: string | null; /** the standard is not linked to the skill: kept, but the question waits for a review */ unlinkedStandard: boolean }
 
 import { passageRef } from "./passages";
 import { cleanLexile } from "./questions";
@@ -563,7 +709,7 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
         const id = newId();
         const grade = plans.find((p) => p.passage === t)!.skill.grade;
         fresh.push({
-          id, externalRef: ref, title: `Imported passage: ${t.replace(/\s+/g, " ").split(" ").slice(0, 8).join(" ")}…`.slice(0, 190), body: t, genre: null, gradeLevel: grade, gradeBand: String(grade),
+          id, externalRef: ref, title: (plans.find((p) => p.passage === t && p.input.passageTitle)?.input.passageTitle ?? `Imported passage: ${t.replace(/\s+/g, " ").split(" ").slice(0, 8).join(" ")}…`).slice(0, 190), body: t, genre: null, gradeLevel: grade, gradeBand: String(grade),
           wordCount: st.wordCount, sentenceCount: st.sentenceCount, avgSentenceLength: st.avgSentenceLength, avgWordLength: st.avgWordLength,
           platformReadingLevel: platformReadingLevelFor(t, ""), status: "UNDER_REVIEW", origin: "IMPORTED", createdById: actor.userId, createdAt: now, updatedAt: now,
         });
@@ -581,20 +727,24 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
       const id = newId();
       ids.set(String(p.log.id), id);
       // teacher-scored Short Answers are published too: the adaptive engine and the Curriculum Map sets never serve them
-      const published = publish;
+      // an answer the AI still has to choose: a draft until someone checks it
+      const noKey = waitsForAnswer(p.input);
+      const published = publish && !noKey && !p.input.aiNeeds?.includes("answer") && !p.unlinkedStandard;
+      const fileArea = p.input.mapArea ? areaFromName(p.input.mapArea) : null;
       questions.push({
         id, externalRef: p.item.ref, skillId: p.skill.id, standardId: p.standardId, passageId: p.passage ? passageIds.get(passageRef(p.passage)) ?? null : null,
         typeId: types.get(p.item.type)!, stem: p.item.stem, content: contentPayload(p.item), hint: null, difficultyLevel: p.item.level,
         irtA: 1, irtB: LEVEL_TO_B[p.item.level] ?? 0, irtC: 0, estimatedSeconds: p.item.estimatedSeconds,
         // teachers' imports wait for an admin straight away (no need to send each one for review)
-        status: published ? "PUBLISHED" : can(actor, "questions:publish") ? "DRAFT" : "UNDER_REVIEW", origin: "IMPORTED", aiStatus: null, lessonId: null,
+        status: published ? "PUBLISHED" : can(actor, "questions:publish") || noKey || p.input.aiNeeds?.includes("answer") || p.unlinkedStandard ? "DRAFT" : "UNDER_REVIEW", origin: "IMPORTED", aiStatus: null, lessonId: null,
+        ...(fileArea ? { mapTest: areaByKey(fileArea).test, mapInstructionalArea: areaByKey(fileArea).name, mapAreaSource: "IMPORT" } : {}),
         lexile: p.input.lexile ?? null,
         imageId: p.input.imageId ?? null,   // the picture placed on the question's row in the Excel file
-        tags: { ...(p.input.cognitiveLevel ? { cognitiveLevel: p.input.cognitiveLevel } : {}), importJob: jobId },
+        tags: { ...(p.input.cognitiveLevel ? { cognitiveLevel: p.input.cognitiveLevel } : {}), importJob: jobId, ...(p.input.dok ? { dok: String(p.input.dok).slice(0, 20) } : {}), ...(p.input.domain ? { domain: String(p.input.domain).slice(0, 80) } : {}), ...(p.input.passageTitle ? { passageTitle: String(p.input.passageTitle).slice(0, 190) } : {}), ...(p.input.aiNeeds?.length ? { aiNeeds: p.input.aiNeeds } : {}), ...(p.unlinkedStandard ? { review: ["standard-not-linked"] } : {}) },
         createdById: actor.userId, ...(published ? { publishedAt: now, reviewedById: actor.userId } : {}), createdAt: now, updatedAt: now,
       });
       for (const [i, o] of (p.item.options ?? []).entries()) options.push({ id: newId(), questionId: id, label: o.label, text: o.text, isCorrect: o.correct, rationale: o.rationale, order: i });
-      for (const [i, v] of answerValues(p.item).entries()) answers.push({ id: newId(), questionId: id, value: v as object, isPrimary: i === 0 });
+      for (const [i, v] of answerValues(p.item).filter((x) => x !== undefined && x !== null).entries()) answers.push({ id: newId(), questionId: id, value: v as object, isPrimary: i === 0 });
       if (p.input.type === "SHORT_ANSWER" && p.input.answers?.[0]) answers.push({ id: newId(), questionId: id, value: p.input.answers[0], isPrimary: true });
       explanations.push({ id: newId(), questionId: id, kind: "WHY_CORRECT", body: [{ type: "text", text: p.item.explanation.whyCorrect }], order: 0 });
       audits.push({ actorId: actor.userId, action: "question.create", entityType: "Question", entityId: id, after: { ref: p.item.ref, skillId: p.skill.id, type: p.item.type, level: p.item.level, importJob: jobId, status: published ? "PUBLISHED" : "DRAFT" }, createdAt: now });
@@ -642,7 +792,8 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
     await audit(repo, { actorId: actor.userId, action: "question.import.start", entityType: "ImportJob", entityId: jobId, after: { publish: Boolean(opts.publish) }, at: now });
   }
   const publish = Boolean(opts.publish ?? parseJ<{ publish?: boolean }>(job.options)?.publish) && can(actor, "questions:publish");
-  const open = (await repo.findMany("ImportedQuestionLog", { jobId, status: { in: OPEN } })).sort((a, b) => Number(a.rowIndex) - Number(b.rowIndex)).slice(0, COMMIT_CHUNK);
+  // only the next chunk is read (ordered and limited by the database), never every open row of a large file
+  const open = await repo.findMany("ImportedQuestionLog", { jobId, status: { in: OPEN } }, { orderBy: [{ field: "rowIndex", dir: "asc" }], take: COMMIT_CHUNK });
 
   const skip: string[] = [];
   const failed: { id: string; errors: string[] }[] = [];
@@ -655,12 +806,15 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
     if (l.status === "INVALID" || !det.input) { failed.push({ id: String(l.id), errors: parseJ<string[] | null>(l.errors) ?? ["the question has errors"] }); continue; }
     if (!l.selected || l.decision === "SKIP") { skip.push(String(l.id)); continue; }
     const input = det.input;
-    const problems = checkInput(idx!, input, { allowNoStandard: target === "CURRICULUM", allowUnlinkedStandard: target === "CURRICULUM" }); // the curriculum may have changed since the preview
+    const problems = checkInput(idx!, input, { allowNoStandard: true, allowUnlinkedStandard: true }); // the curriculum may have changed since the preview
     if (problems.length) { failed.push({ id: String(l.id), errors: problems }); continue; }
     const skill = skillById(idx!, input.skillId)!;
     const std = input.standardCode ? idx!.standards.get(shortStandard(input.standardCode)) ?? null : null;
-    const item = buildBankItem(input, { ref: `T${skill.grade}-${randomBytes(4).toString("hex")}`, grade: skill.grade, skillCode: skill.code, standardCode: std ? std.code : null, passageRef: null, allowNoStandard: target === "CURRICULUM" });
-    plans.push({ log: l, input, item, skill, standardId: std ? std.id : null, passage: det.meta?.passage ?? null, replaceId: l.decision === "REPLACE" && l.duplicateOfId ? String(l.duplicateOfId) : null });
+    const item0 = buildBankItem(withStandInKey(input), { ref: `T${skill.grade}-${randomBytes(4).toString("hex")}`, grade: skill.grade, skillCode: skill.code, standardCode: std ? std.code : null, passageRef: null, allowNoStandard: true });
+    // no correct answer given: saved WITHOUT a key (the stand-in key was only for the check above)
+    const item = withoutKey(item0, input);
+    const unlinkedStandard = Boolean(std && skill.standards.length && !skill.standards.some((x) => shortStandard(x.code) === shortStandard(std.code)));
+    plans.push({ log: l, input, item, skill, standardId: std ? std.id : null, passage: det.meta?.passage ?? null, replaceId: l.decision === "REPLACE" && l.duplicateOfId ? String(l.duplicateOfId) : null, unlinkedStandard });
   }
   if (skip.length) await repo.updateMany("ImportedQuestionLog", { id: { in: skip } }, { status: "SKIPPED", updatedAt: now });
   for (const f of failed) await repo.updateMany("ImportedQuestionLog", { id: f.id }, { status: "FAILED", errors: f.errors, updatedAt: now });
@@ -679,6 +833,30 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
     }
   }
 
+  // 🧭 the MAP test and area of every new question (an area the file gave is kept), then ✨ the AI completes the gaps
+  const postErrors: { message: string }[] = [];
+  if (plans.length) {
+    const newIds = (await repo.findMany("ImportedQuestionLog", { id: { in: plans.map((p) => String(p.log.id)) } }, { select: ["questionId"] })).map((l) => String(l.questionId ?? "")).filter(Boolean);
+    // each step may fail without losing the import: the failure is logged and listed on the job (never swallowed)
+    const step = async (name: string, run: () => Promise<unknown>) => {
+      try { await run(); } catch (e) {
+        log("error", "question_import.post_process_failed", { jobId, step: name, error: e as Error });
+        postErrors.push({ message: `After the import, “${name}” did not finish for ${newIds.length} question(s): ${shortDbMessage(e)}` });
+      }
+    };
+    await step("MAP area", async () => { const { autoClassify } = await import("../map/question-areas"); await autoClassify(repo, schoolOf(actor), newIds, now); });
+    // 🧭 map questions imported without a skill: their real skill from the map place / standard / wording (Update 39C)
+    await step("skill from the map place", async () => { const { remapNewQuestions } = await import("../curriculum-map/remap-skills"); await remapNewQuestions(repo, schoolOf(actor), newIds, actor.userId, now); });
+    // 🧠 question intelligence (it also tags each wrong option's misconception: tagOptions runs inside it, once)
+    await step("question analysis", async () => { const { analyzeQuestions } = await import("../questions/intelligence"); await analyzeQuestions(repo, schoolOf(actor), { questionIds: newIds }, now); });
+    const needing = plans.filter((p) => p.input.aiNeeds?.length).length;
+    if (needing) await step("AI completion", async () => { const { queueCompletion } = await import("../ai/complete"); await queueCompletion(repo, actor, jobId, now); });
+    if (postErrors.length) {
+      const fresh = parseJ<Record<string, unknown>>((await repo.findUnique("ImportJob", { id: jobId }))?.options) ?? {};
+      const prev = Array.isArray(fresh.postErrors) ? (fresh.postErrors as { message: string }[]) : [];
+      await repo.updateMany("ImportJob", { id: jobId }, { options: { ...fresh, postErrors: [...prev, ...postErrors].slice(-50) } });
+    }
+  }
   const count = (status: RowStatus) => repo.count("ImportedQuestionLog", { jobId, status });
   const [imported, replaced, skipped, failedN, remaining, total, duplicates] = await Promise.all([
     count("IMPORTED"), count("REPLACED"), count("SKIPPED"), count("FAILED"), repo.count("ImportedQuestionLog", { jobId, status: { in: OPEN } }),
@@ -688,7 +866,8 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
   const done = remaining === 0;
   if (done) {
     const failedLogs = failedN ? (await repo.findMany("ImportedQuestionLog", { jobId, status: "FAILED" })).sort((a, b) => Number(a.rowIndex) - Number(b.rowIndex)) : [];
-    const errors = failedLogs.slice(0, 500).map((l) => ({ row: Number(parseJ<DetectedRow>(l.detected)?.meta?.row ?? Number(l.rowIndex) + 2), message: (parseJ<string[] | null>(l.errors) ?? []).join(" ") }));
+    const post = parseJ<{ postErrors?: { message: string }[] }>((await repo.findUnique("ImportJob", { id: jobId }))?.options)?.postErrors ?? [];
+    const errors = [...failedLogs.slice(0, 500).map((l) => ({ row: Number(parseJ<DetectedRow>(l.detected)?.meta?.row ?? Number(l.rowIndex) + 2), message: (parseJ<string[] | null>(l.errors) ?? []).join(" ") })), ...post.map((e) => ({ message: e.message }))];
     await repo.updateMany("ImportJob", { id: jobId }, { status: "COMPLETED", completedAt: now, summary: { imported, replaced, skipped, failed: failedN }, errors });
     await audit(repo, { actorId: actor.userId, action: "question.import.complete", entityType: "ImportJob", entityId: jobId, after: counts, at: now });
   }

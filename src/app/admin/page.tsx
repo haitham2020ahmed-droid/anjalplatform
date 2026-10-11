@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { SearchBox } from "@/components/search/search-box";
 import { listQuestions } from "@/server/admin/questions";
 import { countDeletionRequests } from "@/server/admin/question-requests";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
+import { maybeRunDaily } from "@/server/insights/daily";
 import { scanAlerts } from "@/server/insights/alerts";
 import { can } from "@/server/auth/rbac";
 import { ToolFinder } from "@/components/ui/tool-finder";
@@ -11,6 +13,7 @@ import { classesAtAGlance } from "@/server/insights/overview";
 import { connectionsCached } from "@/server/admin/connections";
 import { ClassRows } from "@/components/home/class-rows";
 import { HEALTH_UI } from "@/components/connect/thread";
+import { pendingCount } from "@/server/reports/family-reports";
 
 export const metadata = { title: "Administration" };
 
@@ -34,6 +37,8 @@ function groupOf(href: string): (typeof GROUPS)[number]["key"] {
 
 export default async function AdminHome() {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
+  // the daily learning job (decay, misconceptions, profiles, advice outcomes, digests): once a day, in the background
+  await maybeRunDaily(repo, actor.schoolId).catch(() => false);
   const me = (await getActor())!.user;
   if (actor.schoolId) await scanAlerts(repo, actor.schoolId).catch(() => 0);
   const areas = [
@@ -62,7 +67,7 @@ export default async function AdminHome() {
     { href: "/admin/bank-gaps", title: "🕳 Question bank gaps", text: "Where to write questions first: questions per MAP goal area vs. the students who need it.", show: can(actor, "questions:read") },
     { href: "/teacher/intervention", title: "🚨 Intervention", text: "Students who need attention now, from MAP and the platform.", show: can(actor, "assignments:create") },
     { href: "/teacher/personal-plan", title: "📋 Personalized plans", text: "Generated from MAP for every class: Word / PDF.", show: can(actor, "assignments:create") },
-    { href: "/admin/roster/clean", title: "🧹 Clean roster", text: "Archive or delete students (school, grade or class) before loading a new roster.", show: can(actor, "students:manage") },
+    { href: "/admin/roster/clean", title: "🧹 Clear Roster", text: "Remove students (school, grade, class or one by one), edit or restore them; classes, teachers and content stay.", show: can(actor, "students:manage") },
     { href: "/admin/readmaster", title: "⭐ ReadMaster", text: "Leveled articles (Achieve3000-style): the same text in Below / On / Above versions; each student reads their Lexile's version, which moves after every article.", show: can(actor, "questions:read") },
     { href: "/teacher/plans", title: "🗂️ Skill plans", text: "Curriculum Map places assigned together; students open the plan as a map.", show: can(actor, "assignments:read") },
     { href: "/teacher/map-recommendations", title: "💡 MAP recommendations", text: "Skills each student needs, from their MAP scores.", show: can(actor, "reports:read") },
@@ -95,6 +100,7 @@ export default async function AdminHome() {
     repo.count("QuestionFlag", { schoolId: actor.schoolId, status: "OPEN" }),
   ]);
   const active = new Set(activeRows.map((r) => String(r.studentId))).size;
+  const reportsWaiting = actor.schoolId ? await pendingCount(repo, actor.schoolId) : 0;
   // is the question bank big enough for MAP plans and the practice test? (cached pools: cheap)
   const gradeLevels = (await repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["level"] })).map((g) => Number(g.level)).filter((g) => g >= 1);
   const ready = (await Promise.all(gradeLevels.map((g) => readiness(repo, actor, g).catch(() => [])))).flat();
@@ -121,28 +127,34 @@ export default async function AdminHome() {
         </div>
         <div className="flex flex-wrap gap-2">
           <Link href="/admin/department" className="rounded-xl bg-brand-navy px-4 py-2.5 font-medium text-white hover:bg-brand-purple">🏫 Department week</Link>
+          <Link href="/teacher/learning-loop" className="rounded-xl bg-gradient-to-r from-indigo-600 to-teal-600 px-4 py-2.5 font-medium text-white hover:opacity-90">🔄 Learning Loop</Link>
           <Link href="/teacher/map-reports" className="rounded-xl bg-white px-4 py-2.5 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📑 MAP reports</Link>
           <Link href="/admin/student-file" className="rounded-xl bg-white px-4 py-2.5 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🔎 Find a student</Link>
         </div>
       </header>
+      <div className="mt-6"><SearchBox /></div>
       <section className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
-        {tiles.map((x) => <Link key={x.href} href={x.href} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal"><span className="block text-sm text-slate-500">{x.label}</span><span className={`mt-1 block text-3xl font-semibold tabular-nums ${x.tone}`}>{x.value}</span><span className="block truncate text-xs text-slate-500">{x.sub}</span></Link>)}
+        {tiles.map((x) => <Link key={x.href} href={x.href} className="min-w-0 rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal"><span className="block text-sm text-slate-500">{x.label}</span><span className={`mt-1 block text-3xl font-semibold tabular-nums ${x.tone}`}>{x.value}</span><span className="block truncate text-xs text-slate-500">{x.sub}</span></Link>)}
       </section>
-      <div className="mt-6 grid gap-4 lg:grid-cols-3">
+      <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
           {conn && (
-            <Link href="/admin/connections" className="block rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
+            <Link href="/admin/connections" className="block min-w-0 rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
               <span className="flex items-baseline justify-between"><span className="text-lg font-semibold text-brand-navy">🔗 Connections</span><span className="text-2xl font-semibold tabular-nums text-brand-navy">{conn.score}%</span></span>
               <span className="mt-1 block text-sm text-slate-600">How well the curriculum, questions, MAP, the continuum, students and plans are joined.</span>
-              {weak.length > 0 && <ul className="mt-3 space-y-1.5">{weak.map(({ c }) => <li key={c.id} className="flex items-center justify-between gap-2 text-sm"><span className="truncate text-slate-700">{c.label}</span><span className={`shrink-0 rounded-full px-2 py-0.5 text-xs ring-1 ${HEALTH_UI[c.health].chip}`}>{c.ok}/{c.total}</span></li>)}</ul>}
+              {weak.length > 0 && <ul className="mt-3 space-y-1.5">{weak.map(({ c }) => <li key={c.id} className="flex items-center justify-between gap-2 text-sm"><span className="min-w-0 truncate text-slate-700">{c.label}</span><span className={`shrink-0 rounded-full px-2 py-0.5 text-xs ring-1 ${HEALTH_UI[c.health].chip}`}>{c.ok}/{c.total}</span></li>)}</ul>}
             </Link>
           )}
+          <Link href="/admin/report-approvals" className={`flex min-w-0 items-center justify-between gap-3 rounded-2xl p-4 ring-1 transition hover:ring-brand-teal ${reportsWaiting ? "bg-amber-50 ring-amber-300" : "bg-white ring-slate-200"}`}>
+            <span><span className="block font-semibold text-brand-navy">📨 Family reports to approve</span><span className="block text-xs text-slate-500">Teachers’ reports wait for you before the family sees them</span></span>
+            <span className={`grid h-10 min-w-10 place-items-center rounded-xl px-2 text-lg font-semibold ${reportsWaiting ? "bg-amber-400 text-brand-navy" : "bg-slate-100 text-slate-400"}`}>{reportsWaiting}</span>
+          </Link>
           {canApprove && (
             <>
-              <Link href="/admin/questions?status=UNDER_REVIEW" className="flex items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
+              <Link href="/admin/questions?status=UNDER_REVIEW" className="flex min-w-0 items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
                 <span><span className="block font-semibold text-brand-navy">Questions waiting for approval</span><span className="block text-xs text-slate-500">New questions and teachers&apos; edits</span></span>
                 <span className={`grid h-10 min-w-10 place-items-center rounded-xl px-2 text-lg font-semibold ${waiting ? "bg-amber-400 text-brand-navy" : "bg-slate-100 text-slate-400"}`}>{waiting}</span>
               </Link>
-              <Link href="/admin/questions/requests" className="flex items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
+              <Link href="/admin/questions/requests" className="flex min-w-0 items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
                 <span><span className="block font-semibold text-brand-navy">Deletion requests</span><span className="block text-xs text-slate-500">Teachers asking to remove a question</span></span>
                 <span className={`grid h-10 min-w-10 place-items-center rounded-xl px-2 text-lg font-semibold ${deletions ? "bg-red-500 text-white" : "bg-slate-100 text-slate-400"}`}>{deletions}</span>
               </Link>
@@ -161,9 +173,9 @@ export default async function AdminHome() {
         return (
           <section key={g.key} data-tool-group="" className="mt-6">
             <h3 className="flex items-center gap-2 text-sm font-semibold text-slate-500"><span aria-hidden="true" className="text-base">{g.icon}</span>{g.title}</h3>
-            <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {list.map((a) => (
-                <Link key={a.href} href={a.href} data-tool={`${a.title} ${a.text}`} className="group block rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
+                <Link key={a.href} href={a.href} data-tool={`${a.title} ${a.text}`} className="group block min-w-0 rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">
                   <h4 className="font-semibold text-brand-navy">{a.title}</h4>
                   <p className="mt-1 text-sm text-slate-600">{a.text}</p>
                 </Link>

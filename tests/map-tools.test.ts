@@ -28,7 +28,7 @@ describe("📋 personalized plan · 🚨 intervention board · 🕳 bank gaps", 
     for (const x of rows) {
       const num = String((await repo.findUnique("Student", { id: roster[x.i].id }))!.studentNumber);
       const r2 = H.map(() => ""); r2[0] = num; r2[at("Reading Fall RIT")] = String(x.rit); r2[at("Reading Fall Percentile")] = String(x.pct); r2[at("Reading Spring Projection")] = String(Number(x.rit) + 8);
-      r2[at("Fall Lexile")] = String(x.lex); r2[at("R: Literary Theme")] = String(x.theme); r2[at("R: Vocabulary")] = String(x.vocab); r2[at("R: Info Central Idea")] = String(Number(x.rit) - 3); r2[at("Reading Rapid-Guessing %")] = String(x.rapid);
+      r2[at("Fall Lexile")] = String(x.lex); r2[at("R: Literary Text")] = String(x.theme); r2[at("R: Vocabulary")] = String(x.vocab); r2[at("R: Informational Text")] = String(Number(x.rit) - 3); r2[at("Reading Rapid-Guessing %")] = String(x.rapid);
       table.push(r2);
     }
     assert.equal((await importMapScores(repo, teacher, table, 2026)).imported, 4);
@@ -43,7 +43,7 @@ describe("📋 personalized plan · 🚨 intervention board · 🕳 bank gaps", 
     const by = Object.fromEntries(p.bands.map((b) => [b.band, b]));
     assert.deepEqual([by.BELOW.students.length, by.ON.students.length, by.ABOVE.students.length], [2, 1, 1]);
     assert.equal(by.BELOW.ritRange, "170–185");
-    assert.equal(by.BELOW.goals[0].area.startsWith("Literary Text: Analyze Theme"), true, "Literary Theme is the Below group's weakest area");
+    assert.equal(by.BELOW.goals[0].area.startsWith("Literary Text"), true, "Literary Text is the Below group's weakest area");
     assert.ok(by.BELOW.goals.length >= 1 && by.BELOW.resources[0].includes("Below"));
     assert.equal(by.ABOVE.students[0].projection, 213);
     assert.equal(p.notTested.length, roster.length - 4, "the rest of the class is listed as not tested");
@@ -62,7 +62,7 @@ describe("📋 personalized plan · 🚨 intervention board · 🕳 bank gaps", 
   test("bank gaps: questions per area against the students who need it", async () => {
     const rows = await bankGaps(repo, admin);
     assert.ok(rows.length > 0 && rows.every((r) => ["GAP", "LOW", "OK"].includes(r.status)));
-    const theme = rows.find((r) => r.area.startsWith("Literary Text: Analyze Theme") && r.studentsWeakest > 0);
+    const theme = rows.find((r) => r.area.startsWith("Literary Text") && r.studentsWeakest > 0);
     assert.ok(theme, "students whose weakest area is Literary Theme are counted");
   });
 
@@ -78,7 +78,7 @@ describe("📋 personalized plan · 🚨 intervention board · 🕳 bank gaps", 
     const H = [...MAP_TEMPLATE_HEADERS], at = (h: string) => H.indexOf(h);
     const sid = roster[5].id, num = String((await repo.findUnique("Student", { id: sid }))!.studentNumber);
     const row = H.map(() => ""); row[0] = num; row[at("Reading Fall RIT")] = "160"; row[at("Reading Fall Percentile")] = "2";
-    row[at("R: Literary Structure")] = row[at("R: Literary Theme")] = "150"; row[at("R: Info Structure")] = row[at("R: Info Central Idea")] = "170"; row[at("R: Vocabulary")] = "160";
+    row[at("R: Literary Text")] = "150"; row[at("R: Informational Text")] = "170"; row[at("R: Vocabulary")] = "160";
     await importMapScores(repo, teacher, [H, row], 2031);
     const p = await personalPlan(repo, teacher, classId, "READING", "Fall 2031");
     const goals = p.bands.find((b) => b.band === "BELOW")!.goals;

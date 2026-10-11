@@ -323,7 +323,7 @@ describe("report export service (real database)", () => {
     const last = logs[logs.length - 1];
     assert.equal(last.entityId, s1);
     const after = (typeof last.after === "string" ? JSON.parse(last.after) : last.after) as Record<string, unknown>;
-    assert.deepEqual(Object.keys(after).sort(), ["bytes", "format", "from", "kind", "locale", "period", "scope", "to"]);
+    assert.deepEqual(Object.keys(after).sort(), ["bytes", "days", "format", "from", "kind", "locale", "period", "scope", "to"]);
   });
 
   test("exports are rate limited per user", async () => {

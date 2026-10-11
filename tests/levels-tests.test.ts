@@ -9,7 +9,7 @@ import { parseCurriculumMap } from "../src/server/curriculum-map/source";
 import { seedCurriculumMap } from "../src/server/curriculum-map/seed";
 import { assignFromMap, classLevels, giveTest, previewMapAssign, rosterForGrade, setStudentLevels, studentLevels } from "../src/server/curriculum-map/levels";
 import { curriculumResults } from "../src/server/curriculum-map/results";
-import { classifyQuestions, unclassifiedQuestions } from "../src/server/curriculum-map/questions";
+import { classifyQuestions, unclassifiedQuestions, unclassifiedSkillId } from "../src/server/curriculum-map/questions";
 import { createDraft } from "../src/server/admin/questions";
 import { teacherRoster } from "../src/server/teacher/assign";
 import { assignmentReport } from "../src/server/student/assigned";
@@ -108,8 +108,11 @@ describe("student levels, assign by level, Placement and MAP tests, curriculum r
     const skills = (await repo.findMany("Skill", { curriculumId: cur.id, isActive: true })).map((k) => k.id);
     const mcType = (await repo.findMany("QuestionType", { code: "MULTIPLE_CHOICE" }))[0];
     const pool = (await repo.findMany("Question", { skillId: { in: skills }, status: "PUBLISHED", typeId: mcType.id })).slice(0, 8);
-    // MAP needs questions with a real skill (curriculum questions here are still Unclassified); Placement uses the curriculum automatically
-    await assert.rejects(giveTest(repo, teacher, { classId, kind: "MAP_TEST" }), /at least 5 are needed/);
+    // MAP needs questions with a real skill; Update 39C: curriculum questions get the skill their map place names when
+    // they are created, so none of them is left on the hidden Unclassified skill. Placement uses the curriculum automatically
+    const mapQs = (await repo.findMany("Question", {})).filter((q) => / question \d about (the plot|idioms)$/.test(String(q.stem)));
+    const hiddenOf = new Set((await repo.findMany("Skill", { id: { in: [...new Set(mapQs.map((q) => String(q.skillId)))] } })).filter((k) => String(k.code).endsWith(".curriculum-map-unclassified")).map((k) => String(k.id)));
+    assert.ok(mapQs.length === 8 && mapQs.every((q) => !hiddenOf.has(String(q.skillId))), "map questions carry a real skill");
     await repo.createMany("QuestionUse", pool.flatMap((q) => [{ questionId: q.id, use: "PLACEMENT", createdAt: new Date() }, { questionId: q.id, use: "MAP_TEST", createdAt: new Date() }]));
     const t = await giveTest(repo, teacher, { classId, kind: "PLACEMENT", questions: 8, studentIds: studentIds.slice(10, 12) });
     assert.equal(t.students, 2);
@@ -129,8 +132,11 @@ describe("student levels, assign by level, Placement and MAP tests, curriculum r
   });
 
   test("classifying: Unclassified curriculum questions get a real skill of the same grade", async () => {
+    // a question the remap could not place (Update 39C maps the others at creation) stays on the hidden skill for a person
+    const id = await mc("On question 1 left for a person", "G4.U1.TS2.ACS.ON");
+    await repo.updateMany("Question", { id }, { skillId: await unclassifiedSkillId(repo, admin.schoolId!, 4) });
     const before = await unclassifiedQuestions(repo, admin.schoolId!);
-    const row = before.rows.find((r) => r.stem.startsWith("On question 1"))!;
+    const row = before.rows.find((r) => r.stem.startsWith("On question 1 left"))!;
     assert.equal(row.mapCode, "G4.U1.TS2.ACS.ON");
     const g4skill = before.skills.find((k) => k.grade === 4)!, g5skill = before.skills.find((k) => k.grade === 5)!;
     await assert.rejects(classifyQuestions(repo, admin.schoolId!, admin.userId, [{ questionId: row.id, skillId: g5skill.id }]), /Grade 5, the question is Grade 4/);

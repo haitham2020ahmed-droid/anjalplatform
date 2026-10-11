@@ -19,6 +19,7 @@ import { expectedNow } from "../map/sim";
 import { seasonOf } from "../map/rit";
 import { shareParentReport } from "../insights/parent-report";
 import { weekStart } from "./classroom";
+import { cycleCalendarEvents } from "../assessment-cycle/status";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -53,7 +54,7 @@ export async function notesFor(repo: Repo, actor: Actor, studentId: string): Pro
 
 export async function deleteNote(repo: Repo, actor: Actor, id: string): Promise<void> {
   const n = await repo.findUnique("TeacherNote", { id });
-  if (!n || (n.authorId !== actor.userId && !isAdmin(actor))) throw new ForbiddenError();
+  if (!n || String(n.schoolId) !== String(actor.schoolId ?? "") || (n.authorId !== actor.userId && !isAdmin(actor))) throw new ForbiddenError();
   await repo.deleteMany("TeacherNote", { id });
 }
 
@@ -85,7 +86,7 @@ export async function saveQuickComment(repo: Repo, actor: Actor, text: string, r
   let v: unknown = row?.value ?? []; if (typeof v === "string") { try { v = JSON.parse(v); } catch { v = []; } }
   const list = (Array.isArray(v) ? (v as string[]) : []).filter((x) => x !== t);
   const value = remove ? list : [t, ...list].slice(0, 20);
-  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: QKEY(actor.userId) }, { value, updatedById: actor.userId, updatedAt: now }, { value, updatedById: actor.userId, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: QKEY(actor.userId) }, { value, updatedBy: actor.userId, updatedAt: now }, { value, updatedBy: actor.userId, updatedAt: now });
 }
 
 // ------------------------------------------------------------------ 📋 copy an assignment to another class
@@ -113,7 +114,9 @@ export async function copyAssignment(repo: Repo, actor: Actor, assignmentId: str
 
 // ------------------------------------------------------------------ 🗓️ the calendar
 
-export interface CalEvent { date: string; kind: "DUE" | "EXIT" | "MAP_TEST" | "RESPOND" | "WRITING"; title: string; className: string; href: string | null }
+/** CYCLE = the school's assessment calendar (diagnostic / MAP windows, breaks); PROGRESS = a text-set progress check due;
+ *  FLUENCY = Tier 2/3 fluency checks due (src/server/assessment-cycle) */
+export interface CalEvent { date: string; kind: "DUE" | "EXIT" | "MAP_TEST" | "RESPOND" | "WRITING" | "CYCLE" | "PROGRESS" | "FLUENCY"; title: string; className: string; href: string | null }
 
 /** Everything dated in the teacher's classes for these weeks (due dates, exit tickets, MAP practice tests, writing). */
 export async function calendar(repo: Repo, actor: Actor, from: Date, days = 35): Promise<CalEvent[]> {
@@ -136,6 +139,8 @@ export async function calendar(repo: Repo, actor: Actor, from: Date, days = 35):
   for (const r of respond) if (inRange(r.dueAt)) out.push({ date: iso(r.dueAt)!.slice(0, 10), kind: "RESPOND", title: s(r.title), className: nameOf(r.classId), href: "/teacher/respond" });
   for (const w of writing) if (inRange(w.dueAt)) out.push({ date: iso(w.dueAt)!.slice(0, 10), kind: "WRITING", title: s(w.title), className: nameOf(w.classId), href: `/teacher/writing?task=${s(w.id)}` });
   for (const w of wins) { if (inRange(w.opensAt)) out.push({ date: iso(w.opensAt)!.slice(0, 10), kind: "MAP_TEST", title: `Opens: ${s(w.title)}`, className: "", href: `/teacher/map-test?w=${s(w.id)}` }); if (inRange(w.closesAt)) out.push({ date: iso(w.closesAt)!.slice(0, 10), kind: "MAP_TEST", title: `Closes: ${s(w.title)}`, className: "", href: `/teacher/map-test?w=${s(w.id)}` }); }
+  // the assessment cycle: windows, progress checks due per text set, Tier 2/3 fluency checks due
+  for (const e of await cycleCalendarEvents(repo, s(actor.schoolId ?? classes[0]?.schoolId), classes, from, new Date(to))) out.push({ date: e.date, kind: e.kind, title: e.title, className: e.classId ? nameOf(e.classId) : "", href: e.href });
   return out.sort((a, b) => a.date.localeCompare(b.date) || a.kind.localeCompare(b.kind));
 }
 
@@ -255,7 +260,7 @@ export async function classVisit(repo: Repo, actor: Actor, teacherUserId: string
   const ids = await classMembers(repo, s(c.id));
   const asg = (await repo.findMany("Assignment", { classId: c.id, deletedAt: null }, { select: ["id", "title", "dueAt", "createdAt"] })).sort((a, b) => time(b.createdAt) - time(a.createdAt)).slice(0, 8);
   const rows = asg.length ? await repo.findMany("AssignmentStudent", { assignmentId: { in: asg.map((a) => a.id) } }, { select: ["assignmentId", "status"] }) : [];
-  const alerts = await repo.findMany("StudentAlert", { classId: c.id });
+  const alerts = (await repo.findMany("StudentAlert", { classId: c.id })).filter((a) => a.status !== "MERGED");
   const names = await studentNames(repo, [...new Set(alerts.map((a) => s(a.studentId)))]);
   const [plans, tickets, comments, week] = await Promise.all([
     repo.findMany("MapPlan", { classId: c.id }, { select: ["status"] }), repo.count("ExitTicket", { classId: c.id }),

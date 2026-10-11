@@ -68,10 +68,11 @@ describe("questions on the Curriculum Map: import to Curriculum, import to Bank 
     assert.equal(await linksOf(String(byStem.get("Which word has two meanings?")!.id)), "G4.U1.TS1.CV");
     assert.equal(await linksOf(String(byStem.get("Why does the author use headings here?")!.id)), "G4.U1.TS2.ACS.ABOVE");
     assert.equal(await linksOf(String(byStem.get("What is the theme of Cacoon?")!.id)), "G6.U1.SEL3.ACS.ON");
-    // no skill given → the grade's Unclassified skill (inactive); no standard; difficulty from the map level
+    // no skill given → the skill the map place names (Update 39C: G4.U1.TS2 “Make Predictions / Plot \ Plot: Conflict”
+    // → Plot: Conflict and Resolution), never the hidden Unclassified skill; difficulty from the map level
     const q = byStem.get("Why does the author use headings here?")!;
     const sk = (await repo.findUnique("Skill", { id: q.skillId }))!;
-    assert.deepEqual([sk.name, Boolean(sk.isActive), q.standardId ?? null, Number(q.difficultyLevel)], ["Unclassified (Curriculum Map)", false, null, 5]);
+    assert.deepEqual([String(sk.code).replace(/^G\d+\./, ""), Boolean(sk.isActive), Number(q.difficultyLevel)], ["plot-conflict", true, 5]);
     assert.equal(Number(byStem.get("What is the theme of Cacoon?")!.difficultyLevel), 4);
     // and they are in the Question Bank
     const bank = (await listQuestions(repo, admin, { status: "PUBLISHED", q: "Cacoon" })).items;

@@ -74,7 +74,7 @@ async function sessionState(repo: Repo, session: Row, pool: DiagnosticItem[]) {
   const attempts = (await repo.findMany("QuestionAttempt", { sessionId: session.id })).sort((a, b) => d(a.createdAt).getTime() - d(b.createdAt).getTime());
   const responses: DiagnosticResponse[] = attempts.filter((a) => byId.has(String(a.questionId))).map((a) => {
     const it = byId.get(String(a.questionId))!;
-    return { itemId: it.id, domain: it.domain, skillId: it.skillId, correct: Boolean(a.isCorrect), a: it.a, b: Number(a.difficultyB), c: it.c, weight: a.rapidGuess ? 0.2 : 1 };
+    return { itemId: it.id, domain: it.domain, skillId: it.skillId, correct: Boolean(a.isCorrect), a: it.a, b: Number(a.difficultyB), c: it.c, weight: a.rapidGuess ? 0 : 1 }; // rapid guesses are left out (Update 39B, effort-moderated scoring)
   });
   const logs = (await repo.findMany("AdaptiveDecisionLog", { sessionId: session.id })).sort((a, b) => d(a.createdAt).getTime() - d(b.createdAt).getTime());
   const lastTarget: Record<string, number> = {};
@@ -209,6 +209,36 @@ async function summarize(repo: Repo, r: Row): Promise<DiagnosticSummary> {
 
 /** Latest placement result for a student (own record, or a teacher/parent with access checked by the caller). */
 export async function latestDiagnostic(repo: Repo, studentId: string): Promise<DiagnosticSummary | null> {
-  const all = (await repo.findMany("DiagnosticResult", { studentId })).sort((a, b) => d(b.takenAt).getTime() - d(a.takenAt).getTime());
-  return all.length ? summarize(repo, all[0]) : null;
+  // readiness I-17: the current Diagnostic Test writes DiagnosticScore; the older adaptive placement wrote
+  // DiagnosticResult. The most recent of the two is shown, so “Placement: Not taken” never hides a finished test.
+  const [all, scores] = await Promise.all([
+    repo.findMany("DiagnosticResult", { studentId }),
+    repo.findMany("DiagnosticScore", { studentId }),
+  ]);
+  const legacy = all.sort((a, b) => d(b.takenAt).getTime() - d(a.takenAt).getTime())[0];
+  const score = scores.sort((a, b) => d(b.completedAt).getTime() - d(a.completedAt).getTime())[0];
+  if (score && (!legacy || d(score.completedAt).getTime() >= d(legacy.takenAt).getTime())) return summarizeScore(score);
+  return legacy ? summarize(repo, legacy) : null;
+}
+
+const LEVEL_TEXT: Record<string, string> = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" };
+const STRAND_TEXT: Record<string, string> = { LIT: "Literature", INFO: "Informational Text", VOCAB: "Vocabulary", LANG: "Language", WRITE: "Writing", FOUND: "Foundational Skills" };
+
+/** A Diagnostic Test score (DiagnosticScore) as a placement summary. */
+function summarizeScore(r: Row): DiagnosticSummary {
+  let strands: { strand: string; label?: string; correct: number; total: number }[] = [];
+  try { const v = typeof r.byStrand === "string" ? JSON.parse(r.byStrand) : r.byStrand; if (Array.isArray(v)) strands = v; } catch { strands = []; }
+  const pctOf = (x: { correct: number; total: number }) => (Number(x.total) ? Math.round((100 * Number(x.correct)) / Number(x.total)) : 0);
+  const lvl = (p: number) => (p >= 75 ? "Strength" : p >= 50 ? "Developing" : "Needs support");
+  const label = (x: { strand: string; label?: string }) => x.label || STRAND_TEXT[x.strand] || x.strand;
+  const measured = strands.filter((x) => Number(x.total) > 0);
+  return {
+    takenAt: d(r.completedAt).toISOString(),
+    questions: Number(r.total ?? 0),
+    proficiency: `${LEVEL_TEXT[String(r.level)] ?? "Level not set"} · ${Math.round(Number(r.pct ?? 0))}% on the Diagnostic Test`,
+    domains: measured.map((x) => ({ domain: x.strand, label: label(x), level: `${lvl(pctOf(x))} (${pctOf(x)}%)`, theta: 0, se: 0, items: Number(x.total) })),
+    strong: measured.filter((x) => pctOf(x) >= 75).map(label),
+    growth: measured.filter((x) => pctOf(x) < 60).map(label),
+    startWith: [], support: [], notMeasured: [],
+  };
 }

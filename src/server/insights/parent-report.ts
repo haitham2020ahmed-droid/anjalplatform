@@ -5,6 +5,8 @@
  * Sharing is a school setting per student (parentReport.<studentId>): reversible, no schema change.
  */
 import type { Repo } from "../seeding/repo";
+import { reconcileStatus, tiersOf } from "./student-status";
+import { isHiddenSkill } from "../skills/master";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { readableClasses } from "../teacher/coordinators";
@@ -13,7 +15,6 @@ import { mapSummaries, practiceStats, studentNames, workStats } from "./student-
 import { statusOf } from "./progress";
 import { sentPlans } from "../map/map-more";
 import { studentBadges } from "../student/badges";
-import { ladderSettings } from "../curriculum-map/ladder-settings";
 
 const s = (v: unknown) => String(v ?? "");
 const key = (studentId: string) => `parentReport.${studentId}`;
@@ -65,25 +66,30 @@ export async function parentReport(repo: Repo, actor: Actor, studentId: string, 
   if (actor.role !== "PARENT" && actor.role !== "STUDENT") assertCan(actor, "reports:read");
   const { grade, className, schoolId } = await checkAccess(repo, actor, studentId);
   const ids = [studentId];
-  const [names, practice, work, reading, language, rules, badges, share] = await Promise.all([
+  const [names, practice, work, reading, language, badges, share, tiers] = await Promise.all([
     studentNames(repo, ids), practiceStats(repo, ids, now), workStats(repo, ids, now),
     mapSummaries(repo, ids, "READING", new Map([[studentId, grade]])), mapSummaries(repo, ids, "LANGUAGE", new Map([[studentId, grade]])),
-    ladderSettings(repo, schoolId), studentBadges(repo, studentId, now), shareState(repo, schoolId, studentId),
+    studentBadges(repo, studentId, now), shareState(repo, schoolId, studentId), tiersOf(repo, ids),
   ]);
-  const mastery = await repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct"] });
-  const skills = mastery.length ? await repo.findMany("Skill", { id: { in: mastery.map((m) => m.skillId) } }, { select: ["id", "name"] }) : [];
+  // the adaptive engine's mastery (isMastered / score 0–100): the same source the teacher views use,
+  // so a parent never sees "mastered" for a skill the teacher's screen shows as still developing
+  const mastery = await repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "score", "isMastered"] });
+  const skills = mastery.length ? (await repo.findMany("Skill", { id: { in: mastery.map((m) => m.skillId) } }, { select: ["id", "name", "code"] })).filter((k) => !isHiddenSkill(k.code)) : [];
   const nameOf = (id: unknown) => s(skills.find((k) => k.id === id)?.name);
-  const acc = (m: Record<string, unknown>) => (Number(m.correct) / Math.max(1, Number(m.attempts))) * 100;
-  const done = mastery.filter((m) => Number(m.attempts) >= rules.masteredMin && acc(m) >= rules.masteredPct);
-  const tried = mastery.filter((m) => Number(m.attempts) >= 5);
-  const strengths = [...tried].sort((a, b) => acc(b) - acc(a)).filter((m) => acc(m) >= 70).slice(0, 3).map((m) => nameOf(m.skillId));
-  const practiseNext = [...tried].sort((a, b) => acc(a) - acc(b)).filter((m) => acc(m) < 70).slice(0, 3).map((m) => nameOf(m.skillId));
+  const score = (m: Record<string, unknown>) => Number(m.score ?? 0);
+  // the hidden “Unclassified (Curriculum Map)” skill is never shown to families (readiness I-18)
+  const shown = mastery.filter((m) => skills.some((k) => k.id === m.skillId));
+  const done = shown.filter((m) => Boolean(m.isMastered));
+  const tried = shown.filter((m) => Number(m.attempts) >= 5);
+  const strengths = [...tried].sort((a, b) => score(b) - score(a)).filter((m) => m.isMastered || score(m) >= 70).slice(0, 3).map((m) => nameOf(m.skillId));
+  const practiseNext = [...tried].filter((m) => !m.isMastered && score(m) < 70).sort((a, b) => score(a) - score(b)).slice(0, 3).map((m) => nameOf(m.skillId));
   const p = practice.get(studentId)!, w = work.get(studentId)!;
   const plain = (st: string) => ({ ON_TRACK: "on track", MET: "reached the goal", AT_RISK: "needs extra practice", MISSED: "did not reach the goal yet", NO_DATA: "not enough data yet" } as Record<string, string>)[st] ?? st;
   const map = ([["Reading", reading.get(studentId)], ["Language Usage", language.get(studentId)]] as const).filter(([, m]) => m && (m.fall || m.latest)).map(([subject, m]) => ({
     subject, fall: m!.fall?.rit ?? null, latest: m!.latest && m!.latest.season !== "FALL" ? m!.latest.rit : null, latestTerm: m!.latest?.term ?? null, target: m!.springTarget, status: plain(statusOf(m!, p).status),
   }));
-  const overall = statusOf(reading.get(studentId), p).status;
+  // the same status as the teacher's pages (consistent with the support tier): never “good progress” in Tier 3
+  const overall = reconcileStatus(statusOf(reading.get(studentId), p), tiers.get(studentId)).status;
   const first = (names.get(studentId)?.name ?? "Your child").split(" ")[0];
   const summary = overall === "AT_RISK" || overall === "MISSED"
     ? { en: `${first} is working hard. A little extra practice at home on the skills below will help a lot.`, ar: `${first} يبذل جهداً. قليل من التدريب الإضافي في البيت على المهارات أدناه سيساعده كثيراً.` }
@@ -99,16 +105,31 @@ export async function parentReport(repo: Repo, actor: Actor, studentId: string, 
   };
 }
 
-/** Teacher: share (or stop sharing) the report with the parent, with an optional note. */
-export async function shareParentReport(repo: Repo, actor: Actor, studentId: string, shared: boolean, note: string | null, now = new Date()): Promise<void> {
+/**
+ * Share (or stop sharing) the report with the parent, with an optional note. An admin shares at once; a teacher's
+ * share is sent to the school admins for approval first (👪 family reports): "PENDING" until an admin approves it.
+ * Stopping is always immediate.
+ */
+export async function shareParentReport(repo: Repo, actor: Actor, studentId: string, shared: boolean, note: string | null, now = new Date()): Promise<"SHARED" | "PENDING" | "STOPPED"> {
   assertCan(actor, "assignments:create");
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || s(st.schoolId) !== s(actor.schoolId)) throw new ForbiddenError("Student not found.");
   const m = (await repo.findMany("ClassMembership", { studentId, leftAt: null }))[0];
   if (!m) throw new ValidationError("This student is not in a class.");
   await assertClassAccess(repo, actor, s(m.classId));
-  const value = { shared, sharedAt: shared ? now.toISOString() : null, note: s(note).slice(0, 1000) || null, by: actor.userId };
-  await repo.upsert("SchoolSetting", { schoolId: s(st.schoolId), key: key(studentId) }, { value, updatedById: actor.userId, updatedAt: now }, { value, updatedById: actor.userId, updatedAt: now });
+  if (shared && actor.role === "TEACHER") {
+    const { requestShareApproval } = await import("../reports/family-reports");
+    await requestShareApproval(repo, actor, { studentId, kind: "PROGRESS", note }, now);
+    return "PENDING";
+  }
+  await setReportShared(repo, s(st.schoolId), studentId, shared, note, actor.userId, now);
+  return shared ? "SHARED" : "STOPPED";
+}
+
+/** The share switch itself (after approval, or by an admin); sharing notifies the parents. */
+export async function setReportShared(repo: Repo, schoolId: string, studentId: string, shared: boolean, note: string | null, by: string, now = new Date()): Promise<void> {
+  const value = { shared, sharedAt: shared ? now.toISOString() : null, note: s(note).slice(0, 1000) || null, by };
+  await repo.upsert("SchoolSetting", { schoolId, key: key(studentId) }, { value, updatedBy: by, updatedAt: now }, { value, updatedBy: by, updatedAt: now });
   if (shared) {
     const parents = await repo.findMany("ParentStudent", { studentId });
     const users = parents.length ? await repo.findMany("Parent", { id: { in: parents.map((p) => p.parentId) } }, { select: ["userId"] }) : [];

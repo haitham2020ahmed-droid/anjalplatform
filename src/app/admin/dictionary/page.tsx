@@ -2,7 +2,7 @@ import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { wordList } from "@/server/student/words";
-import { fetchWordAction, saveDefinitionAction } from "./actions";
+import { fetchWordAction, importCsvAction, saveDefinitionAction, saveExtrasAction } from "./actions";
 
 export const metadata = { title: "Dictionary" };
 
@@ -27,6 +27,7 @@ export default async function DictionaryPage({ searchParams }: { searchParams: P
             <li key={e.word} className="rounded-xl bg-slate-50 p-3 text-sm">
               <a href={`/admin/dictionary?q=${encodeURIComponent(e.word)}`} className="font-bold text-brand-navy hover:underline">{e.isVocab ? "⭐ " : ""}{e.word}</a> {e.phonetic && <span className="text-slate-500">{e.phonetic}</span>} <span className={`ms-1 rounded-full px-2 py-0.5 text-xs ${e.source === "SCHOOL" ? "bg-emerald-100 text-emerald-800" : e.source === "NONE" ? "bg-red-100 text-red-800" : "bg-slate-200 text-slate-700"}`}>{e.source === "SCHOOL" ? "school" : e.source === "NONE" ? "not found" : "dictionary"}</span>
               {e.meanings[0] && <p className="mt-1 text-slate-700"><i>{e.meanings[0].partOfSpeech}</i> — {e.meanings[0].definition}</p>}
+              {(e.contextSentence || e.arabicGloss) && <p className="mt-1 text-xs text-slate-500">{e.contextSentence ? `“${e.contextSentence}”` : ""}{e.arabicGloss ? <span dir="rtl" lang="ar" className="ms-2 text-slate-700">{e.arabicGloss}</span> : null}</p>}
             </li>
           ))}</ul>
         </section>
@@ -39,6 +40,7 @@ export default async function DictionaryPage({ searchParams }: { searchParams: P
             </div>
             <label className="mt-2 block text-sm font-semibold">Definition (simple English)<textarea name="definition" required rows={2} defaultValue={one?.source === "SCHOOL" ? one.meanings[0]?.definition : ""} className={box} /></label>
             <label className="mt-2 block text-sm font-semibold">Example sentence<input name="example" defaultValue={one?.meanings[0]?.example ?? ""} className={box} /></label>
+            <label className="mt-2 block text-sm font-semibold">Not an example (a sentence that does NOT show the word's meaning)<input name="nonExample" maxLength={300} defaultValue={one?.meanings[0]?.nonExample ?? ""} className={box} /></label>
             <div className="mt-2 grid gap-2 sm:grid-cols-2">
               <label className="text-sm font-semibold">Synonyms (commas)<input name="synonyms" defaultValue={one?.meanings[0]?.synonyms.join(", ") ?? ""} className={box} /></label>
               <label className="text-sm font-semibold">Antonyms (commas)<input name="antonyms" defaultValue={one?.meanings[0]?.antonyms.join(", ") ?? ""} className={box} /></label>
@@ -47,6 +49,21 @@ export default async function DictionaryPage({ searchParams }: { searchParams: P
             <button className="mt-3 rounded-lg bg-brand-navy px-4 py-2 font-semibold text-white">Save</button>
             <datalist id="pos">{["noun", "verb", "adjective", "adverb", "pronoun", "preposition", "conjunction", "interjection", "phrase"].map((p) => <option key={p} value={p} />)}</datalist>
           </form>
+          <form action={saveExtrasAction} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+            <h2 className="font-bold text-brand-navy">🌙 Arabic meaning &amp; context sentence</h2>
+            <p className="mt-1 text-xs text-slate-500">Students see the context sentence in their word review. The Arabic meaning stays hidden until a student taps “Show Arabic meaning”.</p>
+            <label className="mt-2 block text-sm font-semibold">Word<input name="word" required defaultValue={one?.word ?? sp.q ?? ""} className={box} /></label>
+            <label className="mt-2 block text-sm font-semibold">Context sentence (original, uses the word)<input name="contextSentence" maxLength={300} defaultValue={one?.contextSentence ?? ""} className={box} /></label>
+            <label className="mt-2 block text-sm font-semibold">Arabic meaning<input name="arabicGloss" dir="auto" maxLength={200} defaultValue={one?.arabicGloss ?? ""} className={box} /></label>
+            <button className="mt-3 rounded-lg bg-brand-navy px-4 py-2 font-semibold text-white">Save</button>
+          </form>
+          <form action={importCsvAction} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+            <h2 className="font-bold text-brand-navy">📋 Paste many words (CSV)</h2>
+            <p className="mt-1 text-xs text-slate-500">One word per line: <code>word, definition, contextSentence, arabicGloss</code> (a header row is fine; put text with commas in "quotes"; an empty cell keeps what is there). Up to 500 lines.</p>
+            <textarea name="csv" required rows={5} dir="auto" placeholder={"word,definition,contextSentence,arabicGloss\nharvest,To gather crops when they are ripe.,The family will harvest the dates in autumn.,"} className={`${box} font-mono text-xs`} />
+            <button className="mt-3 rounded-lg bg-brand-navy px-4 py-2 font-semibold text-white">Import</button>
+          </form>
+          <p className="text-sm"><a href="/teacher/word-journal" className="font-semibold text-brand-teal underline">✍️ Read your students’ word journals</a></p>
           <div className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
             <h2 className="font-bold text-brand-navy">⭐ Unit vocabulary ({v.vocab.length}) · {v.vocab.filter((w) => defined.has(w)).length} with a meaning</h2>
             <p className="mt-1 flex flex-wrap gap-1 text-sm">{v.vocab.map((w) => <a key={w} href={`/admin/dictionary?q=${encodeURIComponent(w)}`} className={`rounded-full px-2 py-0.5 ${defined.has(w) ? "bg-emerald-50 text-emerald-800" : "bg-amber-50 text-amber-900 ring-1 ring-amber-200"}`}>{w}</a>)}</p>

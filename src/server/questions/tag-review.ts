@@ -195,7 +195,9 @@ export async function recalibrateRit(repo: Repo, actor: Actor, grade: number, no
   const famRows = fams.length ? await repo.findMany("SkillFamily", { id: { in: [...new Set(fams.map((f) => s(f.familyId)))] } }, { select: ["id", "mapGoalAreaId"] }) : [];
   const areaRows = famRows.length ? await repo.findMany("MapGoalArea", { id: { in: [...new Set(famRows.map((f) => s(f.mapGoalAreaId)).filter(Boolean))] } }, { select: ["id", "subject"] }) : [];
   for (const f of fams) { const a = areaRows.find((x) => x.id === famRows.find((y) => y.id === f.familyId)?.mapGoalAreaId); areaSubject.set(s(f.id), s(a?.subject) === "LANGUAGE_USAGE" ? "LANGUAGE" : "READING"); }
-  const attempts = await repo.findMany("QuestionAttempt", { questionId: { in: qs.map((q) => q.id) } }, { select: ["questionId", "studentId", "isCorrect", "rapidGuess"] });
+  // the last year of answers only (bounded scan; minimal columns, no response JSON)
+  const since = new Date(now.getTime() - 365 * 86_400_000);
+  const attempts = await repo.findMany("QuestionAttempt", { questionId: { in: qs.map((q) => q.id) }, createdAt: { gte: since } }, { select: ["questionId", "studentId", "isCorrect", "rapidGuess"] });
   const students = [...new Set(attempts.map((a) => s(a.studentId)))];
   const results = students.length ? (await repo.findMany("MapResult", { studentId: { in: students } })).filter((r) => !r.goalName) : [];
   const t = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();

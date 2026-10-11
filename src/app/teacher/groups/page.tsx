@@ -6,7 +6,7 @@ import { accessibleClasses } from "@/server/teacher/assign";
 import { supportGroups } from "@/server/teacher/support";
 
 export const metadata = { title: "Support Groups" };
-const KIND = { STANDARD: { icon: "🎯", tone: "ring-rose-200 bg-rose-50" }, STUCK: { icon: "🆘", tone: "ring-amber-200 bg-amber-50" }, FLUENCY: { icon: "🔊", tone: "ring-sky-200 bg-sky-50" } } as const;
+const KIND = { STANDARD: { icon: "🎯", tone: "ring-rose-200 bg-rose-50" }, STUCK: { icon: "🆘", tone: "ring-amber-200 bg-amber-50" }, FLUENCY: { icon: "🔊", tone: "ring-sky-200 bg-sky-50" }, CHECK: { icon: "⚖️", tone: "ring-violet-200 bg-violet-50" } } as const;
 
 /** 🛟 Small groups built from the data, each with a ready mini-lesson to print. */
 export default async function GroupsPage({ searchParams }: { searchParams: Promise<{ classId?: string }> }) {
@@ -26,8 +26,8 @@ export default async function GroupsPage({ searchParams }: { searchParams: Promi
             <li key={g.key} className={`rounded-3xl p-5 ring-1 ${KIND[g.kind].tone}`}>
               <p className="text-lg font-bold text-brand-navy">{KIND[g.kind].icon} {g.title} <span className="font-mono text-xs text-brand-teal">{g.kind !== "STUCK" ? g.code : ""}</span></p>
               <p className="text-sm text-slate-600">{g.why} · {g.students.length} student(s)</p>
-              <ul className="mt-2 flex flex-wrap gap-1.5 text-sm">{g.students.map((x) => <li key={x.id}><Link href={`/teacher/students/${x.id}`} className="rounded-full bg-white px-2.5 py-0.5 ring-1 ring-slate-200 hover:ring-brand-teal">{x.name} <span className="text-xs text-slate-500">{x.detail}</span></Link></li>)}</ul>
-              <Link href={g.lessonHref} className="mt-3 inline-block rounded-xl bg-brand-navy px-4 py-2 text-sm font-bold text-white hover:bg-brand-purple">📄 Mini-lesson</Link>
+              <ul className="mt-2 flex flex-wrap gap-1.5 text-sm">{g.students.map((x) => <li key={x.id}><Link href={g.kind === "CHECK" ? `/teacher/level-story/${x.id}` : `/teacher/students/${x.id}`} className="rounded-full bg-white px-2.5 py-0.5 ring-1 ring-slate-200 hover:ring-brand-teal">{x.name} <span className="text-xs text-slate-500">{x.detail}</span></Link></li>)}</ul>
+              <Link href={g.lessonHref} className="mt-3 inline-block rounded-xl bg-brand-navy px-4 py-2 text-sm font-bold text-white hover:bg-brand-purple">{g.kind === "CHECK" ? "🩺 Open Data Health" : "📄 Mini-lesson"}</Link>
             </li>
           ))}
         </ul>

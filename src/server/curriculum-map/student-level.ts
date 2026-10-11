@@ -11,6 +11,30 @@ export type LevelSource = "MAP_RIT" | "TEACHER" | "PLACEMENT" | "ADAPTIVE";
 export const MIN_ADAPTIVE_ANSWERS = 6;
 /** …and never overrides a level a teacher chose in the last 30 days (it is kept as a suggestion instead). */
 export const TEACHER_LEVEL_DAYS = 30;
+/**
+ * ⚖️ Stability (Update 39B — working levels changed on every set: 24 students reversed twice in 6 weeks): a set that
+ * points to a DIFFERENT level than the current one is kept as pending ("level.pending" in the audit log, not a
+ * change); the level changes when the next set of the same kind (same category, or the working level) points to the
+ * same new level. The first level a student gets is taken at once.
+ */
+export const ADAPTIVE_CONFIRM_SETS = 2;
+/** a pending adaptive result older than this no longer confirms anything */
+export const PENDING_MAX_DAYS = 28;
+
+/** Was the last adaptive result for this student (and category) a pending move to `level`? */
+async function confirmsPending(repo: Repo, studentId: string, category: Category | null, level: Level, now: Date): Promise<boolean> {
+  const rows = await repo.findMany("AuditLog", { entityType: "Student", entityId: studentId, action: { in: ["level.pending", "level.change"] }, createdAt: { gte: new Date(now.getTime() - PENDING_MAX_DAYS * 86_400_000) } }, { select: ["action", "after", "createdAt"] });
+  const ts = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : String(v)).getTime();
+  const mine = rows.map((r, i) => ({ r, i, a: (typeof r.after === "string" ? JSON.parse(r.after) : r.after ?? {}) as Record<string, unknown> }))
+    .filter(({ a }) => (a.category ?? null) === (category ?? null) && a.source === "ADAPTIVE")
+    .sort((x, y) => ts(y.r.createdAt) - ts(x.r.createdAt) || y.i - x.i);   // equal times: the one recorded later wins
+  const lastSet = mine[0];
+  return Boolean(lastSet && lastSet.r.action === "level.pending" && lastSet.a.level === level);
+}
+async function recordPending(repo: Repo, e: LevelEvent, from: string, now: Date): Promise<void> {
+  await repo.create("AuditLog", { actorId: e.setById ?? null, action: "level.pending", entityType: "Student", entityId: e.studentId, before: { level: from },
+    after: { level: e.level, source: e.source, outcome: "PENDING", category: e.category ?? null, reason: `Pending: one set points to ${e.level.toLowerCase()} — the level changes when the next set confirms it.${e.reason ? ` ${e.reason}` : ""}`.slice(0, 500), path: e.path ?? null, answers: e.answers ?? null }, createdAt: now });
+}
 
 export type Category = "CV" | "ACS" | "RTR";
 export const CATEGORY_NAME: Record<Category, string> = { CV: "Concept Vocabulary", ACS: "Analyze Craft and Structure", RTR: "Respond to Reading" };
@@ -41,13 +65,14 @@ export async function notifyTeachers(repo: Repo, studentId: string, title: strin
 }
 
 /** Sets the level (when allowed) and records the event. Returns what happened. */
-export async function recordLevel(repo: Repo, e: LevelEvent): Promise<"CHANGED" | "SAME" | "KEPT_TEACHER" | "TOO_FEW_ANSWERS"> {
+export async function recordLevel(repo: Repo, e: LevelEvent): Promise<"CHANGED" | "SAME" | "KEPT_TEACHER" | "TOO_FEW_ANSWERS" | "PENDING"> {
   const now = e.now ?? new Date();
   if (e.category) {
     // an adaptive set of one category: that category's level (the teacher's recent overall choice still wins at start)
     const prev = (await repo.findMany("StudentCategoryLevel", { studentId: e.studentId, category: e.category }))[0] ?? null;
     const from = prev ? String(prev.level) : null;
     const outcome = (e.answers ?? 0) < MIN_ADAPTIVE_ANSWERS ? "TOO_FEW_ANSWERS" : from === e.level ? "SAME" : "CHANGED";
+    if (outcome === "CHANGED" && from && e.source === "ADAPTIVE" && !(await confirmsPending(repo, e.studentId, e.category, e.level, now))) { await recordPending(repo, e, from, now); return "PENDING"; }
     if (outcome !== "TOO_FEW_ANSWERS") {
       if (prev) await repo.updateMany("StudentCategoryLevel", { studentId: e.studentId, category: e.category }, { level: e.level, source: e.source, updatedAt: now });
       else await repo.create("StudentCategoryLevel", { studentId: e.studentId, category: e.category, level: e.level, source: e.source, updatedAt: now });
@@ -83,6 +108,7 @@ export async function recordLevel(repo: Repo, e: LevelEvent): Promise<"CHANGED" 
     const teacherAt = prev && String(prev.source) === "TEACHER" ? new Date(String(prev.updatedAt instanceof Date ? prev.updatedAt.toISOString() : prev.updatedAt)).getTime() : 0;
     if ((e.answers ?? 0) < MIN_ADAPTIVE_ANSWERS) outcome = "TOO_FEW_ANSWERS";
     else if (teacherAt && now.getTime() - teacherAt < TEACHER_LEVEL_DAYS * 86_400_000 && from !== e.level) outcome = "KEPT_TEACHER";
+    else if (outcome === "CHANGED" && from && !(await confirmsPending(repo, e.studentId, null, e.level, now))) { await recordPending(repo, e, from, now); return "PENDING"; }
   }
   if (outcome === "CHANGED" || outcome === "SAME")
     await repo.upsert("StudentLevel", { studentId: e.studentId }, { level: e.level, source: e.source, setById: e.setById ?? null, updatedAt: now }, { level: e.level, source: e.source, setById: e.setById ?? null, updatedAt: now });

@@ -61,12 +61,21 @@ export interface WeightedResponse extends ItemParams {
 const GRID_STEP = 0.05;
 
 /**
+ * Grid values shared between EAP estimates (Update 40): for one item (effective a, b, c) the log-probabilities at
+ * every grid point are the same in every estimate on the same grid, so a caller that estimates many students at once
+ * (levelThetas) passes one cache and each item's logs are computed once instead of once per answer. The cached
+ * numbers are exactly the ones the loop would compute, and they are added in the same order, so the estimate is
+ * bit-for-bit the same with or without the cache.
+ */
+export type EapCache = Map<string, Map<number, Map<number, Map<number, { lp: Float64Array; lq: Float64Array }>>>>;
+
+/**
  * EAP estimate of theta with a normal prior.
  * Partial credit is treated as a fractional Bernoulli observation.
  */
 export function estimateAbilityEAP(
   responses: WeightedResponse[],
-  opts: { priorMean: number; priorSD: number; thetaMin: number; thetaMax: number; model: IrtModel },
+  opts: { priorMean: number; priorSD: number; thetaMin: number; thetaMax: number; model: IrtModel; cache?: EapCache },
 ): AbilityEstimate {
   const { priorMean, priorSD, thetaMin, thetaMax, model } = opts;
   let num = 0;
@@ -75,14 +84,45 @@ export function estimateAbilityEAP(
   // log-space accumulation keeps long response strings numerically stable
   const logPost: number[] = [];
   const grid: number[] = [];
-  for (let t = thetaMin; t <= thetaMax + 1e-9; t += GRID_STEP) {
-    let lp = -0.5 * ((t - priorMean) / priorSD) ** 2;
-    for (const r of responses) {
-      if (r.weight <= 0) continue;
-      const p = clamp(probability(t, r, model), 1e-9, 1 - 1e-9);
-      lp += r.weight * (r.credit * Math.log(p) + (1 - r.credit) * Math.log(1 - p));
+  for (let t = thetaMin; t <= thetaMax + 1e-9; t += GRID_STEP) grid.push(t);
+  const G = grid.length;
+  // Update 40 (speed, same arithmetic): each response's effective parameters are worked out once, and its two
+  // log-probabilities at every grid point are computed once (or taken from the shared cache) instead of at every
+  // grid point of every answer; for credit 0 or 1 the term multiplied by 0 is skipped — x·0 adds an exact zero.
+  // Every grid value is therefore bit-for-bit the one of the plain formula (tests/update40-health).
+  const LP: Float64Array[] = [], LQ: Float64Array[] = [], W: number[] = [], K: number[] = [];
+  // cache: grid → a → b → c (number keys, no string per answer)
+  const shared: EapCache = opts.cache ?? new Map();
+  const gridKey = `${thetaMin}|${thetaMax}`;
+  let byA = shared.get(gridKey);
+  if (!byA) { byA = new Map(); shared.set(gridKey, byA); }
+  for (const r of responses) {
+    if (r.weight <= 0) continue;
+    // effectiveParams without an object per answer (same values)
+    const ea = model === 1 ? 1 : r.a, eb = r.b, ec = model === 3 ? r.c : 0;
+    const na = -D * ea;
+    let byB = byA.get(na); if (!byB) { byB = new Map(); byA.set(na, byB); }
+    let byC = byB.get(eb); if (!byC) { byC = new Map(); byB.set(eb, byC); }
+    let v = byC.get(ec);
+    if (!v) {
+      const lp = new Float64Array(G), lq = new Float64Array(G);
+      for (let j = 0; j < G; j++) {
+        const p = clamp(ec + (1 - ec) / (1 + Math.exp(na * (grid[j] - eb))), 1e-9, 1 - 1e-9);
+        lp[j] = Math.log(p); lq[j] = Math.log(1 - p);
+      }
+      v = { lp, lq };
+      byC.set(ec, v);
     }
-    grid.push(t);
+    LP.push(v.lp); LQ.push(v.lq); W.push(r.weight); K.push(r.credit);
+  }
+  const m = W.length;
+  for (let j = 0; j < G; j++) {
+    const t = grid[j];
+    let lp = -0.5 * ((t - priorMean) / priorSD) ** 2;
+    for (let i = 0; i < m; i++) {
+      const k = K[i];
+      lp += W[i] * (k === 1 ? LP[i][j] : k === 0 ? LQ[i][j] : k * LP[i][j] + (1 - k) * LQ[i][j]);
+    }
     logPost.push(lp);
   }
   const max = Math.max(...logPost);

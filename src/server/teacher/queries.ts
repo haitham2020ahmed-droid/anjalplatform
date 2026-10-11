@@ -4,20 +4,50 @@
  * a school admin sees their school. Batched queries; no per-student loops over the DB.
  */
 import { proficiencyLabel } from "../../adaptive/diagnostic";
+import { isHiddenSkill } from "../skills/master";
 import { DOMAIN_LABEL, latestDiagnostic, type DiagnosticSummary } from "../assessment/diagnostic";
 import { canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import { BAND_LABEL } from "../queries/student-curriculum";
 import type { Repo, Row } from "../seeding/repo";
 import { assertClassAccess } from "./assignments";
+import { practiceStats } from "../insights/student-data";
 import { NEXT_ACTION, type RuleCode } from "./interventions";
 import type { MasteryBandName } from "../../types/domain";
 
 const num = (v: unknown) => Number(v ?? 0);
 const ms = (v: unknown) => (v instanceof Date ? v : new Date(String(v))).getTime();
 
+/**
+ * The answer value of a stored attempt. Practice stores { value }; older Review-my-mistakes rows stored the raw answer
+ * (readiness C-2), so both shapes are read. Never throws.
+ */
+/** Skill display names: when the same name appears for two grades, each gets its grade (“Make Inferences · G5”). */
+export function withGradeSuffix(rows: Row[]): { id: string; name: string }[] {
+  const count = new Map<string, number>();
+  for (const k of rows) count.set(String(k.name), (count.get(String(k.name)) ?? 0) + 1);
+  return rows.map((k) => {
+    const g = String(k.code ?? "").match(/^G(\d+)\./i)?.[1];
+    return { id: String(k.id), name: (count.get(String(k.name)) ?? 0) > 1 && g ? `${String(k.name)} · G${g}` : String(k.name) };
+  });
+}
+
+export function answerValue(response: unknown): unknown {
+  if (response && typeof response === "object" && !Array.isArray(response) && "value" in (response as Record<string, unknown>)) return (response as { value?: unknown }).value;
+  return response;
+}
+export function answerText(v: unknown): string {
+  if (v === undefined || v === null) return "";
+  if (typeof v === "string" || typeof v === "number" || typeof v === "boolean") return String(v);
+  try { return (JSON.stringify(v) ?? "").slice(0, 60); } catch { return ""; }
+}
+
 export type GroupName = "Intervention" | "Developing" | "On level" | "Advanced";
 
-/** Automatic grouping: placement level when available, otherwise average mastery of practised skills. */
+/**
+ * Automatic grouping from an ability θ (0 = grade level) when available, otherwise average mastery of
+ * practised skills. Callers pass the CURRENT skill θ (weighted by recent answers) and fall back to the
+ * placement (GLOBAL) θ, which is frozen at the diagnostic.
+ */
 export function groupFor(globalTheta: number | null, avgMastery: number | null): GroupName | null {
   if (globalTheta !== null) {
     if (globalTheta < -1) return "Intervention";
@@ -73,24 +103,33 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   const grade = gradeRow!;
   const ids = studs.map((s) => s.id);
   // only the columns this page uses, and only the attempts inside the range (performance)
-  const [mastery, attempts, globals, alerts] = await Promise.all([
+  const [mastery, attempts, globals, alerts, practice, studentAlerts] = await Promise.all([
     ids.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "attempts", "score", "isMastered"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: range.from, lte: range.to } }, { select: ["studentId", "questionId", "createdAt", "isCorrect", "responseMs"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("StudentAbility", { studentId: { in: ids }, scope: "GLOBAL" }, { select: ["studentId", "theta"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("InterventionAlert", { studentId: { in: ids }, resolvedAt: null }, { select: ["id", "studentId", "message", "ruleCode", "createdAt"] }) : Promise.resolve([] as Row[]),
+    // current ability: θ on the skills practised in the last 30 days, weighted by answers (null under 10 answers)
+    ids.length ? practiceStats(repo, ids, range.to) : Promise.resolve(new Map<string, { recentTheta: number | null }>()),
+    // open alerts = the Alerts page (StudentAlert OPEN), so the class report, dashboards and Alerts page agree (I-3)
+    ids.length ? repo.findMany("StudentAlert", { studentId: { in: ids }, status: "OPEN" }, { select: ["studentId"] }) : Promise.resolve([] as Row[]),
   ]);
+  // placement = the latest Diagnostic Test level (readiness I-17); the older global ability label otherwise
+  const diag = ids.length ? await repo.findMany("DiagnosticScore", { studentId: { in: ids } }, { select: ["studentId", "level", "pct", "completedAt"] }) : [];
+  const diagOf = new Map<string, Row>();
+  for (const x of diag) { const cur = diagOf.get(String(x.studentId)); if (!cur || ms(x.completedAt) > ms(cur.completedAt)) diagOf.set(String(x.studentId), x); }
+  const DIAG_LEVEL: Record<string, string> = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" };
   const inRange = attempts.filter((a) => ms(a.createdAt) <= range.to.getTime());
   const skillIds = [...new Set(mastery.map((m) => String(m.skillId)))];
   const byQ = new Map<string, Row[]>();
   for (const a of inRange) (byQ.get(String(a.questionId)) ?? byQ.set(String(a.questionId), []).get(String(a.questionId))!).push(a);
   const hardIds = [...byQ].filter(([, v]) => v.length >= 5).map(([id, v]) => ({ id, acc: v.filter((x) => x.isCorrect).length / v.length, n: v.length })).sort((a, b) => a.acc - b.acc).slice(0, 5);
   const [skillRows, qrows] = await Promise.all([
-    skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
+    skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] }).then((l) => l.filter((k) => !isHiddenSkill(k.code))) : Promise.resolve([] as Row[]),
     hardIds.length ? repo.findMany("Question", { id: { in: hardIds.map((h) => h.id) } }, { select: ["id", "externalRef", "stem", "skillId"] }) : Promise.resolve([] as Row[]),
   ]);
   const skills = new Map(skillRows.map((k) => [String(k.id), String(k.name)]));
   const missing = [...new Set(qrows.map((q) => String(q.skillId)))].filter((id) => !skills.has(id));
-  const qSkills = new Map([...skills, ...(missing.length ? await repo.findMany("Skill", { id: { in: missing } }, { select: ["id", "name"] }) : []).map((k) => [String(k.id), String(k.name)] as [string, string])]);
+  const qSkills = new Map([...skills, ...(missing.length ? await repo.findMany("Skill", { id: { in: missing } }, { select: ["id", "name", "code"] }) : []).map((k) => [String(k.id), isHiddenSkill(k.code) ? "" : String(k.name)] as [string, string])]);
 
   const students: StudentRow[] = studs.map((s) => {
     const m = mastery.filter((x) => x.studentId === s.id && num(x.attempts) > 0);
@@ -100,15 +139,15 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
     const last = a.length ? Math.max(...a.map((x) => ms(x.createdAt))) : null;
     return {
       studentId: s.id, name: s.name,
-      group: groupFor(g ? num(g.theta) : null, avg),
-      placement: g ? proficiencyLabel(num(g.theta)) : null,
+      group: groupFor(practice.get(s.id)?.recentTheta ?? (g ? num(g.theta) : null), avg),
+      placement: diagOf.has(s.id) ? (DIAG_LEVEL[String(diagOf.get(s.id)!.level)] ?? null) : g ? proficiencyLabel(num(g.theta)) : null,
       avgMastery: avg === null ? null : Math.round(avg),
       skillsMastered: m.filter((x) => x.isMastered).length,
       answered: a.length,
       accuracyPct: a.length ? Math.round((100 * a.filter((x) => x.isCorrect).length) / a.length) : null,
       minutes: Math.round(a.reduce((t, x) => t + num(x.responseMs), 0) / 60_000),
       lastActive: last ? new Date(last).toISOString() : null,
-      openAlerts: alerts.filter((x) => x.studentId === s.id).length,
+      openAlerts: studentAlerts.filter((x) => x.studentId === s.id).length,
     };
   }).sort((x, y) => x.name.localeCompare(y.name));
 
@@ -117,7 +156,8 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
 
   const bySkill = new Map<string, number[]>();
   for (const m of mastery.filter((x) => num(x.attempts) > 0)) (bySkill.get(String(m.skillId)) ?? bySkill.set(String(m.skillId), []).get(String(m.skillId))!).push(num(m.score));
-  const skillAvg = [...bySkill].filter(([, v]) => v.length >= 3).map(([id, v]) => ({ skillId: id, name: skills.get(id) ?? "", avgMastery: Math.round(v.reduce((a, b) => a + b, 0) / v.length), students: v.length }));
+  // the hidden skill is left out (I-18)
+  const skillAvg = [...bySkill].filter(([id, v]) => v.length >= 3 && skills.has(id)).map(([id, v]) => ({ skillId: id, name: skills.get(id) ?? "", avgMastery: Math.round(v.reduce((a, b) => a + b, 0) / v.length), students: v.length }));
   // weak = class average below 60, strong = 60 or above; the two lists never overlap
   const weakSkills = skillAvg.filter((x) => x.avgMastery < 60).sort((a, b) => a.avgMastery - b.avgMastery).slice(0, 5);
   const strongSkills = skillAvg.filter((x) => x.avgMastery >= 60).sort((a, b) => b.avgMastery - a.avgMastery).slice(0, 5);
@@ -198,14 +238,15 @@ export interface StudentDetail {
 export async function studentDetail(repo: Repo, actor: Actor, studentId: string): Promise<StudentDetail> {
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || !canAccessStudent(actor, { studentId, schoolId: String(st.schoolId) })) throw new ForbiddenError("You do not have access to this student.");
-  // everything independent is loaded in parallel; the full history is read only as narrow columns
+  // everything independent is loaded in parallel; history is read as a bounded, newest-first page
   const [user, grade, members, mastery, attempts, logs, alerts, domains, placement] = await Promise.all([
     repo.findUnique("User", { id: st.userId }),
     repo.findUnique("Grade", { id: st.gradeId }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }),
     repo.findMany("StudentSkillMastery", { studentId }),
-    repo.findMany("QuestionAttempt", { studentId }, { select: ["id", "skillId", "questionId", "createdAt", "response", "isCorrect", "responseMs", "rapidGuess"] }),
-    repo.findMany("AdaptiveDecisionLog", { studentId }, { select: ["id", "createdAt", "reasonCode", "reason", "previousTheta", "newTheta", "questionDifficulty", "responseCorrect", "masteryBefore", "masteryAfter"] }),
+    // only what the page shows: the 20 latest answers and 30 latest engine decisions (not the full history)
+    repo.findMany("QuestionAttempt", { studentId }, { select: ["id", "skillId", "questionId", "createdAt", "response", "isCorrect", "responseMs", "rapidGuess"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 20 }),
+    repo.findMany("AdaptiveDecisionLog", { studentId }, { select: ["id", "createdAt", "reasonCode", "reason", "previousTheta", "newTheta", "questionDifficulty", "responseCorrect", "masteryBefore", "masteryAfter"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 30 }),
     repo.findMany("InterventionAlert", { studentId, resolvedAt: null }),
     repo.findMany("StudentAbility", { studentId }),
     latestDiagnostic(repo, studentId),
@@ -215,24 +256,26 @@ export async function studentDetail(repo: Repo, actor: Actor, studentId: string)
   const recentA = attempts.sort((a, b) => ms(b.createdAt) - ms(a.createdAt)).slice(0, 20);
   const [klass, skillRows, qs] = await Promise.all([
     member ? repo.findUnique("Class", { id: member.classId }) : Promise.resolve(null),
-    skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
+    skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
     recentA.length ? repo.findMany("Question", { id: { in: recentA.map((a) => a.questionId) } }, { select: ["id", "externalRef", "stem"] }) : Promise.resolve([] as Row[]),
   ]);
-  const skillName = new Map(skillRows.map((k) => [String(k.id), String(k.name)]));
+  // the hidden “Unclassified (Curriculum Map)” skill is not listed (I-18); a name used in two grades gets “· G5” (S-13)
+  const visible = skillRows.filter((k) => !isHiddenSkill(k.code));
+  const skillName = new Map(withGradeSuffix(visible).map((k) => [k.id, k.name]));
   return {
     studentId, name: String(user!.displayName), studentNumber: String(st.studentNumber), grade: num(grade!.level), className: klass ? String(klass.name) : null,
     placement,
-    skills: mastery.filter((m) => num(m.attempts) > 0).sort((a, b) => num(a.score) - num(b.score)).map((m) => ({
+    skills: mastery.filter((m) => num(m.attempts) > 0 && skillName.has(String(m.skillId))).sort((a, b) => num(a.score) - num(b.score)).map((m) => ({
       skillId: String(m.skillId), name: skillName.get(String(m.skillId)) ?? "", score: Math.round(num(m.score)), band: BAND_LABEL[String(m.band) as MasteryBandName] ?? String(m.band),
       attempts: num(m.attempts), accuracyPct: num(m.attempts) ? Math.round((100 * num(m.correct)) / num(m.attempts)) : 0,
       lastPracticed: m.lastPracticedAt ? new Date(ms(m.lastPracticedAt)).toISOString() : null,
     })),
     recent: recentA.map((a) => {
       const q = qs.find((x) => x.id === a.questionId);
-      const v = (a.response as { value?: unknown } | null)?.value;
+      const v = answerValue(a.response);
       return {
         at: new Date(ms(a.createdAt)).toISOString(), skill: skillName.get(String(a.skillId)) ?? "", ref: String(q?.externalRef ?? a.questionId), stem: String(q?.stem ?? "").slice(0, 120),
-        correct: Boolean(a.isCorrect), seconds: Math.round(num(a.responseMs) / 1000), rapid: Boolean(a.rapidGuess), answer: typeof v === "string" || typeof v === "number" || typeof v === "boolean" ? String(v) : JSON.stringify(v).slice(0, 60),
+        correct: Boolean(a.isCorrect), seconds: Math.round(num(a.responseMs) / 1000), rapid: Boolean(a.rapidGuess), answer: answerText(v),
       };
     }),
     decisions: logs.sort((a, b) => ms(b.createdAt) - ms(a.createdAt)).slice(0, 30).map((l) => ({
@@ -262,7 +305,7 @@ export async function teacherClasses(repo: Repo, actor: Actor): Promise<{ classI
     classes.length ? repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => c.gradeId))] } }) : Promise.resolve([] as Row[]),
     classes.length ? repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"] }) : Promise.resolve([] as Row[]),
   ]);
-  const alerts = members.length ? await repo.findMany("InterventionAlert", { studentId: { in: members.map((m) => m.studentId) }, resolvedAt: null }, { select: ["studentId"] }) : [];
+  const alerts = members.length ? await repo.findMany("StudentAlert", { studentId: { in: members.map((m) => m.studentId) }, status: "OPEN" }, { select: ["studentId"] }) : [];
   return classes.map((c) => {
     const sids = new Set(members.filter((m) => m.classId === c.id).map((m) => String(m.studentId)));
     return { classId: String(c.id), name: String(c.name), grade: num(grades.find((g) => g.id === c.gradeId)?.level), students: sids.size, openAlerts: alerts.filter((a) => sids.has(String(a.studentId))).length };

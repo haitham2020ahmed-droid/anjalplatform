@@ -42,7 +42,7 @@ export function TodayPlanCard({ step, week, review, check }: { step: TodayPlan |
           ) : (
             <Link href={check.href} className="lift rounded-3xl bg-indigo-50 p-4 ring-1 ring-indigo-200">
               <p className="text-sm font-semibold text-indigo-800">🗓️ Weekly Check</p>
-              <p className="font-bold text-brand-navy">{check.status === "STARTED" ? "Finish this week’s 5 questions ▶" : "5 questions · 3 minutes ▶"}</p>
+              <p className="font-bold text-brand-navy">{check.status === "STARTED" ? `Finish this week’s ${check.total} questions ▶` : `${check.total} questions · ${Math.max(3, Math.round(check.total * 0.6))} minutes ▶`}</p>
               <p className="text-xs text-slate-600">It keeps your level and RIT up to date.</p>
             </Link>
           )

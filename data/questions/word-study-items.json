@@ -1,0 +1,5732 @@
+{
+ "_note": "ORIGINAL word-study items for Grades 4-6 (Al-Anjal platform): dictation, spelling rules, sound-spelling, syllables, affixes, roots, homophones. Written for this platform; no list or item is copied from a published program. Loaded by the question seed (withWordStudyItems) when this file exists.",
+ "passages": [],
+ "items": [
+  {
+   "ref": "WS-G4-spelling-D01",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Hop has one short vowel and ends in one consonant, so the p is doubled before -ing: hop → hopping.",
+    "tip": "One syllable, one short vowel, one last consonant: double it before -ing."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "hopping",
+    "sentence": "The rabbit kept hopping across the yard."
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-D02",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Smile ends in a silent e. Drop the e before -ing: smile → smiling.",
+    "tip": "Drop the silent e before an ending that starts with a vowel."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "smiling",
+    "sentence": "Everyone was smiling at the end of the race."
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-D03",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Cry ends in a consonant + y, so y changes to i before -ed: cry → cried.",
+    "tip": "Consonant + y: change the y to i before -ed."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "cried",
+    "sentence": "The baby cried until her bottle was ready."
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-D04",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Bright has the long i sound spelled igh (the g and h are silent), then -est.",
+    "tip": "Long i before t is often spelled with three letters, two of them silent."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "brightest",
+    "sentence": "The brightest star rose over the desert."
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-D05",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Thirst is spelled with ir (r-controlled), then -y is added.",
+    "tip": "Listen for the vowel + r sound and remember which spelling this word uses (er, ir or ur)."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "thirsty",
+    "sentence": "We were thirsty after the long walk."
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-D06",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Kneel starts with a silent k, and the long e is spelled ee.",
+    "tip": "Some words that start with the /n/ sound have a silent letter before the n."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "kneel",
+    "sentence": "Please kneel down to tie your shoe."
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-D07",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Toast has long o spelled oa; add -er for the machine that toasts.",
+    "tip": "Long o in the middle of a word is often spelled with a vowel team."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "toaster",
+    "sentence": "Dad fixed the old toaster on Saturday."
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-D08",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Shrimp begins with the digraph sh and the blend r: s-h-r, and ends with the blend mp.",
+    "tip": "Say each sound slowly; write every consonant and no extra vowel."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "shrimp",
+    "sentence": "We ate shrimp at the beach cafe."
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-D09",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Brave keeps its silent e before -ly, because -ly starts with a consonant.",
+    "tip": "Keep the silent e before an ending that starts with a consonant."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "bravely",
+    "sentence": "She bravely spoke in front of the class."
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-D10",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "The /oi/ sound in the middle of a word is spelled oi; then add -ed.",
+    "tip": "In the middle of a word this vowel sound is usually oi; at the end it is usually oy."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "spoiled",
+    "sentence": "The milk spoiled in the hot car."
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-MC01",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ing to swim. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Swim: one syllable, one short vowel, one final consonant → double the m: swimming.",
+    "tip": "Check the base word: one short vowel and one last consonant? Double it."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "swiming",
+     "correct": false,
+     "rationale": "Swim has one short vowel and ends in one consonant, so the m must be doubled.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "B",
+     "text": "swimming",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "swimmming",
+     "correct": false,
+     "rationale": "Only ONE extra m is added: double the last consonant once.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "swimeing",
+     "correct": false,
+     "rationale": "Swim has no silent e; do not add an e before -ing.",
+     "misconception": "DROP_E"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC02",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ed to bake. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Bake ends in silent e, so just add -d: baked.",
+    "tip": "A word that ends in silent e takes only -d."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "baked",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "bakeed",
+     "correct": false,
+     "rationale": "Bake already ends in e. Drop that e (or just add -d); do not write two e's.",
+     "misconception": "DROP_E"
+    },
+    {
+     "label": "C",
+     "text": "bakked",
+     "correct": false,
+     "rationale": "Bake has a long a with a silent e, so the k is not doubled.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "D",
+     "text": "bakd",
+     "correct": false,
+     "rationale": "The e must stay in the -ed ending: b-a-k-e-d.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC03",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ed to try. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Try ends in consonant + y: change y to i and add -ed → tried.",
+    "tip": "Consonant + y → change the y to i before -ed and -es."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "tryed",
+     "correct": false,
+     "rationale": "Try ends in a consonant + y, so change the y to i before -ed.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "B",
+     "text": "tride",
+     "correct": false,
+     "rationale": "This is spelled the way it sounds; the base word try must still be seen: tr + ied.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "tryied",
+     "correct": false,
+     "rationale": "Change the y to i — do not keep both the y and the i.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "D",
+     "text": "tried",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC04",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ed to play. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Play ends in vowel + y, so the y stays: played.",
+    "tip": "Vowel + y keeps the y; consonant + y changes to i."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "plaied",
+     "correct": false,
+     "rationale": "Play ends in a VOWEL + y (ay), so the y stays: do not change y to i.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "B",
+     "text": "playd",
+     "correct": false,
+     "rationale": "The ending is -ed: keep the e.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "played",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "plaid",
+     "correct": false,
+     "rationale": "Plaid is a different word (a cloth pattern). After a vowel, the y does not change.",
+     "misconception": "Y_TO_I"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC05",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -er to big. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Big → double the g → bigger.",
+    "tip": "Short vowel + one consonant at the end: double before -er and -est."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "biger",
+     "correct": false,
+     "rationale": "Big has one short vowel and one final consonant, so double the g before -er.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "B",
+     "text": "bigger",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "bigeer",
+     "correct": false,
+     "rationale": "The ending -er has only one e.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "bigr",
+     "correct": false,
+     "rationale": "The ending -er needs its vowel e.",
+     "misconception": "L1_SHORT_VOWEL"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC06",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -est to cute. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Cute: drop the silent e, add -est → cutest.",
+    "tip": "Silent e is dropped before -er and -est."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "cutest",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "cuteest",
+     "correct": false,
+     "rationale": "Cute ends in silent e. Drop it before -est, which starts with a vowel.",
+     "misconception": "DROP_E"
+    },
+    {
+     "label": "C",
+     "text": "cuttest",
+     "correct": false,
+     "rationale": "Cute has a long u (silent e), so the t is not doubled.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "D",
+     "text": "cutist",
+     "correct": false,
+     "rationale": "The ending is spelled -est, not -ist.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC07",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Write the plural of baby. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Baby ends in consonant + y → babies.",
+    "tip": "Consonant + y: change y to i, then add -es."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "babys",
+     "correct": false,
+     "rationale": "Baby ends in a consonant + y: change y to i and add -es.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "B",
+     "text": "babyes",
+     "correct": false,
+     "rationale": "Change the y to i before -es.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "C",
+     "text": "babis",
+     "correct": false,
+     "rationale": "The plural ending is -es: b-a-b-i-e-s.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "babies",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC08",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ful to hope. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Hope + ful keeps the e → hopeful.",
+    "tip": "Keep the silent e before a consonant ending (-ful, -ly, -ment)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "hopful",
+     "correct": false,
+     "rationale": "Keep the silent e before -ful, because -ful starts with a consonant.",
+     "misconception": "DROP_E"
+    },
+    {
+     "label": "B",
+     "text": "hopefull",
+     "correct": false,
+     "rationale": "The suffix -ful has only one l.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "hopeful",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "hoppful",
+     "correct": false,
+     "rationale": "Hope has a long o with a silent e; nothing is doubled.",
+     "misconception": "DOUBLING_RULE"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC09",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has the long a sound spelled ay?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Stray ends with the long a sound spelled ay.",
+    "tip": "At the end of a word, long a is often spelled ay."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "train",
+     "correct": false,
+     "rationale": "Train has long a, but it is spelled ai, not ay.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "B",
+     "text": "stray",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "snack",
+     "correct": false,
+     "rationale": "Snack has a short a sound.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "D",
+     "text": "paw",
+     "correct": false,
+     "rationale": "In paw, aw spells a different vowel sound (as in saw).",
+     "misconception": "VOWEL_TEAM"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC10",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has the same vowel sound as boil?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Boil and toy share the /oi/ sound (spelled oi and oy).",
+    "tip": "The /oi/ sound is spelled oi in the middle of a word and oy at the end."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "toy",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "tool",
+     "correct": false,
+     "rationale": "Tool has the oo sound, not the oi sound.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "C",
+     "text": "bowl",
+     "correct": false,
+     "rationale": "Bowl has a long o sound.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "D",
+     "text": "bell",
+     "correct": false,
+     "rationale": "Bell has a short e sound.",
+     "misconception": "L1_SHORT_VOWEL"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC11",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has the same vowel + r sound as bird?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Bird and turn share the same vowel + r sound (ir and ur sound alike).",
+    "tip": "er, ir and ur often sound the same; ar and or sound different."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "barn",
+     "correct": false,
+     "rationale": "Barn has the ar sound, as in car.",
+     "misconception": "R_CONTROLLED"
+    },
+    {
+     "label": "B",
+     "text": "born",
+     "correct": false,
+     "rationale": "Born has the or sound, as in fork.",
+     "misconception": "R_CONTROLLED"
+    },
+    {
+     "label": "C",
+     "text": "bead",
+     "correct": false,
+     "rationale": "Bead has a long e sound and no r.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "D",
+     "text": "turn",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC12",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "What is the FIRST sound you hear in knot?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "In kn, the k is silent, so knot begins with /n/.",
+    "tip": "kn at the start of a word: the k is silent."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "/k/ as in kite",
+     "correct": false,
+     "rationale": "The k in kn is silent: you do not hear it.",
+     "misconception": "L1_SILENT_LETTER"
+    },
+    {
+     "label": "B",
+     "text": "both /k/ and /n/",
+     "correct": false,
+     "rationale": "In kn only the n is heard; the k is a silent letter.",
+     "misconception": "L1_SILENT_LETTER"
+    },
+    {
+     "label": "C",
+     "text": "/n/ as in nest",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "/w/ as in win",
+     "correct": false,
+     "rationale": "There is no w in knot.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC13",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has the long i sound spelled igh?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Slight spells long i with igh (the g and h are silent).",
+    "tip": "igh says long i; eigh usually says long a."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "slit",
+     "correct": false,
+     "rationale": "Slit has a short i sound.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "B",
+     "text": "slight",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "slide",
+     "correct": false,
+     "rationale": "Slide spells long i with i and a silent e, not igh.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "D",
+     "text": "sleigh",
+     "correct": false,
+     "rationale": "In sleigh, eigh spells a long a sound.",
+     "misconception": "VOWEL_TEAM"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC14",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word begins with the same sound as phone?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "ph says /f/, so phone and fence begin with the same sound.",
+    "tip": "p + h together say /f/ (phone, graph)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "fence",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "pond",
+     "correct": false,
+     "rationale": "ph says /f/, not /p/.",
+     "misconception": "L1_P_B"
+    },
+    {
+     "label": "C",
+     "text": "vase",
+     "correct": false,
+     "rationale": "v makes a buzzing sound; ph says /f/ with no buzz.",
+     "misconception": "L1_V_F"
+    },
+    {
+     "label": "D",
+     "text": "hen",
+     "correct": false,
+     "rationale": "The h is part of ph; together they say /f/.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC15",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which shows the correct way to split rabbit into syllables?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Two consonants between vowels (VC/CV): split between them → rab-bit.",
+    "tip": "Double consonants in the middle: split between them."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "ra-bbit",
+     "correct": false,
+     "rationale": "Split between the two b's: each syllable gets one consonant.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "B",
+     "text": "rabb-it",
+     "correct": false,
+     "rationale": "Split between the double consonants, not after them.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "r-abbit",
+     "correct": false,
+     "rationale": "Every syllable needs a vowel; r alone is not a syllable.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "D",
+     "text": "rab-bit",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC16",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which shows the correct way to split tiger into syllables?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Tiger has a long i, so the first syllable ends with the vowel (open syllable): ti-ger.",
+    "tip": "Long vowel sound first? Try splitting after the vowel (V/CV)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "tig-er",
+     "correct": false,
+     "rationale": "Tig- would have a short i, but tiger has a long i: the first syllable is open (ti-).",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "B",
+     "text": "t-iger",
+     "correct": false,
+     "rationale": "Every syllable needs a vowel; t alone is not a syllable.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "C",
+     "text": "ti-ger",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "tige-r",
+     "correct": false,
+     "rationale": "The last syllable needs its vowel: -ger.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC17",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which shows the correct way to split napkin into syllables?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Two consonants between vowels: split between them → nap-kin.",
+    "tip": "VC/CV: split between the two middle consonants."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "na-pkin",
+     "correct": false,
+     "rationale": "pk is not a blend that starts a syllable; split between p and k.",
+     "misconception": "L1_CLUSTER"
+    },
+    {
+     "label": "B",
+     "text": "nap-kin",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "napk-in",
+     "correct": false,
+     "rationale": "Split between the two middle consonants, p and k.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "n-apkin",
+     "correct": false,
+     "rationale": "Every syllable needs a vowel; n alone is not a syllable.",
+     "misconception": "L1_SHORT_VOWEL"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-MC18",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.4.3.a",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "How many syllables are in basketball?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "bas-ket-ball: three vowel sounds, three syllables.",
+    "tip": "Count the vowel sounds (or clap the beats)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "3",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "2",
+     "correct": false,
+     "rationale": "Clap it: bas-ket-ball has three beats.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "4",
+     "correct": false,
+     "rationale": "Clap it: bas-ket-ball has three beats, not four.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "1",
+     "correct": false,
+     "rationale": "Each vowel sound makes a syllable: there are three.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-prefixes-MC01",
+   "grade": 4,
+   "family": "prefixes",
+   "skillKey": "G4.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.4.4.b",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add a prefix to kind to make a word that means “not kind.”",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "un- means “not”: unkind = not kind.",
+    "tip": "un- = not; re- = again; pre- = before; mis- = wrongly."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "rekind",
+     "correct": false,
+     "rationale": "re- means “again,” not “not.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "prekind",
+     "correct": false,
+     "rationale": "pre- means “before,” not “not.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "miskind",
+     "correct": false,
+     "rationale": "mis- means “wrongly,” not “not.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "unkind",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-prefixes-MC02",
+   "grade": 4,
+   "family": "prefixes",
+   "skillKey": "G4.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.4.4.b",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “to write again”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "re- means “again”: rewrite = write again.",
+    "tip": "re- = again."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "unwrite",
+     "correct": false,
+     "rationale": "un- means “not” or “undo,” not “again.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "miswrite",
+     "correct": false,
+     "rationale": "mis- means “wrongly,” not “again.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "rewrite",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "prewrite",
+     "correct": false,
+     "rationale": "pre- means “before,” not “again.”",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-prefixes-MC03",
+   "grade": 4,
+   "family": "prefixes",
+   "skillKey": "G4.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.4.4.b",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “to heat before”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "pre- means “before”: preheat = heat before (the oven, before baking).",
+    "tip": "pre- = before."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "reheat",
+     "correct": false,
+     "rationale": "re- means “again”: reheat = heat again.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "preheat",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "unheat",
+     "correct": false,
+     "rationale": "un- means “not,” and unheat is not a word.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "misheat",
+     "correct": false,
+     "rationale": "mis- means “wrongly.”",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-prefixes-MC04",
+   "grade": 4,
+   "family": "prefixes",
+   "skillKey": "G4.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.4.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add mis- to spell. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Add a prefix without changing the base word: mis + spell = misspell.",
+    "tip": "Prefixes never change the spelling of the base word."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "misspell",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "mispell",
+     "correct": false,
+     "rationale": "Keep every letter: mis + spell = misspell, with two s's.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "unspell",
+     "correct": false,
+     "rationale": "un- means “not”; the word that means “spell wrongly” uses mis-.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "respell",
+     "correct": false,
+     "rationale": "re- means “again”; the word that means “spell wrongly” uses mis-.",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-suffixes-MC01",
+   "grade": 4,
+   "family": "suffixes",
+   "skillKey": "G4.suffixes",
+   "standard": "CCSS.ELA-LITERACY.L.4.4.b",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “full of joy”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "-ful means “full of”: joyful = full of joy.",
+    "tip": "-ful = full of; -less = without."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "joyless",
+     "correct": false,
+     "rationale": "-less means “without”: joyless = without joy.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "joyfull",
+     "correct": false,
+     "rationale": "The suffix -ful has only one l.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "joyness",
+     "correct": false,
+     "rationale": "-ness means “the state of being,” and joyness is not a word.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "joyful",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-suffixes-MC02",
+   "grade": 4,
+   "family": "suffixes",
+   "skillKey": "G4.suffixes",
+   "standard": "CCSS.ELA-LITERACY.L.4.4.b",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “a person who teaches”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "-er can mean “a person who”: teacher = a person who teaches.",
+    "tip": "-er (and -or) can mean “a person who.”"
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "teachful",
+     "correct": false,
+     "rationale": "-ful means “full of,” not “a person who.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "teachless",
+     "correct": false,
+     "rationale": "-less means “without.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "teacher",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "teachly",
+     "correct": false,
+     "rationale": "-ly means “in a way”; it does not name a person.",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-suffixes-MC03",
+   "grade": 4,
+   "family": "suffixes",
+   "skillKey": "G4.suffixes",
+   "standard": "CCSS.ELA-LITERACY.L.4.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “without fear”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "-less means “without”: fearless = without fear.",
+    "tip": "-less = without."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "fearful",
+     "correct": false,
+     "rationale": "-ful means “full of”: fearful is the opposite.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "fearless",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "fearness",
+     "correct": false,
+     "rationale": "-ness means “the state of being,” and fearness is not a word.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "fearly",
+     "correct": false,
+     "rationale": "-ly means “in a way,” and fearly is not a word.",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-suffixes-GR01",
+   "grade": 4,
+   "family": "suffixes",
+   "skillKey": "G4.suffixes",
+   "standard": "CCSS.ELA-LITERACY.L.4.4.b",
+   "level": 4,
+   "type": "GRID",
+   "stem": "What does the suffix add to each word?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "-less = without; -er = a person who; -ness = the state of being; -ly = in a way.",
+    "tip": "Cover the base word and read the suffix alone."
+   },
+   "estimatedSeconds": 80,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "helpless"
+     },
+     {
+      "id": "r2",
+      "text": "painter"
+     },
+     {
+      "id": "r3",
+      "text": "kindness"
+     },
+     {
+      "id": "r4",
+      "text": "slowly"
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "without"
+     },
+     {
+      "id": "c2",
+      "text": "a person who"
+     },
+     {
+      "id": "c3",
+      "text": "the state of being"
+     },
+     {
+      "id": "c4",
+      "text": "in a way"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c3",
+     "r4": "c4"
+    }
+   }
+  },
+  {
+   "ref": "WS-G4-homographs-homophones-MC01",
+   "grade": 4,
+   "family": "homographs-homophones",
+   "skillKey": "G4.homographs-homophones",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "We could not ____ the music over the noise.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Hear (with your ear) means to listen.",
+    "tip": "Hear has the word ear inside it."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "here",
+     "correct": false,
+     "rationale": "Here is a place word (come here). Hear means to listen with your ears.",
+     "misconception": "HOMOPHONE"
+    },
+    {
+     "label": "B",
+     "text": "hare",
+     "correct": false,
+     "rationale": "A hare is an animal like a rabbit.",
+     "misconception": "HOMOPHONE"
+    },
+    {
+     "label": "C",
+     "text": "heer",
+     "correct": false,
+     "rationale": "This is not a word; hear has ear in it — you hear with your ear.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "hear",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-homographs-homophones-MC02",
+   "grade": 4,
+   "family": "homographs-homophones",
+   "skillKey": "G4.homographs-homophones",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "The wind ____ the papers off the desk.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Blew is the past tense of blow.",
+    "tip": "Sound-alike words: check the meaning, then the spelling."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "blue",
+     "correct": false,
+     "rationale": "Blue is a colour. Blew is the past of blow.",
+     "misconception": "HOMOPHONE"
+    },
+    {
+     "label": "B",
+     "text": "blow",
+     "correct": false,
+     "rationale": "The sentence is about the past, so it needs blew.",
+     "misconception": "VERB_FORM"
+    },
+    {
+     "label": "C",
+     "text": "blew",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "bloo",
+     "correct": false,
+     "rationale": "This is not a word; the past of blow is spelled b-l-e-w.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G4-spelling-GR01",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 3,
+   "type": "GRID",
+   "stem": "Which rule do you use to add -ing to each word?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "sitting (short vowel + one consonant), making and sliding (drop e), crying (y stays before -ing), jumping (two consonants: just add).",
+    "tip": "Look at the end of the base word before adding the ending."
+   },
+   "estimatedSeconds": 80,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "sit + ing"
+     },
+     {
+      "id": "r2",
+      "text": "make + ing"
+     },
+     {
+      "id": "r3",
+      "text": "cry + ing"
+     },
+     {
+      "id": "r4",
+      "text": "jump + ing"
+     },
+     {
+      "id": "r5",
+      "text": "slide + ing"
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "Double the last letter"
+     },
+     {
+      "id": "c2",
+      "text": "Drop the silent e"
+     },
+     {
+      "id": "c3",
+      "text": "Just add -ing"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c3",
+     "r4": "c3",
+     "r5": "c2"
+    }
+   }
+  },
+  {
+   "ref": "WS-G4-spelling-GR02",
+   "grade": 4,
+   "family": "spelling",
+   "skillKey": "G4.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.d",
+   "level": 4,
+   "type": "GRID",
+   "stem": "Which rule do you use to add -ed to each word?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "hugged (double), copied (consonant + y → i), stayed (vowel + y stays), smiled (ends in e: add -d).",
+    "tip": "Consonant + y changes; vowel + y stays."
+   },
+   "estimatedSeconds": 80,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "hug + ed"
+     },
+     {
+      "id": "r2",
+      "text": "copy + ed"
+     },
+     {
+      "id": "r3",
+      "text": "stay + ed"
+     },
+     {
+      "id": "r4",
+      "text": "smile + ed"
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "Double the last letter"
+     },
+     {
+      "id": "c2",
+      "text": "Change y to i"
+     },
+     {
+      "id": "c3",
+      "text": "Add only -d"
+     },
+     {
+      "id": "c4",
+      "text": "Just add -ed"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c4",
+     "r4": "c3"
+    }
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-D01",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Begin is stressed on the last syllable (be-GIN), so the n is doubled before -ing.",
+    "tip": "Two syllables, stress on the last one, one short vowel + one consonant: double it."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "beginning",
+    "sentence": "The beginning of the film was exciting."
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-D02",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Happy ends in consonant + y: change y to i before -ness.",
+    "tip": "Consonant + y: change y to i before most suffixes."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "happiness",
+    "sentence": "Their happiness filled the whole room."
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-D03",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 3,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Care keeps its silent e before -ful, and -ful has only one l.",
+    "tip": "The suffix that means “full of” has only one l."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "careful",
+    "sentence": "Be careful with the glass bowl."
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-D04",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Wrinkle starts with a silent w, and ends with -le.",
+    "tip": "Some words that start with /r/ have a silent letter before the r."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "wrinkle",
+    "sentence": "There is a wrinkle in my shirt."
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-D05",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 5,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Thought is spelled ough (the g and h are silent), then -ful with one l.",
+    "tip": "This word has a four-letter vowel spelling with two silent letters."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "thoughtful",
+    "sentence": "It was a thoughtful gift from my aunt."
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-D06",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Explore drops its silent e before -er: explore → explorer.",
+    "tip": "Drop the silent e before an ending that starts with a vowel."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "explorer",
+    "sentence": "The explorer crossed the frozen river."
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-D07",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 5,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Value drops its e before -able: value → valuable.",
+    "tip": "Drop the final e before -able."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "valuable",
+    "sentence": "The museum keeps valuable old coins."
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-D08",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Apply ends in consonant + y: change y to i before -ed, and keep the double p.",
+    "tip": "Consonant + y: change y to i before -ed."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "applied",
+    "sentence": "She applied glue to the paper."
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-D09",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Shoulder spells its long o sound with ou, then -der.",
+    "tip": "The long o sound in this word is spelled with a vowel team that usually says /ow/."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "shoulder",
+    "sentence": "He carried the bag on his shoulder."
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-D10",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Fountain: /ow/ spelled ou, then -tain.",
+    "tip": "The /ow/ sound in the middle of a word is often spelled ou."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "fountain",
+    "sentence": "Children splashed in the fountain."
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-MC01",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ed to plan. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Plan: short vowel + one consonant → double the n → planned.",
+    "tip": "Double the last consonant to keep the vowel short."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "planed",
+     "correct": false,
+     "rationale": "Planed would rhyme with “caned” (a long a). Plan has a short a, so double the n.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "B",
+     "text": "planned",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "plannd",
+     "correct": false,
+     "rationale": "Keep the e of the -ed ending.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "planneed",
+     "correct": false,
+     "rationale": "The -ed ending has one e.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC02",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ing to shine. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Shine: drop the silent e, add -ing → shining.",
+    "tip": "Silent e words: drop the e before -ing."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "shining",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "shineing",
+     "correct": false,
+     "rationale": "Drop the silent e before -ing.",
+     "misconception": "DROP_E"
+    },
+    {
+     "label": "C",
+     "text": "shinning",
+     "correct": false,
+     "rationale": "Shinning would have a short i (like winning). Shine has a long i: do not double.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "D",
+     "text": "shinig",
+     "correct": false,
+     "rationale": "Spell the whole -ing ending.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC03",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -s to carry. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Carry → carries (consonant + y → ies).",
+    "tip": "Consonant + y: change y to i, add -es."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "carrys",
+     "correct": false,
+     "rationale": "Carry ends in consonant + y: change y to i and add -es.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "B",
+     "text": "carryes",
+     "correct": false,
+     "rationale": "Change the y to i before -es.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "C",
+     "text": "carres",
+     "correct": false,
+     "rationale": "Keep the i: c-a-r-r-i-e-s.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "carries",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC04",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ed to enjoy. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Enjoy ends in vowel + y: just add -ed → enjoyed.",
+    "tip": "Vowel + y: keep the y and add the ending."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "enjoied",
+     "correct": false,
+     "rationale": "Enjoy ends in vowel + y (oy), so the y stays.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "B",
+     "text": "enjoyd",
+     "correct": false,
+     "rationale": "Keep the e of the -ed ending.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "enjoyed",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "enjoyyed",
+     "correct": false,
+     "rationale": "Never double a y.",
+     "misconception": "DOUBLING_RULE"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC05",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 5,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ing to begin. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "be-GIN: stressed last syllable, short vowel + one consonant → double → beginning.",
+    "tip": "In two-syllable words, double only when the LAST syllable is stressed."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "begining",
+     "correct": false,
+     "rationale": "Begin is stressed on its last syllable (be-GIN), so double the n.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "B",
+     "text": "beginning",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "beginnning",
+     "correct": false,
+     "rationale": "Double the n once only.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "beginging",
+     "correct": false,
+     "rationale": "Add only -ing to the base word begin.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC06",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ful to use. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Use + ful keeps the e → useful.",
+    "tip": "Keep the e before a consonant ending."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "useful",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "usful",
+     "correct": false,
+     "rationale": "Keep the silent e before -ful (a consonant ending).",
+     "misconception": "DROP_E"
+    },
+    {
+     "label": "C",
+     "text": "usefull",
+     "correct": false,
+     "rationale": "The suffix -ful has one l.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "useeful",
+     "correct": false,
+     "rationale": "Use already has its e; do not add another.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC07",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ness to lazy. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Lazy → lazi + ness → laziness.",
+    "tip": "Consonant + y: change y to i, even before -ness."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "lazyness",
+     "correct": false,
+     "rationale": "Lazy ends in consonant + y: change y to i before -ness.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "B",
+     "text": "lazines",
+     "correct": false,
+     "rationale": "The suffix -ness has two s's.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "lazziness",
+     "correct": false,
+     "rationale": "Lazy has a long a; the z is not doubled.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "D",
+     "text": "laziness",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC08",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 5,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ed to visit. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "VIS-it: the last syllable is not stressed, so just add -ed → visited.",
+    "tip": "Stress on the first syllable: do not double."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "visitted",
+     "correct": false,
+     "rationale": "Visit is stressed on the FIRST syllable (VIS-it), so the t is not doubled.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "B",
+     "text": "visted",
+     "correct": false,
+     "rationale": "Keep the i of the base word: vis-it.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "C",
+     "text": "visited",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "visitid",
+     "correct": false,
+     "rationale": "The ending is spelled -ed.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC09",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has the same vowel sound as crowd?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Crowd and mouth share the /ow/ sound (spelled ow and ou).",
+    "tip": "ow can say /ow/ (cow) or long o (snow): read the word to check."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "snow",
+     "correct": false,
+     "rationale": "In snow, ow spells a long o sound.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "B",
+     "text": "mouth",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "mud",
+     "correct": false,
+     "rationale": "Mud has a short u sound.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "D",
+     "text": "moth",
+     "correct": false,
+     "rationale": "Moth has a short o sound.",
+     "misconception": "L1_SHORT_VOWEL"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC10",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "In which word does ea spell the short e sound?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "In bread, ea spells short e.",
+    "tip": "ea has three sounds: long e (beach), short e (bread), long a (great)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "bread",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "beach",
+     "correct": false,
+     "rationale": "In beach, ea says long e.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "C",
+     "text": "great",
+     "correct": false,
+     "rationale": "In great, ea says long a.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "D",
+     "text": "bear",
+     "correct": false,
+     "rationale": "In bear, ea + r makes the /air/ sound.",
+     "misconception": "R_CONTROLLED"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC11",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has a silent letter?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "In thumb, the b after m is silent.",
+    "tip": "mb at the end of a word: the b is silent."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "thump",
+     "correct": false,
+     "rationale": "In thump, both m and p are heard.",
+     "misconception": "L1_CLUSTER"
+    },
+    {
+     "label": "B",
+     "text": "plum",
+     "correct": false,
+     "rationale": "Every letter in plum is heard.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "tub",
+     "correct": false,
+     "rationale": "Every letter in tub is heard.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "thumb",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC12",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has the /f/ sound spelled gh?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "In laugh, gh spells /f/.",
+    "tip": "gh can be silent (night), say /f/ (laugh) or say /g/ (ghost)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "caught",
+     "correct": false,
+     "rationale": "In caught, gh is silent.",
+     "misconception": "L1_SILENT_LETTER"
+    },
+    {
+     "label": "B",
+     "text": "ghost",
+     "correct": false,
+     "rationale": "At the start of a word, gh says /g/.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "laugh",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "half",
+     "correct": false,
+     "rationale": "Half spells /f/ with the letter f.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC13",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has the same vowel sound as cause?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Cause and straw share the vowel sound spelled au and aw.",
+    "tip": "au usually comes before a consonant; aw comes at the end or before n, l."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "stray",
+     "correct": false,
+     "rationale": "Stray has a long a sound.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "B",
+     "text": "straw",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "stew",
+     "correct": false,
+     "rationale": "Stew has the /oo/ sound spelled ew.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "D",
+     "text": "star",
+     "correct": false,
+     "rationale": "Star has the ar sound.",
+     "misconception": "R_CONTROLLED"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC14",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word ends with /shun/ spelled -tion?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Motion ends with -tion, the most common spelling of /shun/.",
+    "tip": "/shun/ at the end of a word is usually -tion."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "motion",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "ocean",
+     "correct": false,
+     "rationale": "Ocean spells its /sh/ sound with ce.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "mansion",
+     "correct": false,
+     "rationale": "Mansion spells /shun/ with -sion.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "cushion",
+     "correct": false,
+     "rationale": "Cushion spells its /sh/ sound with sh.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC15",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which shows the correct way to split rocket into syllables?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Rocket has a short o, so the first syllable is closed: rock-et (ck stays together).",
+    "tip": "Short vowel? Keep the consonant with the first syllable (VC/V)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "ro-cket",
+     "correct": false,
+     "rationale": "Ro- would have a long o; rocket has a short o, so the c-k stays with the first syllable.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "B",
+     "text": "r-ocket",
+     "correct": false,
+     "rationale": "Every syllable needs a vowel; r alone is not a syllable.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "C",
+     "text": "rocke-t",
+     "correct": false,
+     "rationale": "Every syllable needs a vowel; t alone is not a syllable.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "rock-et",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC16",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which shows the correct way to split pilot into syllables?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Pilot has a long i: split after the vowel → pi-lot.",
+    "tip": "Try V/CV first; if the word sounds wrong, try VC/V."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "pil-ot",
+     "correct": false,
+     "rationale": "Pil- would have a short i; pilot has a long i, so the first syllable is open.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "B",
+     "text": "p-ilot",
+     "correct": false,
+     "rationale": "Every syllable needs a vowel.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "C",
+     "text": "pi-lot",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "pilo-t",
+     "correct": false,
+     "rationale": "Every syllable needs a vowel; t alone is not a syllable.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC17",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which shows the correct way to split hundred into syllables?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Three consonants between vowels: keep the blend dr together → hun-dred.",
+    "tip": "Three consonants in the middle: keep the blend together."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "hund-red",
+     "correct": false,
+     "rationale": "dr is a blend that stays together: hun-dred.",
+     "misconception": "L1_CLUSTER"
+    },
+    {
+     "label": "B",
+     "text": "hun-dred",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "hu-ndred",
+     "correct": false,
+     "rationale": "nd cannot start a syllable; split after the n.",
+     "misconception": "L1_CLUSTER"
+    },
+    {
+     "label": "D",
+     "text": "hundr-ed",
+     "correct": false,
+     "rationale": "Keep the blend dr with the second syllable.",
+     "misconception": "L1_CLUSTER"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-MC18",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.RF.5.3.a",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "How many syllables are in unbelievable?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "un-be-liev-a-ble: five syllables.",
+    "tip": "Take off the prefix and suffix first, then count the base word."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "5",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "4",
+     "correct": false,
+     "rationale": "Clap it: un-be-liev-a-ble has five beats.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "6",
+     "correct": false,
+     "rationale": "ie is one vowel sound here: un-be-liev-a-ble has five.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "D",
+     "text": "3",
+     "correct": false,
+     "rationale": "Count every vowel sound: there are five.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-prefixes-MC01",
+   "grade": 5,
+   "family": "prefixes",
+   "skillKey": "G5.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.5.4.b",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “to not agree”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "dis- means “not” or “the opposite of”: disagree.",
+    "tip": "dis- = not, the opposite of."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "unagree",
+     "correct": false,
+     "rationale": "This is not a word: agree takes dis-.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "misagree",
+     "correct": false,
+     "rationale": "mis- means “wrongly.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "preagree",
+     "correct": false,
+     "rationale": "pre- means “before.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "disagree",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-prefixes-MC02",
+   "grade": 5,
+   "family": "prefixes",
+   "skillKey": "G5.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.5.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “not possible”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "in- (not) becomes im- before p: impossible.",
+    "tip": "in- becomes im- before p, b and m."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "unpossible",
+     "correct": false,
+     "rationale": "Possible takes the prefix im-, not un-.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "inpossible",
+     "correct": false,
+     "rationale": "in- changes to im- before p (and b, m).",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "impossible",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "dispossible",
+     "correct": false,
+     "rationale": "This is not a word: possible takes im-.",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-prefixes-MC03",
+   "grade": 5,
+   "family": "prefixes",
+   "skillKey": "G5.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.5.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “not regular”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "in- (not) becomes ir- before r: irregular, with two r's.",
+    "tip": "in- becomes ir- before r and il- before l."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "unregular",
+     "correct": false,
+     "rationale": "Regular takes the prefix ir-, not un-.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "irregular",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "inregular",
+     "correct": false,
+     "rationale": "in- changes to ir- before r.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "disregular",
+     "correct": false,
+     "rationale": "This is not a word: regular takes ir-.",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-prefixes-MC04",
+   "grade": 5,
+   "family": "prefixes",
+   "skillKey": "G5.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.5.4.b",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “to understand wrongly”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "mis- means “wrongly”: misunderstand.",
+    "tip": "mis- = wrongly."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "misunderstand",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "disunderstand",
+     "correct": false,
+     "rationale": "This is not a word: dis- does not go with understand.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "ununderstand",
+     "correct": false,
+     "rationale": "This is not a word: “wrongly” is mis-.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "reunderstand",
+     "correct": false,
+     "rationale": "re- means “again,” not “wrongly.”",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-suffixes-MC01",
+   "grade": 5,
+   "family": "suffixes",
+   "skillKey": "G5.suffixes",
+   "standard": "CCSS.ELA-LITERACY.L.5.4.b",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “able to be washed”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "-able means “able to be”: washable.",
+    "tip": "-able = can be, able to be."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "washful",
+     "correct": false,
+     "rationale": "-ful means “full of.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "washment",
+     "correct": false,
+     "rationale": "-ment makes a noun (an act or result), and washment is not a word.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "washless",
+     "correct": false,
+     "rationale": "-less means “without.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "washable",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-suffixes-MC02",
+   "grade": 5,
+   "family": "suffixes",
+   "skillKey": "G5.suffixes",
+   "standard": "CCSS.ELA-LITERACY.L.5.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word names “the act of moving”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "-ment names an act or result: move + ment = movement.",
+    "tip": "-ment = the act or result of."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "movment",
+     "correct": false,
+     "rationale": "Keep the silent e before -ment (a consonant ending).",
+     "misconception": "DROP_E"
+    },
+    {
+     "label": "B",
+     "text": "moveness",
+     "correct": false,
+     "rationale": "-ness names a state, not an act; the word is movement.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "movement",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "moveless",
+     "correct": false,
+     "rationale": "-less means “without.”",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-suffixes-MC03",
+   "grade": 5,
+   "family": "suffixes",
+   "skillKey": "G5.suffixes",
+   "standard": "CCSS.ELA-LITERACY.L.5.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “full of danger”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "-ous means “full of”: dangerous.",
+    "tip": "-ous = full of (famous, joyous)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "dangerful",
+     "correct": false,
+     "rationale": "Danger takes -ous for “full of.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "dangerous",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "dangerless",
+     "correct": false,
+     "rationale": "-less means “without.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "dangerness",
+     "correct": false,
+     "rationale": "This is not a word.",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-suffixes-GR01",
+   "grade": 5,
+   "family": "suffixes",
+   "skillKey": "G5.suffixes",
+   "standard": "CCSS.ELA-LITERACY.L.5.4.b",
+   "level": 4,
+   "type": "GRID",
+   "stem": "Which suffix meaning goes with each word?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "-able = can be; -ment = act or result of; -ous = full of.",
+    "tip": "Find the suffix at the end, then say its meaning."
+   },
+   "estimatedSeconds": 80,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "comfortable"
+     },
+     {
+      "id": "r2",
+      "text": "enjoyment"
+     },
+     {
+      "id": "r3",
+      "text": "nervous"
+     },
+     {
+      "id": "r4",
+      "text": "breakable"
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "can be (-able)"
+     },
+     {
+      "id": "c2",
+      "text": "act or result of (-ment)"
+     },
+     {
+      "id": "c3",
+      "text": "full of (-ous)"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c3",
+     "r4": "c1"
+    }
+   }
+  },
+  {
+   "ref": "WS-G5-homographs-homophones-MC01",
+   "grade": 5,
+   "family": "homographs-homophones",
+   "skillKey": "G5.homographs-homophones",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "She ____ the answer before the teacher asked.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Knew is the past tense of know (silent k).",
+    "tip": "Know and knew both start with a silent k."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "new",
+     "correct": false,
+     "rationale": "New means “not old.” Knew (with a silent k) is the past of know.",
+     "misconception": "HOMOPHONE"
+    },
+    {
+     "label": "B",
+     "text": "knows",
+     "correct": false,
+     "rationale": "The sentence is in the past, so it needs knew.",
+     "misconception": "VERB_FORM"
+    },
+    {
+     "label": "C",
+     "text": "gnu",
+     "correct": false,
+     "rationale": "A gnu is an animal.",
+     "misconception": "HOMOPHONE"
+    },
+    {
+     "label": "D",
+     "text": "knew",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-homographs-homophones-MC02",
+   "grade": 5,
+   "family": "homographs-homophones",
+   "skillKey": "G5.homographs-homophones",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 3,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "The baker needs more ____ for the bread.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Flour is the powder used to make bread.",
+    "tip": "Sound-alike words: picture the meaning before you choose."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "flower",
+     "correct": false,
+     "rationale": "A flower grows in a garden. Flour is used for baking.",
+     "misconception": "HOMOPHONE"
+    },
+    {
+     "label": "B",
+     "text": "flor",
+     "correct": false,
+     "rationale": "This is not a word; flour is spelled with our.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "flour",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "floor",
+     "correct": false,
+     "rationale": "The floor is what you walk on.",
+     "misconception": "VOWEL_TEAM"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G5-spelling-GR01",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "GRID",
+   "stem": "Which rule do you use to add -er or -est?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "thinner, wider, busiest, quickest.",
+    "tip": "Look at the last letters of the base word first."
+   },
+   "estimatedSeconds": 80,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "thin + er"
+     },
+     {
+      "id": "r2",
+      "text": "wide + er"
+     },
+     {
+      "id": "r3",
+      "text": "busy + est"
+     },
+     {
+      "id": "r4",
+      "text": "quick + est"
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "Double the last letter"
+     },
+     {
+      "id": "c2",
+      "text": "Drop the silent e"
+     },
+     {
+      "id": "c3",
+      "text": "Change y to i"
+     },
+     {
+      "id": "c4",
+      "text": "Just add the ending"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c3",
+     "r4": "c4"
+    }
+   }
+  },
+  {
+   "ref": "WS-G5-spelling-GR02",
+   "grade": 5,
+   "family": "spelling",
+   "skillKey": "G5.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.e",
+   "level": 4,
+   "type": "GRID",
+   "stem": "Which rule do you use to add the suffix?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "happiness, hopeless, sadly (no doubling before a consonant ending), plentiful.",
+    "tip": "Endings that start with a consonant: keep the e and do not double."
+   },
+   "estimatedSeconds": 80,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "happy + ness"
+     },
+     {
+      "id": "r2",
+      "text": "hope + less"
+     },
+     {
+      "id": "r3",
+      "text": "sad + ly"
+     },
+     {
+      "id": "r4",
+      "text": "plenty + ful"
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "Change y to i"
+     },
+     {
+      "id": "c2",
+      "text": "Keep the e"
+     },
+     {
+      "id": "c3",
+      "text": "Just add the suffix"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c3",
+     "r4": "c1"
+    }
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-D01",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "After c, write ei: receive.",
+    "tip": "Remember the rule: i before e, except after c."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "receive",
+    "sentence": "Did you receive my message?"
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-D02",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Occur is stressed on its last syllable (oc-CUR), so the r is doubled; the word also has a double c.",
+    "tip": "Two pairs of double letters in this word."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "occurred",
+    "sentence": "The accident occurred near the school."
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-D03",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Necessary has one c and a double s: ne-ces-sa-ry.",
+    "tip": "One collar (c), two sleeves (s)."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "necessary",
+    "sentence": "Water is necessary for every plant."
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-D04",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Separate has “a rat” in the middle: sep-a-rate.",
+    "tip": "There is a small animal hiding in the middle of this word."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "separate",
+    "sentence": "Keep the eggs separate from the flour."
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-D05",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Knowledge = know (silent k) + ledge.",
+    "tip": "Find the base word you already know how to spell."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "knowledge",
+    "sentence": "Reading builds knowledge every day."
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-D06",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Rhythm has a silent h after r and no vowel letter except y.",
+    "tip": "This word has a silent letter after the first letter and uses y as a vowel."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "rhythm",
+    "sentence": "Clap to the rhythm of the song."
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-D07",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Temperature: tem-per-a-ture (say every syllable to spell it).",
+    "tip": "Say each syllable clearly; do not skip the middle one."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "temperature",
+    "sentence": "The temperature dropped at night."
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-D08",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "dis + satisfy: keep both s's, and change y to i before -ed.",
+    "tip": "Prefix + base word: keep every letter of both."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "dissatisfied",
+    "sentence": "Mona was dissatisfied with her first draft."
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-D09",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "bi (two) + cycle (circle, wheel): bicycle.",
+    "tip": "Think of the prefix that means two."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "bicycle",
+    "sentence": "My cousin fixed a flat tyre on her bicycle."
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-D10",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "DICTATION",
+   "stem": "Listen to the word and the sentence. Type the word you hear.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Achieve (ie, keep the e) + ment.",
+    "tip": "i before e here, and keep the silent e before -ment."
+   },
+   "estimatedSeconds": 35,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "dictation": {
+    "word": "achievement",
+    "sentence": "Finishing the marathon was a great achievement."
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-MC01",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ed to refer. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "re-FER: stress on the last syllable → double the r → referred.",
+    "tip": "Stressed last syllable + one vowel + one consonant: double."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "refered",
+     "correct": false,
+     "rationale": "Refer is stressed on its last syllable (re-FER), so the r is doubled.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "B",
+     "text": "referred",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "reffered",
+     "correct": false,
+     "rationale": "Double the LAST consonant, not the f.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "D",
+     "text": "referd",
+     "correct": false,
+     "rationale": "Keep the e of the -ed ending.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC02",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ing to offer. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "OF-fer: stress on the first syllable → just add -ing → offering.",
+    "tip": "If the last syllable is not stressed, do not double."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "offering",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "offerring",
+     "correct": false,
+     "rationale": "Offer is stressed on the first syllable (OF-fer), so do not double the r.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "C",
+     "text": "ofering",
+     "correct": false,
+     "rationale": "Keep the double f of the base word.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "offring",
+     "correct": false,
+     "rationale": "Keep the e of the base word: of-fer-ing.",
+     "misconception": "L1_SHORT_VOWEL"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC03",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -al to arrive. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Arrive: drop the e, add -al → arrival.",
+    "tip": "Silent e is dropped before a vowel suffix."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "arriveal",
+     "correct": false,
+     "rationale": "Drop the silent e before -al (a vowel ending).",
+     "misconception": "DROP_E"
+    },
+    {
+     "label": "B",
+     "text": "arival",
+     "correct": false,
+     "rationale": "Keep the double r of the base word.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "arrivle",
+     "correct": false,
+     "rationale": "The suffix is spelled -al.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "arrival",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC04",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -able to manage. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "After soft g (or c), keep the e before -able: manageable.",
+    "tip": "Soft c and soft g keep their e before -able and -ous."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "managable",
+     "correct": false,
+     "rationale": "Keep the e after g so the g still says /j/: manageable.",
+     "misconception": "DROP_E"
+    },
+    {
+     "label": "B",
+     "text": "manageible",
+     "correct": false,
+     "rationale": "The suffix here is -able.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "manageable",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "mannageable",
+     "correct": false,
+     "rationale": "Manage has one n.",
+     "misconception": "DOUBLING_RULE"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC05",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ful to mercy. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Mercy → merci + ful → merciful.",
+    "tip": "Consonant + y: change y to i before -ful."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "mercyful",
+     "correct": false,
+     "rationale": "Mercy ends in consonant + y: change y to i before -ful.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "B",
+     "text": "merciful",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "mercifull",
+     "correct": false,
+     "rationale": "The suffix -ful has one l.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "mersiful",
+     "correct": false,
+     "rationale": "Keep the c of the base word mercy.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC06",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ment to employ. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Employ + ment keeps the y → employment.",
+    "tip": "Vowel + y keeps the y before any suffix."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "employment",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "emploiment",
+     "correct": false,
+     "rationale": "Employ ends in vowel + y (oy): the y stays.",
+     "misconception": "Y_TO_I"
+    },
+    {
+     "label": "C",
+     "text": "employmant",
+     "correct": false,
+     "rationale": "The suffix is spelled -ment.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "imployment",
+     "correct": false,
+     "rationale": "The base word begins with em-: employ.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC07",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ed to control. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "con-TROL: stressed last syllable → double the l → controlled.",
+    "tip": "Say the word and listen for which syllable is stressed."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "controled",
+     "correct": false,
+     "rationale": "Control is stressed on its last syllable (con-TROL), so the l is doubled.",
+     "misconception": "DOUBLING_RULE"
+    },
+    {
+     "label": "B",
+     "text": "contolled",
+     "correct": false,
+     "rationale": "Keep the blend tr: con-trol.",
+     "misconception": "L1_CLUSTER"
+    },
+    {
+     "label": "C",
+     "text": "controlld",
+     "correct": false,
+     "rationale": "Keep the e of the -ed ending.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "controlled",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC08",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Add -ment to argue. Which spelling is correct?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Argue + ment drops the e: argument (an exception).",
+    "tip": "A few words drop the e before a consonant suffix: argument, truly, ninth."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "arguement",
+     "correct": false,
+     "rationale": "Argue drops its e before -ment (an exception to the keep-the-e rule).",
+     "misconception": "DROP_E"
+    },
+    {
+     "label": "B",
+     "text": "argumant",
+     "correct": false,
+     "rationale": "The suffix is spelled -ment.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "argument",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "arguemint",
+     "correct": false,
+     "rationale": "Drop the e, and spell the suffix -ment.",
+     "misconception": "DROP_E"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC09",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word is spelled correctly?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "After c, write ei: ceiling.",
+    "tip": "i before e, except after c (when the sound is long e)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "releive",
+     "correct": false,
+     "rationale": "Not after c: write ie → relieve.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "B",
+     "text": "ceiling",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "beleive",
+     "correct": false,
+     "rationale": "Not after c: write ie → believe.",
+     "misconception": "VOWEL_TEAM"
+    },
+    {
+     "label": "D",
+     "text": "peice",
+     "correct": false,
+     "rationale": "Not after c: write ie → piece.",
+     "misconception": "VOWEL_TEAM"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC10",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has a silent h?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Honest begins with a silent h: it sounds like “onest.”",
+    "tip": "Some words start with a silent h: hour, honest, honour."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "honest",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "hollow",
+     "correct": false,
+     "rationale": "The h in hollow is heard.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "behave",
+     "correct": false,
+     "rationale": "The h in behave is heard.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "hockey",
+     "correct": false,
+     "rationale": "The h in hockey is heard.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC11",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has the /k/ sound spelled ch?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "In echo, ch says /k/ (from Greek).",
+    "tip": "ch can say /ch/ (chess), /k/ (echo) or /sh/ (machine)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "chess",
+     "correct": false,
+     "rationale": "In chess, ch says /ch/.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "B",
+     "text": "machine",
+     "correct": false,
+     "rationale": "In machine, ch says /sh/.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "kitchen",
+     "correct": false,
+     "rationale": "In kitchen, /k/ is spelled k, and ch says /ch/.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "echo",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC12",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has a silent w?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "In sword, the w is silent.",
+    "tip": "Silent w: write, wrist, sword, answer."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "swirl",
+     "correct": false,
+     "rationale": "The w in swirl is heard.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "B",
+     "text": "wonder",
+     "correct": false,
+     "rationale": "The w in wonder is heard.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "sword",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "twelve",
+     "correct": false,
+     "rationale": "The w in twelve is heard.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC13",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word has a silent g?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "In foreign, the g is silent.",
+    "tip": "gn often has a silent g: sign, design, foreign."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "forget",
+     "correct": false,
+     "rationale": "The g in forget is heard.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "B",
+     "text": "foreign",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "figure",
+     "correct": false,
+     "rationale": "The g in figure is heard.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "finger",
+     "correct": false,
+     "rationale": "The g in finger is heard.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC14",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which letters spell the /j/ sound at the end of bridge?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "After a short vowel, /j/ at the end of a word is spelled dge.",
+    "tip": "Short vowel + /j/ → dge; long vowel or consonant + /j/ → ge."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "dge",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "ge",
+     "correct": false,
+     "rationale": "After a short vowel, /j/ at the end is spelled dge (bridge, badge).",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "j",
+     "correct": false,
+     "rationale": "English words almost never end in j.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "dj",
+     "correct": false,
+     "rationale": "dj is not an English spelling of /j/.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC15",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which shows the correct way to split fantastic into syllables?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Closed syllables with short vowels: fan-tas-tic.",
+    "tip": "Split between two consonants in the middle (VC/CV)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "fa-ntas-tic",
+     "correct": false,
+     "rationale": "nt cannot start a syllable; split between n and t.",
+     "misconception": "L1_CLUSTER"
+    },
+    {
+     "label": "B",
+     "text": "fant-as-tic",
+     "correct": false,
+     "rationale": "Split between the two middle consonants: fan-tas.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "fan-ta-stic",
+     "correct": false,
+     "rationale": "Ta- would have a long a; fantastic has a short a, so the s stays with tas.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "D",
+     "text": "fan-tas-tic",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC16",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which shows the correct way to split magnet into syllables?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "VC/CV: mag-net.",
+    "tip": "Two consonants in the middle: split between them."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "ma-gnet",
+     "correct": false,
+     "rationale": "gn does not start a syllable here; split between g and n.",
+     "misconception": "L1_CLUSTER"
+    },
+    {
+     "label": "B",
+     "text": "magn-et",
+     "correct": false,
+     "rationale": "Split between the two middle consonants.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "mag-net",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "m-agnet",
+     "correct": false,
+     "rationale": "Every syllable needs a vowel.",
+     "misconception": "L1_SHORT_VOWEL"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC17",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which shows the correct way to split lion into syllables?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Two vowels side by side that make two sounds are split between them (V/V): li-on.",
+    "tip": "When two vowels make two sounds, split between them."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "lio-n",
+     "correct": false,
+     "rationale": "Every syllable needs a vowel; n alone is not a syllable.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "B",
+     "text": "li-on",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "l-ion",
+     "correct": false,
+     "rationale": "Every syllable needs a vowel; l alone is not a syllable.",
+     "misconception": "L1_SHORT_VOWEL"
+    },
+    {
+     "label": "D",
+     "text": "lion (one syllable)",
+     "correct": false,
+     "rationale": "i and o are two vowel sounds here: li-on has two syllables.",
+     "misconception": "VOWEL_TEAM"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-MC18",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Clap the beats. How many syllables does communication have?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "com-mu-ni-ca-tion: five syllables.",
+    "tip": "-tion is always one syllable."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "five",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "four",
+     "correct": false,
+     "rationale": "Clap it: com-mu-ni-ca-tion has five beats.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "six",
+     "correct": false,
+     "rationale": "-tion is one syllable: com-mu-ni-ca-tion has five.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "three",
+     "correct": false,
+     "rationale": "Count every vowel sound: there are five.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-prefixes-MC01",
+   "grade": 6,
+   "family": "prefixes",
+   "skillKey": "G6.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.6.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “between nations”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "inter- means “between”: international.",
+    "tip": "inter- = between; intra- = within."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "intranational",
+     "correct": false,
+     "rationale": "intra- means “within,” not “between.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "prenational",
+     "correct": false,
+     "rationale": "pre- means “before.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "antinational",
+     "correct": false,
+     "rationale": "anti- means “against.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "international",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-prefixes-MC02",
+   "grade": 6,
+   "family": "prefixes",
+   "skillKey": "G6.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.6.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word names a liquid that works “against freezing”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "anti- means “against”: antifreeze.",
+    "tip": "anti- = against."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "prefreeze",
+     "correct": false,
+     "rationale": "pre- means “before.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "refreeze",
+     "correct": false,
+     "rationale": "re- means “again”: refreeze = freeze again.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "antifreeze",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "unfreeze",
+     "correct": false,
+     "rationale": "un- means “undo”: unfreeze = thaw.",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-prefixes-MC03",
+   "grade": 6,
+   "family": "prefixes",
+   "skillKey": "G6.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.6.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “half of a circle”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "semi- means “half”: semicircle.",
+    "tip": "semi- = half; bi- = two; tri- = three; multi- = many."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "multicircle",
+     "correct": false,
+     "rationale": "multi- means “many.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "semicircle",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "tricircle",
+     "correct": false,
+     "rationale": "tri- means “three.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "bicircle",
+     "correct": false,
+     "rationale": "bi- means “two.”",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-prefixes-MC04",
+   "grade": 6,
+   "family": "prefixes",
+   "skillKey": "G6.prefixes",
+   "standard": "CCSS.ELA-LITERACY.L.6.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “not legal”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "in- (not) becomes il- before l: illegal, with two l's.",
+    "tip": "in- becomes il- before l."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "illegal",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "B",
+     "text": "unlegal",
+     "correct": false,
+     "rationale": "Legal takes il-, not un-.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "inlegal",
+     "correct": false,
+     "rationale": "in- changes to il- before l.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "dislegal",
+     "correct": false,
+     "rationale": "This is not a word: legal takes il-.",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-greek-latin-roots-MC01",
+   "grade": 6,
+   "family": "greek-latin-roots",
+   "skillKey": "G6.greek-latin-roots",
+   "standard": "CCSS.ELA-LITERACY.L.6.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "In autograph, which part is the root that means “write”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "graph means “write”: an autograph is a name you write yourself.",
+    "tip": "Split the word into its parts before finding the meaning."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "auto",
+     "correct": false,
+     "rationale": "auto means “self”; it is not the root for “write.”",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "aut",
+     "correct": false,
+     "rationale": "aut is part of auto (self), not the root for write.",
+     "misconception": "FALSE_SPLIT"
+    },
+    {
+     "label": "C",
+     "text": "raph",
+     "correct": false,
+     "rationale": "The root is graph: split the word as auto + graph.",
+     "misconception": "FALSE_SPLIT"
+    },
+    {
+     "label": "D",
+     "text": "graph",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-greek-latin-roots-MC02",
+   "grade": 6,
+   "family": "greek-latin-roots",
+   "skillKey": "G6.greek-latin-roots",
+   "standard": "CCSS.ELA-LITERACY.L.6.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "tele means “far” and scope means “see.” What is a telescope?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "tele (far) + scope (see) = an instrument for seeing far away.",
+    "tip": "Put the meaning of each part together."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "a message sent from far away",
+     "correct": false,
+     "rationale": "That describes a telegram (gram = written).",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "a sound heard from far away",
+     "correct": false,
+     "rationale": "That describes a telephone (phone = sound).",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "C",
+     "text": "an instrument for seeing things far away",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "a small picture of something near",
+     "correct": false,
+     "rationale": "tele means far, not near.",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-greek-latin-roots-MC03",
+   "grade": 6,
+   "family": "greek-latin-roots",
+   "skillKey": "G6.greek-latin-roots",
+   "standard": "CCSS.ELA-LITERACY.L.6.4.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Which word means “the study of life”?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "bio (life) + logy (study of) = biology.",
+    "tip": "-logy = the study of."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "geology",
+     "correct": false,
+     "rationale": "geo means “earth”: geology is the study of the earth.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "B",
+     "text": "biology",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "C",
+     "text": "biography",
+     "correct": false,
+     "rationale": "graph means “write”: a biography is the written story of a life.",
+     "misconception": "WORD_PARTS"
+    },
+    {
+     "label": "D",
+     "text": "zoology",
+     "correct": false,
+     "rationale": "zoo means “animal”: zoology is the study of animals.",
+     "misconception": "WORD_PARTS"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-greek-latin-roots-GR01",
+   "grade": 6,
+   "family": "greek-latin-roots",
+   "skillKey": "G6.greek-latin-roots",
+   "standard": "CCSS.ELA-LITERACY.L.6.4.b",
+   "level": 4,
+   "type": "GRID",
+   "stem": "Which root meaning goes with each word?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "spect = look; port = carry; dict = say; struct = build.",
+    "tip": "Find the root in the middle of the word."
+   },
+   "estimatedSeconds": 80,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "spectator"
+     },
+     {
+      "id": "r2",
+      "text": "portable"
+     },
+     {
+      "id": "r3",
+      "text": "dictate"
+     },
+     {
+      "id": "r4",
+      "text": "structure"
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "look (spect)"
+     },
+     {
+      "id": "c2",
+      "text": "carry (port)"
+     },
+     {
+      "id": "c3",
+      "text": "say (dict)"
+     },
+     {
+      "id": "c4",
+      "text": "build (struct)"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c3",
+     "r4": "c4"
+    }
+   }
+  },
+  {
+   "ref": "WS-G6-homographs-homophones-MC01",
+   "grade": 6,
+   "family": "homographs-homophones",
+   "skillKey": "G6.homographs-homophones",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 4,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "The school ____ spoke at the assembly.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "The principal (the head of the school) — the principal is your pal.",
+    "tip": "The head of the school is your pal."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "principle",
+     "correct": false,
+     "rationale": "A principle is a rule or belief. The head of a school is the principal.",
+     "misconception": "HOMOPHONE"
+    },
+    {
+     "label": "B",
+     "text": "principel",
+     "correct": false,
+     "rationale": "This is not a word; the ending is -al.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "princapal",
+     "correct": false,
+     "rationale": "This is not a word; spell it prin-ci-pal.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "D",
+     "text": "principal",
+     "correct": true,
+     "rationale": null
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-homographs-homophones-MC02",
+   "grade": 6,
+   "family": "homographs-homophones",
+   "skillKey": "G6.homographs-homophones",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "MULTIPLE_CHOICE",
+   "stem": "Too much sugar can ____ your health.",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "Affect is the verb (to change something); effect is usually the noun (the result).",
+    "tip": "Affect = Action (verb); Effect = End result (noun)."
+   },
+   "estimatedSeconds": 40,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "options": [
+    {
+     "label": "A",
+     "text": "effect",
+     "correct": false,
+     "rationale": "Effect is usually a noun (a result). The verb that means “to change” is affect.",
+     "misconception": "HOMOPHONE"
+    },
+    {
+     "label": "B",
+     "text": "afect",
+     "correct": false,
+     "rationale": "Affect has a double f.",
+     "misconception": "SPELLING"
+    },
+    {
+     "label": "C",
+     "text": "affect",
+     "correct": true,
+     "rationale": null
+    },
+    {
+     "label": "D",
+     "text": "affeckt",
+     "correct": false,
+     "rationale": "This is not a word; spell it a-f-f-e-c-t.",
+     "misconception": "SPELLING"
+    }
+   ]
+  },
+  {
+   "ref": "WS-G6-spelling-GR01",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "GRID",
+   "stem": "Which rule do you use to add the ending?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "ad-MIT and for-GET are stressed on the last syllable (admitted, forgetting); O-pen and HAP-pen are not (opened, happening).",
+    "tip": "Say the base word: double only when the last syllable is stressed."
+   },
+   "estimatedSeconds": 80,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "admit + ed"
+     },
+     {
+      "id": "r2",
+      "text": "open + ed"
+     },
+     {
+      "id": "r3",
+      "text": "forget + ing"
+     },
+     {
+      "id": "r4",
+      "text": "happen + ing"
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "Double the last consonant"
+     },
+     {
+      "id": "c2",
+      "text": "Just add the ending"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c2",
+     "r3": "c1",
+     "r4": "c2"
+    }
+   }
+  },
+  {
+   "ref": "WS-G6-spelling-GR02",
+   "grade": 6,
+   "family": "spelling",
+   "skillKey": "G6.spelling",
+   "standard": "CCSS.ELA-LITERACY.L.6.2.b",
+   "level": 5,
+   "type": "GRID",
+   "stem": "Which rule do you use to add the suffix?",
+   "passage": null,
+   "subskill": "word-study",
+   "explanation": {
+    "whyCorrect": "noticeable (soft c keeps e), excitement (consonant suffix), believable (vowel suffix), reliable (consonant + y).",
+    "tip": "Soft c or g before -able keeps its e."
+   },
+   "estimatedSeconds": 80,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "status": "UNDER_REVIEW",
+   "origin": "TEACHER_AUTHORED",
+   "grid": {
+    "rows": [
+     {
+      "id": "r1",
+      "text": "notice + able"
+     },
+     {
+      "id": "r2",
+      "text": "excite + ment"
+     },
+     {
+      "id": "r3",
+      "text": "believe + able"
+     },
+     {
+      "id": "r4",
+      "text": "rely + able"
+     }
+    ],
+    "columns": [
+     {
+      "id": "c1",
+      "text": "Keep the e"
+     },
+     {
+      "id": "c2",
+      "text": "Drop the e"
+     },
+     {
+      "id": "c3",
+      "text": "Change y to i"
+     }
+    ],
+    "answer": {
+     "r1": "c1",
+     "r2": "c1",
+     "r3": "c2",
+     "r4": "c3"
+    }
+   }
+  }
+ ]
+}

@@ -1,4 +1,5 @@
 import { parentSummary, type ParentSummary } from "@/server/student/parent-summary";
+import { coachSummary } from "@/server/fluency/coach";
 import { AppShell } from "@/components/app-shell";
 import { ReportDownloads } from "@/components/reports/report-downloads";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -16,6 +17,7 @@ export default async function ParentHome() {
   const summaries = new Map(await Promise.all(children.map(async (c) => [c.studentId, await parentSummary(repo, actor, c.studentId)] as const)));
   const weeks = new Map(await Promise.all(children.map(async (c) => [c.studentId, await weekStats(repo, c.studentId)] as const)));
   const shared = new Map(await Promise.all(children.map(async (c) => [c.studentId, await isReportShared(repo, String(actor.schoolId), c.studentId)] as const)));
+  const coach = new Map(await Promise.all(children.map(async (c) => [c.studentId, await coachSummary(repo, c.studentId)] as const)));
   return (
     <AppShell name={String(me.displayName)}>
       <h1 className="text-3xl font-bold text-brand-navy">My Children</h1>
@@ -30,6 +32,7 @@ export default async function ParentHome() {
             {shared.get(c.studentId) && <Link href={`/parent/report/${c.studentId}`} className="lift mt-3 flex items-center justify-between rounded-2xl bg-emerald-50 px-5 py-4 font-bold text-emerald-900 ring-1 ring-emerald-300"><span>📄 Report from the teacher</span><span>Open ▶</span></Link>}
             {shared.get(c.studentId) && <div className="mt-2 flex flex-wrap gap-2"><Link href={`/map-report/family/${c.studentId}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📈 MAP Family Report</Link><Link href={`/map-report/study-plan/${c.studentId}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🧭 Study Plan</Link></div>}
             <Link href={`/parent/family/${c.studentId}`} className="lift mt-3 flex items-center justify-between rounded-2xl bg-brand-navy px-5 py-4 font-bold text-white"><span>👪 Family Report — everything in one place</span><span>Open ▶</span></Link>
+            {(() => { const f = coach.get(c.studentId)!; return f.latest || f.readings14 ? <p className="mt-3 rounded-2xl bg-teal-50 px-5 py-3 text-sm text-teal-950 ring-1 ring-teal-200">🎙 <b>Reading fluency:</b> {f.latest ? `${f.latest.wcpm} words correct per minute (${f.latest.date}) · ${f.latest.level === "ABOVE" ? "Above" : f.latest.level === "ON" ? "On" : "Below"} Level` : "practising"}{f.plan ? ` · this week's goal ${f.plan.goal} · next check ${f.plan.nextCheck}` : ""}{f.plan?.words.length ? ` · words to practise at home: ${f.plan.words.slice(0, 6).join(", ")}` : ""}</p> : null; })()}
             <ParentWeek w={weeks.get(c.studentId)!} />
             <ParentMonthly s={summaries.get(c.studentId)!} />
             <ReportDownloads title="Progress report (this term)" report={{ kind: "student", studentId: c.studentId, period: "TERM" }} formats={["pdf"]} />

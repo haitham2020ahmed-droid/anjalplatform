@@ -22,6 +22,10 @@ export async function questionPreviewAction(id: string): Promise<{ preview?: Que
       : i.answers?.length ? i.answers.join(" / ")
       : i.sequence?.length ? i.sequence.join(" → ")
       : i.pairs?.length ? i.pairs.map((p) => `${p.left} → ${p.right}`).join("; ")
+      : i.twoPart ? `Part A: ${i.twoPart.partA.options.filter((o) => o.correct).map((o) => `${o.label}. ${o.text}`).join("; ")} · Part B: ${i.twoPart.partB.options.filter((o) => o.correct).map((o) => `${o.label}. ${o.text}`).join("; ")}`
+      : i.grid ? i.grid.rows.map((r) => `${r.text} → ${i.grid!.columns.find((c) => c.id === i.grid!.answer[r.id])?.text ?? "?"}`).join("; ")
+      : i.hotText ? i.hotText.segments.filter((x) => i.hotText!.correct.includes(x.id)).map((x) => `“${x.text}”`).join(" ")
+      : i.segments?.length && i.errorIndexes ? (i.errorIndexes.length ? i.errorIndexes.map((k, n) => `Error: “${i.segments![k]}” → “${i.corrections?.[n] ?? ""}”`).join("; ") : "No error")
       : i.segments?.length && i.errorIndex !== undefined ? `Error: “${i.segments[i.errorIndex]}”${i.correction ? ` → “${i.correction}”` : ""}`
       : null;
     return {

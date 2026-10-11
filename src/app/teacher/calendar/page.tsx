@@ -7,10 +7,10 @@ import { calendar, type CalEvent } from "@/server/teacher/extras";
 import { weekStart } from "@/server/teacher/classroom";
 
 export const metadata = { title: "Calendar" };
-const ICON: Record<CalEvent["kind"], string> = { DUE: "📝", EXIT: "🎫", MAP_TEST: "🧭", RESPOND: "✍️", WRITING: "🖊" };
-const TONE: Record<CalEvent["kind"], string> = { DUE: "bg-sky-50 text-sky-900", EXIT: "bg-violet-50 text-violet-900", MAP_TEST: "bg-emerald-50 text-emerald-900", RESPOND: "bg-amber-50 text-amber-900", WRITING: "bg-rose-50 text-rose-900" };
+const ICON: Record<CalEvent["kind"], string> = { DUE: "📝", EXIT: "🎫", MAP_TEST: "🧭", RESPOND: "✍️", WRITING: "🖊", CYCLE: "🗓️", PROGRESS: "📋", FLUENCY: "🎙" };
+const TONE: Record<CalEvent["kind"], string> = { DUE: "bg-sky-50 text-sky-900", EXIT: "bg-violet-50 text-violet-900", MAP_TEST: "bg-emerald-50 text-emerald-900", RESPOND: "bg-amber-50 text-amber-900", WRITING: "bg-rose-50 text-rose-900", CYCLE: "bg-slate-100 text-slate-900", PROGRESS: "bg-teal-50 text-teal-900", FLUENCY: "bg-orange-50 text-orange-900" };
 
-/** 🗓️ Five weeks of the teacher's classes: due dates, exit tickets, writing, Respond, MAP practice tests. */
+/** 🗓️ Five weeks of the teacher's classes: due dates, exit tickets, writing, Respond, MAP practice tests and the assessment cycle. */
 export default async function CalendarPage({ searchParams }: { searchParams: Promise<{ from?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
@@ -22,7 +22,7 @@ export default async function CalendarPage({ searchParams }: { searchParams: Pro
   const move = (w: number) => `/teacher/calendar?from=${new Date(base.getTime() + w * 7 * 86_400_000).toISOString().slice(0, 10)}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="🗓️" title="Calendar" subtitle="Everything with a date in your classes: 📝 due work · 🎫 exit tickets · 🖊 writing · ✍️ Respond · 🧭 MAP practice tests.">
+      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="🗓️" title="Calendar" subtitle="Everything with a date in your classes: 📝 due work · 🎫 exit tickets · 🖊 writing · ✍️ Respond · 🧭 MAP practice tests · 🗓️ assessment windows · 📋 progress checks due · 🎙 fluency checks due (Tier 2/3).">
         <Link href={move(-4)} className="rounded-xl bg-white px-3 py-2 font-semibold ring-1 ring-slate-300 print:hidden">◀ Earlier</Link>
         <Link href="/teacher/calendar" className="rounded-xl bg-white px-3 py-2 font-semibold ring-1 ring-slate-300 print:hidden">Today</Link>
         <Link href={move(4)} className="rounded-xl bg-white px-3 py-2 font-semibold ring-1 ring-slate-300 print:hidden">Later ▶</Link>

@@ -2,12 +2,19 @@
  * Reporting areas for the Diagnostic: every question is reported under one CCSS standard (sub-standards such as
  * L.4.4.a fold into L.4.4) and one strand. Questions without a standard are reported by their skill's category.
  */
+import { bandEdges, fluencySeason, norm50, SEASON_NAME, type Season } from "../fluency/norms";
+
 export type Strand = "LIT" | "INFO" | "VOCAB" | "LANG" | "FOUND" | "WRITE";
 export const STRAND_LABEL: Record<Strand, string> = {
   LIT: "Reading Literature", INFO: "Reading Informational Text", VOCAB: "Vocabulary", LANG: "Grammar & Conventions", FOUND: "Foundational Skills", WRITE: "Writing",
 };
-/** the share of each strand in a 50-question test */
-export const STRAND_QUOTA: Record<Strand, number> = { LIT: 15, INFO: 15, VOCAB: 10, LANG: 10, FOUND: 0, WRITE: 0 };
+/**
+ * The share of each strand in a 50-question test. Foundational Skills (word study) takes its 4 places only when the
+ * bank has word-study questions; otherwise its places go back to the other strands (15 / 15 / 10 / 10).
+ */
+export const STRAND_QUOTA: Record<Strand, number> = { LIT: 15, INFO: 15, VOCAB: 10, LANG: 10, FOUND: 4, WRITE: 0 };
+/** skill families measured by the Foundational Skills slots (multisyllable decoding, affixes, roots, spelling patterns) */
+export const WORD_STUDY_FAMILIES: ReadonlySet<string> = new Set(["prefixes", "suffixes", "greek-latin-roots", "spelling", "homographs-homophones"]);
 
 const ANCHOR: Record<string, Record<number, string>> = {
   RL: { 1: "Evidence & Inferences", 2: "Theme & Summary", 3: "Characters, Setting & Events", 4: "Words & Phrases in Context", 5: "Text Structure", 6: "Point of View", 7: "Text & Visuals", 9: "Comparing Texts", 10: "Range of Reading" },
@@ -66,21 +73,59 @@ export function areaOfCategory(category: string, grade: number, genre?: string |
   return info ? { code: `RI.${grade}.1`, label: ANCHOR.RI[1], strand: "INFO", anchor: "RI.1" } : { code: `RL.${grade}.1`, label: ANCHOR.RL[1], strand: "LIT", anchor: "RL.1" };
 }
 
+/** The Foundational Skills area (RF.g.3, Phonics & Word Recognition) of a word-study question. */
+export const foundationalArea = (grade: number): Area => ({ code: `RF.${grade}.3`, label: ANCHOR.RF[3], strand: "FOUND", anchor: "RF.3" });
+
 export const prescriptionFor = (anchor: string) => PRESCRIPTION[anchor] ?? GENERIC;
 
 /** Performance tiers of the class report (by % correct). */
 export const TIERS = [
-  { key: "ADVANCED", name: "Tier 1 · Advanced", sub: "Exceeding standards", min: 75, strategy: "Extend: longer and more complex texts, comparing two texts, student-led discussions, and the next grade’s skills in the curriculum plan." },
-  { key: "PROFICIENT", name: "Tier 2 · Proficient", sub: "Meeting standards", min: 60, strategy: "Strengthen: target the two weakest standards with short practice sets and check for mastery every week." },
-  { key: "APPROACHING", name: "Tier 3 · Approaching", sub: "Emerging", min: 40, strategy: "Guided reading in small groups, graphic organizers, and explicit modelling of the weakest standards (support plan below)." },
-  { key: "INTENSIVE", name: "Tier 4 · Intensive Support", sub: "Substantial intervention", min: 0, strategy: "Daily small-group intervention: finding text evidence, main idea mapping, high-frequency academic vocabulary and fluency practice." },
+  { key: "ADVANCED", name: "Advanced", sub: "Exceeding standards", min: 75, strategy: "Extend: longer and more complex texts, comparing two texts, student-led discussions, and the next grade’s skills in the curriculum plan." },
+  { key: "PROFICIENT", name: "Proficient", sub: "Meeting standards", min: 60, strategy: "Strengthen: target the two weakest standards with short practice sets and check for mastery every week." },
+  { key: "APPROACHING", name: "Approaching", sub: "Emerging", min: 40, strategy: "Guided reading in small groups, graphic organizers, and explicit modelling of the weakest standards (support plan below)." },
+  { key: "INTENSIVE", name: "Intensive Support", sub: "Substantial intervention", min: 0, strategy: "Daily small-group intervention: finding text evidence, main idea mapping, high-frequency academic vocabulary and fluency practice." },
 ] as const;
 export const tierOf = (pct: number) => TIERS.find((t) => pct >= t.min)!;
+/**
+ * The performance band shown next to a student's Diagnostic level (readiness I-20): derived from the SAME level, so a
+ * card never says “On Level” next to “Advanced · Exceeding standards”. Above → Advanced, On → Proficient, Below →
+ * Approaching (40 %+) or Intensive Support. Without a level the % bands apply. (Named “bands”, not tiers, so they are
+ * never confused with the RTI support tiers.)
+ */
+export const bandFor = (pct: number, level?: string | null) =>
+  level === "ABOVE" ? TIERS[0] : level === "ON" ? TIERS[1] : level === "BELOW" ? (pct >= TIERS[2].min ? TIERS[2] : TIERS[3]) : tierOf(pct);
 
 /** Level of a standard's class average. */
 export function standardLevel(pct: number): "Strength" | "Moderate" | "Approaching" | "Priority Need" {
   return pct >= 75 ? "Strength" : pct >= 60 ? "Moderate" : pct >= 50 ? "Approaching" : "Priority Need";
 }
 
-/** Oral reading fluency benchmark (words correct per minute, middle of the year, Hasbrouck & Tindal 50th percentile). */
-export const WCPM_BENCHMARK: Record<number, number> = { 1: 29, 2: 84, 3: 97, 4: 120, 5: 133, 6: 146, 7: 150, 8: 151 };
+/**
+ * Oral reading fluency benchmark: the 50th percentile of Hasbrouck & Tindal (2017) for the grade and the CURRENT
+ * season (fall Aug–Nov · winter Dec–Feb · spring Mar–Jul), from src/server/fluency/norms.ts. Grades 4–6 are read
+ * live (getters, so a long-running server moves to the next season by itself); other grades keep the published
+ * winter 50th percentile.
+ */
+export const WCPM_BENCHMARK: Record<number, number> = { 1: 29, 2: 84, 3: 97, 7: 150, 8: 151 };
+for (const g of [4, 5, 6]) Object.defineProperty(WCPM_BENCHMARK, g, { enumerable: true, get: () => norm50(g, fluencySeason()) ?? 120 });
+export const wcpmBenchmark = (grade: number, season: Season = fluencySeason()): number => (grade >= 4 && grade <= 6 ? norm50(grade, season) ?? 120 : WCPM_BENCHMARK[grade] ?? 120);
+
+/**
+ * The school's Diagnostic Fluency Assessment Rubric (WCPM, Hasbrouck & Tindal 2017, season-aware, US norms as
+ * published — the school's decision): Below ≤ the 25th percentile · On between · Above > the 75th percentile, for the
+ * grade and the season of the reading. E.g. fall: Grade 4 ≤ 75 · 76–125 · > 125 | Grade 5 ≤ 87 · 88–153 · > 153 |
+ * Grade 6 ≤ 112 · 113–159 · > 159. Other grades: Below under 75% of the benchmark, Above over 125%.
+ * FLUENCY_RUBRIC holds the current season's edges (getters).
+ */
+export const FLUENCY_RUBRIC: Record<number, { below: number; above: number }> = {};
+for (const g of [4, 5, 6]) Object.defineProperty(FLUENCY_RUBRIC, g, { enumerable: true, get: () => fluencyBands(g) });
+export function fluencyBands(grade: number, season: Season = fluencySeason()): { below: number; above: number } {
+  const e = grade >= 4 && grade <= 6 ? bandEdges(grade, season) : null;
+  if (e) return { below: e.below, above: e.above };
+  const b = WCPM_BENCHMARK[grade] ?? 120;
+  return { below: Math.round(b * 0.75) - 1, above: Math.round(b * 1.25) };
+}
+export const fluencyLevel = (wcpm: number, grade: number, season: Season = fluencySeason()): "BELOW" | "ON" | "ABOVE" => { const r = fluencyBands(grade, season); return wcpm <= r.below ? "BELOW" : wcpm > r.above ? "ABOVE" : "ON"; };
+export const fluencyRubricText = (grade: number, season: Season = fluencySeason()) => { const r = fluencyBands(grade, season); return `Grade ${grade}: Below ≤ ${r.below} · On ${r.below + 1}–${r.above} · Above > ${r.above} WCPM`; };
+/** The rubric line with its season, e.g. "Grade 5 · winter: Below ≤ 109 · On 110–160 · Above > 160 WCPM". */
+export const fluencyRubricSeasonText = (grade: number, season: Season = fluencySeason()) => fluencyRubricText(grade, season).replace(/^Grade (\d+):/, `Grade $1 · ${SEASON_NAME[season]}:`);

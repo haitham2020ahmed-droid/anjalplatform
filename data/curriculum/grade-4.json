@@ -201,7 +201,7 @@
       {
        "label": "Homographs",
        "role": "VOCABULARY_STRATEGY",
-       "familyCode": "text-features",
+       "familyCode": "homographs-homophones",
        "week": 2
       }
      ],
@@ -1812,7 +1812,7 @@
       {
        "label": "Homophones and Homographs",
        "role": "AUTHORS_CRAFT",
-       "familyCode": "text-features"
+       "familyCode": "homographs-homophones"
       },
       {
        "label": "Pronouns",
@@ -2430,7 +2430,7 @@
       {
        "label": "Use of a, an, and the",
        "role": "GRAMMAR",
-       "familyCode": "sentences",
+       "familyCode": "adjectives",
        "week": 2,
        "ruleSummary": [
         "An article is a type of adjective. It comes before the noun it describes.",

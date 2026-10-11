@@ -1,0 +1,78 @@
+{
+ "generic": {
+  "arm": "GENERIC",
+  "seconds": 127,
+  "students": 300,
+  "weeks": 6,
+  "answers": 40236,
+  "sessions": 5391,
+  "learningGain": 0.043,
+  "gainByBand": {
+   "BELOW": 0.042,
+   "ON": 0.046,
+   "ABOVE": 0.04
+  },
+  "gapsRepairedPct": 4,
+  "latentGaps": 279,
+  "gapRise": 0.091,
+  "sessionsOnTrueGapPct": 8,
+  "sessionsOnStrongSkillsPct": 26,
+  "productiveAnswersPct": 23,
+  "meanDistanceItemToAbility": 1.417,
+  "distinctFirstPaths": 14,
+  "diagnosisRecallPct": 47,
+  "diagnosisChecked": 17,
+  "levelAgreementPct": 50,
+  "levelChecked": 300,
+  "misconceptionDetectedPct": 31,
+  "misconceptionChecked": 13,
+  "bands": {
+   "BELOW": 89,
+   "ON": 133,
+   "ABOVE": 78
+  },
+  "behaviours": {
+   "DILIGENT": 153,
+   "IRREGULAR": 104,
+   "GUESSER": 43
+  }
+ },
+ "personalized": {
+  "arm": "PERSONALIZED",
+  "seconds": 107,
+  "students": 300,
+  "weeks": 6,
+  "answers": 37015,
+  "sessions": 5391,
+  "learningGain": 0.056,
+  "gainByBand": {
+   "BELOW": 0.054,
+   "ON": 0.06,
+   "ABOVE": 0.052
+  },
+  "gapsRepairedPct": 4,
+  "latentGaps": 279,
+  "gapRise": 0.124,
+  "sessionsOnTrueGapPct": 14,
+  "sessionsOnStrongSkillsPct": 3,
+  "productiveAnswersPct": 23,
+  "meanDistanceItemToAbility": 1.31,
+  "distinctFirstPaths": 248,
+  "diagnosisRecallPct": 67,
+  "diagnosisChecked": 91,
+  "levelAgreementPct": 78,
+  "levelChecked": 300,
+  "misconceptionDetectedPct": 37,
+  "misconceptionChecked": 27,
+  "bands": {
+   "BELOW": 89,
+   "ON": 133,
+   "ABOVE": 78
+  },
+  "behaviours": {
+   "DILIGENT": 153,
+   "IRREGULAR": 104,
+   "GUESSER": 43
+  }
+ }
+}

@@ -10,6 +10,7 @@
  * A plan practises each chosen area with questions of the student's band and the band above (estimated RIT of
  * every question, recalibrated from real answers). Plans are DRAFT until the teacher reviews, edits and sends.
  */
+import { scoringParams } from "../practice/scoring-params";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -57,7 +58,7 @@ export async function setBandSettings(repo: Repo, actor: Actor, v: BandSettings,
   assertCan(actor, "settings:school");
   if (!(Number.isInteger(v.size) && v.size >= 5 && v.size <= 20)) throw new ValidationError("Band size: 5 to 20 RIT.");
   if (!(Number.isInteger(v.min) && Number.isInteger(v.max) && v.min >= 100 && v.max <= 350 && v.min + v.size < v.max)) throw new ValidationError("Lowest and highest RIT: from 100 to 350, lowest first.");
-  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: BKEY }, { value: v, updatedById: actor.userId, updatedAt: now }, { value: v, updatedById: actor.userId, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: BKEY }, { value: v, updatedBy: actor.userId, updatedAt: now }, { value: v, updatedBy: actor.userId, updatedAt: now });
 }
 
 /** 185 → 181–190 (size 10). Under the lowest band: “≤ 160”; over the highest: “241+”. */
@@ -149,7 +150,7 @@ export type Pools = { pools: Map<GroupKey, PoolQ[]>; skills: Map<string, { id: s
 /** Kept in memory per school and grade (speed: My MAP, the matrix and the plans all need it) until a question,
  *  skill or goal-area link changes in this process, and at most 60 s (other processes). */
 const poolCache = new WeakMap<object, Map<string, { at: number; v: string; p: Promise<Pools> }>>();
-const POOL_MODELS = ["Question", "Skill", "SkillFamily", "MapGoalArea", "QuestionType", "Curriculum", "Grade", "SkillStandard"];
+const POOL_MODELS = ["Question", "Skill", "SkillFamily", "MapGoalArea", "QuestionType", "Curriculum", "Grade", "SkillStandard", "Standard", "QuestionMapLink", "CurriculumMapNode"];
 export function groupPools(repo: Repo, schoolId: string, grade: number): Promise<Pools> {
   let m = poolCache.get(repo);
   if (!m) poolCache.set(repo, (m = new Map()));
@@ -180,7 +181,89 @@ async function loadPools(repo: Repo, schoolId: string, grade: number): Promise<P
     pools.get(groupOfSkill.get(s(q.skillId))!)!.push({ id: s(q.id), skillId: s(q.skillId), rit });
   }
   const skillMap = new Map(skills.filter((k) => groupOfSkill.has(k.id)).map((k) => [k.id, { id: k.id, name: k.name, group: groupOfSkill.get(k.id)! }]));
+  await linkByStandard(repo, schoolId, grade, pools, skillMap, norm);
+  await byQuestionArea(repo, skills, pools, skillMap, manual, norm);
   return { pools, skills: skillMap };
+}
+
+/**
+ * 🧭 The question's own NWEA instructional area decides last (map_instructional_area, set by the MAP
+ * classification, the import file or an admin): a question of the grade with an area joins that area's pool,
+ * wherever its skill family or standard put it before. So a student weak in one area of MAP practises questions
+ * of exactly that area, at their RIT (Below / On / Above).
+ */
+async function byQuestionArea(repo: Repo, skills: { id: string; name: string }[], pools: Map<GroupKey, PoolQ[]>, skillMap: Pools["skills"], manual: Set<string>, norm: Awaited<ReturnType<typeof nationalNorm>>): Promise<void> {
+  const inPools = [...pools.values()].flat().map((q) => q.id);
+  const sel = { select: ["id", "skillId", "difficultyLevel", "tags", "typeId", "mapInstructionalArea"] };
+  const [bySkill, byId] = await Promise.all([
+    skills.length ? repo.findMany("Question", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null, mapInstructionalArea: { not: null } }, sel) : Promise.resolve([] as Row[]),
+    inPools.length ? repo.findMany("Question", { id: { in: inPools }, mapInstructionalArea: { not: null } }, sel) : Promise.resolve([] as Row[]),
+  ]);
+  const all = new Map<string, Row>(); for (const q of [...bySkill, ...byId]) all.set(s(q.id), q);
+  if (!all.size) return;
+  const { areaFromName } = await import("./nwea-area");
+  const where = new Map<string, GroupKey>(); for (const [g, list] of pools) for (const q of list) where.set(q.id, g);
+  for (const q of all.values()) {
+    if (manual.has(s(q.typeId))) continue;
+    const g = areaFromName(s(q.mapInstructionalArea)) as GroupKey | null;
+    if (!g || !pools.has(g)) continue;
+    const before = where.get(s(q.id));
+    if (before === g) continue;
+    let rit: number;
+    if (before) { const old = pools.get(before)!.find((x) => x.id === q.id)!; rit = old.rit; pools.set(before, pools.get(before)!.filter((x) => x.id !== q.id)); }
+    else {
+      let t: unknown = q.tags; if (typeof t === "string") { try { t = JSON.parse(t); } catch { t = null; } }
+      const cal = (t as { rit?: { value?: number } } | null)?.rit?.value;
+      rit = Number.isFinite(Number(cal)) && cal ? Number(cal) : ritFromDifficulty(Number(q.difficultyLevel ?? 4), norm) ?? 200;
+    }
+    pools.get(g)!.push({ id: s(q.id), skillId: s(q.skillId), rit });
+    const sk = skills.find((k) => k.id === q.skillId);
+    if (sk && !skillMap.has(sk.id)) skillMap.set(sk.id, { id: sk.id, name: sk.name, group: g });
+  }
+}
+
+/**
+ * Every question of the grade joins a MAP goal area by its own standard (RL.4.2 → Literary Text, L.4.1 → Grammar …):
+ * the question's standard first, else its skill's standards, else its skill category or Curriculum Map place
+ * (the same reading the Diagnostic uses). So the Question Bank, the curriculum plan and ReadMaster questions all
+ * count for MAP, not only the skills whose family an admin linked by hand. A question with its own standard moves
+ * to that standard's area; the others keep their family's area.
+ */
+async function linkByStandard(repo: Repo, schoolId: string, grade: number, pools: Map<GroupKey, PoolQ[]>, skillMap: Pools["skills"], norm: Awaited<ReturnType<typeof nationalNorm>>): Promise<void> {
+  const { diagnosticPool } = await import("../diagnostic/test");
+  const { areaForStandard } = await import("./map-more");
+  let pool: Awaited<ReturnType<typeof diagnosticPool>>;
+  try { pool = await diagnosticPool(repo, schoolId, grade); } catch { return; }
+  if (!pool.length) return;
+  const where = new Map<string, GroupKey>();
+  for (const [g, list] of pools) for (const q of list) where.set(q.id, g);
+  const ids = pool.map((q) => q.id);
+  const rows = await repo.findMany("Question", { id: { in: ids } }, { select: ["id", "skillId", "standardId", "difficultyLevel", "tags"] });
+  const byId = new Map(rows.map((r) => [s(r.id), r]));
+  const ownStd = new Set(rows.filter((r) => r.standardId).map((r) => s(r.id)));
+  const groupOfCode = (code: string): GroupKey | null => { const a = areaForStandard(code); return a ? GROUPS.find((g) => g.codes.includes(a))?.key ?? null : null; };
+  const votes = new Map<string, Map<GroupKey, number>>();
+  for (const q of pool) {
+    const g = groupOfCode(q.area.code);
+    if (!g || g === "WRITING") continue;
+    const before = where.get(q.id);
+    // the family's area stays for questions without a standard of their own
+    if (before && (before === g || !ownStd.has(q.id))) continue;
+    const r = byId.get(q.id);
+    if (!r) continue;
+    if (before) pools.set(before, (pools.get(before) ?? []).filter((x) => x.id !== q.id));
+    let t: unknown = r.tags; if (typeof t === "string") { try { t = JSON.parse(t); } catch { t = null; } }
+    const cal = (t as { rit?: { value?: number } } | null)?.rit?.value;
+    const rit = Number.isFinite(Number(cal)) && cal ? Number(cal) : ritFromDifficulty(Number(r.difficultyLevel ?? 4), norm) ?? 200;
+    const skillId = s(r.skillId);
+    pools.get(g)!.push({ id: q.id, skillId, rit });
+    if (skillId && !skillMap.has(skillId)) { const v = votes.get(skillId) ?? new Map(); v.set(g, (v.get(g) ?? 0) + 1); votes.set(skillId, v); }
+  }
+  // skills that only now have MAP questions: listed under the area most of their questions belong to
+  if (votes.size) {
+    const names = await repo.findMany("Skill", { id: { in: [...votes.keys()] }, deletedAt: null }, { select: ["id", "name"] });
+    for (const k of names) { const v = [...votes.get(s(k.id))!.entries()].sort((a, b) => b[1] - a[1])[0]; skillMap.set(s(k.id), { id: s(k.id), name: s(k.name), group: v[0] }); }
+  }
 }
 
 /** Questions of the band and the band above; widened a band at a time (max 3) when there are too few. */
@@ -385,16 +468,44 @@ export async function groupWorksheetIds(repo: Repo, actor: Actor, classId: strin
 
 // ------------------------------------------------------------------ RIT estimate from platform answers (goal counter)
 
-/** Rasch estimate of the student's current RIT from careful answers of the last 45 days (needs 15+ answers). */
+/** Rasch estimate of the student's current RIT from careful answers of the last 45 days (needs 15+ answers),
+ *  pulled toward the student's latest MAP RIT (or the grade norm): see estimateRits. */
 export async function estimateRit(repo: Repo, schoolId: string, studentId: string, subject: Subject, now = new Date()): Promise<{ rit: number; answers: number } | null> {
   const st = await repo.findUnique("Student", { id: studentId });
   const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 0);
   if (!grade) return null;
-  return (await estimateRits(repo, await groupPools(repo, schoolId, grade), [studentId], subject, now)).get(studentId) ?? null;
+  return (await estimateRits(repo, await groupPools(repo, schoolId, grade), [studentId], subject, now, { grade })).get(studentId) ?? null;
 }
 
-/** The same for many students of one grade at once (one query for all their answers). */
-export async function estimateRits(repo: Repo, pk: Pools, studentIds: string[], subject: Subject, now = new Date()): Promise<Map<string, { rit: number; answers: number }>> {
+/** SD (RIT) of the prior around the student's latest MAP score: a 15-answer check moves it, but never to 120 or 300. */
+export const RIT_PRIOR_SD = 10;
+
+/**
+ * Bayesian (MAP / posterior-mode) RIT from Rasch answers: likelihood of the answers × a normal prior N(prior, sd²).
+ * All-correct or all-wrong answers stay finite and close to the prior instead of running to the scale's ends. Pure.
+ */
+export function ritPosterior(b: number[], x: number[], prior: number, sd = RIT_PRIOR_SD, c: number[] = []): number {
+  let r = prior;
+  for (let i = 0; i < 40; i++) {   // Fisher scoring on the RIT scale (10 RIT = 1 logit)
+    let f = -(r - prior) / (sd * sd), d = 1 / (sd * sd);
+    for (let k = 0; k < b.length; k++) {
+      // Update 39B: the item format's guessing floor (3PL with fixed c): a lucky multiple-choice guess no longer
+      // reads as ability — RIT 217 for an average new Grade 6 student came from c = 0
+      const g = Math.min(0.5, Math.max(0, c[k] ?? 0));
+      const q = 1 / (1 + Math.exp(-(r - b[k]) / 10)), p = g + (1 - g) * q, dp = ((1 - g) * q * (1 - q)) / 10;
+      f += ((x[k] - p) / Math.max(1e-9, p * (1 - p))) * dp; d += (dp * dp) / Math.max(1e-9, p * (1 - p));
+    }
+    const step = f / d;
+    r = Math.max(100, Math.min(350, r + step));
+    if (Math.abs(step) < 0.01) break;
+  }
+  return r;
+}
+
+/** The same for many students of one grade at once (one query for all their answers, one for their MAP scores).
+ *  The prior is the student's latest MAP RIT in the subject, else the grade's national norm (opts.grade), else the
+ *  middle of the answered items. */
+export async function estimateRits(repo: Repo, pk: Pools, studentIds: string[], subject: Subject, now = new Date(), opts: { grade?: number } = {}): Promise<Map<string, { rit: number; answers: number }>> {
   const out = new Map<string, { rit: number; answers: number }>();
   if (!studentIds.length) return out;
   const ritOf = new Map<string, number>();
@@ -402,18 +513,30 @@ export async function estimateRits(repo: Repo, pk: Pools, studentIds: string[], 
   const since = new Date(now.getTime() - 45 * 86_400_000);
   const all = await repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: since } }, { select: ["studentId", "questionId", "isCorrect", "rapidGuess"] });
   const by = new Map<string, Row[]>();
-  for (const a of all) if (!a.rapidGuess && ritOf.has(s(a.questionId))) by.set(s(a.studentId), [...(by.get(s(a.studentId)) ?? []), a]);
-  for (const [id, attempts] of by) {
-    if (attempts.length < 15) continue;
-    const b = attempts.map((a) => ritOf.get(s(a.questionId))!), x = attempts.map((a) => (a.isCorrect ? 1 : 0));
-    let r = b.reduce((t, v) => t + v, 0) / b.length;
-    for (let i = 0; i < 30; i++) {   // Newton steps on the RIT scale (10 RIT = 1 logit)
-      let f = 0, d = 0;
-      for (let k = 0; k < b.length; k++) { const p = 1 / (1 + Math.exp(-(r - b[k]) / 10)); f += x[k] - p; d += (p * (1 - p)) / 10; }
-      if (d < 1e-6) break;
-      r = Math.max(120, Math.min(300, r + f / d));
+  for (const a of all) if (!a.rapidGuess && ritOf.has(s(a.questionId))) { const k = s(a.studentId); const l = by.get(k); if (l) l.push(a); else by.set(k, [a]); }
+  const ready = [...by].filter(([, list]) => list.length >= 15).map(([id]) => id);
+  if (!ready.length) return out;
+  // the prior: latest MAP RIT (overall score) in this subject, not after now
+  const isSubj = subject === "READING" ? /read/i : /language/i;
+  const maps = await repo.findMany("MapResult", { studentId: { in: ready }, goalName: null, testDate: { lte: now } }, { select: ["studentId", "subject", "rit", "testDate"] });
+  const latestMap = new Map<string, { rit: number; at: number }>();
+  for (const m of maps) {
+    if (!isSubj.test(s(m.subject))) continue;
+    const at = time(m.testDate), cur = latestMap.get(s(m.studentId));
+    if (!cur || at > cur.at) latestMap.set(s(m.studentId), { rit: Number(m.rit), at });
+  }
+  const guess = await scoringParams(repo, ready.flatMap((id) => by.get(id)!.map((a) => s(a.questionId))));
+  let gradeNorm: number | null | undefined;
+  for (const id of ready) {
+    const attempts = by.get(id)!;
+    const b = attempts.map((a) => ritOf.get(s(a.questionId))!), x = attempts.map((a) => (a.isCorrect ? 1 : 0)), c = attempts.map((a) => guess.get(s(a.questionId))?.c ?? 0);
+    let prior = latestMap.get(id)?.rit ?? null;
+    if (prior === null && opts.grade) {
+      if (gradeNorm === undefined) { await ensureNationalNorms(repo).catch(() => null); gradeNorm = (await nationalNorm(repo, opts.grade, seasonOf(null, now)))?.mean ?? null; }
+      prior = gradeNorm;
     }
-    out.set(id, { rit: Math.round(r), answers: attempts.length });
+    if (prior === null) prior = b.reduce((t, v) => t + v, 0) / b.length;
+    out.set(id, { rit: Math.round(ritPosterior(b, x, prior, RIT_PRIOR_SD, c)), answers: attempts.length });
   }
   return out;
 }

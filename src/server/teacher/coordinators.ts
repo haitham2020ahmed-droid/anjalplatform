@@ -58,6 +58,6 @@ export async function setCoordinators(repo: Repo, actor: Actor, entries: { userI
     const g = [...new Set(e.grades.map(Number))].filter((n) => Number.isInteger(n) && n >= 1 && n <= 12);
     if (g.length) v[e.userId] = g.sort((a, b) => a - b);
   }
-  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY }, { value: v, updatedById: actor.userId, updatedAt: now }, { value: v, updatedById: actor.userId, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY }, { value: v, updatedBy: actor.userId, updatedAt: now }, { value: v, updatedBy: actor.userId, updatedAt: now });
   return Object.keys(v).length;
 }

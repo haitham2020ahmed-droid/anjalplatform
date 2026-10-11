@@ -39,12 +39,17 @@ describe("📚 bank tools: restore archived, auto-classify by standard, map cove
     assert.equal((await repo.findUnique("Question", { id: qs[0].id }))!.status, "PUBLISHED");
   });
 
-  test("🪄 auto-classify moves Unclassified questions to the skill linked to their standard (when there is one)", async () => {
-    const before = (await repo.findMany("Question", {})).filter((q) => String(q.stem).startsWith("Tool question number"));
+  test("🪄 map questions imported without a skill get the skill of their standard / map place at import; auto-classify finds none left", async () => {
+    // Update 39C: the import's "skill from the map place" step (curriculum-map/remap-skills.ts) gives each question its
+    // real skill at once — by the standard when exactly one skill of the grade is linked to it, else by the place
+    const qs = (await repo.findMany("Question", {})).filter((q) => String(q.stem).startsWith("Tool question number"));
+    assert.equal(qs.length, 3);
+    const skills = await repo.findMany("Skill", { id: { in: [...new Set(qs.map((q) => String(q.skillId)))] } });
+    assert.ok(skills.every((k) => !String(k.code).endsWith(".curriculum-map-unclassified") && k.isActive !== false), skills.map((k) => k.code).join());
+    const std = String(qs[0].standardId ?? "");
+    const linked = std ? (await repo.findMany("SkillStandard", { standardId: std })).map((l) => String(l.skillId)) : [];
+    if (linked.length === 1) assert.ok(qs.every((q) => q.skillId === linked[0]), "the skill linked to the standard");
     const r = await autoClassify(repo, admin.schoolId!, admin.userId);
-    const after = (await repo.findMany("Question", {})).filter((q) => String(q.stem).startsWith("Tool question number"));
-    const linked = (await repo.findMany("SkillStandard", { standardId: String(before[0].standardId) })).length > 0;
-    if (linked) { assert.ok(r.classified >= 3); assert.ok(after.every((q) => q.skillId !== before[0].skillId)); }
-    else assert.equal(r.classified, 0, "no skill with that standard: left for a person");
+    assert.equal(r.classified, 0, "nothing left on the hidden skill");
   });
 });

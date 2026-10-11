@@ -13,7 +13,7 @@
  *     deactivated. Units and skills use the existing soft delete (deletedAt) so history survives.
  */
 import { audit } from "./audit";
-import { assertCan, ForbiddenError, type Actor } from "./auth/rbac";
+import { assertCan, can, ForbiddenError, type Actor } from "./auth/rbac";
 import { ValidationError } from "./curriculum-admin";
 import type { Repo, Row } from "./seeding/repo";
 
@@ -45,6 +45,22 @@ function school(actor: Actor): string {
   if (!actor.schoolId) throw new ForbiddenError("No school.");
   return actor.schoolId;
 }
+/**
+ * Standards and skill families are a SHARED catalogue (no schoolId): a change is seen by
+ * every school. Allowed for a platform admin (`schools:manage`, i.e. SUPER_ADMIN). A school
+ * admin with `curriculum:edit` may still do it while the deployment has at most ONE real
+ * school (demo / test schools, isDemo, do not count) and the admin belongs to it — so
+ * today's single-school install keeps working, but a demo/test-school admin, or any admin
+ * once several real schools share the catalogue, is refused.
+ */
+export async function assertCanEditSharedCatalogue(repo: Repo, actor: Actor): Promise<void> {
+  if (can(actor, "schools:manage")) return;
+  assertCan(actor, "curriculum:edit");
+  const real = (await repo.findMany("School", {}, { select: ["id", "isDemo", "deletedAt"] })).filter((x) => !x.deletedAt && x.isDemo !== true && x.isDemo !== 1);
+  const ok = real.length === 0 || (real.length === 1 && s(real[0].id) === s(actor.schoolId));
+  if (!ok) throw new ForbiddenError("Standards and skill families are shared by all schools. Only a platform administrator can change them.");
+}
+
 const log = (repo: Repo, actor: Actor, action: string, entityType: string, entityId: string, after?: unknown, before?: unknown) =>
   audit(repo, { actorId: actor.userId, action, entityType, entityId, after: after as never, before: before as never });
 
@@ -393,6 +409,7 @@ export async function createStandard(repo: Repo, actor: Actor, input: { framewor
 
 export async function updateStandard(repo: Repo, actor: Actor, standardId: string, input: { description?: string; gradeLevel?: number | null; isActive?: boolean }): Promise<void> {
   school(actor);
+  await assertCanEditSharedCatalogue(repo, actor);
   const st = await repo.findUnique("Standard", { id: standardId });
   if (!st) throw new ValidationError("Standard not found.");
   const patch: Row = {};
@@ -406,6 +423,7 @@ export async function updateStandard(repo: Repo, actor: Actor, standardId: strin
 /** Deletes a standard only if no skill or question uses it. */
 export async function deleteStandard(repo: Repo, actor: Actor, standardId: string): Promise<void> {
   school(actor);
+  await assertCanEditSharedCatalogue(repo, actor);
   const st = await repo.findUnique("Standard", { id: standardId });
   if (!st) throw new ValidationError("Standard not found.");
   const [skills, questions] = await Promise.all([repo.count("SkillStandard", { standardId }), repo.count("Question", { standardId })]);

@@ -34,7 +34,7 @@ const day = (iso: string | null) => (iso ? iso.slice(0, 10) : null);
 /** ASCII-only, filesystem-safe piece of a file name. */
 export const slug = (s: string) => s.normalize("NFKD").replace(/[^\x20-\x7E]/g, "").replace(/[^A-Za-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40) || "x";
 
-function base(ctx: BuildContext, kind: ReportKind, meta: MetaItem[], sections: Section[], primaryTable: string, stemParts: string[]): ReportDoc {
+function base(ctx: BuildContext, kind: "student" | "class" | "standards" | "school", meta: MetaItem[], sections: Section[], primaryTable: string, stemParts: string[]): ReportDoc {
   const L = ctx.locale;
   return {
     kind, locale: L, title: t(L, `title.${kind}`), subtitle: t(L, "subtitle"), branding: ctx.branding,
@@ -185,12 +185,12 @@ export async function buildClassReport(ctx: BuildContext, classId: string): Prom
     {
       type: "table", id: "students", title: t(L, "sec.students"), empty: t(L, "noData"),
       columns: [
-        { key: "name", label: t(L, "col.student"), kind: "name", width: 2.2 },
-        { key: "number", label: t(L, "col.studentNumber"), kind: "latin", width: 1.4, nowrap: true },
+        { key: "name", label: t(L, "col.student"), kind: "name", width: 2.0 },
+        { key: "number", label: t(L, "col.studentNumber"), kind: "latin", width: 1.3, nowrap: true },
         { key: "group", label: t(L, "col.group"), kind: "text", width: 1.4 },
         { key: "placement", label: t(L, "col.placement"), kind: "text", width: 1.5 },
-        { key: "avg", label: t(L, "col.avgMastery"), kind: "int", width: 1.1 },
-        { key: "mastered", label: t(L, "col.skillsMastered"), kind: "int", width: 1.1 },
+        { key: "avg", label: t(L, "col.avgMastery"), kind: "int", width: 1.2 },
+        { key: "mastered", label: t(L, "col.skillsMastered"), kind: "int", width: 1.3 },
         { key: "questions", label: t(L, "col.questions"), kind: "int", width: 1.25 },
         { key: "accuracy", label: t(L, "col.accuracy"), kind: "pct", width: 1.25 },
         { key: "minutes", label: t(L, "col.minutes"), kind: "int", width: 1.15 },

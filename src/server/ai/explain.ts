@@ -46,7 +46,13 @@ export async function explainAnswer(repo: Repo, actor: Actor, questionId: string
   if (rs.waitMs > 0) return built;
   const st = await repo.findUnique("Student", { id: actor.studentId });
   const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 5);
-  const system = `You are a kind, patient reading tutor for a Grade ${grade} student learning English (their first language is Arabic). The student chose a wrong answer. In simple English a Grade ${grade} learner understands, explain (1) why the correct choice is right, pointing to words in the text when there is a text, (2) why the chosen choice does not fit, and (3) give one short strategy for next time. No more than 90 words in "explanation". Never mention grades, scores or the student. Reply with JSON only: {"explanation": string, "tip": string, "steps": [string, string, string]}.`;
+  // 🧑‍🏫 what the platform knows about this mistake (no name, no id, no history: only the kind of mistake and a level)
+  const { MISCONCEPTION_BY_CODE } = await import("../../insights/misconceptions");
+  const { bandOfTheta } = await import("../../tutor/tutor");
+  const code = picked.find((o) => !o.correct)?.misconception ?? null;
+  const ab = await repo.findUnique("StudentAbility", { studentId: actor.studentId, scope: `SKILL:${(await repo.findUnique("Question", { id: questionId }))?.skillId ?? ""}` });
+  const band = bandOfTheta(ab ? Number(ab.theta) : null);
+  const system = `You are a kind, patient reading tutor for a Grade ${grade} student learning English (their first language is Arabic). The student chose a wrong answer. In simple English a Grade ${grade} learner understands, explain (1) why the correct choice is right, pointing to words in the text when there is a text, (2) why the chosen choice does not fit, and (3) give one short strategy for next time. No more than 90 words in "explanation". Name the student's mistake first (mistakeKind, when given) in kind words. Match the level: ${band === "BELOW" ? "very short sentences and common words" : band === "ABOVE" ? "add one question that makes them think further" : "clear, simple sentences"}. Never mention grades, scores or the student. Reply with JSON only: {"explanation": string, "tip": string, "steps": [string, string, string]}.`;
   const payload = {
     questionText: it.stem,
     passageText: it.passageText ? it.passageText.slice(0, 2500) : null,
@@ -54,6 +60,7 @@ export async function explainAnswer(repo: Repo, actor: Actor, questionId: string
     correctChoice: right.map((o) => `${o.label}. ${o.text}`).join(" / ") || null,
     chosenChoice: picked.map((o) => `${o.label}. ${o.text}`).join(" / ") || null,
     authorExplanation: it.explanation.whyCorrect || null,
+    mistakeKind: code ? MISCONCEPTION_BY_CODE.get(code)?.label ?? null : null,
   };
   const r = await callJson(repo, { schoolId: s(actor.schoolId), tool: "explain", picked: pickedP, items: 1 }, system, payload, (data) => {
     const d = data as { explanation?: unknown; tip?: unknown; steps?: unknown };

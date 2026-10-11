@@ -20,6 +20,10 @@ export default async function QuickStudentsPage() {
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/admin/users", label: "Users" }} icon="⚡" title="Students & MAP Scores"
         subtitle="Add students and their MAP scores with a template (Excel) or by hand. As soon as MAP scores are saved, every student gets an individual plan and each class gets 3-level group plans." />
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-slate-200">
+        <span className="text-sm text-slate-600">New year or a wrong list? Remove all the students (or one grade, one class, one student), edit them or restore them. Classes, teachers, questions and plans stay.</span>
+        <Link href="/admin/roster/clean" className="rounded-xl bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700">🧹 Clear Roster</Link>
+      </div>
       <ol className="grid gap-3 md:grid-cols-3 print:hidden">
         <li className={step}><p className="font-bold text-brand-navy">1 · Students</p><p className="text-sm text-slate-600">Template: <b>Import users</b> (one row per student: username, name, number, grade, class). Or by hand: paste the names below.</p><Link href="/admin/roster" className={btn}>📥 Import users (template)</Link></li>
         <li className={step}><p className="font-bold text-brand-navy">2 · MAP scores</p><p className="text-sm text-slate-600">Template: <b>MAP data</b> → download the template (your students are already in it) → fill → import. Or type them in the class table.</p><Link href="/teacher/map-rit" className={btn}>📥 MAP template / import</Link> <Link href="/teacher/map-entry" className={btn}>✏️ Type MAP scores</Link></li>

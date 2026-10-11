@@ -5,6 +5,7 @@
  *   - MAP practice test: from questions marked “MAP test”; the report groups results by MAP goal area.
  * All three reuse teacher question sets (statuses, notifications, the answer page, reports).
  */
+import { evidenceLevels } from "./evidence-level";
 import { recordLevel } from "./student-level";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -263,7 +264,8 @@ export const levelFromScore = (pct: number): Level => (pct >= 80 ? "ABOVE" : pct
  * The actor's classes of one grade with their students and levels, in a fixed number of queries
  * (for the ⭐ Assign window on the Curriculum Map), whatever the number of classes.
  */
-export async function rosterForGrade(repo: Repo, actor: Actor, gradeLevel: number): Promise<{ id: string; name: string; students: { id: string; name: string; level: Level | null }[] }[]> {
+export interface RosterLevel { level: Level; from: string; reason: string }
+export async function rosterForGrade(repo: Repo, actor: Actor, gradeLevel: number): Promise<{ id: string; name: string; students: { id: string; name: string; level: Level | null; auto: RosterLevel; byCategory: Record<"CV" | "ACS" | "RTR", RosterLevel> }[] }[]> {
   const classes = await accessibleClasses(repo, actor);
   if (!classes.length) return [];
   const grades = await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => s(c.gradeId)))] } }, { select: ["id", "level"] });
@@ -277,8 +279,12 @@ export async function rosterForGrade(repo: Repo, actor: Actor, gradeLevel: numbe
   ]);
   const users = studs.length ? await repo.findMany("User", { id: { in: studs.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
   const nameOf = new Map(studs.map((x) => [s(x.id), s(users.find((u) => u.id === x.userId)?.displayName ?? "Student")]));
+  // each student's level from ALL their data (teacher, own work in the section, platform, Diagnostic, MAP)
+  const ev = async (category: "CV" | "ACS" | "RTR" | null) => evidenceLevels(repo, actor.schoolId, ids, gradeLevel, { category });
+  const [overall, cv, acs, rtr] = await Promise.all([ev(null), ev("CV"), ev("ACS"), ev("RTR")]);
+  const pick = (m: Map<string, { level: Level; from: string; reason: string }>, id: string): RosterLevel => { const e = m.get(id); return e ? { level: e.level, from: e.from, reason: e.reason } : { level: "ON", from: "NO_DATA", reason: "No results yet." }; };
   return mine.map((c) => ({
     id: s(c.id), name: s(c.name),
-    students: members.filter((m) => m.classId === c.id).map((m) => ({ id: s(m.studentId), name: nameOf.get(s(m.studentId)) ?? "Student", level: levels.get(s(m.studentId))?.level ?? null })).sort((a, b) => a.name.localeCompare(b.name)),
+    students: members.filter((m) => m.classId === c.id).map((m) => { const id = s(m.studentId); return { id, name: nameOf.get(id) ?? "Student", level: levels.get(id)?.level ?? null, auto: pick(overall, id), byCategory: { CV: pick(cv, id), ACS: pick(acs, id), RTR: pick(rtr, id) } }; }).sort((a, b) => a.name.localeCompare(b.name)),
   }));
 }

@@ -13,6 +13,7 @@ import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead } from "../teacher/coordinators";
 import { assignQuestions } from "../teacher/assign";
 import { audit } from "../audit";
+import { assertCanEditSharedCatalogue } from "../curriculum-manage";
 import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
 import { bandSettings, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
@@ -104,7 +105,7 @@ export async function sentPlans(repo: Repo, studentId: string, now = new Date())
 
 export interface MySubject {
   subject: Subject; profile: MapProfile; areas: (AreaProfile & { accuracy: number | null; next: string | null })[]; orderedBy: "MAP" | "PRACTICE";
-  goal: { target: number; from: number; now: number; nowIsEstimate: boolean; left: number; reached: boolean } | null; estimate: number | null;
+  goal: { target: number; from: number; now: number; nowIsEstimate: boolean; left: number; /** a real MAP score reached the goal (never a practice estimate: readiness I-20) */ reached: boolean; /** the practice estimate is at the goal (shown as an estimate) */ onCourse?: boolean } | null; estimate: number | null;
 }
 export interface MyMap { subjects: MySubject[]; plans: PlanDoc[] }
 
@@ -135,7 +136,7 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
       const latest = p.overall?.rit ?? p.fall.rit;
       const useEst = est !== null && est.rit > latest;
       const cur = useEst ? est!.rit : latest;
-      goal = { target: p.fall.projection, from: p.fall.rit, now: cur, nowIsEstimate: useEst, left: Math.max(0, p.fall.projection - cur), reached: cur >= p.fall.projection };
+      goal = { target: p.fall.projection, from: p.fall.rit, now: cur, nowIsEstimate: useEst, left: Math.max(0, p.fall.projection - cur), reached: !useEst && cur >= p.fall.projection, onCourse: useEst && cur >= p.fall.projection };
     }
     subjects.push({ subject, profile: p, areas: ordered, orderedBy: p.hasGoals ? "MAP" : "PRACTICE", goal, estimate: est?.rit ?? null });
   }
@@ -211,8 +212,9 @@ export async function mapLinks(repo: Repo, actor: Actor): Promise<{ rows: LinkRo
   const gradeOf = new Map(master.map((k) => [k.id, k.grade]));
   const mySkills = skills;
   const ids = mySkills.map((k) => s(k.id));
-  const [links, qs] = ids.length ? await Promise.all([repo.findMany("SkillStandard", { skillId: { in: ids } }), repo.findMany("Question", { skillId: { in: ids }, deletedAt: null }, { select: ["skillId"] })]) : [[] as Row[], [] as Row[]];
-  const stds = links.length ? await repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => s(l.standardId)))] } }, { select: ["id", "code"] }) : [];
+  const [links, qs] = ids.length ? await Promise.all([repo.findMany("SkillStandard", { skillId: { in: ids } }), repo.findMany("Question", { skillId: { in: ids }, deletedAt: null }, { select: ["skillId", "standardId"] })]) : [[] as Row[], [] as Row[]];
+  const stdIds = [...new Set([...links.map((l) => s(l.standardId)), ...qs.map((q) => s(q.standardId)).filter(Boolean)])];
+  const stds = stdIds.length ? await repo.findMany("Standard", { id: { in: stdIds } }, { select: ["id", "code"] }) : [];
   const rows: LinkRow[] = [];
   for (const f of fams) {
     const ks = mySkills.filter((k) => k.familyId === f.id);
@@ -220,7 +222,10 @@ export async function mapLinks(repo: Repo, actor: Actor): Promise<{ rows: LinkRo
     const kIds = ks.map((k) => s(k.id));
     const fl = links.filter((l) => kIds.includes(s(l.skillId))).sort((a, b) => Number(b.isPrimary) - Number(a.isPrimary));
     const codes = fl.map((l) => s(stds.find((x) => x.id === l.standardId)?.code)).filter(Boolean);
-    const suggested = codes.map(areaForStandard).find(Boolean) ?? null;
+    // the skill's standard, else the area most of its questions' own standards point to
+    const fromQs = new Map<string, number>();
+    for (const q of qs) if (kIds.includes(s(q.skillId)) && q.standardId) { const a = areaForStandard(s(stds.find((x) => x.id === q.standardId)?.code)); if (a) fromQs.set(a, (fromQs.get(a) ?? 0) + 1); }
+    const suggested = codes.map(areaForStandard).find(Boolean) ?? [...fromQs.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
     rows.push({
       familyId: s(f.id), family: s(f.name), skills: [...new Set(ks.map((k) => s(k.name)))].slice(0, 4),
       grades: [...new Set(ks.map((k) => Number(gradeOf.get(s(k.id)) ?? 0)).filter(Boolean))].sort(),
@@ -234,6 +239,7 @@ export async function mapLinks(repo: Repo, actor: Actor): Promise<{ rows: LinkRo
 /** Admin sets (or clears) the MAP goal area of a skill family: its questions then count for that area. */
 export async function linkFamily(repo: Repo, actor: Actor, familyId: string, areaCode: string | null, now = new Date()): Promise<void> {
   assertCan(actor, "curriculum:edit");
+  await assertCanEditSharedCatalogue(repo, actor); // SkillFamily is shared by every school
   const f = await repo.findUnique("SkillFamily", { id: familyId });
   if (!f) throw new ValidationError("Skill not found.");
   const area = areaCode ? await repo.findUnique("MapGoalArea", { code: areaCode }) : null;

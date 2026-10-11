@@ -54,6 +54,8 @@ export interface AdaptiveConfig {
   /** Evidence weights for theta updates. */
   rapidGuessWeight: number;
   hintWeight: number;
+  /** A question the student has already answered before (a remembered answer) counts this much. */
+  repeatWeight: number;
   /** Items answered in the last N steps are not repeated. */
   noRepeatWindow: number;
   /** Randomise among the top-K candidate items (exposure control). */
@@ -78,7 +80,10 @@ export interface MasteryThresholds {
 }
 
 export const DEFAULT_ADAPTIVE: AdaptiveConfig = {
-  model: 2,
+  // 3PL with a FIXED lower asymptote from the item format (src/adaptive/guessing.ts): c = 1/options for multiple
+  // choice, 0.5 for true/false, 0 for constructed responses (= 2PL for those). Update 39B: c = 0 everywhere let lucky
+  // guesses read as ability (47 of 98 On-level students rated Above in the readiness simulation).
+  model: 3,
   thetaMin: -3,
   thetaMax: 3,
   priorMean: 0,
@@ -91,8 +96,11 @@ export const DEFAULT_ADAPTIVE: AdaptiveConfig = {
   recentWindow: 10,
   rapidGuessMinMs: 2500,
   rapidGuessFraction: 0.12,
-  rapidGuessWeight: 0.2,
+  // Update 39B: a rapid guess (faster than anyone can read the item) is answered at chance and says nothing about the
+  // skill — effort-moderated scoring leaves it out entirely (it was 0.2: 30 fast lucky clicks gave mastery 44.6)
+  rapidGuessWeight: 0,
   hintWeight: 0.5,
+  repeatWeight: 0.5,
   noRepeatWindow: 25,
   topK: 3,
 };

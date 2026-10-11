@@ -6,7 +6,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { DEFAULT_TARGET, bandTargets, skillCoverage } from "@/server/admin/ai-bank";
 import { listQuestions } from "@/server/admin/questions";
-import { generateMissingAction } from "../actions";
+import { fillGradeAction, generateMissingAction } from "../actions";
 
 /** Question coverage per skill, with “Generate Missing” (admins) and the AI review queue. */
 export default async function QuestionBankPage({ searchParams }: { searchParams: Promise<{ grade?: string }> }) {
@@ -39,7 +39,15 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
         {levels.map((g) => <Link key={g} href={`/admin/question-bank?grade=${g}`} aria-current={g === grade ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-semibold ${g === grade ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>Grade {g}</Link>)}
       </nav>
       <section className={card}>
-        <p className="text-sm text-slate-600">{rows.length} skills · {needing} below target</p>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm text-slate-600">{rows.length} skills · {needing} below target</p>
+          {mayGenerate && needing > 0 && (
+            <ActionForm action={fillGradeAction} submit={`✨ Fill to ${DEFAULT_TARGET}: next 5 skills`} className="flex flex-col items-end gap-1">
+              <input type="hidden" name="grade" value={grade} />
+              <span className="text-xs text-slate-500">AI drafts only: a teacher or admin approves each question before students see it.</span>
+            </ActionForm>
+          )}
+        </div>
         <div className="mt-3 overflow-x-auto">
           <table className="w-full text-left text-sm">
             <thead><tr className="border-b text-slate-500"><th className="py-2">Skill</th><th>Approved</th><th>Easy</th><th>Medium</th><th>Hard</th><th>Awaiting review</th><th>Still needed</th>{mayGenerate && <th />}</tr></thead>

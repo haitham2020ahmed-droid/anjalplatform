@@ -11,6 +11,7 @@ import type { MasteryBandName } from "../../types/domain";
 import type { Repo, Row } from "../seeding/repo";
 import { assignedSkillsForStudent } from "../teacher/assignments";
 import { weakMapGoalAreas } from "../analytics/map-compare";
+import { skillEvidence } from "../insights/skill-snapshots";
 
 export const BAND_LABEL: Record<MasteryBandName, string> = {
   BEGINNING: "Beginning",
@@ -160,6 +161,7 @@ export async function getUnitSkillCards(repo: Repo, studentId: string, unitId: s
   const areaRows = weakAreas.size ? await repo.findMany("MapGoalArea", { code: { in: [...weakAreas] } }) : [];
   const weakAreaIds = new Set(areaRows.map((a) => String(a.id)));
   const famWeak = new Map(famRows.map((f) => [String(f.id), f.mapGoalAreaId ? weakAreaIds.has(String(f.mapGoalAreaId)) : false]));
+  const ev = await skillEvidence(repo, studentId, skillIds, now);
   const snapshots: SkillSnapshot[] = skillIds.map((id, i) => {
     const r = m.get(id);
     const last = r?.lastPracticedAt ? new Date(String(r.lastPracticedAt instanceof Date ? r.lastPracticedAt.toISOString() : r.lastPracticedAt)) : null;
@@ -170,9 +172,11 @@ export async function getUnitSkillCards(repo: Repo, studentId: string, unitId: s
       unitNumber: unit.number,
       mastery: num(r?.score),
       attempts: num(r?.attempts),
-      recentErrors: 0, // computed from recent attempts in Phase 6 (adaptive practice)
+      recentErrors: ev.get(id)?.recentErrors ?? 0,
       daysSincePractice: last ? Math.floor((now.getTime() - last.getTime()) / 86_400_000) : null,
-      theta: 0,
+      theta: ev.get(id)?.theta ?? 0,
+      reviewDue: ev.get(id)?.reviewDue ?? false,
+      misconception: ev.get(id)?.misconception ?? null,
       assignedDueInDays: assigned.has(id) ? assigned.get(id)! : null,
       prerequisiteGap: gap.has(id),
       mapGoalAreaWeak: famWeak.get(String(skills.get(id)?.familyId)) ?? false,

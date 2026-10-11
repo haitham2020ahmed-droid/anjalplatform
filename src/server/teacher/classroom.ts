@@ -13,6 +13,9 @@ import { audit } from "../audit";
 import { loadQuestionItems, loadSkillItems, toClientQuestion, type ClientQuestion } from "../practice/items";
 import { classMembers, studentNames } from "../insights/student-data";
 import { gradeItems, type Graded } from "./worksheet";
+import { recordEngineAttempt } from "../lessons/run";
+import { normalizeResponse } from "../practice/session";
+import { scoreResponse } from "../../imports/questions/validate";
 import { hideLevels } from "../../lib/hide-levels";
 
 const s = (v: unknown) => String(v ?? "");
@@ -164,7 +167,7 @@ export async function setClassRhythm(repo: Repo, actor: Actor, classId: string, 
   await assertClassAccess(repo, actor, classId);
   if (r && (!Number.isInteger(r.days) || r.days < 1 || r.days > 7 || !Number.isInteger(r.minutes) || r.minutes < 5 || r.minutes > 90)) throw new ValidationError("Practice days: 1 to 7; minutes: 5 to 90.");
   const value = r ?? { days: 0, minutes: 0 };
-  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: RKEY(classId) }, { value, updatedById: actor.userId, updatedAt: now }, { value, updatedById: actor.userId, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: RKEY(classId) }, { value, updatedBy: actor.userId, updatedAt: now }, { value, updatedBy: actor.userId, updatedAt: now });
 }
 
 export interface StudentWeek { mine: GoalView | null; klass: (GoalView & { className: string }) | null; rhythm: (Rhythm & { daysDone: number; className: string }) | null; answers: number; minutes: number }
@@ -246,7 +249,7 @@ export async function commentsFor(repo: Repo, actor: Actor, studentId: string): 
 
 export async function deleteComment(repo: Repo, actor: Actor, id: string): Promise<void> {
   const c = await repo.findUnique("WorkComment", { id });
-  if (!c || (c.authorId !== actor.userId && actor.role !== "SCHOOL_ADMIN")) throw new ForbiddenError("Only the author can delete this comment.");
+  if (!c || String(c.schoolId) !== String(actor.schoolId ?? "") || (c.authorId !== actor.userId && actor.role !== "SCHOOL_ADMIN")) throw new ForbiddenError("Only the author can delete this comment.");
   await repo.deleteMany("WorkComment", { id });
 }
 
@@ -318,20 +321,42 @@ export async function reviewSet(repo: Repo, actor: Actor, now = new Date()): Pro
   return { questions: items.map((i) => toClientQuestion(i, `review:${sid}:${i.questionId}`)), waiting: d.waiting, learned: d.learned, due: d.due.length };
 }
 
-/** Grades a review; the answers count as practice (the next review date follows from them). */
-export async function submitReview(repo: Repo, actor: Actor, responses: Record<string, unknown>, now = new Date()): Promise<{ correct: number; total: number; review: Graded[] }> {
+/**
+ * Grades a review; the answers count as practice (the next review date follows from them).
+ * Readiness fix C-2: each answer is stored like a practice answer ({ value }), with the time the student spent on it
+ * (sent by the page; capped at 30 min), and goes through the practice engine (rapid-guess detection, the engine's
+ * repeat weight, ability and mastery) via recordEngineAttempt.
+ */
+export async function submitReview(repo: Repo, actor: Actor, responses: Record<string, unknown>, now = new Date(), timesMs: Record<string, unknown> = {}): Promise<{ correct: number; total: number; review: Graded[] }> {
   const sid = student(actor);
   const due = new Set((await dueMistakes(repo, sid, now)).due);
   const ids = Object.keys(responses).filter((id) => due.has(id)).slice(0, 8);
   if (!ids.length) throw new ValidationError("Nothing to review right now.");
   const items = await loadQuestionItems(repo, ids);
   const review = gradeItems(items, responses);
-  const qs = await repo.findMany("Question", { id: { in: ids } }, { select: ["id", "skillId", "irtB"] });
-  const session = await repo.create("PracticeSession", { studentId: sid, mode: "ADAPTIVE_PRACTICE", startedAt: now, endedAt: now, questionCount: review.length, correctCount: review.filter((r) => r.correct).length, endReason: "REVIEW" });
-  for (const r of review) {
-    const q = qs.find((x) => x.id === r.questionId);
-    if (!q) continue;
-    await repo.create("QuestionAttempt", { sessionId: session.id, studentId: sid, questionId: r.questionId, skillId: q.skillId, response: (responses[r.questionId] ?? {}) as never, isCorrect: r.correct, responseMs: 20_000, usedHint: false, rapidGuess: false, difficultyB: Number(q.irtB ?? 0), createdAt: now });
-  }
+  const qs = await repo.findMany("Question", { id: { in: ids } }, { select: ["id", "skillId"] });
+  await repo.transaction(async (tx) => {
+    const session = await tx.create("PracticeSession", { studentId: sid, mode: "ADAPTIVE_PRACTICE", startedAt: now, endedAt: now, questionCount: review.length, correctCount: review.filter((r) => r.correct).length, endReason: "REVIEW" });
+    let activeMs = 0;
+    for (const r of review) {
+      const q = qs.find((x) => x.id === r.questionId);
+      const item = items.find((x) => x.questionId === r.questionId);
+      if (!q || !item) continue;
+      let value: unknown = responses[r.questionId] ?? null;
+      let credit = 0;
+      try { value = normalizeResponse(item, value); credit = scoreResponse(item as never, value); } catch { credit = 0; }
+      const sent = Number(timesMs[r.questionId]);
+      // the page measures the time per question; without it the item's expected reading time is stored (the column is
+      // required, and 0 would read as a rapid guess everywhere), and the answer is never treated as a rapid guess
+      const measured = Number.isFinite(sent) && sent >= 0 ? Math.min(30 * 60_000, Math.round(sent)) : null;
+      const responseMs = measured ?? Math.round(item.estimatedSeconds * 1000);
+      activeMs += responseMs;
+      await recordEngineAttempt(tx, {
+        sessionId: String(session.id), studentId: sid, skillId: s(q.skillId), schoolId: actor.schoolId ?? null, item, response: value, credit, usedHint: false, responseMs, now,
+        reasonCode: "REVIEW", reason: "Answer in Review my mistakes: ability and mastery updated (a recent repeat counts half).",
+      });
+    }
+    await tx.updateMany("PracticeSession", { id: session.id }, { activeMs });
+  });
   return { correct: review.filter((r) => r.correct).length, total: review.length, review };
 }

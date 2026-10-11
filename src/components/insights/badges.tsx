@@ -12,10 +12,10 @@ export function LevelBadge({ level }: { level: "BELOW" | "ON" | "ABOVE" | null |
   return <span className={`inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${v[1]}`}>{v[0]}</span>;
 }
 
-export function IntensityBadge({ intensity }: { intensity: Intensity | null }) {
+export function IntensityBadge({ intensity, from }: { intensity: Intensity | null; from?: string | null }) {
   if (!intensity) return <span className="text-xs text-slate-400">—</span>;
   const v = { INTENSIVE: ["🔴 Intensive", "bg-red-50 text-red-800"], TARGETED: ["🟡 Targeted", "bg-amber-50 text-amber-900"], CORE: ["🟢 Keep growing", "bg-emerald-50 text-emerald-900"] }[intensity];
-  return <span className={`inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-semibold ${v[1]}`}>{v[0]}</span>;
+  return <span className="inline-flex flex-col items-start gap-0.5"><span className={`inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-semibold ${v[1]}`}>{v[0]}</span>{from && <span className="whitespace-nowrap text-[11px] text-slate-500">{from}</span>}</span>;
 }
 
 export function Tile({ label, value, tone = "" }: { label: string; value: string; tone?: string }) {

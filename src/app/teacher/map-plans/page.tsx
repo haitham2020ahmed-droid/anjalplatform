@@ -1,3 +1,4 @@
+import { NameList } from "@/components/name-list";
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
@@ -87,7 +88,7 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
                   </table>
                 </div>
               )}
-              {matrix.noScores.length > 0 && <p className="mt-3 text-sm text-slate-500">No scores yet: {matrix.noScores.map((x) => x.name).join(", ")}.</p>}
+              {matrix.noScores.length > 0 && <p className="mt-3 text-sm text-slate-500">No scores yet: <NameList items={matrix.noScores} sep=", " />.</p>}
               <p className="mt-3 text-xs text-slate-500">🎯 Focus = Low/LoAvg or 3+ RIT under the student’s own RIT · ✔ Keep it up · 🚀 Extend = HiAvg/High and 3+ over. Descriptors compare with the same grade and season (NWEA 2025 norms).</p>
               {canEdit && matrix.rows.length > 0 && (
                 <form action={sendCheckAction} className="mt-4 flex flex-wrap items-end gap-3 rounded-2xl bg-sky-50 p-4 ring-1 ring-sky-200 print:hidden">
@@ -180,7 +181,7 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
                     <h3 className="text-lg font-bold text-brand-navy">{g.icon} {g.name} · RIT {g.band} <span className="text-sm font-normal text-slate-500">({g.students.length} students)</span></h3>
                     <Link href={`/teacher/worksheet?${new URLSearchParams({ classId, group: g.group, low: String(g.low), high: String(g.high), title: `${g.name} · RIT ${g.band}` })}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal print:hidden">🖨 Group worksheet</Link>
                   </div>
-                  <p className="mt-1 text-sm text-slate-700">{g.students.map((x) => `${x.name} (${x.rit})`).join(" · ")}</p>
+                  <p className="mt-1 text-sm text-slate-700"><NameList items={g.students.map((x) => ({ name: x.name, note: `(${x.rit})` }))} /></p>
                   {canEdit && (
                     <form action={sendGroupAction} className="mt-3 flex flex-wrap items-end gap-3 text-sm print:hidden">
                       {hidden("groups")}<input type="hidden" name="group" value={g.group} /><input type="hidden" name="low" value={g.low} /><input type="hidden" name="high" value={g.high} />

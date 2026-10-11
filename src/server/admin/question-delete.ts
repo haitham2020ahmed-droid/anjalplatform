@@ -74,9 +74,13 @@ export async function deleteQuestions(repo: Repo, actor: Actor, ids: string[], n
   assertCan(actor, "questions:publish");
   if (!isAdmin(actor)) throw new ForbiddenError("Only admins can delete questions.");
   const qs = await questionsInSchool(repo, actor, ids);
+  // existence only: one row per question at most (index questionId, createdAt), never the whole history
   const answered = new Set<string>();
-  for (const part of chunks(qs.map((q) => s(q.id)))) {
-    for (const a of await repo.findMany("QuestionAttempt", { questionId: { in: part } }, { select: ["questionId"] })) answered.add(s(a.questionId));
+  const qids = qs.map((q) => s(q.id));
+  for (let i = 0; i < qids.length; i += 20) {
+    const part = qids.slice(i, i + 20);
+    const hit = await Promise.all(part.map((id) => repo.findMany("QuestionAttempt", { questionId: id }, { select: ["questionId"], take: 1 })));
+    part.forEach((id, k) => { if (hit[k].length) answered.add(id); });
   }
   const skipped = qs.filter((q) => answered.has(s(q.id))).map((q) => ({ id: s(q.id), stem: s(q.stem).slice(0, 120), reason: "Students have answered this question, so it was not deleted. Archive it instead." }));
   const del = qs.filter((q) => !answered.has(s(q.id)));

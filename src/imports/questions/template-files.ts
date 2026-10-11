@@ -207,7 +207,7 @@ export const CURRICULUM_RULES = [
   "Skill and Standard are optional. Without a skill, the question is saved as “Unclassified (Curriculum Map)”.",
   "Difficulty Level is optional: Above = 5, On = 4, Below = 3, Concept Vocabulary = 4. Cognitive Level is optional.",
   "Lexile (recommended): the text complexity of the question or its passage, e.g. 820. Below / On / Above follow the Lexile bands of the grade (CCSS: Grades 4–5 740L–1010L, Grades 6–8 925L–1185L); a Lexile outside its level's band is flagged.",
-  "Up to 5,000 questions per file. Rows starting with [Example] are examples: delete or replace them.",
+  "Up to 10,000 questions per file. Rows starting with [Example] are examples: delete or replace them.",
 ];
 
 export function curriculumTemplateCsv(places: MapPlace[], perPlace = DEFAULT_ROWS_PER_PLACE): string {

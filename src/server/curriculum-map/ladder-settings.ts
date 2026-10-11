@@ -63,6 +63,6 @@ export async function setLadderSettings(repo: Repo, actor: Actor, input: Partial
     v[k] = n;
   }
   if (v.downPct >= v.upPct) throw new ValidationError("The “move down” percentage must be lower than the “move up” percentage.");
-  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY }, { value: v, updatedById: actor.userId, updatedAt: now }, { value: v, updatedById: actor.userId, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY }, { value: v, updatedBy: actor.userId, updatedAt: now }, { value: v, updatedBy: actor.userId, updatedAt: now });
   return v;
 }

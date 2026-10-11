@@ -23,6 +23,8 @@ import { parentReport, shareParentReport } from "../src/server/insights/parent-r
 import { teacherFollowup, setFollowupRules } from "../src/server/insights/teacher-followup";
 import { createDraft } from "../src/server/admin/questions";
 import { demoDatabase } from "./helpers/db";
+import { pendingApprovals, reviewFamilyReport } from "../src/server/reports/family-reports";
+const approveAll = async (repo: { [k: string]: unknown }, admin: Actor) => { for (const r of await pendingApprovals(repo as never, admin)) await reviewFamilyReport(repo as never, admin, r.id, { approve: true }); };
 
 describe("Update 16", () => {
   let repo: SqliteRepo; let admin: Actor; let teacher: Actor; let classId = ""; let students: string[] = []; let grade4 = "";
@@ -132,7 +134,9 @@ describe("Update 16", () => {
     assert.equal(r.studentId, sid);
     assert.ok(r.summary.en && r.summary.ar);
     await assert.rejects(parentReport(repo, parent, sid), /not shared/);
-    await shareParentReport(repo, teacher, sid, true, "Great effort this month!");
+    assert.equal(await shareParentReport(repo, teacher, sid, true, "Great effort this month!"), "PENDING", "a teacher's share waits for the admin");
+    await assert.rejects(parentReport(repo, parent, sid), /not shared/);
+    await approveAll(repo as never, admin);
     const seen = await parentReport(repo, parent, sid);
     assert.equal(seen.share.note, "Great effort this month!");
     assert.ok(await repo.count("Notification", { userId: pu.id }));

@@ -35,7 +35,7 @@ async function load(repo: Repo, schoolId: string, skillId: string): Promise<Save
   return { done: Array.isArray(o.done) ? (o.done as StepKey[]) : [], jobs: (o.jobs ?? {}) as Saved["jobs"] };
 }
 async function save(repo: Repo, actor: Actor, skillId: string, v: Saved, now = new Date()) {
-  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY(skillId) }, { value: v, updatedById: actor.userId, updatedAt: now }, { value: v, updatedById: actor.userId, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY(skillId) }, { value: v, updatedBy: actor.userId, updatedAt: now }, { value: v, updatedBy: actor.userId, updatedAt: now });
 }
 function assertAdmin(actor: Actor) { if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only admins use the AI tools."); }
 

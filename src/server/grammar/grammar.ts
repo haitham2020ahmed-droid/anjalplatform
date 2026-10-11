@@ -39,6 +39,12 @@ export interface GrammarSkillInfo { id: string; code: string; lesson: string; na
 export interface GrammarQuestionRow {
   grade: number; skillId: string; questionId: string; level: "Below" | "On" | "Above"; type: string; ccss: string; passage: string;
   stem: string; options: string[]; answer: string; letter: string; accepted: string; explanation: string;
+  /** error_correction: the sentence parts (| separated), the part number(s) with the mistake (1-based, or “No error”), the fix(es) */
+  segments: string; errorIndex: string; correction: string;
+  /** sentence_order: the items in the correct order (| separated) */
+  items: string;
+  /** sentence_combine: the short sentences (| separated) and the joining word; the accepted answers are accepted_answers (or answer) */
+  sentences: string; connector: string;
 }
 export interface GrammarWorkbook { lessons: Map<number, GrammarLesson[]>; skills: Map<number, GrammarSkillInfo[]>; questions: GrammarQuestionRow[] }
 
@@ -80,6 +86,8 @@ export function readGrammarWorkbook(bytes: Uint8Array): GrammarWorkbook {
     type: at(r, "type").toLowerCase(), ccss: at(r, "ccss"), passage: at(r, "passage"), stem: at(r, "question"),
     options: ["option_a", "option_b", "option_c", "option_d"].map((h) => at(r, h)), answer: at(r, "answer"), letter: at(r, "answer_letter").toUpperCase(),
     accepted: at(r, "accepted_answers"), explanation: at(r, "explanation"),
+    segments: at(r, "segments") || at(r, "sentence_parts"), errorIndex: at(r, "error_index") || at(r, "error_indexes"), correction: at(r, "correction") || at(r, "corrections"),
+    items: at(r, "items") || at(r, "order_items"), sentences: at(r, "sentences") || at(r, "sentences_to_combine"), connector: at(r, "connector") || at(r, "joining_word"),
   }));
   return { lessons, skills, questions };
 }
@@ -135,6 +143,8 @@ export async function ensureGrammarSkills(repo: Repo, actor: Actor, wb: GrammarW
 }
 
 const COGNITIVE: Record<string, string> = { Below: "Understand", On: "Apply", Above: "Analyze" };
+/** Columns added to the template's for the grammar types read from their own columns (see template.ts). */
+export const GRAMMAR_EXTRA_HEADERS = ["Sentence Parts", "Correction", "Order Items", "Sentences to Combine", "Joining Word"] as const;
 const DIFFICULTY: Record<string, number> = { Below: 3, On: 4, Above: 5 };
 const LETTERS = ["A", "B", "C", "D"];
 
@@ -166,14 +176,29 @@ export function grammarTable(wb: GrammarWorkbook, grade: number): string[][] {
     b.last = [...b.last, p].slice(-2);
     return p;
   };
-  const rows: string[][] = [[...TEMPLATE_HEADERS]];
-  const col = (h: string) => TEMPLATE_HEADERS.indexOf(h as (typeof TEMPLATE_HEADERS)[number]);
+  // the template's columns, plus the own columns of error correction, sentence order and sentence combining
+  const HEAD = [...TEMPLATE_HEADERS, ...GRAMMAR_EXTRA_HEADERS];
+  const rows: string[][] = [HEAD];
+  const col = (h: string) => HEAD.indexOf(h);
   for (const q of wb.questions) {
     if (q.grade !== grade || !q.stem) continue;
-    const r = TEMPLATE_HEADERS.map(() => "");
+    const r = HEAD.map(() => "");
     let opts = q.options.filter(Boolean);
     let type: string, answer: string;
+    const extra: Record<string, string> = {};
     if (q.type === "true_false") { type = "True/False"; answer = /^t/i.test(q.answer) ? "True" : "False"; opts = []; }
+    else if (/^error[_ ]?correction/.test(q.type)) {
+      type = /type/.test(q.type) ? "Error Correction (type the fix)" : "Error Correction";
+      answer = /^no\s*error$/i.test(q.errorIndex || q.answer) ? "No error" : q.errorIndex || q.answer;
+      extra["Sentence Parts"] = q.segments; extra["Correction"] = q.correction; opts = [];
+    } else if (/^sentence[_ ]?order/.test(q.type)) {
+      type = "Sentence Order"; answer = "";
+      // the items in order: their own column, else the option columns in order
+      extra["Order Items"] = q.items || opts.join(" | "); opts = [];
+    } else if (/^sentence[_ ]?combin/.test(q.type)) {
+      type = "Sentence Combining"; answer = q.accepted || q.answer;
+      extra["Sentences to Combine"] = q.sentences; extra["Joining Word"] = q.connector; opts = [];
+    }
     else if (opts.length >= 2) {
       type = "Multiple Choice";
       let at = LETTERS.indexOf(q.letter);
@@ -191,6 +216,7 @@ export function grammarTable(wb: GrammarWorkbook, grade: number): string[][] {
     put("Grade", String(grade)); put("Skill", codeOf.get(q.skillId) ?? grammarCode(grade, q.skillId));
     put("Standard", ccssList(q.ccss)[0] ?? ""); put("Difficulty Level", String(DIFFICULTY[q.level])); put("Cognitive Level", COGNITIVE[q.level]);
     put("Passage/Text", q.passage);
+    for (const [h, v] of Object.entries(extra)) put(h, v);
     rows.push(r);
   }
   return rows;
@@ -198,7 +224,7 @@ export function grammarTable(wb: GrammarWorkbook, grade: number): string[][] {
 
 // ------------------------------------------------------------------ the 🔤 Grammar page
 
-export interface GrammarSkillRow { id: string; name: string; kind: string; icon: string; standards: string[]; rule: string; counts: { below: number; on: number; above: number; total: number }; openAssignments: number }
+export interface GrammarSkillRow { id: string; name: string; kind: string; icon: string; standards: string[]; rule: string; counts: { below: number; on: number; above: number; total: number }; openAssignments: number; /** published questions per item type (code → number) */ types: Record<string, number> }
 export interface GrammarView {
   grade: number; grades: number[];
   classes: { id: string; name: string; grade: number }[]; classId: string | null;
@@ -210,10 +236,10 @@ export interface GrammarView {
 }
 
 /** Grade → Unit → Week → Skill, with the questions of each level and (for a teacher) the class to assign to. */
-export async function grammarView(repo: Repo, actor: Actor, opts: { grade?: number; classId?: string } = {}): Promise<GrammarView> {
+export async function grammarView(repo: Repo, actor: Actor, opts: { grade?: number; classId?: string; browse?: boolean } = {}): Promise<GrammarView> {
   assertCan(actor, "questions:read");
   if (!actor.schoolId) throw new ForbiddenError("Choose a school first.");
-  const isTeacher = actor.role === "TEACHER";
+  const isTeacher = actor.role === "TEACHER" && !opts.browse;
   const allGrades = (await repo.findMany("Grade", { schoolId: actor.schoolId })).filter((g) => g.isActive !== false);
   const levelOf = new Map(allGrades.map((g) => [s(g.id), Number(g.level)]));
   let classes: { id: string; name: string; grade: number }[] = [];
@@ -237,7 +263,7 @@ export async function grammarView(repo: Repo, actor: Actor, opts: { grade?: numb
   const catalog = (setting?.value ?? {}) as { lessons?: GrammarLesson[]; skills?: { code: string; lesson: string; kind: string; rule: string }[] };
   const ids = skills.map((k) => s(k.id));
   const [qs, links, assignments, members] = await Promise.all([
-    ids.length ? repo.findMany("Question", { skillId: { in: ids }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId", "difficultyLevel"] }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("Question", { skillId: { in: ids }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId", "difficultyLevel", "typeId"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("SkillStandard", { skillId: { in: ids } }) : Promise.resolve([] as Row[]),
     klass ? repo.findMany("Assignment", { classId: klass.id, deletedAt: null }, { select: ["id", "skillId"] }) : Promise.resolve([] as Row[]),
     klass ? repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] }) : Promise.resolve([] as Row[]),
@@ -249,6 +275,10 @@ export async function grammarView(repo: Repo, actor: Actor, opts: { grade?: numb
   ]);
   const users = studs.length ? await repo.findMany("User", { id: { in: studs.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
   const stdCode = new Map(stds.map((x) => [s(x.id), shortStandard(s(x.code))]));
+  const typeIds = [...new Set(qs.map((q) => s(q.typeId)).filter(Boolean))];
+  const typeCode = new Map((typeIds.length ? await repo.findMany("QuestionType", { id: { in: typeIds } }, { select: ["id", "code"] }) : []).map((t) => [s(t.id), s(t.code)]));
+  const typesBySkill = new Map<string, Record<string, number>>();
+  for (const q of qs) { const m = typesBySkill.get(s(q.skillId)) ?? {}; const c = typeCode.get(s(q.typeId)) ?? "OTHER"; m[c] = (m[c] ?? 0) + 1; typesBySkill.set(s(q.skillId), m); }
   const counts = new Map<string, GrammarSkillRow["counts"]>();
   for (const q of qs) {
     const c = counts.get(s(q.skillId)) ?? { below: 0, on: 0, above: 0, total: 0 };
@@ -274,7 +304,7 @@ export async function grammarView(repo: Repo, actor: Actor, opts: { grade?: numb
     u.get(lessonId)!.skills.push({
       id: s(k.id), name: s(k.name), kind, icon: kindIcon(kind),
       standards: links.filter((x) => x.skillId === k.id).sort((p, q) => Number(q.isPrimary) - Number(p.isPrimary)).map((x) => stdCode.get(s(x.standardId)) ?? "").filter(Boolean),
-      rule: c?.rule || s(k.description), counts: counts.get(s(k.id)) ?? { below: 0, on: 0, above: 0, total: 0 }, openAssignments: openBySkill.get(s(k.id)) ?? 0,
+      rule: c?.rule || s(k.description), counts: counts.get(s(k.id)) ?? { below: 0, on: 0, above: 0, total: 0 }, openAssignments: openBySkill.get(s(k.id)) ?? 0, types: typesBySkill.get(s(k.id)) ?? {},
     });
   }
   const all = [...counts.values()];
@@ -285,4 +315,24 @@ export async function grammarView(repo: Repo, actor: Actor, opts: { grade?: numb
     totals: { skills: skills.length, questions: all.reduce((n, c) => n + c.total, 0), below: all.reduce((n, c) => n + c.below, 0), on: all.reduce((n, c) => n + c.on, 0), above: all.reduce((n, c) => n + c.above, 0) },
     loaded: skills.length > 0,
   };
+}
+
+// ------------------------------------------------------------------ 🔤 one Grammar library for every teacher
+
+export interface GrammarLesson2 { id: string; name: string; kind: string; icon: string; lesson: string; grade: number; standards: string[]; rule: string; counts: GrammarSkillRow["counts"]; types: Record<string, number> }
+/**
+ * Every grammar lesson of the school in one list (no grades, units or weeks): the same list for every teacher,
+ * searched by skill name. Any lesson can be assigned to any class.
+ */
+export async function grammarLibrary(repo: Repo, actor: Actor): Promise<{ lessons: GrammarLesson2[]; totals: GrammarView["totals"]; grades: number[] }> {
+  assertCan(actor, "questions:read");
+  const first = await grammarView(repo, actor, { browse: true });
+  const lessons: GrammarLesson2[] = [];
+  const totals = { skills: 0, questions: 0, below: 0, on: 0, above: 0 };
+  for (const g of first.grades) {
+    const v = g === first.grade ? first : await grammarView(repo, actor, { grade: g, browse: true });
+    for (const u of v.units) for (const w of u.weeks) for (const k of w.skills) lessons.push({ id: k.id, name: k.name, kind: k.kind, icon: k.icon, lesson: w.title, grade: g, standards: k.standards, rule: k.rule, counts: k.counts, types: k.types });
+    for (const key of Object.keys(totals) as (keyof typeof totals)[]) totals[key] += v.totals[key];
+  }
+  return { lessons: lessons.sort((a, b) => a.name.localeCompare(b.name) || a.grade - b.grade), totals, grades: first.grades };
 }

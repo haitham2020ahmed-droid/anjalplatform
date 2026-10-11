@@ -1,4 +1,5 @@
 "use server";
+import { setCoachSettings } from "@/server/fluency/coach";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { repo, requireActor } from "@/server/auth/next";
@@ -75,4 +76,13 @@ export async function wizardAction(f: FormData): Promise<void> {
     else if (op === "reset") await resetWizard(repo, actor, skillId);
   } catch (e) { msg = friendly(e); }
   redirect(`/admin/ai-tools/wizard/${skillId}${msg ? `?msg=${encodeURIComponent(msg)}` : ""}`);
+}
+
+/** 🎙 Fluency Coach on / off for the school's students. */
+export async function coachSettingsAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "settings:engine" });
+  let msg: string;
+  try { await setCoachSettings(repo, actor, String(f.get("enabled")) === "1"); msg = String(f.get("enabled")) === "1" ? "Fluency Coach is on." : "Fluency Coach is off."; } catch (e) { msg = friendly(e); }
+  revalidatePath("/admin/ai-tools");
+  redirect(`/admin/ai-tools?tab=settings&msg=${encodeURIComponent(msg)}`);
 }

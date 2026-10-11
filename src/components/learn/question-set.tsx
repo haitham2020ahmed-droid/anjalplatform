@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
 import { PassageText } from "@/components/passage-text";
 import { ListenButton } from "@/components/listen-button";
@@ -14,18 +14,22 @@ type Result = { correct: number; total: number; review: Graded[] };
 /** A short set of questions answered together (exit ticket, review of mistakes): submit once, see what was right. */
 export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back to my work", resultNote }: {
   id: string; questions: ClientQuestion[]; doneHref: string; doneLabel?: string; resultNote?: string;
-  submit: (id: string, responses: Record<string, unknown>) => Promise<{ ok: true; value: Result } | { ok: false; error: string }>;
+  submit: (id: string, responses: Record<string, unknown>, timesMs?: Record<string, number>) => Promise<{ ok: true; value: Result } | { ok: false; error: string }>;
 }) {
   const [values, setValues] = useState<Record<string, AnswerValue>>({});
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  // time spent per question (for the answer's evidence weight): from the previous answer (or page open) to this answer
+  const mark = useRef<number>(Date.now());
+  const spent = useRef<Record<string, number>>({});
+  const onAnswer = (qid: string) => { const t = Date.now(); spent.current[qid] = (spent.current[qid] ?? 0) + (t - mark.current); mark.current = t; };
   const ready = questions.every((q) => isAnswerReady(q, values[q.questionId] ?? null));
   const send = async () => {
     setBusy(true); setError(null);
     const responses: Record<string, unknown> = {};
     for (const q of questions) { const v = values[q.questionId] ?? null; responses[q.questionId] = (q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") && !Array.isArray(v) ? q.elements : v; }
-    const r = await submit(id, responses);
+    const r = await submit(id, responses, { ...spent.current });
     setBusy(false);
     if (r.ok) setResult(r.value); else setError(r.error);
   };
@@ -46,7 +50,7 @@ export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back
               )}
               <p className="font-semibold text-slate-900">{i + 1}. {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" ? q.stem : ""}</p>
               <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen" className="mt-1" />
-              <div className="mt-3"><AnswerInput q={q} value={values[q.questionId] ?? null} onChange={(v) => setValues((s) => ({ ...s, [q.questionId]: v }))} disabled={Boolean(result) || busy} /></div>
+              <div className="mt-3"><AnswerInput q={q} value={values[q.questionId] ?? null} onChange={(v) => { onAnswer(q.questionId); setValues((s) => ({ ...s, [q.questionId]: v })); }} disabled={Boolean(result) || busy} /></div>
               {rv && <p className={`mt-3 text-sm ${rv.correct ? "text-emerald-800" : "text-red-800"}`}>{rv.correct ? "✓ Correct." : `✗ The answer is: ${rv.correctAnswer}.`} {rv.why}</p>}
               {!result && <FlagButton questionId={q.questionId} />}
             </section>

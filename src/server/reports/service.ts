@@ -34,6 +34,7 @@ import type { ReportRequest } from "../../reports/links";
 
 export { reportHref, type ReportRequest } from "../../reports/links";
 import { buildClassReport, buildSchoolReport, buildStandardsReport, buildStudentReport, type BuildContext } from "./builders";
+import { buildExtraReport, EXTRA_SCHOOL, isExtraKind } from "./builders-extra";
 
 export const PERIOD_NAMES: readonly PeriodName[] = ["LAST_7_DAYS", "LAST_30_DAYS", "TERM", "SEMESTER", "SCHOOL_YEAR", "CUSTOM"];
 export const REPORT_RATE = { max: 30, windowMs: 10 * 60_000 };
@@ -76,6 +77,15 @@ export function parseReportRequest(q: URLSearchParams): ReportRequest {
   };
   if (kind === "student") req.studentId = id("studentId");
   if (kind === "class") req.classId = id("classId");
+  if (isExtraKind(kind)) {
+    // Update 39C reports are written in English; one class, or the school where the report has a school view
+    req.locale = "en";
+    const sc = EXTRA_SCHOOL[kind];
+    req.scope = sc === "always" ? "school" : sc === "never" ? "class" : oneOf(q.get("scope"), ["class", "school"] as const, "scope", "class");
+    if (req.scope === "class") req.classId = id("classId");
+    const days = q.get("days");
+    req.days = days ? Number(oneOf(days, ["7", "30", "90", "365"] as const, "window")) : kind === "readmaster" ? 90 : 30;
+  }
   if (kind === "standards") {
     req.scope = oneOf(q.get("scope"), ["class", "school"] as const, "scope", "class");
     if (req.scope === "class") req.classId = id("classId");
@@ -154,7 +164,9 @@ export async function exportReport(deps: ReportDeps, actor: Actor, req: ReportRe
   // 1. permission for the kind of report (row-level access is enforced by the builders)
   if (req.kind === "student") assertCan(actor, "reports:read");
   else assertCan(actor, "reports:export");
-  if (req.kind === "school" || (req.kind === "standards" && req.scope === "school")) assertCan(actor, "analytics:school");
+  if (req.kind === "school" || ((req.kind === "standards" || isExtraKind(req.kind)) && req.scope === "school")) assertCan(actor, "analytics:school");
+  // the Update 39C reports are staff reports (students and parents have their own pages)
+  if (isExtraKind(req.kind) && actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Not found.");
   if (req.format === "pdf" && !deps.pdf) throw new Error("PDF rendering is not configured.");
 
   // 2. rate limit per user (after the cheap permission check, before any heavy work)
@@ -179,6 +191,7 @@ export async function exportReport(deps: ReportDeps, actor: Actor, req: ReportRe
     req.kind === "student" ? await buildStudentReport(ctx, req.studentId!)
     : req.kind === "class" ? await buildClassReport(ctx, req.classId!)
     : req.kind === "standards" ? await buildStandardsReport(ctx, req.scope === "school" ? { school: true } : { classId: req.classId! })
+    : isExtraKind(req.kind) ? await buildExtraReport(ctx, req.kind, { classId: req.classId, scope: req.scope, days: req.days ?? 30 })
     : await buildSchoolReport(ctx);
 
   let bytes: Uint8Array;
@@ -195,7 +208,7 @@ export async function exportReport(deps: ReportDeps, actor: Actor, req: ReportRe
   await audit(repo, {
     actorId: actor.userId, action: "report.export", entityType: req.kind === "student" ? "Student" : req.classId ? "Class" : "School",
     entityId: req.studentId ?? req.classId ?? schoolId,
-    after: { kind: req.kind, format: req.format, locale: req.locale, period: req.period, from: req.from ?? null, to: req.to ?? null, scope: req.scope ?? null, bytes: bytes.length },
+    after: { kind: req.kind, format: req.format, locale: req.locale, period: req.period, from: req.from ?? null, to: req.to ?? null, scope: req.scope ?? null, days: req.days ?? null, bytes: bytes.length },
     at: now,
   });
   return { bytes, contentType: CONTENT_TYPES[req.format], filename: `${doc.fileStem}.${req.format}`, doc };

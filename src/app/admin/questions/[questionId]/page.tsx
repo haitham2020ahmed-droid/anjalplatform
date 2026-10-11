@@ -91,6 +91,7 @@ export default async function QuestionPage({ params, searchParams }: { params: P
         </div>
       </section>
 
+      <p className="mt-4 rounded-xl bg-indigo-50 px-4 py-2 text-sm text-indigo-950 ring-1 ring-indigo-200">🧭 NWEA MAP: {d.map.area ? <><b>{d.map.test}</b> · <b>{d.map.area}</b> <span className="text-indigo-700">({d.map.source === "ADMIN" ? "set by an admin" : d.map.source === "IMPORT" ? "from the import file" : d.map.source === "TEXT" ? "read from the wording — please check" : d.map.source === "STANDARD" ? "from its standard" : d.map.source === "SKILL" ? "from its skill (Mechanics)" : d.map.source === "SKILL_STANDARD" ? "from its skill's standard" : "from its skill category"})</span></> : "not classified yet"}</p>
       <section className={card}>
         <h2 className={h2}>{d.canEdit ? "Edit" : "Question"}</h2>
         <div className="mt-3"><QuestionEditor questionId={d.id} initial={d.input} skills={skills} standards={standards} readOnly={!d.canEdit} curriculum={can(actor, "curriculum:edit") ? { grades } : undefined} places={(await attachmentNodes(repo, actor.schoolId!)).map((p) => ({ code: p.code, grade: p.grade, unit: p.unit, path: p.path }))} /></div>

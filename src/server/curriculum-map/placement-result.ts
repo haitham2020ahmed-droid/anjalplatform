@@ -4,7 +4,8 @@
  */
 import type { Repo } from "../seeding/repo";
 import { adaptiveNext } from "./leveled-run";
-import { categoryOfQuestions, notifyTeachers, recordLevel } from "./student-level";
+import { categoryOfQuestions, notifyTeachers, recordLevel, MIN_ADAPTIVE_ANSWERS } from "./student-level";
+import { isInvalidResult } from "./level-evidence";
 
 export async function applyPlacementResult(repo: Repo, assessmentId: string, sessionId: string, studentId: string, now = new Date()): Promise<"ABOVE" | "ON" | "BELOW" | null> {
   const set = await repo.findUnique("Assessment", { id: assessmentId });
@@ -30,6 +31,13 @@ export async function applyPlacementResult(repo: Repo, assessmentId: string, ses
     level = pct >= 80 ? "ABOVE" : pct >= 50 ? "ON" : "BELOW";
   }
   const source = String(set.type) === "PLACEMENT" ? "PLACEMENT" : "ADAPTIVE";
+  // Update 39B: 30%+ rapid guesses → the result is INVALID: it never moves a level; the teacher is asked to re-test
+  const rapidN = await repo.count("QuestionAttempt", { sessionId, rapidGuess: true });
+  if (allAnswers >= MIN_ADAPTIVE_ANSWERS && isInvalidResult(rapidN, allAnswers)) {
+    const name = String((await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: studentId }))?.userId }))?.displayName ?? "A student");
+    await notifyTeachers(repo, studentId, `⚡ ${name}'s “${String(set.title)}” is invalid — re-test`, `${rapidN} of ${allAnswers} answers were rapid guesses (too fast to read). The result is not used for the level. Talk with the student and let them take it again.`, now);
+    return null;
+  }
   // an adaptive set needs enough answers, and a teacher's recent choice is respected (kept as a suggestion)
   const category = source === "ADAPTIVE" ? await categoryOfQuestions(repo, (await repo.findMany("AssessmentQuestion", { assessmentId }, { select: ["questionId"] })).map((x) => String(x.questionId))) : null;
   const outcome = await recordLevel(repo, { studentId, level, source, reason: reason ?? (source === "PLACEMENT" ? "placement test" : null), path, answers, now, category });

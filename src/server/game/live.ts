@@ -5,6 +5,7 @@
  * Points: 1000 for an instant correct answer, down to 500 at the last second, plus a streak bonus
  * (+100 per correct answer in a row, up to +500). Screens refresh by polling (no extra service needed).
  */
+import { safeFeed } from "../practice/skill-evidence";
 import { masterSkills } from "../skills/master";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -197,7 +198,25 @@ export async function answerGame(repo: Repo, actor: Actor, gameId: string, index
     await repo.create("LiveGameAnswer", { gameId, playerId: p.id, questionIndex: index, choice: s(choice).slice(0, 191), correct, points, ms: Math.max(0, elapsed), createdAt: now });
   } catch { throw new ValidationError("You already answered."); }   // the unique key stops double taps
   await repo.updateMany("LiveGamePlayer", { id: p.id }, { score: Number(p.score) + points, streak: correct ? Number(p.streak) + 1 : 0 });
+  // 🔗 a game answer feeds the skill like practice at half weight (source GAME; a too-fast answer is a rapid guess and
+  // counts for nothing) — Update 39B
+  if (actor.studentId) await safeFeed("game", () => gameEvidence(repo, actor, g, index, choice, correct, Math.max(0, elapsed), now));
   return { correct, points };
+}
+
+async function gameEvidence(repo: Repo, actor: Actor, g: Row, index: number, choice: string, correct: boolean, ms: number, now: Date): Promise<void> {
+  const qid = (typeof g.questionIds === "string" ? JSON.parse(g.questionIds) : g.questionIds ?? [])[index];
+  if (!qid) return;
+  const { loadQuestionItems } = await import("../practice/items");
+  const loaded = (await loadQuestionItems(repo, [s(qid)]))[0];
+  if (!loaded?.skillKey) return;
+  // the question is read together on the shared screen under a timer: its expected time is the game's time per
+  // question at most, so the rapid-guess line (12% of it, never under 2.5 s) fits a timed game
+  const it = { ...loaded, estimatedSeconds: Math.min(Number(loaded.estimatedSeconds) || 45, Number(g.secondsPerQuestion) || 20) };
+  const mark = `LIVE_GAME:${s(g.id)}`;
+  const ses = (await repo.findMany("PracticeSession", { studentId: actor.studentId!, endReason: mark }))[0] ?? await repo.create("PracticeSession", { studentId: actor.studentId!, mode: "ADAPTIVE_PRACTICE", startedAt: now, endedAt: now, endReason: mark });
+  const { recordEngineAttempt } = await import("../lessons/run");
+  await recordEngineAttempt(repo, { sessionId: s(ses.id), studentId: actor.studentId!, skillId: s(it.skillKey), schoolId: actor.schoolId ?? null, item: it, response: choice, credit: correct ? 1 : 0, usedHint: false, responseMs: ms, now, reasonCode: "GAME", reason: "Live game answer (half weight): ability and mastery updated.", source: "GAME" });
 }
 
 /** Games a student can join now (their classes' open games, and school-wide ones). */

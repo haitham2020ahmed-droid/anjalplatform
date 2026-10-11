@@ -5,6 +5,7 @@
  * pauses it: opening the AI tools again continues where it stopped.
  * Review: Approve / Reject one by one or Approve all; nothing in the bank changes before approval.
  */
+import { mergeLiteracyTags } from "../../questions/intelligence";
 import { randomBytes } from "node:crypto";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -17,8 +18,8 @@ import { codeChecks, findDuplicates, formulaLevel, qualityPrompt, qualityValidat
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
-export type Tool = "QUALITY" | "TAG" | "READING";
-export const TOOL_NAME: Record<Tool | "DUPLICATE" | "GAP", string> = { QUALITY: "Quality Check", TAG: "Auto-Tag", READING: "Reading Level Estimate", DUPLICATE: "Duplicate Finder", GAP: "Gap Report" };
+export type Tool = "QUALITY" | "TAG" | "READING" | "COMPLETE";
+export const TOOL_NAME: Record<Tool | "DUPLICATE" | "GAP", string> = { QUALITY: "Quality Check", TAG: "Auto-Tag", READING: "Reading Level Estimate", COMPLETE: "Complete Imported Questions", DUPLICATE: "Duplicate Finder", GAP: "Gap Report" };
 const MAX_TRIES = 3;
 export interface Scope { grade?: number; skillId?: string; section?: string; new?: boolean }
 
@@ -69,7 +70,7 @@ async function setting(repo: Repo, schoolId: string, key: string): Promise<Recor
   return (v && typeof v === "object" ? v : {}) as Record<string, unknown>;
 }
 async function saveSetting(repo: Repo, schoolId: string, key: string, value: Record<string, unknown>, by: string | null, now = new Date()) {
-  await repo.upsert("SchoolSetting", { schoolId, key }, { value, updatedById: by, updatedAt: now }, { value, updatedById: by, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId, key }, { value, updatedBy: by, updatedAt: now }, { value, updatedBy: by, updatedAt: now });
 }
 /** The moment the AI tools were first opened (questions added after it are “New”). */
 export async function aiSince(repo: Repo, schoolId: string, now = new Date()): Promise<number> {
@@ -143,6 +144,10 @@ async function itemFailed(repo: Repo, it: Row, reason: string, now: Date) {
 async function runBatch(repo: Repo, actor: Actor, j: Row, items: Row[], picked: Extract<Picked, { ok: true }>, now: Date): Promise<{ stop: boolean; message: string | null }> {
   const schoolId = actor.schoolId!, tool = s(j.tool) as Tool, scope = (j.scope ?? {}) as Scope;
   const ctx = { schoolId, tool, picked, items: items.length };
+  if (tool === "COMPLETE") {
+    const { runCompletionBatch } = await import("./complete");
+    return runCompletionBatch(repo, schoolId, j, items, picked, now, (it, reason) => itemFailed(repo, it, reason, now));
+  }
   if (tool === "READING") {
     const ps: PItem[] = (await repo.findMany("ReadingPassage", { id: { in: items.map((i) => s(i.targetId)) } }, { select: ["id", "title", "body", "genre"] })).map((p) => ({ id: s(p.id), title: s(p.title), text: s(p.body), genre: p.genre ? s(p.genre) : null }));
     const grade = scope.grade ?? 5;
@@ -280,9 +285,28 @@ async function apply(repo: Repo, actor: Actor, sg: Row, now: Date): Promise<void
     const skillOk = d.skillId && (await masterSkills(repo, actor.schoolId!)).some((k) => k.id === d.skillId);
     await repo.updateMany("Question", { id: qid }, {
       ...(skillOk ? { skillId: s(d.skillId) } : {}), ...(std ? { standardId: std.id } : {}), difficultyLevel: Number(d.difficulty),
-      tags: { ...t, mapGoalArea: d.goalArea, aiLevel: d.level, review: { status: "VERIFIED", by: actor.userId, at: now.toISOString(), via: "AI tag approved" } },
+      tags: { ...mergeLiteracyTags(t, d as Record<string, string>, "AI").tags, mapGoalArea: d.goalArea, aiLevel: d.level, review: { status: "VERIFIED", by: actor.userId, at: now.toISOString(), via: "AI tag approved" } },
+      ...(Number(d.dok) >= 1 && Number(d.dok) <= 4 ? { dok: Number(d.dok), dokSource: "AI" } : {}), metaReviewedAt: now,
     });
+    // the AI's misconception for each wrong option (only codes the platform knows)
+    if (d.misconceptions && typeof d.misconceptions === "object") {
+      const { MISCONCEPTION_BY_CODE } = await import("../../insights/misconceptions");
+      const opts = await repo.findMany("QuestionOption", { questionId: qid, isCorrect: false }, { select: ["id", "label"] });
+      for (const o of opts) { const code = s((d.misconceptions as Record<string, unknown>)[s(o.label)]); if (MISCONCEPTION_BY_CODE.has(code)) await repo.updateMany("QuestionOption", { id: o.id }, { misconception: code, misconceptionSource: "AI" }); }
+    }
     bumpBankVersion();
+  } else if (s(sg.tool) === "INTEL" && qid && (s(sg.kind) === "MAP_LEVEL" || (s(sg.kind) === "DIFFICULTY" && d.source === "DATA"))) {
+    // from students' answers (src/server/questions/reclassify.ts): logged as an APPROVED level change
+    await (await import("../questions/reclassify")).applyDataSuggestion(repo, actor, sg, now);
+  } else if (s(sg.tool) === "INTEL" && s(sg.kind) === "DIFFICULTY" && qid) {
+    // the estimated level replaces the authored one until student data calibrates the question
+    const q = await repo.findUnique("Question", { id: qid });
+    const to = Number(d.to);
+    if (q && !q.calibrated && to >= 1 && to <= 7) {
+      const { LEVEL_TO_B } = await import("../../config/engine");
+      await repo.updateMany("Question", { id: qid }, { difficultyLevel: to, irtB: LEVEL_TO_B[to], difficultySource: "ESTIMATE", metaReviewedAt: now });
+      bumpBankVersion();
+    }
   } else if (s(sg.kind) === "KEY_ERROR" && qid && Array.isArray(d.correctLabels) && d.correctLabels.length === 1) {
     const label = s(d.correctLabels[0]);
     const opts = await repo.findMany("QuestionOption", { questionId: qid });

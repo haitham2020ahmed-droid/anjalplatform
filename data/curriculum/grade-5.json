@@ -30,7 +30,7 @@
       {
        "label": "Homographs",
        "role": "VOCABULARY_STRATEGY",
-       "familyCode": "text-features"
+       "familyCode": "homographs-homophones"
       },
       {
        "label": "Ask and Answer Questions",
@@ -68,7 +68,7 @@
       {
        "label": "Commands and Exclamations",
        "role": "GRAMMAR",
-       "familyCode": "commas",
+       "familyCode": "sentences",
        "week": 1,
        "ruleSummary": [
         "A command is a sentence that tells or asks someone to do something. It ends with a period or an exclamation point: Be careful.",
@@ -899,7 +899,7 @@
       {
        "label": "Mechanics: Adding -s or -’s",
        "role": "GRAMMAR",
-       "familyCode": "sentences",
+       "familyCode": "possessive-nouns",
        "week": 4,
        "ruleSummary": [
         "When a singular noun ends in -s, show the possessive form by adding an apostrophe and -s: the atlas’s index.",
@@ -1026,7 +1026,7 @@
       {
        "label": "Homographs",
        "role": "VOCABULARY_STRATEGY",
-       "familyCode": "text-features"
+       "familyCode": "homographs-homophones"
       },
       {
        "label": "Repetition and Rhyme",
@@ -2416,7 +2416,7 @@
       {
        "label": "Mechanics: Appositives",
        "role": "GRAMMAR",
-       "familyCode": "sentences",
+       "familyCode": "commas",
        "week": 1,
        "ruleSummary": [
         "An appositive is a noun, noun phrase, or noun clause that explains or describes a nearby noun or pronoun.",
@@ -2821,7 +2821,7 @@
       {
        "label": "Mechanics: Irregular Comparative Forms",
        "role": "GRAMMAR",
-       "familyCode": "sentences",
+       "familyCode": "comparatives",
        "week": 5,
        "ruleSummary": [
         "In comparisons, better and best are the irregular forms of the adjective good; worse and worst are the forms of the adjective bad.",
@@ -3318,7 +3318,7 @@
       {
        "label": "Context Clues: Paragraph Clues",
        "role": "VOCABULARY_STRATEGY",
-       "familyCode": "text-features",
+       "familyCode": "context-clues",
        "week": 4
       },
       {

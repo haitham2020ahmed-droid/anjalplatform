@@ -79,7 +79,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
         subtitle={isTeacher ? "Choose a unit, then for each section: ⭐ Assign (automatic or manual) or 👀 Preview. The label shows how your class is doing." : "Grade → Book → Unit → Text Set / Selection → Category → Level. Questions are placed only on the 📥 places; they are also in the Question Bank."}>
         {!isTeacher && <>
           <Link prefetch={false} href="/admin/questions/import?to=curriculum" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📥 Import</Link>
-          <Link href={`/admin/curriculum-map/coverage?grade=${v.level ?? 4}`} className="rounded-xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-900 ring-1 ring-emerald-300 hover:bg-emerald-100">🧮 Coverage</Link>
+          <Link href={`/admin/question-intelligence?tab=coverage&grade=${v.level ?? 4}`} className="rounded-xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-900 ring-1 ring-emerald-300 hover:bg-emerald-100">🧮 Coverage</Link>
           <Link href="/admin/curriculum-map/respond" className="rounded-xl bg-violet-50 px-3 py-2 text-sm font-semibold text-violet-900 ring-1 ring-violet-300 hover:bg-violet-100">✍️ Respond to Reading</Link>
           <Link href={`/admin/curriculum-map/bridge?grade=${v.level ?? 5}`} className="rounded-xl bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-900 ring-1 ring-indigo-300 hover:bg-indigo-100">🌉 Bridge</Link>
         </>}

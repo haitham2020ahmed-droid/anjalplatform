@@ -5,7 +5,9 @@ import { DownloadBar } from "@/components/diagnostic/class-report";
 import { StudentDiagnosticView } from "@/components/diagnostic/student-report";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
-import { studentDiagnosticReport } from "@/server/diagnostic/report";
+import { studentBenchmark, studentDiagnosticReport } from "@/server/diagnostic/report";
+import { studentGrowth } from "@/server/diagnostic/growth";
+import { StudentBenchmarkPanel, StudentGrowthPanel } from "@/app/diagnostic/panels";
 import { shareDiagnosticAction } from "@/app/diagnostic/actions";
 
 export const metadata = { title: "Diagnostic Report" };
@@ -20,6 +22,7 @@ export default async function StaffStudentReport({ params, searchParams }: { par
   try { r = await studentDiagnosticReport(repo, actor, studentId, id); }
   catch (e) { if (!(e instanceof ForbiddenError)) throw e; return <AppShell name={String(me.displayName)}><p className="text-lg text-slate-700">{e.message}</p></AppShell>; }
   if (!r) return <AppShell name={String(me.displayName)}><p className="text-lg text-slate-700">This student has not finished the Diagnostic yet.</p></AppShell>;
+  const [bench, growth] = await Promise.all([studentBenchmark(repo, actor, studentId, id), studentGrowth(repo, actor, studentId, r.year)]);
   const back = `/diagnostic/${id}/student/${studentId}`;
   return (
     <AppShell name={String(me.displayName)}>
@@ -34,6 +37,8 @@ export default async function StaffStudentReport({ params, searchParams }: { par
           <><button name="shared" value="1" className="rounded-xl bg-brand-navy px-4 py-2 font-bold text-white">Save note</button><button name="shared" value="0" className="rounded-xl px-4 py-2 font-semibold text-red-700 ring-1 ring-red-300">Stop sharing</button></>
         ) : <button name="shared" value="1" className="rounded-xl bg-emerald-600 px-5 py-2.5 font-bold text-white hover:bg-emerald-700">📤 Send to the student &amp; family</button>}
       </form>
+      {bench && <StudentBenchmarkPanel cells={bench} />}
+      {growth && <StudentGrowthPanel g={growth} />}
       <StudentDiagnosticView r={r} family={false} />
     </AppShell>
   );

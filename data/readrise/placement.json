@@ -1,0 +1,1480 @@
+{
+  "passages": [
+    {
+      "id": "P300a",
+      "level": 300,
+      "title": "The Camel",
+      "text": "The camel lives in the desert. It walks on hot sand. Its feet are wide and soft. They do not sink. A camel has a hump on its back. The hump holds fat. The fat helps it live with no food. A camel can drink a lot of water at one time. Then it can go for days with no drink. It has long lashes. They keep sand out of its eyes. People have used camels for a long time.",
+      "questions": [
+        {
+          "stem": "What does a camel's hump hold?",
+          "options": [
+            "Fat",
+            "Water",
+            "Sand",
+            "Milk"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Camels like to sleep in the cold snow.",
+            "A camel's body helps it live in the desert.",
+            "People use sand to make soft feet.",
+            "Camels need to drink water every single hour."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says the camel's feet do not sink. What does sink mean?",
+          "options": [
+            "get very hot in the sun",
+            "walk fast",
+            "go down into something",
+            "turn to one side"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P300b",
+      "level": 300,
+      "title": "Bees at Work",
+      "text": "Bees live in a hive. Many bees live in one hive. Each bee has a job. Some bees make wax. Some bees keep the hive clean. Some bees fly out to find flowers. They drink sweet juice from the flowers. Then they fly back home. In the hive, the juice turns into honey. The bees eat the honey in the cold months. People like honey too. It is sweet and good.",
+      "questions": [
+        {
+          "stem": "Where do bees find the sweet juice?",
+          "options": [
+            "In the wax",
+            "In the rain",
+            "In tree roots",
+            "In flowers"
+          ],
+          "answer": "D",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Bees work together to make honey.",
+            "Bees are afraid of the cold winter months.",
+            "People make the wax for bees.",
+            "Flowers grow best in a hive."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why do bees need honey in the cold months?",
+          "options": [
+            "The hive is too clean to live in.",
+            "There are few flowers to visit then.",
+            "They want to give all of the honey to people.",
+            "The wax is too hot for them to eat."
+          ],
+          "answer": "B",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P300c",
+      "level": 300,
+      "title": "Brush Your Teeth",
+      "text": "Your teeth help you eat. You need to take care of them. Brush your teeth two times a day. Brush when you get up. Brush at night too. Use a soft brush and a bit of paste. Brush for two full minutes. Do not skip the back teeth. Sweet food can hurt your teeth. Drink water, not soda. Then go to see a dentist each year. A dentist checks that your teeth are strong.",
+      "questions": [
+        {
+          "stem": "How long should you brush your teeth?",
+          "options": [
+            "For two hours",
+            "For ten seconds",
+            "For two minutes",
+            "For half an hour"
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Why soda tastes so much sweeter than water",
+            "How a dentist got the job",
+            "Where to buy a soft brush",
+            "How to keep your teeth healthy"
+          ],
+          "answer": "D",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says, Do not skip the back teeth. What does skip mean?",
+          "options": [
+            "leave out",
+            "brush hard",
+            "look at",
+            "pull out"
+          ],
+          "answer": "A",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P400a",
+      "level": 400,
+      "title": "The Moon at Night",
+      "text": "At night, you can often see the moon in the sky. The moon does not make its own light. It shines because light from the sun hits it. The moon moves around the Earth. One trip takes about a month. As it moves, we see more or less of its bright side. That is why the moon seems to change shape. Some nights it looks round and full. On other nights it looks like a thin curve. The moon has no air or water, so no plants or animals live there.",
+      "questions": [
+        {
+          "stem": "How long does the moon take to go around the Earth?",
+          "options": [
+            "About one day",
+            "About one month",
+            "About one week",
+            "About one year"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The moon is a good place for plants and trees to grow.",
+            "The sun moves around the moon each night of the year.",
+            "The moon shines with sun light and seems to change shape.",
+            "People can only see the moon during the cold winter months."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why could a person not live on the moon without help?",
+          "options": [
+            "It is too close to the sun.",
+            "It is dark there all the time.",
+            "It is made of bright light.",
+            "There is no air to breathe."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P400b",
+      "level": 400,
+      "title": "Fast Falcons",
+      "text": "The falcon is a fast bird. It has sharp eyes. It can see a mouse from far away. When it spots food, it folds its wings and dives. Some can dive faster than a car. People in Saudi Arabia have trained falcons for a long time. A trainer works with the bird each day. The bird learns to fly back to its trainer. The trainer wears a thick glove. The glove keeps the trainer safe from sharp claws.",
+      "questions": [
+        {
+          "stem": "What does the trainer wear?",
+          "options": [
+            "A thick glove",
+            "A bright hat",
+            "A long, heavy coat",
+            "A soft shoe"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Cars can go faster than any kind of bird.",
+            "Falcons are fast hunters that people train.",
+            "Small animals hide from the hot sun all day.",
+            "Gloves are made from strong and thick cloth."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says, When it spots food, it folds its wings. What does spots mean?",
+          "options": [
+            "paints",
+            "drops",
+            "sees",
+            "hides"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P400c",
+      "level": 400,
+      "title": "Drink Your Water",
+      "text": "Your body needs water every day. More than half of your body is water. You lose water when you sweat and breathe. You need to drink to put it back. If you do not drink enough, you may feel tired. You may get a headache too. Hot days make you sweat more. So drink more on hot days. Take a bottle of water with you to school. Melons and oranges have a lot of water in them. They help you feel good all day.",
+      "questions": [
+        {
+          "stem": "Which food does the text say has water in it?",
+          "options": [
+            "White rice",
+            "Bread",
+            "Nuts",
+            "Oranges"
+          ],
+          "answer": "D",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Drinking water keeps your body healthy.",
+            "Hot days are the best days for sports.",
+            "Melons are the best fruit to grow.",
+            "Schools should sell more water bottles."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "On a hot day, Lina feels tired and has a headache. What might help her most?",
+          "options": [
+            "Running in the sun",
+            "Drinking some water",
+            "Eating salty chips",
+            "Skipping her lunch"
+          ],
+          "answer": "B",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P500a",
+      "level": 500,
+      "title": "Water on the Move",
+      "text": "The water on Earth is always moving. When the sun warms a lake or the sea, some water turns into a gas. This gas rises into the sky. High up, the air is cool. The gas cools and turns back into tiny drops. Many drops gather to form clouds. When the drops grow heavy, they fall as rain or snow. The rain fills rivers, lakes, and the sea. Then the sun warms the water again, and the cycle starts over. The same water has moved this way for millions of years.",
+      "questions": [
+        {
+          "stem": "What makes the gas turn back into drops?",
+          "options": [
+            "Heavy rain on a big lake",
+            "Warm sand next to the sea",
+            "Cool air high in the sky",
+            "Bright light from the moon"
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Clouds are made of small bits of dust and sand.",
+            "Rivers are always much bigger than lakes.",
+            "Snow falls only in very cold countries.",
+            "Water moves in a cycle between Earth and sky."
+          ],
+          "answer": "D",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says, Many drops gather to form clouds. What does gather mean?",
+          "options": [
+            "come together",
+            "fall down",
+            "dry up",
+            "break apart"
+          ],
+          "answer": "A",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P500b",
+      "level": 500,
+      "title": "How Do We See?",
+      "text": "Long ago, a scientist named Ibn al-Haytham lived in Cairo. He was born in Basra about one thousand years ago. He wanted to know how we see. Many people then thought that light came out of our eyes. Ibn al-Haytham tested this idea. He studied light in a dark room. The room had a small hole in one wall. Light came in through the hole. It made a picture on the far wall. He showed that light comes into our eyes from the things around us. He wrote a famous book about light.",
+      "questions": [
+        {
+          "stem": "Where did Ibn al-Haytham study light?",
+          "options": [
+            "On a boat out in the open sea",
+            "In a dark room with a small hole",
+            "In a garden full of bright sun",
+            "At the top of a very tall tower"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Cairo was the biggest city in the old world.",
+            "Many people long ago had very weak eyes.",
+            "Ibn al-Haytham tested ideas to learn how we see.",
+            "Light can only travel through a room that is dark."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What can you tell about Ibn al-Haytham from the text?",
+          "options": [
+            "He did not like to read books or write them.",
+            "He thought that light came out of our eyes.",
+            "He spent his whole life in the city where he was born.",
+            "He checked ideas instead of just believing them."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P500c",
+      "level": 500,
+      "title": "Playing as a Team",
+      "text": "Football is one of the most popular sports in the world. A team has eleven players on the field. One player is the goalkeeper. Only this player may touch the ball with the hands. Even then, it must be near the goal. The rest use their feet, heads, and chests. To score, a team must get the ball into the other team's goal. Good teams pass the ball to each other a lot. A player who shares the ball helps the whole team win.",
+      "questions": [
+        {
+          "stem": "How many players does a team have on the field?",
+          "options": [
+            "Eleven",
+            "Nine",
+            "Twelve",
+            "Fifteen"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The goalkeeper scores most of the goals in a game.",
+            "Football has rules and works best with teamwork.",
+            "Football is played in only a few countries.",
+            "Players should never use their heads."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says football is popular. What does popular mean?",
+          "options": [
+            "very hard to learn",
+            "played only at night",
+            "liked by many people",
+            "new and not known"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P600a",
+      "level": 600,
+      "title": "The Date Palm",
+      "text": "The date palm is one of the oldest farm trees in the world. It grows well in hot, dry places like Saudi Arabia. A date palm can grow taller than a four-story building. Its long leaves are called fronds. Farmers climb the trees to pick the sweet, sticky fruit in late summer. Dates are full of energy, so travelers in the desert have carried them for thousands of years. People also used every part of the tree. They made baskets and mats from the fronds and built roofs from the trunks.",
+      "questions": [
+        {
+          "stem": "What are the long leaves of the date palm called?",
+          "options": [
+            "Trunks",
+            "Roots",
+            "Seeds",
+            "Fronds"
+          ],
+          "answer": "D",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The date palm has long been useful to people in dry lands.",
+            "Farmers prefer to grow their trees in cold, wet places.",
+            "Dates are always picked early in the winter months.",
+            "Baskets are the most important thing that people make from trees."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What can you infer about the date palm?",
+          "options": [
+            "It grows only in cold mountain areas.",
+            "It does not need much rain to grow.",
+            "It has no uses besides its sweet fruit.",
+            "It is a new kind of tree from farms."
+          ],
+          "answer": "B",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P600b",
+      "level": 600,
+      "title": "Mountains of Fire",
+      "text": "Deep under the ground, it is so hot that some rock melts. This melted rock is called magma. Sometimes magma pushes up through a crack in the Earth's crust. When it reaches the surface, it is called lava. A mountain that forms this way is a volcano. Some volcanoes erupt with a loud blast of ash and gas. Others let lava flow out slowly like thick syrup. Saudi Arabia has large fields of old lava called harrats. Scientists watch volcanoes closely. They measure small shakes in the ground to warn people early.",
+      "questions": [
+        {
+          "stem": "What is magma called when it reaches the surface?",
+          "options": [
+            "Ash",
+            "Crust",
+            "Lava",
+            "Syrup"
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Scientists cannot learn anything at all about volcanoes.",
+            "All volcanoes explode with a loud blast of ash.",
+            "Lava is the coldest kind of rock on the Earth.",
+            "Volcanoes form when melted rock rises to the surface."
+          ],
+          "answer": "D",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says some volcanoes erupt with a loud blast. What does erupt mean?",
+          "options": [
+            "burst out suddenly",
+            "cool down slowly",
+            "sink into the sea",
+            "grow new plants"
+          ],
+          "answer": "A",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P600c",
+      "level": 600,
+      "title": "Why We Need Sleep",
+      "text": "Sleep is not wasted time. While you sleep, your body is busy. It repairs muscles and helps you grow. Your brain sorts what you learned during the day and stores it as memories. Children your age need about nine to twelve hours of sleep each night. Without enough sleep, it is hard to pay attention in class. You may also feel grumpy. To sleep well, go to bed at the same time each night. Turn off screens an hour before bed, because their bright light can keep your brain awake.",
+      "questions": [
+        {
+          "stem": "How much sleep do children your age need each night?",
+          "options": [
+            "About four to five hours",
+            "About nine to twelve hours",
+            "About six to seven hours",
+            "About fifteen to sixteen hours"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Screens help children fall asleep much faster.",
+            "Muscles grow only when people exercise.",
+            "Sleep helps the body and brain stay healthy.",
+            "Going to bed very late is a good habit."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Omar watched videos late and slept only six hours. What will most likely happen at school?",
+          "options": [
+            "He will remember more than usual.",
+            "He will feel full of energy all day.",
+            "He will grow much taller that day.",
+            "He may find it hard to focus."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P700a",
+      "level": 700,
+      "title": "Return of the Oryx",
+      "text": "The Arabian oryx is a white antelope with long, straight horns. It lives in the deserts of Arabia, where it can go for weeks without drinking. It gets water from the plants it eats and from the morning dew. Its pale coat reflects sunlight and helps it stay cool. Sadly, hunting wiped out the wild oryx by the early 1970s. A few animals still lived in zoos, however. Scientists bred them with care and later released small herds into protected areas. Today, more than a thousand oryx live in the wild again. The animal has become a symbol of how people can save a species.",
+      "questions": [
+        {
+          "stem": "Where does the oryx get water when it is not drinking?",
+          "options": [
+            "From plants and morning dew",
+            "From deep holes that it digs",
+            "From snow on the mountains",
+            "From streams in the forest"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The oryx has always lived in very large numbers in zoos.",
+            "People helped the oryx return after it disappeared from the wild.",
+            "Hunting is the best way to keep desert animals safe.",
+            "The oryx needs to drink water every single day in order to stay alive."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says scientists released small herds into protected areas. What does released mean?",
+          "options": [
+            "counted",
+            "fed",
+            "set free",
+            "caught"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P700b",
+      "level": 700,
+      "title": "The Bicycle Changes Shape",
+      "text": "The first bicycles, built in the early 1800s, had no pedals. Riders pushed against the ground with their feet, like on a scooter. Later, inventors added pedals to the front wheel. To go faster, they made that front wheel huge, sometimes taller than a man. These high-wheel bikes were fast but dangerous, because riders could easily fall forward. In the 1880s, the safety bicycle solved this problem. It had two wheels of the same size and a chain that turned the back wheel. Its design worked so well that most bikes today still look much the same.",
+      "questions": [
+        {
+          "stem": "How did riders move the very first bicycles?",
+          "options": [
+            "By turning pedals on the big back wheel",
+            "By pulling a long chain with their hands",
+            "By using a small engine under the seat",
+            "By pushing on the ground with their feet"
+          ],
+          "answer": "D",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The bicycle changed over time to become safer to ride.",
+            "High-wheel bikes were the safest bikes ever made.",
+            "Scooters were invented before cars and trains.",
+            "Bicycles today look nothing like the safety bicycle of the 1880s."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says the safety bicycle's design worked well. What does design mean?",
+          "options": [
+            "the price it cost",
+            "the way it was made",
+            "the name it was given",
+            "the speed it reached"
+          ],
+          "answer": "B",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P700c",
+      "level": 700,
+      "title": "Reefs of the Red Sea",
+      "text": "The Red Sea is home to some of the most colorful coral reefs on Earth. Coral may look like rock or plants. But it is made of tiny animals called polyps. Each polyp builds a hard skeleton around itself. Over many years, millions of these skeletons pile up and form a reef. Reefs give food and shelter to fish, turtles, and many other sea animals. Red Sea corals are special. They can handle warmer water than most corals can. Scientists study them to learn how other reefs might survive as the oceans get warmer.",
+      "questions": [
+        {
+          "stem": "What are coral reefs made of?",
+          "options": [
+            "Pieces of broken sea glass",
+            "Rocks pushed up by volcanoes",
+            "The skeletons of tiny animals",
+            "Plants that grow on the sand"
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Coral reefs are made of plants that grow on rocks.",
+            "Turtles and fish build reefs so they can stay out of the hot sun.",
+            "Most of the world's oceans are getting much colder.",
+            "Red Sea reefs are living homes that scientists study."
+          ],
+          "answer": "D",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why might Red Sea corals be important for the future?",
+          "options": [
+            "They may show how reefs can live in warmer seas.",
+            "They may be used to build new houses on the coast.",
+            "They may stop the fish from eating sea plants.",
+            "They may make the water in other seas much cooler."
+          ],
+          "answer": "A",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P800a",
+      "level": 800,
+      "title": "Power from the Sun",
+      "text": "The sun sends far more energy to Earth than people could ever use. Solar panels capture some of this energy and turn it into electricity. Each panel holds many cells, which are usually made from a material called silicon. When sunlight hits these cells, it knocks tiny particles called electrons loose. As the electrons move, they make an electric current. Saudi Arabia gets strong sunshine for most of the year, so it is a great place for solar power. The country is building large solar farms in the desert. One problem is dust, which can cover the panels and lower how much power they make.",
+      "questions": [
+        {
+          "stem": "What material are solar cells usually made from?",
+          "options": [
+            "Copper",
+            "Silicon",
+            "Iron",
+            "Rubber"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Dust is the main source of energy for machines in the desert.",
+            "Electricity can only be made by burning oil.",
+            "Solar panels change sunlight into useful electricity.",
+            "Silicon is found only in the deserts of Arabia."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why might workers clean solar panels often in the desert?",
+          "options": [
+            "So the panels change their color",
+            "So the sun shines for longer hours",
+            "So the cells turn back into sand",
+            "So dust does not lower their power"
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P800b",
+      "level": 800,
+      "title": "The Elephant Clock",
+      "text": "About eight hundred years ago, an engineer named Al-Jazari worked in the city of Diyarbakir. He designed dozens of clever machines, such as water clocks, pumps, and devices that moved by themselves. One of his most famous inventions was the elephant clock. It used flowing water to keep track of time. Every half hour, a small figure struck a cymbal and a bird whistled. Al-Jazari also wrote a long book with drawings. The book explained exactly how to build each machine. Because he kept such a careful record, engineers today have been able to rebuild several of his inventions and see how they work.",
+      "questions": [
+        {
+          "stem": "What did the elephant clock use to measure time?",
+          "options": [
+            "Flowing water",
+            "Burning candles",
+            "Falling sand",
+            "Moving shadows"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Elephants were used to carry heavy machines across the city.",
+            "Al-Jazari invented clever machines and recorded how to build them.",
+            "Modern engineers have never been able to rebuild old machines.",
+            "Al-Jazari mostly wrote poems and stories about the famous birds of his city."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says Al-Jazari designed pumps and devices. What does devices mean?",
+          "options": [
+            "drawings or maps",
+            "cities or towns",
+            "machines or tools",
+            "songs or poems"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P800c",
+      "level": 800,
+      "title": "Why We Exercise",
+      "text": "Doctors say that children should be active for at least sixty minutes every day. Exercise makes the heart stronger. The heart is a muscle that pumps blood through the body. A stronger heart can send more oxygen to the muscles and brain with each beat. Running, swimming, and playing football also build strong bones and help children keep a healthy weight. Exercise helps the mind as well. Many students find that they feel calmer and can concentrate better after active play. You do not need special equipment to stay active. Walking, jumping rope, or helping with chores at home all count.",
+      "questions": [
+        {
+          "stem": "How long should children be active each day?",
+          "options": [
+            "At least ten minutes",
+            "Exactly three hours",
+            "About twenty minutes",
+            "At least sixty minutes"
+          ],
+          "answer": "D",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Regular exercise helps both the body and the mind.",
+            "Children need special equipment before they can exercise.",
+            "The heart is the only muscle that gets stronger.",
+            "Chores at home are more tiring than playing football."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Which student is most likely following the doctors' advice?",
+          "options": [
+            "Ali, who plays video games all afternoon",
+            "Sara, who plays outside for an hour daily",
+            "Huda, who runs only once or twice a month",
+            "Fahad, who reads in his room every evening"
+          ],
+          "answer": "B",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P900a",
+      "level": 900,
+      "title": "Forests in the Sea",
+      "text": "Along parts of the Saudi coast on the Red Sea and the Arabian Gulf grow unusual trees called mangroves. Most trees would die if their roots were soaked in salt water, but mangroves have adapted to survive there. Some of their roots grow upward out of the mud like small pencils, allowing the trees to breathe when the tide is high. Their leaves can also get rid of extra salt. Mangrove forests protect coastlines by slowing waves and holding soil in place during storms. Their tangled roots create safe nurseries where young fish and shrimp can hide from larger predators. For these reasons, Saudi Arabia has planted millions of new mangrove trees in recent years.",
+      "questions": [
+        {
+          "stem": "How do some mangrove roots help the tree breathe?",
+          "options": [
+            "They spread deep under the sand.",
+            "They wrap tightly around rocks.",
+            "They grow upward out of the mud.",
+            "They float on top of the waves."
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Mangroves are trees that grow best in cold, snowy mountains.",
+            "Fish and shrimp plant mangrove trees along the shore.",
+            "Storms are the main reason that coastlines exist at all.",
+            "Mangroves are adapted to salty coasts and help protect them."
+          ],
+          "answer": "D",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says mangroves have adapted to survive in salt water. What does adapted mean?",
+          "options": [
+            "changed to fit where they live",
+            "moved quickly to a new place",
+            "grown taller than other trees",
+            "stopped growing for a long time"
+          ],
+          "answer": "A",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P900b",
+      "level": 900,
+      "title": "Books for Everyone",
+      "text": "Before the fifteenth century, books in Europe were copied by hand. This was slow work, and a single book could take months to finish. Printers in China and Korea had already used movable type. But around 1450, a German metalworker named Johannes Gutenberg built a press with movable metal letters. Workers arranged the letters to form a page, covered them with ink, and pressed paper against them. Then the same letters could be moved around to make the next page. Suddenly, hundreds of copies of a book could be made in the time it once took to make one. As books became cheaper, more people learned to read, and new ideas spread faster than ever before.",
+      "questions": [
+        {
+          "stem": "What did Gutenberg's press use to print pages?",
+          "options": [
+            "Carved wooden boards",
+            "Movable metal letters",
+            "Hand-painted pictures",
+            "Long rolls of cloth"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Copying books by hand was faster than using a machine.",
+            "Gutenberg was the first person to write books in German.",
+            "The printing press made books faster and cheaper to produce.",
+            "Few people wanted to read after the printing press appeared."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What can you infer about books in Europe before the printing press?",
+          "options": [
+            "Most families had large home libraries.",
+            "They were all written in the German language.",
+            "They were shorter than books are today.",
+            "Few people could afford to own them."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P900c",
+      "level": 900,
+      "title": "The Rock Tombs of Hegra",
+      "text": "In the northwest of Saudi Arabia lies Hegra, an ancient city near AlUla. About two thousand years ago, it was an important stop for traders who carried goods such as incense and spices. The Nabataeans, the people who built the city, carved more than one hundred grand tombs straight into the sandstone cliffs. Some of the carved fronts are several stories high, and they still show fine decorations and writing. The dry desert air has helped protect them for centuries. In 2008, Hegra became the first place in Saudi Arabia to be named a World Heritage Site. Today, visitors from around the world come to admire how skillfully its builders shaped solid rock.",
+      "questions": [
+        {
+          "stem": "What did the Nabataeans carve into the cliffs?",
+          "options": [
+            "Grand tombs",
+            "Market stalls",
+            "Long roads",
+            "Water wells"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Hegra is a new city that was built for modern tourists.",
+            "Hegra is an ancient city known for tombs carved into rock.",
+            "Traders today still carry incense through AlUla on the backs of camels.",
+            "Sandstone is too soft for anything to be carved into it."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says visitors come to admire the builders' work. What does admire mean?",
+          "options": [
+            "try to copy exactly",
+            "complain about",
+            "look at with respect",
+            "take apart slowly"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1000a",
+      "level": 1000,
+      "title": "The Wisdom of Ants",
+      "text": "Although a single ant has a tiny brain, an ant colony can solve surprisingly hard problems. When a worker ant finds food, it walks back to the nest and leaves behind a trail of chemicals called pheromones. Other ants detect this scent with their antennae and follow the trail to the food, adding more pheromones as they go. Ants on a shorter route finish the trip more quickly, so they lay down scent more often. As a result, the shortest trail soon becomes the strongest, and the colony settles on the most efficient path without any leader planning it. Computer scientists have studied this behavior. They have written programs, inspired by ants, that help plan delivery routes and guide traffic through communication networks.",
+      "questions": [
+        {
+          "stem": "How do ants detect pheromones?",
+          "options": [
+            "With their eyes",
+            "With their legs",
+            "With their jaws",
+            "With their antennae"
+          ],
+          "answer": "D",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Ant colonies use scent trails to find efficient paths.",
+            "Each ant in a colony has a very large and clever brain.",
+            "Computer programs taught ants how to find their food.",
+            "Ants always choose the longest path back to the nest."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What does the passage suggest about how a colony solves problems?",
+          "options": [
+            "One leader ant gives orders to all the others.",
+            "Many simple actions add up to a smart result.",
+            "Each ant plans the whole route before leaving.",
+            "Ants learn the best routes by watching people."
+          ],
+          "answer": "B",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P1000b",
+      "level": 1000,
+      "title": "The Modern Olympics",
+      "text": "The first modern Olympic Games took place in Athens, Greece, in 1896. They were inspired by sports festivals held in ancient Greece more than two thousand years earlier. A French educator named Pierre de Coubertin believed that contests between countries could build friendship and understanding among nations. Only about fourteen countries sent athletes to those first Games, and all of the athletes were men. Today, more than two hundred nations participate, and the Games include dozens of sports, from swimming and gymnastics to newer events such as skateboarding. Women now compete in almost every sport as well. Saudi Arabia first competed in 1972. Since then, its athletes have won medals in several events, including show jumping on horseback, running, and karate.",
+      "questions": [
+        {
+          "stem": "Where were the first modern Olympic Games held?",
+          "options": [
+            "Paris, France",
+            "Rome, Italy",
+            "Athens, Greece",
+            "London, England"
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The modern Olympics have always included more than two hundred nations.",
+            "Pierre de Coubertin was the first athlete to win an Olympic medal.",
+            "Skateboarding was one of the main sports at the first Games.",
+            "The modern Olympics grew from a small start into a global event."
+          ],
+          "answer": "D",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says more than two hundred nations participate. What does participate mean?",
+          "options": [
+            "take part",
+            "watch closely",
+            "pay money",
+            "stay away"
+          ],
+          "answer": "A",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1000c",
+      "level": 1000,
+      "title": "Fuel for the Morning",
+      "text": "Nutrition experts often describe breakfast as fuel for the morning. After a night without food, the body's supply of energy is low. The brain, in particular, depends on a steady flow of glucose, a sugar that comes from the food we eat. Without this fuel, many students find it hard to stay alert in class. Students who eat a balanced breakfast often find it easier to concentrate and to remember information during their lessons. A balanced meal combines several food groups: whole grains such as oats or bread, protein from eggs, beans, or yogurt, and a piece of fruit. Sugary cereals and pastries may give quick energy, but that energy fades fast. As a result, students who eat them often feel hungry and tired long before lunch.",
+      "questions": [
+        {
+          "stem": "According to the text, what does the brain depend on?",
+          "options": [
+            "A large amount of salt",
+            "A steady flow of glucose",
+            "A long rest after lunch",
+            "Extra hours of sleep"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Sugary cereals are the best choice for a school morning.",
+            "Students should skip breakfast and eat a much larger lunch at school instead.",
+            "A balanced breakfast gives students lasting energy for learning.",
+            "Eggs and beans are the only foods that contain protein."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why might a student who eats only a sweet pastry feel hungry by mid-morning?",
+          "options": [
+            "It has too much protein in it.",
+            "It is full of whole grains.",
+            "It makes the heart beat slower.",
+            "Its quick energy fades fast."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P1100a",
+      "level": 1100,
+      "title": "Dunes on the Move",
+      "text": "The Rub' al Khali, or Empty Quarter, stretches across southern Saudi Arabia and several neighboring countries, and it contains one of the largest continuous areas of sand on Earth. Its dunes are not fixed parts of the landscape. Instead, they migrate gradually as the wind carries grains of sand up the gentle slope on one side and lets them tumble down the steeper face on the other. Depending on the strength and direction of the main winds, a dune may advance several meters in a single year. Some dunes in the Empty Quarter rise more than two hundred meters, which is taller than most buildings in a typical city. Engineers who build roads and railways across deserts must therefore expect the sand to move, and they design fences and barriers to keep it from burying their work.",
+      "questions": [
+        {
+          "stem": "How tall can some dunes in the Empty Quarter be?",
+          "options": [
+            "More than two hundred meters",
+            "About twenty meters",
+            "Less than five meters",
+            "Nearly two thousand meters"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The Empty Quarter is a small desert that is found only inside Saudi Arabia.",
+            "Desert dunes move with the wind, which affects how people build.",
+            "Dunes stay in the same place for thousands of years at a time.",
+            "Skyscrapers are built in the desert to block the strong winds."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says the dunes migrate gradually. What does migrate most nearly mean?",
+          "options": [
+            "grow larger every year",
+            "disappear completely",
+            "move from place to place",
+            "become hard as rock"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1100b",
+      "level": 1100,
+      "title": "A Lucky Mistake",
+      "text": "In 1928, the Scottish scientist Alexander Fleming returned from a vacation and found that mold had grown on one of his dishes of bacteria. Rather than throwing the dish away, he examined it carefully and noticed that the bacteria around the mold had been destroyed. Fleming identified the substance that the mold produced and named it penicillin. However, more than ten years passed before other researchers, including Howard Florey and Ernst Chain, found ways to make penicillin in large amounts. By the 1940s, this first widely used antibiotic was saving countless lives by treating infections that had often been deadly. Today, doctors warn that antibiotics must be used wisely. When these medicines are overused, bacteria can change over time so that the drugs no longer work against them.",
+      "questions": [
+        {
+          "stem": "What did Fleming notice about the bacteria near the mold?",
+          "options": [
+            "They had grown much larger.",
+            "They had changed color.",
+            "They had turned into mold.",
+            "They had been destroyed."
+          ],
+          "answer": "D",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "A careful observation led to penicillin, an important medicine.",
+            "Fleming made large amounts of penicillin entirely by himself in his own lab.",
+            "Mold is always harmful and should be thrown away at once.",
+            "Antibiotics should be used as often as possible by everyone."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What does the passage suggest about Fleming's discovery?",
+          "options": [
+            "He had planned to grow mold on the dish all along.",
+            "Noticing an accident closely can lead to progress.",
+            "He produced large amounts of penicillin by himself.",
+            "Antibiotics work best when people use them often."
+          ],
+          "answer": "B",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P1100c",
+      "level": 1100,
+      "title": "The Father of Algebra",
+      "text": "During the ninth century, Baghdad became one of the world's leading centers of learning. Scholars gathered there to translate important books from Greek, Persian, and Indian languages into Arabic, and then they built new ideas on top of them. Among these scholars was Muhammad ibn Musa al-Khwarizmi, a mathematician whose book on solving equations gave its name to the subject we now call algebra. His writings also helped bring the Hindu-Arabic numerals, including zero, to readers in Europe. Over time, these numerals replaced the clumsy Roman numerals, which made even simple sums slow and hard to write. Even the word algorithm, which describes a step-by-step method that computers follow, comes from a Latin form of al-Khwarizmi's name. In this way, his work still shapes how we count and calculate today.",
+      "questions": [
+        {
+          "stem": "Which subject takes its name from al-Khwarizmi's book?",
+          "options": [
+            "Geometry",
+            "Astronomy",
+            "Algebra",
+            "Chemistry"
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Baghdad was a small village with very few scholars.",
+            "Roman numerals are easier to use than Arabic numerals for most kinds of math.",
+            "Al-Khwarizmi invented the first electronic computer.",
+            "Al-Khwarizmi's work had a lasting effect on mathematics."
+          ],
+          "answer": "D",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text calls Roman numerals clumsy. What does clumsy most nearly mean?",
+          "options": [
+            "awkward to use",
+            "very ancient",
+            "beautiful",
+            "kept secret"
+          ],
+          "answer": "A",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1200a",
+      "level": 1200,
+      "title": "Food from Sunlight",
+      "text": "Photosynthesis is the remarkable process by which green plants convert the energy in light into chemical energy stored in sugar. Inside the leaves, tiny structures called chloroplasts contain a green pigment, chlorophyll, which absorbs mostly red and blue light while reflecting green light, and this explains the familiar color of plants. Using the absorbed energy, the plant combines carbon dioxide taken from the air with water drawn up through its roots, producing glucose and releasing oxygen as a by-product. Almost every food chain on Earth depends on this process in the end, since animals get their energy either by eating plants or by eating other animals that ate plants. In addition, plants and algae release oxygen. This is the gas that most living things need to breathe, so life as we know it could not continue without them.",
+      "questions": [
+        {
+          "stem": "Why do most plants look green?",
+          "options": [
+            "Chlorophyll absorbs green light.",
+            "Chlorophyll reflects green light.",
+            "Their roots draw up green water.",
+            "The sugar in their leaves is green."
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Animals produce most of the oxygen that green plants need in order to survive.",
+            "Chloroplasts are found in the roots of most green plants.",
+            "Photosynthesis lets plants make food and supports nearly all life.",
+            "Plants take in oxygen and release carbon dioxide all day."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What would most likely happen to animals if photosynthesis stopped?",
+          "options": [
+            "They would grow larger and stronger.",
+            "They would start to make their own sugar.",
+            "They would not be affected in any way.",
+            "They would eventually run out of food."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P1200b",
+      "level": 1200,
+      "title": "The Hijaz Railway",
+      "text": "In the early twentieth century, the Ottoman government built the Hijaz Railway to connect Damascus with Madinah. Before the railway, the same journey took about forty days by camel caravan. When the line was completed in 1908, the trip was cut to only a few days, which made the pilgrimage much safer and cheaper for travelers heading toward the holy cities. The engineers faced great difficulties along the way, including scarce water, burning heat, and shifting sand, and they built many stations, bridges, and water towers along the route. Sadly, the railway ran for barely a decade before it was badly damaged during the First World War, and it was never fully repaired. Today, the old station in Madinah has been carefully preserved as a museum, where visitors can look at original engines and learn about this bold project.",
+      "questions": [
+        {
+          "stem": "In what year was the railway to Madinah completed?",
+          "options": [
+            "1908",
+            "1890",
+            "1918",
+            "1932"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Camel caravans were faster than the trains on the Hijaz Railway.",
+            "The Hijaz Railway made travel faster but operated only briefly.",
+            "The Hijaz Railway still carries travelers to Damascus every day.",
+            "The railway was built mainly to carry goods to Europe."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text lists scarce water as a difficulty. What does scarce most nearly mean?",
+          "options": [
+            "very salty",
+            "dangerously hot",
+            "in short supply",
+            "easily found"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1200c",
+      "level": 1200,
+      "title": "Seeing Far and Near",
+      "text": "Eye doctors around the world have noticed a sharp rise in myopia, or nearsightedness, among children in recent decades. A person with myopia can see nearby objects clearly, but distant objects, such as writing on a classroom board, look blurry. Although the genes children inherit from their parents play a role, researchers have found two other factors that seem especially important. The first is spending long periods on close-up activities, such as reading or using digital devices, and the second is not spending enough time outdoors. Natural daylight appears to slow the abnormal lengthening of the eyeball that causes nearsightedness. For this reason, many specialists recommend that children spend at least two hours outside each day. They also suggest a simple rule for close work: every twenty minutes, look at something about six meters away for twenty seconds.",
+      "questions": [
+        {
+          "stem": "What does a person with myopia have trouble seeing?",
+          "options": [
+            "Objects that are very close",
+            "Colors such as red and blue",
+            "Anything in bright daylight",
+            "Objects that are far away"
+          ],
+          "answer": "D",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Myopia is increasing, and outdoor time and breaks may help prevent it.",
+            "Myopia is caused only by the genes children inherit, so nothing can be done about it.",
+            "Daylight makes the eyeball grow longer and causes nearsightedness.",
+            "Children should avoid going outside so their eyes can rest at home."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Which child is probably at the greatest risk of developing myopia?",
+          "options": [
+            "One who plays football outside every afternoon",
+            "One who reads on a tablet indoors all day",
+            "One who walks to school and back each day",
+            "One who takes regular breaks to look far away"
+          ],
+          "answer": "B",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P1300a",
+      "level": 1300,
+      "title": "Fresh Water from the Sea",
+      "text": "Because Saudi Arabia has no permanent rivers and only limited supplies of groundwater, the kingdom depends heavily on desalination, the industrial process of removing dissolved salt from seawater to produce water that people can drink. In the past, most plants relied on thermal distillation, which involves heating seawater until it evaporates and then cooling the vapor so that it condenses as pure water; however, this method uses enormous amounts of energy. More and more modern plants now use reverse osmosis instead. In this method, powerful pumps force seawater through special membranes whose microscopic pores let water molecules pass but block the salt. Although reverse osmosis is far more efficient, it leaves behind a thick, salty liquid called brine, which must be disposed of carefully so that it does not harm sea life. Engineers are therefore testing plants powered by the sun and searching for useful ways to handle brine, hoping to make fresh water both affordable and kind to the environment.",
+      "questions": [
+        {
+          "stem": "In reverse osmosis, what blocks the salt?",
+          "options": [
+            "Large tanks of boiling water",
+            "Thick layers of desert sand",
+            "Membranes with tiny pores",
+            "Solar panels on the roof"
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Saudi Arabia gets most of its drinking water from large rivers that flow all year.",
+            "Thermal distillation uses less energy than any other method.",
+            "Brine is a valuable drink that is sold in many countries.",
+            "Saudi Arabia relies on desalination, which is improving but has costs."
+          ],
+          "answer": "D",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says brine must be disposed of carefully. What does disposed of most nearly mean?",
+          "options": [
+            "gotten rid of",
+            "heated up",
+            "sold abroad",
+            "measured"
+          ],
+          "answer": "A",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1300b",
+      "level": 1300,
+      "title": "The Great Traveler",
+      "text": "In 1325, a twenty-one-year-old scholar named Ibn Battuta left his hometown of Tangier, in present-day Morocco, planning to perform the pilgrimage to Makkah. He could not have anticipated that his journey would continue, with breaks, for nearly thirty years. Over that time he covered an estimated one hundred twenty thousand kilometers by land and sea, a distance greater than that of almost any other traveler of his age. His travels carried him across North Africa, East Africa, the Arabian Peninsula, Persia, Central Asia, India, Southeast Asia, and China, and in some places, such as Delhi and the Maldives, he worked as a judge. When he finally returned home, he described his memories to a writer, who turned them into a detailed book. Historians still consult this account today, because it describes the customs, governments, and trade of fourteenth-century societies that few other sources record in such careful detail.",
+      "questions": [
+        {
+          "stem": "Why did Ibn Battuta first leave Tangier?",
+          "options": [
+            "To become a judge in India",
+            "To perform the pilgrimage",
+            "To trade spices in China",
+            "To study in Persia"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Ibn Battuta stayed in Tangier and wrote about places he imagined.",
+            "Most travelers in the fourteenth century went farther than Ibn Battuta.",
+            "Ibn Battuta's long journeys produced a valuable historical record.",
+            "Historians have found that Ibn Battuta's account is of little use."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says he could not have anticipated how long his journey would last. What does anticipated most nearly mean?",
+          "options": [
+            "regretted",
+            "described",
+            "refused",
+            "expected"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1300c",
+      "level": 1300,
+      "title": "How Muscles Grow Stronger",
+      "text": "When athletes perform demanding exercises such as sprinting or lifting weights, they create microscopic tears in the fibers of their muscles. Although this damage may sound harmful, it actually starts a sophisticated repair process. During the following hours and days, the body delivers proteins and nutrients to the injured fibers and rebuilds them, so that they become slightly thicker and stronger than before. This rebuilding, however, happens mainly while the body rests rather than during training itself, which is why coaches stress the importance of good sleep and regular recovery days. Athletes who train hard without enough rest may suffer from constant tiredness, falling performance, and a higher risk of injury, a condition that is sometimes called overtraining. For this reason, well-planned training programs deliberately mix periods of intense effort with periods of rest, giving the muscles the time they need to grow.",
+      "questions": [
+        {
+          "stem": "When does most of the muscle repair take place?",
+          "options": [
+            "During periods of rest",
+            "During the hardest exercises",
+            "Only while athletes are eating",
+            "Before the training begins"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Tiny tears in muscle fibers can never be repaired by the body.",
+            "Muscles grow stronger by repairing themselves, which requires rest.",
+            "Athletes become stronger by training hard every day without breaks.",
+            "Coaches believe that sleep has little effect on athletic training."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "A runner trains hard every day without breaks and keeps getting slower. What is the most likely explanation?",
+          "options": [
+            "She is resting far too often.",
+            "Her muscles are healing too quickly.",
+            "Her muscles lack time to recover.",
+            "She is sleeping more than she needs."
+          ],
+          "answer": "C",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P1400a",
+      "level": 1400,
+      "title": "An Ocean Being Born",
+      "text": "Geologists regard the Red Sea as a remarkable natural laboratory for studying how continents split apart and how new oceans begin. About thirty million years ago, the Arabian Plate began slowly pulling away from the African Plate, stretching and cracking the crust between them until the low land in the middle was eventually flooded by seawater. This movement continues today at a rate of roughly one to two centimeters each year, and along the center of the sea, hot melted rock rising from deep inside the Earth cools and hardens into fresh ocean floor. As a result, scientists often describe the Red Sea as an embryonic ocean, one that is still at an early stage of the same process that, over a far longer period of time, produced the wide Atlantic Ocean. Researchers who study its volcanoes, its hot springs on the sea floor, and its unusually warm and salty deep pools hope that what they learn will help explain the forces that keep reshaping the surface of our planet.",
+      "questions": [
+        {
+          "stem": "About when did the Arabian Plate begin separating from the African Plate?",
+          "options": [
+            "About three thousand years ago",
+            "About thirty thousand years ago",
+            "About three billion years ago",
+            "About thirty million years ago"
+          ],
+          "answer": "D",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The Red Sea is a young ocean that helps scientists study how oceans form.",
+            "The Red Sea formed when the Atlantic Ocean flooded a desert in Africa.",
+            "The Arabian and African Plates are now moving closer to each other.",
+            "Scientists have stopped studying the Red Sea because it no longer changes."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text calls the Red Sea an embryonic ocean. What does embryonic most nearly mean?",
+          "options": [
+            "extremely deep and cold",
+            "just beginning to develop",
+            "completely grown and finished",
+            "unsafe for most sailors"
+          ],
+          "answer": "B",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1400b",
+      "level": 1400,
+      "title": "Engineers Learn from Nature",
+      "text": "Engineers increasingly practice biomimicry, the deliberate copying of designs from living things that have been refined through millions of years of evolution. One famous example involves Japan's high-speed trains, whose early models produced a thunderous boom whenever they emerged from tunnels, because they pushed a wall of compressed air ahead of them, and residents living nearby complained about the noise. An engineer who was also a keen birdwatcher recalled that the kingfisher dives from the air into water with hardly a splash, thanks to its long, narrow, pointed beak. When the team redesigned the front of the train to resemble that beak, the noise decreased dramatically, and the train also consumed less electricity while traveling faster than before. Similarly, researchers investigating desert beetles that collect droplets of water from morning fog have developed special surfaces capable of gathering water in dry regions. Examples like these show that living things often offer elegant, energy-saving solutions to problems that ordinary engineering methods had struggled to solve.",
+      "questions": [
+        {
+          "stem": "What problem did early high-speed trains in Japan have?",
+          "options": [
+            "Wheels that slipped on wet rails",
+            "Seats that were far too narrow",
+            "A loud boom when leaving tunnels",
+            "Engines that overheated in summer"
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Kingfishers were trained to help engineers test the shape of new trains.",
+            "High-speed trains in Japan use more electricity than ever.",
+            "Desert beetles are the only animals that engineers study.",
+            "Copying designs from nature can help engineers solve problems."
+          ],
+          "answer": "D",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What does the kingfisher example suggest about the engineer?",
+          "options": [
+            "A hobby outside work helped him find a solution.",
+            "He had never seen a kingfisher before the project.",
+            "He believed birds were too simple to learn from.",
+            "He designed the train before noticing any noise."
+          ],
+          "answer": "A",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P1400c",
+      "level": 1400,
+      "title": "How Habits Form",
+      "text": "Psychologists who study human behavior have found that habits develop through a repeating pattern, often described as a loop, that has three parts: a cue, a routine, and a reward. The cue, such as a certain time of day or a familiar place, triggers a behavior almost automatically, and the reward that follows reinforces the connection between the cue and the behavior. As this loop is repeated again and again, control of the behavior gradually shifts to parts of the brain that handle automatic actions rather than careful, deliberate decisions. Many people believe that forming a new habit takes exactly twenty-one days, but one widely cited study found that participants needed an average of sixty-six days, and the time varied greatly from person to person. Understanding this process suggests some practical strategies. People who want to build useful habits, such as reading or exercising regularly, should link them to the same cue every day and should expect that the new behavior will become truly automatic only after weeks of steady effort.",
+      "questions": [
+        {
+          "stem": "According to one study, how long did people need on average to form a habit?",
+          "options": [
+            "Twenty-one days",
+            "Sixty-six days",
+            "Seven days",
+            "One full year"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Every habit takes exactly twenty-one days to form, no matter who the person is.",
+            "Rewards make it harder for the brain to remember new behaviors.",
+            "Habits form through a cue, routine, and reward and take time to build.",
+            "Habits are always controlled by careful, deliberate decisions."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text says the reward reinforces the connection. What does reinforces most nearly mean?",
+          "options": [
+            "interrupts",
+            "replaces",
+            "explains",
+            "strengthens"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    }
+  ]
+}

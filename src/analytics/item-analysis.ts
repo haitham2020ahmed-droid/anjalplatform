@@ -14,7 +14,8 @@
  * AUTHORED difficulty (so thin data cannot swing an item wildly), and a cap on how far
  * b may move in one run.
  */
-import { probability } from "../adaptive/irt";
+import { probability, type IrtModel } from "../adaptive/irt";
+import { DEFAULT_ADAPTIVE } from "../config/engine";
 
 export interface ItemResponse {
   questionId: string;
@@ -22,7 +23,8 @@ export interface ItemResponse {
   responseMs: number;
   rapid: boolean;
   chosen: string | null; // option label for single-choice items
-  ability: number; // θ before answering
+  /** θ before answering; null when unknown (such answers count for p-value/time/distractors, never for discrimination or calibration) */
+  ability: number | null;
 }
 
 export interface ItemMeta {
@@ -73,7 +75,8 @@ export function computeItemStats(meta: ItemMeta, all: ItemResponse[]): ItemStats
   const n = rs.length;
   const correct = rs.filter((r) => r.correct).length;
   const p = n ? correct / n : null;
-  const pb = pointBiserial(rs.map((r) => (r.correct ? 1 : 0)), rs.map((r) => r.ability));
+  const known = rs.filter((r): r is ItemResponse & { ability: number } => r.ability !== null && Number.isFinite(r.ability));
+  const pb = pointBiserial(known.map((r) => (r.correct ? 1 : 0)), known.map((r) => r.ability));
   const avg = n ? rs.reduce((a, r) => a + r.responseMs, 0) / n : null;
   const counts: Record<string, number> = Object.fromEntries(meta.optionLabels.map((l) => [l, 0]));
   for (const r of rs) if (r.chosen && r.chosen in counts) counts[r.chosen]++;
@@ -83,13 +86,13 @@ export function computeItemStats(meta: ItemMeta, all: ItemResponse[]): ItemStats
     if (p > 0.95) flags.push("TOO_EASY");
     if (p < 0.2) flags.push("TOO_HARD");
   }
-  if (pb !== null && n >= T.minForDiscrimination) {
+  if (pb !== null && known.length >= T.minForDiscrimination) {
     if (pb < 0) flags.push("NEGATIVE_DISCRIMINATION");
     else if (pb < 0.15) flags.push("LOW_DISCRIMINATION");
   }
   if (meta.optionLabels.length && n >= T.minForDiscrimination) {
     if (meta.optionLabels.some((l) => !meta.keyLabels.includes(l) && counts[l] === 0)) flags.push("DISTRACTOR_NEVER_CHOSEN");
-    const sorted = [...rs].sort((a, b) => b.ability - a.ability);
+    const sorted = [...known].sort((a, b) => b.ability - a.ability);
     const top = sorted.slice(0, Math.ceil(sorted.length / 3)).filter((r) => r.chosen);
     if (top.length >= T.minTopGroup) {
       const topCounts: Record<string, number> = {};
@@ -111,9 +114,16 @@ export interface CalibrationOptions {
   estimateA: boolean; // 2PL
   aMin: number;
   aMax: number;
+  /** IRT model to calibrate with — the one scoring/selection use (2PL by default: the stored c is ignored) */
+  model?: IrtModel;
 }
 
-export const DEFAULT_CALIBRATION: CalibrationOptions = { minResponses: 200, priorSD: 0.7, maxStep: 0.5, estimateA: true, aMin: 0.4, aMax: 2.5 };
+/**
+ * b is calibrated from 30 responses: the prior (the authored / estimated difficulty, SD 0.7) keeps a small sample from
+ * moving it far; a (discrimination) is only estimated from 200 responses, where it is reliable.
+ */
+export const DEFAULT_CALIBRATION: CalibrationOptions = { minResponses: 30, priorSD: 0.7, maxStep: 0.5, estimateA: true, aMin: 0.4, aMax: 2.5 };
+export const MIN_RESPONSES_FOR_A = 200;
 
 export interface CalibrationResult {
   questionId: string;
@@ -129,15 +139,17 @@ export interface CalibrationResult {
 /** Log-posterior of (a, b) given fixed abilities, with priors b ~ N(authoredB, priorSD), log a ~ N(0, 0.3). */
 function logPost(a: number, b: number, c: number, rs: { theta: number; correct: boolean }[], authoredB: number, o: CalibrationOptions): number {
   let lp = -0.5 * ((b - authoredB) / o.priorSD) ** 2 - 0.5 * (Math.log(a) / 0.3) ** 2;
+  const model = o.model ?? DEFAULT_ADAPTIVE.model;
   for (const r of rs) {
-    const p = Math.min(1 - 1e-9, Math.max(1e-9, probability(r.theta, { a, b, c }, 3)));
+    const p = Math.min(1 - 1e-9, Math.max(1e-9, probability(r.theta, { a, b, c }, model)));
     lp += r.correct ? Math.log(p) : Math.log(1 - p);
   }
   return lp;
 }
 
 export function calibrateItem(meta: ItemMeta, responses: ItemResponse[], o: CalibrationOptions = DEFAULT_CALIBRATION): CalibrationResult {
-  const rs = responses.filter((r) => !r.rapid).map((r) => ({ theta: r.ability, correct: r.correct }));
+  // only answers with a known pre-answer ability (no future data)
+  const rs = responses.filter((r) => !r.rapid && r.ability !== null && Number.isFinite(r.ability)).map((r) => ({ theta: r.ability as number, correct: r.correct }));
   const base = { questionId: meta.questionId, oldB: meta.b, oldA: meta.a, n: rs.length };
   if (rs.length < o.minResponses) return { ...base, calibrated: false, reason: `Needs ${o.minResponses} responses (has ${rs.length}).`, newB: meta.b, newA: meta.a };
   // b: 1-D search on a fine grid around the authored value (robust, no derivatives needed)
@@ -147,7 +159,8 @@ export function calibrateItem(meta: ItemMeta, responses: ItemResponse[], o: Cali
     if (v > best) { best = v; bestB = b; }
   }
   let bestA = meta.a;
-  if (o.estimateA) {
+  // Rasch (model 1) has no discrimination to estimate
+  if (o.estimateA && (o.model ?? DEFAULT_ADAPTIVE.model) !== 1 && rs.length >= Math.max(o.minResponses, MIN_RESPONSES_FOR_A)) {
     best = -Infinity;
     for (let a = o.aMin; a <= o.aMax; a += 0.01) {
       const v = logPost(a, bestB, meta.c, rs, meta.authoredB, o);

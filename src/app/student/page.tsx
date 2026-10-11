@@ -1,4 +1,6 @@
 import { AppShell } from "@/components/app-shell";
+import { coachSummary } from "@/server/fluency/coach";
+import { FluencyCoachIcon } from "@/components/fluency/coach-icon";
 import { AssignedSkills, type StudentExtras } from "@/components/student/assigned-skills";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { latestDiagnostic } from "@/server/assessment/diagnostic";
@@ -21,6 +23,9 @@ import { myTests } from "@/server/map/sim";
 import { classChallenge, questionOfTheDay } from "@/server/teacher/extras";
 import { myTasks } from "@/server/teacher/writing";
 import { QuestionOfTheDay } from "@/components/student/qotd";
+import { nextStep } from "@/server/student/next-step";
+import { studentReadRiseSummary } from "@/server/readrise/engine";
+import { ReadRiseStudentCard } from "@/components/readrise/student-card";
 
 export const metadata = { title: "My work" };
 
@@ -45,7 +50,8 @@ export default async function StudentHome({ searchParams }: { searchParams: Prom
   ]);
   const [week, exitTicket, review, comments, tests] = await Promise.all([studentWeek(repo, actor), myExitTicket(repo, actor), dueMistakes(repo, actor.studentId!), repo.findMany("WorkComment", { studentId: actor.studentId! }, { select: ["createdAt"] }), myTests(repo, actor)]);
   const [qotd, challenge, writing] = await Promise.all([questionOfTheDay(repo, actor), student?.gradeId ? classChallenge(repo, String(student.schoolId), String(student.gradeId)) : Promise.resolve([]), myTasks(repo, actor)]);
-  const [today, myWeek, spaced, diag, check] = await Promise.all([todaysPlanStep(repo, actor), weekStats(repo, actor.studentId!), reviewDue(repo, actor.studentId!), myDiagnostic(repo, actor), weeklyCheck(repo, actor)]);
+  const [today, myWeek, spaced, diag, check, coach] = await Promise.all([todaysPlanStep(repo, actor), weekStats(repo, actor.studentId!), reviewDue(repo, actor.studentId!), myDiagnostic(repo, actor), weeklyCheck(repo, actor), coachSummary(repo, actor.studentId!)]);
+  const [step, readRise] = await Promise.all([nextStep(repo, actor), studentReadRiseSummary(repo, actor.studentId!)]);
   const myClass = (await repo.findMany("ClassMembership", { studentId: actor.studentId!, leftAt: null }, { select: ["classId"] }))[0]?.classId;
   const testsToDo = tests.windows.filter((w) => w.open).reduce((n, w) => n + w.sessions.filter((x) => x.status !== "DONE").length, 0);
   const fresh = badges.filter((b) => b.earnedAt && Date.now() - new Date(b.earnedAt).getTime() < 3 * 86_400_000).sort((a, b) => String(b.earnedAt).localeCompare(String(a.earnedAt)))[0];
@@ -71,7 +77,28 @@ export default async function StudentHome({ searchParams }: { searchParams: Prom
           <span className="rounded-xl bg-brand-navy px-6 py-3 text-lg font-bold text-white">{diag.status === "STARTED" ? "Continue ▶" : "Start ▶"}</span>
         </Link>
       )}
+      {step.kind !== "DIAGNOSTIC" && step.href && (
+        <Link href={step.href} data-testid="next-step" className="lift mb-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-brand-navy to-indigo-700 p-5 text-white shadow-md">
+          <span className="min-w-0 flex-1"><span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">▶ My Next Step</span><span className="block text-2xl font-extrabold">{step.title}</span><span className="block text-sm text-indigo-100">{step.why}</span></span>
+          <span className="rounded-xl bg-white px-6 py-3 text-lg font-bold text-brand-navy">{step.cta} ▶</span>
+        </Link>
+      )}
+      {step.path && step.path.length > 1 && (
+        <section className="-mt-3 mb-5 rounded-3xl bg-white p-4 ring-1 ring-indigo-100" data-testid="my-path">
+          <p className="text-xs font-bold uppercase tracking-wider text-indigo-700">🧭 My learning path</p>
+          <ol className="mt-2 flex flex-wrap gap-2">{step.path.map((x, k) => (
+            <li key={x.href + k}><Link href={x.href} className="flex items-center gap-1.5 rounded-full bg-indigo-50 px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-indigo-100 hover:ring-indigo-300"><span className="tabular-nums text-indigo-400">{k + 1}</span>{x.action === "FOUNDATION" ? "🧱" : x.action === "REVIEW" ? "🔁" : x.action === "STRETCH" ? "🚀" : "🎯"} {x.name}</Link></li>
+          ))}</ol>
+          <p className="mt-1 text-xs text-slate-500">🧱 build a skill underneath · 🎯 your next skill · 🔁 a quick review · 🚀 a challenge</p>
+        </section>
+      )}
       <TodayPlanCard step={today} week={myWeek} review={spaced} check={diag && diag.status !== "DONE" ? null : check} />
+      <Link href="/student/fluency-coach" className="lift mb-5 flex flex-wrap items-center gap-4 rounded-3xl bg-gradient-to-r from-teal-50 via-white to-indigo-50 p-4 ring-1 ring-teal-200">
+        <FluencyCoachIcon size={56} />
+        <span className="min-w-0 flex-1"><span className="block text-lg font-extrabold text-brand-navy">Fluency Coach</span><span className="block text-sm text-slate-600">{coach.plan ? `Goal ${coach.plan.goal} words a minute · next check ${coach.plan.nextCheck}` : "Read aloud, record your voice, and get feedback on every word."}{coach.latest ? ` · last check ${coach.latest.wcpm} WCPM` : ""}</span></span>
+        <span className="rounded-xl bg-brand-navy px-5 py-2.5 font-bold text-white">🎙 Read</span>
+      </Link>
+      <div className="mb-5"><ReadRiseStudentCard summary={readRise} /></div>
       {extras.rit !== null && (
         <nav aria-label="My learning path" className="mb-5 grid gap-2 sm:grid-cols-3">
           {[

@@ -3,13 +3,15 @@
  * how often they open their students' results (30 days), whether their at-risk students got help (an
  * assignment after they became at risk), % of students active this week and % on track. Warnings follow the
  * school's rules (editable): no sign-in for N days, no assignment for N days, at-risk students without help.
- * Every warning shows its context (number of classes and students) so the admin can judge fairly.
+ * Only work the teacher made counts (automatic Weekly Checks, re-checks, reteach and Diagnostic sets are left out),
+ * and alerts left open for more than 7 days are shown. Every warning shows its context (number of classes and students) so the admin can judge fairly.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { mapSummaries, practiceStats } from "./student-data";
 import { statusOf } from "./progress";
+import { reconcileStatus, tiersOf } from "./student-status";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v ? new Date(v instanceof Date ? v.toISOString() : s(v)).getTime() : 0);
@@ -18,6 +20,19 @@ const DAY = 86_400_000;
 export interface FollowupRules { noLoginDays: number; noAssignmentDays: number; atRiskDays: number }
 export const DEFAULT_FOLLOWUP: FollowupRules = { noLoginDays: 7, noAssignmentDays: 14, atRiskDays: 7 };
 const KEY = "followup.rules";
+
+/**
+ * Work the platform makes by itself in the teacher's name (readiness I-4): Weekly Checks, curriculum-plan places,
+ * RTI reteach practice and re-checks (daily tier job), Diagnostic tests. They are not the teacher's follow-up.
+ */
+export function isSystemAssignment(a: Record<string, unknown>): boolean {
+  const title = s(a.title), note = s(a.note);
+  if (a.curriculumPlanId) return true; // Weekly Check mark, curriculum-plan places
+  if (title.startsWith("Re-check: ") || title.startsWith("Weekly Check")) return true;
+  if (note === "Extra practice on this skill, then a short re-check.") return true; // tier reteach (tiers.ts)
+  if (title.startsWith("Diagnostic Test") || /Diagnostic Test$/.test(note)) return true;
+  return false;
+}
 
 export async function followupRules(repo: Repo, schoolId: string | null): Promise<FollowupRules> {
   if (!schoolId) return DEFAULT_FOLLOWUP;
@@ -38,7 +53,7 @@ export async function setFollowupRules(repo: Repo, actor: Actor, input: Partial<
     if (!(Number.isInteger(n) && n >= 1 && n <= 90)) throw new ValidationError("Days must be a whole number from 1 to 90.");
     v[k] = n;
   }
-  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY }, { value: v, updatedById: actor.userId, updatedAt: now }, { value: v, updatedById: actor.userId, updatedAt: now });
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId!, key: KEY }, { value: v, updatedBy: actor.userId, updatedAt: now }, { value: v, updatedBy: actor.userId, updatedAt: now });
   return v;
 }
 
@@ -59,12 +74,15 @@ export async function teacherFollowup(repo: Repo, actor: Actor, now = new Date()
   const studentIds = [...new Set(members.map((m) => s(m.studentId)))];
   const grades = classes.length ? await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => s(c.gradeId)))] } }, { select: ["id", "level"] }) : [];
   const gradeOf = new Map(members.map((m) => [s(m.studentId), Number(grades.find((g) => g.id === classes.find((c) => c.id === m.classId)?.gradeId)?.level ?? 0)]));
-  const [maps, practice, assignments, views, asgStudents] = await Promise.all([
+  const [maps, practice, assignments, views, asgStudents, tiers] = await Promise.all([
     mapSummaries(repo, studentIds, "READING", gradeOf), practiceStats(repo, studentIds, now),
-    teachers.length ? repo.findMany("Assignment", { createdById: { in: teachers.map((t) => t.id) }, deletedAt: null }, { select: ["id", "createdById", "createdAt", "classId"] }) : Promise.resolve([] as Row[]),
+    teachers.length ? repo.findMany("Assignment", { createdById: { in: teachers.map((t) => t.id) }, deletedAt: null }, { select: ["id", "createdById", "createdAt", "classId", "title", "note", "curriculumPlanId"] }).then((l) => l.filter((a) => !isSystemAssignment(a))) : Promise.resolve([] as Row[]),
     repo.findMany("AuditLog", { action: "results.view", actorId: { in: users.map((u) => u.id) } }, { select: ["actorId", "createdAt"] }),
     studentIds.length ? repo.findMany("AssignmentStudent", { studentId: { in: studentIds } }, { select: ["studentId", "assignmentId"] }) : Promise.resolve([] as Row[]),
+    tiersOf(repo, studentIds),
   ]);
+  const statusOfId = (id: string) => reconcileStatus(statusOf(maps.get(id), practice.get(id)), tiers.get(id)).status;
+  const oldAlerts = classes.length ? await repo.findMany("StudentAlert", { classId: { in: classes.map((c) => c.id) }, status: "OPEN", createdAt: { lt: new Date(now.getTime() - 7 * DAY) } }, { select: ["classId"] }) : [];
   const assignmentAt = new Map(assignments.map((a) => [s(a.id), time(a.createdAt)]));
   const rows: TeacherFollowup[] = users.map((u) => {
     const t = teachers.find((x) => x.userId === u.id);
@@ -73,19 +91,21 @@ export async function teacherFollowup(repo: Repo, actor: Actor, now = new Date()
     const myStudents = [...new Set(members.filter((m) => myClassIds.includes(s(m.classId))).map((m) => s(m.studentId)))];
     const mine = assignments.filter((a) => t && a.createdById === t.id);
     const last = mine.reduce((m, a) => Math.max(m, time(a.createdAt)), 0);
-    const atRiskIds = myStudents.filter((id) => { const st = statusOf(maps.get(id), practice.get(id)).status; return st === "AT_RISK" || st === "MISSED"; });
+    const atRiskIds = myStudents.filter((id) => { const st = statusOfId(id); return st === "AT_RISK" || st === "MISSED"; });
     // “helped” = the student got an assignment from this teacher in the last atRiskDays days
     const recent = now.getTime() - rules.atRiskDays * DAY;
     const helped = atRiskIds.filter((id) => asgStudents.some((r) => s(r.studentId) === id && mine.some((a) => a.id === r.assignmentId) && (assignmentAt.get(s(r.assignmentId)) ?? 0) >= recent));
     const active = myStudents.filter((id) => time(practice.get(id)?.lastActive) >= now.getTime() - 7 * DAY).length;
-    const onTrack = myStudents.filter((id) => { const st = statusOf(maps.get(id), practice.get(id)).status; return st === "ON_TRACK" || st === "MET"; }).length;
-    const withStatus = myStudents.filter((id) => statusOf(maps.get(id), practice.get(id)).status !== "NO_DATA").length;
+    const onTrack = myStudents.filter((id) => { const st = statusOfId(id); return st === "ON_TRACK" || st === "MET"; }).length;
+    const withStatus = myStudents.filter((id) => statusOfId(id) !== "NO_DATA").length;
     const lastLogin = time(u.lastLoginAt);
     const ctx = `${myClasses.length} class${myClasses.length === 1 ? "" : "es"}, ${myStudents.length} students`;
     const warnings: string[] = [];
     if (myStudents.length) {
       if (!lastLogin || lastLogin < now.getTime() - rules.noLoginDays * DAY) warnings.push(`No sign-in for ${lastLogin ? Math.floor((now.getTime() - lastLogin) / DAY) : "many"} days (${ctx}).`);
       if (!last || last < now.getTime() - rules.noAssignmentDays * DAY) warnings.push(`No new assignment for ${rules.noAssignmentDays}+ days (${ctx}).`);
+      const stale = oldAlerts.filter((x) => myClassIds.includes(s(x.classId))).length;
+      if (stale) warnings.push(`${stale} student alert(s) open for more than 7 days (${ctx}).`);
       if (atRiskIds.length > helped.length) warnings.push(`${atRiskIds.length - helped.length} at-risk student(s) without new work in ${rules.atRiskDays} days (${ctx}).`);
     }
     return {

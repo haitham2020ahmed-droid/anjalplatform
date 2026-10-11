@@ -40,7 +40,9 @@
     "jobs:scheduler": "tsx scripts/jobs/scheduler.ts",
     "db:baseline": "sh scripts/db/baseline-migration.sh",
     "start:standalone": "cp -r .next/static .next/standalone/.next/ && cp -r assets .next/standalone/ && node .next/standalone/server.js",
-    "admin:create": "tsx scripts/admin/create-admin.ts"
+    "admin:create": "tsx scripts/admin/create-admin.ts",
+    "jobs:learning": "tsx scripts/jobs/daily-learning.ts",
+    "db:baseline:rebuild": "sh scripts/db/baseline-migration.sh --rebuild"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

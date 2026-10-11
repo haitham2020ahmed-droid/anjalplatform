@@ -16,35 +16,42 @@ import { classDiagnosticReport, studentDiagnosticReport, type ClassDiagnosticRep
 import { STRAND_LABEL, TIERS } from "./standards";
 
 const LV: Record<string, string> = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" };
+const SHORT: Record<string, string> = { ABOVE: "Above", ON: "On", BELOW: "Below" };
 const slug = (x: string) => x.replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "report";
 
 export function classDoc(r: ClassDiagnosticReport, base: Pick<ReportDoc, "branding" | "generatedAt" | "generatedBy">): ReportDoc {
   const S = r.summary;
+  // adaptive: scores are 0–100 against the grade (not % correct)
+  const P = (r.adaptive ? "dec" : "pct") as "dec" | "pct";
+  const u = r.adaptive ? "" : "%";
   return {
     ...base, kind: "class", locale: "en", title: `${r.title} — Analysis`, subtitle: r.scope, primaryTable: "students", fileStem: `diagnostic_${slug(r.scope)}_${r.date}`,
     meta: [{ label: "Grade", value: String(r.grade) }, { label: "Year", value: r.year, isolate: "latin" }, { label: "Group", value: r.scope, isolate: "auto" }, { label: "Date", value: r.date, isolate: "latin" }],
     sections: [
       { type: "kpis", title: "Executive Summary", items: [
-        { label: "Assessed", value: `${S.assessed} / ${S.roster}`, kind: "latin" }, { label: "Mean score", value: S.mean, kind: "pct" }, { label: "Median", value: S.median, kind: "pct" },
-        { label: "Range", value: `${S.min}% – ${S.max}%`, kind: "latin" }, { label: "Above / On / Below", value: `${S.levels.ABOVE} / ${S.levels.ON} / ${S.levels.BELOW}`, kind: "latin" }, { label: "Not taken yet", value: S.roster - S.assessed, kind: "int", tone: S.roster - S.assessed ? "warn" : "good" },
+        { label: "Assessed", value: `${S.assessed} / ${S.roster}`, kind: "latin" }, { label: "Mean score", value: S.mean, kind: P }, { label: "Median", value: S.median, kind: P },
+        { label: "Range", value: `${S.min}${u} – ${S.max}${u}`, kind: "latin" }, { label: "Spread (SD)", value: S.sd === null ? "—" : `±${S.sd}`, kind: "latin" }, { label: "Above / On / Below", value: `${S.levels.ABOVE} / ${S.levels.ON} / ${S.levels.BELOW}`, kind: "latin" }, { label: "Not taken yet", value: S.roster - S.assessed, kind: "int", tone: S.roster - S.assessed ? "warn" : "good" },
       ] },
       { type: "notes", title: "Key Findings", items: [
-        ...(S.best ? [`Highest-performing standard: ${S.best.label} (${S.best.code}) at ${S.best.pct}%.`] : []),
-        ...(S.focus.length ? [`Priority focus: ${S.focus.map((f) => `${f.label} (${f.code}) at ${f.pct}%`).join(" and ")}.`] : []),
+        ...(S.best ? [`Highest-performing standard: ${S.best.label} (${S.best.code}) at ${S.best.pct}${u}.`] : []),
+        ...(S.focus.length ? [`Priority focus: ${S.focus.map((f) => `${f.label} (${f.code}) at ${f.pct}${u}`).join(" and ")}.`] : []),
+        ...(r.adaptive ? ["Adaptive test: every student answered the same 50 skills, each at their own difficulty. Scores are on one scale against the grade: 72.5 = on grade level, 25 points = one grade."] : []),
+        ...(S.sd !== null ? [`Spread: standard deviation ±${S.sd} — ${S.spread}`] : []),
         ...(S.rapidFlags ? [`${S.rapidFlags} student(s) answered many questions too fast: their score may be lower than their real level.`] : []),
       ] },
-      { type: "bars", title: "Strands (class average)", items: r.strands.map((x) => ({ label: x.label, value: x.pct })), max: 100, kind: "pct" },
+      { type: "bars", title: "Strands (class average)", items: r.strands.map((x) => ({ label: x.label, value: x.pct })), max: 100, kind: r.adaptive ? "int" : "pct" },
       { type: "table", id: "students", title: "Student Performance Master Table", sheet: "Students", empty: "No results yet.",
-        columns: [{ key: "rank", label: "Pct Rank", kind: "int", width: 0.6 }, { key: "name", label: "Student", kind: "name", width: 2 }, { key: "className", label: "Class", kind: "latin", nowrap: true }, { key: "pct", label: "Overall", kind: "pct" }, { key: "level", label: "Level", kind: "text" },
-          ...r.standards.map((x) => ({ key: x.code, label: x.code, kind: "pct" as const, nowrap: true })), { key: "rit", label: "MAP RIT", kind: "int" as const }, { key: "wcpm", label: "WCPM", kind: "int" as const }],
-        rows: [{ rank: null, name: "Class average", className: "", pct: S.mean, level: "", ...Object.fromEntries(r.standards.map((x) => [x.code, x.pct])), rit: null, wcpm: null },
-          ...r.students.map((st) => ({ rank: st.rank, name: st.name, className: st.className, pct: st.pct, level: LV[st.level], ...Object.fromEntries(r.standards.map((x) => [x.code, st.standards[x.code] ?? null])), rit: st.rit, wcpm: st.wcpm }))] },
+        columns: [{ key: "rank", label: "Rank", kind: "int", width: 0.55 }, { key: "name", label: "Student", kind: "name", width: 2.4 }, ...(r.classId ? [] : [{ key: "className", label: "Class", kind: "latin" as const, nowrap: true, width: 0.8 }]), { key: "pct", label: "Score", kind: P, width: 0.75, nowrap: true }, { key: "level", label: "Level", kind: "text", width: 0.75, nowrap: true },
+          ...(r.adaptive ? [{ key: "reading", label: "Reads at", kind: "latin" as const, nowrap: true, width: 0.9 }] : []),
+          ...r.standards.map((x) => ({ key: x.code, label: x.code, kind: P, nowrap: true, width: 0.62 })), ...(r.adaptive ? [{ key: "est", label: "Est. RIT", kind: "int" as const, width: 0.62, nowrap: true }] : []), { key: "rit", label: "RIT", kind: "int" as const, width: 0.6, nowrap: true }, { key: "wcpm", label: "WCPM", kind: "int" as const, width: 0.62, nowrap: true }],
+        rows: [{ rank: null, name: "Class average", className: "", pct: S.mean, level: "", reading: "", ...Object.fromEntries(r.standards.map((x) => [x.code, x.pct])), est: null, rit: null, wcpm: null },
+          ...r.students.map((st) => ({ rank: st.rank, name: st.name, className: st.className, pct: st.pct, level: SHORT[st.level], reading: (st.readingLevel ?? "").replace("Grade ", "Gr "), ...Object.fromEntries(r.standards.map((x) => [x.code, st.standards[x.code] ?? null])), est: st.ritEstimate, rit: st.rit, wcpm: st.wcpm }))] },
       { type: "table", id: "standards", title: "Standards Breakdown & Action Plan", sheet: "Standards", empty: "—",
-        columns: [{ key: "code", label: "Standard", kind: "latin", nowrap: true }, { key: "label", label: "Skill", kind: "text", width: 1.6 }, { key: "pct", label: "Class average", kind: "pct" }, { key: "level", label: "Performance", kind: "text" }, { key: "below50", label: "Students < 50%", kind: "int" }, { key: "plan", label: "Teaching prescription", kind: "text", width: 3 }],
+        columns: [{ key: "code", label: "Standard", kind: "latin", nowrap: true }, { key: "label", label: "Skill", kind: "text", width: 1.6 }, { key: "pct", label: "Class average", kind: P }, { key: "level", label: "Performance", kind: "text" }, { key: "below50", label: `Students < 50${u}`, kind: "int" }, { key: "plan", label: "Teaching prescription", kind: "text", width: 3 }],
         rows: [...r.standards].sort((a, b) => b.pct - a.pct).map((x) => ({ code: x.code, label: x.label, pct: x.pct, level: x.level, below50: x.below50, plan: `${x.objective} ${x.activities.join(" ")}` })) },
       { type: "table", id: "tiers", title: "Performance Tiers", sheet: "Tiers", empty: "—",
         columns: [{ key: "tier", label: "Tier", kind: "text" }, { key: "band", label: "Score band", kind: "latin" }, { key: "students", label: "Students", kind: "text", width: 2.5 }, { key: "strategy", label: "Instructional strategy", kind: "text", width: 3 }],
-        rows: r.tiers.map((t) => ({ tier: `${t.name} (${t.sub})`, band: t.band, students: t.students.map((x) => `${x.name} (${x.pct}%)`).join(", ") || "—", strategy: t.strategy })) },
+        rows: r.tiers.map((t) => ({ tier: `${t.name} (${t.sub})`, band: t.band, students: t.students.map((x) => `${x.name} (${x.pct}${u})`).join(", ") || "—", strategy: t.strategy })) },
       { type: "table", id: "plan", title: "8-Week Support Plan (30 minutes a week)", sheet: "Support Plan", empty: "No student needs the support plan.",
         columns: [{ key: "week", label: "Week", kind: "int", width: 0.5 }, { key: "focus", label: "Focus", kind: "text", width: 1.4 }, { key: "objective", label: "Objective", kind: "text", width: 2 }, { key: "activities", label: "Activities", kind: "text", width: 3 }, { key: "students", label: "Targeted students", kind: "text", width: 2 }],
         rows: r.supportPlan.map((w) => ({ week: w.week, focus: w.code === "REVIEW" ? w.label : `${w.label} (${w.code})`, objective: w.objective, activities: w.activities.join(" • "), students: w.students.map((x) => x.name).join(", ") })) },
@@ -54,23 +61,30 @@ export function classDoc(r: ClassDiagnosticReport, base: Pick<ReportDoc, "brandi
       { type: "table", id: "items", title: "Question Analysis", sheet: "Questions", empty: "—", note: "Questions most students missed are worth re-teaching — or reviewing.",
         columns: [{ key: "n", label: "#", kind: "int", width: 0.4 }, { key: "code", label: "Standard", kind: "latin", nowrap: true }, { key: "stem", label: "Question", kind: "text", width: 4 }, { key: "pct", label: "Correct", kind: "pct" }, { key: "answered", label: "Answers", kind: "int" }],
         rows: r.items.map((x) => ({ n: x.n, code: x.code, stem: x.stem, pct: x.pct, answered: x.answered })) },
-      { type: "notes", title: "How to read this report", items: [`Levels: Above ≥ ${r.bands.above}%, On ${r.bands.on}–${r.bands.above - 1}%, Below < ${r.bands.on}%.`, `Tiers: ${TIERS.map((t) => `${t.name} ${t.min}%+`).join(" · ")}.`, "Pct Rank: the share of the group scoring lower (1–99).", "WCPM: words correct per minute in oral reading (fluency)."] },
+      ...(r.growth ? [{ type: "table" as const, id: "growth", title: "Growth: Diagnostic → MAP", sheet: "Growth", empty: "No MAP test after the Diagnostic yet.",
+        note: r.growth.offset !== null ? `MAP was ${r.growth.offset >= 0 ? "+" : ""}${r.growth.offset} RIT from the Diagnostic estimate (median of ${r.growth.pairs} students); the start is calibrated by it.` : "The start is calibrated once 5 students have a MAP test after the Diagnostic.",
+        columns: [{ key: "name", label: "Student", kind: "name" as const, width: 2 }, { key: "start", label: "Diagnostic (est.)", kind: "int" as const }, { key: "calibrated", label: "Start (calibrated)", kind: "int" as const }, { key: "maps", label: "MAP tests", kind: "latin" as const, width: 2.5 }, { key: "growth", label: "Growth", kind: "signed" as const }],
+        rows: r.growth.rows.filter((x) => x.maps.length).map((x) => ({ name: x.name, start: x.start, calibrated: x.calibrated, maps: x.maps.map((m) => `${m.term}: ${m.rit}`).join(" → "), growth: x.growth })) }] : []),
+      { type: "notes", title: "How to read this report", items: [`Levels: Above ≥ ${r.bands.above}${u}, On ${r.bands.on}–${r.bands.above - 1}${u}, Below < ${r.bands.on}${u}.`, `Tiers: ${TIERS.map((t) => `${t.name} ${t.min}${u}+`).join(" · ")}.`, ...(r.adaptive ? ["Reads at: the student's reading level on the grade scale (Gr 5.3 = like a Grade 5 student early in the year). Est. RIT: the MAP Reading RIT the Diagnostic predicts."] : []), "Pct Rank: the share of the group scoring lower (1–99).", "WCPM: words correct per minute in oral reading (fluency)."] },
     ],
   };
 }
 
 export function studentDoc(r: StudentDiagnosticReport, base: Pick<ReportDoc, "branding" | "generatedAt" | "generatedBy">): ReportDoc {
+  const P = (r.adaptive ? "dec" : "pct") as "dec" | "pct";
+  const u = r.adaptive ? "" : "%";
   return {
     ...base, kind: "student", locale: "en", title: `${r.title} — Student Report`, subtitle: r.student.name, primaryTable: "standards", fileStem: `diagnostic_${slug(r.student.number || r.student.name)}_${r.date}`,
     meta: [{ label: "Student", value: r.student.name, isolate: "auto" }, { label: "Class", value: r.student.className, isolate: "latin" }, { label: "Grade", value: String(r.grade) }, { label: "Date", value: r.date, isolate: "latin" }],
     sections: [
-      { type: "kpis", title: "Result", items: [{ label: "Score", value: r.pct, kind: "pct" }, { label: "Correct", value: `${r.correct} / ${r.total}`, kind: "latin" }, { label: "Level", value: LV[r.level], kind: "latin", tone: r.level === "BELOW" ? "warn" : "good" }, ...(r.rit ? [{ label: "MAP Reading RIT", value: r.rit, kind: "int" as const }] : []), ...(r.wcpm ? [{ label: "Fluency (WCPM)", value: `${r.wcpm.value} (benchmark ${r.wcpm.benchmark})`, kind: "latin" as const }] : [])] },
-      { type: "bars", title: "Strands", items: r.strands.map((x) => ({ label: STRAND_LABEL[x.strand], value: x.pct })), max: 100, kind: "pct" },
+      { type: "kpis", title: "Result", items: [{ label: r.adaptive ? "Score (0–100)" : "Score", value: r.pct, kind: P }, r.adaptive ? { label: "Reads at", value: r.readingLevel ?? "—", kind: "latin" } : { label: "Correct", value: `${r.correct} / ${r.total}`, kind: "latin" }, { label: "Level", value: LV[r.level], kind: "latin", tone: r.level === "BELOW" ? "warn" : "good" }, ...(r.rit ? [{ label: "MAP Reading RIT", value: r.rit, kind: "int" as const }] : r.ritEstimate ? [{ label: "Estimated MAP RIT", value: r.ritEstimate, kind: "int" as const }] : []), ...(r.wcpm ? [{ label: `Fluency · words/min (goal ${r.wcpm.benchmark})`, value: r.wcpm.value, kind: "int" as const, tone: (r.wcpm.value >= r.wcpm.benchmark ? "good" : r.wcpm.value >= r.wcpm.benchmark * 0.75 ? "warn" : "bad") as "good" | "warn" | "bad" }] : [])] },
+      { type: "bars", title: "Strands", items: r.strands.map((x) => ({ label: STRAND_LABEL[x.strand], value: x.pct })), max: 100, kind: r.adaptive ? "int" : "pct" },
+      ...(r.areas.length ? [{ type: "table" as const, id: "areas", title: "MAP Goal Areas", sheet: "MAP Areas", empty: "—", columns: [{ key: "name", label: "Goal area", kind: "latin" as const, width: 2 }, { key: "score", label: "Score", kind: "dec" as const }, { key: "reading", label: "Reads at", kind: "latin" as const }], rows: r.areas.map((a) => ({ name: a.name, score: a.score, reading: a.readingLevel })) }] : []),
       { type: "table", id: "standards", title: "Standards", sheet: "Standards", empty: "—",
-        columns: [{ key: "code", label: "Standard", kind: "latin", nowrap: true }, { key: "label", label: "Skill", kind: "text", width: 2 }, { key: "score", label: "Correct", kind: "latin" }, { key: "pct", label: "Score", kind: "pct" }, { key: "classPct", label: "Class average", kind: "pct" }, { key: "status", label: "Status", kind: "text" }],
-        rows: r.standards.map((x) => ({ code: x.code, label: x.label, score: `${x.correct}/${x.total}`, pct: x.pct, classPct: x.classPct, status: x.status })) },
+        columns: [{ key: "code", label: "Standard", kind: "latin", nowrap: true }, { key: "label", label: "Skill", kind: "text", width: 2 }, { key: "score", label: r.adaptive ? "Reads at" : "Correct", kind: "latin" }, { key: "pct", label: "Score", kind: P }, { key: "classPct", label: "Class average", kind: P }, { key: "status", label: "Status", kind: "text" }],
+        rows: r.standards.map((x) => ({ code: x.code, label: x.label, score: r.adaptive ? x.readingLevel ?? "—" : `${x.correct}/${x.total}`, pct: x.pct, classPct: x.classPct, status: x.status })) },
       { type: "notes", title: "Strengths", items: r.strengths.length ? r.strengths : ["Keep practising: strengths show as scores grow."] },
-      { type: "notes", title: "Next Steps", items: r.needs.length ? r.needs.map((n) => `${n.label} (${n.code}, ${n.pct}%): ${n.objective} Try: ${n.tip}`) : ["Keep going with the curriculum plan at your level."] },
+      { type: "notes", title: "Next Steps", items: r.needs.length ? r.needs.map((n) => `${n.label} (${n.code}, ${n.pct}${u}): ${n.objective} Try: ${n.tip}`) : ["Keep going with the curriculum plan at your level."] },
       ...(r.note ? [{ type: "notes" as const, title: "Note from the teacher", items: [r.note] }] : []),
     ],
   };

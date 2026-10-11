@@ -1,0 +1,682 @@
+{
+ "about": "Original sentence-combining items (Grades 4–6) written for this platform: compound subjects and predicates, and/but/or/so, because/although/when, relative who/which. Loaded by the question seed only when this file is present.",
+ "passages": [],
+ "items": [
+  {
+   "ref": "SC-G4-subjects-predicates-01",
+   "grade": 4,
+   "family": "subjects-predicates",
+   "skillKey": "G4.subjects-predicates",
+   "standard": "CCSS.ELA-LITERACY.L.4.1",
+   "level": 3,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one sentence with a compound subject. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "The two sentences have the same predicate (plays football), so the two subjects are joined with and. Two people need the verb play, not plays.",
+    "tip": "Find the words that repeat. Write them only once."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "Omar plays football.",
+     "Khalid plays football."
+    ],
+    "connector": "and",
+    "hint": "Who plays football? Put both names before the verb.",
+    "accepted": [
+     "Omar and Khalid play football.",
+     "Khalid and Omar play football."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G4-subjects-predicates-02",
+   "grade": 4,
+   "family": "subjects-predicates",
+   "skillKey": "G4.subjects-predicates",
+   "standard": "CCSS.ELA-LITERACY.L.4.1",
+   "level": 4,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the sentences into one sentence with a compound predicate (one subject that does more than one thing).",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "Both sentences are about the falcon, so the subject is written once and the two actions are joined with and.",
+    "tip": "Keep one subject and join the two actions."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The falcon spread its wings.",
+     "The falcon flew over the dunes."
+    ],
+    "connector": "and",
+    "hint": "What did the falcon do? Two things.",
+    "accepted": [
+     "The falcon spread its wings and flew over the dunes."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G4-compound-sentences-01",
+   "grade": 4,
+   "family": "compound-sentences",
+   "skillKey": "G4.compound-sentences",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.c",
+   "level": 4,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one compound sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "But joins two complete sentences that show a surprise or a difference. A comma goes before but.",
+    "tip": "Two complete sentences joined by but need a comma before but."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The soup was hot.",
+     "Lina ate it quickly."
+    ],
+    "connector": "but",
+    "hint": "Is the second idea a surprise after the first one?",
+    "accepted": [
+     "The soup was hot, but Lina ate it quickly."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G4-compound-sentences-02",
+   "grade": 4,
+   "family": "compound-sentences",
+   "skillKey": "G4.compound-sentences",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.c",
+   "level": 4,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one compound sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "So joins a cause and its result. The rain is the cause and playing inside is the result. A comma goes before so.",
+    "tip": "Cause first, then so, then the result."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "It started to rain.",
+     "We played inside."
+    ],
+    "connector": "so",
+    "hint": "Which sentence tells what happened because of the other one?",
+    "accepted": [
+     "It started to rain, so we played inside."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G4-compound-sentences-03",
+   "grade": 4,
+   "family": "compound-sentences",
+   "skillKey": "G4.compound-sentences",
+   "standard": "CCSS.ELA-LITERACY.L.4.2.c",
+   "level": 3,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one compound sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "Or joins two choices. With two complete sentences, put a comma before or; with one subject and two actions, no comma is needed.",
+    "tip": "Or shows a choice between two things."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "You can read a book.",
+     "You can draw a picture."
+    ],
+    "connector": "or",
+    "hint": "What are the two choices?",
+    "accepted": [
+     "You can read a book, or you can draw a picture.",
+     "You can read a book or draw a picture."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G4-clauses-complex-01",
+   "grade": 4,
+   "family": "clauses-complex",
+   "skillKey": "G4.clauses-complex",
+   "standard": "CCSS.ELA-LITERACY.L.4.1",
+   "level": 5,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "Because tells the reason. The cold morning is the reason Sara wore a jacket. If because comes first, put a comma after the reason.",
+    "tip": "Because comes right before the reason."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "Sara wore a jacket.",
+     "The morning was cold."
+    ],
+    "connector": "because",
+    "hint": "Why did Sara wear a jacket?",
+    "accepted": [
+     "Sara wore a jacket because the morning was cold.",
+     "Because the morning was cold, Sara wore a jacket."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G4-clauses-complex-02",
+   "grade": 4,
+   "family": "clauses-complex",
+   "skillKey": "G4.clauses-complex",
+   "standard": "CCSS.ELA-LITERACY.L.4.1.a",
+   "level": 5,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one sentence. Use the joining word to tell more about the noun.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "Who replaces he and tells more about my uncle. The who part goes right after the noun it describes.",
+    "tip": "Who is used for people. Put it right after the person."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "My uncle sells dates.",
+     "He lives in Qassim."
+    ],
+    "connector": "who",
+    "hint": "Which word does he stand for?",
+    "accepted": [
+     "My uncle, who lives in Qassim, sells dates.",
+     "My uncle who lives in Qassim sells dates."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G5-combining-sentences-01",
+   "grade": 5,
+   "family": "combining-sentences",
+   "skillKey": "G5.combining-sentences",
+   "standard": "CCSS.ELA-LITERACY.L.5.3.a",
+   "level": 4,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the sentences into one sentence. Put the things that are the same in a list.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "The three sentences end the same way, so the three fruits become a list. Commas separate the items, and and comes before the last one.",
+    "tip": "Use commas between the items in a list."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "Apples are sweet.",
+     "Mangoes are sweet.",
+     "Figs are sweet."
+    ],
+    "connector": "and",
+    "hint": "What is the same in all three sentences?",
+    "accepted": [
+     "Apples, mangoes, and figs are sweet.",
+     "Apples, mangoes and figs are sweet."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G5-compound-sentences-01",
+   "grade": 5,
+   "family": "compound-sentences",
+   "skillKey": "G5.compound-sentences",
+   "standard": "CCSS.ELA-LITERACY.L.5.1.a",
+   "level": 4,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one compound sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "But shows a contrast: the museum was ready on time, the guide was not. A comma goes before but.",
+    "tip": "A comma comes before but when it joins two sentences."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The museum opened at nine.",
+     "The guide arrived late."
+    ],
+    "connector": "but",
+    "hint": "What is different between the two sentences?",
+    "accepted": [
+     "The museum opened at nine, but the guide arrived late."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G5-compound-sentences-02",
+   "grade": 5,
+   "family": "compound-sentences",
+   "skillKey": "G5.compound-sentences",
+   "standard": "CCSS.ELA-LITERACY.L.5.1.a",
+   "level": 4,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one compound sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "So shows a result: he bought a bottle because he forgot his own. A comma goes before so.",
+    "tip": "Cause, comma, so, result."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "Fahad forgot his water bottle.",
+     "He bought one at the shop."
+    ],
+    "connector": "so",
+    "hint": "Which sentence is the result?",
+    "accepted": [
+     "Fahad forgot his water bottle, so he bought one at the shop."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G5-clauses-complex-01",
+   "grade": 5,
+   "family": "clauses-complex",
+   "skillKey": "G5.clauses-complex",
+   "standard": "CCSS.ELA-LITERACY.L.5.1.a",
+   "level": 5,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "When tells the time something happened. If the when part comes first, a comma follows it.",
+    "tip": "When the time part comes first, end it with a comma."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The bell rang.",
+     "The students lined up."
+    ],
+    "connector": "when",
+    "hint": "What happened first?",
+    "accepted": [
+     "When the bell rang, the students lined up.",
+     "The students lined up when the bell rang."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G5-clauses-complex-02",
+   "grade": 5,
+   "family": "clauses-complex",
+   "skillKey": "G5.clauses-complex",
+   "standard": "CCSS.ELA-LITERACY.L.5.1.a",
+   "level": 6,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "Although shows that the second idea is surprising: a long test, but she still finished early.",
+    "tip": "Although goes before the idea that makes the other one surprising."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 1.5,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The test was long.",
+     "Noura finished early."
+    ],
+    "connector": "although",
+    "hint": "Which fact makes the other one surprising?",
+    "accepted": [
+     "Although the test was long, Noura finished early.",
+     "Noura finished early although the test was long."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G5-clauses-complex-03",
+   "grade": 5,
+   "family": "clauses-complex",
+   "skillKey": "G5.clauses-complex",
+   "standard": "CCSS.ELA-LITERACY.L.5.1",
+   "level": 5,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one sentence. Use the joining word to tell more about the noun.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "Which replaces the tent in the second sentence and tells more about it. Which is used for things and animals, not people.",
+    "tip": "Which is used for things. Put it right after the thing it describes."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The camel carried the tent.",
+     "The tent was very heavy."
+    ],
+    "connector": "which",
+    "hint": "Which noun is repeated?",
+    "accepted": [
+     "The camel carried the tent, which was very heavy."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G5-subjects-predicates-01",
+   "grade": 5,
+   "family": "subjects-predicates",
+   "skillKey": "G5.subjects-predicates",
+   "standard": "CCSS.ELA-LITERACY.L.5.2.a",
+   "level": 5,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the sentences into one sentence with a compound predicate (one subject that does more than one thing).",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "One subject (Reem) does three things, so the actions become a list with commas and and before the last action.",
+    "tip": "Write the subject once, then list the actions."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0.75,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "Reem washed the dishes.",
+     "Reem dried them.",
+     "Reem put them away."
+    ],
+    "connector": "and",
+    "hint": "How many things did Reem do?",
+    "accepted": [
+     "Reem washed the dishes, dried them, and put them away.",
+     "Reem washed the dishes, dried them and put them away."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G6-compound-sentences-01",
+   "grade": 6,
+   "family": "compound-sentences",
+   "skillKey": "G6.compound-sentences",
+   "standard": "CCSS.ELA-LITERACY.L.6.3.a",
+   "level": 4,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one compound sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "But balances a problem and a reward. A comma comes before but because both parts are complete sentences.",
+    "tip": "Two complete sentences joined by but need a comma."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The road to Abha is steep.",
+     "The view from the top is worth it."
+    ],
+    "connector": "but",
+    "hint": "What is the problem, and what makes it worth it?",
+    "accepted": [
+     "The road to Abha is steep, but the view from the top is worth it."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G6-clauses-complex-01",
+   "grade": 6,
+   "family": "clauses-complex",
+   "skillKey": "G6.clauses-complex",
+   "standard": "CCSS.ELA-LITERACY.L.6.3.a",
+   "level": 4,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "Because introduces the reason for practising. Starting with because needs a comma after the reason.",
+    "tip": "Because comes right before the reason."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The team practised every evening.",
+     "They wanted to win the cup."
+    ],
+    "connector": "because",
+    "hint": "Why did the team practise?",
+    "accepted": [
+     "The team practised every evening because they wanted to win the cup.",
+     "Because they wanted to win the cup, the team practised every evening."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G6-clauses-complex-02",
+   "grade": 6,
+   "family": "clauses-complex",
+   "skillKey": "G6.clauses-complex",
+   "standard": "CCSS.ELA-LITERACY.L.6.1",
+   "level": 6,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one sentence. Use the joining word to tell more about the noun.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "Who replaces she and describes the scientist. The who part sits right after the scientist, inside the sentence.",
+    "tip": "Put the who part right after the person it describes."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 1.5,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The scientist studied the coral reef.",
+     "She won an award."
+    ],
+    "connector": "who",
+    "hint": "Who is she?",
+    "accepted": [
+     "The scientist who studied the coral reef won an award.",
+     "The scientist, who studied the coral reef, won an award.",
+     "The scientist, who won an award, studied the coral reef."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G6-clauses-complex-03",
+   "grade": 6,
+   "family": "clauses-complex",
+   "skillKey": "G6.clauses-complex",
+   "standard": "CCSS.ELA-LITERACY.L.6.3.a",
+   "level": 6,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "Although shows a contrast: you expect a crowded room to be noisy, but it stayed quiet.",
+    "tip": "Although goes before the fact that makes the other one surprising."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 1.5,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The library was crowded.",
+     "It stayed quiet."
+    ],
+    "connector": "although",
+    "hint": "What would you expect in a crowded room?",
+    "accepted": [
+     "Although the library was crowded, it stayed quiet.",
+     "The library stayed quiet although it was crowded."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G6-subjects-predicates-01",
+   "grade": 6,
+   "family": "subjects-predicates",
+   "skillKey": "G6.subjects-predicates",
+   "standard": "CCSS.ELA-LITERACY.L.6.1",
+   "level": 3,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one sentence with a compound subject. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "The predicate (attended the ceremony) is the same, so the two subjects are joined with and into a compound subject.",
+    "tip": "Write the repeated words only once."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": -0.75,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "The principal attended the ceremony.",
+     "The parents attended the ceremony."
+    ],
+    "connector": "and",
+    "hint": "Who attended the ceremony?",
+    "accepted": [
+     "The principal and the parents attended the ceremony.",
+     "The parents and the principal attended the ceremony."
+    ]
+   }
+  },
+  {
+   "ref": "SC-G6-compound-sentences-02",
+   "grade": 6,
+   "family": "compound-sentences",
+   "skillKey": "G6.compound-sentences",
+   "standard": "CCSS.ELA-LITERACY.L.6.3.a",
+   "level": 4,
+   "type": "SENTENCE_COMBINE",
+   "stem": "Join the two sentences into one compound sentence. Use the joining word.",
+   "passage": null,
+   "subskill": "sentence-combining",
+   "explanation": {
+    "whyCorrect": "Or joins two choices. Two complete sentences need a comma before or; one subject with two actions does not.",
+    "tip": "Or shows a choice."
+   },
+   "estimatedSeconds": 60,
+   "irt": {
+    "a": 1.0,
+    "b": 0,
+    "c": 0.0
+   },
+   "combine": {
+    "sentences": [
+     "We can take the metro to the stadium.",
+     "We can walk there."
+    ],
+    "connector": "or",
+    "hint": "What are the two ways to get to the stadium?",
+    "accepted": [
+     "We can take the metro to the stadium, or we can walk there.",
+     "We can take the metro to the stadium or walk there."
+    ]
+   }
+  }
+ ]
+}

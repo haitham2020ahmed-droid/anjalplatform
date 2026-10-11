@@ -24,6 +24,8 @@ import { skillPlanForStudent, studentSkillPlans, todaysPlanStep, isUnitOpen } fr
 import { weekStats, weekStart } from "../src/server/student/weekly";
 import { parentReport, shareParentReport } from "../src/server/insights/parent-report";
 import { demoDatabase } from "./helpers/db";
+import { pendingApprovals, reviewFamilyReport } from "../src/server/reports/family-reports";
+const approveAll = async (repo: { [k: string]: unknown }, admin: Actor) => { for (const r of await pendingApprovals(repo as never, admin)) await reviewFamilyReport(repo as never, admin, r.id, { approve: true }); };
 
 describe("Update 25 · goals, the curriculum plan and the family", () => {
   let repo: SqliteRepo; let teacher: Actor; let admin: Actor; let classId: string; let roster: { id: string; name: string }[];
@@ -138,9 +140,9 @@ describe("Update 25 · goals, the curriculum plan and the family", () => {
   test("Family Report: a student opens the teacher's report only once it is shared, and only their own", async () => {
     const st = await student(roster[4].id);
     await assert.rejects(parentReport(repo, st, roster[4].id), ForbiddenError);
-    await shareParentReport(repo, teacher, roster[4].id, true, null);
+    await shareParentReport(repo, teacher, roster[4].id, true, null); await approveAll(repo as never, admin);
     assert.equal((await parentReport(repo, st, roster[4].id)).studentId, roster[4].id);
-    await shareParentReport(repo, teacher, roster[5].id, true, null);
+    await shareParentReport(repo, teacher, roster[5].id, true, null); await approveAll(repo as never, admin);
     await assert.rejects(parentReport(repo, st, roster[5].id), ForbiddenError);
   });
 });
