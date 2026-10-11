@@ -1,0 +1,2342 @@
+{
+ "log": [
+  {
+   "start": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-004",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which sentence uses “a” and “an” correctly?",
+     "level": 3
+    },
+    "answered": 0,
+    "correct": 0,
+    "mastery": 0,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "D. I ate an apple and a banana.",
+    "correctAnswer": "D. I ate an apple and a banana.",
+    "whyCorrect": "“An” comes before vowel sounds; “a” comes before consonant sounds.",
+    "whyYoursIsWrong": null,
+    "tip": "Say the next word aloud to hear its first sound.",
+    "rapidGuess": false,
+    "masteryBefore": 0,
+    "masteryAfter": 13,
+    "band": "BEGINNING",
+    "xp": 2,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-003",
+     "type": "DROPDOWN",
+     "stem": "Choose the adjective that tells HOW MANY: “We saw ____ camels near the road.”",
+     "level": 2
+    },
+    "answered": 1,
+    "correct": 1,
+    "mastery": 13,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "D. seven",
+    "correctAnswer": "D. seven",
+    "whyCorrect": "“Seven” tells how many camels.",
+    "whyYoursIsWrong": null,
+    "tip": "Number words are adjectives that tell how many.",
+    "rapidGuess": false,
+    "masteryBefore": 13,
+    "masteryAfter": 24,
+    "band": "BEGINNING",
+    "xp": 2,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-005",
+     "type": "DROPDOWN",
+     "stem": "Choose the adjective: “That was the ____ storm we have had all year.”",
+     "level": 4
+    },
+    "answered": 2,
+    "correct": 2,
+    "mastery": 24,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "B. most bad",
+    "correctAnswer": "A. worst",
+    "whyCorrect": "Comparing more than two, the superlative of “bad” is “worst.”",
+    "whyYoursIsWrong": "Use the irregular form “worst.”",
+    "tip": "good–better–best; bad–worse–worst.",
+    "rapidGuess": false,
+    "masteryBefore": 24,
+    "masteryAfter": 23,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Look at the key words in the question.",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-002",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which word is an adjective? “A shiny bike leaned against the wall.”",
+     "level": 1
+    },
+    "answered": 3,
+    "correct": 2,
+    "mastery": 23,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "C. shiny",
+    "correctAnswer": "C. shiny",
+    "whyCorrect": "“Shiny” describes the bike.",
+    "whyYoursIsWrong": null,
+    "tip": "Adjectives describe nouns: what kind, how many, which one.",
+    "rapidGuess": false,
+    "masteryBefore": 23,
+    "masteryAfter": 30,
+    "band": "BEGINNING",
+    "xp": 2,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-001",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which sentence lists the adjectives in the correct order?",
+     "level": 5
+    },
+    "answered": 4,
+    "correct": 3,
+    "mastery": 30,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "A. She wore a blue long beautiful dress.",
+    "correctAnswer": "D. She wore a beautiful long blue dress.",
+    "whyCorrect": "Order: opinion → size → age → shape → color → origin → material → purpose.",
+    "whyYoursIsWrong": "Color should come after opinion and size.",
+    "tip": "Say it aloud: the correct order usually “sounds right” in English.",
+    "rapidGuess": false,
+    "masteryBefore": 30,
+    "masteryAfter": 29,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together. Color should come after opinion and size.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Say it aloud: the correct order usually “sounds right” in English.",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-004",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which sentence uses “a” and “an” correctly?",
+     "level": 3
+    },
+    "answered": 5,
+    "correct": 3,
+    "mastery": 29,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "A. I ate a apple and an banana.",
+    "correctAnswer": "D. I ate an apple and a banana.",
+    "whyCorrect": "“An” comes before vowel sounds; “a” comes before consonant sounds.",
+    "whyYoursIsWrong": "Both articles are wrong.",
+    "tip": "Say the next word aloud to hear its first sound.",
+    "rapidGuess": false,
+    "masteryBefore": 29,
+    "masteryAfter": 27,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together. Both articles are wrong.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Say the next word aloud to hear its first sound.",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-005",
+     "type": "DROPDOWN",
+     "stem": "Choose the adjective: “That was the ____ storm we have had all year.”",
+     "level": 4
+    },
+    "answered": 6,
+    "correct": 3,
+    "mastery": 27,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "A. worst",
+    "correctAnswer": "A. worst",
+    "whyCorrect": "Comparing more than two, the superlative of “bad” is “worst.”",
+    "whyYoursIsWrong": null,
+    "tip": "good–better–best; bad–worse–worst.",
+    "rapidGuess": false,
+    "masteryBefore": 27,
+    "masteryAfter": 30,
+    "band": "BEGINNING",
+    "xp": 3,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-002",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which word is an adjective? “A shiny bike leaned against the wall.”",
+     "level": 1
+    },
+    "answered": 7,
+    "correct": 4,
+    "mastery": 30,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "C. shiny",
+    "correctAnswer": "C. shiny",
+    "whyCorrect": "“Shiny” describes the bike.",
+    "whyYoursIsWrong": null,
+    "tip": "Adjectives describe nouns: what kind, how many, which one.",
+    "rapidGuess": false,
+    "masteryBefore": 30,
+    "masteryAfter": 33,
+    "band": "BEGINNING",
+    "xp": 2,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-001",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which sentence lists the adjectives in the correct order?",
+     "level": 5
+    },
+    "answered": 8,
+    "correct": 5,
+    "mastery": 33,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "D. She wore a beautiful long blue dress.",
+    "correctAnswer": "D. She wore a beautiful long blue dress.",
+    "whyCorrect": "Order: opinion → size → age → shape → color → origin → material → purpose.",
+    "whyYoursIsWrong": null,
+    "tip": "Say it aloud: the correct order usually “sounds right” in English.",
+    "rapidGuess": false,
+    "masteryBefore": 33,
+    "masteryAfter": 36,
+    "band": "BEGINNING",
+    "xp": 4,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-004",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which sentence uses “a” and “an” correctly?",
+     "level": 3
+    },
+    "answered": 9,
+    "correct": 6,
+    "mastery": 36,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "A. I ate a apple and an banana.",
+    "correctAnswer": "D. I ate an apple and a banana.",
+    "whyCorrect": "“An” comes before vowel sounds; “a” comes before consonant sounds.",
+    "whyYoursIsWrong": "Both articles are wrong.",
+    "tip": "Say the next word aloud to hear its first sound.",
+    "rapidGuess": false,
+    "masteryBefore": 36,
+    "masteryAfter": 33,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together. Both articles are wrong.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Say the next word aloud to hear its first sound.",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-005",
+     "type": "DROPDOWN",
+     "stem": "Choose the adjective: “That was the ____ storm we have had all year.”",
+     "level": 4
+    },
+    "answered": 10,
+    "correct": 6,
+    "mastery": 33,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "A. worst",
+    "correctAnswer": "A. worst",
+    "whyCorrect": "Comparing more than two, the superlative of “bad” is “worst.”",
+    "whyYoursIsWrong": null,
+    "tip": "good–better–best; bad–worse–worst.",
+    "rapidGuess": false,
+    "masteryBefore": 33,
+    "masteryAfter": 36,
+    "band": "BEGINNING",
+    "xp": 3,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adjectives",
+    "skillName": "Adjectives, Articles and Order of Adjectives",
+    "question": {
+     "questionId": "G4-adjectives-002",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which word is an adjective? “A shiny bike leaned against the wall.”",
+     "level": 1
+    },
+    "answered": 11,
+    "correct": 7,
+    "mastery": 36,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "start": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-004",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which word is an adverb that tells WHERE? “The children played outside after lunch.”",
+     "level": 3
+    },
+    "answered": 0,
+    "correct": 0,
+    "mastery": 0,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "C. outside",
+    "correctAnswer": "C. outside",
+    "whyCorrect": "“Outside” tells where they played.",
+    "whyYoursIsWrong": null,
+    "tip": "Where-adverbs: here, there, outside, inside, upstairs.",
+    "rapidGuess": false,
+    "masteryBefore": 0,
+    "masteryAfter": 13,
+    "band": "BEGINNING",
+    "xp": 2,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-003",
+     "type": "DROPDOWN",
+     "stem": "Choose the adverb that tells WHEN: “We will visit the museum ____.”",
+     "level": 2
+    },
+    "answered": 1,
+    "correct": 1,
+    "mastery": 13,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "B. tomorrow",
+    "correctAnswer": "B. tomorrow",
+    "whyCorrect": "“Tomorrow” tells when.",
+    "whyYoursIsWrong": null,
+    "tip": "Adverbs answer how, when or where.",
+    "rapidGuess": false,
+    "masteryBefore": 13,
+    "masteryAfter": 24,
+    "band": "BEGINNING",
+    "xp": 2,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-001",
+     "type": "DROPDOWN",
+     "stem": "This is the park ____ we had our picnic.",
+     "level": 4
+    },
+    "answered": 2,
+    "correct": 2,
+    "mastery": 24,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "A. when",
+    "correctAnswer": "D. where",
+    "whyCorrect": "Where is a relative adverb that refers to a place (the park).",
+    "whyYoursIsWrong": "When refers to a time, not a place.",
+    "tip": "where → place, when → time, why → reason.",
+    "rapidGuess": false,
+    "masteryBefore": 24,
+    "masteryAfter": 23,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Look at the key words in the question.",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-002",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which word tells HOW the turtle moved? “The turtle moved slowly across the sand.”",
+     "level": 1
+    },
+    "answered": 3,
+    "correct": 2,
+    "mastery": 23,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "B. slowly",
+    "correctAnswer": "B. slowly",
+    "whyCorrect": "“Slowly” is an adverb that tells how.",
+    "whyYoursIsWrong": null,
+    "tip": "Many adverbs end in -ly.",
+    "rapidGuess": false,
+    "masteryBefore": 23,
+    "masteryAfter": 30,
+    "band": "BEGINNING",
+    "xp": 2,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-005",
+     "type": "DROPDOWN",
+     "stem": "Choose the relative adverb: “Nobody knows the reason ____ the bell rang early.”",
+     "level": 5
+    },
+    "answered": 4,
+    "correct": 3,
+    "mastery": 30,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "A. who",
+    "correctAnswer": "C. why",
+    "whyCorrect": "“Why” goes with “the reason.”",
+    "whyYoursIsWrong": "“Who” is a relative pronoun for people.",
+    "tip": "Relative adverbs: where (place), when (time), why (reason).",
+    "rapidGuess": false,
+    "masteryBefore": 30,
+    "masteryAfter": 29,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together. “Who” is a relative pronoun for people.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Relative adverbs: where (place), when (time), why (reason).",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-004",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which word is an adverb that tells WHERE? “The children played outside after lunch.”",
+     "level": 3
+    },
+    "answered": 5,
+    "correct": 3,
+    "mastery": 29,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "A. lunch",
+    "correctAnswer": "C. outside",
+    "whyCorrect": "“Outside” tells where they played.",
+    "whyYoursIsWrong": "This is a noun.",
+    "tip": "Where-adverbs: here, there, outside, inside, upstairs.",
+    "rapidGuess": false,
+    "masteryBefore": 29,
+    "masteryAfter": 27,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Look at the key words in the question.",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-001",
+     "type": "DROPDOWN",
+     "stem": "This is the park ____ we had our picnic.",
+     "level": 4
+    },
+    "answered": 6,
+    "correct": 3,
+    "mastery": 27,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "D. where",
+    "correctAnswer": "D. where",
+    "whyCorrect": "Where is a relative adverb that refers to a place (the park).",
+    "whyYoursIsWrong": null,
+    "tip": "where → place, when → time, why → reason.",
+    "rapidGuess": false,
+    "masteryBefore": 27,
+    "masteryAfter": 30,
+    "band": "BEGINNING",
+    "xp": 3,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-002",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which word tells HOW the turtle moved? “The turtle moved slowly across the sand.”",
+     "level": 1
+    },
+    "answered": 7,
+    "correct": 4,
+    "mastery": 30,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "B. slowly",
+    "correctAnswer": "B. slowly",
+    "whyCorrect": "“Slowly” is an adverb that tells how.",
+    "whyYoursIsWrong": null,
+    "tip": "Many adverbs end in -ly.",
+    "rapidGuess": false,
+    "masteryBefore": 30,
+    "masteryAfter": 33,
+    "band": "BEGINNING",
+    "xp": 2,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-005",
+     "type": "DROPDOWN",
+     "stem": "Choose the relative adverb: “Nobody knows the reason ____ the bell rang early.”",
+     "level": 5
+    },
+    "answered": 8,
+    "correct": 5,
+    "mastery": 33,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "C. why",
+    "correctAnswer": "C. why",
+    "whyCorrect": "“Why” goes with “the reason.”",
+    "whyYoursIsWrong": null,
+    "tip": "Relative adverbs: where (place), when (time), why (reason).",
+    "rapidGuess": false,
+    "masteryBefore": 33,
+    "masteryAfter": 36,
+    "band": "BEGINNING",
+    "xp": 4,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-004",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which word is an adverb that tells WHERE? “The children played outside after lunch.”",
+     "level": 3
+    },
+    "answered": 9,
+    "correct": 6,
+    "mastery": 36,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "A. lunch",
+    "correctAnswer": "C. outside",
+    "whyCorrect": "“Outside” tells where they played.",
+    "whyYoursIsWrong": "This is a noun.",
+    "tip": "Where-adverbs: here, there, outside, inside, upstairs.",
+    "rapidGuess": false,
+    "masteryBefore": 36,
+    "masteryAfter": 33,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Look at the key words in the question.",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-001",
+     "type": "DROPDOWN",
+     "stem": "This is the park ____ we had our picnic.",
+     "level": 4
+    },
+    "answered": 10,
+    "correct": 6,
+    "mastery": 33,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "practice": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "D. where",
+    "correctAnswer": "D. where",
+    "whyCorrect": "Where is a relative adverb that refers to a place (the park).",
+    "whyYoursIsWrong": null,
+    "tip": "where → place, when → time, why → reason.",
+    "rapidGuess": false,
+    "masteryBefore": 33,
+    "masteryAfter": 36,
+    "band": "BEGINNING",
+    "xp": 3,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "skillId": "G4.adverbs",
+    "skillName": "Adverbs and Relative Adverbs",
+    "question": {
+     "questionId": "G4-adverbs-002",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which word tells HOW the turtle moved? “The turtle moved slowly across the sand.”",
+     "level": 1
+    },
+    "answered": 11,
+    "correct": 7,
+    "mastery": 36,
+    "band": "BEGINNING",
+    "ended": false,
+    "endReason": null
+   }
+  },
+  {
+   "set": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "C. don’t",
+    "correctAnswer": "C. don’t",
+    "whyCorrect": "An apostrophe replaces the missing o: do not → don’t.",
+    "whyYoursIsWrong": null,
+    "tip": "In a contraction, the apostrophe takes the place of missing letters.",
+    "rapidGuess": false,
+    "masteryBefore": 0,
+    "masteryAfter": 12,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "title": "Scenario set (5 questions)",
+    "question": {
+     "questionId": "G4-apostrophes-contractions-002",
+     "type": "FILL_BLANK",
+     "stem": "Write the contraction for “it is”: “____ time to go home.”",
+     "level": 2
+    },
+    "index": 2,
+    "total": 5,
+    "answered": 1,
+    "correct": 1,
+    "ended": false,
+    "goal": null,
+    "breakHint": false,
+    "nextHref": null,
+    "testMode": false
+   }
+  },
+  {
+   "set": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "zzz",
+    "correctAnswer": "It's",
+    "whyCorrect": "It is → it’s. The apostrophe replaces the i in “is.”",
+    "whyYoursIsWrong": null,
+    "tip": "Say both words quickly to hear the contraction.",
+    "rapidGuess": false,
+    "masteryBefore": 12,
+    "masteryAfter": 12,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Say both words quickly to hear the contraction.",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "view": {
+    "title": "Scenario set (5 questions)",
+    "question": {
+     "questionId": "G4-apostrophes-contractions-003",
+     "type": "DROPDOWN",
+     "stem": "Choose the correct word: “The bird fed ____ babies.”",
+     "level": 3
+    },
+    "index": 3,
+    "total": 5,
+    "answered": 2,
+    "correct": 1,
+    "ended": false,
+    "goal": null,
+    "breakHint": false,
+    "nextHref": null,
+    "testMode": false
+   }
+  },
+  {
+   "set": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "A. its’",
+    "correctAnswer": "D. its",
+    "whyCorrect": "“Its” is a possessive pronoun, and possessive pronouns do not have apostrophes.",
+    "whyYoursIsWrong": "This is not a word.",
+    "tip": "Try “it is.” If it does not make sense, use “its.”",
+    "rapidGuess": false,
+    "masteryBefore": 12,
+    "masteryAfter": 11,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Let's look again.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Try “it is.” If it does not make sense, use “its.”",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "view": {
+    "title": "Scenario set (5 questions)",
+    "question": {
+     "questionId": "G4-apostrophes-contractions-004",
+     "type": "MULTIPLE_CHOICE",
+     "stem": "Which sentence uses an apostrophe correctly?",
+     "level": 4
+    },
+    "index": 4,
+    "total": 5,
+    "answered": 3,
+    "correct": 1,
+    "ended": false,
+    "goal": null,
+    "breakHint": false,
+    "nextHref": null,
+    "testMode": false
+   }
+  },
+  {
+   "set": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "A. They’re going to the museum today.",
+    "correctAnswer": "A. They’re going to the museum today.",
+    "whyCorrect": "“They’re” is the contraction of “they are,” which fits the sentence.",
+    "whyYoursIsWrong": null,
+    "tip": "Expand the contraction to check if it makes sense.",
+    "rapidGuess": false,
+    "masteryBefore": 11,
+    "masteryAfter": 18,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "title": "Scenario set (5 questions)",
+    "question": {
+     "questionId": "G4-apostrophes-contractions-005",
+     "type": "MATCHING",
+     "stem": "Match each contraction with the words it stands for.",
+     "level": 5
+    },
+    "index": 5,
+    "total": 5,
+    "answered": 4,
+    "correct": 2,
+    "ended": false,
+    "goal": null,
+    "breakHint": false,
+    "nextHref": null,
+    "testMode": false
+   }
+  },
+  {
+   "set": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "we’ll = we will; wouldn’t = would not; she’s = she is; they’ve = they have",
+    "correctAnswer": "we’ll = we will; wouldn’t = would not; she’s = she is; they’ve = they have",
+    "whyCorrect": "Each apostrophe replaces the missing letters in the second word.",
+    "whyYoursIsWrong": null,
+    "tip": "Say the two words slowly, then quickly, to match the contraction.",
+    "rapidGuess": false,
+    "masteryBefore": 18,
+    "masteryAfter": 30,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": false,
+     "endReason": "COMPLETED",
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "view": {
+    "title": "Scenario set (5 questions)",
+    "question": null,
+    "index": 5,
+    "total": 5,
+    "answered": 5,
+    "correct": 3,
+    "ended": true,
+    "goal": null,
+    "breakHint": false,
+    "nextHref": null,
+    "testMode": false
+   }
+  },
+  {
+   "lesson": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "A. I ate a apple and an banana.",
+    "correctAnswer": "D. I ate an apple and a banana.",
+    "whyCorrect": "“An” comes before vowel sounds; “a” comes before consonant sounds.",
+    "whyYoursIsWrong": "Both articles are wrong.",
+    "tip": "Say the next word aloud to hear its first sound.",
+    "rapidGuess": false,
+    "masteryBefore": 36,
+    "masteryAfter": 33,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together. Both articles are wrong.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Say the next word aloud to hear its first sound.",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "credit": 0,
+   "phase": "GUIDED",
+   "q": "G4-adjectives-003"
+  },
+  {
+   "lesson": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "D. seven",
+    "correctAnswer": "D. seven",
+    "whyCorrect": "“Seven” tells how many camels.",
+    "whyYoursIsWrong": null,
+    "tip": "Number words are adjectives that tell how many.",
+    "rapidGuess": false,
+    "masteryBefore": 33,
+    "masteryAfter": 35,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "credit": 1,
+   "phase": "GUIDED",
+   "q": "G4-adjectives-002"
+  },
+  {
+   "lesson": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "C. shiny",
+    "correctAnswer": "C. shiny",
+    "whyCorrect": "“Shiny” describes the bike.",
+    "whyYoursIsWrong": null,
+    "tip": "Adjectives describe nouns: what kind, how many, which one.",
+    "rapidGuess": false,
+    "masteryBefore": 35,
+    "masteryAfter": 37,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "credit": 1,
+   "phase": "INDEPENDENT",
+   "q": "G4-adjectives-005"
+  },
+  {
+   "lesson": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "A. worst",
+    "correctAnswer": "A. worst",
+    "whyCorrect": "Comparing more than two, the superlative of “bad” is “worst.”",
+    "whyYoursIsWrong": null,
+    "tip": "good–better–best; bad–worse–worst.",
+    "rapidGuess": false,
+    "masteryBefore": 37,
+    "masteryAfter": 40,
+    "band": "DEVELOPING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "credit": 1,
+   "phase": "INDEPENDENT",
+   "q": "G4-adjectives-001"
+  },
+  {
+   "lesson": {
+    "correct": false,
+    "credit": 0,
+    "yourAnswer": "A. She wore a blue long beautiful dress.",
+    "correctAnswer": "D. She wore a beautiful long blue dress.",
+    "whyCorrect": "Order: opinion → size → age → shape → color → origin → material → purpose.",
+    "whyYoursIsWrong": "Color should come after opinion and size.",
+    "tip": "Say it aloud: the correct order usually “sounds right” in English.",
+    "rapidGuess": false,
+    "masteryBefore": 40,
+    "masteryAfter": 39,
+    "band": "BEGINNING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": {
+     "message": "Not this one — let's look again together. Color should come after opinion and size.",
+     "guidingQuestion": "Read the question again. What exactly is it asking?",
+     "hint": "Say it aloud: the correct order usually “sounds right” in English.",
+     "example": "Underline the key words of the question before you choose.",
+     "strategy": "Read the question twice and check each choice against it.",
+     "repeated": 0,
+     "misconception": null
+    }
+   },
+   "credit": 0,
+   "phase": "INDEPENDENT",
+   "q": "G4-adjectives-006"
+  },
+  {
+   "lesson": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "A. The fresh bread smells wonderful.",
+    "correctAnswer": "A. The fresh bread smells wonderful.",
+    "whyCorrect": "“Smells” links the bread to a describing word, so the adjective “wonderful” is correct.",
+    "whyYoursIsWrong": null,
+    "tip": "After linking verbs (is, seems, smells, tastes), use adjectives.",
+    "rapidGuess": false,
+    "masteryBefore": 39,
+    "masteryAfter": 43,
+    "band": "DEVELOPING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "credit": 1,
+   "phase": "CHECK",
+   "q": "G4-adjectives-002"
+  },
+  {
+   "lesson": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "C. shiny",
+    "correctAnswer": "C. shiny",
+    "whyCorrect": "“Shiny” describes the bike.",
+    "whyYoursIsWrong": null,
+    "tip": "Adjectives describe nouns: what kind, how many, which one.",
+    "rapidGuess": false,
+    "masteryBefore": 43,
+    "masteryAfter": 44,
+    "band": "DEVELOPING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "credit": 1,
+   "phase": "CHECK",
+   "q": "G4-adjectives-003"
+  },
+  {
+   "lesson": {
+    "correct": true,
+    "credit": 1,
+    "yourAnswer": "D. seven",
+    "correctAnswer": "D. seven",
+    "whyCorrect": "“Seven” tells how many camels.",
+    "whyYoursIsWrong": null,
+    "tip": "Number words are adjectives that tell how many.",
+    "rapidGuess": false,
+    "masteryBefore": 44,
+    "masteryAfter": 46,
+    "band": "DEVELOPING",
+    "xp": 0,
+    "next": {
+     "hasQuestion": true,
+     "endReason": null,
+     "routeToSkillId": null,
+     "routeToSkillName": null
+    },
+    "tutor": null
+   },
+   "credit": 1,
+   "phase": "CHECK",
+   "q": "G4-adjectives-004"
+  }
+ ],
+ "saved": {
+  "attempts": [
+   {
+    "q": "G4-adjectives-004",
+    "correct": true,
+    "credit": null,
+    "ms": 9000,
+    "hint": false,
+    "rapid": false,
+    "b": -0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-003",
+    "correct": true,
+    "credit": null,
+    "ms": 16000,
+    "hint": false,
+    "rapid": false,
+    "b": -1.5,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-005",
+    "correct": false,
+    "credit": null,
+    "ms": 23000,
+    "hint": false,
+    "rapid": false,
+    "b": 0,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-002",
+    "correct": true,
+    "credit": null,
+    "ms": 30000,
+    "hint": false,
+    "rapid": false,
+    "b": -2.25,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-001",
+    "correct": false,
+    "credit": null,
+    "ms": 9000,
+    "hint": false,
+    "rapid": false,
+    "b": 0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-004",
+    "correct": false,
+    "credit": null,
+    "ms": 16000,
+    "hint": false,
+    "rapid": false,
+    "b": -0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-005",
+    "correct": true,
+    "credit": null,
+    "ms": 23000,
+    "hint": false,
+    "rapid": false,
+    "b": 0,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-002",
+    "correct": true,
+    "credit": null,
+    "ms": 30000,
+    "hint": false,
+    "rapid": false,
+    "b": -2.25,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-001",
+    "correct": true,
+    "credit": null,
+    "ms": 9000,
+    "hint": false,
+    "rapid": false,
+    "b": 0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-004",
+    "correct": false,
+    "credit": null,
+    "ms": 16000,
+    "hint": false,
+    "rapid": false,
+    "b": -0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-005",
+    "correct": true,
+    "credit": null,
+    "ms": 23000,
+    "hint": false,
+    "rapid": false,
+    "b": 0,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-004",
+    "correct": true,
+    "credit": null,
+    "ms": 9000,
+    "hint": false,
+    "rapid": false,
+    "b": -0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-003",
+    "correct": true,
+    "credit": null,
+    "ms": 16000,
+    "hint": false,
+    "rapid": false,
+    "b": -1.5,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-001",
+    "correct": false,
+    "credit": null,
+    "ms": 23000,
+    "hint": false,
+    "rapid": false,
+    "b": 0,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-002",
+    "correct": true,
+    "credit": null,
+    "ms": 30000,
+    "hint": false,
+    "rapid": false,
+    "b": -2.25,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-005",
+    "correct": false,
+    "credit": null,
+    "ms": 9000,
+    "hint": false,
+    "rapid": false,
+    "b": 0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-004",
+    "correct": false,
+    "credit": null,
+    "ms": 16000,
+    "hint": false,
+    "rapid": false,
+    "b": -0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-001",
+    "correct": true,
+    "credit": null,
+    "ms": 23000,
+    "hint": false,
+    "rapid": false,
+    "b": 0,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-002",
+    "correct": true,
+    "credit": null,
+    "ms": 30000,
+    "hint": false,
+    "rapid": false,
+    "b": -2.25,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-005",
+    "correct": true,
+    "credit": null,
+    "ms": 9000,
+    "hint": false,
+    "rapid": false,
+    "b": 0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-004",
+    "correct": false,
+    "credit": null,
+    "ms": 16000,
+    "hint": false,
+    "rapid": false,
+    "b": -0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adverbs-001",
+    "correct": true,
+    "credit": null,
+    "ms": 23000,
+    "hint": false,
+    "rapid": false,
+    "b": 0,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-apostrophes-contractions-001",
+    "correct": true,
+    "credit": null,
+    "ms": 20000,
+    "hint": false,
+    "rapid": false,
+    "b": -2.25,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-apostrophes-contractions-002",
+    "correct": false,
+    "credit": null,
+    "ms": 20000,
+    "hint": false,
+    "rapid": false,
+    "b": -1.5,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-apostrophes-contractions-003",
+    "correct": false,
+    "credit": null,
+    "ms": 20000,
+    "hint": false,
+    "rapid": false,
+    "b": -0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-apostrophes-contractions-004",
+    "correct": true,
+    "credit": null,
+    "ms": 20000,
+    "hint": false,
+    "rapid": false,
+    "b": 0,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-apostrophes-contractions-005",
+    "correct": true,
+    "credit": null,
+    "ms": 20000,
+    "hint": false,
+    "rapid": false,
+    "b": 0.75,
+    "mis": null,
+    "source": null
+   },
+   {
+    "q": "G4-adjectives-004",
+    "correct": false,
+    "credit": null,
+    "ms": 25000,
+    "hint": false,
+    "rapid": false,
+    "b": -0.75,
+    "mis": null,
+    "source": "LESSON"
+   },
+   {
+    "q": "G4-adjectives-003",
+    "correct": true,
+    "credit": null,
+    "ms": 25000,
+    "hint": false,
+    "rapid": false,
+    "b": -1.5,
+    "mis": null,
+    "source": "LESSON"
+   },
+   {
+    "q": "G4-adjectives-002",
+    "correct": true,
+    "credit": null,
+    "ms": 25000,
+    "hint": false,
+    "rapid": false,
+    "b": -2.25,
+    "mis": null,
+    "source": "LESSON"
+   },
+   {
+    "q": "G4-adjectives-005",
+    "correct": true,
+    "credit": null,
+    "ms": 25000,
+    "hint": false,
+    "rapid": false,
+    "b": 0,
+    "mis": null,
+    "source": "LESSON"
+   },
+   {
+    "q": "G4-adjectives-001",
+    "correct": false,
+    "credit": null,
+    "ms": 25000,
+    "hint": false,
+    "rapid": false,
+    "b": 0.75,
+    "mis": null,
+    "source": "LESSON"
+   },
+   {
+    "q": "G4-adjectives-006",
+    "correct": true,
+    "credit": null,
+    "ms": 25000,
+    "hint": false,
+    "rapid": false,
+    "b": 1.5,
+    "mis": null,
+    "source": "LESSON"
+   },
+   {
+    "q": "G4-adjectives-002",
+    "correct": true,
+    "credit": null,
+    "ms": 25000,
+    "hint": false,
+    "rapid": false,
+    "b": -2.25,
+    "mis": null,
+    "source": "LESSON"
+   },
+   {
+    "q": "G4-adjectives-003",
+    "correct": true,
+    "credit": null,
+    "ms": 25000,
+    "hint": false,
+    "rapid": false,
+    "b": -1.5,
+    "mis": null,
+    "source": "LESSON"
+   }
+  ],
+  "logs": [
+   {
+    "code": "ASSIGNED_SET",
+    "prev": -0.519,
+    "next": -0.914,
+    "se": 0.797,
+    "before": 11.7,
+    "after": 11.1,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Answer in an assigned set: ability and mastery updated; the next question follows the set."
+   },
+   {
+    "code": "ASSIGNED_SET",
+    "prev": -0.724,
+    "next": -0.259,
+    "se": 0.77,
+    "before": 17.8,
+    "after": 29.9,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": false,
+    "reason": "Answer in an assigned set: ability and mastery updated; the next question follows the set."
+   },
+   {
+    "code": "ASSIGNED_SET",
+    "prev": -0.914,
+    "next": -0.724,
+    "se": 0.806,
+    "before": 11.1,
+    "after": 17.8,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Answer in an assigned set: ability and mastery updated; the next question follows the set."
+   },
+   {
+    "code": "ASSIGNED_SET",
+    "prev": 0,
+    "next": 0.081,
+    "se": 0.961,
+    "before": 0,
+    "after": 12.2,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Answer in an assigned set: ability and mastery updated; the next question follows the set."
+   },
+   {
+    "code": "ASSIGNED_SET",
+    "prev": 0.081,
+    "next": -0.519,
+    "se": 0.879,
+    "before": 12.2,
+    "after": 11.7,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Answer in an assigned set: ability and mastery updated; the next question follows the set."
+   },
+   {
+    "code": "LESSON",
+    "prev": -0.238,
+    "next": -0.202,
+    "se": 0.662,
+    "before": 44.4,
+    "after": 46.1,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": false,
+    "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+   },
+   {
+    "code": "LESSON",
+    "prev": -0.261,
+    "next": -0.238,
+    "se": 0.671,
+    "before": 43,
+    "after": 44.4,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": false,
+    "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+   },
+   {
+    "code": "LESSON",
+    "prev": -0.304,
+    "next": -0.45,
+    "se": 0.701,
+    "before": 36.1,
+    "after": 32.8,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": false,
+    "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+   },
+   {
+    "code": "LESSON",
+    "prev": -0.31,
+    "next": -0.371,
+    "se": 0.667,
+    "before": 40.3,
+    "after": 38.5,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": false,
+    "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+   },
+   {
+    "code": "LESSON",
+    "prev": -0.371,
+    "next": -0.261,
+    "se": 0.678,
+    "before": 38.5,
+    "after": 43,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": false,
+    "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+   },
+   {
+    "code": "LESSON",
+    "prev": -0.379,
+    "next": -0.31,
+    "se": 0.679,
+    "before": 37.1,
+    "after": 40.3,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": false,
+    "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+   },
+   {
+    "code": "LESSON",
+    "prev": -0.405,
+    "next": -0.379,
+    "se": 0.684,
+    "before": 35.3,
+    "after": 37.1,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": false,
+    "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+   },
+   {
+    "code": "LESSON",
+    "prev": -0.45,
+    "next": -0.405,
+    "se": 0.691,
+    "before": 32.8,
+    "after": 35.3,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": false,
+    "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": -0.104,
+    "next": -0.042,
+    "se": 0.824,
+    "before": 23.1,
+    "after": 30.2,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 1.74 from target b=-0.99; the bank needs more items at this level. Picked item b=0.75 (level 5) from top 2."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": -0.104,
+    "next": -0.042,
+    "se": 0.824,
+    "before": 23.1,
+    "after": 30.2,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 1.74 from target b=-0.99; the bank needs more items at this level. Picked item b=0.75 (level 5) from top 2."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": -0.222,
+    "next": -0.381,
+    "se": 0.722,
+    "before": 36.2,
+    "after": 32.9,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 1.33 from target b=-1.33; the bank needs more items at this level. Picked item b=0.00 (level 4) from top 2."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": -0.222,
+    "next": -0.381,
+    "se": 0.722,
+    "before": 36.2,
+    "after": 32.9,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 1.33 from target b=-1.33; the bank needs more items at this level. Picked item b=0.00 (level 4) from top 2."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": -0.242,
+    "next": -0.413,
+    "se": 0.752,
+    "before": 28.8,
+    "after": 26.5,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 1.36 from target b=-1.36; the bank needs more items at this level. Picked item b=0.00 (level 4) from top 2."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": -0.242,
+    "next": -0.413,
+    "se": 0.752,
+    "before": 28.8,
+    "after": 26.5,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 1.36 from target b=-1.36; the bank needs more items at this level. Picked item b=0.00 (level 4) from top 2."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": -0.331,
+    "next": -0.302,
+    "se": 0.739,
+    "before": 30.2,
+    "after": 32.7,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 2.00 from target b=-1.25; the bank needs more items at this level. Picked item b=0.75 (level 5) from top 2."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": -0.331,
+    "next": -0.302,
+    "se": 0.739,
+    "before": 30.2,
+    "after": 32.7,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 2.00 from target b=-1.25; the bank needs more items at this level. Picked item b=0.75 (level 5) from top 2."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": -0.381,
+    "next": -0.304,
+    "se": 0.717,
+    "before": 32.9,
+    "after": 36.1,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 1.00 from target b=-1.25; the bank needs more items at this level. Picked item b=-2.25 (level 1) from top 2."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": -0.381,
+    "next": -0.304,
+    "se": 0.717,
+    "before": 32.9,
+    "after": 36.1,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 1.00 from target b=-1.25; the bank needs more items at this level. Picked item b=-2.25 (level 1) from top 2."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": 0.297,
+    "next": -0.104,
+    "se": 0.843,
+    "before": 24.3,
+    "after": 23.1,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 1.20 from target b=-1.05; the bank needs more items at this level. Picked item b=-2.25 (level 1) from top 1."
+   },
+   {
+    "code": "NO_ITEM_IN_RANGE",
+    "prev": 0.297,
+    "next": -0.104,
+    "se": 0.843,
+    "before": 24.3,
+    "after": 23.1,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "Closest available item is 1.20 from target b=-1.05; the bank needs more items at this level. Picked item b=-2.25 (level 1) from top 1."
+   },
+   {
+    "code": "START_AT_PRIOR",
+    "prev": 0,
+    "next": 0,
+    "se": 1,
+    "before": null,
+    "after": null,
+    "correct": null,
+    "hasAttempt": false,
+    "hasNext": true,
+    "reason": "First item: started near the student's prior ability (θ=0.00). Picked item b=-0.75 (level 3) from top 3."
+   },
+   {
+    "code": "START_AT_PRIOR",
+    "prev": 0,
+    "next": 0,
+    "se": 1,
+    "before": null,
+    "after": null,
+    "correct": null,
+    "hasAttempt": false,
+    "hasNext": true,
+    "reason": "First item: started near the student's prior ability (θ=0.00). Picked item b=-0.75 (level 3) from top 3."
+   },
+   {
+    "code": "TARGET_SUCCESS_RATE",
+    "prev": -0.042,
+    "next": -0.242,
+    "se": 0.774,
+    "before": 30.2,
+    "after": 28.8,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "θ=-0.24; aiming for ~72% success → target b=-1.19. Picked item b=-0.75 (level 3) from top 2."
+   },
+   {
+    "code": "TARGET_SUCCESS_RATE",
+    "prev": -0.042,
+    "next": -0.242,
+    "se": 0.774,
+    "before": 30.2,
+    "after": 28.8,
+    "correct": false,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "θ=-0.24; aiming for ~72% success → target b=-1.19. Picked item b=-0.75 (level 3) from top 2."
+   },
+   {
+    "code": "TARGET_SUCCESS_RATE",
+    "prev": -0.302,
+    "next": -0.222,
+    "se": 0.741,
+    "before": 32.7,
+    "after": 36.2,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "θ=-0.22; aiming for ~72% success → target b=-1.17. Picked item b=-0.75 (level 3) from top 2."
+   },
+   {
+    "code": "TARGET_SUCCESS_RATE",
+    "prev": -0.302,
+    "next": -0.222,
+    "se": 0.741,
+    "before": 32.7,
+    "after": 36.2,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "θ=-0.22; aiming for ~72% success → target b=-1.17. Picked item b=-0.75 (level 3) from top 2."
+   },
+   {
+    "code": "TARGET_SUCCESS_RATE",
+    "prev": -0.413,
+    "next": -0.331,
+    "se": 0.747,
+    "before": 26.5,
+    "after": 30.2,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "θ=-0.33; aiming for ~72% success → target b=-1.28. Picked item b=-2.25 (level 1) from top 2."
+   },
+   {
+    "code": "TARGET_SUCCESS_RATE",
+    "prev": -0.413,
+    "next": -0.331,
+    "se": 0.747,
+    "before": 26.5,
+    "after": 30.2,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "θ=-0.33; aiming for ~72% success → target b=-1.28. Picked item b=-2.25 (level 1) from top 2."
+   },
+   {
+    "code": "TARGET_SUCCESS_RATE",
+    "prev": 0,
+    "next": 0.19,
+    "se": 0.948,
+    "before": 0,
+    "after": 12.9,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "θ=0.19; aiming for ~72% success → target b=-0.75. Picked item b=-1.50 (level 2) from top 3."
+   },
+   {
+    "code": "TARGET_SUCCESS_RATE",
+    "prev": 0,
+    "next": 0.19,
+    "se": 0.948,
+    "before": 0,
+    "after": 12.9,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "θ=0.19; aiming for ~72% success → target b=-0.75. Picked item b=-1.50 (level 2) from top 3."
+   },
+   {
+    "code": "TARGET_SUCCESS_RATE",
+    "prev": 0.19,
+    "next": 0.297,
+    "se": 0.915,
+    "before": 12.9,
+    "after": 24.3,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "θ=0.30; aiming for ~72% success → target b=-0.65. Picked item b=0.00 (level 4) from top 3."
+   },
+   {
+    "code": "TARGET_SUCCESS_RATE",
+    "prev": 0.19,
+    "next": 0.297,
+    "se": 0.915,
+    "before": 12.9,
+    "after": 24.3,
+    "correct": true,
+    "hasAttempt": true,
+    "hasNext": true,
+    "reason": "θ=0.30; aiming for ~72% success → target b=-0.65. Picked item b=0.00 (level 4) from top 3."
+   }
+  ],
+  "mastery": [
+   {
+    "skill": "G4.adjectives",
+    "score": 46.1,
+    "band": "DEVELOPING",
+    "attempts": 19,
+    "correct": 13,
+    "mastered": false,
+    "maxLevel": 6
+   },
+   {
+    "skill": "G4.adverbs",
+    "score": 36.1,
+    "band": "BEGINNING",
+    "attempts": 11,
+    "correct": 7,
+    "mastered": false,
+    "maxLevel": 3
+   },
+   {
+    "skill": "G4.apostrophes-contractions",
+    "score": 29.9,
+    "band": "BEGINNING",
+    "attempts": 5,
+    "correct": 3,
+    "mastered": false,
+    "maxLevel": 5
+   }
+  ],
+  "ability": [
+   {
+    "scope": "G4.adjectives",
+    "theta": -0.2023,
+    "se": 0.6623,
+    "n": 19
+   },
+   {
+    "scope": "G4.adverbs",
+    "theta": -0.3042,
+    "se": 0.7172,
+    "n": 11
+   },
+   {
+    "scope": "G4.apostrophes-contractions",
+    "theta": -0.2585,
+    "se": 0.7702,
+    "n": 5
+   }
+  ],
+  "xp": [
+   "practice:2",
+   "practice:2",
+   "practice:2",
+   "practice:2",
+   "practice:2",
+   "practice:2",
+   "practice:2",
+   "practice:2",
+   "practice:3",
+   "practice:3",
+   "practice:3",
+   "practice:3",
+   "practice:4",
+   "practice:4"
+  ],
+  "sets": [
+   {
+    "status": "COMPLETED",
+    "progress": 1
+   }
+  ],
+  "sessions": [
+   {
+    "mode": "ADAPTIVE_PRACTICE",
+    "n": 11,
+    "correct": 7,
+    "ms": 204000,
+    "end": null,
+    "ended": false
+   },
+   {
+    "mode": "ADAPTIVE_PRACTICE",
+    "n": 11,
+    "correct": 7,
+    "ms": 204000,
+    "end": null,
+    "ended": false
+   },
+   {
+    "mode": "TEACHER_QUIZ",
+    "n": 5,
+    "correct": 3,
+    "ms": 100000,
+    "end": "COMPLETED",
+    "ended": true
+   },
+   {
+    "mode": "ADAPTIVE_PRACTICE",
+    "n": 8,
+    "correct": 6,
+    "ms": 200000,
+    "end": "LESSON",
+    "ended": false
+   }
+  ]
+ }
+}

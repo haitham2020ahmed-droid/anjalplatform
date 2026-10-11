@@ -27,7 +27,7 @@ export default async function TeacherRespond({ searchParams }: { searchParams: P
   for (const w of work) if (!sentBySet.has(w.setCode)) sentBySet.set(w.setCode, w);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="✍️" title="Respond to Reading" subtitle="Send each Text Set’s writing task: every student gets the version that fits them. Students write in their book and tap “I finished”." />
+      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="✍️" title="Respond to Reading" subtitle="Assign each Text Set’s writing task: every student gets the version that fits them. Students write in their book and tap “I finished”." />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {!k ? <p className="text-slate-600">No classes yet.</p> : (
         <>

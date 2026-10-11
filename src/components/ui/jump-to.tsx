@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { NavItem } from "./main-nav";
+import { useT } from "@/i18n/client";
 
 interface Hit { kind: "page" | "student" | "class" | "skill"; label: string; sub: string; href: string; icon: string }
 const KIND_ICON = { student: "🧒", class: "👥", skill: "🧩" } as const;
@@ -12,6 +13,7 @@ const KIND_ICON = { student: "🧒", class: "👥", skill: "🧩" } as const;
  */
 export function JumpTo({ items, people }: { items: NavItem[]; people: boolean }) {
   const router = useRouter();
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
   const [remote, setRemote] = useState<Hit[]>([]);
@@ -40,9 +42,10 @@ export function JumpTo({ items, people }: { items: NavItem[]; people: boolean })
 
   const pages = useMemo<Hit[]>(() => {
     const words = q.toLowerCase().split(/\s+/).filter(Boolean);
-    return items.filter((i) => words.every((w) => `${i.label} ${i.group ?? ""}`.toLowerCase().includes(w))).slice(0, words.length ? 8 : 12)
-      .map((i) => ({ kind: "page", label: i.label, sub: i.group ? `Page · ${i.group}` : "Page", href: i.href, icon: i.icon }));
-  }, [q, items]);
+    // matches the English names and the translated ones (a parent may type in Arabic)
+    return items.filter((i) => words.every((w) => `${i.label} ${i.group ?? ""} ${t(i.label)} ${i.group ? t(i.group) : ""}`.toLowerCase().includes(w))).slice(0, words.length ? 8 : 12)
+      .map((i) => ({ kind: "page", label: t(i.label), sub: i.group ? `${t("Page")} · ${t(i.group)}` : t("Page"), href: i.href, icon: i.icon }));
+  }, [q, items, t]);
   // staff: the last line opens the full search (lessons, map places, articles, questions … with ⭐ Assign)
   const all: Hit[] = people && q.trim().length >= 2 ? [{ kind: "page", label: `Search everything for “${q.trim()}”`, sub: "Skills, grammar lessons, map places, articles, questions — and ⭐ Assign", href: `/teacher/search?q=${encodeURIComponent(q.trim())}`, icon: "🔎" }] : [];
   const hits = [...remote, ...pages, ...all];
@@ -51,17 +54,17 @@ export function JumpTo({ items, people }: { items: NavItem[]; people: boolean })
 
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className="flex w-full max-w-md items-center gap-2 rounded-xl bg-slate-100 px-3 py-2 text-start text-sm text-slate-500 ring-1 ring-transparent transition hover:bg-white hover:ring-slate-300" aria-label="Search">
+      <button type="button" onClick={() => setOpen(true)} className="flex min-h-11 w-full max-w-md items-center justify-center gap-2 rounded-xl bg-slate-100 px-3 py-2 text-start text-sm text-slate-500 ring-1 ring-transparent transition hover:bg-white hover:ring-slate-300 sm:justify-start" aria-label={t("Search")}>
         <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" strokeLinecap="round" /></svg>
-        <span className="flex-1 truncate"><span className="sm:hidden">Search</span><span className="hidden sm:inline">{people ? "Find a student, class, skill or page" : "Find a page"}</span></span>
+        <span className="hidden flex-1 truncate sm:inline">{people ? t("Find a student, class, skill or page") : t("Find a page")}</span>
         <kbd className="hidden rounded-md bg-white px-1.5 text-[11px] text-slate-500 ring-1 ring-slate-200 sm:inline">Ctrl K</kbd>
       </button>
       {open && (
-        <div className="fixed inset-0 z-[60] flex items-start justify-center bg-slate-900/40 p-4 pt-[12vh]" role="dialog" aria-modal="true" aria-label="Search" onMouseDown={(e) => { if (e.target === e.currentTarget) setOpen(false); }}>
+        <div className="fixed inset-0 z-[60] flex items-start justify-center bg-slate-900/40 p-4 pt-[12vh]" role="dialog" aria-modal="true" aria-label={t("Search")} onMouseDown={(e) => { if (e.target === e.currentTarget) setOpen(false); }}>
           <div className="animate-pop w-full max-w-xl overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-slate-200">
             <div className="flex items-center gap-2 border-b border-slate-100 px-4">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" strokeLinecap="round" /></svg>
-              <input ref={input} value={q} onChange={(e) => setQ(e.target.value)} placeholder={people ? "Type a name, a class, a skill or a page…" : "Type a page…"} aria-label="Search" aria-controls="jump-results"
+              <input ref={input} value={q} onChange={(e) => setQ(e.target.value)} placeholder={people ? t("Type a name, a class, a skill or a page…") : t("Type a page…")} aria-label={t("Search")} aria-controls="jump-results"
                 onKeyDown={(e) => { if (e.key === "ArrowDown") { e.preventDefault(); setAt((a) => Math.min(a + 1, hits.length - 1)); } if (e.key === "ArrowUp") { e.preventDefault(); setAt((a) => Math.max(a - 1, 0)); } if (e.key === "Enter") { e.preventDefault(); go(hits[at]); } }}
                 className="!border-0 !bg-transparent w-full py-4 text-base !outline-none" />
               <kbd className="rounded-md bg-slate-100 px-1.5 text-[11px] text-slate-500">Esc</kbd>
@@ -75,7 +78,7 @@ export function JumpTo({ items, people }: { items: NavItem[]; people: boolean })
                   </button>
                 </li>
               ))}
-              {!hits.length && <li className="px-3 py-6 text-center text-sm text-slate-500">Nothing matches “{q}”.</li>}
+              {!hits.length && <li className="px-3 py-6 text-center text-sm text-slate-500">{t("Nothing matches your search")}: “<bdi>{q}</bdi>”</li>}
             </ul>
           </div>
         </div>

@@ -36,7 +36,7 @@ export default async function RespondFollowUp({ params, searchParams }: { params
             <thead><tr className="border-b text-slate-500"><th className="py-2">Student</th><th>Version</th><th>Finished</th><th>Score (0–4)</th><th>Comment</th></tr></thead>
             <tbody>{t.rows.map((r) => (
               <tr key={r.studentId} className="border-b last:border-0">
-                <td className="py-2 font-medium"><input type="hidden" name="student" value={r.studentId} /><Link href={`/teacher/progress/${r.studentId}`} className="hover:underline">{r.name}</Link></td>
+                <td className="py-2 font-medium"><input type="hidden" name="student" value={r.studentId} /><Link href={`/teacher/students/${r.studentId}`} className="hover:underline">{r.name}</Link></td>
                 <td><span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${LV[r.level][1]}`}>{LV[r.level][0]}</span></td>
                 <td><label className="flex items-center gap-2"><input type="checkbox" name={`done:${r.studentId}`} value="1" defaultChecked={Boolean(r.finishedAt)} disabled={!t.canEdit} />{r.finishedAt ? <span className="text-emerald-700">✅ {r.finishedAt.slice(0, 10)}</span> : <span className="text-slate-500">Not yet</span>}</label></td>
                 <td><select name={`score:${r.studentId}`} defaultValue={r.score ?? ""} disabled={!t.canEdit} aria-label={`Score of ${r.name}`} className="rounded-lg border border-slate-300 px-2 py-1"><option value="">—</option>{[0, 1, 2, 3, 4].map((n) => <option key={n} value={n}>{n}</option>)}</select></td>

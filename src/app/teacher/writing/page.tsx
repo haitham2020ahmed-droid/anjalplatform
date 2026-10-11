@@ -48,7 +48,7 @@ function SubmissionCard({ task, x }: { task: TaskView; x: Sub }) {
       {x.research && task.research.length > 0 && (
         <details className="mt-2 rounded-xl bg-sky-50 p-3 text-sm ring-1 ring-sky-100">
           <summary className="cursor-pointer font-semibold">📚 Research answers · {x.researchScore?.points}/{x.researchScore?.max}{x.researchScore?.pending ? ` · ${x.researchScore.pending} to score` : ""}</summary>
-          <ol className="mt-2 list-decimal space-y-1 pl-5">{task.research.map((q) => {
+          <ol className="mt-2 list-decimal space-y-1 ps-5">{task.research.map((q) => {
             const a = x.research!.answers[q.id];
             return <li key={q.id}><b>{q.q}</b> — {q.kind === "MC" ? `${q.options?.[Number(a)] ?? "–"} ${x.research!.scores[q.id] ? "✓" : "✗"}` : String(a ?? "–")}</li>;
           })}</ol>
@@ -173,7 +173,7 @@ function NewTaskForm({ classId, skills }: { classId: string; skills: { id: strin
           </div>
         ))}
       </details>
-      <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Send to the class</button>
+      <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Assign to the class</button>
     </form>
   );
 }
@@ -224,11 +224,11 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
                 <p className="mt-1 whitespace-pre-line text-slate-700">{task.prompt}</p>
                 {task.passage && <details className="mt-2 rounded-xl bg-slate-50 p-3 text-sm"><summary className="cursor-pointer font-semibold">The text</summary><p className="mt-2 whitespace-pre-line">{task.passage}</p></details>}
                 {task.sources.map((src, i) => <details key={i} className="mt-2 rounded-xl bg-slate-50 p-3 text-sm"><summary className="cursor-pointer font-semibold">📚 Source {i + 1}: {src.title}</summary><p className="mt-2 whitespace-pre-line">{src.text}</p></details>)}
-                {task.research.length > 0 && <details className="mt-2 rounded-xl bg-slate-50 p-3 text-sm"><summary className="cursor-pointer font-semibold">❓ Research questions</summary><ol className="mt-2 list-decimal pl-5">{task.research.map((q) => <li key={q.id}>{q.q} {q.kind === "MC" ? <span className="text-slate-500">({q.options?.map((o, i) => (i === q.answer ? `✓ ${o}` : o)).join(" / ")})</span> : <span className="text-slate-500">(short answer, 0–2)</span>}</li>)}</ol></details>}
+                {task.research.length > 0 && <details className="mt-2 rounded-xl bg-slate-50 p-3 text-sm"><summary className="cursor-pointer font-semibold">❓ Research questions</summary><ol className="mt-2 list-decimal ps-5">{task.research.map((q) => <li key={q.id}>{q.q} {q.kind === "MC" ? <span className="text-slate-500">({q.options?.map((o, i) => (i === q.answer ? `✓ ${o}` : o)).join(" / ")})</span> : <span className="text-slate-500">(short answer, 0–2)</span>}</li>)}</ol></details>}
                 <details className="mt-2 rounded-xl bg-slate-50 p-3 text-sm">
                   <summary className="cursor-pointer font-semibold">Rubric ({task.rubric.min}–{task.rubric.max} each){task.kind === "WRITE" && task.genre !== "FREE" ? " and the student self-check" : ""}</summary>
-                  <ul className="mt-2 space-y-1">{task.rubric.traits.map((r) => <li key={r.key}><b>{r.name}</b> — {r.what}{Object.keys(r.levels).length > 0 && <ul className="ml-4 text-xs text-slate-600">{[4, 3, 2, 1].map((n) => <li key={n}>{n}: {r.levels[n]}</li>)}</ul>}</li>)}</ul>
-                  {task.kind === "WRITE" && task.genre !== "FREE" && <ul className="mt-2 list-disc pl-5 text-xs text-slate-600">{task.checklist.map((c) => <li key={c.id}>{c.text}</li>)}</ul>}
+                  <ul className="mt-2 space-y-1">{task.rubric.traits.map((r) => <li key={r.key}><b>{r.name}</b> — {r.what}{Object.keys(r.levels).length > 0 && <ul className="ms-4 text-xs text-slate-600">{[4, 3, 2, 1].map((n) => <li key={n}>{n}: {r.levels[n]}</li>)}</ul>}</li>)}</ul>
+                  {task.kind === "WRITE" && task.genre !== "FREE" && <ul className="mt-2 list-disc ps-5 text-xs text-slate-600">{task.checklist.map((c) => <li key={c.id}>{c.text}</li>)}</ul>}
                 </details>
               </div>
               <ul className="mt-4 space-y-3">{task.subs.map((x) => <SubmissionCard key={x.studentId} task={task} x={x} />)}</ul>

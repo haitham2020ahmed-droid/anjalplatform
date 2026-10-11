@@ -7,12 +7,13 @@
  *   assignmentReport → the completion report (student; teacher of the class; admin)
  *   placement switch → the placement test is shown only when the school requires it
  */
+import { runAfterResponse } from "../lib/after-response";
 import { hideLevels } from "../../lib/hide-levels";
 import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
-import { DEFAULT_TARGET_MASTERY, MIN_ANSWERS_TO_COMPLETE, refreshQuestionSets, refreshSkillAssignments } from "../teacher/assign";
+import { DEFAULT_TARGET_MASTERY, MIN_ANSWERS_TO_COMPLETE, refreshQuestionSets, refreshSkillAssignments, trackOf, type Track } from "../teacher/assign";
 import { adaptiveNext } from "../curriculum-map/leveled-run";
 
 type Status = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "OVERDUE";
@@ -31,8 +32,8 @@ const skillOf = (a: Row): string | null => (a.skillId ? s(a.skillId) : Array.isA
 export interface AssignedSkill {
   /** skill = adaptive practice on a skill; questions = a set of questions the teacher chose */
   kind: "skill" | "questions"; questionCount?: number;
-  /** CURRICULUM, MAP or NAFS (Grade 6): the student's areas */
-  track: "CURRICULUM" | "MAP" | "NAFS";
+  /** where the work comes from: CURRICULUM, MAP, NAFS, RTI, GRAMMAR or CUSTOM (the source tag) */
+  track: Track;
   assignmentId: string; skillId: string; skill: string; standard: string | null;
   /** a 🔤 Grammar skill (shown with the grammar icon and under the Grammar filter) */
   grammar?: boolean; assignedAt: string; startAt: string | null; dueAt: string | null;
@@ -48,20 +49,25 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
   const all = (rows.length ? await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }) : []).filter((a) => !a.curriculumPlanId);
   const assignments = all.filter((a) => skillOf(a));
   const sets = all.filter((a) => a.assessmentId && !skillOf(a));
-  // bring statuses up to date (writes only what changed)
-  await Promise.all([refreshSkillAssignments(repo, assignments, [studentId], now), refreshQuestionSets(repo, sets, [studentId], now)]);
-  const fresh = all.length ? await repo.findMany("AssignmentStudent", { studentId, assignmentId: { in: all.map((a) => a.id) } }) : [];
-  const setSize = new Map<string, number>();
-  if (sets.length) for (const x of await repo.findMany("AssessmentQuestion", { assessmentId: { in: sets.map((a) => a.assessmentId) } }, { select: ["assessmentId"] })) setSize.set(s(x.assessmentId), (setSize.get(s(x.assessmentId)) ?? 0) + 1);
-  // adaptive sets: the student answers up to maxQuestions of the pool
-  // (a goal of correct answers: the goal is the size)
-  if (sets.length) for (const x of await repo.findMany("Assessment", { id: { in: sets.map((a) => a.assessmentId) }, isAdaptive: true }, { select: ["id", "maxQuestions", "targetCorrect"] })) setSize.set(s(x.id), Number(x.targetCorrect) > 0 ? Number(x.targetCorrect) : Math.min(setSize.get(s(x.id)) ?? 0, Number(x.maxQuestions) || 0));
+  // bring statuses up to date (writes only what changed); what does not depend on the statuses is read meanwhile
+  // (Update 42B: one round trip instead of five)
   const skillIds = [...new Set(assignments.map((a) => skillOf(a)!))];
-  const [skills, links] = await Promise.all([
+  const [, , setRows, adaptiveSets, skills, links] = await Promise.all([
+    refreshSkillAssignments(repo, assignments, [studentId], now), refreshQuestionSets(repo, sets, [studentId], now),
+    sets.length ? repo.findMany("AssessmentQuestion", { assessmentId: { in: sets.map((a) => a.assessmentId) } }, { select: ["assessmentId"] }) : Promise.resolve([] as Row[]),
+    sets.length ? repo.findMany("Assessment", { id: { in: sets.map((a) => a.assessmentId) }, isAdaptive: true }, { select: ["id", "maxQuestions", "targetCorrect"] }) : Promise.resolve([] as Row[]),
     skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
     skillIds.length ? repo.findMany("SkillStandard", { skillId: { in: skillIds } }) : Promise.resolve([] as Row[]),
   ]);
-  const stds = links.length ? await repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => l.standardId))] } }, { select: ["id", "code"] }) : [];
+  const [fresh, stds] = await Promise.all([
+    all.length ? repo.findMany("AssignmentStudent", { studentId, assignmentId: { in: all.map((a) => a.id) } }) : Promise.resolve([] as Row[]),
+    links.length ? repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => l.standardId))] } }, { select: ["id", "code"] }) : Promise.resolve([] as Row[]),
+  ]);
+  const setSize = new Map<string, number>();
+  for (const x of setRows) setSize.set(s(x.assessmentId), (setSize.get(s(x.assessmentId)) ?? 0) + 1);
+  // adaptive sets: the student answers up to maxQuestions of the pool
+  // (a goal of correct answers: the goal is the size)
+  for (const x of adaptiveSets) setSize.set(s(x.id), Number(x.targetCorrect) > 0 ? Number(x.targetCorrect) : Math.min(setSize.get(s(x.id)) ?? 0, Number(x.maxQuestions) || 0));
   const stdCode = new Map(stds.map((x) => [s(x.id), s(x.code).replace(/^CCSS\.ELA-LITERACY\./, "")]));
   const primary = (skillId: string) => {
     const l = links.filter((x) => x.skillId === skillId).sort((p, q) => Number(q.isPrimary) - Number(p.isPrimary))[0];
@@ -72,8 +78,8 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     const skillId = skillOf(a)!;
     const startAt = d(a.startAt);
     return {
-      kind: "skill" as const, track: (a.track === "MAP" ? "MAP" : a.track === "NAFS" ? "NAFS" : "CURRICULUM") as AssignedSkill["track"], assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
-      grammar: s(skills.find((k) => k.id === skillId)?.code).toLowerCase().includes(".grammar."),
+      kind: "skill" as const, track: trackOf(a.track), assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
+      grammar: a.track === "GRAMMAR" || s(skills.find((k) => k.id === skillId)?.code).toLowerCase().includes(".grammar."),
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now),
       completedAt: d(r.completedAt)?.toISOString() ?? null,
@@ -84,7 +90,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     if (!r) continue;
     const startAt = d(a.startAt);
     items.push({
-      kind: "questions", track: (a.track === "MAP" ? "MAP" : a.track === "NAFS" ? "NAFS" : "CURRICULUM") as AssignedSkill["track"], questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: hideLevels(s(a.title)), standard: null,
+      kind: "questions", track: trackOf(a.track), questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: hideLevels(s(a.title)), standard: null,
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now), completedAt: d(r.completedAt)?.toISOString() ?? null,
     });
@@ -92,7 +98,8 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
   const order: Record<Status, number> = { OVERDUE: 0, IN_PROGRESS: 1, NOT_STARTED: 2, COMPLETED: 3 };
   items.sort((x, y) => order[x.status] - order[y.status] || (x.dueAt ?? "9").localeCompare(y.dueAt ?? "9") || y.assignedAt.localeCompare(x.assignedAt));
   const count = (st: Status) => items.filter((i) => i.status === st).length;
-  await createDueReminders(repo, actor, items, now);
+  // "due soon" / "overdue" notes: written after the page is sent (Update 42B)
+  runAfterResponse("assigned.due_reminders", () => createDueReminders(repo, actor, items, now));
   return {
     summary: { assigned: items.length, completed: count("COMPLETED"), inProgress: count("IN_PROGRESS"), notStarted: count("NOT_STARTED"), overdue: count("OVERDUE") },
     newThisWeek: items.filter((i) => now.getTime() - Date.parse(i.assignedAt) < 7 * 86_400_000).length,

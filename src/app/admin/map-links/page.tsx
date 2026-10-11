@@ -21,6 +21,7 @@ export default async function MapLinksPage({ searchParams }: { searchParams: Pro
         subtitle={<>A skill’s questions are used for MAP plans, small groups and the mid-unit check only when the skill has a MAP goal area. <b>{missing.length}</b> of {v.rows.length} skills have none. The suggestion comes from the skill’s CCSS standard (L.x.1 → Grammar, L.x.2 → Mechanics, L.x.4–6 and RL/RI.x.4 → Vocabulary, RL → Literary, RI → Informational, W → Writing).</>}>
         {missing.some((r) => r.suggested) && <form action={applySuggestionsAction}><button className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white hover:bg-emerald-700">✓ Apply all suggestions ({missing.filter((r) => r.suggested).length})</button></form>}
         <a href={sp.all ? "/admin/map-links" : "/admin/map-links?all=1"} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">{sp.all ? "Only unlinked" : "Show all skills"}</a>
+        <a href="/admin/nafs-links" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">Bank ↔ NAFS</a>
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {!missing.length && !sp.all && <p className="mb-4 rounded-xl bg-emerald-50 px-4 py-3 font-semibold text-emerald-900 ring-1 ring-emerald-200">✅ Every skill is linked to a MAP goal area.</p>}

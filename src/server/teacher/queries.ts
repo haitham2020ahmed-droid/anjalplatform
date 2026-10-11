@@ -131,12 +131,16 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   const missing = [...new Set(qrows.map((q) => String(q.skillId)))].filter((id) => !skills.has(id));
   const qSkills = new Map([...skills, ...(missing.length ? await repo.findMany("Skill", { id: { in: missing } }, { select: ["id", "name", "code"] }) : []).map((k) => [String(k.id), isHiddenSkill(k.code) ? "" : String(k.name)] as [string, string])]);
 
+  // rows grouped by student once (Update 42B: each student used to scan every answer of the class)
+  const group = (rows: Row[], keep: (r: Row) => boolean = () => true) => { const m = new Map<unknown, Row[]>(); for (const r of rows) if (keep(r)) { const k = r.studentId; const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
+  const masteryOf = group(mastery, (x) => num(x.attempts) > 0), attemptsOf = group(inRange), alertsOf = group(studentAlerts);
+  const globalOf = new Map<unknown, Row>(); for (const x of globals) if (!globalOf.has(x.studentId)) globalOf.set(x.studentId, x);
   const students: StudentRow[] = studs.map((s) => {
-    const m = mastery.filter((x) => x.studentId === s.id && num(x.attempts) > 0);
-    const a = inRange.filter((x) => x.studentId === s.id);
-    const g = globals.find((x) => x.studentId === s.id);
+    const m = masteryOf.get(s.id) ?? [];
+    const a = attemptsOf.get(s.id) ?? [];
+    const g = globalOf.get(s.id);
     const avg = m.length ? m.reduce((t, x) => t + num(x.score), 0) / m.length : null;
-    const last = a.length ? Math.max(...a.map((x) => ms(x.createdAt))) : null;
+    let last: number | null = null; for (const x of a) { const t = ms(x.createdAt); if (last === null || t > last) last = t; }
     return {
       studentId: s.id, name: s.name,
       group: groupFor(practice.get(s.id)?.recentTheta ?? (g ? num(g.theta) : null), avg),
@@ -147,7 +151,7 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
       accuracyPct: a.length ? Math.round((100 * a.filter((x) => x.isCorrect).length) / a.length) : null,
       minutes: Math.round(a.reduce((t, x) => t + num(x.responseMs), 0) / 60_000),
       lastActive: last ? new Date(last).toISOString() : null,
-      openAlerts: studentAlerts.filter((x) => x.studentId === s.id).length,
+      openAlerts: alertsOf.get(s.id)?.length ?? 0,
     };
   }).sort((x, y) => x.name.localeCompare(y.name));
 

@@ -88,7 +88,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
           <Link href="/teacher/respond" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">✍️ Respond</Link>
           <Link href="/admin/readmaster" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⭐ ReadMaster</Link>
           <Link href="/teacher/games" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🎮 Games</Link>
-          <Link href="/teacher/plans" className="rounded-xl bg-violet-100 px-3 py-2 text-sm font-semibold text-violet-900 ring-1 ring-violet-300 hover:bg-violet-200">🗂️ Skill plans</Link>
+          <Link href="/teacher/plans/curriculum" className="rounded-xl bg-violet-100 px-3 py-2 text-sm font-semibold text-violet-900 ring-1 ring-violet-300 hover:bg-violet-200">🗂️ Skill plans</Link>
           <Link href="/admin/questions?status=PUBLISHED" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📚 Question Bank</Link>
         </>}
       </PageHeader>
@@ -146,7 +146,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <h2 className="text-xl font-extrabold text-brand-navy">{u.title}</h2>
                     <div className="flex flex-wrap gap-2 text-sm font-semibold">
-                      {planClassId && <Link href={`/teacher/plans?classId=${planClassId}&unit=${unitIx + 1}`} className="rounded-xl bg-violet-600 px-3 py-1.5 text-white hover:bg-violet-700">🗂️ Plan this unit</Link>}
+                      {planClassId && <Link href={`/teacher/plans/curriculum?classId=${planClassId}&unit=${unitIx + 1}`} className="rounded-xl bg-violet-600 px-3 py-1.5 text-white hover:bg-violet-700">🗂️ Plan this unit</Link>}
                       <Link href={`/admin/grammar?grade=${v.level}`} className="rounded-xl bg-white px-3 py-1.5 text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🔤 Grammar</Link>
                       <Link href={`/teacher/games/qr${planClassId ? `?classId=${planClassId}` : ""}`} className="rounded-xl bg-white px-3 py-1.5 text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🎮 Games</Link>
                     </div>
@@ -194,7 +194,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
               ))}
               {!isTeacher && units.slice(unitIx, unitIx + 1).map((u) => (
                 <details key={u.id} className="mt-4 rounded-2xl bg-white ring-1 ring-slate-200" open>
-                  {isTeacher && planClassId && <div className="flex justify-end px-5 pt-3"><Link href={`/teacher/plans?classId=${planClassId}&unit=${unitIx + 1}`} className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-bold text-white shadow hover:bg-violet-700">🗂️ Plan this unit (select all + assign + PDF)</Link></div>}
+                  {isTeacher && planClassId && <div className="flex justify-end px-5 pt-3"><Link href={`/teacher/plans/curriculum?classId=${planClassId}&unit=${unitIx + 1}`} className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-bold text-white shadow hover:bg-violet-700">🗂️ Plan this unit (select all + assign + PDF)</Link></div>}
                   <summary className="cursor-pointer px-5 py-3 text-lg font-bold text-brand-navy">{u.title} <span className="text-sm font-normal text-slate-500">· {u.children.length} {u.children[0]?.kind === "SELECTION" ? "selections" : "text sets"}</span></summary>
                   <div className="grid gap-4 px-5 pb-5 lg:grid-cols-2">
                     {u.children.map((s) => (

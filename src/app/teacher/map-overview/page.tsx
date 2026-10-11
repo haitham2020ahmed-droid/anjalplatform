@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { PageHeader } from "@/components/page-header";
-import { PrintButton } from "@/components/plans/print-button";
+import { AtAGlance, Callout, ReportHeader, ReportSection, ReportTable } from "@/components/report-kit";
+import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { cutScores, QUINTILES, schoolOverview, SUBJECT_NAME, type OverviewRow } from "@/server/map/nwea-reports";
 import { Q_COLORS } from "@/components/map/nwea-charts";
@@ -18,42 +18,52 @@ export default async function MapOverview({ searchParams }: { searchParams: Prom
   const subject = sp.subject === "LANGUAGE" ? "LANGUAGE" : "READING";
   const d = await schoolOverview(repo, actor, subject, sp.term);
   const admin = actor.role !== "TEACHER";
+  const { t } = await getT();
   const cuts = admin ? await cutScores(repo, String(actor.schoolId)) : null;
   const chip = (on: boolean) => `rounded-full px-3 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-300 hover:ring-brand-teal"}`;
   const link = (p: Record<string, string>) => `/teacher/map-overview?${new URLSearchParams({ subject, ...(d.term ? { term: d.term } : {}), ...p })}`;
   const Table = ({ rows, title }: { rows: OverviewRow[]; title: string }) => (
-    <section className="mt-5 overflow-x-auto rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-      <h2 className="text-lg font-bold text-brand-navy">{title}</h2>
-      <table className="mt-3 min-w-full text-sm">
-        <thead><tr className="border-b text-left text-xs uppercase tracking-wide text-slate-500"><th className="py-1.5">{title === "By grade" ? "Grade" : "Class"}</th><th>Tested</th><th>Mean RIT</th><th>National</th><th>Diff</th><th>Median %ile</th><th className="min-w-56">Percentile bands</th><th>Growth</th><th>Met</th><th>Flags</th></tr></thead>
-        <tbody>{rows.map((r) => {
+    <ReportSection title={title} icon={title === "By grade" ? "🏫" : "👥"}>
+      <ReportTable label={title}
+        cols={[{ key: "c", label: title === "By grade" ? "Grade" : "Class" }, { key: "n", label: "Tested", num: true }, { key: "m", label: "Mean RIT", num: true }, { key: "nat", label: "National", num: true }, { key: "d", label: "Diff", num: true }, { key: "p", label: "Median %ile", num: true }, { key: "q", label: "Percentile bands", sort: false, className: "min-w-56" }, { key: "g", label: "Growth", num: true }, { key: "met", label: "Met", num: true }, { key: "f", label: "Flags", num: true }]}
+        rows={rows.map((r) => {
           const tot = r.quintiles.reduce((t, c) => t + c, 0) || 1, diff = r.meanRit !== null && r.national !== null ? Math.round((r.meanRit - r.national) * 10) / 10 : null;
-          return (
-            <tr key={r.className} className="border-b last:border-0">
-              <td className="py-1.5 font-semibold">{r.classId ? <Link className="text-brand-navy hover:underline" href={`/map-report/class/${r.classId}/profile?${new URLSearchParams({ subject, term: d.term })}`}>{r.className}</Link> : r.className}</td>
-              <td className="tabular-nums">{r.n}</td><td className="tabular-nums font-bold">{r.meanRit ?? "—"}</td><td className="tabular-nums text-slate-500">{r.national ?? "—"}</td>
-              <td className={`tabular-nums ${diff !== null && diff < 0 ? "text-red-700" : "text-emerald-700"}`}>{sign(diff)}</td><td className="tabular-nums">{r.medianPct ?? "—"}</td>
-              <td><div className="flex h-4 overflow-hidden rounded-full bg-slate-100" title={r.quintiles.map((c, i) => `${QUINTILES[i]}: ${c}`).join(" · ")}>{r.quintiles.map((c, i) => c ? <div key={i} style={{ width: `${(100 * c) / tot}%`, background: Q_COLORS[i] }} /> : null)}</div></td>
-              <td className="tabular-nums">{sign(r.meanGrowth)}</td><td className="tabular-nums">{r.pctMet !== null ? `${r.pctMet}%` : "—"}</td><td className={`tabular-nums ${r.flagged ? "text-red-700" : "text-slate-400"}`}>{r.flagged}</td>
-            </tr>
-          );
-        })}</tbody>
-      </table>
-    </section>
+          return {
+            id: r.className, flag: diff !== null && diff < 0 ? "warn" as const : undefined, sort: { c: r.className, m: r.meanRit, d: diff, p: r.medianPct, g: r.meanGrowth, met: r.pctMet, f: r.flagged },
+            cells: {
+              c: r.classId ? <Link className="text-brand-navy hover:underline" href={`/map-report/class/${r.classId}/profile?${new URLSearchParams({ subject, term: d.term })}`}>{r.className}</Link> : r.className,
+              n: r.n, m: <b>{r.meanRit ?? "—"}</b>, nat: <span className="text-slate-500">{r.national ?? "—"}</span>,
+              d: <span className={diff !== null && diff < 0 ? "text-red-700" : "text-emerald-700"}>{diff !== null && diff < 0 ? "▼ " : diff !== null && diff > 0 ? "▲ " : ""}{sign(diff)}</span>, p: r.medianPct ?? "—",
+              q: <div className="flex h-4 min-w-40 overflow-hidden rounded-full bg-slate-100" dir="ltr" role="img" aria-label={r.quintiles.map((c, i) => `${QUINTILES[i]}: ${c}`).join(" · ")} title={r.quintiles.map((c, i) => `${QUINTILES[i]}: ${c}`).join(" · ")}>{r.quintiles.map((c, i) => c ? <div key={i} style={{ width: `${(100 * c) / tot}%`, background: Q_COLORS[i] }} /> : null)}</div>,
+              g: sign(r.meanGrowth), met: r.pctMet !== null ? `${r.pctMet}%` : "—", f: <span className={r.flagged ? "text-red-700" : "text-slate-400"}>{r.flagged}</span>,
+            },
+          };
+        })} />
+      <p className="mt-3 flex flex-wrap gap-3 text-xs text-slate-600">{QUINTILES.map((q, i) => <span key={q} className="inline-flex items-center gap-1"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-sm" style={{ background: Q_COLORS[i] }} />{q}</span>)}</p>
+    </ReportSection>
   );
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/reports", label: "Reports" }} icon="🏫" title={`MAP Overview · ${SUBJECT_NAME[subject]}`}
-        subtitle="Every grade and class side by side: mean RIT against the national mean, the percentile bands, growth and tests to check. Open a class for its Class Profile." />
+      <ReportHeader back={{ href: "/teacher/reports", label: "Reports" }} icon="🏫" title={`MAP Overview · ${SUBJECT_NAME[subject]}`}
+        subtitle="Every grade and class side by side: mean RIT against the national mean, the percentile bands, growth and tests to check. Open a class for its Class Profile."
+        who={admin ? t("Whole school") : t("My classes")} when={d.term || undefined}
+        filters={<div className="flex flex-wrap items-center gap-2">
+          {(["READING", "LANGUAGE"] as const).map((x) => <Link key={x} href={link({ subject: x })} className={chip(x === subject)}>{x === "READING" ? "📖 Reading" : "✍️ Language Usage"}</Link>)}
+          <span className="mx-1 h-6 w-px bg-slate-300" />
+          {d.terms.slice(0, 6).map((tm) => <Link key={tm} href={link({ term: tm })} className={chip(tm === d.term)}>{tm}</Link>)}
+        </div>} />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      <div className="flex flex-wrap items-center gap-2 print:hidden">
-        {(["READING", "LANGUAGE"] as const).map((x) => <Link key={x} href={link({ subject: x })} className={chip(x === subject)}>{x === "READING" ? "📖 Reading" : "✍️ Language Usage"}</Link>)}
-        <span className="mx-1 h-6 w-px bg-slate-300" />
-        {d.terms.slice(0, 6).map((t) => <Link key={t} href={link({ term: t })} className={chip(t === d.term)}>{t}</Link>)}
-        <span className="ms-auto"><PrintButton /></span>
-      </div>
-      {!d.term ? <p className="mt-5 rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No MAP results yet.</p> : <><Table rows={d.grades} title="By grade" /><Table rows={d.classes} title="By class" /></>}
-      <p className="mt-3 flex flex-wrap gap-3 text-xs text-slate-500">{QUINTILES.map((q, i) => <span key={q} className="inline-flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-sm" style={{ background: Q_COLORS[i] }} />{q}</span>)}</p>
+      {!d.term ? <p className="mt-5 rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No MAP results yet.</p> : (
+        <>
+          <AtAGlance items={[
+            { icon: "🧪", label: "Tested", value: d.grades.reduce((n, r) => n + r.n, 0), meaning: "students with a score this term" },
+            { icon: "📉", label: "Below the national mean", value: d.classes.filter((r) => r.meanRit !== null && r.national !== null && r.meanRit < r.national).length, meaning: t("of {n} classes", { n: d.classes.length }), tone: d.classes.some((r) => r.meanRit !== null && r.national !== null && r.meanRit < r.national) ? "warn" : "good" },
+            { icon: "🚩", label: "Flags", value: d.grades.reduce((n, r) => n + r.flagged, 0), meaning: "tests to check (retest flags)", tone: d.grades.some((r) => r.flagged) ? "warn" : "neutral" },
+          ]} />
+          <Callout kind="meaning" className="mb-5" items={[t("Diff = the class mean RIT minus the national mean: ▼ below, ▲ above."), t("Percentile bands show how many students are in each fifth of the national scores.")]} />
+          <Table rows={d.grades} title="By grade" /><Table rows={d.classes} title="By class" />
+        </>
+      )}
       {cuts && (
         <form action={saveCutScoresAction} className="mt-6 rounded-3xl bg-white p-5 ring-1 ring-slate-200 print:hidden">
           <h2 className="text-lg font-bold text-brand-navy">🎯 Proficiency cut scores (Spring RIT)</h2>

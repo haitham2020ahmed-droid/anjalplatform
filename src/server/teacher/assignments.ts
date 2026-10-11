@@ -33,6 +33,12 @@ export async function assertClassAccess(repo: Repo, actor: Actor, classId: strin
   throw new ForbiddenError("You do not teach this class.");
 }
 
+/** Every curriculum of every grade of the school (content is open to all teachers). */
+async function schoolCurriculumIds(repo: Repo, schoolId: unknown): Promise<string[]> {
+  const grades = await repo.findMany("Grade", { schoolId }, { select: ["id"] });
+  return grades.length ? (await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id"] })).map((c) => String(c.id)) : [];
+}
+
 async function targetSkills(repo: Repo, a: Row): Promise<string[]> {
   if (a.target === "UNIT" && a.unitId) return (await repo.findMany("UnitSkill", { unitId: a.unitId })).map((l) => String(l.skillId));
   return ((a.skillIds as string[] | null) ?? []).map(String);
@@ -46,18 +52,19 @@ export async function createAssignment(repo: Repo, actor: Actor, input: NewAssig
   if (input.dueAt && input.dueAt.getTime() < now.getTime() - 60_000) throw new ValidationError("The due date is in the past.");
   const targetMastery = input.targetMastery ?? 75;
   if (targetMastery < 40 || targetMastery > 100) throw new ValidationError("Target mastery must be between 40 and 100.");
-  const cur = (await repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }))[0];
+  // access rules (UI reorg): units and skills of ANY grade of this school may be assigned to the teacher's own class
+  const schoolCurricula = new Set((await schoolCurriculumIds(repo, klass.schoolId)));
   let skillIds: string[] | null = null;
   let unitId: string | null = null;
   if (input.target === "UNIT") {
     const u = input.unitId ? await repo.findUnique("Unit", { id: input.unitId }) : null;
-    if (!u || u.curriculumId !== cur.id) throw new ValidationError("Choose a unit from this class's book.");
+    if (!u || u.deletedAt || !schoolCurricula.has(String(u.curriculumId))) throw new ValidationError("Choose a unit of the curriculum.");
     unitId = String(u.id);
   } else {
     const ids = [...new Set(input.skillIds ?? [])];
     if (!ids.length) throw new ValidationError("Choose at least one skill.");
     const found = await repo.findMany("Skill", { id: { in: ids } });
-    if (found.length !== ids.length || found.some((k) => k.curriculumId !== cur.id)) throw new ValidationError("All skills must come from this class's book.");
+    if (found.length !== ids.length || found.some((k) => k.deletedAt || !schoolCurricula.has(String(k.curriculumId)))) throw new ValidationError("Choose skills of the school's curriculum.");
     skillIds = ids;
   }
   const teacher = await repo.findUnique("Teacher", { userId: actor.userId });

@@ -129,7 +129,7 @@ export function ImportPreview({ job, skills, standards, canPublish }: { job: Imp
                       <p className="font-medium text-brand-navy">{i?.stem || <span className="text-slate-500">(no question text)</span>}</p>
                       <p className="text-xs text-slate-500">{TYPE[i?.type ?? ""] ?? "Unknown type"}{i?.options?.length ? `: ${i.options.map((o) => `${o.label}) ${o.text}`).join("  ")}` : ""}</p>
                       <p className="text-xs"><span className="font-semibold">Answer:</span> {answerOf(i)}</p>
-                      {m.passage && <p className="text-xs text-slate-500">With a reading passage ({m.passage.split(/\s+/).length} words)</p>}
+                      {m.passage && <p className="text-xs text-slate-500">With a reading passage ({m.passageWords ?? m.passage.split(/\s+/).length} words)</p>}
                     </td>
                     <td className="pe-2">{m.grade ?? (m.gradeText || "—")}</td>
                     <td className="pe-2">{m.skillName ?? (i?.skillId ? skillName.get(i.skillId) : null) ?? <span className="text-red-700">{m.skillText || "—"}</span>}</td>

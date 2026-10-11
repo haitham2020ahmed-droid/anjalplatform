@@ -4,6 +4,7 @@ import { bandDistribution, mean, median, percentile, streaks } from "../src/anal
 import { months, resolvePeriod, type Calendar } from "../src/analytics/periods";
 import { growthFromLogs } from "../src/server/analytics/growth";
 import { replayDays, buildSnapshots } from "../src/server/analytics/snapshots";
+import { afterResponseSettled } from "../src/server/lib/after-response";
 import { classComparison, NO_NATIONAL, standardsReport, studentAnalytics } from "../src/server/analytics/reports";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
 import { resolveActor } from "../src/server/auth/actor";
@@ -125,6 +126,7 @@ describe("analytics on the database", () => {
       }
       k++;
     }
+    await afterResponseSettled(); // decision logs are written after each answer's response (Update 42B)
     s1 = String((await repo.findUnique("Student", { userId: (await repo.findUnique("User", { username: "demo.s1001" }))!.id }))!.id);
     classA = String((await repo.findMany("ClassMembership", { studentId: s1 }))[0].classId);
   });

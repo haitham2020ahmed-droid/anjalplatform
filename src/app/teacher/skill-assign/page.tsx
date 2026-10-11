@@ -20,7 +20,9 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
   const sp = await searchParams;
   const pool = await skillPool(repo, actor.schoolId!, String(sp.skillId ?? ""));
   const grades = await repo.findMany("Grade", { schoolId: actor.schoolId });
-  const classes = (await accessibleClasses(repo, actor)).filter((c) => pool.skill.grammar || Number(grades.find((g) => g.id === c.gradeId)?.level) === pool.skill.grade).sort((a, b) => String(a.name).localeCompare(String(b.name)));
+  // access rules (UI reorg): a skill of ANY grade may go to any of the teacher's own classes (same-grade classes first)
+  const levelOfClass = (c: Record<string, unknown>) => Number(grades.find((g) => g.id === c.gradeId)?.level);
+  const classes = (await accessibleClasses(repo, actor)).sort((a, b) => Number(levelOfClass(b) === pool.skill.grade) - Number(levelOfClass(a) === pool.skill.grade) || String(a.name).localeCompare(String(b.name)));
   const k = classes.find((c) => c.id === sp.classId) ?? classes[0];
   const manual = sp.manual === "1";
   const isGrammar = /grammar|mechanic|usage|punctuat|capital/i.test(pool.skill.name);
@@ -37,15 +39,15 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
     .catch((e) => (e instanceof ValidationError && sp.lessonId ? findQuestionsForSkill(repo, actor, { skillId: pool.skill.id, classId: String(k.id) }) : Promise.reject(e))) : null;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="⭐" title={`Assign: ${pool.skill.name}`} subtitle={pool.skill.grammar ? "Grammar · for any of your classes" : `Grade ${pool.skill.grade}`}>
+      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="⭐" title={`Assign: ${pool.skill.name}`} subtitle={pool.skill.grammar ? `Grammar · Grade ${pool.skill.grade} · for any of your classes` : `Grade ${pool.skill.grade} · for any of your classes`}>
         <Link href={`/teacher/preview?skillId=${pool.skill.id}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Preview</Link>
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      {!k ? <p className="text-slate-600">{pool.skill.grammar ? "You have no class yet." : `You do not teach a Grade ${pool.skill.grade} class.`}</p> : !total ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">This skill has no questions yet.</p> : (
+      {!k ? <p className="text-slate-600">You have no class yet.</p> : !total ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">This skill has no questions yet.</p> : (
         <form action={assignSkillAction} className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
           <input type="hidden" name="skillId" value={pool.skill.id} /><input type="hidden" name="classId" value={String(k.id)} /><input type="hidden" name="mode" value={manual ? "MANUAL" : "AUTOMATIC"} />
           <nav aria-label="Classes" className="mb-4 flex flex-wrap gap-2">
-            {classes.map((c) => <Link key={String(c.id)} href={`/teacher/skill-assign?${new URLSearchParams({ skillId: pool.skill.id, classId: String(c.id), ...(manual ? { manual: "1" } : {}) })}`} aria-current={c.id === k.id ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-semibold ${c.id === k.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{String(c.name)}</Link>)}
+            {classes.map((c) => <Link key={String(c.id)} href={`/teacher/skill-assign?${new URLSearchParams({ skillId: pool.skill.id, classId: String(c.id), ...(manual ? { manual: "1" } : {}) })}`} aria-current={c.id === k.id ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-semibold ${c.id === k.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{String(c.name)} · Grade {levelOfClass(c)}</Link>)}
           </nav>
           <div className="grid gap-2 md:grid-cols-2">
             <Link href={link({ manual: "" })} aria-current={!manual ? "page" : undefined} className={`rounded-2xl p-4 ring-2 ${!manual ? "bg-emerald-50 ring-emerald-400" : "bg-white ring-slate-200"}`}><b>🤖 Automatic (recommended)</b><br /><span className="text-sm text-slate-600">Each student starts at their own level and moves up or down by their answers.</span></Link>
@@ -61,7 +63,7 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
             <label className="flex flex-col">Due date (optional)<input type="date" name="dueAt" className={box} /></label>
             <label className="flex min-w-[16rem] flex-1 flex-col">Note to students (optional)<input name="note" maxLength={1000} className={box} /></label>
           </div>
-          <button className="mt-4 rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">⭐ Send to students</button>
+          <button className="mt-4 rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">⭐ Assign to students</button>
         </form>
       )}
       {k && found && <BankPanel found={found} classId={String(k.id)} link={link} />}

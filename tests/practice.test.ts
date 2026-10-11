@@ -10,6 +10,7 @@ import { DEMO_SCHOOL_CODE } from "../src/server/seeding/demo";
 import { loadBank } from "../src/server/seeding/load-files";
 import { seedQuestions } from "../src/server/seeding/questions";
 import { demoDatabase, ROOT, seededRandom } from "./helpers/db";
+import { afterResponseSettled } from "../src/server/lib/after-response";
 const rng = seededRandom(4242);
 
 let repo: SqliteRepo;
@@ -132,6 +133,7 @@ describe("answering", () => {
     const attempts = await repo.findMany("QuestionAttempt", { sessionId: view.sessionId });
     assert.equal(attempts.length, 1);
     assert.equal(Number(attempts[0].responseMs), 40_000, "timed by the server clock");
+    await afterResponseSettled(); // the decision log is written after the response (Update 42B)
     const log = (await repo.findMany("AdaptiveDecisionLog", { sessionId: view.sessionId })).find((l) => l.attemptId !== null)!;
     assert.equal(Number(log.attemptId), Number(attempts[0].id));
     assert.ok(String(log.reason).length > 15);

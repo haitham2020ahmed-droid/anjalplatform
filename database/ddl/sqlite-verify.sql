@@ -16,6 +16,8 @@ CREATE TABLE "User" (
   "lastLoginAt" TEXT,
   "failedLogins" INTEGER NOT NULL DEFAULT 0,
   "lockedUntil" TEXT,
+  "uiLang" TEXT,
+  "tourSeenAt" TEXT,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "updatedAt" TEXT NOT NULL,
   "deletedAt" TEXT,
@@ -753,6 +755,8 @@ CREATE TABLE "Assignment" (
   "dueAt" TEXT,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "deletedAt" TEXT,
+  "testId" TEXT,
+  "shuffle" INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY ("id"),
   CONSTRAINT "Assignment_classId_fkey" FOREIGN KEY ("classId") REFERENCES "Class"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "Assignment_createdById_fkey" FOREIGN KEY ("createdById") REFERENCES "Teacher"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -763,6 +767,8 @@ CREATE TABLE "Assignment" (
 CREATE INDEX "Assignment_classId_dueAt_idx" ON "Assignment"("classId", "dueAt");
 
 CREATE INDEX "Assignment_skillId_idx" ON "Assignment"("skillId");
+
+CREATE INDEX "Assignment_testId_idx" ON "Assignment"("testId");
 
 CREATE INDEX "Assignment_createdById_fk_idx" ON "Assignment"("createdById");
 
@@ -1337,6 +1343,8 @@ CREATE TABLE "LiveGame" (
   "secondsPerQuestion" INTEGER NOT NULL DEFAULT 20,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   "finishedAt" TEXT,
+  "mode" TEXT,
+  "summary" TEXT,
   PRIMARY KEY ("id")
 );
 
@@ -1371,6 +1379,52 @@ CREATE TABLE "LiveGameAnswer" (
 );
 
 CREATE INDEX "LiveGameAnswer_gameId_questionIndex_idx" ON "LiveGameAnswer"("gameId", "questionIndex");
+
+CREATE TABLE "GamePlay" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "skillId" TEXT NOT NULL,
+  "gameId" TEXT NOT NULL,
+  "mode" TEXT NOT NULL DEFAULT 'SOLO',
+  "correct" INTEGER NOT NULL DEFAULT 0,
+  "incorrect" INTEGER NOT NULL DEFAULT 0,
+  "points" INTEGER NOT NULL DEFAULT 0,
+  "liveGameId" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "GamePlay_schoolId_createdAt_idx" ON "GamePlay"("schoolId", "createdAt");
+
+CREATE INDEX "GamePlay_studentId_createdAt_idx" ON "GamePlay"("studentId", "createdAt");
+
+CREATE TABLE "GameRating" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "gameId" TEXT NOT NULL,
+  "stars" INTEGER NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "GameRating_studentId_gameId_key" UNIQUE ("studentId", "gameId")
+);
+
+CREATE INDEX "GameRating_schoolId_gameId_idx" ON "GameRating"("schoolId", "gameId");
+
+CREATE TABLE "LiveChallengeTemplate" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "userId" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "spec" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "LiveChallengeTemplate_userId_idx" ON "LiveChallengeTemplate"("userId");
 
 CREATE TABLE "CrossGradeBridge" (
   "id" TEXT NOT NULL,
@@ -1592,6 +1646,21 @@ CREATE TABLE "StudentWord" (
 );
 
 CREATE INDEX "StudentWord_studentId_lastAt_idx" ON "StudentWord"("studentId", "lastAt");
+
+CREATE TABLE "MissingWord" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "word" TEXT NOT NULL,
+  "count" INTEGER NOT NULL DEFAULT 1,
+  "lastSentence" TEXT,
+  "checkedAt" TEXT,
+  "firstAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "lastAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "MissingWord_schoolId_word_key" UNIQUE ("schoolId", "word")
+);
+
+CREATE INDEX "MissingWord_schoolId_count_idx" ON "MissingWord"("schoolId", "count");
 
 CREATE TABLE "WorkComment" (
   "id" TEXT NOT NULL,
@@ -2447,3 +2516,169 @@ CREATE TABLE "StudentLevelState" (
 );
 
 CREATE INDEX "StudentLevelState_schoolId_level_idx" ON "StudentLevelState"("schoolId", "level");
+
+CREATE TABLE "NafsArea" (
+  "id" TEXT NOT NULL,
+  "code" TEXT NOT NULL,
+  "name" TEXT NOT NULL,
+  "sortOrder" INTEGER NOT NULL DEFAULT 0,
+  "isActive" INTEGER NOT NULL DEFAULT 1,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "NafsArea_code_key" UNIQUE ("code")
+);
+
+CREATE TABLE "NafsSkillLink" (
+  "familyId" TEXT NOT NULL,
+  "areaId" TEXT NOT NULL,
+  "source" TEXT NOT NULL,
+  "updatedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("familyId")
+);
+
+CREATE INDEX "NafsSkillLink_areaId_idx" ON "NafsSkillLink"("areaId");
+
+CREATE TABLE "NafsQuestionArea" (
+  "questionId" TEXT NOT NULL,
+  "areaId" TEXT NOT NULL,
+  "setById" TEXT,
+  "setAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("questionId")
+);
+
+CREATE INDEX "NafsQuestionArea_areaId_idx" ON "NafsQuestionArea"("areaId");
+
+CREATE TABLE "SkillLinkReview" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "kind" TEXT NOT NULL,
+  "subjectId" TEXT NOT NULL,
+  "excerpt" TEXT NOT NULL,
+  "guessId" TEXT,
+  "guessLabel" TEXT,
+  "confidence" REAL NOT NULL,
+  "reason" TEXT NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'OPEN',
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "reviewedById" TEXT,
+  "reviewedAt" TEXT,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "SkillLinkReview_schoolId_kind_subjectId_key" UNIQUE ("schoolId", "kind", "subjectId")
+);
+
+CREATE INDEX "SkillLinkReview_schoolId_status_idx" ON "SkillLinkReview"("schoolId", "status");
+
+CREATE TABLE "TeacherTest" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "classId" TEXT NOT NULL,
+  "teacherId" TEXT NOT NULL,
+  "createdById" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "testType" TEXT NOT NULL,
+  "levelMode" TEXT NOT NULL DEFAULT 'SAME',
+  "skillIds" TEXT NOT NULL,
+  "openAt" TEXT,
+  "dueAt" TEXT,
+  "timeLimitMin" INTEGER,
+  "shuffle" INTEGER NOT NULL DEFAULT 0,
+  "templateId" TEXT,
+  "reteachAt" TEXT,
+  "nafsPlanAt" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "deletedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "TeacherTest_classId_createdAt_idx" ON "TeacherTest"("classId", "createdAt");
+
+CREATE INDEX "TeacherTest_schoolId_teacherId_idx" ON "TeacherTest"("schoolId", "teacherId");
+
+CREATE TABLE "TestTemplate" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "createdById" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "testType" TEXT NOT NULL,
+  "spec" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedAt" TEXT NOT NULL,
+  "deletedAt" TEXT,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "TestTemplate_schoolId_createdById_idx" ON "TestTemplate"("schoolId", "createdById");
+
+CREATE TABLE "TtsAudio" (
+  "id" TEXT NOT NULL,
+  "textHash" TEXT NOT NULL,
+  "provider" TEXT NOT NULL,
+  "voice" TEXT NOT NULL,
+  "mime" TEXT NOT NULL,
+  "bytes" BLOB NOT NULL,
+  "size" INTEGER NOT NULL,
+  "durationMs" INTEGER NOT NULL,
+  "chars" INTEGER NOT NULL,
+  "timings" TEXT NOT NULL,
+  "source" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "TtsAudio_textHash_key" UNIQUE ("textHash")
+);
+
+CREATE TABLE "StudentReward" (
+  "studentId" TEXT NOT NULL,
+  "coins" INTEGER NOT NULL DEFAULT 0,
+  "earned" INTEGER NOT NULL DEFAULT 0,
+  "avatar" TEXT,
+  "favoriteBadge" TEXT,
+  "syncedAt" TEXT,
+  "updatedAt" TEXT NOT NULL,
+  PRIMARY KEY ("studentId")
+);
+
+CREATE TABLE "CoinLedger" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "amount" INTEGER NOT NULL,
+  "reason" TEXT NOT NULL,
+  "refId" TEXT NOT NULL,
+  "note" TEXT,
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "CoinLedger_studentId_reason_refId_key" UNIQUE ("studentId", "reason", "refId")
+);
+
+CREATE INDEX "CoinLedger_studentId_createdAt_idx" ON "CoinLedger"("studentId", "createdAt");
+
+CREATE TABLE "QotdAnswer" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "day" TEXT NOT NULL,
+  "questionId" TEXT NOT NULL,
+  "skillId" TEXT,
+  "level" TEXT NOT NULL,
+  "correct" INTEGER NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "QotdAnswer_studentId_day_key" UNIQUE ("studentId", "day")
+);
+
+CREATE INDEX "QotdAnswer_studentId_correct_idx" ON "QotdAnswer"("studentId", "correct");
+
+CREATE TABLE "Certificate" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "kind" TEXT NOT NULL,
+  "title" TEXT NOT NULL,
+  "detail" TEXT,
+  "refId" TEXT NOT NULL,
+  "createdById" TEXT,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "Certificate_studentId_kind_refId_key" UNIQUE ("studentId", "kind", "refId")
+);
+
+CREATE INDEX "Certificate_studentId_createdAt_idx" ON "Certificate"("studentId", "createdAt");

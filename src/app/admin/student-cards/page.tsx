@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { headers } from "next/headers";
-import { qrPath } from "@/lib/qr";
+import { LoginCards } from "@/components/accounts/login-cards";
 import { AppShell } from "@/components/app-shell";
 import { card, field, h2, label } from "@/components/admin/styles";
 import { PrintButton } from "@/components/plans/print-button";
@@ -27,7 +27,6 @@ export default async function StudentCardsPage({ searchParams }: { searchParams:
   const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
   const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const base = (process.env.APP_URL ?? `${proto}://${host}`).replace(/\/$/, "");
-  const site = base.replace(/^https?:\/\//, "");
   const scope = classId ? classes.find((c) => c.id === classId)!.name : grade ? `Grade ${grade}` : "all students";
 
   return (
@@ -68,22 +67,8 @@ export default async function StudentCardsPage({ searchParams }: { searchParams:
         </section>
       </div>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 print:mt-0 print:grid-cols-2 print:gap-2">
-        {cards.map((c) => (
-          <div key={c.userId} className="flex break-inside-avoid gap-3 rounded-2xl border-2 border-dashed border-slate-300 bg-white p-4 text-sm print:rounded-lg print:p-3">
-            {(() => { const qr = qrPath(`${base}/login?u=${encodeURIComponent(c.username)}`); return <svg viewBox={`0 0 ${qr.total} ${qr.total}`} className="h-24 w-24 shrink-0" shapeRendering="crispEdges" role="img" aria-label={`QR code to sign in as ${c.username}`}><rect width="100%" height="100%" fill="#fff" /><path d={qr.d} fill="#000" /></svg>; })()}
-            <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-wide text-brand-teal">{String(school?.name ?? "")}</p>
-            <p className="mt-1 text-base font-bold text-brand-navy" dir="auto"><bdi>{c.name}</bdi></p>
-            <p className="text-slate-500">{c.className} · Grade {c.grade}{c.number ? ` · No. ${c.number}` : ""}</p>
-            <p className="mt-2">Username: <b className="break-all font-mono">{c.username}</b></p>
-            <p>Password: <b className="break-all font-mono">{sameAsUsername ? c.username : "— ask your teacher"}</b></p>
-            <p className="mt-1 text-xs text-slate-500">Scan the code, or sign in at {site}</p>
-            </div>
-          </div>
-        ))}
-        {cards.length === 0 && <p className="text-slate-500">No active students here.</p>}
-      </div>
+      <LoginCards cards={cards.map((c) => ({ ...c, password: sameAsUsername ? c.username : null }))} schoolName={String(school?.name ?? "")} base={base} />
+      {cards.length === 0 && <p className="mt-6 text-slate-500">No active students here.</p>}
     </AppShell>
   );
 }

@@ -5,6 +5,8 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { lookupWord, saveDefinition } from "@/server/student/words";
 import { importWordsCsv, saveWordExtras } from "@/server/vocabulary/service";
+import { fillMissingWithAi } from "@/server/vocabulary/meaning";
+import { aiEnv } from "@/server/ai/env";
 
 export async function saveDefinitionAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
@@ -19,7 +21,7 @@ export async function fetchWordAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   const word = String(f.get("word") ?? "");
   let msg = "";
-  try { const w = await lookupWord(repo, actor, word); msg = w.meanings.length ? `✓ “${w.word}” found.` : `No meaning found for “${w.word}”: write it below.`; }
+  try { const w = await lookupWord(repo, actor, word, new Date(), undefined, { env: aiEnv() }); msg = w.meanings.length ? `✓ “${w.word}” found${w.source === "AI" ? " (written by AI: please check it)" : ""}.` : `No meaning found for “${w.word}”: write it below.`; }
   catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = `⚠️ ${e.message}`; else throw e; }
   redirect(`/admin/dictionary?q=${encodeURIComponent(word)}&msg=${encodeURIComponent(msg)}`);
 }
@@ -39,6 +41,15 @@ export async function importCsvAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   let msg: string;
   try { const r = await importWordsCsv(repo, actor, String(f.get("csv") ?? "")); msg = `✓ ${r.saved} word${r.saved === 1 ? "" : "s"} saved.${r.errors.length ? ` ${r.errors.length} skipped: ${r.errors.slice(0, 5).join(" · ")}` : ""}`; }
+  catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = `⚠️ ${e.message}`; else throw e; }
+  redirect(`/admin/dictionary?msg=${encodeURIComponent(msg)}`);
+}
+
+/** ✨ School admins: meanings for the most-tapped missing words, written by the school's AI (marked “AI · check”). */
+export async function fillMissingAiAction(): Promise<void> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
+  let msg: string;
+  try { const r = await fillMissingWithAi(repo, actor, aiEnv()); msg = `${r.added ? `✓ ${r.added} meaning${r.added === 1 ? "" : "s"} added by AI (marked “AI · check”).` : "⚠️ No meanings added."} ${r.left} word${r.left === 1 ? "" : "s"} still waiting.${r.message ? ` ${r.message}` : ""}`; }
   catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = `⚠️ ${e.message}`; else throw e; }
   redirect(`/admin/dictionary?msg=${encodeURIComponent(msg)}`);
 }

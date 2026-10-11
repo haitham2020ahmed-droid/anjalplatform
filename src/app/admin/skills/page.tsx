@@ -25,6 +25,8 @@ export default async function SkillsPage({ searchParams }: { searchParams: Promi
       <PageHeader back={{ href: "/admin", label: "Administration" }} icon="🧩" title="Skills (Master List)"
         subtitle={<>Every skill of the platform, once. All skill lists (Curriculum, Assign, Games, Grammar, ReadMaster, Question Bank, MAP plans) read this list, so a new skill appears everywhere by itself.</>}>
         <Link href="/admin/map-links" className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white hover:bg-emerald-700">🔗 Link skills to MAP goal areas</Link>
+        <Link href="/admin/nafs-links" className="rounded-xl bg-teal-600 px-4 py-2 font-semibold text-white hover:bg-teal-700">🔗 Link skills to NAFS areas</Link>
+        <Link href="/admin/skill-links" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">📝 Links that need review</Link>
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <nav aria-label="Grade" className="flex flex-wrap gap-2">{grades.map((g) => <Link key={g} href={`/admin/skills?grade=${g}`} className={chip(g === grade)}>Grade {g} ({all.filter((k) => k.grade === g).length})</Link>)}</nav>

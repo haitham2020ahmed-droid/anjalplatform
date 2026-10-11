@@ -8,6 +8,7 @@
  *   small items: ReadMaster per-question time (rapid guesses), levels lacking items, one reading-level label
  */
 import { before, describe, test } from "node:test";
+import { afterResponseSettled } from "../src/server/lib/after-response";
 import assert from "node:assert/strict";
 import { mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -274,6 +275,7 @@ describe("Update 39C · reports, exports and the remap (Test School)", () => {
     assert.equal(res.correct, 3);
     const row = (await repo.findMany("ReadMasterAttempt", { studentId: sid }))[0];
     assert.equal(Number(row.seconds), 150); assert.equal(Number(row.rapid), 3);
+    await afterResponseSettled(); // the article's answers feed the skills after the response (Update 42B)
     const engine = await repo.findMany("QuestionAttempt", { studentId: sid, source: "READMASTER" });
     assert.equal(engine.filter((x) => x.rapidGuess).length, 3, "rapid detection now applies to ReadMaster answers");
     const r = await classReadMasterReport(repo, t1, classA, { days: 90, now: NOW });

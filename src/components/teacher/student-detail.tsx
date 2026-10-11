@@ -3,17 +3,19 @@
 import type { StudentDetail } from "../../server/teacher/queries";
 
 /** One student for the teacher: placement, skills, recent answers, and the engine's decisions (audit trail). */
-export function StudentDetailView({ d, classHref }: { d: StudentDetail; classHref: string }) {
+export function StudentDetailView({ d, classHref, header = true }: { d: StudentDetail; classHref: string; header?: boolean }) {
   return (
     <div>
+      {header && <>
       <a href={classHref} className="text-sm font-medium text-brand-teal hover:underline">Back to class</a>
       <h1 className="mt-2 text-3xl font-bold tracking-tight text-brand-navy">{d.name}</h1>
       <p className="text-slate-600">Grade {d.grade}{d.className ? `, class ${d.className}` : ""}, student number {d.studentNumber}</p>
+      </>}
 
       {d.alerts.length > 0 && (
         <section className="mt-6 space-y-2">
           {d.alerts.map((a) => (
-            <div key={a.id} className="rounded-xl border-l-4 border-amber-400 bg-white p-4 ring-1 ring-slate-200">
+            <div key={a.id} className="rounded-xl border-s-4 border-amber-400 bg-white p-4 ring-1 ring-slate-200">
               <p className="font-semibold text-brand-navy">{a.message}</p>
               <p className="mt-1 text-sm text-slate-600">Next step: {a.nextAction}</p>
             </div>

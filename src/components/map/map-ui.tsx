@@ -60,7 +60,7 @@ export function PlanDocView({ d, forStudent = false }: { d: PlanDoc; forStudent?
       {(d.note || d.dueAt) && <p className="mt-4 rounded-xl bg-amber-50 p-3 text-sm text-amber-900">{d.dueAt && <b>Finish by {d.dueAt.slice(0, 10)}. </b>}{d.note}</p>}
       <footer className="mt-5 border-t border-slate-200 pt-3 text-xs text-slate-500">
         RIT = the MAP Growth score. Bands of 10 RIT, as in the NWEA reports. Descriptors compare with students of the same grade and season (NWEA 2025 norms): Low, LoAvg, Avg, HiAvg, High.
-        {d.sentAt ? ` Sent ${d.sentAt.slice(0, 10)}.` : " Draft — not sent yet."}
+        {d.sentAt ? ` Assigned ${d.sentAt.slice(0, 10)}.` : " Draft — not assigned yet."}
       </footer>
     </article>
   );

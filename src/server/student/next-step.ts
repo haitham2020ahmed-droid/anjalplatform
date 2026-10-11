@@ -9,6 +9,7 @@
  *
  * The recommendation shown is saved (Recommendation) and checked a week later (recommendation-log.ts).
  */
+import { runAfterResponse } from "../lib/after-response";
 import type { Actor } from "../auth/rbac";
 import type { Repo } from "../seeding/repo";
 import { myDiagnostic } from "../diagnostic/test";
@@ -31,14 +32,18 @@ export interface NextStep {
 
 const s = (v: unknown) => String(v ?? "");
 
-export async function nextStep(repo: Repo, actor: Actor, now = new Date()): Promise<NextStep> {
+/**
+ * `known` (Update 42B): a page that already asks for the Diagnostic, the Weekly Check and today's plan step (the
+ * student home) passes its own requests, so they are read once and at the same time instead of again, one by one.
+ */
+export async function nextStep(repo: Repo, actor: Actor, now = new Date(), known?: { diag: ReturnType<typeof myDiagnostic>; check: ReturnType<typeof weeklyCheck>; plan: ReturnType<typeof todaysPlanStep> }): Promise<NextStep> {
   if (actor.role !== "STUDENT" || !actor.studentId) return { kind: "DONE", title: "", why: "", href: null, cta: "" };
   const studentId = actor.studentId;
-  const diag = await myDiagnostic(repo, actor, now);
+  const diag = await (known?.diag ?? myDiagnostic(repo, actor, now));
   if (diag && diag.status !== "DONE") return { kind: "DIAGNOSTIC", title: diag.status === "STARTED" ? "Finish your Diagnostic Test" : "Take your Diagnostic Test", why: "It shows your strengths and what to learn next.", href: diag.href, cta: diag.status === "STARTED" ? "Continue" : "Start" };
-  const check = await weeklyCheck(repo, actor, now);
+  const check = await (known?.check ?? weeklyCheck(repo, actor, now));
   if (check && check.status !== "DONE") return { kind: "WEEKLY_CHECK", title: "This week's Weekly Check", why: "A short check that updates your level.", href: check.href, cta: check.status === "STARTED" ? "Continue" : "Start" };
-  const plan = await todaysPlanStep(repo, actor);
+  const plan = await (known?.plan ?? todaysPlanStep(repo, actor));
   if (plan) return { kind: "PLAN", title: `${plan.title}: ${plan.label}`, why: "The next part of your teacher's plan.", href: plan.href, cta: plan.inProgress ? "Continue" : "Start" };
 
   // a mastered skill that is due for its spaced review
@@ -55,7 +60,8 @@ export async function nextStep(repo: Repo, actor: Actor, now = new Date()): Prom
     const states = new Map(path.steps.map((x) => [x.skillId, 0]));
     const m = await repo.findMany("StudentSkillMastery", { studentId, skillId: { in: path.steps.map((x) => x.skillId) } }, { select: ["skillId", "score"] });
     for (const r of m) states.set(String(r.skillId), Number(r.score));
-    await logRecommendations(repo, studentId, path.steps.map((x, i) => ({ skillId: x.skillId, name: x.name, score: path.steps.length - i, targetLevel: x.level, reasons: [{ code: x.action, detail: x.why.join(" · "), weight: x.score }] })), "PATH", states, now).catch(() => 0);
+    // the recommendation log (outcome tracking) is written after the page is sent (Update 42B)
+    runAfterResponse("next_step.recommendations", () => logRecommendations(repo, studentId, path.steps.map((x, i) => ({ skillId: x.skillId, name: x.name, score: path.steps.length - i, targetLevel: x.level, reasons: [{ code: x.action, detail: x.why.join(" · "), weight: x.score }] })), "PATH", states, now).catch(() => 0));
     const why = first.action === "FOUNDATION" ? `This skill is underneath ${first.forSkill?.name ?? "your next skill"}: building it first makes the next one easier.` : first.action === "STRETCH" ? "You are ready for a challenge." : first.why[0] ? `${first.why.slice(0, 2).join(". ")}.` : "The next step in your learning path.";
     return { kind: "PRACTICE", title: first.action === "FOUNDATION" ? `Build up: ${first.name}` : first.name, why, href: `/practice/${first.skillId}`, cta: "Start", path: path.steps.map((x) => ({ name: x.name, action: x.action, href: `/practice/${x.skillId}` })) };
   }
@@ -69,7 +75,7 @@ export async function nextStep(repo: Repo, actor: Actor, now = new Date()): Prom
     if (pick) {
       if (recs.length) {
         const mastery = new Map(cards.map((c) => [c.skillId, c.mastery]));
-        await logRecommendations(repo, studentId, recs.map((r, i) => ({ skillId: r.skillId, name: r.name, score: recs.length - i, targetLevel: 4, reasons: [{ code: "NEXT_STEP", detail: r.recommendedReason ?? "", weight: 0 }] })), "NEXT_STEP", mastery, now).catch(() => 0);
+        runAfterResponse("next_step.recommendations", () => logRecommendations(repo, studentId, recs.map((r, i) => ({ skillId: r.skillId, name: r.name, score: recs.length - i, targetLevel: 4, reasons: [{ code: "NEXT_STEP", detail: r.recommendedReason ?? "", weight: 0 }] })), "NEXT_STEP", mastery, now).catch(() => 0));
       }
       const mis = await topMisconception(repo, studentId, pick.skillId);
       const why = mis ? `${pick.recommendedReason ?? "Recommended for you"}. Watch out: ${misconceptionLabel(mis).toLowerCase()}.` : pick.recommendedReason ?? "The next skill in your unit.";

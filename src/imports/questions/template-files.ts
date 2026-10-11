@@ -67,27 +67,72 @@ const INVALID_XML = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/g;
 const x = (s: unknown) => String(s ?? "").replace(INVALID_XML, "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 const col = (i: number): string => (i < 26 ? String.fromCharCode(65 + i) : col(Math.floor(i / 26) - 1) + String.fromCharCode(65 + (i % 26)));
 
-export interface Sheet { name: string; rows: string[][]; widths: number[]; headerStyle?: boolean; freeze?: boolean; validations?: string; numericCols?: Set<number> }
+export interface Sheet {
+  name: string; rows: string[][]; widths: number[]; headerStyle?: boolean; freeze?: boolean; validations?: string; numericCols?: Set<number>;
+  // ---- report options (Reports redesign); templates use none of them, so their files are unchanged
+  /** Column formats for report exports: values stay the same, numbers become real Excel numbers ("12" → 12). */
+  kinds?: (SheetColumnKind | undefined)[];
+  /** Text values shown with a coloured fill (the word stays in the cell): { columnIndex: { "At risk": "warn" } }. */
+  tones?: Record<number, Record<string, SheetTone>>;
+  /** Filter buttons on the header row, every other row shaded, page footer with page numbers. */
+  report?: boolean;
+  /** In-cell bars (0–100) for these columns. */
+  bars?: number[];
+  /** Extra header-styled rows (e.g. the column table of a "Read me" sheet). */
+  headRows?: number[];
+}
+export type SheetColumnKind = "text" | "int" | "dec" | "date";
+export type SheetTone = "good" | "info" | "warn" | "bad" | "neutral";
 
-/** styles: 0 normal, 1 header (bold white on navy, wrapped), 2 wrapped text, 3 title */
+/**
+ * styles: 0 normal, 1 header (bold white on navy, wrapped), 2 wrapped text, 3 title,
+ * report styles: 4 whole number, 5 decimal, 6 date, 7-11 tones (good, info, warn, bad, neutral), 12 note
+ */
+const TONE_STYLE: Record<SheetTone, number> = { good: 7, info: 8, warn: 9, bad: 10, neutral: 11 };
+const TONE_FILL: [SheetTone, string, string][] = [["good", "FFDCF3E6", "FF166534"], ["info", "FFDBE6F7", "FF1F3A68"], ["warn", "FFFDF0C8", "FF7A4B00"], ["bad", "FFFDE2E1", "FFA32A22"], ["neutral", "FFEEF1F5", "FF475569"]];
 const STYLES = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="3"><font><sz val="11"/><name val="Arial"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Arial"/></font><font><b/><sz val="14"/><color rgb="FF1F3A68"/><name val="Arial"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF1F3A68"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="1"><border/></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="4"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1" applyAlignment="1"><alignment vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf><xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><numFmts count="2"><numFmt numFmtId="164" formatCode="0.0"/><numFmt numFmtId="165" formatCode="yyyy-mm-dd"/></numFmts><fonts count="${4 + TONE_FILL.length}"><font><sz val="11"/><name val="Arial"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Arial"/></font><font><b/><sz val="14"/><color rgb="FF1F3A68"/><name val="Arial"/></font><font><i/><sz val="10"/><color rgb="FF475569"/><name val="Arial"/></font>${TONE_FILL.map(([, , fg]) => `<font><b/><sz val="11"/><color rgb="${fg}"/><name val="Arial"/></font>`).join("")}</fonts><fills count="${3 + TONE_FILL.length}"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF1F3A68"/><bgColor indexed="64"/></patternFill></fill>${TONE_FILL.map(([, bg]) => `<fill><patternFill patternType="solid"><fgColor rgb="${bg}"/><bgColor indexed="64"/></patternFill></fill>`).join("")}</fills><borders count="1"><border/></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="${8 + TONE_FILL.length}"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1" applyAlignment="1"><alignment vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf><xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1"/><xf numFmtId="3" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1" applyAlignment="1"><alignment horizontal="right" vertical="top"/></xf><xf numFmtId="164" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1" applyAlignment="1"><alignment horizontal="right" vertical="top"/></xf><xf numFmtId="165" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1" applyAlignment="1"><alignment horizontal="center" vertical="top"/></xf>${TONE_FILL.map((_, i) => `<xf numFmtId="0" fontId="${4 + i}" fillId="${3 + i}" borderId="0" xfId="0" applyFont="1" applyFill="1" applyAlignment="1"><alignment horizontal="center" vertical="top" wrapText="1"/></xf>`).join("")}<xf numFmtId="0" fontId="3" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles><dxfs count="1"><dxf><fill><patternFill patternType="solid"><bgColor rgb="FFF4F7FB"/></patternFill></fill></dxf></dxfs></styleSheet>`;
+
+const NUMBER = /^-?\d+(\.\d+)?$/;
+const EPOCH = Date.UTC(1899, 11, 30);
 
 function sheetXml(s: Sheet): string {
   const views = s.freeze ? `<sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>` : `<sheetViews><sheetView workbookViewId="0"/></sheetViews>`;
   const cols = `<cols>${s.widths.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join("")}</cols>`;
   const rows = s.rows.map((r, ri) => {
-    const style = ri === 0 && s.headerStyle ? 1 : s.headerStyle ? 2 : ri === 0 && s.name === "Instructions" ? 3 : 2;
+    const style = ri === 0 && s.headerStyle ? 1 : s.headRows?.includes(ri) ? 1 : s.headerStyle ? 2 : ri === 0 && (s.name === "Instructions" || s.name === "Read me") ? 3 : 2;
     const cells = r.map((v, ci) => {
       const ref = `${col(ci)}${ri + 1}`;
       if (v === "") return "";
       if (ri > 0 && s.numericCols?.has(ci) && /^\d+$/.test(v)) return `<c r="${ref}" s="${style}"><v>${v}</v></c>`;
-      return `<c r="${ref}" s="${style}" t="inlineStr"><is><t xml:space="preserve">${x(v)}</t></is></c>`;
+      const kind = ri > 0 ? s.kinds?.[ci] : undefined;
+      if ((kind === "int" || kind === "dec") && NUMBER.test(v)) return `<c r="${ref}" s="${kind === "int" && /^-?\d+$/.test(v) ? 4 : 5}"><v>${v}</v></c>`;
+      if (kind === "date" && /^\d{4}-\d{2}-\d{2}$/.test(v) && !Number.isNaN(Date.parse(v))) return `<c r="${ref}" s="6"><v>${(Date.parse(`${v}T00:00:00Z`) - EPOCH) / 86_400_000}</v></c>`;
+      const tone = ri > 0 ? s.tones?.[ci]?.[v] : undefined;
+      return `<c r="${ref}" s="${tone ? TONE_STYLE[tone] : style}" t="inlineStr"><is><t xml:space="preserve">${x(v)}</t></is></c>`;
     }).join("");
     return `<row r="${ri + 1}"${ri === 0 && s.headerStyle ? ' ht="30" customHeight="1"' : ""}>${cells}</row>`;
   }).join("");
+  let extra = "";
+  if (s.report && s.rows.length > 1) {
+    const n = s.rows.length, w = Math.max(...s.rows.map((r) => r.length));
+    const plain = Array.from({ length: w }, (_, i) => i).filter((i) => !s.tones?.[i]).map((i) => `${col(i)}2:${col(i)}${n}`).join(" ");
+    extra += `<autoFilter ref="A1:${col(w - 1)}${n}"/>`;
+    let prio = 1;
+    for (const b of s.bars ?? []) extra += `<conditionalFormatting sqref="${col(b)}2:${col(b)}${n}"><cfRule type="dataBar" priority="${prio++}"><dataBar><cfvo type="num" val="0"/><cfvo type="num" val="100"/><color rgb="FF9DB9E3"/></dataBar></cfRule></conditionalFormatting>`;
+    if (plain && n > 2) extra += `<conditionalFormatting sqref="${plain}"><cfRule type="expression" dxfId="0" priority="${prio++}"><formula>MOD(ROW(),2)=1</formula></cfRule></conditionalFormatting>`;
+  }
+  const page = s.report ? `<pageMargins left="0.5" right="0.5" top="0.6" bottom="0.6" header="0.3" footer="0.3"/><pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="0"/><headerFooter><oddFooter>&amp;L&amp;8${x(s.name.replace(/&/g, "&&"))}&amp;R&amp;8&amp;P / &amp;N</oddFooter></headerFooter>` : "";
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">${views}${cols}<sheetData>${rows}</sheetData>${s.validations ?? ""}</worksheet>`;
+<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">${s.report ? `<sheetPr><pageSetUpPr fitToPage="1"/></sheetPr>` : ""}${views}${cols}<sheetData>${rows}</sheetData>${extra}${s.validations ?? ""}${page}</worksheet>`;
+}
+
+/** A "Read me" sheet for a report export: what the file is, then what each column means. */
+export function readMeSheet(title: string, intro: string[], columns: [string, string][], legend: [string, SheetTone, string][] = []): Sheet {
+  const rows: string[][] = [[title], ...intro.map((l) => ["", l]), [""], ["Column", "What it means"], ...columns.map(([c, m]) => [c, m])];
+  const head = [intro.length + 2];
+  if (legend.length) { rows.push([""]); head.push(rows.length); rows.push(["Colour key", "Coloured cells always show their meaning in words too."]); rows.push(...legend.map(([v, , m]) => [v, m])); }
+  return { name: "Read me", widths: [30, 100], rows, headRows: head, tones: legend.length ? { 0: Object.fromEntries(legend.map(([v, tone]) => [v, tone])) } : undefined };
 }
 
 /** The Excel template (Questions, Instructions, Curriculum). */

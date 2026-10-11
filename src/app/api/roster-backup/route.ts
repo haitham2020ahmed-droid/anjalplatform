@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { apiActor, repo } from "@/server/auth/next";
 import { can, ForbiddenError } from "@/server/auth/rbac";
-import { parseScope, rosterBackup, type RosterScope } from "@/server/admin/roster-clean";
+import { parseScope, rosterBackupChunks, scopeStudents, type RosterScope } from "@/server/admin/roster-clean";
 
 export const runtime = "nodejs";
 
@@ -12,7 +12,19 @@ export async function GET(req: Request) {
   const q = new URL(req.url).searchParams;
   const scope: RosterScope = parseScope((k) => q.get(k));
   try {
-    const data = await rosterBackup(repo, actor, scope);
-    return new NextResponse(JSON.stringify(data), { headers: { "Content-Type": "application/json", "Content-Disposition": `attachment; filename="roster-backup-${new Date().toISOString().slice(0, 10)}.json"`, "Cache-Control": "no-store" } });
+    await scopeStudents(repo, actor, scope); // permission and class checks before the download starts
+    // streamed table by table (Update 42A): a whole-school backup is never held in memory at once
+    const parts = rosterBackupChunks(repo, actor, scope);
+    const enc = new TextEncoder();
+    const body = new ReadableStream<Uint8Array>({
+      async pull(controller) {
+        try {
+          const next = await parts.next();
+          if (next.done) controller.close(); else controller.enqueue(enc.encode(next.value));
+        } catch (e) { controller.error(e); }
+      },
+      async cancel() { await parts.return(undefined); },
+    });
+    return new NextResponse(body, { headers: { "Content-Type": "application/json", "Content-Disposition": `attachment; filename="roster-backup-${new Date().toISOString().slice(0, 10)}.json"`, "Cache-Control": "no-store" } });
   } catch (e) { if (e instanceof ForbiddenError) return new NextResponse(e.message, { status: 403 }); throw e; }
 }

@@ -14,6 +14,7 @@ import { countDeletionRequests } from "@/server/admin/question-requests";
 import { SkillAssignHost } from "@/components/skills/skill-assign";
 import { assignSkillInline } from "./skill-actions";
 import { LEVEL_LABELS } from "@/config/engine";
+import { skillsMatching } from "@/server/questions/skill-questions";
 
 export const metadata = { title: "Question Bank" };
 
@@ -57,6 +58,8 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     mapArea: ["LIT", "INFO", "VOCAB", "GRAMMAR", "MECH", "WRITING", "NONE"].includes(sp.area ?? "") ? sp.area : undefined, aiCheck: sp.aicheck === "1" || undefined };
   const roster = actor.role === "TEACHER" ? await teacherRoster(repo, actor) : undefined;
   const pendingDeletions = await countDeletionRequests(repo, actor);
+  // UI reorg Phase 1: the skills the search names, with the ONE shared count (= the MAP and NAFS sections)
+  const matches = filter.q ? await skillsMatching(repo, actor.schoolId!, filter.q, { grade, status }) : [];
   const grouped = sp.view === "skills" || (sp.view !== "list" && Boolean(filter.q || filter.skillId));
   const PER = grouped ? 400 : PAGE;
   const mapPlaces = (await attachmentNodes(repo, actor.schoolId!)).map((n) => ({ code: n.code, grade: n.grade, unit: n.unit, path: n.path }));
@@ -117,6 +120,21 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Filter</button>
         <Link href={`/admin/questions?status=${status}`} className="text-sm text-brand-teal hover:underline">Clear filters</Link>
       </form>
+      {matches.length > 0 && (
+        <section className="mb-4 rounded-2xl bg-white p-4 ring-1 ring-slate-200" aria-labelledby="skills-matching">
+          <h2 id="skills-matching" className="text-base font-semibold text-brand-navy">Skills matching “{filter.q}”</h2>
+          <p className="mt-1 text-sm text-slate-600">Each skill's number is the same everywhere (MAP, NAFS, search). The list below also shows questions of other skills whose wording uses your words.</p>
+          <ul className="mt-2 flex flex-wrap gap-2">
+            {matches.map((m) => (
+              <li key={m.id}><Link href={`/admin/questions?status=${status}&grade=${m.grade}&skill=${m.id}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-slate-50 px-3 py-2 text-sm ring-1 ring-slate-200 hover:ring-brand-teal">
+                <b className="text-brand-navy">{m.name}</b><span className="rounded-full bg-slate-200 px-2 text-xs">Grade {m.grade}</span><span className="tabular-nums">{m.questions} questions</span>
+                {m.map && <span className="rounded-full bg-emerald-100 px-2 text-xs text-emerald-800">MAP · {m.map.name}</span>}
+                {m.nafs && <span className="rounded-full bg-teal-100 px-2 text-xs text-teal-800">NAFS · {m.nafs.name}</span>}
+              </Link></li>
+            ))}
+          </ul>
+        </section>
+      )}
       <section className={card}>
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
           <p className="text-sm text-slate-600">{grouped ? "Grouped by skill: tap ⭐ to assign a whole skill, or ☆ to choose questions." : "Tip: search a skill (e.g. main idea) to see its questions grouped under it."}</p>

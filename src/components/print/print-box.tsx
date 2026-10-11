@@ -25,9 +25,9 @@ export function PrintBox() {
   };
   return (
     <div ref={ref} className="relative">
-      <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label={`Print box: ${items.length} question(s)`} className="relative inline-flex items-center rounded-lg p-1.5 text-slate-600 hover:bg-slate-100 hover:text-brand-navy">
+      <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label={`Print box: ${items.length} question(s)`} className="relative inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-1.5 text-slate-600 hover:bg-slate-100 hover:text-brand-navy">
         <span aria-hidden="true" className="text-lg leading-none">🖨</span>
-        {items.length > 0 && <span className="absolute -end-1 -top-1 min-w-[1.25rem] rounded-full bg-brand-teal px-1 text-center text-xs font-bold text-white">{items.length}</span>}
+        {items.length > 0 && <span dir="ltr" className="absolute -end-1 -top-1 min-w-[1.25rem] rounded-full bg-brand-teal px-1 text-center text-xs font-bold text-white">{items.length}</span>}
       </button>
       {open && (
         <div role="dialog" aria-label="Print box" className="animate-fade-up absolute end-0 top-10 z-50 w-[22rem] max-w-[calc(100vw-1rem)] rounded-2xl bg-white p-4 text-sm shadow-2xl ring-1 ring-slate-200">

@@ -81,39 +81,73 @@ export async function loadItemsForSkills(repo: Repo, skillIds: string[]): Promis
   return buildItems(repo, qs, true);
 }
 
+/**
+ * Single questions read one or a few at a time (the question being answered and the next one of a set, a lesson or
+ * an article): cached like the skill items above (bank version + ITEM_CACHE_MS), small lists only, bounded
+ * (Update 42B: a set answer used to rebuild the same item from six tables twice).
+ */
+const QUESTION_CACHE_MAX = 1000;
+const QUESTION_CACHE_LIST = 50;
+const questionCache = new Map<string, { version: number; at: number; item: PracticeItem }>();
+
 /** Specific PUBLISHED questions (a teacher's question set), in the order given. Missing ones are skipped. */
 export async function loadQuestionItems(repo: Repo, questionIds: string[]): Promise<PracticeItem[]> {
   if (!questionIds.length) return [];
-  const qs = await repo.findMany("Question", { id: { in: questionIds }, status: "PUBLISHED", deletedAt: null });
-  const items = await buildItems(repo, qs);
   const pos = new Map(questionIds.map((id, i) => [id, i]));
-  return items.sort((a, b) => (pos.get(a.questionId) ?? 0) - (pos.get(b.questionId) ?? 0));
+  const order = (items: PracticeItem[]) => items.sort((a, b) => (pos.get(a.questionId) ?? 0) - (pos.get(b.questionId) ?? 0));
+  if (questionIds.length > QUESTION_CACHE_LIST) {
+    const qs = await repo.findMany("Question", { id: { in: questionIds }, status: "PUBLISHED", deletedAt: null });
+    return order(await buildItems(repo, qs));
+  }
+  const version = bankVersion();
+  const now = Date.now();
+  const out: PracticeItem[] = [];
+  const missing: string[] = [];
+  for (const id of new Set(questionIds)) {
+    const hit = questionCache.get(id);
+    if (hit && hit.version === version && now - hit.at < ITEM_CACHE_MS && now >= hit.at) out.push(structuredClone(hit.item));
+    else missing.push(id);
+  }
+  if (missing.length) {
+    const qs = await repo.findMany("Question", { id: { in: missing }, status: "PUBLISHED", deletedAt: null });
+    for (const it of await buildItems(repo, qs)) {
+      out.push(it);
+      questionCache.delete(it.questionId);
+      questionCache.set(it.questionId, { version, at: now, item: structuredClone(it) });
+    }
+    while (questionCache.size > QUESTION_CACHE_MAX) questionCache.delete(questionCache.keys().next().value as string);
+  }
+  return order(out);
 }
 
 async function buildItems(repo: Repo, qs: Row[], holdBack = false): Promise<PracticeItem[]> {
   // holdBack (adaptive pools only, never a teacher's own set): misleading questions are held back, see below
   if (!qs.length) return [];
   const ids = qs.map((q) => q.id);
-  const [opts, answers, expl, types] = await Promise.all([
+  const passageIds = [...new Set(qs.map((q) => q.passageId).filter(Boolean))];
+  // images: only the description is read here (the picture itself is served separately)
+  const imageIds = [...new Set(qs.map((q) => q.imageId).filter(Boolean))];
+  // every table in one round trip (Update 42B: the passages, image texts, statistics and alerts were read one after
+  // another); they only need the question rows
+  const [opts, answers, expl, types, passages, images, stats, held] = await Promise.all([
     repo.findMany("QuestionOption", { questionId: { in: ids } }),
     repo.findMany("QuestionAnswer", { questionId: { in: ids } }),
     repo.findMany("QuestionExplanation", { questionId: { in: ids } }),
     repo.findMany("QuestionType", { id: { in: [...new Set(qs.map((q) => q.typeId))] } }),
+    passageIds.length ? repo.findMany("ReadingPassage", { id: { in: passageIds } }) : Promise.resolve([] as Row[]),
+    imageIds.length ? repo.findMany("QuestionImage", { id: { in: imageIds } }, { select: ["id", "altText"] }) : Promise.resolve([] as Row[]),
+    // 🔁 question effectiveness: a question whose data says it misleads (strong students miss it more, or the key
+    // looks wrong) is held back for review while the skill has 4+ other questions
+    holdBack ? repo.findMany("QuestionStats", { questionId: { in: ids } }, { select: ["questionId", "flags"] }) : Promise.resolve([] as Row[]),
+    holdBack ? heldBackQuestionIds(repo, qs.map((q) => str(q.id))) : Promise.resolve(new Set<string>()),
   ]);
-  const passageIds = [...new Set(qs.map((q) => q.passageId).filter(Boolean))];
-  const passages = passageIds.length ? await repo.findMany("ReadingPassage", { id: { in: passageIds } }) : [];
   const typeCode = new Map(types.map((t) => [str(t.id), str(t.code) as QuestionTypeCode]));
   const passage = new Map(passages.map((p) => [str(p.id), p]));
-  // images: only the description is read here (the picture itself is served separately)
-  const imageIds = [...new Set(qs.map((q) => q.imageId).filter(Boolean))];
-  const imageAlt = new Map((imageIds.length ? await repo.findMany("QuestionImage", { id: { in: imageIds } }, { select: ["id", "altText"] }) : []).map((x) => [str(x.id), str(x.altText ?? "")]));
+  const imageAlt = new Map(images.map((x) => [str(x.id), str(x.altText ?? "")]));
   // adaptive practice needs automatic scoring: teacher-scored types (SHORT_ANSWER) are never served
   const autoScored = new Set(types.filter((t) => t.isAutoScored !== false && t.code !== "SHORT_ANSWER").map((t) => str(t.id)));
-  // 🔁 question effectiveness: a question whose data says it misleads (strong students miss it more, or the key looks
-  // wrong) is held back for review while the skill has 4+ other questions
-  const stats = holdBack ? await repo.findMany("QuestionStats", { questionId: { in: ids } }, { select: ["questionId", "flags"] }) : [];
   const bad = new Set(stats.filter((x) => { const f = typeof x.flags === "string" ? JSON.parse(x.flags) : x.flags; return Array.isArray(f) && f.some((k) => k === "NEGATIVE_DISCRIMINATION" || k === "POSSIBLE_KEY_ERROR"); }).map((x) => str(x.questionId)));
-  if (holdBack) for (const id of await heldBackQuestionIds(repo, qs.map((q) => str(q.id)))) bad.add(id); // open data alerts (src/server/questions/reclassify.ts)
+  for (const id of held) bad.add(id); // open data alerts (src/server/questions/reclassify.ts)
   const perSkill = new Map<string, number>();
   for (const q of qs) if (!bad.has(str(q.id))) perSkill.set(str(q.skillId), (perSkill.get(str(q.skillId)) ?? 0) + 1);
   qs = qs.filter((q) => !bad.has(str(q.id)) || (perSkill.get(str(q.skillId)) ?? 0) < 4);

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { PageHeader } from "@/components/page-header";
-import { PrintButton } from "@/components/plans/print-button";
-import { IntensityBadge, LevelBadge, StatusBadge, Tile } from "@/components/insights/badges";
+import { IntensityBadge, LevelBadge, StatusBadge } from "@/components/insights/badges";
+import { AtAGlance, Callout, ReportHeader, toneOfPct } from "@/components/report-kit";
+import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { recordResultsView } from "@/server/insights/teacher-followup";
 import { INTENSITY_NAME, studentProgress } from "@/server/insights/progress";
@@ -25,6 +25,7 @@ export default async function StudentProgressPage({ params, searchParams }: { pa
   const subject = sp.subject === "LANGUAGE" ? "LANGUAGE" : "READING";
   const v = await studentProgress(repo, actor, studentId, subject);
   const r = v.row, m = r.map;
+  const { t } = await getT();
   const [comments, notes, quick] = await Promise.all([commentsFor(repo, actor, studentId), notesFor(repo, actor, studentId), quickComments(repo, actor)]);
   const recentWork = (await repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId"] })).map((x) => String(x.assignmentId));
   const works = recentWork.length ? (await repo.findMany("Assignment", { id: { in: recentWork }, deletedAt: null }, { select: ["id", "title", "createdAt"] })).sort((a, b) => new Date(b.createdAt as string | Date).getTime() - new Date(a.createdAt as string | Date).getTime()).slice(0, 15) : [];
@@ -32,23 +33,29 @@ export default async function StudentProgressPage({ params, searchParams }: { pa
   const bar = (rit: number) => `${Math.max(4, Math.round(((rit - minRit) / Math.max(1, maxRit - minRit)) * 100))}%`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: `/teacher/progress?classId=${v.classId}&subject=${subject}`, label: v.className }} icon="📈" title={r.name}
-        subtitle={<>Grade {v.grade} · {v.className}{r.number ? ` · ID ${r.number}` : ""} · <StatusBadge status={r.status} /> <span className="text-sm">{r.statusWhy}</span></>}>
-        {(["READING", "LANGUAGE"] as const).map((x) => <Link key={x} href={`/teacher/progress/${studentId}?subject=${x}`} className={`rounded-full px-3 py-1 text-sm font-semibold print:hidden ${x === subject ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{x === "READING" ? "📖 Reading" : "✏️ Language"}</Link>)}
+      <ReportHeader back={{ href: `/teacher/progress?classId=${v.classId}&subject=${subject}`, label: v.className }} icon="📈" title={r.name}
+        subtitle={<><StatusBadge status={r.status} /> <span className="text-sm">{r.statusWhy}</span></>}
+        who={<>{t("Grade {n}", { n: v.grade })} · {v.className}{r.number ? ` · ID ${r.number}` : ""}</>} when={subject === "READING" ? t("MAP Reading") : t("MAP Language")}
+        filters={<div className="flex flex-wrap gap-2">{(["READING", "LANGUAGE"] as const).map((x) => <Link key={x} href={`/teacher/progress/${studentId}?subject=${x}`} className={`rounded-full px-3 py-1 text-sm font-semibold ${x === subject ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{x === "READING" ? "📖 Reading" : "✏️ Language"}</Link>)}</div>}>
         <Link href={`/teacher/progress/${studentId}/report`} className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white hover:bg-emerald-700 print:hidden">👪 Parent report</Link>
-        <PrintButton />
-      </PageHeader>
+      </ReportHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      <dl className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
-        <Tile label="Answers" value={`${r.practice.answers}`} />
-        <Tile label="Accuracy" value={r.practice.accuracy === null ? "—" : `${r.practice.accuracy}%`} />
-        <Tile label="Skills mastered" value={`${r.mastered}`} tone="text-emerald-700" />
-        <Tile label="Skills needing work" value={`${r.needsWork}`} tone={r.needsWork ? "text-amber-700" : ""} />
-        <Tile label="Time: week · month" value={`${r.practice.week.minutes}m · ${r.practice.month.minutes}m`} />
-        <Tile label="Tasks done · pending · late" value={`${r.work.done} · ${r.work.pending} · ${r.work.late}`} tone={r.work.late ? "text-red-700" : ""} />
-      </dl>
+      <AtAGlance items={[
+        { icon: "✍️", label: "Answers", value: `${r.practice.answers}`, meaning: t("Time: week · month") + `: ${r.practice.week.minutes}m · ${r.practice.month.minutes}m` },
+        { icon: "🎯", label: "Accuracy", value: r.practice.accuracy === null ? "—" : `${r.practice.accuracy}%`, meaning: "of answers were right", tone: toneOfPct(r.practice.accuracy) },
+        { icon: "⭐", label: "Skills mastered", value: `${r.mastered}`, meaning: t("{n} skills needing work", { n: r.needsWork }), tone: "good" },
+        { icon: "📋", label: "Tasks done · pending · late", value: `${r.work.done} · ${r.work.pending} · ${r.work.late}`, meaning: r.work.late ? "some work is late" : "no late work", tone: r.work.late ? "bad" : "neutral" },
+      ]} />
+      <div className="grid gap-4 lg:grid-cols-2">
+        <Callout kind="meaning" items={[r.statusWhy, m?.gap !== null && m?.gap !== undefined ? t("Growth needed to reach the Spring target: {n} RIT.", { n: m.gap }) : null, m?.goals[0] ? <>{t("Weakest goal area")}: <b>{m.goals[0].name}</b> ({m.goals[0].rit})</> : null]} />
+        <Callout kind="next" items={[
+          v.plan.areas.length && v.canAssign ? t("Tick the first skills in the plan below and assign them.") : null,
+          r.work.late ? t("Talk with the student about the late work.") : null,
+          t("Write a short comment the student and parent can read."),
+        ]} />
+      </div>
       <div className="mt-6 grid gap-5 lg:grid-cols-2">
-        <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <section className="rk-section rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
           <h2 className="text-lg font-bold text-brand-navy">🗺️ MAP {subject === "READING" ? "Reading" : "Language Usage"}: Fall → now → Spring target</h2>
           {!m ? <p className="mt-2 text-slate-600">No MAP score yet. <Link href={`/teacher/map-entry?classId=${v.classId}&subject=${subject}`} className="font-semibold text-brand-teal underline">Enter scores</Link></p> : (
             <>
@@ -61,7 +68,7 @@ export default async function StudentProgressPage({ params, searchParams }: { pa
             </>
           )}
         </section>
-        <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <section className="rk-section rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
           <h2 className="text-lg font-bold text-brand-navy">🎯 Levels (Staff Only)</h2>
           <p className="mt-2 text-sm">Working level: <LevelBadge level={r.level} /> <Link href={`/teacher/levels?classId=${v.classId}`} className="ms-2 text-sm font-semibold text-brand-teal underline print:hidden">Change</Link></p>
           <ul className="mt-2 space-y-1 text-sm">{Object.entries(CAT).map(([k, n]) => <li key={k} className="flex justify-between gap-2"><span className="text-slate-600">{n}</span><LevelBadge level={r.categories[k] as "BELOW" | "ON" | "ABOVE" | undefined} /></li>)}</ul>
@@ -89,13 +96,13 @@ export default async function StudentProgressPage({ params, searchParams }: { pa
           </form>
         )}
       </section>
-      <section className="mt-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+      <section className="mt-6 rk-section rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
         <h2 className="text-lg font-bold text-brand-navy">🗓️ Recent Work</h2>
         {v.recent.length === 0 ? <p className="mt-2 text-slate-600">Nothing assigned yet.</p> : (
           <ul className="mt-2 divide-y divide-slate-100 text-sm">{v.recent.map((a, i) => <li key={i} className="flex flex-wrap justify-between gap-2 py-1.5"><span>{a.title}</span><span className="text-slate-500">{a.status.replace("_", " ").toLowerCase()}{a.dueAt ? ` · due ${day(a.dueAt)}` : ""}</span></li>)}</ul>
         )}
       </section>
-      <section id="comments" className="mt-6 scroll-mt-24 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+      <section id="comments" className="mt-6 scroll-mt-24 rk-section rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
         <h2 className="text-lg font-bold text-brand-navy">💬 Comments on {r.name.split(" ")[0]}’s work</h2>
         <p className="text-sm text-slate-500">The student and the parent can read them (the student gets a notification).</p>
         <form action={addCommentAction} className="mt-3 flex flex-wrap items-end gap-2 print:hidden">

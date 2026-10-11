@@ -11,6 +11,7 @@ import { masterSkills } from "../skills/master";
 import { groupPools, GROUPS } from "../map/map-plan";
 import { skillRanges } from "../map/skill-plan";
 import { continuumIndex, groupOfGoal, skillsFor } from "../map/continuum";
+import { remember } from "../cache/lru";
 
 const s = (v: unknown) => String(v ?? "");
 export type Health = "GOOD" | "WARN" | "BAD" | "INFO";
@@ -180,6 +181,6 @@ export function connectionsCached(repo: Repo, actor: Actor): Promise<Connections
   const key = s(actor.schoolId), hit = cache.get(key);
   if (hit && Date.now() - hit.at < 600_000) return hit.v;
   const v = connections(repo, actor).catch((e) => { cache.delete(key); throw e; });
-  cache.set(key, { at: Date.now(), v });
+  remember(cache, key, { at: Date.now(), v }, 32);
   return v;
 }

@@ -21,6 +21,8 @@ export const MIN_GROUP_FOR_COMPARISON = 5;
 export const NO_NATIONAL = "National benchmark data not available.";
 const num = (v: unknown) => Number(v ?? 0);
 const ms = (v: unknown) => (v instanceof Date ? v : new Date(String(v))).getTime();
+/** Students per database read in the school-wide figures (Update 42A: bounded memory). */
+const STUDENT_CHUNK = 25;
 const inPeriod = (rows: Row[], p: Period, field = "createdAt") => rows.filter((r) => ms(r[field]) >= p.from.getTime() && ms(r[field]) <= p.to.getTime());
 
 export interface StudentAnalytics {
@@ -127,18 +129,26 @@ interface GroupMetrics {
 }
 
 async function metricsFor(repo: Repo, label: string, ids: string[], period: Period, suppressSmall: boolean): Promise<GroupMetrics & { growth: GroupGrowth; masteries: number[] }> {
-  const [mastery, attempts] = await Promise.all([
-    ids.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "attempts", "score"] }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: period.from, lte: period.to } }, { select: ["createdAt", "isCorrect"] }) : Promise.resolve([] as Row[]),
-  ]);
-  const perStudent = ids.map((id) => mean(mastery.filter((m) => m.studentId === id && num(m.attempts) > 0).map((m) => num(m.score)))).filter((x): x is number => x !== null);
-  const a = attempts.filter((x) => ms(x.createdAt) <= period.to.getTime());
+  // answers COUNTED by the database (Update 42A: the whole school's answers of the year were loaded only to count them)
+  let answered = 0, correct = 0;
+  const masteryOf = new Map<string, number[]>();
+  for (let i = 0; i < ids.length; i += STUDENT_CHUNK) {
+    const part = ids.slice(i, i + STUDENT_CHUNK);
+    const where = { studentId: { in: part }, createdAt: { gte: period.from, lte: period.to } };
+    const [mastery, n, c] = await Promise.all([
+      repo.findMany("StudentSkillMastery", { studentId: { in: part } }, { select: ["studentId", "attempts", "score"] }),
+      repo.count("QuestionAttempt", where), repo.count("QuestionAttempt", { ...where, isCorrect: true }),
+    ]);
+    answered += n; correct += c;
+    for (const m of mastery) if (num(m.attempts) > 0) (masteryOf.get(String(m.studentId)) ?? masteryOf.set(String(m.studentId), []).get(String(m.studentId))!).push(num(m.score));
+  }
+  const perStudent = ids.map((id) => mean(masteryOf.get(id) ?? [])).filter((x): x is number => x !== null);
   const growth = await groupGrowth(repo, ids, period);
   const suppressed = suppressSmall && perStudent.length < MIN_GROUP_FOR_COMPARISON;
   return {
     label, students: ids.length, studentsWithData: perStudent.length, suppressed,
     avgMastery: suppressed ? null : round1(mean(perStudent)),
-    accuracyPct: suppressed || !a.length ? null : Math.round((100 * a.filter((x) => x.isCorrect).length) / a.length),
+    accuracyPct: suppressed || !answered ? null : Math.round((100 * correct) / answered),
     meanGrowth: suppressed ? null : growth.meanGrowth,
     growth, masteries: perStudent.map((x) => Math.round(x)),
   };
@@ -220,27 +230,32 @@ export async function standardsReport(repo: Repo, actor: Actor, scope: { classId
     ids = (await repo.findMany("Student", { schoolId: actor.schoolId, deletedAt: null })).map((s) => String(s.id));
     gradeLevels = (await repo.findMany("Grade", { schoolId: actor.schoolId })).map((g) => num(g.level));
   }
-  const attempts = ids.length ? inPeriod(await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: period.from, lte: period.to } }, { select: ["studentId", "questionId", "isCorrect", "rapidGuess", "createdAt"] }), period).filter((a) => !a.rapidGuess) : [];
-  const qIds = [...new Set(attempts.map((a) => String(a.questionId)))];
-  const questions = qIds.length ? await repo.findMany("Question", { id: { in: qIds } }, { select: ["id", "standardId"] }) : [];
-  const stdOf = new Map(questions.map((q) => [String(q.id), q.standardId ? String(q.standardId) : null]));
-  const grouped = new Map<string, Row[]>();
-  for (const a of attempts) {
-    const sid = stdOf.get(String(a.questionId));
-    if (sid) (grouped.get(sid) ?? grouped.set(sid, []).get(sid)!).push(a);
+  // answers read a few students at a time and added up per standard (Update 42A: never the whole school's year at once)
+  const stdOf = new Map<string, string | null>();
+  const grouped = new Map<string, { attempts: number; correct: number; students: Set<string> }>();
+  for (let i = 0; i < ids.length; i += STUDENT_CHUNK) {
+    const attempts = inPeriod(await repo.findMany("QuestionAttempt", { studentId: { in: ids.slice(i, i + STUDENT_CHUNK) }, createdAt: { gte: period.from, lte: period.to } }, { select: ["studentId", "questionId", "isCorrect", "rapidGuess", "createdAt"] }), period).filter((a) => !a.rapidGuess);
+    const newQ = [...new Set(attempts.map((a) => String(a.questionId)))].filter((q) => !stdOf.has(q));
+    for (let k = 0; k < newQ.length; k += 1000) for (const q of await repo.findMany("Question", { id: { in: newQ.slice(k, k + 1000) } }, { select: ["id", "standardId"] })) stdOf.set(String(q.id), q.standardId ? String(q.standardId) : null);
+    for (const a of attempts) {
+      const sid = stdOf.get(String(a.questionId));
+      if (!sid) continue;
+      const g = grouped.get(sid) ?? grouped.set(sid, { attempts: 0, correct: 0, students: new Set() }).get(sid)!;
+      g.attempts++; if (a.isCorrect) g.correct++; g.students.add(String(a.studentId));
+    }
   }
   const [stds, all] = await Promise.all([
     grouped.size ? repo.findMany("Standard", { id: { in: [...grouped.keys()] } }) : Promise.resolve([] as Row[]),
     repo.findMany("Standard", { framework: "CCSS_ELA", gradeLevel: { in: gradeLevels } }, { select: ["id"] }),
   ]);
-  const rows = [...grouped].filter(([, as]) => as.length >= 5).map(([sid, as]) => {
+  const rows = [...grouped].filter(([, g]) => g.attempts >= 5).map(([sid, g]) => {
     const s = stds.find((x) => x.id === sid)!;
     return {
       code: String(s.code), short: String(s.code).replace("CCSS.ELA-LITERACY.", ""), description: String(s.description ?? ""),
-      attempts: as.length, students: new Set(as.map((a) => String(a.studentId))).size,
-      accuracyPct: Math.round((100 * as.filter((a) => a.isCorrect).length) / as.length),
+      attempts: g.attempts, students: g.students.size,
+      accuracyPct: Math.round((100 * g.correct) / g.attempts),
     };
-  }).sort((a, b) => a.accuracyPct - b.accuracyPct);
+  }).sort((a, b) => a.accuracyPct - b.accuracyPct || a.code.localeCompare(b.code));
   return { rows, notAssessed: all.filter((s) => !grouped.has(String(s.id))).length };
 }
 

@@ -7,6 +7,7 @@
  *     benchmark). The version shown is the one whose level matches the student's Lexile (grade Lexile bands);
  *     crossing a band edge moves them to the next version — real adaptivity between versions.
  */
+import { runAfterResponse } from "../lib/after-response";
 import { safeFeed } from "../practice/skill-evidence";
 import { isRapidGuess } from "../../adaptive/evidence";
 import { DEFAULT_ADAPTIVE } from "../../config/engine";
@@ -268,12 +269,14 @@ export async function studentArticles(repo: Repo, actor: Actor): Promise<{ lexil
 }
 
 /** The version a student reads now: their Lexile's level; if that version is missing, the nearest one. */
-async function pickVersion(repo: Repo, studentId: string, articleId: string): Promise<{ version: Row; lexile: number }> {
-  const { grade, schoolId } = await studentInfo(repo, studentId);
-  const lx = await readingLexile(repo, studentId);
-  const want = levelForLexile((await lexileBands(repo, schoolId))[grade], lx.lexile) ?? "ON";
-  const vers = await repo.findMany("ReadMasterVersion", { articleId });
-  const withQ = vers.length ? new Set((await repo.findMany("ReadMasterQuestion", { versionId: { in: vers.map((v) => v.id) } }, { select: ["versionId"] })).map((x) => s(x.versionId))) : new Set<string>();
+async function pickVersion(repo: Repo, studentId: string, articleId: string, info?: { grade: number; schoolId: string }): Promise<{ version: Row; lexile: number }> {
+  // independent reads together (Update 42B)
+  const [{ grade, schoolId }, lx, vers] = await Promise.all([info ? Promise.resolve(info) : studentInfo(repo, studentId), readingLexile(repo, studentId), repo.findMany("ReadMasterVersion", { articleId })]);
+  const [bands, withQ] = await Promise.all([
+    lexileBands(repo, schoolId),
+    vers.length ? repo.findMany("ReadMasterQuestion", { versionId: { in: vers.map((v) => v.id) } }, { select: ["versionId"] }).then((r) => new Set(r.map((x) => s(x.versionId)))) : Promise.resolve(new Set<string>()),
+  ]);
+  const want = levelForLexile(bands[grade], lx.lexile) ?? "ON";
   const usable = vers.filter((v) => withQ.has(s(v.id)));
   const order: Record<Level, Level[]> = { BELOW: ["BELOW", "ON", "ABOVE"], ON: ["ON", "BELOW", "ABOVE"], ABOVE: ["ABOVE", "ON", "BELOW"] };
   const version = order[want].map((l) => usable.find((v) => v.level === l)).find(Boolean);
@@ -283,15 +286,20 @@ async function pickVersion(repo: Repo, studentId: string, articleId: string): Pr
 
 export interface OpenArticle { articleId: string; title: string; skill: string | null; versionId: string; level: Level; lexile: number; studentLexile: number; body: string; questions: ClientQuestion[]; done: boolean }
 export async function openArticle(repo: Repo, actor: Actor, articleId: string): Promise<OpenArticle> {
+  return (await openArticleItems(repo, actor, articleId)).open;
+}
+/** The open article and its question items (the answer reuses them instead of loading them again). */
+async function openArticleItems(repo: Repo, actor: Actor, articleId: string): Promise<{ open: OpenArticle; items: Awaited<ReturnType<typeof loadQuestionItems>>; info: { grade: number; schoolId: string } }> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only students read ReadMaster articles.");
-  const a = await repo.findUnique("ReadMasterArticle", { id: articleId });
-  const { grade, schoolId } = await studentInfo(repo, actor.studentId);
+  const [a, info, mine] = await Promise.all([repo.findUnique("ReadMasterArticle", { id: articleId }), studentInfo(repo, actor.studentId), repo.findMany("ReadMasterAttempt", { studentId: actor.studentId, articleId }, { select: ["id"] })]);
+  const { grade, schoolId } = info;
   if (!a || a.schoolId !== schoolId || Number(a.gradeLevel) !== grade || a.status !== "PUBLISHED") throw new ForbiddenError("This article is not available.");
-  const done = (await repo.findMany("ReadMasterAttempt", { studentId: actor.studentId, articleId })).length > 0;
-  const { version, lexile } = await pickVersion(repo, actor.studentId, articleId);
+  const done = mine.length > 0;
+  const { version, lexile } = await pickVersion(repo, actor.studentId, articleId, info);
   const links = (await repo.findMany("ReadMasterQuestion", { versionId: version.id })).sort((x, y) => Number(x.order) - Number(y.order));
   const items = await loadQuestionItems(repo, links.map((l) => s(l.questionId)));
-  return { articleId, title: s(a.title), skill: a.skillName ? s(a.skillName) : null, versionId: s(version.id), level: s(version.level) as Level, lexile: Number(version.lexile), studentLexile: lexile, body: s(version.body), questions: items.map((i) => toClientQuestion(i, `${articleId}:${i.questionId}`)), done };
+  const open: OpenArticle = { articleId, title: s(a.title), skill: a.skillName ? s(a.skillName) : null, versionId: s(version.id), level: s(version.level) as Level, lexile: Number(version.lexile), studentLexile: lexile, body: s(version.body), questions: items.map((i) => toClientQuestion(i, `${articleId}:${i.questionId}`)), done };
+  return { open, items, info };
 }
 
 export interface ArticleResult { correct: number; total: number; pct: number; lexileBefore: number; lexileAfter: number; levelBefore: Level | null; levelAfter: Level | null; review: { questionId: string; correct: boolean; correctAnswer: string; why: string }[] }
@@ -309,11 +317,11 @@ export function cleanTiming(t: ArticleTiming | null | undefined, questionIds: st
 }
 
 export async function submitArticle(repo: Repo, actor: Actor, articleId: string, versionId: string, responses: Record<string, unknown>, now = new Date(), timing?: ArticleTiming | null): Promise<ArticleResult> {
-  const open = await openArticle(repo, actor, articleId);
+  const { open, items: openItems, info } = await openArticleItems(repo, actor, articleId);
   if (open.done) throw new ValidationError("You already finished this article.");
   if (open.versionId !== versionId) throw new ValidationError("Your reading level changed: open the article again.");
   const ids = open.questions.map((q) => q.questionId);
-  const items = await loadQuestionItems(repo, ids);
+  const items = openItems;
   const review = items.map((it) => {
     let ok = false;
     try { ok = scoreResponse(it as never, normalizeResponse(it, responses[it.questionId])) >= 1; } catch { ok = false; }
@@ -323,7 +331,7 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
   const pct = total ? Math.round((100 * correct) / total) : 0;
   const before = open.studentLexile;
   const after = Math.max(RULES.min, Math.min(RULES.max, before + (pct >= RULES.up ? RULES.step : pct < RULES.down ? -RULES.step : 0)));
-  const { grade, schoolId } = await studentInfo(repo, actor.studentId!);
+  const { grade, schoolId } = info;
   const band = (await lexileBands(repo, schoolId))[grade];
   // per-question time (Update 39C): a real time makes rapid-guess detection work for ReadMaster answers too
   const tm = cleanTiming(timing, ids);
@@ -333,8 +341,9 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
   await repo.create("ReadMasterAttempt", { studentId: actor.studentId, articleId, versionId, level: open.level, lexileBefore: before, lexileAfter: after, correct, total, seconds: tm.seconds, rapid, createdAt: now });
   await repo.upsert("StudentReadingLexile", { studentId: actor.studentId }, { lexile: after, source: "READMASTER", updatedAt: now }, { lexile: after, source: "READMASTER", updatedAt: now });
   // 🔗 the article's questions are bank questions: each answer goes through the engine like practice (source
-  // READMASTER), so the skills they measure learn from the article (Update 39B)
-  await safeFeed("readmaster", async () => {
+  // READMASTER), so the skills they measure learn from the article (Update 39B) — after the response (Update 42B):
+  // the article's result and the new Lexile are saved above
+  runAfterResponse("readmaster.skill_feed", () => safeFeed("readmaster", async () => {
     const { recordEngineAttempt } = await import("../lessons/run");
     const ses = await repo.create("PracticeSession", { studentId: actor.studentId, mode: "ADAPTIVE_PRACTICE", startedAt: now, endedAt: now, endReason: "READMASTER", questionCount: items.length, correctCount: correct });
     for (const it of items) {
@@ -343,7 +352,7 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
       try { credit = scoreResponse(it as never, normalizeResponse(it, responses[it.questionId])); } catch { credit = 0; }
       await recordEngineAttempt(repo, { sessionId: s(ses.id), studentId: actor.studentId!, skillId: s(it.skillKey), schoolId: schoolId ?? null, item: it, response: responses[it.questionId] ?? null, credit, usedHint: false, responseMs: msOf(it), now, reasonCode: "READMASTER", reason: "ReadMaster article answer: ability and mastery updated.", source: "READMASTER" });
     }
-  });
+  }));
   return { correct, total, pct, lexileBefore: before, lexileAfter: after, levelBefore: levelForLexile(band, before), levelAfter: levelForLexile(band, after), review };
 }
 

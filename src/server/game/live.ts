@@ -4,8 +4,11 @@
  * device. Multiple choice and True/False only (big tiles, answered fast).
  * Points: 1000 for an instant correct answer, down to 500 at the last second, plus a streak bonus
  * (+100 per correct answer in a row, up to +500). Screens refresh by polling (no extra service needed).
+ *
+ * Games Part 1: new games are Live Challenges (in-memory rooms, src/server/game/rooms.ts + live-challenge.ts) that
+ * save their summary into these same tables. This file keeps the older DB-run games working. Game answers never
+ * feed the adaptive engine (no mastery, ability or level change).
  */
-import { safeFeed } from "../practice/skill-evidence";
 import { masterSkills } from "../skills/master";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -13,6 +16,7 @@ import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
 import { loadQuestionItems } from "../practice/items";
 import { randomInt } from "node:crypto";
+import { openChallengesFor } from "./live-challenge";
 
 const s = (v: unknown) => String(v ?? "");
 const t = (v: unknown) => (v ? new Date(v instanceof Date ? v.toISOString() : s(v)).getTime() : 0);
@@ -198,25 +202,9 @@ export async function answerGame(repo: Repo, actor: Actor, gameId: string, index
     await repo.create("LiveGameAnswer", { gameId, playerId: p.id, questionIndex: index, choice: s(choice).slice(0, 191), correct, points, ms: Math.max(0, elapsed), createdAt: now });
   } catch { throw new ValidationError("You already answered."); }   // the unique key stops double taps
   await repo.updateMany("LiveGamePlayer", { id: p.id }, { score: Number(p.score) + points, streak: correct ? Number(p.streak) + 1 : 0 });
-  // 🔗 a game answer feeds the skill like practice at half weight (source GAME; a too-fast answer is a rapid guess and
-  // counts for nothing) — Update 39B
-  if (actor.studentId) await safeFeed("game", () => gameEvidence(repo, actor, g, index, choice, correct, Math.max(0, elapsed), now));
+  // Games Part 1: a game answer NEVER feeds the adaptive engine (owner rule: games never change levels, mastery or
+  // scores). Update 39B's half-weight feed was removed; the answer row above is all a live game keeps.
   return { correct, points };
-}
-
-async function gameEvidence(repo: Repo, actor: Actor, g: Row, index: number, choice: string, correct: boolean, ms: number, now: Date): Promise<void> {
-  const qid = (typeof g.questionIds === "string" ? JSON.parse(g.questionIds) : g.questionIds ?? [])[index];
-  if (!qid) return;
-  const { loadQuestionItems } = await import("../practice/items");
-  const loaded = (await loadQuestionItems(repo, [s(qid)]))[0];
-  if (!loaded?.skillKey) return;
-  // the question is read together on the shared screen under a timer: its expected time is the game's time per
-  // question at most, so the rapid-guess line (12% of it, never under 2.5 s) fits a timed game
-  const it = { ...loaded, estimatedSeconds: Math.min(Number(loaded.estimatedSeconds) || 45, Number(g.secondsPerQuestion) || 20) };
-  const mark = `LIVE_GAME:${s(g.id)}`;
-  const ses = (await repo.findMany("PracticeSession", { studentId: actor.studentId!, endReason: mark }))[0] ?? await repo.create("PracticeSession", { studentId: actor.studentId!, mode: "ADAPTIVE_PRACTICE", startedAt: now, endedAt: now, endReason: mark });
-  const { recordEngineAttempt } = await import("../lessons/run");
-  await recordEngineAttempt(repo, { sessionId: s(ses.id), studentId: actor.studentId!, skillId: s(it.skillKey), schoolId: actor.schoolId ?? null, item: it, response: choice, credit: correct ? 1 : 0, usedHint: false, responseMs: ms, now, reasonCode: "GAME", reason: "Live game answer (half weight): ability and mastery updated.", source: "GAME" });
 }
 
 /** Games a student can join now (their classes' open games, and school-wide ones). */
@@ -224,7 +212,9 @@ export async function openGamesFor(repo: Repo, actor: Actor): Promise<{ code: st
   if (actor.role !== "STUDENT" || !actor.studentId) return [];
   const classes = new Set((await repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId)));
   const recent = (await repo.findMany("LiveGame", { schoolId: actor.schoolId })).filter((g) => g.status === "LOBBY" && t(g.createdAt) > Date.now() - 6 * 3_600_000 && (!g.classId || classes.has(s(g.classId))));
-  return recent.map((g) => ({ code: s(g.code), title: s(g.title) }));
+  // Games Part 1: Live Challenges run in memory (rooms.ts) — open ones of the student's classes too
+  const live = await openChallengesFor(repo, actor).catch(() => []);
+  return [...live, ...recent.map((g) => ({ code: s(g.code), title: s(g.title) }))];
 }
 
 export async function myGames(repo: Repo, actor: Actor): Promise<{ id: string; code: string; title: string; status: string; players: number; createdAt: string }[]> {

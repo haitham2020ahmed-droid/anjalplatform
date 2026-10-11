@@ -17,6 +17,8 @@ const LEVEL = (d: number) => (d <= 3 ? "Below" : d === 4 ? "On" : "Above");
 export interface SkillHub {
   id: string; name: string; code: string; description: string | null; grade: number; domain: string; family: string;
   area: { name: string; group: GroupKey | null; subject: string } | null;
+  /** UI reorg Phase 1: the skill's NAFS area (through its family) */
+  nafs?: { code: string; name: string } | null;
   units: { id: string; title: string; number: number }[];
   standards: { code: string; description: string | null }[];
   questions: { published: number; drafts: number; byLevel: Record<"Below" | "On" | "Above", number>; byType: { name: string; n: number }[]; ritLow: number | null; ritHigh: number | null; ranges: string[] };
@@ -59,6 +61,8 @@ export async function skillHub(repo: Repo, actor: Actor, skillId: string): Promi
   const gradeOfSkill = (x: Row) => Number(gs.find((g2) => g2.id === curs.find((c) => c.id === x.curriculumId)?.gradeId)?.level ?? 0);
   const named = (x: Row) => ({ id: s(x.id), name: gradeOfSkill(x) && gradeOfSkill(x) !== grade ? `${s(x.name)} (Grade ${gradeOfSkill(x)})` : s(x.name) });
   const published = qs.filter((q) => q.status === "PUBLISHED");
+  const { skillAreas } = await import("../questions/skill-questions");
+  const nafs = (await skillAreas(repo, [skillId])).get(skillId)?.nafs ?? null;
   const byLevel = { Below: 0, On: 0, Above: 0 };
   for (const q of published) byLevel[LEVEL(Number(q.difficultyLevel ?? 4))]++;
   const typeCount = new Map<string, number>();
@@ -104,7 +108,7 @@ export async function skillHub(repo: Repo, actor: Actor, skillId: string): Promi
   const assignments = await repo.count("Assignment", { skillId, deletedAt: null });
   return {
     id: skillId, name: s(k.name), code: s(k.code), description: k.description ? s(k.description) : null, grade, domain: s(k.domain), family: s(fam?.name),
-    area: area ? { name: s(area.name), group, subject: s(area.subject) } : null,
+    area: area ? { name: s(area.name), group, subject: s(area.subject) } : null, nafs,
     units: units.map((u) => ({ id: s(u.id), title: s(u.title), number: Number(u.number) })).sort((a, b) => a.number - b.number),
     standards: stds.map((x) => ({ code: s(x.code).replace(/^CCSS\.ELA-LITERACY\./, ""), description: x.description ? s(x.description) : null })).sort((a, b) => a.code.localeCompare(b.code)),
     questions: { published: published.length, drafts: qs.length - published.length, byLevel, byType: [...typeCount].map(([name, n]) => ({ name, n })).sort((a, b) => b.n - a.n), ritLow, ritHigh, ranges },

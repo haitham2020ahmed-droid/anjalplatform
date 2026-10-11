@@ -24,6 +24,8 @@ import type { MasteryResult, ResponseEvidence } from "../../types/domain";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { withLock } from "../lib/key-lock";
+import { runAfterResponse } from "../lib/after-response";
+import { modelVersion } from "../cache/bank-version";
 import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "../practice/items";
 import { normalizeResponse, type Feedback } from "../practice/session";
 import type { Repo, Row } from "../seeding/repo";
@@ -131,13 +133,31 @@ export function pickItems(items: { questionId: string; b: number }[], theta: num
 
 // ------------------------------------------------------------------ database helpers
 
+/**
+ * Skill rows and engine settings read on every lesson answer, kept in memory while no write to their tables has
+ * happened in this process and for at most a minute (another process may change them) — Update 42B.
+ */
+const refCache = new Map<string, { v: string; at: number; value: unknown }>();
+async function cachedRef<T>(key: string, models: string[], load: () => Promise<T>): Promise<T> {
+  const v = modelVersion(...models), now = Date.now();
+  const hit = refCache.get(key);
+  if (hit && hit.v === v && now - hit.at < 60_000 && now >= hit.at) return hit.value as T;
+  const value = await load();
+  if (refCache.size > 5000) refCache.clear();
+  refCache.set(key, { v, at: now, value });
+  return value;
+}
+
 async function skillAndContent(repo: Repo, skillId: string): Promise<{ skill: Row; content: LessonContent }> {
-  const skill = await repo.findUnique("Skill", { id: skillId });
+  const { skill, fam } = await cachedRef(`skill+family:${skillId}`, ["Skill", "SkillFamily"], async () => {
+    const skill = await repo.findUnique("Skill", { id: skillId });
+    const fam = skill?.familyId ? await repo.findUnique("SkillFamily", { id: skill.familyId }) : null;
+    return { skill, fam };
+  });
   if (!skill || skill.deletedAt || skill.isActive === false) throw new ValidationError("This skill is not available.");
-  const fam = skill.familyId ? await repo.findUnique("SkillFamily", { id: skill.familyId }) : null;
   const content = lessonForSkill({ familyCode: s(fam?.code), code: s(skill.code), name: s(skill.name) });
   if (!content) throw new ValidationError("There is no lesson for this skill yet.");
-  return { skill, content };
+  return { skill: { ...skill }, content };
 }
 
 /** Has this skill got a lesson? (its family has lesson content) */
@@ -152,7 +172,7 @@ async function assertSkillInStudentCurriculum(repo: Repo, student: Row, skillId:
 
 async function engineConfig(repo: Repo, schoolId: string | null): Promise<{ adaptive: AdaptiveConfig; mastery: MasteryThresholds }> {
   if (!schoolId) return resolveEngineConfig();
-  const rows = await repo.findMany("SchoolSetting", { schoolId, key: { in: ["adaptive.engine", "mastery.thresholds"] } });
+  const rows = await cachedRef(`cfg:${schoolId}`, ["SchoolSetting"], () => repo.findMany("SchoolSetting", { schoolId, key: { in: ["adaptive.engine", "mastery.thresholds"] } }));
   const get = (k: string) => (rows.find((r) => r.key === k)?.value ?? {}) as Record<string, unknown>;
   return resolveEngineConfig(get("adaptive.engine"), get("mastery.thresholds"));
 }
@@ -180,18 +200,29 @@ export async function recordEngineAttempt(tx: Repo, a: { sessionId: string; stud
   return recordAttempt(tx, a);
 }
 
-async function recordAttempt(tx: Repo, a: { sessionId: string; studentId: string; skillId: string; schoolId: string | null; item: PracticeItem; response: unknown; credit: number; usedHint: boolean; responseMs: number; now: Date; reasonCode?: string; reason?: string; source?: string }) {
+type AttemptInput = { sessionId: string; studentId: string; skillId: string; schoolId: string | null; item: PracticeItem; response: unknown; credit: number; usedHint: boolean; responseMs: number; now: Date; reasonCode?: string; reason?: string; source?: string };
+
+async function recordAttempt(tx: Repo, a: AttemptInput) {
+  const prep = await prepareAttempt(tx, a, a.sessionId);
+  const out = await writeAttempt(tx, prep, a.sessionId);
+  await tx.create("AdaptiveDecisionLog", out.decisionLog);
+  return out.result;
+}
+
+/**
+ * Update 42B: the READ half of an engine answer (settings, items, history, ability, mastery, the session's answers),
+ * done in parallel and — for lesson answers — before the transaction. `sessionId` null: a session not created yet.
+ */
+async function prepareAttempt(repo: Repo, a: Omit<AttemptInput, "sessionId">, sessionId: string | null) {
   const { studentId, skillId, item, now } = a;
   const correct = a.credit >= 1;
-  const cfg = await engineConfig(tx, a.schoolId);
-  const skill = (await tx.findUnique("Skill", { id: skillId }))!;
-  const skillItems = await loadSkillItems(tx, skillId);
+  const [cfg, skill, skillItems] = await Promise.all([engineConfig(repo, a.schoolId), cachedRef(`skill:${skillId}`, ["Skill"], () => repo.findUnique("Skill", { id: skillId })), loadSkillItems(repo, skillId)]);
   const byId = new Map(skillItems.map((i) => [i.questionId, i]));
   if (!byId.has(item.questionId)) byId.set(item.questionId, item);
   const [hist, ability, prevMastery, sessionCorrect] = await Promise.all([
-    history(tx, studentId, skillId, byId), abilityOf(tx, studentId, skill, cfg.adaptive),
-    tx.findUnique("StudentSkillMastery", { studentId, skillId }),
-    tx.findMany("QuestionAttempt", { sessionId: a.sessionId }, { select: ["id", "isCorrect", "createdAt"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }] }).then((r) => r.map((x) => Boolean(x.isCorrect))),
+    history(repo, studentId, skillId, byId), abilityOf(repo, studentId, skill!, cfg.adaptive),
+    repo.findUnique("StudentSkillMastery", { studentId, skillId }),
+    sessionId ? repo.findMany("QuestionAttempt", { sessionId }, { select: ["id", "isCorrect", "createdAt"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }] }).then((r) => r.map((x) => Boolean(x.isCorrect))) : Promise.resolve([] as boolean[]),
   ]);
   const evidence: ResponseEvidence = {
     itemId: item.questionId, correct, credit: a.credit > 0 && a.credit < 1 ? a.credit : undefined, level: item.level,
@@ -200,32 +231,39 @@ async function recordAttempt(tx: Repo, a: { sessionId: string; studentId: string
     ...(a.source && ATTEMPT_SOURCE_WEIGHT[a.source] !== undefined ? { sourceWeight: ATTEMPT_SOURCE_WEIGHT[a.source] } : {}),
   };
   const step = processAnswer({
-    studentId, skillId, sessionId: a.sessionId, mode: "PRACTICE", ability: { theta: ability.theta, se: ability.se }, prior: ability.prior, history: hist,
+    studentId, skillId, sessionId: sessionId ?? "", mode: "PRACTICE", ability: { theta: ability.theta, se: ability.se }, prior: ability.prior, history: hist,
     previousTargetB: null, candidates: [...byId.values()].map((i) => toCandidate(i, skillId)), prerequisites: [], sessionCorrect,
   }, evidence, cfg, now);
-  const attempt = await tx.create("QuestionAttempt", {
-    sessionId: a.sessionId, studentId, questionId: item.questionId, skillId, response: { value: a.response }, isCorrect: correct,
-    partialCredit: a.credit > 0 && a.credit < 1 ? a.credit : null, responseMs: a.responseMs, usedHint: a.usedHint, rapidGuess: step.rapidGuess,
-    difficultyB: item.irt.b, createdAt: now, misconception: correct ? null : attemptMisconception(item, a.response), source: a.source ?? (a.reasonCode === "REVIEW" ? "REVIEW" : "LESSON"),
-  });
   const seenBefore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
   let mst: MasteryResult = step.mastery;
   if (!correct && mst.score > seenBefore) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
-  await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: hist.length + 1 },
-    { theta: step.ability.theta, thetaSE: step.ability.se, responses: hist.length + 1 });
+  return { a, correct, step, histLength: hist.length, prevMastery, seenBefore, mst };
+}
+
+/** The WRITE half: attempt, ability, mastery. Returns the result and the decision-log row (written by the caller). */
+async function writeAttempt(tx: Repo, p: Awaited<ReturnType<typeof prepareAttempt>>, sessionId: string) {
+  const { a, correct, step, prevMastery, seenBefore, mst } = p;
+  const { studentId, skillId, item, now } = a;
+  const attempt = await tx.create("QuestionAttempt", {
+    sessionId, studentId, questionId: item.questionId, skillId, response: { value: a.response }, isCorrect: correct,
+    partialCredit: a.credit > 0 && a.credit < 1 ? a.credit : null, responseMs: a.responseMs, usedHint: a.usedHint, rapidGuess: step.rapidGuess,
+    difficultyB: item.irt.b, createdAt: now, misconception: correct ? null : attemptMisconception(item, a.response), source: a.source ?? (a.reasonCode === "REVIEW" ? "REVIEW" : "LESSON"),
+  });
+  await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: p.histLength + 1 },
+    { theta: step.ability.theta, thetaSE: step.ability.se, responses: p.histLength + 1 });
   const masteryData = {
     score: mst.score, band: mst.band, attempts: Number(prevMastery?.attempts ?? 0) + 1, correct: Number(prevMastery?.correct ?? 0) + (correct ? 1 : 0),
     maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered, masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
     ...nextReview(prevMastery, mst.isMastered, correct, now),
   };
   await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
-  await tx.create("AdaptiveDecisionLog", {
-    ...step.log, attemptId: attempt.id, nextQuestionId: null, nextTargetB: null, responseCorrect: correct, createdAt: now,
+  const decisionLog: Row = {
+    ...step.log, sessionId, attemptId: attempt.id, nextQuestionId: null, nextTargetB: null, responseCorrect: correct, createdAt: now,
     masteryBefore: seenBefore, masteryAfter: mst.score,
     reason: `${step.rapidGuess ? "Rapid response detected — counted as weak evidence. " : ""}${a.reason ?? "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."}`,
     reasonCode: a.reasonCode ?? "LESSON",
-  });
-  return { correct, rapidGuess: step.rapidGuess, theta: step.ability.theta, masteryBefore: seenBefore, masteryAfter: mst.score, band: mst.band };
+  };
+  return { result: { correct, rapidGuess: step.rapidGuess, theta: step.ability.theta, masteryBefore: seenBefore, masteryAfter: mst.score, band: mst.band }, decisionLog };
 }
 
 /** The PracticeSession that holds the run's answers (created on the first answer). */
@@ -468,10 +506,15 @@ export function answerLesson(repo: Repo, actor: Actor, input: { runId: string; q
     const st = phaseState(run);
     if (st.phase === "MODEL" || st.phase === "DONE" || !st.set) throw new ValidationError("There is no question open in this lesson.");
     if (st.currentId !== input.questionId) throw new ValidationError("This question was already answered. Here is your next one.");
-    const { content } = await skillAndContent(repo, s(run.skillId));
+    // the lesson content, the question and the run's practice session together (Update 42B)
+    const known = logOf(run).find((x): x is Extract<LogEntry, { t: "SESSION" }> => x.t === "SESSION");
+    const [{ content }, items, sesRow] = await Promise.all([
+      skillAndContent(repo, s(run.skillId)), loadQuestionItems(repo, [input.questionId]),
+      known ? repo.findUnique("PracticeSession", { id: known.sessionId }) : Promise.resolve(null),
+    ]);
     const approach = Number(run.approach);
     if (approach === 1 && content.organizer !== "NONE" && !organizerOf(run)?.complete) throw new ValidationError("Finish the organizer first: it is the first step of this new way to learn the skill.");
-    const item = (await loadQuestionItems(repo, [input.questionId]))[0];
+    const item = items[0];
     if (!item) throw new ValidationError("This question is no longer available.");
     const response = normalizeResponse(item, input.response);
     const phase = st.phase as ItemPhase;
@@ -481,11 +524,18 @@ export function answerLesson(repo: Repo, actor: Actor, input: { runId: string; q
     const responseMs = Math.max(0, Math.min(30 * 60_000, now.getTime() - (st.servedAt ?? now).getTime()));
 
     let updated: Row = run;
+    // Update 42B: the engine's reads happen first, in parallel and outside the transaction (the run is locked for this
+    // student, and saveRun below is guarded); the transaction only writes. The decision log and the notes to the
+    // student / teachers are written after the response.
+    const attemptIn = { studentId: s(run.studentId), skillId: s(run.skillId), schoolId: s(run.schoolId) || null, item, response, credit, usedHint: hints > 0, responseMs, now };
+    const prep = await prepareAttempt(repo, attemptIn, sesRow ? s(sesRow.id) : null);
+    const after: (() => Promise<unknown>)[] = [];
     const out = await repo.transaction(async (tx) => {
-      const ses = await sessionOf(tx, run, now);
-      const rec = await recordAttempt(tx, { sessionId: ses.id, studentId: s(run.studentId), skillId: s(run.skillId), schoolId: s(run.schoolId) || null, item, response, credit, usedHint: hints > 0, responseMs, now });
-      const sesRow = (await tx.findUnique("PracticeSession", { id: ses.id }))!;
-      await tx.updateMany("PracticeSession", { id: ses.id }, { questionCount: Number(sesRow.questionCount ?? 0) + 1, correctCount: Number(sesRow.correctCount ?? 0) + (rec.correct ? 1 : 0), activeMs: Number(sesRow.activeMs ?? 0) + responseMs });
+      const ses = sesRow ? { id: s(sesRow.id), created: null as LogEntry | null } : await sessionOf(tx, run, now);
+      const w = await writeAttempt(tx, prep, ses.id);
+      const rec = w.result;
+      after.push(() => repo.create("AdaptiveDecisionLog", w.decisionLog));
+      await tx.updateMany("PracticeSession", { id: ses.id }, { questionCount: Number(sesRow?.questionCount ?? 0) + 1, correctCount: Number(sesRow?.correctCount ?? 0) + (rec.correct ? 1 : 0), activeMs: Number(sesRow?.activeMs ?? 0) + responseMs });
       const log: LogEntry[] = [...st.log, ...(ses.created ? [ses.created] : [])];
       log.push({ t: "ANS", phase, questionId: item.questionId, correct: rec.correct, credit: lessonCredit, hints, approach, at: now.toISOString() });
       const answers = [...st.answers, { correct: rec.correct }];
@@ -516,15 +566,20 @@ export function answerLesson(repo: Repo, actor: Actor, input: { runId: string; q
       updated = { ...run, ...patch };
       if (patch.phase === "DONE" && patch.passed === true) {
         // the teacher sees the win in class progress; the student gets a note
-        const stRow = await tx.findUnique("Student", { id: run.studentId });
-        if (stRow) await tx.create("Notification", { userId: stRow.userId, type: "SKILL_MASTERED", title: `🎉 Lesson passed: ${s((await tx.findUnique("Skill", { id: run.skillId }))?.name)}`, body: `Quick check: ${patch.checkPct}%. Keep practising to stay strong.`, link: `/student/lesson`, readAt: null, createdAt: now });
+        after.push(async () => {
+          const stRow = await repo.findUnique("Student", { id: run.studentId });
+          if (stRow) await repo.create("Notification", { userId: stRow.userId, type: "SKILL_MASTERED", title: `🎉 Lesson passed: ${s((await repo.findUnique("Skill", { id: run.skillId }))?.name)}`, body: `Quick check: ${patch.checkPct}%. Keep practising to stay strong.`, link: `/student/lesson`, readAt: null, createdAt: now });
+        });
       }
       if (teacherAlert) {
-        const [users, name, skill] = await Promise.all([teacherUserIds(tx, s(run.studentId)), studentName(tx, s(run.studentId)), tx.findUnique("Skill", { id: run.skillId })]);
-        for (const userId of users) await tx.create("Notification", { userId, type: "INTERVENTION_ALERT", title: `🧩 ${name} needs a small-group re-teach`, body: `The lesson on “${s(skill?.name)}” was tried with every approach (last quick check ${patch.checkPct ?? "—"}%). A short small-group lesson with you is the next step.`, link: `/teacher/lessons/${s(run.id)}`, readAt: null, createdAt: now });
+        after.push(async () => {
+          const [users, name, skill] = await Promise.all([teacherUserIds(repo, s(run.studentId)), studentName(repo, s(run.studentId)), repo.findUnique("Skill", { id: run.skillId })]);
+          for (const userId of users) await repo.create("Notification", { userId, type: "INTERVENTION_ALERT", title: `🧩 ${name} needs a small-group re-teach`, body: `The lesson on “${s(skill?.name)}” was tried with every approach (last quick check ${patch.checkPct ?? "—"}%). A short small-group lesson with you is the next step.`, link: `/teacher/lessons/${s(run.id)}`, readAt: null, createdAt: now });
+        });
       }
       return rec;
     });
+    for (const f of after) runAfterResponse("lesson.after_answer", f);
 
     const view = await buildView(repo, updated);
     const feedback: Feedback = {

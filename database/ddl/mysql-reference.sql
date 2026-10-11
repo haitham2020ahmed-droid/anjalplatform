@@ -16,6 +16,8 @@ CREATE TABLE `User` (
   `lastLoginAt` DATETIME(3),
   `failedLogins` INTEGER NOT NULL DEFAULT 0,
   `lockedUntil` DATETIME(3),
+  `uiLang` VARCHAR(5),
+  `tourSeenAt` DATETIME(3),
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `updatedAt` DATETIME(3) NOT NULL,
   `deletedAt` DATETIME(3),
@@ -671,12 +673,16 @@ CREATE TABLE `Assignment` (
   `dueAt` DATETIME(3),
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `deletedAt` DATETIME(3),
+  `testId` VARCHAR(191),
+  `shuffle` BOOLEAN NOT NULL DEFAULT false,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `Assignment_classId_dueAt_idx` ON `Assignment`(`classId`, `dueAt`);
 
 CREATE INDEX `Assignment_skillId_idx` ON `Assignment`(`skillId`);
+
+CREATE INDEX `Assignment_testId_idx` ON `Assignment`(`testId`);
 
 CREATE TABLE `AssignmentStudent` (
   `assignmentId` VARCHAR(191) NOT NULL,
@@ -1199,6 +1205,8 @@ CREATE TABLE `LiveGame` (
   `secondsPerQuestion` INTEGER NOT NULL DEFAULT 20,
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `finishedAt` DATETIME(3),
+  `mode` VARCHAR(32),
+  `summary` JSON,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -1233,6 +1241,52 @@ CREATE TABLE `LiveGameAnswer` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `LiveGameAnswer_gameId_questionIndex_idx` ON `LiveGameAnswer`(`gameId`, `questionIndex`);
+
+CREATE TABLE `GamePlay` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `skillId` VARCHAR(191) NOT NULL,
+  `gameId` VARCHAR(32) NOT NULL,
+  `mode` VARCHAR(8) NOT NULL DEFAULT 'SOLO',
+  `correct` INTEGER NOT NULL DEFAULT 0,
+  `incorrect` INTEGER NOT NULL DEFAULT 0,
+  `points` INTEGER NOT NULL DEFAULT 0,
+  `liveGameId` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `GamePlay_schoolId_createdAt_idx` ON `GamePlay`(`schoolId`, `createdAt`);
+
+CREATE INDEX `GamePlay_studentId_createdAt_idx` ON `GamePlay`(`studentId`, `createdAt`);
+
+CREATE TABLE `GameRating` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `gameId` VARCHAR(32) NOT NULL,
+  `stars` INTEGER NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `GameRating_studentId_gameId_key` UNIQUE (`studentId`, `gameId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `GameRating_schoolId_gameId_idx` ON `GameRating`(`schoolId`, `gameId`);
+
+CREATE TABLE `LiveChallengeTemplate` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `userId` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(150) NOT NULL,
+  `spec` JSON NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `LiveChallengeTemplate_userId_idx` ON `LiveChallengeTemplate`(`userId`);
 
 CREATE TABLE `CrossGradeBridge` (
   `id` VARCHAR(191) NOT NULL,
@@ -1454,6 +1508,21 @@ CREATE TABLE `StudentWord` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `StudentWord_studentId_lastAt_idx` ON `StudentWord`(`studentId`, `lastAt`);
+
+CREATE TABLE `MissingWord` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `word` VARCHAR(64) NOT NULL,
+  `count` INTEGER NOT NULL DEFAULT 1,
+  `lastSentence` VARCHAR(300),
+  `checkedAt` DATETIME(3),
+  `firstAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `lastAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `MissingWord_schoolId_word_key` UNIQUE (`schoolId`, `word`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `MissingWord_schoolId_count_idx` ON `MissingWord`(`schoolId`, `count`);
 
 CREATE TABLE `WorkComment` (
   `id` VARCHAR(191) NOT NULL,
@@ -2310,6 +2379,172 @@ CREATE TABLE `StudentLevelState` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `StudentLevelState_schoolId_level_idx` ON `StudentLevelState`(`schoolId`, `level`);
+
+CREATE TABLE `NafsArea` (
+  `id` VARCHAR(191) NOT NULL,
+  `code` VARCHAR(32) NOT NULL,
+  `name` VARCHAR(120) NOT NULL,
+  `sortOrder` INTEGER NOT NULL DEFAULT 0,
+  `isActive` BOOLEAN NOT NULL DEFAULT true,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `NafsArea_code_key` UNIQUE (`code`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `NafsSkillLink` (
+  `familyId` VARCHAR(191) NOT NULL,
+  `areaId` VARCHAR(191) NOT NULL,
+  `source` VARCHAR(8) NOT NULL,
+  `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`familyId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `NafsSkillLink_areaId_idx` ON `NafsSkillLink`(`areaId`);
+
+CREATE TABLE `NafsQuestionArea` (
+  `questionId` VARCHAR(191) NOT NULL,
+  `areaId` VARCHAR(191) NOT NULL,
+  `setById` VARCHAR(191),
+  `setAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`questionId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `NafsQuestionArea_areaId_idx` ON `NafsQuestionArea`(`areaId`);
+
+CREATE TABLE `SkillLinkReview` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `kind` VARCHAR(16) NOT NULL,
+  `subjectId` VARCHAR(64) NOT NULL,
+  `excerpt` VARCHAR(200) NOT NULL,
+  `guessId` VARCHAR(40),
+  `guessLabel` VARCHAR(160),
+  `confidence` DOUBLE NOT NULL,
+  `reason` VARCHAR(255) NOT NULL,
+  `status` VARCHAR(10) NOT NULL DEFAULT 'OPEN',
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `reviewedById` VARCHAR(191),
+  `reviewedAt` DATETIME(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `SkillLinkReview_schoolId_kind_subjectId_key` UNIQUE (`schoolId`, `kind`, `subjectId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `SkillLinkReview_schoolId_status_idx` ON `SkillLinkReview`(`schoolId`, `status`);
+
+CREATE TABLE `TeacherTest` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `classId` VARCHAR(191) NOT NULL,
+  `teacherId` VARCHAR(191) NOT NULL,
+  `createdById` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `testType` VARCHAR(24) NOT NULL,
+  `levelMode` VARCHAR(8) NOT NULL DEFAULT 'SAME',
+  `skillIds` JSON NOT NULL,
+  `openAt` DATETIME(3),
+  `dueAt` DATETIME(3),
+  `timeLimitMin` INTEGER,
+  `shuffle` BOOLEAN NOT NULL DEFAULT false,
+  `templateId` VARCHAR(191),
+  `reteachAt` DATETIME(3),
+  `nafsPlanAt` DATETIME(3),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `deletedAt` DATETIME(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `TeacherTest_classId_createdAt_idx` ON `TeacherTest`(`classId`, `createdAt`);
+
+CREATE INDEX `TeacherTest_schoolId_teacherId_idx` ON `TeacherTest`(`schoolId`, `teacherId`);
+
+CREATE TABLE `TestTemplate` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `createdById` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `testType` VARCHAR(24) NOT NULL,
+  `spec` JSON NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL,
+  `deletedAt` DATETIME(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `TestTemplate_schoolId_createdById_idx` ON `TestTemplate`(`schoolId`, `createdById`);
+
+CREATE TABLE `TtsAudio` (
+  `id` VARCHAR(191) NOT NULL,
+  `textHash` VARCHAR(64) NOT NULL,
+  `provider` VARCHAR(20) NOT NULL,
+  `voice` VARCHAR(120) NOT NULL,
+  `mime` VARCHAR(40) NOT NULL,
+  `bytes` MEDIUMBLOB NOT NULL,
+  `size` INTEGER NOT NULL,
+  `durationMs` INTEGER NOT NULL,
+  `chars` INTEGER NOT NULL,
+  `timings` MEDIUMTEXT NOT NULL,
+  `source` VARCHAR(80),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `TtsAudio_textHash_key` UNIQUE (`textHash`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `StudentReward` (
+  `studentId` VARCHAR(191) NOT NULL,
+  `coins` INTEGER NOT NULL DEFAULT 0,
+  `earned` INTEGER NOT NULL DEFAULT 0,
+  `avatar` JSON,
+  `favoriteBadge` VARCHAR(40),
+  `syncedAt` DATETIME(3),
+  `updatedAt` DATETIME(3) NOT NULL,
+  PRIMARY KEY (`studentId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `CoinLedger` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `amount` INTEGER NOT NULL,
+  `reason` VARCHAR(24) NOT NULL,
+  `refId` VARCHAR(120) NOT NULL,
+  `note` VARCHAR(200),
+  `createdById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `CoinLedger_studentId_reason_refId_key` UNIQUE (`studentId`, `reason`, `refId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `CoinLedger_studentId_createdAt_idx` ON `CoinLedger`(`studentId`, `createdAt`);
+
+CREATE TABLE `QotdAnswer` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `day` VARCHAR(10) NOT NULL,
+  `questionId` VARCHAR(191) NOT NULL,
+  `skillId` VARCHAR(191),
+  `level` VARCHAR(8) NOT NULL,
+  `correct` BOOLEAN NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `QotdAnswer_studentId_day_key` UNIQUE (`studentId`, `day`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `QotdAnswer_studentId_correct_idx` ON `QotdAnswer`(`studentId`, `correct`);
+
+CREATE TABLE `Certificate` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `kind` VARCHAR(12) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `detail` VARCHAR(300),
+  `refId` VARCHAR(120) NOT NULL,
+  `createdById` VARCHAR(191),
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `Certificate_studentId_kind_refId_key` UNIQUE (`studentId`, `kind`, `refId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `Certificate_studentId_createdAt_idx` ON `Certificate`(`studentId`, `createdAt`);
 
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

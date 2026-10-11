@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { teacherCurriculum, type CurriculumSkill } from "@/server/teacher/assign";
+import { NO_CURRICULUM_MESSAGE, teacherCurriculum, type CurriculumSkill } from "@/server/teacher/assign";
 import { AssignDialog, AssignSkillHost } from "../assign-dialog";
 import { CcssNote } from "@/components/ccss-note";
 
@@ -10,30 +10,32 @@ import { CcssNote } from "@/components/ccss-note";
  * 📘 Curriculum (Grade → Unit → Skill → Standard) and 🗺️ MAP (MAP Growth goal area → Skill).
  * ⭐ Assign on every skill; “View questions” opens the skill's questions to star and assign.
  */
-export default async function TeacherCurriculumPage({ searchParams }: { searchParams: Promise<{ classId?: string; area?: string }> }) {
+export default async function TeacherCurriculumPage({ searchParams }: { searchParams: Promise<{ classId?: string; area?: string; grade?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
-  const view = await teacherCurriculum(repo, actor, sp.classId);
-  // MAP, or Nafs for Grade 6 (curriculum work is done from the Curriculum Map and the Question Bank)
-  const nafs = sp.area === "nafs" && view?.grade.level === 6;
+  // access rules: any grade's curriculum may be viewed (and its skills assigned to this teacher's own class)
+  const view = await teacherCurriculum(repo, actor, sp.classId, { grade: /^\d{1,2}$/.test(String(sp.grade ?? "")) ? Number(sp.grade) : null });
+  // MAP or NAFS: skills grouped by area with the ONE shared question count; any grade's skills may be viewed
+  const nafs = sp.area === "nafs";
   const map = !nafs;
   const canAssign = actor.role === "TEACHER";
-  const href = (o: { classId?: string; area?: string }) => {
+  const href = (o: { classId?: string; area?: string; grade?: number }) => {
     const p = new URLSearchParams();
     const c = o.classId ?? view?.classId; if (c) p.set("classId", c);
     const a = o.area ?? (map ? "map" : ""); if (a) p.set("area", a);
+    const g = o.grade ?? (o.classId ? undefined : view?.viewGrade?.level); if (g !== undefined) p.set("grade", String(g));
     return `/teacher/curriculum?${p}`;
   };
   const row = (k: CurriculumSkill) => (
     <li key={k.id} className="flex flex-wrap items-center justify-between gap-3 py-2">
       <div>
-        <p className="font-medium text-slate-900">{k.name}</p>
+        <p className="font-medium text-slate-900">{k.name}{k.grade !== undefined && <span className="ms-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">Grade {k.grade}</span>}</p>
         <p className="text-xs text-slate-500">{k.standards.join(", ") || "No standard"}{k.lessons.length ? ` · Lessons ${k.lessons.join(", ")}` : ""}{k.openAssignments ? ` · assigned (${k.openAssignments} open)` : ""}</p>
       </div>
       <div className="flex flex-wrap items-center gap-2">
-        <Link href={`/admin/questions?status=PUBLISHED&grade=${view!.grade.level}&skill=${k.id}${map ? "&track=map" : "&track=nafs"}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Open these questions; star ⭐ the ones you want and assign them">View questions ({k.questions})</Link>
-        {canAssign && <Link href={`/teacher/skill-assign?${new URLSearchParams({ skillId: k.id, classId: view!.classId })}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Questions linked to the lesson, the same skill and the same standard; assign adaptive practice or a ready set">🔎 Questions from the bank</Link>}
+        <Link href={`/admin/questions?status=PUBLISHED&grade=${view!.viewGrade?.level ?? view!.grade.level}&skill=${k.id}${map ? "&track=map" : "&track=nafs"}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Open these questions; star ⭐ the ones you want and assign them">View questions ({k.questions})</Link>
+        {canAssign && <Link href={`/teacher/skill-assign?${new URLSearchParams({ skillId: k.id, classId: view!.classId })}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Questions linked to the lesson, the same skill and the same standard; assign practice at each student’s level or a ready set">🔎 Questions from the bank</Link>}
         {canAssign && <AssignDialog skill={k} />}
       </div>
     </li>
@@ -43,7 +45,7 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
     <AppShell name={String(me.displayName)}>
       <p><Link href="/teacher" className="text-brand-teal hover:underline">← My classes</Link></p>
       <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
-        <h1 className="text-3xl font-bold text-brand-navy"><span aria-hidden="true">{map ? "🗺️" : "🇸🇦"}</span> {map ? "MAP" : "Nafs"}{view ? `: ${view.grade.name}` : ""}</h1>
+        <h1 className="text-3xl font-bold text-brand-navy"><span aria-hidden="true">{map ? "🗺️" : "🇸🇦"}</span> {map ? "MAP" : "NAFS"}{view ? `: ${view.viewGrade?.name ?? view.grade.name}` : ""}</h1>
         <Link href="/teacher/assignments" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Weekly assignments</Link>
       </div>
       {!view ? <p className="mt-4 text-slate-600">You do not teach any class yet.</p> : (
@@ -54,21 +56,31 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
                 className={`rounded-full px-4 py-1.5 text-sm font-semibold ${c.id === view.classId ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{c.name} · G{c.grade}</Link>
             ))}
           </nav>
-          {view.grade.level === 6 && (
+          {view.grades && view.grades.length > 1 && (
+            <nav aria-label="Grade" className="mt-4 flex flex-wrap items-center gap-2">
+              <span className="text-sm font-semibold text-slate-600">Show skills of:</span>
+              {view.grades.map((g) => (
+                <Link key={g.level} href={href({ grade: g.level })} aria-current={g.level === view.viewGrade?.level ? "page" : undefined}
+                  className={`rounded-full px-3 py-1 text-sm font-semibold ${g.level === view.viewGrade?.level ? "bg-brand-teal text-white" : "bg-white ring-1 ring-slate-200"}`}>{g.name}{g.skills ? "" : " (no curriculum yet)"}</Link>
+              ))}
+            </nav>
+          )}
+          {view.noCurriculum && <p role="status" className="mt-4 rounded-2xl bg-amber-50 px-4 py-3 font-medium text-amber-900 ring-1 ring-amber-200">{NO_CURRICULUM_MESSAGE}. <Link href="/teacher/plans" className="underline">Open Plans</Link> or choose a grade above.</p>}
+          {(
             <nav aria-label="Area" className="mt-5 flex flex-wrap gap-3">
               <Link href={href({ area: "map" })} aria-current={map ? "page" : undefined} className={tab(map)}><span aria-hidden="true" className="text-2xl">🗺️</span> MAP</Link>
-              <Link href={href({ area: "nafs" })} aria-current={nafs ? "page" : undefined} className={tab(nafs)}><span aria-hidden="true" className="text-2xl">🇸🇦</span> Nafs</Link>
+              <Link href={href({ area: "nafs" })} aria-current={nafs ? "page" : undefined} className={tab(nafs)}><span aria-hidden="true" className="text-2xl">🇸🇦</span> NAFS</Link>
             </nav>
           )}
           <CcssNote className="mt-4" />
-          <p className="mt-3 text-sm text-slate-600">{view.students.length} students. {map ? "Skills grouped by MAP Growth goal area. Work assigned here appears under 🗺️ MAP skills for students." : "Skills by book unit. Work assigned here appears under 📘 Curriculum skills for students."}</p>
+          <p className="mt-3 text-sm text-slate-600">{view.students.length} students. {map ? "Skills grouped by MAP Growth goal area. Work assigned here appears under 🗺️ MAP skills for students." : "Skills grouped by NAFS area. Work assigned here appears under NAFS skills for students."}</p>
           {!map && (
             <>
-              {view.units.length === 0 && <p className="mt-4 text-slate-600">This grade has no units yet.</p>}
-              {view.units.map((u) => (
-                <section key={u.id} className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200" aria-labelledby={`u-${u.id}`}>
-                  <h2 id={`u-${u.id}`} className="text-lg font-bold text-brand-navy">{u.id === "more" ? u.title : `Unit ${u.number}: ${u.title}`}</h2>
-                  {u.skills.length === 0 ? <p className="mt-2 text-sm text-slate-600">No skills in this unit.</p> : <ul className="mt-2 divide-y divide-slate-100">{u.skills.map(row)}</ul>}
+              {(view.nafsAreas ?? []).length === 0 && <p className="mt-4 rounded-xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">No skills of this grade are linked to a NAFS area yet. {actor.role !== "TEACHER" && <Link href="/admin/nafs-links" className="font-semibold text-brand-teal underline">Link them</Link>}</p>}
+              {(view.nafsAreas ?? []).map((a) => (
+                <section key={a.code} className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-teal-200" aria-labelledby={`n-${a.code}`}>
+                  <h2 id={`n-${a.code}`} className="flex items-center gap-2 text-lg font-bold text-brand-navy"><span className="rounded-full bg-teal-100 px-2.5 py-0.5 text-xs font-semibold text-teal-800">NAFS</span>{a.name}</h2>
+                  <ul className="mt-2 divide-y divide-slate-100">{a.skills.map(row)}</ul>
                 </section>
               ))}
             </>

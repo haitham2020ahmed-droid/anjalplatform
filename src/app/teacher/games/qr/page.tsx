@@ -28,7 +28,7 @@ export default async function SkillQrPage({ searchParams }: { searchParams: Prom
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/games", label: "Games" }} icon="📱" title="Skill Game QR Codes"
-        subtitle="Each student plays alone at their own level; every answer counts toward their progress. Show one QR on the board, or print a sheet of cards. Students scan with a tablet or phone, sign in, and the game opens.">
+        subtitle="Each student plays Quiz Race alone, with questions of that skill at their own level (game points only: levels and scores never change). Show one QR on the board, or print a sheet of cards. Students scan with a tablet or phone, sign in, and the game opens.">
         {picked.length > 0 && <PrintButton />}
       </PageHeader>
       <nav aria-label="Classes" className="flex flex-wrap gap-2 print:hidden">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/games/qr?classId=${c.id}`} className={`rounded-full px-4 py-1.5 text-sm font-semibold ${c.id === klass?.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{String(c.name)}</Link>)}</nav>

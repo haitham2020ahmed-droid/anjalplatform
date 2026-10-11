@@ -44,6 +44,8 @@ COPY --from=build --chown=node:node /app/node_modules/playwright-core ./node_mod
 # PDF text extraction for the question-bank importer (server external package, see next.config.ts)
 COPY --from=build --chown=node:node /app/node_modules/pdfjs-dist ./node_modules/pdfjs-dist
 COPY --chown=node:node assets ./assets
+# safe heap limit (~70% of the container's memory, or of WEB_MEMORY_MB): scripts/start.mjs, Update 42A
+COPY --chown=node:node scripts/start.mjs ./scripts/start.mjs
 # Chromium headless shell for PDF reports, with its system libraries (same version as playwright-core)
 RUN node node_modules/playwright-core/cli.js install --with-deps --only-shell chromium \
  && rm -rf /var/lib/apt/lists/* && chmod -R a+rX /ms-playwright \
@@ -53,7 +55,7 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
   CMD node -e "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
 ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD ["node", "server.js"]
+CMD ["node", "scripts/start.mjs", "--standalone"]
 
 # ----------------------------------------------------------------------- jobs
 FROM deps AS jobs

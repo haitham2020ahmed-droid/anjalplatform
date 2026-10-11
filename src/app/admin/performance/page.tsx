@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { schoolPerformance } from "@/server/admin/performance";
+import { AtAGlance, Callout, ReportHeader } from "@/components/report-kit";
 
 const val = (v: number | null, suffix = "%") => (v === null ? "—" : `${v}${suffix}`);
 const tone = (v: number | null) => (v === null ? "text-slate-500" : v >= 75 ? "text-teal-800" : v >= 50 ? "text-amber-800" : "text-red-700");
@@ -12,23 +12,29 @@ export default async function PerformancePage() {
   const me = (await getActor())!.user;
   const p = await schoolPerformance(repo, actor);
   const t = p.totals;
-  const tile = (label: string, value: string, cls = "text-brand-navy") => <div className="rounded-xl bg-white p-4 ring-1 ring-slate-200"><dt className="text-xs text-slate-500">{label}</dt><dd className={`text-2xl font-bold ${cls}`}>{value}</dd></div>;
+  const toneOf = (v: number | null) => (v === null ? "neutral" as const : v >= 75 ? "good" as const : v >= 50 ? "warn" as const : "bad" as const);
   const th = "p-3 font-medium";
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href="/admin" className="text-brand-teal hover:underline">← Administration</Link></p>
-      <h1 className="mt-2 text-3xl font-bold text-brand-navy">Teacher &amp; Student Performance</h1>
-      <p className="mt-1 text-slate-600">Mastery is the students' average across the skills they practised. Completion is the share of assigned work completed.</p>
-      <dl className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
-        {tile("Teachers", String(t.teachers))}{tile("Classes", String(t.classes))}{tile("Students", String(t.students))}{tile("Active this week", `${t.activeThisWeek} of ${t.students}`)}
-        {tile("Average mastery", val(t.avgMastery), tone(t.avgMastery))}{tile("Assignments", String(t.assignments))}{tile("Completion", val(t.completion), tone(t.completion))}{tile("Overdue work", String(t.overdue), t.overdue ? "text-red-700" : "text-brand-navy")}
-      </dl>
+      <ReportHeader back={{ href: "/admin", label: "Administration" }} icon="📊" title="Teacher & Student Performance" who="Whole school"
+        subtitle="Mastery is the students' average across the skills they practised. Completion is the share of assigned work completed." />
+      <AtAGlance items={[
+        { icon: "🏫", label: "Students", value: String(t.students), meaning: `${t.teachers} teachers · ${t.classes} classes` },
+        { icon: "🙋", label: "Active this week", value: `${t.activeThisWeek} of ${t.students}`, tone: t.students && t.activeThisWeek / t.students < 0.5 ? "warn" : "good" },
+        { icon: "📈", label: "Average mastery", value: val(t.avgMastery), tone: toneOf(t.avgMastery) },
+        { icon: "📋", label: "Completion", value: val(t.completion), meaning: `${t.assignments} assignments`, tone: toneOf(t.completion) },
+        { icon: "⏰", label: "Overdue work", value: String(t.overdue), tone: t.overdue ? "bad" : "good" },
+      ]} />
+      <Callout kind="help" items={[
+        p.attention.length ? `${p.attention.length} students need attention (list at the bottom).` : null,
+        ...p.teachers.filter((x) => x.completion !== null && x.completion < 50).slice(0, 3).map((x) => `${x.name}: completion ${x.completion}%`),
+      ]}>{!p.attention.length ? "No student needs attention right now." : null}</Callout>
 
       <section className="mt-8">
         <h2 className="text-xl font-bold text-brand-navy">Teachers</h2>
-        <div className="mt-2 overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
+        <div className="rk-box rk-tall mt-2">
           <table className="w-full text-left text-sm">
-            <thead><tr className="border-b text-slate-500"><th className={th}>Teacher</th><th>Classes</th><th>Students</th><th>Assignments</th><th>Completion</th><th>Overdue</th><th>Students' mastery</th></tr></thead>
+            <thead><tr><th className={th}>Teacher</th><th>Classes</th><th>Students</th><th>Assignments</th><th>Completion</th><th>Overdue</th><th>Students' mastery</th></tr></thead>
             <tbody>
               {p.teachers.length === 0 && <tr><td colSpan={7} className="p-4 text-slate-600">No teachers are linked to classes yet.</td></tr>}
               {p.teachers.map((x) => (
@@ -44,9 +50,9 @@ export default async function PerformancePage() {
 
       <section className="mt-8">
         <h2 className="text-xl font-bold text-brand-navy">Classes</h2>
-        <div className="mt-2 overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
+        <div className="rk-box rk-tall mt-2">
           <table className="w-full text-left text-sm">
-            <thead><tr className="border-b text-slate-500"><th className={th}>Class</th><th>Grade</th><th>Teachers</th><th>Students</th><th>Active this week</th><th>Mastery</th><th>Completion</th><th>Overdue</th></tr></thead>
+            <thead><tr><th className={th}>Class</th><th>Grade</th><th>Teachers</th><th>Students</th><th>Active this week</th><th>Mastery</th><th>Completion</th><th>Overdue</th></tr></thead>
             <tbody>{p.classes.map((c) => (
               <tr key={c.name + c.grade} className="border-b last:border-0">
                 <td className="p-3 font-medium">{c.name}</td><td>{c.grade}</td><td>{c.teachers.join(", ") || "—"}</td><td className="tabular-nums">{c.students}</td><td className="tabular-nums">{c.activeThisWeek}</td>

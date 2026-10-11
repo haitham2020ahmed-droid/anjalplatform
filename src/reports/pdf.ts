@@ -19,7 +19,8 @@ import type { ReportDoc } from "./model";
 import { footerTemplate } from "./html";
 
 export interface PdfRenderer {
-  render(html: string, doc: ReportDoc, fontStack: string): Promise<Uint8Array>;
+  /** opts.footer false: no page-number footer (a one-page certificate) */
+  render(html: string, doc: ReportDoc, fontStack: string, opts?: { footer?: boolean }): Promise<Uint8Array>;
   close(): Promise<void>;
 }
 
@@ -83,7 +84,7 @@ export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
       if (b && b.isConnected()) return b;
     }
     browser = (async () => {
-      const { chromium } = await import("playwright-core");
+      const { chromium } = await import(/* webpackIgnore: true */ "playwright-core"); // loaded on the first PDF only (Update 42A)
       return chromium.launch({
         executablePath: opts.executablePath || undefined,
         args: ["--disable-dev-shm-usage", "--no-first-run", "--disable-extensions", ...(opts.args ?? [])],
@@ -93,7 +94,7 @@ export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
   };
 
   return {
-    async render(html, doc, fontStack) {
+    async render(html, doc, fontStack, ropts) {
       const release = await gate.acquire(opts.queueTimeoutMs ?? 30_000);
       const b = await getBrowser();
       const ctx = await b.newContext({ javaScriptEnabled: false, offline: true, locale: doc.locale === "ar" ? "ar-SA" : "en-GB" });
@@ -108,7 +109,7 @@ export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
           format: "A4",
           printBackground: true,
           preferCSSPageSize: true,
-          displayHeaderFooter: true,
+          displayHeaderFooter: ropts?.footer !== false,
           headerTemplate: "<span></span>",
           footerTemplate: footerTemplate(doc, fontStack),
           tagged: true,

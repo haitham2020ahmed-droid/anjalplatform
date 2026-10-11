@@ -1,6 +1,6 @@
-import { PageLoading } from "@/components/page-loading";
+import { StudentHomeSkeleton } from "@/components/loading-skeletons";
 
-/** Instant feedback while this section's page is prepared on the server. */
+/** Instant feedback while “My work” is prepared on the server (Update 42B). */
 export default function Loading() {
-  return <PageLoading />;
+  return <StudentHomeSkeleton />;
 }

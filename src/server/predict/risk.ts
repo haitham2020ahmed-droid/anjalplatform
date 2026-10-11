@@ -200,8 +200,8 @@ export async function computeRisks(repo: Repo, schoolId: string, now = new Date(
   const [model, done] = await Promise.all([riskModel(repo, schoolId), doneInterventions(repo, [schoolId])]);
   const day = new Date(riyadhDay(now)); // the school day in Riyadh (one snapshot per student per day)
   let high = 0;
-  for (let i = 0; i < ids.length; i += 300) {
-    const chunk = ids.slice(i, i + 300);
+  for (let i = 0; i < ids.length; i += 100) { // Update 42A: 100 students per round (bounded memory)
+    const chunk = ids.slice(i, i + 100);
     const sig = await rawSignals(repo, chunk, now, { done });
     for (const id of chunk) {
       const r = sig.get(id)!; const x = featuresOf(r);

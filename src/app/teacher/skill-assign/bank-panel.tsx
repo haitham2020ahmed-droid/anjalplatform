@@ -83,10 +83,10 @@ export function BankPanel({ found, classId, link }: { found: FinderResult; class
       <div className="mt-5 grid gap-3 md:grid-cols-2">
         <form action={assignAdaptiveFromBankAction} className="rounded-xl bg-emerald-50 p-4 ring-1 ring-emerald-200">
           <input type="hidden" name="classId" value={classId} /><input type="hidden" name="skillId" value={found.skill.id} /><input type="hidden" name="lessonId" value={found.lesson?.id ?? ""} />
-          <p className="font-semibold text-slate-900">Adaptive practice</p>
+          <p className="font-semibold text-slate-900">Practice at each student’s level</p>
           <p className="text-sm text-slate-600">The engine picks each student's questions by mastery, previous answers, difficulty and weakness.</p>
           <label className="mt-2 flex flex-col text-sm">Due date (optional)<input type="date" name="dueAt" className={box} /></label>
-          <button disabled={pool === 0} className="mt-3 rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Assign adaptive practice on this skill</button>
+          <button disabled={pool === 0} className="mt-3 rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Assign practice on this skill</button>
         </form>
         <form action={assignReadySetFromBankAction} className="rounded-xl bg-sky-50 p-4 ring-1 ring-sky-200">
           <input type="hidden" name="classId" value={classId} /><input type="hidden" name="skillId" value={found.skill.id} /><input type="hidden" name="lessonId" value={found.lesson?.id ?? ""} />

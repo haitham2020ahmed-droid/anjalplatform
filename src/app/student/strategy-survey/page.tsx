@@ -53,7 +53,7 @@ export default async function StrategySurveyPage({ searchParams }: { searchParam
               </ol>
             </fieldset>
           ))}
-          <button className="rounded-xl bg-emerald-600 px-6 py-3 font-bold text-white hover:bg-emerald-700">Send my answers</button>
+          <button className="rounded-xl bg-emerald-600 px-6 py-3 font-bold text-white hover:bg-emerald-700">Submit my answers</button>
         </form>
       )}
     </AppShell>

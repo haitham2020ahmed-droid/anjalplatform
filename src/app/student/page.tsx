@@ -1,120 +1,171 @@
-import { AppShell } from "@/components/app-shell";
-import { coachSummary } from "@/server/fluency/coach";
-import { FluencyCoachIcon } from "@/components/fluency/coach-icon";
-import { AssignedSkills, type StudentExtras } from "@/components/student/assigned-skills";
-import { getActor, repo, requireActor } from "@/server/auth/next";
-import { latestDiagnostic } from "@/server/assessment/diagnostic";
-import { assignedSkills, placementRequired } from "@/server/student/assigned";
-import { readingLexile } from "@/server/readmaster/service";
-import { studentSkillPlans, todaysPlanStep } from "@/server/curriculum-map/plans";
-import { reviewDue, weekStats } from "@/server/student/weekly";
-import { TodayPlanCard } from "@/components/student/today-plan";
-import { myDiagnostic } from "@/server/diagnostic/test";
-import { weeklyCheck } from "@/server/student/weekly-check";
 import Link from "next/link";
-import { streakAndPoints } from "@/server/student/streak";
-import { openGamesFor } from "@/server/game/live";
-import { lexileBands, levelForLexile } from "@/server/curriculum-map/lexile";
-import { studentRespondWork } from "@/server/curriculum-map/respond-assign";
-import { studentBadges } from "@/server/student/badges";
-import { dueMistakes, myExitTicket, studentWeek } from "@/server/teacher/classroom";
+import { AppShell } from "@/components/app-shell";
+import { getActor, repo, requireActor } from "@/server/auth/next";
+import { studentHome, type StudentHome } from "@/server/student/student-home";
 import { StudentTour } from "@/components/student/student-tour";
-import { myTests } from "@/server/map/sim";
-import { classChallenge, questionOfTheDay } from "@/server/teacher/extras";
-import { myTasks } from "@/server/teacher/writing";
-import { QuestionOfTheDay } from "@/components/student/qotd";
-import { nextStep } from "@/server/student/next-step";
-import { studentReadRiseSummary } from "@/server/readrise/engine";
-import { ReadRiseStudentCard } from "@/components/readrise/student-card";
+import { BigTile, EmptyState, SourceTag, StatusPill, TileGroup, BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit";
+import { FluencyCoachIcon } from "@/components/fluency/coach-icon";
+import { ReadRiseIcon } from "@/components/readrise/readrise-icon";
+import { getT } from "@/i18n/server";
+import type { TFn } from "@/i18n";
+import { PlayMenu } from "@/components/game/play-menu";
+import { JoinLive } from "@/components/game/join-live";
+import { Suspense } from "react";
+import { QotdCard } from "@/components/motivation/qotd-card";
 
-export const metadata = { title: "My work" };
+export const metadata = { title: "Home" };
 
-/** Student home: welcome card (Lexile, RIT), the three big areas, and only the work the teacher assigned. */
-export default async function StudentHome({ searchParams }: { searchParams: Promise<{ area?: string; goal?: string }> }) {
-  const sp = await searchParams;
-  const area = sp.area === "map" ? "MAP" : sp.area === "curriculum" ? "CURRICULUM" : sp.area === "nafs" ? "NAFS" : sp.area === "grammar" ? "GRAMMAR" : "ALL";
+type Row = StudentHome["work"][number];
+const STATUS: Record<Row["status"], "NOT_STARTED" | "IN_PROGRESS" | "DONE"> = { "Not started": "NOT_STARTED", "In progress": "IN_PROGRESS", Done: "DONE" };
+/** the first rows of My Work are shown; the rest open with "Show all" (the page stays short) */
+const FIRST_ROWS = 8;
+const day = (v: string | null) => (v ? new Date(v).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "");
+
+/** The "From" tag of one My Work row: Curriculum / MAP / NAFS / RTI / Grammar / Custom, or Reteach after a test. */
+function From({ r, t }: { r: Row; t: TFn }) {
+  return r.reteach ? <SourceTag source="CUSTOM" label={t("Reteach")} /> : <SourceTag source={r.sourceKey} />;
+}
+
+/** One My Work row as a table row (iPad / desktop). */
+function WorkRow({ r, t }: { r: Row; t: TFn }) {
+  return (
+    <tr data-testid="my-work-row" data-source={r.reteach ? "RETEACH" : r.sourceKey} className="border-t border-slate-100">
+      <td className="py-3 pe-3 font-semibold text-brand-navy"><bdi>{r.skill}</bdi>{r.overdue && r.status !== "Done" && <span className="ms-2 rounded-full bg-red-50 px-2 py-0.5 text-xs font-semibold text-red-700 ring-1 ring-red-200">{t("Late")}</span>}{r.dueAt && r.status !== "Done" && !r.overdue && <span className="ms-2 text-xs font-normal text-slate-500">{t("Due {date}", { date: day(r.dueAt) })}</span>}</td>
+      <td className="py-3 pe-3"><From r={r} t={t} /></td>
+      <td className="py-3 pe-3"><StatusPill status={STATUS[r.status]} /></td>
+      <td className="py-3 text-end"><span className="inline-flex flex-wrap items-center justify-end gap-2"><Link prefetch={false} href={r.href} className={r.status === "Done" ? BTN_SECONDARY : BTN_PRIMARY}>{t(r.action)}</Link>{r.skillId && <PlayMenu skillId={r.skillId} skill={r.skill} />}</span></td>
+    </tr>
+  );
+}
+
+/** The same row as a card (phone). */
+function WorkCard({ r, t }: { r: Row; t: TFn }) {
+  return (
+    <li data-source={r.reteach ? "RETEACH" : r.sourceKey} className="rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-100">
+      <p className="font-semibold text-brand-navy"><bdi>{r.skill}</bdi></p>
+      <div className="mt-2 flex flex-wrap items-center gap-2"><From r={r} t={t} /><StatusPill status={STATUS[r.status]} />{r.overdue && r.status !== "Done" && <span className="text-xs font-semibold text-red-700">{t("Late")}</span>}</div>
+      <div className="mt-3 flex gap-2"><Link prefetch={false} href={r.href} className={`${r.status === "Done" ? BTN_SECONDARY : BTN_PRIMARY} flex-1`}>{t(r.action)}</Link>{r.skillId && <span className="flex-1"><PlayMenu skillId={r.skillId} skill={r.skill} full /></span>}</div>
+    </li>
+  );
+}
+
+function WorkTable({ rows, t }: { rows: Row[]; t: TFn }) {
+  return (
+    <>
+      <table className="hidden w-full text-start md:table">
+        <thead><tr className="text-sm text-slate-500">
+          <th scope="col" className="pb-2 pe-3 text-start font-semibold">{t("Skill")}</th>
+          <th scope="col" className="pb-2 pe-3 text-start font-semibold">{t("From")}</th>
+          <th scope="col" className="pb-2 pe-3 text-start font-semibold">{t("Status")}</th>
+          <th scope="col" className="pb-2 text-end font-semibold"><span className="sr-only">{t("Start")}</span></th>
+        </tr></thead>
+        <tbody>{rows.map((r) => <WorkRow key={r.assignmentId} r={r} t={t} />)}</tbody>
+      </table>
+      <ul className="grid gap-3 md:hidden">{rows.map((r) => <WorkCard key={r.assignmentId} r={r} t={t} />)}</ul>
+    </>
+  );
+}
+
+/**
+ * 🏠 Student Home (UI reorg Phase 2), top to bottom:
+ *   A welcome line + "Continue where you left off" · B My Work (one row per skill, source tag, status, Start) ·
+ *   C Reading · D My Progress · E Programs (RTI only for students in Tier 2/3).
+ * All reads: src/server/student/student-home.ts (bounded; ~30 queries).
+ */
+export default async function StudentHomePage() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
-  const [view, required, diagnostic, lexile, maps, student] = await Promise.all([
-    assignedSkills(repo, actor), placementRequired(repo, actor.schoolId!), latestDiagnostic(repo, actor.studentId!),
-    readingLexile(repo, actor.studentId!), repo.findMany("MapResult", { studentId: actor.studentId! }), repo.findUnique("Student", { id: actor.studentId! }),
-  ]);
-  // latest overall Reading RIT and its Spring goal (Fall RIT + projected growth)
-  const t = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : String(v)).getTime();
-  const reading = maps.filter((m) => /read/i.test(String(m.subject)) && !m.goalName).sort((a, b) => t(b.testDate) - t(a.testDate));
-  const withGoal = reading.find((m) => m.projectedGrowth !== null && m.projectedGrowth !== undefined);
-  // the rest in parallel (not one after another)
-  const [gradeRow, bands, plans, streak, games, respond, badges] = await Promise.all([
-    student?.gradeId ? repo.findUnique("Grade", { id: student.gradeId }) : Promise.resolve(null),
-    lexileBands(repo, actor.schoolId ?? null), studentSkillPlans(repo, actor), streakAndPoints(repo, actor.studentId!), openGamesFor(repo, actor), studentRespondWork(repo, actor), studentBadges(repo, actor.studentId!),
-  ]);
-  const [week, exitTicket, review, comments, tests] = await Promise.all([studentWeek(repo, actor), myExitTicket(repo, actor), dueMistakes(repo, actor.studentId!), repo.findMany("WorkComment", { studentId: actor.studentId! }, { select: ["createdAt"] }), myTests(repo, actor)]);
-  const [qotd, challenge, writing] = await Promise.all([questionOfTheDay(repo, actor), student?.gradeId ? classChallenge(repo, String(student.schoolId), String(student.gradeId)) : Promise.resolve([]), myTasks(repo, actor)]);
-  const [today, myWeek, spaced, diag, check, coach] = await Promise.all([todaysPlanStep(repo, actor), weekStats(repo, actor.studentId!), reviewDue(repo, actor.studentId!), myDiagnostic(repo, actor), weeklyCheck(repo, actor), coachSummary(repo, actor.studentId!)]);
-  const [step, readRise] = await Promise.all([nextStep(repo, actor), studentReadRiseSummary(repo, actor.studentId!)]);
-  const myClass = (await repo.findMany("ClassMembership", { studentId: actor.studentId!, leftAt: null }, { select: ["classId"] }))[0]?.classId;
-  const testsToDo = tests.windows.filter((w) => w.open).reduce((n, w) => n + w.sessions.filter((x) => x.status !== "DONE").length, 0);
-  const fresh = badges.filter((b) => b.earnedAt && Date.now() - new Date(b.earnedAt).getTime() < 3 * 86_400_000).sort((a, b) => String(b.earnedAt).localeCompare(String(a.earnedAt)))[0];
-  const todo = respond.filter((r) => !r.finishedAt);
-  const grade = Number(gradeRow?.level ?? 0);
-  const extras: StudentExtras = {
-    games,
-    lexile: lexile.lexile, readingLevel: levelForLexile(bands[grade], lexile.lexile),
-    rit: reading[0] ? Number(reading[0].rit) : null, ritGoal: withGoal ? Number(withGoal.rit) + Number(withGoal.projectedGrowth) : null,
-    grade, plans: plans.length, ...streak, respond: { todo: todo.length, next: todo[0]?.setCode ?? null },
-    badges: badges.filter((b) => b.earned).length, newBadge: fresh ? { icon: fresh.icon, name: fresh.name } : null,
-    week, exitTicket: exitTicket ? { id: exitTicket.id, title: exitTicket.title } : null, reviewDue: review.due.length,
-    newComments: comments.filter((c) => Date.now() - t(c.createdAt) < 7 * 86_400_000).length, goalMsg: sp.goal ?? null, mapTests: testsToDo,
-    challenge: challenge.length ? { mine: challenge.find((c) => c.classId === myClass) ?? null, all: challenge } : null,
-    writingTodo: writing.filter((w) => w.status === "NOT_STARTED" || w.status === "DRAFT").length,
-  };
+  const [{ t }, h] = await Promise.all([getT(), studentHome(repo, actor)]);
+  const first = String(me.displayName ?? "").trim().split(/\s+/)[0] || String(me.displayName ?? "");
+  const open = h.work.filter((r) => r.status !== "Done");
+  const done = h.work.filter((r) => r.status === "Done");
+  const late = open.some((r) => r.overdue);
+  const cont = h.last ? { href: h.last.href, title: h.last.title } : open[0] ? { href: open[0].href, title: open[0].skill } : null;
   return (
     <AppShell name={String(me.displayName)}>
       <StudentTour />
-      {diag && diag.status !== "DONE" && (
-        <Link href={diag.href} className="lift mb-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-amber-400 to-orange-400 p-5 text-amber-950 shadow-md">
-          <span><span className="block text-xs font-bold uppercase tracking-wider">📝 Start of the year</span><span className="block text-2xl font-extrabold">{diag.status === "STARTED" ? "Finish your Diagnostic Test" : "Take your Diagnostic Test"}</span><span className="block text-sm">{diag.status === "STARTED" ? `${diag.answered} of ${diag.total} answered — your answers are saved.` : `${diag.total} questions. Do your best: it shows your strengths and what to learn next.`}</span></span>
-          <span className="rounded-xl bg-brand-navy px-6 py-3 text-lg font-bold text-white">{diag.status === "STARTED" ? "Continue ▶" : "Start ▶"}</span>
-        </Link>
-      )}
-      {step.kind !== "DIAGNOSTIC" && step.href && (
-        <Link href={step.href} data-testid="next-step" className="lift mb-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-brand-navy to-indigo-700 p-5 text-white shadow-md">
-          <span className="min-w-0 flex-1"><span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">▶ My Next Step</span><span className="block text-2xl font-extrabold">{step.title}</span><span className="block text-sm text-indigo-100">{step.why}</span></span>
-          <span className="rounded-xl bg-white px-6 py-3 text-lg font-bold text-brand-navy">{step.cta} ▶</span>
-        </Link>
-      )}
-      {step.path && step.path.length > 1 && (
-        <section className="-mt-3 mb-5 rounded-3xl bg-white p-4 ring-1 ring-indigo-100" data-testid="my-path">
-          <p className="text-xs font-bold uppercase tracking-wider text-indigo-700">🧭 My learning path</p>
-          <ol className="mt-2 flex flex-wrap gap-2">{step.path.map((x, k) => (
-            <li key={x.href + k}><Link href={x.href} className="flex items-center gap-1.5 rounded-full bg-indigo-50 px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-indigo-100 hover:ring-indigo-300"><span className="tabular-nums text-indigo-400">{k + 1}</span>{x.action === "FOUNDATION" ? "🧱" : x.action === "REVIEW" ? "🔁" : x.action === "STRETCH" ? "🚀" : "🎯"} {x.name}</Link></li>
-          ))}</ol>
-          <p className="mt-1 text-xs text-slate-500">🧱 build a skill underneath · 🎯 your next skill · 🔁 a quick review · 🚀 a challenge</p>
+      {/* A. welcome + continue */}
+      <section aria-labelledby="hello" className="rounded-3xl bg-white p-5 ring-1 ring-slate-200 sm:p-7">
+        <h1 id="hello" data-testid="welcome" className="text-2xl font-semibold leading-snug text-brand-navy sm:text-3xl">
+          {t("Hello, {name} — you have {x} skills to work on and {y} tests waiting.", { name: first, x: h.toDo, y: h.testsToDo })}
+        </h1>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          {cont ? (
+            <Link prefetch={false} href={cont.href} data-testid="continue" className={`${BTN_PRIMARY} min-h-12 max-w-full px-6 text-lg`}>
+              <span aria-hidden="true">▶</span><span className="truncate">{t("Continue where you left off")}: <bdi>{cont.title}</bdi></span>
+            </Link>
+          ) : <p className="text-slate-600">{t("Pick something to read below, or wait for new work from your teacher.")}</p>}
+          <JoinLive />
+        </div>
+      </section>
+      {/* ☀️ Question of the Day (Games Part 3): one small card under the welcome line */}
+      <Suspense fallback={null}><QotdCard actor={actor} /></Suspense>
+
+      {h.notices.length > 0 && (
+        <section aria-label={t("Also for you")} className="mt-4 grid gap-2 sm:grid-cols-2">
+          {h.notices.map((n) => (
+            <Link key={n.key} prefetch={false} href={n.href} className={`lift flex min-h-14 items-center justify-between gap-3 rounded-2xl px-4 py-3 font-semibold ring-1 ${n.urgent ? "bg-amber-50 text-amber-950 ring-amber-200" : "bg-white text-brand-navy ring-slate-200"}`}>
+              <span className="min-w-0"><span aria-hidden="true" className="me-2">{n.icon}</span>{t(n.text, n.vars)}</span>
+              <span className="shrink-0 rounded-xl bg-brand-navy px-3 py-1.5 text-sm text-white">{t(n.cta)}</span>
+            </Link>
+          ))}
         </section>
       )}
-      <TodayPlanCard step={today} week={myWeek} review={spaced} check={diag && diag.status !== "DONE" ? null : check} />
-      <Link href="/student/fluency-coach" className="lift mb-5 flex flex-wrap items-center gap-4 rounded-3xl bg-gradient-to-r from-teal-50 via-white to-indigo-50 p-4 ring-1 ring-teal-200">
-        <FluencyCoachIcon size={56} />
-        <span className="min-w-0 flex-1"><span className="block text-lg font-extrabold text-brand-navy">Fluency Coach</span><span className="block text-sm text-slate-600">{coach.plan ? `Goal ${coach.plan.goal} words a minute · next check ${coach.plan.nextCheck}` : "Read aloud, record your voice, and get feedback on every word."}{coach.latest ? ` · last check ${coach.latest.wcpm} WCPM` : ""}</span></span>
-        <span className="rounded-xl bg-brand-navy px-5 py-2.5 font-bold text-white">🎙 Read</span>
-      </Link>
-      <div className="mb-5"><ReadRiseStudentCard summary={readRise} /></div>
-      {extras.rit !== null && (
-        <nav aria-label="My learning path" className="mb-5 grid gap-2 sm:grid-cols-3">
-          {[
-            { href: "/student/map", icon: "🗺️", title: "My MAP", sub: `RIT ${extras.rit}${extras.ritGoal ? ` · goal ${extras.ritGoal}` : ""}` },
-            { href: `/map-report/study-plan/${actor.studentId}`, icon: "📑", title: "My study plan", sub: "What I am ready to learn next" },
-            { href: "/student/skills", icon: "🧩", title: "My skills", sub: "Practise at my level" },
-          ].map((x, i) => (
-            <a key={x.href} href={x.href} className="group flex items-center gap-3 rounded-2xl bg-white p-3 ring-1 ring-slate-200 transition hover:ring-brand-teal">
-              <span aria-hidden="true" className="grid h-10 w-10 place-items-center rounded-xl bg-brand-navy text-lg text-white">{x.icon}</span>
-              <span className="min-w-0"><span className="block font-semibold text-brand-navy"><span className="text-slate-400">{i + 1}.</span> {x.title}</span><span className="block truncate text-xs text-slate-500">{x.sub}</span></span>
-            </a>
-          ))}
-        </nav>
-      )}
-      <AssignedSkills view={view} firstName={String(me.displayName).split(" ")[0]} placement={required && !diagnostic} area={area} extras={extras}
-        qotd={qotd ? <QuestionOfTheDay q={qotd.question} area={qotd.area} answered={qotd.answered} /> : null} />
+
+      {/* B. My Work — the most important card */}
+      <section id="my-work" data-tour="my-work" aria-labelledby="my-work-h" className="mt-6 scroll-mt-24 rounded-3xl bg-white p-5 shadow-sm ring-2 ring-brand-navy/15 sm:p-7">
+        <div className="flex flex-wrap items-center gap-3">
+          <span aria-hidden="true" className="relative grid h-14 w-14 place-items-center rounded-2xl bg-sky-50 text-3xl ring-1 ring-sky-100">📘
+            {h.toDo > 0 && <span dir="ltr" data-testid="my-work-badge" className={`absolute -end-2 -top-2 min-w-7 rounded-full px-1.5 text-center text-sm font-bold leading-7 text-white ring-2 ring-white ${late ? "bg-red-600" : "bg-sky-600"}`}>{h.toDo > 99 ? "99+" : h.toDo}</span>}
+          </span>
+          <div className="min-w-0 flex-1">
+            <h2 id="my-work-h" className="text-2xl font-semibold text-brand-navy">{t("My Work")}</h2>
+            <p className="text-sm text-slate-600">{t("Everything from your teacher, in one place. Tap Start.")}</p>
+          </div>
+          {h.toDo > 0 && <span className="sr-only">{t("{n} to do", { n: h.toDo })}</span>}
+        </div>
+        <div className="mt-4">
+          {open.length ? (
+            <>
+              <WorkTable rows={open.slice(0, FIRST_ROWS)} t={t} />
+              {open.length > FIRST_ROWS && (
+                <details className="mt-2">
+                  <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-brand-navy">{t("Show all ({n})", { n: open.length })}</summary>
+                  <div className="mt-2"><WorkTable rows={open.slice(FIRST_ROWS)} t={t} /></div>
+                </details>
+              )}
+            </>
+          ) : (
+            <EmptyState compact title={done.length ? "No work right now — great job!" : "Nothing here yet"} text="Your teacher will add work here soon." />
+          )}
+        </div>
+        {done.length > 0 && (
+          <details id="my-work-done" className="mt-4 rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-100">
+            <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-brand-navy">{t("Done ({n})", { n: done.length })}</summary>
+            <div className="mt-2"><WorkTable rows={done} t={t} /></div>
+          </details>
+        )}
+      </section>
+
+      {/* C. Reading */}
+      <TileGroup title="Reading" icon="📖" id="g-reading">
+        <BigTile href="/student/readmaster" icon="⭐" label="ReadMaster" hint="All the articles for your grade" />
+        <BigTile href="/student/readrise" icon={<ReadRiseIcon size={44} />} label="ReadRise" hint={h.readRiseLevel !== null ? t("ReadRise Level (estimate): {n}", { n: h.readRiseLevel }) : "Articles on every topic"} />
+        <BigTile href="/student/fluency-coach" icon={<FluencyCoachIcon size={44} />} label="Fluency Coach" hint="Read aloud and get feedback" />
+      </TileGroup>
+
+      {/* D. My Progress */}
+      <TileGroup title="My Progress" icon="📈" id="g-progress">
+        <BigTile href="/student/plans" icon="🗂️" label="My Plans" hint="My plans and my MAP results" tour="plans" />
+        <BigTile href="/student/tests" icon="📝" label="My Tests" hint="Tests to do and finished tests" badge={h.testsToDo} tour="tests" />
+        <BigTile href="/student/reports" icon="📊" label="My Reports" hint="All my reports in one place" />
+      </TileGroup>
+
+      {/* E. Programs */}
+      <TileGroup title="Programs" icon="🧭" id="g-programs" cols={h.rti ? 3 : 2}>
+        <BigTile href="/student/curriculum" icon="🧭" label="Curriculum Map" hint="Units and text sets of my grade" />
+        {h.rti && <BigTile href="/student/rti" icon="🛟" label="RTI Program" hint="My skills for this week" />}
+      </TileGroup>
     </AppShell>
   );
 }

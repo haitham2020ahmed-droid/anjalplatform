@@ -13,6 +13,8 @@ import { attachmentNodes } from "../curriculum-map/questions";
 import { studentNames } from "../insights/student-data";
 import { navItemsFor } from "../../components/nav-items";
 import { modelVersion } from "../cache/bank-version";
+import { remember } from "../cache/lru";
+import { countQuestionsOfSkills, SKILL_SYNONYMS } from "../questions/skill-questions";
 
 const s = (v: unknown) => String(v ?? "");
 export type HitKind = "SKILL" | "GRAMMAR" | "PLACE" | "ARTICLE" | "QUESTION" | "STUDENT" | "PAGE";
@@ -58,12 +60,12 @@ function questionStems(repo: Repo, skillIds: string[], key: string): Promise<Row
   const v = modelVersion("Question"), hit = m.get(key);
   if (hit && hit.v === v && Date.now() - hit.at < 60_000) return hit.rows;
   const rows = skillIds.length ? repo.findMany("Question", { skillId: { in: skillIds }, status: "PUBLISHED", deletedAt: null }, { select: ["id", "stem", "skillId"] }) : Promise.resolve([] as Row[]);
-  m.set(key, { at: Date.now(), v, rows });
+  remember(m, key, { at: Date.now(), v, rows }, 16);
   return rows;
 }
 
 /** Teachers' words for the same skill (“main idea” is “central idea” in CCSS) — searched as well. */
-const SYNONYMS: [string, string][] = [["main idea", "central idea"], ["central idea", "main idea"], ["context clues", "word meaning"], ["text features", "text structure"], ["author's purpose", "point of view"], ["cause and effect", "text structure"], ["compare and contrast", "text structure"], ["capital letters", "capitalization"], ["capitalization", "capital letters"], ["vocab", "vocabulary"], ["grammar", "usage"]];
+const SYNONYMS: [string, string][] = SKILL_SYNONYMS;
 export async function searchEverything(repo: Repo, actor: Actor, raw: string): Promise<SearchResult> {
   const q = s(raw).trim().slice(0, 80);
   const base = await searchOnce(repo, actor, q);
@@ -101,8 +103,10 @@ async function searchOnce(repo: Repo, actor: Actor, raw: string): Promise<Search
   ]);
   const stds = links.length ? await repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => s(l.standardId)))] } }, { select: ["id", "code"] }) : [];
   const codeOf = new Map(stds.map((x) => [s(x.id), s(x.code).replace(/^CCSS\.ELA-LITERACY\./i, "")]));
-  const qCount = new Map<string, number>(); for (const r of stems) qCount.set(s(r.skillId), (qCount.get(s(r.skillId)) ?? 0) + 1);
+  // UI reorg Phase 1: the skill's count is the ONE shared count (= the MAP and NAFS sections), not the stems read here
+  const qCount = await countQuestionsOfSkills(repo, schoolId, ids);
   for (const k of skills) {
+    if (s(k.code).endsWith(".curriculum-map-unclassified")) continue;
     const std = links.filter((l) => l.skillId === k.id).map((l) => codeOf.get(s(l.standardId)) ?? "").filter(Boolean);
     const grammar = isGrammarCode(k.code);
     const sc = matchScore(words, s(k.name), `${std.join(" ")} ${s(k.code)} ${s(k.description).slice(0, 200)}`);

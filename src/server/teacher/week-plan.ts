@@ -3,7 +3,8 @@
  * alerts, the weekly rhythm) with “Plan next week” in one click; and ✅ the first-week checklist for new teachers.
  * 🔢 Also the numbers on the navigation icons (tasks to do, overdue in red).
  */
-import type { Repo } from "../seeding/repo";
+import { TtlCache } from "../lib/ttl-cache";
+import type { Repo, Row } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "./assignments";
@@ -104,15 +105,13 @@ export async function hideOnboarding(repo: Repo, actor: Actor, hidden: boolean, 
 
 export interface NavCount { count: number; alert: boolean }
 
-/** The header numbers are asked on every page: kept 10 s per person (a click after a click costs nothing). */
-const navCache = new Map<string, { at: number; v: Record<string, NavCount> }>();
+/**
+ * The header numbers are asked on every page: kept 15 s per person (a click after a click costs nothing), at most
+ * 5,000 people in memory (least recently used dropped first) — Update 42B.
+ */
+const navCache = new TtlCache<Record<string, NavCount>>(15_000, 5000);
 export async function navCountsCached(repo: Repo, actor: Actor, now = new Date()): Promise<Record<string, NavCount>> {
-  const hit = navCache.get(actor.userId);
-  if (hit && now.getTime() - hit.at < 10_000) return hit.v;
-  const v = await navCounts(repo, actor, now);
-  if (navCache.size > 5000) navCache.clear();
-  navCache.set(actor.userId, { at: now.getTime(), v });
-  return v;
+  return navCache.getOrLoad(actor.userId, () => navCounts(repo, actor, now), now.getTime());
 }
 
 /** Cheap counts for the header (every page): tasks to do per area (red when overdue or due today). */
@@ -120,44 +119,52 @@ export async function navCounts(repo: Repo, actor: Actor, now = new Date()): Pro
   const out: Record<string, NavCount> = {};
   const endOfDay = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 59, 59)).getTime();
   if (actor.role === "STUDENT" && actor.studentId) {
-    const rows = await repo.findMany("AssignmentStudent", { studentId: actor.studentId, status: { in: ["NOT_STARTED", "IN_PROGRESS", "OVERDUE"] } }, { select: ["assignmentId", "status"] });
-    const as = rows.length ? await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }, { select: ["id", "track", "dueAt", "startAt"] }) : [];
+    // every independent read in one round trip (Update 42B), then the few that need their results
+    const [rows, respond, cls, winsAll, fresh, words, quizzed, tier] = await Promise.all([
+      repo.findMany("AssignmentStudent", { studentId: actor.studentId, status: { in: ["NOT_STARTED", "IN_PROGRESS", "OVERDUE"] } }, { select: ["assignmentId", "status"] }),
+      repo.findMany("RespondAssignmentStudent", { studentId: actor.studentId, finishedAt: null }, { select: ["assignmentId"] }),
+      repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] }).then((r) => r.map((m) => m.classId)),
+      repo.findMany("MapSimWindow", { schoolId: actor.schoolId }, { select: ["id", "grade", "subjects", "opensAt", "closesAt"] }),
+      repo.count("StudentBadge", { studentId: actor.studentId, awardedAt: { gte: new Date(now.getTime() - 3 * DAY) } }),
+      repo.count("StudentWord", { studentId: actor.studentId }),
+      repo.count("StudentWord", { studentId: actor.studentId, lastQuizAt: { gte: weekStart(now) } }),
+      repo.findUnique("StudentTier", { studentId: actor.studentId }),
+    ]);
+    // student home (UI reorg Phase 2): the RTI Program entry is shown only to students in Tier 2/3 (count 0 = no badge)
+    if (Number(tier?.tier ?? 1) >= 2) out["/student/rti"] = { count: 0, alert: false };
+    const wins = winsAll.filter((w) => time(w.opensAt) <= now.getTime() && time(w.closesAt) > now.getTime());
+    const [as, ra, tasks, st, done] = await Promise.all([
+      rows.length ? repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }, { select: ["id", "track", "dueAt", "startAt", "testId", "curriculumPlanId"] }) : Promise.resolve([] as Row[]),
+      respond.length ? repo.findMany("RespondAssignment", { id: { in: respond.map((r) => r.assignmentId) }, deletedAt: null }, { select: ["id", "dueAt"] }) : Promise.resolve([] as Row[]),
+      cls.length ? repo.findMany("WritingTask", { classId: { in: cls }, deletedAt: null }, { select: ["id", "dueAt"] }) : Promise.resolve([] as Row[]),
+      wins.length ? repo.findUnique("Student", { id: actor.studentId }) : Promise.resolve(null),
+      wins.length ? repo.findMany("MapSimSession", { studentId: actor.studentId, kind: "SIM", status: "DONE" }, { select: ["windowId", "subject"] }) : Promise.resolve([] as Row[]),
+    ]);
     const add = (href: string, urgent: boolean) => { const v = out[href] ?? { count: 0, alert: false }; v.count++; v.alert ||= urgent; out[href] = v; };
     for (const r of rows) {
       const a = as.find((x) => x.id === r.assignmentId);
       if (!a || (a.startAt && time(a.startAt) > now.getTime())) continue;
       const urgent = r.status === "OVERDUE" || Boolean(a.dueAt && time(a.dueAt) <= endOfDay);
-      add(a.track === "MAP" ? "/student/map" : "/student", urgent);
+      // MAP work is in My Work now (UI reorg Phase 2); tests are counted on My Tests
+      add(a.testId ? "/student/tests" : a.curriculumPlanId ? "/student/plans" : "/student", urgent);
     }
-    const respond = await repo.findMany("RespondAssignmentStudent", { studentId: actor.studentId, finishedAt: null }, { select: ["assignmentId"] });
-    if (respond.length) {
-      const ra = await repo.findMany("RespondAssignment", { id: { in: respond.map((r) => r.assignmentId) }, deletedAt: null }, { select: ["id", "dueAt"] });
-      for (const a of ra) add("/student/respond", Boolean(a.dueAt && time(a.dueAt) <= endOfDay));
-    }
+    for (const a of ra) add("/student/respond", Boolean(a.dueAt && time(a.dueAt) <= endOfDay));
     // writing / reading-aloud tasks not handed in yet
-    const cls = (await repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] })).map((m) => m.classId);
-    const tasks = cls.length ? await repo.findMany("WritingTask", { classId: { in: cls }, deletedAt: null }, { select: ["id", "dueAt"] }) : [];
     if (tasks.length) {
       const handed = new Set((await repo.findMany("WritingSubmission", { studentId: actor.studentId, taskId: { in: tasks.map((t) => t.id) } }, { select: ["taskId", "status"] })).filter((x) => x.status !== "DRAFT").map((x) => s(x.taskId)));
       for (const t of tasks) if (!handed.has(s(t.id))) add("/student/writing", Boolean(t.dueAt && time(t.dueAt) <= endOfDay));
     }
     // an open MAP practice test not finished yet counts on My MAP
-    const wins = (await repo.findMany("MapSimWindow", { schoolId: actor.schoolId }, { select: ["id", "grade", "subjects", "opensAt", "closesAt"] })).filter((w) => time(w.opensAt) <= now.getTime() && time(w.closesAt) > now.getTime());
     if (wins.length) {
-      const st = await repo.findUnique("Student", { id: actor.studentId });
       const g = st?.gradeId ? Number((await repo.findUnique("Grade", { id: st.gradeId }))?.level ?? 0) : 0;
-      const done = await repo.findMany("MapSimSession", { studentId: actor.studentId, kind: "SIM", status: "DONE" }, { select: ["windowId", "subject"] });
       for (const w of wins) {
         if (w.grade !== null && w.grade !== undefined && Number(w.grade) !== g) continue;
         const subs = (Array.isArray(w.subjects) ? w.subjects : JSON.parse(s(w.subjects) || "[]")) as string[];
-        for (const sub of subs) if (!done.some((d) => d.windowId === w.id && d.subject === sub)) add("/student/map", time(w.closesAt) - now.getTime() < 2 * DAY);
+        for (const sub of subs) if (!done.some((d) => d.windowId === w.id && d.subject === sub)) add("/student/plans", time(w.closesAt) - now.getTime() < 2 * DAY);
       }
     }
-    const fresh = await repo.count("StudentBadge", { studentId: actor.studentId, awardedAt: { gte: new Date(now.getTime() - 3 * DAY) } });
     if (fresh) out["/student/badges"] = { count: fresh, alert: false };
-    const words = await repo.count("StudentWord", { studentId: actor.studentId });
     if (words >= 4) {
-      const quizzed = await repo.count("StudentWord", { studentId: actor.studentId, lastQuizAt: { gte: weekStart(now) } });
       if (!quizzed) out["/student/words"] = { count: 1, alert: false };
     }
     return out;

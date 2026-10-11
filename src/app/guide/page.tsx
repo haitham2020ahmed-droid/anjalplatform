@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TourButton } from "@/components/ui-kit";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
@@ -40,7 +41,7 @@ export default async function GuidePage() {
   const g = GUIDES[actor.role === "SUPER_ADMIN" ? "SCHOOL_ADMIN" : actor.role] ?? GUIDES.STUDENT;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader icon="❔" title={g.title} subtitle={g.intro}><PrintButton /></PageHeader>
+      <PageHeader icon="❔" title={g.title} subtitle={g.intro}><TourButton /><PrintButton /></PageHeader>
       <ol className="grid gap-4 md:grid-cols-2">
         {g.steps.map(([icon, title, text, href], i) => (
           <li key={title} className="animate-fade-up break-inside-avoid" style={{ animationDelay: `${i * 60}ms` }}>

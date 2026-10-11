@@ -37,7 +37,7 @@ export default async function WeekPage({ searchParams }: { searchParams: Promise
                 <h2 className="text-xl font-bold text-brand-navy">💡 Suggested for next week · {cur.className}</h2>
                 <form action={planNextWeekAction}><input type="hidden" name="classId" value={classId} /><button className="rounded-xl bg-emerald-600 px-5 py-2.5 font-semibold text-white hover:bg-emerald-700">⚡ Plan next week</button></form>
               </div>
-              <p className="mt-1 text-sm text-slate-500">“Plan next week” assigns the class’s weakest skills again (adaptive, Monday → Thursday) and sends the MAP plans that are ready.</p>
+              <p className="mt-1 text-sm text-slate-500">“Plan next week” assigns the class’s weakest skills again (at each student’s level, Monday → Thursday) and sends the MAP plans that are ready.</p>
               {!cur.suggestions.length ? <p className="mt-3 text-emerald-800">✅ Nothing urgent: the class is doing well.</p> : (
                 <ul className="mt-3 space-y-2">{cur.suggestions.map((x, i) => <li key={i} className="flex flex-wrap items-center justify-between gap-2 rounded-xl bg-slate-50 px-3 py-2"><span>{x.kind === "RETEACH" ? "🧩" : x.kind === "MAP_PLANS" ? "📋" : x.kind === "GROUPS" ? "👥" : x.kind === "ALERTS" ? "🚨" : "📅"} {x.text}</span>{x.href && <Link href={x.href} className="text-sm font-semibold text-brand-teal underline">Open</Link>}</li>)}</ul>
               )}

@@ -8,7 +8,10 @@
   --color-brand-purple: #5b3fa0;
   --color-brand-teal: #1fa3a3;
   --color-brand-gold: #f5b800;
+  /* Lexend everywhere — the only font (system glyphs only for letters Lexend lacks, e.g. Arabic interface words) */
   --font-sans: var(--font-lexend), "Lexend", "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--font-lexend), "Lexend", "Segoe UI", system-ui, sans-serif;
+  --font-serif: var(--font-lexend), "Lexend", "Segoe UI", system-ui, sans-serif;
 }
 
 body { @apply bg-slate-50 text-slate-900 antialiased; }
@@ -30,17 +33,25 @@ body { @apply bg-slate-50 text-slate-900 antialiased; }
   textarea { min-height: 4.5rem; }
   /* touch targets (readiness S-2): checkboxes and radios are at least 20 px; their labels carry the rest of the 40 px */
   input[type="checkbox"], input[type="radio"] { width: 1.25rem; height: 1.25rem; flex-shrink: 0; }
+  /* "font-mono" (usernames, codes) stays Lexend with even digits */
+  .font-mono, code, kbd, samp, pre { font-family: var(--font-sans); font-variant-numeric: tabular-nums; }
+  /* big buttons: every button-looking control (rounded-xl / rounded-2xl with a fill or outline) is >= 44 px tall.
+     In the base layer, so a page's own utilities (block, flex, min-h-…) still win. */
+  :is(button, a, input[type="submit"], label)[class*="rounded-xl"]:is([class*="bg-"], [class*="ring-"], [class*="border"]):is([class*="px-3"], [class*="px-4"], [class*="px-5"], [class*="px-6"]),
+  :is(button, a, input[type="submit"])[class*="rounded-2xl"]:is([class*="bg-brand"], [class*="bg-emerald-6"], [class*="bg-sky-7"]) {
+    min-height: 2.75rem;
+  }
+  /* a link styled as a button is inline: make it an inline box so the height applies (buttons already are) */
+  a[class*="rounded-xl"]:is([class*="bg-"], [class*="ring-"], [class*="border"]):is([class*="px-3"], [class*="px-4"], [class*="px-5"], [class*="px-6"]) {
+    display: inline-flex; align-items: center; gap: .375rem;
+  }
+  a[class*="rounded-xl"][class*="text-center"]:is([class*="bg-"], [class*="ring-"], [class*="border"]):is([class*="px-3"], [class*="px-4"], [class*="px-5"], [class*="px-6"]) { justify-content: center; }
 }
 
 
 /* ------------------------------------------------------------------ look & motion (CSS only, fast) */
-body {
-  background:
-    radial-gradient(1200px 500px at 100% -10%, color-mix(in oklab, var(--color-brand-teal) 10%, transparent), transparent 60%),
-    radial-gradient(900px 420px at -10% 0%, color-mix(in oklab, var(--color-brand-purple) 9%, transparent), transparent 60%),
-    var(--color-slate-50);
-  background-repeat: no-repeat;
-}
+/* clean white cards on a light grey page */
+body { background: #f1f4f8; }
 @keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @keyframes pop { 0% { transform: scale(.92); } 60% { transform: scale(1.04); } 100% { transform: scale(1); } }
 @keyframes shake { 10%, 90% { transform: translateX(-1px); } 20%, 80% { transform: translateX(2px); } 30%, 50%, 70% { transform: translateX(-4px); } 40%, 60% { transform: translateX(4px); } }
@@ -56,7 +67,7 @@ body {
 /* the brand stripe (logo colors) */
 @utility brand-stripe { background: linear-gradient(90deg, #4c2e9a, var(--color-brand-navy) 30%, #2f7bd8 50%, var(--color-brand-teal) 70%, var(--color-brand-gold)); }
 /* comfortable long reading (ReadMaster) */
-@utility reading { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; font-size: 1.2rem; line-height: 1.85; letter-spacing: .005em; }
+@utility reading { font-family: var(--font-sans); font-size: 1.2rem; line-height: 1.85; letter-spacing: .005em; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 @keyframes loadbar { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
 
@@ -73,5 +84,76 @@ html[data-comfort="1"] body { background: #fbf7ee; }
 /* printed reports keep their colours (headers, bars, charts) and use the whole page */
 .report-doc, .report-doc * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 @media print { @page { size: A4; margin: 12mm; } .report-doc { background: #fff; } }
+
+/* ------------------------------------------------------------------ report kit (src/components/report-kit)
+   Tables: sticky header, zebra rows, even digits, numbers aligned to the end; under 640 px each row is a card.
+   In the components layer so a page's own utility classes still win. */
+@layer components {
+  .rk-box { position: relative; max-width: 100%; overflow-x: auto; border-radius: 1rem; background: #fff; box-shadow: 0 0 0 1px #e2e8f0; }
+  .rk-box table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .875rem; line-height: 1.35; }
+  .rk-box thead th { position: sticky; top: 0; z-index: 1; background: #f8fafc; color: #475569; font-size: .75rem; font-weight: 600; letter-spacing: .02em; text-align: start; white-space: nowrap; padding: .6rem .75rem; border-bottom: 1px solid #e2e8f0; }
+  .rk-box tbody td { padding: .55rem .75rem; border-bottom: 1px solid #f1f5f9; vertical-align: top; font-variant-numeric: tabular-nums; }
+  .rk-box tbody tr:nth-child(even) > td { background: rgb(248 250 252 / .8); }
+  .rk-box tbody tr:hover > td { background: rgb(240 253 250); }
+  .rk-box tbody tr:last-child > td { border-bottom: 0; }
+  .rk-box tfoot td { padding: .55rem .75rem; border-top: 1px solid #e2e8f0; color: #475569; font-size: .8rem; }
+  .rk-box .rk-num { text-align: end; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .rk-box .rk-first { font-weight: 600; }
+  .rk-sort { display: inline-flex; align-items: center; gap: .25rem; min-height: 2rem; font: inherit; color: inherit; cursor: pointer; border-radius: .375rem; }
+  .rk-sort:hover { color: var(--color-brand-navy); }
+  .rk-sort:focus-visible { outline: 2px solid var(--color-brand-teal); outline-offset: 2px; }
+  .rk-sort-mark { font-size: .65rem; opacity: .55; }
+  th[aria-sort] .rk-sort-mark { opacity: 1; color: var(--color-brand-teal); }
+  .rk-box tr.rk-flag-bad > td:first-child { box-shadow: inset 4px 0 0 #f43f5e; }
+  .rk-box tr.rk-flag-warn > td:first-child { box-shadow: inset 4px 0 0 #fbbf24; }
+  .rk-box tr.rk-flag-good > td:first-child { box-shadow: inset 4px 0 0 #10b981; }
+  [dir="rtl"] .rk-box tr.rk-flag-bad > td:first-child { box-shadow: inset -4px 0 0 #f43f5e; }
+  [dir="rtl"] .rk-box tr.rk-flag-warn > td:first-child { box-shadow: inset -4px 0 0 #fbbf24; }
+  [dir="rtl"] .rk-box tr.rk-flag-good > td:first-child { box-shadow: inset -4px 0 0 #10b981; }
+  @media (min-width: 640px) { .rk-box.rk-tall { max-height: 78vh; overflow: auto; } }
+  /* phones: every row is a card, every cell a "label: value" line */
+  @media (max-width: 639.98px) {
+    .rk-cards { overflow: visible; background: transparent; box-shadow: none; }
+    .rk-cards table, .rk-cards tbody, .rk-cards tr, .rk-cards td { display: block; width: 100%; }
+    .rk-cards thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .rk-cards tbody tr { margin-bottom: .75rem; border-radius: 1rem; background: #fff; box-shadow: 0 0 0 1px #e2e8f0; overflow: hidden; }
+    .rk-cards tbody tr > td, .rk-cards tbody tr:nth-child(even) > td { background: transparent; }
+    .rk-cards tbody td { display: flex; justify-content: space-between; align-items: flex-start; gap: .75rem; padding: .45rem .9rem; border-bottom: 1px solid #f1f5f9; text-align: end; }
+    .rk-cards tbody td::before { content: attr(data-label); flex: 0 0 auto; max-width: 48%; text-align: start; font-size: .75rem; font-weight: 600; color: #64748b; }
+    .rk-cards tbody td.rk-first { display: block; background: #f8fafc; font-size: 1rem; text-align: start; }
+    .rk-cards tbody td.rk-first::before { content: none; }
+    .rk-cards tbody tr > td:last-child { border-bottom: 0; }
+    .rk-cards tfoot, .rk-cards tfoot tr, .rk-cards tfoot td { display: block; }
+  }
+}
+
+/* paper: no menus, buttons or filters; tables and cards print whole; colours kept */
+@media print {
+  body { background: #fff !important; }
+  .lg\:ps-64 { padding-inline-start: 0 !important; }
+  .rk-header, .rk-glance, .rk-section, .rk-callout, .rk-box, .rk-bandbar, .rk-legend, .rk-bars, .rk-donut, .rk-meter { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .rk-glance > div > *, .rk-callout, .rk-donut, .rk-bandbar { break-inside: avoid; }
+  .rk-section { box-shadow: none !important; border: 1px solid #e2e8f0; break-inside: auto; }
+  .rk-section h2 { break-after: avoid; }
+  .rk-box, .rk-box.rk-tall { max-height: none !important; overflow: visible !important; box-shadow: none; border: 1px solid #e2e8f0; }
+  .rk-box thead { display: table-header-group; }
+  .rk-box thead th { position: static; }
+  .rk-box tr { break-inside: avoid; }
+  .rk-sort-mark { display: none; }
+  .rk-filters, [data-rk="print"] { display: none !important; }
+  main a[href] { text-decoration: none; }
+}
 @keyframes slide-in { from { transform: translateX(-100%); } to { transform: none; } }
 [dir="rtl"] .animate-slide-in { animation-name: none; }
+
+/* ------------------------------------------------------------------ Arabic interface (right-to-left)
+   Only the interface turns right-to-left. Lessons, passages, questions and answer choices are English and stay
+   left-to-right: every content block marked data-content (and .reading passages) keeps its English direction. */
+[dir="rtl"] .text-left { text-align: start; }
+[dir="rtl"] .text-right { text-align: end; }
+[dir="rtl"] :is([data-content], .reading) { direction: ltr; unicode-bidi: isolate; }
+/* Untranslated English lines (names, skills, numbers, page text not yet in the word list) read in their own
+   direction: each paragraph, cell, heading, label and button takes its direction from its first letter. */
+[dir="rtl"] :is(div, p, span, li, h1, h2, h3, h4, h5, h6, td, th, dt, dd, label, summary, figcaption, blockquote, option, a, button) { unicode-bidi: plaintext; }
+[dir="rtl"] body { letter-spacing: 0; }
+

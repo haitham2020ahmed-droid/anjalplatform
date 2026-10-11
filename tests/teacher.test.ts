@@ -5,6 +5,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import type { Actor } from "../src/server/auth/rbac";
 import { loadSkillItems } from "../src/server/practice/items";
 import { startPractice, submitAnswer } from "../src/server/practice/session";
+import { afterResponseSettled } from "../src/server/lib/after-response";
 import { getStudentCurriculum, getUnitSkillCards } from "../src/server/queries/student-curriculum";
 import { DEMO_SCHOOL_CODE } from "../src/server/seeding/demo";
 import { loadBank } from "../src/server/seeding/load-files";
@@ -61,6 +62,7 @@ before(async () => {
   await practise("demo.s1001", "G4.theme", [true, true, true, false, true, true]);
   await practise("demo.s1002", "G4.context-clues", [false, false, true, false, false, false, true, false, false, false]);
   await practise("demo.s1003", "G4.context-clues", [true, false, true, true, false, true]);
+  await afterResponseSettled(); // decision logs and statuses are written after each answer's response (Update 42B)
 });
 
 describe("access", () => {

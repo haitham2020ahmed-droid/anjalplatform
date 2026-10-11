@@ -2,7 +2,8 @@ import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { wordList } from "@/server/student/words";
-import { fetchWordAction, importCsvAction, saveDefinitionAction, saveExtrasAction } from "./actions";
+import { missingWords } from "@/server/vocabulary/meaning";
+import { fetchWordAction, fillMissingAiAction, importCsvAction, saveDefinitionAction, saveExtrasAction } from "./actions";
 
 export const metadata = { title: "Dictionary" };
 
@@ -12,6 +13,8 @@ export default async function DictionaryPage({ searchParams }: { searchParams: P
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const v = await wordList(repo, actor, sp.q ?? "");
+  const missing = await missingWords(repo, actor, 100);
+  const isAdmin = actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN";
   const defined = new Set(v.entries.filter((e) => e.source !== "NONE").map((e) => e.word));
   const box = "mt-1 block w-full rounded-lg border border-slate-300 px-2 py-1.5 font-normal";
   const one = v.entries.find((e) => e.word === (sp.q ?? "").toLowerCase().trim());
@@ -25,13 +28,23 @@ export default async function DictionaryPage({ searchParams }: { searchParams: P
           {sp.q && !one && <form action={fetchWordAction} className="mt-2"><input type="hidden" name="word" value={sp.q} /><button className="text-sm font-semibold text-brand-teal underline">Look “{sp.q}” up in the dictionary</button></form>}
           <ul className="mt-3 max-h-[60vh] space-y-2 overflow-y-auto">{v.entries.map((e) => (
             <li key={e.word} className="rounded-xl bg-slate-50 p-3 text-sm">
-              <a href={`/admin/dictionary?q=${encodeURIComponent(e.word)}`} className="font-bold text-brand-navy hover:underline">{e.isVocab ? "⭐ " : ""}{e.word}</a> {e.phonetic && <span className="text-slate-500">{e.phonetic}</span>} <span className={`ms-1 rounded-full px-2 py-0.5 text-xs ${e.source === "SCHOOL" ? "bg-emerald-100 text-emerald-800" : e.source === "NONE" ? "bg-red-100 text-red-800" : "bg-slate-200 text-slate-700"}`}>{e.source === "SCHOOL" ? "school" : e.source === "NONE" ? "not found" : "dictionary"}</span>
+              <a href={`/admin/dictionary?q=${encodeURIComponent(e.word)}`} className="font-bold text-brand-navy hover:underline">{e.isVocab ? "⭐ " : ""}{e.word}</a> {e.phonetic && <span className="text-slate-500">{e.phonetic}</span>} <span className={`ms-1 rounded-full px-2 py-0.5 text-xs ${e.source === "SCHOOL" ? "bg-emerald-100 text-emerald-800" : e.source === "NONE" ? "bg-red-100 text-red-800" : e.source === "AI" ? "bg-violet-100 text-violet-800" : "bg-slate-200 text-slate-700"}`}>{e.source === "SCHOOL" ? "school" : e.source === "NONE" ? "not found" : e.source === "AI" ? "AI · check" : "dictionary"}</span>
               {e.meanings[0] && <p className="mt-1 text-slate-700"><i>{e.meanings[0].partOfSpeech}</i> — {e.meanings[0].definition}</p>}
               {(e.contextSentence || e.arabicGloss) && <p className="mt-1 text-xs text-slate-500">{e.contextSentence ? `“${e.contextSentence}”` : ""}{e.arabicGloss ? <span dir="rtl" lang="ar" className="ms-2 text-slate-700">{e.arabicGloss}</span> : null}</p>}
             </li>
           ))}</ul>
         </section>
         <section className="space-y-5">
+          <div className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+            <h2 className="font-bold text-brand-navy">🔎 Words students tapped without a meaning ({missing.length})</h2>
+            <p className="mt-1 text-xs text-slate-500">Students saw “Look at the sentence for clues. Ask your teacher.” Most-tapped first, with the last sentence the word was in. Write a meaning, or let the AI write them (marked “AI · check”).</p>
+            {missing.length ? (
+              <ul className="mt-2 max-h-64 space-y-1 overflow-y-auto text-sm">{missing.map((m) => (
+                <li key={m.word}><a href={`/admin/dictionary?q=${encodeURIComponent(m.word)}`} className="font-semibold text-brand-navy hover:underline">{m.word}</a> <span className="text-xs text-slate-500">× {m.count}</span>{m.lastSentence && <span className="block text-xs text-slate-500">“{m.lastSentence}”</span>}</li>
+              ))}</ul>
+            ) : <p className="mt-2 text-sm text-slate-600">None — every tapped word has a meaning.</p>}
+            {isAdmin && missing.length > 0 && <form action={fillMissingAiAction} className="mt-3"><button className="rounded-lg bg-brand-teal px-4 py-2 font-semibold text-white">✨ Add meanings with AI</button><span className="ms-2 text-xs text-slate-500">Up to 60 words a click, within your AI limits.</span></form>}
+          </div>
           <form action={saveDefinitionAction} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
             <h2 className="font-bold text-brand-navy">✏️ Write / Correct a Definition</h2>
             <div className="mt-2 grid gap-2 sm:grid-cols-2">

@@ -36,7 +36,17 @@ export interface Column {
   width?: number;
   /** Short codes (student numbers, CCSS codes, class names) that should never break across lines. */
   nowrap?: boolean;
+  /**
+   * Text values shown as coloured chips (always with their text), e.g. { Below: "bad", On: "info", Above: "good" }.
+   * The PDF adds a legend under the table; Excel fills the cell. Values not listed stay plain text.
+   */
+  tones?: Record<string, Tone>;
+  /** One short sentence for the Excel "Read me" sheet (what the column means). */
+  help?: string;
 }
+
+/** Colour family of a value. Always shown together with a text label, never colour alone. */
+export type Tone = "good" | "info" | "warn" | "bad" | "neutral";
 
 export type CellValue = string | number | null;
 export type TableRow = Record<string, CellValue>;
@@ -53,13 +63,24 @@ export interface Kpi {
   value: number | string | null;
   kind: "int" | "dec" | "pct" | "signed" | "latin";
   tone?: "good" | "warn" | "bad" | "neutral";
+  /** Shown in the "At a glance" box (the 3–5 numbers that matter most). */
+  glance?: boolean;
+  /** Plain-language meaning, e.g. "out of every 100 answers, 42 were right". */
+  hint?: string;
 }
 
 export type Section =
   | { type: "kpis"; title: string; items: Kpi[] }
-  | { type: "bars"; title: string; items: { label: string; value: number | null; isolate?: "latin" }[]; max: number; kind: "pct" | "int" }
+  | { type: "bars"; title: string; items: { label: string; value: number | null; isolate?: "latin"; /** mastery band code: colours the bar */ band?: string }[]; max: number; kind: "pct" | "int" }
   | { type: "table"; id: string; title: string; columns: Column[]; rows: TableRow[]; empty: string; note?: string; /** Short Excel sheet name (31-char limit) when the title is long. */ sheet?: string }
-  | { type: "notes"; title: string; items: string[] };
+  | { type: "notes"; title: string; items: string[] }
+  /** A plain-language box for families and students ("What this means", "How you can help at home"). */
+  | { type: "explain"; title: string; tone?: "info" | "home"; paragraphs?: string[]; items?: string[] };
+
+/** Who a report is written for (shown in the header as "Prepared for"). */
+export type Audience = "teacher" | "school" | "family";
+/** Colour of the report's source (Curriculum blue, MAP green, RTI orange, Grammar purple, NAFS teal). */
+export type Accent = "curriculum" | "map" | "rti" | "grammar" | "nafs";
 
 export interface Branding {
   /** School name as stored (normally English). */
@@ -84,6 +105,10 @@ export interface ReportDoc {
   fileStem: string;
   generatedAt: Date;
   generatedBy: string;
+  /** Default: from the kind (student → family, school/levels → school, else teacher). */
+  audience?: Audience;
+  /** Default: from the kind. */
+  accent?: Accent;
 }
 
 export function tableById(doc: ReportDoc, id: string): Extract<Section, { type: "table" }> | undefined {

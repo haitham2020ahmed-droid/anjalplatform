@@ -106,7 +106,7 @@ export default async function WritingTaskPage({ params, searchParams }: { params
                   {t.checklist.map((c) => <label key={c.id} className="flex items-start gap-2 py-0.5"><input type="checkbox" name={`c.${c.id}`} value="1" className="mt-1" /> {c.text}</label>)}
                 </fieldset>
               )}
-              {!locked && <div className="flex flex-wrap gap-2"><button name="submit" value="0" className="rounded-xl px-5 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">💾 Save draft</button><button name="submit" value="1" className="rounded-xl bg-emerald-600 px-5 py-2.5 font-semibold text-white">📤 {stage === "DRAFT" ? "Send my draft for feedback" : stage === "REVISE" ? "Send my final version" : "Send to my teacher"}</button></div>}
+              {!locked && <div className="flex flex-wrap gap-2"><button name="submit" value="0" className="rounded-xl px-5 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">💾 Save draft</button><button name="submit" value="1" className="rounded-xl bg-emerald-600 px-5 py-2.5 font-semibold text-white">📤 {stage === "DRAFT" ? "Submit my draft for feedback" : stage === "REVISE" ? "Submit my final version" : "Submit to my teacher"}</button></div>}
               {m.status === "SUBMITTED" && <p className="font-semibold text-slate-600">Sent ✓ — {stage === "DRAFT" ? "your teacher will give feedback, then you revise." : "your teacher will score it."}</p>}
             </div>
             {t.staged || t.genre !== "FREE" ? <Frames t={t} plan={m.plan} /> : <span />}

@@ -1,19 +1,16 @@
 import Link from "next/link";
 import { SearchBox } from "@/components/search/search-box";
-import { listQuestions } from "@/server/admin/questions";
-import { countDeletionRequests } from "@/server/admin/question-requests";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { maybeRunDaily } from "@/server/insights/daily";
-import { scanAlerts } from "@/server/insights/alerts";
+import { adminHomeData } from "@/server/admin/home-data";
+import { runAfterResponse } from "@/server/lib/after-response";
 import { can } from "@/server/auth/rbac";
 import { ToolFinder } from "@/components/ui/tool-finder";
-import { readiness } from "@/server/map/sim";
-import { classesAtAGlance } from "@/server/insights/overview";
-import { connectionsCached } from "@/server/admin/connections";
 import { ClassRows } from "@/components/home/class-rows";
 import { HEALTH_UI } from "@/components/connect/thread";
-import { pendingCount } from "@/server/reports/family-reports";
+import { AdminTestsWidget } from "@/components/tests/admin-tests-widget";
+import { adminTestCounts } from "@/server/tests/assessments";
 
 export const metadata = { title: "Administration" };
 
@@ -27,7 +24,7 @@ const GROUPS = [
 ] as const;
 function groupOf(href: string): (typeof GROUPS)[number]["key"] {
   if (/student-file|department|alerts|map-plans|map-test|growth|visit|term-report/.test(href)) return "results";
-  if (/map-links|question-flags|dictionary|worksheet/.test(href)) return "content";
+  if (/map-links|nafs-links|skill-links|question-flags|dictionary|worksheet/.test(href)) return "content";
   if (/logins|teachers/.test(href)) return "people";
   if (/curriculum-map|\/questions|readmaster|question-bank|bank-gaps|item-quality|\/plans|\/curriculum$/.test(href)) return "content";
   if (/map-rit|map-recommendations|curriculum-results|levels|performance|analytics|intervention|personal-plan/.test(href)) return "results";
@@ -38,9 +35,9 @@ function groupOf(href: string): (typeof GROUPS)[number]["key"] {
 export default async function AdminHome() {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
   // the daily learning job (decay, misconceptions, profiles, advice outcomes, digests): once a day, in the background
-  await maybeRunDaily(repo, actor.schoolId).catch(() => false);
+  // (claimed after the page is sent — Update 42B)
+  runAfterResponse("admin.daily", () => maybeRunDaily(repo, actor.schoolId).catch(() => false));
   const me = (await getActor())!.user;
-  if (actor.schoolId) await scanAlerts(repo, actor.schoolId).catch(() => 0);
   const areas = [
     { href: "/admin/connections", title: "🔗 Connections", text: "Is everything joined up? Curriculum Map, skills, questions, MAP goal areas, the Learning Continuum, students and plans — each link checked, gaps listed with where to fix them.", show: can(actor, "reports:read") },
     { href: "/teacher/map-reports", title: "📑 MAP reports", text: "Personal study plans, family reports and group study plans for every class.", show: can(actor, "reports:read") },
@@ -51,9 +48,12 @@ export default async function AdminHome() {
     { href: "/teacher/alerts", title: "🚨 Student alerts & follow-up", text: "Students who need attention, what each teacher did, and what is not handled yet.", show: can(actor, "reports:read") },
     { href: "/teacher/map-plans", title: "📋 MAP plans & groups", text: "RIT bands per goal area, draft plans checked and sent by teachers, small groups, mid-unit checks.", show: can(actor, "reports:read") },
     { href: "/admin/map-links", title: "🔗 Bank ↔ MAP goal areas", text: "Link every skill of the question bank to its MAP goal area (suggested from the CCSS standard).", show: can(actor, "curriculum:edit") },
+    { href: "/admin/nafs-links", title: "🔗 Bank ↔ NAFS areas", text: "Link every skill of the question bank to its NAFS area, and edit the NAFS area list.", show: can(actor, "curriculum:edit") },
+    { href: "/admin/skill-links", title: "📝 Skill links: needs review", text: "Questions and skills the platform could not link with confidence.", show: can(actor, "curriculum:edit") },
     { href: "/teacher/map-test", title: "🧭 MAP practice test", text: "A MAP-like adaptive test (50 Reading + 50 Language) before Winter and Spring: who is on track, plans from the results, accuracy vs the real MAP.", show: can(actor, "reports:read") },
     { href: "/teacher/growth", title: "📈 MAP growth report", text: "After Winter / Spring: who reached the expected growth, by class and grade.", show: can(actor, "reports:read") },
     { href: "/admin/visit", title: "👀 Class visit", text: "See any teacher's class exactly as the teacher does — read only.", show: can(actor, "reports:read") },
+    { href: "/teacher/reports/games-usage", title: "🎲 Games report", text: "Most played and best rated games, by class: plays per game, average stars, Live Challenges.", show: can(actor, "reports:read") },
     { href: "/admin/term-report", title: "🧾 End-of-term report", text: "One printable report for the school leadership: MAP, practice, work, alerts.", show: can(actor, "reports:read") },
     { href: "/admin/logins", title: "🔑 Sign-ins", text: "Who signed in and when; students who have not signed in for a while.", show: can(actor, "students:read") },
     { href: "/admin/backup", title: "💾 Backup to Excel", text: "Download every score, answer count, MAP result and plan in one Excel file.", show: can(actor, "reports:export") },
@@ -85,33 +85,19 @@ export default async function AdminHome() {
     { href: "/admin/analytics", title: "School analytics and reports", text: "Progress, comparisons, standards; PDF and Excel reports.", show: can(actor, "analytics:school") },
     { href: "/admin/settings", title: "Settings", text: "Calendar, classes, report branding, adaptive engine.", show: can(actor, "settings:school") || can(actor, "settings:engine") },
   ].filter((a) => a.show);
-  // what is waiting for an admin's decision
+  // every count of the page in one round trip; the alert scan runs after the page is sent (Update 42B)
   const canApprove = can(actor, "questions:publish");
-  const [waiting, deletions] = canApprove ? await Promise.all([
-    listQuestions(repo, actor, { status: "UNDER_REVIEW", limit: 1, page: 1 }).then((r) => r.total),
-    countDeletionRequests(repo, actor),
-  ]) : [0, 0];
-  // today at a glance (cheap counts)
-  const weekAgo = new Date(Date.now() - 7 * 86_400_000);
-  const [students, activeRows, alertsOpen, flags] = await Promise.all([
-    repo.count("Student", { schoolId: actor.schoolId }),
-    repo.findMany("PracticeSession", { startedAt: { gte: weekAgo } }, { select: ["studentId"] }),
-    repo.count("StudentAlert", { schoolId: actor.schoolId, status: "OPEN" }),
-    repo.count("QuestionFlag", { schoolId: actor.schoolId, status: "OPEN" }),
+  const [{ waiting, deletions, students, active, alertsOpen, flags, reportsWaiting, short, rows, conn }, testCounts] = await Promise.all([
+    adminHomeData(repo, actor),
+    // UI reorg Phase 5: tests per teacher and students who completed them
+    actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN" ? adminTestCounts(repo, actor) : Promise.resolve(null),
   ]);
-  const active = new Set(activeRows.map((r) => String(r.studentId))).size;
-  const reportsWaiting = actor.schoolId ? await pendingCount(repo, actor.schoolId) : 0;
-  // is the question bank big enough for MAP plans and the practice test? (cached pools: cheap)
-  const gradeLevels = (await repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["level"] })).map((g) => Number(g.level)).filter((g) => g >= 1);
-  const ready = (await Promise.all(gradeLevels.map((g) => readiness(repo, actor, g).catch(() => [])))).flat();
-  const short = ready.flatMap((r) => r.groups.filter((g) => !g.ok).map((g) => `G${r.grade} ${g.name}`));
   const tiles = [
     { href: "/admin/department", label: "Practised this week", value: students ? `${Math.round((100 * Math.min(active, students)) / students)}%` : "—", sub: `${Math.min(active, students)} of ${students} students`, tone: "text-brand-navy" },
     { href: "/teacher/alerts", label: "Alerts not handled", value: String(alertsOpen), sub: "students who need attention", tone: alertsOpen ? "text-red-700" : "text-emerald-700" },
     { href: "/admin/question-flags", label: "Flagged questions", value: String(flags), sub: "marked unclear by students", tone: flags ? "text-amber-700" : "text-emerald-700" },
     { href: "/teacher/map-test", label: "MAP question bank", value: short.length ? `⚠️ ${short.length}` : "✅", sub: short.length ? `areas short of questions: ${short.slice(0, 3).join(", ")}${short.length > 3 ? "…" : ""}` : "ready for plans and the practice test", tone: short.length ? "text-amber-700" : "text-emerald-700" },
   ];
-  const [rows, conn] = await Promise.all([classesAtAGlance(repo, actor), connectionsCached(repo, actor).catch(() => null)]);
   const now = new Date();
   const hour = (now.getUTCHours() + 3) % 24;
   const greet = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
@@ -148,6 +134,7 @@ export default async function AdminHome() {
             <span><span className="block font-semibold text-brand-navy">📨 Family reports to approve</span><span className="block text-xs text-slate-500">Teachers’ reports wait for you before the family sees them</span></span>
             <span className={`grid h-10 min-w-10 place-items-center rounded-xl px-2 text-lg font-semibold ${reportsWaiting ? "bg-amber-400 text-brand-navy" : "bg-slate-100 text-slate-400"}`}>{reportsWaiting}</span>
           </Link>
+          {testCounts && <AdminTestsWidget teachers={testCounts.teachers} totals={testCounts.totals} />}
           {canApprove && (
             <>
               <Link href="/admin/questions?status=UNDER_REVIEW" className="flex min-w-0 items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 transition hover:ring-brand-teal">

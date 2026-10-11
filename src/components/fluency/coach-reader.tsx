@@ -6,6 +6,7 @@ import type { PhraseMark } from "@/server/fluency/phrasing";
 import { say, useCoachRecorder } from "./recorder";
 import { ProsodyBars, TrialChart } from "./charts";
 import { ComprehensionCheck } from "./comprehension-check";
+import { WordLookup } from "../learn/word-lookup";
 
 type Kind = "MINUTE" | "PASSAGE" | "PHRASED" | "REPEATED";
 const LIMIT: Record<Kind, number> = { MINUTE: 60, PASSAGE: 240, PHRASED: 240, REPEATED: 240 };
@@ -23,7 +24,7 @@ const HINT: Record<Kind, string> = {
 /** The passage with phrase marks: / short pause, // long pause. */
 function PhrasedText({ words, marks }: { words: string[]; marks: PhraseMark[] }) {
   return (
-    <p className="max-w-3xl text-xl leading-loose text-slate-900 md:text-2xl md:leading-[2.8rem]">
+    <p data-wordtap className="max-w-3xl text-xl leading-loose text-slate-900 md:text-2xl md:leading-[2.8rem]">
       {words.map((w, i) => (
         <span key={i}>{w}{marks[i] === "/" && <span className="mx-1 font-black text-teal-500" aria-label="short pause"> /</span>}{marks[i] === "//" && <span className="mx-1 font-black text-indigo-500" aria-label="long pause"> //</span>} </span>
       ))}
@@ -46,7 +47,7 @@ export function CoachReader({ passageKey, title, words, mode, kind, grade, marks
           </div>
           {goal ? <p className="mb-3 rounded-xl bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-950">🎯 Stretch goal for this reading: <b>{goal}</b> words correct per minute{trials?.length ? ` (last time: ${trials[trials.length - 1].wcpm})` : ""}.</p> : null}
           {k === "PHRASED" && trial && <p className="mb-3 text-sm text-slate-600">{trial === 1 ? "All the phrase marks are shown." : trial === 2 ? "Now only the long pauses (//) are shown — find the short pauses yourself." : "No marks now — read in phrases on your own!"}</p>}
-          {marks && marks.some(Boolean) ? <PhrasedText words={words} marks={marks} /> : <p className="max-w-3xl text-xl leading-loose text-slate-900 md:text-2xl md:leading-[2.6rem]">{words.join(" ")}</p>}
+          <WordLookup>{marks && marks.some(Boolean) ? <PhrasedText words={words} marks={marks} /> : <p data-wordtap className="max-w-3xl text-xl leading-loose text-slate-900 md:text-2xl md:leading-[2.6rem]">{words.join(" ")}</p>}</WordLookup>
         </section>
       )}
 

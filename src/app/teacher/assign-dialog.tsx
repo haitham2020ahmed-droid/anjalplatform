@@ -3,7 +3,8 @@ import { useActionState, useEffect, useRef, useState } from "react";
 import { assignSkillAction } from "./actions";
 
 type Track = "CURRICULUM" | "MAP" | "NAFS";
-type Skill = { id: string; name: string; standards: string[] };
+/** `track` (optional) overrides the page's source tag for this one skill, e.g. GRAMMAR for a grammar skill. */
+type Skill = { id: string; name: string; standards: string[]; grade?: number; track?: string };
 const OPEN = "skill-assign:open", DONE = "skill-assign:done";
 
 /**
@@ -54,10 +55,10 @@ function AssignForm({ skill, classId, className, students, track, close }: { ski
   const field = "rounded-lg border border-slate-300 px-3 py-2";
   return (
     <form action={action} className="space-y-4 p-6">
-      <input type="hidden" name="track" value={track} /><input type="hidden" name="classId" value={classId} /><input type="hidden" name="skillId" value={skill.id} /><input type="hidden" name="mode" value={mode} />
+      <input type="hidden" name="track" value={skill.track ?? track} /><input type="hidden" name="classId" value={classId} /><input type="hidden" name="skillId" value={skill.id} /><input type="hidden" name="mode" value={mode} />
       <div>
         <h2 className="text-lg font-bold text-brand-navy">Assign “{skill.name}”</h2>
-        <p className="text-sm text-slate-600">{skill.standards.join(", ") || "No standard"} · {className}</p>
+        <p className="text-sm text-slate-600">{skill.grade !== undefined && <span className="me-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">Grade {skill.grade}</span>}{skill.standards.join(", ") || "No standard"} · {className}</p>
       </div>
       <fieldset>
         <legend className="text-sm font-semibold text-slate-700">Assign to</legend>

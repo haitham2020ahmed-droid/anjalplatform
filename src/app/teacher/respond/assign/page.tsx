@@ -43,7 +43,7 @@ export default async function AssignRespond({ searchParams }: { searchParams: Pr
             <label className="flex min-w-[16rem] flex-1 flex-col">Note to students (optional)<input name="note" maxLength={1000} className={box} /></label>
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
-            <button className="rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">⭐ Send to students</button>
+            <button className="rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">⭐ Assign to students</button>
             <Link href={`/admin/curriculum-map/respond/${p.setCode}`} className="rounded-xl bg-white px-5 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">👀 Preview the 3 versions</Link>
           </div>
         </form>

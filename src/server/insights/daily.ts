@@ -93,7 +93,7 @@ export async function teacherDigests(repo: Repo, schoolId: string, now = new Dat
   return sent;
 }
 
-export interface DailyResult { tiers: number; levelChanges?: number; declining?: number; highRisk: number; decayed: number; tagged: number; analysed: number; reclassified?: number; alerts?: number; skillFlags?: number; prerequisites: number; recommendations: number; interventions: number; profiles: number; digests: number }
+export interface DailyResult { rewards?: number; nafsPlans?: number; tiers: number; levelChanges?: number; declining?: number; highRisk: number; decayed: number; tagged: number; analysed: number; reclassified?: number; alerts?: number; skillFlags?: number; prerequisites: number; recommendations: number; interventions: number; profiles: number; digests: number }
 
 /** Daily alert generation for one school: skill-support flags for enrolled students, then student alerts (forced scan). */
 export async function scanDailyAlerts(repo: Repo, schoolId: string, now = new Date()): Promise<{ interventions: number; alerts: number }> {
@@ -102,7 +102,7 @@ export async function scanDailyAlerts(repo: Repo, schoolId: string, now = new Da
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
   const { scanInterventions } = await import("../teacher/interventions");
   let interventions = 0;
-  for (let i = 0; i < ids.length; i += 100) interventions += await scanInterventions(repo, ids.slice(i, i + 100), now);
+  for (let i = 0; i < ids.length; i += 50) interventions += await scanInterventions(repo, ids.slice(i, i + 50), now); // Update 42A: 50 per round
   const { scanAlerts } = await import("./alerts");
   const alerts = await scanAlerts(repo, schoolId, now, true);
   return { interventions, alerts };
@@ -142,8 +142,13 @@ export async function runDaily(repo: Repo, schoolId: string, now = new Date()): 
   const tiers = (await computeTiers(repo, schoolId, now).catch((e) => { log("error", "tiers.compute.failed", { schoolId, error: e }); return null; }))?.changed ?? 0;
   // 🔤 decoding screener invitations for Tier 2/3 students with low fluency and comprehension (never stops the job)
   await (await import("../word-study/screener")).queueDecodingScreens(repo, schoolId, now).catch((e) => log("error", "decoding.queue.failed", { schoolId, error: e }));
+  // 🇸🇦 NAFS tests past their due date (or submitted by everyone): personal NAFS plans from the results (bounded)
+  const nafsPlans = (await (await import("../tests/assessments")).autoPersonalizeNafsTests(repo, schoolId, now).catch((e) => { log("error", "nafs.personalize.failed", { schoolId, error: e }); return null; }))?.personalized ?? 0;
+  // 🎖️ rewards (Games Part 3): coins, badges and automatic certificates for students active since yesterday — read
+  // only on learning data; a failure never stops the rest of the job
+  const rewards = (await (await import("../motivation/sync")).syncSchoolRewards(repo, schoolId, now).catch((e) => { log("error", "rewards.sync.failed", { schoolId, error: e }); return null; }))?.students ?? 0;
   const digests = await teacherDigests(repo, schoolId, now);
-  return { tiers, levelChanges: levels?.changed ?? 0, declining: levels?.declining ?? 0, decayed, tagged, analysed, reclassified, prerequisites, recommendations, interventions, profiles, highRisk: risk.high, digests, alerts: alerts.alerts, skillFlags: alerts.interventions };
+  return { rewards, nafsPlans, tiers, levelChanges: levels?.changed ?? 0, declining: levels?.declining ?? 0, decayed, tagged, analysed, reclassified, prerequisites, recommendations, interventions, profiles, highRisk: risk.high, digests, alerts: alerts.alerts, skillFlags: alerts.interventions };
 }
 
 /** The school day in Riyadh (the job runs once per school per day). */
@@ -172,6 +177,8 @@ export async function platformDaily(repo: Repo, now = new Date()): Promise<{ tag
 
 /** A claim with no done mark older than this is treated as a crashed run and may be claimed again. */
 export const STALE_CLAIM_MS = 2 * 3_600_000;
+/** A day's run that never finished is retried at most this many times (then it waits for the next day). */
+export const MAX_DAILY_RETRIES = 2;
 
 /** Claims today's run for the school: a new claim, or a stale one (started 2+ h ago, never finished). */
 async function claimDay(repo: Repo, schoolId: string, key: string, now: Date): Promise<boolean> {
@@ -186,8 +193,11 @@ async function claimDay(repo: Repo, schoolId: string, key: string, now: Date): P
     const done = Boolean(v.doneAt) || v.profiles !== undefined; // the nightly script saves the result without doneAt
     const started = time(v.startedAt);
     if (done || !(now.getTime() - started >= STALE_CLAIM_MS)) return false;
+    // 🛟 a run that stopped the server MAX_DAILY_RETRIES times today is not started again today (Update 42A: no crash loop)
+    const retries = Number(v.retries ?? 0);
+    if (retries >= MAX_DAILY_RETRIES) { log("error", "daily.run.crash_loop_stopped", { schoolId, key, retries }); return false; }
     // compare-and-set on updatedAt: of two visitors, only one takes the stale claim
-    const n = await repo.updateMany("SchoolSetting", { schoolId, key, updatedAt: row.updatedAt }, { value: { startedAt: now.toISOString(), retryOf: v.startedAt ?? null } });
+    const n = await repo.updateMany("SchoolSetting", { schoolId, key, updatedAt: row.updatedAt }, { value: { startedAt: now.toISOString(), retryOf: v.startedAt ?? null, retries: retries + 1 } });
     return n === 1;
   }
 }

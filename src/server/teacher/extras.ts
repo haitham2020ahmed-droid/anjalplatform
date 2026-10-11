@@ -12,9 +12,7 @@ import { assertClassAccess } from "./assignments";
 import { assertClassRead, readableClasses } from "./coordinators";
 import { assignQuestions, assignSkill } from "./assign";
 import { classMembers, studentNames } from "../insights/student-data";
-import { loadQuestionItems, toClientQuestion, type ClientQuestion } from "../practice/items";
-import { gradeItems, type Graded } from "./worksheet";
-import { groupPools, GROUPS, mapProfiles, type Subject } from "../map/map-plan";
+import { type Subject } from "../map/map-plan";
 import { expectedNow } from "../map/sim";
 import { seasonOf } from "../map/rit";
 import { shareParentReport } from "../insights/parent-report";
@@ -146,40 +144,8 @@ export async function calendar(repo: Repo, actor: Actor, from: Date, days = 35):
 
 // ------------------------------------------------------------------ ☀️ question of the day
 
-/** One question a day from the student's weakest MAP goal area (or any of their grade); +5 points when right. */
-export async function questionOfTheDay(repo: Repo, actor: Actor, now = new Date()): Promise<{ question: ClientQuestion; area: string; answered: boolean } | null> {
-  if (actor.role !== "STUDENT" || !actor.studentId) return null;
-  const day = now.toISOString().slice(0, 10);
-  const answered = (await repo.count("XpEvent", { studentId: actor.studentId, reason: `qotd:${day}` })) > 0;
-  const st = await repo.findUnique("Student", { id: actor.studentId });
-  const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 0);
-  if (!grade) return null;
-  const pk = await groupPools(repo, actor.schoolId!, grade);
-  const p = (await mapProfiles(repo, actor.schoolId!, [actor.studentId], "READING")).get(actor.studentId);
-  const weakest = p?.areas.filter((a) => a.rit !== null).sort((a, b) => a.rit! - b.rit!)[0];
-  const group = weakest?.group ?? GROUPS[(Number(day.slice(8)) % GROUPS.length)].key;
-  const pool = pk.pools.get(group) ?? [];
-  if (!pool.length) return null;
-  // the same question all day; a different one tomorrow; near the student's level when known
-  const target = weakest?.rit ?? null;
-  const sorted = [...pool].sort((a, b) => (target === null ? 0 : Math.abs(a.rit - target) - Math.abs(b.rit - target)) || a.id.localeCompare(b.id));
-  const near = sorted.slice(0, Math.max(5, Math.ceil(sorted.length / 3)));
-  const seed = [...`${actor.studentId}${day}`].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
-  const pick = near[seed % near.length];
-  const [item] = await loadQuestionItems(repo, [pick.id]);
-  if (!item) return null;
-  return { question: toClientQuestion(item, `qotd:${day}:${actor.studentId}`), area: GROUPS.find((g) => g.key === group)!.name, answered };
-}
-
-export async function answerQuestionOfTheDay(repo: Repo, actor: Actor, questionId: string, response: unknown, now = new Date()): Promise<{ correct: number; total: number; review: Graded[] }> {
-  const q = await questionOfTheDay(repo, actor, now);
-  if (!q || q.question.questionId !== questionId) throw new ValidationError("Today's question has changed. Reload the page.");
-  if (q.answered) throw new ValidationError("You already answered today's question. Come back tomorrow!");
-  const review = gradeItems(await loadQuestionItems(repo, [questionId]), { [questionId]: response });
-  const ok = review[0]?.correct ?? false;
-  await repo.create("XpEvent", { studentId: actor.studentId, points: ok ? 5 : 1, reason: `qotd:${now.toISOString().slice(0, 10)}`, createdAt: now });
-  return { correct: ok ? 1 : 0, total: 1, review };
-}
+/** Games Part 3: one level above the student's level, one attempt, coins — src/server/motivation/qotd.ts */
+export { questionOfTheDay, answerQuestionOfTheDay } from "../motivation/qotd";
 
 // ------------------------------------------------------------------ 🏁 the class challenge (classes, never individuals)
 

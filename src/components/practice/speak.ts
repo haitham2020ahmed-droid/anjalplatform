@@ -1,7 +1,10 @@
 /**
  * 🔊 Says a word (or a short sentence) with the browser's own voice: speechSynthesis works offline, with no
- * download and no network. Used by DICTATION items and the decoding screener.
+ * download and no network. Used by DICTATION items and the decoding screener. The most natural US voice of the
+ * device is chosen (src/lib/tts/voices.ts).
  */
+import { bestBrowserVoice } from "@/lib/tts/voices";
+
 export const canSpeak = () => typeof window !== "undefined" && "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined";
 
 /** Speaks the texts one after another (e.g. word → sentence → word). `slow` uses a slower rate for a replay. */
@@ -9,8 +12,7 @@ export function speakTexts(texts: string[], opts: { slow?: boolean; onEnd?: () =
   if (!canSpeak()) return false;
   const synth = window.speechSynthesis;
   synth.cancel();
-  const voices = synth.getVoices();
-  const voice = voices.find((v) => /en[-_]US/i.test(v.lang) && /natural|samantha|google|aria|jenny/i.test(v.name)) ?? voices.find((v) => /^en/i.test(v.lang));
+  const voice = bestBrowserVoice();
   const list = texts.map((t) => t.trim()).filter(Boolean);
   list.forEach((t, k) => {
     const u = new SpeechSynthesisUtterance(t);

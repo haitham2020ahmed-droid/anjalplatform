@@ -94,7 +94,7 @@ export default async function ProgressChecksPage({ searchParams }: { searchParam
             </select></label>
           <label className="text-sm font-semibold">Due<input type="date" name="dueAt" defaultValue={due} className="mt-1 block rounded-lg border-slate-300 text-sm" /></label>
           <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="retake" value="1" /> New form (retake)</label>
-          <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">📋 Give progress check</button>
+          <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">📋 Assign progress check</button>
           {!sets.length && <p className="text-sm text-slate-600">No text sets in this class's curriculum.</p>}
         </form>
       )}

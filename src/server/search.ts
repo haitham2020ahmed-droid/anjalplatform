@@ -22,7 +22,7 @@ export async function globalSearch(repo: Repo, actor: Actor, q: string): Promise
   ]);
   const out: SearchHit[] = [];
   for (const c of classes.filter((c) => has(String(c.name))).slice(0, 5)) out.push({ kind: "class", label: String(c.name), sub: "Class", href: `/teacher/classes/${c.id}` });
-  for (const s of students.slice(0, 8)) out.push({ kind: "student", label: s.name, sub: `Student · ${s.className || `Grade ${s.grade}`}${s.number ? ` · ${s.number}` : ""}`, href: `/admin/student-file/${s.id}` });
+  for (const s of students.slice(0, 8)) out.push({ kind: "student", label: s.name, sub: `Student · ${s.className || `Grade ${s.grade}`}${s.number ? ` · ${s.number}` : ""}`, href: `/teacher/students/${s.id}` });
   const seen = new Set<string>();
   for (const k of skills.filter((k) => has(k.name))) {
     if (seen.size >= 8) break;

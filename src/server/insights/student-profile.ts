@@ -101,8 +101,9 @@ export async function buildProfiles(repo: Repo, schoolId: string, now = new Date
   // the daily rollup is used only when it is fresh (its newest day at most 2 days old), else the raw answers
   const newest = (await repo.findMany("StudentDailyActivity", {}, { select: ["day"], orderBy: [{ field: "day", dir: "desc" }], take: 1 }).catch(() => [] as Row[]))[0];
   const rollupFresh = !!newest && time(newest.day) >= new Date(riyadhDay(now)).getTime() - 2 * DAY;
-  for (let i = 0; i < students.length; i += 300) {
-    const chunk = students.slice(i, i + 300);
+  // 50 students per round (Update 42A: bounded memory on a 512 MB server; every profile is built on its own)
+  for (let i = 0; i < students.length; i += 50) {
+    const chunk = students.slice(i, i + 50);
     const ids = chunk.map((x) => s(x.id));
     const gradeOf = new Map(chunk.map((x) => [s(x.id), grades.get(s(x.gradeId)) ?? 0]));
     const [reading, language, weekly, active, abil] = await Promise.all([

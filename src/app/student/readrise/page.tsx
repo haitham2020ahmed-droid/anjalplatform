@@ -69,7 +69,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
 
       <details className="mt-4 rounded-2xl bg-teal-50 p-4 text-sm text-slate-700 ring-1 ring-teal-200">
         <summary className="cursor-pointer font-semibold text-brand-navy">How does my level move?</summary>
-        <ul className="mt-2 list-disc space-y-1 pl-5">
+        <ul className="mt-2 list-disc space-y-1 ps-5">
           <li>Only your <strong>first try</strong> on an article counts.</li>
           <li>Score 75% or more on 3 of your last 4 articles and your level goes <strong>up 50</strong>.</li>
           <li>Score under 50% on 2 of your last 3 and it goes down 50, so articles fit you better.</li>

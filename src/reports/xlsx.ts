@@ -15,8 +15,9 @@
  * defence instead, see src/imports/csv.ts.)
  */
 import { bandLabel, formatter, t } from "./i18n";
-import type { CellValue, Column, ReportDoc, Section } from "./model";
-import { BAND_COLOURS } from "./html";
+import type { CellValue, Column, ReportDoc, Section, Tone } from "./model";
+import { BAND_COLOURS, TONE_COLOURS } from "./html";
+import { BAND_ORDER, type LabelKey } from "./i18n";
 import { zip, type ZipEntry } from "./zip";
 
 const INVALID_XML = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/g;
@@ -28,13 +29,18 @@ const S = {
   default: 0, title: 1, header: 2, label: 3, text: 4, int: 5, dec: 6, pct: 7, signed: 8, date: 9, note: 10,
   band: { BEGINNING: 11, DEVELOPING: 12, APPROACHING: 13, PROFICIENT: 14, MASTERED: 15 } as Record<string, number>,
   subtitle: 16, kpiValue: 17,
+  tone: { good: 18, info: 19, warn: 20, bad: 21, neutral: 22 } as Record<Tone, number>,
+  hint: 23,
 };
+const TONES: Tone[] = ["good", "info", "warn", "bad", "neutral"];
 
 const argb = (hex: string) => `FF${hex.replace("#", "").toUpperCase()}`;
 
 function stylesXml(): string {
   const bandFills = Object.values(BAND_COLOURS).map((c) => `<fill><patternFill patternType="solid"><fgColor rgb="${argb(c.bg)}"/><bgColor indexed="64"/></patternFill></fill>`).join("");
   const bandFonts = Object.values(BAND_COLOURS).map((c) => `<font><b/><sz val="10"/><color rgb="${argb(c.fg)}"/><name val="Arial"/></font>`).join("");
+  const toneFills = TONES.map((k) => `<fill><patternFill patternType="solid"><fgColor rgb="${argb(TONE_COLOURS[k].bg)}"/><bgColor indexed="64"/></patternFill></fill>`).join("");
+  const toneFonts = TONES.map((k) => `<font><b/><sz val="10"/><color rgb="${argb(TONE_COLOURS[k].fg)}"/><name val="Arial"/></font>`).join("");
   // fonts: 0 normal, 1 title, 2 header, 3 label, 4 note, 5-9 bands, 10 subtitle, 11 kpi value
   const fonts = [
     `<font><sz val="10"/><name val="Arial"/></font>`,
@@ -45,7 +51,9 @@ function stylesXml(): string {
     bandFonts,
     `<font><b/><sz val="10"/><color rgb="FF1FA3A3"/><name val="Arial"/></font>`,
     `<font><b/><sz val="12"/><color rgb="FF1F3A68"/><name val="Arial"/></font>`,
+    toneFonts, // 12-16
   ].join("");
+  const nBand = Object.keys(BAND_COLOURS).length;
   const xf = (numFmt: number, font: number, fill = 0, extra = "") =>
     `<xf numFmtId="${numFmt}" fontId="${font}" fillId="${fill}" borderId="${fill === 2 ? 1 : 0}" xfId="0"${numFmt ? ' applyNumberFormat="1"' : ""} applyFont="1"${fill ? ' applyFill="1"' : ""}${extra ? ` applyAlignment="1">${extra}</xf>` : "/>"}`;
   const wrap = `<alignment vertical="top" wrapText="1"/>`;
@@ -65,16 +73,19 @@ function stylesXml(): string {
     ...Object.keys(BAND_COLOURS).map((_, i) => xf(0, 5 + i, 3 + i, center)),
     xf(0, 10),
     xf(0, 11, 0, `<alignment horizontal="left"/>`),
+    ...TONES.map((_, i) => xf(0, 12 + i, 3 + nBand + i, center)), // 18-22 tones (colour AND text)
+    xf(0, 4, 0, wrap), // 23 hint (plain-language meaning)
   ];
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
 <numFmts count="3"><numFmt numFmtId="164" formatCode="0.0"/><numFmt numFmtId="165" formatCode="+0.0;-0.0;0"/><numFmt numFmtId="166" formatCode="yyyy-mm-dd"/></numFmts>
-<fonts count="${7 + Object.keys(BAND_COLOURS).length}">${fonts}</fonts>
-<fills count="${3 + Object.keys(BAND_COLOURS).length}"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF1F3A68"/><bgColor indexed="64"/></patternFill></fill>${bandFills}</fills>
+<fonts count="${7 + nBand + TONES.length}">${fonts}</fonts>
+<fills count="${3 + nBand + TONES.length}"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF1F3A68"/><bgColor indexed="64"/></patternFill></fill>${bandFills}${toneFills}</fills>
 <borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left/><right/><top/><bottom style="thin"><color rgb="FF1FA3A3"/></bottom><diagonal/></border></borders>
 <cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>
 <cellXfs count="${xfs.length}">${xfs.join("")}</cellXfs>
 <cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles>
+<dxfs count="1"><dxf><fill><patternFill patternType="solid"><bgColor rgb="FFF4F7FB"/></patternFill></fill></dxf></dxfs>
 </styleSheet>`;
 }
 
@@ -113,8 +124,10 @@ function valueCell(col: Column, v: CellValue, locale: ReportDoc["locale"]): XCel
       const code = String(v).toUpperCase();
       return { v: bandLabel(locale, code), s: S.band[code] ?? S.text };
     }
-    default:
-      return { v: String(v), s: S.text };
+    default: {
+      const tone = col.tones?.[String(v)];
+      return { v: String(v), s: tone ? S.tone[tone] : S.text };
+    }
   }
 }
 
@@ -134,6 +147,12 @@ interface SheetSpec {
   freezeHeader?: boolean;
   filter?: { cols: number; rows: number };
   image?: { rId: string };
+  /** Shade every other data row (conditional format, so cell styles and colour fills stay as they are). */
+  zebra?: { ranges: string };
+  /** In-cell bars for percentage columns (0–100%). */
+  dataBars?: string[];
+  /** Footer with the sheet name and page numbers; header row repeated on every printed page. */
+  print?: boolean;
 }
 
 function sheetXml(s: SheetSpec, rtl: boolean): string {
@@ -147,14 +166,20 @@ function sheetXml(s: SheetSpec, rtl: boolean): string {
     .join("");
   const pane = s.freezeHeader ? `<pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/><selection pane="bottomLeft" activeCell="A2" sqref="A2"/>` : "";
   const filter = s.filter && s.filter.rows > 0 ? `<autoFilter ref="A1:${colName(s.filter.cols - 1)}${s.filter.rows + 1}"/>` : "";
+  let prio = 1;
+  const cf = [
+    ...(s.dataBars ?? []).map((ref) => `<conditionalFormatting sqref="${ref}"><cfRule type="dataBar" priority="${prio++}"><dataBar><cfvo type="num" val="0"/><cfvo type="num" val="1"/><color rgb="FF9DB9E3"/></dataBar></cfRule></conditionalFormatting>`),
+    s.zebra?.ranges ? `<conditionalFormatting sqref="${s.zebra.ranges}"><cfRule type="expression" dxfId="0" priority="${prio++}"><formula>MOD(ROW(),2)=1</formula></cfRule></conditionalFormatting>` : "",
+  ].join("");
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+<sheetPr><pageSetUpPr fitToPage="1"/></sheetPr>
 <sheetViews><sheetView workbookViewId="0"${rtl ? ' rightToLeft="1"' : ""}>${pane}</sheetView></sheetViews>
 <sheetFormatPr defaultRowHeight="15"/>
 <cols>${cols}</cols>
-<sheetData>${rows}</sheetData>${filter}
+<sheetData>${rows}</sheetData>${filter}${cf}
 <pageMargins left="0.5" right="0.5" top="0.6" bottom="0.6" header="0.3" footer="0.3"/>
-<pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="0"/>${s.image ? `<drawing r:id="${s.image.rId}"/>` : ""}
+<pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="0"/>${s.print ? `<headerFooter><oddFooter>&amp;L&amp;8${x(s.name.replace(/&/g, "&&"))}&amp;R&amp;8&amp;P / &amp;N</oddFooter></headerFooter>` : ""}${s.image ? `<drawing r:id="${s.image.rId}"/>` : ""}
 </worksheet>`;
 }
 
@@ -233,19 +258,27 @@ function summarySheet(doc: ReportDoc, hasLogo: boolean): SheetSpec {
           : k.kind === "dec" ? B(Number(k.value), S.dec)
           : k.kind === "signed" ? B(Number(k.value), S.signed)
           : B(String(k.value), S.text);
-        rows.push([B(k.label, S.text), v]);
+        rows.push([B(k.label, S.text), v, k.hint ? B(k.hint, S.hint) : null]);
       }
     } else if (s.type === "bars") {
       for (const b of s.items) rows.push([B(b.label, S.text), b.value === null ? B(t(L, "none"), S.text) : s.kind === "pct" ? B(b.value / 100, S.pct) : B(b.value, S.int)]);
     } else if (s.type === "notes") {
       for (const n of s.items) rows.push([B(n, S.note)]);
+    } else if (s.type === "explain") {
+      for (const n of [...(s.paragraphs ?? []), ...(s.items ?? []).map((i) => `• ${i}`)]) rows.push([B(n, S.note)]);
     }
+  }
+  // colour key for the mastery levels used in the tables (colour AND words)
+  if (doc.sections.some((s) => s.type === "table" && s.columns.some((c) => c.kind === "band"))) {
+    rows.push([]);
+    rows.push([B(t(L, "legend"), S.header), B("", S.header)]);
+    for (const c of BAND_ORDER) rows.push([B(bandLabel(L, c), S.band[c]), B(t(L, `band.${c}.hint` as LabelKey), S.text)]);
   }
   const longest = Math.max(20, ...rows.map((r) => (r[0] && r[0].s !== S.note ? textWidth(r[0].v) : 0)));
   return {
     name: t(L, "sec.summary"),
     rows,
-    widths: [Math.min(48, Math.max(hasLogo ? 14 : 0, longest + 2)), 46],
+    widths: [Math.min(48, Math.max(hasLogo ? 14 : 0, longest + 2)), 46, 48],
     rowHeights: hasLogo ? { 1: 24, 2: 16, 3: 16, 4: 16 } : { 1: 24 },
   };
 }
@@ -261,7 +294,35 @@ function tableSheet(doc: ReportDoc, s: Extract<Section, { type: "table" }>, name
     rows.push([]);
     rows.push([{ v: s.note, s: S.note }]);
   }
-  return { name, rows, widths, freezeHeader: true, filter: { cols: s.columns.length, rows: s.rows.length } };
+  const last = s.rows.length + 1;
+  const plain = s.columns.map((c, i) => (c.kind === "band" || c.tones ? null : colName(i))).filter((c): c is string => c !== null);
+  return {
+    name, rows, widths, freezeHeader: true, filter: { cols: s.columns.length, rows: s.rows.length }, print: true,
+    zebra: s.rows.length > 1 && plain.length ? { ranges: plain.map((c) => `${c}2:${c}${last}`).join(" ") } : undefined,
+    dataBars: s.rows.length ? s.columns.map((c, i) => (c.kind === "pct" ? `${colName(i)}2:${colName(i)}${last}` : null)).filter((r): r is string => r !== null) : [],
+  };
+}
+
+/** "Read me": what every sheet and column means, and the colour key (colour AND words). */
+function readMeSheet(doc: ReportDoc, sheets: { name: string; table: Extract<Section, { type: "table" }> }[]): SheetSpec {
+  const L = doc.locale;
+  const B = (v: string, st: number): XCell => ({ v, s: st });
+  const rows: XCell[][] = [[B(`${t(L, "readme")} · ${doc.title}`, S.title)], [B(t(L, "readme.intro"), S.note)], []];
+  rows.push([B(t(L, "readme.sheet"), S.header), B(t(L, "readme.column"), S.header), B(t(L, "readme.meaning"), S.header)]);
+  for (const { name, table } of sheets) {
+    table.columns.forEach((c, i) => rows.push([i === 0 ? B(name, S.label) : null, B(c.label, S.text), B(c.help ?? t(L, `kind.${c.kind === "latin" || c.kind === "name" ? "text" : c.kind}` as LabelKey), S.text)]));
+    if (table.note) rows.push([null, null, B(table.note, S.note)]);
+  }
+  const tones = new Map<string, Tone>();
+  for (const { table } of sheets) for (const c of table.columns) if (c.tones) for (const r of table.rows) { const v = r[c.key]; if (v !== null && v !== undefined && c.tones[String(v)]) tones.set(String(v), c.tones[String(v)]); }
+  const hasBand = sheets.some(({ table }) => table.columns.some((c) => c.kind === "band"));
+  if (hasBand || tones.size) {
+    rows.push([]);
+    rows.push([B(t(L, "legend"), S.header), B("", S.header), B("", S.header)]);
+    if (hasBand) for (const c of BAND_ORDER) rows.push([null, B(bandLabel(L, c), S.band[c]), B(t(L, `band.${c}.hint` as LabelKey), S.text)]);
+    for (const [v, tone] of tones) rows.push([null, B(v, S.tone[tone]), null]);
+  }
+  return { name: t(L, "readme"), rows, widths: [26, 34, 90], print: true };
 }
 
 export function renderXlsx(doc: ReportDoc): Uint8Array {
@@ -272,7 +333,11 @@ export function renderXlsx(doc: ReportDoc): Uint8Array {
   summary.name = sheetName(summary.name, used);
   if (size) summary.image = { rId: "rId1" };
   const tables = doc.sections.filter((s): s is Extract<Section, { type: "table" }> => s.type === "table");
-  const sheets = [summary, ...tables.map((s) => tableSheet(doc, s, sheetName(s.sheet ?? s.title, used)))];
+  const named = tables.map((s) => ({ name: sheetName(s.sheet ?? s.title, used), table: s }));
+  const readMe = readMeSheet(doc, named);
+  readMe.name = sheetName(readMe.name, used);
+  // Summary first, one sheet per table, the "Read me" sheet last
+  const sheets = [summary, ...named.map(({ name, table }) => tableSheet(doc, table, name)), readMe];
   const rtl = doc.locale === "ar";
   const ext = logo?.mime === "image/png" ? "png" : "jpeg";
 
@@ -300,8 +365,10 @@ export function renderXlsx(doc: ReportDoc): Uint8Array {
 <workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><bookViews><workbookView/></bookViews><sheets>${sheets
         .map((s, i) => `<sheet name="${x(s.name)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`)
         .join("")}</sheets>${(() => {
+        const q = (n: string) => `'${x(n.replace(/'/g, "''"))}'`;
         const names = sheets
-          .map((s, i) => (s.filter && s.filter.rows > 0 ? `<definedName name="_xlnm._FilterDatabase" localSheetId="${i}" hidden="1">'${x(s.name.replace(/'/g, "''"))}'!$A$1:$${colName(s.filter.cols - 1)}$${s.filter.rows + 1}</definedName>` : ""))
+          .map((s, i) => (s.filter && s.filter.rows > 0 ? `<definedName name="_xlnm._FilterDatabase" localSheetId="${i}" hidden="1">${q(s.name)}!$A$1:$${colName(s.filter.cols - 1)}$${s.filter.rows + 1}</definedName>` : "")
+            + (s.freezeHeader ? `<definedName name="_xlnm.Print_Titles" localSheetId="${i}">${q(s.name)}!$1:$1</definedName>` : ""))
           .join("");
         return names ? `<definedNames>${names}</definedNames>` : "";
       })()}</workbook>`,

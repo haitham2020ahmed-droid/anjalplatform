@@ -8,7 +8,7 @@ import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { parseCurriculumMap } from "../src/server/curriculum-map/source";
 import { seedCurriculumMap } from "../src/server/curriculum-map/seed";
 import { createDraft } from "../src/server/admin/questions";
-import { assignSkill, teacherRoster } from "../src/server/teacher/assign";
+import { assignSkill, cancelAssignment, teacherCurriculum, teacherRoster } from "../src/server/teacher/assign";
 import { createSkillPlan, listSkillPlans, planPlaces, skillPlanForStaff, skillPlanForStudent, studentSkillPlans } from "../src/server/curriculum-map/plans";
 import { assignRecommendations, classRecommendations, myRecommendations } from "../src/server/map/recommend";
 import { importMapScores, MAP_TEMPLATE_HEADERS } from "../src/server/map/student-map";
@@ -33,9 +33,11 @@ describe("skill plans, MAP recommendations, new students from MAP, Nafs", () => 
     await repo.updateMany("Question", { id: { in: ids } }, { status: "PUBLISHED" });
   });
 
-  test("Nafs is for Grade 6 classes only", async () => {
-    const skill = (await repo.findMany("Skill", {})).find((k) => String(k.code).startsWith("G4."))!;
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId: String(skill.id), track: "NAFS" }), /Nafs is for Grade 6 classes only/);
+  test("Nafs work may go to a class of any grade (UI reorg access rules; it used to be Grade 6 only)", async () => {
+    const mySchoolSkill = (await teacherCurriculum(repo, teacher, classId))!.units.flatMap((u) => u.skills)[0].id;
+    const g4 = await assignSkill(repo, teacher, { classId, skillId: mySchoolSkill, track: "NAFS" });
+    assert.equal(String((await repo.findUnique("Assignment", { id: g4.assignmentId }))!.track), "NAFS");
+    await repo.updateMany("Assignment", { id: g4.assignmentId }, { deletedAt: new Date() }); // keep the later counts of this suite as they were
     // a Grade 6 class and its teacher
     const g6 = (await repo.findMany("Grade", { schoolId: admin.schoolId!, level: 6 }))[0];
     const c6 = (await repo.findMany("Class", { gradeId: g6.id }))[0];

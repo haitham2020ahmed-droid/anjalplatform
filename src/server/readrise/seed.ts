@@ -34,16 +34,24 @@ export async function seedReadRiseLibrary(repo: Repo, root: string, log: (m: str
 /**
  * Loads the platform library on a live site without any manual step: when there are fewer platform articles than
  * article files (first deploy, or new files shipped in an update), the missing/changed files are imported.
- * Cheap when nothing is missing (one count query). Safe to call from pages and the daily job.
+ * Safe to call from pages and the daily job. Update 42B: checked at most ONCE PER DAY per server process (and data
+ * source) — the article files only change with a deploy, which starts a new process — so a page view costs nothing.
  */
 let ensuring: Promise<LibrarySeedReport | null> | null = null;
-export async function ensureReadRiseLibrary(repo: Repo, root: string = process.cwd()): Promise<LibrarySeedReport | null> {
+const checkedOn = new WeakMap<object, string>();
+export async function ensureReadRiseLibrary(repo: Repo, root: string = process.cwd(), now: Date = new Date()): Promise<LibrarySeedReport | null> {
+  const stamp = `${now.toISOString().slice(0, 10)}|${root}`;
+  if (checkedOn.get(repo) === stamp) return null;
   const dir = join(root, "data", "readrise", "articles");
-  if (!existsSync(dir)) return null;
-  const files = readdirSync(dir).filter((n) => n.endsWith(".json")).length;
-  if (!files) return null;
+  const files = existsSync(dir) ? readdirSync(dir).filter((n) => n.endsWith(".json")).length : 0;
+  if (!files) { checkedOn.set(repo, stamp); return null; }
   const have = (await repo.findMany("RRArticle", { schoolId: null, deletedAt: null }, { select: ["id"] })).length;
-  if (have >= files) return null;
+  if (have >= files) { checkedOn.set(repo, stamp); return null; }
   ensuring ??= seedReadRiseLibrary(repo, root, () => undefined).finally(() => { ensuring = null; });
-  return ensuring;
+  const report = await ensuring;
+  checkedOn.set(repo, stamp);
+  return report;
 }
+
+/** Forgets the daily check (tests). */
+export function resetReadRiseLibraryCheck(repo: Repo): void { checkedOn.delete(repo); }

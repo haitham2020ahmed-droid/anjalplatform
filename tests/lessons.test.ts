@@ -14,6 +14,7 @@ import { loadSkillItems, type PracticeItem } from "../src/server/practice/items"
 import { practiceHint, startPractice, submitAnswer } from "../src/server/practice/session";
 import { routeReteach } from "../src/server/tiers/tiers";
 import { demoDatabase } from "./helpers/db";
+import { afterResponseSettled } from "../src/server/lib/after-response";
 
 const NOW = new Date("2026-10-10T08:00:00Z");
 let clock = NOW.getTime();
@@ -214,6 +215,7 @@ describe("🧩 lesson runs (Test School)", () => {
     const approaches = logOf(run).filter((e) => e.t === "SET").map((e) => (e as { approach: number }).approach);
     assert.deepEqual([...new Set(approaches)], [0, 1, 2], "an approach is never repeated after it failed");
     const tUser = t1.userId;
+    await afterResponseSettled(); // the teachers are told after the answer's response (Update 42B)
     assert.ok((await repo.findMany("Notification", { userId: tUser, type: "INTERVENTION_ALERT" })).some((n) => String(n.link) === `/teacher/lessons/${v.runId}`));
   });
 

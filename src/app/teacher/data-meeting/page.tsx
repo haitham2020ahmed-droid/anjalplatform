@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { PageHeader } from "@/components/page-header";
+import { AtAGlance, BandBar, Callout, ReportHeader } from "@/components/report-kit";
+import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { dataMeetingSnapshot, listDataMeetings, type MeetingSnapshot } from "@/server/tiers/data-meeting";
@@ -12,12 +13,13 @@ const ALERT: Record<string, string> = { NO_PRACTICE: "No practice", WEAK_SKILL: 
 const DECISION_ROWS = 5;
 
 function Snapshot({ s }: { s: MeetingSnapshot }) {
-  const box = "rounded-2xl bg-white p-4 ring-1 ring-slate-200";
+  const box = "rk-section rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200";
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <article className={box}>
         <h3 className="font-bold text-brand-navy">🧭 Tiers now</h3>
         <p className="mt-1 text-sm tabular-nums">Tier 1: <b>{s.tiers[1]}</b> · Tier 2: <b>{s.tiers[2]}</b> · Tier 3: <b>{s.tiers[3]}</b> <span className="text-slate-500">of {s.students}</span></p>
+        <BandBar className="mt-2" height="h-5" parts={[{ key: "T1", value: s.tiers[1] }, { key: "T2", value: s.tiers[2] }, { key: "T3", value: s.tiers[3] }]} />
         <h4 className="mt-3 text-sm font-bold text-brand-navy">Tier moves ({s.tierMoves.length})</h4>
         {s.tierMoves.length ? <ul className="mt-1 space-y-1 text-sm">{s.tierMoves.slice(0, 15).map((m, i) => <li key={i}><bdi className="font-semibold">{m.name}</bdi>: Tier {m.from} → Tier {m.to} <span className="text-xs text-slate-500">· {m.date} · {m.source === "TEACHER" ? "teacher" : "rules"}</span></li>)}</ul> : <p className="text-sm text-slate-500">None.</p>}
         {s.refer.length > 0 && <p className="mt-2 rounded-lg bg-red-50 p-2 text-sm text-red-900 ring-1 ring-red-200">⚑ Refer for further evaluation: {s.refer.join(", ")}</p>}
@@ -58,18 +60,37 @@ export default async function DataMeetingPage({ searchParams }: { searchParams: 
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   const today = new Date().toISOString().slice(0, 10);
   const input = "mt-1 block w-full rounded-lg border-slate-300 text-sm";
+  const { t } = await getT();
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/tiers", label: "Support tiers" }} icon="🗂️" title="Data meeting"
-        subtitle="For a class or a grade team: the platform prepares what changed since your last meeting. Agree on who needs what, how, who owns it and when you review it." />
+      <ReportHeader back={{ href: "/teacher/tiers", label: "Support tiers" }} icon="🗂️" title="Data meeting"
+        subtitle="For a class or a grade team: the platform prepares what changed since your last meeting. Agree on who needs what, how, who owns it and when you review it."
+        who={snap?.label} when={snap ? <>{t("Since")} {snap.since}</> : undefined}
+        filters={<nav aria-label="Classes and grades" className="flex flex-wrap gap-2">
+          {classes.map((c) => <Link key={String(c.id)} href={`/teacher/data-meeting?class=${c.id}`} className={chip(c.id === klass?.id)}>{String(c.name)}</Link>)}
+          {grades.map((g) => <Link key={g} href={`/teacher/data-meeting?grade=${g}`} className={chip(grade === g)}>Grade {g} team</Link>)}
+        </nav>} />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 p-3 text-sm text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      <nav aria-label="Classes and grades" className="flex flex-wrap gap-2">
-        {classes.map((c) => <Link key={String(c.id)} href={`/teacher/data-meeting?class=${c.id}`} className={chip(c.id === klass?.id)}>{String(c.name)}</Link>)}
-        {grades.map((g) => <Link key={g} href={`/teacher/data-meeting?grade=${g}`} className={chip(grade === g)}>Grade {g} team</Link>)}
-      </nav>
       {!scope && <p className="mt-4 text-slate-600">You have no classes yet.</p>}
       {snap && scope && (
         <>
+          <AtAGlance items={[
+            { icon: "🔴", label: "Tier 3", value: snap.tiers[3], meaning: t("of {n} students", { n: snap.students }), tone: snap.tiers[3] ? "bad" : "good" },
+            { icon: "🔀", label: "Tier moves", value: snap.tierMoves.length, meaning: "since the last meeting", tone: snap.tierMoves.length > snap.students ? "warn" : "neutral" },
+            { icon: "⏰", label: "Overdue progress checks", value: snap.overdueChecks.length, meaning: "do these first", tone: snap.overdueChecks.length ? "bad" : "good" },
+            { icon: "🚨", label: "Open alerts", value: snap.alerts.total, tone: snap.alerts.total ? "warn" : "good" },
+          ]} />
+          <div className="mb-2 grid gap-4 lg:grid-cols-2">
+            <Callout kind="help" items={[
+              snap.refer.length ? <>{t("Refer for further evaluation")}: {snap.refer.join(", ")}</> : null,
+              snap.overdueChecks.length ? <>{t("Overdue progress checks")}: {snap.overdueChecks.slice(0, 8).map((o) => o.name).join(", ")}</> : null,
+              snap.weakSkills[0] ? <>{t("Weakest skill")}: <b>{snap.weakSkills[0].name}</b> · {t("{n} students under 60", { n: snap.weakSkills[0].studentsBelow60 })}</> : null,
+            ]} />
+            <Callout kind="next" items={[
+              t("Agree on who needs what, how, who owns it and when you review it (form below)."),
+              snap.tierMoves.length > snap.students ? t("Many tier moves since the last meeting: check that the evidence is stable before moving students again.") : null,
+            ]} />
+          </div>
           <h2 className="mt-6 text-xl font-bold text-brand-navy">{snap.label}: since {snap.since}</h2>
           <div className="mt-3"><Snapshot s={snap} /></div>
           <form action={saveDataMeetingAction} className="mt-6 space-y-3 rounded-3xl bg-white p-5 ring-1 ring-slate-200">

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
 import { FeedbackPanel } from "@/components/practice/feedback-panel";
 import type { Feedback, QuizView } from "@/server/practice/session";
@@ -21,6 +21,16 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
   const [celebrate, setCelebrate] = useState(false);
   const q = shown;
   const g = view.goal;
+  // a test with a time limit: the time left (the server's clock decides; at 0 the page reloads to the end of the test)
+  const [left, setLeft] = useState<number | null>(null);
+  useEffect(() => {
+    if (!view.endsAt) { setLeft(null); return; }
+    const end = Date.parse(view.endsAt);
+    const tick = () => { const ms = end - Date.now(); setLeft(Math.max(0, ms)); if (ms <= -31_000) window.location.reload(); };
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
+  }, [view.endsAt]);
   async function submit() {
     if (!q) return;
     setPending(true); setError(null);
@@ -33,6 +43,16 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
   }
   const nextHref = view.nextHref ?? "/student/plans";
   function next() { setFb(null); setValue(null); setShown(view.question); }
+  if (!q && view.isTest) {
+    return (
+      <div className="rounded-3xl bg-white p-10 text-center ring-1 ring-slate-200">
+        <p className="text-5xl" aria-hidden="true">🎉</p>
+        <h1 className="mt-2 text-3xl font-bold text-brand-navy">You finished the test!</h1>
+        <p className="mx-auto mt-3 max-w-xl text-lg text-slate-700">Your answers are saved. See your score and review your answers in My Tests.</p>
+        <Link href="/student/tests" className="mt-6 inline-flex min-h-12 items-center rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">My Tests</Link>
+      </div>
+    );
+  }
   if (!q && view.testMode) {
     return (
       <div className="rounded-3xl bg-white p-10 text-center ring-1 ring-slate-200">
@@ -74,7 +94,8 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
           </div>
         )}
       </header>
-      {view.testMode && <p className="mt-4 rounded-xl bg-indigo-50 px-4 py-3 text-indigo-900 ring-1 ring-indigo-200">📝 This is a test: read each question carefully and choose your best answer. You will not see if it is right or wrong. You can stop and continue later — your answers are saved.</p>}
+      {left !== null && <p role="timer" aria-live="off" className={`mt-4 inline-block rounded-xl px-4 py-2 text-lg font-semibold ring-1 ${left < 60_000 ? "bg-rose-50 text-rose-800 ring-rose-200" : "bg-white text-brand-navy ring-slate-200"}`}>⏱ {left > 0 ? `Time left: ${Math.floor(left / 60_000)}:${String(Math.floor((left % 60_000) / 1000)).padStart(2, "0")}` : "Time is up"}</p>}
+      {view.testMode && <p className="mt-4 rounded-xl bg-indigo-50 px-4 py-3 text-indigo-900 ring-1 ring-indigo-200">📝 This is a test: read each question carefully and choose your best answer. You will not see if it is right or wrong. {view.endsAt ? "The clock keeps running if you stop." : "You can stop and continue later — your answers are saved."}</p>}
       {view.breakHint && !view.testMode && <p role="status" className="mt-4 rounded-xl bg-sky-50 px-4 py-3 text-sky-900 ring-1 ring-sky-200">⏸️ You have practised more than 25 minutes today. Take a short break if you like — your progress is saved and you continue from here.</p>}
       {g?.struggling && !fb && <p role="status" className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-amber-900 ring-1 ring-amber-200">💡 This one is tricky. Read the question slowly, use 🔊 Listen, and look back at the explanation of the last answer. The questions you missed will come back so you can get them right.</p>}
       {celebrate && g && (

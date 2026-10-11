@@ -91,11 +91,10 @@ function categoryPlaces(nodes: AttachmentNode[], categoryCode: string): Attachme
 
 /** What “assign by level” would do for this class and Curriculum Map category (changes nothing). */
 export async function previewMapAssign(repo: Repo, actor: Actor, classId: string, categoryCode: string): Promise<MapAssignPreview> {
-  const klass = await assertClassAccess(repo, actor, classId);
+  await assertClassAccess(repo, actor, classId);
   const places = categoryPlaces(await attachmentNodes(repo, actor.schoolId!), categoryCode);
   if (!places.length) throw new ValidationError("That place is not on the Curriculum Map.");
-  const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
-  if (places[0].grade !== grade) throw new ValidationError(`This class is Grade ${grade}; the place is Grade ${places[0].grade}.`);
+  // access rules (UI reorg): a place of ANY grade's Curriculum Map may be assigned to the teacher's own class
   const students = await classStudents(repo, classId);
   const levels = await studentLevels(repo, students.map((x) => x.id));
   const counts = await questionsOnNodes(repo, places.map((p) => p.id));
@@ -112,11 +111,10 @@ export async function previewMapAssign(repo: Repo, actor: Actor, classId: string
  */
 export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: string; categoryCode: string; studentIds?: string[]; dueAt?: Date | null; startAt?: Date | null; note?: string | null; maxQuestions?: number; mode?: "ADAPTIVE" | "BY_LEVEL"; targetCorrect?: number | null; silent?: boolean; curriculumPlanId?: string | null }, now = new Date()): Promise<MapAssignResult> {
   assertCan(actor, "assignments:create");
-  const klass = await assertClassAccess(repo, actor, input.classId);
+  await assertClassAccess(repo, actor, input.classId);
   const places = categoryPlaces(await attachmentNodes(repo, actor.schoolId!), input.categoryCode);
   if (!places.length) throw new ValidationError("That place is not on the Curriculum Map.");
-  const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
-  if (places[0].grade !== grade) throw new ValidationError(`This class is Grade ${grade}; the place is Grade ${places[0].grade}.`);
+  // access rules (UI reorg): a place of ANY grade's Curriculum Map may be assigned to the teacher's own class
   const all = await classStudents(repo, input.classId);
   const chosen = input.studentIds?.length ? all.filter((x) => input.studentIds!.includes(x.id)) : all;
   if (input.studentIds?.length && chosen.length !== new Set(input.studentIds).size) throw new ForbiddenError("You can only assign work to students in this class.");

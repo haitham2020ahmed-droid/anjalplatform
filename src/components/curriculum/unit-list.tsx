@@ -22,7 +22,7 @@ export function UnitList({ curriculum, firstName, needsPlacement = false }: { cu
           <li key={u.unitId}>
             <a href={`/student/unit/${u.unitId}`}
               className={[
-                "group grid gap-4 rounded-2xl border-l-8 bg-white p-5 shadow-sm ring-1 ring-slate-200 hover:ring-brand-teal md:grid-cols-[8rem_minmax(0,1fr)_14rem] md:items-center",
+                "group grid gap-4 rounded-2xl border-s-8 bg-white p-5 shadow-sm ring-1 ring-slate-200 hover:ring-brand-teal md:grid-cols-[8rem_minmax(0,1fr)_14rem] md:items-center",
                 u.isCurrent ? "border-brand-teal" : u.progressPct >= 70 ? "border-brand-gold" : "border-slate-300",
               ].join(" ")}>
               <div>

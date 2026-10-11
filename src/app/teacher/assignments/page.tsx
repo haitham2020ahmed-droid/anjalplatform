@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { weeklyAssignments } from "@/server/teacher/assign";
+import { SOURCE_LABEL, SOURCE_TAG_CLASS, sourceKeyOf } from "@/lib/source-tags";
 
 const weekStartOf = (date: Date) => { const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate())); d.setUTCDate(d.getUTCDate() - d.getUTCDay()); return d; }; // weeks start on Sunday
 const iso = (d: Date) => d.toISOString().slice(0, 10);
@@ -32,7 +33,7 @@ export default async function WeeklyAssignmentsPage({ searchParams }: { searchPa
             {rows.length === 0 && <tr><td colSpan={8} className="p-4 text-slate-600">No assignments created or due this week. Use ⭐ Assign on the Curriculum page.</td></tr>}
             {rows.map((r) => (
               <tr key={r.id} className="border-b last:border-0">
-                <td className="p-3"><Link href={`/teacher/assignments/${r.id}`} className="font-semibold text-brand-teal hover:underline">{r.track === "MAP" ? <span title="MAP" aria-label="MAP">🗺️ </span> : <span title="Curriculum" aria-label="Curriculum">📘 </span>}{r.skill}</Link>{r.scope === "students" && <span className="ms-2 text-xs text-slate-500">selected students</span>}</td>
+                <td className="p-3"><Link href={`/teacher/assignments/${r.id}`} className="font-semibold text-brand-teal hover:underline">{r.skill}</Link> <span className={`ms-1 inline-flex rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${SOURCE_TAG_CLASS[sourceKeyOf(r.track)]}`}>{SOURCE_LABEL[sourceKeyOf(r.track)]}</span>{r.scope === "students" && <span className="ms-2 text-xs text-slate-500">selected students</span>}</td>
                 <td>{r.className}</td><td className="tabular-nums">{r.assigned}</td>
                 <td className="tabular-nums">{r.counts.NOT_STARTED}</td><td className="tabular-nums">{r.counts.IN_PROGRESS}</td>
                 <td className="tabular-nums text-teal-800">{r.counts.COMPLETED}</td><td className={`tabular-nums ${r.counts.OVERDUE ? "font-semibold text-red-700" : ""}`}>{r.counts.OVERDUE}</td>

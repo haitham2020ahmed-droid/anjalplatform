@@ -128,6 +128,46 @@ export async function rosterBackup(repo: Repo, actor: Actor, scope: RosterScope)
   return { kind: "roster-backup", createdAt: new Date().toISOString(), scope, students: list, users, tables, leftOut: { tables: [...BACKUP_DERIVED], why: "rebuilt by the platform from the answers (decision log, ability snapshots, recommendations, daily activity)" } };
 }
 
+/** Students per database read of the streamed backup (Update 42A). */
+const BACKUP_STUDENTS_PER_READ = 20;
+
+/**
+ * ⬇ The same backup as rosterBackup, as JSON text in pieces (Update 42A): each table is read 20 students at a time and
+ * written out at once, so a whole-school backup never holds every answer of the school in memory (it took ~270 MB for
+ * 200 students and stopped the 512 MB server). Rows of a table come in student groups instead of one query's order.
+ */
+export async function* rosterBackupChunks(repo: Repo, actor: Actor, scope: RosterScope): AsyncGenerator<string> {
+  const list = await scopeStudents(repo, actor, scope, true);
+  const ids = list.map((x) => s(x.id)), userIds = list.map((x) => s(x.userId));
+  const users: Row[] = [];
+  for (let i = 0; i < userIds.length; i += 500) users.push(...(await repo.findMany("User", { id: { in: userIds.slice(i, i + 500) } })).map(({ passwordHash: _p, ...u }) => u));
+  yield `{"kind":"roster-backup","createdAt":${JSON.stringify(new Date().toISOString())},"scope":${JSON.stringify(scope)},"students":${JSON.stringify(list)},"users":${JSON.stringify(users)},"tables":{`;
+  list.length = 0; users.length = 0;
+  let firstTable = true;
+  const table = async function* (name: string, read: (part: string[]) => Promise<Row[]>, keys: string[]): AsyncGenerator<string> {
+    yield `${firstTable ? "" : ","}${JSON.stringify(name)}:[`;
+    firstTable = false;
+    let first = true;
+    for (let i = 0; i < keys.length; i += BACKUP_STUDENTS_PER_READ) {
+      const rows = await read(keys.slice(i, i + BACKUP_STUDENTS_PER_READ));
+      if (!rows.length) continue;
+      yield `${first ? "" : ","}${rows.map((r) => JSON.stringify(r)).join(",")}`;
+      first = false;
+    }
+    yield "]";
+  };
+  if (ids.length) {
+    for (const t of STUDENT_TABLES) {
+      if ((BACKUP_DERIVED as readonly string[]).includes(t)) continue;
+      yield* table(t, (part) => repo.findMany(t, { studentId: { in: part } }, t === "QuestionAttempt" ? { select: ANSWER_COLUMNS } : undefined), ids);
+    }
+    const playerIds: string[] = [];
+    yield* table("LiveGamePlayer", async (part) => { const rows = await repo.findMany("LiveGamePlayer", { studentId: { in: part } }); for (const r of rows) playerIds.push(s(r.id)); return rows; }, ids);
+    yield* table("LiveGameAnswer", (part) => repo.findMany("LiveGameAnswer", { playerId: { in: part } }), playerIds);
+  }
+  yield `},"leftOut":${JSON.stringify({ tables: [...BACKUP_DERIVED], why: "rebuilt by the platform from the answers (decision log, ability snapshots, recommendations, daily activity)" })}}`;
+}
+
 /** Permanent: the students and all their data. The typed confirmation must match exactly. */
 export async function deleteStudentsPermanently(repo: Repo, actor: Actor, scope: RosterScope, confirmation: string, now = new Date()): Promise<{ students: number; rows: number }> {
   const list = await scopeStudents(repo, actor, scope, true);

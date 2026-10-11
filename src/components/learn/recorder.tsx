@@ -40,7 +40,7 @@ export function Recorder({ taskId, sent }: { taskId: string; sent: boolean }) {
         {state !== "rec" ? <button type="button" onClick={() => void start()} className="rounded-xl bg-red-600 px-5 py-3 text-lg font-bold text-white hover:bg-red-700">🎙 {state === "idle" ? "Start recording" : "Record again"}</button>
           : <button type="button" onClick={() => rec.current?.stop()} className="animate-pulse rounded-xl bg-slate-800 px-5 py-3 text-lg font-bold text-white">⏹ Stop ({Math.floor(secs / 60)}:{String(secs % 60).padStart(2, "0")})</button>}
         {url && state !== "rec" && <audio controls src={url} className="max-w-full" />}
-        {state === "ready" && <button type="button" onClick={() => void send()} className="rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white">📤 Send to my teacher</button>}
+        {state === "ready" && <button type="button" onClick={() => void send()} className="rounded-xl bg-emerald-600 px-5 py-3 font-bold text-white">📤 Submit to my teacher</button>}
         {state === "sending" && <span className="font-semibold text-slate-600">Sending…</span>}
       </div>
       {error && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-red-800">{error}</p>}

@@ -1,17 +1,19 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { PageHeader, Section } from "@/components/page-header";
+import { Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { classReport, pollReport, POLL_LABELS, skillsReport, writingQueue, type SkillCell } from "@/server/readrise/dashboards";
 import { assignableArticles } from "@/server/readrise/library";
 import { classArticles, teacherReadRiseClasses } from "@/server/readrise/teacher";
 import { ENGINE } from "@/server/readrise/engine";
-import { ExportLinks } from "@/components/reports/report-ui";
+import { exportsOf } from "@/components/reports/report-ui";
+import { AtAGlance, Callout, ReportHeader } from "@/components/report-kit";
+import { getT } from "@/i18n/server";
 import { ReadingLevelLabel } from "@/components/reading-level";
 import { skillName } from "@/app/admin/readrise/_components/article-view";
 import { ReadRiseTabs, TEACHER_TABS } from "@/app/admin/readrise/_components/tabs";
-import { btn, day, field, Flash, fmt, LevelHistogram, levelRange, RR_NOTE, ScaledLineChart, signed, Stat } from "@/app/admin/readrise/_components/ui";
+import { btn, day, field, Flash, fmt, LevelHistogram, levelRange, RR_NOTE, ScaledLineChart, signed } from "@/app/admin/readrise/_components/ui";
 import { allowReadRiseRetakeAction, assignReadRiseAction, scoreReadRiseWritingAction, setReadRiseLevelAction, unassignReadRiseAction } from "./actions";
 
 export const metadata = { title: "ReadRise" };
@@ -36,11 +38,16 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   const klass = classes.find((c) => c.id === sp.class) ?? classes.find((c) => c.own) ?? classes[0];
   const tab: Tab = TABS.some((t) => t.key === sp.tab) ? (sp.tab as Tab) : "students";
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`;
+  const { t } = await getT();
   const header = (
-    <PageHeader back={{ href: "/teacher", label: "Home" }} icon="🚀" title="ReadRise"
-      subtitle={<>Every student reads the same articles at their own level; the level moves with first-try scores (75%+ up, under 50% down). <span className="text-xs text-slate-500">{RR_NOTE}</span></>}>
+    <ReportHeader back={{ href: "/teacher", label: "Home" }} icon="🚀" title="ReadRise"
+      subtitle={<>Every student reads the same articles at their own level; the level moves with first-try scores (75%+ up, under 50% down). <span className="text-xs text-slate-500">{RR_NOTE}</span></>}
+      who={klass?.name} downloads={klass ? exportsOf({ kind: "readrise", classId: klass.id, period: "TERM" }).map((d) => ({ ...d, label: d.label })) : []}
+      filters={classes.length ? <nav aria-label="Class" className="flex flex-wrap gap-2">
+        {classes.map((c) => <Link key={c.id} href={`/teacher/readrise?class=${c.id}&tab=${tab}`} className={chip(c.id === klass?.id)}>{c.name}{!c.own && <span className="ms-1 text-xs opacity-70">(view)</span>}</Link>)}
+      </nav> : undefined}>
       <ReadRiseTabs items={TEACHER_TABS} current="/teacher/readrise" />
-    </PageHeader>
+    </ReportHeader>
   );
   if (!klass) {
     return <AppShell name={String(me.displayName)}>{header}<p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">You have no classes yet.</p></AppShell>;
@@ -55,20 +62,26 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
     <AppShell name={String(me.displayName)}>
       {header}
       <Flash msg={sp.msg} />
-      <nav aria-label="Class" className="mb-4 flex flex-wrap gap-2">
-        {classes.map((c) => <Link key={c.id} href={`/teacher/readrise?class=${c.id}&tab=${tab}`} className={chip(c.id === klass.id)}>{c.name}{!c.own && <span className="ms-1 text-xs opacity-70">(view)</span>}</Link>)}
-      </nav>
-
-      <div className="mb-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
-        <Stat label="Placed" value={`${s.placed} / ${s.students}`} note={s.notPlaced ? `${s.notPlaced} not placed` : "everyone placed"} tone={s.notPlaced ? "amber" : "teal"} />
-        <Stat label="Median level" value={fmt(s.medianLevel)} note={`Grade ${r.grade} band ${r.band.low}–${r.band.high}`} tone={medBelow ? "red" : "slate"} />
-        <Stat label="Growth" value={signed(s.avgGrowth)} note="average since placement" />
-        <Stat label="Below band" value={s.belowBand} tone={s.belowBand ? "amber" : "slate"} />
-        <Stat label="Inactive" value={s.inactive} note="14+ days" tone={s.inactive ? "amber" : "slate"} />
-        <Stat label="Writing to score" value={s.writingToScore} tone={s.writingToScore ? "amber" : "slate"} note={s.writingToScore ? <Link href={url("writing")} className="font-semibold text-brand-teal hover:underline">Score now →</Link> : undefined} />
+      <AtAGlance items={[
+        { icon: "🧭", label: "Placed", value: `${s.placed} / ${s.students}`, meaning: s.notPlaced ? t("{n} not placed", { n: s.notPlaced }) : "everyone placed", tone: s.notPlaced ? "warn" : "good" },
+        { icon: "📊", label: "Median ReadRise Level", value: fmt(s.medianLevel), meaning: t("Grade {g} band {lo}–{hi} (ReadRise Level is an estimate)", { g: r.grade, lo: r.band.low, hi: r.band.high }), tone: medBelow ? "bad" : "info" },
+        { icon: "📈", label: "Growth", value: signed(s.avgGrowth), meaning: "average since placement", tone: (s.avgGrowth ?? 0) > 0 ? "good" : (s.avgGrowth ?? 0) < 0 ? "bad" : "neutral" },
+        { icon: "▼", label: "Below band", value: s.belowBand, meaning: "students under the grade's expected band", tone: s.belowBand ? "warn" : "neutral" },
+        { icon: "💤", label: "Inactive", value: s.inactive, meaning: "no reading for 14+ days", tone: s.inactive ? "warn" : "neutral" },
+      ]} />
+      <div className="mb-5 grid gap-4 lg:grid-cols-2">
+        <Callout kind="help" items={[
+          s.belowBand ? <>{t("Below band")}: {r.students.filter((x) => x.flags.belowBand).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
+          s.inactive ? <>{t("Inactive")}: {r.students.filter((x) => x.flags.inactive).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
+          s.notPlaced ? <>{t("Not placed")}: {r.students.filter((x) => x.flags.notPlaced).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
+        ]} />
+        <Callout kind="next" items={[
+          s.writingToScore ? <>{t("Writing to score")}: <b>{s.writingToScore}</b> · <Link href={url("writing")} className="font-semibold text-brand-teal hover:underline">Score now →</Link></> : null,
+          s.inactive ? t("Remind inactive students to read one article this week.") : null,
+          s.notPlaced ? t("Ask students who are not placed to take the placement.") : null,
+          !s.writingToScore && !s.inactive && !s.notPlaced ? t("Everyone is reading: keep the weekly goal going.") : null,
+        ]} />
       </div>
-
-      <div className="mb-4"><ExportLinks report={{ kind: "readrise", classId: klass.id, period: "TERM" }} label="ReadRise export (ReadRise Level, estimate)" /></div>
       <nav aria-label="Report" className="mb-5 flex flex-wrap gap-1 border-b border-slate-200">
         {TABS.map((t) => (
           <Link key={t.key} href={url(t.key)} aria-current={t.key === tab ? "page" : undefined}
@@ -108,7 +121,7 @@ function StudentsTab({ r, canWrite, classId }: { r: Report; canWrite: boolean; c
       </div>
 
       <Section title="Students" icon="👩‍🎓" hint={canWrite ? "Change a level by hand (with a reason) or allow a placement retake from a student's row." : "You can view this class; changes are made by its teachers."}>
-        <div className="relative overflow-x-auto">
+        <div className="rk-box rk-tall">
           <table className="w-full min-w-[60rem] text-left text-sm">
             <thead>
               <tr className="border-b text-xs text-slate-500">

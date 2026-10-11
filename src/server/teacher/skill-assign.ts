@@ -36,10 +36,8 @@ export async function skillPool(repo: Repo, schoolId: string, skillId: string): 
 export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { classId: string; skillId: string; mode: "AUTOMATIC" | "MANUAL"; levels?: Record<string, string>; skip?: string[]; dueAt?: Date | null; note?: string | null; max?: number }, now = new Date()): Promise<{ groups: { level: Level | null; students: number; questions: number }[]; notes: string[] }> {
   assertCan(actor, "assignments:create");
   const klass = await assertClassAccess(repo, actor, input.classId);
-  const classGrade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
-  const { skill, byLevel } = await skillPool(repo, actor.schoolId!, input.skillId);
-  // Grammar is one library for every grade: any lesson may go to any class; other skills stay in their grade
-  if (skill.grade !== classGrade && !skill.grammar) throw new ValidationError(`This class is Grade ${classGrade}; the skill is Grade ${skill.grade}.`);
+  // access rules (UI reorg): a skill of ANY grade may go to the teacher's own class (e.g. Grade 11 with no curriculum yet)
+  const { skill, byLevel } = await skillPool(repo, String(klass.schoolId), input.skillId);
   const all = [...byLevel.BELOW, ...byLevel.ON, ...byLevel.ABOVE];
   if (!all.length) throw new ValidationError("This skill has no published questions yet.");
   const members = (await repo.findMany("ClassMembership", { classId: input.classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));

@@ -77,15 +77,15 @@ export async function buildStudentReport(ctx: BuildContext, studentId: string): 
   const tone = (v: number | null, good: number, warn: number): Kpi["tone"] => (v === null ? "neutral" : v >= good ? "good" : v >= warn ? "warn" : "bad");
 
   const kpis: Kpi[] = [
-    { label: t(L, "kpi.questions"), value: a.questions, kind: "int" },
-    { label: t(L, "kpi.accuracy"), value: a.accuracyPct, kind: "pct", tone: tone(a.accuracyPct, 75, 60) },
+    { label: t(L, "kpi.questions"), value: a.questions, kind: "int", glance: true, hint: t(L, "hint.questions") },
+    { label: t(L, "kpi.accuracy"), value: a.accuracyPct, kind: "pct", tone: tone(a.accuracyPct, 75, 60), glance: true, hint: t(L, "hint.accuracy") },
     { label: t(L, "kpi.minutes"), value: a.minutes, kind: "int" },
     { label: t(L, "kpi.sessions"), value: a.sessions, kind: "int" },
-    { label: t(L, "kpi.mastered"), value: a.skillsMastered, kind: "int", tone: "good" },
-    { label: t(L, "kpi.developing"), value: a.skillsDeveloping, kind: "int", tone: "warn" },
-    { label: t(L, "kpi.needSupport"), value: a.skillsNeedingIntervention, kind: "int", tone: a.skillsNeedingIntervention ? "bad" : "good" },
+    { label: t(L, "kpi.mastered"), value: a.skillsMastered, kind: "int", tone: a.skillsMastered ? "good" : "neutral", glance: true, hint: t(L, "hint.mastered") },
+    { label: t(L, "kpi.developing"), value: a.skillsDeveloping, kind: "int", tone: a.skillsDeveloping ? "warn" : "neutral" },
+    { label: t(L, "kpi.needSupport"), value: a.skillsNeedingIntervention, kind: "int", tone: a.skillsNeedingIntervention ? "bad" : "good", glance: true, hint: t(L, "hint.needSupport") },
     { label: t(L, "kpi.curriculum"), value: a.curriculumProgressPct, kind: "pct" },
-    { label: t(L, "kpi.growth"), value: paired, kind: "signed", tone: paired === null ? "neutral" : paired > 0 ? "good" : paired < 0 ? "bad" : "neutral" },
+    { label: t(L, "kpi.growth"), value: paired, kind: "signed", tone: paired === null ? "neutral" : paired > 0 ? "good" : paired < 0 ? "bad" : "neutral", glance: true, hint: t(L, "hint.growth") },
     { label: t(L, "kpi.avgSeconds"), value: a.avgSeconds, kind: "dec" },
     ...(a.readingRange ? [{ label: t(L, "kpi.readingRange"), value: a.readingRange, kind: "latin" as const }] : []),
   ];
@@ -97,6 +97,8 @@ export async function buildStudentReport(ctx: BuildContext, studentId: string): 
 
   const sections: Section[] = [
     { type: "kpis", title: t(L, "sec.summary"), items: kpis },
+    // plain language for the student and the family (the report's readers include parents)
+    { type: "explain", tone: "info", title: t(L, "explain.title"), paragraphs: [t(L, "explain.p1", { name: d.name }), t(L, "explain.p2"), t(L, "explain.p3")] },
     { type: "bars", title: t(L, "sec.units"), items: a.unitProgress.map((u) => ({ label: `${t(L, "unit")} ${u.unit}`, value: u.pct })), max: 100, kind: "pct" },
     {
       type: "table", id: "skills", title: t(L, "sec.skills"), empty: t(L, "noData"),
@@ -142,6 +144,7 @@ export async function buildStudentReport(ctx: BuildContext, studentId: string): 
       ],
       rows: map,
     },
+    { type: "explain", tone: "home", title: t(L, "home.title"), items: [t(L, "home.1"), t(L, "home.2"), t(L, "home.3"), t(L, "home.4"), t(L, "home.5")] },
     notes(L, ["note.internal", "note.map"]),
   ];
   const meta: MetaItem[] = [
@@ -165,14 +168,14 @@ export async function buildClassReport(ctx: BuildContext, classId: string): Prom
 
   const k = o.kpis;
   const kpis: Kpi[] = [
-    { label: t(L, "kpi.students"), value: k.students, kind: "int" },
+    { label: t(L, "kpi.students"), value: k.students, kind: "int", glance: true, hint: t(L, "hint.students") },
     { label: t(L, "kpi.active"), value: k.activeStudents, kind: "int" },
     { label: t(L, "kpi.questions"), value: k.questions, kind: "int" },
-    { label: t(L, "kpi.accuracy"), value: k.accuracyPct, kind: "pct", tone: k.accuracyPct === null ? "neutral" : k.accuracyPct >= 75 ? "good" : k.accuracyPct >= 60 ? "warn" : "bad" },
-    { label: t(L, "kpi.avgMastery"), value: k.avgMastery, kind: "int" },
+    { label: t(L, "kpi.accuracy"), value: k.accuracyPct, kind: "pct", tone: k.accuracyPct === null ? "neutral" : k.accuracyPct >= 75 ? "good" : k.accuracyPct >= 60 ? "warn" : "bad", glance: true, hint: t(L, "hint.classAccuracy") },
+    { label: t(L, "kpi.avgMastery"), value: k.avgMastery, kind: "int", glance: true, hint: t(L, "hint.avgMastery") },
     { label: t(L, "kpi.minutes"), value: k.minutes, kind: "int" },
-    { label: t(L, "kpi.skillsMasteredTotal"), value: k.skillsMastered, kind: "int", tone: "good" },
-    { label: t(L, "kpi.studentsNeedSupport"), value: k.needSupport, kind: "int", tone: k.needSupport ? "bad" : "good" },
+    { label: t(L, "kpi.skillsMasteredTotal"), value: k.skillsMastered, kind: "int", tone: k.skillsMastered ? "good" : "neutral" },
+    { label: t(L, "kpi.studentsNeedSupport"), value: k.needSupport, kind: "int", tone: k.needSupport ? "bad" : "good", glance: true, hint: t(L, "hint.studentsNeedSupport") },
   ];
   const cmpLabel = [t(L, "cmp.class", { name: o.className }), t(L, "cmp.grade", { level: o.grade }), t(L, "cmp.school")];
   const skillCols = [
@@ -229,7 +232,7 @@ export async function buildClassReport(ctx: BuildContext, classId: string): Prom
         value: e.available ? e.value ?? null : null, source: e.available ? e.source ?? null : null,
       })),
     },
-    { type: "bars", title: t(L, "sec.distribution"), items: c.distribution.map((b) => ({ label: bandLabel(L, b.label), value: b.count })), max: Math.max(1, ...c.distribution.map((b) => b.count)), kind: "int" },
+    { type: "bars", title: t(L, "sec.distribution"), items: c.distribution.map((b) => ({ label: bandLabel(L, b.label), value: b.count, band: b.label.toUpperCase() })), max: Math.max(1, ...c.distribution.map((b) => b.count)), kind: "int" },
     { type: "table", id: "weak", title: t(L, "sec.weak"), empty: t(L, "noData"), columns: skillCols, rows: o.weakSkills.map((x) => ({ skill: x.name, avg: x.avgMastery, students: x.students })) },
     { type: "table", id: "strong", title: t(L, "sec.strong"), empty: t(L, "noData"), columns: skillCols, rows: o.strongSkills.map((x) => ({ skill: x.name, avg: x.avgMastery, students: x.students })) },
     standardsTable(L, s),
@@ -289,12 +292,12 @@ export async function buildSchoolReport(ctx: BuildContext): Promise<ReportDoc> {
     {
       type: "kpis", title: t(L, "sec.summary"), items: [
         { label: t(L, "kpi.classes"), value: rows.length, kind: "int" },
-        { label: t(L, "kpi.students"), value: students, kind: "int" },
+        { label: t(L, "kpi.students"), value: students, kind: "int", glance: true },
         { label: t(L, "kpi.active"), value: active, kind: "int" },
         { label: t(L, "kpi.questions"), value: questions, kind: "int" },
-        { label: t(L, "kpi.accuracy"), value: accuracy, kind: "pct" },
-        { label: t(L, "kpi.avgMastery"), value: avgMastery, kind: "int" },
-        { label: t(L, "kpi.studentsNeedSupport"), value: needSupport, kind: "int", tone: needSupport ? "bad" : "good" },
+        { label: t(L, "kpi.accuracy"), value: accuracy, kind: "pct", glance: true, hint: t(L, "hint.schoolAccuracy") },
+        { label: t(L, "kpi.avgMastery"), value: avgMastery, kind: "int", glance: true, hint: t(L, "hint.avgMastery") },
+        { label: t(L, "kpi.studentsNeedSupport"), value: needSupport, kind: "int", tone: needSupport ? "bad" : "good", glance: true, hint: t(L, "hint.studentsNeedSupport") },
         { label: t(L, "col.alerts"), value: alerts, kind: "int", tone: alerts ? "warn" : "good" },
       ],
     },
@@ -313,7 +316,7 @@ export async function buildSchoolReport(ctx: BuildContext): Promise<ReportDoc> {
       ],
       rows,
     },
-    { type: "bars", title: t(L, "sec.distribution"), items: dist.map((b) => ({ label: bandLabel(L, b.label), value: b.count })), max: Math.max(1, ...dist.map((b) => b.count)), kind: "int" },
+    { type: "bars", title: t(L, "sec.distribution"), items: dist.map((b) => ({ label: bandLabel(L, b.label), value: b.count, band: b.label.toUpperCase() })), max: Math.max(1, ...dist.map((b) => b.count)), kind: "int" },
     standardsTable(L, s),
     notes(L, ["note.internal"]),
   ];

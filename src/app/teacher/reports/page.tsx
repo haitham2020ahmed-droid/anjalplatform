@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { PageHeader } from "@/components/page-header";
+import { Callout, ReportHeader } from "@/components/report-kit";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classMembers, studentNames } from "@/server/insights/student-data";
@@ -31,20 +31,39 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
   rows.sort((a, b) => a.name.localeCompare(b.name));
   const count = (st: string) => fam.filter((r) => r.status === st).length;
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
-  const tile = "lift flex flex-col rounded-2xl bg-white p-4 ring-1 ring-slate-200";
+  const tile = "lift flex flex-col rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 hover:ring-brand-teal";
   const btn = "rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal";
   const Group = ({ icon, title, children }: { icon: string; title: string; children: React.ReactNode }) => (
-    <section className="mt-6"><h2 className="mb-3 text-lg font-bold text-brand-navy"><span aria-hidden="true">{icon}</span> {title}</h2><div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">{children}</div></section>
+    <section className="mt-7"><h2 className="mb-3 flex items-center gap-2 text-lg font-semibold text-brand-navy sm:text-xl"><span aria-hidden="true">{icon}</span> {title}</h2><div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">{children}</div></section>
   );
   const Tile = ({ icon, title, text, children, strong }: { icon: string; title: string; text: string; children: React.ReactNode; strong?: boolean }) => (
     <div className={`${tile} ${strong ? "ring-2 ring-teal-300" : ""}`}><p className="text-lg font-bold text-brand-navy"><span aria-hidden="true">{icon}</span> {title}</p><p className="flex-1 text-sm text-slate-600">{text}</p><div className="mt-3 flex flex-wrap gap-2">{children}</div></div>
   );
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: teacher ? "/teacher" : "/admin", label: "Home" }} icon="📊" title="Reports"
-        subtitle="Every report in one place: for families (approved by the school admin before they are sent), MAP in NWEA style, practice on the platform, the Diagnostic and reading fluency. Each one prints or saves as PDF." />
+      <ReportHeader back={{ href: teacher ? "/teacher" : "/admin", label: "Home" }} icon="📊" title="Reports" print={false}
+        subtitle="Every report in one place: for families (approved by the school admin before they are sent), MAP in NWEA style, practice on the platform, the Diagnostic and reading fluency. Each one prints or saves as PDF."
+        who={klass ? String(klass.name) : undefined}
+        filters={classes.length ? <nav aria-label="Classes" className="flex flex-wrap gap-2">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/reports?classId=${c.id}`} className={chip(c.id === klass?.id)}>{String(c.name)}</Link>)}</nav> : undefined} />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      <nav aria-label="Classes" className="flex flex-wrap gap-2">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/reports?classId=${c.id}`} className={chip(c.id === klass?.id)}>{String(c.name)}</Link>)}</nav>
+      {cid && (
+        <Callout kind="next" title="Start here" items={[
+          <><Link className="font-semibold text-brand-teal underline" href={`/teacher/progress?classId=${cid}&sort=status`}>Students dashboard</Link> — who needs help first (at risk, late work).</>,
+          <><Link className="font-semibold text-brand-teal underline" href={`/teacher/reports/grammar?classId=${cid}`}>Grammar results</Link> · <Link className="font-semibold text-brand-teal underline" href="/teacher/curriculum-results">Curriculum results</Link> — what to reteach this week.</>,
+          <><Link className="font-semibold text-brand-teal underline" href={`/teacher/rti-plan?classId=${cid}`}>RTI weekly plan</Link> — this week's Tier 2 and Tier 3 groups.</>,
+        ]} />
+      )}
+
+      {/* one hub, five categories (UI reorg Phase 3 H): the quickest way to each kind of report */}
+      <Group icon="🗂️" title="Find a report">
+        <Tile icon="🏫" title="Class overview" strong text="Every student of the class: progress, accuracy, status; MAP class profile.">{cid && <><Link className={btn} href={`/teacher/progress?classId=${cid}`}>Open</Link><Link className={btn} href={`/map-report/class/${cid}/profile?subject=READING`}>MAP</Link></>}</Tile>
+        <Tile icon="🧑‍🎓" title="Each student" text="One page with everything about a student: work, plans, tests, MAP, skills, time and reports.">
+          <form action="/teacher/students/go" className="flex flex-wrap gap-2"><select name="id" aria-label="Student" className="min-h-11 rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-sm">{rows.map((r) => <option key={r.id} value={r.id}>{r.name}</option>)}</select><button className={btn}>Open</button></form>
+        </Tile>
+        <Tile icon="🧩" title="Skills" text="How the class did on each skill and section; grammar skills.">{cid && <><Link className={btn} href="/teacher/curriculum-results">Curriculum</Link><Link className={btn} href={`/teacher/reports/grammar?classId=${cid}`}>Grammar</Link></>}</Tile>
+        <Tile icon="⏱️" title="Time spent" text="Questions and minutes by day, by skill and per student, at school or at home.">{cid && <Link className={btn} href={`/teacher/practice-analytics?classId=${cid}`}>Open</Link>}</Tile>
+        <Tile icon="📝" title="Test results by type" text="NAFS, MAP, Diagnostic, Weekly Quiz, Chapter Test and your own tests: results by skill.">{cid && <Link className={btn} href={`/teacher/assessments?classId=${cid}`}>Open</Link>}</Tile>
+      </Group>
 
       <Group icon="👪" title="For families">
         <Tile icon="👪" title="Family Reports" strong text={`Prepare one with a click or write your own, then send it for approval. ${count("DRAFT")} draft · ${count("PENDING")} waiting · ${count("RETURNED")} returned · ${count("APPROVED")} approved.`}>
@@ -76,6 +95,7 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
         <Tile icon="🗓" title="RTI weekly plan" strong text="This week's Tier 2 and Tier 3 groups: students, focus skill, lesson, minutes, progress checks and decisions. Printable.">{cid && <Link className={btn} href={`/teacher/rti-plan?classId=${cid}`}>Open</Link>}</Tile>
         <Tile icon="🔤" title="Grammar results" text="Grammar and mechanics skills: mastery, accuracy, common errors and what to reteach; per student too.">{cid && <Link className={btn} href={`/teacher/reports/grammar?classId=${cid}`}>Open</Link>}</Tile>
         <Tile icon="🎮" title="Live games" text="Participation, accuracy by skill, rapid guessing and the most missed questions of the class's live games.">{cid && <Link className={btn} href={`/teacher/reports/games?classId=${cid}`}>Open</Link>}</Tile>
+        <Tile icon="🎲" title="Games report" text="The most played and best rated games (Play and Live Challenge)."><Link className={btn} href="/teacher/reports/games-usage">Open</Link></Tile>
         <Tile icon="⭐" title="ReadMaster" text="Articles read, ReadMaster reading Lexile start → now, accuracy by question type and time.">{cid && <Link className={btn} href={`/teacher/reports/readmaster?classId=${cid}`}>Open</Link>}</Tile>
         <Tile icon="🚀" title="ReadRise" text="ReadRise Level (estimate) start, now and growth, readings, first-try accuracy and goals — with an Excel / CSV / PDF export.">{cid && <Link className={btn} href={`/teacher/readrise?class=${cid}`}>Open</Link>}</Tile>
         {!teacher && <Tile icon="⚖️" title="Below / On / Above" text="The school's level distribution by grade, class and strand, the change since last month and the tiers."><Link className={btn} href="/admin/levels">Open</Link></Tile>}

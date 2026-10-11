@@ -77,12 +77,12 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
                     </tr></thead>
                     <tbody>{matrix.rows.map((r) => (
                       <tr key={r.studentId} className="border-b align-top last:border-0">
-                        <td className="py-2 pe-3"><Link href={`/teacher/progress/${r.studentId}`} className="font-semibold text-brand-navy hover:underline">{r.name}</Link>{r.retest && <span className="ms-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-900" title={`Rapid guessing ${r.profile.overall?.rapidGuessPct}%: NWEA suggests the score may not show what the student knows`}>⚠ retest?</span>}</td>
+                        <td className="py-2 pe-3"><Link href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline">{r.name}</Link>{r.retest && <span className="ms-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-900" title={`Rapid guessing ${r.profile.overall?.rapidGuessPct}%: NWEA suggests the score may not show what the student knows`}>⚠ retest?</span>}</td>
                         <td className="px-2"><b className="tabular-nums">{r.profile.overall?.rit}</b> <span className="text-xs text-slate-500">{r.profile.overall?.band}</span>{r.profile.overall?.descriptor && <span className={`ms-1 rounded-full px-2 py-0.5 text-xs ${DESC_STYLE[r.profile.overall.descriptor]}`}>{r.profile.overall.descriptor}</span>}</td>
                         <td className="px-2 tabular-nums">{r.profile.fall ? `${r.profile.fall.rit} → ${r.profile.fall.projection ?? "?"}` : "—"}</td>
                         <td className="px-2 tabular-nums">{r.estimate ?? "—"}</td>
                         {groups.map((g) => { const a = r.profile.areas.find((x) => x.group === g.key); return <td key={g.key} className={`px-2 ${a?.status ? "" : "text-slate-400"}`}>{a?.rit !== null && a?.rit !== undefined ? <span className={`inline-block rounded-lg px-2 py-1 ring-1 ${STATUS_STYLE[a.status ?? "MAINTAIN"]}`}><b className="tabular-nums">{a.rit}</b> <span className="text-xs">{a.band}</span><br /><span className="text-xs">{a.descriptor}</span></span> : "—"}</td>; })}
-                        <td className="px-2 text-xs">{r.plan === "SENT" ? "✅ sent" : r.plan === "DRAFT" ? "📝 draft" : "—"}</td>
+                        <td className="px-2 text-xs">{r.plan === "SENT" ? "✅ assigned" : r.plan === "DRAFT" ? "📝 draft" : "—"}</td>
                       </tr>
                     ))}</tbody>
                   </table>
@@ -95,7 +95,7 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
                   {hidden("matrix")}
                   <div className="flex-1"><p className="font-bold text-brand-navy">📏 Mid-unit check</p><p className="text-sm text-slate-600">12 short questions at each student’s band (all goal areas). The “Now ≈” column then shows the RIT growth so far.</p></div>
                   <label className="text-sm font-semibold text-slate-700">Due <input type="date" name="dueAt" className="mt-1 block rounded-lg border border-slate-300 px-3 py-2" /></label>
-                  <button className="rounded-xl bg-sky-700 px-4 py-2.5 font-semibold text-white hover:bg-sky-800">Send the check</button>
+                  <button className="rounded-xl bg-sky-700 px-4 py-2.5 font-semibold text-white hover:bg-sky-800">Assign the check</button>
                 </form>
               )}
               {isAdmin && can(actor, "settings:school") && (
@@ -114,11 +114,11 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
           {plans && (
             <section className="mt-5 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-                <p className="text-slate-700"><b>{plans.plans.filter((p) => p.status === "DRAFT").length}</b> draft(s) · <b>{plans.plans.filter((p) => p.status === "SENT").length}</b> sent. Each area becomes one adaptive MAP set at the student’s band. {plans.noScores.length > 0 && <span className="text-slate-500">No scores: {plans.noScores.length} student(s).</span>}</p>
+                <p className="text-slate-700"><b>{plans.plans.filter((p) => p.status === "DRAFT").length}</b> draft(s) · <b>{plans.plans.filter((p) => p.status === "SENT").length}</b> assigned. Each area becomes one adaptive MAP set at the student’s band. {plans.noScores.length > 0 && <span className="text-slate-500">No scores: {plans.noScores.length} student(s).</span>}</p>
                 <div className="flex flex-wrap gap-2 print:hidden">
                 <Link href={`/teacher/map-plans/print?${new URLSearchParams({ classId, subject })}`} className="rounded-xl px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🖨 Print all plans</Link>
                 {plans.canEdit && plans.plans.some((p) => p.status === "DRAFT") && (
-                  <form action={sendPlanAction} className="print:hidden">{hidden("plans")}{plans.plans.filter((p) => p.status === "DRAFT").map((p) => <input key={p.id} type="hidden" name="planId" value={p.id} />)}<button className="rounded-xl bg-emerald-600 px-4 py-2.5 font-semibold text-white hover:bg-emerald-700">📤 Send all drafts ({plans.plans.filter((p) => p.status === "DRAFT").length})</button></form>
+                  <form action={sendPlanAction} className="print:hidden">{hidden("plans")}{plans.plans.filter((p) => p.status === "DRAFT").map((p) => <input key={p.id} type="hidden" name="planId" value={p.id} />)}<button className="rounded-xl bg-emerald-600 px-4 py-2.5 font-semibold text-white hover:bg-emerald-700">📤 Assign all drafts ({plans.plans.filter((p) => p.status === "DRAFT").length})</button></form>
                 )}
                 </div>
               </div>
@@ -127,7 +127,7 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
                 <details key={p.id} open={sp.open === p.id} className="rounded-2xl bg-white ring-1 ring-slate-200">
                   <summary className="flex cursor-pointer flex-wrap items-center justify-between gap-2 p-4">
                     <span><b className="text-brand-navy">{p.name}</b> <span className="text-sm text-slate-600">· RIT {p.profile.overall?.rit ?? "—"}{p.profile.fall?.projection ? ` → goal ${p.profile.fall.projection}` : ""} · {p.items.map((i) => `${i.icon} ${i.name}`).join(", ")}</span></span>
-                    <span className={`rounded-full px-3 py-1 text-xs font-bold ${p.status === "SENT" ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-900"}`}>{p.status === "SENT" ? `✅ Sent ${p.sentAt?.slice(0, 10)}` : "📝 Draft"}</span>
+                    <span className={`rounded-full px-3 py-1 text-xs font-bold ${p.status === "SENT" ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-900"}`}>{p.status === "SENT" ? `✅ Assigned ${p.sentAt?.slice(0, 10)}` : "📝 Draft"}</span>
                   </summary>
                   <div className="border-t border-slate-100 p-4">
                     <div className="mb-3 flex flex-wrap gap-2 text-sm">
@@ -158,7 +158,7 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
                           </div>
                         </form>
                         <div className="mt-3 flex flex-wrap gap-2">
-                          <form action={sendPlanAction}>{hidden("plans")}<input type="hidden" name="planId" value={p.id} /><button className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white hover:bg-emerald-700">📤 Send to {p.name.split(" ")[0]}</button></form>
+                          <form action={sendPlanAction}>{hidden("plans")}<input type="hidden" name="planId" value={p.id} /><button className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white hover:bg-emerald-700">📤 Assign to {p.name.split(" ")[0]}</button></form>
                           <form action={rebuildPlanAction}>{hidden("plans")}<input type="hidden" name="planId" value={p.id} /><button className="rounded-xl px-4 py-2 font-semibold text-slate-700 ring-1 ring-slate-300">↺ Start over (automatic plan)</button></form>
                         </div>
                       </>
@@ -173,7 +173,7 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
 
           {small && (
             <section className="mt-5 space-y-3">
-              <p className="rounded-2xl bg-white p-4 text-slate-700 ring-1 ring-slate-200">Students who need the <b>same area</b> (🎯 Focus) and are in the <b>same RIT band</b>: teach them together, send them one set, or print a worksheet.</p>
+              <p className="rounded-2xl bg-white p-4 text-slate-700 ring-1 ring-slate-200">Students who need the <b>same area</b> (🎯 Focus) and are in the <b>same RIT band</b>: teach them together, assign them one set, or print a worksheet.</p>
               {!small.length && <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No groups of 2 or more yet for {subjectName(subject)}.</p>}
               {small.map((g) => (
                 <div key={g.key} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
@@ -188,7 +188,7 @@ export default async function MapPlansPage({ searchParams }: { searchParams: Pro
                       {g.students.map((x) => <input key={x.id} type="hidden" name="studentId" value={x.id} />)}
                       <label>Questions <input type="number" name="count" min={5} max={40} defaultValue={15} className="mt-1 block w-20 rounded-md border border-slate-300 px-2 py-1" /></label>
                       <label>Due <input type="date" name="dueAt" className="mt-1 block rounded-md border border-slate-300 px-2 py-1" /></label>
-                      <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">📤 Send to this group</button>
+                      <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">📤 Assign to this group</button>
                     </form>
                   )}
                 </div>

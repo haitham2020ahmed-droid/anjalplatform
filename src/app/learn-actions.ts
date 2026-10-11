@@ -3,16 +3,20 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { lookupWord, type WordView } from "@/server/student/words";
+import { aiEnv } from "@/server/ai/env";
 import { flagQuestion, submitExitTicket, submitReview } from "@/server/teacher/classroom";
 import type { Graded } from "@/server/teacher/worksheet";
 
 type R<T> = { ok: true; value: T } | { ok: false; error: string };
 const fail = (e: unknown): { ok: false; error: string } => { if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, error: e.message }; throw e; };
 
-/** 📖 Meaning of a word (any signed-in user; students also get it in their notebook). */
-export async function lookupWordAction(word: string): Promise<R<WordView>> {
+/**
+ * 📖 Meaning of a word (any signed-in user; students also get it in their notebook). The passage sentence helps
+ * with names and with the AI fallback (only the word and the sentence are sent to the AI).
+ */
+export async function lookupWordAction(word: string, sentence?: string): Promise<R<WordView>> {
   const actor = await requireActor();
-  try { return { ok: true, value: await lookupWord(repo, actor, String(word ?? "")) }; } catch (e) { return fail(e); }
+  try { return { ok: true, value: await lookupWord(repo, actor, String(word ?? "").slice(0, 80), new Date(), undefined, { sentence: typeof sentence === "string" ? sentence.slice(0, 600) : null, env: aiEnv() }) }; } catch (e) { return fail(e); }
 }
 
 /** 🚩 “This question is not clear”. */

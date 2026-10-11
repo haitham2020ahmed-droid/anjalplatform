@@ -34,6 +34,8 @@ import { adaptiveNext, STUCK_AFTER, type AdaptiveState } from "../curriculum-map
 import { diagnosticNext, diagnosticOfAssessment, recordDiagnosticResult } from "../diagnostic/test";
 import { finishWeeklyCheck, WEEKLY_CHECK_MARK } from "../student/weekly-check";
 import { withLock } from "../lib/key-lock";
+import { afterResponseSettled, runAfterResponse } from "../lib/after-response";
+import { choiceSeed, finishTimedOut, isTestAssignment, shuffleChoices, testEndsAt, testOrder, timeIsUp, unshuffleResponse } from "../tests/runtime";
 
 export const SESSION_RESUME_MINUTES = 120;
 export const MAX_QUESTIONS_PER_SESSION = 20;
@@ -73,10 +75,8 @@ export interface Feedback {
   tutor?: TutorMessage | null;
 }
 
-/** The tutor's turn for a wrong answer: misconception, level on the skill, how often the mistake came back lately. */
-async function tutorFor(tx: Repo, studentId: string, item: PracticeItem, response: unknown, theta: number, now: Date): Promise<TutorMessage> {
-  const misconception = attemptMisconception(item, response);
-  const repeated = misconception ? await tx.count("QuestionAttempt", { studentId, misconception, createdAt: { gte: new Date(now.getTime() - 30 * 86_400_000) } }) : 0;
+/** The tutor's turn when the repeat count is already known (Update 42B: read with the answer's other data). */
+function tutorFrom(item: PracticeItem, response: unknown, theta: number, misconception: string | null, repeated: number): TutorMessage {
   return tutorFeedback({
     misconception, band: bandOfTheta(theta), repeated, rationale: whyChosenWrong(item, response), tip: item.explanation.tip || null, hint: item.hint,
     hasPassage: Boolean(item.passageText), correctTexts: answerTexts(item),
@@ -89,14 +89,14 @@ const d = (v: unknown) => (v instanceof Date ? v : new Date(String(v)));
  * Reference data read on every answer but rarely changed (engine settings, prerequisites, skill rows) is
  * kept in memory and reused only while no write to those tables has happened (modelVersion).
  */
-const refCache = new Map<string, { v: string; value: unknown }>();
-async function cached<T>(key: string, models: string[], load: () => Promise<T>): Promise<T> {
-  const v = modelVersion(...models);
+const refCache = new Map<string, { v: string; at: number; value: unknown }>();
+async function cached<T>(key: string, models: string[], load: () => Promise<T>, maxAgeMs = Infinity): Promise<T> {
+  const v = modelVersion(...models), now = Date.now();
   const hit = refCache.get(key);
-  if (hit && hit.v === v) return hit.value as T;
+  if (hit && hit.v === v && now - hit.at < maxAgeMs && now >= hit.at) return hit.value as T;
   const value = await load();
   if (refCache.size > 20_000) refCache.clear();
-  refCache.set(key, { v, value });
+  refCache.set(key, { v, at: now, value });
   return value;
 }
 
@@ -124,12 +124,26 @@ async function ownSession(repo: Repo, actor: Actor, sessionId: string): Promise<
   return s;
 }
 
-/** The skill must belong to the student's own (active) curriculum. */
+/**
+ * The skill must belong to the student's own (active) curriculum, OR be assigned to the student by their teacher
+ * (access rules, UI reorg: a teacher may assign a skill of ANY grade, e.g. a Grade 6 skill to a Grade 11 class with
+ * no curriculum yet). The adaptive engine itself is unchanged.
+ */
 async function assertSkillInCurriculum(repo: Repo, student: Row, skillId: string): Promise<Row> {
   const [skill, curs] = await Promise.all([repo.findUnique("Skill", { id: skillId }), repo.findMany("Curriculum", { gradeId: student.gradeId, isActive: true })]);
   const cur = curs[0];
-  if (!skill || !cur || skill.curriculumId !== cur.id || !skill.isActive || skill.deletedAt) throw new ForbiddenError("This skill is not part of your curriculum.");
-  return skill;
+  if (!skill || !skill.isActive || skill.deletedAt) throw new ForbiddenError("This skill is not part of your curriculum.");
+  if (cur && skill.curriculumId === cur.id) return skill;
+  if (await assignedToStudent(repo, String(student.id), skillId)) return skill;
+  throw new ForbiddenError("This skill is not part of your curriculum.");
+}
+
+/** Has a teacher assigned this skill to the student (any status: “Practise again” after finishing works too)? */
+async function assignedToStudent(repo: Repo, studentId: string, skillId: string): Promise<boolean> {
+  const rows = await repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId"] });
+  if (!rows.length) return false;
+  const list = await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }, { select: ["skillId", "skillIds"] });
+  return list.some((a) => String(a.skillId ?? "") === skillId || (Array.isArray(a.skillIds) && (a.skillIds as unknown[]).map(String).includes(skillId)));
 }
 
 async function skillHistory(repo: Repo, studentId: string, skillId: string, items: Map<string, PracticeItem>): Promise<ResponseEvidence[]> {
@@ -169,10 +183,9 @@ async function prerequisitesFor(repo: Repo, studentId: string, skillId: string, 
   });
 }
 
-/** Correct/wrong of the answers already given in this session, oldest first (the routing streak never spans sessions). */
-async function sessionCorrectOf(repo: Repo, sessionId: string): Promise<boolean[]> {
-  const rows = await repo.findMany("QuestionAttempt", { sessionId }, { select: ["id", "isCorrect", "createdAt"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }] });
-  return rows.map((r) => Boolean(r.isCorrect));
+/** The answers already given in this session, oldest first (the routing streak never spans sessions). */
+async function sessionAnswersOf(repo: Repo, sessionId: string): Promise<Row[]> {
+  return repo.findMany("QuestionAttempt", { sessionId }, { select: ["id", "questionId", "skillId", "isCorrect", "createdAt", "responseMs"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }] });
 }
 
 /**
@@ -208,8 +221,11 @@ async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, 
   const open = openRows.filter((s) => now.getTime() - d(s.startedAt).getTime() < SESSION_RESUME_MINUTES * 60_000 && s.currentQuestionId);
   if (open.length) {
     // resumed: the question is served again now (time away is not answer time)
-    await repo.updateMany("PracticeSession", { id: open[0].id, endedAt: null }, { currentServedAt: now });
-    return currentQuestion(repo, actor, String(open[0].id), now);
+    const [, mastery] = await Promise.all([
+      repo.updateMany("PracticeSession", { id: open[0].id, endedAt: null }, { currentServedAt: now }),
+      repo.findUnique("StudentSkillMastery", { studentId: student.id, skillId }),
+    ]);
+    return currentQuestion(repo, actor, String(open[0].id), now, { session: { ...open[0], currentServedAt: now }, mastery });
   }
 
   const cfg = await engineConfig(repo, actor.schoolId);
@@ -225,17 +241,21 @@ async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, 
   // if every item was seen recently, allow repeats rather than refusing to practise
   // (a content gap — nothing within 2 levels — starts with the easiest question; the next step then ends the session)
   const firstId = first.itemId ?? (first.reasonCode === "NO_ITEM_IN_RANGE" ? [...items].sort((a, b) => a.irt.b - b.irt.b)[0] : items.sort((a, b) => Math.abs(a.irt.b - ability.theta) - Math.abs(b.irt.b - ability.theta))[0]).questionId;
-  const session = await repo.create("PracticeSession", {
-    studentId: student.id, skillId, mode: "ADAPTIVE_PRACTICE", startedAt: now, ...(assignmentId ? { assignmentId } : {}),
-    currentQuestionId: firstId, currentServedAt: now, lastTargetB: first.targetB,
-  });
-  await repo.create("AdaptiveDecisionLog", {
+  const [session, mastery] = await Promise.all([
+    repo.create("PracticeSession", {
+      studentId: student.id, skillId, mode: "ADAPTIVE_PRACTICE", startedAt: now, ...(assignmentId ? { assignmentId } : {}),
+      currentQuestionId: firstId, currentServedAt: now, lastTargetB: first.targetB,
+    }),
+    repo.findUnique("StudentSkillMastery", { studentId: student.id, skillId }),
+  ]);
+  // the first decision's log: after the response (Update 42B)
+  runAfterResponse("practice.start_log", () => repo.create("AdaptiveDecisionLog", {
     studentId: student.id, sessionId: session.id, skillId, previousTheta: ability.theta, newTheta: ability.theta, thetaSE: ability.se,
     nextQuestionId: firstId, nextTargetB: first.targetB, reason: first.itemId || first.reasonCode === "NO_ITEM_IN_RANGE" ? first.reason : "All items seen recently; repeating the closest item.",
     reasonCode: first.itemId || first.reasonCode === "NO_ITEM_IN_RANGE" ? first.reasonCode : "POOL_EXHAUSTED", engineVersion: ENGINE_VERSION, createdAt: now,
-  });
+  }));
   void skill;
-  return currentQuestion(repo, actor, String(session.id), now);
+  return currentQuestion(repo, actor, String(session.id), now, { session, mastery });
 }
 
 export async function currentQuestion(repo: Repo, actor: Actor, sessionId: string, _now = new Date(), known?: { session: Row; mastery: Row | null }): Promise<PracticeView> {
@@ -348,11 +368,9 @@ export function normalizeResponse(item: PracticeItem, raw: unknown): unknown {
   }
 }
 
-/** Assignment-status updates still running after an answer (pages refresh statuses themselves). */
-const pendingRefreshes = new Set<Promise<unknown>>();
-/** Waits until every assignment update started by an answer has finished (seeding scripts and tests). */
+/** Waits until every assignment update / log started by an answer has finished (seeding scripts and tests). */
 export async function assignmentUpdatesSettled(): Promise<void> {
-  while (pendingRefreshes.size) await Promise.all([...pendingRefreshes]);
+  await afterResponseSettled();
 }
 
 async function submitAnswerUnlocked(
@@ -362,123 +380,122 @@ async function submitAnswerUnlocked(
   now = new Date(),
   random?: () => number,
 ): Promise<{ feedback: Feedback; view: PracticeView }> {
-  let linkedAssignment: string | null = null;
-  let linkedStudent = "";
-  let linkedSkill = "";
-  let after: { session: Row; mastery: Row } | null = null;
-  const feedback = await repo.transaction(async (tx) => {
-    const s = await ownSession(tx, actor, input.sessionId);
-    linkedAssignment = s.assignmentId ? String(s.assignmentId) : null;
-    linkedStudent = String(s.studentId);
-    linkedSkill = String(s.skillId ?? "");
-    if (s.endedAt) throw new ValidationError("This practice session has ended.");
-    if (s.currentQuestionId !== input.questionId) throw new ValidationError("This question was already answered. Here is your next one.");
-    const skillId = String(s.skillId);
-    const studentId = String(s.studentId);
-    const items = await loadSkillItems(tx, skillId);
-    const byId = new Map(items.map((i) => [i.questionId, i]));
-    const item = byId.get(input.questionId);
-    if (!item) throw new ValidationError("This question is no longer available.");
-    const response = normalizeResponse(item, input.response);
+  // Update 42B: everything the answer needs is READ first, in parallel (one round trip after the session), outside
+  // the transaction; the transaction only WRITES (attempt, ability, mastery, XP, the guarded session move). The
+  // session move is guarded by the database (current question + answer count), so a double click or a second server
+  // still cannot apply an answer twice — the losing request's writes are rolled back as before.
+  const s = await ownSession(repo, actor, input.sessionId);
+  if (s.endedAt) throw new ValidationError("This practice session has ended.");
+  if (s.currentQuestionId !== input.questionId) throw new ValidationError("This question was already answered. Here is your next one.");
+  const skillId = String(s.skillId);
+  const studentId = String(s.studentId);
+  // the skill row is cached here too, so the ability read below needs no extra round trip
+  const [items, cfg] = await Promise.all([loadSkillItems(repo, skillId), engineConfig(repo, actor.schoolId), cachedSkill(repo, skillId)]);
+  const byId = new Map(items.map((i) => [i.questionId, i]));
+  const item = byId.get(input.questionId);
+  if (!item) throw new ValidationError("This question is no longer available.");
+  const response = normalizeResponse(item, input.response);
+  const servedAt = s.currentServedAt ? d(s.currentServedAt) : now;
+  const responseMs = Math.max(0, Math.min(30 * 60_000, now.getTime() - servedAt.getTime())); // server clock, capped at 30 min
+  const credit = scoreResponse(item, response);
+  const correct = credit >= 1;
+  // the hint is known to the server (it was shown by practiceHint), never trusted from the browser
+  const usedHint = Boolean(input.usedHint) || String(s.hintQuestionId ?? "") === item.questionId;
+  const misconception = correct ? null : attemptMisconception(item, response);
 
-    const cfg = await engineConfig(tx, actor.schoolId);
-    const servedAt = s.currentServedAt ? d(s.currentServedAt) : now;
-    const responseMs = Math.max(0, Math.min(30 * 60_000, now.getTime() - servedAt.getTime())); // server clock, capped at 30 min
-    const credit = scoreResponse(item, response);
-    const correct = credit >= 1;
-    // the hint is known to the server (it was shown by practiceHint), never trusted from the browser
-    const usedHint = Boolean(input.usedHint) || String(s.hintQuestionId ?? "") === item.questionId;
+  const [history, ability, prerequisites, sessionRows, prevMastery, repeatedBefore] = await Promise.all([
+    skillHistory(repo, studentId, skillId, byId),
+    abilityOf(repo, studentId, skillId, cfg.adaptive),
+    prerequisitesFor(repo, studentId, skillId, now),
+    sessionAnswersOf(repo, String(s.id)),
+    repo.findUnique("StudentSkillMastery", { studentId, skillId }),
+    // the tutor: how often this mistake came back in 30 days (this answer is added below)
+    misconception ? repo.count("QuestionAttempt", { studentId, misconception, createdAt: { gte: new Date(now.getTime() - 30 * 86_400_000) } }) : Promise.resolve(0),
+  ]);
+  const evidence: ResponseEvidence = {
+    itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
+    a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint, at: now.toISOString(),
+    repeat: isRecentRepeat(history, item.questionId, now.toISOString()),
+  };
+  const answeredThisSession = Number(s.questionCount) + 1;
+  const step = processAnswer(
+    {
+      studentId, skillId, sessionId: String(s.id), mode: "PRACTICE", ability: { theta: ability.theta, se: ability.se }, prior: ability.prior,
+      history, previousTargetB: s.lastTargetB === null || s.lastTargetB === undefined ? null : Number(s.lastTargetB),
+      candidates: items.map((i) => toCandidate(i, skillId)), prerequisites,
+      sessionCorrect: sessionRows.map((r) => Boolean(r.isCorrect)),
+    },
+    evidence, cfg, now, random,
+  );
 
-    const history = await skillHistory(tx, studentId, skillId, byId);
-    const ability = await abilityOf(tx, studentId, skillId, cfg.adaptive);
-    const evidence: ResponseEvidence = {
-      itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
-      a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint, at: now.toISOString(),
-      repeat: isRecentRepeat(history, item.questionId, now.toISOString()),
-    };
-    const answeredThisSession = Number(s.questionCount) + 1;
-    const step = processAnswer(
-      {
-        studentId, skillId, sessionId: String(s.id), mode: "PRACTICE", ability: { theta: ability.theta, se: ability.se }, prior: ability.prior,
-        history, previousTargetB: s.lastTargetB === null || s.lastTargetB === undefined ? null : Number(s.lastTargetB),
-        candidates: items.map((i) => toCandidate(i, skillId)), prerequisites: await prerequisitesFor(tx, studentId, skillId, now),
-        sessionCorrect: await sessionCorrectOf(tx, String(s.id)),
-      },
-      evidence, cfg, now, random,
-    );
+  // decide what comes next (the questions of this session so far, and this one)
+  let nextId = step.next.itemId;
+  let endReason: string | null = null;
+  let routeToSkillId: string | null = null;
+  const seenThisSession = new Set([...sessionRows.map((a) => String(a.questionId)), item.questionId]);
+  if (answeredThisSession >= MAX_QUESTIONS_PER_SESSION) { nextId = null; endReason = "COMPLETED"; }
+  else if (answeredThisSession >= MIN_QUESTIONS_BEFORE_STOP && step.ability.se <= STOP_SE) { nextId = null; endReason = "LEVEL_CONFIRMED"; }
+  else if (seenThisSession.size >= items.length && nextId && seenThisSession.has(nextId)) { nextId = null; endReason = "ALL_QUESTIONS_ANSWERED"; }
+  else if (step.next.reasonCode === "PREREQ_ROUTE") { nextId = null; endReason = "PREREQ_ROUTE"; routeToSkillId = step.next.routeToSkillId ?? null; }
+  else if (!nextId) endReason = "POOL_EXHAUSTED";
 
-    const attempt = await tx.create("QuestionAttempt", {
-      sessionId: s.id, studentId, questionId: item.questionId, skillId, response: { value: response }, isCorrect: correct,
-      partialCredit: credit > 0 && credit < 1 ? credit : null, responseMs, usedHint, rapidGuess: step.rapidGuess,
-      difficultyB: item.irt.b, createdAt: now, misconception: correct ? null : attemptMisconception(item, response),
-    });
+  // The student's last SEEN score is the stored one; continue from it so numbers never jump between screens,
+  // and apply the fairness rule against it: a wrong answer never raises mastery.
+  const seenBefore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
+  let mst: MasteryResult = step.mastery;
+  if (!correct && mst.score > seenBefore) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
+  const masteryData = {
+    score: mst.score, band: mst.band, attempts: Number(prevMastery?.attempts ?? 0) + 1, correct: Number(prevMastery?.correct ?? 0) + (correct ? 1 : 0),
+    maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered,
+    masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
+    ...nextReview(prevMastery, mst.isMastered, correct, now),
+  };
+  const sessionPatch = {
+    questionCount: answeredThisSession, correctCount: Number(s.correctCount) + (correct ? 1 : 0), activeMs: Number(s.activeMs) + responseMs,
+    currentQuestionId: nextId, currentServedAt: nextId ? now : null, lastTargetB: step.next.targetB, hintQuestionId: null,
+    ...(endReason ? { endedAt: now, endReason } : {}),
+  };
+  const routeName = routeToSkillId ? String((await cachedSkill(repo, routeToSkillId))?.name ?? "") : null;
 
-    // decide what comes next
-    let nextId = step.next.itemId;
-    let endReason: string | null = null;
-    let routeToSkillId: string | null = null;
-    const seenThisSession = new Set((await tx.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId"] })).map((a) => String(a.questionId)));
-    if (answeredThisSession >= MAX_QUESTIONS_PER_SESSION) { nextId = null; endReason = "COMPLETED"; }
-    else if (answeredThisSession >= MIN_QUESTIONS_BEFORE_STOP && step.ability.se <= STOP_SE) { nextId = null; endReason = "LEVEL_CONFIRMED"; }
-    else if (seenThisSession.size >= items.length && nextId && seenThisSession.has(nextId)) { nextId = null; endReason = "ALL_QUESTIONS_ANSWERED"; }
-    else if (step.next.reasonCode === "PREREQ_ROUTE") { nextId = null; endReason = "PREREQ_ROUTE"; routeToSkillId = step.next.routeToSkillId ?? null; }
-    else if (!nextId) endReason = "POOL_EXHAUSTED";
-
-    const prevMastery = await tx.findUnique("StudentSkillMastery", { studentId, skillId });
-    // The student's last SEEN score is the stored one; continue from it so numbers never jump between screens,
-    // and apply the fairness rule against it: a wrong answer never raises mastery.
-    const seenBefore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
-    let mst: MasteryResult = step.mastery;
-    if (!correct && mst.score > seenBefore) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
-    await tx.create("AdaptiveDecisionLog", {
-      ...step.log, attemptId: attempt.id, nextQuestionId: nextId, responseCorrect: correct, createdAt: now,
-      masteryBefore: seenBefore, masteryAfter: mst.score,
-      reason: endReason === "COMPLETED" ? `${step.log.reason} Session complete (${MAX_QUESTIONS_PER_SESSION} questions).` : step.log.reason,
-    });
-    await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 },
-      { theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 });
-const masteryData = {
-      score: mst.score, band: mst.band, attempts: Number(prevMastery?.attempts ?? 0) + 1, correct: Number(prevMastery?.correct ?? 0) + (correct ? 1 : 0),
-      maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered,
-      masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
-      ...nextReview(prevMastery, mst.isMastered, correct, now),
-    };
-    await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
-    if (step.xp > 0) await tx.create("XpEvent", { studentId, points: step.xp, reason: mst.isMastered && !prevMastery?.isMastered ? "skill_mastered" : "practice", createdAt: now });
-
-    const sessionPatch = {
-      questionCount: answeredThisSession, correctCount: Number(s.correctCount) + (correct ? 1 : 0), activeMs: Number(s.activeMs) + responseMs,
-      currentQuestionId: nextId, currentServedAt: nextId ? now : null, lastTargetB: step.next.targetB, hintQuestionId: null,
-      ...(endReason ? { endedAt: now, endReason } : {}),
-    };
+  const attempt = await repo.transaction(async (tx) => {
     // guarded by the database: only one request can move the session past this question (two servers, double clicks)
     const moved = await tx.updateMany("PracticeSession", { id: s.id, currentQuestionId: input.questionId, questionCount: Number(s.questionCount) }, sessionPatch);
     if (moved !== 1) throw new ValidationError("This question was already answered. Here is your next one.");
-    after = { session: { ...s, ...sessionPatch }, mastery: { studentId, skillId, ...masteryData } };
-
-    const routeName = routeToSkillId ? String((await tx.findUnique("Skill", { id: routeToSkillId }))?.name ?? "") : null;
-    const fb: Feedback = {
-      correct, credit,
-      yourAnswer: studentAnswerText(item, response),
-      correctAnswer: correctAnswerText(item),
-      whyCorrect: item.explanation.whyCorrect,
-      whyYoursIsWrong: correct ? null : whyChosenWrong(item, response),
-      tip: item.explanation.tip,
-      rapidGuess: step.rapidGuess,
-      masteryBefore: Math.round(seenBefore), masteryAfter: Math.round(mst.score), band: mst.band, xp: step.xp,
-      next: { hasQuestion: Boolean(nextId), endReason, routeToSkillId, routeToSkillName: routeName },
-      tutor: correct ? null : await tutorFor(tx, studentId, item, response, step.ability.theta, now),
-    };
-    return fb;
+    const row = await tx.create("QuestionAttempt", {
+      sessionId: s.id, studentId, questionId: item.questionId, skillId, response: { value: response }, isCorrect: correct,
+      partialCredit: credit > 0 && credit < 1 ? credit : null, responseMs, usedHint, rapidGuess: step.rapidGuess,
+      difficultyB: item.irt.b, createdAt: now, misconception,
+    });
+    await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 },
+      { theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 });
+    await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
+    if (step.xp > 0) await tx.create("XpEvent", { studentId, points: step.xp, reason: mst.isMastered && !prevMastery?.isMastered ? "skill_mastered" : "practice", createdAt: now });
+    return row;
   });
-  // the next screen comes from the transaction's own results (no re-reading)
-  const view = await currentQuestion(repo, actor, input.sessionId, now, after ?? undefined);
-  // the assignment's status is updated after replying (the student does not wait; their home page refreshes it too)
-  if (linkedAssignment) {
-    const p = refreshAfterAnswer(repo, linkedAssignment, linkedStudent, now, linkedSkill || undefined).catch((e) => console.error("assignment refresh failed", e));
-    pendingRefreshes.add(p);
-    void p.finally(() => pendingRefreshes.delete(p));
-  }
+
+  const feedback: Feedback = {
+    correct, credit,
+    yourAnswer: studentAnswerText(item, response),
+    correctAnswer: correctAnswerText(item),
+    whyCorrect: item.explanation.whyCorrect,
+    whyYoursIsWrong: correct ? null : whyChosenWrong(item, response),
+    tip: item.explanation.tip,
+    rapidGuess: step.rapidGuess,
+    masteryBefore: Math.round(seenBefore), masteryAfter: Math.round(mst.score), band: mst.band, xp: step.xp,
+    next: { hasQuestion: Boolean(nextId), endReason, routeToSkillId, routeToSkillName: routeName },
+    tutor: correct ? null : tutorFrom(item, response, step.ability.theta, misconception, repeatedBefore + (misconception ? 1 : 0)),
+  };
+  // after the response: the decision log (reports, prerequisite routes) and the assignment's status (the student
+  // does not wait; their home page refreshes statuses too)
+  const linkedAssignment = s.assignmentId ? String(s.assignmentId) : null;
+  runAfterResponse("practice.decision_log", () => repo.create("AdaptiveDecisionLog", {
+    ...step.log, attemptId: attempt.id, nextQuestionId: nextId, responseCorrect: correct, createdAt: now,
+    masteryBefore: seenBefore, masteryAfter: mst.score,
+    reason: endReason === "COMPLETED" ? `${step.log.reason} Session complete (${MAX_QUESTIONS_PER_SESSION} questions).` : step.log.reason,
+  }));
+  if (linkedAssignment) runAfterResponse("practice.assignment_refresh", () => refreshAfterAnswer(repo, linkedAssignment, studentId, now, skillId || undefined));
+  // the next screen comes from this answer's own results (no re-reading)
+  const view = await currentQuestion(repo, actor, input.sessionId, now, { session: { ...s, ...sessionPatch }, mastery: { studentId, skillId, ...masteryData } });
   return { feedback, view };
 }
 
@@ -527,6 +544,10 @@ export interface QuizView {
   nextHref: string | null;
   /** 📝 a test (the Diagnostic): no right/wrong feedback, answers are only saved */
   testMode: boolean;
+  /** a teacher-built test from Assessments (My Tests) */
+  isTest?: boolean;
+  /** the test's time limit: when the time ends (ISO), else null */
+  endsAt?: string | null;
 }
 
 async function quizContext(repo: Repo, actor: Actor, assignmentId: string) {
@@ -534,17 +555,19 @@ async function quizContext(repo: Repo, actor: Actor, assignmentId: string) {
   const [a, mine] = await Promise.all([repo.findUnique("Assignment", { id: assignmentId }), repo.findMany("AssignmentStudent", { assignmentId, studentId: actor.studentId })]);
   if (!a || a.deletedAt || !a.assessmentId || !mine.length) throw new ForbiddenError("These questions were not assigned to you.");
   if (a.startAt && new Date(String(a.startAt instanceof Date ? a.startAt.toISOString() : a.startAt)) > new Date()) throw new ValidationError("This work has not started yet.");
-  const order = (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).sort((x, y) => Number(x.order) - Number(y.order)).map((x) => String(x.questionId));
-  return { a, order };
+  // the set's question order: kept in memory while no write to it has happened here, at most a minute (Update 42B)
+  const order = await cached(`order:${String(a.assessmentId)}`, ["AssessmentQuestion"], async () => (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).sort((x, y) => Number(x.order) - Number(y.order)).map((x) => String(x.questionId)), 60_000);
+  // a teacher-built test may give each student their own (fixed) question order
+  return { a, order: testOrder(a, order, actor.studentId!) };
 }
 
 /** The next question of a set: fixed sets in the teacher's order; adaptive sets by level (Below → On → Above). */
-async function nextInSet(repo: Repo, a: Row, order: string[], sessionId: string, studentId: string): Promise<{ nextId: string | null; total: number; goal: AdaptiveState["goal"] }> {
-  const set = await repo.findUnique("Assessment", { id: a.assessmentId });
+async function nextInSet(repo: Repo, a: Row, order: string[], sessionId: string, studentId: string, known?: { set: Row | null; answeredIds?: Set<string> }): Promise<{ nextId: string | null; total: number; goal: AdaptiveState["goal"] }> {
+  const set = known ? known.set : await repo.findUnique("Assessment", { id: a.assessmentId });
   // 📝 the adaptive Diagnostic: the same skills for everyone, the difficulty follows the student
   if (String(set?.type ?? "") === "DIAGNOSTIC") { const dg = await diagnosticNext(repo, String(a.assessmentId), sessionId, studentId); if (dg) return { nextId: dg.nextId, total: dg.total, goal: null }; }
   if (set?.isAdaptive) { const st = await adaptiveNext(repo, set, order, sessionId, studentId); return { nextId: st.nextId, total: st.total, goal: st.goal }; }
-  const answered = new Set((await repo.findMany("QuestionAttempt", { sessionId }, { select: ["questionId"] })).map((x) => String(x.questionId)));
+  const answered = known?.answeredIds ?? new Set((await repo.findMany("QuestionAttempt", { sessionId }, { select: ["questionId"] })).map((x) => String(x.questionId)));
   return { nextId: order.find((id) => !answered.has(id)) ?? null, total: order.length, goal: null };
 }
 
@@ -560,20 +583,38 @@ async function nextPlanHref(repo: Repo, a: Row, studentId: string): Promise<stri
   return nextItem ? `/student/plans/${String(mine.planId)}/open/${String(nextItem.id)}` : `/student/plans/${String(mine.planId)}`;
 }
 
-async function quizView(repo: Repo, a: Row, order: string[], s: Row): Promise<QuizView> {
-  const attempts = await repo.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId", "responseMs", "createdAt"] });
+async function quizView(repo: Repo, a: Row, order: string[], s: Row, known?: { attempts: Row[]; set: Row | null; next?: { nextId: string | null; total: number; goal: AdaptiveState["goal"] }; nextItem?: Promise<PracticeItem | undefined> }): Promise<QuizView> {
+  // `known` (Update 42B): the answer already has the session's answers, the set and (fixed and adaptive sets) the next question
+  const [attempts, set] = known ? [known.attempts, known.set] : await Promise.all([
+    repo.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId", "responseMs", "createdAt"] }),
+    repo.findUnique("Assessment", { id: a.assessmentId }),
+  ]);
   const answered = attempts.length;
-  const { nextId, total, goal } = await nextInSet(repo, a, order, String(s.id), String(s.studentId));
-  const item = nextId ? (await loadQuestionItems(repo, [nextId]))[0] : undefined;
+  const isTest = isTestAssignment(a);
+  const nx = known?.next ?? await nextInSet(repo, a, order, String(s.id), String(s.studentId), { set, ...(known ? { answeredIds: new Set(attempts.map((x) => String(x.questionId))) } : {}) });
+  // a finished test (all answered or time up) shows no more questions
+  const { total, goal } = nx;
+  const nextId = isTest && s.endedAt ? null : nx.nextId;
+  const [item, nextHref] = await Promise.all([
+    nextId ? (known?.nextItem ?? Promise.resolve(undefined)).then(async (it) => it ?? (await loadQuestionItems(repo, [nextId]))[0]) : Promise.resolve(undefined),
+    goal ? nextPlanHref(repo, a, String(s.studentId)) : Promise.resolve(null),
+  ]);
   const dayAgo = Date.now() - 86_400_000;
   const todayMs = attempts.filter((x) => d(x.createdAt).getTime() >= dayAgo).reduce((t2, x) => t2 + Number(x.responseMs ?? 0), 0);
   return {
-    assignmentId: String(a.id), sessionId: String(s.id), title: hideLevels(String(a.title)), question: item ? toClientQuestion(item, `${s.id}:${item.questionId}:${answered}`) : null,
+    assignmentId: String(a.id), sessionId: String(s.id), title: hideLevels(String(a.title)), question: item ? (a.shuffle ? shuffleChoices(toClientQuestion(item, `${s.id}:${item.questionId}:${answered}`), choiceSeed(a, String(s.studentId), item.questionId)) : toClientQuestion(item, `${s.id}:${item.questionId}:${answered}`)) : null,
     index: goal ? answered + 1 : Math.min(total, answered + 1), total, answered, correct: goal ? goal.correct : Number(s.correctCount ?? 0), ended: !nextId,
     goal: goal ? { target: goal.target, correct: goal.correct, reached: goal.reached || Boolean(s.goalReachedAt), early: goal.early, struggling: goal.struggling } : null,
-    breakHint: todayMs >= 25 * 60_000, nextHref: goal ? await nextPlanHref(repo, a, String(s.studentId)) : null,
-    testMode: String((await repo.findUnique("Assessment", { id: a.assessmentId }))?.type ?? "") === "DIAGNOSTIC",
+    breakHint: todayMs >= 25 * 60_000, nextHref,
+    testMode: String(set?.type ?? "") === "DIAGNOSTIC" || isTest,
+    // only on teacher-built tests (other sets keep exactly the same view)
+    ...(isTest ? { isTest: true, endsAt: !s.endedAt ? testEndsAt(set, s)?.toISOString() ?? null : null } : {}),
   };
+}
+
+/** Feedback that reveals nothing (tests: answers are only saved). */
+function blankFeedback(): Feedback {
+  return { correct: false, credit: 0, yourAnswer: "", correctAnswer: "", whyCorrect: "", whyYoursIsWrong: null, tip: "", rapidGuess: false, masteryBefore: 0, masteryAfter: 0, band: "", xp: 0, next: { hasQuestion: false, endReason: "COMPLETED", routeToSkillId: null, routeToSkillName: null }, tutor: null };
 }
 
 /** Starts or resumes the student's question set (continues from the first unanswered question). */
@@ -587,6 +628,11 @@ async function startQuizUnlocked(repo: Repo, actor: Actor, assignmentId: string,
     await repo.updateMany("PracticeSession", { id: s.id }, { currentServedAt: now });
     s = { ...s, currentServedAt: now };
   }
+  // a test with a time limit: the server's clock decides (time up → the test ends with the answers given)
+  if (isTestAssignment(a) && !s.endedAt) {
+    const set = await repo.findUnique("Assessment", { id: a.assessmentId });
+    if (timeIsUp(set, s, now)) s = await finishTimedOut(repo, a, s, order.length, now);
+  }
   return quizView(repo, a, order, s);
 }
 
@@ -594,108 +640,150 @@ async function startQuizUnlocked(repo: Repo, actor: Actor, assignmentId: string,
 async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assignmentId: string; questionId: string; response: unknown }, now = new Date()): Promise<{ feedback: Feedback; view: QuizView }> {
   const { a, order } = await quizContext(repo, actor, input.assignmentId);
   if (!order.includes(input.questionId)) throw new ValidationError("This question is not part of the assignment.");
-  const feedback = await repo.transaction(async (tx) => {
-    const s = (await tx.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" }))[0];
-    if (!s) throw new ValidationError("Start the assignment first.");
-    // one answer per question — except in a goal set, where a question the student missed may come back
-    const before = await tx.findMany("QuestionAttempt", { sessionId: s.id, questionId: input.questionId }, { select: ["id", "isCorrect"] });
-    if (before.length) {
-      const set = await tx.findUnique("Assessment", { id: a.assessmentId });
-      if (!(Number(set?.targetCorrect) > 0 && before.every((x) => !x.isCorrect))) throw new ValidationError("You already answered this question.");
-    }
-    const item = (await loadQuestionItems(tx, [input.questionId]))[0];
-    if (!item) throw new ValidationError("This question is no longer available.");
-    const response = normalizeResponse(item, input.response);
-    const studentId = String(s.studentId), skillId = String((await tx.findUnique("Question", { id: item.questionId }))!.skillId);
-    const credit = scoreResponse(item, response);
-    const correct = credit >= 1;
-    const servedAt = s.currentServedAt ? d(s.currentServedAt) : now;
-    const responseMs = Math.max(0, Math.min(30 * 60_000, now.getTime() - servedAt.getTime()));
-    // mastery: the same engine as practice, with this question's skill as the context
-    const cfg = await engineConfig(tx, actor.schoolId);
-    const skillItems = await loadSkillItems(tx, skillId);
-    const byId = new Map(skillItems.map((i) => [i.questionId, i]));
-    if (!byId.has(item.questionId)) byId.set(item.questionId, item);
-    const [history, ability, prerequisites, prevMastery, sessionCorrect] = await Promise.all([
-      skillHistory(tx, studentId, skillId, byId), abilityOf(tx, studentId, skillId, cfg.adaptive), prerequisitesFor(tx, studentId, skillId, now),
-      tx.findUnique("StudentSkillMastery", { studentId, skillId }),
-      tx.findMany("QuestionAttempt", { sessionId: s.id, skillId }, { select: ["id", "isCorrect", "createdAt"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }] }).then((r) => r.map((x) => Boolean(x.isCorrect))),
-    ]);
-    const evidence: ResponseEvidence = {
-      itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
-      a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint: false, at: now.toISOString(),
-      repeat: isRecentRepeat(history, item.questionId, now.toISOString()),
-    };
-    const step = processAnswer({
-      studentId, skillId, sessionId: String(s.id), mode: "PRACTICE", ability: { theta: ability.theta, se: ability.se }, prior: ability.prior, history,
-      previousTargetB: null, candidates: [...byId.values()].map((i) => toCandidate(i, skillId)), prerequisites, sessionCorrect,
-    }, evidence, cfg, now);
+  // Update 42B: the reads first (in parallel, outside the transaction), then one short transaction of writes guarded
+  // by the session's answer count (a double click or a second server is still refused, its writes rolled back)
+  const [sessions, set, items, diag] = await Promise.all([
+    repo.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" }),
+    repo.findUnique("Assessment", { id: a.assessmentId }),
+    loadQuestionItems(repo, [input.questionId]),
+    diagnosticOfAssessment(repo, String(a.assessmentId)),
+  ]);
+  const s = sessions[0];
+  if (!s) throw new ValidationError("Start the assignment first.");
+  if (isTestAssignment(a) && (s.endedAt || timeIsUp(set, s, now))) {
+    // the test is over (time up): nothing more is saved; the student sees the end of the test
+    const ended = s.endedAt ? s : await finishTimedOut(repo, a, s, order.length, now);
+    return { feedback: blankFeedback(), view: await quizView(repo, a, order, ended) };
+  }
+  const item = items[0];
+  const skillId = item ? String(item.skillKey) : "";
+  const studentId = String(s.studentId);
+  const [sessionRows, cfg, skillItems, prevMastery] = await Promise.all([
+    sessionAnswersOf(repo, String(s.id)), engineConfig(repo, actor.schoolId),
+    item ? loadSkillItems(repo, skillId) : Promise.resolve([] as PracticeItem[]),
+    item ? repo.findUnique("StudentSkillMastery", { studentId, skillId }) : Promise.resolve(null),
+    item ? cachedSkill(repo, skillId) : Promise.resolve(null), // cached for the ability read below
+  ]);
+  // one answer per question — except in a goal set, where a question the student missed may come back
+  const before = sessionRows.filter((x) => String(x.questionId) === input.questionId);
+  if (before.length && !(Number(set?.targetCorrect) > 0 && before.every((x) => !x.isCorrect))) throw new ValidationError("You already answered this question.");
+  if (!item) throw new ValidationError("This question is no longer available.");
+  // a shuffled test: the student's choice letters are mapped back to the question's own before scoring
+  const response = normalizeResponse(item, a.shuffle ? unshuffleResponse(item, input.response, choiceSeed(a, studentId, item.questionId)) : input.response);
+  const credit = scoreResponse(item, response);
+  const correct = credit >= 1;
+  const misconception = correct ? null : attemptMisconception(item, response);
+  const servedAt = s.currentServedAt ? d(s.currentServedAt) : now;
+  const responseMs = Math.max(0, Math.min(30 * 60_000, now.getTime() - servedAt.getTime()));
+  // mastery: the same engine as practice, with this question's skill as the context
+  const byId = new Map(skillItems.map((i) => [i.questionId, i]));
+  if (!byId.has(item.questionId)) byId.set(item.questionId, item);
+  const [history, ability, prerequisites, repeatedBefore] = await Promise.all([
+    skillHistory(repo, studentId, skillId, byId), abilityOf(repo, studentId, skillId, cfg.adaptive), prerequisitesFor(repo, studentId, skillId, now),
+    misconception ? repo.count("QuestionAttempt", { studentId, misconception, createdAt: { gte: new Date(now.getTime() - 30 * 86_400_000) } }) : Promise.resolve(0),
+  ]);
+  const sessionCorrect = sessionRows.filter((x) => String(x.skillId) === skillId).map((x) => Boolean(x.isCorrect));
+  const evidence: ResponseEvidence = {
+    itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
+    a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint: false, at: now.toISOString(),
+    repeat: isRecentRepeat(history, item.questionId, now.toISOString()),
+  };
+  const step = processAnswer({
+    studentId, skillId, sessionId: String(s.id), mode: "PRACTICE", ability: { theta: ability.theta, se: ability.se }, prior: ability.prior, history,
+    previousTargetB: null, candidates: [...byId.values()].map((i) => toCandidate(i, skillId)), prerequisites, sessionCorrect,
+  }, evidence, cfg, now);
+  const seenBefore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
+  let mst: MasteryResult = step.mastery;
+  if (!correct && mst.score > seenBefore) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
+  const masteryData = {
+    score: mst.score, band: mst.band, attempts: Number(prevMastery?.attempts ?? 0) + 1, correct: Number(prevMastery?.correct ?? 0) + (correct ? 1 : 0),
+    maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered, masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
+    ...nextReview(prevMastery, mst.isMastered, correct, now),
+  };
+  const answered = sessionRows.length + 1;
+  const answeredIds = new Set([...sessionRows.map((x) => String(x.questionId)), item.questionId]);
+  // fixed sets: the next question is known without reading again; adaptive sets and the Diagnostic read the new answer
+  const fixed = String(set?.type ?? "") !== "DIAGNOSTIC" && !set?.isAdaptive;
+  // a fixed set's next question is known already: it is read while the answer is being saved
+  const nextFixed = fixed ? order.find((id) => !answeredIds.has(id)) ?? null : null;
+  const nextItem = nextFixed ? loadQuestionItems(repo, [nextFixed]).then((r) => r[0]).catch(() => undefined) : undefined;
+  const { attempt, after, patch } = await repo.transaction(async (tx) => {
     const attempt = await tx.create("QuestionAttempt", {
       sessionId: s.id, studentId, questionId: item.questionId, skillId, response: { value: response }, isCorrect: correct,
       partialCredit: credit > 0 && credit < 1 ? credit : null, responseMs, usedHint: false, rapidGuess: step.rapidGuess, difficultyB: item.irt.b, createdAt: now,
-      misconception: correct ? null : attemptMisconception(item, response),
+      misconception,
     });
-    const seenBefore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
-    let mst: MasteryResult = step.mastery;
-    if (!correct && mst.score > seenBefore) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
     await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 },
       { theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 });
-    const masteryData = {
-      score: mst.score, band: mst.band, attempts: Number(prevMastery?.attempts ?? 0) + 1, correct: Number(prevMastery?.correct ?? 0) + (correct ? 1 : 0),
-      maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered, masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
-      ...nextReview(prevMastery, mst.isMastered, correct, now),
-    };
     await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
-    const answered = (await tx.findMany("QuestionAttempt", { sessionId: s.id }, { select: ["questionId"] })).length;
-    const after = await nextInSet(tx, a, order, String(s.id), studentId);
-    // the decision log of a set answer: θ BEFORE the answer (item calibration) and mastery before/after (growth);
-    // the next question follows the set, not the adaptive selector, so no route is made from here
-    await tx.create("AdaptiveDecisionLog", {
-      ...step.log, attemptId: attempt.id, nextQuestionId: after.nextId, nextTargetB: null, responseCorrect: correct, createdAt: now,
-      masteryBefore: seenBefore, masteryAfter: mst.score,
-      reason: `${step.rapidGuess ? "Rapid response detected — counted as weak evidence. " : ""}Answer in an assigned set: ability and mastery updated; the next question follows the set.`,
-      reasonCode: "ASSIGNED_SET",
-    });
+    const after = await nextInSet(tx, a, order, String(s.id), studentId, { set, ...(fixed ? { answeredIds } : {}) });
     const goalSet = after.goal !== null;
     const done = goalSet ? !after.nextId : answered >= order.length || !after.nextId;
     // 🎯 the goal is reached once: the work is done (the student may keep practising)
     const goalNow = goalSet && after.goal!.reached && !s.goalReachedAt;
-    // guarded by the database: a second request for the same answer (two servers, double clicks) is refused
-    const moved = await tx.updateMany("PracticeSession", { id: s.id, questionCount: Number(s.questionCount ?? 0) }, {
+    const patch = {
       questionCount: answered, correctCount: Number(s.correctCount ?? 0) + (correct ? 1 : 0), activeMs: Number(s.activeMs ?? 0) + responseMs,
       currentServedAt: done ? null : now, ...(done ? { endedAt: now, endReason: "COMPLETED" } : {}), ...(goalNow ? { goalReachedAt: now } : {}),
-    });
-    if (moved !== 1) throw new ValidationError("You already answered this question.");
-    // stuck: many answers without reaching the goal — the class's teachers are told once
-    if (goalSet && answered === STUCK_AFTER && !after.goal!.reached) {
-      const teachers = await tx.findMany("ClassTeacher", { classId: a.classId }, { select: ["teacherId"] });
-      const tRows = teachers.length ? await tx.findMany("Teacher", { id: { in: teachers.map((x) => x.teacherId) } }, { select: ["userId"] }) : [];
-      const me = await tx.findUnique("User", { id: (await tx.findUnique("Student", { id: studentId }))?.userId });
-      if (tRows.length) await tx.createMany("Notification", tRows.map((x) => ({ userId: x.userId, type: "PARENT_PROGRESS", title: `🆘 ${String(me?.displayName ?? "A student")} is stuck`, body: `${STUCK_AFTER} answers on “${hideLevels(String(a.title))}” and only ${after.goal!.correct} of ${after.goal!.target} correct. A short reteach may help.`, link: `/admin/student-file/${studentId}`, readAt: null, createdAt: now })));
-    }
-    const fb: Feedback = {
-      correct, credit, yourAnswer: studentAnswerText(item, response), correctAnswer: correctAnswerText(item), whyCorrect: item.explanation.whyCorrect,
-      whyYoursIsWrong: correct ? null : whyChosenWrong(item, response), tip: item.explanation.tip, rapidGuess: step.rapidGuess,
-      masteryBefore: Math.round(seenBefore), masteryAfter: Math.round(mst.score), band: mst.band, xp: 0,
-      next: { hasQuestion: !done, endReason: goalNow ? "GOAL" : done ? "COMPLETED" : null, routeToSkillId: null, routeToSkillName: null },
-      tutor: correct ? null : await tutorFor(tx, studentId, item, response, step.ability.theta, now),
     };
-    return fb;
+    // guarded by the database: a second request for the same answer (two servers, double clicks) is refused
+    const moved = await tx.updateMany("PracticeSession", { id: s.id, questionCount: Number(s.questionCount ?? 0) }, patch);
+    if (moved !== 1) throw new ValidationError("You already answered this question.");
+    return { attempt, after, patch: { ...patch, done, goalNow } };
   });
-  await refreshQuestionSets(repo, [a], [actor.studentId!], now);
-  const s = (await repo.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" }))[0];
-  // 🗓️ the Weekly Check: its result and the new RIT estimate when the last answer is in
-  if (String(a.curriculumPlanId ?? "") === WEEKLY_CHECK_MARK && !feedback.next.hasQuestion) await finishWeeklyCheck(repo, String(a.id), actor.studentId!, String(s.id), String(actor.schoolId), now);
+  const goalSet = after.goal !== null;
+  // after the response: the decision log of a set answer (θ BEFORE the answer for item calibration, mastery
+  // before/after for growth; the next question follows the set, not the adaptive selector, so no route is made)
+  runAfterResponse("quiz.decision_log", () => repo.create("AdaptiveDecisionLog", {
+    ...step.log, attemptId: attempt.id, nextQuestionId: after.nextId, nextTargetB: null, responseCorrect: correct, createdAt: now,
+    masteryBefore: seenBefore, masteryAfter: mst.score,
+    reason: `${step.rapidGuess ? "Rapid response detected — counted as weak evidence. " : ""}Answer in an assigned set: ability and mastery updated; the next question follows the set.`,
+    reasonCode: "ASSIGNED_SET",
+  }));
+  // stuck: many answers without reaching the goal — the class's teachers are told once (after the response)
+  if (goalSet && answered === STUCK_AFTER && !after.goal!.reached) {
+    const goal = after.goal!;
+    runAfterResponse("quiz.stuck_notice", async () => {
+      const teachers = await repo.findMany("ClassTeacher", { classId: a.classId }, { select: ["teacherId"] });
+      const tRows = teachers.length ? await repo.findMany("Teacher", { id: { in: teachers.map((x) => x.teacherId) } }, { select: ["userId"] }) : [];
+      const me = await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: studentId }))?.userId });
+      if (tRows.length) await repo.createMany("Notification", tRows.map((x) => ({ userId: x.userId, type: "PARENT_PROGRESS", title: `🆘 ${String(me?.displayName ?? "A student")} is stuck`, body: `${STUCK_AFTER} answers on “${hideLevels(String(a.title))}” and only ${goal.correct} of ${goal.target} correct. A short reteach may help.`, link: `/admin/student-file/${studentId}`, readAt: null, createdAt: now })));
+    });
+  }
+  const feedback: Feedback = {
+    correct, credit, yourAnswer: studentAnswerText(item, response), correctAnswer: correctAnswerText(item), whyCorrect: item.explanation.whyCorrect,
+    whyYoursIsWrong: correct ? null : whyChosenWrong(item, response), tip: item.explanation.tip, rapidGuess: step.rapidGuess,
+    masteryBefore: Math.round(seenBefore), masteryAfter: Math.round(mst.score), band: mst.band, xp: 0,
+    next: { hasQuestion: !patch.done, endReason: patch.goalNow ? "GOAL" : patch.done ? "COMPLETED" : null, routeToSkillId: null, routeToSkillName: null },
+    tutor: correct ? null : tutorFrom(item, response, step.ability.theta, misconception, repeatedBefore + (misconception ? 1 : 0)),
+  };
+  // the session as it is now (no re-reading)
+  const { done: _done, goalNow: _goalNow, ...sessionPatch } = patch;
+  void _done; void _goalNow;
+  const sNow: Row = { ...s, ...sessionPatch };
+  const attemptsNow: Row[] = [...sessionRows, { questionId: item.questionId, responseMs, createdAt: now }];
+  const known = { attempts: attemptsNow, set, ...(String(set?.type ?? "") === "DIAGNOSTIC" ? {} : { next: after }), ...(nextItem && after.nextId === nextFixed ? { nextItem } : {}) };
+  if (feedback.next.hasQuestion && !patch.goalNow) {
+    // the set's status for the teacher and the work list: after the response
+    runAfterResponse("quiz.status_refresh", () => refreshQuestionSets(repo, [a], [actor.studentId!], now));
+  } else {
+    // the work is done (last answer, or the goal reached): its status now, then its result (Weekly Check RIT,
+    // Diagnostic analysis, Placement level)
+    await refreshQuestionSets(repo, [a], [actor.studentId!], now);
+  }
+  // 🗓️ the Weekly Check: its result and the new RIT estimate when the last answer is in (once a week: kept with the
+  // answer, so My Work shows the result at once)
+  if (String(a.curriculumPlanId ?? "") === WEEKLY_CHECK_MARK && !feedback.next.hasQuestion) await finishWeeklyCheck(repo, String(a.id), actor.studentId!, String(sNow.id), String(actor.schoolId), now);
   // 📝 the Diagnostic Test: analysed when the last answer is in; the student sees no right/wrong while testing
-  const diag = await diagnosticOfAssessment(repo, String(a.assessmentId));
   if (diag) {
-    if (!feedback.next.hasQuestion) await recordDiagnosticResult(repo, diag, String(a.id), actor.studentId!, String(s.id), now);
+    if (!feedback.next.hasQuestion) await recordDiagnosticResult(repo, diag, String(a.id), actor.studentId!, String(sNow.id), now);
     const blank: Feedback = { ...feedback, correct: false, credit: 0, correctAnswer: "", whyCorrect: "", whyYoursIsWrong: null, tip: "", masteryBefore: 0, masteryAfter: 0, xp: 0, tutor: null };
-    return { feedback: blank, view: await quizView(repo, a, order, s) };
+    return { feedback: blank, view: await quizView(repo, a, order, sNow, known) };
   }
   // a finished Placement test sets the student's level
-  if (!feedback.next.hasQuestion && a.assessmentId) await applyPlacementResult(repo, String(a.assessmentId), String(s.id), actor.studentId!, now);
-  return { feedback, view: await quizView(repo, a, order, s) };
+  if (!feedback.next.hasQuestion && a.assessmentId) await applyPlacementResult(repo, String(a.assessmentId), String(sNow.id), actor.studentId!, now);
+  // 📝 a teacher-built test: no right/wrong while testing (the review opens once it is completed)
+  if (isTestAssignment(a)) return { feedback: { ...blankFeedback(), next: feedback.next }, view: await quizView(repo, a, order, sNow, known) };
+  return { feedback, view: await quizView(repo, a, order, sNow, known) };
 }
 
 // ------------------------------------------------------------------ one request at a time per student (double clicks)

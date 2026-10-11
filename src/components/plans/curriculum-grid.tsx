@@ -13,7 +13,7 @@ export function CurriculumGrid({ g, canEdit }: { g: PlanGrid; canEdit: boolean }
     <div className="space-y-6">
       <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200 print:hidden">
         <h2 className="text-lg font-bold text-brand-navy">🔒 Units &amp; Calendar</h2>
-        <p className="text-sm text-slate-600">Students can open only the open units. Give a unit a date and it opens by itself on that day.</p>
+        <p className="text-sm text-slate-600">Students can open only the open units. Set a date for a unit and it opens by itself on that day.</p>
         <form action={setUnitsAction} className="mt-3">
           <input type="hidden" name="planId" value={g.planId} />
           <ul className="grid gap-2 md:grid-cols-2">

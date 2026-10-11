@@ -26,7 +26,7 @@ export default async function MyPlan({ params, searchParams }: { params: Promise
   const pct = p.places.length ? Math.round((100 * done) / p.places.length) : 0;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student/plans", label: "My Plans" }} icon={p.kind === "CURRICULUM" ? "📘" : "🗂️"} title={hideLevels(p.title)} subtitle={`${p.className} · ${done} of ${p.places.length} parts done · ${p.target} correct answers finish a part`}><PrintButton /></PageHeader>
+      <PageHeader back={{ href: "/student/plans", label: "My Plans" }} icon={p.kind === "CURRICULUM" ? "📘" : "🗂️"} title={hideLevels(p.title)} subtitle={`${p.className} · ${done} of ${p.places.length} parts done${p.kind === "CURRICULUM" || p.kind === "PLACES" ? ` · ${p.target} correct answers finish a part` : ""}`}><PrintButton /></PageHeader>
       {msg && <p role="alert" className="mb-4 rounded-2xl bg-amber-50 px-4 py-3 font-medium text-amber-900 ring-1 ring-amber-200">🔒 {msg}</p>}
       {p.note && <p className="mb-4 rounded-2xl bg-amber-50 px-4 py-3 text-amber-900">💬 {p.note}</p>}
 

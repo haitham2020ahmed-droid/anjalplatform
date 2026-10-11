@@ -23,7 +23,7 @@ export default async function SkillHubPage({ params }: { params: Promise<{ skill
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: isAdmin ? "/admin/skills" : "/admin/curriculum-map", label: isAdmin ? "Skills" : "Curriculum" }} icon="🧩" title={h.name}
-        subtitle={<>Grade {h.grade} · {h.family}{h.area ? <> · MAP <b className="font-semibold text-brand-purple">{h.area.name}</b></> : ""}{h.description ? <span className="mt-1 block">{h.description}</span> : null}</>}>
+        subtitle={<>Grade {h.grade} · {h.family}{h.area ? <> · MAP <b className="font-semibold text-brand-purple">{h.area.name}</b></> : ""}{h.nafs ? <> · NAFS <b className="font-semibold text-teal-700">{h.nafs.name}</b></> : ""}{h.description ? <span className="mt-1 block">{h.description}</span> : null}</>}>
         <Link href={`/teacher/skill-assign?skillId=${h.id}`} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">⭐ Assign</Link>
         <Link href={`/admin/questions?status=PUBLISHED&skill=${h.id}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Questions</Link>
         <Link href={`/teacher/worksheet?skillId=${h.id}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🖨 Worksheet</Link>
@@ -95,7 +95,7 @@ export default async function SkillHubPage({ params }: { params: Promise<{ skill
                 {h.students.avg !== null && <p className="mt-2 text-xs text-slate-500">Average mastery of those who started: {h.students.avg}% · {h.assignments} assignment(s) of this skill</p>}
                 {h.students.needHelp.length > 0 && (
                   <div className="mt-3"><p className="text-sm font-medium text-slate-800">Struggling (under 50%)</p>
-                    <ul className="mt-1 space-y-1 text-sm">{h.students.needHelp.map((x) => <li key={x.id} className="flex justify-between gap-2"><Link href={`/admin/student-file/${x.id}`} className="truncate text-brand-navy hover:underline">{x.name} <span className="text-xs text-slate-500">{x.className}</span></Link><span className="tabular-nums text-red-700">{x.score}%</span></li>)}</ul>
+                    <ul className="mt-1 space-y-1 text-sm">{h.students.needHelp.map((x) => <li key={x.id} className="flex justify-between gap-2"><Link href={`/teacher/students/${x.id}`} className="truncate text-brand-navy hover:underline">{x.name} <span className="text-xs text-slate-500">{x.className}</span></Link><span className="tabular-nums text-red-700">{x.score}%</span></li>)}</ul>
                   </div>
                 )}
               </>

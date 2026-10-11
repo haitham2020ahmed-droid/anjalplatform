@@ -22,7 +22,7 @@ export default async function FindStudentPage({ searchParams }: { searchParams: 
       {q.trim().length >= 2 && (
         !found.length ? <p className="mt-5 rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No student found for “{q}”.</p> : (
           <ul className="mt-5 grid gap-2 md:grid-cols-2">{found.map((x) => (
-            <li key={x.id}><Link href={`/admin/student-file/${x.id}`} className="lift flex items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+            <li key={x.id}><Link href={`/teacher/students/${x.id}`} className="lift flex items-center justify-between gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
               <span><span className="block font-bold text-brand-navy">{x.name}</span><span className="block text-sm text-slate-500">Grade {x.grade} · {x.className || "no class"} · ID {x.number} · {x.username}</span></span>
               <span className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white">Open file ▶</span>
             </Link></li>

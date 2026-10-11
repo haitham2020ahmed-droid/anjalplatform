@@ -40,17 +40,34 @@ export function assignmentStatus(input: { answered: number; mastery: number; tar
 
 // ------------------------------------------------------------------ assign
 
-export type Track = "CURRICULUM" | "MAP" | "NAFS";
-const trackOf = (v: unknown): Track => (v === "MAP" ? "MAP" : v === "NAFS" ? "NAFS" : "CURRICULUM");
-/** Nafs (the national test) is for Grade 6 only. */
-async function assertTrackFitsClass(repo: Repo, klass: Row, track: Track): Promise<void> {
-  if (track !== "NAFS") return;
-  const g = await repo.findUnique("Grade", { id: klass.gradeId });
-  if (Number(g?.level) !== 6) throw new ValidationError("Nafs is for Grade 6 classes only.");
+/**
+ * Where a piece of work comes from (the colored source tag in My Work). Additive: CURRICULUM | MAP | NAFS were the
+ * first three; RTI, GRAMMAR and CUSTOM come from the Plans wizard. Stored as text (Assignment.track, VARCHAR 16).
+ */
+export type Track = "CURRICULUM" | "MAP" | "NAFS" | "RTI" | "GRAMMAR" | "CUSTOM";
+export const TRACKS: readonly Track[] = ["CURRICULUM", "MAP", "NAFS", "RTI", "GRAMMAR", "CUSTOM"];
+export const trackOf = (v: unknown): Track => (TRACKS as readonly unknown[]).includes(v) ? (v as Track) : "CURRICULUM";
+/**
+ * Access rules (UI reorg): Nafs work may go to a class of ANY grade (it used to be Grade 6 only). Kept as a hook so
+ * the call sites stay unchanged; the class itself is still checked by assertClassAccess (own classes only).
+ */
+async function assertTrackFitsClass(_repo: Repo, _klass: Row, _track: Track): Promise<void> {}
+
+/**
+ * Any active skill of the actor's school, from ANY grade (a Grade 11 class with no curriculum can be given a Grade 6
+ * skill). A skill of another school, a removed or inactive skill is refused.
+ */
+export async function assertSchoolSkill(repo: Repo, schoolId: unknown, skillId: string): Promise<Row> {
+  const skill = await repo.findUnique("Skill", { id: skillId });
+  if (!skill || skill.deletedAt || skill.isActive === false) throw new ValidationError("Choose an active skill.");
+  const cur = await repo.findUnique("Curriculum", { id: skill.curriculumId });
+  const grade = cur ? await repo.findUnique("Grade", { id: cur.gradeId }) : null;
+  if (!grade || s(grade.schoolId) !== s(schoolId)) throw new ForbiddenError("Skill not found.");
+  return { ...skill, gradeLevel: Number(grade.level) };
 }
 
 export interface AssignSkillInput {
-  /** CURRICULUM (default) or MAP */
+  /** CURRICULUM (default), MAP, NAFS, RTI, GRAMMAR or CUSTOM (the source tag the student sees) */
   track?: Track;
   classId: string;
   skillId: string;
@@ -78,12 +95,11 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
   await assertTrackFitsClass(repo, klass, trackOf(input.track));
   const teacher = await assigningTeacher(repo, actor, String(klass.id));
   if (!teacher) throw new ForbiddenError(actor.role === "TEACHER" ? "Only teachers can assign skills." : "This class has no teacher yet: add its teacher in Users first.");
-  const [skill, curs, members] = await Promise.all([
-    repo.findUnique("Skill", { id: input.skillId }),
-    repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }),
+  // any grade's skill of this school (access rules: content is open to every teacher; the students must be theirs)
+  const [skill, members] = await Promise.all([
+    assertSchoolSkill(repo, klass.schoolId, input.skillId),
     repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] }),
   ]);
-  if (!skill || skill.deletedAt || skill.isActive === false || !curs.some((c) => c.id === skill.curriculumId)) throw new ValidationError("Choose an active skill from this class's curriculum.");
   const classStudents = new Set(members.map((m) => s(m.studentId)));
   const chosen = [...new Set((input.studentIds ?? []).filter(Boolean))];
   for (const id of chosen) if (!classStudents.has(id)) throw new ForbiddenError("You can only assign work to students in this class.");
@@ -203,7 +219,7 @@ export async function accessibleClasses(repo: Repo, actor: Actor): Promise<Row[]
   return links.length ? (await repo.findMany("Class", { id: { in: links.map((l) => l.classId) }, deletedAt: null })) : [];
 }
 
-export interface CurriculumSkill { id: string; name: string; code: string; standards: string[]; lessons: string[]; openAssignments: number; questions: number }
+export interface CurriculumSkill { id: string; name: string; code: string; standards: string[]; lessons: string[]; openAssignments: number; questions: number; /** the skill's grade (shown as a small tag) */ grade?: number }
 
 export interface TeacherCurriculum {
   classes: { id: string; name: string; grade: number }[];
@@ -212,11 +228,22 @@ export interface TeacherCurriculum {
   units: { id: string; number: number; title: string; skills: CurriculumSkill[] }[];
   /** the same skills grouped by MAP Growth goal area (via each skill's family) */
   mapAreas: { code: string; name: string; skills: CurriculumSkill[] }[];
+  /** UI reorg Phase 1: the same skills grouped by NAFS area (via each skill's family; /admin/nafs-links) */
+  nafsAreas?: { code: string; name: string; skills: CurriculumSkill[] }[];
   students: { id: string; name: string }[];
+  /** every grade of the school (content is open to all teachers): the teacher may view and assign from any of them */
+  grades?: { level: number; name: string; skills: number }[];
+  /** the grade whose curriculum is shown (the class's grade unless another one was chosen) */
+  viewGrade?: { level: number; name: string };
+  /** the class's own grade has no curriculum (no skills) yet, e.g. a new Grade 11 */
+  noCurriculum?: boolean;
 }
 
+/** The friendly message for a class whose grade has no curriculum yet. */
+export const NO_CURRICULUM_MESSAGE = "This grade has no curriculum yet — you can still assign skills from any grade";
+
 /** Grade → Unit → Skill → Standard for one of the teacher's classes, with its students (for ⭐ Assign). */
-export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: string): Promise<TeacherCurriculum | null> {
+export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: string, opts: { grade?: number | null } = {}): Promise<TeacherCurriculum | null> {
   const classes = await accessibleClasses(repo, actor);
   if (!classes.length) return null;
   const grades = await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => c.gradeId))] } });
@@ -225,7 +252,15 @@ export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: stri
   const klass = classId ? sorted.find((c) => c.id === classId) : sorted[0];
   if (!klass) throw new ForbiddenError("You do not teach this class.");
   const grade = grades.find((g) => g.id === klass.gradeId)!;
-  const cur = (await repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }))[0];
+  // access rules (UI reorg): every grade's curriculum is open to every teacher; the class (and its students) stay theirs
+  const allGrades = (await repo.findMany("Grade", { schoolId: klass.schoolId })).sort((a, b) => Number(a.level) - Number(b.level));
+  const allCurs = allGrades.length ? await repo.findMany("Curriculum", { gradeId: { in: allGrades.map((g) => g.id) }, isActive: true }, { select: ["id", "gradeId"] }) : [];
+  const skillCount = new Map<string, number>();
+  if (allCurs.length) for (const k of await repo.findMany("Skill", { curriculumId: { in: allCurs.map((c) => c.id) }, deletedAt: null, isActive: true }, { select: ["curriculumId"] })) skillCount.set(s(k.curriculumId), (skillCount.get(s(k.curriculumId)) ?? 0) + 1);
+  const skillsOfGrade = (gid: unknown) => allCurs.filter((c) => s(c.gradeId) === s(gid)).reduce((n, c) => n + (skillCount.get(s(c.id)) ?? 0), 0);
+  const chosen = opts.grade !== undefined && opts.grade !== null ? allGrades.find((g) => Number(g.level) === Number(opts.grade)) : undefined;
+  const shown = chosen ?? grade;
+  const cur = (await repo.findMany("Curriculum", { gradeId: shown.id, isActive: true }))[0];
   const [units, skills, members, assignments] = await Promise.all([
     cur ? repo.findMany("Unit", { curriculumId: cur.id, deletedAt: null }) : Promise.resolve([] as Row[]),
     cur ? repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null, isActive: true }, { select: ["id", "name", "code", "familyId"] }) : Promise.resolve([] as Row[]),
@@ -249,9 +284,9 @@ export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: stri
   const stdCode = new Map(stds.map((x) => [s(x.id), s(x.code).replace(/^CCSS\.ELA-LITERACY\./, "")]));
   const lessonNo = new Map(lessons.map((l) => [s(l.id), Number(l.number)]));
   // published questions per skill (one query): the teacher can open them, star and assign
-  const skillIdsHere = skills.map((k) => k.id);
-  const questionCount = new Map<string, number>();
-  if (skillIdsHere.length) for (const q of await repo.findMany("Question", { skillId: { in: skillIdsHere }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId"] })) questionCount.set(s(q.skillId), (questionCount.get(s(q.skillId)) ?? 0) + 1);
+  // UI reorg Phase 1: the ONE shared count (the search and the NAFS section show the same number)
+  const { countQuestionsOfSkills } = await import("../questions/skill-questions");
+  const questionCount = await countQuestionsOfSkills(repo, s(klass.schoolId ?? actor.schoolId), skills.map((k) => s(k.id)));
   const openBySkill = new Map<string, number>();
   const openAssignmentIds = new Set(openRows.map((r) => s(r.assignmentId)));
   for (const a of assignments) if (a.skillId && openAssignmentIds.has(s(a.id))) openBySkill.set(s(a.skillId), (openBySkill.get(s(a.skillId)) ?? 0) + 1);
@@ -260,6 +295,9 @@ export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: stri
   const view: TeacherCurriculum = {
     classes: sorted.map((c) => ({ id: s(c.id), name: s(c.name), grade: levelOf.get(s(c.gradeId)) ?? 0 })),
     classId: s(klass.id), grade: { level: Number(grade.level), name: s(grade.name) },
+    grades: allGrades.map((g) => ({ level: Number(g.level), name: s(g.name), skills: skillsOfGrade(g.id) })),
+    viewGrade: { level: Number(shown.level), name: s(shown.name) },
+    noCurriculum: skillsOfGrade(grade.id) === 0,
     units: activeUnits.map((u) => {
       const myLessons = new Set(lessons.filter((l) => l.unitId === u.id).map((l) => s(l.id)));
       return {
@@ -270,6 +308,7 @@ export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: stri
           lessons: [...new Set(lessonSkills.filter((ls) => ls.skillId === k.id && myLessons.has(s(ls.lessonId))).map((ls) => lessonNo.get(s(ls.lessonId)) ?? 0))].sort((a, b) => a - b).map((n) => `L${n}`),
           openAssignments: openBySkill.get(s(k.id)) ?? 0,
           questions: questionCount.get(s(k.id)) ?? 0,
+          grade: Number(shown.level),
         })),
       };
     }),
@@ -282,9 +321,10 @@ export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: stri
   if (more.length) view.units.push({ id: "more", number: 0, title: "More skills (Grammar and other skills not in a unit)", skills: more.map((k) => ({
     id: s(k.id), name: s(k.name), code: s(k.code), lessons: [],
     standards: links.filter((l) => l.skillId === k.id).sort((a, b) => Number(b.isPrimary) - Number(a.isPrimary)).map((l) => stdCode.get(s(l.standardId)) ?? "").filter(Boolean),
-    openAssignments: openBySkill.get(s(k.id)) ?? 0, questions: questionCount.get(s(k.id)) ?? 0,
+    openAssignments: openBySkill.get(s(k.id)) ?? 0, questions: questionCount.get(s(k.id)) ?? 0, grade: Number(shown.level),
   })) });
   view.mapAreas = await mapAreasFor(repo, skills, view.units.flatMap((u) => u.skills));
+  view.nafsAreas = await nafsAreasFor(repo, skills, view.units.flatMap((u) => u.skills));
   return view;
 }
 
@@ -303,6 +343,22 @@ async function mapAreasFor(repo: Repo, skills: Row[], built: CurriculumSkill[]):
     code: s(a.code), name: s(a.name),
     skills: skills.filter((k) => areaOfFamily.get(s(k.familyId)) === a.id).map((k) => byId.get(s(k.id))).filter((k): k is CurriculumSkill => Boolean(k)).sort((x, y) => x.name.localeCompare(y.name)),
   })).filter((a) => a.skills.length).sort((x, y) => (ORDER.indexOf(x.code) + 99) % 99 - (ORDER.indexOf(y.code) + 99) % 99 || x.name.localeCompare(y.name));
+}
+
+/** Groups the grade's skills by NAFS area (skill → family → NafsSkillLink), in the areas' order. */
+async function nafsAreasFor(repo: Repo, skills: Row[], built: CurriculumSkill[]): Promise<NonNullable<TeacherCurriculum["nafsAreas"]>> {
+  const familyIds = [...new Set(skills.map((k) => k.familyId).filter(Boolean).map(s))];
+  if (!familyIds.length) return [];
+  const [links, areas] = await Promise.all([
+    repo.findMany("NafsSkillLink", { familyId: { in: familyIds } }, { select: ["familyId", "areaId"] }),
+    repo.findMany("NafsArea", {}, { select: ["id", "code", "name", "sortOrder", "isActive"] }),
+  ]);
+  const areaOfFamily = new Map(links.map((l) => [s(l.familyId), s(l.areaId)]));
+  const byId = new Map(built.map((k) => [k.id, k]));
+  return areas.filter((a) => a.isActive !== false && a.isActive !== 0).sort((x, y) => Number(x.sortOrder) - Number(y.sortOrder)).map((a) => ({
+    code: s(a.code), name: s(a.name),
+    skills: [...new Map(skills.filter((k) => areaOfFamily.get(s(k.familyId)) === a.id).map((k) => byId.get(s(k.id))).filter((k): k is CurriculumSkill => Boolean(k)).map((k) => [k.id, k])).values()].sort((x, y) => x.name.localeCompare(y.name)),
+  })).filter((a) => a.skills.length);
 }
 
 export interface WeeklyRow { id: string; track: Track; skill: string; className: string; assigned: number; counts: Record<Status, number>; dueAt: string | null; startAt: string | null; createdAt: string; scope: "class" | "students" }

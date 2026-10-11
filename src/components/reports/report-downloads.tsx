@@ -28,7 +28,7 @@ export function ReportDownloads({ title, report, formats = ["pdf", "xlsx", "csv"
     </div>
   );
   return (
-    <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200" aria-label={title}>
+    <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200 print:hidden" aria-label={title}>
       <h2 className="text-lg font-bold text-brand-navy">{title}</h2>
       <div className="mt-3 grid gap-2">
         {row("en", "English")}

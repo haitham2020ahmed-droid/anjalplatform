@@ -111,7 +111,11 @@ const OWN_COLUMN_TYPES = new Set<QuestionTypeCode>(["TWO_PART", "GRID", "HOT_TEX
 
 export const COGNITIVE_LEVELS = ["Remember", "Understand", "Apply", "Analyze", "Evaluate", "Create"] as const;
 
-export const MAX_IMPORT_ROWS = 10000;
+/**
+ * Questions per uploaded file (Update 42A). The whole file is checked in one request, so a cap keeps the server's
+ * memory bounded on the smallest hosting plan (512 MB): a larger file is refused with "split the file".
+ */
+export const MAX_IMPORT_ROWS = 1000;
 /** Example rows in the downloadable template start with this, so they are never imported by mistake. */
 export const EXAMPLE_MARK = "[Example]";
 const EXAMPLE_PREFIX = /^\[example\]/i;
@@ -642,6 +646,32 @@ function fingerprint(id: string, stem: string, options: string[]): Fingerprint {
   const s = normText(stem);
   const f = normText([stem, ...options].join(" "));
   return { id, stem: s, full: f, stemTokens: tokens(s), fullTokens: tokens(f), opts: new Set(options.map(normText).filter(Boolean)) };
+}
+/**
+ * The words a bank question MUST contain to match this query (exact prefilter, Update 42A): a match of a set A with
+ * Jaccard ≥ t shares at least ⌈t·|A|⌉ of A's words, so it contains one of ANY |A| − ⌈t·|A|⌉ + 1 of them. The rarest ones
+ * (by `df`, how many bank questions use each word) are chosen, so very few bank questions pass the filter.
+ */
+export function requiredWords(words: { full: Set<string>; stem: Set<string> }, df: (w: string) => number): { full: string[]; stem: string[] } {
+  const pick = (set: Set<string>, t: number) => {
+    if (!set.size) return [];
+    const k = set.size - Math.ceil(t * set.size - 1e-9) + 1;
+    return [...set].sort((a, b) => df(a) - df(b) || (a < b ? -1 : 1)).slice(0, k);
+  };
+  return { full: pick(words.full, SIMILAR_THRESHOLD), stem: pick(words.stem, SAME_STEM_THRESHOLD) };
+}
+/** The normalized words of a question (text + choices, and text alone), as the duplicate index sees them. */
+export function questionWords(stem: string, options: string[]): { full: Set<string>; stem: Set<string> } {
+  const fp = fingerprint("", stem, options);
+  return { full: fp.fullTokens, stem: fp.stemTokens };
+}
+/**
+ * True when the duplicate index could report one of these questions for the other (exact, similar, or same text):
+ * text + choices ≥ SIMILAR_THRESHOLD or text alone ≥ SAME_STEM_THRESHOLD. A question for which this is false can never be
+ * a hit, so it need not be in the index at all (Update 42A).
+ */
+export function couldMatch(a: { full: Set<string>; stem: Set<string> }, b: { full: Set<string>; stem: Set<string> }): boolean {
+  return jaccard(a.full, b.full) >= SIMILAR_THRESHOLD || jaccard(a.stem, b.stem, SAME_STEM_THRESHOLD) >= SAME_STEM_THRESHOLD;
 }
 function jaccard(a: Set<string>, b: Set<string>, threshold = SIMILAR_THRESHOLD): number {
   if (!a.size || !b.size) return 0;

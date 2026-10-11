@@ -1,9 +1,10 @@
 import { LoginForm } from "./login-form";
+import { LangSwitch } from "@/components/ui-kit";
 
 export const metadata = { title: "Sign in" };
 
 const FEATURES = [
-  ["🎯", "Practice that adapts", "Every answer chooses the next question: never too easy, never too hard."],
+  ["🎯", "Practice at your level", "Every answer chooses the next question: never too easy, never too hard."],
   ["🗺️", "Ready for MAP Growth", "Goal areas, RIT bands, personal plans and a practice test."],
   ["⭐", "Reading at my level", "Leveled articles, a dictionary at a click, my word notebook."],
 ] as const;
@@ -20,7 +21,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
         <div className="relative">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">Al-Anjal Private Schools</p>
           <h2 className="mt-3 text-5xl font-extrabold leading-tight tracking-tight">Al-Anjal<br />English</h2>
-          <p className="mt-4 max-w-md text-lg text-white/85">The adaptive English platform for Grades 4–6: practice, reading and MAP preparation in one place.</p>
+          <p className="mt-4 max-w-md text-lg text-white/85">The English platform for every grade: practice, reading and MAP preparation in one place.</p>
         </div>
         <ul className="relative mt-10 space-y-4">
           {FEATURES.map(([icon, title, text], i) => (
@@ -38,8 +39,9 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           <span>Accredited · NCSEE (Tamayuz) · Cognia School of Distinction</span>
         </div>
       </section>
-      {/* form side */}
-      <section className="flex items-center justify-center p-6 sm:p-10">
+      {/* form side: the language switch for parents sits at the top, as on every page */}
+      <section className="relative flex flex-col items-center justify-center gap-4 p-6 pt-20 sm:p-10 sm:pt-20">
+        <div className="absolute end-4 top-4"><LangSwitch /></div>
         <LoginForm error={sp.error ? String(sp.error).slice(0, 200) : null} username={sp.u ? String(sp.u).slice(0, 100) : ""} next={sp.next ? String(sp.next).slice(0, 300) : ""} />
       </section>
     </main>

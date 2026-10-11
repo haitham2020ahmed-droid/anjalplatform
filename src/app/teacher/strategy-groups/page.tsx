@@ -63,8 +63,8 @@ export default async function StrategyGroupsPage({ searchParams }: { searchParam
       <section className="grid gap-4 md:grid-cols-2">
         <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
           <h2 className="text-lg font-bold text-brand-navy">Students</h2>
-          <table className="mt-2 w-full text-sm"><thead><tr className="text-left text-slate-500"><th className="py-1">Name</th><th className="text-right">Before</th><th className="text-right">During</th><th className="text-right">After</th><th className="pl-3">Weak strategies</th></tr></thead>
-            <tbody>{p.students.map((x) => <tr key={x.id} className="border-t border-slate-100 align-top"><td className="py-1">{x.name}</td><td className="text-right tabular-nums">{x.BEFORE}%</td><td className="text-right tabular-nums">{x.DURING}%</td><td className="text-right tabular-nums">{x.AFTER}%</td><td className="pl-3">{x.weak.map((k) => STRATEGY_LABEL[k]).join(", ") || "—"}</td></tr>)}</tbody></table>
+          <table className="mt-2 w-full text-sm"><thead><tr className="text-left text-slate-500"><th className="py-1">Name</th><th className="text-right">Before</th><th className="text-right">During</th><th className="text-right">After</th><th className="ps-3">Weak strategies</th></tr></thead>
+            <tbody>{p.students.map((x) => <tr key={x.id} className="border-t border-slate-100 align-top"><td className="py-1">{x.name}</td><td className="text-right tabular-nums">{x.BEFORE}%</td><td className="text-right tabular-nums">{x.DURING}%</td><td className="text-right tabular-nums">{x.AFTER}%</td><td className="ps-3">{x.weak.map((k) => STRATEGY_LABEL[k]).join(", ") || "—"}</td></tr>)}</tbody></table>
         </div>
         <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
           <h2 className="text-lg font-bold text-brand-navy">Not taken yet ({p.notTaken.length})</h2>

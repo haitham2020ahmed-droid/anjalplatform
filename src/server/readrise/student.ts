@@ -14,6 +14,7 @@
  *  5 steps are finished.
  */
 import { feedReadRise, safeFeed } from "../practice/skill-evidence";
+import { runAfterResponse } from "../lib/after-response";
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -367,8 +368,9 @@ export async function submitActivity(repo: Repo, actor: Actor, runId: string, ra
     if (run.firstTry === true && (run.stretch !== true || pct >= ENGINE.up)) ({ levelBefore: before, levelAfter: after } = await applyFirstTryScore(tx, { ...run, score: pct, completedAt: now }, now));
     await tx.updateMany("RRRun", { id: runId }, { levelBefore: before, levelAfter: after });
   });
-  // 🔗 the answers also feed the skills they measure (main idea, inference, vocabulary in context …; Update 39B)
-  await safeFeed("readrise", () => feedReadRise(repo, runId, now));
+  // 🔗 the answers also feed the skills they measure (main idea, inference, vocabulary in context …; Update 39B) —
+  // after the response (Update 42B): the student's score and level are already saved above
+  runAfterResponse("readrise.skill_feed", () => safeFeed("readrise", () => feedReadRise(repo, runId, now)));
   return runView(repo, actor, runId, now);
 }
 

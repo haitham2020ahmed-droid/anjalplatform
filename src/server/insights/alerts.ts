@@ -58,6 +58,17 @@ export async function findAlerts(repo: Repo, schoolId: string, now = new Date())
   const classOf = new Map(members.map((m) => [s(m.studentId), s(m.classId)]));
   const grades = await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => s(c.gradeId)))] } }, { select: ["id", "level"] });
   const gradeOf = new Map(members.map((m) => [s(m.studentId), Number(grades.find((g) => g.id === classes.find((c) => c.id === m.classId)?.gradeId)?.level ?? 0)]));
+  // Update 42A: ALERT_CHUNK students at a time (every finding is about one student): the school's recent answers, mastery
+  // and MAP rows are never all in memory at once; each student's findings come in the same order as before
+  const out: Found[] = [];
+  for (let i = 0; i < ids.length; i += ALERT_CHUNK) out.push(...await alertsFor(repo, schoolId, now, ids.slice(i, i + ALERT_CHUNK), classOf, gradeOf));
+  return out;
+}
+
+/** Students per round of the alert scan (Update 42A). */
+const ALERT_CHUNK = 50;
+
+async function alertsFor(repo: Repo, schoolId: string, now: Date, ids: string[], classOf: Map<string, string>, gradeOf: Map<string, number>): Promise<Found[]> {
   const wk = weekKey(now);
   const out: Found[] = [];
   const add = (studentId: string, kind: AlertKind, key: string, detail: string) => out.push({ studentId, classId: classOf.get(studentId) ?? "", kind, key: `${kind}|${key}`, detail: detail.slice(0, 500) });

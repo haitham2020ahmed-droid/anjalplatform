@@ -12,6 +12,15 @@ import { assignFromMap } from "./levels";
 import { DEFAULT_TARGET_CORRECT } from "../teacher/assign";
 
 const s = (v: unknown) => String(v ?? "");
+/**
+ * Plan kinds made by the Plans wizard (src/server/plans/wizard.ts): each item is ONE skill assigned as adaptive
+ * practice (the student opens it at their level). UNIT = a Curriculum Plan built from the curriculum lessons.
+ */
+export const SKILL_PLAN_KINDS = ["MAP", "NAFS", "UNIT", "RTI", "CUSTOM"] as const;
+export type SkillPlanKind = (typeof SKILL_PLAN_KINDS)[number];
+export const isSkillPlanKind = (k: unknown): k is SkillPlanKind => (SKILL_PLAN_KINDS as readonly unknown[]).includes(k);
+/** CURRICULUM (full year) · PLACES (Curriculum Map places) · or a wizard kind */
+const kindOf = (k: unknown): string => (s(k) === "CURRICULUM" ? "CURRICULUM" : isSkillPlanKind(s(k)) ? s(k) : "PLACES");
 const ids = (v: unknown): string[] => { const x = typeof v === "string" ? (() => { try { return JSON.parse(v); } catch { return []; } })() : v; return Array.isArray(x) ? x.map(String) : []; };
 
 /** Places a plan can use: every category (Analyze Craft / Respond to Reading: adaptive) and every attachment node. */
@@ -76,7 +85,7 @@ export async function listSkillPlans(repo: Repo, actor: Actor): Promise<PlanSumm
     const studs = new Set(allStudents.filter((x) => aids.has(s(x.assignmentId))).map((x) => s(x.studentId)));
     const klass = classes.find((c) => c.id === p.classId);
     const curriculum = s(p.kind) === "CURRICULUM";
-    out.push({ id: s(p.id), kind: curriculum ? "CURRICULUM" : "PLACES", classId: s(p.classId), title: s(p.title), className: s(klass?.name), grade: Number(p.gradeLevel), items: items.length, students: curriculum ? Number(klass ? (await repo.count("ClassMembership", { classId: klass.id, leftAt: null })) : 0) : studs.size, createdAt: s(p.createdAt instanceof Date ? p.createdAt.toISOString() : p.createdAt).slice(0, 10) });
+    out.push({ id: s(p.id), kind: kindOf(p.kind), classId: s(p.classId), title: s(p.title), className: s(klass?.name), grade: Number(p.gradeLevel), items: items.length, students: curriculum ? Number(klass ? (await repo.count("ClassMembership", { classId: klass.id, leftAt: null })) : 0) : studs.size, createdAt: s(p.createdAt instanceof Date ? p.createdAt.toISOString() : p.createdAt).slice(0, 10) });
   }
   return out;
 }
@@ -122,7 +131,7 @@ export async function studentSkillPlans(repo: Repo, actor: Actor): Promise<{ id:
     const curriculum = s(p.kind) === "CURRICULUM";
     if (curriculum && !myClasses.has(s(p.classId))) continue;
     const mineItems = curriculum ? items : items.filter((i) => ids(i.assignmentIds).some((a) => statusOf.has(a)));
-    if (mineItems.length) out.push({ id: s(p.id), title: s(p.title), kind: curriculum ? "CURRICULUM" : "PLACES", places: mineItems.length, done: mineItems.filter((i) => ids(i.assignmentIds).some((a) => statusOf.get(a) === "COMPLETED")).length });
+    if (mineItems.length) out.push({ id: s(p.id), title: s(p.title), kind: kindOf(p.kind), places: mineItems.length, done: mineItems.filter((i) => ids(i.assignmentIds).some((a) => statusOf.get(a) === "COMPLETED")).length });
   }
   // the curriculum plan first
   return out.sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "CURRICULUM" ? -1 : 1));
@@ -143,8 +152,12 @@ export async function skillPlanForStudent(repo: Repo, actor: Actor, planId: stri
   const byId = new Map(mine.map((m) => [s(m.assignmentId), m]));
   const sessions = await repo.findMany("PracticeSession", { studentId: actor.studentId, mode: "TEACHER_QUIZ" }, { select: ["assignmentId", "correctCount"] });
   const correctOf = new Map(sessions.map((x) => [s(x.assignmentId), Number(x.correctCount ?? 0)]));
-  const skills = await placeSkills(repo, s(plan.schoolId));
+  const skillKind = isSkillPlanKind(s(plan.kind));
+  const skills = skillKind ? new Map<string, string>() : await placeSkills(repo, s(plan.schoolId));
   const ready = curriculum ? await partsWithQuestions(repo, s(plan.schoolId), Number(plan.gradeLevel)) : null;
+  // wizard plans: each item is a skill assignment → it opens adaptive practice of that skill at the student's level
+  const mineAids = items.flatMap((it) => ids(it.assignmentIds)).filter((a) => byId.has(a));
+  const skillOfAid = skillKind && mineAids.length ? new Map((await repo.findMany("Assignment", { id: { in: mineAids } }, { select: ["id", "skillId"] })).map((a) => [s(a.id), a.skillId ? s(a.skillId) : ""])) : new Map<string, string>();
   const places: StudentPlanView["places"] = [];
   for (const it of items) {
     const aid = ids(it.assignmentIds).find((a) => byId.has(a));
@@ -156,13 +169,13 @@ export async function skillPlanForStudent(repo: Repo, actor: Actor, planId: stri
     places.push({
       itemId: s(it.id), code: s(it.code), label: sp.place, unit: sp.unit, set: sp.set,
       status: row ? (s(row.status) as PlanPlace["status"]) : "NOT_STARTED", progress: Number(row?.progress ?? 0),
-      href: locked || empty ? null : aid ? `/quiz/${aid}` : `/student/plans/${s(plan.id)}/open/${s(it.id)}`,
+      href: locked || empty ? null : aid ? (skillOfAid.get(aid) ? `/practice/${skillOfAid.get(aid)}` : `/quiz/${aid}`) : `/student/plans/${s(plan.id)}/open/${s(it.id)}`,
       locked, empty, skills: skills.get(s(it.code)) ?? null, correct: !aid ? 0 : row?.status === "COMPLETED" ? Math.max(correctOf.get(aid) ?? 0, Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT) : Math.min(correctOf.get(aid) ?? 0, (Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT) - 1),
     });
   }
   if (!places.length) throw new ForbiddenError("This plan is not assigned to you.");
   const klass = await repo.findUnique("Class", { id: plan.classId });
-  return { id: s(plan.id), kind: curriculum ? "CURRICULUM" : "PLACES", target: Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT, title: s(plan.title), className: s(klass?.name), grade: Number(plan.gradeLevel), note: plan.note ? s(plan.note) : null, createdAt: s(plan.createdAt instanceof Date ? plan.createdAt.toISOString() : plan.createdAt).slice(0, 10), places };
+  return { id: s(plan.id), kind: kindOf(plan.kind), target: Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT, title: s(plan.title), className: s(klass?.name), grade: Number(plan.gradeLevel), note: plan.note ? s(plan.note) : null, createdAt: s(plan.createdAt instanceof Date ? plan.createdAt.toISOString() : plan.createdAt).slice(0, 10), places };
 }
 
 /** ⭐ Today's plan: the next part of the student's curriculum plan (the one in progress, else the first not done). */

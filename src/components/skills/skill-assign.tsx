@@ -10,7 +10,7 @@ export function SkillAssignButton({ skillId, name, grade }: { skillId: string; n
   return <button type="button" onClick={() => window.dispatchEvent(new CustomEvent(EVENT, { detail: { skillId, name, grade } }))} className="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900 ring-1 ring-amber-300 transition hover:bg-amber-200 active:scale-95">⭐ Assign this skill</button>;
 }
 
-/** The page's ONE window: a class of the skill's grade, all or starred students, Curriculum / MAP / Nafs (Grade 6). */
+/** The page's ONE window: any of the teacher's classes (any grade), all or starred students, Curriculum / MAP / Nafs. */
 export function SkillAssignHost({ classes, assign }: { classes: SkillRosterClass[]; assign: (i: { classId: string; skillId: string; studentIds?: string[]; track: Track; dueAt?: string | null }) => Promise<{ ok: boolean; message: string }> }) {
   const [open, setOpen] = useState(false);
   const [skill, setSkill] = useState<{ skillId: string; name: string; grade: number } | null>(null);
@@ -25,14 +25,15 @@ export function SkillAssignHost({ classes, assign }: { classes: SkillRosterClass
     const on = (e: Event) => {
       const d = (e as CustomEvent<{ skillId: string; name: string; grade: number }>).detail;
       setSkill(d); setRes(null); setWho("all"); setStarred(new Set()); setTrack("CURRICULUM");
-      setClassId(classes.find((c) => c.grade === d.grade)?.id ?? ""); setOpen(true);
+      setClassId((classes.find((c) => c.grade === d.grade) ?? classes[0])?.id ?? ""); setOpen(true);
     };
     const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
     window.addEventListener(EVENT, on); window.addEventListener("keydown", esc);
     return () => { window.removeEventListener(EVENT, on); window.removeEventListener("keydown", esc); };
   }, [classes]);
   if (!open || !skill) return null;
-  const fit = classes.filter((c) => c.grade === skill.grade);
+  // access rules: a skill of ANY grade may go to any of the teacher's own classes (same-grade classes listed first)
+  const fit = [...classes].sort((a, b) => Number(b.grade === skill.grade) - Number(a.grade === skill.grade));
   const klass = fit.find((c) => c.id === classId);
   const send = async () => {
     setBusy(true); setRes(null);
@@ -47,9 +48,9 @@ export function SkillAssignHost({ classes, assign }: { classes: SkillRosterClass
           <div><p className="text-xs font-bold uppercase tracking-wider text-brand-teal">Assign skill · Grade {skill.grade}</p><p className="text-xl font-bold text-brand-navy">{skill.name}</p><p className="text-slate-500">Each student starts at their own level; questions get harder or easier with each answer.</p></div>
           <button type="button" onClick={() => setOpen(false)} aria-label="Close" className="text-2xl leading-none text-slate-500">×</button>
         </div>
-        {fit.length === 0 ? <p className="mt-4 rounded-xl bg-amber-50 px-3 py-2 text-amber-900">You do not teach a Grade {skill.grade} class.</p> : (
+        {fit.length === 0 ? <p className="mt-4 rounded-xl bg-amber-50 px-3 py-2 text-amber-900">You do not teach a class yet.</p> : (
           <>
-            {fit.length > 1 && <label className="mt-4 flex flex-col font-semibold text-slate-700">Class<select value={classId} onChange={(e) => { setClassId(e.target.value); setStarred(new Set()); }} className="mt-1 rounded-xl border border-slate-300 px-3 py-2 font-normal">{fit.map((c) => <option key={c.id} value={c.id}>{c.name} ({c.students.length})</option>)}</select></label>}
+            {fit.length > 1 && <label className="mt-4 flex flex-col font-semibold text-slate-700">Class<select value={classId} onChange={(e) => { setClassId(e.target.value); setStarred(new Set()); }} className="mt-1 rounded-xl border border-slate-300 px-3 py-2 font-normal">{fit.map((c) => <option key={c.id} value={c.id}>{c.name} · Grade {c.grade} ({c.students.length})</option>)}</select></label>}
             <div className="mt-4 flex flex-wrap gap-2"><button type="button" onClick={() => setWho("all")} className={pill(who === "all")}>All students ({klass?.students.length ?? 0})</button><button type="button" onClick={() => setWho("some")} className={pill(who === "some")}>Some students</button></div>
             {who === "some" && (
               <ul className="mt-2 max-h-52 space-y-1 overflow-y-auto rounded-xl p-2 ring-1 ring-slate-200">
@@ -61,7 +62,7 @@ export function SkillAssignHost({ classes, assign }: { classes: SkillRosterClass
             <div className="mt-4 flex flex-wrap gap-2">
               <button type="button" onClick={() => setTrack("CURRICULUM")} className={pill(track === "CURRICULUM")}>📘 Curriculum</button>
               <button type="button" onClick={() => setTrack("MAP")} className={pill(track === "MAP")}>🗺️ MAP</button>
-              {skill.grade === 6 && <button type="button" onClick={() => setTrack("NAFS")} className={pill(track === "NAFS")}>🇸🇦 Nafs</button>}
+              <button type="button" onClick={() => setTrack("NAFS")} className={pill(track === "NAFS")}>🇸🇦 Nafs</button>
             </div>
             <label className="mt-4 flex flex-col font-semibold text-slate-700">Due date (optional)<input type="date" value={due} onChange={(e) => setDue(e.target.value)} className="mt-1 w-48 rounded-xl border border-slate-300 px-3 py-2 font-normal" /></label>
             {res && <p role="status" className={`mt-3 rounded-xl px-3 py-2 ${res.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{res.message}</p>}

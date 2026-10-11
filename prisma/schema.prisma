@@ -183,6 +183,8 @@ model User {
   lastLoginAt    DateTime?
   failedLogins   Int       @default(0)
   lockedUntil    DateTime?
+  uiLang         String?   @db.VarChar(5) // interface language: "en" (default) or "ar" (menus/buttons only)
+  tourSeenAt     DateTime? // first-login tour shown/skipped
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   deletedAt      DateTime?
@@ -1030,6 +1032,10 @@ model Assignment {
   dueAt       DateTime?
   createdAt   DateTime         @default(now())
   deletedAt   DateTime?
+  /// UI reorg Phase 5: the teacher-built test (TeacherTest) this assignment belongs to
+  testId      String?
+  /// UI reorg Phase 5: question order and answer choices shuffled per student (deterministic)
+  shuffle     Boolean          @default(false)
 
   class      Class               @relation(fields: [classId], references: [id])
   createdBy  Teacher             @relation(fields: [createdById], references: [id])
@@ -1039,6 +1045,7 @@ model Assignment {
 
   @@index([classId, dueAt])
   @@index([skillId])
+  @@index([testId])
 }
 
 model AssignmentStudent {
@@ -1712,6 +1719,10 @@ model LiveGame {
   secondsPerQuestion Int       @default(20)
   createdAt          DateTime  @default(now())
   finishedAt         DateTime?
+  /// Games Part 1: the game mode of a Live Challenge (registry id, e.g. "quiz-race"); null = an older live game
+  mode               String?   @db.VarChar(32)
+  /// Games Part 1: the saved summary of a Live Challenge (top players, class and student scores by skill, levels)
+  summary            Json?
 
   @@index([code, status])
   @@index([schoolId, createdAt])
@@ -1742,6 +1753,56 @@ model LiveGameAnswer {
 
   @@unique([playerId, questionIndex])
   @@index([gameId, questionIndex])
+}
+
+/// 🎲 Games Part 1: ONE short row per game played (solo or Live Challenge) per student per skill. Only correct /
+/// incorrect answers count for reports and Reteach; `points` are game points (luck and power-ups) and never change
+/// levels, mastery or scores.
+model GamePlay {
+  id         String   @id @default(cuid())
+  schoolId   String
+  studentId  String
+  skillId    String
+  /// registry id of the game (src/games/registry.ts), e.g. "quiz-race"
+  gameId     String   @db.VarChar(32)
+  /// SOLO (Play menu) or LIVE (Live Challenge)
+  mode       String   @default("SOLO") @db.VarChar(8)
+  correct    Int      @default(0)
+  incorrect  Int      @default(0)
+  points     Int      @default(0)
+  /// the Live Challenge (LiveGame.id) for LIVE rows
+  liveGameId String?
+  createdAt  DateTime @default(now())
+
+  @@index([schoolId, createdAt])
+  @@index([studentId, createdAt])
+}
+
+/// 🎲 Games Part 1: a student's 1–5 star rating of a game (one per student and game; the latest counts).
+model GameRating {
+  id        String   @id @default(cuid())
+  schoolId  String
+  studentId String
+  gameId    String   @db.VarChar(32)
+  stars     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  @@unique([studentId, gameId])
+  @@index([schoolId, gameId])
+}
+
+/// 🎲 Games Part 1: a teacher's saved Live Challenge setup (skills, game mode, questions, time, level mode).
+model LiveChallengeTemplate {
+  id        String   @id @default(cuid())
+  schoolId  String
+  userId    String
+  title     String   @db.VarChar(150)
+  spec      Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  @@index([userId])
 }
 
 /// 🌉 Cross-Grade Bridge: a Text Set's category linked to the same skill one grade up (🚀 challenge path for
@@ -2009,6 +2070,23 @@ model StudentWord {
 
   @@id([studentId, word])
   @@index([studentId, lastAt])
+}
+
+/// 🔎 A word students tapped that has no meaning yet (Update 42C): one row per school and word, how often it was
+/// tapped and the last passage sentence it was in (no student data). Shown on the admin dictionary page.
+model MissingWord {
+  id           String    @id @default(cuid())
+  schoolId     String
+  word         String    @db.VarChar(64)
+  count        Int       @default(1)
+  lastSentence String?   @db.VarChar(300)
+  /// when the free dictionary was last asked (it is asked again after 7 days)
+  checkedAt    DateTime?
+  firstAt      DateTime  @default(now())
+  lastAt       DateTime  @default(now())
+
+  @@unique([schoolId, word])
+  @@index([schoolId, count])
 }
 
 /// 💬 A teacher's comment on a student's work (seen by the student and the parent).
@@ -3026,4 +3104,193 @@ model StudentLevelState {
   updatedAt    DateTime  @updatedAt
 
   @@index([schoolId, level])
+}
+
+/// 🎯 UI reorg Phase 1: NAFS (national test) English areas — a list the admin edits (stored as data, like the MAP goal
+/// areas). Skills join an area through their skill family (NafsSkillLink); every question counts under its skill's area
+/// unless it has its own area (NafsQuestionArea).
+model NafsArea {
+  id        String   @id @default(cuid())
+  code      String   @unique @db.VarChar(32)
+  name      String   @db.VarChar(120)
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+/// Skill family (one master skill across grades) → NAFS area. source: AUTO (seeded from the skill's MAP area, standards,
+/// domain and category) | ADMIN (set on /admin/nafs-links; never overwritten automatically).
+model NafsSkillLink {
+  familyId  String   @id
+  areaId    String
+  source    String   @db.VarChar(8)
+  updatedAt DateTime @default(now())
+
+  @@index([areaId])
+}
+
+/// A question's own NAFS area: an explicit override of its skill's area (set by an admin).
+model NafsQuestionArea {
+  questionId String   @id
+  areaId     String
+  setById    String?
+  setAt      DateTime @default(now())
+
+  @@index([areaId])
+}
+
+/// "Needs review": a link the platform could not make confidently (it never guesses silently). kind: QUESTION (bank
+/// question → skill) | READRISE (ReadRise question kind → skill family) | FAMILY_MAP | FAMILY_NAFS (skill → area).
+/// status OPEN | APPROVED (the best guess, or the admin's choice in guessId, was applied) | DISMISSED.
+model SkillLinkReview {
+  id           String    @id @default(cuid())
+  schoolId     String
+  kind         String    @db.VarChar(16)
+  subjectId    String    @db.VarChar(64)
+  excerpt      String    @db.VarChar(200)
+  guessId      String?   @db.VarChar(40)
+  guessLabel   String?   @db.VarChar(160)
+  confidence   Float
+  reason       String    @db.VarChar(255)
+  status       String    @default("OPEN") @db.VarChar(10)
+  createdAt    DateTime  @default(now())
+  reviewedById String?
+  reviewedAt   DateTime?
+
+  @@unique([schoolId, kind, subjectId])
+  @@index([schoolId, status])
+}
+
+// ------------------------------------------------------------------ UI reorg Phase 5: Assessments (teacher-built tests)
+
+/// A test built in Assessments from skills: one or more Assignments (one per level group) carry its testId.
+model TeacherTest {
+  id            String    @id @default(cuid())
+  schoolId      String
+  classId       String
+  /// Teacher.id of the class teacher who built it
+  teacherId     String
+  createdById   String
+  title         String    @db.VarChar(191)
+  /// NAFS | MAP | DIAGNOSTIC | WEEKLY_QUIZ | CHAPTER_TEST | CUSTOM (shown as "Other" in reports)
+  testType      String    @db.VarChar(24)
+  /// SAME (same questions for all) | LEVEL (at each student's level: Below / On / Above)
+  levelMode     String    @default("SAME") @db.VarChar(8)
+  skillIds      Json
+  openAt        DateTime?
+  dueAt         DateTime?
+  timeLimitMin  Int?
+  shuffle       Boolean   @default(false)
+  templateId    String?
+  reteachAt     DateTime?
+  /// NAFS tests: when the personal NAFS plans were made from the results (button, or the daily job after the due date)
+  nafsPlanAt    DateTime?
+  createdAt     DateTime  @default(now())
+  deletedAt     DateTime?
+
+  @@index([classId, createdAt])
+  @@index([schoolId, teacherId])
+}
+
+/// A saved test to reuse and edit later (private to the teacher who saved it).
+model TestTemplate {
+  id          String   @id @default(cuid())
+  schoolId    String
+  createdById String
+  title       String   @db.VarChar(191)
+  testType    String   @db.VarChar(24)
+  /// { skills: [{ skillId, count }], levelMode, timeLimitMin, shuffle, questions: { SAME | BELOW | ON | ABOVE: string[] } }
+  spec        Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+
+  @@index([schoolId, createdById])
+}
+
+/// Pre-generated read-aloud audio (UI reorg Phase 6), made by scripts/tts/pregenerate.ts. Looked up by the
+/// SHA-256 of the spoken text (passage or question text only, never student data), so the same text is stored
+/// once and changed text simply gets new audio. Stored in the database because the web server's disk is wiped on
+/// every deploy. `timings`: JSON { v, exact, words: [start ms of each word] } for word highlighting.
+model TtsAudio {
+  id         String   @id @default(cuid())
+  textHash   String   @unique @db.VarChar(64)
+  provider   String   @db.VarChar(20)
+  voice      String   @db.VarChar(120)
+  mime       String   @db.VarChar(40)
+  bytes      Bytes    @db.MediumBlob
+  size       Int
+  durationMs Int
+  chars      Int
+  timings    String   @db.MediumText
+  /// where the text came from, e.g. passage:<id> (for the admin's information only)
+  source     String?  @db.VarChar(80)
+  createdAt  DateTime @default(now())
+}
+
+// ------------------------------------------------------------------ 🎖️ Motivation (Games Part 3): coins, avatar, favorite badge, Question of the Day, certificates
+// Rewards are kept apart from learning data: nothing here is read by the adaptive engine, levels, mastery, scores or reports.
+
+/// One row per student: coin balance (sum of CoinLedger), the avatar they wear, their favorite badge (emblem) and when
+/// rewards were last brought up to date. Read once per page for the top bar (cached briefly).
+model StudentReward {
+  studentId     String    @id
+  coins         Int       @default(0)
+  /// lifetime coins earned (purchases not subtracted)
+  earned        Int       @default(0)
+  /// { base, color, hat, glasses, bg } — codes from src/lib/avatar.ts
+  avatar        Json?
+  favoriteBadge String?   @db.VarChar(40)
+  syncedAt      DateTime?
+  updatedAt     DateTime  @updatedAt
+}
+
+/// Every coin earned or spent. One row per (student, reason, refId): the same event can never pay twice.
+/// reason: work | mastered | levelup | plan | qotd | game | live | live.win | bonus | shop
+model CoinLedger {
+  id          String   @id @default(cuid())
+  studentId   String
+  amount      Int
+  reason      String   @db.VarChar(24)
+  refId       String   @db.VarChar(120)
+  note        String?  @db.VarChar(200)
+  createdById String?
+  createdAt   DateTime @default(now())
+
+  @@unique([studentId, reason, refId])
+  @@index([studentId, createdAt])
+}
+
+/// The Question of the Day answer (one per student per day, Saudi time). Never changes levels or mastery.
+model QotdAnswer {
+  id         String   @id @default(cuid())
+  studentId  String
+  /// YYYY-MM-DD (Saudi time)
+  day        String   @db.VarChar(10)
+  questionId String
+  skillId    String?
+  /// the level the question was asked at (ON / ABOVE / HARDEST)
+  level      String   @db.VarChar(8)
+  correct    Boolean
+  createdAt  DateTime @default(now())
+
+  @@unique([studentId, day])
+  @@index([studentId, correct])
+}
+
+/// A certificate (printable PDF made on download): automatic on a level up or a finished plan, or made by a teacher.
+model Certificate {
+  id          String   @id @default(cuid())
+  schoolId    String
+  studentId   String
+  /// LEVEL_UP | PLAN | MANUAL
+  kind        String   @db.VarChar(12)
+  title       String   @db.VarChar(191)
+  detail      String?  @db.VarChar(300)
+  refId       String   @db.VarChar(120)
+  createdById String?
+  createdAt   DateTime @default(now())
+
+  @@unique([studentId, kind, refId])
+  @@index([studentId, createdAt])
 }

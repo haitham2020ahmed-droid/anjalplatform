@@ -9,6 +9,7 @@ import { ImportUpload } from "./upload-form";
 import { CcssNote } from "@/components/ccss-note";
 
 const STATUS: Record<string, { text: string; cls: string }> = {
+  VALIDATING: { text: "Being checked", cls: "bg-sky-100 text-sky-900" },
   AWAITING_CONFIRMATION: { text: "Waiting for review", cls: "bg-amber-100 text-amber-900" },
   IMPORTING: { text: "Importing", cls: "bg-sky-100 text-sky-900" },
   COMPLETED: { text: "Completed", cls: "bg-teal-100 text-teal-900" },

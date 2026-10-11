@@ -5,7 +5,7 @@ import { ActionForm } from "@/components/admin/action-form";
 import { card } from "@/components/admin/styles";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
-import { getImportJob, type ImportJobView } from "@/server/admin/question-import";
+import { clientRows, getImportJob, type ImportJobView } from "@/server/admin/question-import";
 import { schoolOf } from "@/server/admin/users";
 import { editorOptions } from "../../editor-data";
 import { archiveImportAction, cancelImportAction } from "../../../actions";
@@ -68,7 +68,7 @@ export default async function ImportJobPage({ params }: { params: Promise<{ jobI
         )}
         {job.status === "CANCELLED" && <p className="mt-3 text-slate-600">This import was cancelled. Nothing was added.</p>}
       </section>
-      {job.status !== "FAILED" && <div className="mt-6"><ImportPreview job={job} skills={skills} standards={standards} canPublish={can(actor, "questions:publish")} /></div>}
+      {job.status !== "FAILED" && <div className="mt-6"><ImportPreview job={{ ...job, rows: clientRows(job.rows) }} skills={skills} standards={standards} canPublish={can(actor, "questions:publish")} /></div>}
     </AppShell>
   );
 }

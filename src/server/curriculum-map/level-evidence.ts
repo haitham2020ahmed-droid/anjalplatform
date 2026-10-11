@@ -257,6 +257,7 @@ export const levelName = (l: Level) => NAME[l];
  * The daily job: evaluates every enrolled student of the school, applies the hysteresis rule, writes
  * StudentLevelState and records each change in the level history (with the evidence). Returns the changes.
  */
+const LEVEL_CHUNK = 50;
 export async function refreshLevelStates(repo: Repo, schoolId: string, now = new Date()): Promise<{ students: number; changed: number; declining: number }> {
   const { rawEvidenceLevels } = await import("./evidence-level");
   const classes = await repo.findMany("Class", { schoolId, deletedAt: null }, { select: ["id", "gradeId"] });
@@ -268,8 +269,9 @@ export async function refreshLevelStates(repo: Repo, schoolId: string, now = new
   let students = 0, changed = 0, declining = 0;
   for (const [grade, all] of byGrade) {
     if (!grade) continue;
-    for (let i = 0; i < all.length; i += 300) {
-      const ids = all.slice(i, i + 300);
+    // 50 students per round (Update 42A: 300 at a time needed ~100 MB; every student is evaluated on their own)
+    for (let i = 0; i < all.length; i += LEVEL_CHUNK) {
+      const ids = all.slice(i, i + LEVEL_CHUNK);
       students += ids.length;
       const states = new Map((await repo.findMany("StudentLevelState", { studentId: { in: ids } })).map((r) => [s(r.studentId), r]));
       const thetas = await levelThetas(repo, ids, now);

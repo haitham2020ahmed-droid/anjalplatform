@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { PageHeader, Section } from "@/components/page-header";
+import { Section } from "@/components/page-header";
+import { AtAGlance, Callout, ReportHeader } from "@/components/report-kit";
+import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { dataHealth } from "@/server/insights/level-story";
 
@@ -18,17 +20,28 @@ export default async function DataHealth({ searchParams }: { searchParams: Promi
   const pct = (n: number) => { if (!total) return 0; const v = (100 * (total - n)) / total; return n > 0 && v >= 99.5 ? Math.floor(v * 10) / 10 : Math.round(v); };
   const COLS = [["noMap", "No MAP score", "Import MAP scores", "/teacher/map-rit"], ["noDiagnostic", "No Diagnostic", "Open the Diagnostic", actor.role === "TEACHER" ? "/teacher/diagnostic" : "/admin/diagnostic"], ["inactive", "No practice in 14 days", "Remind them", "/teacher/alerts"], ["noData", "No data at all", "These start at On Level", "/teacher/levels"]] as const;
   const list = sp.show && sp.classId ? v.rows.find((r) => r.classId === sp.classId)?.[sp.show as "noMap"] : null;
+  const { t } = await getT();
   const cell = (n: number, of: number) => (n === 0 ? "text-emerald-700" : n / Math.max(1, of) > 0.3 ? "font-bold text-rose-700" : "font-semibold text-amber-700");
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="🩺" title="Data Health" subtitle="Every level on the platform comes from the students’ data. The more complete it is, the more the levels, groups and reports can be trusted. Fill the gaps first." />
-      <section className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-        {[["Students", String(total), "in your classes"], ["Have MAP", `${pct(sum("noMap"))}%`, `${sum("noMap")} missing`], ["Took the Diagnostic", v.diagnosticOpen ? `${pct(sum("noDiagnostic"))}%` : "—", v.diagnosticOpen ? `${sum("noDiagnostic")} missing` : "not opened yet"], ["Active (14 days)", `${pct(sum("inactive"))}%`, `${sum("inactive")} inactive`], ["Data disagree", String(v.conflicts.length), "students to look at"]].map(([k, val, sub]) => <div key={k} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200"><p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{k}</p><p className="text-3xl font-extrabold tabular-nums text-brand-navy">{val}</p><p className="text-xs text-slate-500">{sub}</p></div>)}
-      </section>
+      <ReportHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="🩺" title="Data Health" subtitle="Every level on the platform comes from the students’ data. The more complete it is, the more the levels, groups and reports can be trusted. Fill the gaps first."
+        who={actor.role === "TEACHER" ? t("My classes") : t("Whole school")} />
+      <AtAGlance items={[
+        { icon: "👩‍🎓", label: "Students", value: String(total), meaning: "in your classes" },
+        { icon: "🗺️", label: "Have MAP", value: `${pct(sum("noMap"))}%`, meaning: t("{n} missing", { n: sum("noMap") }), tone: sum("noMap") ? "warn" : "good" },
+        { icon: "🩺", label: "Took the Diagnostic", value: v.diagnosticOpen ? `${pct(sum("noDiagnostic"))}%` : "—", meaning: v.diagnosticOpen ? t("{n} missing", { n: sum("noDiagnostic") }) : "not opened yet", tone: v.diagnosticOpen && sum("noDiagnostic") ? "warn" : "neutral" },
+        { icon: "🙋", label: "Active (14 days)", value: `${pct(sum("inactive"))}%`, meaning: t("{n} inactive", { n: sum("inactive") }), tone: sum("inactive") ? "warn" : "good" },
+        { icon: "⚖️", label: "Data disagree", value: String(v.conflicts.length), meaning: "students to look at", tone: v.conflicts.length ? "warn" : "good" },
+      ]} />
+      <Callout kind="next" className="mb-6" items={[
+        sum("noMap") ? <>{t("Import the missing MAP scores")} ({sum("noMap")}) · <Link href="/teacher/map-rit" className="font-semibold text-brand-teal underline">MAP data</Link></> : null,
+        sum("inactive") ? t("Remind the {n} inactive students to practise.", { n: sum("inactive") }) : null,
+        v.conflicts.length ? t("Look at the students whose data disagree (bottom of the page) before the next data meeting.") : null,
+      ]}>{!sum("noMap") && !sum("inactive") && !v.conflicts.length ? t("The data is complete: the levels can be trusted.") : null}</Callout>
       <Section title="By Class" icon="🏫" className="mb-6" hint="Click a number to see the students.">
-        <div className="overflow-x-auto">
+        <div className="rk-box rk-tall">
           <table className="w-full min-w-[760px] text-sm">
-            <thead><tr className="border-b border-slate-200 text-left text-slate-500"><th className="py-2">Class</th><th>Students</th>{COLS.map(([, h]) => <th key={h}>{h}</th>)}<th>Disagree</th></tr></thead>
+            <thead><tr><th className="py-2">Class</th><th>Students</th>{COLS.map(([, h]) => <th key={h}>{h}</th>)}<th>Disagree</th></tr></thead>
             <tbody>
               {v.rows.map((r) => (
                 <tr key={r.classId} className="border-b border-slate-100">

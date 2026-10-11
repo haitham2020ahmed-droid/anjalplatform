@@ -179,11 +179,12 @@ describe("Update 15", () => {
     await assert.rejects(classProgress(repo, other, classId), ForbiddenError);
   });
 
-  test("Grammar: every teacher can browse every grade; assigning needs a class of that grade", async () => {
+  test("Grammar: every teacher can browse every grade and assign it to their own class (UI reorg access rules)", async () => {
     const v = await grammarView(repo, other, { grade: 4 });
     assert.equal(v.grade, 4);
     assert.ok(v.grades.includes(4) && v.grades.includes(5) && v.grades.includes(6));
-    assert.equal(v.classId, null);
+    // it used to be null ("assigning needs a class of that grade"); now the teacher's own class of another grade
+    assert.ok(v.classId && v.classId !== classId, "the other teacher's own class, never this teacher's class");
     const mine = await grammarView(repo, teacher, { grade: 4 });
     assert.equal(mine.classId, classId);
   });

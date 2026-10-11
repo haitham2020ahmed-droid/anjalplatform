@@ -14,6 +14,8 @@ import { audit } from "../audit";
 import { bumpBankVersion } from "../cache/bank-version";
 import { masterSkills } from "../skills/master";
 import { aiSettings, callJson, pickProvider, rateState, type EnvLike, type Picked } from "./engine";
+import { log } from "../monitoring/log";
+import { CRASH_MESSAGE, beginStep, endStep, type GuardState } from "../jobs/crash-guard";
 import { codeChecks, findDuplicates, formulaLevel, qualityPrompt, qualityValidator, questionContent, readingPrompt, readingValidator, SEVERITY, tagContext, tagPrompt, tagValidator, type PItem } from "./tools";
 
 const s = (v: unknown) => String(v ?? "");
@@ -97,7 +99,7 @@ const view = (j: Row): JobView => ({ id: s(j.id), tool: s(j.tool) as Tool, toolN
 
 export async function listJobs(repo: Repo, actor: Actor, limit = 20): Promise<JobView[]> {
   assertAdmin(actor);
-  return (await repo.findMany("AiJob", { schoolId: actor.schoolId })).sort((a, b) => time(b.createdAt) - time(a.createdAt)).slice(0, limit).map(view);
+  return (await repo.findMany("AiJob", { schoolId: actor.schoolId }, { orderBy: [{ field: "createdAt", dir: "desc" }], take: limit })).map(view);
 }
 export async function getJob(repo: Repo, actor: Actor, id: string): Promise<JobView> {
   assertAdmin(actor);
@@ -116,7 +118,7 @@ export interface TickResult { job: JobView | null; waitMs: number; message: stri
 export async function tick(repo: Repo, actor: Actor, env: EnvLike, opts: { jobId?: string; now?: Date; picked?: Picked } = {}): Promise<TickResult> {
   assertAdmin(actor);
   const now = opts.now ?? new Date();
-  const jobs = (await repo.findMany("AiJob", { schoolId: actor.schoolId })).filter((j) => (opts.jobId ? j.id === opts.jobId : true) && (j.status === "QUEUED" || j.status === "RUNNING")).sort((a, b) => time(a.createdAt) - time(b.createdAt));
+  const jobs = (await repo.findMany("AiJob", { schoolId: actor.schoolId, status: { in: ["QUEUED", "RUNNING"] }, ...(opts.jobId ? { id: opts.jobId } : {}) })).sort((a, b) => time(a.createdAt) - time(b.createdAt));
   const j = jobs[0];
   if (!j) return { job: opts.jobId ? await getJob(repo, actor, opts.jobId) : null, waitMs: 0, message: null, idle: true };
   const settings = await aiSettings(repo, actor.schoolId);
@@ -124,15 +126,26 @@ export async function tick(repo: Repo, actor: Actor, env: EnvLike, opts: { jobId
   if (!picked.ok) return { job: view(j), waitMs: 0, message: picked.reason, idle: true };
   const rate = await rateState(repo, actor.schoolId!, settings, now);
   if (rate.waitMs > 0) return { job: view(j), waitMs: Math.min(rate.waitMs, 3_600_000), message: rate.reason ?? `Waiting ${Math.ceil(rate.waitMs / 1000)} s (free-tier limit: ${settings.perMinute} requests a minute).`, idle: false };
-  const pending = (await repo.findMany("AiJobItem", { jobId: j.id, status: "PENDING" })).slice(0, s(j.tool) === "READING" ? Math.min(3, settings.batch) : settings.batch);
+  const pending = await repo.findMany("AiJobItem", { jobId: j.id, status: "PENDING" }, { take: s(j.tool) === "READING" ? Math.min(3, settings.batch) : settings.batch });
   if (!pending.length) {
     await repo.updateMany("AiJob", { id: j.id }, { status: "DONE", finishedAt: now, updatedAt: now });
     return { job: view((await repo.findUnique("AiJob", { id: j.id }))!), waitMs: 0, message: null, idle: false };
   }
-  if (j.status === "QUEUED") await repo.updateMany("AiJob", { id: j.id }, { status: "RUNNING", updatedAt: now });
+  // 🛟 a batch that stopped the server twice (e.g. out of memory) is not run a third time: the page resumes the queue
+  // after every restart, which would otherwise restart-crash the server in a loop (Update 42A)
+  const scope0 = (typeof j.scope === "string" ? JSON.parse(j.scope) : j.scope ?? {}) as Record<string, unknown>;
+  const guard = beginStep(scope0.guard as GuardState | undefined, now);
+  if (guard.stop) {
+    const note = `${CRASH_MESSAGE} Start it again with fewer questions (one grade or one skill).`;
+    await repo.updateMany("AiJob", { id: j.id }, { status: "FAILED", note: note.slice(0, 500), scope: { ...scope0, guard: endStep() }, finishedAt: now, updatedAt: now });
+    log("error", "ai.job.crash_loop_stopped", { jobId: s(j.id), crashes: guard.crashes });
+    return { job: view((await repo.findUnique("AiJob", { id: j.id }))!), waitMs: 0, message: note, idle: true };
+  }
+  await repo.updateMany("AiJob", { id: j.id }, { ...(j.status === "QUEUED" ? { status: "RUNNING" } : {}), scope: { ...scope0, guard: guard.next }, updatedAt: now });
   const r = await runBatch(repo, actor, j, pending, picked, now);
-  const items = await repo.findMany("AiJobItem", { jobId: j.id }, { select: ["status"] });
-  await repo.updateMany("AiJob", { id: j.id }, { done: items.filter((x) => x.status === "DONE").length, failed: items.filter((x) => x.status === "FAILED").length, note: r.message, updatedAt: now });
+  await repo.updateMany("AiJob", { id: j.id }, { scope: { ...scope0, guard: endStep() } });
+  const [doneN, failedN] = await Promise.all([repo.count("AiJobItem", { jobId: j.id, status: "DONE" }), repo.count("AiJobItem", { jobId: j.id, status: "FAILED" })]);
+  await repo.updateMany("AiJob", { id: j.id }, { done: doneN, failed: failedN, note: r.message, updatedAt: now });
   return { job: view((await repo.findUnique("AiJob", { id: j.id }))!), waitMs: r.stop ? 60_000 : 0, message: r.message, idle: false };
 }
 

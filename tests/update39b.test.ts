@@ -372,7 +372,7 @@ describe("Update 39B · on the Test School", () => {
     // a rapid run is left out
     const fast = await repo.create("RRRun", { studentId: sid, schoolId, articleId: "rr-art", versionLevel: 700, band: "MID", step: "WRITE", answers: { "1": "B" }, score: 50, readSeconds: 12, levelBefore: 700, startedAt: NOW, completedAt: NOW });
     assert.equal(await feedReadRise(repo, String(fast.id), NOW), 0);
-    // live game: the answer goes through the engine as a QuestionAttempt with source GAME
+    // live game: the answer is recorded for the game only (no QuestionAttempt — Games Part 1)
     const tSkill = (await repo.findMany("Question", { id: { in: qids } }))[0];
     const g: any = await createGame(repo, teacher, { title: "TEST game", skillIds: [String(tSkill.skillId)], classId, count: 3, seconds: 20 }, NOW);
     const me = await studentActor(sid);
@@ -383,8 +383,9 @@ describe("Update 39B · on the Test School", () => {
     const q0 = (await loadQuestionItems(repo, [gq[0]]))[0];
     const right = q0.options?.find((o) => o.correct)?.label ?? "A";
     await answerGame(repo, me, g.id, 0, right, new Date(NOW.getTime() + 8000));
+    // Games Part 1 (owner rule: games never change levels, mastery or scores): a game answer no longer feeds the engine
     const att = await repo.findMany("QuestionAttempt", { studentId: sid, source: "GAME" });
-    assert.equal(att.length, 1);
+    assert.equal(att.length, 0);
     // word review → Context Clues when the curriculum has no Concept Vocabulary skill (the word is shown in its sentence)…
     const fam = (await gradeSkillFamilies(repo, sid)).family;
     assert.equal(await feedVocabulary(repo, sid, [{ word: "quiet", correct: true }], NOW), 1);

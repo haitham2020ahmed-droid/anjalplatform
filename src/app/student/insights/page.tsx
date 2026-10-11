@@ -4,6 +4,8 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { buildProfiles, profilesOf } from "@/server/insights/student-profile";
 import { risksOf, forecast } from "@/server/predict/risk";
 import { nextStep } from "@/server/student/next-step";
+import { AtAGlance, Callout, ReportHeader, ReportSection } from "@/components/report-kit";
+import { getT } from "@/i18n/server";
 
 export const metadata = { title: "My Progress" };
 const LEVEL: Record<string, string> = { BELOW: "Building up", ON: "On track", ABOVE: "Above grade level", UNKNOWN: "Getting to know you" };
@@ -28,27 +30,30 @@ export default async function MyProgressPage() {
   const i = p?.intelligence ?? null;
   const fc = forecast(i?.developing ?? [], i?.growthPerWeek ?? null, { rit: p?.predictedReading ?? null, goal: p?.goalReading ?? null, current: p?.estReadingRit ?? p?.readingRit ?? null, weeksToTerm: 12 });
   const tips = (risk?.reasons ?? []).map((r) => TIPS[r.key]).filter(Boolean).slice(0, 2);
+  const { t } = await getT();
   return (
     <AppShell name={String(me.displayName)}>
-      <h1 className="text-3xl font-extrabold text-brand-navy">🌟 My Progress</h1>
-      <section className="mt-4 grid gap-4 md:grid-cols-3">
-        <div className="rounded-3xl bg-gradient-to-br from-indigo-600 to-brand-navy p-5 text-white"><p className="text-sm text-indigo-200">Where I am</p><p className="text-3xl font-extrabold">{LEVEL[p?.level ?? "UNKNOWN"]}</p><p className="mt-1 text-sm text-indigo-100">{i ? `${i.mastered.length} skills mastered · ${i.developing.length} growing` : ""}</p></div>
-        <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200"><p className="text-sm text-slate-500">🔮 My next MAP</p><p className="text-3xl font-extrabold text-brand-navy">{p?.predictedReading ? `≈ ${p.predictedReading}` : "—"}</p><p className="text-sm text-slate-600">{p?.goalReading ? `My goal: ${p.goalReading}${fc.weeksToGoal !== null ? ` · about ${fc.weeksToGoal} weeks at my pace` : ""}` : "Your teacher will add your MAP score."}</p></div>
-        <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200"><p className="text-sm text-slate-500">📈 My pace</p><p className="text-3xl font-extrabold text-brand-navy">{i?.growthPerWeek !== null && i?.growthPerWeek !== undefined ? `+${i.growthPerWeek}` : "—"}</p><p className="text-sm text-slate-600">mastery points a week · {p?.practiceDays14 ?? 0} practice days in 2 weeks</p></div>
-      </section>
-      {tips.length > 0 && <section className="mt-4 rounded-3xl bg-amber-50 p-4 ring-1 ring-amber-200"><p className="font-bold text-amber-900">💡 What will help me most</p><ul className="mt-1 list-disc ps-5 text-amber-900">{tips.map((t) => <li key={t}>{t}</li>)}</ul></section>}
+      <ReportHeader back={{ href: "/student", label: "Home" }} icon="🌟" title="My Progress" subtitle="Where I am, where I am going, and what helps me most." who={String(me.displayName)} />
+      <AtAGlance title={null} items={[
+        { icon: "📍", label: "Where I am", value: <span className="text-2xl">{t(LEVEL[p?.level ?? "UNKNOWN"])}</span>, meaning: i ? t("{m} skills mastered · {g} growing", { m: i.mastered.length, g: i.developing.length }) : undefined, tone: p?.level === "BELOW" ? "warn" : p?.level === "UNKNOWN" || !p?.level ? "neutral" : "good" },
+        { icon: "🔮", label: "My next MAP", value: p?.predictedReading ? `≈ ${p.predictedReading}` : "—", meaning: p?.goalReading ? <>{t("My goal")}: {p.goalReading}{fc.weeksToGoal !== null ? ` · ${t("about {n} weeks at my pace", { n: fc.weeksToGoal })}` : ""}</> : "Your teacher will add your MAP score.", tone: "info" },
+        { icon: "📈", label: "My pace", value: i?.growthPerWeek !== null && i?.growthPerWeek !== undefined ? `+${i.growthPerWeek}` : "—", meaning: t("mastery points a week · {n} practice days in 2 weeks", { n: p?.practiceDays14 ?? 0 }), tone: (p?.practiceDays14 ?? 0) >= 5 ? "good" : "warn" },
+      ]} />
+      <Callout kind="meaning" items={[
+        t("“Mastered” means I can do the skill well again and again."),
+        t("My pace is how fast my skills grow each week. Practising more days makes it faster."),
+      ]} className="mb-4" />
+      {tips.length > 0 && <Callout kind="next" title="What will help me most" items={tips} className="mb-4" />}
       {step.href && <Link href={step.href} className="lift mt-4 flex items-center justify-between gap-3 rounded-3xl bg-brand-navy p-5 text-white"><span><span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">▶ My Next Step</span><span className="block text-2xl font-extrabold">{step.title}</span><span className="block text-sm text-indigo-100">{step.why}</span></span><span className="rounded-xl bg-white px-5 py-2 font-bold text-brand-navy">{step.cta} ▶</span></Link>}
       {i && i.path.length > 0 && (
-        <section className="mt-4 rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">🧭 My learning path</h2>
-          <ol className="mt-2 space-y-2">{i.path.map((x, k) => <li key={x.skillId + k} className="flex items-center gap-2"><span className="tabular-nums text-slate-400">{k + 1}</span>{x.action === "FOUNDATION" ? "🧱" : x.action === "REVIEW" ? "🔁" : x.action === "STRETCH" ? "🚀" : "🎯"}<Link href={`/practice/${x.skillId}`} className="font-semibold text-brand-navy hover:underline">{x.name}</Link><span className="text-xs text-slate-500">{x.action === "FOUNDATION" ? "builds a skill underneath" : x.action === "STRETCH" ? "a challenge" : x.action === "REVIEW" ? "keep it strong" : ""}</span></li>)}</ol>
-        </section>
+        <ReportSection title="My learning path" icon="🧭" className="mt-4">
+          <ol className="space-y-2">{i.path.map((x, k) => <li key={x.skillId + k} className="flex items-center gap-2"><span className="tabular-nums text-slate-400">{k + 1}</span>{x.action === "FOUNDATION" ? "🧱" : x.action === "REVIEW" ? "🔁" : x.action === "STRETCH" ? "🚀" : "🎯"}<Link href={`/practice/${x.skillId}`} className="font-semibold text-brand-navy hover:underline">{x.name}</Link><span className="text-xs text-slate-500">{x.action === "FOUNDATION" ? "builds a skill underneath" : x.action === "STRETCH" ? "a challenge" : x.action === "REVIEW" ? "keep it strong" : ""}</span></li>)}</ol>
+        </ReportSection>
       )}
       {fc.skills.length > 0 && (
-        <section className="mt-4 rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">🌱 Skills I am growing</h2>
-          <ul className="mt-2 grid gap-2 sm:grid-cols-2">{fc.skills.map((x) => <li key={x.name} className="rounded-xl bg-slate-50 px-3 py-2 text-sm"><b>{x.name}</b><br /><span className="text-xs text-slate-600">{x.weeks !== null ? `about ${x.weeks} week${x.weeks === 1 ? "" : "s"} to master at my pace` : "practise it to see my pace"}</span></li>)}</ul>
-        </section>
+        <ReportSection title="Skills I am growing" icon="🌱">
+          <ul className="grid gap-2 sm:grid-cols-2">{fc.skills.map((x) => <li key={x.name} className="rounded-xl bg-slate-50 px-3 py-2 text-sm"><b>{x.name}</b><br /><span className="text-xs text-slate-600">{x.weeks !== null ? `about ${x.weeks} week${x.weeks === 1 ? "" : "s"} to master at my pace` : "practise it to see my pace"}</span></li>)}</ul>
+        </ReportSection>
       )}
     </AppShell>
   );

@@ -11,6 +11,7 @@ import { audit } from "../audit";
 import { assertClassRead, readableClasses } from "../teacher/coordinators";
 import { CLUE_TYPES, type ClueType } from "../../questions/intelligence";
 import { cleanWord, lookupWord, viewOf, type Fetcher, type Meaning } from "../student/words";
+import { forgetSchoolWords } from "./meaning";
 import { buildReviewItem, dueList, firstReview, isDue, nextWordReview, startOfDay, type PoolWord, type ReviewItem, type ReviewWord } from "./review";
 
 const s = (v: unknown) => String(v ?? "");
@@ -188,6 +189,7 @@ export async function saveWordExtras(repo: Repo, actor: Actor, raw: string, inpu
   const row = await repo.findUnique("WordEntry", { schoolId: actor.schoolId, word });
   if (row) await repo.updateMany("WordEntry", { id: row.id }, { ...data, updatedById: actor.userId, updatedAt: now });
   else await repo.create("WordEntry", { schoolId: actor.schoolId, word, phonetic: null, audioUrl: null, meanings: [], source: "NONE", isVocab: false, ...data, updatedById: actor.userId, updatedAt: now });
+  forgetSchoolWords(repo, actor.schoolId);
   await audit(repo, { actorId: actor.userId, action: "word.extras", entityType: "WordEntry", entityId: word, after: { arabicGloss: data.arabicGloss, contextSentence: data.contextSentence?.slice(0, 120) ?? null }, at: now });
 }
 
@@ -246,9 +248,11 @@ export async function importWordsCsv(repo: Repo, actor: Actor, text: string, now
       }
       if (row) await repo.updateMany("WordEntry", { id: row.id }, data);
       else await repo.create("WordEntry", { schoolId: actor.schoolId, word, phonetic: null, audioUrl: null, meanings: data.meanings ?? [], source: data.source ?? "NONE", isVocab: false, ...data });
+      if (data.source === "SCHOOL") await repo.deleteMany("MissingWord", { schoolId: actor.schoolId, word });
       saved++;
     } catch (e) { if (e instanceof ValidationError) errors.push(`Row ${i + 1} (${word}): ${e.message}`); else throw e; }
   }
+  forgetSchoolWords(repo, actor.schoolId);
   await audit(repo, { actorId: actor.userId, action: "word.import", entityType: "WordEntry", entityId: "csv", after: { saved, errors: errors.length }, at: now });
   return { saved, errors };
 }

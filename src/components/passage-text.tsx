@@ -14,11 +14,11 @@ function feature(key: number, figKind: string, title: string, text: string) {
         <ol className="mt-2 flex flex-wrap items-center gap-2 text-base">
           {steps.map((st, i) => <li key={i} className="flex items-center gap-2">{i > 0 && <span aria-hidden="true" className="text-sky-600">→</span>}<span className="rounded-xl bg-white px-3 py-1.5 ring-1 ring-sky-200">{st}</span></li>)}
         </ol>
-      ) : <p className="mt-2 whitespace-pre-line text-base leading-relaxed text-slate-800">{text}</p>}
+      ) : <p data-wordtap className="mt-2 whitespace-pre-line text-base leading-relaxed text-slate-800">{text}</p>}
     </figure>
   );
 }
 
 export function PassageText({ text, paraClassName = "mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800", headingClassName = "mt-5 text-lg font-bold text-brand-navy" }: { text: string; paraClassName?: string; headingClassName?: string }) {
-  return <>{passageBlocks(text).map((b, i) => (b.kind === "fig" ? feature(i, b.figKind, b.title, b.text) : b.kind === "h" ? <h3 key={i} className={headingClassName}>{b.text}</h3> : <p key={i} className={paraClassName}>{b.text}</p>))}</>;
+  return <>{passageBlocks(text).map((b, i) => (b.kind === "fig" ? feature(i, b.figKind, b.title, b.text) : b.kind === "h" ? <h3 key={i} data-wordtap className={headingClassName}>{b.text}</h3> : <p key={i} data-wordtap className={paraClassName}>{b.text}</p>))}</>;
 }

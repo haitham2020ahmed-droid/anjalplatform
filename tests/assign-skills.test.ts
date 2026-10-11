@@ -74,8 +74,13 @@ describe("⭐ Assign: teacher assigns a skill", () => {
     await assert.rejects(assignSkill(repo, teacher, { classId, skillId, dueAt: new Date("2020-01-01") }, NOW), /in the past/);
     await assert.rejects(assignSkill(repo, teacher, { classId, skillId: "" }, NOW), /Choose a skill/);
     await assert.rejects(assignSkill(repo, teacher, { classId, skillId, startAt: new Date("2027-03-01"), dueAt: new Date("2027-02-28") }, NOW), /after the start date/);
+    // UI reorg access rules: a skill of ANOTHER grade may be assigned to the teacher's own class (it used to be refused
+    // with "this class's curriculum"); a removed skill is still refused
     const g5skill = (await teacherCurriculum(repo, otherTeacher))!.units[0].skills[0].id;
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId: g5skill }, NOW), /this class's curriculum/);
+    const cross = await assignSkill(repo, teacher, { classId, skillId: g5skill, studentIds: [students[0].id] }, NOW);
+    assert.equal(cross.students, 1);
+    await repo.updateMany("Assignment", { id: cross.assignmentId }, { deletedAt: NOW }); // the next tests count this class's work
+    await assert.rejects(assignSkill(repo, teacher, { classId, skillId: "no-such-skill" }, NOW), /Choose an active skill/);
   });
 
   test("practice links to the assignment and moves the student from Not Started to In Progress to Completed", async () => {

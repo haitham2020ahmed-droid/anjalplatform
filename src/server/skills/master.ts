@@ -12,6 +12,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
+import { countQuestionsOfSkills } from "../questions/skill-questions";
 
 const s = (v: unknown) => String(v ?? "");
 export type SkillKind = "GRAMMAR" | "VOCABULARY" | "READING" | "LANGUAGE" | "OTHER";
@@ -40,18 +41,17 @@ export async function masterSkills(repo: Repo, schoolId: string, opts: { grade?:
     .filter((k) => k.isActive !== false && !isHiddenSkill(k.code));
   if (!skills.length) return [];
   const ids = skills.map((k) => k.id);
-  const [fams, links, qs, units] = await Promise.all([
+  // UI reorg Phase 1: the published count comes from the ONE shared function (search = MAP = NAFS = this list)
+  const [fams, links, count, units] = await Promise.all([
     repo.findMany("SkillFamily", { id: { in: [...new Set(skills.map((k) => s(k.familyId)))] } }, { select: ["id", "mapGoalAreaId"] }),
     repo.findMany("SkillStandard", { skillId: { in: ids } }),
-    repo.findMany("Question", { skillId: { in: ids }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId"] }),
+    countQuestionsOfSkills(repo, schoolId, ids.map(s)),
     repo.findMany("UnitSkill", { skillId: { in: ids } }, { select: ["skillId"] }),
   ]);
   const [areas, stds] = await Promise.all([
     repo.findMany("MapGoalArea", { id: { in: [...new Set(fams.map((f) => s(f.mapGoalAreaId)).filter(Boolean))] } }, { select: ["id", "name", "subject"] }),
     links.length ? repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => s(l.standardId)))] } }, { select: ["id", "code"] }) : Promise.resolve([] as Row[]),
   ]);
-  const count = new Map<string, number>();
-  for (const q of qs) count.set(s(q.skillId), (count.get(s(q.skillId)) ?? 0) + 1);
   const inUnit = new Set(units.map((u) => s(u.skillId)));
   const gradeOfCur = new Map(curs.map((c) => [s(c.id), Number(grades.find((g) => g.id === c.gradeId)?.level ?? 0)]));
   const out = skills.map((k) => {

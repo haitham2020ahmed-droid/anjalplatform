@@ -125,10 +125,18 @@ export function pairedGrowth(g: StudentGrowth): number | null {
   return g.skills.length ? round1(mean(g.skills.map((s) => s.growth))) : null;
 }
 
+/** Students whose practice history is read at once by groupGrowth (Update 42A: a school's history is never loaded whole). */
+const GROWTH_CHUNK = 25;
+
 export async function groupGrowth(repo: Repo, studentIds: string[], period: Period): Promise<GroupGrowth> {
-  const logs = await practiceLogs(repo, studentIds, period.to);
-  const info = await skillInfoMap(repo, logs);
-  const per = [...logs.values()].map((l) => growthFromLogs(l, period, info));
+  const per: StudentGrowth[] = [];
+  const info = new Map<string, { name: string; domain: string }>();
+  for (let i = 0; i < studentIds.length; i += GROWTH_CHUNK) {
+    const logs = await practiceLogs(repo, studentIds.slice(i, i + GROWTH_CHUNK), period.to);
+    const missing = new Map([...logs].map(([k, l]) => [k, l.filter((x) => !info.has(x.skillId))] as const));
+    for (const [k, v] of await skillInfoMap(repo, missing)) info.set(k, v);
+    for (const l of logs.values()) per.push(growthFromLogs(l, period, info));
+  }
   const labels = months(period).map((m) => m.label);
   const skillAgg = new Map<string, number[]>();
   for (const g of per) for (const s of g.skills) (skillAgg.get(s.skillId) ?? skillAgg.set(s.skillId, []).get(s.skillId)!).push(s.growth);
@@ -140,6 +148,6 @@ export async function groupGrowth(repo: Repo, studentIds: string[], period: Peri
     series: labels.map((label, i) => ({ label, mastery: round1(mean(per.map((g) => g.series[i].mastery).filter((x): x is number => x !== null))) })),
     meanGrowth: round1(mean(growths)),
     medianGrowth: round1(median(growths)),
-    skills: [...skillAgg].map(([id, g]) => ({ skillId: id, name: info.get(id)?.name ?? "", meanGrowth: round1(mean(g))!, students: g.length })).sort((a, b) => b.meanGrowth - a.meanGrowth),
+    skills: [...skillAgg].map(([id, g]) => ({ skillId: id, name: info.get(id)?.name ?? "", meanGrowth: round1(mean(g))!, students: g.length })).sort((a, b) => b.meanGrowth - a.meanGrowth || a.skillId.localeCompare(b.skillId)),
   };
 }

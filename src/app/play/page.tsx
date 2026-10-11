@@ -3,11 +3,12 @@ import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { openGamesFor } from "@/server/game/live";
 import { joinGameAction } from "@/app/games/actions";
+import { JoinLive } from "@/components/game/join-live";
 
 export const metadata = { title: "Join a game" };
 
 /** 🎮 A student joins a live game: type the PIN, or tap a game open for their class. */
-export default async function PlayPage({ searchParams }: { searchParams: Promise<{ msg?: string }> }) {
+export default async function PlayPage({ searchParams }: { searchParams: Promise<{ msg?: string; scan?: string }> }) {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -23,6 +24,7 @@ export default async function PlayPage({ searchParams }: { searchParams: Promise
           </label>
           <button className="mt-4 w-full rounded-2xl bg-brand-gold py-3.5 text-xl font-black text-brand-navy shadow active:scale-95">Enter ▶</button>
         </form>
+        <div className="flex justify-center"><JoinLive autoOpen={sp.scan === "1"} /></div>
         {sp.msg && <p role="alert" className="rounded-2xl bg-red-50 px-4 py-3 text-center text-red-800">{sp.msg}</p>}
         {open.length > 0 && (
           <div className="rounded-3xl bg-white p-5 ring-1 ring-emerald-200">

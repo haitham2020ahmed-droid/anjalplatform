@@ -5,7 +5,8 @@ import { studentMap } from "@/server/map/student-map";
 import { myMap } from "@/server/map/map-more";
 import { assignedSkills } from "@/server/student/assigned";
 import { mySkillPlan } from "@/server/map/skill-plan";
-import { PageHeader } from "@/components/page-header";
+import { Callout, ReportHeader } from "@/components/report-kit";
+import { getT } from "@/i18n/server";
 import { DESC_STYLE, StatusChip, subjectName } from "@/components/map/map-ui";
 
 export const metadata = { title: "My MAP" };
@@ -21,14 +22,25 @@ export default async function StudentMapPage() {
   const mapWork = work.items.filter((i) => i.track === "MAP");
   const todo = mapWork.filter((w) => w.status !== "COMPLETED");
   const withScores = m.subjects.filter((x) => x.profile.term);
+  const { t } = await getT();
   const hrefOf = (w: (typeof mapWork)[number]) => (w.status === "COMPLETED" ? `/student/assignments/${w.assignmentId}/report` : w.kind === "questions" ? `/quiz/${w.assignmentId}` : `/practice/${w.skillId}`);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student", label: "My work" }} icon="🗺️" title="My MAP" subtitle="My MAP Growth results, my goal, my plan and my MAP work — all here.">
+      <ReportHeader back={{ href: "/student", label: "My work" }} icon="🗺️" title="My MAP" subtitle="My MAP Growth results, my goal, my plan and my MAP work — all here." who={String(me.displayName)}>
         <Link href="/student/map-test" className="rounded-xl bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800">🧭 MAP practice test</Link>
         {actor.studentId && <Link href={`/map-report/study-plan/${actor.studentId}`} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">📑 My Study Plan</Link>}
         {actor.studentId && <Link href={`/map-report/family/${actor.studentId}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📈 My MAP Report</Link>}
-      </PageHeader>
+      </ReportHeader>
+      <div className="mb-6 grid gap-4 lg:grid-cols-2">
+        <Callout kind="meaning" items={[
+          t("RIT is my MAP score. It grows as I learn — like a height chart for reading."),
+          t("My Spring goal is the score my teacher hopes I reach by Spring."),
+        ]} />
+        <Callout kind="next" items={[
+          todo[0] ? <>{t("Do my MAP work")}: <b>{todo[0].skill}</b></> : null,
+          (() => { const a = withScores.flatMap((x) => x.areas).find((x) => x.next); return a ? <>{t("Practise my weakest area")}: <b>{a.name}</b></> : null; })(),
+        ]}>{!todo.length && !withScores.length ? t("Practise a little every day.") : null}</Callout>
+      </div>
 
       {/* 🎯 my MAP at a glance: where I started, where I am going, how far is left */}
       <section aria-label="My MAP at a glance" className="mb-6 grid gap-4 md:grid-cols-2">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { PageHeader } from "@/components/page-header";
+import { ReportHeader } from "@/components/report-kit";
 import { getActor, requireActor } from "@/server/auth/next";
 
 export const metadata = { title: "MAP Center" };
@@ -41,14 +41,14 @@ export default async function MapCenterPage({ searchParams }: { searchParams: Pr
   const chip = (on: boolean) => `rounded-full px-5 py-2 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: admin ? "/admin" : "/teacher", label: "Home" }} icon="🗺️" title="MAP Center" subtitle="All MAP work in one place, by what you want to know: one student, your class, or the whole school." />
-      <nav aria-label="MAP Center" className="flex flex-wrap gap-2">
-        {(Object.keys(TILES) as Tab[]).map((k) => <Link key={k} href={`/teacher/map-center?tab=${k}`} aria-current={k === tab ? "page" : undefined} className={chip(k === tab)}>{TILES[k].title}</Link>)}
-      </nav>
-      <section className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <ReportHeader back={{ href: admin ? "/admin" : "/teacher", label: "Home" }} icon="🗺️" title="MAP Center" subtitle="All MAP work in one place, by what you want to know: one student, your class, or the whole school." print={false}
+        filters={<nav aria-label="MAP Center" className="flex flex-wrap gap-2">
+          {(Object.keys(TILES) as Tab[]).map((k) => <Link key={k} href={`/teacher/map-center?tab=${k}`} aria-current={k === tab ? "page" : undefined} className={chip(k === tab)}>{TILES[k].title}</Link>)}
+        </nav>} />
+      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {TILES[tab].tiles.filter((t) => admin || !t.admin).map((t) => (
           <Link key={t.href} href={t.href} className="lift rounded-3xl bg-white p-5 ring-1 ring-slate-200 hover:ring-brand-teal">
-            <span className="text-3xl">{t.icon}</span>
+            <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl bg-slate-50 text-3xl ring-1 ring-slate-100">{t.icon}</span>
             <span className="mt-2 block text-lg font-bold text-brand-navy">{t.title}</span>
             <span className="mt-1 block text-sm text-slate-600">{t.what}</span>
           </Link>

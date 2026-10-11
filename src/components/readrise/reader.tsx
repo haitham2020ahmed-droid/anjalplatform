@@ -7,7 +7,11 @@ import {
   submitActivityAction, submitWritingAction, type Result,
 } from "@/app/student/readrise/actions";
 import { COLORS, POLL_LABELS, keyWordFor, tokenize, type Annotation, type HighlightColor, type KeyWord, type Token } from "./text";
+import { WordLookup } from "../learn/word-lookup";
 import { GoalRing, LevelBadge } from "./widgets";
+import { bestBrowserVoice } from "@/lib/tts/voices";
+import { passageSpeech } from "@/lib/tts/text";
+import { ListenButton } from "../listen-button";
 
 /**
  * 🚀 The ReadRise reader: the 5-step routine (before-poll → read → activity → thought question → after-poll),
@@ -230,6 +234,10 @@ function ReadStep({ view, busy, onDone }: { view: RunView; busy: boolean; onDone
   const [rate, setRate] = useState(0.9);
   const [spoken, setSpoken] = useState<{ start: number; end: number; word: number | null } | null>(null);
   const [canSpeak, setCanSpeak] = useState(false);
+  // the shared read-aloud player takes over when the natural pre-generated voice exists for this text
+  // (scripts/tts/pregenerate.ts --readrise); otherwise the in-text device voice below is used
+  const [natural, setNatural] = useState(false);
+  const articleSpeech = useMemo(() => passageSpeech(view.title, view.body), [view.title, view.body]);
   const sIdx = useRef(0);
   const stopFlag = useRef(false);
   useEffect(() => {
@@ -248,7 +256,7 @@ function ReadStep({ view, busy, onDone }: { view: RunView; busy: boolean; onDone
     for (const w of words) { starts.push(pos); pos += w.text.length + 1; }
     const u = new SpeechSynthesisUtterance(sen.text);
     u.lang = "en-US"; u.rate = r;
-    const voice = synth.getVoices().find((v) => /en[-_]US/i.test(v.lang) && /natural|samantha|google|aria|jenny/i.test(v.name)) ?? synth.getVoices().find((v) => /^en/i.test(v.lang));
+    const voice = bestBrowserVoice();
     if (voice) u.voice = voice;
     setSpoken({ start: sen.start, end: sen.end, word: null });
     u.onboundary = (e) => {
@@ -313,7 +321,8 @@ function ReadStep({ view, busy, onDone }: { view: RunView; busy: boolean; onDone
       ) : (
         <>
           <div className="sticky top-0 z-10 -mx-1 flex flex-wrap items-center gap-2 rounded-xl bg-white/95 p-2 ring-1 ring-slate-200 backdrop-blur print:hidden" role="toolbar" aria-label="Reading tools">
-            {canSpeak && (
+            <ListenButton text={articleSpeech} label="Read aloud" preOnly onAvailability={setNatural} />
+            {canSpeak && !natural && (
               <>
                 <button type="button" onClick={toggleSpeak} aria-pressed={speaking} className={`rounded-full px-3 py-1.5 text-sm font-semibold ring-1 ${speaking ? "bg-brand-teal text-white ring-brand-teal" : "bg-white text-brand-navy ring-slate-300"}`}>{speaking ? "⏹ Stop" : "🔊 Read aloud"}</button>
                 <label className="flex items-center gap-1 text-sm text-slate-700">Speed
@@ -332,9 +341,11 @@ function ReadStep({ view, busy, onDone }: { view: RunView; busy: boolean; onDone
             <button type="button" onClick={() => setShowWords(true)} className="rounded-full bg-white px-3 py-1.5 text-sm text-brand-navy ring-1 ring-slate-300">🔑 Key words</button>
             <span className="ml-auto text-xs text-slate-500" aria-live="polite">{saved === "saving" ? "Saving…" : saved === "saved" ? "Saved ✓" : ""}</span>
           </div>
+          {!pen && <p className="mt-2 text-xs text-slate-500 print:hidden">📖 Tap any word to see its meaning.</p>}
           {pen && <p className="mt-2 text-sm text-slate-600">{pending !== null ? "Now tap the last word to highlight." : pen === "erase" ? "Tap a highlight to remove it." : "Select words, or tap the first word and then the last word."}</p>}
 
-          <article lang="en" onPointerUp={onPointerUp} className="reading mt-3 rounded-3xl bg-white p-5 text-lg leading-relaxed text-slate-900 shadow-sm ring-1 ring-slate-200 sm:p-10">
+          <WordLookup hint={false}>
+          <article lang="en" data-wordtap onPointerUp={onPointerUp} className="reading mt-3 rounded-3xl bg-white p-5 text-lg leading-relaxed text-slate-900 shadow-sm ring-1 ring-slate-200 sm:p-10">
             <h3 className="text-2xl font-bold text-brand-navy">{view.title}</h3>
             {paras.map((p, pi) => (
               <p key={pi} className="mt-4">
@@ -346,7 +357,7 @@ function ReadStep({ view, busy, onDone }: { view: RunView; busy: boolean; onDone
                   const cls = [a ? HL[a.color] : "", isSpoken ? "rounded bg-brand-teal text-white" : inSentence ? "bg-teal-50" : "", pending === t.i ? "outline outline-2 outline-brand-navy" : "", kw ? "underline decoration-amber-500 decoration-2 underline-offset-4 font-semibold" : "", a?.note ? "border-b-2 border-dotted border-slate-500" : ""].join(" ");
                   return (
                     <span key={t.i}>
-                      <span data-i={t.i} role={kw || pen ? "button" : undefined} tabIndex={kw ? 0 : undefined} aria-label={kw ? `${t.text} (key word: show meaning)` : undefined}
+                      <span data-i={t.i} data-nolookup={a ? "" : undefined} role={kw || pen ? "button" : undefined} tabIndex={kw ? 0 : undefined} aria-label={kw ? `${t.text} (key word: show meaning)` : undefined}
                         onClick={() => onWord(t.i, kw)} onKeyDown={(e) => { if (kw && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); onWord(t.i, kw); } }}
                         className={`${cls} ${pen || kw ? "cursor-pointer" : ""}`}>{t.text}</span>
                       {openKw?.i === t.i && (
@@ -362,6 +373,7 @@ function ReadStep({ view, busy, onDone }: { view: RunView; busy: boolean; onDone
               </p>
             ))}
           </article>
+          </WordLookup>
 
           {editing !== null && notes[editing] && (
             <NoteEditor text={flat.slice(notes[editing].start, notes[editing].end).map((t) => t.text).join(" ")} note={notes[editing].note ?? ""}
@@ -536,7 +548,7 @@ function WriteStep({ view, busy, onSubmit }: { view: RunView; busy: boolean; onS
         <span id="rr-count" className={n >= MIN_WORDS ? "text-emerald-700" : "text-slate-600"}>{n} word{n === 1 ? "" : "s"}{n < MIN_WORDS ? ` — at least ${MIN_WORDS}` : " ✓"}</span>
         <span className="text-slate-500" aria-live="polite">{saved === "saving" ? "Saving…" : saved === "saved" ? "Draft saved ✓" : saved === "error" ? "Not saved — check your connection" : ""}</span>
       </div>
-      <button type="submit" disabled={busy || n < MIN_WORDS} className="mt-4 rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Send to my teacher ▶</button>
+      <button type="submit" disabled={busy || n < MIN_WORDS} className="mt-4 rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Submit to my teacher ▶</button>
     </form>
   );
 }

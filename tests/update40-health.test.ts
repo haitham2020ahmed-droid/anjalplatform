@@ -158,7 +158,10 @@ describe("Update 40 · fast Data Health on a seeded world", () => {
     await dataHealth(counting as never, admin, NOW);
     const all = n; n = 0;
     await dataHealth(counting as never, teacher, NOW);
-    assert.ok(all <= 16, `${all} queries for ${ids.length} students`);
-    assert.ok(Math.abs(all - n) <= 3, `admin ${all} vs teacher ${n}: the count does not grow with the students`);
+    // Update 42A: Data Health reads 50 students at a time (bounded memory): a fixed number of queries per 50 students,
+    // never one per student
+    const rounds = Math.ceil(ids.length / 50);
+    assert.ok(all <= 6 + 8 * rounds, `${all} queries for ${ids.length} students (${rounds} rounds)`);
+    assert.ok(n <= 6 + 8 * rounds, `teacher: ${n} queries`);
   });
 });

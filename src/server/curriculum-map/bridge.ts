@@ -10,6 +10,7 @@ import type { Repo } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { attachmentNodes, mapEpoch, type AttachmentNode } from "./questions";
+import { remember } from "../cache/lru";
 
 const s = (v: unknown) => String(v ?? "");
 const STOP = new Set(["and", "the", "of", "a", "an", "to", "in", "on", "for", "with", "reread", "text"]);
@@ -58,7 +59,7 @@ export async function bridges(repo: Repo, schoolId: string, grade?: number): Pro
   if (!perRepo) { perRepo = new Map(); bridgeCache.set(repo as object, perRepo); }
   const key = `${schoolId}#${bridgeEpoch}#${mapEpoch()}`;
   let hit = perRepo.get(key);
-  if (!hit || Date.now() - hit.at > 60_000) { hit = { at: Date.now(), value: computeBridges(repo, schoolId) }; perRepo.set(key, hit); hit.value.catch(() => perRepo!.delete(key)); }
+  if (!hit || Date.now() - hit.at > 60_000) { hit = remember(perRepo, key, { at: Date.now(), value: computeBridges(repo, schoolId) }, 8); hit.value.catch(() => perRepo!.delete(key)); }
   const all = await hit.value;
   return grade ? all.filter((r) => r.grade === grade) : all;
 }

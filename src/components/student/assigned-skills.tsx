@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { AssignedView } from "@/server/student/assigned";
 import type { StudentWeek } from "@/server/teacher/classroom";
 import { setMyGoalAction } from "@/app/student/goal-actions";
+import { SOURCE_LABEL, SOURCE_TAG_CLASS, sourceOfWork } from "@/lib/source-tags";
 
 const LABEL = { NOT_STARTED: "Not started", IN_PROGRESS: "In progress", COMPLETED: "Completed", OVERDUE: "Overdue" } as const;
 const TONE = { NOT_STARTED: "bg-slate-100 text-slate-700", IN_PROGRESS: "bg-sky-100 text-sky-900", COMPLETED: "bg-teal-100 text-teal-900", OVERDUE: "bg-red-100 text-red-800" } as const;
@@ -53,7 +54,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
               {extras?.streak ? <span className="animate-pop rounded-full bg-orange-500 px-3 py-1 font-bold text-white shadow" title={extras.activeToday ? "You practised today!" : "Practise today to keep your streak"}>🔥 {extras.streak}-day streak{extras.activeToday ? "" : " · practise today!"}</span> : <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">🔥 Start a streak today</span>}
               {extras?.points ? <span className="rounded-full bg-brand-gold px-3 py-1 font-bold text-brand-navy">⭐ {extras.points.toLocaleString("en")} points</span> : null}
               <a href="/student/badges" className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25 hover:bg-white/25">🏅 {extras?.badges ?? 0} badge{extras?.badges === 1 ? "" : "s"}</a>
-              {extras?.lexile != null && <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">📖 Lexile {extras.lexile}L</span>}
+              {extras?.lexile != null && <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">📖 Reading level (estimate) {extras.lexile}</span>}
               {extras?.rit != null && <span className="rounded-full bg-white/15 px-3 py-1 font-semibold ring-1 ring-white/25">🗺️ RIT {extras.rit}{extras.ritGoal ? ` → goal ${extras.ritGoal}` : ""}</span>}
               {summary.overdue > 0 && <span className="rounded-full bg-red-500/90 px-3 py-1 font-semibold">⏰ {summary.overdue} overdue</span>}
               {view.newThisWeek > 0 && <span className="rounded-full bg-brand-gold px-3 py-1 font-semibold text-brand-navy">✨ {view.newThisWeek} new this week</span>}
@@ -222,7 +223,8 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
                 <span aria-hidden="true" className={`absolute inset-y-0 start-0 w-1.5 ${BAR[i.status]}`} />
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <h3 className="truncate text-lg font-bold text-brand-navy" title={i.skill}><span aria-label={i.grammar ? "Grammar" : i.track === "MAP" ? "MAP" : i.track === "NAFS" ? "Nafs" : "Curriculum"}>{i.grammar ? "🔤" : i.track === "MAP" ? "🗺️" : i.track === "NAFS" ? "🇸🇦" : "📘"}</span> {i.skill}</h3>
+                    <h3 className="truncate text-lg font-bold text-brand-navy" title={i.skill}><span aria-hidden="true">{i.grammar ? "🔤" : i.track === "MAP" ? "🗺️" : i.track === "NAFS" ? "🇸🇦" : i.track === "RTI" ? "🧩" : i.track === "CUSTOM" ? "✏️" : "📘"}</span> {i.skill}</h3>
+                    {(() => { const k = sourceOfWork(i.track, Boolean(i.grammar)); return <span className={`mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${SOURCE_TAG_CLASS[k]}`}>{SOURCE_LABEL[k]}</span>; })()}
                     <p className="text-sm text-slate-600">{i.kind === "questions" ? `${i.questionCount} questions` : i.standard ?? "Practice"}{i.dueAt ? ` · due ${i.dueAt.slice(0, 10)}` : ""}</p>
                     {i.note && <p className="mt-1 rounded-lg bg-amber-50 px-2 py-1 text-sm text-amber-900">💬 {i.note}</p>}
                   </div>

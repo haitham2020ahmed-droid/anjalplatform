@@ -215,6 +215,9 @@ export async function mapLinks(repo: Repo, actor: Actor): Promise<{ rows: LinkRo
   const [links, qs] = ids.length ? await Promise.all([repo.findMany("SkillStandard", { skillId: { in: ids } }), repo.findMany("Question", { skillId: { in: ids }, deletedAt: null }, { select: ["skillId", "standardId"] })]) : [[] as Row[], [] as Row[]];
   const stdIds = [...new Set([...links.map((l) => s(l.standardId)), ...qs.map((q) => s(q.standardId)).filter(Boolean)])];
   const stds = stdIds.length ? await repo.findMany("Standard", { id: { in: stdIds } }, { select: ["id", "code"] }) : [];
+  // UI reorg Phase 1: the published count from the ONE shared function (= search, MAP and NAFS sections)
+  const { countQuestionsOfSkills } = await import("../questions/skill-questions");
+  const shared = await countQuestionsOfSkills(repo, actor.schoolId!, ids);
   const rows: LinkRow[] = [];
   for (const f of fams) {
     const ks = mySkills.filter((k) => k.familyId === f.id);
@@ -229,7 +232,7 @@ export async function mapLinks(repo: Repo, actor: Actor): Promise<{ rows: LinkRo
     rows.push({
       familyId: s(f.id), family: s(f.name), skills: [...new Set(ks.map((k) => s(k.name)))].slice(0, 4),
       grades: [...new Set(ks.map((k) => Number(gradeOf.get(s(k.id)) ?? 0)).filter(Boolean))].sort(),
-      questions: qs.filter((q) => kIds.includes(s(q.skillId))).length, areaCode: s(areas.find((a) => a.id === f.mapGoalAreaId)?.code) || null, suggested, standard: codes[0]?.replace(/^CCSS\.ELA-LITERACY\./i, "") ?? null,
+      questions: kIds.reduce((t, id) => t + (shared.get(id) ?? 0), 0), areaCode: s(areas.find((a) => a.id === f.mapGoalAreaId)?.code) || null, suggested, standard: codes[0]?.replace(/^CCSS\.ELA-LITERACY\./i, "") ?? null,
     });
   }
   rows.sort((a, b) => Number(Boolean(a.areaCode)) - Number(Boolean(b.areaCode)) || b.questions - a.questions || a.family.localeCompare(b.family));

@@ -23,7 +23,7 @@ export async function savePlanAction(f: FormData): Promise<void> {
       items: groups.map((g) => ({ group: g, keep: f.get(`keep.${g}`) === "on", skillIds: f.getAll(`skill.${g}`).map(String), count: Number(f.get(`count.${g}`)) || 15 })),
       addGroup: (String(f.get("addGroup") ?? "") || null) as GroupKey | null, note: String(f.get("note") ?? ""), dueAt: dateOf(f.get("dueAt")),
     });
-    return "✓ Plan saved. Check it, then press Send.";
+    return "✓ Plan saved. Check it, then press Assign.";
   });
 }
 
@@ -31,7 +31,7 @@ export async function sendPlanAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
   await run(f, async () => {
     const r = await sendPlans(repo, actor, f.getAll("planId").map(String));
-    return `✓ ${r.sent} plan(s) sent as ${r.sets} MAP set(s). Students were notified.${r.skipped.length ? ` Skipped: ${[...new Set(r.skipped)].join("; ")}.` : ""}`;
+    return `✓ ${r.sent} plan(s) assigned as ${r.sets} MAP set(s). Students were notified.${r.skipped.length ? ` Skipped: ${[...new Set(r.skipped)].join("; ")}.` : ""}`;
   });
 }
 
@@ -44,7 +44,7 @@ export async function sendGroupAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
   await run(f, async () => {
     const r = await sendToGroup(repo, actor, String(f.get("classId")), { group: String(f.get("group")) as GroupKey, low: Number(f.get("low")), high: Number(f.get("high")), studentIds: f.getAll("studentId").map(String), count: Number(f.get("count")) || 15, dueAt: dateOf(f.get("dueAt")) });
-    return `✓ Sent to the group (adaptive set from ${r.questions} questions of their band).`;
+    return `✓ Assigned to the group (adaptive set from ${r.questions} questions of their band).`;
   }, "groups");
 }
 
@@ -52,7 +52,7 @@ export async function sendCheckAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
   await run(f, async () => {
     const r = await sendCheck(repo, actor, String(f.get("classId")), subjectOf(f), { dueAt: dateOf(f.get("dueAt")) });
-    return `✓ Mid-unit check sent to ${r.students} student(s) (${r.sets} set(s), one per RIT band). The “Now” column updates as they answer.`;
+    return `✓ Mid-unit check assigned to ${r.students} student(s) (${r.sets} set(s), one per RIT band). The “Now” column updates as they answer.`;
   }, "matrix");
 }
 

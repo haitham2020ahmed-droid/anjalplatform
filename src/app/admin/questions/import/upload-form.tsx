@@ -93,7 +93,7 @@ export function ImportUpload({ target = "BANK", place, grammarGrade, accept }: {
         className={`flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed p-10 text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal ${over ? "border-brand-teal bg-teal-50" : "border-slate-300 bg-slate-50"}`}
       >
         <p className="text-lg font-semibold text-brand-navy">{file ? file.name : "Drop your CSV or Excel file here, or click to choose"}</p>
-        <p className="mt-1 text-sm text-slate-600">{file ? `${Math.max(1, Math.round(file.size / 1024))} KB` : "CSV (.csv) or Excel (.xlsx, pictures in the cells are imported too) · up to 50 MB · up to 10,000 questions"}</p>
+        <p className="mt-1 text-sm text-slate-600">{file ? `${Math.max(1, Math.round(file.size / 1024))} KB` : "CSV (.csv) or Excel (.xlsx, pictures in the cells are imported too) · up to 50 MB · up to 1,000 questions per file (split larger files)"}</p>
         <input ref={input} type="file" accept={accept ?? ACCEPT} className="hidden" onChange={(e) => { choose(e.target.files?.[0]); e.target.value = ""; }} />
       </div>
 

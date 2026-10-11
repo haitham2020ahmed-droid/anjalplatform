@@ -7,6 +7,7 @@ import type { SqliteRepo } from "../../scripts/db/sqlite-repo";
 import { resolveActor } from "../../src/server/auth/actor";
 import { loadSkillItems } from "../../src/server/practice/items";
 import { startPractice, submitAnswer } from "../../src/server/practice/session";
+import { afterResponseSettled } from "../../src/server/lib/after-response";
 import { DEMO_SCHOOL_CODE } from "../../src/server/seeding/demo";
 import { loadBank } from "../../src/server/seeding/load-files";
 import { seedQuestions } from "../../src/server/seeding/questions";
@@ -51,4 +52,5 @@ export async function simulatePractice(
     }
     k++;
   }
+  await afterResponseSettled(); // decision logs and statuses are written after each answer's response (Update 42B)
 }

@@ -35,10 +35,12 @@ import { skillEngineConfig, skillHistoryWithEvidence } from "../practice/skill-e
 const s = (v: unknown) => String(v ?? "");
 const t = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
 
-export type RemapVia = "STANDARD" | "READMASTER" | "MAP_PLACE" | "CATEGORY" | "TEXT";
+export type RemapVia = "STANDARD" | "READMASTER" | "MAP_PLACE" | "CATEGORY" | "TEXT" | "IMPORT_SKILL" | "TAGS";
 export interface RemapItem {
   questionId: string; grade: number; place: string | null; fromSkillId: string;
   toSkillId: string | null; toSkill: string | null; via: RemapVia | null; detail: string;
+  /** UI reorg Phase 1: how sure the rule is (0–1). Below the link threshold a decision is reviewed, never applied. */
+  confidence?: number;
 }
 export interface RemapPlan {
   items: RemapItem[];
@@ -155,32 +157,35 @@ export function skillForPhrase(phrase: string, skills: GradeSkill[], category: s
 }
 
 /** Pure: the decision for one question. */
-export function decideSkill(q: { stem: string; standardCandidates: GradeSkill[]; category: string | null; skillsText: string | null; article?: { skillId: string | null; skillName: string | null } | null }, skills: GradeSkill[]): { skill: GradeSkill; via: RemapVia; detail: string } | null {
+/** UI reorg Phase 1: how sure each rule is. Deterministic rules ≥ 0.8; closest-name and wording guesses below. */
+export const RULE_CONFIDENCE = { STANDARD_ONLY: 0.95, STANDARD_PLACE: 0.9, STANDARD_FIRST: 0.6, READMASTER_SKILL: 0.95, READMASTER_NAME: 0.85, PLACE_ALIAS: 0.9, PLACE_NAME: 0.65, CATEGORY: 0.8, CLUE: 0.8, TEXT: 0.5 } as const;
+
+export function decideSkill(q: { stem: string; standardCandidates: GradeSkill[]; category: string | null; skillsText: string | null; article?: { skillId: string | null; skillName: string | null } | null }, skills: GradeSkill[]): { skill: GradeSkill; via: RemapVia; detail: string; confidence: number } | null {
   const phrases = q.skillsText ? placePhrases(q.skillsText) : [];
   if (q.article) {
     const own = q.article.skillId ? skills.find((k) => k.id === q.article!.skillId) : undefined;
-    if (own) return { skill: own, via: "READMASTER", detail: "the ReadMaster article's skill" };
+    if (own) return { skill: own, via: "READMASTER", detail: "the ReadMaster article's skill", confidence: RULE_CONFIDENCE.READMASTER_SKILL };
     const hit = q.article.skillName ? skillForPhrase(q.article.skillName, skills, null) : null;
-    if (hit) return { skill: hit.skill, via: "READMASTER", detail: `the ReadMaster article's skill “${q.article.skillName}”` };
+    if (hit) return { skill: hit.skill, via: "READMASTER", detail: `the ReadMaster article's skill “${q.article.skillName}”`, confidence: hit.how === "alias" || hit.skill.name.toLowerCase() === String(q.article.skillName).toLowerCase() ? RULE_CONFIDENCE.READMASTER_NAME : RULE_CONFIDENCE.PLACE_NAME };
   }
-  if (q.standardCandidates.length === 1) return { skill: q.standardCandidates[0], via: "STANDARD", detail: "the only skill linked to the question's standard" };
+  if (q.standardCandidates.length === 1) return { skill: q.standardCandidates[0], via: "STANDARD", detail: "the only skill linked to the question's standard", confidence: RULE_CONFIDENCE.STANDARD_ONLY };
   if (q.standardCandidates.length > 1) {
-    for (const ph of phrases) { const hit = skillForPhrase(ph, q.standardCandidates, q.category); if (hit) return { skill: hit.skill, via: "STANDARD", detail: `standard + map place “${ph}”` }; }
-    return { skill: q.standardCandidates[0], via: "STANDARD", detail: "skill linked to the question's standard" };
+    for (const ph of phrases) { const hit = skillForPhrase(ph, q.standardCandidates, q.category); if (hit) return { skill: hit.skill, via: "STANDARD", detail: `standard + map place “${ph}”`, confidence: RULE_CONFIDENCE.STANDARD_PLACE }; }
+    return { skill: q.standardCandidates[0], via: "STANDARD", detail: `one of ${q.standardCandidates.length} skills linked to the question's standard`, confidence: RULE_CONFIDENCE.STANDARD_FIRST };
   }
   for (const ph of phrases) {
     const hit = skillForPhrase(ph, skills, q.category);
-    if (hit) return { skill: hit.skill, via: "MAP_PLACE", detail: `map place “${ph}”${hit.how === "name" ? " (closest skill name)" : ""}` };
+    if (hit) return { skill: hit.skill, via: "MAP_PLACE", detail: `map place “${ph}”${hit.how === "name" ? " (closest skill name)" : ""}`, confidence: hit.how === "alias" ? RULE_CONFIDENCE.PLACE_ALIAS : RULE_CONFIDENCE.PLACE_NAME };
   }
   const byFamily = new Map(skills.map((k) => [k.family, k]));
   if (q.category === "RESPOND_TO_READING") {
     const k = byFamily.get("text-evidence") ?? byFamily.get("summarize");
-    if (k) return { skill: k, via: "CATEGORY", detail: "Respond to Reading measures citing text evidence" };
+    if (k) return { skill: k, via: "CATEGORY", detail: "Respond to Reading measures citing text evidence", confidence: RULE_CONFIDENCE.CATEGORY };
   }
   const stem = s(q.stem);
   if (q.category === "CONCEPT_VOCABULARY") {
     const clue = estimateClueType("context-clues", stem, { category: "VOCABULARY" });
-    if (clue && clue !== "NONE" && byFamily.get("context-clues")) return { skill: byFamily.get("context-clues")!, via: "TEXT", detail: `context-clue question (${clue.toLowerCase().replace(/_/g, " ")})` };
+    if (clue && clue !== "NONE" && byFamily.get("context-clues")) return { skill: byFamily.get("context-clues")!, via: "TEXT", detail: `context-clue question (${clue.toLowerCase().replace(/_/g, " ")})`, confidence: RULE_CONFIDENCE.CLUE };
   }
   for (const [re, fams] of TEXT_RULES) {
     if (!re.test(stem)) continue;
@@ -190,7 +195,7 @@ export function decideSkill(q: { stem: string; standardCandidates: GradeSkill[];
       if (!k) continue;
       if (q.category === "CONCEPT_VOCABULARY" && !CV_CATS.has(k.category)) continue;
       if (q.category === "ANALYZE_CRAFT_AND_STRUCTURE" && !ACS_CATS.has(k.category)) continue;
-      return { skill: k, via: "TEXT", detail: `question wording (${re.source.replace(/\\b|\\/g, "").slice(0, 40)})` };
+      return { skill: k, via: "TEXT", detail: `question wording (${re.source.replace(/\\b|\\/g, "").slice(0, 40)})`, confidence: RULE_CONFIDENCE.TEXT };
     }
   }
   return null;
@@ -254,7 +259,7 @@ export async function planRemap(repo: Repo, schoolId: string, opts: { questionId
     }
     const cands = q.standardId ? skills.filter((k) => stdLinks.some((l) => l.standardId === q.standardId && s(l.skillId) === k.id)) : [];
     const pick = decideSkill({ stem: s(q.stem), standardCandidates: cands, category, skillsText, article: articleOf(s(q.id)) }, skills);
-    items.push({ questionId: s(q.id), grade, place, fromSkillId: s(q.skillId), toSkillId: pick?.skill.id ?? null, toSkill: pick?.skill.name ?? null, via: pick?.via ?? null, detail: pick?.detail ?? (place ? "the map place names no skill this grade has" : "not on the Curriculum Map") });
+    items.push({ questionId: s(q.id), grade, place, fromSkillId: s(q.skillId), toSkillId: pick?.skill.id ?? null, toSkill: pick?.skill.name ?? null, via: pick?.via ?? null, detail: pick?.detail ?? (place ? "the map place names no skill this grade has" : "not on the Curriculum Map"), confidence: pick?.confidence ?? 0 });
   }
   const mappedIds = items.filter((i) => i.toSkillId).map((i) => i.questionId);
   const attemptsToMove = (mappedIds.length ? await countIn(repo, "QuestionAttempt", "questionId", mappedIds, { skillId: { in: hiddenIds } }) : 0)
@@ -285,9 +290,9 @@ async function strandedAttempts(repo: Repo, hiddenIds: string[], questionIds?: s
  * Idempotent; never deletes a question. Derived rows of the hidden skill (mastery / ability) are removed only for a
  * student left with no answer on it.
  */
-export async function applyRemap(repo: Repo, schoolId: string, opts: { actorId?: string | null; questionIds?: string[]; now?: Date } = {}): Promise<RemapResult> {
+export async function applyRemap(repo: Repo, schoolId: string, opts: { actorId?: string | null; questionIds?: string[]; now?: Date; /** UI reorg Phase 1: apply these decisions (already checked) instead of planning again */ plan?: RemapPlan } = {}): Promise<RemapResult> {
   const now = opts.now ?? new Date();
-  const plan = await planRemap(repo, schoolId, { questionIds: opts.questionIds });
+  const plan = opts.plan ?? await planRemap(repo, schoolId, { questionIds: opts.questionIds });
   const sk = await schoolSkills(repo, schoolId);
   const hiddenIds = sk.hidden.map((k) => s(k.id));
   const byVia: Record<string, number> = {};
@@ -373,10 +378,14 @@ export async function recomputeSkill(repo: Repo, studentId: string, skillId: str
   return true;
 }
 
-/** After an import or an edit: new map questions without a skill get their real one at once (best effort). */
+/**
+ * After an import or an edit: new map questions without a skill get their real one at once — UI reorg Phase 1: through
+ * the same link pass as the bank (deterministic rules first; an unsure decision is listed for review, never applied).
+ */
 export async function remapNewQuestions(repo: Repo, schoolId: string, questionIds: string[], actorId: string | null, now = new Date()): Promise<number> {
   if (!questionIds.length) return 0;
-  return (await applyRemap(repo, schoolId, { questionIds, actorId, now })).questions;
+  const { linkNewQuestions } = await import("../questions/link-bank");
+  return linkNewQuestions(repo, schoolId, questionIds, actorId, now);
 }
 
 /** Every school with hidden-skill questions (the script runs them all). */

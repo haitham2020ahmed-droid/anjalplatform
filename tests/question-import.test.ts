@@ -457,12 +457,12 @@ describe("question import: upload, preview and import (database)", () => {
     assert.match(job.errors.join(), /Row 4: Database error/);
   });
 
-  test("large Excel file: 2,000 questions across grades, skills and standards, imported in batches", async () => {
+  test("large Excel file: 1,000 questions (the per-file limit, Update 42A) across grades, skills and standards, imported in batches", async () => {
     const all = [...idx.grades.entries()].flatMap(([g, skills]) => skills.filter((s) => s.standards.length).map((s) => ({ g, s })));
     const types = ["Multiple Choice", "Multi Select", "True/False", "Fill in the Blank"];
     const words = ["river", "garden", "castle", "planet", "forest", "harbor", "desert", "valley", "island", "market", "tower", "meadow"];
     const rows: string[][] = [[...TEMPLATE_HEADERS]];
-    const N = 2000;
+    const N = 1000;
     for (let i = 0; i < N; i++) {
       const { g, s } = all[i % all.length];
       const type = types[i % types.length];
@@ -491,7 +491,7 @@ describe("question import: upload, preview and import (database)", () => {
     assert.equal(calls, N / 100, "100 questions per request (progress bar steps)");
     assert.equal(await repo.count("Question", {}), before + N);
     const done = await getImportJob(repo, admin, jobId);
-    for (const k of [0, 777, 1999]) {
+    for (const k of [0, 777, 999]) {
       const { g, s } = all[k % all.length];
       const q = (await repo.findUnique("Question", { id: done.rows[k].questionId! }))!;
       assert.equal(q.skillId, s.id);

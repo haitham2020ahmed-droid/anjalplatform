@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { PageHeader } from "@/components/page-header";
+import { BandBar, Callout, ReportHeader } from "@/components/report-kit";
+import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classTiers } from "@/server/tiers/views";
@@ -25,37 +26,46 @@ export default async function TiersPage({ searchParams }: { searchParams: Promis
   const rows = view ? view.rows.filter((r) => !filter || r.tier === filter) : [];
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   const share = (n: number) => (view && view.total ? Math.round((100 * n) / view.total) : 0);
+  const { t } = await getT();
   const href = (q: Record<string, string>) => `/teacher/tiers?${new URLSearchParams({ class: String(klass?.id ?? ""), ...q })}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="🧭" title="Support tiers"
-        subtitle={`Tier 1 core teaching · Tier 2 small-group support, checked every 14 days · Tier 3 intensive support, checked every 7 days. The platform sets tiers every day from the evidence and tells you when one changes; a student moves down only after ${TIER_RULES.EXIT_CHECKS_IN_A_ROW} checks in a row at ${TIER_RULES.EXIT_CHECK_PCT}%+.`}>
+      <ReportHeader back={{ href: "/teacher", label: "Home" }} icon="🧭" title="Support tiers"
+        subtitle={`Tier 1 core teaching · Tier 2 small-group support, checked every 14 days · Tier 3 intensive support, checked every 7 days. The platform sets tiers every day from the evidence and tells you when one changes; a student moves down only after ${TIER_RULES.EXIT_CHECKS_IN_A_ROW} checks in a row at ${TIER_RULES.EXIT_CHECK_PCT}%+.`}
+        who={view?.className} filters={classes.length ? <nav aria-label="Classes" className="flex flex-wrap gap-2">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/tiers?class=${c.id}`} className={chip(c.id === klass?.id)}>{String(c.name)}</Link>)}</nav> : undefined}>
         <Link href={`/teacher/data-meeting${klass ? `?class=${klass.id}` : ""}`} className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">🗂️ Data meeting</Link>
-      </PageHeader>
+      </ReportHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 p-3 text-sm text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      <nav aria-label="Classes" className="flex flex-wrap gap-2">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/tiers?class=${c.id}`} className={chip(c.id === klass?.id)}>{String(c.name)}</Link>)}</nav>
       {!classes.length && <p className="mt-4 text-slate-600">You have no classes yet.</p>}
       {view && (
         <>
-          <section aria-label="Tier counts" className="mt-5 grid gap-3 sm:grid-cols-3">
+          <div className="mb-4 grid gap-4 lg:grid-cols-2">
+            <div className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200"><BandBar label="Support tiers" parts={[{ key: "T1", value: view.counts[1] }, { key: "T2", value: view.counts[2] }, { key: "T3", value: view.counts[3] }]} /><p className="mt-2 text-xs text-slate-500">{t("Usual school picture: about 80% Tier 1 · 15% Tier 2 · 5% Tier 3.")}</p></div>
+            <Callout kind="help" items={[
+              (() => { const n = view.rows.filter((r) => r.overdue); return n.length ? <>{t("Checks overdue")}: {n.slice(0, 10).map((r, i) => <span key={r.studentId}>{i ? ", " : ""}<bdi>{r.name}</bdi></span>)}</> : null; })(),
+              (() => { const n = view.rows.filter((r) => r.refer); return n.length ? <>{t("Refer for evaluation")}: {n.map((r, i) => <span key={r.studentId}>{i ? ", " : ""}<bdi>{r.name}</bdi></span>)}</> : null; })(),
+              (() => { const n = view.rows.filter((r) => r.tier === 3); return n.length ? <>{t("Tier 3")}: {n.slice(0, 10).map((r, i) => <span key={r.studentId}>{i ? ", " : ""}<bdi>{r.name}</bdi></span>)}</> : null; })(),
+            ]}>{!view.rows.some((r) => r.overdue || r.refer || r.tier === 3) ? t("No student needs urgent help right now.") : null}</Callout>
+          </div>
+          <section aria-label="Tier counts" className="grid gap-3 sm:grid-cols-3">
             {([1, 2, 3] as const).map((t) => (
               <Link key={t} href={href(filter === t ? {} : { tier: String(t) })} className={`rounded-2xl p-4 ring-1 ${filter === t ? "ring-2 ring-brand-navy" : ""} ${TIER_TONE[t]}`}>
-                <p className="text-sm font-semibold">Tier {t}</p>
+                <p className="text-sm font-semibold"><span aria-hidden="true">{t === 1 ? "●" : t === 2 ? "▲" : "■"} </span>Tier {t}</p>
                 <p className="text-3xl font-extrabold tabular-nums">{view.counts[t]} <span className="text-base font-semibold">({share(view.counts[t])}%)</span></p>
                 <p className="text-xs">expected about {view.expected[t]}% · {filter === t ? "showing only these" : "click to filter"}</p>
               </Link>
             ))}
           </section>
-          <div className="mt-5 overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
+          <div className="rk-box rk-tall mt-5">
             <table className="w-full min-w-[900px] text-sm">
               <caption className="sr-only">Support tiers of {view.className}</caption>
-              <thead className="bg-slate-50 text-left text-xs uppercase text-slate-500">
+              <thead>
                 <tr><th scope="col" className="p-3">Student</th><th scope="col" className="p-3">Tier</th><th scope="col" className="p-3">Since</th><th scope="col" className="p-3">Why</th><th scope="col" className="p-3">Focus skill</th><th scope="col" className="p-3">Next check</th><th scope="col" className="p-3">Source</th><th scope="col" className="p-3">Change</th></tr>
               </thead>
               <tbody>
                 {rows.map((r) => (
                   <tr key={r.studentId} className="border-t border-slate-100 align-top">
-                    <td className="p-3"><Link href={`/teacher/tiers/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link>{r.refer && <span className="mt-1 block w-fit rounded bg-red-600 px-1.5 py-0.5 text-[11px] font-bold text-white">⚑ Refer for evaluation</span>}</td>
+                    <td className="p-3"><Link href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link> <Link href={`/teacher/tiers/${r.studentId}`} className="ms-1 text-xs font-semibold text-brand-teal hover:underline" aria-label={`Tier: ${r.name}`}>🪜</Link>{r.refer && <span className="mt-1 block w-fit rounded bg-red-600 px-1.5 py-0.5 text-[11px] font-bold text-white">⚑ Refer for evaluation</span>}</td>
                     <td className="p-3"><TierBadge tier={r.tier} /></td>
                     <td className="p-3 tabular-nums text-slate-600">{r.since ?? "—"}</td>
                     <td className="max-w-sm p-3 text-slate-700">{r.reason}</td>

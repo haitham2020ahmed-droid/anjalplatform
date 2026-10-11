@@ -61,11 +61,13 @@ describe("student: assigned skills only, notifications, report", () => {
   });
 
   test("notifications: unread count, open marks read and links to the assignment, owner only, due-soon once", async () => {
+    await assignmentUpdatesSettled(); // the due reminders are written after the page is sent (Update 42B)
     const n0 = await unreadCount(repo, student.userId);
     assert.ok(n0 >= 3, String(n0));
     const due = (await listNotifications(repo, student)).filter((n) => n.title.startsWith("Due soon"));
     assert.equal(due.length, 1, "the skill due tomorrow produced one due-soon reminder");
     await assignedSkills(repo, student, NOW);
+    await assignmentUpdatesSettled();
     assert.equal((await listNotifications(repo, student)).filter((n) => n.title.startsWith("Due soon")).length, 1, "not repeated");
     const first = (await listNotifications(repo, student)).find((n) => n.title === "Your teacher assigned you a new skill")!;
     assert.match(await openNotification(repo, student, first.id, NOW), /^\/student\/assignments\//);
@@ -74,6 +76,7 @@ describe("student: assigned skills only, notifications, report", () => {
     await markAllRead(repo, student, NOW);
     assert.equal(await unreadCount(repo, student.userId), 0);
     await assignedSkills(repo, student, new Date("2027-03-10T08:00:00Z"));
+    await assignmentUpdatesSettled();
     assert.ok((await listNotifications(repo, student)).some((n) => n.title.startsWith("Overdue")), "overdue reminder after the due date");
   });
 

@@ -7,6 +7,7 @@
  *     skill (inactive: never offered for assignments or adaptive practice until classified).
  */
 import type { Repo, Row } from "../seeding/repo";
+import { remember } from "../cache/lru";
 
 const s = (v: unknown) => String(v ?? "");
 export type QuestionUseKind = "PLACEMENT" | "MAP_TEST";
@@ -40,7 +41,7 @@ export async function attachmentNodes(repo: Repo, schoolId: string): Promise<Att
   const hit = perRepo.get(key);
   if (hit && Date.now() - hit.at < NODE_TTL_MS) return hit.value;
   const value = loadAttachmentNodes(repo, schoolId);
-  perRepo.set(key, { at: Date.now(), value });
+  remember(perRepo, key, { at: Date.now(), value }, 8);
   value.catch(() => perRepo!.delete(key));
   return value;
 }

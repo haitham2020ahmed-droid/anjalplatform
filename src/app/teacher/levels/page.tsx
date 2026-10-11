@@ -59,7 +59,7 @@ export default async function LevelsPage({ searchParams }: { searchParams: Promi
                   <div className="mt-3 flex flex-wrap items-end gap-3 text-sm">
                     <label className="flex flex-col">Questions<input type="number" name="questions" min={5} max={50} defaultValue={20} className={`${box} w-24`} /></label>
                     <label className="flex flex-col">Due date (optional)<input type="date" name="dueAt" className={box} /></label>
-                    <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">Give to {v.className}</button>
+                    <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">Assign to {v.className}</button>
                   </div>
                 </form>
               ))}

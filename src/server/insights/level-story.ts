@@ -189,6 +189,8 @@ export async function levelConflicts(repo: Repo, actor: Actor, classIds: string[
 }
 
 export interface HealthRow { classId: string; className: string; grade: number; students: number; noMap: string[]; noDiagnostic: string[]; inactive: string[]; noData: string[]; conflicts: number }
+/** Students per round of Data Health (Update 42A: bounded memory). */
+const HEALTH_CHUNK = 50;
 /** 🩺 How complete each class's data is (admin: every class; teacher: theirs). */
 export async function dataHealth(repo: Repo, actor: Actor, now = new Date()): Promise<{ rows: HealthRow[]; diagnosticOpen: boolean; conflicts: Conflict[]; names: Record<string, string> }> {
   assertCan(actor, "reports:read");
@@ -196,23 +198,38 @@ export async function dataHealth(repo: Repo, actor: Actor, now = new Date()): Pr
   const classes = (await readableClasses(repo, actor)).filter((c) => !c.deletedAt).sort((a, b) => s(a.name).localeCompare(s(b.name)));
   const mem = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }, { select: ["studentId", "classId"] }) : [];
   const ids = [...new Set(mem.map((m) => s(m.studentId)))];
-  // Update 40: every table is read once (answers, MAP, Diagnostic, practice) and shared with the conflict check
-  const [names, maps, diag, attempts, grades, open] = await Promise.all([
-    studentNames(repo, ids),
-    ids.length ? repo.findMany("MapResult", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("DiagnosticScore", { studentId: { in: ids } }, { select: ["studentId", "level", "rapid", "total", "completedAt"] }) : Promise.resolve([] as Row[]),
-    recentAnswers(repo, ids, now),
+  // Update 40: every table is read once (answers, MAP, Diagnostic, practice) and shared with the conflict check.
+  // Update 42A: HEALTH_CHUNK students at a time (every figure is per student), so the school's 6 weeks of answers are
+  // never in memory at once; the result is the same (the conflicts are sorted the same way at the end).
+  const [grades, open] = await Promise.all([
     repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] }),
     repo.count("DiagnosticTest", { schoolId: actor.schoolId, status: { in: ["OPEN", "CLOSED"] } }),
   ]);
-  const practice = await activityStats(repo, ids, now, attempts);
-  const hasMap = new Set(maps.map((x) => s(x.studentId))), hasDiag = new Set(diag.map((x) => s(x.studentId)));
-  // the student's grade from their own grade row (as gradeOfStudents does), without reading the students again
   const levelOfGrade = new Map(grades.map((g) => [s(g.id), Number(g.level ?? 0)]));
-  const otherGrades = [...new Set([...names.values()].map((n) => n.gradeId).filter((g) => g && !levelOfGrade.has(g)))];
-  if (otherGrades.length) for (const g of await repo.findMany("Grade", { id: { in: otherGrades } }, { select: ["id", "level"] })) levelOfGrade.set(s(g.id), Number(g.level ?? 0));
-  const gradeOf = new Map(ids.filter((id) => names.has(id)).map((id) => [id, levelOfGrade.get(names.get(id)!.gradeId) ?? 0]));
-  const conflicts = await levelConflicts(repo, actor, classes.map((c) => s(c.id)), now, { mem, classes, names, gradeOf, attempts, practice, diag, maps });
+  const names = new Map<string, { name: string; number: string; gradeId: string }>();
+  const practice = new Map<string, Pick<PracticeStats, "lastActive" | "recentAnswers" | "recentAccuracy">>();
+  const hasMap = new Set<string>(), hasDiag = new Set<string>();
+  let conflicts: Conflict[] = [];
+  for (let i = 0; i < ids.length; i += HEALTH_CHUNK) {
+    const part = ids.slice(i, i + HEALTH_CHUNK), inPart = new Set(part);
+    const [nm, maps, diag, attempts] = await Promise.all([
+      studentNames(repo, part),
+      repo.findMany("MapResult", { studentId: { in: part } }),
+      repo.findMany("DiagnosticScore", { studentId: { in: part } }, { select: ["studentId", "level", "rapid", "total", "completedAt"] }),
+      recentAnswers(repo, part, now),
+    ]);
+    const pr = await activityStats(repo, part, now, attempts);
+    for (const [k, v] of nm) names.set(k, v);
+    for (const [k, v] of pr) practice.set(k, v);
+    for (const x of maps) hasMap.add(s(x.studentId));
+    for (const x of diag) hasDiag.add(s(x.studentId));
+    // the student's grade from their own grade row (as gradeOfStudents does), without reading the students again
+    const otherGrades = [...new Set([...nm.values()].map((n) => n.gradeId).filter((g) => g && !levelOfGrade.has(g)))];
+    if (otherGrades.length) for (const g of await repo.findMany("Grade", { id: { in: otherGrades } }, { select: ["id", "level"] })) levelOfGrade.set(s(g.id), Number(g.level ?? 0));
+    const gradeOf = new Map(part.filter((id) => nm.has(id)).map((id) => [id, levelOfGrade.get(nm.get(id)!.gradeId) ?? 0]));
+    conflicts.push(...await levelConflicts(repo, actor, classes.map((c) => s(c.id)), now, { mem: mem.filter((m) => inPart.has(s(m.studentId))), classes, names: nm, gradeOf, attempts, practice: pr, diag, maps }));
+  }
+  conflicts = conflicts.sort((a, b) => a.className.localeCompare(b.className) || a.name.localeCompare(b.name));
   const twoWeeks = now.getTime() - 14 * 86_400_000;
   const byClass = new Map<string, string[]>();
   for (const m of mem) { const k = s(m.classId); const l = byClass.get(k); if (l) l.push(s(m.studentId)); else byClass.set(k, [s(m.studentId)]); }

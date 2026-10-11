@@ -92,7 +92,9 @@ describe("student levels, assign by level, Placement and MAP tests, curriculum r
     const cv = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS2.CV" });
     assert.deepEqual(cv.groups.map((x) => [x.level, x.students, x.questions]), [[null, studentIds.length, 2]]);
     await assert.rejects(assignFromMap(repo, teacher, { classId, categoryCode: "G4.U2.TS1.ACS" }), /no published questions/);
-    await assert.rejects(assignFromMap(repo, teacher, { classId, categoryCode: "G5.U1.TS1.ACS" }), /This class is Grade 4/);
+    // UI reorg access rules: a place of ANOTHER grade may be assigned to the teacher's own class (no longer
+    // "This class is Grade 4"); this Grade 5 place simply has no published questions in this test
+    await assert.rejects(assignFromMap(repo, teacher, { classId, categoryCode: "G5.U1.TS1.ACS" }), /no published questions/);
     await assert.rejects(assignFromMap(repo, other, { classId, categoryCode: "G4.U1.TS2.ACS" }), ForbiddenError);
     // results on the map: a student answers their set
     await takeAll(await student(studentIds[0]), g.get("ABOVE")!.assignmentId, true);

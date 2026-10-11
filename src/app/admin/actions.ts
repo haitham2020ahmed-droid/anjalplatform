@@ -260,7 +260,7 @@ export async function aiReviewAction(_: Result, f: FormData): Promise<Result> {
 
 // ------------------------------------------------------- question import
 
-import { archiveImportQuestions, cancelImport, commitImportChunk, selectAll, shortDbMessage, updateImportRow, type CommitProgress, type ImportDecision, type PreviewRow } from "@/server/admin/question-import";
+import { archiveImportQuestions, cancelImport, clientRows, commitImportChunk, selectAll, shortDbMessage, updateImportRow, type CommitProgress, type ImportDecision, type PreviewRow } from "@/server/admin/question-import";
 import { log } from "@/server/monitoring/log";
 
 const ImportPatch = z.object({ selected: z.boolean().optional(), decision: z.enum(["IMPORT", "SKIP", "REPLACE", "FORCE"]).optional(), input: z.record(z.unknown()).optional() });
@@ -278,7 +278,7 @@ export async function importRowAction(jobId: string, rowId: string, patch: { sel
   try {
     const p = ImportPatch.parse(patch);
     const row = await updateImportRow(repo, actor, id.parse(jobId), id.parse(rowId), { selected: p.selected, decision: p.decision, input: p.input as EditorInput | undefined });
-    return { row, message: row.errors.length ? "Saved, but it still has errors." : "Saved and checked." };
+    return { row: clientRows([row])[0], message: row.errors.length ? "Saved, but it still has errors." : "Saved and checked." };
   } catch (e) {
     return importError(e, "saving the question", jobId);
   }

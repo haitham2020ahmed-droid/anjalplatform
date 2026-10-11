@@ -538,13 +538,20 @@ export async function myDiagnostic(repo: Repo, actor: Actor, now = new Date()): 
   if (!klass || !g) return null;
   const t = (await repo.findMany("DiagnosticTest", { schoolId: klass.schoolId, grade: Number(g.level), status: "OPEN" })).sort((a, b) => s(b.year).localeCompare(s(a.year)) || PERIODS.indexOf(asPeriod(b.period)) - PERIODS.indexOf(asPeriod(a.period)))[0];
   if (!t) return null;
-  const res = (await repo.findMany("DiagnosticScore", { diagnosticId: t.id, studentId: actor.studentId }))[0];
-  await ensureClassAssignment(repo, t, klass, null, d(t.opensAt), d(t.closesAt), now);
+  // independent reads together (Update 42B)
+  const [scores] = await Promise.all([
+    repo.findMany("DiagnosticScore", { diagnosticId: t.id, studentId: actor.studentId }),
+    ensureClassAssignment(repo, t, klass, null, d(t.opensAt), d(t.closesAt), now),
+  ]);
+  const res = scores[0];
   const a = (await repo.findMany("Assignment", { classId: klass.id, assessmentId: t.assessmentId, deletedAt: null }))[0];
   if (!a) return null;
   const ds = designOf(t);
-  const total = ds ? (await studentDesign(repo, t, ds, actor.studentId)).blueprint.length : await repo.count("AssessmentQuestion", { assessmentId: t.assessmentId });
-  const ses = (await repo.findMany("PracticeSession", { studentId: actor.studentId, assignmentId: a.id, mode: "TEACHER_QUIZ" }))[0];
+  const [total, sessions] = await Promise.all([
+    ds ? studentDesign(repo, t, ds, actor.studentId).then((x) => x.blueprint.length) : repo.count("AssessmentQuestion", { assessmentId: t.assessmentId }),
+    repo.findMany("PracticeSession", { studentId: actor.studentId, assignmentId: a.id, mode: "TEACHER_QUIZ" }),
+  ]);
+  const ses = sessions[0];
   const answered = ses ? await repo.count("QuestionAttempt", { sessionId: ses.id }) : 0;
   return { id: s(t.id), title: s(t.title), href: `/quiz/${s(a.id)}`, status: res ? "DONE" : answered ? "STARTED" : "TODO", answered, total, shared: Boolean(res?.sharedAt) };
 }

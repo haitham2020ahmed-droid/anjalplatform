@@ -32,7 +32,7 @@ export default async function MapTestPage({ searchParams }: { searchParams: Prom
   const today = new Date().toISOString().slice(0, 10), in14 = new Date(Date.now() + 14 * 86_400_000).toISOString().slice(0, 10);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/map-plans", label: "MAP plans" }} icon="🧭" title="MAP Practice Test" subtitle="A MAP-like adaptive test for every student before Winter and Spring: 50 Reading + 50 Language questions, shared between the goal areas. It shows who is on track for the Spring goal before the real test.">
+      <PageHeader back={{ href: "/teacher/map-plans", label: "MAP plans" }} icon="🧭" title="MAP Practice Test" subtitle="A MAP-style test (harder or easier as each student answers) for every student before Winter and Spring: 50 Reading + 50 Language questions, shared between the goal areas. It shows who is on track for the Spring goal before the real test.">
         <PrintButton />
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
@@ -95,7 +95,7 @@ export default async function MapTestPage({ searchParams }: { searchParams: Prom
                   <thead><tr className="border-b text-xs text-slate-500"><th className="py-2 pe-3">Student</th><th className="px-2">Status</th><th className="px-2">Practice RIT (range)</th><th className="px-2">Fall</th><th className="px-2">Expected now</th><th className="px-2">Spring goal</th><th className="px-2">On track?</th>{cls.rows[0]?.areas.map((a) => <th key={a.key} className="px-2">{a.icon} {a.name}</th>)}</tr></thead>
                   <tbody>{cls.rows.map((r) => (
                     <tr key={r.studentId} className="border-b align-top last:border-0">
-                      <td className="py-2 pe-3"><Link href={`/teacher/progress/${r.studentId}`} className="font-semibold text-brand-navy hover:underline">{r.name}</Link>{r.retest && <span className="ms-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-900" title={`${r.rapidPct}% rapid answers`}>⚡ retest?</span>}</td>
+                      <td className="py-2 pe-3"><Link href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline">{r.name}</Link>{r.retest && <span className="ms-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-900" title={`${r.rapidPct}% rapid answers`}>⚡ retest?</span>}</td>
                       <td className="px-2 text-xs">{r.status === "DONE" ? "✅ done" : r.status === "IN_PROGRESS" ? `⏳ ${r.answered}/${r.total}` : "— not started"}</td>
                       <td className="px-2">{r.rit !== null ? <><b className="tabular-nums">{r.rit}</b> <span className="text-xs text-slate-500">({r.low}–{r.high})</span>{r.descriptor && <span className={`ms-1 rounded-full px-2 py-0.5 text-xs ${DESC_STYLE[r.descriptor]}`}>{r.descriptor}</span>}</> : "—"}</td>
                       <td className="px-2 tabular-nums">{r.fall ?? "—"}</td><td className="px-2 tabular-nums">{r.expected ?? "—"}</td><td className="px-2 tabular-nums">{r.goal ?? "—"}</td>

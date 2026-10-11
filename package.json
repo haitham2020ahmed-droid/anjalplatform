@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
-    "start": "next start",
+    "start": "node scripts/start.mjs",
+    "start:plain": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "typecheck:core": "tsc -p tsconfig.core.json",

@@ -23,6 +23,7 @@ import { ritFromDifficulty } from "../questions/tag-review";
 import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
 import { modelVersion } from "../cache/bank-version";
+import { remember } from "../cache/lru";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -157,7 +158,7 @@ export function groupPools(repo: Repo, schoolId: string, grade: number): Promise
   const key = `${schoolId}|${grade}`, v = modelVersion(...POOL_MODELS), hit = m.get(key);
   if (hit && hit.v === v && Date.now() - hit.at < 60_000) return hit.p;
   const p = loadPools(repo, schoolId, grade).catch((e) => { m!.delete(key); throw e; });
-  m.set(key, { at: Date.now(), v, p });
+  remember(m, key, { at: Date.now(), v, p }, 24);
   return p;
 }
 async function loadPools(repo: Repo, schoolId: string, grade: number): Promise<Pools> {
