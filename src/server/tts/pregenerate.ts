@@ -7,10 +7,13 @@
  * Dry run by default (counts texts and characters, estimates the cost). With `apply`: one text at a time, rate
  * limited, retried on "busy"; already generated texts are skipped, so a stopped run simply continues next time
  * (resumable). Reads 200 rows per page and keeps one audio file in memory at a time (512 MB server).
+ * Small batches for the AI limit (~4 requests a minute): Gemini runs at 4 requests a minute by default (`rpm`),
+ * `limit` new files per run, and `from` ("readrise:400") starts where an earlier run stopped. `speeds`: also the
+ * naturally slow recording (["normal", "slow"]; default normal only — the player slows it down otherwise).
  */
 import type { Repo, Row, Where } from "../seeding/repo";
-import { passageSpeech, questionSpeech, speechKey } from "@/lib/tts/text";
-import { existingVoices } from "./store";
+import { passageSpeech, questionSpeech, speechKey, ttsCacheKey, type TtsSpeed } from "@/lib/tts/text";
+import { existingVoices, saveAudio } from "./store";
 import { pickTtsProvider, TtsError, type ProviderOpts, type TtsProvider } from "./providers";
 import type { TtsEnv } from "./env";
 
@@ -26,8 +29,12 @@ export interface PregenOptions extends ProviderOpts {
   only?: TtsSource[];
   /** at most this many new audio files in this run (default 500) */
   limit?: number;
-  /** provider requests per minute (default TTS_REQUESTS_PER_MINUTE or 30) */
+  /** provider requests per minute (default TTS_REQUESTS_PER_MINUTE, else 4 for Gemini and 30 for Google) */
   rpm?: number;
+  /** which recordings to make for each text (default ["normal"]) */
+  speeds?: TtsSpeed[];
+  /** resume: start at this source and row offset ("readrise:400"), as printed by an earlier run */
+  from?: string;
   /** also regenerate texts made with another voice */
   replaceVoice?: boolean;
   pageSize?: number;
@@ -37,7 +44,13 @@ export interface PregenOptions extends ProviderOpts {
   /** for tests: a ready provider instead of the one from the environment */
   provider?: TtsProvider;
 }
-export interface PregenSummary { apply: boolean; provider: string | null; texts: number; chars: number; done: number; missing: number; missingChars: number; generated: number; failed: number; stopped: string | null; estimate: Record<string, string> }
+export interface PregenSummary { apply: boolean; provider: string | null; texts: number; chars: number; done: number; missing: number; missingChars: number; generated: number; failed: number; stopped: string | null; estimate: Record<string, string>; resume: string | null }
+
+/** "readrise:400" → where to start (null when not valid). */
+export function parseFrom(from: string | undefined): { source: TtsSource; skip: number } | null {
+  const m = /^([a-z]+):(\d+)$/.exec(String(from ?? "").trim());
+  return m && (ALL_TTS_SOURCES as string[]).includes(m[1]) ? { source: m[1] as TtsSource, skip: Number(m[2]) } : null;
+}
 
 interface SpeechText { key: string; text: string; source: string }
 
@@ -104,39 +117,48 @@ export async function pregenerate(repo: Repo, env: TtsEnv, o: PregenOptions = {}
   const now = o.now ?? (() => new Date());
   const take = o.pageSize ?? 200;
   const limit = Math.max(1, o.limit ?? 500);
-  const rpm = Math.max(1, o.rpm ?? (Number(env.TTS_REQUESTS_PER_MINUTE) || 30));
   const picked = o.provider ? { ok: true as const, provider: o.provider } : pickTtsProvider(env, o);
   const provider = picked.ok ? picked.provider : null;
-  const sum: PregenSummary = { apply: Boolean(o.apply), provider: provider ? `${provider.id} (${provider.voice})` : null, texts: 0, chars: 0, done: 0, missing: 0, missingChars: 0, generated: 0, failed: 0, stopped: null, estimate: {} };
+  const rpm = Math.max(1, o.rpm ?? (Number(env.TTS_REQUESTS_PER_MINUTE) || (provider?.id === "gemini" ? 4 : 30)));
+  const speeds: TtsSpeed[] = o.speeds?.length ? [...new Set(o.speeds)] : ["normal"];
+  const sum: PregenSummary = { apply: Boolean(o.apply), provider: provider ? `${provider.id} (${provider.voice})` : null, texts: 0, chars: 0, done: 0, missing: 0, missingChars: 0, generated: 0, failed: 0, stopped: null, estimate: {}, resume: null };
+  const sources = o.only?.length ? o.only : TTS_SOURCES;
+  const start = parseFrom(o.from);
+  const startAt = start && sources.includes(start.source) ? start : null;
   if (o.apply && !provider) { sum.stopped = (picked as { reason: string }).reason; log(`Cannot generate audio: ${sum.stopped}`); }
   const seen = new Set<string>();
   let lastCall = 0;
-  for (const source of o.only?.length ? o.only : TTS_SOURCES) {
+  for (const source of startAt ? sources.slice(sources.indexOf(startAt.source)) : sources) {
     let n = 0, chars = 0;
-    for (let skip = 0; ; skip += take) {
+    for (let skip = startAt?.source === source ? startAt.skip : 0; ; skip += take) {
       const texts = await page(repo, source, skip, take);
       if (!texts) break;
       const fresh = texts.filter((t) => !seen.has(t.key) && (seen.add(t.key), true));
-      const have = await existingVoices(repo, fresh.map((t) => t.key));
-      for (const t of fresh) {
-        n++; chars += t.text.length; sum.texts++; sum.chars += t.text.length;
+      // one job per text and speed: normal audio under the text's key, slow audio under text + voice + speed
+      const jobs: (SpeechText & { speed: TtsSpeed; textKey: string })[] = [];
+      for (const t of fresh) for (const sp of speeds) {
+        const key = sp === "normal" ? t.key : provider ? await ttsCacheKey(t.key, provider.voice, sp) : null;
+        if (key) jobs.push({ ...t, key, speed: sp, textKey: t.key });
+      }
+      const have = await existingVoices(repo, jobs.map((t) => t.key));
+      for (const t of jobs) {
+        if (t.speed === "normal") { n++; chars += t.text.length; sum.texts++; sum.chars += t.text.length; }
         const voice = have.get(t.key);
         const current = voice !== undefined && (!o.replaceVoice || !provider || voice === provider.voice);
-        if (current) { sum.done++; continue; }
+        if (current) { if (t.speed === "normal") sum.done++; continue; }
         sum.missing++; sum.missingChars += t.text.length;
-        if (!o.apply || !provider || sum.stopped || sum.generated + sum.failed >= limit) continue;
+        if (!o.apply || !provider) continue;
+        if (sum.stopped || sum.generated + sum.failed >= limit) { sum.resume ??= `${source}:${skip}`; continue; }
         // rate limit: at most `rpm` provider requests per minute
         const gap = 60_000 / rpm, wait = lastCall + gap - Date.now();
         if (wait > 0) await sleep(wait);
         let ok = false;
         for (let tries = 0; tries < 4 && !ok; tries++) {
           try {
-            const r = await provider.synthesize(t.text);
+            const r = await provider.synthesize(t.text, { speed: t.speed });
             lastCall = Date.now() + gap * (r.requests - 1);
             if (r.audio.length > MAX_BYTES) { log(`  skipped ${t.source}: audio too large (${r.audio.length} bytes)`); sum.failed++; break; }
-            const row = { textHash: t.key, provider: provider.id, voice: provider.voice, mime: r.mime, bytes: Buffer.from(r.audio), size: r.audio.length, durationMs: r.durationMs, chars: t.text.length, timings: JSON.stringify(r.timings), source: t.source.slice(0, 80), createdAt: now() };
-            if (voice !== undefined) await repo.updateMany("TtsAudio", { textHash: t.key }, row);
-            else await repo.create("TtsAudio", row);
+            await saveAudio(repo, { key: t.key, provider, result: r, chars: t.text.length, source: t.speed === "slow" ? `${t.source}:slow` : t.source, now: now(), replace: voice !== undefined });
             sum.generated++; ok = true;
             if (sum.generated % 25 === 0) log(`  ${sum.generated} audio files made…`);
           } catch (e) {
@@ -161,6 +183,6 @@ export async function pregenerate(repo: Repo, env: TtsEnv, o: PregenOptions = {}
   log(`total: ${sum.texts} texts (${sum.chars.toLocaleString("en-US")} characters); with audio ${sum.done}; without ${sum.missing} (${sum.missingChars.toLocaleString("en-US")} characters)`);
   log(`estimated one-time cost for the missing audio (after the monthly free characters): ${Object.entries(sum.estimate).map(([k, v]) => `${k} ${v}`).join(" · ")}`);
   if (!o.apply) log(`dry run: nothing was generated. Add --apply${provider ? "" : ` (and set the provider: ${(picked as { reason: string }).reason})`}.`);
-  else log(`generated ${sum.generated}, failed ${sum.failed}${sum.generated + sum.failed >= limit ? ` (limit ${limit} reached: run again to continue)` : ""}.`);
+  else log(`generated ${sum.generated}, failed ${sum.failed}${sum.generated + sum.failed >= limit ? ` (limit ${limit} reached: run again to continue${sum.resume ? `, or skip the finished rows with --from=${sum.resume}` : ""})` : ""}.`);
   return sum;
 }

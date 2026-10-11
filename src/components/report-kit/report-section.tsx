@@ -10,7 +10,7 @@ export function ReportSection({ title, icon, hint, id, actions, tone = "white", 
 }) {
   const t = useT();
   return (
-    <section id={id} aria-label={title ? t(title) : undefined} className={`rk-section mb-5 min-w-0 rounded-3xl p-5 shadow-sm ring-1 ring-slate-200 sm:p-6 ${tone === "soft" ? "bg-slate-50" : "bg-white"} ${className}`} data-rk="section">
+    <section id={id} aria-label={title ? t(title) : undefined} className={`rk-section mb-5 min-w-0 rounded-3xl p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6 ${tone === "soft" ? "bg-slate-50" : "bg-white"} ${className}`} data-rk="section">
       {(title || actions) && (
         <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
           <div className="min-w-0">

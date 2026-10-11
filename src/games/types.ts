@@ -35,13 +35,13 @@ export interface GameMeta {
   types: BankType[];
   /** optional finer check on a filled question (e.g. Word Guess: a one-word answer) */
   fits?: (q: PlayQuestion) => boolean;
-  /** a skill needs at least this many fitting questions, otherwise the game shows "Soon" */
+  /** a skill needs at least this many fitting questions, otherwise the game is hidden (registry: minQuestionsFor) */
   minQuestions: number;
   /** questions served in one solo round (rounds last 2–3 minutes) */
   roundSize: number;
   /** solo round length in seconds (120–180) */
   roundSeconds: number;
-  /** false until the game is built: it shows "Soon" everywhere */
+  /** false until the game is built: it is hidden everywhere */
   ready: boolean;
   /** can be chosen as a Live Challenge mode */
   live: boolean;

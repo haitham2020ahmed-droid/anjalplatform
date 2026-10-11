@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { browserRecorderMime, openMicrophone, recorderOptions } from "../fluency/audio-capture";
 
 /** 🎙 Record yourself reading the text (up to 3 minutes), listen, then send it to your teacher. */
 export function Recorder({ taskId, sent }: { taskId: string; sent: boolean }) {
@@ -12,9 +13,10 @@ export function Recorder({ taskId, sent }: { taskId: string; sent: boolean }) {
   const start = async () => {
     setError(null);
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const type = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/ogg"].find((t) => typeof MediaRecorder !== "undefined" && MediaRecorder.isTypeSupported(t)) ?? "";
-      const r = new MediaRecorder(stream, { ...(type ? { mimeType: type } : {}), audioBitsPerSecond: 48_000 });
+      // clear voice: echo and noise reduced, steady volume, mono; best format (Opus, or MP4 on iPad/iPhone), ~64 kbit/s
+      const stream = await openMicrophone((c) => navigator.mediaDevices.getUserMedia(c));
+      let r: MediaRecorder;
+      try { r = new MediaRecorder(stream, recorderOptions(browserRecorderMime())); } catch { r = new MediaRecorder(stream); }
       chunks.current = [];
       r.ondataavailable = (e) => { if (e.data.size) chunks.current.push(e.data); };
       r.onstop = () => { stream.getTracks().forEach((t) => t.stop()); blob.current = new Blob(chunks.current, { type: r.mimeType || "audio/webm" }); setUrl(URL.createObjectURL(blob.current)); setState("ready"); if (timer.current) window.clearInterval(timer.current); };
@@ -25,7 +27,7 @@ export function Recorder({ taskId, sent }: { taskId: string; sent: boolean }) {
   const send = async () => {
     if (!blob.current) return;
     setState("sending"); setError(null);
-    const f = new FormData(); f.set("task", taskId); f.set("audio", blob.current, "reading.webm");
+    const f = new FormData(); f.set("task", taskId); f.set("audio", blob.current, /mp4/.test(blob.current.type) ? "reading.m4a" : "reading.webm");
     try {
       const r = await fetch("/api/recordings", { method: "POST", body: f });
       const j = (await r.json().catch(() => ({}))) as { error?: string };

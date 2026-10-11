@@ -1,59 +1,63 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { ReportHeader } from "@/components/report-kit";
-import { getActor, requireActor } from "@/server/auth/next";
+import { EmptyState } from "@/components/ui-kit";
+import { getT } from "@/i18n/server";
+import { getActor, repo, requireActor } from "@/server/auth/next";
+import { readableClasses } from "@/server/teacher/coordinators";
+import type { Subject } from "@/server/map/map-plan";
+import { mapTabOf, type MapTab } from "./href";
+import { ResultsTab } from "./results-tab";
+import { ReportsTab } from "./reports-tab";
+import { OverviewView } from "./overview";
+import { PlanTab } from "./plan-tab";
 
-export const metadata = { title: "MAP Center" };
+export const metadata = { title: "MAP" };
 
-type Tab = "student" | "class" | "school";
-interface Tile { href: string; icon: string; title: string; what: string; admin?: boolean }
+type SP = Record<string, string | string[] | undefined>;
+const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
+const TABS: [MapTab, string, string][] = [["results", "Results", "📊"], ["reports", "Reports", "📑"], ["plan", "Make a MAP plan", "🎯"]];
 
-/** Every MAP page, organised by the question it answers: one student, one class, the whole school. */
-const TILES: Record<Tab, { title: string; tiles: Tile[] }> = {
-  student: { title: "One student", tiles: [
-    { href: "/admin/student-file", icon: "🔎", title: "Student file", what: "Find a student: MAP profile, instructional areas, growth, plans and the 🔮 next-MAP prediction." },
-    { href: "/teacher/personal-plan", icon: "🎚", title: "Personal & 3-level plan", what: "A plan for each student from their MAP areas, at their level." },
-    { href: "/teacher/map-skill-plan", icon: "🧭", title: "MAP skill plan", what: "The skills behind a student's weakest instructional area." },
-    { href: "/teacher/growth", icon: "📈", title: "Growth", what: "Fall → Winter → Spring RIT and whether the projected growth was met." },
-  ] },
-  class: { title: "My class", tiles: [
-    { href: "/teacher/map-overview", icon: "📊", title: "Class MAP profile", what: "NWEA-style class profile: RIT bands, instructional areas, who needs what." },
-    { href: "/teacher/map-plans", icon: "📋", title: "MAP plans", what: "Build and send the class plan from MAP, by instructional area and level." },
-    { href: "/teacher/map-reports", icon: "📑", title: "MAP reports", what: "Printable class and student MAP reports." },
-    { href: "/teacher/map-test", icon: "🧭", title: "MAP practice test", what: "A practice test in MAP style, scored by instructional area." },
-    { href: "/teacher/learning-loop", icon: "🔄", title: "Learning Loop", what: "Weakest area vs practice, Weekly Checks and the next-MAP prediction for every student." },
-  ] },
-  school: { title: "Whole school", tiles: [
-    { href: "/teacher/map-rit", icon: "🗺️", title: "MAP data", what: "Import or enter MAP scores (3 Reading + 3 Language areas) and check them." },
-    { href: "/teacher/grade-summary", icon: "🏫", title: "Grade summary", what: "Each grade's RIT, growth and students at risk." },
-    { href: "/admin/map-classification", icon: "🧩", title: "MAP classification", what: "Every bank question's MAP test and instructional area.", admin: true },
-    { href: "/admin/map-links", icon: "🔗", title: "Bank ↔ MAP", what: "How the question bank covers each MAP goal.", admin: true },
-    { href: "/admin/map-continuum", icon: "📘", title: "Learning continuum", what: "NWEA learning statements by RIT band.", admin: true },
-  ] },
-};
-
-export default async function MapCenterPage({ searchParams }: { searchParams: Promise<{ tab?: string }> }) {
-  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
+/**
+ * 🗺️ MAP — the ONE MAP page (MAP Center, MAP plans, MAP skill plan, personal / 3-level plan, growth, MAP reports,
+ * overview and recommendations merged): Results · Reports · Make a MAP plan. One class and one MAP test at a time.
+ */
+export default async function MapPage({ searchParams }: { searchParams: Promise<SP> }) {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
+  const { t } = await getT();
   const sp = await searchParams;
-  const tab: Tab = sp.tab === "class" || sp.tab === "school" ? sp.tab : "student";
-  const admin = actor.role !== "TEACHER";
-  const chip = (on: boolean) => `rounded-full px-5 py-2 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
+  // old MAP Center tabs (student / class / school) open Results
+  const tab = mapTabOf(one(sp.tab));
+  const subject: Subject = /^lang/i.test(one(sp.subject)) ? "LANGUAGE" : "READING";
+  const classes = (await readableClasses(repo, actor)).map((c) => ({ id: String(c.id), name: String(c.name) })).sort((a, b) => a.name.localeCompare(b.name));
+  const classId = classes.find((c) => c.id === one(sp.classId))?.id ?? classes[0]?.id ?? "";
+  const msg = one(sp.msg);
+  const href = (p: Record<string, string>) => `/teacher/map-center?${new URLSearchParams({ tab, classId, subject, ...p })}`;
+  const pill = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
+  const back = actor.role === "TEACHER" ? "/teacher" : "/admin";
   return (
     <AppShell name={String(me.displayName)}>
-      <ReportHeader back={{ href: admin ? "/admin" : "/teacher", label: "Home" }} icon="🗺️" title="MAP Center" subtitle="All MAP work in one place, by what you want to know: one student, your class, or the whole school." print={false}
-        filters={<nav aria-label="MAP Center" className="flex flex-wrap gap-2">
-          {(Object.keys(TILES) as Tab[]).map((k) => <Link key={k} href={`/teacher/map-center?tab=${k}`} aria-current={k === tab ? "page" : undefined} className={chip(k === tab)}>{TILES[k].title}</Link>)}
-        </nav>} />
-      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {TILES[tab].tiles.filter((t) => admin || !t.admin).map((t) => (
-          <Link key={t.href} href={t.href} className="lift rounded-3xl bg-white p-5 ring-1 ring-slate-200 hover:ring-brand-teal">
-            <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl bg-slate-50 text-3xl ring-1 ring-slate-100">{t.icon}</span>
-            <span className="mt-2 block text-lg font-bold text-brand-navy">{t.title}</span>
-            <span className="mt-1 block text-sm text-slate-600">{t.what}</span>
-          </Link>
-        ))}
-      </section>
+      <ReportHeader back={{ href: back, label: "Home" }} icon="🗺️" title="MAP" print={tab !== "plan"}
+        subtitle={t("Your class's MAP scores, every MAP report, and plans made from the scores.")}
+        filters={<div className="flex flex-col gap-3">
+          <nav aria-label={t("MAP")} className="flex flex-wrap gap-2">
+            {TABS.map(([k, label, icon]) => <Link key={k} href={`/teacher/map-center?${new URLSearchParams({ tab: k, classId, subject })}`} aria-current={k === tab ? "page" : undefined} className={`inline-flex min-h-11 items-center gap-2 rounded-xl px-5 font-semibold ${k === tab ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`}><span aria-hidden="true">{icon}</span>{t(label)}</Link>)}
+          </nav>
+          {tab !== "plan" && classes.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2">
+              {classes.length > 1 && classes.map((c) => <Link key={c.id} href={href({ classId: c.id })} aria-current={c.id === classId ? "page" : undefined} className={pill(c.id === classId)}>{c.name}</Link>)}
+              {classes.length > 1 && <span aria-hidden="true" className="mx-1 h-6 w-px bg-slate-300" />}
+              <Link href={href({ subject: "READING" })} className={pill(subject === "READING")}>{t("Reading")}</Link>
+              <Link href={href({ subject: "LANGUAGE" })} className={pill(subject === "LANGUAGE")}>{t("Language Usage")}</Link>
+            </div>
+          )}
+        </div>} />
+      {msg && <p role="status" className="mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{msg}</p>}
+      {!classes.length ? <EmptyState icon="🗺️" title="No classes yet" text="When the admin adds you to a class, its MAP scores appear here." /> :
+        tab === "results" ? <ResultsTab actor={actor} t={t} classId={classId} subject={subject} /> :
+        tab === "reports" ? (one(sp.view) === "overview" ? <OverviewView actor={actor} t={t} subject={subject} term={one(sp.term) || undefined} classId={classId} /> : <ReportsTab actor={actor} t={t} classId={classId} subject={subject} />) :
+        <PlanTab actor={actor} t={t} sp={sp} classId={classId} subject={subject} />}
     </AppShell>
   );
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { BigTile, TileGroup, EmptyState } from "@/components/ui-kit";
+import { BigTile, TileGroup, EmptyState, PageHero, BTN_PRIMARY } from "@/components/ui-kit";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { maybeRunDaily } from "@/server/insights/daily";
@@ -10,14 +10,17 @@ import { goalProgress } from "@/server/admin/school-goals";
 import { GoalsTable } from "@/components/home/goals-table";
 import { AddStudentButton, ClassSelect, SkillFinder } from "@/components/teacher/home-widgets";
 import { AssignSkillHost } from "./assign-dialog";
+import { classToday } from "@/server/teacher/my-week";
 
 export const metadata = { title: "Teacher Home" };
 
 /**
- * 🏠 Teacher Home (UI reorg Phase 3), top to bottom — for the selected class only:
- *   class selector · "Hello, [name] — Grade X · N students" + Add Student / Upload Roster / Download Accounts /
- *   Upload MAP Scores · Find a skill and assign it · Needs your attention (≤ 3 cards) · My Class · Programs · Resources.
- * Data: src/server/teacher/home.ts (bounded reads). Every other teacher page stays one click away in the side menu.
+ * 🏠 Teacher Home — one goal: "Your class today". Top to bottom, for the selected class only:
+ *   class selector · Your class today (class, grade, students) with three big numbers (worked today · need help ·
+ *   not started; each opens its list) and ONE primary button (My Week) · Find a skill and assign it (SkillFinder) ·
+ *   four quick links (My Students, Plans, Assessments, Live Challenge) · class accounts and scores (folded) ·
+ *   school goals (folded). Everything else is in the side menu.
+ * Data: src/server/teacher/home.ts and src/server/teacher/my-week.ts (bounded reads, own classes only).
  */
 export default async function TeacherHome({ searchParams }: { searchParams?: Promise<{ classId?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
@@ -29,72 +32,68 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
   const { t } = await getT();
   const h = await teacherHomeData(repo, actor, sp.classId ?? null).catch(() => teacherHomeData(repo, actor, null));
   const k = h.klass;
-  const goals = k ? await goalProgress(repo, actor, await repo.findMany("Class", { id: k.id }), new Date()).catch(() => null) : null;
+  const [today, goals] = k ? await Promise.all([
+    classToday(repo, actor, k.id).catch(() => null),
+    goalProgress(repo, actor, await repo.findMany("Class", { id: k.id }), new Date()).catch(() => null),
+  ]) : [null, null];
   const q = k ? `?classId=${k.id}` : "";
-  const quick = "lift flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl bg-white px-4 py-3 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal";
+  const tests = h.attention.find((a) => a.kind === "tests");
+  const quick = "lift flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl bg-white px-4 py-3 font-semibold text-brand-navy shadow-sm ring-1 ring-slate-200 hover:ring-brand-teal";
+  const big = [
+    { key: "done", label: "Worked today", value: today?.doneToday ?? 0, href: k ? `/teacher/progress${q}` : "/teacher/students", tone: "text-emerald-700", dot: "bg-emerald-400", icon: "✅" },
+    { key: "help", label: "Need help", value: today?.needHelp ?? 0, href: k ? `/teacher/intervention${q}` : "/teacher/intervention", tone: "text-orange-700", dot: "bg-orange-400", icon: "🤝" },
+    { key: "not", label: "Not started", value: today?.notStarted ?? 0, href: k ? `/teacher/attention?kind=not-started&classId=${k.id}` : "/teacher/students", tone: "text-sky-700", dot: "bg-sky-400", icon: "⏳" },
+  ];
   return (
     <AppShell name={String(me.displayName)}>
       {h.classes.length > 1 && k && <div className="mb-4 flex justify-end"><ClassSelect classes={h.classes} value={k.id} /></div>}
 
-      <header className="rounded-3xl bg-white p-5 ring-1 ring-slate-200 sm:p-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-brand-navy sm:text-3xl">
-          {t("Hello, {name}", { name: String(me.displayName) })}
-        </h1>
-        <p className="mt-1 text-lg text-slate-600">
-          {k ? <><bdi>{k.name}</bdi> · {t("Grade {n}", { n: k.grade })} · {t("{n} students", { n: k.students })}</> : t("You do not teach any class yet.")}
-        </p>
+      <PageHero tone="teacher" eyebrow={t("Hello, {name}", { name: String(me.displayName) })} title={t("Your class today")}
+        subtitle={k ? <><bdi>{k.name}</bdi> · {t("Grade {n}", { n: k.grade })} · {t("{n} students", { n: k.students })}</> : t("You do not teach any class yet.")}
+        actions={k ? <Link prefetch={false} href={`/teacher/week${q}`} className={`${BTN_PRIMARY} min-h-12 rounded-2xl px-6`}>{t("Open My Week")}</Link> : null}>
         {k && (
-          <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
-            <AddStudentButton classId={k.id} className={k.name} />
-            <Link prefetch={false} href={`/teacher/accounts/roster${q}`} className={quick}><span aria-hidden="true">📤</span> {t("Upload Roster")}</Link>
-            <Link prefetch={false} href={`/teacher/accounts${q}`} className={quick}><span aria-hidden="true">⬇️</span> {t("Download Accounts")}</Link>
-            <Link prefetch={false} href={`/teacher/map-entry${q}`} className={quick}><span aria-hidden="true">🗺️</span> {t("Upload MAP Scores")}</Link>
-          </div>
+          <>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {big.map((b) => (
+                <Link key={b.key} prefetch={false} href={b.href} className="hero-tile lift flex min-h-28 flex-col justify-center rounded-2xl px-5 py-4">
+                  <span className="flex items-center justify-between gap-2">
+                    <span dir="ltr" className={`text-5xl font-semibold tabular-nums ${b.tone}`}>{b.value}</span>
+                    <span aria-hidden="true" className="grid h-10 w-10 place-items-center rounded-full bg-white text-xl shadow-sm">{b.icon}</span>
+                  </span>
+                  <span className="mt-1 flex items-center gap-2 font-semibold text-slate-700"><span aria-hidden="true" className={`h-2.5 w-2.5 rounded-full ${b.dot}`} />{t(b.label)}</span>
+                </Link>
+              ))}
+            </div>
+            {tests && <p className="mt-3"><Link prefetch={false} href={tests.href} className="inline-flex min-h-11 items-center text-sm font-semibold text-brand-teal underline">{t("Tests with new results")}: {tests.count}</Link></p>}
+          </>
         )}
-      </header>
+      </PageHero>
 
       {k && <SkillFinder classGrade={k.grade} noCurriculum={h.noCurriculum ? h.noCurriculumMessage : null} canAssign={actor.role === "TEACHER"} />}
       {k && <AssignSkillHost classId={k.id} className={k.name} students={h.students} />}
 
+      <TileGroup title="My Class" tone="sky" cols={4}>
+        <BigTile href="/teacher/students" icon="👥" label="My Students" hint="Class list, accounts and each student’s page" tour="students" tone="sky" />
+        <BigTile href={`/teacher/plans${q}`} icon="🗂️" label="Plans" hint="NAFS and custom plans, and all plans sent" tour="plans" tone="violet" />
+        <BigTile href={`/teacher/assessments${q}`} icon="📝" label="Assessments" hint="Build a test from skills" tour="assessments" tone="sun" />
+        <BigTile href={`/teacher/games${q}`} icon="🏁" label="Live Challenge" hint="The whole class plays together" tone="rose" />
+      </TileGroup>
+
       {k && (
-        <section aria-labelledby="attention-h" className="mt-8">
-          <h2 id="attention-h" className="mb-3 text-xl font-semibold text-brand-navy"><span aria-hidden="true">🔔</span> {t("Needs your attention")}</h2>
-          {h.attention.length === 0 ? <EmptyState compact icon="✅" title="Nothing needs your attention right now" /> : (
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {h.attention.map((a) => (
-                <Link key={a.kind} prefetch={false} href={a.href} className="lift flex min-h-24 items-center gap-4 rounded-2xl bg-white p-4 ring-1 ring-amber-200 hover:ring-amber-400">
-                  <span aria-hidden="true" className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-amber-50 text-3xl">{a.icon}</span>
-                  <span className="min-w-0">
-                    <span className="block text-3xl font-semibold tabular-nums text-amber-800" dir="ltr">{a.count}</span>
-                    <span className="block font-semibold text-slate-900">{t(a.title)}</span>
-                  </span>
-                </Link>
-              ))}
-            </div>
-          )}
-        </section>
+        <details className="mt-8 rounded-3xl bg-white p-4 shadow-card ring-1 ring-slate-200/80 sm:px-6">
+          <summary className="min-h-11 cursor-pointer content-center text-lg font-semibold text-brand-navy">{t("Class accounts and scores")}</summary>
+          <div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">
+            <AddStudentButton classId={k.id} className={k.name} />
+            <Link prefetch={false} href={`/teacher/accounts/roster${q}`} className={quick}>{t("Upload Roster")}</Link>
+            <Link prefetch={false} href={`/teacher/accounts${q}`} className={quick}>{t("Download Accounts")}</Link>
+            <Link prefetch={false} href={`/teacher/map-entry${q}`} className={quick}>{t("Upload MAP Scores")}</Link>
+          </div>
+        </details>
       )}
 
-      <TileGroup title="My Class" icon="👥" cols={4}>
-        <BigTile href={k ? `/teacher/classes/${k.id}` : "/teacher/classes"} icon="👥" label="My Students" hint="Class list, accounts and each student’s page" tour="students" />
-        <BigTile href={`/teacher/plans${q}`} icon="🗂️" label="Plans" hint="Make any plan and Assign it" tour="plans" />
-        <BigTile href={`/teacher/assessments${q}`} icon="📝" label="Assessments" hint="Build a test from skills" tour="assessments" />
-        <BigTile href={`/teacher/games${q}`} icon="🏁" label="Live Challenge" hint="The whole class plays together" />
-      </TileGroup>
-      <TileGroup title="Programs" icon="🧭">
-        <BigTile href="/teacher/map-center" icon="🗺️" label="MAP" hint="Scores and results" />
-        <BigTile href="/admin/curriculum-map" icon="🧭" label="Curriculum Map" hint="Units and lessons" />
-        <BigTile href={`/teacher/rti-plan${q}`} icon="🛟" label="RTI Program" hint="RTI groups and weekly sessions" />
-      </TileGroup>
-      <TileGroup title="Resources" icon="📚">
-        <BigTile href="/admin/questions?status=PUBLISHED" icon="📚" label="Question Bank" hint="All questions by skill" />
-        <BigTile href="/admin/grammar" icon="🔤" label="Grammar" hint="Every grade’s grammar skills" />
-        <BigTile href={`/teacher/reports${q}`} icon="📊" label="Reports" hint="Every report in one place" />
-      </TileGroup>
-
       {goals && goals.rows.length > 0 && (
-        <details className="mt-8 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-          <summary className="cursor-pointer text-lg font-semibold text-brand-navy"><span aria-hidden="true">🎯</span> {t("School goals this week")}</summary>
+        <details className="mt-4 rounded-3xl bg-white p-4 shadow-card ring-1 ring-slate-200/80 sm:px-6">
+          <summary className="min-h-11 cursor-pointer content-center text-lg font-semibold text-brand-navy">{t("School goals this week")}</summary>
           <div className="mt-3"><GoalsTable data={goals} /></div>
         </details>
       )}

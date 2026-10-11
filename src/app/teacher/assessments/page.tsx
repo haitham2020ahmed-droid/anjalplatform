@@ -4,7 +4,7 @@ import { Meter, ReportHeader } from "@/components/report-kit";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { listTemplates, teacherTests } from "@/server/tests/assessments";
 import { deleteTemplateAction } from "./actions";
-import { EmptyState, SourceTag } from "@/components/ui-kit";
+import { EmptyState, SourceTag, BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit";
 import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Assessments" };
@@ -20,12 +20,12 @@ export default async function AssessmentsPage({ searchParams }: { searchParams: 
   return (
     <AppShell name={String(me.displayName)}>
       <ReportHeader back={{ href: "/teacher", label: "Home" }} icon="📝" title={t("Assessments")} subtitle={t("Build a test from skills, assign it, and see the results by skill.")} print={false}>
-        <Link href="/teacher/assessments/new" className="inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white">+ {t("New test")}</Link>
+        <Link href="/teacher/assessments/new" className={`${BTN_PRIMARY} rounded-2xl px-5`}>+ {t("New test")}</Link>
       </ReportHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-sky-50 px-4 py-3 text-sky-900 ring-1 ring-sky-200">{sp.msg}</p>}
-      <section className="rk-section rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+      <section className="rk-section rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6">
         <h2 className="text-lg font-semibold text-brand-navy">{t("My tests")}</h2>
-        {!tests.length ? <EmptyState compact icon="📝" title="No tests yet" text="Press “+ New test” to build your first one." action={{ href: "/teacher/assessments/new", label: "+ New test" }} className="mt-3" /> : (
+        {!tests.length ? <EmptyState compact icon="📝" title="No tests yet" text="Press “+ New test” to build your first one." className="mt-3" /> : (
           <ul className="mt-3 divide-y divide-slate-100">
             {tests.map((x) => (
               <li key={x.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
@@ -34,13 +34,13 @@ export default async function AssessmentsPage({ searchParams }: { searchParams: 
                   <p className="text-sm text-slate-600">{x.className} · {t("assigned {date}", { date: day(x.createdAt) })}{x.dueAt ? ` · ${t("Due {date}", { date: day(x.dueAt) })}` : ""} · {t("{done} of {total} finished", { done: x.completed, total: x.assigned })}</p>
                   <Meter value={x.completed} total={x.assigned} className="mt-1.5 max-w-xs" />
                 </div>
-                <Link href={`/teacher/assessments/${x.id}`} className="inline-flex min-h-11 items-center rounded-xl px-4 font-semibold text-brand-navy ring-1 ring-slate-300">{t("Results")}</Link>
+                <Link href={`/teacher/assessments/${x.id}`} className={BTN_SECONDARY}>{t("Results")}</Link>
               </li>
             ))}
           </ul>
         )}
       </section>
-      <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
+      <section className="mt-6 rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6">
         <h2 className="text-lg font-semibold text-brand-navy">{t("My templates")}</h2>
         {!templates.length ? <EmptyState compact icon="📋" title="No templates yet" text="In the builder, press “Save as template” to reuse a test later." className="mt-3" /> : (
           <ul className="mt-3 divide-y divide-slate-100">
@@ -48,7 +48,7 @@ export default async function AssessmentsPage({ searchParams }: { searchParams: 
               <li key={x.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
                 <p className="font-semibold text-brand-navy">{x.title} <span className="ms-1 text-sm font-normal text-slate-600">{t(x.typeName)} · {t("{n} skill(s)", { n: x.skills })}</span></p>
                 <div className="flex gap-2">
-                  <Link href={`/teacher/assessments/new?template=${x.id}`} className="inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-4 font-semibold text-white">{t("Use / Edit")}</Link>
+                  <Link href={`/teacher/assessments/new?template=${x.id}`} className={BTN_SECONDARY}>{t("Use / Edit")}</Link>
                   <form action={deleteTemplateAction}><input type="hidden" name="id" value={x.id} /><button className="min-h-11 rounded-xl px-4 font-semibold text-rose-700 ring-1 ring-rose-200">{t("Delete")}</button></form>
                 </div>
               </li>

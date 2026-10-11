@@ -4,17 +4,36 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { getT } from "@/i18n/server";
-import { assignTest, deleteTemplate, personalizeNafsFromTest, previewTest, reteach, saveTemplate, type AssignTestInput, type LevelMode, type PickedSkill, type TemplateSpec, type TestPreview } from "@/server/tests/assessments";
+import { assertCan } from "@/server/auth/rbac";
+import { assignTest, deleteTemplate, describe, MAX_TEST_QUESTIONS, personalizeNafsFromTest, previewTest, reteach, saveTemplate, type AssignTestInput, type LevelMode, type PickedSkill, type TemplateSpec, type TestPreview } from "@/server/tests/assessments";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "assignments:create" as const };
 const known = (e: unknown) => e instanceof ValidationError || e instanceof ForbiddenError;
 /** A date box value (YYYY-MM-DD): the open date starts that morning, the due date ends that evening. */
 const dateOf = (v: unknown, endOfDay = false): Date | null => { let t = String(v ?? "").trim(); if (!t) return null; if (/^\d{4}-\d{2}-\d{2}$/.test(t)) t += endOfDay ? "T23:59:59" : "T00:00:00"; const d = new Date(t); return Number.isNaN(d.getTime()) ? null : d; };
 
-export async function previewTestAction(input: { skills: PickedSkill[]; levelMode: LevelMode; seed?: string }): Promise<{ preview?: TestPreview; error?: string }> {
+/**
+ * Preview: the platform picks `count` questions for each skill; a skill with the teacher's own questions
+ * ("I'll pick the questions") uses exactly those, in every version.
+ */
+export async function previewTestAction(input: { skills: (PickedSkill & { questionIds?: string[] })[]; levelMode: LevelMode; seed?: string }): Promise<{ preview?: TestPreview; error?: string }> {
   const actor = await requireActor(STAFF);
-  try { return { preview: await previewTest(repo, actor, { skills: Array.isArray(input?.skills) ? input.skills : [], levelMode: input?.levelMode === "LEVEL" ? "LEVEL" : "SAME", seed: String(input?.seed ?? "") }) }; }
-  catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
+  try {
+    const levelMode: LevelMode = input?.levelMode === "LEVEL" ? "LEVEL" : "SAME";
+    const all = Array.isArray(input?.skills) ? input.skills : [];
+    const own = (k: (typeof all)[number]) => Array.isArray(k?.questionIds) && k.questionIds.length > 0;
+    const auto = all.filter((k) => !own(k)).map((k) => ({ skillId: String(k?.skillId ?? ""), count: Number(k?.count) || 5 }));
+    const ids = [...new Set(all.filter(own).flatMap((k) => k.questionIds!.map(String)))];
+    if (!ids.length) return { preview: await previewTest(repo, actor, { skills: auto, levelMode, seed: String(input?.seed ?? "") }) };
+    assertCan(actor, "questions:read");
+    if (ids.length > MAX_TEST_QUESTIONS) throw new ValidationError(`A test can have at most ${MAX_TEST_QUESTIONS} questions — lower the numbers.`);
+    const base: TestPreview = auto.length ? await previewTest(repo, actor, { skills: auto, levelMode, seed: String(input?.seed ?? "") }) : { levelMode, versions: {}, notes: [] };
+    const mine = (await describe(repo, actor, { SAME: ids })).SAME ?? [];
+    const keys = levelMode === "LEVEL" ? (["BELOW", "ON", "ABOVE"] as const) : (["SAME"] as const);
+    const versions: TestPreview["versions"] = {};
+    for (const key of keys) versions[key] = [...(base.versions[key] ?? []), ...mine];
+    return { preview: { levelMode, versions, notes: base.notes } };
+  } catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
 }
 
 export async function assignTestAction(input: Omit<AssignTestInput, "openAt" | "dueAt"> & { openAt?: string; dueAt?: string }): Promise<{ testId?: string; error?: string }> {

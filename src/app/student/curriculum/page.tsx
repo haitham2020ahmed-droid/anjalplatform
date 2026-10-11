@@ -1,38 +1,26 @@
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
+import { EmptyState } from "@/components/ui-kit/empty-state";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { studentCurriculum } from "@/server/student/student-home";
-import { EmptyState } from "@/components/ui-kit";
+import { studentCurriculumLessons } from "@/server/curriculum-map/lesson-details";
+import { studentSkillPlans } from "@/server/curriculum-map/plans";
+import { StudentCurriculum } from "@/components/curriculum-map/student-curriculum";
+import { hideLevels } from "@/lib/hide-levels";
 import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Curriculum Map" };
 
-/** 🧭 Curriculum Map for students: the units of my grade and their Text Sets / Selections (read only). */
+/** Curriculum Map for students: the Curriculum plans sent to me, then my grade's lessons (read only, no levels). */
 export default async function StudentCurriculumPage() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
-  const [{ t }, v] = await Promise.all([getT(), studentCurriculum(repo, actor)]);
+  const [{ t }, v, plans] = await Promise.all([getT(), studentCurriculumLessons(repo, actor), studentSkillPlans(repo, actor)]);
+  const sent = plans.filter((p) => p.kind === "CURRICULUM" || p.kind === "UNIT").map((p) => ({ id: p.id, title: hideLevels(p.title), done: p.done, parts: p.places }));
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student", label: "Home" }} icon="🧭" title="Curriculum Map" subtitle={v.grade !== null ? t("Grade {n}: units and text sets", { n: v.grade }) : undefined} />
-      {!v.units.length ? <EmptyState icon="🧭" title="Nothing here yet" text="Check back later." /> : (
-        <ol className="grid gap-4 md:grid-cols-2">
-          {v.units.map((u) => (
-            <li key={u.id} className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-              <h2 className="text-lg font-semibold text-brand-navy" data-content lang="en"><bdi>{u.title}</bdi></h2>
-              {u.sets.length ? (
-                <ul className="mt-3 space-y-2" data-content lang="en">
-                  {u.sets.map((x) => (
-                    <li key={x.id} className="rounded-xl bg-blue-50/60 px-3 py-2 ring-1 ring-blue-100">
-                      <p className="font-medium text-slate-800">{x.title}</p>
-                      {(x.sharedRead || x.genre) && <p className="text-sm text-slate-600">{[x.sharedRead, x.genre].filter(Boolean).join(" · ")}</p>}
-                    </li>
-                  ))}
-                </ul>
-              ) : <p className="mt-2 text-sm text-slate-500">{t("Nothing here yet")}</p>}
-            </li>
-          ))}
-        </ol>
+      <PageHeader back={{ href: "/student", label: "Home" }} title="Curriculum Map" subtitle={v.grade !== null ? t("Grade {n}", { n: v.grade }) : undefined} />
+      {!v.units.length && !sent.length ? <EmptyState icon="🧭" title="Nothing here yet" text="Check back later." /> : (
+        <StudentCurriculum plans={sent} units={v.units.map((u) => ({ code: u.code, title: u.title, lessons: u.lessons.map((l) => ({ ...l, sections: l.sections.map((s) => ({ code: s.code, title: s.title, ready: s.ready })) })) }))} />
       )}
     </AppShell>
   );

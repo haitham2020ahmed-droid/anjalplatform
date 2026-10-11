@@ -32,7 +32,7 @@ export default async function MapTestPage({ searchParams }: { searchParams: Prom
   const today = new Date().toISOString().slice(0, 10), in14 = new Date(Date.now() + 14 * 86_400_000).toISOString().slice(0, 10);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/map-plans", label: "MAP plans" }} icon="🧭" title="MAP Practice Test" subtitle="A MAP-style test (harder or easier as each student answers) for every student before Winter and Spring: 50 Reading + 50 Language questions, shared between the goal areas. It shows who is on track for the Spring goal before the real test.">
+      <PageHeader back={{ href: "/teacher/map-center", label: "MAP" }} icon="🧭" title="MAP Practice Test" subtitle="A MAP-style test (harder or easier as each student answers) for every student before Winter and Spring: 50 Reading + 50 Language questions, shared between the goal areas. It shows who is on track for the Spring goal before the real test.">
         <PrintButton />
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}

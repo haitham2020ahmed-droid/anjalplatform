@@ -1,5 +1,6 @@
 /**
- * Text-to-speech providers for PRE-GENERATED read-aloud audio (scripts/tts/pregenerate.ts).
+ * Text-to-speech providers for read-aloud audio: pre-generated (scripts/tts/pregenerate.ts) or made once on first
+ * listen (on-demand.ts), then cached in TtsAudio per text + voice + speed.
  *
  * Provider-agnostic: each provider turns a spoken text (a passage or a question — never anything about a
  * student) into one audio file plus the start time of every word (`speechWords`), used to highlight words as
@@ -8,9 +9,11 @@
  *   google  Google Cloud Text-to-Speech (v1beta1). Default voice Chirp 3 HD (most natural): word timings are
  *           estimated sentence by sentence. Neural2/WaveNet/Studio voices get EXACT word timings from SSML <mark>
  *           timepoints (marks are not billed). MP3 output.
- *   gemini  Gemini API speech generation (the school's Gemini key). PCM → 16 kHz WAV; estimated timings.
+ *   gemini  Gemini API speech generation (the school's Gemini key, model gemini-2.5-flash-preview-tts, voice Kore).
+ *           PCM → 16 kHz WAV; estimated timings. Slow = the same voice asked to read slowly (a natural slow
+ *           reading, not a stretched recording).
  */
-import { chunkWords, estimateWordTimes, speechWords, type SpeechWord, type WordTimings } from "@/lib/tts/text";
+import { chunkWords, estimateWordTimes, speechWords, type SpeechWord, type TtsSpeed, type WordTimings } from "@/lib/tts/text";
 import { joinMp3, mp3DurationMs, parseWav, pcm16, resample, wavFile } from "./audio";
 import type { TtsEnv } from "./env";
 
@@ -20,7 +23,7 @@ export interface TtsProvider {
   id: TtsProviderId;
   /** voice name as stored with the audio (regenerate when it changes) */
   voice: string;
-  synthesize(text: string): Promise<TtsResult>;
+  synthesize(text: string, opts?: { speed?: TtsSpeed }): Promise<TtsResult>;
 }
 export type FetchLike = (url: string, init: { method: string; headers: Record<string, string>; body: string; signal?: AbortSignal }) => Promise<{ ok: boolean; status: number; json(): Promise<unknown>; text(): Promise<string> }>;
 export interface ProviderOpts { fetchImpl?: FetchLike; timeoutMs?: number }
@@ -33,6 +36,8 @@ export class TtsError extends Error {
 const b64 = (s: string) => new Uint8Array(Buffer.from(s, "base64"));
 const xml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 const rateOf = (env: TtsEnv) => { const r = Number(env.TTS_SPEAKING_RATE); return r >= 0.25 && r <= 2 ? r : 0.95; };
+/** Slow audio: this share of the normal speaking rate (Google). */
+export const SLOW_FACTOR = 0.8;
 
 async function post(f: FetchLike, url: string, headers: Record<string, string>, body: unknown, timeoutMs: number, who: string): Promise<Record<string, unknown>> {
   let res;
@@ -67,8 +72,9 @@ export function googleProvider(env: TtsEnv, o: ProviderOpts = {}): TtsProvider {
   return {
     id: "google",
     voice,
-    async synthesize(text) {
+    async synthesize(text, so) {
       const words = speechWords(text);
+      const rate = Math.max(0.25, Math.round(rateOf(env) * (so?.speed === "slow" ? SLOW_FACTOR : 1) * 100) / 100);
       const parts: Uint8Array[] = [];
       const starts: number[] = [];
       let offset = 0, billed = 0, exact = marks;
@@ -81,7 +87,7 @@ export function googleProvider(env: TtsEnv, o: ProviderOpts = {}): TtsProvider {
         const r = await post(f, "https://texttospeech.googleapis.com/v1beta1/text:synthesize", { "x-goog-api-key": key }, {
           input,
           voice: { languageCode: "en-US", name: voice },
-          audioConfig: { audioEncoding: "MP3", speakingRate: rateOf(env) },
+          audioConfig: { audioEncoding: "MP3", speakingRate: rate },
           ...(marks ? { enableTimePointing: ["SSML_MARK"] } : {}),
         }, o.timeoutMs ?? 60_000, "Google Text-to-Speech");
         if (typeof r.audioContent !== "string" || !r.audioContent) throw new TtsError("Google Text-to-Speech: no audio in the answer.");
@@ -105,16 +111,36 @@ export function googleProvider(env: TtsEnv, o: ProviderOpts = {}): TtsProvider {
 
 const GEMINI_RATE = 16_000; // stored sample rate: speech stays clear at 16 kHz, files are a third smaller than 24 kHz
 
+export const DEFAULT_GEMINI_TTS_MODEL = "gemini-2.5-flash-preview-tts";
+/** Warm, clear and natural for young readers (Puck is a livelier alternative). */
+export const DEFAULT_GEMINI_VOICE = "Kore";
+export const DEFAULT_GEMINI_STYLE = "Read aloud in a warm, clear American English voice, at a calm pace for young students";
+export const GEMINI_SLOW_STYLE = "Read aloud slowly and clearly, word by word but still natural, with a short pause after each sentence, in a warm American English voice for young students learning English";
+
+/** The instruction for a speed: Slow always asks for a slow reading (even when the school's own style is empty). */
+export function geminiStyle(env: TtsEnv, speed: TtsSpeed = "normal"): string {
+  if (speed === "slow") return env.GEMINI_TTS_STYLE?.trim() ? `${env.GEMINI_TTS_STYLE.trim()}. Read slowly, with clear pauses between sentences` : GEMINI_SLOW_STYLE;
+  return env.GEMINI_TTS_STYLE ?? DEFAULT_GEMINI_STYLE;
+}
+
+/** The generateContent body for one piece of text (the text only: never a name or an id). */
+export function geminiTtsBody(text: string, voiceName: string, style: string): Record<string, unknown> {
+  return {
+    contents: [{ parts: [{ text: style ? `${style}:\n${text}` : text }] }],
+    generationConfig: { responseModalities: ["AUDIO"], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName } } } },
+  };
+}
+
 export function geminiProvider(env: TtsEnv, o: ProviderOpts = {}): TtsProvider {
   const key = env.GEMINI_API_KEY ?? "";
-  const model = env.GEMINI_TTS_MODEL?.trim() || "gemini-2.5-flash-preview-tts";
-  const voiceName = env.GEMINI_TTS_VOICE?.trim() || "Kore";
-  const style = env.GEMINI_TTS_STYLE ?? "Read aloud in a warm, clear American English voice, at a calm pace for young students";
+  const model = env.GEMINI_TTS_MODEL?.trim() || DEFAULT_GEMINI_TTS_MODEL;
+  const voiceName = env.GEMINI_TTS_VOICE?.trim() || DEFAULT_GEMINI_VOICE;
   const f = o.fetchImpl ?? (fetch as unknown as FetchLike);
   return {
     id: "gemini",
     voice: `${model}:${voiceName}`,
-    async synthesize(text) {
+    async synthesize(text, so) {
+      const style = geminiStyle(env, so?.speed ?? "normal");
       const words = speechWords(text);
       const pcm: Int16Array[] = [];
       const starts: number[] = [];
@@ -122,10 +148,7 @@ export function geminiProvider(env: TtsEnv, o: ProviderOpts = {}): TtsProvider {
       for (const [a, b] of chunkWords(words, 1500)) {
         const plain = words.slice(a, b).map((w) => w.text).join(" ");
         billed += plain.length;
-        const r = await post(f, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, { "x-goog-api-key": key }, {
-          contents: [{ parts: [{ text: style ? `${style}:\n${plain}` : plain }] }],
-          generationConfig: { responseModalities: ["AUDIO"], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName } } } },
-        }, o.timeoutMs ?? 120_000, "Gemini speech");
+        const r = await post(f, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, { "x-goog-api-key": key }, geminiTtsBody(plain, voiceName, style), o.timeoutMs ?? 120_000, "Gemini speech");
         requests++;
         const cand = (r.candidates as { content?: { parts?: Record<string, unknown>[] } }[] | undefined)?.[0];
         const part = cand?.content?.parts?.find((p) => p.inlineData || p.inline_data);

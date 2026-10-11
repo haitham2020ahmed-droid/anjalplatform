@@ -11,6 +11,7 @@ import type { MasteryBandName } from "../../types/domain";
 import { BandMeter } from "../curriculum/band-meter";
 import { AnswerInput, type AnswerValue } from "./answer-input";
 import { FeedbackPanel } from "./feedback-panel";
+import { CelebrateFx } from "../feedback-fx/answer-fx";
 import { ListenButton } from "@/components/listen-button";
 import { PassageText, plainPassage } from "@/components/passage-text";
 
@@ -22,6 +23,8 @@ const END_TEXT: Record<string, string> = {
   STUDENT_EXIT: "Practice saved. You can continue any time.",
   LEVEL_CONFIRMED: "Great work. The platform is now sure of your level on this skill. Try your next step!",
 };
+/** a finished practice that earns the small celebration (not a pause or a detour) */
+const CELEBRATE = new Set(["COMPLETED", "ALL_QUESTIONS_ANSWERED", "POOL_EXHAUSTED", "LEVEL_CONFIRMED"]);
 
 export function PracticeFrame(props: {
   view: PracticeView;
@@ -66,7 +69,7 @@ export function PracticeFrame(props: {
             <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
             <div className="mt-5"><AnswerInput q={q} value={props.value} onChange={props.onChange} disabled={!!fb || props.pending} /></div>
             {props.error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{props.error}</p>}
-            <div className="mt-6">{fb && <FeedbackPanel fb={fb} questionId={q.questionId} />}</div>
+            <div className="mt-6">{fb && <FeedbackPanel fb={fb} questionId={q.questionId} fxKey={`${view.sessionId}|${q.questionId}|${view.answered}`} />}</div>
             <div className="mt-6 flex flex-wrap gap-3">
               {!fb && (
                 <button type="button" onClick={props.onCheck} disabled={!props.ready || props.pending}
@@ -84,6 +87,7 @@ export function PracticeFrame(props: {
                 <a href={props.unitHref} className="rounded-xl border-2 border-slate-300 px-6 py-3 text-lg font-semibold text-brand-navy">Back to my skills</a>
               )}
             </div>
+            {fb && !fb.next.hasQuestion && fb.next.endReason && CELEBRATE.has(fb.next.endReason) && <div className="mt-4"><CelebrateFx /></div>}
             {fb && !fb.next.hasQuestion && fb.next.endReason && <p className="mt-4 text-lg text-slate-700">{END_TEXT[fb.next.endReason]}</p>}
           </div>
         </div>

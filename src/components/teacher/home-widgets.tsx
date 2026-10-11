@@ -5,6 +5,7 @@ import { useT } from "@/i18n/client";
 import { SourceTag, EmptyState, BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit";
 import { addStudentAction, findSkillsAction, type AddStudentState } from "@/app/teacher/home-actions";
 import type { SkillFamily } from "@/server/teacher/home";
+import { SkillQuestionPicker, dedupeSkillsByName } from "@/components/skill-picker";
 
 const OPEN = "skill-assign:open";
 const field = "min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-base";
@@ -76,50 +77,48 @@ function AddStudentForm({ classId, className, close }: { classId: string; classN
   );
 }
 
-/** 🔎 Find a skill and assign it: skill names only, one result per skill (grade tags), Assign → student / group / class. */
+/** 🔎 Find a skill and assign it: skill names only, one row per skill name (no grade tags); open a skill to see its questions; Assign → student / group / class. */
 export function SkillFinder({ classGrade, noCurriculum, canAssign }: { classGrade: number | null; noCurriculum: string | null; canAssign: boolean }) {
   const t = useT();
   const [q, setQ] = useState("");
   const [rows, setRows] = useState<SkillFamily[] | null>(null);
-  const [pick, setPick] = useState<Record<string, string>>({});
   const [pending, start] = useTransition();
   const search = (e?: React.FormEvent) => {
     e?.preventDefault();
     const v = q.trim();
     if (v.length < 3) { setRows(null); return; }
-    start(async () => { setRows(await findSkillsAction(v, classGrade)); setPick({}); });
+    // one row per skill name (+ grammar or not), even if the server sends the same name twice
+    start(async () => { setRows(dedupeSkillsByName(await findSkillsAction(v, classGrade), (f) => (f.pick.grammar ? "GRAMMAR" : "READING"))); });
   };
   return (
-    <section aria-labelledby="find-skill-h" className="mt-6 rounded-3xl bg-white p-5 ring-1 ring-slate-200 sm:p-6">
+    <section aria-labelledby="find-skill-h" className="mt-6 rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6">
       <h2 id="find-skill-h" className="text-xl font-semibold text-brand-navy"><span aria-hidden="true">🔎</span> {t("Find a skill and assign it")}</h2>
       {noCurriculum && <p className="mt-2 rounded-xl bg-sky-50 px-4 py-3 text-sm text-sky-950 ring-1 ring-sky-200">{t(noCurriculum)}</p>}
       <form onSubmit={search} className="mt-3 flex flex-col gap-2 sm:flex-row" role="search">
         <input value={q} onChange={(e) => setQ(e.target.value)} type="search" dir="ltr" placeholder={t("Type a skill, e.g. main idea")} aria-label={t("Skill name")} className={`${field} sm:flex-1`} />
-        <button className={BTN_PRIMARY} disabled={pending}>{t(pending ? "Searching…" : "Search")}</button>
+        <button className={BTN_SECONDARY} disabled={pending}>{t(pending ? "Searching…" : "Search")}</button>
       </form>
       {rows && rows.length === 0 && <div className="mt-4"><EmptyState compact icon="🔍" title="Nothing matches your search" text="Try another word, e.g. inference, theme, commas." /></div>}
       {rows && rows.length > 0 && (
         <ul className="mt-4 divide-y divide-slate-100">
           {rows.map((f) => {
-            const chosen = f.skills.find((k) => k.id === pick[f.key]) ?? f.pick;
+            // one result per skill, no grade choice: the platform uses the class's own grade (or the nearest grade
+            // that has questions) — the teacher only sees the skill and Assign
+            const chosen = f.pick;
             return (
-              <li key={f.key} className="flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between">
-                <div className="min-w-0">
-                  <p className="font-semibold text-slate-900" data-content lang="en">{f.name}</p>
-                  <div className="mt-1 flex flex-wrap items-center gap-1.5" role="group" aria-label={t("Grade")}>
-                    {f.skills.map((k) => (
-                      <button key={k.id} type="button" onClick={() => setPick((p) => ({ ...p, [f.key]: k.id }))} aria-pressed={k.id === chosen.id}
-                        className={`min-h-9 rounded-full px-3 text-xs font-semibold ring-1 ${k.id === chosen.id ? "bg-brand-navy text-white ring-brand-navy" : "bg-white text-slate-700 ring-slate-300 hover:ring-brand-teal"}`}>
-                        {t("Grade {n}", { n: k.grade })}
-                      </button>
-                    ))}
-                    {chosen.grammar && <SourceTag source="GRAMMAR" size="sm" />}
-                    {chosen.questions === 0 && <span className="text-xs text-amber-800">{t("No questions yet")}</span>}
-                  </div>
+              <li key={f.key} className="flex flex-col gap-2 py-3 sm:flex-row sm:items-start sm:justify-between">
+                <div className="min-w-0 flex-1">
+                  <SkillQuestionPicker skillId={chosen.id} skillName={f.name} mode="view" name={null} />
+                  {(chosen.grammar || chosen.questions === 0) && (
+                    <div className="mt-1 flex flex-wrap items-center gap-1.5">
+                      {chosen.grammar && <SourceTag source="GRAMMAR" size="sm" />}
+                      {chosen.questions === 0 && <span className="text-xs text-amber-800">{t("No questions yet")}</span>}
+                    </div>
+                  )}
                 </div>
                 {canAssign && (
                   <button type="button" className={`${BTN_PRIMARY} shrink-0`}
-                    onClick={() => window.dispatchEvent(new CustomEvent(OPEN, { detail: { id: chosen.id, name: f.name, standards: [], grade: chosen.grade, track: chosen.grammar ? "GRAMMAR" : "CURRICULUM" } }))}>
+                    onClick={() => window.dispatchEvent(new CustomEvent(OPEN, { detail: { id: chosen.id, name: f.name, standards: [], track: chosen.grammar ? "GRAMMAR" : "CURRICULUM" } }))}>
                     <span aria-hidden="true">⭐</span> {t("Assign")}
                   </button>
                 )}

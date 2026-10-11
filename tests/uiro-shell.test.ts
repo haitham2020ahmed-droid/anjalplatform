@@ -144,11 +144,21 @@ describe("menus: decluttered, nothing lost", () => {
     test(`${role}: every page from before is still one click away; no duplicates; plain, translatable labels`, () => {
       const items = navItemsFor(role);
       const hrefs = items.map((i) => i.href);
-      // UI reorg Phase 2: the student's MAP results moved into My Plans (MAP dashboard + a link to /student/map)
-      const MOVED: Record<string, Record<string, string>> = { STUDENT: { "/student/map": "/student/plans" } };
+      // b1-nav (short menus): pages taken out of a menu are reached from another menu page (docs/WHAT-MOVED-WHERE.md);
+      // the address still opens. OUT = left the menu on purpose (still open by address / from the page named there).
+      const MOVED: Record<string, Record<string, string>> = {
+        STUDENT: { "/student/plans": "/student/reports", "/student/insights": "/student/reports", "/student/skills": "/student/reports", "/student/family": "/student/reports", "/play": "/student" },
+        TEACHER: {
+          "/teacher/classes": "/teacher/students", "/admin/student-file": "/teacher/students", "/teacher/ai": "/teacher/students", "/teacher/intervention": "/teacher/students",
+          "/teacher/alerts": "/teacher/students", "/teacher/levels": "/teacher/students", "/teacher/progress": "/teacher/reports", "/teacher/family-reports": "/teacher/reports",
+          "/teacher/assignments": "/teacher/plans", "/teacher/map-rit": "/teacher/map-center", "/teacher/map-plans": "/teacher/map-center",
+          "/teacher/intervention/groups": "/teacher/groups", "/teacher/strategy-groups": "/teacher/groups",
+        },
+      };
+      const OUT: Record<string, string[]> = { TEACHER: ["/teacher/learning-loop", "/teacher/knowledge-graph", "/teacher/search"] };
       for (const h of BEFORE[role]) {
         const via = MOVED[role]?.[h];
-        assert.ok(hrefs.includes(h) || (via !== undefined && hrefs.includes(via)), `${role} lost ${h}`);
+        assert.ok(hrefs.includes(h) || (via !== undefined && hrefs.includes(via)) || OUT[role]?.includes(h), `${role} lost ${h}`);
       }
       assert.equal(new Set(hrefs).size, hrefs.length, "no page listed twice");
       assert.equal(new Set(items.map((i) => i.label)).size, items.length, "no two entries with the same name");
@@ -158,7 +168,7 @@ describe("menus: decluttered, nothing lost", () => {
         if (i.group) assert.ok((UI_STRINGS as readonly string[]).includes(i.group), `group “${i.group}”`);
         assert.doesNotMatch(i.label, /adaptive|lexile/i);
       }
-      assert.equal(items[0].label, "Home");
+      assert.equal(items[0].label, role === "STUDENT" ? "My Work" : "Home");
     });
   }
   test("the tour's tips are interface strings and 3–4 per role", () => {

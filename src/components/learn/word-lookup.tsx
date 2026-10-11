@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { lookupWordAction } from "@/app/learn-actions";
 import type { WordView } from "@/server/student/words";
 import { bestBrowserVoice } from "@/lib/tts/voices";
+import { ListenButton } from "@/components/listen-button";
 
 const NO_MEANING = "Look at the sentence for clues. Ask your teacher.";
 const BLOCK = "p, li, h1, h2, h3, h4, h5, h6, td, th, figcaption, blockquote, dd, dt, article";
@@ -36,7 +37,8 @@ function wordAtPoint(x: number, y: number): { word: string; node: Node } | null 
 
 /**
  * 📖 Double-click (or select) any word inside — or tap a word in a passage — to see its meaning in English: part of
- * speech, pronunciation, synonyms, antonyms and an example. The word goes into the student's notebook.
+ * speech, pronunciation, synonyms, antonyms and an example. The word goes into the student's notebook. 🔊 says the
+ * word in the natural voice (the dictionary's own recording when it has one).
  */
 export function WordLookup({ children, hint = true }: { children: React.ReactNode; hint?: boolean }) {
   const box = useRef<HTMLDivElement>(null);
@@ -91,7 +93,8 @@ export function WordLookup({ children, hint = true }: { children: React.ReactNod
           <div className="flex items-start justify-between gap-2">
             <p className="text-xl font-bold text-brand-navy">{w?.word ?? busy ?? ""} {w?.phonetic && <span className="text-sm font-normal text-slate-500">{w.phonetic}</span>}</p>
             <div className="flex gap-1">
-              {w && <button type="button" onClick={say} aria-label="Say the word" className="rounded-lg px-2 py-1 ring-1 ring-slate-200 hover:bg-slate-50">🔊</button>}
+              {w && (w.audioUrl ? <button type="button" onClick={say} aria-label="Say the word" className="min-h-[44px] min-w-[44px] rounded-full px-2 py-1 ring-1 ring-slate-200 hover:bg-slate-50">🔊</button>
+                : <ListenButton key={w.word} text={w.word} label="Say the word" compact followAlong={false} />)}
               <button type="button" onClick={() => { setW(null); setError(null); setBusy(null); }} aria-label="Close" className="rounded-lg px-2 py-1 ring-1 ring-slate-200 hover:bg-slate-50">✕</button>
             </div>
           </div>

@@ -18,6 +18,7 @@ import {
   teacherTests, testResults, testReview, testsToDoCount, RETEACH_PCT,
 } from "../src/server/tests/assessments";
 import { shuffleChoices, testOrder, unshuffleResponse } from "../src/server/tests/runtime";
+import { familyKeyOf, familyRepresentatives, skillFamilyIds } from "../src/server/questions/skill-questions";
 import { demoDatabase } from "./helpers/db";
 
 const AUTO = new Set(["MULTIPLE_CHOICE", "MULTI_SELECT", "DROPDOWN", "TRUE_FALSE"]);
@@ -51,12 +52,16 @@ describe("UI reorg Phase 5 — Assessments and My Tests", () => {
   /** Two skills of Grade 4 Reading with enough auto-marked choice questions. */
   async function twoSkills(): Promise<{ skillId: string; name: string }[]> {
     const list = await builderSkills(repo, teacher, { filter: "READING", grade: 4 });
-    const out: { skillId: string; name: string }[] = [];
+    const out: { skillId: string; name: string; familyKey: string }[] = [];
+    // skills the student does not have in My Work yet (so Reteach can add one; which skills qualify depends on the pool)
+    const mine = new Set((await repo.findMany("Assignment", { id: { in: (await repo.findMany("AssignmentStudent", { studentId: student.studentId })).map((x) => x.assignmentId) } })).map((x) => String(x.skillId)));
     for (const k of list) {
-      const qs = await repo.findMany("Question", { skillId: k.id, status: "PUBLISHED", deletedAt: null }, { select: ["id", "typeId"] });
+      if (mine.has(k.id)) continue;
+      // one question bank: the skill's whole family pool must be choice questions
+      const qs = await repo.findMany("Question", { skillId: { in: await skillFamilyIds(repo, k.id) }, status: "PUBLISHED", deletedAt: null }, { select: ["id", "typeId"] });
       const types = qs.length ? await repo.findMany("QuestionType", { id: { in: [...new Set(qs.map((q) => q.typeId))] } }) : [];
       const choice = qs.filter((q) => AUTO.has(String(types.find((t) => t.id === q.typeId)?.code)));
-      if (choice.length >= 6 && choice.length === qs.length) out.push({ skillId: k.id, name: k.name });
+      if (choice.length >= 6 && choice.length === qs.length && !out.some((x) => x.familyKey === familyKeyOf({ id: k.id, name: k.name, domain: "READING" }))) out.push({ skillId: k.id, name: k.name, familyKey: familyKeyOf({ id: k.id, name: k.name, domain: "READING" }) });
       if (out.length === 2) break;
     }
     assert.equal(out.length, 2, "two Grade 4 reading skills with choice questions");
@@ -135,7 +140,10 @@ describe("UI reorg Phase 5 — Assessments and My Tests", () => {
     let v: QuizView = await startQuiz(repo, student, studentSet);
     assert.equal(v.testMode, true);
     assert.equal(v.isTest, true);
-    const skillOf = new Map((await repo.findMany("Question", { id: { in: (await repo.findMany("AssessmentQuestion", { assessmentId: (await repo.findUnique("Assignment", { id: studentSet }))!.assessmentId })).map((x) => x.questionId) } })).map((q) => [String(q.id), String(q.skillId)]));
+    const qRows = await repo.findMany("Question", { id: { in: (await repo.findMany("AssessmentQuestion", { assessmentId: (await repo.findUnique("Assignment", { id: studentSet }))!.assessmentId })).map((x) => x.questionId) } });
+    // one question bank: a question of another grade's copy of a chosen skill counts for that skill
+    const repOf = await familyRepresentatives(repo, String(teacher.schoolId), qRows.map((q) => String(q.skillId)), { ids: skills.map((k) => k.skillId) });
+    const skillOf = new Map(qRows.map((q) => [String(q.id), repOf.get(String(q.skillId)) ?? String(q.skillId)]));
     // right on skill 1, wrong on skill 2 → skill 2 is under 70%
     while (v.question) {
       const right = skillOf.get(v.question.questionId) === skills[0].skillId;

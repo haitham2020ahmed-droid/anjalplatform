@@ -19,6 +19,10 @@
  * Norms: Hasbrouck & Tindal 2017, by season (norms.ts); every official check stores its season and percentile, and two
  * 1-minute checks on the same day are averaged (both kept).
  *
+ * Practice re-reads ("Read it again for practice", after listening to the passage): scored the same way and compared with
+ * the first read, but NEVER stored — no FluencyPractice row, no FluencyCheck — so only the first read counts toward the
+ * level, the reports and the norms.
+ *
  * Privacy: the audio is scored in memory and dropped — it is never stored. Only the passage text and the audio go to
  * the AI provider (Gemini); never the student's name or any record. The admin can switch the coach off.
  */
@@ -297,6 +301,9 @@ export function classifyGeminiFailure(status: number, body: string, model: strin
   return new CoachProviderError("REQUEST", `REQUEST: Gemini did not accept the request (HTTP ${status}): ${b.replace(/\s+/g, " ").slice(0, 300)}`, status);
 }
 
+/** Steadier models tried once when the main model is busy (HTTP 5xx, "high demand"). */
+export const FLUENCY_FALLBACK_MODELS = ["gemini-2.5-flash", "gemini-2.5-flash-lite"];
+
 /** The model the Fluency Coach uses (GEMINI_MODEL, else the platform default). */
 export function fluencyModel(env: EnvLike): string {
   const c = chooseAiProvider({ ...env, AI_PROVIDER: "gemini" });
@@ -422,6 +429,21 @@ export interface CoachResult {
   trial: number | null; trials: { trial: number; wcpm: number; goal: number | null }[]; nextGoal: number | null;
   drill: (DrillResult & { grid: DrillGrid }) | null;
   echo: { sentence: number; sentences: number } | null;
+  /** a practice re-read: compared with the first read, never stored, never counted */
+  practice?: boolean;
+  improvement?: Improvement | null;
+}
+export interface Improvement { first: { wcpm: number; accuracy: number }; wcpmGain: number; accuracyGain: number; message: string }
+
+/** How a practice re-read compares with the first read, in encouraging words. */
+export function improvementOf(first: { wcpm: number; accuracy: number }, now: { wcpm: number; accuracy: number }): Improvement {
+  const wcpmGain = now.wcpm - first.wcpm, accuracyGain = now.accuracy - first.accuracy;
+  const message = wcpmGain > 0 && accuracyGain >= 0 ? `🚀 Great growth! You read ${wcpmGain} more word${wcpmGain === 1 ? "" : "s"} correct per minute than the first time.`
+    : wcpmGain > 0 ? "⚡ Faster than the first time! Slow down a little on the tricky words to get every word right."
+    : accuracyGain > 0 ? `🎯 More words right than the first time (${now.accuracy}%). Your speed will grow with practice.`
+    : wcpmGain === 0 && accuracyGain === 0 ? "👍 Steady reading, just like the first time. Every reading makes you stronger."
+    : "💪 Good effort! Listen once more, then read it again. Practice makes reading easier.";
+  return { first, wcpmGain, accuracyGain, message };
 }
 export interface CoachPlan {
   level: Level; goal: number; nextCheck: string; perWeek: number; steps: { icon: string; text: string; href?: string }[]; words: string[]; patterns: string[]; nextPassageKey: string | null;
@@ -496,7 +518,7 @@ export async function drillFor(repo: Repo, actor: Actor, now = new Date()): Prom
   return buildDrill({ errorWords: own.words, notes: own.notes, seed: `${actor.studentId}:${now.toISOString().slice(0, 10)}` });
 }
 
-export interface ScoreInput { key: string; mode: CoachMode; seconds: number; audio: Uint8Array; mime: string; kind?: PracticeKind; sentence?: number; grid?: unknown }
+export interface ScoreInput { key: string; mode: CoachMode; seconds: number; audio: Uint8Array; mime: string; kind?: PracticeKind; sentence?: number; grid?: unknown; /** a practice re-read of this earlier reading (not stored, not counted) */ rereadOf?: string }
 
 /**
  * Scores one recording. The school's AI limits are kept: when the provider needs a pause, the reply says how long
@@ -507,8 +529,18 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   const schoolId = s(actor.schoolId);
   if (!(await coachSettings(repo, schoolId)).enabled) throw new ValidationError("The Fluency Coach is switched off by the school.");
   if (input.mode !== "MINUTE" && input.mode !== "PASSAGE") throw new ValidationError("Choose the 1-minute check or the whole passage.");
-  const kind = clampKind(input.kind, input.mode);
-  const mode: CoachMode = kind === "MINUTE" ? "MINUTE" : "PASSAGE";
+  // a practice re-read: the same passage and the same words as the first read, scored but never stored or counted
+  let first: Row | null = null;
+  if (input.rereadOf) {
+    first = await repo.findUnique("FluencyPractice", { id: String(input.rereadOf) });
+    if (!first || s(first.studentId) !== actor.studentId) throw new ForbiddenError("Reading not found.");
+    const k0 = clampKind(first.practiceKind, s(first.mode) === "MINUTE" ? "MINUTE" : "PASSAGE");
+    if (k0 === "ECHO" || k0 === "DRILL") throw new ValidationError("This reading cannot be read again for practice.");
+  }
+  const practiceRead = first !== null;
+  const kind: PracticeKind = practiceRead ? "PASSAGE" : clampKind(input.kind, input.mode);
+  const mode: CoachMode = practiceRead ? (s(first!.mode) === "MINUTE" ? "MINUTE" : "PASSAGE") : kind === "MINUTE" ? "MINUTE" : "PASSAGE";
+  const key = practiceRead ? s(first!.passageKey) : input.key;
   if (!input.audio.length) throw new ValidationError("The recording is empty. Check the microphone and read again.");
   if (input.audio.length > MAX_AUDIO_BYTES) throw new ValidationError("The recording is too long.");
   if (!geminiAudioMime(input.mime, input.audio)) throw new ValidationError("This recording type is not supported.");
@@ -525,7 +557,7 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
     if (!grid) throw new ValidationError("This drill is not valid. Open the drill again.");
     words = gridWords(grid);
   } else {
-    p = all.find((x) => x.key === input.key) ?? null;
+    p = all.find((x) => x.key === key) ?? null;
     if (!p) throw new ForbiddenError("Passage not found.");
     words = passageWords(p.body, mode);
     if (kind === "ECHO") {
@@ -553,7 +585,18 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   const started = Date.now();
   const model = fluencyModel(env).slice(0, 80);
   let marks: ReadingMarks;
-  try { marks = await scorer({ words, audio: input.audio, mime: input.mime, task: kind === "ECHO" ? "ECHO" : kind === "DRILL" ? "DRILL" : "READ" }); }
+  const task = kind === "ECHO" ? "ECHO" : kind === "DRILL" ? "DRILL" : "READ";
+  try {
+    try { marks = await scorer({ words, audio: input.audio, mime: input.mime, task }); }
+    catch (e0) {
+      // Gemini busy ("high demand", HTTP 5xx): try once with a steadier model before giving up
+      const fb = deps.scorer === undefined && e0 instanceof CoachProviderError && e0.kind === "DOWN" ? FLUENCY_FALLBACK_MODELS.find((x) => x !== model) : undefined;
+      const backup = fb ? geminiAudioScorer({ ...env, GEMINI_MODEL: fb }) : null;
+      if (!backup) throw e0;
+      await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model, ok: false, items: 1, ms: Date.now() - started, error: `${s((e0 as Error).message).slice(0, 400)} -> retried with ${fb}`, createdAt: new Date() });
+      marks = await backup({ words, audio: input.audio, mime: input.mime, task });
+    }
+  }
   catch (e) {
     const m = s((e as Error)?.message);
     const kindOf: CoachFailureKind | null = e instanceof CoachProviderError ? e.kind : /RATE_LIMIT|429/.test(m) ? "RATE_LIMIT" : null;
@@ -561,6 +604,7 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
     await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model, ok: false, items: 1, ms: Date.now() - started, error: m.slice(0, 500) || "unknown error", createdAt: new Date() });
     if (kindOf === "RATE_LIMIT") return { status: "WAIT", seconds: 60, reason: "The AI provider asked us to slow down. Your result is next." };
     if (kindOf === "TIMEOUT") return { status: "WAIT", seconds: 15, reason: "The coach is taking longer than usual to listen. It will try again by itself.", timeout: true };
+    if (kindOf === "DOWN") return { status: "WAIT", seconds: 20, reason: "Many schools are using the coach right now. It will try again by itself.", timeout: true };
     if (kindOf === "CONFIG") {
       await notifyCoachProblem(repo, schoolId, m, now).catch(() => 0);
       throw new ValidationError("The Fluency Coach is not set up correctly. Your teacher has been told.");
@@ -580,16 +624,16 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   const n = drill ? { wordsRead: drill.wordsRead, wordsCorrect: drill.wordsCorrect, seconds: drill.seconds, wcpm: drill.wcpm, accuracy: drill.wordsRead ? Math.round((100 * drill.wordsCorrect) / drill.wordsRead) : 0 }
     : countReading(words, marks, kind === "ECHO" ? Math.min(ECHO_MAX_SECONDS, input.seconds) : input.seconds, mode);
   const level = fluencyLevel(n.wcpm, grade, season);
-  const official = kind === "MINUTE";
+  const official = kind === "MINUTE" && !practiceRead;
   const norm = normView(grade, n.wcpm, season);
   const errWords = [...new Set(marks.errors.map((e) => clean(words[e.i])).filter((w) => w.length > 1))];
   const storedErrors = marks.errors.map((e) => { const w = clean(words[e.i]); return { i: e.i, word: w, heard: e.heard, kind: e.kind, pattern: patternForError(w, marks.patterns), arabic: arabicTags(w, e.heard) }; });
   const tips = tipsFor(storedErrors);
   const prosody = marks.prosody ?? null;
 
-  // the plan (passage readings only)
+  // the plan (passage readings only; a practice re-read keeps the plan of the first read)
   let plan: CoachPlan | null = null;
-  if (p && kind !== "ECHO") {
+  if (p && kind !== "ECHO" && !practiceRead) {
     const sameLevel = all.filter((x) => x.level === p!.level && x.key !== p!.key);
     const harder = all.filter((x) => (p!.lexile && x.lexile ? x.lexile > p!.lexile : x.grade > p!.grade || (x.level === "ABOVE" && p!.level !== "ABOVE")));
     plan = makePlan({ level: official ? level : official0?.level ?? level, wcpm: official ? n.wcpm : official0?.wcpm ?? n.wcpm, expression: marks.expression, grade, words: errWords, patterns: marks.patterns, passageKey: p.key, nextKey: { same: p.key, harder: harder[0]?.key ?? null, another: sameLevel[0]?.key ?? null }, phrasing: prosody?.phrasing?.score ?? null }, now);
@@ -606,6 +650,21 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   }
   const nextGoal = trial !== null && (kind !== "REPEATED" || trial < REPEATED_MAX_TRIALS) ? trialGoal(n.wcpm, p50) : null;
 
+  const byIndex = new Map(marks.errors.map((e) => [e.i, e]));
+  const emptyPlan: CoachPlan = { level, goal: n.wcpm + 1, nextCheck: "", perWeek: 0, steps: [], words: errWords, patterns: marks.patterns, nextPassageKey: null, growth: null };
+  if (practiceRead) {
+    // practice only: nothing is written (no reading, no check), so the level, the reports and the norms never see it
+    return {
+      status: "OK",
+      result: {
+        id: "", mode, kind, title: p!.title, passageKey: p!.key,
+        words: words.map((w, i) => { const e = byIndex.get(i); return { text: w, mark: i > marks.lastWordIndex ? "NOT_READ" : e ? e.kind : "OK", heard: e?.heard ?? "" }; }),
+        ...n, expression: marks.expression, level, official: false, rubric: fluencyRubricText(grade, season), patterns: marks.patterns, practise: errWords, plan: emptyPlan, date: now.toISOString().slice(0, 10),
+        norm, prosody, hesitations: marks.hesitations?.length ?? 0, tips, average: null, trial: null, trials: [], nextGoal: null, drill: null, echo: null,
+        practice: true, improvement: improvementOf({ wcpm: Number(first!.wcpm), accuracy: Number(first!.accuracy) }, n),
+      },
+    };
+  }
   const row = await repo.create("FluencyPractice", {
     studentId: actor.studentId, mode, passageKey: p ? p.key : "DRILL", title: (p ? (kind === "ECHO" ? `Echo · ${p.title}` : p.title) : "Speed drill").slice(0, 191), lexile: p?.lexile ?? null, wordsRead: n.wordsRead, wordsCorrect: n.wordsCorrect, seconds: n.seconds, wcpm: n.wcpm, accuracy: n.accuracy,
     expression: marks.expression, level: official ? level : null, errors: storedErrors, patterns: drill ? drill.reteach : marks.patterns, plan,
@@ -630,8 +689,6 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
     }
     // a third check on the same day is kept as a reading; the day's official score stays the average of two
   }
-  const byIndex = new Map(marks.errors.map((e) => [e.i, e]));
-  const emptyPlan: CoachPlan = { level, goal: n.wcpm + 1, nextCheck: "", perWeek: 0, steps: [], words: errWords, patterns: marks.patterns, nextPassageKey: null, growth: null };
   return {
     status: "OK",
     result: {

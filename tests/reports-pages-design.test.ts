@@ -45,14 +45,14 @@ const PAGES: Record<string, string[]> = {
   "src/app/teacher/practice-analytics/page.tsx": ["practiceAnalytics"],
   "src/app/teacher/assessments/page.tsx": ["teacherTests", "listTemplates"],
   "src/app/teacher/assessments/[testId]/page.tsx": ["testResults"],
-  "src/app/teacher/map-reports/page.tsx": ["reportsHub"],
+  // MAP: one page (Results · Reports · Make a MAP plan); the old report routes redirect to its Reports tab
   "src/app/teacher/map-center/page.tsx": [],
-  "src/app/teacher/map-overview/page.tsx": ["schoolOverview"],
+  "src/app/teacher/map-center/reports-tab.tsx": ["reportsHub", "growthReport"],
+  "src/app/teacher/map-center/overview.tsx": ["schoolOverview"],
   "src/app/teacher/grade-summary/page.tsx": ["gradeSummary"],
-  "src/app/teacher/growth/page.tsx": ["growthReport"],
   "src/app/teacher/tiers/page.tsx": ["classTiers"],
   "src/app/teacher/data-meeting/page.tsx": ["dataMeetingSnapshot", "listDataMeetings"],
-  "src/app/teacher/rti-plan/page.tsx": ["rtiWeeklyPlan"],
+  "src/app/teacher/rti-plan/weekly/page.tsx": ["rtiWeeklyPlan"],
   "src/app/teacher/reports/grammar/page.tsx": ["classGrammarReport", "schoolGrammarReport"],
   "src/app/teacher/reports/grammar/[studentId]/page.tsx": ["studentGrammarReport"],
   "src/app/teacher/reports/readmaster/page.tsx": ["classReadMasterReport"],
@@ -63,9 +63,9 @@ const PAGES: Record<string, string[]> = {
   "src/app/teacher/games/[gameId]/page.tsx": ["challengeResults"],
   "src/components/game/challenge-results.tsx": [],
   "src/app/teacher/students/[studentId]/page.tsx": ["teacherStudentData"],
-  "src/app/student/reports/page.tsx": ["studentWeek", "streakAndPoints"],
-  "src/app/student/insights/page.tsx": ["profilesOf", "risksOf", "nextStep"],
-  "src/app/student/map/page.tsx": ["myMap", "assignedSkills"],
+  // the student's Progress Report (old /student/insights) is "My progress" inside My Reports now
+  "src/app/student/reports/page.tsx": ["studentWeek", "streakAndPoints", "profilesOf", "risksOf", "nextStep"],
+  "src/app/student/map/page.tsx": ["myMap", "programWork"],
   "src/app/admin/department/page.tsx": ["departmentSummary"],
   "src/app/admin/levels/page.tsx": ["schoolLevels"],
   "src/app/admin/data-health/page.tsx": ["dataHealth"],
@@ -152,7 +152,7 @@ describe("report pages wear the kit and keep their loaders", () => {
       const glance = src.indexOf("<AtAGlance");
       assert.ok(glance > 0 && src.indexOf('kind="help"', glance) > 0 && src.indexOf('kind="help"', glance) < src.indexOf("<ReportTable", glance), `${f}: decisions come before the tables`);
     }
-    for (const f of ["src/app/student/insights/page.tsx", "src/app/student/map/page.tsx"]) assert.match(read(f), /kind="meaning"/, `${f}: what this means`);
+    for (const f of ["src/app/student/reports/page.tsx", "src/app/student/map/page.tsx"]) assert.match(read(f), /kind="meaning"/, `${f}: what this means`);
   });
 
   test("ReadRise is never called a Lexile on its report (the median is a ReadRise Level, an estimate)", () => {

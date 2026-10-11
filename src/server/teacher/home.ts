@@ -15,7 +15,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { accessibleClasses, NO_CURRICULUM_MESSAGE } from "./assign";
 import { assertClassAccess } from "./assignments";
 import { studentNames } from "../insights/student-data";
-import { skillsMatching } from "../questions/skill-questions";
+import { schoolSkillIndex, skillsMatching } from "../questions/skill-questions";
 import { meaningKey } from "../skills/master";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
@@ -148,14 +148,20 @@ export interface SkillFamily { key: string; name: string; grades: number[]; pick
 export async function findSkillFamilies(repo: Repo, actor: Actor, q: string, classGrade?: number | null): Promise<SkillFamily[]> {
   if (!actor.schoolId) return [];
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Teachers only.");
-  const hits = await skillsMatching(repo, actor.schoolId, q);
+  // one question bank: one hit per family (the class grade's copy first) with the pooled count; its grade tags are
+  // the family's members (every grade's copy, each reading the same pool)
+  const hits = await skillsMatching(repo, actor.schoolId, q, classGrade ? { grade: Number(classGrade) } : {});
   if (!hits.length) return [];
-  const codes = new Map((await repo.findMany("Skill", { id: { in: hits.map((h) => h.id) } }, { select: ["id", "code"] })).map((k) => [s(k.id), s(k.code)]));
+  const idx = await schoolSkillIndex(repo, actor.schoolId);
   const fam = new Map<string, { name: string; skills: FamilySkill[] }>();
   for (const h of hits) {
     const key = meaningKey(h.name.replace(/\s*\((?:G|Grade )\d+\)\s*$/i, "")) || h.name.toLowerCase();
     const f = fam.get(key) ?? { name: h.name.replace(/\s*\((?:G|Grade )\d+\)\s*$/i, ""), skills: [] };
-    f.skills.push({ id: h.id, grade: h.grade, questions: h.questions, grammar: codes.get(h.id)?.includes(".grammar.") ?? false });
+    for (const id of h.familySkillIds ?? [h.id]) {
+      const k = idx.skillOf.get(id);
+      if (id !== h.id && (!k || !k.isActive)) continue;
+      if (!f.skills.some((x) => x.id === id)) f.skills.push({ id, grade: k?.grade ?? h.grade, questions: h.questions, grammar: k?.code.includes(".grammar.") ?? false });
+    }
     fam.set(key, f);
   }
   const g = Number(classGrade ?? 0);
@@ -164,6 +170,6 @@ export async function findSkillFamilies(repo: Repo, actor: Actor, q: string, cla
     const withQ = skills.filter((k) => k.questions > 0);
     const pool = withQ.length ? withQ : skills;
     const pick = pool.find((k) => k.grade === g) ?? [...pool].sort((a, b) => Math.abs(a.grade - g) - Math.abs(b.grade - g) || a.grade - b.grade)[0];
-    return { key, name: f.name, grades: [...new Set(skills.map((k) => k.grade))], pick, skills, questions: skills.reduce((n, k) => n + k.questions, 0) };
+    return { key, name: f.name, grades: [...new Set(skills.map((k) => k.grade))], pick, skills, questions: Math.max(0, ...skills.map((k) => k.questions)) }; // the pooled count (not added per grade)
   }).sort((a, b) => Number(b.questions > 0) - Number(a.questions > 0) || a.name.localeCompare(b.name)).slice(0, 12);
 }

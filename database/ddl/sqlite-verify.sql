@@ -749,6 +749,7 @@ CREATE TABLE "Assignment" (
   "startAt" TEXT,
   "note" TEXT,
   "track" TEXT NOT NULL DEFAULT 'CURRICULUM',
+  "program" TEXT,
   "assessmentId" TEXT,
   "targetMastery" INTEGER,
   "curriculumPlanId" TEXT,
@@ -757,6 +758,7 @@ CREATE TABLE "Assignment" (
   "deletedAt" TEXT,
   "testId" TEXT,
   "shuffle" INTEGER NOT NULL DEFAULT 0,
+  "questionIds" TEXT,
   PRIMARY KEY ("id"),
   CONSTRAINT "Assignment_classId_fkey" FOREIGN KEY ("classId") REFERENCES "Class"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "Assignment_createdById_fkey" FOREIGN KEY ("createdById") REFERENCES "Teacher"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -1291,6 +1293,7 @@ CREATE TABLE "ReadMasterAttempt" (
   "total" INTEGER NOT NULL,
   "seconds" INTEGER,
   "rapid" INTEGER,
+  "practice" INTEGER NOT NULL DEFAULT 0,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
   PRIMARY KEY ("id")
 );
@@ -2682,3 +2685,19 @@ CREATE TABLE "Certificate" (
 );
 
 CREATE INDEX "Certificate_studentId_createdAt_idx" ON "Certificate"("studentId", "createdAt");
+
+CREATE TABLE "Feedback" (
+  "id" TEXT NOT NULL,
+  "userId" TEXT NOT NULL,
+  "schoolId" TEXT,
+  "role" TEXT NOT NULL,
+  "path" TEXT,
+  "message" TEXT NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "resolved" INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "Feedback_schoolId_resolved_createdAt_idx" ON "Feedback"("schoolId", "resolved", "createdAt");
+
+CREATE INDEX "Feedback_userId_createdAt_idx" ON "Feedback"("userId", "createdAt");

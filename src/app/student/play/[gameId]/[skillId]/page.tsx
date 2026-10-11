@@ -24,7 +24,7 @@ export default async function PlayGamePage({ params }: { params: Promise<{ gameI
     if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e;
     return (
       <AppShell name={String(me.displayName)}>
-        <EmptyState title="Soon" text={e instanceof ForbiddenError ? "This skill is not in your work." : "This game is coming soon for this skill."} />
+        <EmptyState icon="🎲" title="Let's pick another game" text={e instanceof ForbiddenError ? "This skill is not in your work." : "This game needs more questions for this skill. Try another game from Play."} />
         <p className="mt-4 text-center"><Link prefetch={false} href="/student#my-work" className={BTN_PRIMARY}>{t("Back to My Work")}</Link></p>
       </AppShell>
     );

@@ -12,6 +12,7 @@ import { GoalRing, LevelBadge } from "./widgets";
 import { bestBrowserVoice } from "@/lib/tts/voices";
 import { passageSpeech } from "@/lib/tts/text";
 import { ListenButton } from "../listen-button";
+import { AnswerFx } from "../feedback-fx/answer-fx";
 
 /**
  * 🚀 The ReadRise reader: the 5-step routine (before-poll → read → activity → thought question → after-poll),
@@ -492,6 +493,8 @@ function ReviewPanel({ view, open, call }: { view: RunView; open: boolean; call:
   const [pr, setPr] = useState<{ correct: number; total: number; review: Review[] } | null>(null);
   const wrong = view.review!.filter((r) => !r.correct).length;
   return (
+    <>
+    {open && <AnswerFx scope="readrise" correct={wrong * 2 <= view.review!.length} answerKey={`${view.runId}|score`} className="mt-3" />}
     <details open={open} className="mt-3 rounded-2xl bg-sky-50 p-4 ring-1 ring-sky-200">
       <summary className="cursor-pointer text-lg font-semibold text-brand-navy">Activity score: {view.score}% {view.firstTry && !view.stretch ? "(first try)" : ""} — see the answers</summary>
       {!practice ? (
@@ -507,10 +510,12 @@ function ReviewPanel({ view, open, call }: { view: RunView; open: boolean; call:
             <button type="submit" disabled={!view.questions.every((q) => pa[q.number])} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white disabled:opacity-50">Check practice</button>
             <button type="button" onClick={() => setPractice(false)} className="rounded-xl bg-white px-4 py-2 text-brand-navy ring-1 ring-slate-300">Back to my answers</button>
             {pr && <span aria-live="polite" className="font-semibold text-slate-800">Practice: {pr.correct}/{pr.total}</span>}
+            {pr && <AnswerFx scope="readrise" correct={pr.correct * 2 >= pr.total} answerKey={`${view.runId}|practice|${pr.correct}|${JSON.stringify(pa)}`} />}
           </div>
         </form>
       )}
     </details>
+    </>
   );
 }
 

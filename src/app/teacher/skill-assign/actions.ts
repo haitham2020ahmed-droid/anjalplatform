@@ -6,6 +6,7 @@ import { ValidationError } from "@/server/curriculum-admin";
 import { assignSkillByLevel } from "@/server/teacher/skill-assign";
 import { assignQuestions, assignSkill } from "@/server/teacher/assign";
 import { buildSkillSet } from "@/server/curriculum/question-finder";
+import { parseQuestionIdsField, programOf } from "@/components/skill-picker/helpers";
 
 const day = (v: FormDataEntryValue | null) => { const t = String(v ?? "").trim(); return /^\d{4}-\d{2}-\d{2}$/.test(t) ? new Date(`${t}T23:59:59`) : null; };
 
@@ -15,7 +16,7 @@ export async function assignSkillAction(f: FormData): Promise<void> {
   let msg: string;
   try {
     const levels = Object.fromEntries([...f.keys()].filter((k) => k.startsWith("lv:")).map((k) => [k.slice(3), String(f.get(k) ?? "")]));
-    const r = await assignSkillByLevel(repo, actor, { classId, skillId, mode, levels, skip: f.getAll("skip").map(String), dueAt: day(f.get("dueAt")), note: String(f.get("note") ?? "") || null, max: Number(f.get("max") ?? 20) || 20 });
+    const r = await assignSkillByLevel(repo, actor, { classId, skillId, mode, levels, skip: f.getAll("skip").map(String), dueAt: day(f.get("dueAt")), note: String(f.get("note") ?? "") || null, max: Number(f.get("max") ?? 20) || 20, program: programOf(f.get("program")), questionIds: parseQuestionIdsField(f.get("questionIds")) });
     const parts = r.groups.map((g) => `${g.level ? { BELOW: "Below", ON: "On", ABOVE: "Above" }[g.level] + ": " : ""}${g.students} student(s)`);
     msg = `✅ Assigned. ${parts.join(" · ")}.${r.notes.length ? ` ${r.notes.join(" ")}` : ""}`;
   } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = e.message; else throw e; }

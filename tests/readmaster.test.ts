@@ -59,9 +59,10 @@ describe("⭐ ReadMaster: one article, three reading levels, Lexile that moves",
     const low = await openArticle(repo, await st("test.student.002"), articleId);
     assert.deepEqual([low.level, low.lexile, low.questions.length], ["BELOW", 650, 2]);
     assert.ok(low.body.startsWith("The Sun is a star."));
-    // a Grade 5 student does not see a Grade 4 article
+    // ReadMaster page update: every published article is open to every student of the school — a Grade 5 student
+    // opens a Grade 4 article too (at their level in the Grade 4 band), no assignment needed
     const g5 = (await repo.findMany("User", {})).find((u) => String(u.username) === "test.student.080");
-    if (g5) await assert.rejects(openArticle(repo, await resolveActor(repo, g5), articleId), ForbiddenError);
+    if (g5) assert.equal((await openArticle(repo, await resolveActor(repo, g5), articleId)).articleId, articleId);
   });
 
   test("real adaptivity: 75%+ raises the Lexile 30L, crossing the band edge moves to the next version; under 50% lowers it", async () => {

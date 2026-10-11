@@ -5,7 +5,9 @@
 import { useCallback, useEffect, useState } from "react";
 import type { SoundName } from "../types";
 
-const KEY = "game-muted";
+/** one mute switch for games and answer sounds (remembered on this device) */
+export const MUTE_KEY = "game-muted";
+const KEY = MUTE_KEY;
 let ctx: AudioContext | null = null;
 
 function audio(): AudioContext | null {
@@ -33,21 +35,26 @@ export function isMuted(): boolean {
   try { return localStorage.getItem(KEY) === "1"; } catch { return false; }
 }
 
-export function playSound(name: SoundName): void {
+/** Play a few short notes ([frequency Hz, start s, length s]); silent when muted or without WebAudio. Shared with feedback-fx. */
+export function playTones(wave: OscillatorType, notes: [number, number, number][], gain: number): void {
   if (isMuted()) return;
   const a = audio();
   if (!a) return;
-  const spec = NOTES[name];
   const t0 = a.currentTime;
-  for (const [f, start, len] of spec.notes) {
+  for (const [f, start, len] of notes) {
     const o = a.createOscillator(), g = a.createGain();
-    o.type = spec.wave; o.frequency.value = f;
+    o.type = wave; o.frequency.value = f;
     g.gain.setValueAtTime(0.0001, t0 + start);
-    g.gain.exponentialRampToValueAtTime(spec.gain, t0 + start + 0.01);
+    g.gain.exponentialRampToValueAtTime(gain, t0 + start + 0.01);
     g.gain.exponentialRampToValueAtTime(0.0001, t0 + start + len);
     o.connect(g).connect(a.destination);
     o.start(t0 + start); o.stop(t0 + start + len + 0.02);
   }
+}
+
+export function playSound(name: SoundName): void {
+  const spec = NOTES[name];
+  playTones(spec.wave, spec.notes, spec.gain);
 }
 
 /** `const { muted, toggle } = useMute()` — the mute switch (remembered on this device). */

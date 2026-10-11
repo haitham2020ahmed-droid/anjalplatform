@@ -1,0 +1,1105 @@
+{
+ "_note": "Lesson details from the school's own curriculum summary (Grades 4-6). Keyed by grade, then selection name.",
+ "grades": {
+  "4": {
+   "A World of Change": {
+    "unit": 1,
+    "number": 1,
+    "name": "A World of Change",
+    "genre": "Expository Text",
+    "textIdea": "Earth's surface is constantly changing through slow natural processes such as weathering, erosion, and deposition. Fast natural events, including volcanic eruptions and landslides, can cause serious damage and change landscapes suddenly. People protect their communities from natural hazards by taking preventive measures, monitoring risks, and preparing emergency plans.",
+    "vocabulary": [
+     "alter",
+     "collapse",
+     "crisis",
+     "destruction",
+     "hazard",
+     "severe",
+     "substantial",
+     "unpredictable"
+    ],
+    "vocabularySkill": "Multiple-Meaning Words",
+    "readingSkills": [
+     "Reread / Diagrams and Headings",
+     "Compare and Contrast"
+    ]
+   },
+   "The Talent Show": {
+    "unit": 1,
+    "number": 2,
+    "name": "The Talent Show",
+    "genre": "Realistic Fiction",
+    "textIdea": "Two best friends plan to participate in a school talent show, but one friend wants to perform independently while the other keeps making decisions for both of them. The disagreement creates an internal conflict as one girl struggles to express her feelings and stand up for herself without hurting their friendship. With advice from her grandmother, she learns the importance of self-confidence, honest communication, and respecting each other's ideas.",
+    "vocabulary": [
+     "accountable",
+     "advise",
+     "desperately",
+     "hesitated",
+     "humiliated",
+     "inspiration",
+     "self-esteem",
+     "uncomfortably"
+    ],
+    "vocabularySkill": "Idioms",
+    "readingSkills": [
+     "Make Predictions / Plot",
+     "Plot: Conflict"
+    ]
+   },
+   "Dollars and Sense": {
+    "unit": 1,
+    "number": 3,
+    "name": "Dollars and Sense",
+    "genre": "Argumentative Text",
+    "textIdea": "Successful businesses can make money while helping people and supporting communities in need. Some companies create innovative programs that donate products to people who need them, while others raise funds for charities and community projects. These examples show that businesses can achieve financial success while making a positive difference in people's lives.",
+    "vocabulary": [
+     "compassionate",
+     "enterprise",
+     "exceptional",
+     "funds",
+     "innovative",
+     "process",
+     "routine",
+     "undertaking"
+    ],
+    "vocabularySkill": "Suffixes",
+    "readingSkills": [
+     "Reread / Graphs and Headings",
+     "Central Idea and Relevant Details"
+    ]
+   },
+   "Animal Adaptations": {
+    "unit": 2,
+    "number": 1,
+    "name": "Animal Adaptations",
+    "genre": "Expository Text",
+    "textIdea": "Animals have special physical features and behaviors called adaptations that help them survive in different environments. Some animals use thick fur to stay warm, camouflage to hide from predators, or special senses to detect danger and find food. These adaptations allow animals to protect themselves, hunt for prey, and survive challenging conditions.",
+    "vocabulary": [
+     "camouflaged",
+     "dribbles",
+     "extraordinary",
+     "poisonous",
+     "pounce",
+     "predator",
+     "prey",
+     "vibrations"
+    ],
+    "vocabularySkill": "Prefixes",
+    "readingSkills": [
+     "Summarize / Photographs, Captions, and Headings",
+     "Central Idea and Relevant Details"
+    ]
+   },
+   "The Ant and the Grasshopper": {
+    "unit": 2,
+    "number": 2,
+    "name": "The Ant and the Grasshopper",
+    "genre": "Drama",
+    "textIdea": "A hardworking ant spends the rainy season collecting food and preparing for the dry season, while a lazy grasshopper enjoys relaxing and ignores the future. When the dry season arrives, the grasshopper struggles to survive because he has not saved any food, while the ant is well prepared. The story teaches the importance of hard work, responsibility, planning ahead, and avoiding laziness.",
+    "vocabulary": [
+     "annoyed",
+     "attitude",
+     "commotion",
+     "cranky",
+     "familiar",
+     "frustrated",
+     "selfish",
+     "specialty"
+    ],
+    "vocabularySkill": "Antonyms",
+    "readingSkills": [
+     "Ask and Answer Questions / Elements of a Play",
+     "Theme"
+    ]
+   },
+   "Dog": {
+    "unit": 2,
+    "number": 3,
+    "name": "Dog",
+    "genre": "Poetry",
+    "textIdea": "The poems describe wild animals, focusing on their physical features, movements, and natural behaviors. Through vivid imagery, similes, and metaphors, the poets show the eagle's strength and powerful flight and the chimpanzee's playful movements and clever ways of finding food. The poems use descriptive language, rhyme, and rhythm to help readers visualize animals and appreciate their unique characteristics.",
+    "vocabulary": [
+     "brittle",
+     "creative",
+     "descriptive",
+     "outstretched",
+     "metaphor",
+     "simile",
+     "rhyme",
+     "meter"
+    ],
+    "vocabularySkill": "Similes and Metaphors",
+    "readingSkills": [
+     "Rhyme and Structure / Lyric Poetry and Haiku",
+     "Character Perspective"
+    ]
+   },
+   "Remembering Hurricane Katrina": {
+    "unit": 3,
+    "number": 1,
+    "name": "Remembering Hurricane Katrina",
+    "genre": "Realistic Fiction",
+    "textIdea": "A young boy remembers the devastating effects of Hurricane Katrina and the suffering of families who lost their homes and possessions. Inspired by their struggles, he works with his friends to organize a volunteer project that collects toys and supplies for children affected by the disaster. The story highlights the importance of generosity, compassion, teamwork, and helping communities recover from natural disasters.",
+    "vocabulary": [
+     "assigned",
+     "generosity",
+     "gingerly",
+     "mature",
+     "organizations",
+     "residents",
+     "scattered",
+     "selective"
+    ],
+    "vocabularySkill": "Context Clues",
+    "readingSkills": [
+     "Visualize / Plot: Flashback",
+     "Point of View and Perspective"
+    ]
+   },
+   "Judy’s Appalachia": {
+    "unit": 3,
+    "number": 2,
+    "name": "Judy’s Appalachia",
+    "genre": "Biography",
+    "textIdea": "Judy Bonds grew up in a coal-mining community in West Virginia, where mountaintop removal mining caused serious pollution and destroyed forests, rivers, and homes. After witnessing the harmful effects on her community, she became an environmental activist who protested against destructive mining practices and fought to protect people's health and the environment. Her story demonstrates the importance of courage, determination, and standing up against injustice to create positive change.",
+    "vocabulary": [
+     "boycott",
+     "encouragement",
+     "fulfill",
+     "injustice",
+     "mistreated",
+     "protest",
+     "qualified",
+     "registered"
+    ],
+    "vocabularySkill": "Synonyms and Antonyms",
+    "readingSkills": [
+     "Reread / Timeline",
+     "Author’s Perspective"
+    ]
+   },
+   "Food Fight": {
+    "unit": 3,
+    "number": 3,
+    "name": "Food Fight",
+    "genre": "Argumentative Text",
+    "textIdea": "Scientists use genetic modification to change the characteristics of crops, making them more resistant to insects, diseases, and harsh environmental conditions. Supporters believe these advancements can improve agriculture, increase food production, and provide crops with additional nutrients. However, others raise concerns about the safety and long-term effects of genetically modified foods, leading to debates about whether humans should interfere with nature.",
+    "vocabulary": [
+     "advancements",
+     "agriculture",
+     "characteristics",
+     "concerns",
+     "disagreed",
+     "inherit",
+     "prevalent",
+     "resistance"
+    ],
+    "vocabularySkill": "Greek Roots",
+    "readingSkills": [
+     "Reread / Maps and Headings",
+     "Author’s Claim"
+    ]
+   },
+   "A World Without Rules": {
+    "unit": 4,
+    "number": 1,
+    "name": "A World Without Rules",
+    "genre": "Narrative Nonfiction",
+    "textIdea": "Imagine living in a world without rules, laws, or government, where people can do whatever they want without consequences. Without laws and public services, communities would face dangerous roads, pollution, unsafe public spaces, and a lack of protection. The text explains how governments, laws, and democracy help maintain order, protect citizens' rights, and create a safer and fairer society.",
+    "vocabulary": [
+     "amendments",
+     "commitment",
+     "compromise",
+     "democracy",
+     "eventually",
+     "legislation",
+     "privilege",
+     "version"
+    ],
+    "vocabularySkill": "Latin Roots",
+    "readingSkills": [
+     "Ask and Answer Questions / Headings and Pronunciation",
+     "Cause and Effect"
+    ]
+   },
+   "A Telephone Mix-Up": {
+    "unit": 4,
+    "number": 2,
+    "name": "A Telephone Mix-Up",
+    "genre": "Historical Fiction",
+    "textIdea": "In the early 1900s, a young girl watches her town experience the excitement and uncertainty of getting its first telephone system. While some people believe the new technology will improve communication, others worry that it will create problems and change their traditional way of life. Through her father's work as a doctor, the girl discovers how telephones can help people communicate quickly, respond to emergencies, and save lives.",
+    "vocabulary": [
+     "decade",
+     "directing",
+     "engineering",
+     "gleaming",
+     "scouted",
+     "squirmed",
+     "technology",
+     "tinkering"
+    ],
+    "vocabularySkill": "Synonyms",
+    "readingSkills": [
+     "Make Predictions / Plot: Setting",
+     "Point of View and Perspective"
+    ]
+   },
+   "Sing to Me": {
+    "unit": 4,
+    "number": 3,
+    "name": "Sing to Me",
+    "genre": "Narrative Poetry",
+    "textIdea": "The poems explore the importance of perseverance, determination, and overcoming challenges to achieve personal goals. One poem describes a child struggling to learn the piano before gaining confidence through practice and support, while the other follows a child determined to climb a tree despite repeated failures. Both poems show how persistence, self-confidence, and encouragement can help people overcome difficulties and experience success.",
+    "vocabulary": [
+     "attain",
+     "dangling",
+     "hovering",
+     "triumph",
+     "stanza",
+     "repetition",
+     "denotation",
+     "connotation"
+    ],
+    "vocabularySkill": "Connotation and Denotation",
+    "readingSkills": [
+     "Structure / Narrative Poetry",
+     "Theme"
+    ]
+   },
+   "Your World Up Close": {
+    "unit": 5,
+    "number": 1,
+    "name": "Your World Up Close",
+    "genre": "Expository Text",
+    "textIdea": "Microscopes allow scientists to magnify tiny objects and discover details that cannot be seen with the naked eye. Over time, advances in microscope technology have made it possible to study snowflakes, human skin, cells, and other microscopic structures in extraordinary detail. These discoveries help scientists better understand the natural world, investigate diseases, and explore things that are normally invisible to humans.",
+    "vocabulary": [
+     "cling",
+     "dissolves",
+     "gritty",
+     "humid",
+     "magnify",
+     "microscope",
+     "mingle",
+     "typical"
+    ],
+    "vocabularySkill": "Antonyms",
+    "readingSkills": [
+     "Summarize / Photographs and Captions",
+     "Chronology"
+    ]
+   },
+   "Sadie’s Game": {
+    "unit": 5,
+    "number": 2,
+    "name": "Sadie’s Game",
+    "genre": "Realistic Fiction",
+    "textIdea": "A young girl who uses a wheelchair loves playing basketball but struggles with disappointment after being removed from a game. She also feels hurt because her older brother, who once supported and encouraged her after her accident, has become distant and spends more time with his friends. Through family support, understanding, and honest communication, she learns to express her emotions and rebuild her relationship with her brother.",
+    "vocabulary": [],
+    "vocabularySkill": "Similes and Metaphors",
+    "readingSkills": [
+     "Visualize / Plot: Foreshadowing",
+     "Plot: Conflict"
+    ]
+   },
+   "The Founding of Jamestown": {
+    "unit": 5,
+    "number": 3,
+    "name": "The Founding of Jamestown",
+    "genre": "Expository Text",
+    "textIdea": "In 1607, English settlers arrived in Virginia and established Jamestown, the first permanent English settlement in North America. The settlers faced tremendous challenges, including food shortages, unsafe drinking water, disease, and conflicts with Native Americans, but leaders such as John Smith helped the colony survive. Archaeological discoveries and historical documents help researchers uncover evidence about the settlers' daily lives, their interactions with Native Americans, and the importance of Jamestown in American history.",
+    "vocabulary": [
+     "archaeology",
+     "document",
+     "era",
+     "evidence",
+     "expedition",
+     "permanent",
+     "tremendous",
+     "uncover"
+    ],
+    "vocabularySkill": "Proverbs and Adages",
+    "readingSkills": [
+     "Summarize / Sidebars and Maps",
+     "Chronology"
+    ]
+   },
+   "The Great Energy Debate": {
+    "unit": 6,
+    "number": 1,
+    "name": "The Great Energy Debate",
+    "genre": "Narrative Nonfiction",
+    "textIdea": "Students prepare for a classroom debate about different energy sources, including fossil fuels, solar power, wind energy, and biofuels. They investigate the advantages and disadvantages of each source, focusing on environmental consequences, efficiency, costs, and sustainability. The debate encourages students to understand the importance of renewable energy, conserving natural resources, and making responsible decisions about future energy needs.",
+    "vocabulary": [
+     "coincidence",
+     "consequences",
+     "consume",
+     "converted",
+     "efficient",
+     "incredible",
+     "installed",
+     "renewable"
+    ],
+    "vocabularySkill": "Latin and Greek Prefixes",
+    "readingSkills": [
+     "Ask and Answer Questions / Sidebars",
+     "Central Idea and Relevant Details"
+    ]
+   },
+   "A Surprise Reunion": {
+    "unit": 6,
+    "number": 2,
+    "name": "A Surprise Reunion",
+    "genre": "Historical Fiction",
+    "textIdea": "A Shoshone chief named Cameahwait remembers his younger sister, who was taken from their tribe years earlier, while preparing to meet the Lewis and Clark expedition. The explorers seek help from the Shoshone people to obtain horses and supplies for their difficult journey across the mountains. During the meeting, Cameahwait unexpectedly reunites with his long-lost sister, Sacagawea, highlighting the importance of family bonds, cultural connections, and cooperation.",
+    "vocabulary": [
+     "ancestors",
+     "despised",
+     "endurance",
+     "forfeit",
+     "honor",
+     "intensity",
+     "irritating",
+     "retreated"
+    ],
+    "vocabularySkill": "Connotation and Denotation",
+    "readingSkills": [
+     "Reread / Plot: Setting",
+     "Theme"
+    ]
+   },
+   "Climbing Blue Hill": {
+    "unit": 6,
+    "number": 3,
+    "name": "Climbing Blue Hill",
+    "genre": "Poetry",
+    "textIdea": "The poems explore family relationships, personal identity, and the special connections between people and nature. Through a family hike, a girl's name inspired by a climbing plant, and a description of inherited family features, the poets celebrate love, memories, individuality, and family heritage. The poems use vivid imagery, metaphors, personification, and free verse to express emotions and show how family experiences shape who we are.",
+    "vocabulary": [
+     "gobble",
+     "individuality",
+     "mist",
+     "roots",
+     "metaphor",
+     "personification",
+     "imagery",
+     "free verse"
+    ],
+    "vocabularySkill": "Figurative Language",
+    "readingSkills": [
+     "Imagery and Personification / Free Verse",
+     "Character Perspective"
+    ]
+   }
+  },
+  "5": {
+   "A Life in the Woods": {
+    "unit": 1,
+    "number": 1,
+    "name": "A Life in the Woods",
+    "genre": "Narrative Nonfiction",
+    "textIdea": "Henry David Thoreau decides to leave his busy life behind and live in a small cabin near Walden Pond to find peace and inspiration in nature. During his time in the woods, he observes wildlife, explores the natural environment, and records his experiences and discoveries in a journal. His journey highlights the importance of simplicity, independence, and appreciating the beauty of nature.",
+    "vocabulary": [
+     "debris",
+     "emphasis",
+     "encounter",
+     "generations",
+     "indicated",
+     "naturalist",
+     "sheer",
+     "spectacular"
+    ],
+    "vocabularySkill": "Homographs",
+    "readingSkills": [
+     "Ask and Answer Questions / Primary and Secondary Sources",
+     "Cause and Effect"
+    ]
+   },
+   "A Fresh Idea": {
+    "unit": 1,
+    "number": 2,
+    "name": "A Fresh Idea",
+    "genre": "Realistic Fiction",
+    "textIdea": "A young girl wants to grow fresh tomatoes for her neighborhood after discovering that a local market has closed, leaving residents with limited access to healthy food. She takes a risk by asking an elderly neighbor to lend her a small piece of land and uses her savings to buy tomato plants. Through hard work, cooperation, and determination, she learns about responsibility, managing money, and how a small business idea can benefit the community.",
+    "vocabulary": [
+     "afford",
+     "loan",
+     "profit",
+     "prosper",
+     "risk",
+     "savings",
+     "scarce",
+     "wages"
+    ],
+    "vocabularySkill": "Context Clues",
+    "readingSkills": [
+     "Reread / Plot: Conflict and Resolution",
+     "Plot: Events"
+    ]
+   },
+   "Are Electronic Devices Good for Us?": {
+    "unit": 1,
+    "number": 3,
+    "name": "Are Electronic Devices Good for Us?",
+    "genre": "Argumentative Text",
+    "textIdea": "Electronic devices such as smartphones, computers, and video games have become an important part of children's daily lives, offering opportunities for learning, communication, and entertainment. Supporters argue that technology improves reasoning skills and provides access to information, while critics believe excessive screen time can negatively affect physical activity, academic performance, and social development. The text presents different arguments supported by research and data, encouraging readers to evaluate the benefits and drawbacks of electronic devices and develop a balanced opinion.",
+    "vocabulary": [
+     "access",
+     "advance",
+     "analysis",
+     "cite",
+     "counterpoint",
+     "data",
+     "drawbacks",
+     "reasoning"
+    ],
+    "vocabularySkill": "Greek and Latin Prefixes",
+    "readingSkills": [
+     "Reread / Headings and Graphs",
+     "Author’s Claim"
+    ]
+   },
+   "Creating a Nation": {
+    "unit": 2,
+    "number": 1,
+    "name": "Creating a Nation",
+    "genre": "Expository Text",
+    "textIdea": "The American colonists became frustrated with British taxes and laws because they had no representatives in Parliament to defend their interests. Protests such as the Boston Tea Party and conflicts with British soldiers eventually led to the American Revolution, as colonists debated how to resolve their problems and fight for independence. Through cooperation, important meetings, and the leadership of figures such as George Washington and Thomas Jefferson, the colonies declared independence and worked toward forming a new nation.",
+    "vocabulary": [
+     "committees",
+     "convention",
+     "debate",
+     "proposal",
+     "representatives",
+     "resolve",
+     "situation",
+     "union"
+    ],
+    "vocabularySkill": "Context Clues",
+    "readingSkills": [
+     "Reread / Headings and Timelines",
+     "Problem and Solution"
+    ]
+   },
+   "The Magical Lost Brocade": {
+    "unit": 2,
+    "number": 2,
+    "name": "The Magical Lost Brocade",
+    "genre": "Folktale",
+    "textIdea": "A poor Chinese woman creates a beautiful brocade, but a powerful wind carries it away, sending her brave son on a dangerous journey to recover it. With guidance from a wise stranger, the boy travels through a valley of fire, an icy ocean, and a steep mountain, overcoming challenges through courage and determination. The folktale highlights the importance of perseverance, gratitude, family love, and accepting help from others to achieve a difficult goal.",
+    "vocabulary": [
+     "assuring",
+     "detected",
+     "emerging",
+     "gratitude",
+     "guidance",
+     "outcome",
+     "previous",
+     "pursuit"
+    ],
+    "vocabularySkill": "Personification",
+    "readingSkills": [
+     "Make Predictions / Plot: Setting",
+     "Theme"
+    ]
+   },
+   "A Simple Plan": {
+    "unit": 2,
+    "number": 3,
+    "name": "A Simple Plan",
+    "genre": "Poetry",
+    "textIdea": "The poems explore how determination, courage, and personal ambition can inspire people to accomplish meaningful goals. One poem describes a boy who dreams of changing the world through small acts of kindness and motivates his brother to make a difference, while the other highlights the importance of taking action to help others. Both poems emphasize that ordinary people can achieve extraordinary things through responsibility, perseverance, and a willingness to help.",
+    "vocabulary": [
+     "ambitious",
+     "memorized",
+     "satisfaction",
+     "shuddered",
+     "narrative",
+     "repetition",
+     "free verse",
+     "rhyme"
+    ],
+    "vocabularySkill": "Homographs",
+    "readingSkills": [
+     "Repetition and Rhyme / Narrative and Free Verse",
+     "Theme"
+    ]
+   },
+   "A Reluctant Traveler": {
+    "unit": 3,
+    "number": 1,
+    "name": "A Reluctant Traveler",
+    "genre": "Realistic Fiction",
+    "textIdea": "A young boy reluctantly travels with his family from New York City to Argentina because he would rather spend his summer vacation playing soccer with his friends. As he explores Buenos Aires, tastes traditional foods, and experiences local music and dancing, he begins to appreciate the country's culture and discovers similarities between his home and the new place. The story highlights the importance of being open-minded, respecting cultural differences, and discovering the value of new experiences.",
+    "vocabulary": [
+     "appreciation",
+     "blurted",
+     "complimenting",
+     "congratulate",
+     "contradicted",
+     "critical",
+     "cultural",
+     "misunderstanding"
+    ],
+    "vocabularySkill": "Context Clues",
+    "readingSkills": [
+     "Summarize / Plot: Characterization",
+     "Theme"
+    ]
+   },
+   "Gulf Spill Superheroes": {
+    "unit": 3,
+    "number": 2,
+    "name": "Gulf Spill Superheroes",
+    "genre": "Expository Text",
+    "textIdea": "A massive oil spill in the Gulf of Mexico creates an environmental disaster that threatens marine life, coastal habitats, and local communities. Scientists, engineers, firefighters, veterinarians, and volunteers collaborate using advanced technology and specialized techniques to stop the leak, clean up the oil, and rescue affected animals. The text highlights the importance of teamwork, dedication, problem-solving, and cooperation in overcoming environmental challenges.",
+    "vocabulary": [
+     "artificial",
+     "collaborate",
+     "dedicated",
+     "flexible",
+     "function",
+     "mimic",
+     "obstacle",
+     "techniques"
+    ],
+    "vocabularySkill": "Latin Roots",
+    "readingSkills": [
+     "Ask and Answer Questions / Problem and Solution",
+     "Central Idea and Relevant Details"
+    ]
+   },
+   "What Was the Purpose of the Inca’s Knotted Strings?": {
+    "unit": 3,
+    "number": 3,
+    "name": "What Was the Purpose of the Inca’s Knotted Strings?",
+    "genre": "Argumentative Text",
+    "textIdea": "The ancient Incas used a system of knotted strings called quipus to record important information and manage their civilization without a traditional written language. Archaeologists and historians believe that the knots, colors, and positions of the strings represented numbers and helped officials track population statistics, agricultural production, and other records. Researchers continue to study these preserved objects to understand whether quipus functioned only as mathematical tools or also served as a complex system of communication.",
+    "vocabulary": [
+     "archaeologist",
+     "era",
+     "fragments",
+     "historian",
+     "intact",
+     "preserved",
+     "reconstruct",
+     "remnants"
+    ],
+    "vocabularySkill": "Context Clues",
+    "readingSkills": [
+     "Summarize / Compare and Contrast",
+     "Author’s Claim"
+    ]
+   },
+   "Frederick Douglass: Freedom’s Voice": {
+    "unit": 4,
+    "number": 1,
+    "name": "Frederick Douglass: Freedom’s Voice",
+    "genre": "Biography",
+    "textIdea": "Frederick Douglass was born into slavery in Maryland and faced cruelty, injustice, and unequal treatment before escaping to freedom in the North. Inspired by the abolitionist movement, he began speaking publicly about the horrors of slavery and became a powerful voice in the fight for freedom and equality. His courage, determination, and remarkable speaking abilities helped him inspire others to challenge injustice and defend human rights.",
+    "vocabulary": [
+     "anticipation",
+     "defy",
+     "entitled",
+     "neutral",
+     "outspoken",
+     "reserved",
+     "sought",
+     "unequal"
+    ],
+    "vocabularySkill": "Prefixes and Suffixes",
+    "readingSkills": [
+     "Summarize / Photographs and Captions",
+     "Author’s Perspective"
+    ]
+   },
+   "Where’s Brownie?": {
+    "unit": 4,
+    "number": 2,
+    "name": "Where’s Brownie?",
+    "genre": "Drama",
+    "textIdea": "A group of children becomes worried when their pet chameleon, Brownie, mysteriously disappears from its terrarium. They search for clues, question one another, and use their knowledge of chameleons to figure out where their missing pet might be hiding. Through teamwork, careful observation, and logical thinking, the children work together to solve the mystery and learn the importance of cooperation and problem-solving.",
+    "vocabulary": [
+     "astounded",
+     "concealed",
+     "inquisitive",
+     "interpret",
+     "perplexed",
+     "precise",
+     "reconsider",
+     "suspicious"
+    ],
+    "vocabularySkill": "Adages and Proverbs",
+    "readingSkills": [
+     "Visualize / Elements of a Play",
+     "Character Perspective"
+    ]
+   },
+   "How Do I Hold the Summer?": {
+    "unit": 4,
+    "number": 3,
+    "name": "How Do I Hold the Summer?",
+    "genre": "Poetry",
+    "textIdea": "The poems explore how poets use vivid descriptions and figurative language to express feelings, memories, and observations about nature. One poem describes a speaker's desire to preserve the beauty and joyful memories of summer as autumn approaches, while another uses imaginative language to describe a fly's movements and appearance. Both poems demonstrate how imagery, similes, metaphors, rhythm, and sound devices help readers visualize experiences and connect with the poet's emotions.",
+    "vocabulary": [
+     "barren",
+     "expression",
+     "meaningful",
+     "plumes",
+     "lyric",
+     "alliteration",
+     "meter",
+     "stanza"
+    ],
+    "vocabularySkill": "Simile and Metaphor",
+    "readingSkills": [
+     "Stanza and Meter / Lyric and Free Verse",
+     "Theme"
+    ]
+   },
+   "Changing Views of Earth": {
+    "unit": 5,
+    "number": 1,
+    "name": "Changing Views of Earth",
+    "genre": "Expository Text",
+    "textIdea": "For centuries, people believed that Earth was the center of the universe until scientists such as Copernicus and Galileo challenged this idea through astronomical observations and calculations. The invention of telescopes and other scientific instruments helped researchers better understand Earth's movement around the Sun and study the planets and other celestial bodies. Advances in technology, including weather balloons, aircraft, and satellites, allowed scientists to explore Earth's atmosphere, collect accurate data, and improve their understanding of our planet.",
+    "vocabulary": [
+     "approximately",
+     "astronomical",
+     "calculation",
+     "criteria",
+     "diameter",
+     "evaluate",
+     "orbit",
+     "spheres"
+    ],
+    "vocabularySkill": "Greek Roots",
+    "readingSkills": [
+     "Ask and Answer Questions / Diagrams",
+     "Central Idea and Relevant Details"
+    ]
+   },
+   "The Day the Rollets Got Their Moxie Back": {
+    "unit": 5,
+    "number": 2,
+    "name": "The Day the Rollets Got Their Moxie Back",
+    "genre": "Historical Fiction",
+    "textIdea": "During the Great Depression, a family in New York City struggles with unemployment, financial difficulties, and uncertainty about the future. Inspired by letters from their older brother working in a government employment program, two sisters decide to organize a talent show to bring happiness and hope to their struggling family. Through creativity, cooperation, and determination, the family learns the importance of staying positive, supporting one another, and finding joy during difficult times.",
+    "vocabulary": [
+     "assume",
+     "guarantee",
+     "nominate",
+     "obviously",
+     "rely",
+     "supportive",
+     "sympathy",
+     "weakling"
+    ],
+    "vocabularySkill": "Idioms",
+    "readingSkills": [
+     "Make Predictions / Plot: Characterization",
+     "Plot: Conflict"
+    ]
+   },
+   "Should Plants and Animals from Other Places Live Here?": {
+    "unit": 5,
+    "number": 3,
+    "name": "Should Plants and Animals from Other Places Live Here?",
+    "genre": "Argumentative Text",
+    "textIdea": "Plants and animals introduced from other regions can benefit communities by supporting agriculture, controlling pests, and providing useful resources. However, some nonnative species become invasive, spreading rapidly, damaging ecosystems, and threatening native plants and animals. The text presents arguments for and against introducing nonnative species, highlighting the importance of protecting biodiversity and preventing environmental harm.",
+    "vocabulary": [
+     "agricultural",
+     "declined",
+     "disorder",
+     "identify",
+     "probable",
+     "thrive",
+     "unexpected",
+     "widespread"
+    ],
+    "vocabularySkill": "Root Words",
+    "readingSkills": [
+     "Ask and Answer Questions / Charts and Headings",
+     "Author’s Perspective"
+    ]
+   },
+   "Shipped Out": {
+    "unit": 6,
+    "number": 1,
+    "name": "Shipped Out",
+    "genre": "Historical Fiction",
+    "textIdea": "During World War II, a young girl named Libby struggles with feeling unimportant while her father serves in the military and her mother works long hours making uniforms for soldiers. Living with her aunt, she helps in a bakery and gradually discovers that even small contributions, such as preparing food and supporting community activities, can help the war effort. The story highlights the importance of teamwork, sacrifice, family support, and recognizing that everyone can make a difference during difficult times.",
+    "vocabulary": [
+     "bulletin",
+     "contributions",
+     "diversity",
+     "enlisted",
+     "intercept",
+     "operations",
+     "recruits",
+     "survival"
+    ],
+    "vocabularySkill": "Homophones",
+    "readingSkills": [
+     "Summarize / Plot: Flashback",
+     "Theme"
+    ]
+   },
+   "Mysterious Oceans": {
+    "unit": 6,
+    "number": 2,
+    "name": "Mysterious Oceans",
+    "genre": "Expository Text",
+    "textIdea": "The deep ocean is a mysterious environment with freezing temperatures, complete darkness, extreme pressure, and limited food sources. Scientists use advanced submarines to explore the ocean floor and discover unusual creatures that have developed special adaptations to survive these harsh conditions. Deep-sea animals use bioluminescence, camouflage, specialized hunting techniques, and unique physical features to find food, avoid predators, and survive in one of Earth's most challenging environments.",
+    "vocabulary": [
+     "adaptation",
+     "agile",
+     "cache",
+     "dormant",
+     "forage",
+     "frigid",
+     "hibernate",
+     "insulates"
+    ],
+    "vocabularySkill": "Context Clues",
+    "readingSkills": [
+     "Ask and Answer Questions / Maps",
+     "Cause and Effect"
+    ]
+   },
+   "To Travel!": {
+    "unit": 6,
+    "number": 3,
+    "name": "To Travel!",
+    "genre": "Poetry",
+    "textIdea": "The poems explore how traveling, reading, art, and nature help people discover new places, cultures, and experiences. Through books, paintings, music, and interactions with different traditions, people can expand their knowledge and develop meaningful connections with the world. The poems use vivid imagery, personification, and sound devices to express the excitement of exploration, cultural exchange, and appreciation for the beauty of nature.",
+    "vocabulary": [
+     "blares",
+     "connection",
+     "errand",
+     "exchange",
+     "personification",
+     "assonance",
+     "consonance",
+     "imagery"
+    ],
+    "vocabularySkill": "Personification",
+    "readingSkills": [
+     "Assonance and Consonance / Lyric and Narrative",
+     "Point of View and Perspective"
+    ]
+   }
+  },
+  "6": {
+   "Amigo Brothers": {
+    "unit": 1,
+    "number": 1,
+    "name": "Amigo Brothers",
+    "genre": "Realistic Fiction",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Determine Theme",
+     "Text Evidence"
+    ]
+   },
+   "Never Too Young to Change the World": {
+    "unit": 1,
+    "number": 2,
+    "name": "Never Too Young to Change the World",
+    "genre": "Biography",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Central Idea",
+     "Text Evidence"
+    ]
+   },
+   "Cocoon": {
+    "unit": 1,
+    "number": 3,
+    "name": "Cocoon",
+    "genre": "Fiction",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": "Multiple Meaning Words",
+    "readingSkills": [
+     "Word Choice and Tone",
+     "Connotation and Denotation"
+    ]
+   },
+   "My Mother Pieced Quilts": {
+    "unit": 2,
+    "number": 1,
+    "name": "My Mother Pieced Quilts",
+    "genre": "Poetry",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Author’s Style",
+     "Word Choice and Tone"
+    ]
+   },
+   "The Circuit": {
+    "unit": 2,
+    "number": 2,
+    "name": "The Circuit",
+    "genre": "Realistic Fiction",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Elements of a Short Story: Plot",
+     "Character Development",
+     "Setting"
+    ]
+   },
+   "Personal Statement: Individual Twin": {
+    "unit": 2,
+    "number": 3,
+    "name": "Personal Statement: Individual Twin",
+    "genre": "Personal Narrative",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Author’s Point of View",
+     "Author’s Perspective"
+    ]
+   },
+   "Everybody Jump": {
+    "unit": 3,
+    "number": 1,
+    "name": "Everybody Jump",
+    "genre": "Informational Text",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Central Idea",
+     "Text Structure"
+    ]
+   },
+   "Bullying in Schools": {
+    "unit": 3,
+    "number": 2,
+    "name": "Bullying in Schools",
+    "genre": "Informational Text",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Part-Whole Relationship",
+     "Item-Category Relationship",
+     "Cause and Effect",
+     "Evaluate Argument and Claims"
+    ]
+   },
+   "I Am Malala": {
+    "unit": 4,
+    "number": 1,
+    "name": "I Am Malala",
+    "genre": "Memoir / Autobiography",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Author’s Purpose and Point of View",
+     "Textual Evidence"
+    ]
+   },
+   "All Summer in a Day": {
+    "unit": 4,
+    "number": 2,
+    "name": "All Summer in a Day",
+    "genre": "Science Fiction",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Point of View and Theme",
+     "Story Structure"
+    ]
+   },
+   "Celebrities as Heroes": {
+    "unit": 4,
+    "number": 3,
+    "name": "Celebrities as Heroes",
+    "genre": "Informational Text",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Claim and Evidence",
+     "Evaluate Argument and Claims"
+    ]
+   },
+   "Famous": {
+    "unit": 4,
+    "number": 4,
+    "name": "Famous",
+    "genre": "Poetry",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Poetic Structure",
+     "Figurative Language"
+    ]
+   },
+   "Who Is the Real Hero?": {
+    "unit": 5,
+    "number": 1,
+    "name": "Who Is the Real Hero?",
+    "genre": "Argumentative Text",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Claim and Evidence",
+     "Evaluate Argument and Claims"
+    ]
+   },
+   "Mandatory Volunteer Work for Teenagers": {
+    "unit": 5,
+    "number": 2,
+    "name": "Mandatory Volunteer Work for Teenagers",
+    "genre": "Argumentative Text",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Compare and Contrast",
+     "Author’s Claim",
+     "Evaluate Argument and Claims"
+    ]
+   },
+   "The Treasure of Lemon Brown": {
+    "unit": 5,
+    "number": 3,
+    "name": "The Treasure of Lemon Brown",
+    "genre": "Short Story",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Story Structure",
+     "Character Development",
+     "Theme"
+    ]
+   },
+   "The Day I Saved a Life": {
+    "unit": 5,
+    "number": 4,
+    "name": "The Day I Saved a Life",
+    "genre": "Personal Narrative",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Textual Evidence",
+     "Author’s Point of View",
+     "Main Idea"
+    ]
+   },
+   "Warriors Don’t Cry": {
+    "unit": 6,
+    "number": 1,
+    "name": "Warriors Don’t Cry",
+    "genre": "Memoir",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Context Clues and Impact",
+     "Author’s Point of View",
+     "Theme"
+    ]
+   },
+   "The Story of My Life": {
+    "unit": 6,
+    "number": 2,
+    "name": "The Story of My Life",
+    "genre": "Autobiography",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Textual Evidence",
+     "Main Idea",
+     "Author’s Perspective"
+    ]
+   },
+   "Listen, Slowly": {
+    "unit": 6,
+    "number": 3,
+    "name": "Listen, Slowly",
+    "genre": "Fiction",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Tone",
+     "Character Development",
+     "Author’s Word Choice"
+    ]
+   },
+   "The Miracle Worker": {
+    "unit": 6,
+    "number": 4,
+    "name": "The Miracle Worker",
+    "genre": "Drama",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Dramatic Elements and Structure",
+     "Dialogue",
+     "Stage Directions"
+    ]
+   },
+   "Letter to His Daughter": {
+    "unit": 6,
+    "number": 5,
+    "name": "Letter to His Daughter",
+    "genre": "Letter / Nonfiction",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Figurative Language",
+     "Author’s Message"
+    ]
+   },
+   "I Never Had It Made: An Autobiography of Jackie Robinson": {
+    "unit": 6,
+    "number": 6,
+    "name": "I Never Had It Made: An Autobiography of Jackie Robinson",
+    "genre": "Autobiography",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Main Idea",
+     "Compare and Contrast",
+     "Textual Evidence"
+    ]
+   },
+   "Elena": {
+    "unit": 6,
+    "number": 7,
+    "name": "Elena",
+    "genre": "Fiction",
+    "textIdea": null,
+    "vocabulary": [],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Story Structure",
+     "Compare and Contrast",
+     "Theme"
+    ]
+   }
+  }
+ }
+}

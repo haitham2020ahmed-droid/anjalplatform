@@ -18,6 +18,7 @@ import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "./assignments";
+import { schoolSkillIndex } from "../questions/skill-questions";
 
 /** Answers needed (together with the target mastery) to complete an assigned skill. */
 export const MIN_ANSWERS_TO_COMPLETE = 10;
@@ -47,6 +48,9 @@ export function assignmentStatus(input: { answered: number; mastery: number; tar
 export type Track = "CURRICULUM" | "MAP" | "NAFS" | "RTI" | "GRAMMAR" | "CUSTOM";
 export const TRACKS: readonly Track[] = ["CURRICULUM", "MAP", "NAFS", "RTI", "GRAMMAR", "CUSTOM"];
 export const trackOf = (v: unknown): Track => (TRACKS as readonly unknown[]).includes(v) ? (v as Track) : "CURRICULUM";
+/** The program chosen in the Assign dialog (stored as Assignment.program); null when none was sent. */
+export const ASSIGN_PROGRAMS = ["MAP", "RTI", "CURRICULUM", "NAFS"] as const;
+export const programOrNull = (v: unknown): string | null => { const k = String(v ?? "").trim().toUpperCase(); return (ASSIGN_PROGRAMS as readonly string[]).includes(k) ? k : null; };
 /**
  * Access rules (UI reorg): Nafs work may go to a class of ANY grade (it used to be Grade 6 only). Kept as a hook so
  * the call sites stay unchanged; the class itself is still checked by assertClassAccess (own classes only).
@@ -77,6 +81,10 @@ export interface AssignSkillInput {
   dueAt?: Date | null;
   note?: string | null;
   targetMastery?: number;
+  /** MAP | RTI | CURRICULUM | NAFS (the Assign dialog's Program choice) */
+  program?: string | null;
+  /** the teacher's own questions ("I'll pick the questions"); empty / undefined = the platform chooses */
+  questionIds?: string[] | null;
 }
 
 /** Who the work is from: the teacher themself; for a school admin, the class's teacher (the admin sends on their behalf). */
@@ -111,6 +119,7 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
   const note = s(input.note).replace(/\s+/g, " ").trim().slice(0, 1000) || null;
   const target = input.targetMastery ?? DEFAULT_TARGET_MASTERY;
   if (target < 40 || target > 100) throw new ValidationError("Target mastery must be between 40 and 100.");
+  const picked = await pickedQuestionIds(repo, klass.schoolId, input.questionIds);
 
   const students = await repo.findMany("Student", { id: { in: recipients } }, { select: ["id", "userId"] });
   const id = await repo.transaction(async (tx) => {
@@ -118,6 +127,7 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
       track: trackOf(input.track),
       classId: klass.id, createdById: teacher.id, title: s(skill.name).slice(0, 191), target: "SKILL", skillId: skill.id, skillIds: [s(skill.id)],
       startAt, dueAt, note, targetMastery: target, createdAt: now,
+      ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}), ...(picked ? { questionIds: picked } : {}),
     });
     await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
     const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";
@@ -129,6 +139,21 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
     return s(a.id);
   });
   return { assignmentId: id, students: recipients.length };
+}
+
+/**
+ * The teacher's picked questions, checked: published, not deleted, of this school (any grade). null = none picked
+ * (the platform chooses). Order kept, duplicates dropped, at most MAX_SET_QUESTIONS.
+ */
+export async function pickedQuestionIds(repo: Repo, schoolId: unknown, ids: readonly string[] | null | undefined): Promise<string[] | null> {
+  const want = [...new Set((ids ?? []).map(s).filter(Boolean))];
+  if (!want.length) return null;
+  if (want.length > MAX_SET_QUESTIONS) throw new ValidationError(`Choose at most ${MAX_SET_QUESTIONS} questions at a time.`);
+  const qs = await repo.findMany("Question", { id: { in: want } }, { select: ["id", "skillId", "status", "deletedAt"] });
+  if (qs.length !== want.length || qs.some((q) => q.status !== "PUBLISHED" || q.deletedAt)) throw new ValidationError("Only published questions can be assigned.");
+  const idx = await schoolSkillIndex(repo, s(schoolId));
+  if (qs.some((q) => !idx.ids.has(s(q.skillId)))) throw new ForbiddenError("These questions belong to another school.");
+  return want;
 }
 
 // ------------------------------------------------------------------ practice link + progress
@@ -467,6 +492,8 @@ export interface AssignQuestionsInput {
   silent?: boolean;
   /** the full-curriculum plan this place belongs to (hidden from the work lists) */
   curriculumPlanId?: string | null;
+  /** MAP | RTI | CURRICULUM | NAFS (the Program choice), stored as Assignment.program */
+  program?: string | null;
   track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null }
 
 /**
@@ -514,7 +541,7 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
     const target = input.adaptive?.targetCorrect ? Math.max(5, Math.min(50, Math.round(input.adaptive.targetCorrect))) : null;
     const set = await tx.create("Assessment", { title: title.slice(0, 191), type: input.kind ?? "TEACHER_QUIZ", isAdaptive: Boolean(input.adaptive), maxQuestions: input.adaptive ? (target ? GOAL_SAFETY_CAP : Math.min(ids.length, input.adaptive.maxQuestions)) : ids.length, targetCorrect: target, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
     await tx.createMany("AssessmentQuestion", ids.map((questionId, order) => ({ assessmentId: set.id, questionId, order, points: 1 })));
-    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, curriculumPlanId: input.curriculumPlanId ?? null, createdAt: now });
+    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, curriculumPlanId: input.curriculumPlanId ?? null, createdAt: now, ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}) });
     await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
     const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";
     if (!input.silent) await tx.createMany("Notification", students.map((st) => ({

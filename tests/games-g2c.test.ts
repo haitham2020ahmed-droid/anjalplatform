@@ -24,6 +24,7 @@ import { moonPoints, rocketLanes } from "../src/games/rocket-race/live";
 import { splitTeams, teamForLateJoiner, tugState } from "../src/games/team-tug/teams";
 import { afterWave, build, canBuild, coinsFor, newCastle, resolveWave, START_COINS, START_HEARTS, waveAfter, waveCount, waveSize } from "../src/games/castle-guard/rules";
 import { demoDatabase } from "./helpers/db";
+import { topUpGameBank } from "./helpers/game-bank";
 
 const ROOT = join(__dirname, "..");
 const read = (p: string) => readFileSync(join(ROOT, p), "utf8");
@@ -46,6 +47,8 @@ describe("🎲 Games Part 2c — Castle Guard, Rocket Race, Team Tug", () => {
     const skills = (await challengeSkills(repo, teacher, { grade: r[0].grade })).filter((k) => k.fitting >= 6).sort((a, b) => b.fitting - a.fitting);
     assert.ok(skills.length, "the test bank has a skill with multiple choice / True-False questions");
     skillId = skills[0].id;
+    // games need a full round of fitting questions (MIN_QUESTIONS_PER_GAME); the test bank has 6 per skill
+    await topUpGameBank(repo, skillId);
   });
   after(() => resetRooms());
 

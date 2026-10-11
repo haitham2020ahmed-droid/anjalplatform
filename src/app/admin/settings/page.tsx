@@ -5,7 +5,7 @@ import { card, field, h2, label } from "@/components/admin/styles";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { ADAPTIVE_LIMITS, getBranding, getEngineSettings, listAcademicYears } from "@/server/admin/settings";
-import { archiveClassAction, brandingAction, createClassAction, engineSettingsAction, renameClassAction, yearAction } from "../actions";
+import { brandingAction, engineSettingsAction, yearAction } from "../actions";
 import { placementRequired } from "@/server/student/assigned";
 import { placementAction } from "./placement-actions";
 import { coordinatorsAction, ladderAction } from "./ladder-actions";
@@ -22,7 +22,6 @@ export default async function SettingsPage() {
   const years = school ? await listAcademicYears(repo, actor) : [];
   const current = years.find((y) => y.isCurrent);
   const gradeOf = new Map((await repo.findMany("Grade", { schoolId: actor.schoolId! })).map((g) => [String(g.id), Number(g.level)]));
-  const classes = current ? (await repo.findMany("Class", { academicYearId: current.id, deletedAt: null })).map((c) => ({ id: String(c.id), name: String(c.name), grade: gradeOf.get(String(c.gradeId)) ?? 0 })).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name)) : [];
   const ladder = school ? await ladderSettings(repo, actor.schoolId) : null;
   const coords = school ? await coordinatorMap(repo, actor.schoolId) : {};
   const teacherUsers = school ? (await repo.findMany("User", { schoolId: actor.schoolId, role: "TEACHER", deletedAt: null }, { select: ["id", "displayName"] })).map((u) => ({ id: String(u.id), name: String(u.displayName) })).sort((a, b) => a.name.localeCompare(b.name)) : [];
@@ -66,22 +65,9 @@ export default async function SettingsPage() {
 
       {can(actor, "classes:manage") && (
         <section className={card}>
-          <h2 className={h2}>Classes {current ? `(${current.name})` : ""}</h2>
-          <ul className="mt-2 space-y-2">
-            {classes.map((c) => (
-              <li key={c.id} className="flex flex-wrap items-end gap-3">
-                <span className="w-20 text-sm text-slate-500">Grade {c.grade}</span>
-                <ActionForm action={renameClassAction} submit="Rename" className="flex items-end gap-2">
-                  <input type="hidden" name="classId" value={c.id} /><input name="name" defaultValue={c.name} maxLength={20} aria-label={`Name of class ${c.name}`} className="rounded-lg border border-slate-300 px-3 py-2" />
-                </ActionForm>
-                <ActionForm action={archiveClassAction} submit="Archive" danger className="flex items-end"><input type="hidden" name="classId" value={c.id} /></ActionForm>
-              </li>
-            ))}
-          </ul>
-          <ActionForm action={createClassAction} submit="Add class" className="mt-4 flex flex-wrap items-end gap-3">
-            <label className={label}>Name<input name="name" required maxLength={20} placeholder="4C" className={field} /></label>
-            <label className={label}>Grade<select name="gradeLevel" className={field}>{[...new Set(gradeOf.values())].sort((a, b) => a - b).map((g) => <option key={g} value={g}>Grade {g}</option>)}</select></label>
-          </ActionForm>
+          <h2 className={h2}>Classes</h2>
+          <p className="mt-1 text-sm text-slate-600">Grades, classes, teachers and students are on the School page: add, rename or archive a class there.</p>
+          <Link href="/admin/school" className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">Open the School page</Link>
         </section>
       )}
 

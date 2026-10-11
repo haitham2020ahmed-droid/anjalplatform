@@ -4,7 +4,7 @@
  *   A  welcome counts (skills to work on, tests waiting) + "Continue where you left off" (lastActivity)
  *   B  My Work — one row per skill with its source tag (myWorkItems, Phase 4); ALL grammar work is here
  *   C  Reading tiles (ReadMaster: every published article of the grade; ReadRise: the whole library) — no assignment
- *   D  My Progress tiles (My Plans with the MAP dashboard, My Tests with the to-do badge, My Reports hub)
+ *   D  My Progress tiles (My Tests with the to-do badge, My Reports hub); MAP is a program page (/student/map)
  *   E  Programs tiles (Curriculum Map of the grade; RTI Program ONLY for students in Tier 2/3)
  *   +  "Also for you": work that is not a skill (Diagnostic Test, live game, exit ticket, MAP practice test,
  *      Respond to Reading, writing tasks, new teacher comments) — only when there is some.
@@ -182,44 +182,31 @@ export async function studentCurriculum(repo: Repo, actor: Actor): Promise<Stude
   return { grade: Number(g.level), units };
 }
 
-// ------------------------------------------------------------------ D. My Reports hub (links only)
+// ------------------------------------------------------------------ D. My Reports hub (a few big cards)
 
 export interface ReportLink { href: string; icon: string; label: string; hint: string }
-export interface ReportCategory { title: string; icon: string; links: ReportLink[] }
-/** The student's own reports in clear categories (existing pages only; every link is the student's own data). */
-export function reportCategories(studentId: string): ReportCategory[] {
-  const id = encodeURIComponent(studentId);
+/**
+ * My Reports: a few big cards, one icon and ONE line each (every link is the student's own data). The old Progress
+ * Report, My Skills and Family Report pages live inside "My progress" and "For my family" now; reading reports are
+ * a "My report" tab inside ReadMaster, ReadRise and Fluency Coach.
+ */
+export function reportCards(): ReportLink[] {
   return [
-    { title: "My Work and Tests", icon: "📝", links: [
-      { href: "/student/tests", icon: "📝", label: "My Tests", hint: "Scores of finished tests — open one to review your answers" },
-      { href: "/student#my-work-done", icon: "📘", label: "My Work", hint: "Finished skills — open the report of each one" },
-      { href: "/student/insights", icon: "🌟", label: "Progress Report", hint: "How you are doing and what to learn next" },
-    ] },
-    { title: "MAP", icon: "🗺️", links: [
-      { href: "/student/plans", icon: "🗂️", label: "My Plans", hint: "My MAP score at the top, then every plan" },
-      { href: "/student/map", icon: "🗺️", label: "My MAP Results", hint: "Fall, Winter and Spring scores and my goal" },
-      { href: `/map-report/study-plan/${id}`, icon: "📑", label: "My Study Plan", hint: "What I am ready to learn next" },
-      { href: `/map-report/family/${id}`, icon: "📈", label: "My MAP Report", hint: "A report to print for my family" },
-    ] },
-    { title: "Reading", icon: "📖", links: [
-      { href: "/student/readrise", icon: "🚀", label: "ReadRise", hint: "My ReadRise Level (estimate) and my growth" },
-      { href: "/student/readmaster", icon: "⭐", label: "ReadMaster", hint: "Articles I finished and my scores" },
-      { href: "/student/fluency-coach", icon: "🎙️", label: "Fluency Coach", hint: "My reading-aloud checks" },
-    ] },
-    { title: "Skills and Badges", icon: "🏅", links: [
-      { href: "/student/skills", icon: "🧩", label: "My Skills", hint: "Every skill and how far I am" },
-      { href: "/student/badges", icon: "🏅", label: "Badges", hint: "Badges I earned" },
-      { href: "/student/comments", icon: "💬", label: "Comments from My Teachers", hint: "What my teachers wrote about my work" },
-    ] },
-    { title: "For My Family", icon: "👪", links: [
-      { href: "/student/family", icon: "👪", label: "Family Report", hint: "Reports to show at home (PDF / print)" },
-      { href: "/student/family/diagnostic", icon: "🩺", label: "My Diagnostic Report", hint: "My Diagnostic Test results" },
-      { href: "/student/family/teacher-report", icon: "🧑‍🏫", label: "Report from My Teacher", hint: "The report my teacher sent" },
-    ] },
+    { href: "/student/reports?view=progress", icon: "📈", label: "My progress", hint: "How I am doing and what to learn next" },
+    { href: "/student/reports?view=family", icon: "👪", label: "For my family", hint: "Reports to show at home, in English or Arabic" },
+    { href: "/student/tests", icon: "📝", label: "My Tests", hint: "Scores of finished tests — open one to review your answers" },
+    { href: "/student/certificates", icon: "📜", label: "My Certificates", hint: "Certificates I earned, ready to print" },
   ];
 }
+/** Where each reading program keeps "My report". */
+export const READING_REPORT_LINKS: ReportLink[] = [
+  { href: "/student/readmaster?tab=report", icon: "⭐", label: "ReadMaster", hint: "My report" },
+  { href: "/student/readrise?tab=report", icon: "🚀", label: "ReadRise", hint: "My report" },
+  { href: "/student/fluency-coach#my-report", icon: "🎙️", label: "Fluency Coach", hint: "My report" },
+];
 
-// ------------------------------------------------------------------ D. MAP dashboard (top of My Plans)
+// ------------------------------------------------------------------ MAP dashboard data (teachers' view of a student's MAP; the
+// student page uses studentMapCards in ./map-dashboard.ts, which never shows a descriptor)
 
 /** MAP achievement descriptor → plain words for students and parents. */
 const LEVEL: Record<string, string> = { Low: "Low", LoAvg: "Low average", Avg: "Average", HiAvg: "High average", High: "High" };

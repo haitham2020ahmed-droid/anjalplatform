@@ -29,6 +29,7 @@ import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
 import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
 import { openAssignmentFor, refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
+import { chosenQuestionIdsOfAssignment } from "../questions/skill-questions";
 import { applyPlacementResult } from "../curriculum-map/placement-result";
 import { adaptiveNext, STUCK_AFTER, type AdaptiveState } from "../curriculum-map/leveled-run";
 import { diagnosticNext, diagnosticOfAssessment, recordDiagnosticResult } from "../diagnostic/test";
@@ -73,6 +74,8 @@ export interface Feedback {
   next: { hasQuestion: boolean; endReason: string | null; routeToSkillId: string | null; routeToSkillName: string | null };
   /** 🧑‍🏫 after a wrong answer: the tutor names the mistake and guides (the answer is shown only on request) */
   tutor?: TutorMessage | null;
+  /** the session had already ended (another tab, a double click): nothing was saved again, no score changed */
+  alreadyEnded?: boolean;
 }
 
 /** The tutor's turn when the repeat count is already known (Update 42B: read with the answer's other data). */
@@ -207,18 +210,33 @@ async function abilityOf(repo: Repo, studentId: string, skillId: string, cfg: Ad
   };
 }
 
+/**
+ * The items of a practice session: the questions the teacher picked for the linked assignment ("I'll pick the
+ * questions": Assignment.questionIds, in order), else the skill's whole pool (the platform chooses at each student's
+ * level). The adaptive engine then selects from these items exactly as before.
+ */
+async function practiceItems(repo: Repo, skillId: string, assignmentId: unknown): Promise<{ items: PracticeItem[]; chosen: boolean }> {
+  const ids = assignmentId ? await chosenQuestionIdsOfAssignment(repo, String(assignmentId)) : null;
+  if (ids?.length) {
+    const items = await loadSkillItems(repo, skillId, { questionIds: ids });
+    if (items.length) return { items, chosen: true };
+  }
+  return { items: await loadSkillItems(repo, skillId), chosen: false };
+}
+
 async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, now = new Date(), random?: () => number): Promise<PracticeView> {
   const student = await ownStudent(repo, actor);
   const skill = await assertSkillInCurriculum(repo, student, skillId);
-  const [items, openRows, assignmentId] = await Promise.all([
-    loadSkillItems(repo, skillId),
+  const [openRows, assignmentId] = await Promise.all([
     repo.findMany("PracticeSession", { studentId: student.id, skillId, endedAt: null }),
     openAssignmentFor(repo, String(student.id), skillId, now), // practice on an assigned skill counts toward it
   ]);
+  const { items, chosen } = await practiceItems(repo, skillId, assignmentId);
   if (!items.length) throw new ValidationError("There are no questions for this skill yet.");
 
-  // resume a recent open session for this skill instead of starting over
-  const open = openRows.filter((s) => now.getTime() - d(s.startedAt).getTime() < SESSION_RESUME_MINUTES * 60_000 && s.currentQuestionId);
+  // resume a recent open session for this skill instead of starting over (with the teacher's own questions: only
+  // a session of that same assignment)
+  const open = openRows.filter((s) => now.getTime() - d(s.startedAt).getTime() < SESSION_RESUME_MINUTES * 60_000 && s.currentQuestionId && (!chosen || String(s.assignmentId ?? "") === String(assignmentId)));
   if (open.length) {
     // resumed: the question is served again now (time away is not answer time)
     const [, mastery] = await Promise.all([
@@ -264,7 +282,7 @@ export async function currentQuestion(repo: Repo, actor: Actor, sessionId: strin
   const [skillRow, m, items] = await Promise.all([
     known ? cachedSkill(repo, String(s.skillId)) : repo.findUnique("Skill", { id: s.skillId }),
     known ? Promise.resolve(known.mastery) : repo.findUnique("StudentSkillMastery", { studentId: s.studentId, skillId: s.skillId }),
-    s.currentQuestionId && !s.endedAt ? loadSkillItems(repo, String(s.skillId)) : Promise.resolve([] as PracticeItem[]),
+    s.currentQuestionId && !s.endedAt ? practiceItems(repo, String(s.skillId), s.assignmentId).then((x) => x.items) : Promise.resolve([] as PracticeItem[]),
   ]);
   const skill = skillRow!;
   let question: ClientQuestion | null = null;
@@ -385,12 +403,12 @@ async function submitAnswerUnlocked(
   // session move is guarded by the database (current question + answer count), so a double click or a second server
   // still cannot apply an answer twice — the losing request's writes are rolled back as before.
   const s = await ownSession(repo, actor, input.sessionId);
-  if (s.endedAt) throw new ValidationError("This practice session has ended.");
+  if (s.endedAt) return endedSessionReply(repo, actor, s, input.questionId);
   if (s.currentQuestionId !== input.questionId) throw new ValidationError("This question was already answered. Here is your next one.");
   const skillId = String(s.skillId);
   const studentId = String(s.studentId);
   // the skill row is cached here too, so the ability read below needs no extra round trip
-  const [items, cfg] = await Promise.all([loadSkillItems(repo, skillId), engineConfig(repo, actor.schoolId), cachedSkill(repo, skillId)]);
+  const [{ items }, cfg] = await Promise.all([practiceItems(repo, skillId, s.assignmentId), engineConfig(repo, actor.schoolId), cachedSkill(repo, skillId)]);
   const byId = new Map(items.map((i) => [i.questionId, i]));
   const item = byId.get(input.questionId);
   if (!item) throw new ValidationError("This question is no longer available.");
@@ -508,7 +526,7 @@ async function submitAnswerUnlocked(
 export async function practiceHint(repo: Repo, actor: Actor, sessionId: string, questionId: string): Promise<{ hint: string; level: number; maxLevel: number; paragraph: number | null; sentence: string | null }> {
   const s = await ownSession(repo, actor, sessionId);
   if (s.endedAt || s.currentQuestionId !== questionId) throw new ValidationError("This question is no longer open.");
-  const item = (await loadSkillItems(repo, String(s.skillId))).find((i) => i.questionId === questionId);
+  const item = (await practiceItems(repo, String(s.skillId), s.assignmentId)).items.find((i) => i.questionId === questionId);
   if (!item) throw new ValidationError("There is no hint for this question.");
   const order = (s.currentOrder && typeof s.currentOrder === "object" && !Array.isArray(s.currentOrder) ? s.currentOrder : typeof s.currentOrder === "string" ? JSON.parse(s.currentOrder) : {}) as Record<string, unknown>;
   const prev = (order.hint ?? null) as { q?: string; n?: number; level?: number } | null;
@@ -792,9 +810,46 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
 export function startPractice(repo: Repo, actor: Actor, skillId: string, now = new Date(), random?: () => number): Promise<PracticeView> {
   return withLock(`practice:${actor.userId}:${skillId}`, () => startPracticeUnlocked(repo, actor, skillId, now, random));
 }
-/** One practice answer (a double click is answered once). */
+/** One practice answer (a double click is answered once; a submit after the session ended is a no-op, not an error). */
 export function submitAnswer(repo: Repo, actor: Actor, input: { sessionId: string; questionId: string; response: unknown; usedHint?: boolean }, now = new Date(), random?: () => number): Promise<{ feedback: Feedback; view: PracticeView }> {
-  return withLock(`practice-session:${input.sessionId}`, () => submitAnswerUnlocked(repo, actor, input, now, random));
+  return withLock(`practice-session:${input.sessionId}`, async () => {
+    try { return await submitAnswerUnlocked(repo, actor, input, now, random); }
+    catch (e) {
+      // lost the race to another server or tab that ended the session: the same friendly no-op reply
+      if (e instanceof ValidationError) { const s = await ownSession(repo, actor, input.sessionId); if (s.endedAt) return endedSessionReply(repo, actor, s, input.questionId); }
+      throw e;
+    }
+  });
+}
+
+/**
+ * A submit for a practice session that already ended (two open tabs, a double click, a slow connection retrying):
+ * nothing is written — no attempt, no mastery, no XP — and the result of that question's own answer is returned
+ * again when it was answered (else a blank result), with `alreadyEnded` so the page shows "This practice is finished".
+ */
+async function endedSessionReply(repo: Repo, actor: Actor, s: Row, questionId: string): Promise<{ feedback: Feedback; view: PracticeView }> {
+  const view = await currentQuestion(repo, actor, String(s.id));
+  const base: Feedback = {
+    ...blankFeedback(), masteryBefore: view.mastery, masteryAfter: view.mastery, band: view.band, alreadyEnded: true,
+    next: { hasQuestion: false, endReason: s.endReason ? String(s.endReason) : "COMPLETED", routeToSkillId: null, routeToSkillName: null },
+  };
+  const [attempt] = await repo.findMany("QuestionAttempt", { sessionId: s.id, questionId }, { select: ["isCorrect", "partialCredit", "response", "rapidGuess"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 1 });
+  if (!attempt) return { feedback: base, view };
+  const item = (await practiceItems(repo, String(s.skillId), s.assignmentId)).items.find((i) => i.questionId === questionId);
+  if (!item) return { feedback: base, view };
+  let stored: unknown = attempt.response;
+  if (typeof stored === "string") { try { stored = JSON.parse(stored); } catch { stored = null; } }
+  const response = stored && typeof stored === "object" && "value" in stored ? (stored as { value: unknown }).value : stored;
+  const correct = Boolean(attempt.isCorrect);
+  const partial = attempt.partialCredit === null || attempt.partialCredit === undefined ? null : Number(attempt.partialCredit);
+  return {
+    feedback: {
+      ...base, correct, credit: correct ? 1 : partial ?? 0, rapidGuess: Boolean(attempt.rapidGuess),
+      yourAnswer: studentAnswerText(item, response), correctAnswer: correctAnswerText(item), whyCorrect: item.explanation.whyCorrect,
+      whyYoursIsWrong: correct ? null : whyChosenWrong(item, response), tip: item.explanation.tip,
+    },
+    view,
+  };
 }
 /** Starts or resumes the student's question set (continues from the first unanswered question). */
 export function startQuiz(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<QuizView> {

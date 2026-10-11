@@ -4,7 +4,7 @@
  *  - My Work: one row per skill with its source tag (Curriculum / MAP / RTI / Grammar / Reteach …); ALL grammar inside
  *  - RTI Program only for students in Tier 2/3 (home tile, menu entry, page)
  *  - ReadMaster (every published article of the grade) and ReadRise (the whole library) open with no assignment
- *  - MAP dashboard at the top of My Plans; /student/map still reachable from there
+ *  - MAP dashboard on /student/map (My Plans is gone: it redirects to My Work)
  *  - the home page stays fast (bounded number of queries)
  */
 import { before, describe, test } from "node:test";
@@ -23,8 +23,9 @@ import { myMap } from "../src/server/map/map-more";
 import { startPractice } from "../src/server/practice/session";
 import { navCounts } from "../src/server/teacher/week-plan";
 import { navItemsFor } from "../src/components/nav-items";
-import { lastActivity, reportCategories, studentCurriculum, studentHome, studentRtiProgram } from "../src/server/student/student-home";
+import { lastActivity, READING_REPORT_LINKS, reportCards, studentCurriculum, studentHome, studentRtiProgram } from "../src/server/student/student-home";
 import { mapDashboardData } from "../src/server/student/student-home";
+import { FORBIDDEN_LEVEL_WORDS, studentMapCards } from "../src/server/student/map-dashboard";
 import { addVersionQuestion, openArticle, saveArticle, saveVersion, setArticleStatus, studentArticles } from "../src/server/readmaster/service";
 import { ensureReadRiseLibrary } from "../src/server/readrise/seed";
 import { startRun, studentLibrary } from "../src/server/readrise/student";
@@ -174,7 +175,7 @@ describe("UI reorg Phase 2: Student Home", () => {
     assert.equal(last?.href, `/student/readrise/${lib.all[0].id}`);
   });
 
-  test("My Plans: the MAP dashboard (RIT, level, strengths, skills to work on); MAP results reachable from there", async () => {
+  test("the MAP dashboard data (RIT, level, strengths, skills to work on) for teachers; students get /student/map", async () => {
     const st = (await repo.findUnique("Student", { id: a }))!;
     const name = String((await repo.findUnique("User", { id: st.userId }))!.displayName);
     const header = [...MAP_TEMPLATE_HEADERS];
@@ -187,13 +188,15 @@ describe("UI reorg Phase 2: Student Home", () => {
     assert.ok(r.needsWork.length >= 1, "skills needing work");
     assert.ok(r.strengths.length >= 1, "strengths");
     assert.ok(!r.strengths.some((n) => r.needsWork.some((w) => w.name === n)), "a strength is never also a weak area");
-    const plans = readFileSync(join(ROOT, "src/app/student/plans/page.tsx"), "utf8");
-    assert.match(plans, /<MapDashboard actor=\{actor\} \/>/, "the dashboard is at the top of My Plans");
-    assert.match(readFileSync(join(ROOT, "src/components/student/map-dashboard.tsx"), "utf8"), /href="\/student\/map"/, "the full MAP results page is one click from My Plans");
-    // no student MAP icon in the menu; My Tests and My Reports are there
+    const cards = studentMapCards(await myMap(repo, A));
+    assert.equal(cards.find((x) => x.subject === "READING")?.rit, 188, "the student's MAP card: the same RIT");
+    assert.doesNotMatch(JSON.stringify(cards), FORBIDDEN_LEVEL_WORDS, "no descriptor on the student's MAP cards");
+    assert.match(readFileSync(join(ROOT, "src/app/student/map/page.tsx"), "utf8"), /<MapDashboard cards=\{cards\} \/>/, "the dashboard is the MAP page");
+    assert.match(readFileSync(join(ROOT, "src/app/student/plans/page.tsx"), "utf8"), /redirect\("\/student"\)/, "My Plans redirects to My Work");
+    // b1-nav: MAP is back under Programs; My Plans left the menu (reached from My Reports); My Tests and My Reports are there
     const nav = navItemsFor("STUDENT").map((i) => i.href);
-    assert.ok(!nav.includes("/student/map"));
-    for (const h of ["/student/plans", "/student/tests", "/student/reports", "/student/curriculum"]) assert.ok(nav.includes(h), h);
+    assert.ok(!nav.includes("/student/plans"));
+    for (const h of ["/student/map", "/student/tests", "/student/reports", "/student/curriculum"]) assert.ok(nav.includes(h), h);
     // no student without MAP scores breaks the dashboard
     assert.deepEqual(mapDashboardData(await myMap(repo, B)).subjects, []);
   });
@@ -203,11 +206,11 @@ describe("UI reorg Phase 2: Student Home", () => {
     const c = await studentCurriculum(repo, A);
     assert.equal(c.grade, 4);
     assert.ok(c.units.length > 0 && c.units.some((u) => u.sets.length > 0), "units → text sets / selections");
-    const cats = reportCategories(a);
-    assert.ok(cats.length >= 4);
-    const hrefs = cats.flatMap((x) => x.links.map((l) => l.href));
-    for (const h of ["/student/tests", "/student/map", "/student/insights", "/student/family", "/student/readrise"]) assert.ok(hrefs.includes(h), h);
-    for (const x of cats) { assert.ok((UI_STRINGS as readonly string[]).includes(x.title), x.title); for (const l of x.links) { assert.ok((UI_STRINGS as readonly string[]).includes(l.label), l.label); assert.ok((UI_STRINGS as readonly string[]).includes(l.hint), l.hint); } }
+    const cards = reportCards();
+    assert.ok(cards.length >= 2 && cards.length <= 5, "a few big cards");
+    const hrefs = [...cards, ...READING_REPORT_LINKS].map((l) => l.href);
+    for (const h of ["/student/reports?view=progress", "/student/reports?view=family", "/student/tests", "/student/certificates", "/student/readrise?tab=report"]) assert.ok(hrefs.includes(h), h);
+    for (const l of cards) { assert.ok((UI_STRINGS as readonly string[]).includes(l.label), l.label); assert.ok((UI_STRINGS as readonly string[]).includes(l.hint), l.hint); }
   });
 
   test("the home page stays fast: a bounded number of database calls", async (t) => {

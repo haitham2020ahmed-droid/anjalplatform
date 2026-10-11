@@ -27,6 +27,7 @@ import { assignSkill, teacherRoster } from "../src/server/teacher/assign";
 import { assignTest, previewTest, builderSkills } from "../src/server/tests/assessments";
 import { myWorkItems } from "../src/server/plans/wizard";
 import { navItemsFor } from "../src/components/nav-items";
+import { TOUR_STEPS } from "../src/components/ui-kit/first-login-tour";
 import { UI_STRINGS } from "../src/i18n/en";
 import { ar } from "../src/i18n/ar";
 import { demoDatabase } from "./helpers/db";
@@ -192,7 +193,7 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
   });
 
   test("every student name on the teacher pages opens the ONE profile page", () => {
-    const files = ["growth/page.tsx", "map-plans/page.tsx", "map-test/page.tsx", "progress/page.tsx", "respond/[id]/page.tsx", "alerts/page.tsx", "tiers/page.tsx", "rti-plan/page.tsx", "attention/page.tsx", "accounts/page.tsx"];
+    const files = ["map-center/reports-tab.tsx", "map-center/results-tab.tsx", "map-test/page.tsx", "progress/page.tsx", "respond/[id]/page.tsx", "alerts/page.tsx", "tiers/page.tsx", "rti-plan/weekly/page.tsx", "attention/page.tsx", "accounts/page.tsx"];
     for (const f of files) {
       const src = readFileSync(join(process.cwd(), "src/app/teacher", f), "utf8");
       assert.ok(src.includes("/teacher/students/${"), `${f} links names to the profile`);
@@ -201,14 +202,15 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
     assert.ok(readFileSync(join(process.cwd(), "src/server/search.ts"), "utf8").includes("href: `/teacher/students/${s.id}`"), "search");
   });
 
-  test("teacher menu: My Class / Programs / Resources; Assessments added; nothing lost; tour targets; strings translated", () => {
+  test("teacher menu: short (Programs + More); Assessments added; tour targets; strings translated", () => {
     const items = navItemsFor("TEACHER");
     const groups = [...new Set(items.map((i) => i.group).filter(Boolean))];
-    assert.deepEqual(groups, ["My Class", "Programs", "Resources"]);
+    assert.deepEqual(groups, ["Programs", "More"]);
     const hrefs = new Set(items.map((i) => i.href));
-    for (const h of ["/teacher/classes", "/teacher/plans", "/teacher/assessments", "/teacher/map-center", "/admin/curriculum-map", "/teacher/rti-plan", "/admin/questions", "/admin/grammar", "/teacher/reports"]) assert.ok(hrefs.has(h), h);
-    const before = readFileSync(join(process.cwd(), "tests/uiro-shell.test.ts"), "utf8").match(/TEACHER: "([^"]+)"/)![1].split(" ");
-    for (const h of before) assert.ok(hrefs.has(h), `still in the menu: ${h}`);
+    for (const h of ["/teacher/students", "/teacher/plans", "/teacher/assessments", "/teacher/map-center", "/admin/curriculum-map", "/teacher/rti-plan", "/admin/grammar", "/teacher/reports"]) assert.ok(hrefs.has(h), h);
+    // the school asked: no Question Bank entry for teachers (they assign skills from Find a skill, Plans and Assessments)
+    assert.ok(!hrefs.has("/admin/questions") && !items.some((i) => i.label === "Question Bank"), "no Question Bank in the teacher menu");
+    // pages that left the menu are checked in tests/uiro-shell.test.ts (MOVED / OUT) and tests/menus.test.ts
     assert.equal(new Set(items.map((i) => i.icon)).size, items.length, "one icon per entry");
     const home = readFileSync(join(process.cwd(), "src/app/teacher/page.tsx"), "utf8");
     for (const tour of ["students", "plans", "assessments"]) assert.ok(home.includes(`tour="${tour}"`), tour);
@@ -219,5 +221,7 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
       assert.ok(ar[s as keyof typeof ar] && ar[s as keyof typeof ar] !== s, `${s} has Arabic`);
     }
     assert.ok(!/lexile/i.test(home), "no Lexile wording on the home");
+    assert.ok(!home.includes("Question Bank") && !home.includes("/admin/questions"), "no Question Bank tile on the Teacher Home");
+    assert.ok(!TOUR_STEPS.TEACHER.some((s) => /Question Bank/.test(`${s.title} ${s.text}`)), "nor in the teacher's tour");
   });
 });

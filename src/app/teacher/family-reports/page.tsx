@@ -28,6 +28,7 @@ export default async function FamilyReportsPage({ searchParams }: { searchParams
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/reports", label: "Reports" }} icon="👪" title="Family Reports"
         subtitle="Prepare a report with one click (the platform writes it from MAP, the Diagnostic, reading fluency and practice) or write your own. Check it, edit it, then send it: a school admin approves it before the family sees it." />
+      <p className="mb-4"><Link prefetch={false} href={`/teacher/family-reports/weekly${klass ? `?classId=${klass.id}` : ""}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">🗓</span> Weekly family summary (print, one page per student)</Link></p>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {klass && (
         <section className="rounded-3xl bg-gradient-to-br from-teal-50 to-white p-5 ring-1 ring-teal-200">

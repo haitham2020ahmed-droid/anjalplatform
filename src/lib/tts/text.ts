@@ -101,3 +101,20 @@ export const isSpeechKey = (k: string) => /^[0-9a-f]{64}$/.test(k);
 
 /** Stored word timings. `exact`: from the voice itself (SSML marks); otherwise estimated. */
 export interface WordTimings { v: 1; exact: boolean; words: number[] }
+
+/** The two reading speeds of the player (Slow is generated as its own, naturally slower recording when possible). */
+export type TtsSpeed = "slow" | "normal";
+export const TTS_SPEEDS: readonly TtsSpeed[] = ["normal", "slow"];
+export const isTtsSpeed = (s: unknown): s is TtsSpeed => s === "slow" || s === "normal";
+
+/**
+ * The cache key (TtsAudio.textHash) of one recording: generated once per text + voice + speed.
+ *  - normal: the text's own key (`speechKey`), with the voice stored on the row (audio made before speeds existed
+ *    stays valid; a new voice replaces it: pregenerate --replace-voice)
+ *  - slow:   a hash of the text key, the voice and the speed
+ * Only the text's hash goes in: never an id or anything about a student.
+ */
+export async function ttsCacheKey(textKey: string, voice: string, speed: TtsSpeed): Promise<string | null> {
+  if (speed === "normal") return textKey;
+  return sha256Hex(`tts2:${textKey}|${voice}|${speed}`);
+}

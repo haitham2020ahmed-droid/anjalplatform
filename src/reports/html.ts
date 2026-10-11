@@ -29,6 +29,7 @@
  */
 import { BAND_ORDER, bandLabel, dirOf, formatter, t, type Fmt, type LabelKey } from "./i18n";
 import type { Accent, Audience, CellValue, Column, Kpi, ReportDoc, Section, Tone } from "./model";
+import { BRAND, PLATFORM, SOURCE_COLORS } from "../components/print/tokens";
 
 export class SafeHtml {
   constructor(readonly value: string) {}
@@ -79,14 +80,8 @@ export const TONE_COLOURS: Record<Tone, { bg: string; fg: string }> = {
   neutral: { bg: "#eef1f5", fg: "#475569" },
 };
 
-/** The platform's source colours. */
-export const ACCENTS: Record<Accent, string> = {
-  curriculum: "#1f5fbf",
-  map: "#15803d",
-  rti: "#c2410c",
-  grammar: "#6d28d9",
-  nafs: "#0f766e",
-};
+/** The platform's source colours (the print kit's tokens: one palette for every printed document). */
+export const ACCENTS: Record<Accent, string> = { ...SOURCE_COLORS };
 
 export function accentOf(doc: Pick<ReportDoc, "kind" | "accent">): Accent {
   if (doc.accent) return doc.accent;
@@ -262,10 +257,10 @@ function header(doc: ReportDoc, f: Fmt): SafeHtml {
   const L = doc.locale;
   return h`<header class="top">
   ${logo}
-  <div class="school"><div class="school-name">${primary}</div>${secondary ? h`<div class="school-alt" dir="${L === "ar" ? "ltr" : "rtl"}" lang="${L === "ar" ? "en" : "ar"}">${secondary}</div>` : ""}<div class="subtitle">${doc.subtitle}</div></div>
+  <div class="school"><div class="platform" dir="ltr">${PLATFORM.slice(0, 3)}<i>${PLATFORM.slice(3)}</i></div><div class="school-name">${primary}</div>${secondary ? h`<div class="school-alt" dir="${L === "ar" ? "ltr" : "rtl"}" lang="${L === "ar" ? "en" : "ar"}">${secondary}</div>` : ""}<div class="subtitle">${doc.subtitle}</div></div>
   <div class="title"><h1 class="${doc.title.length > 44 ? "long" : ""}">${doc.title}</h1><div class="for"><span class="for-l">${t(L, "meta.for")}:</span> ${t(L, `aud.${audienceOf(doc)}` as LabelKey)}</div><div class="generated">${t(L, "meta.generated")}: ${f.dateTime(doc.generatedAt)}</div></div>
 </header>
-<div class="band-strip" aria-hidden="true"></div>
+<div class="band-strip" aria-hidden="true">${Object.values(SOURCE_COLORS).map((c) => h`<span style="background:${c}"></span>`)}</div>
 <dl class="meta">${doc.meta.map(
     (m) => h`<div><dt>${m.label}</dt><dd>${m.isolate === "latin" ? ltr(m.value) : m.isolate === "auto" ? auto(m.value) : m.value}</dd></div>`,
   )}<div><dt>${t(L, "meta.generatedBy")}</dt><dd>${auto(doc.generatedBy)}</dd></div></dl>`;
@@ -275,13 +270,16 @@ export function reportCss(fontStack: string, accent = ACCENTS.curriculum): strin
   return `
 @page { size: A4; margin: 13mm 12mm 17mm 12mm; }
 @page wide { size: A4 landscape; margin: 11mm 11mm 15mm 11mm; }
-:root { --accent: ${accent}; --navy: #1f3a68; --ink: #1e293b; --soft: #475569; --line: #e2e8f0; --zebra: #f6f8fb; }
+:root { --accent: ${accent}; --navy: ${BRAND.navy}; --ink: #1e293b; --soft: #475569; --line: #e2e8f0; --zebra: #f6f8fb; }
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; font-family: ${fontStack}; font-size: 9.5pt; line-height: 1.45; color: var(--ink); font-variant-numeric: tabular-nums; }
 [lang="ar"] body, body:lang(ar) { line-height: 1.7; }
 bdi { unicode-bidi: isolate; }
-.top { display: flex; align-items: center; gap: 12px; padding-bottom: 8px; }
+.top { display: flex; align-items: center; gap: 12px; padding: 10px 14px; margin-bottom: 6px; border-radius: 12px; background: linear-gradient(100deg, #fff 0%, #fff 45%, color-mix(in srgb, var(--accent) 10%, white) 100%); border: 1px solid var(--line); border-top: 4px solid var(--navy); }
+.platform { font-weight: 800; font-size: 9pt; color: var(--navy); letter-spacing: .02em; text-align: start; }
+.platform i { font-style: normal; color: ${BRAND.teal}; }
+[dir="rtl"] .platform { text-align: right; }
 .logo { width: 60px; height: 60px; object-fit: contain; flex: none; }
 .logo-text { width: 60px; height: 60px; flex: none; border-radius: 14px; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20pt; }
 .school { flex: 1; min-width: 0; }
@@ -296,15 +294,15 @@ h1.long { font-size: 13pt; }
 .for { display: inline-block; margin-top: 4px; padding: 1px 9px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 12%, white); color: var(--navy); font-size: 8pt; font-weight: 700; }
 .for-l { font-weight: 400; color: var(--soft); }
 .generated { font-size: 7.8pt; color: #64748b; margin-top: 2px; }
-.band-strip { height: 4px; border-radius: 2px; margin-bottom: 10px; background: linear-gradient(90deg, var(--accent), var(--navy)); }
-[dir="rtl"] .band-strip { background: linear-gradient(270deg, var(--accent), var(--navy)); }
+.band-strip { display: flex; height: 4px; border-radius: 2px; overflow: hidden; margin-bottom: 10px; }
+.band-strip span { flex: 1; }
 .meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px 12px; margin: 0 0 12px; padding: 8px 12px; background: #f1f5f9; border-radius: 8px; }
 .meta div { min-width: 0; }
 .meta dt { font-size: 7.5pt; color: #64748b; }
 .meta dd { margin: 0; font-weight: 700; color: var(--navy); overflow-wrap: anywhere; }
 .block { margin: 0 0 14px; }
 .block.keep { break-inside: avoid; }
-h2 { font-size: 11.5pt; color: var(--navy); margin: 0 0 7px; padding: 0 0 3px; padding-inline-start: 9px; border-inline-start: 4px solid var(--accent); border-bottom: 1px solid var(--line); break-after: avoid; }
+h2 { font-size: 11.5pt; color: var(--navy); margin: 0 0 7px; padding: 4px 12px; border-radius: 9px; background: color-mix(in srgb, var(--accent) 10%, white); border-inline-start: 5px solid var(--accent); break-after: avoid; }
 h3 { font-size: 9.5pt; color: var(--navy); margin: 0 0 4px; }
 /* at a glance */
 .glance { margin: 0 0 14px; padding: 10px 12px 12px; border-radius: 10px; border: 1.5px solid color-mix(in srgb, var(--accent) 35%, white); background: color-mix(in srgb, var(--accent) 6%, white); break-inside: avoid; }
@@ -381,7 +379,7 @@ table.xwide .chip { font-size: 6.6pt; padding: 0 5px; }
 .explain { padding: 9px 13px; border-radius: 10px; font-size: 9.3pt; line-height: 1.55; }
 .explain.info { background: #eef4fc; border: 1px solid #c9daf3; }
 .explain.home { background: #eefaf3; border: 1px solid #bfe6cf; }
-.explain .explain-t { display: flex; align-items: center; gap: 6px; border: 0; padding: 0; margin-bottom: 4px; }
+.explain .explain-t { display: flex; align-items: center; gap: 6px; border: 0; padding: 0; margin-bottom: 4px; background: none; border-radius: 0; }
 .explain.info .explain-t { color: #1f3a68; }
 .explain.home .explain-t { color: #166534; }
 .explain p { margin: 0 0 4px; }

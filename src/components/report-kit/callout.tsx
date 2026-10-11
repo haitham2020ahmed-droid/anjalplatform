@@ -23,7 +23,7 @@ export function Callout({ kind = "meaning", title, items, children, className = 
   const list = (items ?? []).filter((x) => x !== null && x !== undefined && x !== false && x !== "");
   if (!list.length && !children) return null;
   return (
-    <aside className={`rk-callout break-inside-avoid rounded-2xl p-4 ring-1 sm:p-5 ${k.cls} ${className}`} data-rk={`callout-${kind}`}>
+    <aside className={`rk-callout break-inside-avoid rounded-3xl p-4 ring-1 sm:p-5 ${k.cls} ${className}`} data-rk={`callout-${kind}`}>
       <p className={`flex items-center gap-2 font-semibold ${k.head}`}><span aria-hidden="true" className="text-lg">{k.icon}</span>{t(title ?? k.title)}</p>
       {list.length > 0 && <ul className="mt-2 list-disc space-y-1 ps-6 text-[15px] leading-relaxed">{list.map((x, i) => <li key={i}>{typeof x === "string" ? t(x) : x}</li>)}</ul>}
       {children && <div className="mt-1.5 text-[15px] leading-relaxed">{typeof children === "string" ? t(children) : children}</div>}

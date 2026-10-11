@@ -7,6 +7,7 @@ import { createAssignment } from "@/server/teacher/assignments";
 import { assignQuestions, assignSkill, trackOf } from "@/server/teacher/assign";
 import { resolveAlert } from "@/server/teacher/interventions";
 import { ValidationError } from "@/server/curriculum-admin";
+import { parseQuestionIdsField, programOf } from "@/components/skill-picker/helpers";
 
 const id = z.string().min(1).max(191);
 
@@ -56,6 +57,7 @@ export async function assignSkillAction(_: { error?: string; message?: string },
     const r = await assignSkill(repo, actor, { track: trackOf(f.get("track")), 
       classId: String(f.get("classId") ?? ""), skillId: String(f.get("skillId") ?? ""), studentIds: mode === "class" ? [] : picked,
       startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
+      program: programOf(f.get("program")), questionIds: parseQuestionIdsField(f.get("questionIds")),
     });
     revalidatePath("/teacher/assignments");   // not the skills page: rebuilding it after every click made assigning slow
     return { message: `Assigned to ${r.students} student${r.students === 1 ? "" : "s"}. They have been notified.` };

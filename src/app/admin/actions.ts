@@ -13,6 +13,8 @@ import { createUser, linkParent, moveStudent, setTeacherClasses, unlinkParent, u
 import { archiveClass, createClass, removeLogo, renameClass, saveAcademicYear, updateBranding, updateEngineSettings, uploadLogo } from "@/server/admin/settings";
 import { archiveQuestion, createDraft, reviewQuestion, reviseQuestion, submitForReview, updateDraft, type EditorInput } from "@/server/admin/questions";
 import { applyRoster, planRoster, type RosterPlan } from "@/server/admin/roster-import";
+import { createTeacherWithClasses } from "@/server/admin/school";
+import { parseNewClasses } from "@/app/admin/users/form-state";
 
 export type Result = { ok?: boolean; error?: string; message?: string; temporaryPassword?: string; id?: string };
 const id = z.string().min(1).max(191);
@@ -33,9 +35,18 @@ async function run(paths: string[], fn: () => Promise<Partial<Result> | void>): 
 
 export async function createUserAction(_: Result, f: FormData): Promise<Result> {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
-  return run(["/admin/users"], async () => {
+  return run(["/admin/users", "/admin/school"], async () => {
+    const role = z.enum(MANAGED_ROLES).parse(f.get("role"));
+    if (role === "TEACHER") {
+      // the account and the classes it teaches in one step (password = username, changed at first sign-in)
+      const t = await createTeacherWithClasses(repo, actor, {
+        username: str(f, "username"), displayName: str(f, "displayName"), email: str(f, "email") || null, title: str(f, "title") || null,
+        classIds: f.getAll("classId").map((v) => id.parse(v)), newClasses: parseNewClasses(f.getAll("newClass")),
+      });
+      return { id: t.userId, temporaryPassword: t.password, message: t.classes ? "Teacher created and linked to the classes." : "Teacher created." };
+    }
     const r = await createUser(repo, actor, {
-      role: z.enum(MANAGED_ROLES).parse(f.get("role")), username: str(f, "username"), displayName: str(f, "displayName"), email: str(f, "email") || null,
+      role, username: str(f, "username"), displayName: str(f, "displayName"), email: str(f, "email") || null,
       studentNumber: str(f, "studentNumber"), gradeLevel: Number(f.get("gradeLevel") || 0), classId: str(f, "classId") || null, title: str(f, "title") || null,
     });
     return { id: r.userId, temporaryPassword: r.temporaryPassword };
@@ -123,7 +134,7 @@ export async function yearAction(_: Result, f: FormData): Promise<Result> {
 
 export async function createClassAction(_: Result, f: FormData): Promise<Result> {
   const actor = await requireActor({ permission: "classes:manage" });
-  return run(["/admin/settings", "/admin/users"], () => createClass(repo, actor, { name: str(f, "name"), gradeLevel: Number(f.get("gradeLevel")) }).then(() => ({ message: "Class created." })));
+  return run(["/admin/settings", "/admin/users", "/admin/school"], () => createClass(repo, actor, { name: str(f, "name"), gradeLevel: Number(f.get("gradeLevel")) }).then(() => ({ message: "Class created." })));
 }
 
 export async function renameClassAction(_: Result, f: FormData): Promise<Result> {

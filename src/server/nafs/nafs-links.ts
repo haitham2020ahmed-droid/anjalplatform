@@ -174,7 +174,7 @@ export async function nafsLinks(repo: Repo, actor: Actor): Promise<{ rows: NafsL
   assertAdmin(actor);
   const schoolId = s(actor.schoolId);
   const [fams, areas] = await Promise.all([schoolFamilies(repo, schoolId), nafsAreas(repo)]);
-  const counts = await countQuestionsOfSkills(repo, schoolId, fams.flatMap((f) => f.skillIds));
+  const counts = await countQuestionsOfSkills(repo, schoolId, fams.flatMap((f) => f.skillIds), { own: true }); // added up per family: own counts (one bank)
   const rows = fams.map((f) => {
     const d = nafsRuleForFamily({ code: f.code, name: f.family, domain: f.domain, category: f.category, mapArea: f.mapArea, standards: f.standards });
     return {

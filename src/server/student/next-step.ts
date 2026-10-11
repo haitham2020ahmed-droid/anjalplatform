@@ -82,7 +82,7 @@ export async function nextStep(repo: Repo, actor: Actor, now = new Date(), known
       return { kind: "PRACTICE", title: pick.name, why, href: `/practice/${pick.skillId}`, cta: pick.attempts ? "Practise" : "Start" };
     }
   }
-  return { kind: "DONE", title: "You are all caught up!", why: "Great work. Choose any skill to practise more.", href: "/student/skills", cta: "Skills" };
+  return { kind: "DONE", title: "You are all caught up!", why: "Great work. Choose any skill to practise more.", href: "/student/reports?view=progress#skills", cta: "Skills" };
 }
 
 async function topMisconception(repo: Repo, studentId: string, skillId: string): Promise<string | null> {

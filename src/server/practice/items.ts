@@ -9,6 +9,7 @@ import type { CandidateItem } from "../../types/domain";
 import type { Repo, Row } from "../seeding/repo";
 import { bankVersion } from "../cache/bank-version";
 import { heldBackQuestionIds } from "../questions/held-back";
+import { skillFamilyIds } from "../questions/skill-questions";
 import { diagnoseSpelling } from "../word-study/spelling-diagnosis";
 import { encodeSpeech } from "../word-study/speech-code";
 import { effectiveGuessing } from "../../adaptive/guessing";
@@ -63,15 +64,25 @@ const ITEM_CACHE_MS = 60_000;
 const ITEM_CACHE_MAX = 500;
 const itemCache = new Map<string, { version: number; at: number; items: PracticeItem[] }>();
 
-/** Load every PUBLISHED item for a skill (cached; batched on a miss: one query per table). */
-export async function loadSkillItems(repo: Repo, skillId: string): Promise<PracticeItem[]> {
-  const hit = itemCache.get(skillId);
-  if (hit && hit.version === bankVersion() && Date.now() - hit.at < ITEM_CACHE_MS) return structuredClone(hit.items);
+/**
+ * Load every PUBLISHED item for a skill (cached; batched on a miss: one query per table).
+ *
+ * One question bank: the items of the skill's whole FAMILY (the same skill in every grade; Concept Vocabulary stays
+ * with its grade), each tagged with THIS skill (skillKey), so mastery and attempts stay on the skill opened. The
+ * cache is per family (one copy for all its grades). `questionIds`: only the questions a teacher chose, in order.
+ */
+export async function loadSkillItems(repo: Repo, skillId: string, opts: { questionIds?: string[] } = {}): Promise<PracticeItem[]> {
+  const tag = (items: PracticeItem[]) => { for (const i of items) i.skillKey = skillId; return items; };
+  if (opts.questionIds?.length) return tag(await loadQuestionItems(repo, [...new Set(opts.questionIds.map(str))]));
+  const fam = await skillFamilyIds(repo, skillId);
+  const key = [...fam].sort().join(",") || skillId;
+  const hit = itemCache.get(key);
+  if (hit && hit.version === bankVersion() && Date.now() - hit.at < ITEM_CACHE_MS) return tag(structuredClone(hit.items));
   const version = bankVersion();
-  const items = await loadItemsForSkills(repo, [skillId]);
+  const items = await loadItemsForSkills(repo, fam.length ? fam : [skillId]);
   if (itemCache.size >= ITEM_CACHE_MAX) itemCache.clear();
-  itemCache.set(skillId, { version, at: Date.now(), items: structuredClone(items) });
-  return items;
+  itemCache.set(key, { version, at: Date.now(), items: structuredClone(items) });
+  return tag(items);
 }
 
 /** Load every PUBLISHED item for several skills at once (used by placement checks). */

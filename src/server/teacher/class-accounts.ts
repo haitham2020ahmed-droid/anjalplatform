@@ -208,9 +208,30 @@ export async function resetToUsername(repo: Repo, actor: Actor, classId: string,
 
 // ------------------------------------------------------------------ files
 
+/** One class's accounts sheet: bold white-on-navy header row, frozen, column widths, zebra rows, filter buttons. */
+function accountsSheet(a: ClassAccounts, name: string) {
+  return { name, headerStyle: true, freeze: true, report: true, widths: [36, 26, 30], rows: [["Student Name", "Username", "Password"], ...a.rows.map((r) => [r.name, r.username, r.password ?? PASSWORD_HIDDEN])] };
+}
+
 /** Excel: one sheet "Accounts" with Student Name | Username | Password. */
 export function accountsXlsx(a: ClassAccounts): Uint8Array {
-  return workbookXlsx([{ name: "Accounts", headerStyle: true, freeze: true, widths: [34, 26, 30], rows: [["Student Name", "Username", "Password"], ...a.rows.map((r) => [r.name, r.username, r.password ?? PASSWORD_HIDDEN])] }]);
+  return workbookXlsx([accountsSheet(a, "Accounts")]);
+}
+
+/** A sheet name Excel accepts: no []:*?/\, at most 31 characters, unique in the workbook. */
+export function sheetName(raw: string, used: Set<string>): string {
+  const base = (raw.replace(/[[\]:*?/\\]+/g, " ").replace(/^'+|'+$/g, "").replace(/\s+/g, " ").trim() || "Class").slice(0, 31);
+  let name = base, n = 2;
+  while (used.has(name.toLowerCase())) { const tail = ` (${n++})`; name = base.slice(0, 31 - tail.length) + tail; }
+  used.add(name.toLowerCase());
+  return name;
+}
+
+/** Excel with several classes: one sheet per class (named after the class), the same columns as above. */
+export function accountsWorkbookXlsx(list: ClassAccounts[]): Uint8Array {
+  const used = new Set<string>();
+  const sheets = list.map((a) => accountsSheet(a, sheetName(a.className, used)));
+  return workbookXlsx(sheets.length ? sheets : [accountsSheet({ classId: "", className: "Accounts", grade: 0, schoolName: "", rows: [] }, "Accounts")]);
 }
 
 /** The roster template as Excel (same columns as the CSV). */

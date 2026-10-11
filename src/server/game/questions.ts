@@ -9,6 +9,7 @@
  *   "Soon"     fewer fitting questions than the game's minQuestions (at all levels together)
  *
  * Reads are bounded (one page of ≤ 1000 ids per skill, then only the round's items) and cached briefly.
+ * One question bank: a skill's questions are its family's (questionsOfSkill pools every grade's copy of the skill).
  */
 import type { Repo } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
@@ -150,6 +151,8 @@ export async function pickItems(repo: Repo, schoolId: string, skillId: string, m
   const out: Picked[] = [];
   // read a little more than needed (a few items may not fit the game's own check)
   for (let i = 0; i < ordered.length && out.length < count; i += count + 4) out.push(...(await fillItems(repo, meta, ordered.slice(i, i + count + 4))));
+  // one question bank: a question from another grade's copy of the skill counts for the skill played (results by skill)
+  for (const x of out) { x.item.skillKey = skillId; x.q.skillId = skillId; }
   return out.slice(0, count);
 }
 
@@ -181,7 +184,9 @@ export async function fittingCounts(repo: Repo, schoolId: string, skillIds: stri
     remember(m, key, { v, at: Date.now(), p: all }, 40);
   }
   const counts = await all;
-  for (const id of skillIds) out.set(id, counts.get(id) ?? 0);
+  // one question bank: a skill's games read its whole family (every grade's copy), so the count is the family's
+  const idx = await schoolSkillIndex(repo, schoolId);
+  for (const id of skillIds) out.set(id, (idx.ids.has(id) ? idx.members.get(idx.keyOf.get(id)!) ?? [id] : [id]).reduce((t, x) => t + (counts.get(x) ?? 0), 0));
   return out;
 }
 const countCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Map<string, number>> }>>();

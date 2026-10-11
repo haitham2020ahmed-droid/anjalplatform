@@ -25,6 +25,7 @@ import { applyChest, CHEST_PRIZES, chestResponse, dealChests, LIVE_CHEST, LIVE_C
 import { UI_STRINGS } from "../src/i18n/en";
 import { ar } from "../src/i18n/ar";
 import { demoDatabase } from "./helpers/db";
+import { topUpGameBank } from "./helpers/game-bank";
 
 const ROOT = join(__dirname, "..");
 const read = (p: string) => readFileSync(join(ROOT, p), "utf8");
@@ -151,6 +152,8 @@ describe("🎲 Games Part 2b — bank, Play and Live Challenge", () => {
     studs = await Promise.all(r[0].students.slice(0, 4).map((x) => studentActor(x.id)));
     for (const id of G2B) {
       const list = (await challengeSkills(repo, teacher, { grade: r[0].grade, mode: id })).sort((a, b) => b.fitting - a.fitting);
+      // games need a full round of fitting questions (MIN_QUESTIONS_PER_GAME); the test bank has 6 per skill
+      for (const k of list.slice(0, 3)) await topUpGameBank(repo, k.id, gameMeta(id)!.types, 24);
       for (const k of list.slice(0, 40)) {
         if ((await gameAvailability(repo, teacher.schoolId!, k.id)).find((g) => g.id === id)!.status === "PLAY") { skills[id] = k.id; break; }
       }
@@ -158,7 +161,7 @@ describe("🎲 Games Part 2b — bank, Play and Live Challenge", () => {
   });
   after(() => resetRooms());
 
-  test("each game is filled from the skill's bank questions, only items that fit it; Soon without enough", async () => {
+  test("each game is filled from the skill's bank questions, only items that fit it; hidden without enough", async () => {
     for (const id of G2B) {
       const meta = gameMeta(id)!;
       const skillId = skills[id];
@@ -169,11 +172,11 @@ describe("🎲 Games Part 2b — bank, Play and Live Challenge", () => {
       const av = await gameAvailability(repo, teacher.schoolId!, skillId!);
       assert.equal(av.find((g) => g.id === id)!.status, "PLAY");
     }
-    // a skill whose items do not fit in bubbles (or that has too few) shows "Soon" for Word Pop
+    // a skill whose items do not fit in bubbles (or that has too few) hides Word Pop
     const all = await challengeSkills(repo, teacher, {});
     let soon = 0;
     for (const k of all.slice(0, 60)) { const a = (await gameAvailability(repo, teacher.schoolId!, k.id)).find((g) => g.id === "word-pop")!; if (a.status === "SOON") { soon++; assert.ok(a.fitting < gameMeta("word-pop")!.minQuestions); } }
-    assert.ok(soon > 0, "skills without enough fitting items show Soon");
+    assert.ok(soon > 0, "skills without enough fitting items hide the game");
   });
 
   test("solo rounds at the student's level; result rows keep correct / incorrect only; levels never change", async () => {

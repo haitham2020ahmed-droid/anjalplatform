@@ -33,7 +33,7 @@ export function BankPanel({ found, classId, link }: { found: FinderResult; class
     <section aria-labelledby="bank-h" className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
       <h2 id="bank-h" className="text-lg font-bold text-brand-navy">🔎 Questions from the bank</h2>
       <p className="text-sm text-slate-600">
-        Matched by skill and standard{found.skill.standards.length ? ` (${found.skill.standards.map((x) => x.code).join(", ")})` : ""}, Grade {found.skill.grade}, published only. Questions do not need a lesson.
+        Matched by skill and standard{found.skill.standards.length ? ` (${found.skill.standards.map((x) => x.code).join(", ")})` : ""}, published only. Questions do not need a lesson.
       </p>
       {found.lessons.length > 0 && (
         <nav aria-label="Lesson" className="mt-3 flex flex-wrap gap-2 text-sm">

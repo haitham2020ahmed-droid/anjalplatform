@@ -47,7 +47,7 @@ describe("Curriculum Map (Grade → Book → Unit → Text Set/Selection → Cat
     assert.equal((await node("G4.U3.TS2", 4)).heading, "Text Set 2: Biography");
     assert.equal((await node("G4.U1.TS1.ACS", 4)).skills, "Reread / Diagrams and Headings \\ Compare and Contrast");
     assert.equal((await node("G5.U3.TS3", 5)).sharedRead, "“What Was the Purpose of the Inca’s Knotted Strings?”");
-    assert.equal((await node("G6.U1.SEL3", 6)).title, "Cacoon");
+    assert.equal((await node("G6.U1.SEL3", 6)).title, "Cocoon");
     assert.equal((await node("G6.U1.SEL3.CV", 6)).skills, "Multiple Meaning Words");
     assert.equal((await node("G6.U1.SEL1.CV", 6)).skills, null, "no invented skill");
     assert.equal((await node("G6.U2.SEL3", 6)).title, "Personal Statement: Individual Twin");

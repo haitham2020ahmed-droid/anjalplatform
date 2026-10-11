@@ -1,233 +1,73 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
-import { sendCurriculumPlanAction } from "@/app/teacher/plans/actions";
 import { AppShell } from "@/components/app-shell";
+import { EmptyState } from "@/components/ui-kit/empty-state";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { curriculumMapView, LEVEL_TARGET, type MapViewNode } from "@/server/curriculum-map/view";
 import { can } from "@/server/auth/rbac";
-import { accessibleClasses } from "@/server/teacher/assign";
-import { rosterForGrade } from "@/server/curriculum-map/levels";
-import { MapAssignButton, MapAssignHost, type RosterClass } from "@/components/curriculum-map/assign-button";
-import { assignPlaceAction } from "./actions";
-import { respondCodes } from "@/server/curriculum-map/respond";
-import { sectionStatuses, type SectionStatus } from "@/server/curriculum-map/status";
+import { curriculumLessons, outlineOf } from "@/server/curriculum-map/lesson-details";
+import { sendTargets } from "@/server/curriculum-map/send-plan";
+import { LessonCard } from "@/components/curriculum-map/lesson-card";
+import { SendPlanButton, SendPlanHost } from "@/components/curriculum-map/send-plan";
+import { getT } from "@/i18n/server";
+import { sendMapPlanAction } from "./actions";
 
 export const metadata = { title: "Curriculum Map" };
 
 /**
- * 🧭 Curriculum Map (read only): Grade → Book → Unit → Text Set / Selection (Shared Read, Genre) → Category (skills) → Level.
- * 📥 marks the nodes questions are placed on (Concept Vocabulary; Above/On/Below levels), with their count and “➕ Add question”.
+ * Curriculum Map (teachers and admins): one grade, one unit at a time, as lesson cards (name, genre, Text Idea,
+ * vocabulary words, sections Ready / Not ready, Preview). One goal: send the plan — the whole curriculum (top
+ * button) or one unit (button under the unit) → choose class / group / student → preview → send.
+ * All content is open to every teacher; a teacher sends only to their own classes (checked on the server).
  */
-export default async function CurriculumMapPage({ searchParams }: { searchParams: Promise<{ grade?: string; unit?: string; classId?: string }> }) {
+export default async function CurriculumMapPage({ searchParams }: { searchParams: Promise<{ grade?: string; unit?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
-  // teachers see only the grades they teach
-  const myClasses = actor.role === "TEACHER" ? await accessibleClasses(repo, actor) : [];
-  const myGradeIds = new Set(myClasses.map((c) => String(c.gradeId)));
-  const myLevels = actor.role === "TEACHER" ? new Set((await repo.findMany("Grade", { schoolId: actor.schoolId })).filter((g) => myGradeIds.has(String(g.id))).map((g) => Number(g.level))) : null;
-  const wanted = Number(sp.grade) || undefined;
-  let v = await curriculumMapView(repo, actor, myLevels && wanted && !myLevels.has(wanted) ? [...myLevels][0] : wanted ?? (myLevels ? [...myLevels].sort()[0] : undefined));
-  if (myLevels) {
-    if (v.level !== null && !myLevels.has(v.level) && myLevels.size) v = await curriculumMapView(repo, actor, [...myLevels].sort()[0]);
-    v = { ...v, grades: v.grades.filter((g) => myLevels.has(g.level)) };
-    if (!v.grades.length) v = { ...v, book: null, level: null };
-  }
-  // the teacher's classes of this grade, with students and levels, for the ⭐ Assign dialog
-  const roster: RosterClass[] = actor.role === "TEACHER" && v.level !== null ? await rosterForGrade(repo, actor, v.level) : [];
-  const planClassId = roster.find((c) => c.id === sp.classId)?.id ?? roster[0]?.id ?? null;
-  // a simple status per section for the chosen class (teachers)
-  const status: Map<string, SectionStatus> = actor.role === "TEACHER" && planClassId ? await sectionStatuses(repo, actor, planClassId) : new Map();
-  // 📘 the class's full-curriculum plan (if it was sent)
-  const curPlan = planClassId ? (await repo.findMany("SkillPlan", { classId: planClassId, kind: "CURRICULUM" }, { select: ["id"] }))[0] : undefined;
-  const planClassName = roster.find((c) => c.id === planClassId)?.name ?? "";
-  // ReadMaster articles written for a Text Set (Article Code RM-G4-U1-TS1)
-  // ✍️ Respond to Reading level pages that have their activity
-  const respond = await respondCodes(repo, actor.schoolId!);
-  const rmByCode = new Map((await repo.findMany("ReadMasterArticle", { schoolId: actor.schoolId }, { select: ["id", "code", "status"] })).map((x) => [String(x.code).toUpperCase(), { id: String(x.id) }]));
-  // one unit at a time (tabs): smaller pages, faster, easier to read
-  const units = v.book?.children ?? [];
-  const unitIx = Math.min(Math.max(0, (Number(sp.unit) || 1) - 1), Math.max(0, units.length - 1));
-  const isTeacher = actor.role === "TEACHER";
-  // adding questions happens in the Question Bank for teachers (it asks where each question goes): not here
-  const canAdd = can(actor, "questions:edit") && !isTeacher;
-  // teachers: the number of questions on each level, and one Assign + Choose per place they can assign
-  const teacherCount = (n: MapViewNode) => <span className="ms-1.5 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">{n.counts.adaptive} question{n.counts.adaptive === 1 ? "" : "s"}</span>;
-  const teacherActions = (code: string, levels: boolean) => (
-    <span className="ms-2 inline-flex flex-wrap items-center gap-1.5 text-xs">
-      <MapAssignButton code={code} label={levels ? "Assign (adaptive / by level)" : "Assign"} levels={levels} />
-      <Link prefetch={false} href={`/admin/questions?status=PUBLISHED&map=${code}`} className="rounded-full px-2 py-0.5 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-50" title="Open these questions, star ☆ the ones you want and assign them">☆ Choose questions</Link>
-    </span>
-  );
-  const badge = (n: MapViewNode) => isTeacher ? (n.acceptsQuestions ? <>{teacherCount(n)}{n.questions > 0 && teacherActions(n.code, false)}</> : null) : n.acceptsQuestions && (
-    <span className="ms-2 inline-flex flex-wrap items-center gap-1.5 text-xs">
-{!isTeacher && (<span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 font-semibold text-emerald-800 ring-1 ring-emerald-300" title={`Accepts questions · ID ${n.code}`}>
-        <span aria-hidden="true">📥</span> <code className="font-mono text-[11px] text-emerald-700">{n.code}</code>
-      </span>)}
-      <Link prefetch={false} href={`/admin/questions?status=PUBLISHED&map=${n.code}`}
-        className={`rounded-full px-2 py-0.5 font-bold ring-1 ${n.level ? (n.counts.adaptive >= LEVEL_TARGET ? "bg-emerald-50 text-emerald-800 ring-emerald-300" : n.counts.adaptive > 0 ? "bg-amber-50 text-amber-900 ring-amber-300" : "bg-red-50 text-red-800 ring-red-300") : "text-brand-navy ring-slate-300"} hover:ring-brand-teal`}
-        title="Adaptive questions: published and marked automatically — exactly what the adaptive sets use">🔁 {n.counts.adaptive} adaptive</Link>
-      {n.counts.teacher > 0 && <span className="rounded-full bg-violet-50 px-2 py-0.5 font-semibold text-violet-800 ring-1 ring-violet-200" title="Open-response questions with a model answer: the teacher marks them; never in adaptive sets">✍️ {n.counts.teacher} teacher-scored</span>}
-      {!isTeacher && n.counts.waiting > 0 && <Link prefetch={false} href={`/admin/questions?status=DRAFT&map=${n.code}`} className="rounded-full bg-slate-100 px-2 py-0.5 font-semibold text-slate-700 ring-1 ring-slate-200" title="Drafts and questions waiting for review: not used until published">📝 {n.counts.waiting} waiting</Link>}
-      {canAdd && <Link prefetch={false} href={`/admin/curriculum-map/place/${n.code}`} className="rounded-full bg-brand-navy px-2 py-0.5 font-semibold text-white hover:bg-brand-purple" title="One question, or many from a ready template">➕ Add questions</Link>}
-    </span>
-  );
-  const catColor: Record<string, string> = { CONCEPT_VOCABULARY: "border-sky-300 bg-sky-50/50", ANALYZE_CRAFT_AND_STRUCTURE: "border-amber-300 bg-amber-50/50", RESPOND_TO_READING: "border-violet-300 bg-violet-50/50" };
+  const [{ t }, v] = await Promise.all([getT(), curriculumLessons(repo, actor, Number(sp.grade) || undefined)]);
+  const canSend = can(actor, "assignments:create");
+  const isAdmin = actor.role !== "TEACHER";
+  const classes = canSend && v.grade !== null ? await sendTargets(repo, actor) : [];
+  const unitIx = Math.min(Math.max(0, (Number(sp.unit) || 1) - 1), Math.max(0, v.units.length - 1));
+  const unit = v.units[unitIx];
+  const tab = "inline-flex min-h-11 items-center rounded-full px-5 font-semibold";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="🧭" title="Curriculum Map"
-        subtitle={isTeacher ? "Choose a unit, then for each section: ⭐ Assign (automatic or manual) or 👀 Preview. The label shows how your class is doing." : "Grade → Book → Unit → Text Set / Selection → Category → Level. Questions are placed only on the 📥 places; they are also in the Question Bank."}>
-        {!isTeacher && <>
-          <Link prefetch={false} href="/admin/questions/import?to=curriculum" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📥 Import</Link>
-          <Link href={`/admin/question-intelligence?tab=coverage&grade=${v.level ?? 4}`} className="rounded-xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-900 ring-1 ring-emerald-300 hover:bg-emerald-100">🧮 Coverage</Link>
-          <Link href="/admin/curriculum-map/respond" className="rounded-xl bg-violet-50 px-3 py-2 text-sm font-semibold text-violet-900 ring-1 ring-violet-300 hover:bg-violet-100">✍️ Respond to Reading</Link>
-          <Link href={`/admin/curriculum-map/bridge?grade=${v.level ?? 5}`} className="rounded-xl bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-900 ring-1 ring-indigo-300 hover:bg-indigo-100">🌉 Bridge</Link>
-        </>}
-        {isTeacher && <>
-          <Link href="/admin/grammar" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🔤 Grammar</Link>
-          <Link href="/teacher/respond" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">✍️ Respond</Link>
-          <Link href="/admin/readmaster" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⭐ ReadMaster</Link>
-          <Link href="/teacher/games" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🎮 Games</Link>
-          <Link href="/teacher/plans/curriculum" className="rounded-xl bg-violet-100 px-3 py-2 text-sm font-semibold text-violet-900 ring-1 ring-violet-300 hover:bg-violet-200">🗂️ Skill plans</Link>
-          <Link href="/admin/questions?status=PUBLISHED" className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📚 Question Bank</Link>
-        </>}
+      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} title="Curriculum Map"
+        subtitle={t("Lessons, words and skills of each unit. Send a plan to your students; they open it in My Plans.")}>
+        {isAdmin && can(actor, "questions:edit") && <Link href={`/admin/curriculum-map/edit${v.grade ? `?grade=${v.grade}` : ""}`} prefetch={false} className="text-sm font-semibold text-slate-600 underline underline-offset-4 hover:text-brand-navy">{t("Edit (admin)")}</Link>}
       </PageHeader>
-      {isTeacher && planClassId && (
-        <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-teal-50 to-sky-50 px-4 py-3 ring-1 ring-teal-200">
-          <p className="text-sm text-slate-700"><b className="text-brand-navy">📘 Full curriculum plan · {planClassName}</b><span className="block">{curPlan ? "Sent: every student has the whole year in My Plans. See who is done, working or stuck." : "One button sends the whole grade (every unit, text set and skill) to every student’s My Plans. Parts open when a student taps them — no flood of assignments."}</span></p>
-          {curPlan ? <Link href={`/teacher/plans/${curPlan.id}`} className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-bold text-white hover:bg-brand-purple">📊 Class progress</Link> : (
-            <form action={sendCurriculumPlanAction} className="flex items-center gap-2">
-              <input type="hidden" name="classId" value={planClassId} />
-              <input type="hidden" name="back" value={`/admin/curriculum-map?classId=${planClassId}`} />
-              <label className="text-xs font-semibold text-slate-600">Correct to finish <input type="number" name="target" min={5} max={50} defaultValue={20} className="ms-1 w-16 rounded-lg border border-slate-300 px-2 py-1 text-sm" /></label>
-              <button className="rounded-xl bg-brand-teal px-4 py-2 text-sm font-bold text-white shadow hover:bg-brand-navy">📘 Send the full curriculum plan</button>
-            </form>
-          )}
-        </div>
-      )}
-      {v.grades.length === 0 ? <p className="mt-6 rounded-xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">The Curriculum Map has not been created yet.</p> : (
+
+      {v.grade === null || !v.units.length ? <EmptyState icon="🧭" title="Nothing here yet" text="The Curriculum Map has not been created yet." /> : (
         <>
-          <div className="sticky top-[60px] z-30 -mx-2 rounded-2xl bg-slate-50/95 px-2 py-2 print:static">
-          <nav aria-label="Grades" className="flex flex-wrap gap-2">
+          {canSend && <div className="mb-6"><SendPlanButton unitCode={null} label="Send the whole curriculum plan" big /></div>}
+
+          <nav aria-label={t("Grade")} className="flex flex-wrap gap-2">
             {v.grades.map((g) => (
-              <Link key={g.level} href={`/admin/curriculum-map?grade=${g.level}`} aria-current={g.level === v.level ? "page" : undefined}
-                className={`rounded-full px-5 py-2 font-semibold ${g.level === v.level ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>Grade {g.level}</Link>
+              <Link key={g} href={`/admin/curriculum-map?grade=${g}`} prefetch={false} aria-current={g === v.grade ? "page" : undefined}
+                className={`${tab} ${g === v.grade ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{t("Grade {n}", { n: g })}</Link>
             ))}
           </nav>
-            {v.book && (<nav aria-label="Units" className="mt-2 flex flex-wrap gap-2">
-                {units.map((u, i) => (
-                  <Link key={u.id} href={`/admin/curriculum-map?grade=${v.level}&unit=${i + 1}`} prefetch={false} aria-current={i === unitIx ? "page" : undefined}
-                    className={`rounded-xl px-4 py-2 text-sm font-bold transition ${i === unitIx ? "bg-brand-teal text-white shadow" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`}>{u.title.split(":")[0]}</Link>
-                ))}
-              </nav>)}
-            {isTeacher && roster.length > 1 && <nav aria-label="Class" className="mt-2 flex flex-wrap gap-2">{roster.map((c) => <Link key={c.id} href={`/admin/curriculum-map?grade=${v.level}&unit=${unitIx + 1}&classId=${c.id}`} aria-current={c.id === planClassId ? "page" : undefined} className={`rounded-full px-3 py-1 text-xs font-bold ${c.id === planClassId ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>Status for {c.name}</Link>)}</nav>}
-          </div>
-          {v.book && (
-            <section className="mt-5">
-              <p className="text-lg font-bold text-brand-navy">Grade {v.level} · <span aria-hidden="true">📗</span> {v.book.title} {!isTeacher && <span className="text-sm font-normal text-slate-500">· {v.attachmentNodes} places · {v.questions} adaptive questions</span>}</p>
-              {!isTeacher && v.coverage.some((c) => c.places) && (
-                <div className="mt-2 space-y-1.5 text-sm" aria-label="Adaptive questions per level">
-                  <p className="font-semibold text-slate-600">🔁 Places that have adaptive questions, per level:</p>
-                  {[...new Set(v.coverage.map((c) => c.category))].map((cat) => (
-                    <div key={cat} className="flex flex-wrap items-center gap-2">
-                      <span className="w-56 text-slate-700">{cat}</span>
-                      {v.coverage.filter((c) => c.category === cat).map((c) => (
-                        <span key={c.level} className={`rounded-full px-2.5 py-0.5 font-bold ring-1 ${c.atTarget === c.places ? "bg-emerald-50 text-emerald-800 ring-emerald-300" : c.atTarget ? "bg-amber-50 text-amber-900 ring-amber-300" : "bg-red-50 text-red-800 ring-red-300"}`}>
-                          {c.level === "BELOW" ? "Below" : c.level === "ON" ? "On" : "Above"} {c.atTarget}/{c.places}{c.atTarget === c.places ? " ✓" : ""}
-                        </span>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              )}
+          <nav aria-label={t("Units")} className="mt-2 flex flex-wrap gap-2">
+            {v.units.map((u, i) => (
+              <Link key={u.code} href={`/admin/curriculum-map?grade=${v.grade}&unit=${i + 1}`} prefetch={false} aria-current={i === unitIx ? "page" : undefined}
+                className={`${tab} text-sm ${i === unitIx ? "bg-blue-700 text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{t("Unit {n}", { n: i + 1 })}</Link>
+            ))}
+          </nav>
 
-              {isTeacher && units.slice(unitIx, unitIx + 1).map((u) => (
-                <section key={u.id} className="mt-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h2 className="text-xl font-extrabold text-brand-navy">{u.title}</h2>
-                    <div className="flex flex-wrap gap-2 text-sm font-semibold">
-                      {planClassId && <Link href={`/teacher/plans/curriculum?classId=${planClassId}&unit=${unitIx + 1}`} className="rounded-xl bg-violet-600 px-3 py-1.5 text-white hover:bg-violet-700">🗂️ Plan this unit</Link>}
-                      <Link href={`/admin/grammar?grade=${v.level}`} className="rounded-xl bg-white px-3 py-1.5 text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🔤 Grammar</Link>
-                      <Link href={`/teacher/games/qr${planClassId ? `?classId=${planClassId}` : ""}`} className="rounded-xl bg-white px-3 py-1.5 text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🎮 Games</Link>
-                    </div>
-                  </div>
-                  <div className="mt-3 grid gap-4 lg:grid-cols-2">
-                    {u.children.map((s) => {
-                      const rm = rmByCode.get(`RM-${String(s.code).replace(/\./g, "-")}`);
-                      return (
-                        <article key={s.id} className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-                          <h3 className="text-lg font-bold text-slate-900">{s.heading}</h3>
-                          {s.sharedRead && <p className="text-sm text-slate-500">📖 {s.sharedRead}</p>}
-                          <ul className="mt-3 space-y-2">
-                            {s.children.map((c) => {
-                              const st = status.get(c.code);
-                              const rtr = c.categoryType === "RESPOND_TO_READING";
-                              const icon = rtr ? "✍️" : c.categoryType === "CONCEPT_VOCABULARY" ? "🔤" : "🔍";
-                              return (
-                                <li key={c.id} className={`rounded-2xl border-s-4 p-3 ${catColor[c.categoryType ?? ""] ?? ""}`}>
-                                  <div className="flex flex-wrap items-center justify-between gap-2">
-                                    <span className="font-semibold text-slate-900">{icon} {c.title.replace(/^\d+-\s*/, "")}</span>
-                                    <span className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${!st ? "bg-slate-100 text-slate-600" : st.state === "FINISHED" ? "bg-emerald-100 text-emerald-800" : st.state === "NEEDS_HELP" ? "bg-red-100 text-red-800" : "bg-sky-100 text-sky-900"}`}>{!st ? "Not assigned" : st.state === "FINISHED" ? "✅ Finished" : st.state === "NEEDS_HELP" ? `🆘 Needs help · ${st.done}/${st.total}` : `⏳ ${st.done}/${st.total} done`}</span>
-                                  </div>
-                                  <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
-                                    {rtr ? (planClassId && <Link href={`/teacher/respond/assign?classId=${planClassId}&code=${c.code}`} className="rounded-full bg-amber-100 px-3 py-1 font-bold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">⭐ Assign</Link>)
-                                      : <MapAssignButton code={c.code} label="Assign" levels={c.children.length > 0} />}
-                                    <Link prefetch={false} href={rtr ? `/admin/curriculum-map/respond/${c.code}` : `/teacher/preview?code=${c.code}`} className="rounded-full bg-white px-3 py-1 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Preview</Link>
-                                    <details className="w-full text-xs text-slate-600">
-                                      <summary className="cursor-pointer font-semibold text-slate-500">Details</summary>
-                                      {c.skills && <p className="mt-1">Skills: {c.skills}</p>}
-                                      {c.children.length > 0 && <p className="mt-1">{c.children.map((l) => `${l.title}: ${l.counts.adaptive}`).join(" · ")} questions</p>}
-                                      {!c.children.length && <p className="mt-1">{c.counts.adaptive} questions</p>}
-                                      {!rtr && <Link prefetch={false} href={`/admin/questions?status=PUBLISHED&map=${c.code}`} className="mt-1 inline-block font-semibold text-amber-900 underline">☆ Choose single questions</Link>}
-                                    </details>
-                                  </div>
-                                </li>
-                              );
-                            })}
-                            {rm && <li className="rounded-2xl border-s-4 border-amber-300 bg-amber-50/50 p-3"><div className="flex flex-wrap items-center justify-between gap-2"><span className="font-semibold text-slate-900">⭐ ReadMaster article</span><Link href={`/admin/readmaster/${rm.id}`} className="rounded-full bg-white px-3 py-1 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">👀 Preview</Link></div></li>}
-                          </ul>
-                        </article>
-                      );
-                    })}
-                  </div>
-                </section>
-              ))}
-              {!isTeacher && units.slice(unitIx, unitIx + 1).map((u) => (
-                <details key={u.id} className="mt-4 rounded-2xl bg-white ring-1 ring-slate-200" open>
-                  {isTeacher && planClassId && <div className="flex justify-end px-5 pt-3"><Link href={`/teacher/plans/curriculum?classId=${planClassId}&unit=${unitIx + 1}`} className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-bold text-white shadow hover:bg-violet-700">🗂️ Plan this unit (select all + assign + PDF)</Link></div>}
-                  <summary className="cursor-pointer px-5 py-3 text-lg font-bold text-brand-navy">{u.title} <span className="text-sm font-normal text-slate-500">· {u.children.length} {u.children[0]?.kind === "SELECTION" ? "selections" : "text sets"}</span></summary>
-                  <div className="grid gap-4 px-5 pb-5 lg:grid-cols-2">
-                    {u.children.map((s) => (
-                      <article key={s.id} className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-                        <div className="flex flex-wrap items-center justify-between gap-2"><h3 className="text-lg font-bold text-slate-900">{s.heading}</h3>{rmByCode.get(`RM-${String(s.code).replace(/\./g, "-")}`) && <Link href={`/admin/readmaster/${rmByCode.get(`RM-${String(s.code).replace(/\./g, "-")}`)!.id}`} className="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-bold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200" title="Its leveled ReadMaster article (Below / On / Above)">⭐ ReadMaster</Link>}{s.genre && <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600">{s.genre}</span>}</div>
-                        {s.sharedRead && <p className="mt-0.5 text-sm text-slate-500">📖 {s.sharedRead}</p>}
-                        <ul className="mt-3 space-y-2">
-                          {s.children.map((c) => (
-                            <li key={c.id} className={`rounded-lg border-s-4 p-3 ${catColor[c.categoryType ?? ""] ?? ""}`}>
-                              <p className="font-semibold text-slate-900">{c.title}{c.skills && <span className="font-normal"> ({c.skills})</span>}{badge(c)}
-                                {isTeacher && c.children.length > 0 && teacherActions(c.code, true)}</p>
-                              {c.children.length > 0 && (
-                                <ul className="mt-2 flex flex-wrap gap-2">
-                                  {c.children.map((l) => <li key={l.id} className="rounded-lg bg-white px-2.5 py-1 text-sm ring-1 ring-slate-200">
-                                    {c.categoryType === "RESPOND_TO_READING"
-                                      ? <Link prefetch={false} href={`/admin/curriculum-map/respond/${c.code}?level=${l.level}`} className="font-semibold text-violet-900 hover:underline" title="Open this level's activity page">{respond.has(l.code) ? "✍️ " : isTeacher ? "" : "➕ "}{l.title}</Link>
-                                      : l.title}
-                                    {isTeacher ? teacherCount(l) : badge(l)}</li>)}
-                                </ul>
-                              )}
-                            </li>
-                          ))}
-                        </ul>
-                      </article>
-                    ))}
-                  </div>
-                </details>
-              ))}
+          {unit && (
+            <section className="mt-6" aria-labelledby="unit-title">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <h2 id="unit-title" className="text-2xl font-semibold text-brand-navy">{t("Grade {n}", { n: v.grade })} · {t("Unit {n}", { n: unitIx + 1 })}</h2>
+                {canSend && <SendPlanButton unitCode={unit.code} label="Send this unit's plan" />}
+              </div>
+              <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {unit.lessons.map((l) => <LessonCard key={l.code} lesson={l} previewHref={`/teacher/preview?code=${encodeURIComponent(l.code)}`} />)}
+              </div>
             </section>
           )}
+          {canSend && <SendPlanHost grade={v.grade} classes={classes} outline={outlineOf(v.units)} send={sendMapPlanAction} />}
         </>
       )}
-      {actor.role === "TEACHER" && <MapAssignHost classes={roster} assign={assignPlaceAction} />}
     </AppShell>
   );
 }

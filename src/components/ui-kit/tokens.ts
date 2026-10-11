@@ -48,7 +48,9 @@ export function workStatus(v: string | null | undefined): WorkStatus {
 }
 
 /** Shared sizes: every button and tile is at least 44px tall (iPad / phone friendly). */
-export const BTN = "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-2 font-semibold transition active:scale-[.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal";
-export const BTN_PRIMARY = `${BTN} bg-brand-navy text-white hover:bg-brand-purple`;
-export const BTN_SECONDARY = `${BTN} bg-white text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50`;
-export const CARD = "rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200";
+export const BTN = "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-2 font-semibold transition hover:-translate-y-px active:translate-y-0 active:scale-[.98] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-brand-teal motion-reduce:hover:translate-y-0";
+/** the ONE main action of a page (navy, soft glow) */
+export const BTN_PRIMARY = `${BTN} bg-brand-navy text-white shadow-btn hover:bg-[#25467c]`;
+/** every other action: white with a thin outline */
+export const BTN_SECONDARY = `${BTN} bg-white text-brand-navy shadow-sm ring-1 ring-slate-300 hover:bg-slate-50 hover:ring-brand-teal`;
+export const CARD = "rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6";

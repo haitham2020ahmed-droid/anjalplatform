@@ -52,7 +52,7 @@ export default async function StudentReadMasterPage({ params }: { params: Promis
             cols={[{ key: "d", label: "Date" }, { key: "t", label: "Article" }, { key: "v", label: "Version" }, { key: "l", label: "Lexile", num: true }, { key: "s", label: "Score", num: true }, { key: "m", label: "Minutes", num: true }, { key: "r", label: "Rapid", num: true }]}
             rows={r.articles.map((a, i) => ({
               id: String(i), sort: { l: a.lexileAfter, s: a.total ? a.correct / a.total : null, m: a.minutes, r: a.rapid },
-              cells: { d: a.date, t: <span className="font-medium">{a.title}</span>, v: a.version.toLowerCase(), l: `${a.lexileBefore}L → ${a.lexileAfter}L`,
+              cells: { d: a.date, t: <span className="font-medium">{a.title}</span>, v: <>{a.version.toLowerCase()}{a.practice ? <span className="ms-1 rounded-full bg-amber-50 px-2 text-xs font-semibold text-amber-900 ring-1 ring-amber-200">{t("Practice")}</span> : null}</>, l: a.practice ? `${a.lexileBefore}L (${t("no change")})` : `${a.lexileBefore}L → ${a.lexileAfter}L`,
                 s: <span className={`font-semibold ${pctTone(a.total ? Math.round((100 * a.correct) / a.total) : null)}`}>{a.correct}/{a.total}</span>, m: fmtNum(a.minutes), r: fmtNum(a.rapid) },
             }))} />
         </ReportSection>

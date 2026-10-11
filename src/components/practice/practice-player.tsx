@@ -2,7 +2,8 @@
 /** @jsxImportSource react */
 "use client";
 /** Interactive wrapper: holds the answer, calls the server actions, swaps in the next question. */
-import { useState, useTransition } from "react";
+import { useRef, useState, useTransition } from "react";
+import { useT } from "@/i18n/client";
 import type { ClientQuestion } from "../../server/practice/items";
 import type { Feedback, PracticeView } from "../../server/practice/session";
 import { isAnswerReady, type AnswerValue } from "./answer-input";
@@ -23,9 +24,17 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pending, start] = useTransition();
+  const [ended, setEnded] = useState(false);
+  const sending = useRef(false); // one answer at a time (double clicks), before React shows "Checking…"
 
-  const check = () =>
+  const check = () => {
+    if (sending.current || pending) return;
+    sending.current = true;
     start(async () => {
+      try { await send(); } finally { sending.current = false; }
+    });
+  };
+  const send = async () => {
       if (!shown) return;
       const response = (shown.type === "SENTENCE_ORDER" || shown.type === "WORD_ORDER") && !Array.isArray(value) ? shown.elements : value;
       // a weak connection: try again twice (the server accepts each answer once, so a retry is safe)
@@ -34,9 +43,11 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
       if (!r) return setError("No connection. Your answer was not sent: check the internet and press Check again.");
       if (r.error) return setError(r.error);
       setError(null);
+      // the practice had already finished (another tab or a second click): a friendly card, nothing changed
+      if (r.feedback?.alreadyEnded) { setEnded(true); if (r.view) setView(r.view); return; }
       setFeedback(r.feedback!);
       setView(r.view!);
-    });
+  };
 
   const next = () => {
     setShown(view.question);
@@ -47,6 +58,7 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
     window.scrollTo({ top: 0 });
   };
 
+  if (ended) return <PracticeFinished />;
   return (
     <WordLookup>
       <PracticeFrame view={view} shownQuestion={shown} value={value} onChange={setValue} feedback={feedback}
@@ -65,5 +77,20 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
       )}
       {shown && <div className="mx-auto max-w-5xl"><FlagButton key={shown.questionId} questionId={shown.questionId} /></div>}
     </WordLookup>
+  );
+}
+
+/** "Nice work! This practice is finished." — shown when the practice already ended (two tabs, a double click). */
+export function PracticeFinished() {
+  const t = useT();
+  return (
+    <div className="mx-auto mt-10 max-w-xl rounded-3xl bg-white p-8 text-center shadow-sm ring-1 ring-slate-200">
+      <p className="text-4xl" aria-hidden="true">🎉</p>
+      <h2 className="mt-2 text-2xl font-bold text-brand-navy">{t("Nice work! This practice is finished.")}</h2>
+      <div className="mt-6 flex flex-wrap justify-center gap-3">
+        <button type="button" onClick={() => window.location.reload()} className="min-h-[44px] rounded-xl bg-brand-navy px-6 py-3 text-lg font-semibold text-white hover:bg-brand-purple">{t("New practice")}</button>
+        <a href="/student" className="inline-flex min-h-[44px] items-center rounded-xl border-2 border-slate-300 px-6 py-3 text-lg font-semibold text-brand-navy">{t("Back to My Work")}</a>
+      </div>
+    </div>
   );
 }

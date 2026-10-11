@@ -30,6 +30,7 @@ import { pregenerate } from "../src/server/tts/pregenerate";
 import type { TtsEnv } from "../src/server/tts/env";
 import { ar } from "../src/i18n/ar";
 import { UI_STRINGS } from "../src/i18n";
+import { familyRepresentatives } from "../src/server/questions/skill-questions";
 import { demoDatabase, ROOT } from "./helpers/db";
 
 const AUTO = new Set(["MULTIPLE_CHOICE", "MULTI_SELECT", "DROPDOWN", "TRUE_FALSE"]);
@@ -77,7 +78,10 @@ describe("UI reorg integration — wave 1 pieces work together", () => {
   async function take(who: Actor, assignmentId: string, rightSkills: Set<string>): Promise<void> {
     let v = await startQuiz(repo, who, assignmentId);
     const ids = (await repo.findMany("AssessmentQuestion", { assessmentId: (await repo.findUnique("Assignment", { id: assignmentId }))!.assessmentId })).map((x) => x.questionId);
-    const skillOf = new Map((await repo.findMany("Question", { id: { in: ids } })).map((q) => [String(q.id), String(q.skillId)]));
+    const qRows = await repo.findMany("Question", { id: { in: ids } });
+    // one question bank: a pooled question of another grade's copy counts for the right skill's family
+    const repOf = await familyRepresentatives(repo, String(who.schoolId), qRows.map((q) => String(q.skillId)), { ids: [...rightSkills] });
+    const skillOf = new Map(qRows.map((q) => [String(q.id), repOf.get(String(q.skillId)) ?? String(q.skillId)]));
     while (v.question) {
       const r = await submitQuizAnswer(repo, who, { assignmentId, questionId: v.question.questionId, response: await answerShown(v.question, rightSkills.has(skillOf.get(v.question.questionId)!)) });
       v = r.view;
@@ -203,7 +207,7 @@ describe("UI reorg integration — wave 1 pieces work together", () => {
     const otherGrade = own === 6 ? 5 : 6;
     const [g] = await choiceSkills(otherGrade, 1);
     const p = await previewTest(repo, teacher, { skills: [{ skillId: g.skillId, count: 3 }], levelMode: "SAME" });
-    const t = await assignTest(repo, teacher, { classId, type: "CHAPTER_TEST", title: "Cross-grade check", questions: { SAME: p.versions.SAME!.map((x) => x.id) }, studentIds: [student.studentId!] });
+    const t = await assignTest(repo, teacher, { classId, type: "CHAPTER_TEST", title: "Cross-grade check", questions: { SAME: p.versions.SAME!.map((x) => x.id) }, studentIds: [student.studentId!], skillIds: [g.skillId] });
     await take(student, await setOf(t.testId, student), new Set());
     const res = await testResults(repo, teacher, t.testId);
     assert.equal(res.skills[0].grade, otherGrade);

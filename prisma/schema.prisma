@@ -1025,6 +1025,8 @@ model Assignment {
   note        String?          @db.Text
   /// CURRICULUM (taught from the book units) or MAP (MAP Growth preparation); shown as two areas to students
   track        String   @default("CURRICULUM") @db.VarChar(16)
+  /// the program the work belongs to (e.g. CURRICULUM for plans sent from the Curriculum Map); null = older rows
+  program      String?  @db.VarChar(16)
   assessmentId String?
   targetMastery Int?           // e.g. 75
   /// a full-curriculum plan's place: opened by a student, hidden from the work lists (shown in the plan)
@@ -1036,6 +1038,8 @@ model Assignment {
   testId      String?
   /// UI reorg Phase 5: question order and answer choices shuffled per student (deterministic)
   shuffle     Boolean          @default(false)
+  /// the questions the teacher picked ("I'll pick the questions"); null = the platform chooses for each student
+  questionIds Json?
 
   class      Class               @relation(fields: [classId], references: [id])
   createdBy  Teacher             @relation(fields: [createdById], references: [id])
@@ -1657,6 +1661,9 @@ model ReadMasterAttempt {
   seconds      Int?
   /// Update 39C: answers given faster than the rapid-guess line (per-question times from the page); null = not timed
   rapid        Int?
+  /// ReadMaster page update: true = read at a level BELOW the student's own level for this article ("Practice"):
+  /// saved and shown, but it does not move the reading Lexile or skill mastery. false = counted (own level or higher).
+  practice     Boolean  @default(false)
   createdAt    DateTime @default(now())
 
   @@index([studentId])
@@ -3293,4 +3300,20 @@ model Certificate {
 
   @@unique([studentId, kind, refId])
   @@index([studentId, createdAt])
+}
+
+/// 💬 In-app feedback (the Feedback button): what a user wrote and on which page; admins mark it resolved.
+model Feedback {
+  id        String   @id @default(cuid())
+  userId    String
+  schoolId  String?
+  /// the sender's role when they wrote it (ADMIN roles, TEACHER, STUDENT)
+  role      String   @db.VarChar(20)
+  path      String?  @db.VarChar(300)
+  message   String   @db.VarChar(2000)
+  createdAt DateTime @default(now())
+  resolved  Boolean  @default(false)
+
+  @@index([schoolId, resolved, createdAt])
+  @@index([userId, createdAt])
 }

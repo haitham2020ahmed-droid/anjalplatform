@@ -28,6 +28,7 @@ import { LIVE_FEATURES, liveFeatures, CHEST, TEAMS } from "../src/games/live-fea
 import { UI_STRINGS } from "../src/i18n/en";
 import { ar } from "../src/i18n/ar";
 import { demoDatabase } from "./helpers/db";
+import { topUpGameBank } from "./helpers/game-bank";
 
 const ROOT = join(__dirname, "..");
 const read = (f: string) => readFileSync(join(ROOT, f), "utf8");
@@ -59,6 +60,8 @@ describe("🧩 Games integration", () => {
     outsider = await studentActor(String((await repo.findMany("Student", { schoolId: teacher.schoolId! })).find((x) => !inClass.has(String(x.id)))!.id));
     const skills = (await challengeSkills(repo, teacher, { grade: r[0].grade })).filter((k) => k.fitting >= 6).sort((a, b) => b.fitting - a.fitting);
     [skillId, skill2] = [skills[0].id, skills[1].id];
+    // games need a full round of fitting questions (MIN_QUESTIONS_PER_GAME); the test bank has 6 per skill
+    for (const k of [skillId, skill2]) await topUpGameBank(repo, k);
     // test data only: one student picked a favorite badge and an avatar
     await repo.upsert("StudentReward", { studentId: studs[0].studentId! }, { studentId: studs[0].studentId!, favoriteBadge: "quiz-whiz", avatar: JSON.stringify({ base: "robot", color: "teal", hat: "cap", glasses: null }) }, { favoriteBadge: "quiz-whiz" });
   });
@@ -244,7 +247,8 @@ describe("🧩 Games integration", () => {
     assert.ok(hv.field!.every((r, i, a) => i === 0 || a[i - 1].points >= r.points), "best first");
     const hostJson = JSON.stringify(hv).length;
     assert.ok(hostJson < 9000, `host update stays small (${hostJson} B)`);
-    assert.ok(Math.max(...sent) < 9000, "every push is small");
+    // one question bank: the pooled questions (every grade) include somewhat longer passages; a push carries one passage
+    assert.ok(Math.max(...sent) < 10_000, `every push is small (${Math.max(...sent)} B)`);
     assert.ok((used.user + used.system) / 1000 < 2000, `300 answers in ${(used.user + used.system) / 1000} ms CPU`);
     hostAct(room, "end"); hostAct(base, "end");
     // the projector hook: a game's own ProjectorView, else the kit view by feature, else the default board
@@ -274,8 +278,10 @@ describe("🧩 Games integration", () => {
     const a = await gamesUsage(repo, admin);
     assert.equal(a.scope, "SCHOOL");
     assert.ok(a.byClass.some((c) => c.classId === otherClassId), "the admin sees every class");
-    assert.match(read("src/app/teacher/reports/page.tsx"), /\/teacher\/reports\/games-usage/, "in the Reports hub");
-    assert.match(read("src/app/admin/page.tsx"), /\/teacher\/reports\/games-usage/, "and on the admin page");
+    assert.match(read("src/components/teacher/report-catalog.ts"), /\/teacher\/reports\/games-usage/, "in the Reports hub (its catalogue)");
+    // the Admin Home tiles come from the one admin tool list (Programs & Data → Games Report)
+    assert.match(read("src/app/admin/page.tsx"), /ADMIN_TOOLS/, "the admin page shows the admin tool list");
+    assert.match(read("src/components/admin-tools.ts"), /href: "\/teacher\/reports\/games-usage"[^\n]*home: true/, "and the Games Report is a tile on the admin page");
     assert.match(read("src/app/teacher/reports/games-usage/page.tsx"), /By class[\s\S]*games-by-class/);
   });
 
@@ -327,7 +333,7 @@ describe("🧩 Games integration", () => {
 
   test("student home: no new tiles — only Join Live and the Question of the Day card were added", () => {
     const page = read("src/app/student/page.tsx");
-    assert.equal((page.match(/<BigTile /g) ?? []).length, 8);
+    assert.equal((page.match(/<BigTile /g) ?? []).length, 9);   // 3 reading · MAP, Curriculum, RTI, NAFS · My Tests, My Reports (My Plans → MAP)
     assert.match(page, /<JoinLive/); assert.match(page, /<QotdCard/);
     assert.doesNotMatch(page, /RocketsView|TugView|ChestPicker|games-usage|LiveHost/);
   });

@@ -49,7 +49,8 @@ export async function ensureReadRiseLibrary(repo: Repo, root: string = process.c
   if (have >= files) { checkedOn.set(repo, stamp); return null; }
   ensuring ??= seedReadRiseLibrary(repo, root, () => undefined).finally(() => { ensuring = null; });
   const report = await ensuring;
-  checkedOn.set(repo, stamp);
+  // only stop checking for today when every file loaded — a failed or partly skipped load is retried on the next visit
+  if (report && report.skipped.length === 0) checkedOn.set(repo, stamp);
   return report;
 }
 

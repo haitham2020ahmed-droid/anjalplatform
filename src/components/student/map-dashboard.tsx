@@ -1,56 +1,61 @@
 import Link from "next/link";
-import type { Actor } from "@/server/auth/rbac";
-import { repo } from "@/server/auth/next";
-import { myMap } from "@/server/map/map-more";
-import { MAP_SUBJECT_NAME as SUBJECT, mapDashboardData, type MapDashboardData } from "@/server/student/student-home";
+import type { MapCard } from "@/server/student/map-dashboard";
 import { getT } from "@/i18n/server";
-import { BTN_PRIMARY, BTN_SECONDARY, EmptyState } from "@/components/ui-kit";
 
 /**
- * 🗺️ My MAP dashboard at the top of My Plans (MAP results live here — no separate MAP icon for students):
- * RIT, level, strengths and skills needing work for Reading and Language Usage, with links to the full
- * My MAP Results page (/student/map) and the MAP practice test.
+ * 🗺️ The student's MAP dashboard: two cards (Reading, Language Usage). Each: the latest RIT (big), the goal areas
+ * with simple bars, "Your goal: 215", "You need +6 points to reach your goal", "You're strong at…" and
+ * "Let's practice…". Numbers and friendly words only — never a MAP level word about the student.
+ * Data: studentMapCards(myMap) (src/server/student/map-dashboard.ts). No questions on this page.
  */
-export async function MapDashboard({ actor }: { actor: Actor }) {
+export async function MapDashboard({ cards }: { cards: MapCard[] }) {
   const { t } = await getT();
-  let d: MapDashboardData = { subjects: [] };
-  try { d = mapDashboardData(await myMap(repo, actor)); } catch { d = { subjects: [] }; }
   return (
-    <section aria-labelledby="map-dash-h" data-testid="map-dashboard" className="mb-6 rounded-3xl bg-white p-5 ring-1 ring-green-200 sm:p-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 id="map-dash-h" className="flex items-center gap-2 text-xl font-semibold text-brand-navy"><span aria-hidden="true">🗺️</span>{t("My MAP Results")}</h2>
-        <div className="flex flex-wrap gap-2">
-          <Link prefetch={false} href="/student/map" className={BTN_PRIMARY}>{t("See all my MAP results")}</Link>
-          <Link prefetch={false} href="/student/map-test" className={BTN_SECONDARY}>{t("MAP Practice Test")}</Link>
-        </div>
-      </div>
-      {!d.subjects.length ? (
-        <div className="mt-4"><EmptyState compact icon="🗺️" title="No MAP results yet" text="They appear here when your school adds them." /></div>
-      ) : (
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {d.subjects.map((x) => (
-            <div key={x.subject} className="rounded-2xl bg-green-50/60 p-4 ring-1 ring-green-100">
-              <p className="font-semibold text-brand-navy">{t(SUBJECT[x.subject] ?? x.subject)}{x.term ? <span className="text-sm font-normal text-slate-500"> · {x.term}</span> : null}</p>
-              <dl className="mt-2 grid grid-cols-3 gap-2 text-center">
-                <div className="rounded-xl bg-white p-2 ring-1 ring-green-100"><dt className="text-xs font-semibold text-slate-500">RIT</dt><dd className="text-2xl font-semibold tabular-nums text-brand-navy">{x.rit}</dd></div>
-                <div className="rounded-xl bg-white p-2 ring-1 ring-green-100"><dt className="text-xs font-semibold text-slate-500">{t("Level")}</dt><dd className="text-sm font-semibold text-brand-navy">{x.level ? t(x.level) : "—"}{x.percentile !== null ? <span className="block text-xs font-normal text-slate-500">{t("Percentile {n}", { n: x.percentile })}</span> : null}</dd></div>
-                <div className="rounded-xl bg-white p-2 ring-1 ring-green-100"><dt className="text-xs font-semibold text-slate-500">{t("Spring goal")}</dt><dd className="text-2xl font-semibold tabular-nums text-brand-navy">{x.goal ?? "—"}</dd></div>
-              </dl>
-              {x.lexile ? <p className="mt-2 text-sm text-slate-600"><span dir="ltr">MAP Lexile {x.lexile}L</span></p> : null}
-              <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                <div>
-                  <p className="text-sm font-semibold text-emerald-800">💪 {t("My strengths")}</p>
-                  {x.strengths.length ? <ul className="mt-1 space-y-1 text-sm text-slate-700">{x.strengths.map((n) => <li key={n}><bdi>{n}</bdi></li>)}</ul> : <p className="mt-1 text-sm text-slate-500">—</p>}
+    <section aria-label={t("My MAP")} data-testid="map-dashboard" className="grid gap-4 md:grid-cols-2">
+      {cards.map((c) => (
+        <article key={c.subject} aria-labelledby={`map-${c.subject}`} className={`rounded-3xl p-5 ring-1 sm:p-6 ${c.subject === "READING" ? "bg-green-50 ring-green-200" : "bg-emerald-50/70 ring-emerald-200"}`}>
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 id={`map-${c.subject}`} className="flex items-center gap-2 text-xl font-semibold text-brand-navy"><span aria-hidden="true">{c.subject === "READING" ? "📖" : "✏️"}</span>{t(c.name)}</h2>
+            {c.term && <span className="text-sm text-slate-500">{c.term}</span>}
+          </div>
+          {c.rit === null ? (
+            <p className="mt-4 rounded-2xl bg-white p-4 text-slate-700">{t("Your MAP score shows here when your school adds it.")}</p>
+          ) : (
+            <>
+              <div className="mt-3 flex flex-wrap items-end gap-x-6 gap-y-2">
+                <p><span className="block text-sm font-semibold text-slate-600">{t("My RIT")}</span><span className="text-6xl font-bold tabular-nums leading-none text-brand-navy">{c.rit}</span></p>
+                {c.goal !== null && <p className="rounded-2xl bg-white px-4 py-2 ring-1 ring-amber-200"><span className="block text-sm font-semibold text-amber-900">🎯 {t("Your goal: {n}", { n: c.goal })}</span>
+                  <span className="block font-semibold text-brand-navy">{c.reached ? t("You reached your goal!") + " 🎉" : t("You need +{n} points to reach your goal", { n: c.toGoal ?? 0 })}</span></p>}
+              </div>
+              {c.goal !== null && (
+                <div className="mt-3 h-3 overflow-hidden rounded-full bg-white" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={c.goalPct} aria-label={t("Your goal: {n}", { n: c.goal })}>
+                  <div className="h-full rounded-full bg-gradient-to-r from-amber-300 to-emerald-500" style={{ width: `${c.goalPct}%` }} />
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-amber-800">🎯 {t("Skills to work on")}</p>
-                  {x.needsWork.length ? <ul className="mt-1 space-y-1 text-sm">{x.needsWork.map((n) => <li key={n.name}>{n.href ? <Link prefetch={false} href={n.href} className="font-medium text-brand-navy underline-offset-2 hover:underline"><bdi>{n.name}</bdi> ▶</Link> : <bdi>{n.name}</bdi>}</li>)}</ul> : <p className="mt-1 text-sm text-slate-500">—</p>}
+              )}
+              {c.areas.some((a) => a.rit !== null) && (
+                <ul className="mt-4 space-y-2" aria-label={t("My goal areas")}>
+                  {c.areas.map((a) => (
+                    <li key={a.name}>
+                      <div className="flex justify-between gap-2 text-sm"><span className="font-medium text-slate-700"><span aria-hidden="true">{a.icon}</span> <bdi>{a.name}</bdi></span><span className="tabular-nums font-semibold text-brand-navy">{a.rit ?? "—"}</span></div>
+                      <div className="mt-1 h-2.5 overflow-hidden rounded-full bg-white" aria-hidden="true"><div className="h-full rounded-full bg-green-500" style={{ width: `${a.pct}%` }} /></div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl bg-white p-3">
+                  <p className="text-sm font-semibold text-emerald-800">💪 {t("You're strong at…")}</p>
+                  {c.strengths.length ? <ul className="mt-1 space-y-1 text-sm text-slate-700">{c.strengths.map((n) => <li key={n}><bdi>{n}</bdi></li>)}</ul> : <p className="mt-1 text-sm text-slate-500">{t("Keep practising to find out!")}</p>}
+                </div>
+                <div className="rounded-2xl bg-white p-3">
+                  <p className="text-sm font-semibold text-amber-800">🌱 {t("Let's practice…")}</p>
+                  {c.grow.length ? <ul className="mt-1 space-y-1 text-sm">{c.grow.map((n) => <li key={n.name}>{n.href ? <Link prefetch={false} href={n.href} className="inline-flex min-h-11 items-center font-medium text-brand-navy underline-offset-2 hover:underline"><bdi>{n.name}</bdi>&nbsp;▶</Link> : <bdi>{n.name}</bdi>}</li>)}</ul> : <p className="mt-1 text-sm text-slate-500">{t("Keep practising to find out!")}</p>}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            </>
+          )}
+        </article>
+      ))}
     </section>
   );
 }

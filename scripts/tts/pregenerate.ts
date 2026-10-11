@@ -5,7 +5,13 @@
  *   npx tsx scripts/tts/pregenerate.ts --apply          makes the missing audio (resumable: run again to continue)
  *   options: --only=passages,questions,readmaster,readrise · --limit=<n> new files this run (default 500)
  *            --readrise  also the ReadRise articles (every level version; opt-in: many long texts)
- *            --rpm=<n> provider requests per minute (default TTS_REQUESTS_PER_MINUTE or 30)
+ *            --rpm=<n> provider requests per minute (default TTS_REQUESTS_PER_MINUTE, else 4 for Gemini / 30 for Google)
+ *            --batch=<n> same as --limit (small batches for the AI limit)
+ *            --slow  also make the naturally slow recording of each text (twice the requests)
+ *            --from=<source:offset>  resume where an earlier run stopped (it prints the value), e.g. --from=readrise:400
+ *
+ *   Example (Gemini, passages and ReadRise, 40 files per run at 4 a minute):
+ *     TTS_PROVIDER=gemini npx tsx scripts/tts/pregenerate.ts --only=passages,readrise --batch=40 --apply
  *            --replace-voice  also remake audio made with another voice (after changing the voice)
  *
  * Provider and keys from the environment (TTS_PROVIDER=google|gemini, GOOGLE_TTS_API_KEY / GEMINI_API_KEY, …): see
@@ -24,7 +30,9 @@ const prisma = new PrismaClient();
 pregenerate(new PrismaRepo(prisma), ttsEnv(), {
   apply: process.argv.includes("--apply"),
   only,
-  limit: Number(arg("limit")) || undefined,
+  limit: Number(arg("limit")) || Number(arg("batch")) || undefined,
+  speeds: process.argv.includes("--slow") ? ["normal", "slow"] : undefined,
+  from: arg("from"),
   rpm: Number(arg("rpm")) || undefined,
   replaceVoice: process.argv.includes("--replace-voice"),
 })

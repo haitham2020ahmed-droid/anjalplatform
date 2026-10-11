@@ -6,12 +6,13 @@ import { readRiseHome } from "@/server/readrise/student";
 import { ReadRiseIcon } from "@/components/readrise/readrise-icon";
 import { GoalRing, GrowthChart, LevelBadge } from "@/components/readrise/widgets";
 import { ReadRiseLibrary } from "@/components/readrise/library";
+import { ProgramTabs } from "@/components/student/program-tabs";
 
 export const metadata = { title: "ReadRise" };
 export const dynamic = "force-dynamic";
 
 /** 🚀 ReadRise home: my level, weekly goal and streak, growth + projection, the placement prompt and the library. */
-export default async function ReadRiseHomePage({ searchParams }: { searchParams: Promise<{ q?: string; topic?: string }> }) {
+export default async function ReadRiseHomePage({ searchParams }: { searchParams: Promise<{ q?: string; topic?: string; tab?: string }> }) {
   const actor = await requireActor({ roles: ["STUDENT"] });
   await ensureReadRiseLibrary(repo).catch(() => null); // first visit after a deploy loads the platform library
   const me = (await getActor())!.user;
@@ -19,9 +20,11 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
   const h = await readRiseHome(repo, actor, { q: typeof sp.q === "string" ? sp.q.slice(0, 100) : "", topic: typeof sp.topic === "string" ? sp.topic.slice(0, 100) : "" });
   const sum = h.summary;
   const first = String(me.displayName ?? "").split(" ")[0];
+  /** 📊 "My report" tab: my level, weekly goal, reading numbers and growth; the default tab is the library */
+  const report = sp.tab === "report";
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href="/student" className="text-sm font-medium text-slate-500 hover:text-brand-teal">‹ My work</Link></p>
+      <p><Link href="/student" className="inline-flex min-h-10 items-center text-sm font-medium text-slate-500 hover:text-brand-teal">‹ My Work</Link></p>
       <header className="mt-2 flex flex-wrap items-center gap-4">
         <ReadRiseIcon size={56} />
         <div className="min-w-0 flex-1">
@@ -30,8 +33,10 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
         </div>
       </header>
 
-      {h.placement.state !== "NONE" && (
-        <Link href="/student/readrise/placement" className="lift mt-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-brand-navy to-indigo-700 p-5 text-white shadow-md">
+      <div className="mt-5"><ProgramTabs tabs={[{ href: "/student/readrise", label: "Articles", icon: "📚", on: !report }, { href: "/student/readrise?tab=report", label: "My report", icon: "📊", on: report }]} /></div>
+
+      {!report && h.placement.state !== "NONE" && (
+        <Link href="/student/readrise/placement" className="lift mt-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-brand-navy to-indigo-700 p-5 text-white shadow-pop">
           <span className="min-w-0 flex-1">
             <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">🎯 Find my level</span>
             <span className="block text-2xl font-extrabold">{h.placement.state === "OPEN" ? "Finish your ReadRise placement" : h.placement.state === "RETAKE" ? "Take the placement again" : "Take the ReadRise placement"}</span>
@@ -41,8 +46,9 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
         </Link>
       )}
 
-      <section aria-label="My progress" className="mt-5 grid gap-4 md:grid-cols-3">
-        <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
+      {report && <>
+      <section aria-label="My progress" data-testid="rr-my-report" className="grid gap-4 md:grid-cols-3">
+        <div className="rounded-3xl bg-gradient-to-br from-indigo-50 to-white p-5 shadow-card ring-1 ring-indigo-200">
           <p className="text-sm font-semibold text-slate-600">My ReadRise Level</p>
           <div className="mt-2"><LevelBadge level={sum.level} size="lg" /></div>
           <p className={`mt-2 text-sm font-semibold ${sum.growth > 0 ? "text-emerald-700" : sum.growth < 0 ? "text-rose-700" : "text-slate-600"}`}>
@@ -51,12 +57,12 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
           {sum.projected !== null && sum.projected >= sum.level && <p className="mt-1 text-sm text-slate-600">On track for about <strong>{sum.projected}</strong> by the end of the year (estimate).</p>}
           <p className="mt-2 text-xs text-slate-500">An estimate on a Lexile-like scale — not an official Lexile measure.</p>
         </div>
-        <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
+        <div className="rounded-3xl bg-gradient-to-br from-amber-50 to-white p-5 shadow-card ring-1 ring-amber-200">
           <p className="text-sm font-semibold text-slate-600">Weekly goal</p>
           <div className="mt-2"><GoalRing done={sum.thisWeek} goal={sum.weeklyGoal} /></div>
           <p className="mt-2 text-sm text-slate-700">{sum.streak > 0 ? <>🔥 <strong>{sum.streak}-week streak</strong> — keep it going!</> : "Meet your goal this week to start a streak."}</p>
         </div>
-        <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
+        <div className="rounded-3xl bg-gradient-to-br from-emerald-50 to-white p-5 shadow-card ring-1 ring-emerald-200">
           <p className="text-sm font-semibold text-slate-600">My reading</p>
           <dl className="mt-2 grid grid-cols-2 gap-3">
             <div><dt className="text-xs text-slate-500">Articles read</dt><dd className="text-2xl font-bold text-brand-navy">{sum.articlesDone}</dd></div>
@@ -82,7 +88,9 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
         <div className="mt-3"><GrowthChart points={h.growth.points} projected={h.growth.projected} yearEnd={h.growth.yearEnd} /></div>
       </section>
 
-      <ReadRiseLibrary lib={h.library} />
+      </>}
+
+      {!report && <ReadRiseLibrary lib={h.library} />}
     </AppShell>
   );
 }

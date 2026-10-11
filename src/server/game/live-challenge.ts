@@ -72,7 +72,9 @@ export async function challengeSkills(repo: Repo, actor: Actor, opts: { q?: stri
     .filter((k) => k.fitting >= 1).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name));
 }
 
-export interface ChallengeSpec { skillIds: string[]; mode: GameId; count: number; seconds: number; levelMode: LevelMode }
+export interface ChallengeSpec { skillIds: string[]; mode: GameId; count: number; seconds: number; levelMode: LevelMode; /** the teacher's own questions per skill ("I'll pick the questions"); a skill not listed: the platform picks */ picks?: Record<string, string[]> }
+/** At most this many picked questions per skill. */
+export const MAX_PICKS_PER_SKILL = 30;
 
 function cleanSpec(input: Partial<ChallengeSpec> & { skillIds?: unknown }): ChallengeSpec {
   const mode = s(input.mode || "quiz-race");
@@ -82,7 +84,13 @@ function cleanSpec(input: Partial<ChallengeSpec> & { skillIds?: unknown }): Chal
   if (skillIds.length > MAX_SKILLS) throw new ValidationError(`Choose at most ${MAX_SKILLS} skills.`);
   const count = Math.max(COUNT_RANGE[0], Math.min(COUNT_RANGE[1], Math.round(Number(input.count) || 10)));
   const seconds = Math.max(SECONDS_RANGE[0], Math.min(SECONDS_RANGE[1], Math.round(Number(input.seconds) || 20)));
-  return { skillIds, mode: mode as GameId, count, seconds, levelMode: input.levelMode === "LEVEL" ? "LEVEL" : "SAME" };
+  const picks: Record<string, string[]> = {};
+  const raw = input.picks && typeof input.picks === "object" ? input.picks : {};
+  for (const id of skillIds) {
+    const list = Array.isArray(raw[id]) ? [...new Set(raw[id].map(s).filter(Boolean))].slice(0, MAX_PICKS_PER_SKILL) : [];
+    if (list.length) picks[id] = list;
+  }
+  return { skillIds, mode: mode as GameId, count, seconds, levelMode: input.levelMode === "LEVEL" ? "LEVEL" : "SAME", ...(Object.keys(picks).length ? { picks } : {}) };
 }
 
 // ------------------------------------------------------------------ 2. start: build the room
@@ -104,6 +112,12 @@ function roomItem(p: Picked): RoomItem {
   return { item: it, view, right };
 }
 
+/** An "exclude" set that excludes everything except the given ids (pickItems reads only `has`). */
+class OnlyThese extends Set<string> {
+  constructor(private keep: Set<string>) { super(); }
+  override has(id: string): boolean { return !this.keep.has(id); }
+}
+
 /** Questions for the room: round-robin across the skills; one version per level when "each student's level" is on. */
 async function buildSlots(repo: Repo, schoolId: string, spec: ChallengeSpec): Promise<RoomSlot[]> {
   const meta = gameMeta(spec.mode)!;
@@ -112,7 +126,18 @@ async function buildSlots(repo: Repo, schoolId: string, spec: ChallengeSpec): Pr
   const lists = new Map<string, Record<PlayLevel, Picked[]>>();
   for (const skillId of spec.skillIds) {
     const byLevel = {} as Record<PlayLevel, Picked[]>;
-    if (spec.levelMode === "SAME") { const on = await pickItems(repo, schoolId, skillId, meta, "ON", per); byLevel.BELOW = byLevel.ON = byLevel.ABOVE = on; }
+    const own = spec.picks?.[skillId];
+    if (own?.length) {
+      // only the teacher's questions (that fit this game), everyone the same, in the teacher's order
+      // (picked questions may come from the same skill of another grade: read each owner skill once)
+      const keep = new Set(own);
+      const owners = [...new Set((await repo.findMany("Question", { id: { in: own } }, { select: ["skillId"] })).map((q) => s(q.skillId)))];
+      const fits: Picked[] = [];
+      for (const owner of owners) fits.push(...(await pickItems(repo, schoolId, owner, meta, "ON", own.length + 4, { exclude: new OnlyThese(keep) })));
+      const at = new Map(own.map((id, i) => [id, i]));
+      const on = fits.sort((a, b) => (at.get(a.q.id) ?? 0) - (at.get(b.q.id) ?? 0)).slice(0, per);
+      byLevel.BELOW = byLevel.ON = byLevel.ABOVE = on;
+    } else if (spec.levelMode === "SAME") { const on = await pickItems(repo, schoolId, skillId, meta, "ON", per); byLevel.BELOW = byLevel.ON = byLevel.ABOVE = on; }
     else for (const l of LEVELS) byLevel[l] = await pickItems(repo, schoolId, skillId, meta, l, per);
     lists.set(skillId, byLevel);
   }

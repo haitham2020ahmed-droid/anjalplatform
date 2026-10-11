@@ -9,6 +9,7 @@ import { PassageText, plainPassage } from "@/components/passage-text";
 import { ListenButton } from "@/components/listen-button";
 import { WordLookup } from "@/components/learn/word-lookup";
 import { FlagButton } from "@/components/learn/flag-button";
+import { answerSavedFx } from "@/components/feedback-fx/sound";
 
 /** The teacher's chosen questions, one by one; the correct answer after each; a report at the end. */
 export function QuizPlayer({ initial }: { initial: QuizView }) {
@@ -37,7 +38,8 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
     const r = await submitQuizAnswerAction({ assignmentId: view.assignmentId, questionId: q.questionId, response: value });
     setPending(false);
     if (r.error) return setError(r.error);
-    if (view.testMode) { setView(r.view!); setValue(null); setShown(r.view!.question); return; }
+    // a test: only a neutral "answer saved" tick — never right / wrong
+    if (view.testMode) { answerSavedFx(); setView(r.view!); setValue(null); setShown(r.view!.question); return; }
     setFb(r.feedback!); setView(r.view!);
     if (r.feedback!.next.endReason === "GOAL") setCelebrate(true);
   }

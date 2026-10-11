@@ -1,22 +1,26 @@
 "use client";
 /**
- * 🏁 Live Challenge setup: several skills of ANY grade (search + Reading / Grammar / Vocabulary filters), the game
+ * 🏁 Live Challenge setup: several skills (names only, one row per skill; search + Reading / Grammar / Vocabulary
+ * filters; for each chosen skill the platform picks the questions or the teacher does), the game
  * mode (from the game registry — Part 2 games appear here by themselves), number of questions, time per question,
  * question level (same for all / each student's level), for one of the teacher's own classes. Start · Save as template.
  */
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useT } from "@/i18n/client";
-import { GAMES } from "@/games/registry";
+import { GameModePicker } from "./mode-picker";
 import type { ChallengeSkill, ChallengeTemplate, SkillFilter } from "@/server/game/live-challenge";
 import { BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit/tokens";
+import { SkillQuestionPicker, dedupeSkillsByName, type PickerValue } from "@/components/skill-picker";
 import { deleteChallengeTemplateAction, saveChallengeTemplateAction, searchChallengeSkillsAction, startChallengeAction } from "@/app/games/live-actions";
 
 const FILTERS: { key: SkillFilter; label: string }[] = [{ key: "ALL", label: "All" }, { key: "READING", label: "Reading" }, { key: "GRAMMAR", label: "Grammar" }, { key: "VOCABULARY", label: "Vocabulary" }];
 const box = "min-h-11 rounded-xl border border-slate-300 bg-white px-3";
 
-export function ChallengeSetup({ classes, initialClassId, initialSkills, templates: initialTemplates, grades }: {
-  classes: { id: string; name: string; grade: number }[]; initialClassId: string | null; initialSkills: ChallengeSkill[]; templates: ChallengeTemplate[]; grades: number[];
+export function ChallengeSetup({ classes, initialClassId, initialSkills, templates: initialTemplates }: {
+  classes: { id: string; name: string; grade: number }[]; initialClassId: string | null; initialSkills: ChallengeSkill[]; templates: ChallengeTemplate[];
+  /** no longer used (skill names only, no grade filter); kept so older callers still compile */
+  grades?: number[];
 }) {
   const t = useT();
   const router = useRouter();
@@ -24,9 +28,9 @@ export function ChallengeSetup({ classes, initialClassId, initialSkills, templat
   const [mode, setMode] = useState("quiz-race");
   const [q, setQ] = useState("");
   const [filter, setFilter] = useState<SkillFilter>("ALL");
-  const [grade, setGrade] = useState(0);
   const [skills, setSkills] = useState(initialSkills);
   const [picked, setPicked] = useState<Map<string, ChallengeSkill>>(new Map());
+  const [picks, setPicks] = useState<Record<string, string[]>>({});   // "I'll pick the questions", per skill
   const [count, setCount] = useState(10);
   const [seconds, setSeconds] = useState(20);
   const [levelMode, setLevelMode] = useState<"SAME" | "LEVEL">("SAME");
@@ -40,14 +44,23 @@ export function ChallengeSetup({ classes, initialClassId, initialSkills, templat
   useEffect(() => {
     if (first.current) { first.current = false; return; }
     const id = setTimeout(async () => {
-      const r = await searchChallengeSkillsAction({ q, filter, grade: grade || undefined, mode });
+      const r = await searchChallengeSkillsAction({ q, filter, mode });
       if (r.skills) setSkills(r.skills);
     }, 250);
     return () => clearTimeout(id);
-  }, [q, filter, grade, mode]);
+  }, [q, filter, mode]);
+  // one row per skill name (+ kind): the copy with the most fitting questions stands for the skill
+  const rows = useMemo(() => dedupeSkillsByName(skills, (k) => k.filter, (a, b) => a.fitting > b.fitting), [skills]);
 
-  const toggle = (k: ChallengeSkill) => setPicked((m) => { const n = new Map(m); if (n.has(k.id)) n.delete(k.id); else if (n.size < 10) n.set(k.id, k); return n; });
-  const spec = useMemo(() => ({ skillIds: [...picked.keys()], mode: mode as never, count, seconds, levelMode }), [picked, mode, count, seconds, levelMode]);
+  const choose = (id: string, v: PickerValue) => setPicks((p) => { const n = { ...p }; if (v.auto || !v.questionIds.length) delete n[id]; else n[id] = v.questionIds; return n; });
+  const toggle = (k: ChallengeSkill) => {
+    if (picked.has(k.id)) choose(k.id, { auto: true });
+    setPicked((m) => { const n = new Map(m); if (n.has(k.id)) n.delete(k.id); else if (n.size < 10) n.set(k.id, k); return n; });
+  };
+  const spec = useMemo(() => {
+    const own = Object.fromEntries(Object.entries(picks).filter(([id]) => picked.has(id)));
+    return { skillIds: [...picked.keys()], mode: mode as never, count, seconds, levelMode, ...(Object.keys(own).length ? { picks: own } : {}) };
+  }, [picked, picks, mode, count, seconds, levelMode]);
 
   const go = () => start(async () => {
     setMsg(null);
@@ -67,6 +80,7 @@ export function ChallengeSetup({ classes, initialClassId, initialSkills, templat
     const all = await searchChallengeSkillsAction({ mode: tp.spec.mode });
     const byId = new Map((all.skills ?? []).map((k) => [k.id, k]));
     setPicked(new Map(tp.spec.skillIds.filter((id) => byId.has(id)).map((id) => [id, byId.get(id)!])));
+    setPicks(tp.spec.picks ?? {});
     setMsg({ ok: true, text: t("Template opened.") });
   });
   const remove = (id: string) => start(async () => { await deleteChallengeTemplateAction(id); setTemplates((l) => l.filter((x) => x.id !== id)); if (templateId === id) setTemplateId(null); });
@@ -86,50 +100,36 @@ export function ChallengeSetup({ classes, initialClassId, initialSkills, templat
           </label>
         </div>
 
-        <fieldset>
-          <legend className="text-sm font-semibold text-slate-700">{t("Game mode")}</legend>
-          <div className="mt-2 grid gap-2 sm:grid-cols-2">
-            {GAMES.map((g) => {
-              const can = g.ready && g.live;
-              return (
-                <label key={g.id} className={`flex min-h-14 items-center gap-3 rounded-2xl px-3 py-2 ring-1 ${mode === g.id ? "bg-sky-50 ring-2 ring-brand-teal" : "bg-white ring-slate-200"} ${can ? "cursor-pointer" : "opacity-55"}`}>
-                  <input type="radio" name="mode" value={g.id} checked={mode === g.id} disabled={!can} onChange={() => setMode(g.id)} className="sr-only" />
-                  <span aria-hidden="true" className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl text-xl ${g.color}`}>{g.icon}</span>
-                  <span className="min-w-0 flex-1"><span className="block font-semibold text-brand-navy">{t(g.name)}</span><span className="block text-xs text-slate-600">{t(g.line)}</span></span>
-                  {!can && <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">{t("Soon")}</span>}
-                </label>
-              );
-            })}
-          </div>
-        </fieldset>
+        <GameModePicker skillIds={spec.skillIds} mode={mode} onMode={setMode} />
 
         <fieldset>
-          <legend className="text-sm font-semibold text-slate-700">{t("Skills (any grade) — choose one or more")}</legend>
+          <legend className="text-sm font-semibold text-slate-700">{t("Skills — choose one or more")}</legend>
           {picked.size > 0 && (
-            <ul className="mt-2 flex flex-wrap gap-2" aria-label={t("Chosen skills")}>
+            <ul className="mt-2 grid gap-2" aria-label={t("Chosen skills")}>
               {[...picked.values()].map((k) => (
-                <li key={k.id}><button type="button" onClick={() => toggle(k)} className="inline-flex min-h-9 items-center gap-1 rounded-full bg-brand-navy px-3 text-sm font-semibold text-white" aria-label={t("Remove {name}", { name: k.name })}><bdi dir="ltr">{k.name}</bdi> <span className="text-white/70">G{k.grade}</span> ✕</button></li>
+                <li key={k.id} className="grid gap-2 rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
+                  <div className="flex items-center justify-between gap-2">
+                    <bdi dir="ltr" className="min-w-0 font-semibold text-brand-navy">{k.name}</bdi>
+                    <button type="button" onClick={() => toggle(k)} className="grid h-11 w-11 shrink-0 place-items-center rounded-full text-slate-500 hover:bg-white" aria-label={t("Remove {name}", { name: k.name })}>✕</button>
+                  </div>
+                  <SkillQuestionPicker key={k.id} skillId={k.id} name={null} max={30} defaultValue={picks[k.id] ? { auto: false, questionIds: picks[k.id] } : undefined} onChange={(v) => choose(k.id, v)} />
+                </li>
               ))}
             </ul>
           )}
           <div className="mt-2 flex flex-wrap items-center gap-2">
             <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("Search skills…")} aria-label={t("Search skills…")} className={`${box} min-w-0 flex-1`} />
-            <select value={grade} onChange={(e) => setGrade(Number(e.target.value))} aria-label={t("Grade")} className={box}>
-              <option value={0}>{t("Any grade")}</option>
-              {grades.map((g) => <option key={g} value={g}>{t("Grade {n}", { n: g })}</option>)}
-            </select>
           </div>
           <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label={t("Filter")}>
             {FILTERS.map((f) => <button key={f.key} type="button" aria-pressed={filter === f.key} onClick={() => setFilter(f.key)} className={`min-h-10 rounded-full px-4 text-sm font-semibold ring-1 ${filter === f.key ? "bg-brand-navy text-white ring-brand-navy" : "bg-white text-brand-navy ring-slate-300"}`}>{t(f.label)}</button>)}
           </div>
           <ul className="mt-3 grid max-h-80 gap-1 overflow-y-auto rounded-2xl p-2 ring-1 ring-slate-200 sm:grid-cols-2" data-testid="challenge-skills">
-            {skills.length === 0 && <li className="p-3 text-slate-600">{t("No skills found.")}</li>}
-            {skills.map((k) => (
+            {rows.length === 0 && <li className="p-3 text-slate-600">{t("No skills found.")}</li>}
+            {rows.map((k) => (
               <li key={k.id}>
                 <label className="flex min-h-11 cursor-pointer items-center gap-2 rounded-lg px-2 py-1 text-sm hover:bg-slate-50">
                   <input type="checkbox" checked={picked.has(k.id)} onChange={() => toggle(k)} className="h-5 w-5" />
                   <bdi dir="ltr" className="min-w-0 flex-1">{k.name}</bdi>
-                  <span className="shrink-0 rounded-full bg-slate-100 px-2 text-xs text-slate-600">G{k.grade}</span>
                   <span className="shrink-0 text-xs text-slate-400" dir="ltr">{k.fitting} Q</span>
                 </label>
               </li>

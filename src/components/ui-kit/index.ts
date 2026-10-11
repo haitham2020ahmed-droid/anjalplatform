@@ -2,7 +2,8 @@
 export { SourceTag } from "./source-tag";
 export { StatusPill } from "./status-pill";
 export { EmptyState } from "./empty-state";
-export { BigTile } from "./big-tile";
+export { BigTile, type TileTone } from "./big-tile";
+export { PageHero, HERO_TITLE, type HeroTone } from "./page-hero";
 export { TileGroup } from "./tile-group";
 export { StickyHome } from "./sticky-home";
 export { LangSwitch } from "./lang-switch";

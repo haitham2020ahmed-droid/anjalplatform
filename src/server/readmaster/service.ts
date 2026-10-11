@@ -268,41 +268,140 @@ export async function studentArticles(repo: Repo, actor: Actor): Promise<{ lexil
   return { lexile: lx.lexile, level, source: lx.source, articles: arts.map((a) => { const d = atts.find((x) => x.articleId === a.id); return { id: s(a.id), title: s(a.title), topic: a.topic ? s(a.topic) : null, skill: a.skillName ? s(a.skillName) : null, done: d ? { correct: Number(d.correct), total: Number(d.total), level: s(d.level) as Level } : null }; }) };
 }
 
-/** The version a student reads now: their Lexile's level; if that version is missing, the nearest one. */
-async function pickVersion(repo: Repo, studentId: string, articleId: string, info?: { grade: number; schoolId: string }): Promise<{ version: Row; lexile: number }> {
-  // independent reads together (Update 42B)
-  const [{ grade, schoolId }, lx, vers] = await Promise.all([info ? Promise.resolve(info) : studentInfo(repo, studentId), readingLexile(repo, studentId), repo.findMany("ReadMasterVersion", { articleId })]);
-  const [bands, withQ] = await Promise.all([
-    lexileBands(repo, schoolId),
-    vers.length ? repo.findMany("ReadMasterQuestion", { versionId: { in: vers.map((v) => v.id) } }, { select: ["versionId"] }).then((r) => new Set(r.map((x) => s(x.versionId)))) : Promise.resolve(new Set<string>()),
-  ]);
-  const want = levelForLexile(bands[grade], lx.lexile) ?? "ON";
-  const usable = vers.filter((v) => withQ.has(s(v.id)));
-  const order: Record<Level, Level[]> = { BELOW: ["BELOW", "ON", "ABOVE"], ON: ["ON", "BELOW", "ABOVE"], ABOVE: ["ABOVE", "ON", "BELOW"] };
-  const version = order[want].map((l) => usable.find((v) => v.level === l)).find(Boolean);
-  if (!version) throw new ValidationError("This article has no questions yet.");
-  return { version, lexile: lx.lexile };
+// ------------------------------------------------------------------ the shared ReadMaster page (students, teachers, admin)
+
+/** Below < On < Above: a version counts toward the student's level only when read at their own level or higher. */
+export const LEVEL_RANK: Record<Level, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
+/** Reading time on the cards: words of the On version ÷ 120 words a minute (at least 1 minute). */
+export const READ_WPM = 120;
+export const readingMinutes = (wordCount: number) => Math.max(1, Math.ceil((Number(wordCount) || 0) / READ_WPM));
+const isStaffActor = (a: Actor) => a.role === "TEACHER" || a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
+/** Unit number from the article code (RM-G4-U1-TS1 → 1); null = no unit ("Other"). */
+export const unitOfCode = (code: string): number | null => { const m = s(code).toUpperCase().match(/^RM-G\d+-U(\d+)/); return m ? Number(m[1]) : null; };
+
+/** The school of whoever opens ReadMaster (a student's own school; staff: their school). Parents cannot. */
+async function readerOf(repo: Repo, actor: Actor): Promise<{ schoolId: string; student: { id: string; grade: number } | null }> {
+  if (actor.role === "STUDENT" && actor.studentId) { const i = await studentInfo(repo, actor.studentId); return { schoolId: i.schoolId, student: { id: actor.studentId, grade: i.grade } }; }
+  if (isStaffActor(actor) && actor.schoolId) return { schoolId: actor.schoolId, student: null };
+  throw new ForbiddenError("Only students and staff read ReadMaster articles.");
 }
 
-export interface OpenArticle { articleId: string; title: string; skill: string | null; versionId: string; level: Level; lexile: number; studentLexile: number; body: string; questions: ClientQuestion[]; done: boolean }
-export async function openArticle(repo: Repo, actor: Actor, articleId: string): Promise<OpenArticle> {
-  return (await openArticleItems(repo, actor, articleId)).open;
+export interface RmCard { id: string; title: string; topic: string | null; skill: string | null; minutes: number; done: { correct: number; total: number; pct: number; level: Level; practice: boolean } | null }
+export interface RmUnit { unit: number | null; title: string; articles: RmCard[] }
+export interface ReadMasterHome { viewer: "STUDENT" | "STAFF"; canManage: boolean; grades: number[]; grade: number | null; myGrade: number | null; lexile: number | null; level: Level | null; units: RmUnit[] }
+
+/**
+ * ⭐ The one ReadMaster page (students, teachers and admin see the same view): a tab per grade that has published
+ * articles (a new grade appears by itself), the student's own grade first (staff: their class's grade, else the
+ * first); the grade's articles grouped by Unit (from the code RM-G4-U1-…, else "Other"); each card with the skill,
+ * the reading time and — for a student — ✓ + score when already read. Every published article of the school is open
+ * to every student: no assignment needed.
+ */
+export async function readMasterHome(repo: Repo, actor: Actor, opts: { grade?: number | null } = {}): Promise<ReadMasterHome> {
+  const { schoolId, student } = await readerOf(repo, actor);
+  const published = await repo.findMany("ReadMasterArticle", { schoolId, status: "PUBLISHED" }, { select: ["id", "code", "title", "topic", "gradeLevel", "skillName"] });
+  const grades = [...new Set(published.map((a) => Number(a.gradeLevel)).filter((g) => Number.isFinite(g) && g > 0))].sort((a, b) => a - b);
+  let myGrade: number | null = student ? student.grade : null;
+  if (!student && actor.role === "TEACHER") {
+    const { readableClasses } = await import("../teacher/coordinators");
+    const own = (await readableClasses(repo, actor))[0];
+    const g = own?.gradeId ? await repo.findUnique("Grade", { id: own.gradeId }) : null;
+    myGrade = g ? Number(g.level) : null;
+  }
+  const want = Number(opts.grade);
+  const grade = grades.includes(want) ? want : myGrade !== null && grades.includes(myGrade) ? myGrade : grades[0] ?? null;
+  const arts = published.filter((a) => Number(a.gradeLevel) === grade);
+  const ids = arts.map((a) => s(a.id));
+  const [vers, atts, lx, bands, gradeRow] = await Promise.all([
+    ids.length ? repo.findMany("ReadMasterVersion", { articleId: { in: ids } }, { select: ["articleId", "level", "wordCount"] }) : Promise.resolve([] as Row[]),
+    student && ids.length ? repo.findMany("ReadMasterAttempt", { studentId: student.id, articleId: { in: ids } }, { select: ["articleId", "level", "correct", "total", "practice", "createdAt"] }) : Promise.resolve([] as Row[]),
+    student ? readingLexile(repo, student.id) : Promise.resolve(null),
+    lexileBands(repo, schoolId),
+    grade !== null ? repo.findMany("Grade", { schoolId, level: grade }, { select: ["id"] }).then((r) => r[0] ?? null) : Promise.resolve(null),
+  ]);
+  // unit names from the Curriculum Map (G4.U1 → its title); "Unit n" when the map has none
+  const unitNodes = gradeRow ? await repo.findMany("CurriculumMapNode", { gradeId: gradeRow.id, kind: "UNIT" }, { select: ["number", "title"] }) : [];
+  const cards = arts.map((a) => {
+    const mine = vers.filter((v) => v.articleId === a.id);
+    const on = mine.find((v) => v.level === "ON") ?? mine[0];
+    const tries = atts.filter((x) => x.articleId === a.id);
+    const counted = tries.filter((x) => !x.practice);
+    const pick = counted.length ? counted[counted.length - 1] : tries.sort((x, y) => Number(y.correct) / Math.max(1, Number(y.total)) - Number(x.correct) / Math.max(1, Number(x.total)))[0];
+    const card: RmCard = {
+      id: s(a.id), title: s(a.title), topic: a.topic ? s(a.topic) : null, skill: a.skillName ? s(a.skillName) : null, minutes: readingMinutes(Number(on?.wordCount ?? 0)),
+      done: pick ? { correct: Number(pick.correct), total: Number(pick.total), pct: Number(pick.total) ? Math.round((100 * Number(pick.correct)) / Number(pick.total)) : 0, level: s(pick.level) as Level, practice: !counted.length } : null,
+    };
+    return { unit: unitOfCode(s(a.code)), code: s(a.code), card };
+  });
+  const byUnit = new Map<number | null, typeof cards>();
+  for (const c of cards) byUnit.set(c.unit, [...(byUnit.get(c.unit) ?? []), c]);
+  const units: RmUnit[] = [...byUnit].sort(([a], [b]) => (a === null ? 1 : b === null ? -1 : a - b)).map(([unit, list]) => {
+    const node = unit === null ? null : unitNodes.find((n) => Number(n.number) === unit);
+    const t = node ? s(node.title).trim() : "";
+    return { unit, title: unit === null ? "Other" : t && t.toLowerCase() !== `unit ${unit}` ? t : `Unit ${unit}`, articles: list.sort((x, y) => x.code.localeCompare(y.code) || x.card.title.localeCompare(y.card.title)).map((x) => x.card) };
+  });
+  return {
+    viewer: student ? "STUDENT" : "STAFF", canManage: actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN", grades, grade, myGrade,
+    lexile: lx ? lx.lexile : null, level: lx && grade !== null ? levelForLexile(bands[grade], lx.lexile) : null, units,
+  };
+}
+
+/**
+ * The versions of an article and the reader's own one: a student's own level = their reading Lexile's level in the
+ * ARTICLE's grade band (so a Grade 4 reader opening a Grade 5 article starts at its Below version); a missing version
+ * → the nearest one with questions. Staff open the On version.
+ */
+async function articleVersions(repo: Repo, articleId: string, grade: number, schoolId: string, studentId: string | null): Promise<{ usable: Row[]; own: Row; lexile: number | null }> {
+  const [vers, lx, bands] = await Promise.all([repo.findMany("ReadMasterVersion", { articleId }), studentId ? readingLexile(repo, studentId) : Promise.resolve(null), lexileBands(repo, schoolId)]);
+  const withQ = vers.length ? new Set((await repo.findMany("ReadMasterQuestion", { versionId: { in: vers.map((v) => v.id) } }, { select: ["versionId"] })).map((x) => s(x.versionId))) : new Set<string>();
+  const want: Level = lx ? levelForLexile(bands[grade], lx.lexile) ?? "ON" : "ON";
+  const usable = LEVELS.map((l) => vers.find((v) => v.level === l && withQ.has(s(v.id)))).filter((v): v is Row => Boolean(v));
+  const order: Record<Level, Level[]> = { BELOW: ["BELOW", "ON", "ABOVE"], ON: ["ON", "BELOW", "ABOVE"], ABOVE: ["ABOVE", "ON", "BELOW"] };
+  const own = order[want].map((l) => usable.find((v) => v.level === l)).find(Boolean);
+  if (!own) throw new ValidationError("This article has no questions yet.");
+  return { usable, own, lexile: lx ? lx.lexile : null };
+}
+
+export interface OpenArticle {
+  articleId: string; title: string; skill: string | null; grade: number; versionId: string; level: Level; lexile: number; studentLexile: number; body: string; questions: ClientQuestion[]; done: boolean;
+  /** the reader's own level for this article (staff: On) and every version they can switch to */
+  ownLevel: Level; levels: { level: Level; lexile: number; minutes: number }[];
+  /** true = this version is below the student's own level: a practice read that does not change their level */
+  practice: boolean; viewer: "STUDENT" | "STAFF"; minutes: number;
+  /** the counted result when the student already finished the article */
+  result: { correct: number; total: number; level: Level } | null;
+}
+export async function openArticle(repo: Repo, actor: Actor, articleId: string, opts: { level?: string | null } = {}): Promise<OpenArticle> {
+  return (await openArticleItems(repo, actor, articleId, opts)).open;
 }
 /** The open article and its question items (the answer reuses them instead of loading them again). */
-async function openArticleItems(repo: Repo, actor: Actor, articleId: string): Promise<{ open: OpenArticle; items: Awaited<ReturnType<typeof loadQuestionItems>>; info: { grade: number; schoolId: string } }> {
-  if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only students read ReadMaster articles.");
-  const [a, info, mine] = await Promise.all([repo.findUnique("ReadMasterArticle", { id: articleId }), studentInfo(repo, actor.studentId), repo.findMany("ReadMasterAttempt", { studentId: actor.studentId, articleId }, { select: ["id"] })]);
-  const { grade, schoolId } = info;
-  if (!a || a.schoolId !== schoolId || Number(a.gradeLevel) !== grade || a.status !== "PUBLISHED") throw new ForbiddenError("This article is not available.");
-  const done = mine.length > 0;
-  const { version, lexile } = await pickVersion(repo, actor.studentId, articleId, info);
-  const links = (await repo.findMany("ReadMasterQuestion", { versionId: version.id })).sort((x, y) => Number(x.order) - Number(y.order));
+async function openArticleItems(repo: Repo, actor: Actor, articleId: string, opts: { level?: string | null } = {}): Promise<{ open: OpenArticle; items: Awaited<ReturnType<typeof loadQuestionItems>>; info: { grade: number; schoolId: string } }> {
+  const { schoolId, student } = await readerOf(repo, actor);
+  const [a, mine] = await Promise.all([
+    repo.findUnique("ReadMasterArticle", { id: articleId }),
+    student ? repo.findMany("ReadMasterAttempt", { studentId: student.id, articleId }, { select: ["id", "level", "correct", "total", "practice", "createdAt"] }) : Promise.resolve([] as Row[]),
+  ]);
+  // every published article of the school is open to every student of it (any grade): no assignment needed
+  if (!a || a.schoolId !== schoolId || a.status !== "PUBLISHED") throw new ForbiddenError("This article is not available.");
+  const grade = Number(a.gradeLevel);
+  const counted = mine.filter((x) => !x.practice);
+  const done = counted.length > 0;
+  const { usable, own, lexile } = await articleVersions(repo, articleId, grade, schoolId, student?.id ?? null);
+  const chosen = usable.find((v) => v.level === s(opts.level).toUpperCase()) ?? own;
+  const links = (await repo.findMany("ReadMasterQuestion", { versionId: chosen.id })).sort((x, y) => Number(x.order) - Number(y.order));
   const items = await loadQuestionItems(repo, links.map((l) => s(l.questionId)));
-  const open: OpenArticle = { articleId, title: s(a.title), skill: a.skillName ? s(a.skillName) : null, versionId: s(version.id), level: s(version.level) as Level, lexile: Number(version.lexile), studentLexile: lexile, body: s(version.body), questions: items.map((i) => toClientQuestion(i, `${articleId}:${i.questionId}`)), done };
-  return { open, items, info };
+  const last = counted[counted.length - 1];
+  const open: OpenArticle = {
+    articleId, title: s(a.title), skill: a.skillName ? s(a.skillName) : null, grade, versionId: s(chosen.id), level: s(chosen.level) as Level, lexile: Number(chosen.lexile),
+    studentLexile: lexile ?? Number(chosen.lexile), body: s(chosen.body), questions: items.map((i) => toClientQuestion(i, `${articleId}:${i.questionId}`)), done,
+    ownLevel: s(own.level) as Level, levels: usable.map((v) => ({ level: s(v.level) as Level, lexile: Number(v.lexile), minutes: readingMinutes(Number(v.wordCount)) })),
+    practice: Boolean(student) && LEVEL_RANK[s(chosen.level) as Level] < LEVEL_RANK[s(own.level) as Level], viewer: student ? "STUDENT" : "STAFF", minutes: readingMinutes(Number(chosen.wordCount)),
+    result: last ? { correct: Number(last.correct), total: Number(last.total), level: s(last.level) as Level } : null,
+  };
+  return { open, items, info: { grade, schoolId } };
 }
 
-export interface ArticleResult { correct: number; total: number; pct: number; lexileBefore: number; lexileAfter: number; levelBefore: Level | null; levelAfter: Level | null; review: { questionId: string; correct: boolean; correctAnswer: string; why: string }[] }
+export interface ArticleResult { correct: number; total: number; pct: number; lexileBefore: number; lexileAfter: number; levelBefore: Level | null; levelAfter: Level | null; practice: boolean; review: { questionId: string; correct: boolean; correctAnswer: string; why: string }[] }
 
 /** Scores the article once; moves the student's reading Lexile (75%+ up, under 50% down). */
 /** Times the page measured (Update 39C): whole article and per question (ms from the previous answer, the first one
@@ -316,10 +415,18 @@ export function cleanTiming(t: ArticleTiming | null | undefined, questionIds: st
   return { seconds: Number.isFinite(e) && e > 0 ? Math.min(3 * 3600, Math.round(e / 1000)) : null, perQuestion: per };
 }
 
+/**
+ * Scores one read of the version the student chose. Counting rule (ReadMaster page update): a read at the student's
+ * own level or higher COUNTS — it moves the reading Lexile (75%+ up 30L, under 50% down 30L) and feeds skill mastery
+ * (Update 39B). A read at a LOWER level is Practice: it is saved and shown, but nothing about the level or mastery
+ * changes. An article counts once; practice reads before that are allowed.
+ */
 export async function submitArticle(repo: Repo, actor: Actor, articleId: string, versionId: string, responses: Record<string, unknown>, now = new Date(), timing?: ArticleTiming | null): Promise<ArticleResult> {
-  const { open, items: openItems, info } = await openArticleItems(repo, actor, articleId);
+  if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only students answer ReadMaster articles.");
+  const v = await repo.findUnique("ReadMasterVersion", { id: versionId });
+  const { open, items: openItems, info } = await openArticleItems(repo, actor, articleId, { level: v && s(v.articleId) === articleId ? s(v.level) : null });
   if (open.done) throw new ValidationError("You already finished this article.");
-  if (open.versionId !== versionId) throw new ValidationError("Your reading level changed: open the article again.");
+  if (open.versionId !== versionId) throw new ValidationError("This reading level is not available: open the article again.");
   const ids = open.questions.map((q) => q.questionId);
   const items = openItems;
   const review = items.map((it) => {
@@ -329,8 +436,9 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
   });
   const correct = review.filter((r) => r.correct).length, total = review.length;
   const pct = total ? Math.round((100 * correct) / total) : 0;
+  const practice = open.practice;
   const before = open.studentLexile;
-  const after = Math.max(RULES.min, Math.min(RULES.max, before + (pct >= RULES.up ? RULES.step : pct < RULES.down ? -RULES.step : 0)));
+  const after = practice ? before : Math.max(RULES.min, Math.min(RULES.max, before + (pct >= RULES.up ? RULES.step : pct < RULES.down ? -RULES.step : 0)));
   const { grade, schoolId } = info;
   const band = (await lexileBands(repo, schoolId))[grade];
   // per-question time (Update 39C): a real time makes rapid-guess detection work for ReadMaster answers too
@@ -338,7 +446,10 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
   const timed = tm.perQuestion.size === items.length && items.length > 0;
   const msOf = (it: (typeof items)[number]) => tm.perQuestion.get(it.questionId) ?? Math.max(1, Number(it.estimatedSeconds) || 45) * 1000;
   const rapid = timed ? items.filter((it) => isRapidGuess({ responseMs: msOf(it), estimatedSeconds: Number(it.estimatedSeconds) || 45 }, DEFAULT_ADAPTIVE)).length : null;
-  await repo.create("ReadMasterAttempt", { studentId: actor.studentId, articleId, versionId, level: open.level, lexileBefore: before, lexileAfter: after, correct, total, seconds: tm.seconds, rapid, createdAt: now });
+  await repo.create("ReadMasterAttempt", { studentId: actor.studentId, articleId, versionId, level: open.level, lexileBefore: before, lexileAfter: after, correct, total, seconds: tm.seconds, rapid, practice, createdAt: now });
+  const result: ArticleResult = { correct, total, pct, lexileBefore: before, lexileAfter: after, levelBefore: levelForLexile(band, before), levelAfter: levelForLexile(band, after), practice, review };
+  // 🧪 Practice (a lower level than the student's own): saved above, no level or mastery change
+  if (practice) return result;
   await repo.upsert("StudentReadingLexile", { studentId: actor.studentId }, { lexile: after, source: "READMASTER", updatedAt: now }, { lexile: after, source: "READMASTER", updatedAt: now });
   // 🔗 the article's questions are bank questions: each answer goes through the engine like practice (source
   // READMASTER), so the skills they measure learn from the article (Update 39B) — after the response (Update 42B):
@@ -353,7 +464,7 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
       await recordEngineAttempt(repo, { sessionId: s(ses.id), studentId: actor.studentId!, skillId: s(it.skillKey), schoolId: schoolId ?? null, item: it, response: responses[it.questionId] ?? null, credit, usedHint: false, responseMs: msOf(it), now, reasonCode: "READMASTER", reason: "ReadMaster article answer: ability and mastery updated.", source: "READMASTER" });
     }
   }));
-  return { correct, total, pct, lexileBefore: before, lexileAfter: after, levelBefore: levelForLexile(band, before), levelAfter: levelForLexile(band, after), review };
+  return result;
 }
 
 /**

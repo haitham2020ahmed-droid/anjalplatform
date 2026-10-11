@@ -1,3 +1,4 @@
+import { FluencyMyReport } from "@/components/student/fluency-my-report";
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -12,7 +13,8 @@ import { aiEnv } from "@/server/ai/env";
 
 export const metadata = { title: "Fluency Coach" };
 const TONE = { BELOW: "bg-rose-100 text-rose-900", ON: "bg-sky-100 text-sky-900", ABOVE: "bg-emerald-100 text-emerald-900" } as const;
-const NAME = { BELOW: "Below", ON: "On", ABOVE: "Above" } as const;
+/** Students never see Below / On / Above about themselves: friendly words instead. */
+const NAME = { BELOW: "Keep growing", ON: "On track", ABOVE: "Reading strong" } as const;
 const KIND_NAME: Record<PracticeKind, string> = { MINUTE: "⏱ 1 minute", PASSAGE: "📖 Whole", ECHO: "🦜 Echo", PHRASED: "🎼 Phrased", DRILL: "⚡ Drill", REPEATED: "🔁 Repeated" };
 
 /** 🎙 Fluency Coach hub: the 1-minute check, practice modes, progress on the norms, prosody, goal and tips. */
@@ -63,7 +65,7 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
                 {home.norm ? (
                   <>
                     <p className="mt-2"><span className="text-5xl font-extrabold tabular-nums text-brand-navy">{home.norm.wcpm}</span> <span className="text-sm text-slate-500">words correct per minute</span></p>
-                    {home.officialLevel && <p className="mt-1"><span className={`rounded-full px-2 py-0.5 text-xs font-bold ${TONE[home.officialLevel]}`}>{NAME[home.officialLevel]} Level</span> <span className="text-xs text-slate-500">{home.norm.text}</span></p>}
+                    {home.officialLevel && <p className="mt-1"><span className={`rounded-full px-2 py-0.5 text-xs font-bold ${TONE[home.officialLevel]}`}>{NAME[home.officialLevel]}</span> <span className="text-xs text-slate-500">{home.norm.text}</span></p>}
                     <p className="mt-2 text-sm text-slate-700">{home.norm.kid}</p>
                   </>
                 ) : <p className="mt-2 text-slate-600">No 1-minute check yet. Start with one!</p>}
@@ -154,6 +156,7 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
                 </div>
               </section>
             )}
+            {actor.studentId && <FluencyMyReport studentId={actor.studentId} />}
             <p className="text-center text-xs text-slate-500">🔒 Your recording is only used to check your reading and is deleted right after. Your name is never sent.</p>
           </div>
         )}

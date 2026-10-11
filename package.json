@@ -43,6 +43,7 @@
     "start:standalone": "cp -r .next/static .next/standalone/.next/ && cp -r assets .next/standalone/ && node .next/standalone/server.js",
     "admin:create": "tsx scripts/admin/create-admin.ts",
     "jobs:learning": "tsx scripts/jobs/daily-learning.ts",
+    "jobs:sort": "tsx scripts/jobs/sort-questions.ts",
     "db:baseline:rebuild": "sh scripts/db/baseline-migration.sh --rebuild"
   },
   "dependencies": {

@@ -11,8 +11,9 @@ import type { Repo } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "./assignments";
-import { assignQuestions } from "./assign";
+import { assignQuestions, pickedQuestionIds } from "./assign";
 import { fromDifficulty } from "../curriculum-map/leveled-run";
+import { familyIdsInSchool } from "../questions/skill-questions";
 
 const s = (v: unknown) => String(v ?? "");
 type Level = "BELOW" | "ON" | "ABOVE";
@@ -25,7 +26,9 @@ export async function skillPool(repo: Repo, schoolId: string, skillId: string): 
   const cur = await repo.findUnique("Curriculum", { id: skill.curriculumId });
   const grade = cur ? await repo.findUnique("Grade", { id: cur.gradeId }) : null;
   if (!grade || s(grade.schoolId) !== schoolId) throw new ForbiddenError("Skill not found.");
-  const qs = await repo.findMany("Question", { skillId, status: "PUBLISHED", deletedAt: null }, { select: ["id", "typeId", "difficultyLevel"] });
+  // one question bank: the skill's family pool (every grade's copy of the skill; Concept Vocabulary stays alone)
+  const fam = await familyIdsInSchool(repo, schoolId, skillId);
+  const qs = await repo.findMany("Question", { skillId: fam.length > 1 ? { in: fam } : skillId, status: "PUBLISHED", deletedAt: null }, { select: ["id", "typeId", "difficultyLevel"] });
   const types = qs.length ? await repo.findMany("QuestionType", { id: { in: [...new Set(qs.map((q) => q.typeId))] } }, { select: ["id", "code", "isAutoScored"] }) : [];
   const manual = new Set(types.filter((t) => t.code === "SHORT_ANSWER" || t.isAutoScored === false).map((t) => s(t.id)));
   const byLevel: Record<Level, string[]> = { BELOW: [], ON: [], ABOVE: [] };
@@ -33,11 +36,19 @@ export async function skillPool(repo: Repo, schoolId: string, skillId: string): 
   return { skill: { id: s(skill.id), name: s(skill.name), grade: Number(grade.level), grammar: isGrammarCode(skill.code) }, byLevel };
 }
 
-export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { classId: string; skillId: string; mode: "AUTOMATIC" | "MANUAL"; levels?: Record<string, string>; skip?: string[]; dueAt?: Date | null; note?: string | null; max?: number }, now = new Date()): Promise<{ groups: { level: Level | null; students: number; questions: number }[]; notes: string[] }> {
+export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { classId: string; skillId: string; mode: "AUTOMATIC" | "MANUAL"; levels?: Record<string, string>; skip?: string[]; dueAt?: Date | null; note?: string | null; max?: number; program?: string | null; questionIds?: string[] | null }, now = new Date()): Promise<{ groups: { level: Level | null; students: number; questions: number }[]; notes: string[] }> {
   assertCan(actor, "assignments:create");
   const klass = await assertClassAccess(repo, actor, input.classId);
   // access rules (UI reorg): a skill of ANY grade may go to the teacher's own class (e.g. Grade 11 with no curriculum yet)
-  const { skill, byLevel } = await skillPool(repo, String(klass.schoolId), input.skillId);
+  const { skill, byLevel: pool } = await skillPool(repo, String(klass.schoolId), input.skillId);
+  // "I'll pick the questions": only the teacher's questions (any grade's copy of the skill), by their level
+  const picked = await pickedQuestionIds(repo, klass.schoolId, input.questionIds);
+  let byLevel = pool;
+  if (picked) {
+    const lv = new Map((await repo.findMany("Question", { id: { in: picked } }, { select: ["id", "difficultyLevel"] })).map((q) => [s(q.id), fromDifficulty(Number(q.difficultyLevel ?? 4))]));
+    byLevel = { BELOW: [], ON: [], ABOVE: [] };
+    for (const id of picked) byLevel[lv.get(id) ?? "ON"].push(id);
+  }
   const all = [...byLevel.BELOW, ...byLevel.ON, ...byLevel.ABOVE];
   if (!all.length) throw new ValidationError("This skill has no published questions yet.");
   const members = (await repo.findMany("ClassMembership", { classId: input.classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));
@@ -48,7 +59,7 @@ export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { clas
   const notes: string[] = [];
   const groups: { level: Level | null; students: number; questions: number }[] = [];
   if (input.mode === "AUTOMATIC") {
-    await assignQuestions(repo, actor, { classId: input.classId, studentIds: students, questionIds: all, title: `${skill.name} (adaptive: Below → On → Above)`, exactTitle: true, adaptive: { maxQuestions: Math.min(max, all.length) }, dueAt: input.dueAt ?? null, note: input.note ?? null }, now);
+    await assignQuestions(repo, actor, { classId: input.classId, studentIds: students, questionIds: all, title: `${skill.name} (adaptive: Below → On → Above)`, exactTitle: true, adaptive: { maxQuestions: Math.min(max, all.length) }, dueAt: input.dueAt ?? null, note: input.note ?? null, program: input.program ?? null }, now);
     groups.push({ level: null, students: students.length, questions: all.length });
     for (const l of ["BELOW", "ON", "ABOVE"] as Level[]) if (!byLevel[l].length) notes.push(`${NAME[l]} has no questions yet.`);
     return { groups, notes };
@@ -61,7 +72,7 @@ export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { clas
     if (!ids.length) { used = "ON"; ids = byLevel.ON; }
     if (!ids.length) { used = (["ABOVE", "ON", "BELOW"] as Level[]).find((l) => byLevel[l].length)!; ids = byLevel[used]; }
     if (used !== level) notes.push(`${NAME[level]} has no questions yet: those ${who.length} student(s) got ${NAME[used]} questions.`);
-    await assignQuestions(repo, actor, { classId: input.classId, studentIds: who, questionIds: ids.slice(0, max), title: `${skill.name} (${NAME[used]})`, exactTitle: true, dueAt: input.dueAt ?? null, note: input.note ?? null }, now);
+    await assignQuestions(repo, actor, { classId: input.classId, studentIds: who, questionIds: ids.slice(0, max), title: `${skill.name} (${NAME[used]})`, exactTitle: true, dueAt: input.dueAt ?? null, note: input.note ?? null, program: input.program ?? null }, now);
     groups.push({ level, students: who.length, questions: Math.min(max, ids.length) });
   }
   return { groups, notes };

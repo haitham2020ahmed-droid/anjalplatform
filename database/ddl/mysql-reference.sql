@@ -667,6 +667,7 @@ CREATE TABLE `Assignment` (
   `startAt` DATETIME(3),
   `note` TEXT,
   `track` VARCHAR(16) NOT NULL DEFAULT 'CURRICULUM',
+  `program` VARCHAR(16),
   `assessmentId` VARCHAR(191),
   `targetMastery` INTEGER,
   `curriculumPlanId` VARCHAR(191),
@@ -675,6 +676,7 @@ CREATE TABLE `Assignment` (
   `deletedAt` DATETIME(3),
   `testId` VARCHAR(191),
   `shuffle` BOOLEAN NOT NULL DEFAULT false,
+  `questionIds` JSON,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -1153,6 +1155,7 @@ CREATE TABLE `ReadMasterAttempt` (
   `total` INTEGER NOT NULL,
   `seconds` INTEGER,
   `rapid` INTEGER,
+  `practice` BOOLEAN NOT NULL DEFAULT false,
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -2545,6 +2548,22 @@ CREATE TABLE `Certificate` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `Certificate_studentId_createdAt_idx` ON `Certificate`(`studentId`, `createdAt`);
+
+CREATE TABLE `Feedback` (
+  `id` VARCHAR(191) NOT NULL,
+  `userId` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191),
+  `role` VARCHAR(20) NOT NULL,
+  `path` VARCHAR(300),
+  `message` VARCHAR(2000) NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `resolved` BOOLEAN NOT NULL DEFAULT false,
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `Feedback_schoolId_resolved_createdAt_idx` ON `Feedback`(`schoolId`, `resolved`, `createdAt`);
+
+CREATE INDEX `Feedback_userId_createdAt_idx` ON `Feedback`(`userId`, `createdAt`);
 
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

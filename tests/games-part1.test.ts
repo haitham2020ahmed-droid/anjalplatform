@@ -1,5 +1,5 @@
 /**
- * 🎲 Games Part 1: the game framework (registry, bank-filled questions at the student's level, "Soon", power-ups,
+ * 🎲 Games Part 1: the game framework (registry, bank-filled questions at the student's level, hidden games, power-ups,
  * result rows, ratings), Quiz Race, and the Live Challenge (in-memory rooms: join, answer, live board, pause, hide
  * board, results by skill, Reteach, rejoin, access refusals, room expiry). Games never change mastery or levels.
  */
@@ -17,12 +17,14 @@ import { GAMES, gameMeta, liveModes, readyGames } from "../src/games/registry";
 import { GAME_IDS, type PlayQuestion } from "../src/games/types";
 import { fiftyFifty, freshPowers, hintFor, scoreLive, scoreSolo, SOLO } from "../src/games/kit/powerups";
 import { canPlayGameSkill, gameAvailability, pickQuestions, soloRound } from "../src/server/game/questions";
+import { skillFamilyIds } from "../src/server/questions/skill-questions";
 import { gamesUsage, rateGame, recordSoloResult } from "../src/server/game/results";
 import { challengeResults, challengeSkills, hostRoom, joinChallenge, listChallengeTemplates, playerRoom, reteachChallenge, saveChallengeTemplate, startChallenge } from "../src/server/game/live-challenge";
 import { answer, flush, hostAct, hostView, livePower, playerView, resetRooms, roomById, ROOM_TTL_MS, settle, subscribe, sweepRooms, type Room } from "../src/server/game/rooms";
 import { answerGame, createGame, hostAction, joinGame, openGamesFor } from "../src/server/game/live";
 import { loadQuestionItems } from "../src/server/practice/items";
 import { demoDatabase } from "./helpers/db";
+import { topUpGameBank } from "./helpers/game-bank";
 
 const ROOT = join(__dirname, "..");
 
@@ -52,6 +54,8 @@ describe("🎲 Games Part 1", () => {
     const skills = (await challengeSkills(repo, teacher, { grade })).filter((k) => k.fitting >= 6).sort((a, b) => b.fitting - a.fitting);
     assert.ok(skills.length >= 2, "the test bank has skills for Quiz Race");
     [skillId, skill2] = [skills[0].id, skills[1].id];
+    // games need a full round of fitting questions (MIN_QUESTIONS_PER_GAME); the test bank has 6 per skill
+    for (const k of [skillId, skill2]) await topUpGameBank(repo, k);
   });
   after(() => resetRooms());
 
@@ -107,10 +111,11 @@ describe("🎲 Games Part 1", () => {
       assert.ok(qs.every((q) => q.type === "MULTIPLE_CHOICE" || q.type === "TRUE_FALSE"), "Quiz Race: multiple choice and True/False only");
       assert.ok(qs.every((q) => q.options!.filter((o) => o.correct).length === 1));
       const ids = (await repo.findMany("Question", { id: { in: qs.map((q) => q.id) } }, { select: ["id", "difficultyLevel", "skillId"] }));
-      assert.ok(ids.every((r) => String(r.skillId) === skillId), "the skill's own questions");
+      const family = new Set(await skillFamilyIds(repo, skillId)); // one question bank: every grade's copy of the skill
+      assert.ok(ids.every((r) => family.has(String(r.skillId))), "the skill's (family's) questions");
       // the student's level first (topped up from other levels only when the level runs short)
       const want = level === "BELOW" ? [1, 2, 3] : level === "ON" ? [4] : [5, 6, 7];
-      const atLevel = (await repo.findMany("Question", { skillId, status: "PUBLISHED", deletedAt: null }, { select: ["id", "difficultyLevel", "typeId"] }));
+      const atLevel = (await repo.findMany("Question", { skillId: { in: [...family] }, status: "PUBLISHED", deletedAt: null }, { select: ["id", "difficultyLevel", "typeId"] }));
       const types = new Map((await repo.findMany("QuestionType")).map((t) => [String(t.id), String(t.code)]));
       const available = atLevel.filter((r) => want.includes(Number(r.difficultyLevel)) && ["MULTIPLE_CHOICE", "TRUE_FALSE"].includes(types.get(String(r.typeId))!)).length;
       const got = ids.filter((r) => want.includes(Number(r.difficultyLevel))).length;
@@ -124,17 +129,17 @@ describe("🎲 Games Part 1", () => {
     assert.ok(round.questions.length >= meta.minQuestions && round.questions.length <= meta.roundSize);
     const diffs = await repo.findMany("Question", { id: { in: round.questions.map((q) => q.id) } }, { select: ["difficultyLevel"] });
     const qt = new Map((await repo.findMany("QuestionType")).map((t) => [String(t.id), String(t.code)]));
-    const belowAvail = (await repo.findMany("Question", { skillId, status: "PUBLISHED", deletedAt: null }, { select: ["difficultyLevel", "typeId"] })).filter((r) => Number(r.difficultyLevel) <= 3 && ["MULTIPLE_CHOICE", "TRUE_FALSE"].includes(qt.get(String(r.typeId))!)).length;
+    const belowAvail = (await repo.findMany("Question", { skillId: { in: await skillFamilyIds(repo, skillId) }, status: "PUBLISHED", deletedAt: null }, { select: ["difficultyLevel", "typeId"] })).filter((r) => Number(r.difficultyLevel) <= 3 && ["MULTIPLE_CHOICE", "TRUE_FALSE"].includes(qt.get(String(r.typeId))!)).length;
     assert.equal(diffs.filter((d) => Number(d.difficultyLevel) <= 3).length, Math.min(belowAvail, diffs.length), "Below Level questions first");
     assert.equal(await repo.count("Question"), qCount, "no copies are stored");
   });
 
-  test('"Soon": a game that is not built, or a skill without enough fitting questions', async () => {
+  test('hidden: a game that is not built, or a skill without enough fitting questions', async () => {
     const av = await gameAvailability(repo, teacher.schoolId!, skillId);
     assert.equal(av.length, 10);
     assert.equal(av.find((g) => g.id === "quiz-race")!.status, "PLAY");
-    assert.ok(av.filter((g) => !gameMeta(g.id)!.ready).every((g) => g.status === "SOON"), "games not built yet are Soon");
-    // a skill with no multiple-choice / True-False questions → Quiz Race is Soon too
+    assert.ok(av.filter((g) => !gameMeta(g.id)!.ready).every((g) => g.status === "SOON"), "games not built yet are hidden");
+    // a skill with no multiple-choice / True-False questions → Quiz Race is hidden too
     const types = await repo.findMany("QuestionType", { code: { in: ["MULTIPLE_CHOICE", "TRUE_FALSE"] } });
     const all = await repo.findMany("Question", { status: "PUBLISHED", deletedAt: null }, { select: ["skillId", "typeId"] });
     const has = new Set(all.filter((q) => types.some((t) => t.id === q.typeId)).map((q) => String(q.skillId)));
@@ -314,7 +319,9 @@ describe("🎲 Games Part 1", () => {
     for (const sid of low) {
       const as = await repo.findMany("AssignmentStudent", { studentId: sid });
       const a = await repo.findMany("Assignment", { id: { in: as.map((x) => x.assignmentId) }, skillId });
-      assert.ok(a.some((x) => String(x.note ?? "").startsWith("Reteach: Friday challenge")), "in My Work with a Reteach note");
+      // (a student who already has this skill open in My Work is not given it twice — which students score low
+      // depends on the pooled questions of the one bank)
+      assert.ok(a.some((x) => String(x.note ?? "").startsWith("Reteach: Friday challenge")) || a.some((x) => !String(x.note ?? "").startsWith("Reteach")), "in My Work with a Reteach note");
     }
     const saved = (await repo.findUnique("LiveGame", { id: g.id }))!.summary;
     assert.ok((typeof saved === "string" ? JSON.parse(saved) : saved).reteachAt, "Reteach is remembered");
@@ -328,7 +335,8 @@ describe("🎲 Games Part 1", () => {
     for (const k of studs) await joinChallenge(repo, k, g.code);
     hostAct(room, "start");
     const above = playerView(room, studs[3].studentId!).question!, below = playerView(room, studs[4].studentId!).question!;
-    const it = async (stem: string) => (await repo.findMany("Question", { stem, skillId }, { select: ["difficultyLevel"] }))[0];
+    const fam = await skillFamilyIds(repo, skillId); // one question bank: the skill's family pool
+    const it = async (stem: string) => (await repo.findMany("Question", { stem, skillId: { in: fam } }, { select: ["difficultyLevel"] }))[0];
     const [qa, qb] = [await it(above.stem), await it(below.stem)];
     assert.ok(Number(qa?.difficultyLevel) >= Number(qb?.difficultyLevel), "the Above student's question is not easier than the Below student's");
     // answering their own version is scored against their own version

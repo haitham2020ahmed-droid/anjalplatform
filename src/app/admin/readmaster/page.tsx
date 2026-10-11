@@ -37,6 +37,7 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
       <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="⭐" title="ReadMaster"
         subtitle="One article, three reading levels: the same topic and skill written for Below, On and Above Level. Each student reads the version of their Lexile, which moves after every article (75%+ → +30L, under 50% → −30L).">
         <nav aria-label="Grade" className="flex gap-2">{[4, 5, 6].map((g) => <Link key={g} href={`/admin/readmaster?grade=${g}`} aria-current={g === grade ? "page" : undefined} className={`rounded-full px-5 py-2 text-sm font-bold transition ${g === grade ? "bg-brand-navy text-white shadow" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`}>Grade {g}</Link>)}</nav>
+        <Link href={`/student/readmaster?grade=${grade}`} className="rounded-full px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Open the ReadMaster page</Link>
       </PageHeader>
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <form action={linkToMapAction} className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-amber-50 to-white px-4 py-3 ring-1 ring-amber-200">

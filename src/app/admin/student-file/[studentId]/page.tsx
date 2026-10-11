@@ -21,7 +21,7 @@ export default async function StudentFilePage({ params }: { params: Promise<{ st
   const p = f.practice;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin/student-file", label: "Find a student" }} icon="🗂️" title={f.name}
+      <PageHeader back={{ href: "/teacher/students", label: "My Students" }} icon="🗂️" title={f.name}
         subtitle={<>Grade {f.grade} · {f.className || "no class"} · ID {f.number} · {f.username}{f.teachers.length ? ` · teacher: ${f.teachers.join(", ")}` : ""} · last sign-in {f.lastLogin ? f.lastLogin.slice(0, 10) : "never"} ({f.signIns30} in 30 days)</>}>
         <Link href={`/admin/student-file/${f.id}/view`} className="rounded-xl bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800 print:hidden">👁 See it as the student does</Link>
         <Link href={`/teacher/progress/${f.id}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 print:hidden">📈 Progress page</Link>

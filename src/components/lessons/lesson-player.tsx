@@ -13,6 +13,7 @@ import type { HintStep } from "../../tutor/tutor";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "../practice/answer-input";
 import { FeedbackPanel } from "../practice/feedback-panel";
 import { ListenButton } from "../listen-button";
+import { plainPassage } from "@/lib/passage";
 import { LessonPassage } from "./lesson-passage";
 import { Organizer } from "./organizer";
 
@@ -97,6 +98,7 @@ export function LessonPlayer({ initial, actions, listHref }: { initial: LessonVi
             </section>
           </div>
           <div className="min-w-0 space-y-4">
+            <ListenButton text={`${c.passage.title}. ${plainPassage(c.passage.text)}`} label="Listen to the text" />
             <LessonPassage title={c.passage.title} text={c.passage.text} clues={view.model.answered ? c.passage.clues : []} numbered />
             <section className="rounded-2xl bg-white p-5 ring-1 ring-brand-teal/40">
               <h2 className="text-lg font-bold text-brand-navy">Your turn: {c.workedQuestion}</h2>
@@ -150,11 +152,12 @@ export function LessonPlayer({ initial, actions, listHref }: { initial: LessonVi
             <>
               {view.progress && !feedback && <p className="text-sm font-semibold text-slate-600">{PHASE_NAME[view.phase]} · question {view.progress.index} of {view.progress.total}</p>}
               <div className={shown.passage ? "grid gap-6 lg:grid-cols-2" : ""}>
-                {shown.passage && <div className="min-w-0 lg:sticky lg:top-4 lg:max-h-[75vh] lg:overflow-y-auto"><LessonPassage title={shown.passage.title} text={shown.passage.text} clues={highlight} paragraph={lastHint?.paragraph ?? null} numbered /></div>}
+                {shown.passage && <div className="min-w-0 lg:sticky lg:top-4 lg:max-h-[75vh] lg:overflow-y-auto"><ListenButton text={`${shown.passage.title}. ${plainPassage(shown.passage.text)}`} label="Listen to the text" className="mb-2" /><LessonPassage title={shown.passage.title} text={shown.passage.text} clues={highlight} paragraph={lastHint?.paragraph ?? null} numbered /></div>}
                 <div className="min-w-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   {shown.image && <img src={shown.image.url} alt={shown.image.alt} className="mb-4 max-h-[40vh] w-auto max-w-full rounded-xl ring-1 ring-slate-200" />}
                   {shown.type !== "DROPDOWN" && shown.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900">{shown.stem}</p>}
+                  <ListenButton text={[shown.stem, ...(shown.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
                   <div className="mt-4"><AnswerInput q={shown} value={value} onChange={setValue} disabled={Boolean(feedback) || pending} /></div>
                   {!feedback && hints.length > 0 && (
                     <div className="mt-4 space-y-2">{hints.map((h) => <p key={h.level} className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-amber-950">💡 <span className="font-semibold">Hint {h.level}:</span> {h.text}</p>)}</div>

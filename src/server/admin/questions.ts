@@ -713,7 +713,7 @@ export async function listQuestions(repo: Repo, actor: Actor, filter: QuestionFi
               const lower = needle.toLowerCase();
               // UI reorg Phase 1: also the skills the words name (“main inference” → Make Inferences), as the search does
               return import("../questions/skill-questions").then(({ skillsMatching }) => skillsMatching(repo, schoolId, needle, { grade: filter.gradeLevel })).then((matched) => {
-              const named = [...new Set([...skills.filter((k) => String(k.name).toLowerCase().includes(lower) && skillIds.includes(k.id)).map((k) => k.id), ...matched.map((m) => m.id).filter((id) => skillIds.includes(id))])];
+              const named = [...new Set([...skills.filter((k) => String(k.name).toLowerCase().includes(lower) && skillIds.includes(k.id)).map((k) => k.id), ...matched.flatMap((m) => m.familySkillIds ?? [m.id]).filter((id) => skillIds.includes(id))])];
               return Promise.all([
                 read({ ...where, stem: { contains: needle } }), read({ ...where, externalRef: { contains: needle } }),
                 named.length ? read({ ...where, skillId: { in: named } }) : Promise.resolve([] as Row[]),

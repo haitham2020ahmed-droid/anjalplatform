@@ -251,9 +251,11 @@ describe("Games Part 3: motivation", () => {
     for (const x of ["Certificate of Achievement", d.studentName, "Star reader of the month", "Demo International School", "@page{size:A4 landscape"]) assert.ok(en.includes(x), x);
     assert.doesNotMatch(en, /<script/i);
     const arHtml = certificateHtml(await certificateFor(repo, A, up.id), branding, "ar", { css: "", stack: "sans-serif" });
-    assert.match(arHtml, /dir="rtl"/); assert.ok(arHtml.includes(ar["Certificate of Achievement"])); assert.ok(arHtml.includes(ar["On Level"]));
+    assert.match(arHtml, /dir="rtl"/); assert.ok(arHtml.includes(ar["Certificate of Achievement"])); assert.ok(arHtml.includes(ar["Moved up to the next level"])); assert.ok(!arHtml.includes(ar["On Level"]), "no level words about the student");
     // Reports lists them
-    assert.match(read("src/app/student/reports/page.tsx"), /listCertificates\(repo, actor\)[\s\S]*<CertificateList/);
+    // My Certificates (own page; the student's own list, server-checked)
+    assert.match(read("src/server/student/certificates.ts"), /listCertificates\(repo, actor, actor\.studentId\)/);
+    assert.match(read("src/app/student/certificates/page.tsx"), /studentCertificates\(repo, actor/);
   });
 
   test("the top bar: avatar + coins + emblem in one cached read; Question of the Day under the welcome line; no new tiles", async () => {
@@ -266,7 +268,7 @@ describe("Games Part 3: motivation", () => {
     const page = read("src/app/student/page.tsx");
     const welcome = page.indexOf('data-testid="welcome"'), qotd = page.indexOf("<QotdCard"), work = page.indexOf('id="my-work"');
     assert.ok(welcome > 0 && qotd > welcome && qotd < work, "the card sits under the welcome line");
-    assert.equal((page.match(/<BigTile /g) ?? []).length, 8, "no new tiles on the student home");
+    assert.equal((page.match(/<BigTile /g) ?? []).length, 9, "no new tiles on the student home (My Plans became MAP; NAFS only with a NAFS plan)");
     assert.equal(toAvatar("not json").base, "cat"); assert.equal(toAvatar({ base: "nope", hat: "crown" }).hat, "crown");
   });
 

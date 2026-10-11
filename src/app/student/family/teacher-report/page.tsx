@@ -12,7 +12,7 @@ export const metadata = { title: "Report from My Teacher" };
 export default async function MyTeacherReport() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
-  const back = <Link href="/student/family" className="font-semibold text-brand-teal">← Family Report</Link>;
+  const back = <Link href="/student/reports?view=family" className="inline-flex min-h-11 items-center font-semibold text-brand-teal">← For my family</Link>;
   try {
     const r = await parentReport(repo, actor, actor.studentId!);
     return <AppShell name={String(me.displayName)}><div className="mb-4 flex justify-between gap-2 print:hidden">{back}<PrintButton /></div><ParentReportView r={r} /></AppShell>;

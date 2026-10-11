@@ -158,4 +158,5 @@ export const UNIQUE_KEYS: Record<string, readonly (readonly string[])[]> = {
   CoinLedger: [["id"], ["studentId", "reason", "refId"]],
   QotdAnswer: [["id"], ["studentId", "day"]],
   Certificate: [["id"], ["studentId", "kind", "refId"]],
+  Feedback: [["id"]],
 };

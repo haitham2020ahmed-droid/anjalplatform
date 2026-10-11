@@ -25,3 +25,22 @@ export async function dismissReviewAction(f: FormData): Promise<void> {
   await dismissReview(repo, actor, String(f.get("id") ?? ""));
   back(f, t("✓ Left as it is."));
 }
+
+// ------------------------------------------------------- “Sort questions under their skills” (batches of ~200)
+
+import { revalidatePath } from "next/cache";
+import { ForbiddenError } from "@/server/auth/rbac";
+import { sortBatch, type SortBatchResult } from "@/server/questions/link-bank-run";
+
+/** One batch: preview (apply = false, nothing written) or run (sure links made, the rest filed for review). */
+export async function sortBatchAction(after: string | null, apply: boolean): Promise<{ result?: SortBatchResult; error?: string }> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:edit" });
+  try {
+    const result = await sortBatch(repo, actor, { after: typeof after === "string" && after ? after.slice(0, 191) : null, apply: apply === true });
+    if (apply && result.done) revalidatePath("/admin/skill-links");
+    return { result };
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof ForbiddenError) return { error: e.message };
+    throw e;
+  }
+}

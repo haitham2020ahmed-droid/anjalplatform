@@ -15,6 +15,7 @@ import { modelSentences, organizerCompleteness, cleanOrganizer, openLesson, answ
 import { classLessonSkills, scriptCard } from "../src/server/lessons/teacher";
 import { rtiWeeklyPlan } from "../src/server/tiers/weekly-plan";
 import { loadSkillItems } from "../src/server/practice/items";
+import { skillFamilyIds } from "../src/server/questions/skill-questions";
 import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { demoDatabase } from "./helpers/db";
 
@@ -178,7 +179,7 @@ describe("Update 40 · lessons in use (student, teacher, RTI plan)", () => {
     const g = await beginGuided(repo, student, v.runId, NOW);
     assert.equal(g.phase, "GUIDED");
     const q = await repo.findUnique("Question", { id: g.question!.questionId });
-    assert.equal(s(q!.skillId), s(sk.id), "guided practice uses the skill's own bank questions");
+    assert.ok((await skillFamilyIds(repo, s(sk.id))).includes(s(q!.skillId)), "guided practice uses the skill's (family's) bank questions"); // one question bank
   });
 
   test("RTI weekly plan: grammar and vocabulary focus skills get a lesson, no fallback", async () => {

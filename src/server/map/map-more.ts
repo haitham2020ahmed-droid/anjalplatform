@@ -42,7 +42,7 @@ export async function classMatrix(repo: Repo, actor: Actor, classId: string, sub
     const p = profiles.get(id)!;
     if (!p.term) continue;
     const est = estimates.get(id);
-    const plan = plans.filter((x) => x.studentId === id && x.term === p.term).map((x) => s(x.status))[0] as MatrixRow["plan"] | undefined;
+    const plan = plans.filter((x) => x.studentId === id && x.term === p.term && x.status !== "DISMISSED").map((x) => s(x.status))[0] as MatrixRow["plan"] | undefined;
     rows.push({ studentId: id, name: names.get(id)?.name ?? "Student", number: names.get(id)?.number ?? "", profile: p, estimate: est?.rit ?? null, retest: (p.overall?.rapidGuessPct ?? 0) >= RETEST_PCT, plan: plan ?? null });
   }
   rows.sort((a, b) => (a.profile.overall?.rit ?? 0) - (b.profile.overall?.rit ?? 0) || a.name.localeCompare(b.name));
@@ -217,7 +217,7 @@ export async function mapLinks(repo: Repo, actor: Actor): Promise<{ rows: LinkRo
   const stds = stdIds.length ? await repo.findMany("Standard", { id: { in: stdIds } }, { select: ["id", "code"] }) : [];
   // UI reorg Phase 1: the published count from the ONE shared function (= search, MAP and NAFS sections)
   const { countQuestionsOfSkills } = await import("../questions/skill-questions");
-  const shared = await countQuestionsOfSkills(repo, actor.schoolId!, ids);
+  const shared = await countQuestionsOfSkills(repo, actor.schoolId!, ids, { own: true }); // rows are added up per family: own counts (one bank: no double count)
   const rows: LinkRow[] = [];
   for (const f of fams) {
     const ks = mySkills.filter((k) => k.familyId === f.id);

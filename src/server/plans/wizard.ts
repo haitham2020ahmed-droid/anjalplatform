@@ -27,6 +27,7 @@ import { autoItems, bandSettings, groupPools, mapProfiles, type GroupKey, type S
 import { continuumFor, continuumIndex } from "../map/continuum";
 import { studentSkillPlans } from "../curriculum-map/plans";
 import { assignedSkills } from "../student/assigned";
+import { tagProgram, type Program } from "./program";
 import { nafsAreaList as sharedNafsAreaList, nafsAreaSkills, publishedQuestionCounts } from "./nafs-areas";
 import { SOURCE_LABEL, sourceOfPlanKind, sourceOfWork, type SourceKey, type SourceLabel } from "../../lib/source-tags";
 
@@ -43,6 +44,8 @@ export const PLAN_TYPES: { type: PlanType; label: string; icon: string; text: st
 export const planTypeOf = (v: unknown): PlanType | null => (PLAN_TYPES.some((t) => t.type === v) ? (v as PlanType) : null);
 const KIND: Record<PlanType, string> = { MAP: "MAP", NAFS: "NAFS", CURRICULUM: "UNIT", RTI: "RTI", CUSTOM: "CUSTOM" };
 const LABEL: Record<PlanType, string> = { MAP: "MAP Plan", NAFS: "NAFS Plan", CURRICULUM: "Curriculum Plan", RTI: "RTI Plan", CUSTOM: "Custom Plan" };
+/** The program a plan type is sent under (Assignment.program); a custom plan belongs to no program. */
+const PROGRAM_OF_TYPE: Record<PlanType, Program | null> = { MAP: "MAP", NAFS: "NAFS", CURRICULUM: "CURRICULUM", RTI: "RTI", CUSTOM: null };
 /** most skills one plan may assign at once (each is one assignment) */
 export const MAX_PLAN_SKILLS = 40;
 
@@ -364,6 +367,7 @@ export async function assignPlan(repo: Repo, actor: Actor, input: AssignPlanInpu
       for (const id of k.studentIds) students.add(id);
       await repo.create("SkillPlanItem", { planId: plan.id, code: k.code.slice(0, 80), label: `${LABEL[p.type]} · Grade ${k.grade} · ${k.name}`.slice(0, 255), assignmentIds: [r.assignmentId], order: order++ });
     }
+    await tagProgram(repo, assignmentIds, PROGRAM_OF_TYPE[p.type]);
   } catch (e) {
     // nothing half-made: remove the plan and the assignments made so far
     if (assignmentIds.length) await repo.updateMany("Assignment", { id: { in: assignmentIds } }, { deletedAt: now });
@@ -445,13 +449,16 @@ export async function personalizeNafsPlanFromResults(repo: Repo, actor: Actor, i
     const plan = await repo.create("SkillPlan", { schoolId: klass.schoolId, classId: klass.id, title, kind: "NAFS", targetCorrect: null, gradeLevel: grade, note: `Skills missed in ${testTitle}`.slice(0, 1000), createdById: actor.userId, createdAt: now });
     let order = 0;
     const students = new Set<string>();
+    const sent: string[] = [];
     for (const id of skillIds) {
       const k = rows.get(id)!;
       const who = [...new Set(missed.get(id)!)];
       const r = await assignSkill(repo, actor, { classId: s(klass.id), skillId: id, studentIds: who, track: "NAFS", dueAt: input.dueAt ?? null, note: `NAFS practice: you missed this skill in ${testTitle}.`.slice(0, 1000) }, now);
       for (const x of who) students.add(x);
+      sent.push(r.assignmentId);
       await repo.create("SkillPlanItem", { planId: plan.id, code: k.code.slice(0, 80), label: `NAFS Plan · Grade ${k.grade} · ${k.name}`.slice(0, 255), assignmentIds: [r.assignmentId], order: order++ });
     }
+    await tagProgram(repo, sent, "NAFS");
     await audit(repo, { actorId: actor.userId, action: "plan.nafs_personal", entityType: "SkillPlan", entityId: s(plan.id), after: { testId, skills: skillIds.length, students: students.size }, at: now });
     out.push({ classId: s(klass.id), planId: s(plan.id), skills: skillIds.length, students: students.size });
   }

@@ -341,7 +341,7 @@ export async function classPlans(repo: Repo, actor: Actor, classId: string, subj
   const [names, profiles, rows, pk] = await Promise.all([studentNames(repo, ids), mapProfiles(repo, actor.schoolId!, ids, subject), planRows(repo, classId, subject), groupPools(repo, actor.schoolId!, grade)]);
   const bands = await bandSettings(repo, actor.schoolId);
   const latest = new Map<string, Row>();
-  for (const r of rows.sort((a, b) => time(a.createdAt) - time(b.createdAt))) latest.set(s(r.studentId), r);
+  for (const r of rows.filter((x) => x.status !== "DISMISSED").sort((a, b) => time(a.createdAt) - time(b.createdAt))) latest.set(s(r.studentId), r);
   const plans = [...latest.values()].filter((r) => ids.includes(s(r.studentId))).map((r) => viewOf(r, names.get(s(r.studentId))?.name ?? "Student", profiles.get(s(r.studentId))!, pk, bands)).sort((a, b) => a.name.localeCompare(b.name));
   return { className: s(klass.name), grade, plans, noScores: ids.filter((id) => !profiles.get(id)?.term).map((id) => ({ id, name: names.get(id)?.name ?? "Student" })).sort((a, b) => a.name.localeCompare(b.name)), canEdit };
 }
@@ -393,7 +393,7 @@ export async function sendPlans(repo: Repo, actor: Actor, planIds: string[], now
   const poolCache = new Map<number, Awaited<ReturnType<typeof groupPools>>>();
   for (const planId of planIds) {
     const r = await ownPlan(repo, actor, planId);
-    if (r.status === "SENT") continue;
+    if (r.status !== "DRAFT") continue; // sent, or dismissed by the teacher
     const klass = await repo.findUnique("Class", { id: r.classId });
     const grade = Number((await repo.findUnique("Grade", { id: klass!.gradeId }))?.level ?? 0);
     if (!poolCache.has(grade)) poolCache.set(grade, await groupPools(repo, actor.schoolId!, grade));

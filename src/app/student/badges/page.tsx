@@ -23,7 +23,7 @@ export default async function MyBadgesPage() {
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/student", label: "Home" }} icon="🏅" title="My Badges" subtitle={t("Badges for finishing skills and tasks, moving up, reading and writing, and practising every day.")} />
-      <section className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-brand-navy to-brand-purple p-6 text-white shadow-lg">
+      <section className="rounded-[1.75rem] bg-gradient-to-br bg-linear-to-br from-brand-navy via-[#3b3f9a] to-brand-purple p-6 text-white shadow-pop">
         <div className="flex flex-wrap items-center gap-6">
           <p><span className="block text-sm text-white/80">{t("Badges")}</span><span className="text-4xl font-black" dir="ltr">{earned}<span className="text-xl text-white/70"> / {badges.length}</span></span></p>
           <p><span className="block text-sm text-white/80">{t("Points")}</span><span className="text-4xl font-black" dir="ltr">⭐ {sp.points.toLocaleString("en")}</span></p>
@@ -38,7 +38,7 @@ export default async function MyBadgesPage() {
         {badges.map((b) => {
           const fav = favorite === b.code, unlock = b.unlocks ? itemByCode(b.unlocks) : null;
           return (
-            <li key={b.code} data-badge-card={b.code} data-earned={b.earned ? "1" : "0"} className={`lift rounded-3xl p-5 ring-1 ${b.earned ? "animate-pop bg-gradient-to-br bg-linear-to-br from-amber-50 to-white ring-amber-300" : "bg-white ring-slate-200"} ${fav ? "ring-2 ring-brand-teal" : ""}`}>
+            <li key={b.code} data-badge-card={b.code} data-earned={b.earned ? "1" : "0"} className={`lift rounded-3xl p-5 shadow-card ring-1 ${b.earned ? "animate-pop bg-gradient-to-br bg-linear-to-br from-amber-50 to-white ring-amber-300" : "bg-white ring-slate-200"} ${fav ? "ring-2 ring-brand-teal" : ""}`}>
               <div className="flex items-start justify-between gap-3">
                 <BadgeEmblem code={b.code} size={52} locked={!b.earned} label={t(b.name)} />
                 {b.earned && (fav
@@ -49,7 +49,7 @@ export default async function MyBadgesPage() {
               <p className="text-sm text-slate-600">{t(b.description)}</p>
               {unlock && <p className="mt-1 text-xs font-semibold text-brand-purple">🎁 {t("Unlocks: {item}", { item: t(unlock.name) })}</p>}
               {b.earned ? <p className="mt-2 text-sm font-bold text-emerald-700">✓ {t("Earned")}{b.earnedAt ? <span dir="ltr"> · {b.earnedAt.slice(0, 10)}</span> : null}</p> : (
-                <div className="mt-3"><div className="h-2.5 overflow-hidden rounded-full bg-slate-100" aria-hidden="true"><div className="h-full rounded-full bg-brand-teal transition-all" style={{ width: `${Math.round((b.value / b.target) * 100)}%` }} /></div><p className="mt-1 text-xs text-slate-500" dir="ltr">{b.value} / {b.target}</p></div>
+                <div className="mt-3"><div className="bar-track h-2.5 overflow-hidden rounded-full" aria-hidden="true"><div className="bar-fill h-full rounded-full transition-all" style={{ width: `${Math.round((b.value / b.target) * 100)}%` }} /></div><p className="mt-1 text-xs text-slate-500" dir="ltr">{b.value} / {b.target}</p></div>
               )}
             </li>
           );

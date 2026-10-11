@@ -40,7 +40,7 @@ describe("questions on the Curriculum Map: import to Curriculum, import to Bank 
     const r = (grade: number, x: Record<string, string>) => resolveMapLocation(nodes, grade, x);
     assert.equal(r(4, { unit: "1", set: "1", category: "Concept Vocabulary" }).node?.code, "G4.U1.TS1.CV");
     assert.equal(r(4, { unit: "Unit 1", set: "Realistic Fiction", category: "2- Analyze Craft and Structure", level: "On Level" }).node?.code, "G4.U1.TS2.ACS.ON");
-    assert.equal(r(6, { unit: "1", set: "Cacoon", category: "ACS", level: "below" }).node?.code, "G6.U1.SEL3.ACS.BELOW");
+    assert.equal(r(6, { unit: "1", set: "Cocoon", category: "ACS", level: "below" }).node?.code, "G6.U1.SEL3.ACS.BELOW");
     assert.equal(r(5, { code: "g5.u3.ts3.rtr.above" }).node?.code, "G5.U3.TS3.RTR.ABOVE");
     assert.match(r(4, { unit: "1", set: "1", category: "Concept Vocabulary", level: "On" }).errors.join(), /no levels/);
     assert.match(r(6, { unit: "1", set: "1", category: "Respond to Reading", level: "On" }).errors.join(), /Grade 6 has no Respond to Reading/);

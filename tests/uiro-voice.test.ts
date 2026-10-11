@@ -96,7 +96,8 @@ describe("Phase 6 · providers", () => {
     assert.ok(!pickTtsProvider({ TTS_PROVIDER: "polly", GEMINI_API_KEY: "k" }).ok);
     // the env helper names every variable explicitly (no process.env passed around)
     const env = readFileSync(join(ROOT, "src/server/tts/env.ts"), "utf8");
-    for (const k of ["TTS_PROVIDER", "GOOGLE_TTS_API_KEY", "GOOGLE_TTS_VOICE", "GEMINI_API_KEY", "GEMINI_TTS_MODEL", "GEMINI_TTS_VOICE"]) assert.ok(env.includes(`${k}: process.env.${k}`), k);
+    for (const k of ["TTS_PROVIDER", "GOOGLE_TTS_API_KEY", "GOOGLE_TTS_VOICE", "GEMINI_TTS_MODEL", "GEMINI_TTS_VOICE"]) assert.ok(env.includes(`${k}: process.env.${k}`), k);
+    assert.ok(env.includes("GEMINI_API_KEY: aiEnv().GEMINI_API_KEY"), "the Gemini key comes from aiEnv()");
   });
 
   test("Google: SSML marks → exact word timings across chunks; MP3 joined; key in a header", async () => {

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { apiActor, repo } from "@/server/auth/next";
-import { findAudioMeta, parseRange, readAudio } from "@/server/tts/store";
+import { findSpeechAudio, parseRange, readAudio } from "@/server/tts/store";
+import { ttsEnv } from "@/server/tts/env";
+import { pickTtsProvider } from "@/server/tts/providers";
 import { isSpeechKey } from "@/lib/tts/text";
 
 export const runtime = "nodejs";
@@ -8,7 +10,8 @@ export const dynamic = "force-dynamic";
 
 /**
  * 🔊 Pre-generated read-aloud audio, for signed-in users. `key` = SHA-256 of the spoken text (see src/lib/tts/text.ts).
- *   ?meta=1  → { audioUrl, durationMs, timings } (404 when no audio was made: the player uses the device's voice)
+ *   ?meta=1  → { audioUrl, durationMs, timings, slow? } (404 when no audio was made: the player uses the device's voice;
+ *              `slow`: the naturally slow recording of the same text, when it was made)
  *   (no meta) → the audio bytes, with Range support (iPhone/iPad Safari needs it); the URL carries the row id (?v=),
  *              so it never changes and can be cached for a long time.
  * Texts are school content (passages, questions); nothing about a student is stored or returned.
@@ -20,9 +23,12 @@ export async function GET(req: Request, { params }: { params: Promise<{ key: str
   if (!isSpeechKey(key)) return new NextResponse("Not found.", { status: 404 });
   const url = new URL(req.url);
   if (url.searchParams.get("meta")) {
-    const m = await findAudioMeta(repo, key);
-    if (!m) return NextResponse.json({ found: false }, { status: 404, headers: { "Cache-Control": "private, max-age=300" } });
-    return NextResponse.json({ found: true, audioUrl: `/api/tts/${key}?v=${encodeURIComponent(m.id)}`, mime: m.mime, durationMs: m.durationMs, timings: m.timings }, { headers: { "Cache-Control": "private, max-age=3600" } });
+    const picked = pickTtsProvider(ttsEnv());
+    const { normal, slow } = await findSpeechAudio(repo, key, picked.ok ? picked.provider.voice : null);
+    const m = normal ?? slow;
+    if (!m) return NextResponse.json({ found: false }, { status: 404, headers: { "Cache-Control": "private, max-age=60" } });
+    const view = (x: NonNullable<typeof normal>) => ({ audioUrl: `/api/tts/${x.key}?v=${encodeURIComponent(x.id)}`, mime: x.mime, durationMs: x.durationMs, timings: x.timings });
+    return NextResponse.json({ found: true, speed: normal ? "normal" : "slow", ...view(m), slow: slow ? view(slow) : null }, { headers: { "Cache-Control": "private, max-age=600" } });
   }
   const a = await readAudio(repo, key);
   if (!a) return new NextResponse("Not found.", { status: 404 });

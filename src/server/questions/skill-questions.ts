@@ -11,6 +11,10 @@
  * that merely MENTIONS the word (“Which detail supports the inference …” is a Cite Text Evidence question) is found by
  * the text search, never counted for the skill.
  *
+ * ONE question bank (no grade split): skill X reads the questions of every skill of its FAMILY — the same skill in
+ * the other grades (familyKeyOf: same normalized name + kind). Concept Vocabulary stays with its grade. The level
+ * filter applies as before; mastery and attempts stay on the skill row the student opened or was assigned.
+ *
  * MAP and NAFS area of a question: its skill's area (skill → family → MapGoalArea / NafsSkillLink), unless the
  * question has its own explicit area (MAP: an area set by an admin or the import file; NAFS: NafsQuestionArea).
  *
@@ -44,7 +48,13 @@ function statusWhere(status: SkillQuestionStatus | undefined): Record<string, un
 
 // ------------------------------------------------------------------ the school's skills
 
-interface SchoolSkills { ids: Set<string>; gradeOf: Map<string, number>; familyOf: Map<string, string> }
+/** The few skill columns the one bank needs (names for the family key, the hidden flag, the search). */
+export interface IndexedSkill { id: string; name: string; code: string; domain: string; category: string; isActive: boolean; grade: number }
+interface SchoolSkills {
+  ids: Set<string>; gradeOf: Map<string, number>; familyOf: Map<string, string>;
+  /** one question bank: each skill's family key and the members (same skill, every grade) of each key */
+  skillOf: Map<string, IndexedSkill>; keyOf: Map<string, string>; members: Map<string, string[]>;
+}
 const skillCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<SchoolSkills> }>>();
 /** Every skill (also inactive / hidden ones: their questions still exist) of the school's grades, with its grade. */
 export function schoolSkillIndex(repo: Repo, schoolId: string): Promise<SchoolSkills> {
@@ -56,11 +66,148 @@ export function schoolSkillIndex(repo: Repo, schoolId: string): Promise<SchoolSk
     const curs = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id", "gradeId"] }) : [];
     const lv = new Map(grades.map((g) => [s(g.id), Number(g.level)]));
     const gradeOfCur = new Map(curs.map((c) => [s(c.id), lv.get(s(c.gradeId)) ?? 0]));
-    const skills = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, deletedAt: null }, { select: ["id", "curriculumId", "familyId"] }) : [];
-    return { ids: new Set(skills.map((k) => s(k.id))), gradeOf: new Map(skills.map((k) => [s(k.id), gradeOfCur.get(s(k.curriculumId)) ?? 0])), familyOf: new Map(skills.map((k) => [s(k.id), s(k.familyId)])) };
+    const skills = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, deletedAt: null }, { select: ["id", "curriculumId", "familyId", "name", "code", "domain", "category", "isActive"] }) : [];
+    const skillOf = new Map<string, IndexedSkill>(), keyOf = new Map<string, string>(), members = new Map<string, string[]>();
+    for (const k of skills) {
+      const sk: IndexedSkill = { id: s(k.id), name: s(k.name), code: s(k.code), domain: s(k.domain), category: s(k.category), isActive: k.isActive !== false && k.isActive !== 0, grade: gradeOfCur.get(s(k.curriculumId)) ?? 0 };
+      const key = familyKeyOf(sk);
+      skillOf.set(sk.id, sk); keyOf.set(sk.id, key);
+      const list = members.get(key); if (list) list.push(sk.id); else members.set(key, [sk.id]);
+    }
+    for (const list of members.values()) list.sort((a, b) => (skillOf.get(a)!.grade - skillOf.get(b)!.grade) || (a < b ? -1 : a > b ? 1 : 0));
+    return { ids: new Set(skillOf.keys()), gradeOf: new Map([...skillOf.values()].map((k) => [k.id, k.grade])), familyOf: new Map(skills.map((k) => [s(k.id), s(k.familyId)])), skillOf, keyOf, members };
   })().catch((e) => { m!.delete(schoolId); throw e; });
   remember(m, schoolId, { v, at: Date.now(), p }, 16);
   return p;
+}
+
+// ------------------------------------------------------------------ one question bank: skill families across grades
+
+/**
+ * The same skill is stored once per grade (“Central Idea” of Grade 4, of Grade 5 …). They form one FAMILY: the same
+ * name (ignoring case, spaces, punctuation and a “Grade 4” / “G4” tag) and the same kind (reading · vocabulary ·
+ * grammar · writing). The family's questions are ONE pool: every skill of the family reads all of them. Mastery,
+ * attempts and results stay on the student's own skill row (the one assigned or opened).
+ *
+ * Grade-bound skills (never pooled; their own family): Concept Vocabulary / text-set vocabulary (the words of one
+ * grade's texts) and the hidden “Unclassified (Curriculum Map)” skills.
+ */
+export function normalizeSkillName(name: string): string {
+  return s(name).toLowerCase().replace(/&/g, " and ").replace(/[’'`]/g, "")
+    .replace(/\(\s*(?:grade|gr\.?|g)\s*\d{1,2}\s*\)/g, " ").replace(/\b(?:grade|gr)\s*\d{1,2}\b/g, " ").replace(/\bg\d{1,2}\b/g, " ")
+    .replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
+}
+/** reading · vocabulary · grammar · writing (the skill's domain, grouped as teachers see it). */
+export function skillKindOf(domain: string): string {
+  const d = s(domain).toUpperCase();
+  return d === "VOCABULARY" || d === "WORD_STUDY" ? "vocabulary" : d === "GRAMMAR" || d === "LANGUAGE" ? "grammar" : d === "WRITING" ? "writing" : d === "READING" ? "reading" : d.toLowerCase() || "reading";
+}
+/** Concept Vocabulary / text-set vocabulary and the hidden Curriculum Map skills belong to one grade's texts. */
+export function isGradeBoundSkill(skill: { name?: unknown; code?: unknown }): boolean {
+  const name = s(skill.name), code = s(skill.code), both = `${code} ${name}`;
+  if (code.endsWith("curriculum-map-unclassified")) return true;
+  if (/concept[\s._-]*vocab/i.test(both) || /\bcv\b/i.test(code.replace(/^g\d+\./i, ""))) return true;
+  return /vocab/i.test(both) && /text[\s._-]*set|\bselection\b|\bweek\s*\d|\bunit\s*\d/i.test(both);
+}
+/** The family key of a skill: “kind:normalized name”, or “solo:<id>” for a grade-bound skill. */
+export function familyKeyOf(skill: { id?: unknown; name?: unknown; code?: unknown; domain?: unknown }): string {
+  if (isGradeBoundSkill(skill)) return `solo:${s(skill.id) || s(skill.code)}`;
+  const n = normalizeSkillName(s(skill.name));
+  return n ? `${skillKindOf(s(skill.domain))}:${n}` : `solo:${s(skill.id) || s(skill.code)}`;
+}
+
+/** The family members (this skill first) of a skill of this school; [] for a skill of another school. */
+export async function familyIdsInSchool(repo: Repo, schoolId: string, skillId: string): Promise<string[]> {
+  const idx = await schoolSkillIndex(repo, schoolId);
+  const id = s(skillId);
+  if (!idx.ids.has(id)) return [];
+  return [id, ...(idx.members.get(idx.keyOf.get(id)!) ?? []).filter((x) => x !== id)];
+}
+
+const schoolOfSkill = new WeakMap<object, Map<string, string>>();
+/** The school of a skill (skill → curriculum → grade), memoised: a skill never changes school. */
+async function schoolOf(repo: Repo, skillId: string): Promise<string | null> {
+  let m = schoolOfSkill.get(repo); if (!m) schoolOfSkill.set(repo, (m = new Map()));
+  const hit = m.get(skillId); if (hit) return hit;
+  const sk = await repo.findUnique("Skill", { id: skillId });
+  const cur = sk?.curriculumId ? await repo.findUnique("Curriculum", { id: sk.curriculumId }) : null;
+  const gr = cur?.gradeId ? await repo.findUnique("Grade", { id: cur.gradeId }) : null;
+  if (!gr?.schoolId) return null;
+  remember(m, skillId, s(gr.schoolId), 5000);
+  return s(gr.schoolId);
+}
+
+/**
+ * Every skill id of a skill's family (the skill itself first, then the other grades). A skill without a school, a
+ * deleted or a grade-bound one is alone: [skillId]. Memoised (the school's skill index is cached per version).
+ */
+const familyMemo = new Map<string, { v: string; at: number; ids: string[] }>();
+export async function skillFamilyIds(repo: Repo, skillId: string): Promise<string[]> {
+  const id = s(skillId);
+  if (!id) return [];
+  // memoised per skill (ids are unique): a warm practice answer resolves the family without a read
+  const v = modelVersion("Skill", "Curriculum", "Grade"), hit = familyMemo.get(id);
+  if (hit && hit.v === v && Date.now() - hit.at < 60_000) return [...hit.ids];
+  const school = await schoolOf(repo, id);
+  const found = school ? await familyIdsInSchool(repo, school, id) : [];
+  const ids = found.length ? found : [id];
+  remember(familyMemo, id, { v, at: Date.now(), ids }, 5000);
+  return [...ids];
+}
+
+const studentGrade = new Map<string, { at: number; grade: number }>();
+/**
+ * The student's OWN row of a question's skill: a question taken from another grade's copy of the skill (one bank)
+ * counts for the copy of the student's grade, when the family has one; otherwise the question's own skill. So a
+ * Grade 4 student's answers to a pooled Grade 5 “Central Idea” question stay on their Grade 4 “Central Idea”.
+ * A helper for callers that choose to use it: question sets (TEACHER_QUIZ) still record on the question's own row,
+ * because the assessment system's level evidence reads those rows (left unchanged).
+ */
+export async function ownSkillIdForStudent(repo: Repo, schoolId: string, studentId: string, questionSkillId: string): Promise<string> {
+  const id = s(questionSkillId);
+  if (!schoolId || !studentId || !id) return id;
+  const idx = await schoolSkillIndex(repo, schoolId);
+  if (!idx.ids.has(id)) return id;
+  const fam = idx.members.get(idx.keyOf.get(id)!) ?? [id];
+  if (fam.length < 2) return id;
+  let g = studentGrade.get(studentId);
+  if (!g || Date.now() - g.at > 600_000) {
+    const st = await repo.findUnique("Student", { id: studentId });
+    const gr = st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null;
+    g = remember(studentGrade, studentId, { at: Date.now(), grade: Number(gr?.level ?? 0) }, 5000);
+  }
+  if (!g.grade || idx.gradeOf.get(id) === g.grade) return id;
+  return fam.find((x) => idx.gradeOf.get(x) === g!.grade) ?? id;
+}
+
+/**
+ * For results by skill (one bank): each question skill → the first family member listed in `prefer.ids` (the skills a
+ * teacher picked or a test lists, in priority order), else the copy of `prefer.grade` (the class's grade), else itself. Unknown skills map to
+ * themselves.
+ */
+export async function familyRepresentatives(repo: Repo, schoolId: string, skillIds: readonly string[], prefer: { ids?: readonly string[]; grade?: number } = {}): Promise<Map<string, string>> {
+  const idx = await schoolSkillIndex(repo, schoolId);
+  const rank = new Map<string, number>();
+  (prefer.ids ?? []).forEach((x, i) => { if (!rank.has(s(x))) rank.set(s(x), i); });
+  const out = new Map<string, string>();
+  for (const raw of skillIds) {
+    const id = s(raw);
+    if (out.has(id)) continue;
+    if (!idx.ids.has(id)) { out.set(id, id); continue; }
+    const fam = idx.members.get(idx.keyOf.get(id)!) ?? [id];
+    // the first of `prefer.ids` (in its order) that is in the family, else the grade's copy, else the skill itself
+    const ranked = fam.filter((x) => rank.has(x)).sort((a, b) => rank.get(a)! - rank.get(b)!)[0];
+    out.set(id, ranked ?? (prefer.grade ? fam.find((x) => idx.gradeOf.get(x) === prefer.grade) : undefined) ?? id);
+  }
+  return out;
+}
+
+/** Every family member of several skills of a school (deduplicated; skills of other schools are dropped). */
+export async function expandToFamilies(repo: Repo, schoolId: string, skillIds: readonly string[]): Promise<string[]> {
+  const idx = await schoolSkillIndex(repo, schoolId);
+  const out = new Set<string>();
+  for (const raw of skillIds) { const id = s(raw); if (!idx.ids.has(id)) continue; for (const x of idx.members.get(idx.keyOf.get(id)!) ?? [id]) out.add(x); }
+  return [...out];
 }
 
 // ------------------------------------------------------------------ questions and counts
@@ -70,10 +217,11 @@ export function schoolSkillIndex(repo: Repo, schoolId: string): Promise<SchoolSk
  * Returns [] for a skill of another school. Ordered by level, then id (stable pages).
  */
 export async function questionsOfSkill(repo: Repo, schoolId: string, skillId: string, opts: SkillQuestionOpts = {}): Promise<SkillQuestion[]> {
-  const idx = await schoolSkillIndex(repo, schoolId);
-  if (!idx.ids.has(s(skillId))) return [];
+  // one question bank: the questions of every grade's copy of the skill (Concept Vocabulary stays alone)
+  const fam = await familyIdsInSchool(repo, schoolId, skillId);
+  if (!fam.length) return [];
   const take = Math.max(1, Math.min(MAX_TAKE, Math.floor(opts.take ?? 200)));
-  const rows = await repo.findMany("Question", { skillId: s(skillId), ...statusWhere(opts.status), ...levelWhere(opts.level) }, {
+  const rows = await repo.findMany("Question", { skillId: fam.length === 1 ? fam[0] : { in: fam }, ...statusWhere(opts.status), ...levelWhere(opts.level) }, {
     select: ["id", "skillId", "difficultyLevel", "typeId", "standardId", "passageId", "status"],
     orderBy: [{ field: "difficultyLevel", dir: "asc" }, { field: "id", dir: "asc" }], take, ...(opts.skip ? { skip: Math.max(0, Math.floor(opts.skip)) } : {}),
   });
@@ -85,7 +233,18 @@ const countCache = new WeakMap<object, Map<string, { v: string; at: number; p: P
  * How many questions each skill has (published by default; a level narrows it). One small read per 400 skills;
  * cached until the bank changes (and at most a minute). Skills of other schools count 0.
  */
-export async function countQuestionsOfSkills(repo: Repo, schoolId: string, skillIds: readonly string[], opts: Omit<SkillQuestionOpts, "take" | "skip"> = {}): Promise<Map<string, number>> {
+export async function countQuestionsOfSkills(repo: Repo, schoolId: string, skillIds: readonly string[], opts: Omit<SkillQuestionOpts, "take" | "skip"> & { own?: boolean } = {}): Promise<Map<string, number>> {
+  // one question bank: a skill's count is its family's (every grade's copy); `own` = the skill row's own questions
+  if (opts.own) return countOwnQuestionsOfSkills(repo, schoolId, skillIds, opts);
+  const idx = await schoolSkillIndex(repo, schoolId);
+  const want = [...new Set(skillIds.map(s))];
+  const fam = new Map(want.map((id) => [id, idx.ids.has(id) ? idx.members.get(idx.keyOf.get(id)!) ?? [id] : []]));
+  const own = await countOwnQuestionsOfSkills(repo, schoolId, [...new Set([...fam.values()].flat())], opts);
+  return new Map(want.map((id) => [id, fam.get(id)!.reduce((t, x) => t + (own.get(x) ?? 0), 0)]));
+}
+
+/** How many questions each skill ROW has itself (not pooled) — for reports that add rows up (no double counting). */
+export async function countOwnQuestionsOfSkills(repo: Repo, schoolId: string, skillIds: readonly string[], opts: Omit<SkillQuestionOpts, "take" | "skip"> = {}): Promise<Map<string, number>> {
   const idx = await schoolSkillIndex(repo, schoolId);
   const want = [...new Set(skillIds.map(s))];
   const mine = want.filter((id) => idx.ids.has(id));
@@ -189,7 +348,9 @@ export async function questionsOfNafsArea(repo: Repo, schoolId: string, areaCode
   const idx = await schoolSkillIndex(repo, schoolId);
   const links = await repo.findMany("NafsSkillLink", { areaId: area.id }, { select: ["familyId"] });
   const fams = new Set(links.map((l) => s(l.familyId)));
-  const skillIds = [...idx.ids].filter((id) => fams.has(idx.familyOf.get(id) ?? "") && (!opts.grade || idx.gradeOf.get(id) === opts.grade));
+  // one question bank: the grade's skills of the area, with every grade's copy of each (same pool as the skill)
+  const skillIds = await expandToFamilies(repo, schoolId, [...idx.ids].filter((id) => fams.has(idx.familyOf.get(id) ?? "") && (!opts.grade || idx.gradeOf.get(id) === opts.grade)));
+  const allowed = new Set(skillIds);
   const take = Math.max(1, Math.min(MAX_TAKE, Math.floor(opts.take ?? 200)));
   const sel = { select: ["id", "skillId", "difficultyLevel", "typeId", "standardId", "passageId", "status"], orderBy: [{ field: "id", dir: "asc" as const }] };
   const [movedIn, movedOutRows] = await Promise.all([
@@ -203,7 +364,7 @@ export async function questionsOfNafsArea(repo: Repo, schoolId: string, areaCode
   }
   const inIds = movedIn.map((r) => s(r.questionId)).filter((id) => !rows.some((q) => q.id === id));
   for (let i = 0; i < inIds.length; i += CHUNK) {
-    rows.push(...(await repo.findMany("Question", { id: { in: inIds.slice(i, i + CHUNK) }, ...statusWhere(opts.status), ...levelWhere(opts.level) }, sel)).filter((q) => idx.ids.has(s(q.skillId)) && (!opts.grade || idx.gradeOf.get(s(q.skillId)) === opts.grade)));
+    rows.push(...(await repo.findMany("Question", { id: { in: inIds.slice(i, i + CHUNK) }, ...statusWhere(opts.status), ...levelWhere(opts.level) }, sel)).filter((q) => idx.ids.has(s(q.skillId)) && (!opts.grade || allowed.has(s(q.skillId)) || idx.gradeOf.get(s(q.skillId)) === opts.grade)));
   }
   return rows.slice(opts.skip ?? 0, (opts.skip ?? 0) + take).map((q) => ({ id: s(q.id), skillId: s(q.skillId), difficultyLevel: Number(q.difficultyLevel ?? 4), typeId: s(q.typeId), standardId: q.standardId ? s(q.standardId) : null, passageId: q.passageId ? s(q.passageId) : null, status: s(q.status) }));
 }
@@ -213,7 +374,11 @@ export async function questionsOfNafsArea(repo: Repo, schoolId: string, areaCode
 /** Teachers' words for the same skill (shared with the search page). */
 export const SKILL_SYNONYMS: [string, string][] = [["main inference", "make inferences"], ["main idea", "central idea"], ["central idea", "main idea"], ["inferences", "make inferences"], ["inference", "make inferences"], ["context clues", "word meaning"], ["text features", "text structure"], ["author's purpose", "point of view"], ["cause and effect", "text structure"], ["compare and contrast", "text structure"], ["capital letters", "capitalization"], ["capitalization", "capital letters"], ["vocab", "vocabulary"], ["grammar", "usage"]];
 
-export interface SkillMatch { id: string; name: string; grade: number; questions: number; map: AreaRef | null; nafs: AreaRef | null }
+export interface SkillMatch {
+  id: string; name: string; grade: number; questions: number; map: AreaRef | null; nafs: AreaRef | null;
+  /** one question bank: the family (every grade's copy of this skill) this entry stands for */
+  familyKey?: string; familySkillIds?: string[];
+}
 const words = (x: string) => x.toLowerCase().replace(/[’']/g, "").replace(/[^a-z0-9 ]+/g, " ").split(/\s+/).filter((w) => w.length >= 3);
 const stemW = (w: string) => w.replace(/(ies)$/, "y").replace(/(ences|ence|ing|ed|es|s)$/, "");
 
@@ -221,22 +386,118 @@ const stemW = (w: string) => w.replace(/(ies)$/, "y").replace(/(ences|ence|ing|e
  * The skills a search names (every meaningful word is in the skill name, after simple stemming, or a teacher's
  * synonym names it: “main idea” → Central Idea, “inference” → Make Inferences), with the shared count. Used by the
  * Question Bank search so its “skills matching” show exactly the MAP / NAFS section numbers.
+ *
+ * One question bank: ONE entry per skill family. It stands for the asked grade's copy, else the nearest grade's copy
+ * that has questions of its own (the lowest grade when none is asked); the count is the family's pooled count.
+ * Grade-bound skills (Concept Vocabulary) are still shown for their own grade only.
  */
 export async function skillsMatching(repo: Repo, schoolId: string, q: string, opts: { grade?: number; status?: SkillQuestionStatus } = {}): Promise<SkillMatch[]> {
   const raw = s(q).toLowerCase().trim().slice(0, 80);
   if (raw.length < 3) return [];
   const idx = await schoolSkillIndex(repo, schoolId);
-  const ids = [...idx.ids].filter((id) => !opts.grade || idx.gradeOf.get(id) === opts.grade);
-  const skills: Row[] = [];
-  for (let i = 0; i < ids.length; i += CHUNK) skills.push(...(await repo.findMany("Skill", { id: { in: ids.slice(i, i + CHUNK) } }, { select: ["id", "name", "code", "isActive"] })));
   const queries = [raw, ...SKILL_SYNONYMS.filter(([a]) => raw.includes(a)).map(([a, b]) => raw.replace(a, b))];
-  const hit = skills.filter((k) => {
-    if (k.isActive === false || k.isActive === 0 || s(k.code).endsWith(".curriculum-map-unclassified")) return false;
-    const kw = new Set(words(s(k.name)).map(stemW));
-    return queries.some((qq) => { const qw = words(qq).map(stemW).filter((w) => !["and", "the", "skill", "skills"].includes(w)); return qw.length > 0 && qw.every((w) => kw.has(w) || [...kw].some((x) => x.startsWith(w) && w.length >= 4)); });
+  const qws = queries.map((qq) => words(qq).map(stemW).filter((w) => !["and", "the", "skill", "skills"].includes(w)));
+  const hit = [...idx.skillOf.values()].filter((k) => {
+    if (!k.isActive || k.code.endsWith(".curriculum-map-unclassified")) return false;
+    if (opts.grade && k.grade !== opts.grade && idx.keyOf.get(k.id)!.startsWith("solo:")) return false;
+    const kw = new Set(words(k.name).map(stemW));
+    return qws.some((qw) => qw.length > 0 && qw.every((w) => kw.has(w) || [...kw].some((x) => x.startsWith(w) && w.length >= 4)));
   });
   if (!hit.length) return [];
-  const [counts, areas] = await Promise.all([countQuestionsOfSkills(repo, schoolId, hit.map((k) => s(k.id)), { status: opts.status }), skillAreas(repo, hit.map((k) => s(k.id)))]);
-  return hit.map((k) => ({ id: s(k.id), name: s(k.name), grade: idx.gradeOf.get(s(k.id)) ?? 0, questions: counts.get(s(k.id)) ?? 0, map: areas.get(s(k.id))?.map ?? null, nafs: areas.get(s(k.id))?.nafs ?? null }))
-    .sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name)).slice(0, 30);
+  const byKey = new Map<string, IndexedSkill[]>();
+  for (const k of hit) { const key = idx.keyOf.get(k.id)!; const l = byKey.get(key); if (l) l.push(k); else byKey.set(key, [k]); }
+  const own = await countOwnQuestionsOfSkills(repo, schoolId, hit.map((k) => k.id), { status: opts.status });
+  const target = opts.grade ?? 0;
+  const reps = [...byKey.values()].map((list) => {
+    const exact = opts.grade ? list.find((k) => k.grade === opts.grade) : undefined;
+    if (exact) return exact;
+    const withQ = list.filter((k) => (own.get(k.id) ?? 0) > 0);
+    const pool = withQ.length ? withQ : list;
+    return [...pool].sort((a, b) => Math.abs(a.grade - target) - Math.abs(b.grade - target) || a.grade - b.grade || a.id.localeCompare(b.id))[0];
+  });
+  const [counts, areas] = await Promise.all([countQuestionsOfSkills(repo, schoolId, reps.map((k) => k.id), { status: opts.status }), skillAreas(repo, reps.map((k) => k.id))]);
+  return reps.map((k) => {
+    const familyKey = idx.keyOf.get(k.id)!;
+    return { id: k.id, name: k.name, grade: k.grade, questions: counts.get(k.id) ?? 0, map: areas.get(k.id)?.map ?? null, nafs: areas.get(k.id)?.nafs ?? null, familyKey, familySkillIds: [...(idx.members.get(familyKey) ?? [k.id])] };
+  }).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name)).slice(0, 30);
+}
+
+// ------------------------------------------------------------------ chosen questions or the automatic pool
+
+/** A Json list of ids (array, or a JSON string of one) → the ids; anything else → []. */
+function jsonIds(v: unknown): string[] {
+  let x: unknown = v;
+  if (typeof x === "string") { try { x = JSON.parse(x); } catch { return []; } }
+  return Array.isArray(x) ? [...new Set(x.map(s).filter(Boolean))] : [];
+}
+
+export interface SelectSkillQuestionOpts extends SkillQuestionOpts {
+  /**
+   * The questions the teacher chose (e.g. in the question picker). When given, ONLY these are used, in this order
+   * (missing, deleted or other-school ids are skipped; the level filter does not apply). Otherwise the skill's
+   * family pool at the level (automatic selection).
+   */
+  questionIds?: string[];
+}
+
+/** The questions an assignment or a practice uses for a skill: the chosen ones, else the family pool at the level. */
+export async function selectSkillQuestions(repo: Repo, schoolId: string, skillId: string, opts: SelectSkillQuestionOpts = {}): Promise<SkillQuestion[]> {
+  const chosen = [...new Set((opts.questionIds ?? []).map(s).filter(Boolean))].slice(0, MAX_TAKE);
+  if (!chosen.length) return questionsOfSkill(repo, schoolId, skillId, opts);
+  const idx = await schoolSkillIndex(repo, schoolId);
+  if (!idx.ids.has(s(skillId))) return [];
+  const rows: Row[] = [];
+  for (let i = 0; i < chosen.length; i += CHUNK) rows.push(...(await repo.findMany("Question", { id: { in: chosen.slice(i, i + CHUNK) }, ...statusWhere(opts.status) }, { select: ["id", "skillId", "difficultyLevel", "typeId", "standardId", "passageId", "status"] })));
+  const byId = new Map(rows.filter((q) => idx.ids.has(s(q.skillId))).map((q) => [s(q.id), q]));
+  return chosen.filter((id) => byId.has(id)).map((id) => { const q = byId.get(id)!; return { id, skillId: s(q.skillId), difficultyLevel: Number(q.difficultyLevel ?? 4), typeId: s(q.typeId), standardId: q.standardId ? s(q.standardId) : null, passageId: q.passageId ? s(q.passageId) : null, status: s(q.status) }; });
+}
+
+/**
+ * The questions a teacher chose for an assignment, in order, or null when it uses automatic selection. A skill
+ * assignment keeps the teacher's picks in Assignment.questionIds ("I'll pick the questions": assignSkill, plans);
+ * a question set keeps them as its questions (Assignment.assessmentId → AssessmentQuestion.order, assignQuestions).
+ * A skill assignment without picks is automatic (the platform chooses at each student's level).
+ */
+export async function chosenQuestionIdsOfAssignment(repo: Repo, assignmentId: string): Promise<string[] | null> {
+  const a = await repo.findUnique("Assignment", { id: assignmentId });
+  if (!a) return null;
+  const own = jsonIds(a.questionIds);
+  if (own.length) return own.slice(0, MAX_TAKE);
+  if (!a.assessmentId) return null;
+  const rows = await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId }, { select: ["questionId", "order"], orderBy: [{ field: "order", dir: "asc" }], take: MAX_TAKE });
+  return rows.length ? rows.map((r) => s(r.questionId)) : null;
+}
+
+// ------------------------------------------------------------------ admin report (read only)
+
+export interface FamilyReportSkill { id: string; name: string; code: string; grade: number; questions: number }
+export interface SkillFamilyReport {
+  /** families whose members' names are not written exactly the same (e.g. “Author's Purpose” / “Authors Purpose”) */
+  nameVariants: { schoolId: string; familyKey: string; names: string[]; skills: FamilyReportSkill[] }[];
+  /** skills with no questions of their own while their family has some (they now read the family's pool) */
+  emptyInFamily: { schoolId: string; familyKey: string; skill: FamilyReportSkill; familyQuestions: number }[];
+}
+
+/**
+ * Read-only report of the one bank's families, for an admin page: name variants inside a family and skills with no
+ * questions whose family has questions. Nothing is renamed or moved. Counts are the published questions.
+ */
+export async function skillFamilyReport(repo: Repo, schoolId?: string): Promise<SkillFamilyReport> {
+  const schools = schoolId ? [schoolId] : (await repo.findMany("School", {}, { select: ["id"], take: 200 })).map((x) => s(x.id));
+  const out: SkillFamilyReport = { nameVariants: [], emptyInFamily: [] };
+  for (const sid of schools) {
+    const idx = await schoolSkillIndex(repo, sid);
+    const own = await countOwnQuestionsOfSkills(repo, sid, [...idx.ids]);
+    for (const [key, ids] of idx.members) {
+      if (key.startsWith("solo:")) continue;
+      const skills = ids.map((id) => { const k = idx.skillOf.get(id)!; return { id, name: k.name, code: k.code, grade: k.grade, questions: own.get(id) ?? 0 }; });
+      const names = [...new Set(skills.map((k) => k.name.trim()))];
+      if (names.length > 1) out.nameVariants.push({ schoolId: sid, familyKey: key, names, skills });
+      const total = skills.reduce((t, k) => t + k.questions, 0);
+      if (total > 0) for (const k of skills) if (!k.questions && idx.skillOf.get(k.id)!.isActive) out.emptyInFamily.push({ schoolId: sid, familyKey: key, skill: k, familyQuestions: total });
+    }
+  }
+  out.nameVariants.sort((a, b) => a.familyKey.localeCompare(b.familyKey));
+  out.emptyInFamily.sort((a, b) => a.familyKey.localeCompare(b.familyKey) || a.skill.grade - b.skill.grade);
+  return out;
 }

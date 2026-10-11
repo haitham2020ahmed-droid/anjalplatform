@@ -12,7 +12,8 @@ export const dynamic = "force-dynamic";
 
 /**
  * POST /api/fluency/score (multipart: key, mode, seconds, audio; optional kind = MINUTE|PASSAGE|ECHO|PHRASED|REPEATED|
- * DRILL, sentence (ECHO), grid (DRILL, JSON)) — the student's recording is scored in memory and dropped (never
+ * DRILL, sentence (ECHO), grid (DRILL, JSON), rereadOf (a practice re-read of that reading: compared, never stored or
+ * counted)) — the student's recording is scored in memory and dropped (never
  * stored). 200 → the result; 202 → wait N seconds and send again (the school's AI limits).
  */
 export async function POST(req: Request) {
@@ -30,7 +31,7 @@ export async function POST(req: Request) {
     let grid: unknown = undefined;
     if (kind === "DRILL") { try { grid = JSON.parse(String(form.get("grid") ?? "null")); } catch { grid = null; } }
     const mode = kind ? (kind === "MINUTE" ? "MINUTE" : "PASSAGE") : String(form.get("mode")) === "PASSAGE" ? "PASSAGE" : "MINUTE";
-    const r = await scoreReading(repo, actor, { key: String(form.get("key") ?? ""), mode, kind, sentence: form.get("sentence") === null ? undefined : Number(form.get("sentence")), grid, seconds: Number(form.get("seconds")) || 0, audio: new Uint8Array(await audio.arrayBuffer()), mime: audio.type || "audio/wav" }, aiEnv());
+    const r = await scoreReading(repo, actor, { key: String(form.get("key") ?? ""), mode, kind, sentence: form.get("sentence") === null ? undefined : Number(form.get("sentence")), grid, rereadOf: form.get("rereadOf") ? String(form.get("rereadOf")).slice(0, 64) : undefined, seconds: Number(form.get("seconds")) || 0, audio: new Uint8Array(await audio.arrayBuffer()), mime: audio.type || "audio/wav" }, aiEnv());
     if (r.status === "WAIT") return NextResponse.json(r, { status: 202, headers: { "Retry-After": String(r.seconds) } });
     return NextResponse.json(r, { headers: { "Cache-Control": "no-store" } });
   } catch (e) {

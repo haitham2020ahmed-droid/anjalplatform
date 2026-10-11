@@ -4,6 +4,7 @@ import { card, field, h2, label } from "@/components/admin/styles";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { listUsers, MANAGED_ROLES, type ManagedRole } from "@/server/admin/users";
 import { CreateUserForm } from "./create-user-form";
+import { getT } from "@/i18n/server";
 
 const ROLE_LABEL: Record<ManagedRole, string> = { SCHOOL_ADMIN: "School admin", TEACHER: "Teacher", STUDENT: "Student", PARENT: "Parent" };
 
@@ -11,21 +12,23 @@ export default async function UsersPage({ searchParams }: { searchParams: Promis
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
   const me = (await getActor())!.user;
   const q = await searchParams;
+  const { t } = await getT();
   const role = (MANAGED_ROLES as readonly string[]).includes(q.role ?? "") ? (q.role as ManagedRole) : undefined;
   const users = await listUsers(repo, actor, { role, q: q.q?.slice(0, 100), includeInactive: q.inactive === "1" });
   const grades = (await repo.findMany("Grade", { schoolId: actor.schoolId! })).map((g) => Number(g.level)).sort((a, b) => a - b);
   const gradeOf = new Map((await repo.findMany("Grade", { schoolId: actor.schoolId! })).map((g) => [String(g.id), Number(g.level)]));
-  const classes = (await repo.findMany("Class", { schoolId: actor.schoolId!, deletedAt: null })).map((c) => ({ id: String(c.id), name: String(c.name), grade: gradeOf.get(String(c.gradeId)) ?? 0 })).sort((a, b) => a.name.localeCompare(b.name));
+  const year = (await repo.findMany("AcademicYear", { schoolId: actor.schoolId!, isCurrent: true }))[0];
+  const classes = (await repo.findMany("Class", { schoolId: actor.schoolId!, deletedAt: null })).filter((c) => !year || c.academicYearId === year.id).map((c) => ({ id: String(c.id), name: String(c.name), grade: gradeOf.get(String(c.gradeId)) ?? 0 })).sort((a, b) => a.name.localeCompare(b.name));
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/admin" className="text-brand-teal hover:underline">← Administration</Link></p>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">Users</h1>
-      <p className="mt-1 text-slate-600">To add many users at once, use <Link href="/admin/roster" className="text-brand-teal hover:underline">Import Users</Link>, or <Link href="/admin/quick-students" className="text-brand-teal hover:underline">⚡ paste a class's names</Link>. Print the students’ <Link href="/admin/student-cards" className="text-brand-teal hover:underline">🪪 sign-in cards (PDF)</Link>.</p>
+      <p className="mt-1 text-slate-600">{t("Find an account and edit it. Grades, classes, teachers and students are added on the School page.")} <Link href="/admin/school" className="font-semibold text-brand-teal hover:underline">{t("Open the School page")}</Link></p>
 
-      <section className={card} aria-labelledby="new-user">
-        <h2 id="new-user" className={h2}>New Account</h2>
+      <details className={card}>
+        <summary className="flex min-h-11 cursor-pointer items-center text-lg font-bold text-brand-navy">{t("New account")}</summary>
         <div className="mt-3"><CreateUserForm grades={grades} classes={classes} /></div>
-      </section>
+      </details>
 
       <section className={card} aria-labelledby="all-users">
         <h2 id="all-users" className={h2}>All Accounts</h2>

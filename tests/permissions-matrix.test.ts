@@ -46,7 +46,10 @@ describe("page access (static check of every page file)", () => {
     assert.ok(admin.length > 15 && teacher.length > 5 && student.length > 3);
     const bad = [...admin, ...teacher].filter((p) => p.opts === "NONE" || allowsStudent(p.opts)).map((p) => `${p.file}: ${p.opts}`);
     assert.deepEqual(bad, []);
-    const notStudentOnly = student.filter((p) => !/roles:\s*\["STUDENT"\]/.test(p.opts)).map((p) => `${p.file}: ${p.opts}`);
+    // the ONE shared ReadMaster page (students, teachers and admin see the same view) is the only exception; parents never
+    const SHARED = /src\/app\/student\/readmaster\/(\[articleId\]\/)?page\.tsx$/;
+    for (const p of student.filter((x) => SHARED.test(x.file))) assert.match(p.opts, /^\{ roles: \["STUDENT", "TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"\] \}$/, p.file);
+    const notStudentOnly = student.filter((p) => !SHARED.test(p.file) && !/roles:\s*\["STUDENT"\]/.test(p.opts)).map((p) => `${p.file}: ${p.opts}`);
     assert.deepEqual(notStudentOnly, []);
   });
 });

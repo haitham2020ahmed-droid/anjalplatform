@@ -133,7 +133,9 @@ describe("UI reorg Phase 1 · question bank ↔ skills, MAP and NAFS", () => {
       assert.match(hit.sub, new RegExp(`· ${shared} questions$`), `${name}: search`);
       assert.equal(matched.questions, shared, `${name}: Question Bank “skills matching”`);
       assert.equal(k.questions, shared, `${name}: master list`);
-      assert.equal(bank.total, shared, `${name}: Question Bank list of the skill`);
+      // one question bank: the count is the family's pool; the Question Bank list of one grade's row shows its own questions
+      assert.equal(bank.total, (await countQuestionsOfSkills(repo, schoolId, [k.id], { own: true })).get(k.id), `${name}: Question Bank list of the skill`);
+      assert.ok(shared >= bank.total, `${name}: the pooled count includes the row's own questions`);
     }
     // “main inference” names Make Inferences in both searches
     const mi = await skillsMatching(repo, schoolId, "main inference");
@@ -144,7 +146,9 @@ describe("UI reorg Phase 1 · question bank ↔ skills, MAP and NAFS", () => {
     // Bank ↔ MAP shows the same per-family total
     const fam = (await mapLinks(repo, admin)).rows.find((r) => r.family === "Make Inferences" || r.skills.includes("Make Inferences"))!;
     const all = (await masterSkills(repo, schoolId)).filter((k) => k.name === "Make Inferences");
-    assert.equal(fam.questions, all.reduce((t, k) => t + k.questions, 0));
+    // one question bank: every grade's row shows the pooled count; the family total adds the rows' own questions once
+    const own = await countQuestionsOfSkills(repo, schoolId, all.map((k) => k.id), { own: true });
+    assert.equal(fam.questions, all.reduce((t, k) => t + (own.get(k.id) ?? 0), 0));
   });
 
   test("questions of a skill: level and status filters, bounded pages, other schools refused; areas from the skill unless overridden", async () => {

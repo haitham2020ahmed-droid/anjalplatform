@@ -10,10 +10,14 @@ import { assignSkillAction } from "./actions";
 import { findQuestionsForSkill } from "@/server/curriculum/question-finder";
 import { ValidationError } from "@/server/curriculum-admin";
 import { BankPanel } from "./bank-panel";
+import { SkillAssignSteps } from "@/components/skill-picker";
 
 export const metadata = { title: "Assign a skill" };
 
-/** ⭐ Assign a skill: 🤖 Automatic (default) or ✋ Manual (Below / On / Above board), optional due date. */
+/**
+ * ⭐ Assign a skill: 🤖 Automatic (default) or ✋ Manual (Below / On / Above board), optional due date, then
+ * Program → which questions (the platform chooses, or the teacher picks) → Preview as student → Assign.
+ */
 export default async function SkillAssignPage({ searchParams }: { searchParams: Promise<{ skillId?: string; classId?: string; lessonId?: string; manual?: string; msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   const me = (await getActor())!.user;
@@ -39,7 +43,7 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
     .catch((e) => (e instanceof ValidationError && sp.lessonId ? findQuestionsForSkill(repo, actor, { skillId: pool.skill.id, classId: String(k.id) }) : Promise.reject(e))) : null;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="⭐" title={`Assign: ${pool.skill.name}`} subtitle={pool.skill.grammar ? `Grammar · Grade ${pool.skill.grade} · for any of your classes` : `Grade ${pool.skill.grade} · for any of your classes`}>
+      <PageHeader back={{ href: "/teacher", label: "Home" }} icon="⭐" title={`Assign: ${pool.skill.name}`} subtitle={pool.skill.grammar ? "Grammar · for any of your classes" : "For any of your classes"}>
         <Link href={`/teacher/preview?skillId=${pool.skill.id}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Preview</Link>
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
@@ -63,7 +67,7 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
             <label className="flex flex-col">Due date (optional)<input type="date" name="dueAt" className={box} /></label>
             <label className="flex min-w-[16rem] flex-1 flex-col">Note to students (optional)<input name="note" maxLength={1000} className={box} /></label>
           </div>
-          <button className="mt-4 rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">⭐ Assign to students</button>
+          <div className="mt-5 border-t border-slate-100 pt-4"><SkillAssignSteps skillId={pool.skill.id} grammar={pool.skill.grammar} /></div>
         </form>
       )}
       {k && found && <BankPanel found={found} classId={String(k.id)} link={link} />}

@@ -9,5 +9,5 @@ export async function setMyGoalAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["STUDENT"] });
   let msg = "🎯 Goal set. You can do it!";
   try { await setStudentGoal(repo, actor, (f.get("kind") === "MINUTES" ? "MINUTES" : "ANSWERS") as GoalKind, Number(f.get("target"))); } catch (e) { if (e instanceof ValidationError) msg = e.message; else throw e; }
-  redirect(`/student/reports?goal=${encodeURIComponent(msg)}#my-week`); // My week lives in My Reports (UI reorg Phase 2)
+  redirect(`/student/reports?view=progress&goal=${encodeURIComponent(msg)}#my-week`); // My week lives in My Reports → My progress
 }

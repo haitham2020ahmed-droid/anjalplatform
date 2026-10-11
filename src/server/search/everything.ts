@@ -11,7 +11,7 @@ import { assertCan, type Actor } from "../auth/rbac";
 import { isGrammarCode } from "../grammar/grammar";
 import { attachmentNodes } from "../curriculum-map/questions";
 import { studentNames } from "../insights/student-data";
-import { navItemsFor } from "../../components/nav-items";
+import { searchablePagesFor } from "../../components/nav-items";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { countQuestionsOfSkills, SKILL_SYNONYMS } from "../questions/skill-questions";
@@ -142,8 +142,8 @@ async function searchOnce(repo: Repo, actor: Actor, raw: string): Promise<Search
     if (sc) hits.push({ kind: "QUESTION", id: s(r.id), title: s(r.stem).replace(/\s+/g, " ").slice(0, 120), sub: skillName.get(s(r.skillId)) ?? "", href: `/teacher/preview?skillId=${s(r.skillId)}`, assignHref: teacher ? `/teacher/skill-assign?skillId=${s(r.skillId)}` : null, score: sc });
   }
 
-  // the platform's own pages
-  for (const p of navItemsFor(s(actor.role))) { const sc = matchScore(words, p.label, p.href.replace(/[/-]/g, " ")); if (sc) hits.push({ kind: "PAGE", id: p.href, title: `${p.icon ?? ""} ${p.label}`.trim(), sub: p.href, href: p.href, assignHref: null, score: sc }); }
+  // the platform's own pages (the menu and the pages that left it)
+  for (const p of searchablePagesFor(s(actor.role))) { const sc = matchScore(words, p.label, p.href.replace(/[/-]/g, " ")); if (sc) hits.push({ kind: "PAGE", id: p.href, title: `${p.icon ?? ""} ${p.label}`.trim(), sub: p.href, href: p.href, assignHref: null, score: sc }); }
 
   const groups = GROUPS.map((g) => ({ kind: g.kind, label: g.label, icon: g.icon, hits: hits.filter((h) => h.kind === g.kind).sort((a, b) => b.score - a.score || a.title.localeCompare(b.title)).slice(0, g.max) })).filter((g) => g.hits.length);
   return { q, total: groups.reduce((t, g) => t + g.hits.length, 0), groups };

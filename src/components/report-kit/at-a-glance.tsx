@@ -33,7 +33,7 @@ export function AtAGlance({ items, title = "At a glance", className = "" }: { it
               {g.meaning && <span className="mt-1 block text-[13px] leading-snug text-slate-600">{typeof g.meaning === "string" ? t(g.meaning) : g.meaning}</span>}
             </>
           );
-          const cls = "relative flex min-w-0 flex-col overflow-hidden rounded-2xl bg-white p-4 pt-5 shadow-sm ring-1 ring-slate-200 break-inside-avoid";
+          const cls = "relative flex min-w-0 flex-col overflow-hidden rounded-2xl bg-white p-4 pt-5 shadow-card ring-1 ring-slate-200/80 break-inside-avoid";
           return g.href ? <a key={i} href={g.href} className={`${cls} lift hover:ring-brand-teal`}>{body}</a> : <div key={i} className={cls}>{body}</div>;
         })}
       </div>

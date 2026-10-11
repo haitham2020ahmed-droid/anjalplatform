@@ -60,15 +60,20 @@ describe("🎲 Games Part 2a — Match It, Word Builder, Word Guess", () => {
       [["huge", "very big"], ["tiny", "very small"], ["swift", "fast"]],
       [["aud", "hear"], ["vis", "see"], ["port", "carry"], ["struct", "build"]],
       [["glad", "happy"], ["weary", "tired"], ["furious", "very angry"], ["timid", "shy"], ["brave", "not afraid"]],
+      // games need a full round of fitting questions (MIN_QUESTIONS_PER_GAME / the round)
+      [["dis-", "opposite of"], ["re-", "again"], ["over-", "too much"]],
+      [["ancient", "very old"], ["damp", "a little wet"], ["fragile", "easy to break"], ["gloomy", "dark and sad"]],
     ];
-    for (const [i, set] of matchSets.entries()) await addQ(skillId, "MATCHING", `Match each word to its meaning (${i}).`, lv[i], set.map(([left, right]) => ({ left, right })));
+    for (const [i, set] of matchSets.entries()) await addQ(skillId, "MATCHING", `Match each word to its meaning (${i}).`, lv[i % 4], set.map(([left, right]) => ({ left, right })));
     const orders = [
       ["The", "cat", "sat", "on", "the", "mat."], ["My", "brother", "plays", "football", "after", "school."],
       ["We", "will", "visit", "the", "museum", "tomorrow."], ["Although", "it", "rained,", "the", "match", "continued."],
+      ["She", "reads", "a", "book", "every", "night."], ["The", "birds", "flew", "over", "the", "lake."],
+      ["Our", "class", "planted", "a", "small", "tree."], ["Because", "he", "was", "tired,", "he", "slept", "early."],
     ];
-    for (const [i, seq] of orders.entries()) await addQ(skillId, "WORD_ORDER", `Put the words in order to make a sentence (${i}).`, lv[i], seq, { elements: seq });
-    const words = [["The opposite of hot is ____.", "cold"], ["A baby cat is called a ____.", "kitten"], ["Change to plural: one shelf, two ____.", "shelves"], ["Very, very big: ____.", "enormous"]];
-    for (const [i, [stem, w]] of words.entries()) await addQ(skillId, "FILL_BLANK", stem, lv[i], w);
+    for (const [i, seq] of orders.entries()) await addQ(skillId, "WORD_ORDER", `Put the words in order to make a sentence (${i}).`, lv[i % 4], seq, { elements: seq });
+    const words = [["The opposite of hot is ____.", "cold"], ["A baby cat is called a ____.", "kitten"], ["Change to plural: one shelf, two ____.", "shelves"], ["Very, very big: ____.", "enormous"], ["The opposite of up is ____.", "down"], ["A young dog is called a ____.", "puppy"], ["The day after Monday is ____.", "tuesday"]];
+    for (const [i, [stem, w]] of words.entries()) await addQ(skillId, "FILL_BLANK", stem, lv[i % 4], w);
     // questions that do NOT fit: a 2-pair board, a 2-piece order, several accepted answers, the word in the clue
     await addQ(skillId, "MATCHING", "Too small a board.", 4, [{ left: "a", right: "b" }, { left: "c", right: "d" }]);
     await addQ(skillId, "WORD_ORDER", "Too few pieces.", 4, ["Hello", "there."], { elements: ["Hello", "there."] });
@@ -225,7 +230,7 @@ describe("🎲 Games Part 2a — Match It, Word Builder, Word Guess", () => {
   });
 
   // ------------------------------------------------------------------ bank selection + Soon
-  test("questions are filled from the bank at the student's level, only the ones that fit each game; Soon otherwise", async () => {
+  test("questions are filled from the bank at the student's level, only the ones that fit each game; hidden otherwise", async () => {
     const qCount = await repo.count("Question");
     const av = await gameAvailability(repo, teacher.schoolId!, skillId);
     for (const id of ["match-it", "word-builder", "word-guess"]) assert.equal(av.find((g) => g.id === id)!.status, "PLAY", id);
@@ -248,7 +253,7 @@ describe("🎲 Games Part 2a — Match It, Word Builder, Word Guess", () => {
     assert.ok(wg.some((q) => q.type === "MULTIPLE_CHOICE" && G.targetOf(q) === "HUGE"), "a one-word multiple-choice answer fits");
     assert.ok(!wg.some((q) => /glad|crowd/.test(q.stem)), "several answers / the word in the clue: not served");
     assert.ok(!(await pickQuestions(repo, teacher.schoolId!, skillId, gameMeta("match-it")!, "ON", 50)).some((q) => q.pairs!.length < 3));
-    // Soon: a skill without enough fitting questions
+    // hidden: a skill without enough fitting questions
     for (const g of await gameAvailability(repo, teacher.schoolId!, emptySkill)) {
       if (["match-it", "word-builder", "word-guess"].includes(g.id)) assert.equal(g.status, g.fitting >= gameMeta(g.id)!.minQuestions ? "PLAY" : "SOON", g.id);
     }

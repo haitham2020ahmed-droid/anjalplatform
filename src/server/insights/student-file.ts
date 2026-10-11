@@ -15,6 +15,7 @@ import { notesFor } from "../teacher/extras";
 import { studentBadges } from "../student/badges";
 import { isReportShared } from "./parent-report";
 import { ALERT_INFO, type AlertKind } from "./alerts";
+import { matchesStudent, normalizeName } from "../../components/teacher/name-match";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -31,27 +32,54 @@ async function allowedStudents(repo: Repo, actor: Actor): Promise<{ classIds: st
 
 export interface FoundStudent { id: string; name: string; number: string; username: string; grade: number; className: string }
 
-/** Find students by name, student ID or username (at most 40). */
-export async function searchStudents(repo: Repo, actor: Actor, q: string): Promise<FoundStudent[]> {
+/** Every student this person may open (teacher: own classes; admin: the school), with grade and class. */
+async function studentsInScope(repo: Repo, actor: Actor): Promise<(FoundStudent & { classId: string })[]> {
   const scope = await allowedStudents(repo, actor);
-  const term = s(q).trim().toLowerCase();
-  if (term.length < 2) return [];
-  const students = await repo.findMany("Student", { schoolId: actor.schoolId }, { select: ["id", "userId", "studentNumber", "gradeId"] });
-  const users = await repo.findMany("User", { schoolId: actor.schoolId, role: "STUDENT" }, { select: ["id", "displayName", "username"] });
+  if (!scope.all && !scope.classIds.length) return [];
   const mem = await repo.findMany("ClassMembership", { leftAt: null, ...(scope.all ? {} : { classId: { in: scope.classIds } }) }, { select: ["studentId", "classId"] });
-  const classes = await repo.findMany("Class", { schoolId: actor.schoolId }, { select: ["id", "name"] });
-  const grades = await repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] });
-  const inScope = new Set(mem.map((m) => s(m.studentId)));
-  const out: FoundStudent[] = [];
+  const classOf = new Map<string, string>();
+  for (const m of mem) if (!classOf.has(s(m.studentId))) classOf.set(s(m.studentId), s(m.classId));
+  const [students, users, classes, grades] = await Promise.all([
+    repo.findMany("Student", { schoolId: actor.schoolId, deletedAt: null }, { select: ["id", "userId", "studentNumber", "gradeId"] }),
+    repo.findMany("User", { schoolId: actor.schoolId, role: "STUDENT" }, { select: ["id", "displayName", "username"] }),
+    repo.findMany("Class", { schoolId: actor.schoolId }, { select: ["id", "name"] }),
+    repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] }),
+  ]);
+  const userOf = new Map(users.map((u) => [s(u.id), u]));
+  const className = new Map(classes.map((c) => [s(c.id), s(c.name)]));
+  const level = new Map(grades.map((g) => [s(g.id), Number(g.level ?? 0)]));
+  const out: (FoundStudent & { classId: string })[] = [];
   for (const st of students) {
-    if (!scope.all && !inScope.has(s(st.id))) continue;
-    const u = users.find((x) => x.id === st.userId);
-    const hay = `${s(u?.displayName)} ${s(st.studentNumber)} ${s(u?.username)}`.toLowerCase();
-    if (!term.split(/\s+/).every((w) => hay.includes(w))) continue;
-    out.push({ id: s(st.id), name: s(u?.displayName), number: s(st.studentNumber), username: s(u?.username), grade: Number(grades.find((g) => g.id === st.gradeId)?.level ?? 0), className: s(classes.find((c) => c.id === mem.find((m) => m.studentId === st.id)?.classId)?.name) });
-    if (out.length >= 40) break;
+    const classId = classOf.get(s(st.id)) ?? "";
+    if (!scope.all && !classId) continue;
+    const u = userOf.get(s(st.userId));
+    out.push({ id: s(st.id), name: s(u?.displayName), number: s(st.studentNumber), username: s(u?.username), grade: level.get(s(st.gradeId)) ?? 0, className: className.get(classId) ?? "", classId });
   }
   return out.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/** Find students by name (Arabic or English), student ID or username — one letter is enough (at most 40). */
+export async function searchStudents(repo: Repo, actor: Actor, q: string): Promise<FoundStudent[]> {
+  if (!normalizeName(q)) { await allowedStudents(repo, actor); return []; }
+  const all = await studentsInScope(repo, actor);
+  return all.filter((x) => matchesStudent(x, q)).slice(0, 40).map(({ classId: _c, ...x }) => x);
+}
+
+export interface StudentListClass { classId: string; className: string; grade: number; students: FoundStudent[] }
+
+/**
+ * "My Students": the ready list of every student this person may open, grouped by class (teacher: own classes;
+ * admin: the whole school; students without a class at the end). The page filters it on the device as you type.
+ */
+export async function myStudentsList(repo: Repo, actor: Actor): Promise<StudentListClass[]> {
+  const all = await studentsInScope(repo, actor);
+  const groups = new Map<string, StudentListClass>();
+  for (const { classId, ...x } of all) {
+    const g = groups.get(classId) ?? { classId, className: x.className, grade: x.grade, students: [] };
+    g.students.push(x);
+    groups.set(classId, g);
+  }
+  return [...groups.values()].sort((a, b) => Number(!a.classId) - Number(!b.classId) || a.grade - b.grade || a.className.localeCompare(b.className));
 }
 
 export interface StudentFile {
@@ -130,4 +158,4 @@ export async function studentActorFor(repo: Repo, actor: Actor, studentId: strin
   return u;
 }
 
-export { studentNames };
+export { studentNames, normalizeName, matchesStudent };

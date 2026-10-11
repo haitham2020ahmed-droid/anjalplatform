@@ -11,14 +11,14 @@ import { classGrammarReport, schoolGrammarReport } from "./grammar-report";
 import { classGamesReport } from "./games-report";
 import { rtiWeeklyPlan } from "../tiers/weekly-plan";
 import { schoolLevels } from "./level-distribution";
-import { classReadMasterReport } from "./readmaster-report";
+import { classReadMasterReport, readMasterAnalytics, type ReadMasterAnalytics } from "./readmaster-report";
 import { classReport as readRiseClass, schoolDashboard as readRiseSchool } from "../readrise/dashboards";
 
 export const EXTRA_KINDS = ["grammar", "games", "rti", "levels", "readmaster", "readrise"] as const;
 export type ExtraKind = (typeof EXTRA_KINDS)[number];
 export const isExtraKind = (k: string): k is ExtraKind => (EXTRA_KINDS as readonly string[]).includes(k);
 /** which extra kinds are school-wide (need analytics:school) for a scope */
-export const EXTRA_SCHOOL: Record<ExtraKind, "never" | "always" | "scope"> = { grammar: "scope", games: "never", rti: "never", levels: "always", readmaster: "never", readrise: "scope" };
+export const EXTRA_SCHOOL: Record<ExtraKind, "never" | "always" | "scope"> = { grammar: "scope", games: "never", rti: "never", levels: "always", readmaster: "scope", readrise: "scope" };
 
 export const RR_EXPORT_NOTE = "ReadRise Level (estimate): ReadRise's own reading level on a Lexile-like scale — an estimate from first-try article scores, not an official Lexile measure and not the MAP Lexile.";
 const TITLES: Record<ExtraKind, string> = {
@@ -35,6 +35,24 @@ function doc(ctx: BuildContext, kind: ExtraKind, subtitle: string, meta: MetaIte
 }
 const table = (id: string, title: string, columns: Column[], rows: TableRow[], note?: string, sheet?: string): Section => ({ type: "table", id, title, columns, rows, empty: "No data yet.", ...(note ? { note } : {}), ...(sheet ? { sheet } : {}) });
 const kpis = (title: string, items: Kpi[]): Section => ({ type: "kpis", title, items });
+
+const RM_NOTES = [
+  "Reading Lexile = ReadMaster's own reading level (75%+ on an article raises it, under 50% lowers it). It is not the MAP Lexile and not the ReadRise Level.",
+  "Counted = read at the student's own level or higher (it moves the reading Lexile and skill mastery). Practice = a lower level: saved, but nothing changes.",
+];
+/** The ReadMaster analytics tables (by student, text, skill, reading below level) — the same numbers as the page. */
+function rmAnalyticsTables(x: ReadMasterAnalytics): Section[] {
+  return [
+    table("students", "By student", [col("name", "Student", "name", 2.2), col("grade", "Grade", "int"), col("texts", "Texts read", "int"), col("counted", "Counted", "int"), col("practice", "Practice", "int"), col("avg", "Avg score", "pct"), col("start", "Reading Lexile start", "int"), col("now", "Reading Lexile now", "int"), col("change", "Change", "signed"), col("last", "Last read", "date")],
+      x.students.map((s) => ({ name: s.name, grade: num(s.grade), texts: s.texts, counted: s.counted, practice: s.practice, avg: num(s.avgScore), start: num(s.lexileStart), now: num(s.lexileNow), change: num(s.change), last: s.lastRead }))),
+    table("texts", "By text", [col("title", "Text", "latin", 3), col("grade", "Grade", "int"), col("skill", "Skill", "latin", 2), col("readers", "Readers", "int"), col("avg", "Avg score", "pct"), col("below", "Below avg", "pct"), col("on", "On avg", "pct"), col("above", "Above avg", "pct"), col("practice", "Practice", "int")],
+      x.texts.map((t) => ({ title: t.title, grade: t.grade, skill: t.skill, readers: t.readers, avg: num(t.avgScore), below: num(t.byLevel.BELOW.avg), on: num(t.byLevel.ON.avg), above: num(t.byLevel.ABOVE.avg), practice: t.practice }))),
+    table("skills", "By skill", [col("skill", "Skill", "latin", 3), col("texts", "Texts", "int"), col("readers", "Readers", "int"), col("counted", "Counted", "int"), col("accuracy", "Accuracy", "pct"), col("practice", "Practice", "int"), col("pacc", "Practice accuracy", "pct")],
+      x.skills.map((k) => ({ skill: k.skill, texts: k.texts, readers: k.readers, counted: k.counted, accuracy: num(k.accuracy), practice: k.practice, pacc: num(k.practiceAccuracy) }))),
+    table("below", "Reading below their level", [col("name", "Student", "name", 2.2), col("grade", "Grade", "int"), col("lower", "Lower-level reads", "int"), col("reads", "All reads", "int"), col("share", "Share", "pct"), col("last", "Last lower read", "date")],
+      x.below.map((b) => ({ name: b.name, grade: num(b.grade), lower: b.lower, reads: b.reads, share: num(b.share), last: b.last }))),
+  ];
+}
 
 export async function buildExtraReport(ctx: BuildContext, kind: ExtraKind, opts: { classId?: string; scope?: "class" | "school"; days: number }): Promise<ReportDoc> {
   const { repo, actor, now } = ctx;
@@ -94,14 +112,24 @@ export async function buildExtraReport(ctx: BuildContext, kind: ExtraKind, opts:
       { type: "notes", title: "Notes", items: ["Level = the confirmed overall level (Below / On / Above Level) the daily job sets from all evidence; a change needs new evidence on two evaluations.", "Δ month = students now minus students 30 days ago, from the level history.", "Strands use each strand's own level (Concept Vocabulary, Analyze Craft and Structure, Respond to Reading)."] },
     ], "classes", ["school"]);
   }
+  if (kind === "readmaster" && opts.scope === "school") {
+    const x = await readMasterAnalytics(repo, actor, { scope: "school", days, now });
+    return doc(ctx, kind, "ReadMaster · whole school: by student, text, skill and reading below level", [{ label: "Scope", value: "Whole school" }, win], [
+      kpis("Summary", [{ label: "Readers", value: x.summary.readers, kind: "int", glance: true, hint: "students who read at least one article" }, { label: "Texts read", value: x.summary.reads, kind: "int", glance: true, hint: "reads in this window" }, { label: "Counted", value: x.summary.counted, kind: "int" }, { label: "Practice", value: x.summary.practice, kind: "int" }, { label: "Avg score", value: x.summary.avgScore, kind: "pct", glance: true, hint: "average score of the counted reads" }, { label: "Reading below their level", value: x.summary.belowReaders, kind: "int", glance: true, hint: "students who chose a lower version" }]),
+      ...rmAnalyticsTables(x),
+      { type: "notes", title: "Notes", items: RM_NOTES },
+    ], "students", ["school"]);
+  }
   if (kind === "readmaster") {
     const r = await classReadMasterReport(repo, actor, opts.classId!, { days, now });
+    const x = await readMasterAnalytics(repo, actor, { scope: "class", classId: opts.classId!, days, now });
     return doc(ctx, kind, "Articles, ReadMaster reading Lexile, accuracy and time", [{ label: "Class", value: r.className, isolate: "latin" }, win], [
       kpis("Summary", [{ label: "Readers", value: r.summary.readers, kind: "int", glance: true, hint: "students who read at least one article" }, { label: "Articles", value: r.summary.articles, kind: "int", glance: true, hint: "articles read in this window" }, { label: "Accuracy", value: r.summary.accuracy, kind: "pct", glance: true, hint: "of answers were right" }, { label: "Avg Lexile change", value: r.summary.avgChange, kind: "signed", glance: true, hint: "average change in ReadMaster's reading Lexile (+ means up)" }, { label: "Minutes (timed)", value: r.summary.minutes, kind: "int" }, { label: "Rapid guesses", value: r.summary.rapidPct, kind: "pct" }]),
       table("students", "Students", [col("name", "Student", "name", 2.2), col("articles", "Articles", "int"), col("start", "Reading Lexile start", "int"), col("now", "Reading Lexile now", "int"), col("change", "Change", "signed"), col("accuracy", "Accuracy", "pct"), col("minutes", "Minutes", "int"), col("rapid", "Rapid answers", "int"), col("last", "Last read", "date")],
         r.students.map((x) => ({ name: x.name, articles: x.articles, start: num(x.lexileStart), now: num(x.lexileNow), change: num(x.change), accuracy: num(x.accuracy), minutes: num(x.minutes), rapid: num(x.rapid), last: x.lastRead }))),
       table("types", "Accuracy by question type", [col("type", "Question type", "text", 3), col("answers", "Answers", "int"), col("accuracy", "Accuracy", "pct"), col("rapid", "Rapid", "int")], r.types.map((x) => ({ type: x.name, answers: x.answers, accuracy: num(x.accuracy), rapid: x.rapid }))),
-      { type: "notes", title: "Notes", items: ["Reading Lexile = ReadMaster's own reading level (75%+ on an article raises it, under 50% lowers it). It is not the MAP Lexile and not the ReadRise Level.", "Minutes and rapid answers are recorded since Update 39C; older articles show no time."] },
+      ...rmAnalyticsTables(x).slice(1),
+      { type: "notes", title: "Notes", items: [...RM_NOTES, "Minutes and rapid answers are recorded since Update 39C; older articles show no time."] },
     ], "students", [r.className]);
   }
   // readrise

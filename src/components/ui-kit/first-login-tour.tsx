@@ -8,19 +8,20 @@ export interface TourStep { target: string; icon: string; title: string; text: s
 export const TOUR_STEPS: Record<string, TourStep[]> = {
   STUDENT: [
     { target: "my-work", icon: "📘", title: "My Work", text: "Everything your teacher gives you is in My Work. Tap Start on the first row." },
-    { target: "plans", icon: "🗂️", title: "My Plans", text: "Your plans and your MAP results live in My Plans." },
+    { target: "plans", icon: "🗺️", title: "MAP", text: "Your MAP scores, your goal and your MAP practice are in MAP." },
     { target: "tests", icon: "📝", title: "My Tests", text: "Tests to do and tests you finished are in My Tests." },
     { target: "lang", icon: "🌐", title: "Language", text: "Parents: tap the language button at the top to read the menus in Arabic. Lessons and questions stay in English." },
   ],
   TEACHER: [
     { target: "students", icon: "👥", title: "My Students", text: "Your class list, accounts and each student’s page are in My Students." },
-    { target: "plans", icon: "🗂️", title: "Plans", text: "Make any plan in one place: MAP, NAFS, Curriculum, RTI or your own skills. Then Assign it." },
-    { target: "assessments", icon: "📝", title: "Assessments", text: "Build a test from skills in the Question Bank and Assign it to a student, a group or the class." },
+    { target: "plans", icon: "🗂️", title: "Plans", text: "NAFS and your own plans are in Plans. MAP, Curriculum Map and RTI each have their own page." },
+    { target: "assessments", icon: "📝", title: "Assessments", text: "Build a test from skills and Assign it to a student, a group or the class." },
     { target: "home", icon: "🏠", title: "Your home page", text: "Tap Home at the top of any page to come back here. You can never get lost." },
   ],
   ADMIN: [
-    { target: "content", icon: "📚", title: "Content", text: "Curriculum, Question Bank, Grammar and ReadRise are under Content." },
-    { target: "follow-up", icon: "📈", title: "Follow-up", text: "Teacher Follow-Up and the school reports are under Follow-up." },
+    { target: "content", icon: "📚", title: "Content", text: "Questions, Curriculum Map, Grammar and ReadMaster are under Content." },
+    { target: "reports", icon: "📊", title: "Reports", text: "Department Week, reports to approve and the school reports are under Reports." },
+    { target: "all-tools", icon: "🧰", title: "All Admin Tools", text: "Every admin page is in All Admin Tools: type a word to find it." },
     { target: "home", icon: "🏠", title: "Your home page", text: "Tap Home at the top of any page to come back here. You can never get lost." },
   ],
 };

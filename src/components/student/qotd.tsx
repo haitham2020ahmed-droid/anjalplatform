@@ -6,6 +6,7 @@ import type { ClientQuestion } from "@/server/practice/items";
 import { answerQotdAction } from "@/app/student/qotd-actions";
 import { CoinIcon } from "@/components/motivation/avatar";
 import { useT } from "@/i18n/client";
+import { AnswerFx } from "@/components/feedback-fx/answer-fx";
 
 export interface QotdResult { correct: boolean; coins: number; correctAnswer: string; why: string }
 const LEVEL_LABEL = { ON: "On Level", ABOVE: "Above Level", HARDEST: "Hardest" } as const;
@@ -22,6 +23,8 @@ export function QuestionOfTheDay({ q, area, answered, level, result }: { q: Clie
   const [res, setRes] = useState<QotdResult | null>(result ?? null);
   const [err, setErr] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  // answered just now (not on an earlier visit): sound + a phrase once
+  const [fresh, setFresh] = useState(false);
   const done = res ?? (answered ? null : undefined);
   if (done !== undefined) {
     // one line: the verdict, the coins, and (when wrong) the answer with its explanation on demand
@@ -31,6 +34,7 @@ export function QuestionOfTheDay({ q, area, answered, level, result }: { q: Clie
         {done ? (
           <>
             <span className={`font-semibold ${done.correct ? "text-emerald-700" : "text-amber-900"}`}>{done.correct ? t("Correct!") : t("Not this time.")}</span>
+            {fresh && <AnswerFx scope="qotd" correct={done.correct} answerKey={`qotd|${q.questionId}`} />}
             <span className="inline-flex items-center gap-1 font-semibold text-amber-900"><CoinIcon size={16} /><span dir="ltr">+{done.coins}</span></span>
             {!done.correct && (
               <details className="min-w-0 basis-full sm:basis-auto">
@@ -61,7 +65,7 @@ export function QuestionOfTheDay({ q, area, answered, level, result }: { q: Clie
           setBusy(true); setErr(null);
           const r = await answerQotdAction(q.questionId, (q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") && !Array.isArray(v) ? q.elements : v);
           setBusy(false);
-          if (r.ok) { setRes({ correct: r.value.correct, coins: r.coins, correctAnswer: r.value.correctAnswer, why: r.value.why }); router.refresh(); } else setErr(r.error);
+          if (r.ok) { setFresh(true); setRes({ correct: r.value.correct, coins: r.coins, correctAnswer: r.value.correctAnswer, why: r.value.why }); router.refresh(); } else setErr(r.error);
         }}
         className="mt-3 min-h-11 rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white disabled:opacity-50">{busy ? t("Checking…") : t("Check")}</button>
       {err && <p role="alert" className="mt-2 text-red-700">{err}</p>}

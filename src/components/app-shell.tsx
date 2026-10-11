@@ -1,3 +1,4 @@
+import { studentMenuFlags } from "@/server/student/menu-flags";
 import { Suspense } from "react";
 import { headers } from "next/headers";
 import { LogoutButton } from "./logout-button";
@@ -9,8 +10,9 @@ import { NavProgress } from "./ui/nav-progress";
 import { MenuButton, SideNav } from "./ui/side-nav";
 import { JumpTo } from "./ui/jump-to";
 import { FirstLoginTour, LangSwitch, StickyHome } from "./ui-kit";
-import { navItemsFor } from "./nav-items";
+import { navItemsFor, searchablePagesFor } from "./nav-items";
 import { RewardChip } from "./motivation/reward-chip";
+import { FeedbackButton } from "@/components/feedback/feedback-button";
 import { getActor, HOME_BY_ROLE, repo } from "@/server/auth/next";
 import type { Role } from "@/server/auth/rbac";
 import { navCountsCached } from "@/server/teacher/week-plan";
@@ -22,8 +24,8 @@ const ROLE_NAME: Record<string, string> = { TEACHER: "Teacher", SCHOOL_ADMIN: "S
 
 /**
  * Shared page frame. Top bar (sticky, on every page): menu (phone) · 🏠 Home · English | Arabic · search ·
- * print box · bell · person · sign out. Desktop: the role's whole map in a navy side bar (groups fold; numbers =
- * waiting work); phone: the same map in a drawer. The interface language (menus, headings, buttons) follows the
+ * print box · Feedback · bell · person · sign out. Desktop: the role's short menu in a light side bar (soft coloured
+ * groups, "More" folded; numbers = waiting work); phone: the same menu in a drawer. The interface language (menus, headings, buttons) follows the
  * user's choice; page content is never translated.
  */
 export async function AppShell({ name, children }: { name: string; children: React.ReactNode }) {
@@ -35,8 +37,11 @@ export async function AppShell({ name, children }: { name: string; children: Rea
   let counts: Awaited<ReturnType<typeof navCountsCached>> = {};
   try { if (me) counts = await navCountsCached(repo, me.actor); } catch { counts = {}; }
   const role = String(me?.actor.role ?? "");
-  // "/student/rti" in the counts = the student is in the RTI program (Tier 2/3): only then the RTI Program entry
-  const items = navItemsFor(role, { rti: "/student/rti" in counts }).map((i) => ({ ...i, ...(counts[i.href] ?? {}) }));
+  // "/student/rti" in the counts = the student is in the RTI program (Tier 2/3): only then the RTI entry.
+  // NAFS the same way: "/student/nafs" in the counts.
+  let flags = { rti: "/student/rti" in counts, nafs: "/student/nafs" in counts };
+  if (me?.actor.role === "STUDENT" && me.actor.studentId) { try { flags = await studentMenuFlags(repo, me.actor.studentId); } catch { /* keep the counts */ } }
+  const items = navItemsFor(role, flags).map((i) => ({ ...i, ...(counts[i.href] ?? {}) }));
   const staff = ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"].includes(role);
   const home = HOME_BY_ROLE[role as Role] ?? "/";
   const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase()).join("");
@@ -52,6 +57,7 @@ export async function AppShell({ name, children }: { name: string; children: Rea
   const drawerFooter = (
     <div className="flex flex-wrap items-center gap-2">
       {role === "STUDENT" && <ComfortToggle />}
+      {me && <FeedbackButton />}
       <LogoutButton label={t("Sign out")} />
     </div>
   );
@@ -64,12 +70,12 @@ export async function AppShell({ name, children }: { name: string; children: Rea
       <div className={sideNav ? "lg:ps-64" : ""}>
         <header className="sticky top-0 z-20 border-b border-slate-200/80 bg-white/95 backdrop-blur print:hidden">
           <div className="brand-stripe h-1" aria-hidden="true" />
-          <div className="mx-auto flex max-w-7xl items-center gap-1.5 px-3 py-2 sm:gap-3 sm:px-6">
+          <div className="mx-auto flex max-w-7xl min-w-0 items-center gap-1.5 px-3 py-2 sm:gap-3 sm:px-6">
             {sideNav && <MenuButton label={t("Open the menu")} />}
             <StickyHome href={home} />
-            <LangSwitch />
+            <span className="shrink-0"><LangSwitch /></span>
             {!sideNav && <span className="hidden md:block">{brand}</span>}
-            <div className={`min-w-0 flex-1 ${sideNav ? "" : "hidden"}`}>{sideNav && <JumpTo items={items} people={staff} />}</div>
+            <div className={`min-w-0 flex-1 ${sideNav ? "" : "hidden"}`}>{sideNav && <JumpTo items={[...items, ...searchablePagesFor(role).filter((p) => !items.some((i) => i.href === p.href))]} people={staff} />}</div>
             {!sideNav && <div className="flex-1" />}
             <span className="hidden items-center gap-2 2xl:flex" aria-label="Accreditations">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -80,6 +86,7 @@ export async function AppShell({ name, children }: { name: string; children: Rea
             <div className="flex items-center gap-1.5 text-sm text-slate-600 sm:gap-2">
               {staff && <span className="hidden sm:inline-flex"><PrintBox /></span>}
               {role === "STUDENT" && <span className={sideNav ? "hidden sm:inline-flex" : "inline-flex"}><ComfortToggle /></span>}
+              {me && <span className="hidden sm:inline-flex"><FeedbackButton /></span>}
               <Suspense fallback={<span className="inline-block h-8 w-8" aria-hidden="true" />}><NotificationBell /></Suspense>
               {/* students: avatar + coins (Avatar Shop) and the favorite badge emblem (Games Part 3) instead of the initials */}
               {role === "STUDENT" && me?.actor.studentId ? (

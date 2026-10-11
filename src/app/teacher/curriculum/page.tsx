@@ -4,11 +4,13 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { NO_CURRICULUM_MESSAGE, teacherCurriculum, type CurriculumSkill } from "@/server/teacher/assign";
 import { AssignDialog, AssignSkillHost } from "../assign-dialog";
 import { CcssNote } from "@/components/ccss-note";
+import { SkillQuestionPicker } from "@/components/skill-picker";
 
 /**
  * Teacher's organized view for one class, in two areas taught in class:
  * 📘 Curriculum (Grade → Unit → Skill → Standard) and 🗺️ MAP (MAP Growth goal area → Skill).
- * ⭐ Assign on every skill; “View questions” opens the skill's questions to star and assign.
+ * ⭐ Assign on every skill; “View questions” opens the skill's questions here (text, choices, level, answer).
+ * Skills show their name only (no grade tags).
  */
 export default async function TeacherCurriculumPage({ searchParams }: { searchParams: Promise<{ classId?: string; area?: string; grade?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:read" });
@@ -30,14 +32,17 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
   const row = (k: CurriculumSkill) => (
     <li key={k.id} className="flex flex-wrap items-center justify-between gap-3 py-2">
       <div>
-        <p className="font-medium text-slate-900">{k.name}{k.grade !== undefined && <span className="ms-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">Grade {k.grade}</span>}</p>
+        <p className="font-medium text-slate-900">{k.name}</p>
         <p className="text-xs text-slate-500">{k.standards.join(", ") || "No standard"}{k.lessons.length ? ` · Lessons ${k.lessons.join(", ")}` : ""}{k.openAssignments ? ` · assigned (${k.openAssignments} open)` : ""}</p>
       </div>
       <div className="flex flex-wrap items-center gap-2">
-        <Link href={`/admin/questions?status=PUBLISHED&grade=${view!.viewGrade?.level ?? view!.grade.level}&skill=${k.id}${map ? "&track=map" : "&track=nafs"}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Open these questions; star ⭐ the ones you want and assign them">View questions ({k.questions})</Link>
         {canAssign && <Link href={`/teacher/skill-assign?${new URLSearchParams({ skillId: k.id, classId: view!.classId })}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Questions linked to the lesson, the same skill and the same standard; assign practice at each student’s level or a ready set">🔎 Questions from the bank</Link>}
         {canAssign && <AssignDialog skill={k} />}
       </div>
+      <details className="w-full">
+        <summary className="inline-flex min-h-11 cursor-pointer items-center rounded-lg px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">View questions ({k.questions})</summary>
+        <div className="mt-2"><SkillQuestionPicker skillId={k.id} mode="view" name={null} defaultOpen /></div>
+      </details>
     </li>
   );
   const tab = (active: boolean) => `flex items-center gap-2 rounded-2xl px-5 py-3 text-lg font-bold ${active ? "bg-brand-navy text-white shadow" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`;

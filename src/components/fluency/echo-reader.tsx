@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import type { CoachResult } from "@/server/fluency/coach";
 import { say, useCoachRecorder } from "./recorder";
+import { MicMeter } from "./mic-meter";
 import { ProsodyBars } from "./charts";
 
 /**
@@ -36,6 +37,7 @@ export function EchoReader({ passageKey, title, sentences }: { passageKey: strin
         {(r.stage === "ready" || r.stage === "done") && (
           <>
             <button onClick={listen} disabled={speaking} className="rounded-2xl bg-white px-6 py-3 text-lg font-extrabold text-brand-navy disabled:opacity-60">🔊 {speaking ? "Listening…" : heard ? "Listen again" : "Listen"}</button>
+            {r.stage === "ready" && <MicMeter mic={r.mic} onCheck={() => void r.check()} />}
             <button onClick={r.start} disabled={!heard || speaking} className="rounded-2xl bg-gradient-to-r from-teal-400 to-emerald-400 px-6 py-3 text-lg font-extrabold text-brand-navy shadow disabled:opacity-50">🎙 Record</button>
             {res && idx < sentences.length - 1 && <button onClick={next} className="rounded-2xl bg-indigo-400 px-6 py-3 text-lg font-extrabold text-white">Next sentence →</button>}
           </>

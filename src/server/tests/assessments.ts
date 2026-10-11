@@ -22,6 +22,7 @@ import { evidenceLevels } from "../curriculum-map/evidence-level";
 import { instructionalWeekOf, loadCycle } from "../assessment-cycle/cycle";
 import { correctAnswerText, loadQuestionItems, seededShuffle, studentAnswerText } from "../practice/items";
 import { questionsOfSkill, type QLevel } from "./question-source";
+import { familyRepresentatives } from "../questions/skill-questions";
 import { TEST_MARK, testOrder } from "./runtime";
 
 const s = (v: unknown) => String(v ?? "");
@@ -148,13 +149,16 @@ export async function previewTest(repo: Repo, actor: Actor, input: { skills: Pic
     }
   }
   for (const key of keys) if (chosen[key].length > MAX_TEST_QUESTIONS) throw new ValidationError(`A test can have at most ${MAX_TEST_QUESTIONS} questions — lower the numbers.`);
-  return { levelMode: mode, versions: await describe(repo, actor, chosen), notes: [...new Set(notes)] };
+  return { levelMode: mode, versions: await describe(repo, actor, chosen, skills.map((k) => k.skillId)), notes: [...new Set(notes)] };
 }
 
 /** The preview rows of chosen question ids (short stems; no answers). */
-export async function describe(repo: Repo, actor: Actor, versions: Versions): Promise<TestPreview["versions"]> {
+export async function describe(repo: Repo, actor: Actor, versions: Versions, pickedSkillIds: string[] = []): Promise<TestPreview["versions"]> {
   const ids = [...new Set(Object.values(versions).flat().filter(Boolean) as string[])];
-  const [items, qs] = await Promise.all([loadQuestionItems(repo, ids), ids.length ? repo.findMany("Question", { id: { in: ids } }, { select: ["id", "skillId", "difficultyLevel"] }) : Promise.resolve([] as Row[])]);
+  const [items, qs0] = await Promise.all([loadQuestionItems(repo, ids), ids.length ? repo.findMany("Question", { id: { in: ids } }, { select: ["id", "skillId", "difficultyLevel"] }) : Promise.resolve([] as Row[])]);
+  // one question bank: a question of another grade's copy of a picked skill is shown under the picked skill
+  const rep = await familyRepresentatives(repo, actor.schoolId!, qs0.map((q) => s(q.skillId)), { ids: pickedSkillIds });
+  const qs: Row[] = qs0.map((q) => ({ ...q, skillId: rep.get(s(q.skillId)) ?? s(q.skillId) }));
   const all = await skillMeta(repo, actor.schoolId!, qs.map((q) => s(q.skillId)));
   const out: TestPreview["versions"] = {};
   for (const [key, list] of Object.entries(versions) as ["SAME" | QLevel, string[]][]) {
@@ -171,6 +175,13 @@ export async function describe(repo: Repo, actor: Actor, versions: Versions): Pr
 
 // ------------------------------------------------------------------ 3. assign
 
+/** The skill rows ordered by how many of the questions are stored on them (most first). */
+function majorityRows(skillIds: string[]): string[] {
+  const n = new Map<string, number>();
+  for (const id of skillIds) n.set(id, (n.get(id) ?? 0) + 1);
+  return [...n].sort((a, b) => b[1] - a[1]).map(([id]) => id);
+}
+
 export interface AssignTestInput {
   classId: string; type: TestType | string; title?: string; levelMode?: LevelMode;
   /** empty = the whole class; one id = one student; several = a group */
@@ -178,6 +189,8 @@ export interface AssignTestInput {
   openAt?: Date | null; dueAt?: Date | null; timeLimitMin?: number | null; shuffle?: boolean;
   /** the previewed questions (after removals) */
   questions: Versions;
+  /** one question bank (optional): the skills the teacher picked, so pooled questions count for them */
+  skillIds?: string[];
   templateId?: string | null;
 }
 
@@ -225,7 +238,14 @@ export async function assignTest(repo: Repo, actor: Actor, input: AssignTestInpu
   const qOf = (key: "SAME" | QLevel): string[] => { const l = versions[key] ?? []; return l.length ? l : versions.ON?.length ? versions.ON : (Object.values(versions).find((x) => x && x.length) ?? []); };
   const allIds = [...new Set(groups.flatMap((g) => qOf(g.key)))];
   const qRows = await repo.findMany("Question", { id: { in: allIds } }, { select: ["id", "skillId"] });
-  const skillIds = [...new Set(qRows.map((q) => s(q.skillId)))];
+  // one question bank: the questions of one skill family count for ONE skill — the picked one (skillIds), else the
+  // class's grade copy, else the family's row most of the test's questions come from
+  const classGrade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
+  const first = await familyRepresentatives(repo, s(klass.schoolId), qRows.map((q) => s(q.skillId)), { ids: input.skillIds ?? [], grade: classGrade });
+  const firstOf = qRows.map((q) => first.get(s(q.skillId)) ?? s(q.skillId));
+  const second = await familyRepresentatives(repo, s(klass.schoolId), firstOf, { ids: [...(input.skillIds ?? []), ...majorityRows(firstOf)] });
+  const repOf = new Map(qRows.map((q, n) => [s(q.skillId), second.get(firstOf[n]) ?? firstOf[n]]));
+  const skillIds = [...new Set(qRows.map((q) => repOf.get(s(q.skillId)) ?? s(q.skillId)))];
   const test = await repo.create("TeacherTest", {
     schoolId: klass.schoolId, classId: klass.id, teacherId: teacher.id, createdById: actor.userId, title, testType: type, levelMode, skillIds,
     openAt, dueAt, timeLimitMin: limit, shuffle: Boolean(input.shuffle), templateId: input.templateId ? s(input.templateId) : null, createdAt: now,
@@ -361,7 +381,9 @@ export async function testResults(repo: Repo, actor: Actor, testId: string, now 
   const attempts = sessions.length ? await inBatches(sessions.map((x) => s(x.id)), 300, (c) => repo.findMany("QuestionAttempt", { sessionId: { in: c } }, { select: ["sessionId", "questionId", "isCorrect"] })) : [];
   const qIds = [...new Set(aqs.map((x) => s(x.questionId)))];
   const qRows = qIds.length ? await inBatches(qIds, 500, (c) => repo.findMany("Question", { id: { in: c } }, { select: ["id", "skillId"] })) : [];
-  const skillOfQ = new Map(qRows.map((q) => [s(q.id), s(q.skillId)]));
+  // one question bank: each question counts for the test's own skill of its family
+  const repOf = await familyRepresentatives(repo, s(actor.schoolId), qRows.map((q) => s(q.skillId)), { ids: json<string[]>(t.skillIds, []) });
+  const skillOfQ = new Map(qRows.map((q) => [s(q.id), repOf.get(s(q.skillId)) ?? s(q.skillId)]));
   const studentIds = [...new Set(rows.map((r) => s(r.studentId)))];
   const [students, skills] = await Promise.all([
     studentIds.length ? repo.findMany("Student", { id: { in: studentIds } }, { select: ["id", "userId"] }) : Promise.resolve([] as Row[]),

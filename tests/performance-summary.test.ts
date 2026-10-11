@@ -1,3 +1,4 @@
+import { skillFamilyIds } from "../src/server/questions/skill-questions";
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
@@ -42,6 +43,7 @@ describe("admin performance summary; teacher curriculum question counts", () => 
     const skills = view.units.flatMap((u) => u.skills);
     const withQuestions = skills.filter((k) => k.questions > 0);
     assert.ok(withQuestions.length > 0);
-    for (const k of withQuestions.slice(0, 5)) assert.equal(k.questions, await repo.count("Question", { skillId: k.id, status: "PUBLISHED", deletedAt: null }));
+    // one question bank: a skill counts the published questions of its whole family (the same skill in every grade)
+    for (const k of withQuestions.slice(0, 5)) assert.equal(k.questions, await repo.count("Question", { skillId: { in: await skillFamilyIds(repo, k.id) }, status: "PUBLISHED", deletedAt: null }));
   });
 });

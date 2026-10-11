@@ -4,17 +4,20 @@
 import { useState } from "react";
 import type { Feedback } from "../../server/practice/session";
 import { ExplainButton } from "./explain-button";
+import { AnswerFx } from "../feedback-fx/answer-fx";
 
 /**
  * Immediate feedback after every answer: reinforcement when right. When wrong, the 🧑‍🏫 tutor speaks first: it names
  * the mistake, asks a guiding question and offers a hint and an example; the correct answer is shown only when the
  * student asks for it (guide first, then tell).
  */
-export function FeedbackPanel({ fb, questionId }: { fb: Feedback; questionId?: string }) {
+export function FeedbackPanel({ fb, questionId, fxKey }: { fb: Feedback; questionId?: string; /** one answer (sound + phrase once) */ fxKey?: string }) {
   const ok = fb.correct;
   const [reveal, setReveal] = useState(!fb.tutor);
   const [more, setMore] = useState(false);
   return (
+    <>
+    <AnswerFx correct={ok} answerKey={fxKey ?? `${questionId ?? ""}|${fb.masteryBefore}|${fb.masteryAfter}|${fb.xp}`} className="mb-3" />
     <section role="status" aria-live="polite"
       className={["rounded-2xl border-2 p-5 shadow-sm", ok ? "animate-pop border-teal-300 bg-gradient-to-br bg-linear-to-br from-teal-50 to-white" : "animate-shake border-amber-300 bg-gradient-to-br bg-linear-to-br from-amber-50 to-white"].join(" ")}>
       <h2 className={["flex items-center gap-2 text-2xl font-bold", ok ? "text-teal-800" : "text-amber-900"].join(" ")}>
@@ -59,5 +62,6 @@ export function FeedbackPanel({ fb, questionId }: { fb: Feedback; questionId?: s
         Mastery {fb.masteryBefore} → <span className="font-semibold text-brand-navy">{fb.masteryAfter}</span>{fb.xp > 0 ? `, +${fb.xp} XP` : ""}
       </p>
     </section>
+    </>
   );
 }

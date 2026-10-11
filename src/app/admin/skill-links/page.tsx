@@ -7,6 +7,7 @@ import { nafsAreas } from "@/server/nafs/nafs-links";
 import { approveReviewAction, dismissReviewAction } from "./actions";
 import { EmptyState } from "@/components/ui-kit";
 import { getT } from "@/i18n/server";
+import { SortQuestions } from "./sort-questions";
 
 export const metadata = { title: "Skill links: needs review" };
 
@@ -28,6 +29,7 @@ export default async function SkillLinksReviewPage({ searchParams }: { searchPar
         <Link href="/admin/nafs-links" className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">{t("Bank ↔ NAFS")}</Link>
         <Link href="/admin/map-links" className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">{t("Bank ↔ MAP")}</Link>
       </PageHeader>
+      <SortQuestions />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <nav aria-label={t("Kind")} className="mb-4 flex flex-wrap gap-2">
         <Link href="/admin/skill-links" className={chip(!kind)}>{t("All")} ({totalOpen})</Link>

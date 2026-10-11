@@ -2,9 +2,17 @@
 /**
  * 🎙 Recording helpers shared by the Fluency Coach readers (1-minute check, whole passage, phrased, repeated, echo,
  * drill). The recording stays in memory: it is sent once to be scored and then dropped — never stored.
+ * Clear sound: echo and noise reduced, steady volume, one channel, the best format of the device (Opus/WebM, or
+ * MP4 on iPad/iPhone), about 64 kbit/s (audio-capture.ts). A level meter checks the microphone before reading.
  */
 import { useEffect, useRef, useState } from "react";
 import type { CoachResult } from "@/server/fluency/coach";
+import { browserRecorderMime, HEARD_RMS, meterLevel, micVerdict, openMicrophone, recorderOptions, rms } from "./audio-capture";
+
+export { pickRecorderMime } from "./audio-capture";
+
+/** The microphone check shown before (and during) reading. */
+export interface MicState { open: boolean; level: number; verdict: "listening" | "heard" | "quiet" }
 
 /** 🔊 The browser's own voice (on the device: nothing is sent anywhere). */
 export function say(text: string, rate = 0.8, onEnd?: () => void) {
@@ -53,17 +61,58 @@ export function useCoachRecorder(opts: { limit: number; fields: () => Record<str
   const audio = useRef<{ blob: Blob; seconds: number; fields: Record<string, string> } | null>(null);
   const slow = useRef(0);   // how many times the coach ran out of time on this recording
   const optsRef = useRef(opts); optsRef.current = opts;
+  const [mic, setMic] = useState<MicState>({ open: false, level: 0, verdict: "listening" });
+  const stream = useRef<MediaStream | null>(null);
+  const meter = useRef<{ ctx: AudioContext; timer: number } | null>(null);
 
-  useEffect(() => () => { if (timer.current) window.clearInterval(timer.current); rec.current?.stream.getTracks().forEach((t) => t.stop()); }, []);
+  function closeMic() {
+    if (meter.current) { window.clearInterval(meter.current.timer); void meter.current.ctx.close().catch(() => undefined); meter.current = null; }
+    stream.current?.getTracks().forEach((t) => t.stop());
+    stream.current = null;
+    setMic({ open: false, level: 0, verdict: "listening" });
+  }
+  useEffect(() => () => { if (timer.current) window.clearInterval(timer.current); rec.current?.stream.getTracks().forEach((t) => t.stop()); closeMic(); }, []);
+
+  /** Opens the microphone (once) and starts the level meter. */
+  async function openMic(): Promise<MediaStream> {
+    if (stream.current && stream.current.getTracks().some((t) => t.readyState === "live")) return stream.current;
+    const s = await openMicrophone((c) => navigator.mediaDevices.getUserMedia(c));
+    stream.current = s;
+    try {
+      const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      const ctx = new Ctx();
+      const an = ctx.createAnalyser(); an.fftSize = 1024;
+      ctx.createMediaStreamSource(s).connect(an);
+      const buf = new Float32Array(an.fftSize);
+      const t0 = performance.now(); let heardMs = 0, last = t0;
+      const tick = window.setInterval(() => {
+        an.getFloatTimeDomainData(buf);
+        const r = rms(buf), now = performance.now();
+        if (r >= HEARD_RMS) heardMs += now - last;
+        last = now;
+        setMic({ open: true, level: meterLevel(r), verdict: micVerdict({ heardMs, elapsedMs: now - t0 }) });
+      }, 100);
+      meter.current = { ctx, timer: tick };
+      setMic({ open: true, level: 0, verdict: "listening" });
+    } catch { setMic({ open: true, level: 0, verdict: "heard" }); /* no meter on this device: recording still works */ }
+    return s;
+  }
+
+  /** "Check the microphone": the meter before reading (no recording). */
+  async function check() {
+    setMsg("");
+    try { await openMic(); } catch { setStage("error"); setMsg("The microphone is not available. Allow the microphone for this site, then try again."); }
+  }
 
   async function start() {
     setMsg("");
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
-      const r = new MediaRecorder(stream);
+      const stream = await openMic();
+      let r: MediaRecorder;
+      try { r = new MediaRecorder(stream, recorderOptions(browserRecorderMime())); } catch { r = new MediaRecorder(stream); }
       chunks.current = [];
       r.ondataavailable = (e) => { if (e.data.size) chunks.current.push(e.data); };
-      r.onstop = () => { stream.getTracks().forEach((t) => t.stop()); void send(new Blob(chunks.current, { type: r.mimeType || "audio/webm" }), (performance.now() - started.current) / 1000); };
+      r.onstop = () => { closeMic(); void send(new Blob(chunks.current, { type: r.mimeType || "audio/webm" }), (performance.now() - started.current) / 1000); };
       rec.current = r; r.start(); started.current = performance.now(); setSecs(0); setStage("recording");
       timer.current = window.setInterval(() => {
         const t = (performance.now() - started.current) / 1000;
@@ -107,5 +156,5 @@ export function useCoachRecorder(opts: { limit: number; fields: () => Record<str
     } catch { setStage("error"); setMsg("No connection. Check the internet and try again."); }
   }
   const reset = () => { setStage("ready"); setMsg(""); setSecs(0); };
-  return { stage, secs, wait, msg, start, stop, reset };
+  return { stage, secs, wait, msg, start, stop, reset, check, mic };
 }

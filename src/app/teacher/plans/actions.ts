@@ -1,13 +1,17 @@
 "use server";
 import { redirect } from "next/navigation";
 import { repo, requireActor } from "@/server/auth/next";
-import { ForbiddenError } from "@/server/auth/rbac";
+import { ForbiddenError, type Actor } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { createSkillPlan } from "@/server/curriculum-map/plans";
 import { assignPlan } from "@/server/plans/wizard";
 import { readWizardForm } from "./wizard-form";
 import { sendCurriculumPlan, setOpenUnits } from "@/server/curriculum-map/curriculum-plan";
 import { getT } from "@/i18n/server";
+import { skillsByIds } from "@/server/plans/wizard";
+import { suggestNafsPlan } from "@/server/plans/nafs-suggest";
+import { fromFormData, readPlanForm, readQuestionPicks } from "@/server/plans/plan-form";
+import { applyEdits, picksOf, sendProgramPlan } from "@/server/plans/send";
 
 export async function createPlanAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
@@ -87,4 +91,45 @@ export async function assignPlanAction(f: FormData): Promise<void> {
     target = `${back}&msg=${encodeURIComponent(t(e.message))}`;
   }
   redirect(target);
+}
+
+/**
+ * Plans page → NAFS plan or Custom plan: the plan is built again on the server (the NAFS suggestion, the teacher's
+ * ticks and added skills; Custom = the chosen skills for every chosen student), then goes to the students
+ * (program NAFS; a custom plan has no program).
+ */
+async function sendFromPlansPage(actor: Actor, f: FormData, kind: "nafs" | "custom"): Promise<void> {
+  const { get, getAll } = fromFormData(f);
+  const areas = getAll("area").filter(Boolean);
+  const form = readPlanForm(get, getAll, [kind === "nafs" ? areas.join(",") : "custom"]);
+  const { t } = await getT();
+  let msg: string, tab: string = kind;
+  try {
+    const added = await skillsByIds(repo, actor, form.add);
+    let plan;
+    if (kind === "nafs") {
+      const sug = await suggestNafsPlan(repo, actor, { classId: form.classId, studentIds: form.studentIds, areas: areas.length ? areas : null });
+      plan = applyEdits(sug.skills, form.keep, added, sug.students.map((x) => x.id));
+    } else {
+      const members = (await repo.findMany("ClassMembership", { classId: form.classId, leftAt: null }, { select: ["studentId"] })).map((m) => String(m.studentId));
+      plan = applyEdits([], null, added, form.studentIds.length ? form.studentIds : members);
+    }
+    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: kind === "nafs" ? "NAFS" : null, title: form.title, picks: picksOf(plan), dueAt: form.dueAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)) });
+    msg = t("Plan ready: {skills} skill(s) for {students} student(s). They see it in My Plans and My Work.", { skills: r.skills, students: r.students });
+    tab = "sent";
+  } catch (e) {
+    if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e;
+    msg = t(e.message);
+  }
+  redirect(`/teacher/plans?${new URLSearchParams({ tab, classId: form.classId, msg })}`);
+}
+
+export async function sendNafsPlanAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
+  await sendFromPlansPage(actor, f, "nafs");
+}
+
+export async function sendCustomPlanAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
+  await sendFromPlansPage(actor, f, "custom");
 }

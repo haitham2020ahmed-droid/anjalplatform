@@ -1,6 +1,7 @@
 /** Pre-generated read-aloud audio in the database (TtsAudio), looked up by the hash of the spoken text. */
 import type { Repo } from "../seeding/repo";
-import { isSpeechKey, type WordTimings } from "@/lib/tts/text";
+import { isSpeechKey, ttsCacheKey, type TtsSpeed, type WordTimings } from "@/lib/tts/text";
+import type { TtsProvider, TtsResult } from "./providers";
 
 export interface AudioMeta { id: string; mime: string; durationMs: number; size: number; voice: string; timings: WordTimings }
 
@@ -30,6 +31,29 @@ export async function existingVoices(repo: Repo, keys: string[]): Promise<Map<st
   }
   return out;
 }
+
+/**
+ * The audio of a text at both speeds. `voice`: the current provider's voice (null when none is set: only audio
+ * already made at normal speed can be found). Slow audio missing → the player slows the normal audio down.
+ */
+export async function findSpeechAudio(repo: Repo, textKey: string, voice: string | null): Promise<{ normal: (AudioMeta & { key: string }) | null; slow: (AudioMeta & { key: string }) | null }> {
+  if (!isSpeechKey(textKey)) return { normal: null, slow: null };
+  const normal = await findAudioMeta(repo, textKey);
+  const slowKey = voice ? await ttsCacheKey(textKey, voice, "slow") : null;
+  const slow = slowKey ? await findAudioMeta(repo, slowKey) : null;
+  return { normal: normal ? { ...normal, key: textKey } : null, slow: slow && slowKey ? { ...slow, key: slowKey } : null };
+}
+
+/** Stores one generated audio under its cache key (replaces audio of another voice at the same key). */
+export async function saveAudio(repo: Repo, a: { key: string; provider: TtsProvider; result: TtsResult; chars: number; source: string; now: Date; replace?: boolean }): Promise<void> {
+  const row = { textHash: a.key, provider: a.provider.id, voice: a.provider.voice, mime: a.result.mime, bytes: Buffer.from(a.result.audio), size: a.result.audio.length, durationMs: a.result.durationMs, chars: a.chars, timings: JSON.stringify(a.result.timings), source: a.source.slice(0, 80), createdAt: a.now };
+  if (a.replace) { await repo.updateMany("TtsAudio", { textHash: a.key }, row); return; }
+  try { await repo.create("TtsAudio", row); }
+  catch (e) { if (!(await findAudioMeta(repo, a.key))) throw e; /* made at the same moment by another request: keep that one */ }
+}
+
+/** The cache key of a text's audio at a speed with this provider. */
+export const audioKeyFor = (textKey: string, provider: TtsProvider, speed: TtsSpeed) => ttsCacheKey(textKey, provider.voice, speed);
 
 /** Parses an HTTP Range header ("bytes=a-b") for a body of `size` bytes; null = whole body, "bad" = 416. */
 export function parseRange(h: string | null, size: number): { start: number; end: number } | null | "bad" {
