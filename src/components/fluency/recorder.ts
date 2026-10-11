@@ -51,6 +51,7 @@ export function useCoachRecorder(opts: { limit: number; fields: () => Record<str
   const started = useRef(0);
   const timer = useRef<number | null>(null);
   const audio = useRef<{ blob: Blob; seconds: number; fields: Record<string, string> } | null>(null);
+  const slow = useRef(0);   // how many times the coach ran out of time on this recording
   const optsRef = useRef(opts); optsRef.current = opts;
 
   useEffect(() => () => { if (timer.current) window.clearInterval(timer.current); rec.current?.stream.getTracks().forEach((t) => t.stop()); }, []);
@@ -79,6 +80,7 @@ export function useCoachRecorder(opts: { limit: number; fields: () => Record<str
     setStage("sending");
     const blob = await toWav(raw);
     audio.current = { blob, seconds: Math.min(seconds, optsRef.current.limit), fields: optsRef.current.fields() };
+    slow.current = 0;
     await upload();
   }
   async function upload() {
@@ -92,6 +94,8 @@ export function useCoachRecorder(opts: { limit: number; fields: () => Record<str
       const res = await fetch("/api/fluency/score", { method: "POST", body: f });
       const data = await res.json().catch(() => ({}));
       if (res.status === 202) {
+        // the coach ran out of time twice on the same recording: stop trying by itself
+        if (data.timeout && ++slow.current > 2) { setStage("error"); setMsg("The coach is very busy and could not finish listening. Please try again in a few minutes."); return; }
         // the school's AI limit: wait in the queue, then send the same recording again
         let left = Number(data.seconds) || 30; setWait(left); setMsg(String(data.reason ?? "")); setStage("waiting");
         const t = window.setInterval(() => { left--; setWait(left); if (left <= 0) { window.clearInterval(t); void upload(); } }, 1000);

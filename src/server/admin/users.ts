@@ -18,7 +18,7 @@ import { resetLevelsForNewGrade, withdrawOldClassWork } from "./student-move";
 import { hashPassword } from "../auth/password";
 import { temporaryPassword } from "../auth/passwords-admin";
 import { studentPasswordIsUsername } from "./student-cards";
-import { assertCan, can, ForbiddenError, type Actor, type Permission, type Role } from "../auth/rbac";
+import { assertCan, can, ForbiddenError, permissionMessage, type Actor, type Permission, type Role } from "../auth/rbac";
 import { revokeAllSessions } from "../auth/sessions";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
@@ -87,7 +87,7 @@ export async function listUsers(repo: Repo, actor: Actor, filter: { role?: Manag
   const schoolId = schoolOf(actor);
   const canStudents = can(actor, "students:manage");
   const canStaff = can(actor, "teachers:manage");
-  if (!canStudents && !canStaff) throw new ForbiddenError("Missing permission: students:manage");
+  if (!canStudents && !canStaff) throw new ForbiddenError(permissionMessage("students:manage"), "students:manage");
   const roles = MANAGED_ROLES.filter((r) => (r === "STUDENT" || r === "PARENT" ? canStudents : canStaff)).filter((r) => !filter.role || r === filter.role);
   let users = (await repo.findMany("User", { schoolId, role: { in: [...roles] } })).filter((u) => !u.deletedAt && (filter.includeInactive || u.isActive));
   const q = (filter.q ?? "").trim().toLowerCase();

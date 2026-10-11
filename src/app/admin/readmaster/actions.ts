@@ -1,15 +1,15 @@
 "use server";
 import { redirect } from "next/navigation";
 import { repo, requireActor } from "@/server/auth/next";
-import { ForbiddenError } from "@/server/auth/rbac";
+import { ForbiddenError, friendlyForbidden } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { extract } from "@/imports/questions/extract";
 import { importReadMaster } from "@/server/readmaster/import";
-import { addVersionQuestion, linkReadMasterToMap, listArticles, saveArticle, saveVersion, setArticleStatus, setArticlesStatus } from "@/server/readmaster/service";
+import { addVersionQuestion, linkReadMasterToMap, listArticles, requestArticleReview, saveArticle, saveVersion, setArticleStatus, setArticlesStatus } from "@/server/readmaster/service";
 import type { Level } from "@/server/curriculum-map/lexile";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "questions:edit" as const };
-const msgOf = (e: unknown) => { if (e instanceof ValidationError || e instanceof ForbiddenError) return e.message; throw e; };
+const msgOf = (e: unknown) => { if (e instanceof ValidationError || e instanceof ForbiddenError) return friendlyForbidden(e.message); throw e; };
 
 /** Creates the article and, in the same step, the versions whose text was written (Below / On / Above). */
 export async function createArticleAction(f: FormData): Promise<void> {
@@ -69,7 +69,12 @@ export async function setStatusAction(f: FormData): Promise<void> {
   const actor = await requireActor(STAFF);
   const articleId = String(f.get("articleId") ?? "");
   let msg: string;
-  try { await setArticleStatus(repo, actor, articleId, f.get("status") === "PUBLISHED" ? "PUBLISHED" : "DRAFT"); msg = f.get("status") === "PUBLISHED" ? "Published: students of this grade can read it." : "Back to draft."; }
+  try {
+    if (f.get("status") === "REVIEW") {
+      const r = await requestArticleReview(repo, actor, [articleId]);
+      msg = r.changed ? "Ready for review: an admin has been told and publishes the article." : r.skipped.length ? "Add at least one version with questions before asking for review." : "This article is already waiting for review or published.";
+    } else { await setArticleStatus(repo, actor, articleId, f.get("status") === "PUBLISHED" ? "PUBLISHED" : "DRAFT"); msg = f.get("status") === "PUBLISHED" ? "Published: students of this grade can read it." : "Back to draft."; }
+  }
   catch (e) { msg = msgOf(e); }
   redirect(`/admin/readmaster/${articleId}?msg=${encodeURIComponent(msg)}`);
 }
@@ -81,14 +86,19 @@ export async function bulkStatusAction(f: FormData): Promise<void> {
   const op = String(f.get("op") ?? "");
   let msg: string;
   try {
-    const status = op === "draft" ? "DRAFT" : "PUBLISHED";
-    const ids = op === "publishAll"
-      ? (await listArticles(repo, actor, grade)).filter((a) => a.status !== "PUBLISHED").map((a) => a.id)
-      : f.getAll("ids").map(String);
-    if (op === "publishAll" && !ids.length) throw new ValidationError(`Every Grade ${grade} article is already published.`);
-    const r = await setArticlesStatus(repo, actor, ids, status);
-    msg = status === "PUBLISHED" ? `Published ${r.changed} article(s): students of Grade ${grade} can read them.` : `${r.changed} article(s) moved back to draft.`;
-    if (r.skipped.length) msg += ` Not published (no questions yet): ${r.skipped.join(", ")}.`;
+    if (op === "review") {
+      const r = await requestArticleReview(repo, actor, f.getAll("ids").map(String));
+      msg = `${r.changed} article(s) marked ready for review: an admin publishes them.${r.skipped.length ? ` Not marked (no questions yet): ${r.skipped.join(", ")}.` : ""}`;
+    } else {
+      const status = op === "draft" ? "DRAFT" : "PUBLISHED";
+      const ids = op === "publishAll"
+        ? (await listArticles(repo, actor, grade)).filter((a) => a.status !== "PUBLISHED").map((a) => a.id)
+        : f.getAll("ids").map(String);
+      if (op === "publishAll" && !ids.length) throw new ValidationError(`Every Grade ${grade} article is already published.`);
+      const r = await setArticlesStatus(repo, actor, ids, status);
+      msg = status === "PUBLISHED" ? `Published ${r.changed} article(s): students of Grade ${grade} can read them.` : `${r.changed} article(s) moved back to draft.`;
+      if (r.skipped.length) msg += ` Not published (no questions yet): ${r.skipped.join(", ")}.`;
+    }
   } catch (e) { msg = msgOf(e); }
   redirect(`/admin/readmaster?grade=${grade}&msg=${encodeURIComponent(msg)}`);
 }

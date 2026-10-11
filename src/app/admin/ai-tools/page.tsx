@@ -8,19 +8,19 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { aiEnv } from "@/server/ai/env";
 import { aiSettings, pickProvider, rateState } from "@/server/ai/engine";
-import { aiLogSummary, aiSince, listJobs, runWeekly, suggestions, TOOL_NAME, weeklyState } from "@/server/ai/jobs";
+import { AI_LOG_TOOL, aiErrors, aiLogSummary, aiSince, listJobs, runWeekly, suggestions, weeklyState } from "@/server/ai/jobs";
 import { gapReport, suspiciousQuestions } from "@/server/ai/tools";
 import { wizardList } from "@/server/ai/wizard";
 import { masterSkills } from "@/server/skills/master";
-import { coachSettingsAction, settingsAction, startToolAction, stopJobAction, tickAction, weeklyAction } from "./actions";
-import { coachSettings } from "@/server/fluency/coach";
+import { coachSettingsAction, settingsAction, startToolAction, stopJobAction, testCoachAction, tickAction, weeklyAction } from "./actions";
+import { coachSettings, fluencyModel, plainFailure } from "@/server/fluency/coach";
 
 export const metadata = { title: "AI tools" };
 const TABS = [["wizard", "🪄 Prepare a Skill"], ["tools", "🧰 Tools"], ["review", "✅ Review"], ["suspicious", "🔍 Suspicious questions"], ["log", "📜 Log"], ["settings", "⚙️ Settings"], ["guide", "📘 Guide"]] as const;
 const ST: Record<string, string> = { NOT_STARTED: "bg-slate-100 text-slate-600", IN_PROGRESS: "bg-sky-100 text-sky-900", READY: "bg-emerald-100 text-emerald-800" };
 
 /** 🤖 AI tools for the question bank: a guided wizard, the tools, review, suspicious questions, log, settings, guide. */
-export default async function AiToolsPage({ searchParams }: { searchParams: Promise<{ tab?: string; grade?: string; skillId?: string; section?: string; tool?: string; job?: string; msg?: string }> }) {
+export default async function AiToolsPage({ searchParams }: { searchParams: Promise<{ tab?: string; grade?: string; skillId?: string; section?: string; tool?: string; job?: string; msg?: string; test?: string; testMsg?: string }> }) {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:publish" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -43,6 +43,8 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
   const reviewRows = tab === "review" ? await suggestions(repo, actor, { tool: sp.tool || undefined, jobId: sp.job || undefined, skillId: sp.skillId || undefined }) : [];
   const suspicious = tab === "suspicious" ? await suspiciousQuestions(repo, actor.schoolId!, { grade }) : [];
   const logSummary = tab === "log" ? await aiLogSummary(repo, actor, 7) : null;
+  const errors = tab === "log" || tab === "settings" ? await aiErrors(repo, actor, 50) : [];
+  const coachError = errors.find((e) => e.tool === "fluency" || e.tool === "fluency-test") ?? null;
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   const link = (p: Record<string, string | number>) => `/admin/ai-tools?${new URLSearchParams(Object.entries({ tab, grade, ...p }).map(([k, v]) => [k, String(v)]))}`;
   const field = "rounded-lg border border-slate-300 px-3 py-2";
@@ -148,10 +150,25 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
           <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
             <h2 className="text-lg font-bold text-brand-navy">AI Requests · Last 7 Days</h2>
             <p className="mt-1 text-sm">{l.requests} requests · {l.ok} OK · {l.invalid} invalid replies (retried) · {l.rate} limit reached · {l.down} provider down · {l.other} other · error rate {l.errorPct ?? 0}%</p>
-            <ul className="mt-3 divide-y divide-slate-100 text-sm">{l.recent.map((r, i) => <li key={i} className="flex flex-wrap justify-between gap-2 py-1"><span>{r.at.slice(0, 19).replace("T", " ")} · {TOOL_NAME[r.tool as keyof typeof TOOL_NAME] ?? r.tool} · {r.ms} ms</span><span className={r.ok ? "text-emerald-700" : "text-red-700"}>{r.ok ? "OK" : r.error}</span></li>)}</ul>
+            <ul className="mt-3 divide-y divide-slate-100 text-sm">{l.recent.map((r, i) => <li key={i} className="flex flex-wrap justify-between gap-2 py-1"><span>{r.at.slice(0, 19).replace("T", " ")} · {AI_LOG_TOOL[r.tool] ?? r.tool} · {r.ms} ms</span><span className={r.ok ? "text-emerald-700" : "text-red-700"}>{r.ok ? "OK" : plainFailure(r.error ?? "")}</span></li>)}</ul>
           </section>
         );
       })()}
+
+      {tab === "log" && (
+        <section id="ai-errors" className="mt-5 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+          <h2 className="text-lg font-bold text-brand-navy">⚠️ AI errors (last 50)</h2>
+          <p className="mt-1 text-sm text-slate-600">The provider&apos;s own reason for every failed AI request of the school, newest first. Students only see a short message; the real reason is here.</p>
+          {errors.length === 0 ? <p className="mt-3 text-sm text-emerald-800">No AI errors. ✅</p> : (
+            <div className="mt-3 overflow-x-auto">
+              <table className="min-w-full text-left text-sm">
+                <thead><tr className="border-b text-xs text-slate-500"><th className="py-2 pe-3">Time (UTC)</th><th className="px-2">Tool</th><th className="px-2">Model</th><th className="px-2">Error</th></tr></thead>
+                <tbody>{errors.map((e, i) => <tr key={i} className="border-b align-top last:border-0"><td className="whitespace-nowrap py-1.5 pe-3 tabular-nums">{e.at.slice(0, 16).replace("T", " ")}</td><td className="whitespace-nowrap px-2">{e.toolName}</td><td className="px-2"><code className="text-xs">{e.model}</code></td><td className="min-w-[16rem] px-2 text-red-800">{plainFailure(e.error)}</td></tr>)}</tbody>
+              </table>
+            </div>
+          )}
+        </section>
+      )}
 
       {tab === "settings" && (
         <form action={settingsAction} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
@@ -177,7 +194,11 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
               <span className={`rounded-full px-3 py-1 font-bold ${c.enabled ? "bg-emerald-100 text-emerald-900" : "bg-slate-200 text-slate-700"}`}>{c.enabled ? "On" : "Off"}</span>
               <input type="hidden" name="enabled" value={c.enabled ? "0" : "1"} />
               <button disabled={!can(actor, "settings:engine")} className="rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">{c.enabled ? "Switch off" : "Switch on"}</button>
+              <button formAction={testCoachAction} disabled={!can(actor, "settings:engine")} className="rounded-xl bg-white px-5 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal disabled:opacity-50">🔌 Test the Fluency Coach connection</button>
+              <span className="text-xs text-slate-500">Model: <code>{fluencyModel(aiEnv())}</code></span>
             </div>
+            {sp.test && <p role="status" className={`mt-3 rounded-xl px-4 py-3 text-sm ring-1 ${sp.test === "ok" ? "bg-emerald-50 text-emerald-900 ring-emerald-200" : "bg-red-50 text-red-900 ring-red-200"}`}>{sp.test === "ok" ? "✅ " : "❌ "}{sp.testMsg}</p>}
+            {coachError && <p className="mt-3 text-sm text-slate-700">Last Fluency Coach error ({coachError.at.slice(0, 16).replace("T", " ")} UTC): <span className="text-red-800">{plainFailure(coachError.error)}</span> · <Link href="/admin/ai-tools?tab=log#ai-errors" className="font-semibold text-brand-teal underline">All AI errors</Link></p>}
           </form>
         );
       })()}

@@ -86,7 +86,7 @@ describe("MAP import pipeline", () => {
   });
 
   test("only school admins can import", async () => {
-    await assert.rejects(stageImport(repo, teacher, { kind: "MAP_RESULTS", fileName: "m.csv", bytes: csv() }), /Missing permission/);
+    await assert.rejects(stageImport(repo, teacher, { kind: "MAP_RESULTS", fileName: "m.csv", bytes: csv() }), /don.t have permission/);
   });
 
   test("validation: every problem is reported per row; good rows are kept; nothing is written yet", async () => {

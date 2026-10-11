@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
+import { can } from "@/server/auth/rbac";
 import { articleDetail, LEVEL_NAMES } from "@/server/readmaster/service";
 import { lexileBands, levelForLexile } from "@/server/curriculum-map/lexile";
 import { addQuestionAction, saveVersionAction, setStatusAction } from "../actions";
@@ -21,13 +22,23 @@ export default async function ReadMasterArticlePage({ params, searchParams }: { 
   const a = await articleDetail(repo, actor, articleId);
   const band = (await lexileBands(repo, actor.schoolId ?? null))[a.grade];
   const box = "rounded-lg border border-slate-300 px-3 py-2";
+  // publishing is for admins (questions:publish); a teacher marks the article ready for review instead
+  const canPublish = can(actor, "questions:publish");
+  const chip = a.status === "PUBLISHED" ? ["bg-teal-100 text-teal-800", "Published"] : a.status === "REVIEW" ? ["bg-amber-100 text-amber-900", "Ready for review"] : ["bg-slate-100 text-slate-600", "Draft"];
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: `/admin/readmaster?grade=${a.grade}`, label: "ReadMaster" }} icon="📰" title={a.title}
-        subtitle={<span className="flex flex-wrap gap-2 text-sm">{[`Grade ${a.grade}`, a.code, a.standard, a.skill !== a.standard ? a.skill : null].filter(Boolean).map((t) => <span key={String(t)} className="rounded-full bg-white px-3 py-0.5 font-semibold ring-1 ring-slate-200">{t}</span>)}<span className={`rounded-full px-3 py-0.5 font-bold ${a.status === "PUBLISHED" ? "bg-teal-100 text-teal-800" : "bg-slate-100 text-slate-600"}`}>{a.status === "PUBLISHED" ? "Published" : "Draft"}</span></span>}>
-        <form action={setStatusAction}><input type="hidden" name="articleId" value={a.id} /><input type="hidden" name="status" value={a.status === "PUBLISHED" ? "DRAFT" : "PUBLISHED"} />
-          <button className={`rounded-xl px-4 py-2 font-semibold ${a.status === "PUBLISHED" ? "text-brand-navy ring-1 ring-slate-300" : "bg-brand-navy text-white hover:bg-brand-purple"}`}>{a.status === "PUBLISHED" ? "Move back to draft" : "Publish to students"}</button>
-        </form>
+        subtitle={<span className="flex flex-wrap gap-2 text-sm">{[`Grade ${a.grade}`, a.code, a.standard, a.skill !== a.standard ? a.skill : null].filter(Boolean).map((t) => <span key={String(t)} className="rounded-full bg-white px-3 py-0.5 font-semibold ring-1 ring-slate-200">{t}</span>)}<span className={`rounded-full px-3 py-0.5 font-bold ${chip[0]}`}>{chip[1]}</span></span>}>
+        {canPublish ? (
+          <form action={setStatusAction}><input type="hidden" name="articleId" value={a.id} /><input type="hidden" name="status" value={a.status === "PUBLISHED" ? "DRAFT" : "PUBLISHED"} />
+            <button className={`rounded-xl px-4 py-2 font-semibold ${a.status === "PUBLISHED" ? "text-brand-navy ring-1 ring-slate-300" : "bg-brand-navy text-white hover:bg-brand-purple"}`}>{a.status === "PUBLISHED" ? "Move back to draft" : "Publish to students"}</button>
+          </form>
+        ) : a.status === "DRAFT" ? (
+          <form action={setStatusAction} className="flex flex-col items-end gap-1"><input type="hidden" name="articleId" value={a.id} /><input type="hidden" name="status" value="REVIEW" />
+            <button className="rounded-xl bg-amber-500 px-4 py-2 font-semibold text-amber-950 hover:bg-amber-400">📝 Mark ready for review</button>
+            <span className="text-xs text-slate-500">An admin publishes articles.</span>
+          </form>
+        ) : a.status === "REVIEW" ? <p className="rounded-xl bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-900 ring-1 ring-amber-200">Ready for review — an admin publishes articles.</p> : null}
       </PageHeader>
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <div className="mt-6 grid gap-4 xl:grid-cols-3">

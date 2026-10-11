@@ -205,34 +205,203 @@ export function validateMarks(data: unknown, n: number): { ok: true; value: Read
   return { ok: true, value: { lastWordIndex: last, errors: errors.sort((a, b) => a.i - b.i), expression, patterns, hesitations, prosody } };
 }
 
+// ------------------------------------------------------------------ the Gemini call (Update 41: robust connection)
+
+/** The whole scoring call must finish before the hosting proxy gives up (Cloudflare/Render: 100 s). */
+export const FLUENCY_TIMEOUT_MS = 80_000;
+export const FLUENCY_MAX_OUTPUT_TOKENS = 16_384;
+
+/** What went wrong with the provider, in plain English (never the key). */
+export type CoachFailureKind = "CONFIG" | "RATE_LIMIT" | "TIMEOUT" | "DOWN" | "INVALID" | "REQUEST";
+export class CoachProviderError extends Error {
+  constructor(readonly kind: CoachFailureKind, message: string, readonly status: number | null = null) { super(message); }
+}
+
+const AUDIO_MIME: Record<string, string> = {
+  "audio/wav": "audio/wav", "audio/x-wav": "audio/wav", "audio/wave": "audio/wav", "audio/vnd.wave": "audio/wav", "audio/x-pn-wav": "audio/wav",
+  "audio/webm": "audio/webm", "video/webm": "audio/webm",
+  "audio/ogg": "audio/ogg", "application/ogg": "audio/ogg", "audio/opus": "audio/ogg", "video/ogg": "audio/ogg",
+  "audio/mp4": "audio/mp4", "audio/x-m4a": "audio/mp4", "audio/m4a": "audio/mp4", "audio/mp4a-latm": "audio/mp4", "video/mp4": "audio/mp4", "audio/x-mp4": "audio/mp4",
+  "audio/aac": "audio/aac", "audio/x-aac": "audio/aac", "audio/aacp": "audio/aac",
+  "audio/mpeg": "audio/mp3", "audio/mp3": "audio/mp3", "audio/x-mp3": "audio/mp3", "audio/mpeg3": "audio/mp3", "audio/x-mpeg": "audio/mp3",
+  "audio/flac": "audio/flac", "audio/x-flac": "audio/flac",
+  "audio/aiff": "audio/aiff", "audio/x-aiff": "audio/aiff",
+};
+
+/** The recording's real type from its first bytes (a browser's label can be missing or wrong). */
+function sniffAudio(b: Uint8Array | undefined): string | null {
+  if (!b || b.length < 12) return null;
+  const at = (o: number, t: string) => [...t].every((c, k) => b[o + k] === c.charCodeAt(0));
+  if (at(0, "RIFF") && at(8, "WAVE")) return "audio/wav";
+  if (b[0] === 0x1a && b[1] === 0x45 && b[2] === 0xdf && b[3] === 0xa3) return "audio/webm";
+  if (at(0, "OggS")) return "audio/ogg";
+  if (at(4, "ftyp")) return "audio/mp4";
+  if (at(0, "fLaC")) return "audio/flac";
+  if (at(0, "FORM") && at(8, "AIF")) return "audio/aiff";
+  if (at(0, "ID3")) return "audio/mp3";
+  if (b[0] === 0xff && (b[1] & 0xf6) === 0xf0) return "audio/aac";   // ADTS
+  if (b[0] === 0xff && (b[1] & 0xe0) === 0xe0) return "audio/mp3";   // MPEG frame
+  return null;
+}
+
+/**
+ * The audio type in a form Gemini accepts: codec parameters removed ("audio/webm;codecs=opus" → "audio/webm"),
+ * Safari/iPad names mapped ("audio/x-m4a" → "audio/mp4"), and the file's own bytes trusted over its label.
+ * Null when it is not a recording type we can send.
+ */
+export function geminiAudioMime(mime: string, audio?: Uint8Array): string | null {
+  const sniffed = sniffAudio(audio);
+  if (sniffed) return sniffed;
+  const base = s(mime).split(";")[0].trim().toLowerCase();
+  return AUDIO_MIME[base] ?? null;
+}
+
+/**
+ * Thinking settings per model: the 2.5 / 3.x models "think" before answering and those tokens count against
+ * maxOutputTokens, which can cut the JSON off. Flash: thinking off (budget 0); 2.5 Pro cannot switch it off (the
+ * smallest budget, 128); Gemini 3.x: the low level. Unknown models: nothing (the provider's default).
+ */
+export function thinkingConfigFor(model: string): Record<string, unknown> | null {
+  const m = model.trim().toLowerCase().replace(/^models\//, "");
+  if (/^gemini-2\.5-flash/.test(m)) return { thinkingBudget: 0 };
+  if (/^gemini-2\.5-pro/.test(m)) return { thinkingBudget: 128 };
+  if (/^gemini-[3-9]/.test(m)) return { thinkingLevel: "low" };
+  return null;
+}
+
+/** The Gemini request body for one scoring call. */
+export function geminiAudioRequest(model: string, system: string, userText: string, audio: Uint8Array, mime: string, opts: { thinking?: boolean } = {}): Record<string, unknown> {
+  const thinking = opts.thinking === false ? null : thinkingConfigFor(model);
+  const gemini3 = /^gemini-[3-9]/.test(model.trim().toLowerCase());
+  return {
+    systemInstruction: { parts: [{ text: system }] },
+    contents: [{ role: "user", parts: [{ text: userText }, { inline_data: { mime_type: mime, data: Buffer.from(audio).toString("base64") } }] }],
+    generationConfig: {
+      maxOutputTokens: FLUENCY_MAX_OUTPUT_TOKENS, responseMimeType: "application/json",
+      // Gemini 3 is tuned for its default temperature (lower values can make it loop until the reply is cut off)
+      ...(gemini3 ? {} : { temperature: 0 }),
+      ...(thinking ? { thinkingConfig: thinking } : {}),
+    },
+  };
+}
+
+/** A failed HTTP reply from Gemini as a plain-English reason and its kind (configuration or passing). */
+export function classifyGeminiFailure(status: number, body: string, model: string): CoachProviderError {
+  const b = s(body).slice(0, 600);
+  if (status === 429 || /RESOURCE_EXHAUSTED/.test(b)) return new CoachProviderError("RATE_LIMIT", "RATE_LIMIT: Gemini's usage limit was reached (per minute or per day).", status);
+  if (/API_KEY_INVALID|API key not valid|API key expired|ACCESS_TOKEN_TYPE_UNSUPPORTED/i.test(b)) return new CoachProviderError("CONFIG", `CONFIG: Google did not accept the Gemini API key (HTTP ${status}). Check GEMINI_API_KEY on Render: the whole key, no spaces; or create a new key at aistudio.google.com.`, status);
+  if (status === 401 || status === 403) return new CoachProviderError("CONFIG", `CONFIG: Google refused the Gemini API key (HTTP ${status}${/PERMISSION_DENIED|SERVICE_DISABLED/.test(b) ? ": the Generative Language API is not allowed for this key's project" : ""}). Check GEMINI_API_KEY on Render.`, status);
+  if (status === 404) return new CoachProviderError("CONFIG", `CONFIG: The Gemini model “${model}” was not found (HTTP 404). Set GEMINI_MODEL on Render to a current model that listens to audio, e.g. gemini-2.5-flash.`, status);
+  if (/User location is not supported|FAILED_PRECONDITION/i.test(b)) return new CoachProviderError("CONFIG", `CONFIG: Gemini is not available for this server's region or project (HTTP ${status}): ${b.replace(/\s+/g, " ").slice(0, 200)}`, status);
+  if (status >= 500) return new CoachProviderError("DOWN", `DOWN: Gemini is temporarily unavailable (HTTP ${status}).`, status);
+  return new CoachProviderError("REQUEST", `REQUEST: Gemini did not accept the request (HTTP ${status}): ${b.replace(/\s+/g, " ").slice(0, 300)}`, status);
+}
+
+/** The model the Fluency Coach uses (GEMINI_MODEL, else the platform default). */
+export function fluencyModel(env: EnvLike): string {
+  const c = chooseAiProvider({ ...env, AI_PROVIDER: "gemini" });
+  return ("error" in c ? "" : c.model) || s(env.GEMINI_MODEL).trim() || "gemini";
+}
+
+const COMPACT = "\nKeep the reply short: list ONLY the words with errors (never the correct words), each reason at most 12 words, no other text.";
+
 /** Gemini listens to the recording (audio inline, JSON reply). Null when Gemini is not set up. */
-export function geminiAudioScorer(env: EnvLike, fetchImpl: typeof fetch = fetch): AudioScorer | null {
+export function geminiAudioScorer(env: EnvLike, fetchImpl: typeof fetch = fetch, opts: { timeoutMs?: number } = {}): AudioScorer | null {
   const c = chooseAiProvider({ ...env, AI_PROVIDER: "gemini" });
   if ("error" in c || c.provider !== "gemini") return null;
-  const model = env.GEMINI_MODEL || c.model;
+  const model = c.model;
+  const budget = opts.timeoutMs ?? FLUENCY_TIMEOUT_MS;
   return async ({ words, audio, mime, task = "READ" }) => {
+    const sendMime = geminiAudioMime(mime, audio);
+    if (!sendMime) throw new CoachProviderError("REQUEST", `REQUEST: the recording type “${mime}” cannot be sent to Gemini.`);
     const numbered = words.map((w, i) => `${i}:${w}`).join(" ");
     let body = { passageWords: numbered, wordCount: words.length } as Record<string, unknown>;
     let lastError = "";
-    for (let attempt = 0; attempt < 2; attempt++) {
-      const res = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
-        method: "POST", headers: { "content-type": "application/json", "x-goog-api-key": c.apiKey },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: SYSTEM + TASK_NOTE[task] }] },
-          contents: [{ role: "user", parts: [{ text: JSON.stringify(body) }, { inline_data: { mime_type: mime, data: Buffer.from(audio).toString("base64") } }] }],
-          generationConfig: { maxOutputTokens: 8192, responseMimeType: "application/json", temperature: 0 },
-        }),
-        signal: AbortSignal.timeout(120_000),
-      });
-      if (!res.ok) { const t = await res.text(); throw new Error(res.status === 429 ? "RATE_LIMIT: the AI provider's limit was reached" : `Gemini error ${res.status}: ${t.slice(0, 200)}`); }
-      const data = (await res.json()) as { candidates?: { content?: { parts?: { text?: string; thought?: boolean }[] } }[] };
-      const text = (data.candidates?.[0]?.content?.parts ?? []).filter((p) => !p.thought).map((p) => p.text ?? "").join("");
-      try { const v = validateMarks(extractJson(text), words.length); if (v.ok) return v.value; lastError = v.error; }
-      catch (e) { lastError = (e as Error).message; }
-      body = { ...body, yourPreviousReplyWasRejectedBecause: lastError };
+    let thinking = true, answers = 0;
+    const deadline = Date.now() + budget;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const left = deadline - Date.now();
+      if (attempt > 0 && left < 10_000) break;   // no time for another try before the proxy gives up
+      let res: Response;
+      try {
+        res = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
+          method: "POST", headers: { "content-type": "application/json", "x-goog-api-key": c.apiKey },
+          body: JSON.stringify(geminiAudioRequest(model, SYSTEM + TASK_NOTE[task] + COMPACT, JSON.stringify(body), audio, sendMime, { thinking })),
+          signal: AbortSignal.timeout(Math.max(1_000, left)),
+        });
+      } catch (e) {
+        const n = (e as Error)?.name ?? "";
+        if (n === "TimeoutError" || n === "AbortError") throw new CoachProviderError("TIMEOUT", `TIMEOUT: Gemini did not answer within ${Math.round(budget / 1000)} seconds.`);
+        throw new CoachProviderError("DOWN", `DOWN: Gemini could not be reached (${s((e as Error)?.message).slice(0, 120)}).`);
+      }
+      if (!res.ok) {
+        const t = await res.text().catch(() => "");
+        // a model that does not take these thinking settings: ask once more without them
+        if (res.status === 400 && thinking && /thinking/i.test(t)) { thinking = false; continue; }
+        throw classifyGeminiFailure(res.status, t, model);
+      }
+      const data = (await res.json().catch(() => ({}))) as { candidates?: { content?: { parts?: { text?: string; thought?: boolean }[] }; finishReason?: string }[]; promptFeedback?: { blockReason?: string } };
+      const cand = data.candidates?.[0];
+      const text = (cand?.content?.parts ?? []).filter((p) => !p.thought).map((p) => p.text ?? "").join("");
+      if (data.promptFeedback?.blockReason) lastError = `Gemini refused the recording (${data.promptFeedback.blockReason})`;
+      else if (!text.trim()) lastError = cand?.finishReason === "MAX_TOKENS" ? "the reply was cut off before the answer (MAX_TOKENS: thinking used the output budget)" : `the reply was empty${cand?.finishReason ? ` (${cand.finishReason})` : ""}`;
+      else {
+        try { const v = validateMarks(extractJson(text), words.length); if (v.ok) return v.value; lastError = v.error; }
+        catch (e) { lastError = `${(e as Error).message}${cand?.finishReason === "MAX_TOKENS" ? " (cut off: MAX_TOKENS)" : ""}`; }
+      }
+      body = { passageWords: numbered, wordCount: words.length, yourPreviousReplyWasRejectedBecause: lastError };
+      if (++answers >= 2) break;   // two answers at most
     }
-    throw new Error(`The AI reply could not be used (${lastError}).`);
+    throw new CoachProviderError("INVALID", `INVALID: The AI reply could not be used (${lastError || "no answer in time"}).`);
   };
+}
+
+/** One second of silence as a 16 kHz mono WAV (for the admin's connection test: no voice, no student). */
+export function silentWav(seconds = 1, rate = 16000): Uint8Array {
+  const n = Math.round(seconds * rate), buf = new Uint8Array(44 + n * 2), v = new DataView(buf.buffer);
+  const w = (o: number, t: string) => { for (let i = 0; i < t.length; i++) v.setUint8(o + i, t.charCodeAt(i)); };
+  w(0, "RIFF"); v.setUint32(4, 36 + n * 2, true); w(8, "WAVE"); w(12, "fmt "); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, rate, true); v.setUint32(28, rate * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true); w(36, "data"); v.setUint32(40, n * 2, true);
+  return buf;
+}
+
+/** Plain-English text of a provider failure for the admin (the prefix code removed). */
+export const plainFailure = (m: string) => s(m).replace(/^(CONFIG|RATE_LIMIT|TIMEOUT|DOWN|INVALID|REQUEST):\s*/, "");
+
+/**
+ * 🔌 The admin's "Test the Fluency Coach connection": one second of generated silence goes to Gemini with the
+ * same settings the students use. OK, or the exact reason in plain English. No student data is sent.
+ */
+export async function testCoachConnection(repo: Repo, actor: Actor, env: EnvLike, fetchImpl: typeof fetch = fetch, now = new Date()): Promise<{ ok: boolean; model: string; ms: number; message: string }> {
+  assertCan(actor, "settings:engine");
+  const model = fluencyModel(env);
+  const scorer = geminiAudioScorer(env, fetchImpl);
+  if (!scorer) return { ok: false, model, ms: 0, message: "GEMINI_API_KEY is not set on the server (Render → Environment). The Fluency Coach needs a Google Gemini key." };
+  const started = Date.now();
+  try {
+    await scorer({ words: ["The", "kite", "flew", "high."], audio: silentWav(1), mime: "audio/wav", task: "READ" });
+    const ms = Date.now() - started;
+    await repo.create("AiRequestLog", { schoolId: s(actor.schoolId), tool: "fluency-test", provider: "gemini", model: model.slice(0, 80), ok: true, items: 1, ms, error: null, createdAt: now });
+    return { ok: true, model, ms, message: `OK: Gemini (${model}) listened to a test recording and answered in ${(ms / 1000).toFixed(1)} s. The Fluency Coach is ready.` };
+  } catch (e) {
+    const ms = Date.now() - started, m = s((e as Error).message);
+    await repo.create("AiRequestLog", { schoolId: s(actor.schoolId), tool: "fluency-test", provider: "gemini", model: model.slice(0, 80), ok: false, items: 1, ms, error: m.slice(0, 500), createdAt: now });
+    return { ok: false, model, ms, message: plainFailure(m) };
+  }
+}
+
+const COACH_ALERT = "🎙 The Fluency Coach is not set up correctly";
+/** Tells the school admins (once while the notice is unread) that the coach's AI connection needs fixing. */
+export async function notifyCoachProblem(repo: Repo, schoolId: string, reason: string, now = new Date()): Promise<number> {
+  const admins = await repo.findMany("User", { schoolId, role: "SCHOOL_ADMIN", isActive: true }, { select: ["id"] });
+  let n = 0;
+  for (const a of admins) {
+    const open = await repo.findMany("Notification", { userId: a.id, title: COACH_ALERT, readAt: null }, { select: ["id"] });
+    if (open.length) continue;
+    await repo.create("Notification", { userId: a.id, type: "ADMIN_MESSAGE", title: COACH_ALERT, body: `Students cannot get their reading scored. Reason: ${plainFailure(reason).slice(0, 300)} Open AI Tools → Settings and press “Test the Fluency Coach connection” after fixing it.`, link: "/admin/ai-tools?tab=settings", readAt: null, createdAt: now });
+    n++;
+  }
+  return n;
 }
 
 export interface CoachResult {
@@ -333,7 +502,7 @@ export interface ScoreInput { key: string; mode: CoachMode; seconds: number; aud
  * Scores one recording. The school's AI limits are kept: when the provider needs a pause, the reply says how long
  * to wait and the page sends the same recording again by itself (a queue, without storing the audio).
  */
-export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, env: EnvLike, deps: { scorer?: AudioScorer | null } = {}, now = new Date()): Promise<{ status: "OK"; result: CoachResult } | { status: "WAIT"; seconds: number; reason: string }> {
+export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, env: EnvLike, deps: { scorer?: AudioScorer | null } = {}, now = new Date()): Promise<{ status: "OK"; result: CoachResult } | { status: "WAIT"; seconds: number; reason: string; timeout?: boolean }> {
   const grade = await studentGrade(repo, actor);
   const schoolId = s(actor.schoolId);
   if (!(await coachSettings(repo, schoolId)).enabled) throw new ValidationError("The Fluency Coach is switched off by the school.");
@@ -342,7 +511,7 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   const mode: CoachMode = kind === "MINUTE" ? "MINUTE" : "PASSAGE";
   if (!input.audio.length) throw new ValidationError("The recording is empty. Check the microphone and read again.");
   if (input.audio.length > MAX_AUDIO_BYTES) throw new ValidationError("The recording is too long.");
-  if (!/^audio\/(wav|x-wav|wave|webm|ogg|mp4|mpeg|aac|flac)(;.*)?$/i.test(input.mime)) throw new ValidationError("This recording type is not supported.");
+  if (!geminiAudioMime(input.mime, input.audio)) throw new ValidationError("This recording type is not supported.");
   if (!(input.seconds >= (kind === "ECHO" ? 1 : 3))) throw new ValidationError("Read for a few seconds at least, then stop.");
   const all = await passagesFor(repo, schoolId, grade);
   const official0 = await latestOfficial(repo, actor.studentId!, grade);
@@ -382,15 +551,23 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   const mine = kind === "ECHO" ? await consumeRateLimit(repo, `fluency-echo:${actor.userId}`, ECHO_PER_DAY, 86_400_000, now) : await consumeRateLimit(repo, `fluency:${actor.userId}`, COACH_PER_DAY, 86_400_000, now);
   if (!mine.allowed) throw new ValidationError(`That is a lot of reading today — well done! Come back tomorrow.`);
   const started = Date.now();
+  const model = fluencyModel(env).slice(0, 80);
   let marks: ReadingMarks;
   try { marks = await scorer({ words, audio: input.audio, mime: input.mime, task: kind === "ECHO" ? "ECHO" : kind === "DRILL" ? "DRILL" : "READ" }); }
   catch (e) {
-    const m = (e as Error).message ?? "";
-    await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model: s(env.GEMINI_MODEL).slice(0, 80) || "gemini", ok: false, items: 1, ms: Date.now() - started, error: m.slice(0, 500), createdAt: new Date() });
-    if (/RATE_LIMIT|429/.test(m)) return { status: "WAIT", seconds: 60, reason: "The AI provider asked us to slow down. Your result is next." };
+    const m = s((e as Error)?.message);
+    const kindOf: CoachFailureKind | null = e instanceof CoachProviderError ? e.kind : /RATE_LIMIT|429/.test(m) ? "RATE_LIMIT" : null;
+    // the real reason goes to the AI log (admins see it under AI Tools → Log): never the audio, never a name
+    await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model, ok: false, items: 1, ms: Date.now() - started, error: m.slice(0, 500) || "unknown error", createdAt: new Date() });
+    if (kindOf === "RATE_LIMIT") return { status: "WAIT", seconds: 60, reason: "The AI provider asked us to slow down. Your result is next." };
+    if (kindOf === "TIMEOUT") return { status: "WAIT", seconds: 15, reason: "The coach is taking longer than usual to listen. It will try again by itself.", timeout: true };
+    if (kindOf === "CONFIG") {
+      await notifyCoachProblem(repo, schoolId, m, now).catch(() => 0);
+      throw new ValidationError("The Fluency Coach is not set up correctly. Your teacher has been told.");
+    }
     throw new ValidationError("The coach could not listen to this recording. Please try again in a moment.");
   }
-  await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model: s(env.GEMINI_MODEL).slice(0, 80) || "gemini", ok: true, items: 1, ms: Date.now() - started, error: null, createdAt: new Date() });
+  await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model, ok: true, items: 1, ms: Date.now() - started, error: null, createdAt: new Date() });
   // a fake or older scorer may skip the checks: run the reply through the validator once more
   const v = validateMarks(marks, words.length);
   if (!v.ok) throw new ValidationError("The coach could not listen to this recording. Please try again in a moment.");

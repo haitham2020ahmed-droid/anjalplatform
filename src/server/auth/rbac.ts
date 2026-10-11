@@ -98,14 +98,42 @@ export function canAccessStudent(actor: Actor, target: StudentRecordRef): boolea
 
 export class ForbiddenError extends Error {
   readonly status = 403;
-  constructor(message = "You do not have access to this resource.") {
+  /** the permission that was missing (for logs and tests; never shown to users) */
+  permission?: Permission;
+  constructor(message = "You do not have access to this resource.", permission?: Permission) {
     super(message);
+    if (permission) this.permission = permission;
   }
+}
+
+/** What each permission lets a person do, as words for "You don't have permission to …". */
+const PERMISSION_ACTION: Record<Permission, string> = {
+  "curriculum:read": "see the curriculum", "curriculum:edit": "change the curriculum",
+  "questions:read": "see the questions", "questions:edit": "edit questions", "questions:publish": "publish",
+  "questions:review": "review questions", "questions:generate": "create questions with AI",
+  "practice:take": "practise", "students:read": "see students", "students:manage": "manage students",
+  "teachers:manage": "manage teachers", "classes:manage": "manage classes",
+  "assignments:create": "create assignments", "assignments:read": "see assignments",
+  "reports:read": "see reports", "reports:export": "export reports",
+  "analytics:class": "see class analytics", "analytics:school": "see school analytics",
+  "imports:run": "import files", "settings:engine": "change these settings", "settings:school": "change the school settings",
+  "adaptive:audit": "see the adaptive audit", "schools:manage": "manage schools", "audit:read": "see the audit log",
+};
+
+/** The sentence a person sees when a permission is missing (never the raw permission code). */
+export function permissionMessage(permission: Permission): string {
+  return `You don't have permission to ${PERMISSION_ACTION[permission] ?? "do this"}. Ask an admin.`;
+}
+
+/** A message safe to show: an old "Missing permission: x:y" text becomes the friendly sentence. */
+export function friendlyForbidden(message: string): string {
+  const m = /Missing permission:\s*([a-z]+:[a-z]+)/i.exec(message);
+  return m ? permissionMessage(m[1] as Permission) : message;
 }
 
 /** Throwing guards for server actions / route handlers. */
 export function assertCan(actor: Actor, permission: Permission): void {
-  if (!can(actor, permission)) throw new ForbiddenError(`Missing permission: ${permission}`);
+  if (!can(actor, permission)) throw new ForbiddenError(permissionMessage(permission), permission);
 }
 
 export function assertStudentAccess(actor: Actor, target: StudentRecordRef): void {

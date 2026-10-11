@@ -192,7 +192,7 @@ describe("analytics on the database", () => {
     for (let i = 1; i < r.rows.length; i++) assert.ok(r.rows[i].accuracyPct >= r.rows[i - 1].accuracyPct);
     assert.ok(r.rows.every((x) => x.short.match(/^(RL|RI|L|W|RF)\.4\./) && x.attempts >= 5));
     assert.ok(r.notAssessed > 50);
-    await assert.rejects(standardsReport(repo, teacher, { school: true }, term), /Missing permission/);
+    await assert.rejects(standardsReport(repo, teacher, { school: true }, term), /don.t have permission/);
     const s = await standardsReport(repo, admin, { school: true }, term);
     assert.ok(s.rows.length >= r.rows.length);
     await assert.rejects(standardsReport(repo, otherTeacher, { classId: classA }, term), /do not teach/);

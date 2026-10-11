@@ -1,5 +1,5 @@
 "use server";
-import { setCoachSettings } from "@/server/fluency/coach";
+import { setCoachSettings, testCoachConnection } from "@/server/fluency/coach";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { repo, requireActor } from "@/server/auth/next";
@@ -85,4 +85,13 @@ export async function coachSettingsAction(f: FormData): Promise<void> {
   try { await setCoachSettings(repo, actor, String(f.get("enabled")) === "1"); msg = String(f.get("enabled")) === "1" ? "Fluency Coach is on." : "Fluency Coach is off."; } catch (e) { msg = friendly(e); }
   revalidatePath("/admin/ai-tools");
   redirect(`/admin/ai-tools?tab=settings&msg=${encodeURIComponent(msg)}`);
+}
+
+/** 🔌 Sends one second of generated silence to Gemini with the coach's settings: OK, or the exact reason. */
+export async function testCoachAction(): Promise<void> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "settings:engine" });
+  let q: Record<string, string>;
+  try { const r = await testCoachConnection(repo, actor, aiEnv()); q = { tab: "settings", test: r.ok ? "ok" : "fail", testMsg: r.message }; }
+  catch (e) { q = { tab: "settings", test: "fail", testMsg: friendly(e) }; }
+  redirect(`/admin/ai-tools?${new URLSearchParams(q)}`);
 }

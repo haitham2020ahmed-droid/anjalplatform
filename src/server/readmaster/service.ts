@@ -149,6 +149,7 @@ export async function addVersionQuestion(repo: Repo, actor: Actor, versionId: st
 }
 
 export async function setArticleStatus(repo: Repo, actor: Actor, articleId: string, status: "DRAFT" | "PUBLISHED"): Promise<void> {
+  // DRAFT · REVIEW (a teacher asked an admin to publish) · PUBLISHED
   assertCan(actor, "questions:edit"); staff(actor);
   // making an article live for students is publishing: a teacher with only edit rights cannot
   if (status === "PUBLISHED") assertCan(actor, "questions:publish");
@@ -177,6 +178,41 @@ export async function setArticlesStatus(repo: Repo, actor: Actor, articleIds: st
     }
   }
   return { changed, skipped };
+}
+
+export const REVIEW_NOTICE = "📚 ReadMaster articles ready for review";
+
+/**
+ * 📝 A teacher (questions:edit, not questions:publish) marks articles "Ready for review": an admin publishes them.
+ * Articles need questions first (as for publishing); published ones stay published. The school admins get one
+ * notification, not one per click (no new one while the last is unread).
+ */
+export async function requestArticleReview(repo: Repo, actor: Actor, articleIds: string[], now = new Date()): Promise<{ changed: number; skipped: string[]; notified: number }> {
+  assertCan(actor, "questions:edit"); staff(actor);
+  const ids = [...new Set(articleIds.filter(Boolean))];
+  if (!ids.length) throw new ValidationError("Tick at least one article first.");
+  let changed = 0; const skipped: string[] = [], titles: string[] = []; let grade = 4;
+  for (const id of ids) {
+    const a = await articleInSchool(repo, actor, id);
+    if (s(a.status) === "PUBLISHED" || s(a.status) === "REVIEW") continue;
+    const vers = await repo.findMany("ReadMasterVersion", { articleId: id }, { select: ["id"] });
+    const n = vers.length ? await repo.count("ReadMasterQuestion", { versionId: { in: vers.map((v) => v.id) } }) : 0;
+    if (!n) { skipped.push(s(a.title)); continue; }
+    await repo.updateMany("ReadMasterArticle", { id }, { status: "REVIEW", updatedAt: now });
+    changed++; titles.push(s(a.title)); grade = Number(a.gradeLevel) || grade;
+  }
+  let notified = 0;
+  if (changed) {
+    const who = s((await repo.findUnique("User", { id: actor.userId }))?.displayName) || "A teacher";
+    const admins = await repo.findMany("User", { schoolId: actor.schoolId, role: "SCHOOL_ADMIN", isActive: true }, { select: ["id"] });
+    for (const u of admins) {
+      if (u.id === actor.userId) continue;
+      if ((await repo.findMany("Notification", { userId: u.id, title: REVIEW_NOTICE, readAt: null }, { select: ["id"] })).length) continue;
+      await repo.create("Notification", { userId: u.id, type: "REPORT_APPROVAL", title: REVIEW_NOTICE, body: `${who} marked ${changed} article${changed === 1 ? "" : "s"} ready for review: ${titles.slice(0, 5).join(", ")}${titles.length > 5 ? "…" : ""}. Open ReadMaster to read and publish them.`, link: `/admin/readmaster?grade=${grade}`, readAt: null, createdAt: now });
+      notified++;
+    }
+  }
+  return { changed, skipped, notified };
 }
 
 export interface ArticleDetail extends ArticleSummary { versionsFull: { id: string; level: Level; lexile: number; body: string; wordCount: number; questions: { id: string; stem: string; status: string }[] }[]; results: { student: string; level: Level; correct: number; total: number; lexileBefore: number; lexileAfter: number; at: string }[] }

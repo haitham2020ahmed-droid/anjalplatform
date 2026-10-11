@@ -101,7 +101,7 @@ describe("curriculum editor", () => {
   test("teachers cannot edit the curriculum without a grant; admins can, and edits are audited", async () => {
     const unit = await g4Unit1();
     const teacher = await resolveActor(repo, await user("demo.teacher.4a"));
-    await assert.rejects(updateUnit(repo, teacher, String(unit.id), { title: "Hacked" }), /Missing permission/);
+    await assert.rejects(updateUnit(repo, teacher, String(unit.id), { title: "Hacked" }), /don.t have permission/);
     const admin = await resolveActor(repo, await user("demo.admin"));
     const u = await updateUnit(repo, admin, String(unit.id), { title: "  Unit 1:   Making Choices  " });
     assert.equal(u.title, "Unit 1: Making Choices");

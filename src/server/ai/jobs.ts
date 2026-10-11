@@ -344,6 +344,16 @@ export async function runWeekly(repo: Repo, actor: Actor, now = new Date()): Pro
 }
 
 /** Error rate of the AI requests (last N days), for the admin and the test report. */
+/** Readable names of the AI log's tools (the question tools and the Fluency Coach). */
+export const AI_LOG_TOOL: Record<string, string> = { ...TOOL_NAME, INTEL: "Difficulty", fluency: "Fluency Coach", "fluency-test": "Fluency Coach test" };
+
+/** ⚠️ The school's latest failed AI requests (newest first) with the provider's reason — admins only. */
+export async function aiErrors(repo: Repo, actor: Actor, limit = 50): Promise<{ at: string; tool: string; toolName: string; model: string; error: string; ms: number }[]> {
+  assertAdmin(actor);
+  const rows = (await repo.findMany("AiRequestLog", { schoolId: actor.schoolId }, { select: ["tool", "model", "ok", "error", "ms", "createdAt"] })).filter((r) => !r.ok).sort((a, b) => time(b.createdAt) - time(a.createdAt)).slice(0, limit);
+  return rows.map((r) => ({ at: new Date(time(r.createdAt)).toISOString(), tool: s(r.tool), toolName: AI_LOG_TOOL[s(r.tool)] ?? s(r.tool), model: s(r.model), error: s(r.error) || "unknown error", ms: Number(r.ms) }));
+}
+
 export async function aiLogSummary(repo: Repo, actor: Actor, days = 7, now = new Date()): Promise<{ requests: number; ok: number; invalid: number; rate: number; down: number; other: number; errorPct: number | null; recent: { at: string; tool: string; ok: boolean; error: string | null; ms: number }[] }> {
   assertAdmin(actor);
   const rows = (await repo.findMany("AiRequestLog", { schoolId: actor.schoolId })).filter((r) => time(r.createdAt) >= now.getTime() - days * 86_400_000).sort((a, b) => time(b.createdAt) - time(a.createdAt));

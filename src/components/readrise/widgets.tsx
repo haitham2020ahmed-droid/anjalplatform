@@ -5,7 +5,7 @@
 export function LevelBadge({ level, size = "md" }: { level: number; size?: "sm" | "md" | "lg" }) {
   const cls = size === "lg" ? "px-4 py-2 text-3xl" : size === "sm" ? "px-2 py-0.5 text-sm" : "px-3 py-1 text-xl";
   return (
-    <span className={`inline-flex items-baseline gap-1.5 rounded-xl bg-brand-navy font-bold text-white ${cls}`} title="ReadRise Level (an estimate on a Lexile-like scale)">
+    <span className={`inline-flex items-baseline gap-1.5 rounded-xl bg-brand-navy font-bold text-white ${cls}`} title="ReadRise Level (the platform's own reading-level estimate)">
       <span>{level}</span>
       <span className="text-[0.55em] font-semibold uppercase tracking-wide text-teal-100">RR</span>
     </span>

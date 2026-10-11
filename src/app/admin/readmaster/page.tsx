@@ -3,6 +3,7 @@ import { AppShell } from "@/components/app-shell";
 import { CcssNote } from "@/components/ccss-note";
 import { PageHeader, Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
+import { can } from "@/server/auth/rbac";
 import { gradeSkills, gradeStandards, listArticles, LEVEL_NAMES } from "@/server/readmaster/service";
 import { lexileBands } from "@/server/curriculum-map/lexile";
 import { bulkStatusAction, createArticleAction, importReadMasterAction, linkToMapAction } from "./actions";
@@ -24,6 +25,9 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
   const [arts, skills, bands, standards] = await Promise.all([listArticles(repo, actor, grade), gradeSkills(repo, actor.schoolId!, grade), lexileBands(repo, actor.schoolId ?? null), gradeStandards(repo, grade)]);
   const b = bands[grade];
   const published = arts.filter((a) => a.status === "PUBLISHED").length;
+  const inReview = arts.filter((a) => a.status === "REVIEW").length;
+  // publishing is for admins (questions:publish); teachers mark articles ready for review instead
+  const canPublish = can(actor, "questions:publish");
   const range = { BELOW: `< ${b.onMin}L`, ON: `${b.onMin}–${b.onMax}L`, ABOVE: `> ${b.onMax}L` } as const;
   const suggested = { BELOW: b.onMin - 100, ON: Math.round((b.onMin + b.onMax) / 2), ABOVE: b.onMax + 80 } as const;
   const field = "w-full rounded-xl border border-slate-300 bg-white px-3 py-2";
@@ -84,8 +88,8 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
         </form>
       </Section>
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-3">
-        <Section title="Import Many" icon="📥" tone="amber" className="lg:col-span-1"
+      <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <Section title="Import Many" icon="📥" tone="amber" className="min-w-0 lg:col-span-1"
           hint="One row per question; the first row of each level carries the Passage and its Lexile. The template has a complete example.">
           <form action={importReadMasterAction} className="space-y-3 text-sm">
             <div className="flex flex-wrap gap-2">
@@ -96,26 +100,33 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
             <button className="w-full rounded-xl bg-brand-navy px-4 py-2.5 font-semibold text-white hover:bg-brand-purple">Import</button>
           </form>
         </Section>
-        <Section title={`Grade ${grade} articles (${arts.length})`} icon="📚" className="lg:col-span-2">
+        <Section title={`Grade ${grade} articles (${arts.length})`} icon="📚" className="min-w-0 lg:col-span-2">
           {arts.length === 0 ? <p className="text-slate-600">No articles yet. Create one above or import the template.</p> : (
             <form action={bulkStatusAction}>
               <input type="hidden" name="grade" value={grade} />
-              <div className="mb-4 flex flex-wrap items-center gap-2 rounded-2xl bg-slate-50 p-3 text-sm ring-1 ring-slate-200">
-                <span className="me-auto font-semibold text-slate-700">{published} of {arts.length} published · tick articles, then:</span>
-                <button name="op" value="publish" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">✅ Publish ticked</button>
-                <button name="op" value="draft" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">↩ Ticked back to draft</button>
-                {published < arts.length && <button name="op" value="publishAll" className="rounded-xl bg-teal-600 px-4 py-2 font-semibold text-white hover:bg-teal-700">🚀 Publish all {arts.length - published} draft(s)</button>}
-              </div>
+              {canPublish ? (
+                <div className="mb-4 flex flex-wrap items-center gap-2 rounded-2xl bg-slate-50 p-3 text-sm ring-1 ring-slate-200">
+                  <span className="me-auto font-semibold text-slate-700">{published} of {arts.length} published{inReview ? ` · ${inReview} ready for review` : ""} · tick articles, then:</span>
+                  <button name="op" value="publish" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">✅ Publish ticked</button>
+                  <button name="op" value="draft" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">↩ Ticked back to draft</button>
+                  {published < arts.length && <button name="op" value="publishAll" className="rounded-xl bg-teal-600 px-4 py-2 font-semibold text-white hover:bg-teal-700">🚀 Publish all {arts.length - published} unpublished</button>}
+                </div>
+              ) : (
+                <div className="mb-4 flex flex-wrap items-center gap-2 rounded-2xl bg-amber-50 p-3 text-sm ring-1 ring-amber-200">
+                  <span className="me-auto text-amber-950"><b>Ready for review — an admin publishes articles.</b> {published} of {arts.length} published{inReview ? ` · ${inReview} waiting for an admin` : ""}. Tick your finished articles, then:</span>
+                  <button name="op" value="review" className="rounded-xl bg-amber-500 px-4 py-2 font-semibold text-amber-950 hover:bg-amber-400">📝 Mark ticked ready for review</button>
+                </div>
+              )}
             <ul className="grid gap-3 md:grid-cols-2">
               {arts.map((a) => (
                 <li key={a.id} className="relative">
-                  <label className="absolute start-3 top-3 z-10 flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg bg-white ring-1 ring-slate-300" title="Tick to publish or unpublish">
+                  <label className="absolute start-3 top-3 z-10 flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg bg-white ring-1 ring-slate-300" title={canPublish ? "Tick to publish or unpublish" : "Tick to mark ready for review"}>
                     <input type="checkbox" name="ids" value={a.id} aria-label={`Select ${a.title}`} className="h-4 w-4 accent-teal-600" />
                   </label>
                   <Link href={`/admin/readmaster/${a.id}`} className="lift block rounded-2xl bg-white p-4 ps-12 ring-1 ring-slate-200">
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0"><p className="truncate text-lg font-bold text-brand-navy">{a.title}</p><p className="truncate text-xs text-slate-500">{[a.code, a.standard, a.skill !== a.standard ? a.skill : null, a.topic].filter(Boolean).join(" · ")}</p></div>
-                      <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-bold ${a.status === "PUBLISHED" ? "bg-teal-100 text-teal-800" : "bg-slate-100 text-slate-600"}`}>{a.status === "PUBLISHED" ? "Published" : "Draft"}</span>
+                      <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-bold ${a.status === "PUBLISHED" ? "bg-teal-100 text-teal-800" : a.status === "REVIEW" ? "bg-amber-100 text-amber-900" : "bg-slate-100 text-slate-600"}`}>{a.status === "PUBLISHED" ? "Published" : a.status === "REVIEW" ? "Ready for review" : "Draft"}</span>
                     </div>
                     <div className="mt-3 grid grid-cols-3 gap-1.5 text-center text-xs">
                       {(["BELOW", "ON", "ABOVE"] as const).map((l) => { const v = a.versions.find((x) => x.level === l); return <span key={l} className={`rounded-lg px-1 py-1.5 font-semibold ring-1 ${v ? LV[l].chip : "bg-slate-50 text-slate-400 ring-slate-200"}`}>{LV[l].icon} {v ? `${v.lexile}L · ${v.questions} Q` : "missing"}</span>; })}

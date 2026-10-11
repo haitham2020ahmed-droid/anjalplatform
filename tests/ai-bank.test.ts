@@ -167,7 +167,7 @@ describe("AI-assisted question bank", () => {
     await approveAiDraft(repo, teacher, a, now);
     await assert.rejects(rejectAiDraft(repo, teacher, b, ""), /Reason/);
     await rejectAiDraft(repo, teacher, b, "Distractors are too easy.", now);
-    await assert.rejects(approveAiDraft(repo, student, c), (e: Error) => e instanceof ForbiddenError && /questions:review/.test(e.message), "refused by the review permission itself");
+    await assert.rejects(approveAiDraft(repo, student, c), (e: Error) => e instanceof ForbiddenError && (e as ForbiddenError).permission === "questions:review" && !/questions:review/.test(e.message), "refused by the review permission itself");
     const live = (await loadSkillItems(repo, skillId)).map((i) => i.questionId);
     assert.ok(live.includes(a), "approved question is used by the engine");
     assert.ok(!live.includes(b) && !live.includes(c), "rejected and pending questions are not");

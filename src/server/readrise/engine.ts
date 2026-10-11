@@ -219,6 +219,8 @@ export async function yearEndFor(repo: Repo, schoolId: string, now: Date): Promi
 export interface ReadRiseSummary {
   level: number; startLevel: number; source: string; growth: number; articlesDone: number; firstTryAvg: number | null;
   weeklyGoal: number; thisWeek: number; goalMet: boolean; streak: number; weeksMet: number; projected: number | null; placed: boolean;
+  /** scored first-try readings so far (0 = nothing read yet: no accuracy or growth to show) */
+  runs: number;
 }
 
 /** A projection needs this much evidence: first-try runs (not stretch) spread over at least this many days. */
@@ -248,6 +250,6 @@ export async function studentReadRiseSummary(repo: Repo, studentId: string, now 
   return {
     level: Number(rr.level), startLevel: Number(rr.startLevel), source: s(rr.source), growth: Number(rr.level) - Number(rr.startLevel),
     articlesDone: Number(rr.articlesDone ?? 0), firstTryAvg, weeklyGoal: g.goal, thisWeek: g.thisWeek, goalMet: g.met, streak: g.streak, weeksMet: g.weeksMet,
-    projected: await readRiseProjection(repo, main, points, s(rr.schoolId), now), placed,
+    projected: await readRiseProjection(repo, main, points, s(rr.schoolId), now), placed, runs: runs.length,
   };
 }
