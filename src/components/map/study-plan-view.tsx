@@ -1,5 +1,6 @@
 import type { StudyArea, StudyPlanDoc } from "@/server/map/map-reports";
-import { ReportHead, ReportPage, SkillChip, StatusLegend, ordinal } from "./report-ui";
+import Link from "next/link";
+import { ReportHead, ReportPage, STATUS_UI, SkillChip, StatusLegend, ordinal } from "./report-ui";
 
 const subjectName = (s: string) => (s === "READING" ? "Reading" : "Language Usage");
 const STAGE_STYLE = {
@@ -90,7 +91,11 @@ function AreaPages({ a, d, link, hub }: { a: StudyArea; d: StudyPlanDoc; link: b
                     <ol className="space-y-1.5">{t.statements.map((x, i) => { n++; return (
                       <li key={i} className="break-inside-avoid">
                         {d.source === "CONTINUUM" ? <>
-                          <p><span className="me-1 font-semibold text-slate-500">{n}.</span>{x.text}{x.standards.length > 0 && <span className="ms-1 text-[10px] text-slate-400">{x.standards.join(" ")}</span>}</p>
+                          <p><span className="me-1 font-semibold text-slate-500">{n}.</span>{x.skills.length > 0 && (link || hub)
+                            ? <Link prefetch={false} href={link ? `/practice/${x.skills[0].id}?from=map` : `/skill/${x.skills[0].id}`} className="font-medium text-brand-navy underline decoration-brand-teal/40 underline-offset-4 hover:decoration-brand-teal print:no-underline">
+                                <span aria-hidden="true" className={`me-1 inline-block h-2.5 w-2.5 rounded-full align-middle ${STATUS_UI[x.skills.every((k) => k.status === "MASTERED") ? "MASTERED" : x.skills.some((k) => k.status !== "NEW") ? "PRACTISING" : "NEW"].dot}`} />{x.text}{link && <span className="ms-1 text-xs font-semibold text-brand-teal print:hidden">▶ Practise</span>}
+                              </Link>
+                            : x.text}{x.standards.length > 0 && <span className="ms-1 text-[10px] text-slate-400">{x.standards.join(" ")}</span>}</p>
                           {x.skills.length > 0 && <div className="mt-0.5 flex flex-wrap gap-1 ps-4">{x.skills.map((k) => <SkillChip key={k.id} k={k} link={link} hub={hub} />)}</div>}
                         </> : <div className="flex items-center gap-2"><span className="font-semibold text-slate-500">{n}.</span>{x.skills.map((k) => <SkillChip key={k.id} k={k} link={link} hub={hub} />)}</div>}
                       </li>

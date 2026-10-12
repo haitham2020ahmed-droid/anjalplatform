@@ -1,3 +1,4 @@
+import { schoolSkillIndex } from "../questions/skill-questions";
 /**
  * 📑 MAP reports, built from the MAP results, the Learning Continuum and the platform's own practice:
  *   - Personal Study Plan (one student, one subject): for each goal area the student's RIT, then
@@ -96,6 +97,34 @@ function stageOf(key: PlanStage["key"], st: Stage | null, m: Mastery, limit: num
   return { key, title: STAGE_TITLE[key], range: `RIT ${st.label}`, topics, total, shown: list.length };
 }
 
+/** "RI.2.5" / "CCSS.ELA-LITERACY.RI.4.5" / "L.4.4.a" → "RI.5" / "L.4": the Common Core anchor (strand + number). */
+export function anchorOf(code: string): string {
+  const parts = s(code).replace(/^CCSS\.ELA-LITERACY\./i, "").toUpperCase().split(".");
+  return parts.length >= 3 ? `${parts[0]}.${parts[2]}` : parts.join(".");
+}
+const anchorCache = new Map<string, { at: number; map: Map<string, { id: string; name: string }[]> }>();
+/** The school's skills by Common Core anchor (one skill per family, the lowest grade first); cached 10 minutes. */
+async function anchorSkills(repo: Repo, schoolId: string): Promise<Map<string, { id: string; name: string }[]>> {
+  const hit = anchorCache.get(schoolId);
+  if (hit && Date.now() - hit.at < 600_000) return hit.map;
+  const idx = await schoolSkillIndex(repo, schoolId);
+  const ids = [...idx.ids].filter((id) => { const k = idx.skillOf.get(id)!; return k.isActive && !k.code.endsWith("curriculum-map-unclassified"); });
+  const links: Row[] = [];
+  for (let i = 0; i < ids.length; i += 500) links.push(...(await repo.findMany("SkillStandard", { skillId: { in: ids.slice(i, i + 500) } }, { select: ["skillId", "standardId"] })));
+  const stds = links.length ? await repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => s(l.standardId)))] } }, { select: ["id", "code"] }) : [];
+  const codeOf = new Map(stds.map((x) => [s(x.id), s(x.code)]));
+  const map = new Map<string, { id: string; name: string }[]>();
+  const famSeen = new Map<string, Set<string>>();
+  for (const l of links.sort((a, b) => (idx.gradeOf.get(s(a.skillId)) ?? 0) - (idx.gradeOf.get(s(b.skillId)) ?? 0))) {
+    const code = codeOf.get(s(l.standardId)); if (!code) continue;
+    const a = anchorOf(code), k = idx.skillOf.get(s(l.skillId))!, fam = idx.keyOf.get(k.id)!;
+    const seen = famSeen.get(a) ?? new Set<string>(); if (seen.has(fam)) continue; seen.add(fam); famSeen.set(a, seen);
+    map.set(a, [...(map.get(a) ?? []), { id: k.id, name: k.name }]);
+  }
+  anchorCache.set(schoolId, { at: Date.now(), map });
+  return map;
+}
+
 async function masteryOf(repo: Repo, studentIds: string[]): Promise<Map<string, Mastery>> {
   const rows = studentIds.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: studentIds } }, { select: ["studentId", "skillId", "score", "isMastered", "attempts"] }) : [];
   const out = new Map<string, Mastery>();
@@ -125,6 +154,14 @@ export async function studyPlan(repo: Repo, actor: Actor, studentId: string, sub
       if (ix && ix.rows.some((x) => groupOfGoal(s(x.goalArea)) === g.key)) {
         const v: ContinuumView = continuumFor(ix, g.key, r.rit);
         area.stages = [stageOf("REINFORCE", v.reinforce, m, full ? null : 6, student.grade), stageOf("DEVELOP", v.develop, m, full ? null : 18, student.grade), stageOf("INTRODUCE", v.introduce, m, full ? null : 6, student.grade)].filter((x): x is PlanStage => Boolean(x));
+        // a statement with no platform skill linked yet: the skills of the same Common Core anchor standard (e.g.
+        // RI.2.5 → the school's RI.x.5 skills), so every line of the plan opens practice
+        const anchors = await anchorSkills(repo, schoolId);
+        for (const stg of area.stages) for (const t of stg.topics) for (const x of t.statements) {
+          if (x.skills.length) continue;
+          const seen = new Set<string>();
+          for (const c of x.standards) for (const k of anchors.get(anchorOf(c)) ?? []) if (!seen.has(k.id) && seen.size < 2) { seen.add(k.id); x.skills.push(refOf(k, m)); }
+        }
       } else {
         // no continuum yet: the platform's skills of the student's RIT range
         const range = (await buildRanges(repo, schoolId, student.grade, g.key)).find((x) => r.rit >= x.low && r.rit <= x.high);
