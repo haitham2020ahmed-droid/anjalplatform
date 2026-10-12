@@ -15,6 +15,7 @@ import { weakestSkills } from "../insights/department";
 import { openAlertCount } from "../insights/alerts";
 import { classPlans, sendPlans, smallGroups } from "../map/map-plan";
 import { classRhythm, weekStart } from "./classroom";
+import { secondChanceCount } from "../second-chance/service";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -164,6 +165,9 @@ export async function navCounts(repo: Repo, actor: Actor, now = new Date()): Pro
       }
     }
     if (fresh) out["/student/badges"] = { count: fresh, alert: false };
+    // ⭐ Second Chance: questions waiting to be fixed
+    const chance = await secondChanceCount(repo, actor.studentId, now).catch(() => 0);
+    if (chance) out["/student/second-chance"] = { count: chance, alert: false };
     if (words >= 4) {
       if (!quizzed) out["/student/words"] = { count: 1, alert: false };
     }

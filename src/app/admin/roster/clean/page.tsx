@@ -21,7 +21,7 @@ export default async function CleanRosterPage({ searchParams }: { searchParams: 
   const pill = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-bold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin/quick-students", label: "Students & MAP Setup" }} icon="🧹" title="Clear Roster"
+      <PageHeader back={{ href: "/admin/school", label: "School" }} icon="🧹" title="Clear Roster"
         subtitle="Remove students — the whole school, a grade, a class or one student — before loading a new roster, or edit and remove them one by one. Archive keeps everything and can be restored (recommended). Delete permanently removes the students and their data. Classes, teachers, parents, questions, plans and settings are never touched." />
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <Section title="1 · Which Students" icon="🎯">
@@ -68,7 +68,7 @@ export default async function CleanRosterPage({ searchParams }: { searchParams: 
         ) : <p className="text-slate-600">No students here.</p>}
       </Section>
       <Section title="3 · Add the New Roster" icon="➕" className="mt-6" hint="Upload the roster file (role, username, display_name, student_number, grade, class). New classes are created automatically.">
-        <Link href="/admin/roster" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">➕ Import roster</Link>
+        <Link href="/admin/school?open=roster" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">➕ Import roster</Link>
       </Section>
     </AppShell>
   );

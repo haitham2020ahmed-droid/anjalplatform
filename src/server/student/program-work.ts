@@ -42,3 +42,22 @@ export function workProgress(items: readonly Pick<MyWorkItem, "status">[]): { do
   const total = items.length, done = items.filter((i) => i.status === "Done").length;
   return { done, total, pct: total ? Math.round((100 * done) / total) : 0 };
 }
+
+/**
+ * ✅ My Work, as the page shows it — ONE source for the list, the progress line, the badge and the Continue button,
+ * so the numbers always match the rows: `open` (not done, in order) and `done` rows, "X of Y done" over exactly these
+ * rows, the to-do badge = open rows, and Continue = the last activity (a lesson, an article, a practice …) unless it
+ * is work already Done (then the first open row; nothing to continue → no Continue button).
+ */
+export function myWorkView<T extends Pick<MyWorkItem, "status" | "href" | "skill" | "skillId">>(rows: readonly T[], last: { href: string; title: string } | null): {
+  open: T[]; done: T[]; progress: { done: number; total: number; pct: number }; toDo: number; cont: { href: string; title: string } | null; allDone: boolean;
+} {
+  const open = rows.filter((r) => r.status !== "Done");
+  const done = rows.filter((r) => r.status === "Done");
+  const progress = workProgress(rows);
+  const path = (h: string) => h.split(/[?#]/)[0];
+  // a finished skill's practice (Done) is never "continued"; its row links to the report
+  const lastIsDone = last ? done.some((r) => (r.skillId && path(last.href) === `/practice/${encodeURIComponent(r.skillId)}`) || path(r.href) === path(last.href)) && !open.some((r) => path(r.href) === path(last.href)) : false;
+  const cont = last && !lastIsDone ? { href: last.href, title: last.title } : open[0] ? { href: open[0].href, title: open[0].skill } : null;
+  return { open, done, progress, toDo: open.length, cont, allDone: progress.total > 0 && progress.done === progress.total };
+}

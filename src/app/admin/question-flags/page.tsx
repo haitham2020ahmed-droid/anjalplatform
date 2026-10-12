@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
+import { BankTabs } from "../questions/bank-tabs";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { flagList } from "@/server/teacher/classroom";
 import { resolveFlagsAction } from "./actions";
@@ -18,6 +19,7 @@ export default async function FlagsPage({ searchParams }: { searchParams: Promis
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/admin", label: "Home" }} icon="🚩" title="Flagged Questions" subtitle="Students pressed “This question is not clear”. Most reported first. Open the question, fix it, then mark it fixed." />
+      <BankTabs />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <div className="mb-4 flex gap-2">{([["OPEN", "To check"], ["FIXED", "Fixed"], ["DISMISSED", "Not a problem"]] as const).map(([k, l]) => <Link key={k} href={`/admin/question-flags?status=${k}`} className={chip(status === k)}>{l}</Link>)}</div>
       {!rows.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">Nothing here. ✅</p> : (

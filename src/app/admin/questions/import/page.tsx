@@ -6,6 +6,7 @@ import { CURRICULUM_RULES } from "@/imports/questions/template-files";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { listImportJobs } from "@/server/admin/question-import";
 import { ImportUpload } from "./upload-form";
+import { BankTabs } from "../bank-tabs";
 import { CcssNote } from "@/components/ccss-note";
 
 const STATUS: Record<string, { text: string; cls: string }> = {
@@ -27,6 +28,7 @@ export default async function ImportQuestionsPage({ searchParams }: { searchPara
     <AppShell name={String(me.displayName)}>
       <p><Link href="/admin/questions" className="text-brand-teal hover:underline">← Questions</Link></p>
       <h1 className="mt-2 text-3xl font-bold text-brand-navy">Import Questions</h1>
+      {(actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN") && <div className="mt-3"><BankTabs /></div>}
       <CcssNote className="mt-3" />
       <p className="mt-1 max-w-3xl text-slate-600">Prepare your Excel file, upload it, review every question, then import. Nothing is added to the question bank until you confirm, and imported questions go through the normal review before students see them.</p>
 
@@ -104,7 +106,7 @@ export default async function ImportQuestionsPage({ searchParams }: { searchPara
                   <td className="pe-2">{j.uploadedBy}</td>
                   <td className="pe-2">{j.status === "FAILED" ? "—" : `${j.totals.total} (${j.totals.valid} ready, ${j.totals.invalid} with errors, ${j.totals.duplicates} duplicates)`}</td>
                   <td className="pe-2">
-                    {j.summary ? `${j.summary.imported + j.summary.replaced} imported, ${j.summary.skipped} skipped, ${j.summary.failed} failed` : j.status === "FAILED" ? <span className="text-red-700">{j.errors[0] ?? "The file could not be read."}{j.errors.length > 1 ? ` (+${j.errors.length - 1} more)` : ""}</span> : "—"}
+                    {j.summary ? `${j.summary.imported + j.summary.replaced} imported, ${j.summary.skipped} skipped, ${j.summary.failed} failed${j.summary.duplicatesSkipped ? ` · Skipped ${j.summary.duplicatesSkipped} duplicate questions` : ""}` : j.status === "FAILED" ? <span className="text-red-700">{j.errors[0] ?? "The file could not be read."}{j.errors.length > 1 ? ` (+${j.errors.length - 1} more)` : ""}</span> : "—"}
                   </td>
                   <td><span className={`whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-semibold ${STATUS[j.status]?.cls ?? ""}`}>{STATUS[j.status]?.text ?? j.status}</span></td>
                 </tr>

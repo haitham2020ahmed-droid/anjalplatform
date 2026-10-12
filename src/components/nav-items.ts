@@ -38,6 +38,7 @@ function studentMenu(opts: NavOpts): NavItem[] {
     { href: "/student/readrise", label: "ReadRise", icon: "🚀", group: "Reading" },
     { href: "/student/fluency-coach", label: "Fluency Coach", icon: "🎙️", group: "Reading" },
     // Achievements
+    { href: "/student/second-chance", label: "Second Chance", icon: "🌟", group: "Achievements" },
     { href: "/student/tests", label: "My Tests", icon: "📝", group: "Achievements" },
     { href: "/student/certificates", label: "My Certificates", icon: "📜", group: "Achievements" },
     { href: "/student/badges", label: "Badges", icon: "🏅", group: "Achievements" },
@@ -120,21 +121,27 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
 /** Every page a role can find by name: the menu, then the pages that left it (no duplicates). */
 export function searchablePagesFor(role: string, opts: NavOpts = {}): NavItem[] {
   const menu = navItemsFor(role, opts);
-  const extra = role === "TEACHER" || role === "STUDENT" ? OFF_MENU[role] : [];
+  const extra = role === "TEACHER" || role === "STUDENT" ? OFF_MENU[role] : role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN" ? adminOffMenu() : [];
   const seen = new Set(menu.map((i) => i.href));
   return [...menu, ...extra.filter((i) => !seen.has(i.href))];
 }
 
 // ------------------------------------------------------------------ Admin
-/** Home · All Admin Tools, the five sections (only the most used pages), then every other admin page under More. */
+/**
+ * Home · All Admin Tools, then the five sections (≤ 6 working tools each). Nothing is folded under "More": every
+ * other admin tool is on All Admin Tools (searchable) and in the top bar's "Find a page" (adminOffMenu).
+ */
 function adminMenu(): NavItem[] {
-  const inMenu = ADMIN_TOOLS.filter((x) => x.nav !== false);
   return [
     { href: "/admin", label: "Home", icon: "🏠" },
     { href: ALL_TOOLS_HREF, label: "All Admin Tools", icon: "🧰" },
-    ...ADMIN_GROUPS.flatMap((g) => inMenu.filter((x) => x.menu && x.group === g.key).map((x) => ({ href: x.href, label: x.label, icon: x.icon, group: g.title }))),
-    ...inMenu.filter((x) => !x.menu).map((x) => ({ href: x.href, label: x.label, icon: x.icon, group: MORE })),
+    ...ADMIN_GROUPS.flatMap((g) => ADMIN_TOOLS.filter((x) => x.menu && x.group === g.key).map((x) => ({ href: x.href, label: x.label, icon: x.icon, group: g.title }))),
   ];
+}
+
+/** The admin tools that are not in the side menu (found by name in the top bar). */
+function adminOffMenu(): NavItem[] {
+  return ADMIN_TOOLS.filter((x) => !x.menu).map((x) => ({ href: x.href, label: x.label, icon: x.icon }));
 }
 
 /** The menu in its own order: a run of items of the same group is one section (items without a group stand alone). */

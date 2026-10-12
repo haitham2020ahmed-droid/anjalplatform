@@ -7,12 +7,19 @@ import { toPickerQuestions, type PickerQuestion } from "./helpers";
 export const LOAD_LIMIT = 200;
 const CACHE_SIZE = 12;
 const cache = new Map<string, Promise<PickerQuestion[]>>();
+/** how many questions of the skill are still drafts (not published), from the last read */
+export const draftsOf = new Map<string, number>();
 
 /** The questions of one skill, read once per page (the picker and the student preview share the read). */
 export function loadSkillQuestions(skillId: string): Promise<PickerQuestion[]> {
   const hit = cache.get(skillId);
   if (hit) return hit;
-  const p = listSkillQuestionsForTeacherAction(skillId, { limit: LOAD_LIMIT }).then(toPickerQuestions);
+  const p = listSkillQuestionsForTeacherAction(skillId, { limit: LOAD_LIMIT }).then((r) => {
+    const list = toPickerQuestions(r);
+    const d = r && typeof r === "object" && !Array.isArray(r) ? Number((r as { drafts?: unknown }).drafts ?? 0) : 0;
+    if (d > 0) draftsOf.set(skillId, d); else draftsOf.delete(skillId);
+    return list;
+  });
   p.catch(() => cache.delete(skillId));
   cache.set(skillId, p);
   if (cache.size > CACHE_SIZE) cache.delete(cache.keys().next().value as string);

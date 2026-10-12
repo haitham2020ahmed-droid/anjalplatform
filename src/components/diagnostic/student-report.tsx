@@ -10,7 +10,7 @@ export function StudentDiagnosticView({ r, family }: { r: StudentDiagnosticRepor
   return (
     <article className="mx-auto max-w-4xl space-y-5">
       <header className="overflow-hidden rounded-3xl bg-gradient-to-br from-brand-navy to-indigo-800 p-6 text-white shadow-md print:shadow-none">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-200">Al-Anjal Adaptive ELA · Diagnostic Report</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-200">Al-Anjal English · Diagnostic Report</p>
         <h1 className="mt-1 text-3xl font-extrabold">{r.student.name}</h1>
         <p className="text-white/80">{r.student.className} · Grade {r.grade} · {r.year} · taken {r.date}</p>
         <div className="mt-5 grid gap-3 sm:grid-cols-4">

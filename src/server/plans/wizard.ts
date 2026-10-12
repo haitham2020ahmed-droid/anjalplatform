@@ -16,6 +16,7 @@
  * Access: the class must be the teacher's own (assertClassAccess; admin any class of the school); skills may come
  * from ANY grade of the school.
  */
+import { skillsMatching } from "../questions/skill-questions";
 import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -101,15 +102,12 @@ export async function plansWizardContext(repo: Repo, actor: Actor, classId?: str
 export async function searchSkillsAnyGrade(repo: Repo, actor: Actor, q: string, limit = 30): Promise<{ id: string; name: string; grade: number; grammar: boolean; questions: number }[]> {
   assertCan(actor, "curriculum:read");
   const text = s(q).replace(/\s+/g, " ").trim().slice(0, 80);
-  if (text.length < 2) return [];
-  const grades = await schoolGrades(repo, actor.schoolId);
-  const curIds = grades.flatMap((g) => g.curriculumIds);
-  if (!curIds.length) return [];
-  const rows = await repo.findMany("Skill", { curriculumId: { in: curIds }, deletedAt: null, isActive: true, name: { contains: text } }, { select: ["id", "name", "code", "curriculumId"], take: Math.max(1, Math.min(60, limit)) });
-  const gradeOfCur = new Map(grades.flatMap((g) => g.curriculumIds.map((c) => [c, g.level] as const)));
-  const counts = await publishedQuestionCounts(repo, s(actor.schoolId), rows.map((k) => s(k.id)));
-  return rows.map((k) => ({ id: s(k.id), name: s(k.name), grade: gradeOfCur.get(s(k.curriculumId)) ?? 0, grammar: isGrammarCode(k.code), questions: counts.get(s(k.id)) ?? 0 }))
-    .sort((a, b) => a.name.localeCompare(b.name) || a.grade - b.grade);
+  if (!text || !actor.schoolId) return [];
+  // ONE question bank: the shared search (skill names, codes and the questions' text; one row per skill family,
+  // pooled counts), never limited to the class's grade
+  const hits = await skillsMatching(repo, s(actor.schoolId), text);
+  return hits.slice(0, Math.max(1, Math.min(60, limit))).map((k) => ({ id: k.id, name: k.name, grade: k.grade, grammar: (k.familyKey ?? "").startsWith("grammar:"), questions: k.questions }))
+    .sort((a, b) => Number(b.questions > 0) - Number(a.questions > 0) || a.name.localeCompare(b.name));
 }
 
 // ------------------------------------------------------------------ step 2/3: the proposal
@@ -291,13 +289,22 @@ export async function proposePlan(repo: Repo, actor: Actor, input: ProposeInput)
     const out = recipients.filter((id) => !inRti.some((t) => s(t.studentId) === id));
     if (out.length) notes.push(`Not in RTI (left out): ${out.map((id) => nameOf.get(id) ?? "Student").join(", ")}.`);
     const noFocus = inRti.filter((t) => !t.focusSkillId).map((t) => s(t.studentId));
+    const noData: string[] = [];
     const weakest = noFocus.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: noFocus } }, { select: ["studentId", "skillId", "score", "attempts"] }) : [];
     for (const t of inRti) {
       const id = s(t.studentId);
       if (t.focusSkillId) { want(s(t.focusSkillId), [id], `RTI Tier ${t.tier}: focus skill`); continue; }
       const w = weakest.filter((x) => s(x.studentId) === id && Number(x.attempts) > 0).sort((a, b) => Number(a.score) - Number(b.score))[0];
       if (w) want(s(w.skillId), [id], `RTI Tier ${t.tier}: weakest skill`);
-      else notes.push(`${nameOf.get(id) ?? "Student"} is in RTI Tier ${t.tier} but has no focus skill yet: add one below.`);
+      else noData.push(id);
+    }
+    if (noData.length) {
+      // no focus skill and no practice yet: the core reading skills (whole bank, any grade) as a start
+      for (const q of ["central idea", "make inferences", "context clues"]) {
+        const hit = (await skillsMatching(repo, s(klass.schoolId), q)).find((k) => k.questions > 0);
+        if (hit) want(hit.id, noData, "RTI: a core reading skill to start (no practice data yet)");
+      }
+      notes.push(`${noData.length} student(s) in RTI have no focus skill or practice yet: the core reading skills are suggested. Change them if you like.`);
     }
   }
 

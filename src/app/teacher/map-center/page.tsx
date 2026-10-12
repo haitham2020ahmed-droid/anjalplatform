@@ -1,3 +1,4 @@
+import { classMembers } from "@/server/insights/student-data";
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { ReportHeader } from "@/components/report-kit";
@@ -31,7 +32,15 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
   const tab = mapTabOf(one(sp.tab));
   const subject: Subject = /^lang/i.test(one(sp.subject)) ? "LANGUAGE" : "READING";
   const classes = (await readableClasses(repo, actor)).map((c) => ({ id: String(c.id), name: String(c.name) })).sort((a, b) => a.name.localeCompare(b.name));
-  const classId = classes.find((c) => c.id === one(sp.classId))?.id ?? classes[0]?.id ?? "";
+  // no class chosen: open the first class that has MAP scores (not just the first name)
+  let firstWithScores: string | undefined;
+  if (!one(sp.classId) && classes.length > 1) {
+    for (const c of classes) {
+      const ids = await classMembers(repo, c.id);
+      if (ids.length && (await repo.count("MapResult", { studentId: { in: ids.slice(0, 500) } })) > 0) { firstWithScores = c.id; break; }
+    }
+  }
+  const classId = classes.find((c) => c.id === one(sp.classId))?.id ?? firstWithScores ?? classes[0]?.id ?? "";
   const msg = one(sp.msg);
   const href = (p: Record<string, string>) => `/teacher/map-center?${new URLSearchParams({ tab, classId, subject, ...p })}`;
   const pill = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;

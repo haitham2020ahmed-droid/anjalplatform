@@ -20,7 +20,7 @@ import { saveQuestionImage } from "./question-images";
 import { LEVEL_TO_B } from "../../config/engine";
 import { ExtractError, extract, type FileKind } from "../../imports/questions/extract";
 import {
-  DuplicateIndex, GENERIC_WRONG_FEEDBACK, MAX_IMPORT_ROWS, buildCurriculumIndex, matchCurriculum, parseTemplateTable, couldMatch, questionWords, readRow, requiredWords, shortStandard,
+  DuplicateIndex, GENERIC_WRONG_FEEDBACK, MAX_IMPORT_ROWS, buildCurriculumIndex, matchCurriculum, parseTemplateTable, readRow, shortStandard,
   type CurriculumIndex, type RowQuestion, type SkillRef,
   type ImportTarget, type CurriculumMatch,
 } from "../../imports/questions/template";
@@ -36,6 +36,8 @@ import { gradeFromRow, pickSkill } from "../../imports/questions/autofill";
 import { log } from "../monitoring/log";
 import { BOOT_ID, CRASH_MESSAGE, beginStep, endStep, leftByDeadProcess, type GuardState } from "../jobs/crash-guard";
 import { areaByKey, areaFromName, areaFromText, defaultStandard, parseCcss } from "../map/nwea-area";
+import { backfillContentHashes, hashOfItem } from "../questions/dedupe-hash";
+import { schoolSkillIndex } from "../questions/skill-questions";
 
 export type ImportDecision = "IMPORT" | "SKIP" | "REPLACE" | "FORCE";
 export type RowStatus = "VALID" | "INVALID" | "DUPLICATE" | "IMPORTED" | "REPLACED" | "SKIPPED" | "FAILED";
@@ -224,74 +226,64 @@ export class PassageDuplicates {
   }
 }
 
-/** Bank questions are read in pages of this many rows, only the columns the duplicate check needs (Update 42A). */
-const BANK_PAGE = 500;
+/** Fingerprints are looked up this many at a time (indexed column, Update 👯). */
+const HASH_LOOKUP = 500;
 
-export interface DupQuery { stem: string; options: string[]; passage: string }
-
-/** Every live bank question of these skills, page by page (id order): id, text, passage id and its choices' text. */
-async function* bankPages(repo: Repo, skillIds: string[]): AsyncGenerator<{ id: string; stem: string; passageId: string | null; options: string[] }[]> {
-  if (!skillIds.length) return;
-  let after = "";
-  for (;;) {
-    const page = await repo.findMany("Question", { skillId: { in: skillIds }, ...(after ? { id: { gt: after } } : {}) }, { select: ["id", "stem", "passageId", "status", "deletedAt"], orderBy: [{ field: "id", dir: "asc" }], take: BANK_PAGE });
-    if (!page.length) return;
-    after = String(page[page.length - 1].id);
-    const live = page.filter((q) => !q.deletedAt && q.status !== "ARCHIVED");
-    const opts = live.length ? await repo.findMany("QuestionOption", { questionId: { in: live.map((q) => q.id) } }, { select: ["questionId", "text", "order"] }) : [];
-    const byQ = new Map<string, Row[]>();
-    for (const o of opts) { const k = String(o.questionId); const l = byQ.get(k); if (l) l.push(o); else byQ.set(k, [o]); }
-    yield live.map((q) => ({ id: String(q.id), stem: String(q.stem), passageId: q.passageId ? String(q.passageId) : null, options: (byQ.get(String(q.id)) ?? []).sort((a, b) => Number(a.order) - Number(b.order)).map((x) => String(x.text)) }));
-    if (page.length < BANK_PAGE) return;
-  }
+/** The answers stored for an imported item (the same list writeBatch writes). */
+function storedAnswers(item: BankItem, input: EditorInput): unknown[] {
+  const out: unknown[] = answerValues(item).filter((x) => x !== undefined && x !== null);
+  if (input.type === "SHORT_ANSWER" && input.answers?.[0]) out.push(input.answers[0]);
+  return out;
 }
 
 /**
- * The bank questions (of these skills) that could match one of the queries, in a duplicate index — without ever holding
- * the whole bank in memory (Update 42A; before, every question of the grades with its full row, choices and passage was
- * loaded and indexed: ~100 MB for 8,000 questions). Pass 1 counts how many bank questions use each word; each query then
- * keeps the few rarest words any match MUST contain (exact: no match is missed); pass 2 indexes only the bank questions
- * that contain one of those words. Same results as indexing everything (same id order), a tiny fraction of the memory.
+ * 👯 The content fingerprint of an import row as it will be saved (dedupe-hash.ts), or null when the row is not a
+ * valid question yet. No database access.
  */
-export async function bankDuplicates(repo: Repo, skillIds: string[], queries: DupQuery[]): Promise<PassageDuplicates> {
-  const index = new PassageDuplicates();
-  const qs = queries.filter((q) => q.stem.trim()).map((q) => questionWords(q.stem, q.options));
-  if (!skillIds.length || !qs.length) return index;
-  // pass 1: how many bank questions use each word
-  const df = new Map<string, number>();
-  for await (const page of bankPages(repo, skillIds)) for (const q of page) for (const w of questionWords(q.stem, q.options).full) df.set(w, (df.get(w) ?? 0) + 1);
-  // each query's required (rarest) words → the queries that need them
-  const dfOf = (w: string) => df.get(w) ?? 0;
-  const byWord = new Map<string, number[]>();
-  const need = (w: string, i: number) => { const l = byWord.get(w); if (!l) byWord.set(w, [i]); else if (l[l.length - 1] !== i) l.push(i); };
-  for (const [i, q] of qs.entries()) {
-    const r = requiredWords(q, dfOf);
-    for (const w of r.full) need(w, i);
-    for (const w of r.stem) need(w, i);
+export function importHash(input: EditorInput | null | undefined, passage: string | null, imageId: string | null): string | null {
+  if (!input?.stem) return null;
+  try {
+    const item = withoutKey(buildBankItem(withStandInKey(input), { ref: "hash", grade: 0, skillCode: "hash", standardCode: null, passageRef: null, allowNoStandard: true }), input);
+    return hashOfItem(item, passage || null, imageId, storedAnswers(item, input));
+  } catch {
+    return null;
   }
-  df.clear();
-  // pass 2: a bank question enters the index only when it really could match a query of the file
-  const passageKeys = new Map<string, string>();
-  for await (const page of bankPages(repo, skillIds)) {
-    const hits = page.filter((b) => {
-      const w = questionWords(b.stem, b.options);
-      const seen = new Set<number>();
-      for (const set of [w.full, w.stem]) for (const x of set) for (const i of byWord.get(x) ?? []) {
-        if (seen.has(i)) continue;
-        seen.add(i);
-        if (couldMatch(qs[i], w)) return true;
-      }
-      return false;
-    });
-    const missing = [...new Set(hits.map((q) => q.passageId).filter((p): p is string => Boolean(p) && !passageKeys.has(p!)))];
-    for (let i = 0; i < missing.length; i += 200) for (const p of await repo.findMany("ReadingPassage", { id: { in: missing.slice(i, i + 200) } }, { select: ["id", "body"] })) passageKeys.set(String(p.id), passageKey(p.body));
-    for (const q of hits) index.add(q.id, q.stem, q.options, q.passageId ? passageKeys.get(q.passageId) ?? "" : "");
+}
+
+export interface BankHit { id: string; skillId: string }
+
+/**
+ * 👯 The bank questions with these fingerprints (one indexed lookup per HASH_LOOKUP fingerprints, a few columns):
+ * the duplicate check of the importer. Replaces the old check that read the bank into memory. Archived and deleted
+ * questions do not count. Questions saved before fingerprints existed get theirs first (once, in batches).
+ */
+export async function bankHashHits(repo: Repo, hashes: (string | null)[]): Promise<Map<string, BankHit[]>> {
+  const want = [...new Set(hashes.filter((h): h is string => Boolean(h)))];
+  const out = new Map<string, BankHit[]>();
+  if (!want.length) return out;
+  await backfillContentHashes(repo);
+  for (let i = 0; i < want.length; i += HASH_LOOKUP) {
+    const rows = await repo.findMany("Question", { contentHash: { in: want.slice(i, i + HASH_LOOKUP) } }, { select: ["id", "skillId", "contentHash", "status", "deletedAt"] });
+    for (const r of rows) {
+      if (r.deletedAt || r.status === "ARCHIVED") continue;
+      const k = String(r.contentHash);
+      const l = out.get(k) ?? [];
+      l.push({ id: String(r.id), skillId: String(r.skillId) });
+      out.set(k, l);
+    }
   }
-  return index;
+  for (const l of out.values()) l.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  return out;
+}
+
+/** The first bank question with this fingerprint in the same skill family (the same skill in any grade). */
+function sameFamily(hits: BankHit[] | undefined, skillId: string | null | undefined, keyOf: Map<string, string>): BankHit | null {
+  if (!hits?.length || !skillId) return null;
+  const fam = keyOf.get(skillId) ?? `solo:${skillId}`;
+  return hits.find((h) => (keyOf.get(h.skillId) ?? `solo:${h.skillId}`) === fam) ?? null;
 }
 
 const optionTexts = (i: EditorInput | null | undefined) => i?.options?.map((o) => o.text) ?? [];
-const SAME_WORDING_NOTE = "A question with the same wording but different answer choices is already in the question bank. It is imported as a new question.";
 
 // ------------------------------------------------------------------- analyze
 
@@ -432,9 +424,10 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
     read.push({ r, rr, cm, place, uses, fill });
   }
   const gradesInFile = new Set(read.map((x) => x.cm.skill?.grade).filter((g): g is number => g !== undefined));
-  // the bank's duplicates: only the questions that could match a row of this file are read into memory (Update 42A)
-  const existing = await bankDuplicates(repo, [...gradesInFile].flatMap((g) => idx.grades.get(g) ?? []).map((s) => s.id),
-    read.filter((x) => x.rr.question?.stem).map((x) => ({ stem: x.rr.question!.stem, options: x.rr.question!.options?.map((o) => o.text) ?? [], passage: passageKey(x.r.cells.passage) })));
+  // 👯 the bank's duplicates: the fingerprint of every row, looked up in the indexed column (never the bank in memory)
+  const keyOf = (await schoolSkillIndex(repo, schoolOf(actor))).keyOf;
+  const hashOfRow = (x: (typeof read)[number], imageId: string | null) => importHash(x.rr.question ? toInput(x.rr.question, x.cm.skill?.id ?? "", x.cm.standard ? String(x.cm.standard.code) : null, "hash") : null, x.rr.question?.passage ?? null, imageId);
+  const existing = await bankHashHits(repo, read.map((x) => hashOfRow(x, null)));
   const inFile = new PassageDuplicates();
   const rowOfStem = new Map<string, number>();
 
@@ -482,10 +475,11 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
       for (let k = 0; k < errors.length; k++) if (/^Accepted answer must be \d+ characters or fewer/.test(errors[k])) errors[k] = "Open-response question: its answer is a model answer, and the platform marks only short answers automatically (up to 200 characters each). Put the model answer in Explanation and one or more short accepted answers in Correct Answer (separated by |), or leave this question out.";
       // the same words about ANOTHER passage are another question (e.g. “What is the main idea of the text?”)
       const myPassage = passageKey(r.cells.passage);
-      let dup = editor && editor.stem ? existing.find(editor.stem, optionTexts(editor), myPassage) : null;
+      const h = editor && !errors.length ? importHash(editor, rr.question?.passage ?? null, editor.imageId ?? null) : null;
+      const bankHit = h ? sameFamily(editor?.imageId ? (await bankHashHits(repo, [h])).get(h) : existing.get(h), editor?.skillId, keyOf) : null;
+      let dup: { id: string; exact: boolean; score: number } | null = bankHit ? { id: bankHit.id, exact: true, score: 1 } : null;
       let fileDup = editor && editor.stem ? inFile.find(editor.stem, optionTexts(editor), myPassage) : null;
       // the same wording with other answer choices is another question: a note only, imported by default
-      if (dup?.stemOnly) { warnings.push(SAME_WORDING_NOTE); dup = null; }
       if (fileDup?.stemOnly) { warnings.push(`Same wording as row ${rowOfStem.get(fileDup.id)} in this file, but with different answer choices.`); fileDup = null; }
       if (dup) warnings.push(dup.exact ? "This question already exists in the question bank." : `A similar question already exists in the question bank (${Math.round(dup.score * 100)}% similar).`);
       if (fileDup) warnings.push(`${fileDup.exact ? "Same question as" : "Very similar to"} row ${rowOfStem.get(fileDup.id)} in this file.`);
@@ -610,7 +604,7 @@ export interface PreviewRow {
 export interface ImportJobView {
   id: string; fileName: string; status: string; kind: string; createdAt: string; uploadedBy: string;
   totals: { total: number; valid: number; invalid: number; duplicates: number };
-  summary: { imported: number; replaced: number; skipped: number; failed: number } | null;
+  summary: { imported: number; replaced: number; skipped: number; failed: number; duplicatesSkipped?: number } | null;
   options: { notes?: string[]; stage?: string; publish?: boolean };
   /** reasons a FAILED job could not be imported, or the rows that failed while importing */
   errors: string[];
@@ -723,15 +717,14 @@ export async function updateImportRow(repo: Repo, actor: Actor, jobId: string, r
     const idx = await loadCurriculumIndex(repo, actor, { includeUnclassified: curriculum });
     const errors = checkInput(idx, input, { allowNoStandard: curriculum, allowUnlinkedStandard: curriculum });
     const skill = skillById(idx, input.skillId);
-    const pk = passageKey(prev.meta?.passage);
-    const index = errors.length ? null : await bankDuplicates(repo, skill ? (idx.grades.get(skill.grade) ?? []).map((s) => s.id) : [], [{ stem: input.stem, options: optionTexts(input), passage: pk }]);
-    const hit = index ? index.find(input.stem, optionTexts(input), pk) : null;
-    const dup = hit?.stemOnly ? null : hit;
+    const h = errors.length ? null : importHash(input, prev.meta?.passage ?? null, input.imageId ?? null);
+    const found = h ? sameFamily((await bankHashHits(repo, [h])).get(h), input.skillId, (await schoolSkillIndex(repo, schoolOf(actor))).keyOf) : null;
+    const dup = found ? { id: found.id, exact: true, score: 1 } : null;
     const std = input.standardCode ? idx.standards.get(shortStandard(input.standardCode)) : undefined;
     Object.assign(data, {
       detected: { input, meta: { ...prev.meta, grade: skill?.grade ?? prev.meta.grade, skillName: skill?.name ?? null, standardCode: std ? shortStandard(std.code) : null, duplicateExact: Boolean(dup?.exact) } } satisfies DetectedRow,
       errors,
-      warnings: dup ? [dup.exact ? "This question already exists in the question bank." : `A similar question already exists in the question bank (${Math.round(dup.score * 100)}% similar).`] : hit?.stemOnly ? [SAME_WORDING_NOTE] : [],
+      warnings: dup ? ["This question already exists in the question bank."] : [],
       duplicateOfId: dup?.id ?? null, similarity: dup ? Math.round(dup.score * 100) / 100 : null,
       status: errors.length ? "INVALID" : dup ? "DUPLICATE" : "VALID",
       ...(errors.length ? { selected: false } : patch.selected === undefined && row.status === "INVALID" ? { selected: true } : {}),
@@ -767,7 +760,7 @@ export async function cancelImport(repo: Repo, actor: Actor, jobId: string, now 
 
 // -------------------------------------------------------------------- commit
 
-export interface CommitProgress { processed: number; total: number; done: boolean; counts: { imported: number; replaced: number; skipped: number; failed: number; duplicates: number } }
+export interface CommitProgress { processed: number; total: number; done: boolean; counts: { imported: number; replaced: number; skipped: number; failed: number; duplicates: number; /** 👯 duplicate questions skipped (“Skipped N duplicate questions”) */ duplicatesSkipped: number } }
 
 interface Planned { log: Row; input: EditorInput; item: BankItem; skill: SkillRef; standardId: string | null; passage: string | null; replaceId: string | null; /** the standard is not linked to the skill: kept, but the question waits for a review */ unlinkedStandard: boolean }
 
@@ -816,7 +809,9 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
       const noKey = waitsForAnswer(p.input);
       const published = publish && !noKey && !p.input.aiNeeds?.includes("answer") && !p.unlinkedStandard;
       const fileArea = p.input.mapArea ? areaFromName(p.input.mapArea) : null;
+      const answerList = storedAnswers(p.item, p.input);
       questions.push({
+        contentHash: hashOfItem(p.item, p.passage, p.input.imageId ?? null, answerList),
         id, externalRef: p.item.ref, skillId: p.skill.id, standardId: p.standardId, passageId: p.passage ? passageIds.get(passageRef(p.passage)) ?? null : null,
         typeId: types.get(p.item.type)!, stem: p.item.stem, content: contentPayload(p.item), hint: null, difficultyLevel: p.item.level,
         irtA: 1, irtB: LEVEL_TO_B[p.item.level] ?? 0, irtC: 0, estimatedSeconds: p.item.estimatedSeconds,
@@ -829,8 +824,8 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
         createdById: actor.userId, ...(published ? { publishedAt: now, reviewedById: actor.userId } : {}), createdAt: now, updatedAt: now,
       });
       for (const [i, o] of (p.item.options ?? []).entries()) options.push({ id: newId(), questionId: id, label: o.label, text: o.text, isCorrect: o.correct, rationale: o.rationale, order: i });
-      for (const [i, v] of answerValues(p.item).filter((x) => x !== undefined && x !== null).entries()) answers.push({ id: newId(), questionId: id, value: v as object, isPrimary: i === 0 });
-      if (p.input.type === "SHORT_ANSWER" && p.input.answers?.[0]) answers.push({ id: newId(), questionId: id, value: p.input.answers[0], isPrimary: true });
+      const nKey = answerValues(p.item).filter((x) => x !== undefined && x !== null).length;
+      for (const [i, v] of answerList.entries()) answers.push({ id: newId(), questionId: id, value: v as object, isPrimary: i === 0 || i >= nKey });
       explanations.push({ id: newId(), questionId: id, kind: "WHY_CORRECT", body: [{ type: "text", text: p.item.explanation.whyCorrect }], order: 0 });
       audits.push({ actorId: actor.userId, action: "question.create", entityType: "Question", entityId: id, after: { ref: p.item.ref, skillId: p.skill.id, type: p.item.type, level: p.item.level, importJob: jobId, status: published ? "PUBLISHED" : "DRAFT" }, createdAt: now });
     }
@@ -892,6 +887,7 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
   const open = await repo.findMany("ImportedQuestionLog", { jobId, status: { in: OPEN } }, { orderBy: [{ field: "rowIndex", dir: "asc" }], take: COMMIT_CHUNK });
 
   const skip: string[] = [];
+  let dupSkipped = 0;
   const failed: { id: string; errors: string[] }[] = [];
   const plans: Planned[] = [];
   const target: ImportTarget = parseJ<{ target?: string }>(job.options)?.target === "CURRICULUM" ? "CURRICULUM" : "BANK";
@@ -900,7 +896,7 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
     const det = parseJ<DetectedRow>(l.detected);
     // rows with errors are reported as failed (with their reasons), never silently as skipped
     if (l.status === "INVALID" || !det.input) { failed.push({ id: String(l.id), errors: parseJ<string[] | null>(l.errors) ?? ["the question has errors"] }); continue; }
-    if (!l.selected || l.decision === "SKIP") { skip.push(String(l.id)); continue; }
+    if (!l.selected || l.decision === "SKIP") { skip.push(String(l.id)); if (l.status === "DUPLICATE") dupSkipped++; continue; }
     const input = det.input;
     const problems = checkInput(idx!, input, { allowNoStandard: true, allowUnlinkedStandard: true }); // the curriculum may have changed since the preview
     if (problems.length) { failed.push({ id: String(l.id), errors: problems }); continue; }
@@ -911,6 +907,34 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
     const item = withoutKey(item0, input);
     const unlinkedStandard = Boolean(std && skill.standards.length && !skill.standards.some((x) => shortStandard(x.code) === shortStandard(std.code)));
     plans.push({ log: l, input, item, skill, standardId: std ? std.id : null, passage: det.meta?.passage ?? null, replaceId: l.decision === "REPLACE" && l.duplicateOfId ? String(l.duplicateOfId) : null, unlinkedStandard });
+  }
+  // 👯 a question that is already in the bank (or earlier in this file) is skipped: one indexed lookup for the chunk.
+  // “Import anyway” (FORCE) and “Replace” are the admin's decision and are kept.
+  if (plans.length) {
+    const keyOf = (await schoolSkillIndex(repo, schoolOf(actor))).keyOf;
+    const hashes = plans.map((p) => (p.log.decision === "IMPORT" ? hashOfItem(p.item, p.passage, p.input.imageId ?? null, storedAnswers(p.item, p.input)) : null));
+    const hits = await bankHashHits(repo, hashes);
+    const seen = new Map<string, string>();
+    const keep: Planned[] = [];
+    for (const [i, p] of plans.entries()) {
+      const h = hashes[i];
+      const fam = keyOf.get(p.skill.id) ?? `solo:${p.skill.id}`;
+      const inBank = h ? sameFamily(hits.get(h), p.skill.id, keyOf) : null;
+      const inChunk = h ? seen.get(`${h}|${fam}`) : undefined;
+      if (inBank || inChunk) {
+        dupSkipped++;
+        await repo.updateMany("ImportedQuestionLog", { id: p.log.id }, { status: "SKIPPED", duplicateOfId: inBank?.id ?? null, warnings: ["This question already exists in the question bank."], updatedAt: now });
+        continue;
+      }
+      if (h) seen.set(`${h}|${fam}`, String(p.log.id));
+      keep.push(p);
+    }
+    plans.length = 0;
+    plans.push(...keep);
+  }
+  if (dupSkipped) {
+    const fresh = parseJ<Record<string, unknown>>((await repo.findUnique("ImportJob", { id: jobId }))?.options) ?? {};
+    await repo.updateMany("ImportJob", { id: jobId }, { options: { ...fresh, dupSkipped: Number(fresh.dupSkipped ?? 0) + dupSkipped } });
   }
   if (skip.length) await repo.updateMany("ImportedQuestionLog", { id: { in: skip } }, { status: "SKIPPED", updatedAt: now });
   for (const f of failed) await repo.updateMany("ImportedQuestionLog", { id: f.id }, { status: "FAILED", errors: f.errors, updatedAt: now });
@@ -963,13 +987,14 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
     count("IMPORTED"), count("REPLACED"), count("SKIPPED"), count("FAILED"), repo.count("ImportedQuestionLog", { jobId, status: { in: OPEN } }),
     repo.count("ImportedQuestionLog", { jobId }), Promise.resolve(Number(job.duplicateRows ?? 0)),
   ]);
-  const counts = { imported, replaced, skipped, failed: failedN, duplicates };
+  const duplicatesSkipped = Number(parseJ<{ dupSkipped?: number }>((await repo.findUnique("ImportJob", { id: jobId }))?.options)?.dupSkipped ?? 0);
+  const counts = { imported, replaced, skipped, failed: failedN, duplicates, duplicatesSkipped };
   const done = remaining === 0;
   if (done) {
     const failedLogs = failedN ? (await repo.findMany("ImportedQuestionLog", { jobId, status: "FAILED" })).sort((a, b) => Number(a.rowIndex) - Number(b.rowIndex)) : [];
     const post = parseJ<{ postErrors?: { message: string }[] }>((await repo.findUnique("ImportJob", { id: jobId }))?.options)?.postErrors ?? [];
     const errors = [...failedLogs.slice(0, 500).map((l) => ({ row: Number(parseJ<DetectedRow>(l.detected)?.meta?.row ?? Number(l.rowIndex) + 2), message: (parseJ<string[] | null>(l.errors) ?? []).join(" ") })), ...post.map((e) => ({ message: e.message }))];
-    await repo.updateMany("ImportJob", { id: jobId }, { status: "COMPLETED", completedAt: now, summary: { imported, replaced, skipped, failed: failedN }, errors });
+    await repo.updateMany("ImportJob", { id: jobId }, { status: "COMPLETED", completedAt: now, summary: { imported, replaced, skipped, failed: failedN, duplicatesSkipped }, errors });
     await audit(repo, { actorId: actor.userId, action: "question.import.complete", entityType: "ImportJob", entityId: jobId, after: counts, at: now });
   }
   return { processed: total - remaining, total, done, counts };

@@ -187,7 +187,7 @@ describe("🧩 teachers' skill choosers: skill names only, questions one click a
     assert.doesNotMatch(read("src/components/plans/plan-builder.tsx"), /TODO\(agent B\)/);
     assert.match(read("src/app/teacher/curriculum/page.tsx"), /<SkillQuestionPicker/);
     for (const f of ["src/app/teacher/map-center/actions.ts", "src/app/teacher/rti-plan/actions.ts", "src/app/teacher/plans/actions.ts"]) assert.match(read(f), /questionIds: readQuestionPicks/, f);
-    assert.match(read("src/app/teacher/map-center/plan-tab.tsx"), /Drafts ready to review/);
+    assert.match(read("src/app/teacher/map-center/plan-tab.tsx"), /Individual plans/);
   });
 
   test("the picker reads the server's result shape (choices, correct answer, level)", () => {

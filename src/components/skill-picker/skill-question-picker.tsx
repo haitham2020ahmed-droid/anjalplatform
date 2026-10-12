@@ -11,7 +11,7 @@
 import { useMemo, useState } from "react";
 import { useT } from "@/i18n/client";
 import { AUTO, LEVEL_FILTERS, MAX_PICKED, filterQuestions, isCorrectChoice, pickerOutput, questionIdsField, type LevelFilter, type PickerQuestion, type PickerValue } from "./helpers";
-import { useSkillQuestions } from "./load";
+import { draftsOf, useSkillQuestions } from "./load";
 
 const LEVEL_LABEL: Record<string, string> = { ALL: "All", BELOW: "Below", ON: "On", ABOVE: "Above" };
 const LEVEL_CHIP: Record<string, string> = { BELOW: "bg-amber-50 text-amber-900 ring-amber-200", ON: "bg-sky-50 text-sky-900 ring-sky-200", ABOVE: "bg-violet-50 text-violet-900 ring-violet-200" };
@@ -90,6 +90,7 @@ export function SkillQuestionPicker({ skillId, skillName, mode = "pick", default
               {selected.length >= max && <span className="text-sm text-amber-800">{t("At most {n} questions.", { n: max })}</span>}
             </div>
           )}
+          {list && (draftsOf.get(skillId) ?? 0) > 0 && <p className="mb-2 rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900 ring-1 ring-amber-200">{t("{n} more questions of this skill are drafts. An admin can publish them in Data Cleanup.", { n: draftsOf.get(skillId) ?? 0 })}</p>}
           {failed ? <p role="alert" className="rounded-xl bg-red-50 px-3 py-2 text-red-800">{t("The questions could not be loaded. Please try again.")}</p>
             : !list ? <p className="px-1 py-2 text-slate-500" aria-busy="true">{t("Loading questions…")}</p>
             : !list.length ? <p className="rounded-xl bg-white px-3 py-4 text-center text-slate-600">{t("This skill has no questions yet.")}</p>

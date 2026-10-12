@@ -9,6 +9,7 @@
  *
  *   memory available = WEB_MEMORY_MB (if set) → else the container's limit (cgroup v2 / v1) → else 512 MB
  *   heap limit       = 70% of it (at least 256 MB), unless NODE_OPTIONS already sets --max-old-space-size
+ *   MALLOC_ARENA_MAX = 2 (unless set): less native memory lost to per-thread malloc arenas (Update 46)
  *
  * Runs `next start` (npm start, local or Render's Node runtime) or, with --standalone (the Docker image), its server.js.
  * Extra arguments are passed on (e.g. `npm start -- -p 4000`).
@@ -63,7 +64,11 @@ function main() {
   }
   const args = [...(set ? [] : [`--max-old-space-size=${heap}`]), ...entry];
   console.log(`[start] heap limit ${set ? "from NODE_OPTIONS" : `${heap} MB`} (memory: ${process.env.WEB_MEMORY_MB ? `WEB_MEMORY_MB=${process.env.WEB_MEMORY_MB}` : cgroupLimitMb() ? `container limit ${cgroupLimitMb()} MB` : `default ${DEFAULT_MB} MB`})`);
-  const child = spawn(process.execPath, args, { stdio: "inherit", env: process.env });
+  // Update 46: glibc gives every thread (Node's thread pool, the database engine's threads) its own malloc arena; on a
+  // small container the unused space of those arenas counts as used memory. Two arenas keep the RSS close to what
+  // is really in use (a common setting for Node on 512 MB containers). An explicit MALLOC_ARENA_MAX is kept.
+  const env = { ...process.env, MALLOC_ARENA_MAX: process.env.MALLOC_ARENA_MAX || "2" };
+  const child = spawn(process.execPath, args, { stdio: "inherit", env });
   for (const sig of ["SIGINT", "SIGTERM", "SIGHUP"]) process.on(sig, () => child.kill(sig));
   child.on("exit", (code, signal) => process.exit(code ?? (signal ? 1 : 0)));
 }

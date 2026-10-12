@@ -7,6 +7,9 @@ export async function register(): Promise<void> {
   if (process.env.NEXT_RUNTIME === "nodejs") {
     const { loadEnv } = await import("./lib/env");
     loadEnv();
+    // one log line a minute while the server uses more than 400 MB (what grew before a crash)
+    const { startMemoryLog } = await import("./server/monitoring/memory");
+    startMemoryLog();
   }
 }
 

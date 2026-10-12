@@ -102,3 +102,16 @@ export async function studentCurriculumLessons(repo: Repo, actor: Actor): Promis
   const units = book ? build(book).children : [];
   return { grade, units: units.map((u) => unitCards(grade, u)) };
 }
+
+/**
+ * The lesson of a Curriculum Map place: "Unit 2" + "Text Set 3: Poetry" → the grade's lesson details (name, Text
+ * Idea, words). Matched by the unit and text-set numbers (the order in the user's curriculum document).
+ */
+export function lessonAt(grade: number, unitTitle: string | null | undefined, setTitle: string | null | undefined): LessonDetail | null {
+  const u = Number(/unit\s*(\d+)/i.exec(String(unitTitle ?? ""))?.[1] ?? 0);
+  const n = Number(/(?:text\s*set|set|week|lesson)\s*(\d+)/i.exec(String(setTitle ?? ""))?.[1] ?? 0);
+  if (!u || !n) return null;
+  const g = allLessonDetails()[String(grade)];
+  if (!g) return null;
+  return Object.values(g).find((l) => l.unit === u && l.number === n) ?? null;
+}

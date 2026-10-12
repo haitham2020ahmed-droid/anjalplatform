@@ -3,7 +3,9 @@
  *  - equivalence: the same scripted student (practice on two skills, an assigned set, an intervention lesson) gives
  *    EXACTLY what the code before Update 42B gave — every feedback, every next screen, every saved attempt, decision
  *    log, mastery, ability, XP, status and session (tests/fixtures/update42b-golden.json was recorded with the base
- *    revision's code by the same scenario, tests/helpers/update42b-scenario.ts)
+ *    revision's code by the same scenario, tests/helpers/update42b-scenario.ts; RE-RECORDED for the no-repeat rule
+ *    (src/server/practice/no-repeat.ts): the old recording served the same practice question up to three times in one
+ *    session — now each is served once, so the practice part is shorter and the later lesson starts from that history)
  *  - work after the response: it does not run before the answer returns, it always runs afterwards, a failure is
  *    logged and never reaches the student
  *  - an answer's transaction only writes; the reads are done before it, in parallel
@@ -46,7 +48,8 @@ describe("Update 42B · same results, less waiting", () => {
   test("equivalence: feedback, next screens and everything saved are identical to the code before Update 42B", async () => {
     const golden = JSON.parse(readFileSync(join(ROOT, "tests/fixtures/update42b-golden.json"), "utf8"));
     const now = JSON.parse(JSON.stringify(await runScenario((p) => import(join(ROOT, p)))));
-    assert.ok(golden.log.length >= 30 && golden.saved.attempts.length >= 30, "the scenario covers practice, a set and a lesson");
+    // (no repeats: each practice question once, so the practice part is shorter than before)
+    assert.ok(golden.log.length >= 20 && golden.saved.attempts.length >= 20, "the scenario covers practice, a set and a lesson");
     assert.deepEqual(now.log, golden.log, "what the student sees after every answer");
     assert.deepEqual(now.saved, golden.saved, "attempts, decision logs, mastery, ability, XP, statuses, sessions");
   });

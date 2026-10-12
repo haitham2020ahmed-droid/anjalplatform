@@ -590,7 +590,10 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
     try { marks = await scorer({ words, audio: input.audio, mime: input.mime, task }); }
     catch (e0) {
       // Gemini busy ("high demand", HTTP 5xx): try once with a steadier model before giving up
-      const fb = deps.scorer === undefined && e0 instanceof CoachProviderError && e0.kind === "DOWN" ? FLUENCY_FALLBACK_MODELS.find((x) => x !== model) : undefined;
+      // also when the configured model is not found / not allowed to listen (HTTP 404 / 400 "not supported"): a model
+      // that surely listens to audio is tried, so a renamed model never stops the coach
+      const retryable = e0 instanceof CoachProviderError && (e0.kind === "DOWN" || (e0.kind === "CONFIG" && e0.status === 404) || (e0.kind === "REQUEST" && /model|not supported|audio/i.test(e0.message)));
+      const fb = deps.scorer === undefined && retryable ? FLUENCY_FALLBACK_MODELS.find((x) => x !== model) : undefined;
       const backup = fb ? geminiAudioScorer({ ...env, GEMINI_MODEL: fb }) : null;
       if (!backup) throw e0;
       await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model, ok: false, items: 1, ms: Date.now() - started, error: `${s((e0 as Error).message).slice(0, 400)} -> retried with ${fb}`, createdAt: new Date() });

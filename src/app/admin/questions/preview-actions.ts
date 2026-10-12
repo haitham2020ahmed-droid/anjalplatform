@@ -42,18 +42,3 @@ export async function questionPreviewAction(id: string): Promise<{ preview?: Que
     throw e;
   }
 }
-
-/** The selected questions as a list (CSV), for future use. */
-export async function selectionCsvAction(ids: string[]): Promise<{ csv?: string; error?: string }> {
-  const actor = await requireActor({ permission: "questions:read" });
-  const list = [...new Set((ids ?? []).map(String))].slice(0, 500);
-  const rows: string[][] = [["Question ID", "Question", "Type", "Difficulty", "Status"]];
-  for (const id of list) {
-    try {
-      const d = await getQuestion(repo, actor, id);
-      rows.push([d.id, d.input.stem, String(d.input.type), String(d.input.level), d.status]);
-    } catch { /* not in this school or removed: skipped */ }
-  }
-  const cell = (v: string) => `"${v.replace(/"/g, '""')}"`;
-  return { csv: "\ufeff" + rows.map((r) => r.map(cell).join(",")).join("\r\n") };
-}

@@ -437,6 +437,7 @@ CREATE TABLE `Question` (
   `textLevel` INTEGER,
   `intelligenceAt` DATETIME(3),
   `metaReviewedAt` DATETIME(3),
+  `contentHash` VARCHAR(64),
   PRIMARY KEY (`id`),
   CONSTRAINT `Question_skillId_externalRef_key` UNIQUE (`skillId`, `externalRef`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -450,6 +451,10 @@ CREATE INDEX `Question_standardId_idx` ON `Question`(`standardId`);
 CREATE INDEX `Question_mapInstructionalArea_status_idx` ON `Question`(`mapInstructionalArea`, `status`);
 
 CREATE INDEX `Question_intelligenceAt_idx` ON `Question`(`intelligenceAt`);
+
+CREATE INDEX `Question_contentHash_idx` ON `Question`(`contentHash`);
+
+CREATE INDEX `Question_status_updatedAt_idx` ON `Question`(`status`, `updatedAt`);
 
 CREATE TABLE `QuestionOption` (
   `id` VARCHAR(191) NOT NULL,
@@ -519,6 +524,8 @@ CREATE TABLE `PracticeSession` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `PracticeSession_studentId_startedAt_idx` ON `PracticeSession`(`studentId`, `startedAt`);
+
+CREATE INDEX `PracticeSession_startedAt_idx` ON `PracticeSession`(`startedAt`);
 
 CREATE INDEX `PracticeSession_assignmentId_idx` ON `PracticeSession`(`assignmentId`);
 
@@ -1182,6 +1189,8 @@ CREATE TABLE `SkillPlan` (
 
 CREATE INDEX `SkillPlan_schoolId_classId_idx` ON `SkillPlan`(`schoolId`, `classId`);
 
+CREATE INDEX `SkillPlan_classId_kind_idx` ON `SkillPlan`(`classId`, `kind`);
+
 CREATE TABLE `SkillPlanItem` (
   `id` VARCHAR(191) NOT NULL,
   `planId` VARCHAR(191) NOT NULL,
@@ -1775,6 +1784,8 @@ CREATE TABLE `DiagnosticTest` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `DiagnosticTest_schoolId_grade_idx` ON `DiagnosticTest`(`schoolId`, `grade`);
+
+CREATE INDEX `DiagnosticTest_assessmentId_idx` ON `DiagnosticTest`(`assessmentId`);
 
 CREATE TABLE `DiagnosticScore` (
   `id` VARCHAR(191) NOT NULL,
@@ -2564,6 +2575,34 @@ CREATE TABLE `Feedback` (
 CREATE INDEX `Feedback_schoolId_resolved_createdAt_idx` ON `Feedback`(`schoolId`, `resolved`, `createdAt`);
 
 CREATE INDEX `Feedback_userId_createdAt_idx` ON `Feedback`(`userId`, `createdAt`);
+
+CREATE TABLE `SecondChanceAnswer` (
+  `id` VARCHAR(191) NOT NULL,
+  `studentId` VARCHAR(191) NOT NULL,
+  `questionId` VARCHAR(64) NOT NULL,
+  `correct` BOOLEAN NOT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX `SecondChanceAnswer_studentId_questionId_idx` ON `SecondChanceAnswer`(`studentId`, `questionId`);
+
+CREATE INDEX `SecondChanceAnswer_studentId_createdAt_idx` ON `SecondChanceAnswer`(`studentId`, `createdAt`);
+
+CREATE TABLE `DiagnosticWindow` (
+  `id` VARCHAR(191) NOT NULL,
+  `schoolId` VARCHAR(191) NOT NULL,
+  `grade` INTEGER NOT NULL,
+  `mode` VARCHAR(6) NOT NULL DEFAULT 'MANUAL',
+  `isOpen` BOOLEAN NOT NULL DEFAULT false,
+  `opensAt` DATETIME(3),
+  `closesAt` DATETIME(3),
+  `schoolYear` VARCHAR(9) NOT NULL,
+  `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedById` VARCHAR(191),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `DiagnosticWindow_schoolId_grade_schoolYear_key` UNIQUE (`schoolId`, `grade`, `schoolYear`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Foreign keys (added after all tables exist)
 ALTER TABLE `User` ADD CONSTRAINT `User_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

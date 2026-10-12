@@ -6,6 +6,7 @@ import { PrintButton } from "@/components/plans/print-button";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { skillPlanForStudent, type StudentPlanView } from "@/server/curriculum-map/plans";
+import { lessonAt } from "@/server/curriculum-map/lesson-details";
 
 type Place = StudentPlanView["places"][number];
 const ICON: Record<string, string> = { NOT_STARTED: "⚪", IN_PROGRESS: "🟡", COMPLETED: "✅", OVERDUE: "⏰" };
@@ -34,7 +35,7 @@ export default async function MyPlan({ params, searchParams }: { params: Promise
         {/* printed header */}
         <div className="flex flex-wrap items-end justify-between gap-3 border-b-4 border-brand-teal pb-3">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-brand-teal">Al-Anjal Adaptive ELA · Study Plan</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-brand-teal">Al-Anjal English · Study Plan</p>
             <h2 className="text-2xl font-extrabold text-brand-navy">{hideLevels(p.title)}</h2>
             <p className="text-sm text-slate-600">{String(me.displayName)} · {p.className}</p>
           </div>
@@ -43,7 +44,7 @@ export default async function MyPlan({ params, searchParams }: { params: Promise
             <div className="mt-1 h-2.5 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-brand-teal" style={{ width: `${pct}%` }} /></div>
           </div>
         </div>
-        <p className="mt-3 text-sm text-slate-600">Tap any part to practise it. Each part finishes when you get <b>{p.target} correct answers</b> — the questions get easier or harder with you. ✅ done · 🟡 started · ⚪ not started · 🔒 not open yet · ⏳ coming soon</p>
+        <p className="mt-3 text-sm text-slate-600">Tap any part to practise it. Each part finishes when you get <b>{p.target} correct answers</b> — the questions get easier or harder with you. ✅ done · 🟡 started · ⚪ not started · 🔒 not open yet · ⏳ not ready yet</p>
 
         <div className="mt-5 space-y-8">
           {units.map((u, ui) => {
@@ -59,7 +60,17 @@ export default async function MyPlan({ params, searchParams }: { params: Promise
                 <div className="mt-3 grid gap-x-8 gap-y-5 md:grid-cols-2 print:grid-cols-2">
                   {[...new Set(inUnit.map((x) => x.set))].map((set, si) => (
                     <div key={set} className="break-inside-avoid">
-                      <p className="border-b border-slate-200 pb-1 text-sm font-bold uppercase tracking-wide text-brand-teal">{set}</p>
+                      {(() => {
+                        const lesson = lessonAt(p!.grade, u, set);
+                        return (
+                          <div className="border-b border-slate-200 pb-1.5">
+                            <p className="text-xs font-bold uppercase tracking-wide text-brand-teal">{set}</p>
+                            {lesson && <p className="text-lg font-bold leading-snug text-brand-navy">📖 {lesson.name}</p>}
+                            {lesson?.textIdea && <p className="mt-0.5 text-xs leading-snug text-slate-600">{lesson.textIdea}</p>}
+                            {lesson && lesson.vocabulary.length > 0 && <p className="mt-1 flex flex-wrap gap-1">{lesson.vocabulary.map((w) => <span key={w} className="rounded-full bg-sky-50 px-2 py-0.5 text-xs text-sky-900 ring-1 ring-sky-100">{w}</span>)}</p>}
+                          </div>
+                        );
+                      })()}
                       <ol className="mt-1.5 space-y-1">
                         {inUnit.filter((x) => x.set === set).map((x, i) => <Row key={x.itemId} x={x} n={`${ui + 1}.${si + 1}.${i + 1}`} target={p!.target} />)}
                       </ol>
@@ -92,7 +103,7 @@ function Row({ x, n, target }: { x: Place; n: string; target: number }) {
   );
   return (
     <li>
-      {x.href ? <Link href={x.href} className="group flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-teal-50">{body}</Link> : <span className="flex items-start gap-2 px-2 py-1.5" title={x.locked ? "Your teacher has not opened this unit yet" : "Questions are coming soon"}>{body}</span>}
+      {x.href ? <Link href={x.href} className="group flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-teal-50">{body}</Link> : <span className="flex items-start gap-2 px-2 py-1.5" title={x.locked ? "Your teacher has not opened this unit yet" : "Questions are not ready yet"}>{body}</span>}
     </li>
   );
 }

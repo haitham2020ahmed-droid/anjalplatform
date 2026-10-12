@@ -14,7 +14,7 @@ import { ValidationError } from "../src/server/curriculum-admin";
 import type { Row } from "../src/server/seeding/repo";
 import { MAX_IMPORT_ROWS, TEMPLATE_HEADERS } from "../src/imports/questions/template";
 import {
-  ANALYZE_CHUNK, ImportFileError, PassageDuplicates, analyzeImport, bankDuplicates, commitImportChunk, getImportJob, listImportJobs, loadCurriculumIndex, passageKey,
+  ANALYZE_CHUNK, ImportFileError, analyzeImport, bankHashHits, commitImportChunk, getImportJob, importHash, listImportJobs, loadCurriculumIndex, passageKey,
 } from "../src/server/admin/question-import";
 import { BOOT_ID, MAX_CRASHES, beginStep, endStep, leftByDeadProcess } from "../src/server/jobs/crash-guard";
 import { remember } from "../src/server/cache/lru";
@@ -28,9 +28,9 @@ const s = (v: unknown) => String(v ?? "");
 const enc = (x: string) => new TextEncoder().encode(x);
 type Spec = Partial<Record<string, string>>;
 const table = (rows: Spec[]) => [[...TEMPLATE_HEADERS], ...rows.map((r) => TEMPLATE_HEADERS.map((h) => r[h] ?? ""))];
-const MC = (stem: string, opts: string[], skill: string): Spec => ({
+const MC = (stem: string, opts: string[], skill: string, correct = "A"): Spec => ({
   "Question Text": stem, "Question Type": "Multiple Choice", "Option A": opts[0], "Option B": opts[1], "Option C": opts[2] ?? "", "Option D": opts[3] ?? "",
-  "Correct Answer": "A", Explanation: "Because it is right.", Grade: "4", Skill: skill, "Difficulty Level": "4",
+  "Correct Answer": correct, Explanation: "Because it is right.", Grade: "4", Skill: skill, "Difficulty Level": "4",
 });
 
 describe("update 42A: crash guard (pure)", () => {
@@ -90,7 +90,7 @@ describe("update 42A: heavy libraries load only when used", () => {
 
 describe("update 42A: memory-safe question import (database)", () => {
   let repo: SqliteRepo; let admin: Actor;
-  let bank: { id: string; stem: string; options: string[]; skill: string; passage: string }[] = [];
+  let bank: { id: string; stem: string; options: string[]; skill: string; skillId: string; passage: string; passageText: string | null; correct: string; single: boolean }[] = [];
   before(async () => {
     ({ repo } = await demoDatabase());
     await publishGrade4Bank(repo);
@@ -102,9 +102,12 @@ describe("update 42A: memory-safe question import (database)", () => {
     const opts = await repo.findMany("QuestionOption", { questionId: { in: qs.map((q) => q.id) } });
     const ps = await repo.findMany("ReadingPassage", {}, { select: ["id", "body"] });
     const body = new Map(ps.map((p) => [s(p.id), s(p.body)]));
+    const mcType = new Set((await repo.findMany("QuestionType", { code: "MULTIPLE_CHOICE" })).map((x) => s(x.id)));
     bank = qs.filter((q) => !q.deletedAt && q.status !== "ARCHIVED").map((q) => ({
-      id: s(q.id), stem: s(q.stem), skill: codeOf.get(s(q.skillId)) ?? "", passage: q.passageId ? passageKey(body.get(s(q.passageId))) : "",
+      id: s(q.id), stem: s(q.stem), skill: codeOf.get(s(q.skillId)) ?? "", skillId: s(q.skillId), passage: q.passageId ? passageKey(body.get(s(q.passageId))) : "", passageText: q.passageId ? body.get(s(q.passageId)) ?? null : null,
       options: opts.filter((o) => o.questionId === q.id).sort((a, b) => Number(a.order) - Number(b.order)).map((o) => s(o.text)),
+      single: mcType.has(s(q.typeId)) && opts.filter((o) => o.questionId === q.id && o.isCorrect).length === 1,
+      correct: "ABCDEFGH"[opts.filter((o) => o.questionId === q.id).sort((a, b) => Number(a.order) - Number(b.order)).findIndex((o) => o.isCorrect)] ?? "A",
     }));
     assert.ok(bank.length > 50, `grade 4 bank: ${bank.length}`);
   });
@@ -119,36 +122,32 @@ describe("update 42A: memory-safe question import (database)", () => {
     });
   });
 
-  test("the prefiltered bank lookup finds exactly what indexing the whole bank finds", async () => {
-    const skillIds = (await loadCurriculumIndex(repo, admin)).grades.get(4)!.map((k) => k.id);
-    const full = new PassageDuplicates();
-    for (const q of bank) full.add(q.id, q.stem, q.options, q.passage);
-    // exact copies, a changed word, other choices (same wording), shuffled choices, new questions, passage questions elsewhere
-    const queries = bank.slice(0, 120).flatMap((q, i) => [
-      { stem: q.stem, options: q.options, passage: q.passage },
-      { stem: q.stem.replace(/\b(\w{4,})\b/, "zebra"), options: q.options, passage: q.passage },
-      { stem: q.stem, options: q.options.map((o, k) => (k % 2 ? `${o} again` : `other ${i} ${k}`)), passage: "" },
-      { stem: `${q.stem} today`, options: [...q.options].reverse(), passage: q.passage ? "another passage" : "" },
-      { stem: `A brand new question number ${i} about planets and oceans?`, options: ["one", "two", "three", "four"], passage: "" },
-    ]);
-    const small = await bankDuplicates(repo, skillIds, queries);
-    let hits = 0;
-    for (const q of queries) {
-      const a = full.find(q.stem, q.options, q.passage), b = small.find(q.stem, q.options, q.passage);
-      assert.deepEqual(b, a, `query: ${q.stem}`);
-      if (a) hits++;
+  test("👯 the fingerprint lookup (indexed column) finds every exact copy of a bank question, and nothing else", async () => {
+    const mcs = bank.filter((q) => q.single).slice(0, 120);
+    const input = (q: (typeof bank)[number], stem: string, options: string[], correct: string) => ({ skillId: q.skillId, type: "MULTIPLE_CHOICE" as const, stem, level: 4, whyCorrect: "Because.", options: options.map((text, i) => ({ label: "ABCDEFGH"[i], text, correct: "ABCDEFGH"[i] === correct, rationale: "ABCDEFGH"[i] === correct ? null : "Not this one." })) });
+    const exact = mcs.map((q) => importHash(input(q, `  ${q.stem.toUpperCase()}  `, q.options, q.correct), q.passageText, null));
+    const shuffled = mcs.map((q) => importHash(input(q, q.stem, [...q.options].reverse(), "ABCDEFGH"[q.options.length - 1 - "ABCDEFGH".indexOf(q.correct)]), q.passageText, null));
+    const changed = mcs.map((q) => importHash(input(q, q.stem.replace(/\b(\w{4,})\b/, "zebra"), q.options, q.correct), q.passageText, null));
+    const otherKey = mcs.map((q) => importHash(input(q, q.stem, q.options, q.correct === "A" ? "B" : "A"), q.passageText, null));
+    const noPassage = mcs.filter((q) => q.passageText).map((q) => importHash(input(q, q.stem, q.options, q.correct), null, null));
+    const hits = await bankHashHits(repo, [...exact, ...shuffled, ...changed, ...otherKey, ...noPassage]);
+    for (const [i, q] of mcs.entries()) {
+      assert.ok(hits.get(exact[i]!)?.some((h) => h.id === q.id), `exact copy (case, spacing): ${q.stem}`);
+      assert.ok(hits.get(shuffled[i]!)?.some((h) => h.id === q.id), `choices in another order: ${q.stem}`);
+      assert.ok(!hits.get(changed[i]!)?.some((h) => h.id === q.id), `another word: ${q.stem}`);
+      assert.ok(!hits.get(otherKey[i]!)?.some((h) => h.id === q.id), `another correct answer: ${q.stem}`);
     }
-    assert.ok(hits > 200, `hits: ${hits}`);
+    for (const h of noPassage) assert.ok(!hits.get(h!)?.length || hits.get(h!)!.every((x) => !bank.find((b) => b.id === x.id)?.passageText), "without its passage it is another question");
   });
 
   test(`the preview is saved ${ANALYZE_CHUNK} rows at a time with the same results as one pass`, async () => {
-    const mcs = bank.filter((q) => q.options.length === 4 && !q.passage);
+    const mcs = bank.filter((q) => q.options.length === 4 && !q.passage && q.single);
     assert.ok(mcs.length >= 40, `MC questions without passage: ${mcs.length}`);
     // 260 rows (two chunks): bank copies (duplicates), new questions, and the same new question twice (in-file duplicate)
     const rows: Spec[] = [];
     for (let i = 0; i < 260; i++) {
       const q = mcs[i % mcs.length];
-      if (i % 4 === 0) rows.push(MC(q.stem, q.options, q.skill));
+      if (i % 4 === 0) rows.push(MC(q.stem, q.options, q.skill, q.correct));
       else if (i === 250) rows.push(MC("Which sentence uses a comma correctly in a list of items?", ["Red, blue, and green.", "Red blue, and green.", "Red, blue and, green.", "Red blue and green,"], q.skill));
       else rows.push(MC(`Fresh question ${i}: which word names a ${["place", "person", "thing", "animal"][i % 4]} in the sentence about item ${i}?`, [`word${i}a`, `word${i}b`, `word${i}c`, `word${i}d`], q.skill));
     }
@@ -160,16 +159,13 @@ describe("update 42A: memory-safe question import (database)", () => {
     assert.deepEqual(job.rows.map((r) => r.rowIndex), rows.map((_, i) => i));
     assert.equal(job.totals.total, rows.length);
     assert.equal(job.totals.valid + job.totals.invalid + job.totals.duplicates, rows.length);
-    // every bank copy points at the question the whole-bank index finds; new rows are not duplicates
-    const full = new PassageDuplicates();
-    for (const q of bank) full.add(q.id, q.stem, q.options, q.passage);
+    // every bank copy points at a bank question with the same text and choices (fingerprint lookup); new rows are not duplicates
     for (const [i, r] of job.rows.entries()) {
       if (i >= 260) continue;
       if (i % 4 === 0) {
-        const want = full.find(rows[i]["Question Text"]!, [rows[i]["Option A"]!, rows[i]["Option B"]!, rows[i]["Option C"]!, rows[i]["Option D"]!], "");
-        assert.ok(want && !want.stemOnly);
         assert.equal(r.status, "DUPLICATE", `row ${i}: ${r.errors.join(" ")}`);
-        assert.equal(r.duplicate?.id, want!.id, `row ${i}`);
+        const twin = bank.find((b) => b.id === r.duplicate?.id);
+        assert.ok(twin && twin.stem === rows[i]["Question Text"] && twin.options.join("|") === [rows[i]["Option A"], rows[i]["Option B"], rows[i]["Option C"], rows[i]["Option D"]].join("|"), `row ${i}`);
       } else if (i !== 250) assert.equal(r.duplicate, null, `row ${i}`);
     }
     const last = job.rows[rows.length - 1];
@@ -192,7 +188,7 @@ describe("update 42A: memory-safe question import (database)", () => {
   });
 
   test("an import chunk that stopped the server twice is not run a third time (FAILED, clear message); one crash is retried", async () => {
-    const mcs = bank.filter((q) => q.options.length === 4 && !q.passage);
+    const mcs = bank.filter((q) => q.options.length === 4 && !q.passage && q.single);
     const rows = Array.from({ length: 3 }, (_, i) => MC(`Crash guard question ${i}: which word is a verb in “The cat ${["runs", "sleeps", "jumps"][i]} home”?`, [["runs", "sleeps", "jumps"][i], "cat", "home", "the"], mcs[0].skill));
     const jobId = await analyzeImport(repo, admin, { fileName: "guard.xlsx", bytes: enc("guard"), table: table(rows) });
     const opts = async () => JSON.parse(JSON.stringify((await repo.findUnique("ImportJob", { id: jobId }))!.options)) as Record<string, unknown>;

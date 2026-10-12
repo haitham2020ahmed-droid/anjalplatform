@@ -8,7 +8,7 @@ import { skillsByIds } from "@/server/plans/wizard";
 import { suggestMapPlan } from "@/server/plans/map-suggest";
 import { fromFormData, readPlanForm, readQuestionPicks } from "@/server/plans/plan-form";
 import { applyEdits, picksOf, sendProgramPlan } from "@/server/plans/send";
-import { dismissMapDraft, sendMapDraft } from "@/server/plans/map-drafts";
+import { dismissMapDraft, mapDraftsForClass, sendMapDraft } from "@/server/plans/map-drafts";
 
 /** MAP page → Send: the suggestion is made again on the server, the teacher's edits applied, sent as MAP work. */
 export async function sendMapPlanAction(f: FormData): Promise<void> {
@@ -43,7 +43,7 @@ export async function sendMapDraftAction(f: FormData): Promise<void> {
     if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e;
     msg = t(e.message);
   }
-  redirect(`/teacher/map-center?${new URLSearchParams({ tab: "plan", classId, subject, msg })}`);
+  redirect(`/teacher/map-center?${new URLSearchParams({ tab: "plan", mode: "individual", classId, subject, msg })}`);
 }
 
 /** "Drafts ready to review" → Dismiss: the draft leaves the list (nothing is sent or deleted). */
@@ -54,5 +54,23 @@ export async function dismissMapDraftAction(f: FormData): Promise<void> {
   let msg: string;
   try { await dismissMapDraft(repo, actor, String(f.get("planId") ?? "")); msg = t("Draft dismissed."); }
   catch (e) { if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e; msg = t(e.message); }
-  redirect(`/teacher/map-center?${new URLSearchParams({ tab: "plan", classId, subject, msg })}`);
+  redirect(`/teacher/map-center?${new URLSearchParams({ tab: "plan", mode: "individual", classId, subject, msg })}`);
+}
+
+/** Individual plans → "Send all": every draft of the class for this subject goes to its student (after the preview). */
+export async function sendAllMapDraftsAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
+  const classId = String(f.get("classId") ?? ""), subject = f.get("subject") === "LANGUAGE" ? "LANGUAGE" : "READING";
+  const { t } = await getT();
+  let msg: string;
+  try {
+    const drafts = (await mapDraftsForClass(repo, actor, classId)).filter((d) => d.subject === subject);
+    let sent = 0;
+    for (const d of drafts) { try { await sendMapDraft(repo, actor, d.id); sent++; } catch (e) { if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e; } }
+    msg = t("Sent {n} individual MAP plan(s).", { n: sent });
+  } catch (e) {
+    if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e;
+    msg = t(e.message);
+  }
+  redirect(`/teacher/map-center?${new URLSearchParams({ tab: "plan", mode: "individual", classId, subject, msg })}`);
 }

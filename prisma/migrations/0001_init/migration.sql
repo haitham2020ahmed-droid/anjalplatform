@@ -483,12 +483,15 @@ CREATE TABLE `Question` (
     `textLevel` INTEGER NULL,
     `intelligenceAt` DATETIME(3) NULL,
     `metaReviewedAt` DATETIME(3) NULL,
+    `contentHash` VARCHAR(64) NULL,
 
     INDEX `Question_skillId_status_irtB_idx`(`skillId`, `status`, `irtB`),
     INDEX `Question_status_origin_idx`(`status`, `origin`),
     INDEX `Question_standardId_idx`(`standardId`),
     INDEX `Question_mapInstructionalArea_status_idx`(`mapInstructionalArea`, `status`),
     INDEX `Question_intelligenceAt_idx`(`intelligenceAt`),
+    INDEX `Question_contentHash_idx`(`contentHash`),
+    INDEX `Question_status_updatedAt_idx`(`status`, `updatedAt`),
     UNIQUE INDEX `Question_skillId_externalRef_key`(`skillId`, `externalRef`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -567,6 +570,7 @@ CREATE TABLE `PracticeSession` (
     `hintQuestionId` VARCHAR(191) NULL,
 
     INDEX `PracticeSession_studentId_startedAt_idx`(`studentId`, `startedAt`),
+    INDEX `PracticeSession_startedAt_idx`(`startedAt`),
     INDEX `PracticeSession_assignmentId_idx`(`assignmentId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -1261,6 +1265,7 @@ CREATE TABLE `SkillPlan` (
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     INDEX `SkillPlan_schoolId_classId_idx`(`schoolId`, `classId`),
+    INDEX `SkillPlan_classId_kind_idx`(`classId`, `kind`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -1887,6 +1892,7 @@ CREATE TABLE `DiagnosticTest` (
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     INDEX `DiagnosticTest_schoolId_grade_idx`(`schoolId`, `grade`),
+    INDEX `DiagnosticTest_assessmentId_idx`(`assessmentId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -2715,6 +2721,36 @@ CREATE TABLE `Feedback` (
 
     INDEX `Feedback_schoolId_resolved_createdAt_idx`(`schoolId`, `resolved`, `createdAt`),
     INDEX `Feedback_userId_createdAt_idx`(`userId`, `createdAt`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `SecondChanceAnswer` (
+    `id` VARCHAR(191) NOT NULL,
+    `studentId` VARCHAR(191) NOT NULL,
+    `questionId` VARCHAR(64) NOT NULL,
+    `correct` BOOLEAN NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+
+    INDEX `SecondChanceAnswer_studentId_questionId_idx`(`studentId`, `questionId`),
+    INDEX `SecondChanceAnswer_studentId_createdAt_idx`(`studentId`, `createdAt`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `DiagnosticWindow` (
+    `id` VARCHAR(191) NOT NULL,
+    `schoolId` VARCHAR(191) NOT NULL,
+    `grade` INTEGER NOT NULL,
+    `mode` VARCHAR(6) NOT NULL DEFAULT 'MANUAL',
+    `isOpen` BOOLEAN NOT NULL DEFAULT false,
+    `opensAt` DATETIME(3) NULL,
+    `closesAt` DATETIME(3) NULL,
+    `schoolYear` VARCHAR(9) NOT NULL,
+    `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedById` VARCHAR(191) NULL,
+
+    UNIQUE INDEX `DiagnosticWindow_schoolId_grade_schoolYear_key`(`schoolId`, `grade`, `schoolYear`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

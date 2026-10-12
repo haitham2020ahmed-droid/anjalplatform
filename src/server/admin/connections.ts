@@ -152,7 +152,7 @@ export async function connections(repo: Repo, actor: Actor, now = new Date()): P
       check({ id: "st-read", label: "Students with a Reading MAP score", detail: "Needed for plans, groups and reports.", ok: live.filter((x) => withRead.has(s(x.id))).length, total: live.length, fix: { href: "/teacher/map-rit", label: "MAP Data" }, gaps: live.filter((x) => !withRead.has(s(x.id))).slice(0, 12).map((st) => ({ label: nameOf(st), href: `/admin/student-file/${s(st.id)}` })) }),
       check({ id: "st-lang", label: "Students with a Language Usage MAP score", detail: "", ok: live.filter((x) => withLang.has(s(x.id))).length, total: live.length, fix: { href: "/teacher/map-rit", label: "MAP Data" }, gaps: live.filter((x) => !withLang.has(s(x.id))).slice(0, 12).map((st) => ({ label: nameOf(st), href: `/admin/student-file/${s(st.id)}` })) }),
       check({ id: "st-active", label: "Students who practised in the last 14 days", detail: "", ok: activeNow.size, total: live.length, good: 0.7, warn: 0.4, fix: { href: "/admin/teachers", label: "Teacher follow-up" }, gaps: [] }),
-      check({ id: "st-parent", label: "Students with a parent account", detail: "Parents see shared reports.", ok: live.filter((x) => withParent.has(s(x.id))).length, total: live.length, health: "INFO", fix: { href: "/admin/roster", label: "Import users" }, gaps: [] }),
+      check({ id: "st-parent", label: "Students with a parent account", detail: "Parents see shared reports.", ok: live.filter((x) => withParent.has(s(x.id))).length, total: live.length, health: "INFO", fix: { href: "/admin/school?open=roster", label: "Import users" }, gaps: [] }),
     ],
   };
 

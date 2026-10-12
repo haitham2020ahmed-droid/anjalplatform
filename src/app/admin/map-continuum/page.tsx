@@ -15,7 +15,7 @@ export default async function ContinuumPage({ searchParams }: { searchParams: Pr
   const stats = await continuumStats(repo);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/map-reports", label: "MAP Reports" }} icon="📘" title="Learning Continuum"
+      <PageHeader back={{ href: "/teacher/map-center?tab=reports", label: "MAP Reports" }} icon="📘" title="Learning Continuum"
         subtitle="What a student in each RIT band is ready to learn, by goal area and sub-topic, with the CCSS codes. The study plans and group plans use it: Reinforce (band below) · Develop (their band) · Introduce (band above), each statement linked to the platform's skills." />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <Section title="Import" icon="📥" tone="amber" className="mb-6" hint={`The NWEA Learning Continuum PDF (Language Usage & Reading) as it is, or an Excel / CSV with one row per statement. Columns: ${CONTINUUM_HEADERS.join(", ")}. Subject: Reading or Language Usage. Standards: CCSS codes separated by spaces (RL.4.2 RL.5.2). Importing again replaces the statements of the subjects in the file.`}>
@@ -35,7 +35,7 @@ export default async function ContinuumPage({ searchParams }: { searchParams: Pr
           </section>
         ))}
       </div>
-      <p className="mt-4 text-sm text-slate-500">Then open <Link href="/teacher/map-reports" className="font-semibold text-brand-teal underline">MAP Reports</Link> for the study plans, family reports and group plans.</p>
+      <p className="mt-4 text-sm text-slate-500">Then open <Link href="/teacher/map-center?tab=reports" className="font-semibold text-brand-teal underline">MAP Reports</Link> for the study plans, family reports and group plans.</p>
     </AppShell>
   );
 }

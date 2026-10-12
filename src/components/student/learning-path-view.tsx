@@ -12,7 +12,7 @@ export function LearningPathView({ p, classId }: { p: LearningPath; classId: str
   return (
     <section className="mt-8 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200" aria-labelledby="lp">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 id="lp" className="text-xl font-extrabold text-brand-navy">🧭 Adaptive Learning Path</h2>
+        <h2 id="lp" className="text-xl font-extrabold text-brand-navy">🧭 My Learning Path</h2>
         <div className="flex flex-wrap gap-2 text-sm">
           {classId && <Link href={`/teacher/personal-plan?classId=${classId}`} className="rounded-xl bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📋 Class plan</Link>}
           <Link href="/teacher/intervention" className="rounded-xl bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🚨 Intervention</Link>

@@ -72,17 +72,22 @@ describe("menus: short and tidy", () => {
     assert.ok(items.filter((i) => i.group === MORE).length >= 10);
   });
 
-  test("admin: five sections (School, Content, Assessments & Programs, Reports, Settings), then More", () => {
+  test("admin: five sections (School, Content, Assessments & Programs, Reports, Settings), ≤ 6 working tools each, no More", () => {
     assert.deepEqual(ADMIN_GROUPS.map((g) => g.title), ["School", "Content", "Assessments & Programs", "Reports", "Settings"]);
     const items = navItemsFor("SCHOOL_ADMIN");
-    assert.deepEqual([...new Set(items.map((i) => i.group).filter(Boolean))], [...ADMIN_GROUPS.map((g) => g.title), MORE]);
+    assert.deepEqual([...new Set(items.map((i) => i.group).filter(Boolean))], ADMIN_GROUPS.map((g) => g.title));
+    assert.ok(!items.some((i) => i.group === MORE), "the admin menu has no More group (All Admin Tools has the rest)");
     const at = (g: string) => items.filter((i) => i.group === g).map((i) => i.href);
-    for (const h of ["/admin/school", "/admin/users"]) assert.ok(at("School").includes(h), h);
-    for (const h of ["/admin/questions", "/admin/skill-links", "/admin/readrise", "/student/readmaster", "/admin/curriculum-map", "/admin/grammar", "/admin/dictionary"]) assert.ok(at("Content").includes(h), h);
-    for (const h of ["/admin/tests", "/teacher/map-center", "/admin/nafs-links", "/admin/levels", "/admin/tiers"]) assert.ok(at("Assessments & Programs").includes(h), h);
-    for (const h of ["/admin/analytics", "/admin/term-report", "/admin/report-approvals"]) assert.ok(at("Reports").includes(h), h);
+    for (const g of ADMIN_GROUPS) assert.ok(at(g.title).length <= 6, `${g.title}: ${at(g.title).length}`);
+    for (const h of ["/admin/school", "/admin/users", "/teacher/students"]) assert.ok(at("School").includes(h), h);
+    for (const h of ["/admin/questions", "/admin/skill-links", "/admin/readrise", "/student/readmaster", "/admin/curriculum-map", "/admin/grammar"]) assert.ok(at("Content").includes(h), h);
+    for (const h of ["/admin/tests", "/admin/diagnostic", "/teacher/map-center", "/admin/nafs-links", "/admin/levels", "/teacher/rti-plan"]) assert.ok(at("Assessments & Programs").includes(h), h);
+    for (const h of ["/admin/analytics", "/admin/term-report", "/admin/report-approvals", "/teacher/reports"]) assert.ok(at("Reports").includes(h), h);
     for (const h of ["/admin/settings", "/admin/ai-tools", "/admin/backup", "/admin/data-health", "/admin/data-cleanup", "/admin/feedback"]) assert.ok(at("Settings").includes(h), h);
     assert.equal(ADMIN_TOOLS.find((x) => x.href === "/admin/skill-links")?.label, "Sort Questions");
+    // the rest is found by name in the top bar
+    const found = new Set(searchablePagesFor("SCHOOL_ADMIN").map((i) => i.href));
+    for (const x of ADMIN_TOOLS) assert.ok(found.has(x.href), `findable: ${x.href}`);
   });
 
   test("every role: one name and one icon per entry; labels and groups translated; More folds", () => {

@@ -10,11 +10,13 @@
 import { runAfterResponse } from "../lib/after-response";
 import { hideLevels } from "../../lib/hide-levels";
 import type { Repo, Row } from "../seeding/repo";
+import { visibleDiagnostics } from "../diagnostic/window";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
 import { DEFAULT_TARGET_MASTERY, MIN_ANSWERS_TO_COMPLETE, refreshQuestionSets, refreshSkillAssignments, trackOf, type Track } from "../teacher/assign";
 import { adaptiveNext } from "../curriculum-map/leveled-run";
+import { backfillForStudent, skillOfAssignment } from "../practice/completion";
 
 type Status = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "OVERDUE";
 const s = (v: unknown) => String(v ?? "");
@@ -27,7 +29,7 @@ function ownStudentId(actor: Actor): string {
 }
 
 /** The skill an assignment is about (new single-skill assignments, or older ones with one skill). */
-const skillOf = (a: Row): string | null => (a.skillId ? s(a.skillId) : Array.isArray(a.skillIds) && (a.skillIds as unknown[]).length === 1 ? s((a.skillIds as unknown[])[0]) : null);
+const skillOf = (a: Row): string | null => skillOfAssignment(a);
 
 export interface AssignedSkill {
   /** skill = adaptive practice on a skill; questions = a set of questions the teacher chose */
@@ -45,15 +47,21 @@ export interface AssignedView { summary: { assigned: number; completed: number; 
 export async function assignedSkills(repo: Repo, actor: Actor, now = new Date()): Promise<AssignedView> {
   const studentId = ownStudentId(actor);
   const rows = await repo.findMany("AssignmentStudent", { studentId });
+  const everything = rows.length ? await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }) : [];
+  // ✅ work finished before completion was written with the last answer: Done now (lazy, bounded, once in a while)
+  await backfillForStudent(repo, studentId, rows, everything, now);
   // places of a full-curriculum plan live in the plan (My Plans), not in the work list
-  const all = (rows.length ? await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }) : []).filter((a) => !a.curriculumPlanId);
+  const listed = everything.filter((a) => !a.curriculumPlanId);
+  // 🗓️ the Diagnostic Test is listed only while the school admin has it open for the grade and not done this year
+  const all = await visibleDiagnostics(repo, studentId, listed, now);
   const assignments = all.filter((a) => skillOf(a));
   const sets = all.filter((a) => a.assessmentId && !skillOf(a));
   // bring statuses up to date (writes only what changed); what does not depend on the statuses is read meanwhile
   // (Update 42B: one round trip instead of five)
   const skillIds = [...new Set(assignments.map((a) => skillOf(a)!))];
   const [, , setRows, adaptiveSets, skills, links] = await Promise.all([
-    refreshSkillAssignments(repo, assignments, [studentId], now), refreshQuestionSets(repo, sets, [studentId], now),
+    // older rows keep their one skill in skillIds only: refreshed by that skill too
+    refreshSkillAssignments(repo, assignments.map((a) => (a.skillId ? a : { ...a, skillId: skillOf(a) })), [studentId], now), refreshQuestionSets(repo, sets, [studentId], now),
     sets.length ? repo.findMany("AssessmentQuestion", { assessmentId: { in: sets.map((a) => a.assessmentId) } }, { select: ["assessmentId"] }) : Promise.resolve([] as Row[]),
     sets.length ? repo.findMany("Assessment", { id: { in: sets.map((a) => a.assessmentId) }, isAdaptive: true }, { select: ["id", "maxQuestions", "targetCorrect"] }) : Promise.resolve([] as Row[]),
     skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),

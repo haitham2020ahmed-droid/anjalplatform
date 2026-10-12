@@ -21,7 +21,7 @@ export interface PickerQuestion {
   /** the skill row the question is stored on (any grade's copy of the skill) */
   skillId: string;
 }
-export interface PickerResult { skill: { id: string; name: string; grade: number }; total: number; questions: PickerQuestion[] }
+export interface PickerResult { skill: { id: string; name: string; grade: number }; total: number; questions: PickerQuestion[]; /** questions of this skill not published yet (drafts waiting for review) */ drafts?: number }
 export interface PickerOpts { level?: PickerLevel; search?: string; limit?: number }
 
 export function canUsePicker(actor: Actor | null | undefined): boolean {
@@ -60,5 +60,7 @@ export async function listSkillQuestionsForTeacher(repo: Repo, actor: Actor, ski
     level: LEVEL_OF(Number(it.level) || 4), difficultyLevel: Number(it.level) || 4, type: s(it.type), passageTitle: it.passageTitle ? s(it.passageTitle) : null,
     skillId: skillOf.get(it.questionId) ?? own,
   }));
-  return { skill: { id: sk.id, name: sk.name, grade: sk.grade }, total: rows.length, questions };
+  let drafts = 0;
+  try { drafts = await repo.count("Question", { skillId: { in: fam }, status: "DRAFT", deletedAt: null }); } catch { drafts = 0; }
+  return { skill: { id: sk.id, name: sk.name, grade: sk.grade }, total: rows.length, questions, drafts };
 }

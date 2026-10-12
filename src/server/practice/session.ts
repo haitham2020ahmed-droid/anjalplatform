@@ -28,11 +28,14 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
 import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
-import { openAssignmentFor, refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
+import { refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
+import { allowedQuestions, answerState, recentOf, withAnswer, type Allowed, type AnswerState } from "./no-repeat";
+import { isFinishReason, lastPickedWorkFor, markDone, openWorkFor } from "./completion";
 import { chosenQuestionIdsOfAssignment } from "../questions/skill-questions";
 import { applyPlacementResult } from "../curriculum-map/placement-result";
 import { adaptiveNext, STUCK_AFTER, type AdaptiveState } from "../curriculum-map/leveled-run";
 import { diagnosticNext, diagnosticOfAssessment, recordDiagnosticResult } from "../diagnostic/test";
+import { assertDiagnosticAccess } from "../diagnostic/window";
 import { finishWeeklyCheck, WEEKLY_CHECK_MARK } from "../student/weekly-check";
 import { withLock } from "../lib/key-lock";
 import { afterResponseSettled, runAfterResponse } from "../lib/after-response";
@@ -224,41 +227,83 @@ async function practiceItems(repo: Repo, skillId: string, assignmentId: unknown)
   return { items: await loadSkillItems(repo, skillId), chosen: false };
 }
 
+/** The allowed next questions for a student (no repeats): see no-repeat.ts. */
+function allowedFor(items: PracticeItem[], state: AnswerState, recent: ReadonlySet<string>, theta: number): Allowed {
+  return allowedQuestions(items.map((i) => ({ questionId: i.questionId, b: i.irt.b })), state, recent, theta);
+}
+
+/** The allowed question closest to the student's level (when the engine's own pick is not allowed). */
+function closestAllowed(items: PracticeItem[], allowed: Allowed, theta: number, not?: string): string | null {
+  const ok = new Set(allowed.ids);
+  const pool = items.filter((i) => ok.has(i.questionId) && i.questionId !== not);
+  return pool.length ? pool.sort((a, b) => Math.abs(a.irt.b - theta) - Math.abs(b.irt.b - theta))[0].questionId : null;
+}
+
+/**
+ * Nothing left to practise in this skill (every question answered, the missed ones answered correctly since): an
+ * ended session records it, and the student's work for the skill is Done (idempotent). Levels and mastery unchanged.
+ */
+async function finishSkill(repo: Repo, actor: Actor, studentId: string, skillId: string, work: string[], now: Date, open?: Row): Promise<PracticeView> {
+  const patch = { endedAt: now, endReason: "SKILL_FINISHED", currentQuestionId: null, currentServedAt: null };
+  const session = open
+    ? (await repo.updateMany("PracticeSession", { id: open.id, endedAt: null }, patch), { ...open, ...patch })
+    : await repo.create("PracticeSession", { studentId, skillId, mode: "ADAPTIVE_PRACTICE", startedAt: now, ...(work[0] ? { assignmentId: work[0] } : {}), ...patch });
+  await markDone(repo, [...work, ...(session.assignmentId ? [String(session.assignmentId)] : [])], studentId, now);
+  const mastery = await repo.findUnique("StudentSkillMastery", { studentId, skillId });
+  return currentQuestion(repo, actor, String(session.id), now, { session, mastery });
+}
+
 async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, now = new Date(), random?: () => number): Promise<PracticeView> {
   const student = await ownStudent(repo, actor);
   const skill = await assertSkillInCurriculum(repo, student, skillId);
-  const [openRows, assignmentId] = await Promise.all([
+  const studentId = String(student.id);
+  const [openRows, work, state] = await Promise.all([
     repo.findMany("PracticeSession", { studentId: student.id, skillId, endedAt: null }),
-    openAssignmentFor(repo, String(student.id), skillId, now), // practice on an assigned skill counts toward it
+    // practice on an assigned skill counts toward it (also an older skillIds row or another grade's copy of the skill)
+    openWorkFor(repo, studentId, skillId, now),
+    answerState(repo, studentId, skillId),
   ]);
+  // no open work: practising again after the work was Done stays inside the teacher's picks (if there were any)
+  const assignmentId = work[0] ?? await lastPickedWorkFor(repo, studentId, skillId, now);
   const { items, chosen } = await practiceItems(repo, skillId, assignmentId);
   if (!items.length) throw new ValidationError("There are no questions for this skill yet.");
+  const cfg = await engineConfig(repo, actor.schoolId);
+  const ability = await abilityOf(repo, studentId, skillId, cfg.adaptive);
 
   // resume a recent open session for this skill instead of starting over (with the teacher's own questions: only
   // a session of that same assignment)
   const open = openRows.filter((s) => now.getTime() - d(s.startedAt).getTime() < SESSION_RESUME_MINUTES * 60_000 && s.currentQuestionId && (!chosen || String(s.assignmentId ?? "") === String(assignmentId)));
   if (open.length) {
+    const s0 = open[0];
+    const recent = recentOf((await sessionAnswersOf(repo, String(s0.id))).map((a) => String(a.questionId)));
+    const allowed = allowedFor(items, state, recent, ability.theta);
+    if (allowed.phase === "DONE") return finishSkill(repo, actor, studentId, skillId, work, now, s0);
+    // the question waiting may have been answered meanwhile (another tab, another grade's copy): a new one instead
+    let current = String(s0.currentQuestionId);
+    if (!allowed.ids.includes(current) && allowed.ids.length) current = closestAllowed(items, allowed, ability.theta) ?? current;
+    // linked now when the work was assigned after this session was opened
+    const link = !s0.assignmentId && assignmentId ? { assignmentId } : {};
     // resumed: the question is served again now (time away is not answer time)
     const [, mastery] = await Promise.all([
-      repo.updateMany("PracticeSession", { id: open[0].id, endedAt: null }, { currentServedAt: now }),
+      repo.updateMany("PracticeSession", { id: s0.id, endedAt: null, currentQuestionId: s0.currentQuestionId }, { currentServedAt: now, currentQuestionId: current, ...link }),
       repo.findUnique("StudentSkillMastery", { studentId: student.id, skillId }),
     ]);
-    return currentQuestion(repo, actor, String(open[0].id), now, { session: { ...open[0], currentServedAt: now }, mastery });
+    return currentQuestion(repo, actor, String(s0.id), now, { session: { ...s0, currentServedAt: now, currentQuestionId: current, ...link }, mastery });
   }
 
-  const cfg = await engineConfig(repo, actor.schoolId);
+  const allowed = allowedFor(items, state, new Set(), ability.theta);
+  if (allowed.phase === "DONE" || !allowed.ids.length) return finishSkill(repo, actor, studentId, skillId, work, now);
+  const ok = new Set(allowed.ids);
+  const candidates = items.filter((i) => ok.has(i.questionId));
   const byId = new Map(items.map((i) => [i.questionId, i]));
-  const [history, ability] = await Promise.all([
-    skillHistory(repo, String(student.id), skillId, byId),
-    abilityOf(repo, String(student.id), skillId, cfg.adaptive),
-  ]);
+  const history = await skillHistory(repo, studentId, skillId, byId);
   const first = selectNextItem({
-    mode: "PRACTICE", theta: ability.theta, previousTargetB: null, candidates: items.map((i) => toCandidate(i, skillId)),
+    mode: "PRACTICE", theta: ability.theta, previousTargetB: null, candidates: candidates.map((i) => toCandidate(i, skillId)),
     recentItemIds: history.map((h) => h.itemId), recentCorrect: [], prerequisites: [], config: cfg.adaptive, random,
   });
-  // if every item was seen recently, allow repeats rather than refusing to practise
-  // (a content gap — nothing within 2 levels — starts with the easiest question; the next step then ends the session)
-  const firstId = first.itemId ?? (first.reasonCode === "NO_ITEM_IN_RANGE" ? [...items].sort((a, b) => a.irt.b - b.irt.b)[0] : items.sort((a, b) => Math.abs(a.irt.b - ability.theta) - Math.abs(b.irt.b - ability.theta))[0]).questionId;
+  // nothing picked (a missed question answered recently, or a content gap): the allowed question closest to the
+  // student's level (a content gap starts with the easiest question; the next step then ends the session)
+  const firstId = first.itemId ?? (first.reasonCode === "NO_ITEM_IN_RANGE" ? [...candidates].sort((a, b) => a.irt.b - b.irt.b)[0].questionId : closestAllowed(items, allowed, ability.theta)!);
   const [session, mastery] = await Promise.all([
     repo.create("PracticeSession", {
       studentId: student.id, skillId, mode: "ADAPTIVE_PRACTICE", startedAt: now, ...(assignmentId ? { assignmentId } : {}),
@@ -269,7 +314,7 @@ async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, 
   // the first decision's log: after the response (Update 42B)
   runAfterResponse("practice.start_log", () => repo.create("AdaptiveDecisionLog", {
     studentId: student.id, sessionId: session.id, skillId, previousTheta: ability.theta, newTheta: ability.theta, thetaSE: ability.se,
-    nextQuestionId: firstId, nextTargetB: first.targetB, reason: first.itemId || first.reasonCode === "NO_ITEM_IN_RANGE" ? first.reason : "All items seen recently; repeating the closest item.",
+    nextQuestionId: firstId, nextTargetB: first.targetB, reason: first.itemId || first.reasonCode === "NO_ITEM_IN_RANGE" ? first.reason : `No repeats: ${allowed.phase === "RETRY" ? "a question missed before comes back" : "the unanswered question closest to the level"}.`,
     reasonCode: first.itemId || first.reasonCode === "NO_ITEM_IN_RANGE" ? first.reasonCode : "POOL_EXHAUSTED", engineVersion: ENGINE_VERSION, createdAt: now,
   }));
   void skill;
@@ -421,7 +466,7 @@ async function submitAnswerUnlocked(
   const usedHint = Boolean(input.usedHint) || String(s.hintQuestionId ?? "") === item.questionId;
   const misconception = correct ? null : attemptMisconception(item, response);
 
-  const [history, ability, prerequisites, sessionRows, prevMastery, repeatedBefore] = await Promise.all([
+  const [history, ability, prerequisites, sessionRows, prevMastery, repeatedBefore, stateBefore] = await Promise.all([
     skillHistory(repo, studentId, skillId, byId),
     abilityOf(repo, studentId, skillId, cfg.adaptive),
     prerequisitesFor(repo, studentId, skillId, now),
@@ -429,31 +474,44 @@ async function submitAnswerUnlocked(
     repo.findUnique("StudentSkillMastery", { studentId, skillId }),
     // the tutor: how often this mistake came back in 30 days (this answer is added below)
     misconception ? repo.count("QuestionAttempt", { studentId, misconception, createdAt: { gte: new Date(now.getTime() - 30 * 86_400_000) } }) : Promise.resolve(0),
+    // 🔁 no repeats: what the student already answered in this skill family (one bounded indexed read)
+    answerState(repo, studentId, skillId),
   ]);
   const evidence: ResponseEvidence = {
     itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
     a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint, at: now.toISOString(),
     repeat: isRecentRepeat(history, item.questionId, now.toISOString()),
   };
+  // the questions that may come next: never one already answered (any session, any copy of the skill), then only
+  // the missed ones; the engine below scores this answer exactly as before and only CHOOSES among these
+  // a missed question never comes back right after it was answered (the last RETRY_GAP answers of this session)
+  const recent = recentOf([...sessionRows.map((a) => String(a.questionId)), item.questionId]);
   const answeredThisSession = Number(s.questionCount) + 1;
-  const step = processAnswer(
-    {
-      studentId, skillId, sessionId: String(s.id), mode: "PRACTICE", ability: { theta: ability.theta, se: ability.se }, prior: ability.prior,
-      history, previousTargetB: s.lastTargetB === null || s.lastTargetB === undefined ? null : Number(s.lastTargetB),
-      candidates: items.map((i) => toCandidate(i, skillId)), prerequisites,
-      sessionCorrect: sessionRows.map((r) => Boolean(r.isCorrect)),
-    },
-    evidence, cfg, now, random,
-  );
+  const engineState = {
+    studentId, skillId, sessionId: String(s.id), mode: "PRACTICE" as const, ability: { theta: ability.theta, se: ability.se }, prior: ability.prior,
+    history, previousTargetB: s.lastTargetB === null || s.lastTargetB === undefined ? null : Number(s.lastTargetB),
+    candidates: [] as ReturnType<typeof toCandidate>[], prerequisites,
+    sessionCorrect: sessionRows.map((r) => Boolean(r.isCorrect)),
+  };
+  // the new ability after this answer (the engine's own estimate; no random draw is used, nothing is chosen)
+  const probe = processAnswer(engineState, evidence, cfg, now, () => 0);
+  const allowed = allowedFor(items, withAnswer(stateBefore, item.questionId, correct), recent, probe.ability.theta);
+  const allowedSet = new Set(allowed.ids);
+  // the engine scores this answer exactly as before (ability, mastery, XP do not depend on the candidates) and
+  // chooses the next question among the allowed ones only
+  const step = processAnswer({ ...engineState, candidates: items.filter((i) => allowedSet.has(i.questionId)).map((i) => toCandidate(i, skillId)) }, evidence, cfg, now, random);
 
   // decide what comes next (the questions of this session so far, and this one)
-  let nextId = step.next.itemId;
+  let nextId = step.next.itemId && allowedSet.has(step.next.itemId) ? step.next.itemId : null;
+  // the engine found nothing among the allowed questions only because they were answered recently (the missed ones
+  // coming back): the allowed one closest to the new level
+  if (!nextId && allowed.ids.length && step.next.reasonCode !== "PREREQ_ROUTE" && step.next.reasonCode !== "NO_ITEM_IN_RANGE") nextId = closestAllowed(items, allowed, step.ability.theta, item.questionId);
   let endReason: string | null = null;
   let routeToSkillId: string | null = null;
-  const seenThisSession = new Set([...sessionRows.map((a) => String(a.questionId)), item.questionId]);
-  if (answeredThisSession >= MAX_QUESTIONS_PER_SESSION) { nextId = null; endReason = "COMPLETED"; }
+  if (allowed.phase === "DONE") { nextId = null; endReason = "SKILL_FINISHED"; }
+  else if (answeredThisSession >= MAX_QUESTIONS_PER_SESSION) { nextId = null; endReason = "COMPLETED"; }
   else if (answeredThisSession >= MIN_QUESTIONS_BEFORE_STOP && step.ability.se <= STOP_SE) { nextId = null; endReason = "LEVEL_CONFIRMED"; }
-  else if (seenThisSession.size >= items.length && nextId && seenThisSession.has(nextId)) { nextId = null; endReason = "ALL_QUESTIONS_ANSWERED"; }
+  else if (allowed.phase === "LATER") { nextId = null; endReason = "RETRY_LATER"; }
   else if (step.next.reasonCode === "PREREQ_ROUTE") { nextId = null; endReason = "PREREQ_ROUTE"; routeToSkillId = step.next.routeToSkillId ?? null; }
   else if (!nextId) endReason = "POOL_EXHAUSTED";
 
@@ -474,6 +532,11 @@ async function submitAnswerUnlocked(
     ...(endReason ? { endedAt: now, endReason } : {}),
   };
   const routeName = routeToSkillId ? String((await cachedSkill(repo, routeToSkillId))?.name ?? "") : null;
+  // ✅ the practice is finished: the student's work for this skill becomes Done in the SAME transaction as this last
+  // answer (immediate, server-side; guarded by completedAt IS NULL so a retry or a second tab writes it once)
+  const finished = Boolean(endReason && isFinishReason(endReason));
+  const linkedAssignment = s.assignmentId ? String(s.assignmentId) : null;
+  const doneWork = finished ? [...new Set([...(linkedAssignment ? [linkedAssignment] : []), ...(await openWorkFor(repo, studentId, skillId, now))])] : [];
 
   const attempt = await repo.transaction(async (tx) => {
     // guarded by the database: only one request can move the session past this question (two servers, double clicks)
@@ -488,6 +551,7 @@ async function submitAnswerUnlocked(
       { theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 });
     await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
     if (step.xp > 0) await tx.create("XpEvent", { studentId, points: step.xp, reason: mst.isMastered && !prevMastery?.isMastered ? "skill_mastered" : "practice", createdAt: now });
+    if (doneWork.length) await markDone(tx, doneWork, studentId, now);
     return row;
   });
 
@@ -503,15 +567,14 @@ async function submitAnswerUnlocked(
     next: { hasQuestion: Boolean(nextId), endReason, routeToSkillId, routeToSkillName: routeName },
     tutor: correct ? null : tutorFrom(item, response, step.ability.theta, misconception, repeatedBefore + (misconception ? 1 : 0)),
   };
-  // after the response: the decision log (reports, prerequisite routes) and the assignment's status (the student
-  // does not wait; their home page refreshes statuses too)
-  const linkedAssignment = s.assignmentId ? String(s.assignmentId) : null;
+  // after the response: the decision log (reports, prerequisite routes) and the assignment's progress (the student
+  // does not wait; their home page refreshes statuses too). Completion itself was written with the answer above.
   runAfterResponse("practice.decision_log", () => repo.create("AdaptiveDecisionLog", {
     ...step.log, attemptId: attempt.id, nextQuestionId: nextId, responseCorrect: correct, createdAt: now,
     masteryBefore: seenBefore, masteryAfter: mst.score,
     reason: endReason === "COMPLETED" ? `${step.log.reason} Session complete (${MAX_QUESTIONS_PER_SESSION} questions).` : step.log.reason,
   }));
-  if (linkedAssignment) runAfterResponse("practice.assignment_refresh", () => refreshAfterAnswer(repo, linkedAssignment, studentId, now, skillId || undefined));
+  if (linkedAssignment && !finished) runAfterResponse("practice.assignment_refresh", () => refreshAfterAnswer(repo, linkedAssignment, studentId, now, skillId || undefined));
   // the next screen comes from this answer's own results (no re-reading)
   const view = await currentQuestion(repo, actor, input.sessionId, now, { session: { ...s, ...sessionPatch }, mastery: { studentId, skillId, ...masteryData } });
   return { feedback, view };
@@ -568,13 +631,22 @@ export interface QuizView {
   endsAt?: string | null;
 }
 
-async function quizContext(repo: Repo, actor: Actor, assignmentId: string) {
+async function quizContext(repo: Repo, actor: Actor, assignmentId: string, now = new Date()) {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only students can answer assigned questions.");
   const [a, mine] = await Promise.all([repo.findUnique("Assignment", { id: assignmentId }), repo.findMany("AssignmentStudent", { assignmentId, studentId: actor.studentId })]);
   if (!a || a.deletedAt || !a.assessmentId || !mine.length) throw new ForbiddenError("These questions were not assigned to you.");
   if (a.startAt && new Date(String(a.startAt instanceof Date ? a.startAt.toISOString() : a.startAt)) > new Date()) throw new ValidationError("This work has not started yet.");
+  // 🗓️ the Diagnostic Test: only while the school admin has it open for the grade, once per school year (server check)
+  await assertDiagnosticAccess(repo, actor, String(a.assessmentId), now);
   // the set's question order: kept in memory while no write to it has happened here, at most a minute (Update 42B)
-  const order = await cached(`order:${String(a.assessmentId)}`, ["AssessmentQuestion"], async () => (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).sort((x, y) => Number(x.order) - Number(y.order)).map((x) => String(x.questionId)), 60_000);
+  // only questions that still exist and are published: a deleted or unpublished question could never be answered,
+  // so the set could never be finished (My Work stayed "In progress")
+  const order = await cached(`order:${String(a.assessmentId)}`, ["AssessmentQuestion", "Question"], async () => {
+    const ids = (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).sort((x, y) => Number(x.order) - Number(y.order)).map((x) => String(x.questionId));
+    if (!ids.length) return ids;
+    const live = new Set((await repo.findMany("Question", { id: { in: ids }, status: "PUBLISHED", deletedAt: null }, { select: ["id"] })).map((q) => String(q.id)));
+    return ids.filter((id) => live.has(id));
+  }, 60_000);
   // a teacher-built test may give each student their own (fixed) question order
   return { a, order: testOrder(a, order, actor.studentId!) };
 }
@@ -637,7 +709,7 @@ function blankFeedback(): Feedback {
 
 /** Starts or resumes the student's question set (continues from the first unanswered question). */
 async function startQuizUnlocked(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<QuizView> {
-  const { a, order } = await quizContext(repo, actor, assignmentId);
+  const { a, order } = await quizContext(repo, actor, assignmentId, now);
   if (!order.length) throw new ValidationError("This assignment has no questions.");
   let s = (await repo.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" }))[0];
   if (!s) s = await repo.create("PracticeSession", { studentId: actor.studentId!, assessmentId: a.assessmentId, assignmentId: a.id, mode: "TEACHER_QUIZ", startedAt: now, currentServedAt: now });
@@ -656,7 +728,7 @@ async function startQuizUnlocked(repo: Repo, actor: Actor, assignmentId: string,
 
 /** One answer: scored, saved (one attempt per question), counted toward mastery; returns feedback and the next question. */
 async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assignmentId: string; questionId: string; response: unknown }, now = new Date()): Promise<{ feedback: Feedback; view: QuizView }> {
-  const { a, order } = await quizContext(repo, actor, input.assignmentId);
+  const { a, order } = await quizContext(repo, actor, input.assignmentId, now);
   if (!order.includes(input.questionId)) throw new ValidationError("This question is not part of the assignment.");
   // Update 42B: the reads first (in parallel, outside the transaction), then one short transaction of writes guarded
   // by the session's answer count (a double click or a second server is still refused, its writes rolled back)
@@ -746,6 +818,9 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
     // guarded by the database: a second request for the same answer (two servers, double clicks) is refused
     const moved = await tx.updateMany("PracticeSession", { id: s.id, questionCount: Number(s.questionCount ?? 0) }, patch);
     if (moved !== 1) throw new ValidationError("You already answered this question.");
+    // ✅ the set is finished (last question, goal reached, or its questions ran out): Done in My Work with this
+    // same answer — immediate and idempotent (completedAt IS NULL guard)
+    if (done || goalNow) await markDone(tx, [String(a.id)], studentId, now);
     return { attempt, after, patch: { ...patch, done, goalNow } };
   });
   const goalSet = after.goal !== null;
@@ -828,6 +903,8 @@ export function submitAnswer(repo: Repo, actor: Actor, input: { sessionId: strin
  * again when it was answered (else a blank result), with `alreadyEnded` so the page shows "This practice is finished".
  */
 async function endedSessionReply(repo: Repo, actor: Actor, s: Row, questionId: string): Promise<{ feedback: Feedback; view: PracticeView }> {
+  // a finished practice: its work is Done (idempotent — normally already written with the last answer)
+  if (s.assignmentId && isFinishReason(s.endReason)) await markDone(repo, [String(s.assignmentId)], String(s.studentId), s.endedAt ? d(s.endedAt) : new Date());
   const view = await currentQuestion(repo, actor, String(s.id));
   const base: Feedback = {
     ...blankFeedback(), masteryBefore: view.mastery, masteryAfter: view.mastery, band: view.band, alreadyEnded: true,

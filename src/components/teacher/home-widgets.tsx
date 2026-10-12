@@ -83,10 +83,11 @@ export function SkillFinder({ classGrade, noCurriculum, canAssign }: { classGrad
   const [q, setQ] = useState("");
   const [rows, setRows] = useState<SkillFamily[] | null>(null);
   const [pending, start] = useTransition();
-  const search = (e?: React.FormEvent) => {
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const search = (e?: React.FormEvent, value?: string) => {
     e?.preventDefault();
-    const v = q.trim();
-    if (v.length < 3) { setRows(null); return; }
+    const v = (value ?? q).trim();
+    if (v.length < 1) { setRows(null); return; }
     // one row per skill name (+ grammar or not), even if the server sends the same name twice
     start(async () => { setRows(dedupeSkillsByName(await findSkillsAction(v, classGrade), (f) => (f.pick.grammar ? "GRAMMAR" : "READING"))); });
   };
@@ -95,7 +96,7 @@ export function SkillFinder({ classGrade, noCurriculum, canAssign }: { classGrad
       <h2 id="find-skill-h" className="text-xl font-semibold text-brand-navy"><span aria-hidden="true">🔎</span> {t("Find a skill and assign it")}</h2>
       {noCurriculum && <p className="mt-2 rounded-xl bg-sky-50 px-4 py-3 text-sm text-sky-950 ring-1 ring-sky-200">{t(noCurriculum)}</p>}
       <form onSubmit={search} className="mt-3 flex flex-col gap-2 sm:flex-row" role="search">
-        <input value={q} onChange={(e) => setQ(e.target.value)} type="search" dir="ltr" placeholder={t("Type a skill, e.g. main idea")} aria-label={t("Skill name")} className={`${field} sm:flex-1`} />
+        <input value={q} onChange={(e) => { const v = e.target.value; setQ(v); if (timer.current) clearTimeout(timer.current); timer.current = setTimeout(() => search(undefined, v), 200); }} autoComplete="off" type="search" dir="ltr" placeholder={t("Type a skill, e.g. main idea")} aria-label={t("Skill name")} className={`${field} sm:flex-1`} />
         <button className={BTN_SECONDARY} disabled={pending}>{t(pending ? "Searching…" : "Search")}</button>
       </form>
       {rows && rows.length === 0 && <div className="mt-4"><EmptyState compact icon="🔍" title="Nothing matches your search" text="Try another word, e.g. inference, theme, commas." /></div>}

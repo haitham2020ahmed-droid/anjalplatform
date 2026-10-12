@@ -107,7 +107,17 @@ export async function mapProfiles(repo: Repo, schoolId: string, studentIds: stri
     const st = students.find((x) => x.id === id);
     const grade = Number(grades.find((g) => g.id === st?.gradeId)?.level ?? 0);
     const mine = results.filter((r) => s(r.studentId) === id && isSubj(r.subject)).sort((a, b) => time(a.testDate) - time(b.testDate));
-    const overallRows = mine.filter((r) => !r.goalName);
+    let overallRows = mine.filter((r) => !r.goalName);
+    if (!overallRows.length) {
+      // only sub-area (goal) scores were imported: the latest test's overall RIT = the mean of its goal RITs
+      const goals = mine.filter((r) => r.goalName && Number.isFinite(Number(r.rit)));
+      const lastTerm = goals.length ? s(goals[goals.length - 1].termName) : "";
+      const same = goals.filter((r) => s(r.termName) === lastTerm);
+      if (same.length) {
+        const last = same[same.length - 1];
+        overallRows = [{ ...last, goalName: null, goalAreaId: null, rit: Math.round(same.reduce((t, r) => t + Number(r.rit), 0) / same.length), achievementPercentile: null, projectedGrowth: null, lexile: last.lexile ?? null }];
+      }
+    }
     const latest = overallRows[overallRows.length - 1];
     const term = latest ? s(latest.termName) || null : null;
     const season = latest ? seasonOf(latest.termName, latest.testDate) : null;

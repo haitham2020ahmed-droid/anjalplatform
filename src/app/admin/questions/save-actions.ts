@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { repo, requireActor } from "@/server/auth/next";
 import { ValidationError } from "@/server/curriculum-admin";
-import { createDraft, updateDraft, type EditorInput } from "@/server/admin/questions";
+import { createDraft, duplicateOfInput, updateDraft, type EditorInput } from "@/server/admin/questions";
 
 const id = z.string().min(1).max(191);
 const option = z.object({ label: z.string().max(4), text: z.string().max(500), correct: z.boolean(), rationale: z.string().max(500).nullable(), misconception: z.string().max(40).nullish() });
@@ -34,10 +34,13 @@ const editorSchema = z.object({
   combine: z.object({ sentences: z.array(z.string().max(300)).max(6), connector: z.string().max(30).nullish(), hint: z.string().max(300).nullish(), accepted: z.array(z.string().max(400)).max(10) }).optional(),
 });
 
-export async function saveQuestionWithTypesAction(questionId: string | null, input: unknown): Promise<{ ok?: boolean; error?: string; message?: string; id?: string }> {
+export async function saveQuestionWithTypesAction(questionId: string | null, input: unknown): Promise<{ ok?: boolean; error?: string; message?: string; id?: string; duplicateId?: string }> {
   const actor = await requireActor({ permission: "questions:edit" });
   try {
     const parsed = editorSchema.parse(input) as EditorInput;
+    // 👯 an exact copy of another question of the same skill family is not saved twice
+    const dup = await duplicateOfInput(repo, actor, parsed, questionId ? id.parse(questionId) : null);
+    if (dup) return { error: "This question already exists.", duplicateId: dup.id };
     let r: { id: string; message: string };
     if (questionId) {
       await updateDraft(repo, actor, id.parse(questionId), parsed);

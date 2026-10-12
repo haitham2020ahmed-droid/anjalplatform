@@ -68,7 +68,7 @@ describe("⭐ ReadMaster: one page for everyone, open to all, counts only at own
     assert.equal(h4.units[1].title, "Other");
     assert.match(h4.units[0].title, /Unit 1|\w/);
     const rivers = h4.units[0].articles.find((a) => a.id === g4u1)!;
-    assert.equal(rivers.minutes, readingMinutes(ON_BODY.trim().split(/\s+/).length), "reading time from the On version at 120 words a minute");
+    assert.equal(rivers.minutes, readingMinutes(ON_BODY.trim().split(/\s+/).length), "reading time from the On version at 130 words a minute");
     assert.ok(rivers.minutes >= 2 && rivers.done === null && rivers.skill);
     const h5 = await readMasterHome(repo, s5);
     assert.equal(h5.grade, 5, "a Grade 5 student opens on Grade 5");

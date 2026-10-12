@@ -41,12 +41,13 @@ export function WhoPicker({ t, classes, classId, classHref, students, form, chil
         ))}
       </div>
       {students.length === 0 ? <EmptyState compact icon="👥" title="No students in this class yet" className="mt-3" /> : (
-        <details className="mt-3" open={form.who !== "class"}>
-          <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-brand-navy">{t("Choose students (for One student or A group)")}</summary>
-          <div className="mt-2 grid gap-1 sm:grid-cols-2 lg:grid-cols-4">
-            {students.map((st) => <label key={st.id} className="flex min-h-11 items-center gap-2 rounded-lg px-2 hover:bg-slate-50"><input type="checkbox" name="sid" value={st.id} defaultChecked={form.studentIds.includes(st.id)} className="h-5 w-5" /><bdi>{st.name}</bdi></label>)}
+        <div className="mt-3 rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
+          <p className="font-semibold text-brand-navy">{t("Choose students (for One student or A group)")}</p>
+          <p className="text-sm text-slate-600">{t("Tick the students, then press Suggest skills. With Whole class, the ticks are not needed.")}</p>
+          <div className="mt-2 grid max-h-80 gap-1 overflow-y-auto sm:grid-cols-2 lg:grid-cols-4">
+            {students.map((st) => <label key={st.id} className="flex min-h-11 cursor-pointer items-center gap-2 rounded-lg bg-white px-2 ring-1 ring-slate-100 hover:ring-brand-teal"><input type="checkbox" name="sid" value={st.id} defaultChecked={form.studentIds.includes(st.id)} className="h-5 w-5 accent-brand-teal" /><bdi>{st.name}</bdi></label>)}
           </div>
-        </details>
+        </div>
       )}
       {children && <div className="mt-4">{children}</div>}
       <div className="mt-4 flex justify-end"><button name="step" value="edit" className={suggested ? BTN_SOFT : BTN_MAIN}>{t("Suggest skills")}</button></div>

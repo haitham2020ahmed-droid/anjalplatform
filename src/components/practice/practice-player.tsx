@@ -2,12 +2,12 @@
 /** @jsxImportSource react */
 "use client";
 /** Interactive wrapper: holds the answer, calls the server actions, swaps in the next question. */
-import { useRef, useState, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { useT } from "@/i18n/client";
 import type { ClientQuestion } from "../../server/practice/items";
 import type { Feedback, PracticeView } from "../../server/practice/session";
 import { isAnswerReady, type AnswerValue } from "./answer-input";
-import { PracticeFrame } from "./practice-frame";
+import { CELEBRATE, PracticeFrame, endText } from "./practice-frame";
 import { WordLookup } from "../learn/word-lookup";
 import { FlagButton } from "../learn/flag-button";
 
@@ -25,6 +25,8 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
   const [error, setError] = useState<string | null>(null);
   const [pending, start] = useTransition();
   const [ended, setEnded] = useState(false);
+  // ✅ finished (the last answer saved, or nothing left in this skill): "Great job! ✓", then back to My Work
+  const [done, setDone] = useState<string | null>(initial.ended && initial.endReason && CELEBRATE.has(initial.endReason) ? initial.endReason : null);
   const sending = useRef(false); // one answer at a time (double clicks), before React shows "Checking…"
 
   const check = () => {
@@ -47,6 +49,10 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
       if (r.feedback?.alreadyEnded) { setEnded(true); if (r.view) setView(r.view); return; }
       setFeedback(r.feedback!);
       setView(r.view!);
+      // the work is saved as Done with this answer: a right last answer goes straight to "Great job! ✓"; after a
+      // wrong one the student reads the feedback first, then presses Finish
+      const reason = r.feedback!.next.endReason;
+      if (!r.feedback!.next.hasQuestion && reason && CELEBRATE.has(reason) && r.feedback!.correct) setDone(reason);
   };
 
   const next = () => {
@@ -59,10 +65,12 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
   };
 
   if (ended) return <PracticeFinished />;
+  if (done) return <PracticeDone reason={done} href={unitHref} />;
   return (
     <WordLookup>
       <PracticeFrame view={view} shownQuestion={shown} value={value} onChange={setValue} feedback={feedback}
-        ready={!!shown && isAnswerReady(shown, value)} pending={pending} error={error} onCheck={check} onNext={next} unitHref={unitHref} />
+        ready={!!shown && isAnswerReady(shown, value)} pending={pending} error={error} onCheck={check} onNext={next} unitHref={unitHref}
+        onFinish={() => setDone(feedback?.next.endReason ?? "COMPLETED")} />
       {shown && hint && !feedback && (
         <div className="mx-auto mt-3 max-w-5xl">
           {hints.map((h) => <p key={h.level} className="mb-2 rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">💡 <span className="font-semibold">Hint {h.level}:</span> {h.text}</p>)}
@@ -77,6 +85,30 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
       )}
       {shown && <div className="mx-auto max-w-5xl"><FlagButton key={shown.questionId} questionId={shown.questionId} /></div>}
     </WordLookup>
+  );
+}
+
+/** How long "Great job! ✓" shows before the page goes back to My Work. */
+export const DONE_REDIRECT_MS = 2000;
+
+/**
+ * "Great job! ✓" after a finished practice (the work is already saved as Done on the server): about 2 seconds, then
+ * back to My Work (or the page the practice was opened from). "Back to My Work" goes at once.
+ */
+export function PracticeDone({ reason, href }: { reason: string; href: string }) {
+  const t = useT();
+  useEffect(() => {
+    const id = window.setTimeout(() => window.location.assign(href), DONE_REDIRECT_MS);
+    return () => window.clearTimeout(id);
+  }, [href]);
+  return (
+    <div data-testid="practice-done" role="status" aria-live="polite" className="mx-auto mt-10 max-w-xl rounded-3xl bg-white p-8 text-center shadow-sm ring-1 ring-emerald-200">
+      <p className="text-5xl text-emerald-600" aria-hidden="true">✓</p>
+      <h2 className="mt-2 text-3xl font-bold text-brand-navy">{t("Great job! ✓")}</h2>
+      <p className="mt-2 text-lg text-slate-700">{reason === "SKILL_FINISHED" ? t("You finished this skill! 🎉") : endText(reason)}</p>
+      <p className="mt-1 text-sm text-slate-500">{t("Going back to My Work…")}</p>
+      <a href={href} className="mt-6 inline-flex min-h-[44px] items-center rounded-xl bg-brand-navy px-6 py-3 text-lg font-semibold text-white hover:bg-brand-purple">{t("Back to My Work")}</a>
+    </div>
   );
 }
 

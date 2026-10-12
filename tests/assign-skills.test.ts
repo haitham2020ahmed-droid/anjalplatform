@@ -1,3 +1,4 @@
+import { rightAnswer } from "../src/server/seeding/test-env";
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
@@ -93,8 +94,7 @@ describe("⭐ Assign: teacher assigns a skill", () => {
     let clock = NOW.getTime();
     const answerRight = async () => {
       const it = items.find((i) => i.questionId === view.question!.questionId)!;
-      const correct = it.options ? (it.type === "MULTI_SELECT" ? it.options.filter((o) => o.correct).map((o) => o.label) : it.options.find((o) => o.correct)!.label)
-        : it.type === "TRUE_FALSE" ? it.answer : it.answers?.[0] ?? it.sequence ?? it.errorIndex;
+      const correct = rightAnswer(it);
       ({ view } = await submitAnswer(repo, student, { sessionId: view.sessionId, questionId: it.questionId, response: correct }, new Date((clock += 30_000))));
       if (!view.question) view = await startPractice(repo, student, skillId, new Date((clock += 1000)));
     };

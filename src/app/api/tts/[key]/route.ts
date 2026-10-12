@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { apiActor, repo } from "@/server/auth/next";
-import { findSpeechAudio, parseRange, readAudio } from "@/server/tts/store";
+import { findSpeechAudio, parseRange } from "@/server/tts/store";
+import { readAudioCached } from "@/server/tts/audio-cache";
 import { ttsEnv } from "@/server/tts/env";
 import { pickTtsProvider } from "@/server/tts/providers";
 import { isSpeechKey } from "@/lib/tts/text";
@@ -30,15 +31,16 @@ export async function GET(req: Request, { params }: { params: Promise<{ key: str
     const view = (x: NonNullable<typeof normal>) => ({ audioUrl: `/api/tts/${x.key}?v=${encodeURIComponent(x.id)}`, mime: x.mime, durationMs: x.durationMs, timings: x.timings });
     return NextResponse.json({ found: true, speed: normal ? "normal" : "slow", ...view(m), slow: slow ? view(slow) : null }, { headers: { "Cache-Control": "private, max-age=600" } });
   }
-  const a = await readAudio(repo, key);
+  const a = await readAudioCached(repo, key); // bounded: a few recordings in memory, a few reads at once
   if (!a) return new NextResponse("Not found.", { status: 404 });
   const size = a.bytes.length;
   const base = { "Content-Type": a.mime, "Accept-Ranges": "bytes", "Cache-Control": url.searchParams.get("v") === a.id ? "private, max-age=31536000, immutable" : "private, max-age=3600", "X-Content-Type-Options": "nosniff" };
   const range = parseRange(req.headers.get("range"), size);
   if (range === "bad") return new NextResponse(null, { status: 416, headers: { ...base, "Content-Range": `bytes */${size}` } });
   if (range) {
-    const body = Buffer.from(a.bytes.subarray(range.start, range.end + 1));
-    return new NextResponse(body, { status: 206, headers: { ...base, "Content-Range": `bytes ${range.start}-${range.end}/${size}`, "Content-Length": String(body.length) } });
+    // a view on the stored bytes (no copy)
+    const body = a.bytes.subarray(range.start, range.end + 1);
+    return new NextResponse(body as unknown as BodyInit, { status: 206, headers: { ...base, "Content-Range": `bytes ${range.start}-${range.end}/${size}`, "Content-Length": String(body.length) } });
   }
-  return new NextResponse(Buffer.from(a.bytes), { headers: { ...base, "Content-Length": String(size) } });
+  return new NextResponse(a.bytes as unknown as BodyInit, { headers: { ...base, "Content-Length": String(size) } });
 }

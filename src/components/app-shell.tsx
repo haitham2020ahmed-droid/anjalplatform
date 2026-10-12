@@ -34,13 +34,17 @@ export async function AppShell({ name, children }: { name: string; children: Rea
   // English learning content (passages, questions, feedback) keeps its own direction in Arabic mode
   let content = false;
   if (lang === "ar") { try { content = isContentPath((await headers()).get("x-pathname")); } catch { content = false; } }
-  let counts: Awaited<ReturnType<typeof navCountsCached>> = {};
-  try { if (me) counts = await navCountsCached(repo, me.actor); } catch { counts = {}; }
+  // the menu numbers and a student's menu flags are independent: read them at the same time (every page)
+  const sid = me?.actor.role === "STUDENT" ? me.actor.studentId : undefined;
+  const [countsR, flagsR] = await Promise.all([
+    me ? navCountsCached(repo, me.actor).catch(() => null) : Promise.resolve(null),
+    sid ? studentMenuFlags(repo, sid).catch(() => null) : Promise.resolve(null),
+  ]);
+  const counts: Awaited<ReturnType<typeof navCountsCached>> = countsR ?? {};
   const role = String(me?.actor.role ?? "");
   // "/student/rti" in the counts = the student is in the RTI program (Tier 2/3): only then the RTI entry.
   // NAFS the same way: "/student/nafs" in the counts.
-  let flags = { rti: "/student/rti" in counts, nafs: "/student/nafs" in counts };
-  if (me?.actor.role === "STUDENT" && me.actor.studentId) { try { flags = await studentMenuFlags(repo, me.actor.studentId); } catch { /* keep the counts */ } }
+  const flags = flagsR ?? { rti: "/student/rti" in counts, nafs: "/student/nafs" in counts };
   const items = navItemsFor(role, flags).map((i) => ({ ...i, ...(counts[i.href] ?? {}) }));
   const staff = ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"].includes(role);
   const home = HOME_BY_ROLE[role as Role] ?? "/";

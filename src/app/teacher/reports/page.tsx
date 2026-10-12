@@ -10,6 +10,9 @@ import { classMembers, studentNames } from "@/server/insights/student-data";
 import { isReportShared } from "@/server/insights/parent-report";
 import { staffFamilyReports } from "@/server/reports/family-reports";
 import { shareManyAction } from "./actions";
+import { repeatedMistakes } from "@/server/teacher/repeated-mistakes";
+import { RepeatedMistakes } from "@/components/teacher/repeated-mistakes";
+import { AssignSkillHost } from "../assign-dialog";
 
 export const metadata = { title: "Reports" };
 
@@ -34,6 +37,10 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
   const klass = classes.find((c) => c.id === sp.classId) ?? classes[0];
   const cid = klass ? String(klass.id) : "";
   const step = !r ? 1 : sp.preview ? 3 : 2;
+  // 🧡 Needs help (step 1): skills with a question a student of the class answered wrong twice
+  const help = step === 1 && cid ? await repeatedMistakes(repo, actor, { classId: cid }).catch(() => []) : [];
+  const helpIds = teacher && help.length ? await classMembers(repo, cid) : [];
+  const helpNames = helpIds.length ? await studentNames(repo, helpIds) : new Map<string, { name: string }>();
 
   // the class's students and groups (only from step 2)
   const members = r && cid ? await classMembers(repo, cid) : [];
@@ -97,6 +104,20 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
               </ul>
             </section>
           ))}
+          {cid && (
+            <section id="needs-help" aria-labelledby="needs-help-h" className={card}>
+              <p className="text-sm text-slate-500">{t("Student")} · {t("Skills")}</p>
+              <h2 id="needs-help-h" className="flex items-center gap-2 text-lg font-semibold text-brand-navy"><span aria-hidden="true">🧡</span> {t("Needs help")}</h2>
+              <p className="mb-3 text-slate-600">{t("Skills where a student answered the same question wrong twice.")}</p>
+              {classes.length > 1 && (
+                <nav aria-label={t("Classes")} className="mb-3 flex flex-wrap gap-2">
+                  {classes.map((c) => <Link key={String(c.id)} prefetch={false} href={`/teacher/reports?classId=${String(c.id)}#needs-help`} className={chip(c.id === klass?.id)}><bdi>{String(c.name)}</bdi></Link>)}
+                </nav>
+              )}
+              <RepeatedMistakes rows={help} canAssign={teacher} />
+              {teacher && help.length > 0 && <AssignSkillHost classId={cid} className={String(klass?.name ?? "")} students={helpIds.map((id) => ({ id, name: helpNames.get(id)?.name ?? "Student" })).sort((a, b) => a.name.localeCompare(b.name))} />}
+            </section>
+          )}
           {cid && (
             <details className={card}>
               <summary className="min-h-11 cursor-pointer content-center font-semibold text-brand-navy">{t("Exports")}</summary>

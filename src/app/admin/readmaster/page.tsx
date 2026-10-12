@@ -6,7 +6,8 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { gradeSkills, gradeStandards, listArticles, LEVEL_NAMES } from "@/server/readmaster/service";
 import { lexileBands } from "@/server/curriculum-map/lexile";
-import { bulkStatusAction, createArticleAction, importReadMasterAction, linkToMapAction } from "./actions";
+import { autoLoadReadMasterLibrary, LIBRARY_LABEL } from "@/server/readmaster/library";
+import { bulkStatusAction, createArticleAction, importReadMasterAction, linkToMapAction, loadLibraryAction } from "./actions";
 
 export const metadata = { title: "ReadMaster" };
 
@@ -22,6 +23,8 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const grade = [4, 5, 6].includes(Number(sp.grade)) ? Number(sp.grade) : 4;
+  // 📚 a school with no ReadMaster article gets the Grades 4–5 library once (in the background)
+  const lib = await autoLoadReadMasterLibrary(repo, actor.schoolId).catch(() => null);
   const [arts, skills, bands, standards] = await Promise.all([listArticles(repo, actor, grade), gradeSkills(repo, actor.schoolId!, grade), lexileBands(repo, actor.schoolId ?? null), gradeStandards(repo, grade)]);
   const b = bands[grade];
   const published = arts.filter((a) => a.status === "PUBLISHED").length;
@@ -40,6 +43,15 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
         <Link href={`/student/readmaster?grade=${grade}`} className="rounded-full px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Open the ReadMaster page</Link>
       </PageHeader>
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
+      {lib?.status === "RUNNING" && !sp.msg && <p role="status" data-rm="library-running" className="mb-5 rounded-2xl bg-sky-50 px-4 py-3 text-sky-900 ring-1 ring-sky-200">⏳ The ReadMaster library (Grades 4–5) is being added in the background. Refresh the page in a minute.</p>}
+      {lib?.status === "ERROR" && canPublish && <p role="alert" data-rm="library-error" className="mb-5 rounded-2xl bg-rose-50 px-4 py-3 text-rose-900 ring-1 ring-rose-200"><b>⚠ The ReadMaster library could not be fully loaded.</b> <span dir="ltr">{lib.error}</span> Press “{LIBRARY_LABEL}” below to try again: articles already there are kept.</p>}
+      {canPublish && (
+        <form action={loadLibraryAction} className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-violet-50 to-white px-4 py-3 ring-1 ring-violet-200">
+          <input type="hidden" name="grade" value={grade} />
+          <p className="text-sm text-slate-700"><b className="text-brand-navy">📚 The ReadMaster library: every lesson of Grades 4 and 5.</b> 36 original texts, one per lesson (Text Set), grouped by Unit, each written Below, On and Above Level with 5 questions. Articles already there are skipped.</p>
+          <button className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-bold text-white hover:bg-violet-700">{LIBRARY_LABEL}</button>
+        </form>
+      )}
       <form action={linkToMapAction} className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-amber-50 to-white px-4 py-3 ring-1 ring-amber-200">
         <input type="hidden" name="grade" value={grade} />
         <p className="text-sm text-slate-700"><b className="text-brand-navy">📚 Every ReadMaster question is in the Question Bank.</b> Articles coded for a Text Set (e.g. RM-G4-U1-TS1) also go on that Text Set of the Curriculum Map, so their questions serve the adaptive sets, the plans and the Diagnostic Test.</p>

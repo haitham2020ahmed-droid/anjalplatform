@@ -62,8 +62,8 @@ describe("one question bank · skill families across grades", () => {
     familyId = s((await repo.upsert("SkillFamily", { code: "school.reading.comprehension" }, { name: "reading · comprehension", domain: "READING", category: "COMPREHENSION" })).id);
 
     // “Main Idea” in Grade 4 (no questions of its own) and Grade 5 (questions at three levels)
-    id.g4 = await mkSkill(4, "Main Idea", "G4.ub-main-idea");
-    id.g5 = await mkSkill(5, "main  idea.", "G5.ub-main-idea");
+    id.g4 = await mkSkill(4, "Story Mapping", "G4.ub-main-idea");
+    id.g5 = await mkSkill(5, "story  mapping.", "G5.ub-main-idea");
     id.qBelow = await mkQ(id.g5, "UB main idea below 1", 2);
     id.qOn1 = await mkQ(id.g5, "UB main idea on 1", 4);
     id.qOn2 = await mkQ(id.g5, "UB main idea on 2", 4);
@@ -80,6 +80,8 @@ describe("one question bank · skill families across grades", () => {
   test("the family key: same normalized name and kind; Concept Vocabulary is grade-bound", () => {
     assert.equal(normalizeSkillName("Author’s Purpose (Grade 4)"), normalizeSkillName("authors   purpose"));
     assert.equal(familyKeyOf({ id: "a", name: "Main Idea", domain: "READING" }), familyKeyOf({ id: "b", name: "main idea!", domain: "READING" }));
+    // the same skill under other names in other grades / imports is one family too
+    assert.equal(familyKeyOf({ id: "a", name: "Main Idea and Key Details", domain: "READING" }), familyKeyOf({ id: "b", name: "Central Idea and Relevant Details", domain: "READING" }));
     assert.notEqual(familyKeyOf({ id: "a", name: "Commas", domain: "GRAMMAR" }), familyKeyOf({ id: "b", name: "Commas", domain: "READING" }));
     assert.equal(familyKeyOf({ id: "a", name: "Commas", domain: "GRAMMAR" }), familyKeyOf({ id: "b", name: "Commas", domain: "LANGUAGE" }));
     assert.ok(isGradeBoundSkill({ name: "Concept Vocabulary", code: "G4.cv" }));
@@ -141,7 +143,7 @@ describe("one question bank · skill families across grades", () => {
   });
 
   test("skillsMatching returns one entry per family, with the pooled count", async () => {
-    const all = (await skillsMatching(repo, schoolId, "main idea")).filter((m) => m.familySkillIds?.includes(id.g4));
+    const all = (await skillsMatching(repo, schoolId, "story mapping")).filter((m) => m.familySkillIds?.includes(id.g4));
     assert.equal(all.length, 1);
     assert.equal(all[0].questions, 6);
     assert.ok(all[0].familySkillIds!.includes(id.g5));
@@ -149,7 +151,7 @@ describe("one question bank · skill families across grades", () => {
     // no grade asked: the nearest (lowest) grade that has questions of its own → Grade 5
     assert.equal(all[0].id, id.g5);
     // the asked grade's copy stands for the family
-    const g4 = (await skillsMatching(repo, schoolId, "main idea", { grade: 4 })).filter((m) => m.familySkillIds?.includes(id.g4));
+    const g4 = (await skillsMatching(repo, schoolId, "story mapping", { grade: 4 })).filter((m) => m.familySkillIds?.includes(id.g4));
     assert.equal(g4.length, 1);
     assert.equal(g4[0].id, id.g4);
     assert.equal(g4[0].questions, 6);
@@ -197,10 +199,10 @@ describe("one question bank · skill families across grades", () => {
     const r = await skillFamilyReport(repo, schoolId);
     const fam = r.nameVariants.find((f) => f.skills.some((k) => k.id === id.g4));
     assert.ok(fam);
-    assert.deepEqual(new Set(fam!.names), new Set(["Main Idea", "main  idea."]));
+    assert.deepEqual(new Set(fam!.names), new Set(["Story Mapping", "story  mapping."]));
     assert.ok(r.emptyInFamily.some((e) => e.skill.id === id.g4 && e.familyQuestions === 6));
     assert.ok(!r.emptyInFamily.some((e) => e.skill.id === id.cv4));
     assert.equal(await repo.count("Skill", {}), before);
-    assert.equal(s((await repo.findUnique("Skill", { id: id.g5 }))!.name), "main  idea.");
+    assert.equal(s((await repo.findUnique("Skill", { id: id.g5 }))!.name), "story  mapping.");
   });
 });

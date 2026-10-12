@@ -77,7 +77,7 @@ export function schoolSkillIndex(repo: Repo, schoolId: string): Promise<SchoolSk
     for (const list of members.values()) list.sort((a, b) => (skillOf.get(a)!.grade - skillOf.get(b)!.grade) || (a < b ? -1 : a > b ? 1 : 0));
     return { ids: new Set(skillOf.keys()), gradeOf: new Map([...skillOf.values()].map((k) => [k.id, k.grade])), familyOf: new Map(skills.map((k) => [s(k.id), s(k.familyId)])), skillOf, keyOf, members };
   })().catch((e) => { m!.delete(schoolId); throw e; });
-  remember(m, schoolId, { v, at: Date.now(), p }, 16);
+  remember(m, schoolId, { v, at: Date.now(), p }, 4); // Update 46: one index per school, few schools per server
   return p;
 }
 
@@ -110,9 +110,37 @@ export function isGradeBoundSkill(skill: { name?: unknown; code?: unknown }): bo
   return /vocab/i.test(both) && /text[\s._-]*set|\bselection\b|\bweek\s*\d|\bunit\s*\d/i.test(both);
 }
 /** The family key of a skill: “kind:normalized name”, or “solo:<id>” for a grade-bound skill. */
+/**
+ * The same skill under different names in different grades / imports (“Main Idea”, “Main Idea and Key Details”,
+ * “Central Idea and Relevant Details”) → one canonical name, so they form ONE family (one question pool).
+ */
+const CANON: [RegExp, string][] = [
+  [/^(?:identify |determine |find |finding )?(?:the )?(?:main|central) ideas?(?: (?:and|with) (?:the )?(?:key|relevant|supporting) details?)?$/, "central idea"],
+  [/^(?:key|supporting|relevant) details?$/, "central idea"],
+  [/^(?:make |making |draw |drawing )?inferences?(?: (?:and|or) (?:draw(?:ing)? )?conclusions?)?$/, "make inferences"],
+  [/^(?:identify |determine )?(?:the )?authors? purpose(?: and point of view)?$/, "authors purpose"],
+  [/^(?:identify |determine |find )?(?:the )?theme(?:s)?$/, "theme"],
+  [/^(?:use |using )?context clues?$/, "context clues"],
+  [/^(?:summarize|summarizing|summary|summarise|summarising)(?: (?:a )?(?:text|story))?$/, "summarize"],
+  [/^(?:identify )?text structures?$/, "text structure"],
+  [/^(?:identify )?cause (?:and )?effect$/, "cause and effect"],
+  [/^compare (?:and )?contrast$/, "compare and contrast"],
+  [/^points? of view$/, "point of view"],
+  [/^(?:identify )?text features?$/, "text features"],
+  [/^(?:sequence|sequencing|sequence of events)$/, "sequence"],
+  [/^(?:fact (?:and|or|vs) opinion)$/, "fact and opinion"],
+  [/^(?:prefixes (?:and )?suffixes|prefix(?:es)?|suffix(?:es)?)$/, "prefixes and suffixes"],
+  [/^(?:synonyms (?:and )?antonyms|synonyms|antonyms)$/, "synonyms and antonyms"],
+  [/^(?:figurative language|similes? (?:and )?metaphors?)$/, "figurative language"],
+];
+export function canonicalSkillName(name: string): string {
+  const n = normalizeSkillName(name).replace(/\b(?:skills?|reading skill)\b/g, " ").replace(/\s+/g, " ").trim();
+  for (const [re, to] of CANON) if (re.test(n)) return to;
+  return n;
+}
 export function familyKeyOf(skill: { id?: unknown; name?: unknown; code?: unknown; domain?: unknown }): string {
   if (isGradeBoundSkill(skill)) return `solo:${s(skill.id) || s(skill.code)}`;
-  const n = normalizeSkillName(s(skill.name));
+  const n = canonicalSkillName(s(skill.name));
   return n ? `${skillKindOf(s(skill.domain))}:${n}` : `solo:${s(skill.id) || s(skill.code)}`;
 }
 
@@ -392,17 +420,35 @@ const stemW = (w: string) => w.replace(/(ies)$/, "y").replace(/(ences|ence|ing|e
  * Grade-bound skills (Concept Vocabulary) are still shown for their own grade only.
  */
 export async function skillsMatching(repo: Repo, schoolId: string, q: string, opts: { grade?: number; status?: SkillQuestionStatus } = {}): Promise<SkillMatch[]> {
-  const raw = s(q).toLowerCase().trim().slice(0, 80);
-  if (raw.length < 3) return [];
+  const raw = s(q).toLowerCase().replace(/\s+/g, " ").trim().slice(0, 80);
+  if (!raw) return [];
   const idx = await schoolSkillIndex(repo, schoolId);
-  const queries = [raw, ...SKILL_SYNONYMS.filter(([a]) => raw.includes(a)).map(([a, b]) => raw.replace(a, b))];
-  const qws = queries.map((qq) => words(qq).map(stemW).filter((w) => !["and", "the", "skill", "skills"].includes(w)));
-  const hit = [...idx.skillOf.values()].filter((k) => {
-    if (!k.isActive || k.code.endsWith(".curriculum-map-unclassified")) return false;
-    if (opts.grade && k.grade !== opts.grade && idx.keyOf.get(k.id)!.startsWith("solo:")) return false;
-    const kw = new Set(words(k.name).map(stemW));
-    return qws.some((qw) => qw.length > 0 && qw.every((w) => kw.has(w) || [...kw].some((x) => x.startsWith(w) && w.length >= 4)));
-  });
+  const usable = (k: IndexedSkill) => k.isActive && !k.code.endsWith(".curriculum-map-unclassified") && !(opts.grade && k.grade !== opts.grade && idx.keyOf.get(k.id)!.startsWith("solo:"));
+  let hit: IndexedSkill[];
+  if (raw.length < 3) {
+    // type-ahead from the first letters: any word of the skill name starting with them
+    const pre = raw.replace(/[^a-z0-9 ]/g, "");
+    hit = pre ? [...idx.skillOf.values()].filter((k) => usable(k) && (k.name.toLowerCase().startsWith(pre) || k.name.toLowerCase().split(/[^a-z0-9]+/).some((w) => w.startsWith(pre)))) : [];
+  } else {
+    const queries = [raw, ...SKILL_SYNONYMS.filter(([a]) => raw.includes(a)).map(([a, b]) => raw.replace(a, b))];
+    const qws = queries.map((qq) => words(qq).map(stemW).filter((w) => !["and", "the", "skill", "skills"].includes(w)));
+    hit = [...idx.skillOf.values()].filter((k) => {
+      if (!usable(k)) return false;
+      const kw = new Set([...words(k.name), ...words(k.code.replace(/^g\d+\./i, "").replace(/[-_.]/g, " "))].map(stemW));
+      return qws.some((qw) => qw.length > 0 && qw.every((w) => kw.has(w) || [...kw].some((x) => x.startsWith(w) && w.length >= 3)));
+    });
+    // the whole bank: the skills of questions whose text has the words (bounded, ids only)
+    if (hit.length < 12) {
+      const seen = new Set(hit.map((k) => k.id));
+      const rows = await repo.findMany("Question", { stem: { contains: s(q).trim().slice(0, 80) }, deletedAt: null, ...statusWhere(opts.status) }, { select: ["skillId"], take: 400 }).catch(() => [] as Row[]);
+      const byFamily = new Set(hit.map((k) => idx.keyOf.get(k.id)));
+      for (const r of rows) {
+        const k = idx.skillOf.get(s(r.skillId));
+        if (!k || seen.has(k.id) || !usable(k) || byFamily.has(idx.keyOf.get(k.id))) continue;
+        seen.add(k.id); byFamily.add(idx.keyOf.get(k.id)); hit.push(k);
+      }
+    }
+  }
   if (!hit.length) return [];
   const byKey = new Map<string, IndexedSkill[]>();
   for (const k of hit) { const key = idx.keyOf.get(k.id)!; const l = byKey.get(key); if (l) l.push(k); else byKey.set(key, [k]); }

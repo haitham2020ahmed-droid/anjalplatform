@@ -202,7 +202,8 @@ describe("answering", () => {
       ({ view } = await submitAnswer(repo, omar, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, true) }, later(30)));
     }
     assert.equal(view.ended, true);
-    assert.ok(["ALL_QUESTIONS_ANSWERED", "POOL_EXHAUSTED", "COMPLETED"].includes(view.endReason!), view.endReason!);
+    // no repeats: every question answered correctly → the skill is finished
+    assert.ok(["SKILL_FINISHED", "ALL_QUESTIONS_ANSWERED", "POOL_EXHAUSTED", "COMPLETED"].includes(view.endReason!), view.endReason!);
     assert.ok(view.answered >= items.length && view.answered <= 20, `answered ${view.answered} of ${items.length}`);
   });
 

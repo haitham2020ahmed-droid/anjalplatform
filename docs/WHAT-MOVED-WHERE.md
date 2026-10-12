@@ -57,19 +57,32 @@ Checked by `tests/menus.test.ts`.
 
 ## Admin
 
-The admin menu is now **Home · All Admin Tools · School · Content · Assessments & Programs · Reports · Settings · More**.
-The Admin Home shows the same five sections.
+**Admin review (October 2026)**: every admin page was opened against the demo school and its buttons checked
+(`tests/admin-review.test.ts`). The admin menu is now **Home · All Admin Tools · School · Content · Assessments & Programs ·
+Reports · Settings** — at most 6 working tools per section, no "More" group. Every other working tool is on
+**All Admin Tools** (`/admin/all`, searchable) and in the top bar's "Find a page". The Admin Home shows the same five
+sections (a one-line description and ≤ 6 tiles each) with one primary action, **Open School**.
 
-| Old group / entry | New place |
+| Section | In the menu (and on the Home) | Only on All Admin Tools |
+| --- | --- | --- |
+| School | School Overview `/admin/school`, Users, Find a Student (`/teacher/students`), Teacher Follow-Up · Home also: Messages to Teachers, Student Sign-in Cards | Class Visit, Sign-Ins, Student Levels, Clear Roster |
+| Content | **Questions** `/admin/questions` (one entry for every question page), Sort Questions `/admin/skill-links`, Curriculum Map, ReadRise Library, ReadMaster, Grammar | Duplicate Questions `/admin/questions/duplicates`, Manage ReadMaster, Dictionary, Curriculum Editor `/admin/curriculum`, Skills, Bank ↔ MAP, Worksheets |
+| Assessments & Programs | Tests by Teacher, **Diagnostic Test** `/admin/diagnostic`, MAP, Bank ↔ NAFS, Below / On / Above, RTI Weekly Plan | Support Tiers, MAP Scores (MAP import), MAP Practice Test, MAP Classification, Learning Continuum, Skill Plans, ReadRise Growth, Assessment Calendar, Progress Checks, Data Meeting, Teach · Check · Reteach, Skill Connections, Learning Engine |
+| Reports | Analytics, End-of-Term Report, Reports to Approve, Reports hub, Department Week · Home also: School Insights | Teacher & Student Performance, School Goals, Grade Summary, Who Needs Help, Alerts, Class Insights |
+| Settings | Settings, AI Tools, Backup, Data Health, Data Cleanup, Feedback | Connections, Errors, Help |
+
+**Removed from the lists** (the address still opens and forwards; nothing was deleted):
+
+| Old entry | Now |
 | --- | --- |
-| People & Classes | **School**: School Overview `/admin/school` (agent E), Users, Find a Student, Teacher Follow-Up. Students & MAP Setup, Class Visit and the rest → **More** |
-| Teaching Content | **Content**: Question Bank, **Sort Questions** `/admin/skill-links` (was "Skill Links to Review", hidden), ReadRise Library, ReadMaster, Curriculum Map, Grammar, Dictionary |
-| Programs & Data | **Assessments & Programs**: Tests by Teacher `/admin/tests`, MAP, Bank ↔ NAFS `/admin/nafs-links`, Below / On / Above `/admin/levels`, Support Tiers `/admin/tiers`, RTI Weekly Plan |
-| ReadRise Library `/admin/readrise` | moved from Programs to **Content** |
-| Teach · Check · Reteach | **More** |
-| Reports | **Reports**: Analytics, End-of-Term Report, Reports to Approve, Reports hub, Department Week |
-| Settings & System | **Settings**: Settings, AI Tools `/admin/ai-tools` (was under Content), Backup, Data Health, **Data Cleanup** `/admin/data-cleanup` (agent E), **Feedback** `/admin/feedback` (agent E). Connections, Errors, Search, Help → **More** |
-| "More tools" (folded) | **More** (folded) — same pages |
+| Students & MAP Setup `/admin/quick-students` | redirects to School → Add student (`/admin/school?open=add-student`) |
+| Class Transfer `/admin/class-transfer` | redirects to School → Change teacher (`/admin/school?open=teacher`) |
+| Import Users `/admin/roster` | redirects to School → Upload roster (`/admin/school?open=roster`) |
+| Find a Student `/admin/student-file` | redirects to My Students `/teacher/students` (the menu links there directly; `?id=` opens the file) |
+| MAP Plans, MAP Reports, MAP Growth Report, MAP Recommendations, Personalized Plans (`/teacher/map-plans`, `/teacher/map-reports`, `/teacher/growth`, `/teacher/map-recommendations`, `/teacher/personal-plan`) | these only forward to the MAP page / Plans: open **MAP** (`/teacher/map-center`) |
+| Student Progress, Curriculum Results, Games Report | inside the **Reports** hub (`/teacher/reports`) |
+| Question pages (Questions to Approve, New Question, Deletion Requests, Classify Questions, Import Questions, Question Insights, Bank Coverage, Bank Gaps, Tags & Review, Flagged Questions, Question Quality, MAP and Other Results `/admin/imports`) | not linked separately: the question pages are being organised around **Questions** (another agent); the addresses still open and the Admin Home's "Needs your attention" cards still link the waiting ones |
+| Search `/teacher/search` | the top bar's search box |
 
 ## Other agents' planned moves (listed here so the table is complete)
 

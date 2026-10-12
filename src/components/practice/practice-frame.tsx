@@ -22,9 +22,12 @@ const END_TEXT: Record<string, string> = {
   PREREQ_ROUTE: "Let's build a skill that will make this one easier.",
   STUDENT_EXIT: "Practice saved. You can continue any time.",
   LEVEL_CONFIRMED: "Great work. The platform is now sure of your level on this skill. Try your next step!",
+  SKILL_FINISHED: "You finished this skill! 🎉",
+  RETRY_LATER: "You tried again every question you missed. They come back next time.",
 };
-/** a finished practice that earns the small celebration (not a pause or a detour) */
-const CELEBRATE = new Set(["COMPLETED", "ALL_QUESTIONS_ANSWERED", "POOL_EXHAUSTED", "LEVEL_CONFIRMED"]);
+export const endText = (reason: string | null | undefined): string => END_TEXT[reason ?? "STUDENT_EXIT"] ?? END_TEXT.COMPLETED;
+/** a finished practice that earns the small celebration (not a pause or a detour) — the same list as the server's FINISH_REASONS */
+export const CELEBRATE: ReadonlySet<string> = new Set(["COMPLETED", "ALL_QUESTIONS_ANSWERED", "POOL_EXHAUSTED", "LEVEL_CONFIRMED", "SKILL_FINISHED", "RETRY_LATER"]);
 
 export function PracticeFrame(props: {
   view: PracticeView;
@@ -38,6 +41,8 @@ export function PracticeFrame(props: {
   onCheck: () => void;
   onNext: () => void;
   unitHref: string;
+  /** a finished practice after a wrong last answer: "Finish" (the student reads the feedback first) */
+  onFinish?: () => void;
 }) {
   const { view, shownQuestion: q, feedback: fb } = props;
   const finished = view.ended && (!fb || !fb.next.hasQuestion);
@@ -83,19 +88,22 @@ export function PracticeFrame(props: {
               {fb && !fb.next.hasQuestion && fb.next.routeToSkillId && (
                 <Link href={`/practice/${fb.next.routeToSkillId}`} className="rounded-xl bg-brand-purple px-6 py-3 text-lg font-semibold text-white">Practise {fb.next.routeToSkillName}</Link>
               )}
+              {fb && !fb.next.hasQuestion && props.onFinish && fb.next.endReason && CELEBRATE.has(fb.next.endReason) && (
+                <button type="button" onClick={props.onFinish} autoFocus className="rounded-xl bg-brand-navy px-8 py-3 text-lg font-semibold text-white hover:bg-brand-purple">Finish</button>
+              )}
               {fb && !fb.next.hasQuestion && (
-                <a href={props.unitHref} className="rounded-xl border-2 border-slate-300 px-6 py-3 text-lg font-semibold text-brand-navy">Back to my skills</a>
+                <a href={props.unitHref} className="rounded-xl border-2 border-slate-300 px-6 py-3 text-lg font-semibold text-brand-navy">{props.unitHref === "/student" ? "Back to My Work" : "Back to my skills"}</a>
               )}
             </div>
             {fb && !fb.next.hasQuestion && fb.next.endReason && CELEBRATE.has(fb.next.endReason) && <div className="mt-4"><CelebrateFx /></div>}
-            {fb && !fb.next.hasQuestion && fb.next.endReason && <p className="mt-4 text-lg text-slate-700">{END_TEXT[fb.next.endReason]}</p>}
+            {fb && !fb.next.hasQuestion && fb.next.endReason && <p className="mt-4 text-lg text-slate-700">{endText(fb.next.endReason)}</p>}
           </div>
         </div>
       )}
       {!q && finished && (
         <div className="mt-10 rounded-2xl bg-white p-8 ring-1 ring-slate-200">
-          <p className="text-xl text-slate-800">{END_TEXT[view.endReason ?? "STUDENT_EXIT"]}</p>
-          <a href={props.unitHref} className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">Back to my skills</a>
+          <p className="text-xl text-slate-800">{endText(view.endReason)}</p>
+          <a href={props.unitHref} className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">{props.unitHref === "/student" ? "Back to My Work" : "Back to my skills"}</a>
         </div>
       )}
     </div>

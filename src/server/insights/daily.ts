@@ -22,6 +22,7 @@ import { evaluateRecommendations } from "./recommendation-log";
 import { evaluateInterventions } from "./interventions";
 import { buildProfiles } from "./student-profile";
 import { log } from "../monitoring/log";
+import { memoryHigh, rssMb, runHeavy } from "../monitoring/memory";
 
 const DAY = 86_400_000;
 const s = (v: unknown) => String(v ?? "");
@@ -208,9 +209,12 @@ async function claimDay(repo: Repo, schoolId: string, key: string, now: Date): P
  */
 export async function maybeRunDaily(repo: Repo, schoolId: string | null, now = new Date()): Promise<boolean> {
   if (!schoolId) return false;
+  // 🧠 the server is near its memory limit: do not claim the day now — the next teacher/admin visit starts it
+  if (memoryHigh()) { log("warn", "daily.run.deferred_memory", { schoolId, rssMB: rssMb() }); return false; }
   const key = `daily.run.${riyadhDay(now)}`;
   if (!(await claimDay(repo, schoolId, key, now))) return false;
-  void runDaily(repo, schoolId, now)
+  // one heavy job at a time in this process (never side by side with an alert scan or the library load)
+  void runHeavy(() => runDaily(repo, schoolId, now))
     .then((r) => repo.upsert("SchoolSetting", { schoolId, key }, { value: { ...r, doneAt: new Date().toISOString() } }, { value: { ...r, doneAt: new Date().toISOString() } }).catch((e) => log("error", "daily.done_mark.failed", { schoolId, key, error: e })))
     .catch((e) => log("error", "daily.run.failed", { schoolId, key, error: e }));
   return true;

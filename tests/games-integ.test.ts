@@ -279,9 +279,9 @@ describe("🧩 Games integration", () => {
     assert.equal(a.scope, "SCHOOL");
     assert.ok(a.byClass.some((c) => c.classId === otherClassId), "the admin sees every class");
     assert.match(read("src/components/teacher/report-catalog.ts"), /\/teacher\/reports\/games-usage/, "in the Reports hub (its catalogue)");
-    // the Admin Home tiles come from the one admin tool list (Programs & Data → Games Report)
+    // the Admin Home tiles come from the one admin tool list; admins open the Games Report from the Reports hub tile
     assert.match(read("src/app/admin/page.tsx"), /ADMIN_TOOLS/, "the admin page shows the admin tool list");
-    assert.match(read("src/components/admin-tools.ts"), /href: "\/teacher\/reports\/games-usage"[^\n]*home: true/, "and the Games Report is a tile on the admin page");
+    assert.match(read("src/components/admin-tools.ts"), /href: "\/teacher\/reports"[^\n]*home: true/, "and the Reports hub is a tile on the admin page");
     assert.match(read("src/app/teacher/reports/games-usage/page.tsx"), /By class[\s\S]*games-by-class/);
   });
 

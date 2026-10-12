@@ -159,4 +159,6 @@ export const UNIQUE_KEYS: Record<string, readonly (readonly string[])[]> = {
   QotdAnswer: [["id"], ["studentId", "day"]],
   Certificate: [["id"], ["studentId", "kind", "refId"]],
   Feedback: [["id"]],
+  SecondChanceAnswer: [["id"]],
+  DiagnosticWindow: [["id"], ["schoolId", "grade", "schoolYear"]],
 };

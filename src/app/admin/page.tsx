@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { BigTile, TileGroup, EmptyState, PageHero, BTN_PRIMARY, type TileTone } from "@/components/ui-kit";
+import { BigTile, TileGroup, EmptyState, PageHero, BTN_PRIMARY, BTN_SECONDARY, type TileTone } from "@/components/ui-kit";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { maybeRunDaily } from "@/server/insights/daily";
@@ -16,10 +16,11 @@ export const metadata = { title: "Administration" };
 const GROUP_TONE: Record<string, TileTone> = { school: "sky", content: "violet", programs: "map", reports: "sun", settings: "slate" };
 
 /**
- * 🏠 Admin Home (calm version), top to bottom: a short welcome band (PageHero) · the school at a glance (4 numbers) · Needs your
- * attention (≤ 3 cards, only when something waits for the admin) · the same five sections as the menu (School,
- * Content, Assessments & Programs, Reports, Settings), a few tiles each (one icon per tile, no section icons) +
- * "More" → All Admin Tools (every other admin page, searchable) · Classes at a glance (folded). The tools live in src/components/admin-tools.ts (no page was lost).
+ * 🏠 Admin Home, top to bottom: a short welcome band with ONE primary action (Open School) · the school at a glance
+ * (4 numbers) · Needs your attention (≤ 3 cards, only when something waits for the admin) · the five sections of the
+ * menu (School, Content, Assessments & Programs, Reports, Settings): a plain one-line blurb and ≤ 6 working tools each
+ * (one icon per tile, no section icons) + "More" → All Admin Tools · Classes at a glance (folded).
+ * The tools live in src/components/admin-tools.ts; every one opens a working page (tests/admin-review.test.ts).
  */
 export default async function AdminHome() {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
@@ -30,6 +31,7 @@ export default async function AdminHome() {
   // every count of the page in one round trip; the alert scan runs after the page is sent (Update 42B)
   const { waiting, deletions, students, active, alertsOpen, flags, reportsWaiting, short, rows, conn } = await adminHomeData(repo, actor);
   const tools = ADMIN_TOOLS.filter((x) => adminMayUse(actor, x));
+  const canSchool = tools.some((x) => x.href === "/admin/school");
 
   const now = new Date();
   const hour = (now.getUTCHours() + 3) % 24;
@@ -55,7 +57,8 @@ export default async function AdminHome() {
 
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHero tone="admin" eyebrow={today} title={<>{t(greet)}, <bdi>{String(me.displayName).split(" ")[0]}</bdi></>} subtitle={t("School administration")}>
+      <PageHero tone="admin" eyebrow={today} title={<>{t(greet)}, <bdi>{String(me.displayName).split(" ")[0]}</bdi></>} subtitle={t("School administration")}
+        actions={canSchool ? <Link prefetch={false} href="/admin/school" className={`${BTN_PRIMARY} min-h-12 rounded-2xl px-6`}>{t("Open School")}</Link> : undefined}>
         <h2 className="sr-only">{t("School at a glance")}</h2>
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
           {glance.map((x) => (
@@ -92,6 +95,7 @@ export default async function AdminHome() {
         return (
           <div key={g.key}>
             <TileGroup title={g.title} tone={GROUP_TONE[g.key]} cols={home.length > 4 ? 3 : 4} id={`g-${g.key}`}>
+              <p className="col-span-full -mt-2 text-slate-600">{t(g.blurb)}</p>
               {home.map((x) => <BigTile key={x.href} href={x.href} icon={x.icon} label={x.label} hint={x.hint} tone={GROUP_TONE[g.key]} />)}
             </TileGroup>
             {more > 0 && (
@@ -106,7 +110,7 @@ export default async function AdminHome() {
       })}
 
       <div className="mt-8 flex justify-center">
-        <Link prefetch={false} href={ALL_TOOLS_HREF} className={`${BTN_PRIMARY} min-h-12 rounded-2xl px-6`}>
+        <Link prefetch={false} href={ALL_TOOLS_HREF} className={`${BTN_SECONDARY} min-h-12 rounded-2xl px-6`}>
           {t("All Admin Tools")}
         </Link>
       </div>

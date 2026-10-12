@@ -13,7 +13,7 @@ import { fromSearchParams, readPlanForm, readQuestionPicks } from "@/server/plan
 import { applyEdits } from "@/server/plans/send";
 import type { Subject } from "@/server/map/map-plan";
 import { mapDraftsForClass, type MapDraft } from "@/server/plans/map-drafts";
-import { dismissMapDraftAction, sendMapDraftAction, sendMapPlanAction } from "./actions";
+import { dismissMapDraftAction, sendAllMapDraftsAction, sendMapDraftAction, sendMapPlanAction } from "./actions";
 
 type SP = Record<string, string | string[] | undefined>;
 
@@ -30,7 +30,7 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
   if (!ctx || !klass) return <EmptyState icon="👥" title="Only the class teacher can make plans" text="You can see this class's results and reports." />;
   const { get, getAll } = fromSearchParams({ ...sp, classId: klass.id });
   const form = readPlanForm(get, getAll, [subject]);
-  const carry: [string, string][] = [["tab", "plan"], ["classId", klass.id], ["subject", subject], ["who", form.who], ...form.studentIds.map((id) => ["sid", id] as [string, string])];
+  const carry: [string, string][] = [["tab", "plan"], ["mode", "group"], ["classId", klass.id], ["subject", subject], ["who", form.who], ...form.studentIds.map((id) => ["sid", id] as [string, string])];
   const needsStudents = form.who !== "class" && !form.studentIds.length;
   let sug: MapSuggestion | null = null;
   let error: string | null = null;
@@ -52,14 +52,30 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
   let drafts: MapDraft[] = [];
   try { drafts = await mapDraftsForClass(repo, actor, klass.id); }
   catch (e) { if (!(e instanceof ForbiddenError)) throw e; }
-  const draftId = typeof sp.draft === "string" ? sp.draft : "";
+  const subjDrafts = drafts.filter((d) => d.subject === subject);
+  const mode = sp.mode === "group" || sp.mode === "individual" ? sp.mode : (subjDrafts.length ? "individual" : "group");
+  const modeHref = (m: string) => `/teacher/map-center?${new URLSearchParams({ tab: "plan", mode: m, classId: klass.id, subject })}`;
+  const modeBtn = (m: string, icon: string, label: string, hint: string) => (
+    <Link href={modeHref(m)} aria-current={mode === m ? "page" : undefined} className={`flex flex-1 items-start gap-3 rounded-2xl p-4 ring-2 ${mode === m ? "bg-emerald-50 ring-emerald-500" : "bg-white ring-slate-200 hover:ring-brand-teal"}`}>
+      <span className="text-3xl" aria-hidden="true">{icon}</span>
+      <span><b className="block text-lg text-brand-navy">{label}</b><span className="text-sm text-slate-600">{hint}</span></span>
+    </Link>
+  );
   return (
     <div className="space-y-5">
-    {drafts.length > 0 && <DraftsReview t={t} drafts={drafts} classId={klass.id} className={klass.name} subject={subject} open={draftId} />}
+    <ol className="flex flex-wrap gap-2 text-sm font-semibold text-slate-600" aria-label={t("Steps")}><li className="rounded-full bg-white px-3 py-1 ring-1 ring-slate-200">1 · {t("Choose")}</li><li className="rounded-full bg-white px-3 py-1 ring-1 ring-slate-200">2 · {t("Check (Preview)")}</li><li className="rounded-full bg-white px-3 py-1 ring-1 ring-slate-200">3 · {t("Send")}</li></ol>
+    <div className="flex flex-col gap-3 sm:flex-row">
+      {modeBtn("individual", "🧑‍🎓", t("Individual plans"), t("One plan per student, made by the platform from each student's own MAP score. You check, then send."))}
+      {modeBtn("group", "👥", t("Group plans"), t("One plan for a group or the whole class, from the lowest sub-areas. You check, then send."))}
+    </div>
+    {mode === "individual" ? (
+      <IndividualPlans t={t} drafts={subjDrafts} classId={klass.id} className={klass.name} subject={subject} />
+    ) : (
     <form method="get" action="/teacher/map-center" className="space-y-5">
+      <input type="hidden" name="mode" value="group" />
       <input type="hidden" name="tab" value="plan" />
       <input type="hidden" name="classId" value={klass.id} />
-      <WhoPicker t={t} classes={ctx.classes.map((c) => ({ id: c.id, name: c.name }))} classId={klass.id} classHref={(id) => `/teacher/map-center?${new URLSearchParams({ tab: "plan", classId: id, subject })}`}
+      <WhoPicker t={t} classes={ctx.classes.map((c) => ({ id: c.id, name: c.name }))} classId={klass.id} classHref={(id) => `/teacher/map-center?${new URLSearchParams({ tab: "plan", mode: "group", classId: id, subject })}`}
         students={klass.students} form={form} suggested={Boolean(sug)}>
         <fieldset><legend className="mb-2 text-sm font-semibold text-slate-700">{t("MAP test")}</legend>
           <div className="flex flex-wrap gap-2">{subjectChip("READING", t("Reading"))}{subjectChip("LANGUAGE", t("Language Usage"))}</div>
@@ -86,41 +102,44 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
         </>
       )}
     </form>
+    )}
     </div>
   );
 }
 
 /**
- * The MAP plan drafts made when the scores were imported, so nothing is lost: each one → Preview (as the student
- * will see it) → Send, or Dismiss. Nothing is sent until the teacher presses Send.
+ * Individual plans: one per student, made automatically from the student's own MAP score (the drafts made when the
+ * scores were imported). Each row: Preview (opens right here) · Send · Dismiss; "Send all" sends every one.
+ * Nothing is sent until the teacher presses Send.
  */
-function DraftsReview({ t, drafts, classId, className, subject, open }: { t: TFn; drafts: MapDraft[]; classId: string; className: string; subject: Subject; open: string }) {
-  const href = (id: string) => `/teacher/map-center?${new URLSearchParams({ tab: "plan", classId, subject, ...(id ? { draft: id } : {}) })}`;
+function IndividualPlans({ t, drafts, classId, className, subject }: { t: TFn; drafts: MapDraft[]; classId: string; className: string; subject: Subject }) {
   const subjectName = (v: Subject) => t(v === "LANGUAGE" ? "Language Usage" : "Reading");
-  const hidden = (d: MapDraft) => <><input type="hidden" name="planId" value={d.id} /><input type="hidden" name="classId" value={classId} /><input type="hidden" name="subject" value={subject} /></>;
+  const hidden = (id?: string) => <>{id && <input type="hidden" name="planId" value={id} />}<input type="hidden" name="classId" value={classId} /><input type="hidden" name="subject" value={subject} /></>;
+  if (!drafts.length) return <EmptyState icon="🗺️" title="No individual plans to check" text="They are made automatically when MAP scores are entered or imported. You can also make a Group plan." action={{ href: "/teacher/map-rit", label: "Enter scores" }} />;
   return (
-    <Section title="Drafts ready to review" icon="📝" hint={t("MAP plan drafts made when the scores were imported. Nothing is sent until you press Send.")}>
+    <Section title="Individual plans" icon="🧑‍🎓" hint={t("{n} plan(s) ready, one per student. Open Preview to see what the student will get.", { n: drafts.length })}>
       <ul className="divide-y divide-slate-100 rounded-2xl bg-white ring-1 ring-slate-200" data-testid="map-drafts">
         {drafts.map((d) => (
           <li key={d.id} className="px-4 py-3">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="font-semibold text-brand-navy"><bdi>{d.studentName}</bdi></span>
-              <span className="text-sm text-slate-600">{subjectName(d.subject)} · {d.term} · {d.areas.map((a) => a.name).join(", ") || "—"}</span>
-              <span className="ms-auto flex flex-wrap gap-2">
-                {open === d.id ? <Link href={href("")} className={BTN_SOFT}>{t("Close")}</Link> : <Link href={href(d.id)} className={BTN_SOFT}>{t("Preview")}</Link>}
-                <form action={dismissMapDraftAction}>{hidden(d)}<button className={BTN_SOFT}>{t("Dismiss")}</button></form>
-              </span>
-            </div>
-            {open === d.id && (
-              <div className="mt-4 space-y-4">
+            <details>
+              <summary className="flex min-h-11 cursor-pointer list-none flex-wrap items-center gap-3">
+                <span className="font-semibold text-brand-navy"><bdi>{d.studentName}</bdi></span>
+                <span className="flex flex-wrap gap-1">{d.areas.slice(0, 4).map((a) => <span key={a.name} className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200">{a.icon} {a.name}</span>)}</span>
+                <span className={`${BTN_SOFT} ms-auto`}>{t("Preview")}</span>
+              </summary>
+              <div className="mt-4 space-y-3">
                 <StudentPlanPreview title={`${t("MAP Plan")} · ${subjectName(d.subject)}`} studentName={d.studentName} className={className} program="MAP"
                   skills={d.areas.map((a) => (a.skills.length ? `${a.name}: ${a.skills.join(", ")}` : a.name))} note={d.note} />
-                <form action={sendMapDraftAction} className="flex justify-end">{hidden(d)}<button className={`${BTN_MAIN} px-8 text-lg`}>{t("Send")}</button></form>
+                <div className="flex flex-wrap justify-end gap-2">
+                  <form action={dismissMapDraftAction}>{hidden(d.id)}<button className={BTN_SOFT}>{t("Dismiss")}</button></form>
+                  <form action={sendMapDraftAction}>{hidden(d.id)}<button className={BTN_MAIN}>{t("Send to {name}", { name: d.studentName })}</button></form>
+                </div>
               </div>
-            )}
+            </details>
           </li>
         ))}
       </ul>
+      <form action={sendAllMapDraftsAction} className="mt-4 flex justify-end">{hidden()}<button className={`${BTN_MAIN} px-8 text-lg`}>{t("Send all {n} plans", { n: drafts.length })}</button></form>
     </Section>
   );
 }

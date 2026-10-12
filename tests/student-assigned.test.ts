@@ -100,9 +100,11 @@ describe("student: assigned skills only, notifications, report", () => {
     assert.equal(home.summary.completed, 1);
     const r = await assignmentReport(repo, student, b.assignmentId);
     assert.equal(r.status, "COMPLETED");
-    assert.ok(r.answered >= 10 && r.correct <= r.answered && r.accuracy !== null && r.score >= 75, JSON.stringify(r));
+    // completed by the rule (≥ 10 answers and the target mastery) or by FINISHING the practice: every question of a
+    // small skill answered (no repeats) — My Work shows Done as soon as the work is finished
+    assert.ok(((r.answered >= 10 && r.score >= 75) || r.answered >= items.length) && r.correct <= r.answered && r.accuracy !== null, JSON.stringify(r));
     assert.ok(r.standard && r.completedAt && r.masteryLevel !== "Not started");
-    assert.ok(r.strengths.length + r.needsPractice.length > 0, "rule-based feedback from real answers");
+    if (r.answered >= 10) assert.ok(r.strengths.length + r.needsPractice.length > 0, "rule-based feedback from real answers");
     assert.match(r.nextStep, /Well done|Excellent/);
     await assert.rejects(assignmentReport(repo, classmate, b.assignmentId), ForbiddenError, "another student cannot see it");
     await assert.rejects(assignmentReport(repo, student, b.assignmentId, classmate.studentId!), ForbiddenError);

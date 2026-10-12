@@ -5,10 +5,11 @@ import { BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { cleanupCounts } from "@/server/admin/data-cleanup";
 import { getT } from "@/i18n/server";
+import { PublishDrafts } from "./publish-drafts";
 
 export const metadata = { title: "Data Cleanup" };
 
-/** 🧹 Simple fix-it cards: a count and one button each. This page only reads; nothing is changed or published here. */
+/** 🧹 Simple fix-it cards: a count and one button each. Only "Publish all drafts" changes data (the admin presses it). */
 export default async function DataCleanupPage() {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "students:manage" });
   const me = (await getActor())!.user;
@@ -16,7 +17,7 @@ export default async function DataCleanupPage() {
   const c = await cleanupCounts(repo, actor);
   const cards: { n: number; title: string; text: string; href: string; button: string; extra?: string }[] = [
     { n: c.unclassified, title: "Questions without a skill", text: "Sort them under their skills. You check the ones the platform is not sure about.", href: "/admin/skill-links#sort", button: "Sort questions" },
-    { n: c.underReview + c.drafts, title: "Draft questions waiting for review", text: "Nothing is published until you approve it.", href: `/admin/questions?status=${c.underReview ? "UNDER_REVIEW" : "DRAFT"}`, button: "Review questions", extra: t("{n} sent for review · {m} drafts", { n: c.underReview, m: c.drafts }) },
+    { n: c.underReview + c.drafts, title: "Draft questions waiting for review", text: "Publish them all with one press, or review them one by one.", href: `/admin/questions?status=${c.underReview ? "UNDER_REVIEW" : "DRAFT"}`, button: "Review questions", extra: t("{n} sent for review · {m} drafts", { n: c.underReview, m: c.drafts }) },
     { n: c.studentsWithoutClass, title: "Students without a class", text: "Put each student in a class so a teacher can see them.", href: "/admin/school?open=no-class", button: "Give them a class" },
     { n: c.classesWithoutTeacher, title: "Classes without a teacher", text: "Choose a teacher for each class.", href: "/admin/school?filter=no-teacher", button: "Choose teachers" },
     { n: c.skillsWithoutQuestions, title: "Skills with no questions", text: "Students cannot practise these skills yet.", href: "/admin/bank-gaps", button: "Add questions", extra: c.emptySkills.length ? c.emptySkills.map((k) => `${k.name} (G${k.grade})`).join(" · ") : undefined },
@@ -34,6 +35,7 @@ export default async function DataCleanupPage() {
             <h2 className="mt-1 text-lg font-semibold text-brand-navy">{t(x.title)}</h2>
             <p className="mt-1 flex-1 text-sm text-slate-600">{x.n ? t(x.text) : t("Nothing to fix.")}</p>
             {x.n > 0 && x.extra && <p className="mt-2 text-xs text-slate-500" lang="en">{x.extra}</p>}
+            {x.n > 0 && x.title === "Draft questions waiting for review" && <PublishDrafts total={x.n} />}
             {x.n > 0 && <Link href={x.href} prefetch={false} className={`${BTN_SECONDARY} mt-3 self-start`}>{t(x.button)}</Link>}
           </li>
         ))}

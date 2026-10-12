@@ -7,13 +7,14 @@ import { listDiagnostics, PERIOD_LABEL } from "@/server/diagnostic/test";
 import { classGrowth } from "@/server/diagnostic/growth";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { ClassGrowthPanel } from "@/app/diagnostic/panels";
+import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Diagnostic Test" };
 
 const tabCls = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-bold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`;
 
 /** 📝 The Diagnostic Tests of the teacher's grades (BOY · MOY · EOY): progress, the class analysis, and growth across the year. */
-export default async function TeacherDiagnostic({ searchParams }: { searchParams: Promise<{ tab?: string; grade?: string; classId?: string }> }) {
+export default async function TeacherDiagnostic({ searchParams }: { searchParams: Promise<{ tab?: string; grade?: string; classId?: string; year?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -23,7 +24,12 @@ export default async function TeacherDiagnostic({ searchParams }: { searchParams
   const gradeRows = (await repo.findMany("Grade", { schoolId: actor.schoolId })).filter((g) => gradeIds.has(String(g.id)));
   const grades = gradeRows.map((g) => Number(g.level)).sort((a, b) => a - b);
   const classesOf = (grade: number) => classes.filter((c) => String(c.gradeId) === String(gradeRows.find((g) => Number(g.level) === grade)?.id)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
-  const tests = (await listDiagnostics(repo, actor)).filter((t) => grades.includes(t.grade) && t.status !== "DRAFT");
+  const allTests = (await listDiagnostics(repo, actor)).filter((t) => grades.includes(t.grade) && t.status !== "DRAFT");
+  // 🗓️ each school year keeps its own results: filter by year to compare
+  const years = [...new Set(allTests.map((t) => t.year))].sort().reverse();
+  const year = years.includes(String(sp.year)) ? String(sp.year) : "";
+  const tests = year ? allTests.filter((t) => t.year === year) : allTests;
+  const { t: tr } = await getT();
   const grade = grades.includes(Number(sp.grade)) ? Number(sp.grade) : grades[0];
   let growth = null; let growthError: string | null = null;
   if (tab === "growth" && grade) {
@@ -45,11 +51,18 @@ export default async function TeacherDiagnostic({ searchParams }: { searchParams
           </nav>
           {growthError ? <p className="text-slate-700">{growthError}</p> : growth ? <ClassGrowthPanel g={growth} /> : <p className="text-slate-700">You have no class yet.</p>}
         </>
-      ) : !tests.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No Diagnostic Test is open for your grade yet. The school admin opens it at the start, middle and end of the year.</p> : (
+      ) : (<>
+      {years.length > 1 && (
+        <nav aria-label={tr("School year")} className="mb-4 flex flex-wrap gap-2">
+          <Link href="/teacher/diagnostic" aria-current={!year ? "page" : undefined} className={tabCls(!year)}>{tr("All years")}</Link>
+          {years.map((y) => <Link key={y} href={`/teacher/diagnostic?year=${y}`} aria-current={year === y ? "page" : undefined} className={tabCls(year === y)}>{y}</Link>)}
+        </nav>
+      )}
+      {!tests.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No Diagnostic Test is open for your grade yet. The school admin opens it at the start, middle and end of the year.</p> : (
         <ul className="grid gap-4 md:grid-cols-2">
           {tests.map((t) => (
             <li key={t.id} className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-              <p className="text-xs font-bold uppercase tracking-wide text-brand-purple">{t.period} · {PERIOD_LABEL[t.period]}{t.form === "focus" ? " · focus form" : ""}</p>
+              <p className="text-xs font-bold uppercase tracking-wide text-brand-purple">{t.year} · {t.period} · {PERIOD_LABEL[t.period]}{t.form === "focus" ? " · focus form" : ""}</p>
               <p className="text-lg font-bold text-brand-navy">📝 {t.title}</p>
               <p className="text-sm text-slate-600">{t.status === "OPEN" ? "Open" : "Closed"} · {t.questions} questions{t.closesAt ? ` · closes ${t.closesAt}` : ""}</p>
               <div className="mt-3 flex items-center gap-3"><div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100"><div className="h-full bg-brand-teal" style={{ width: `${t.students ? Math.round((100 * t.finished) / t.students) : 0}%` }} /></div><span className="text-sm font-semibold tabular-nums text-slate-700">{t.finished}/{t.students} finished (grade)</span></div>
@@ -58,6 +71,7 @@ export default async function TeacherDiagnostic({ searchParams }: { searchParams
           ))}
         </ul>
       )}
+      </>)}
     </AppShell>
   );
 }

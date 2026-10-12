@@ -777,6 +777,12 @@ model Question {
   metaReviewedAt        DateTime?
 
   @@index([intelligenceAt])
+  /// 👯 fingerprint of the content (normalized stem + choices + key + type + passage): exact duplicates share it
+  /// (src/server/questions/dedupe-hash.ts). Indexed so the importer and the editor find duplicates by lookup.
+  contentHash           String?  @db.VarChar(64)
+
+  @@index([contentHash])
+  @@index([status, updatedAt])
 }
 
 model QuestionOption {
@@ -857,6 +863,7 @@ model PracticeSession {
   attempts   QuestionAttempt[]
 
   @@index([studentId, startedAt])
+  @@index([startedAt]) // admin home: students active in the last 7 days (Update 46)
   @@index([assignmentId])
   /// when the set's goal (correct answers) was reached; the student may go on practising
   goalReachedAt DateTime?
@@ -1692,6 +1699,7 @@ model SkillPlan {
   createdAt   DateTime @default(now())
 
   @@index([schoolId, classId])
+  @@index([classId, kind]) // a class's plans of one kind (Update 46)
 }
 
 model SkillPlanItem {
@@ -2385,6 +2393,7 @@ model DiagnosticTest {
   createdAt    DateTime  @default(now())
 
   @@index([schoolId, grade])
+  @@index([assessmentId]) // the Diagnostic of an assessment (Update 46)
 }
 
 /// A student's Diagnostic result (written when they finish), with the analysis by standard and strand.
@@ -3316,4 +3325,37 @@ model Feedback {
 
   @@index([schoolId, resolved, createdAt])
   @@index([userId, createdAt])
+}
+
+/// ⭐ Second Chance: the student re-answers a question they got wrong (practice, tests, ReadMaster, ReadRise, Question
+/// of the Day). Practice only: never read by levels, mastery, tiers, reports or norms, and never written to the
+/// attempt tables. questionId = a bank Question id, or "rr:<RRQuestion id>" for a ReadRise question.
+model SecondChanceAnswer {
+  id         String   @id @default(cuid())
+  studentId  String
+  questionId String   @db.VarChar(64)
+  correct    Boolean
+  createdAt  DateTime @default(now())
+
+  @@index([studentId, questionId])
+  @@index([studentId, createdAt])
+}
+
+/// 🗓️ When students of a grade may take the school year's Diagnostic Test — set ONLY by the school admin
+/// (/admin/diagnostic). MANUAL: open while isOpen. AUTO: open from opensAt to closesAt, by itself.
+model DiagnosticWindow {
+  id          String    @id @default(cuid())
+  schoolId    String
+  grade       Int
+  /// MANUAL | AUTO
+  mode        String    @default("MANUAL") @db.VarChar(6)
+  isOpen      Boolean   @default(false)
+  opensAt     DateTime?
+  closesAt    DateTime?
+  /// school year, e.g. "2026-2027" (Aug 1 → Jul 31)
+  schoolYear  String    @db.VarChar(9)
+  updatedAt   DateTime  @default(now())
+  updatedById String?
+
+  @@unique([schoolId, grade, schoolYear])
 }

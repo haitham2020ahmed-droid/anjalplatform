@@ -29,6 +29,7 @@ import { cleanPassage, passageForText } from "./passages";
 import { needsPassage, possibleMissingPassage } from "../../lib/passage-detect";
 import { cleanAlt, removeUnusedImages } from "./question-images";
 import { attachmentNodes, placesOf, setQuestionMapNode, setQuestionUses, unclassifiedSkillId, type QuestionUseKind } from "../curriculum-map/questions";
+import { hashOfItem } from "../questions/dedupe-hash";
 
 export type QuestionStatus = "DRAFT" | "UNDER_REVIEW" | "PUBLISHED" | "ARCHIVED";
 export const STATUSES: readonly QuestionStatus[] = ["DRAFT", "UNDER_REVIEW", "PUBLISHED", "ARCHIVED"];
@@ -365,6 +366,40 @@ export function cleanLexile(v: unknown): number | null {
   return n;
 }
 
+/** 👯 The content fingerprint of the item as it is saved (dedupe-hash.ts): the passage TEXT counts, not its id. */
+async function hashForSave(repo: Repo, item: BankItem, passageText: string | null | undefined, passageId: string | null, imageId: string | null): Promise<string> {
+  const body = passageText !== undefined ? passageText || null : passageId ? String((await repo.findMany("ReadingPassage", { id: passageId }, { select: ["body"] }))[0]?.body ?? "") || null : null;
+  return hashOfItem(item, body, imageId);
+}
+
+/**
+ * 👯 “This question already exists”: an exact duplicate (same fingerprint) in the same skill family of this school, other
+ * than the question itself and its revisions. null when there is none, or when the input is not valid yet (the save
+ * then reports the problems).
+ */
+export async function duplicateOfInput(repo: Repo, actor: Actor, inputIn: EditorInput, selfId?: string | null): Promise<{ id: string; stem: string; status: string } | null> {
+  let built: Awaited<ReturnType<typeof toBankItem>>;
+  const self = selfId ? await repo.findUnique("Question", { id: selfId }) : null;
+  const passageText = inputIn.passageText === undefined ? undefined : cleanPassage(inputIn.passageText);
+  let skillId = String(inputIn.skillId ?? "");
+  try {
+    const input = (await placeOnMap(repo, actor, inputIn)).input;
+    skillId = String(input.skillId);
+    built = await toBankItem(repo, actor, passageText === undefined ? input : { ...input, passageId: null }, "dup-check");
+  } catch { return null; }
+  const imageId = inputIn.imageId !== undefined ? inputIn.imageId || null : self?.imageId ? String(self.imageId) : null;
+  const hash = await hashForSave(repo, built.item, passageText, built.passageId, imageId);
+  const hits = (await repo.findMany("Question", { contentHash: hash }, { select: ["id", "skillId", "stem", "status", "tags", "deletedAt"], take: 50 })).filter((h) => !h.deletedAt && String(h.id) !== String(selfId ?? ""));
+  if (!hits.length) return null;
+  const { schoolSkillIndex } = await import("../questions/skill-questions");
+  const idx = await schoolSkillIndex(repo, schoolOf(actor));
+  const family = idx.keyOf.get(skillId);
+  const revisionOf = (t: unknown) => ((typeof t === "string" ? JSON.parse(t) : t) as { revisionOf?: string } | null)?.revisionOf ?? null;
+  const mine = self ? revisionOf(self.tags) : null;
+  const hit = hits.find((h) => idx.ids.has(String(h.skillId)) && idx.keyOf.get(String(h.skillId)) === family && String(h.id) !== mine && revisionOf(h.tags) !== String(selfId ?? "-"));
+  return hit ? { id: String(hit.id), stem: String(hit.stem).slice(0, 200), status: String(hit.status) } : null;
+}
+
 export async function createDraft(repo: Repo, actor: Actor, inputIn: EditorInput, now = new Date()): Promise<string> {
   assertCan(actor, "questions:edit");
   const placed = await placeOnMap(repo, actor, inputIn);
@@ -375,7 +410,9 @@ export async function createDraft(repo: Repo, actor: Actor, inputIn: EditorInput
   const typeId = await typeIdFor(repo, item.type);
   const id = await repo.transaction(async (tx) => {
     const passageId = passageText === undefined ? givenPassage : passageText ? await passageForText(tx, passageText, grade, actor.userId, now) : null;
+    const contentHash = await hashForSave(tx, item, passageText, passageId, input.imageId ?? null);
     const q = await tx.create("Question", {
+      contentHash,
       externalRef: ref, skillId: input.skillId, standardId, passageId, typeId, stem: item.stem, content: contentPayload(item), hint: input.hint ? text(input.hint, "Hint", 500) : null,
       difficultyLevel: item.level, irtA: 1, irtB: item.irt.b, irtC: 0, estimatedSeconds: item.estimatedSeconds,
       status: "DRAFT", origin: input.imported ? "IMPORTED" : input.aiDrafted ? "AI_GENERATED" : "TEACHER_AUTHORED", aiStatus: input.aiDrafted && !input.imported ? "AI_GENERATED" : null,
@@ -404,7 +441,9 @@ export async function updateDraft(repo: Repo, actor: Actor, id: string, inputIn:
   const status = q.status === "UNDER_REVIEW" && byAuthor ? "DRAFT" : String(q.status);
   await repo.transaction(async (tx) => {
     const passageId = passageText === undefined ? givenPassage : passageText ? await passageForText(tx, passageText, grade, actor.userId, now) : null;
+    const contentHash = await hashForSave(tx, item, passageText, passageId, input.imageId !== undefined ? input.imageId || null : q.imageId ? String(q.imageId) : null);
     await tx.updateMany("Question", { id }, {
+      contentHash,
       skillId: input.skillId, standardId, passageId, typeId: await typeIdFor(tx, item.type), stem: item.stem, content: contentPayload(item),
       hint: input.hint ? text(input.hint, "Hint", 500) : null, difficultyLevel: item.level, estimatedSeconds: item.estimatedSeconds,
       ...(q.calibrated ? {} : { irtB: item.irt.b }), status, updatedAt: now,
@@ -552,7 +591,7 @@ export async function reviseQuestion(repo: Repo, actor: Actor, id: string, now =
     const n = await tx.create("Question", {
       externalRef: ref, skillId: q.skillId, standardId, passageId, typeId: q.typeId, stem: item.stem, content: contentPayload(item), hint: q.hint ?? null,
       difficultyLevel: item.level, irtA: q.irtA, irtB: q.irtB, irtC: q.irtC, calibrated: q.calibrated, estimatedSeconds: item.estimatedSeconds,
-      tags: { ...((q.tags as Record<string, unknown> | null) ?? {}), revisionOf: id }, status: "DRAFT", origin: q.origin, aiStatus: q.aiStatus ?? null,
+      tags: { ...((q.tags as Record<string, unknown> | null) ?? {}), revisionOf: id }, status: "DRAFT", origin: q.origin, aiStatus: q.aiStatus ?? null, contentHash: q.contentHash ?? null, imageId: q.imageId ?? null,
       mapTest: q.mapTest ?? null, mapInstructionalArea: q.mapInstructionalArea ?? null, mapAreaSource: q.mapAreaSource ?? null,
       version, createdById: actor.userId, createdAt: now, updatedAt: now,
     });

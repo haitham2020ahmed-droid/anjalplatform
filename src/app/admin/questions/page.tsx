@@ -1,170 +1,141 @@
 import Link from "next/link";
-import { MapPlacePicker } from "@/components/curriculum-map/place-picker";
-import { attachmentNodes } from "@/server/curriculum-map/questions";
 import { AppShell } from "@/components/app-shell";
-import { card } from "@/components/admin/styles";
+import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { MAP_AREAS } from "@/server/map/nwea-area";
 import { can } from "@/server/auth/rbac";
-import { listQuestions, STATUSES, type QuestionStatus } from "@/server/admin/questions";
-import { QuestionTable } from "./question-table";
-import { editorOptions } from "./editor-data";
-import { teacherRoster } from "@/server/teacher/assign";
+import { getT } from "@/i18n/server";
+import { STATUSES, type QuestionStatus } from "@/server/admin/questions";
+import { SORTS, bankBanners, bankStatusCounts, familiesMatching, familyOptions, listBankPage, moveTargets, type BankListFilter, type SortKey } from "@/server/admin/questions-list";
 import { countDeletionRequests } from "@/server/admin/question-requests";
-import { SkillAssignHost } from "@/components/skills/skill-assign";
-import { assignSkillInline } from "./skill-actions";
+import { teacherRoster } from "@/server/teacher/assign";
 import { LEVEL_LABELS } from "@/config/engine";
-import { skillsMatching } from "@/server/questions/skill-questions";
+import { BankTabs } from "./bank-tabs";
+import { QuestionList } from "./question-list";
 
-export const metadata = { title: "Question Bank" };
+export const metadata = { title: "Questions" };
 
-const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
+/** Every filter the list understands. The last five only come from links on other pages (shown as chips). */
+type SP = { q?: string; family?: string; type?: string; status?: string; level?: string; sort?: string; page?: string; skill?: string; map?: string; ai?: string; area?: string; grade?: string; deleted?: string };
 
-type SP = { view?: string; status?: string; grade?: string; q?: string; mine?: string; ai?: string; deleted?: string; unit?: string; skill?: string; standard?: string; type?: string; passage?: string; image?: string; page?: string; track?: string; subject?: string; level?: string; source?: string; onmap?: string; use?: string; map?: string; area?: string; aicheck?: string };
-const SUBJECTS: [string, string][] = [["READING", "Reading"], ["VOCABULARY", "Vocabulary"], ["GRAMMAR", "Grammar"], ["LANGUAGE", "Language"], ["WRITING", "Writing"], ["WORD_STUDY", "Word study / spelling"]];
-const SOURCES: [string, string][] = [["TEACHER_AUTHORED", "Written by teachers"], ["SCHOOL_BOOKLET", "School booklet"], ["IMPORTED", "Imported"], ["AI_GENERATED", "AI-generated"], ["DEMO", "Demo"]];
-// the platform's own difficulty scale (config/engine LEVEL_LABELS)
-const LEVELS: [string, string][] = Object.entries(LEVEL_LABELS).map(([n, l]) => [n, `${n} · ${l}`]);
-const PAGE = 100;
 const TYPES: [string, string][] = [["MULTIPLE_CHOICE", "Multiple choice"], ["MULTI_SELECT", "Multi select"], ["TRUE_FALSE", "True/false"], ["DROPDOWN", "Dropdown"], ["FILL_BLANK", "Fill in the blank"], ["SHORT_ANSWER", "Short answer"], ["MATCHING", "Matching"], ["SENTENCE_ORDER", "Sentence order"], ["WORD_ORDER", "Word order"], ["ERROR_CORRECTION", "Error correction"], ["TWO_PART", "Two-part (A/B)"], ["GRID", "Table match (grid)"], ["HOT_TEXT", "Hot text"], ["DICTATION", "Dictation"], ["SENTENCE_COMBINE", "Sentence combining"]];
+const STATUS_LABEL: Record<QuestionStatus | "ALL", string> = { ALL: "All", PUBLISHED: "Published", DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", ARCHIVED: "Archived" };
+const SORT_LABEL: Record<SortKey, string> = { new: "Newest changes first", old: "Oldest first", easy: "Easiest first", hard: "Hardest first" };
 
+/**
+ * 📚 Questions: one page of 50, filtered and sorted by the database (see src/server/admin/questions-list.ts).
+ * One tab row links the useful question pages; banners point to unsorted questions and drafts.
+ */
 export default async function QuestionsPage({ searchParams }: { searchParams: Promise<SP> }) {
   const actor = await requireActor({ permission: "questions:read" });
   const me = (await getActor())!.user;
+  const { t } = await getT();
   const sp = await searchParams;
-  // teachers land on the published questions (the ones they can assign); admins on the review queue
-  const status = (STATUSES as readonly string[]).includes(sp.status ?? "") ? (sp.status as QuestionStatus) : actor.role === "TEACHER" ? "PUBLISHED" : "UNDER_REVIEW";
-  const grade = Number(sp.grade) || undefined;
-  // picked from the allowed values, so the type is exact (not just string)
-  const passage = (["has", "none", "missing"] as const).find((v) => v === sp.passage);
-  const image = (["has", "none"] as const).find((v) => v === sp.image);
-  const page = Math.max(1, Number(sp.page) || 1);
-  const [gradeRows, opts] = await Promise.all([repo.findMany("Grade", { schoolId: actor.schoolId }), editorOptions(repo, actor.schoolId!)]);
-  const levels = gradeRows.filter((g) => g.isActive !== false).map((g) => Number(g.level)).sort((a, b) => a - b);
-  const curricula = await repo.findMany("Curriculum", { gradeId: { in: gradeRows.filter((g) => !grade || Number(g.level) === grade).map((g) => g.id) } });
-  const levelOfCur = new Map(curricula.map((c) => [String(c.id), Number(gradeRows.find((g) => g.id === c.gradeId)?.level)]));
-  const units = (curricula.length ? await repo.findMany("Unit", { curriculumId: { in: curricula.map((c) => c.id) }, deletedAt: null }, { select: ["id", "number", "title", "curriculumId"] }) : [])
-    .map((u) => ({ id: String(u.id), label: `G${levelOfCur.get(String(u.curriculumId))} · Unit ${u.number}: ${u.title}`, g: levelOfCur.get(String(u.curriculumId)) ?? 0, n: Number(u.number) }))
-    .sort((x, y) => x.g - y.g || x.n - y.n);
-  const skillOptions = opts.skills.filter((k) => !grade || k.grade === grade);
-  const filter = { status, grade, q: sp.q?.slice(0, 100) || undefined, mine: sp.mine === "1" || undefined, ai: sp.ai === "1" || undefined, unitId: sp.unit || undefined, skillId: sp.skill || undefined, standard: sp.standard?.slice(0, 60) || undefined, type: sp.type || undefined, passage, image,
-    subject: SUBJECTS.some(([v]) => v === sp.subject) ? sp.subject : undefined,
-    difficulty: LEVELS.some(([v]) => v === sp.level) ? Number(sp.level) : undefined,
-    source: SOURCES.some(([v]) => v === sp.source) ? sp.source : undefined,
-    onMap: sp.onmap === "map" || sp.onmap === "bank" ? (sp.onmap as "map" | "bank") : undefined,
-    use: sp.use === "PLACEMENT" || sp.use === "MAP_TEST" ? (sp.use as "PLACEMENT" | "MAP_TEST") : undefined,
-    readMaster: sp.use === "READMASTER",
-    mapCode: /^G\d+\.[A-Z0-9.]+$/i.test(sp.map ?? "") ? String(sp.map).toUpperCase() : undefined,
-    mapArea: ["LIT", "INFO", "VOCAB", "GRAMMAR", "MECH", "WRITING", "NONE"].includes(sp.area ?? "") ? sp.area : undefined, aiCheck: sp.aicheck === "1" || undefined };
-  const roster = actor.role === "TEACHER" ? await teacherRoster(repo, actor) : undefined;
-  const pendingDeletions = await countDeletionRequests(repo, actor);
-  // UI reorg Phase 1: the skills the search names, with the ONE shared count (= the MAP and NAFS sections)
-  const matches = filter.q ? await skillsMatching(repo, actor.schoolId!, filter.q, { grade, status }) : [];
-  const grouped = sp.view === "skills" || (sp.view !== "list" && Boolean(filter.q || filter.skillId));
-  const PER = grouped ? 400 : PAGE;
-  const mapPlaces = (await attachmentNodes(repo, actor.schoolId!)).map((n) => ({ code: n.code, grade: n.grade, unit: n.unit, path: n.path }));
-  const { items, total, counts, aiPending } = await listQuestions(repo, actor, { status, gradeLevel: grade, q: filter.q, mine: filter.mine, aiOnly: filter.ai, unitId: filter.unitId, skillId: filter.skillId, standardCode: filter.standard, typeCode: filter.type, passage, image, subject: filter.subject, difficulty: filter.difficulty, source: filter.source, onMap: filter.onMap, use: filter.use, mapCode: filter.mapCode, mapArea: filter.mapArea, aiCheck: filter.aiCheck, limit: PER, page });
-  const pages = Math.max(1, Math.ceil(total / PER));
+  const isAdmin = actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN";
+  const status = (["ALL", ...STATUSES] as string[]).includes(sp.status ?? "") ? (sp.status as QuestionStatus | "ALL") : actor.role === "TEACHER" ? "PUBLISHED" : "ALL";
+  const filter: BankListFilter = {
+    q: sp.q?.trim().slice(0, 100) || undefined, family: sp.family?.slice(0, 200) || undefined, type: TYPES.some(([v]) => v === sp.type) ? sp.type : undefined,
+    status, level: Number(sp.level) >= 1 && Number(sp.level) <= 7 ? Number(sp.level) : undefined, sort: (SORTS as readonly string[]).includes(sp.sort ?? "") ? (sp.sort as SortKey) : "new",
+    page: Math.max(1, Number(sp.page) || 1),
+    // from links on other pages
+    skillId: sp.skill?.slice(0, 191) || undefined, mapCode: /^G\d+\.[A-Z0-9.]+$/i.test(sp.map ?? "") ? String(sp.map).toUpperCase() : undefined, ai: sp.ai === "1" || undefined,
+    mapArea: ["LIT", "INFO", "VOCAB", "GRAMMAR", "MECH", "WRITING", "NONE"].includes(sp.area ?? "") ? sp.area : undefined, grade: Number(sp.grade) || undefined,
+  };
+  const [list, counts, banners, families, matches, targets, deletions, roster] = await Promise.all([
+    listBankPage(repo, actor, filter), bankStatusCounts(repo, actor, filter), bankBanners(repo, actor), familyOptions(repo, actor),
+    filter.q && !filter.family ? familiesMatching(repo, actor, filter.q) : Promise.resolve([]),
+    can(actor, "questions:publish") ? moveTargets(repo, actor) : Promise.resolve([]), countDeletionRequests(repo, actor),
+    actor.role === "TEACHER" ? teacherRoster(repo, actor) : Promise.resolve(undefined),
+  ]);
   const qs = (over: Record<string, string | number | undefined>) => {
     const p = new URLSearchParams();
-    for (const [k, v] of Object.entries({ status, view: sp.view, grade: sp.grade, q: sp.q, mine: sp.mine, ai: sp.ai, unit: sp.unit, skill: sp.skill, standard: sp.standard, type: sp.type, passage: sp.passage, image: sp.image, track: sp.track, subject: sp.subject, level: sp.level, source: sp.source, onmap: sp.onmap, use: sp.use, map: sp.map, area: sp.area, aicheck: sp.aicheck, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
-    return `/admin/questions?${p.toString()}`;
+    for (const [k, v] of Object.entries({ q: sp.q, family: sp.family, type: sp.type, status: sp.status, level: sp.level, sort: sp.sort, skill: sp.skill, map: sp.map, ai: sp.ai, area: sp.area, grade: sp.grade, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
+    const s = p.toString();
+    return `/admin/questions${s ? `?${s}` : ""}`;
   };
-  const tab = (s: QuestionStatus) => qs({ status: s, page: undefined });
-  const sel = "rounded-lg border border-slate-300 px-3 py-2";
+  const chips: { label: string; clear: Record<string, undefined> }[] = [
+    ...(filter.skillId ? [{ label: `${t("Skill")}: ${list.rows[0]?.skill || filter.skillId}`, clear: { skill: undefined } }] : []),
+    ...(filter.mapCode ? [{ label: `🧭 ${filter.mapCode}`, clear: { map: undefined } }] : []),
+    ...(filter.ai ? [{ label: t("AI-drafted"), clear: { ai: undefined } }] : []),
+    ...(filter.mapArea ? [{ label: `MAP · ${filter.mapArea === "NONE" ? t("not classified yet") : filter.mapArea}`, clear: { area: undefined } }] : []),
+    ...(filter.grade ? [{ label: `${t("Grade")} ${filter.grade}`, clear: { grade: undefined } }] : []),
+  ];
+  const sel = "min-h-11 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm";
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href={actor.role === "TEACHER" ? "/teacher" : "/admin"} className="text-brand-teal hover:underline">← Back</Link></p>
-      <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h1 className="text-3xl font-bold text-brand-navy"><span aria-hidden="true">📚</span> Question Bank</h1>
-          <p className="mt-1 max-w-2xl text-sm text-slate-600">Every question on the platform, in one library. It is separate from the Curriculum Map: search, preview, select ⭐ and use questions for assignments, practice, MAP and placement tests.</p>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <Link href="/admin/questions?status=DRAFT&ai=1" className="rounded-xl bg-amber-100 px-4 py-2.5 font-semibold text-amber-900">AI drafts to review ({aiPending})</Link>
-          <Link href="/admin/question-bank" className="rounded-xl px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">Coverage</Link>
-          {actor.role !== "TEACHER" && <Link href="/admin/map-classification" className="rounded-xl bg-indigo-50 px-4 py-2.5 font-semibold text-indigo-900 ring-1 ring-indigo-200">🧭 MAP Classification</Link>}
-          <Link href="/admin/questions/import" className="rounded-xl px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">Import questions</Link>
-          {pendingDeletions > 0 && <Link href="/admin/questions/requests" className="rounded-xl bg-red-50 px-4 py-2.5 font-semibold text-red-800 ring-1 ring-red-200">🗑 Deletion requests ({pendingDeletions})</Link>}
-          <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">New question</Link>
-        </div>
-      </div>
-      <nav className="mt-4 flex flex-wrap gap-2" aria-label="Question status">
-        {STATUSES.map((s) => <Link key={s} href={tab(s)} aria-current={s === status ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-semibold ${s === status ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{STATUS_LABEL[s]} ({counts[s]})</Link>)}
-      </nav>
-      <form method="get" className="mt-3 flex flex-wrap items-center gap-3" aria-label="Filter questions">
-        <input type="hidden" name="status" value={status} />
-        <select name="grade" defaultValue={sp.grade ?? ""} aria-label="Grade" className={sel}><option value="">All grades</option>{levels.map((g) => <option key={g} value={g}>Grade {g}</option>)}</select>
-        <select name="unit" defaultValue={sp.unit ?? ""} aria-label="Unit" className={`${sel} max-w-[14rem]`}><option value="">All units</option>{units.map((u) => <option key={u.id} value={u.id}>{u.label}</option>)}</select>
-        <select name="skill" defaultValue={sp.skill ?? ""} aria-label="Skill" className={`${sel} max-w-[14rem]`}><option value="">All skills</option>{skillOptions.map((k) => <option key={k.id} value={k.id}>G{k.grade} · {k.name}</option>)}</select>
-        <input name="standard" defaultValue={sp.standard ?? ""} list="std-list" placeholder="Standard, e.g. RL.4.1" aria-label="Standard" className={`${sel} w-40`} />
-        <datalist id="std-list">{opts.standards.map((c) => <option key={c} value={c.replace(/^CCSS\.ELA-LITERACY\./, "")} />)}</datalist>
-        <select name="type" defaultValue={sp.type ?? ""} aria-label="Question type" className={sel}><option value="">All types</option>{TYPES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
-        <select name="passage" defaultValue={sp.passage ?? ""} aria-label="Passage" className={sel}><option value="">Passage: any</option><option value="has">Has passage</option><option value="none">No passage</option><option value="missing">⚠ Possible missing passage</option></select>
-        <select name="image" defaultValue={sp.image ?? ""} aria-label="Image" className={sel}><option value="">Image: any</option><option value="has">Has image</option><option value="none">No image</option></select>
-        <select name="subject" defaultValue={sp.subject ?? ""} aria-label="Subject" className={sel}><option value="">All subjects</option>{SUBJECTS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
-        <select name="level" defaultValue={sp.level ?? ""} aria-label="Difficulty level" className={sel}><option value="">All difficulty levels</option>{LEVELS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
-        <select name="source" defaultValue={sp.source ?? ""} aria-label="Source" className={sel}><option value="">All sources</option>{SOURCES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
-        <select name="onmap" defaultValue={sp.onmap ?? ""} aria-label="Curriculum Map" className={sel}><option value="">Curriculum Map: any</option><option value="map">🧭 On the Curriculum Map</option><option value="bank">📚 Question Bank only</option></select>
-        <select name="area" defaultValue={sp.area ?? ""} aria-label="MAP Instructional Area" className={`${sel} max-w-[18rem]`}><option value="">MAP Instructional Area: any</option><optgroup label="Reading">{MAP_AREAS.filter((a) => a.test === "Reading").map((a) => <option key={a.key} value={a.key}>{a.name}</option>)}</optgroup><optgroup label="Language Usage">{MAP_AREAS.filter((a) => a.test === "Language Usage").map((a) => <option key={a.key} value={a.key}>{a.name}</option>)}</optgroup><option value="NONE">Not classified yet</option></select>
-        <select name="use" defaultValue={sp.use ?? ""} aria-label="Use" className={sel}><option value="">Use: any</option><option value="PLACEMENT">Diagnostic</option><option value="MAP_TEST">MAP test</option><option value="READMASTER">ReadMaster</option></select>
-        <div className="basis-full rounded-2xl bg-emerald-50/50 p-2 ring-1 ring-emerald-200">
-          <MapPlacePicker places={mapPlaces} value={filter.mapCode ?? null} mode="filter" name="map" />
-        </div>
-        {sp.track && <input type="hidden" name="track" value={sp.track} />}
-        {sp.view && <input type="hidden" name="view" value={sp.view} />}
-        <input name="q" defaultValue={sp.q ?? ""} placeholder="Search question text or skill name" aria-label="Search" className={sel} />
-        <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="mine" value="1" defaultChecked={sp.mine === "1"} />Only mine</label>
-        <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="ai" value="1" defaultChecked={sp.ai === "1"} />Only AI-drafted</label>
-        <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="aicheck" value="1" defaultChecked={sp.aicheck === "1"} />✨ AI filled · check</label>
-        <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Filter</button>
-        <Link href={`/admin/questions?status=${status}`} className="text-sm text-brand-teal hover:underline">Clear filters</Link>
-      </form>
-      {matches.length > 0 && (
-        <section className="mb-4 rounded-2xl bg-white p-4 ring-1 ring-slate-200" aria-labelledby="skills-matching">
-          <h2 id="skills-matching" className="text-base font-semibold text-brand-navy">Skills matching “{filter.q}”</h2>
-          <p className="mt-1 text-sm text-slate-600">Each skill's number is the same everywhere (MAP, NAFS, search). The list below also shows questions of other skills whose wording uses your words.</p>
-          <ul className="mt-2 flex flex-wrap gap-2">
-            {matches.map((m) => (
-              <li key={m.id}><Link href={`/admin/questions?status=${status}&grade=${m.grade}&skill=${m.id}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-slate-50 px-3 py-2 text-sm ring-1 ring-slate-200 hover:ring-brand-teal">
-                <b className="text-brand-navy">{m.name}</b><span className="rounded-full bg-slate-200 px-2 text-xs">Grade {m.grade}</span><span className="tabular-nums">{m.questions} questions</span>
-                {m.map && <span className="rounded-full bg-emerald-100 px-2 text-xs text-emerald-800">MAP · {m.map.name}</span>}
-                {m.nafs && <span className="rounded-full bg-teal-100 px-2 text-xs text-teal-800">NAFS · {m.nafs.name}</span>}
-              </Link></li>
-            ))}
-          </ul>
-        </section>
-      )}
-      <section className={card}>
-        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-          <p className="text-sm text-slate-600">{grouped ? "Grouped by skill: tap ⭐ to assign a whole skill, or ☆ to choose questions." : "Tip: search a skill (e.g. main idea) to see its questions grouped under it."}</p>
-          <div className="inline-flex rounded-xl bg-slate-100 p-1 text-sm font-semibold" role="group" aria-label="View">
-            <Link href={qs({ view: "skills", page: undefined })} aria-current={grouped ? "page" : undefined} className={`rounded-lg px-3 py-1.5 ${grouped ? "bg-white text-brand-navy shadow" : "text-slate-500"}`}>▦ By skill</Link>
-            <Link href={qs({ view: "list", page: undefined })} aria-current={!grouped ? "page" : undefined} className={`rounded-lg px-3 py-1.5 ${!grouped ? "bg-white text-brand-navy shadow" : "text-slate-500"}`}>▤ List</Link>
-          </div>
-        </div>
-        {sp.deleted === "1" && <p role="status" className="mb-3 rounded-lg bg-teal-50 px-3 py-2 text-teal-900">The question was deleted.</p>}
-        <QuestionTable
-          rows={items.map((q) => ({ id: q.id, stem: q.stem, mine: q.mine, origin: q.origin, grade: q.grade, skill: q.skill, type: q.type, level: q.level, levelLabel: q.levelLabel, status: q.status, updatedAt: q.updatedAt, hasPassage: q.hasPassage, hasImage: q.hasImage, possibleMissingPassage: q.possibleMissingPassage, mapCode: q.mapCode ?? null, uses: q.uses ?? [], mapArea: q.mapArea ?? null, aiCheck: q.aiCheck ?? false }))}
-          total={total}
-          canPublish={can(actor, "questions:publish")}
-          canDelete={(actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN") && can(actor, "questions:publish")}
-          roster={roster}
-          grouped={grouped}
-          canAssignSkill={actor.role === "TEACHER"}
-          defaultTrack={sp.track === "map" ? "MAP" : sp.track === "nafs" ? "NAFS" : "CURRICULUM"}
-          selectionKey={actor.userId}
-          filter={filter}
-        />
-        {pages > 1 && (
-          <nav aria-label="Pages" className="mt-3 flex flex-wrap items-center gap-3 text-sm">
-            {page > 1 && <Link href={qs({ page: page - 1 })} className="rounded-lg px-3 py-1 ring-1 ring-slate-300">← Previous</Link>}
-            <span>Page {page} of {pages} · {total} questions</span>
-            {page < pages && <Link href={qs({ page: page + 1 })} className="rounded-lg px-3 py-1 ring-1 ring-slate-300">Next →</Link>}
-          </nav>
+      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="📚" title="Questions"
+        subtitle={t("Search, preview and edit every question. Open a row to see its choices and answer.")}>
+        <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">{t("New question")}</Link>
+      </PageHeader>
+      {isAdmin && <BankTabs />}
+      <div className="space-y-2">
+        {isAdmin && banners.unclassified > 0 && (
+          <p role="status" className="flex flex-wrap items-center gap-2 rounded-2xl bg-amber-50 px-4 py-3 text-amber-950 ring-1 ring-amber-200">
+            <span aria-hidden="true">🗂</span>{t("{n} questions are not under a skill.", { n: banners.unclassified })}
+            <Link href="/admin/questions/unclassified" className="font-semibold underline">{t("Sort them")}</Link>
+          </p>
         )}
+        {isAdmin && banners.drafts > 0 && (
+          <p role="status" className="flex flex-wrap items-center gap-2 rounded-2xl bg-sky-50 px-4 py-3 text-sky-950 ring-1 ring-sky-200">
+            <span aria-hidden="true">📝</span>{t("{n} drafts.", { n: banners.drafts })}
+            <Link href="/admin/data-cleanup" className="font-semibold underline">{t("Publish them in Data Cleanup")}</Link>
+          </p>
+        )}
+        {deletions > 0 && (
+          <p role="status" className="flex flex-wrap items-center gap-2 rounded-2xl bg-red-50 px-4 py-3 text-red-900 ring-1 ring-red-200">
+            <span aria-hidden="true">🗑</span>{t("{n} deletion requests from teachers.", { n: deletions })}
+            <Link href="/admin/questions/requests" className="font-semibold underline">{t("Decide")}</Link>
+          </p>
+        )}
+        {sp.deleted === "1" && <p role="status" className="rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{t("The question was deleted.")}</p>}
+      </div>
+
+      <form method="get" className="mt-4 grid gap-2 rounded-2xl bg-white p-3 ring-1 ring-slate-200 sm:grid-cols-2 lg:grid-cols-[minmax(0,2fr)_repeat(5,minmax(0,1fr))_auto]" aria-label={t("Filter questions")}>
+        <input name="q" defaultValue={sp.q ?? ""} placeholder={t("Search the question text")} aria-label={t("Search")} className={sel} />
+        <select name="family" defaultValue={filter.family ?? ""} aria-label={t("Skill")} className={sel}>
+          <option value="">{t("All skills")}</option>
+          {families.map((f) => <option key={f.key} value={f.key}>{f.name} · G{f.grades.join(", ")}</option>)}
+        </select>
+        <select name="type" defaultValue={filter.type ?? ""} aria-label={t("Question type")} className={sel}><option value="">{t("All types")}</option>{TYPES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
+        <select name="status" defaultValue={status} aria-label={t("Status")} className={sel}>{(["ALL", ...STATUSES] as const).map((st) => <option key={st} value={st}>{t(STATUS_LABEL[st])}</option>)}</select>
+        <select name="level" defaultValue={sp.level ?? ""} aria-label={t("Level")} className={sel}><option value="">{t("All levels")}</option>{Object.entries(LEVEL_LABELS).map(([n, l]) => <option key={n} value={n}>{n} · {l}</option>)}</select>
+        <select name="sort" defaultValue={filter.sort} aria-label={t("Sort")} className={sel}>{SORTS.map((k) => <option key={k} value={k}>{t(SORT_LABEL[k])}</option>)}</select>
+        {sp.skill && <input type="hidden" name="skill" value={sp.skill} />}
+        {sp.map && <input type="hidden" name="map" value={sp.map} />}
+        {sp.ai && <input type="hidden" name="ai" value={sp.ai} />}
+        {sp.area && <input type="hidden" name="area" value={sp.area} />}
+        {sp.grade && <input type="hidden" name="grade" value={sp.grade} />}
+        <div className="flex items-center gap-2">
+          <button className="min-h-11 rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">{t("Filter")}</button>
+          <Link href="/admin/questions" className="text-sm text-brand-teal hover:underline">{t("Clear")}</Link>
+        </div>
+      </form>
+
+      <nav className="mt-3 flex flex-wrap gap-2" aria-label={t("Status")}>
+        {(["ALL", ...STATUSES] as const).map((st) => (
+          <Link key={st} href={qs({ status: st, page: undefined })} aria-current={st === status ? "page" : undefined}
+            className={`rounded-full px-3.5 py-1.5 text-sm font-semibold ${st === status ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{t(STATUS_LABEL[st])} <span className="tabular-nums">({counts[st].toLocaleString("en")})</span></Link>
+        ))}
+      </nav>
+      {(chips.length > 0 || matches.length > 0) && (
+        <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
+          {chips.map((c) => <Link key={c.label} href={qs({ ...c.clear, page: undefined })} className="rounded-full bg-indigo-50 px-3 py-1 font-medium text-indigo-900 ring-1 ring-indigo-200" aria-label={`${t("Remove filter")}: ${c.label}`}>{c.label} ✕</Link>)}
+          {matches.length > 0 && <span className="text-slate-600">{t("Skills named like your search:")}</span>}
+          {matches.map((m) => <Link key={m.key} href={qs({ family: m.key, q: undefined, page: undefined })} className="rounded-full bg-white px-3 py-1 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{m.name} · G{m.grades.join(", ")}</Link>)}
+        </div>
+      )}
+
+      <section className="mt-4 rounded-2xl bg-white p-3 ring-1 ring-slate-200 sm:p-4">
+        <QuestionList
+          rows={list.rows} total={list.total} filter={filter}
+          canPublish={can(actor, "questions:publish")} canDelete={isAdmin && can(actor, "questions:publish")}
+          targets={targets} roster={roster && roster.length ? roster : undefined}
+        />
+        <nav aria-label={t("Pages")} className="mt-3 flex flex-wrap items-center gap-3 text-sm">
+          {list.page > 1 && <Link href={qs({ page: list.page - 1 })} className="rounded-lg px-3 py-1.5 ring-1 ring-slate-300">← {t("Previous")}</Link>}
+          <span>{t("Page {n} of {m}", { n: list.page, m: list.pages })} · {t("{n} questions", { n: list.total.toLocaleString("en") })}</span>
+          {list.page < list.pages && <Link href={qs({ page: list.page + 1 })} className="rounded-lg px-3 py-1.5 ring-1 ring-slate-300">{t("Next")} →</Link>}
+        </nav>
       </section>
-      {roster && <SkillAssignHost classes={roster} assign={assignSkillInline} />}
     </AppShell>
   );
 }

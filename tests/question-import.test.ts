@@ -305,7 +305,9 @@ describe("question import: upload, preview and import (database)", () => {
       if (opts.length === 4 && opts.filter((x) => x.isCorrect).length === 1) { q = c; break; }
     }
     assert.ok(q, "a published 4-option question exists");
-    existing = { ...MC, "Question Text": String(q!.stem), Skill: theme.name, Standard: theme.std, "Option A": String(opts[0].text), "Option B": String(opts[1].text), "Option C": String(opts[2].text), "Option D": String(opts[3].text), "Correct Answer": "ABCD"[opts.findIndex((x) => x.isCorrect)] };
+    existing = { ...MC, "Question Text": String(q!.stem), Skill: theme.name, Standard: theme.std, "Option A": String(opts[0].text), "Option B": String(opts[1].text), "Option C": String(opts[2].text), "Option D": String(opts[3].text), "Correct Answer": "ABCD"[opts.findIndex((x) => x.isCorrect)],
+      // 👯 an exact duplicate includes its passage (the same words about another text are another question)
+      ...(q!.passageId ? { "Passage/Text": String((await repo.findUnique("ReadingPassage", { id: q!.passageId }))!.body) } : {}) };
   });
 
   const T = (r: RowSpec): RowSpec => ({ ...MC, Skill: theme.name, Standard: theme.std, ...r });
@@ -385,7 +387,7 @@ describe("question import: upload, preview and import (database)", () => {
     const pass = (await repo.findUnique("ReadingPassage", { id: p9.passageId as string }))!;
     assert.deepEqual([pass.origin, pass.body], ["IMPORTED", passage]);
     const hist = (await listImportJobs(repo, teacher)).find((j) => j.id === jobId)!;
-    assert.deepEqual(hist.summary, { imported: 7, replaced: 0, skipped: 2, failed: 1 });
+    assert.deepEqual(hist.summary, { imported: 7, replaced: 0, skipped: 2, failed: 1, duplicatesSkipped: 2 });
     await assert.rejects(commitImportChunk(repo, teacher, jobId), /already finished/);
   });
 

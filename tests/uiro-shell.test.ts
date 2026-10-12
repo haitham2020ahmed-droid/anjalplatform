@@ -11,6 +11,7 @@ import { ar } from "../src/i18n/ar";
 import { dirOf, isLang, LANG_NAMES, makeT, toLang, translate, UI_STRINGS } from "../src/i18n";
 import { isContentPath } from "../src/i18n/content-routes";
 import { navItemsFor } from "../src/components/nav-items";
+import { ADMIN_TOOLS, ALL_TOOLS_HREF, REMOVED_ADMIN_ROUTES } from "../src/components/admin-tools";
 import { TAG_STYLE, tagKey, workStatus, STATUS_STYLE } from "../src/components/ui-kit/tokens";
 import { TOUR_STEPS } from "../src/components/ui-kit/first-login-tour";
 import { markTourSeen, needsTour, saveUiLang } from "../src/server/ui/prefs";
@@ -156,6 +157,15 @@ describe("menus: decluttered, nothing lost", () => {
         },
       };
       const OUT: Record<string, string[]> = { TEACHER: ["/teacher/learning-loop", "/teacher/knowledge-graph", "/teacher/search"] };
+      // admin review: the admin menu keeps ≤ 6 tools per section; every other working tool is on All Admin Tools (in the
+      // menu), forwarding pages left the lists (REMOVED_ADMIN_ROUTES), the question pages hang off Questions,
+      // MAP plans / Student Progress / Search live in MAP, Reports and the top bar
+      if (role === "SCHOOL_ADMIN") {
+        assert.ok(hrefs.includes(ALL_TOOLS_HREF));
+        for (const x of ADMIN_TOOLS) MOVED.SCHOOL_ADMIN = { ...MOVED.SCHOOL_ADMIN, [x.href]: ALL_TOOLS_HREF };
+        for (const r of REMOVED_ADMIN_ROUTES) MOVED.SCHOOL_ADMIN[r.from] = ALL_TOOLS_HREF;
+        OUT.SCHOOL_ADMIN = ["/admin/question-intelligence", "/admin/question-bank", "/admin/question-review", "/admin/question-flags", "/admin/item-quality", "/teacher/map-plans", "/teacher/progress", "/teacher/search"];
+      }
       for (const h of BEFORE[role]) {
         const via = MOVED[role]?.[h];
         assert.ok(hrefs.includes(h) || (via !== undefined && hrefs.includes(via)) || OUT[role]?.includes(h), `${role} lost ${h}`);

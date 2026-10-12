@@ -7,6 +7,7 @@ import { EmptyState } from "@/components/ui-kit";
 import { getT } from "@/i18n/server";
 import { readMasterMyReport } from "@/server/student/reading-report";
 import { ProgramTabs } from "@/components/student/program-tabs";
+import { autoLoadReadMasterLibrary } from "@/server/readmaster/library";
 
 export const metadata = { title: "ReadMaster" };
 
@@ -20,6 +21,8 @@ export default async function ReadMasterPage({ searchParams }: { searchParams: P
   const actor = await requireActor({ roles: ["STUDENT", "TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   const me = (await getActor())!.user;
   const sp = await searchParams;
+  // 📚 a school with no ReadMaster article gets the Grades 4–5 library once (in the background)
+  const lib = await autoLoadReadMasterLibrary(repo, actor.schoolId).catch(() => null);
   const v = await readMasterHome(repo, actor, { grade: sp.grade ? Number(sp.grade) : null });
   const { t } = await getT();
   const student = v.viewer === "STUDENT";
@@ -31,7 +34,7 @@ export default async function ReadMasterPage({ searchParams }: { searchParams: P
     <li>
       <Link href={`/student/readmaster/${a.id}`} prefetch={false} className="lift flex h-full flex-col rounded-3xl bg-gradient-to-b from-amber-50/70 to-white p-5 shadow-card ring-1 ring-amber-100 hover:ring-brand-teal">
         <span dir="ltr" className="text-lg font-bold leading-snug text-brand-navy">{a.title}</span>
-        {a.skill && <span dir="ltr" className="mt-1 text-sm text-slate-600">{a.skill}</span>}
+        {(a.topic || a.skill) && <span dir="ltr" className="mt-1 text-sm text-slate-600">{[a.topic, a.skill].filter(Boolean).join(" · ")}</span>}
         <span className="mt-3 flex flex-wrap items-center gap-2 text-sm">
           <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-0.5 text-slate-700"><span aria-hidden="true">⏱</span>{t("{n} min read", { n: a.minutes })}</span>
           {student && a.done && !a.done.practice && <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 font-semibold text-emerald-800 ring-1 ring-emerald-200"><span aria-hidden="true">✓</span>{a.done.correct}/{a.done.total} · {a.done.pct}%</span>}
@@ -70,7 +73,7 @@ export default async function ReadMasterPage({ searchParams }: { searchParams: P
           <p className="max-w-xl text-slate-700">{t("Reading at your level or higher moves your level: 75% or more moves it up. A lower level is practice.")}</p>
         </section>
       )}
-      {!v.grades.length ? <EmptyState icon="📚" title="No articles yet." /> : (
+      {!v.grades.length ? (lib?.status === "RUNNING" ? <EmptyState icon="⏳" title="The ReadMaster library is being added." text="Refresh the page in a minute." /> : <EmptyState icon="📚" title="No articles yet." />) : (
         <>
           <nav aria-label={t("Grades")} className="mb-5 flex flex-wrap gap-2">
             {v.grades.map((g) => <Link key={g} href={`/student/readmaster?grade=${g}`} prefetch={false} aria-current={g === v.grade ? "page" : undefined} className={tab(g === v.grade)}>{t("Grade {n}", { n: g })}{g === v.myGrade && student ? <span aria-hidden="true" className="ms-1.5">★</span> : null}</Link>)}

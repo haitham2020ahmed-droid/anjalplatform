@@ -18,6 +18,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import type { Actor } from "../src/server/auth/rbac";
 import { loadQuestionItems, loadSkillItems, type ClientQuestion, type PracticeItem } from "../src/server/practice/items";
 import { startPractice, startQuiz, submitAnswer, submitQuizAnswer } from "../src/server/practice/session";
+import { afterResponseSettled } from "../src/server/lib/after-response";
 import { DEMO_SCHOOL_CODE } from "../src/server/seeding/demo";
 import { loadBank } from "../src/server/seeding/load-files";
 import { seedQuestions } from "../src/server/seeding/questions";
@@ -90,7 +91,8 @@ describe("1 · prerequisite routing (practice on the demo school)", () => {
     const cur = (await repo.findMany("Curriculum", { gradeId: st.gradeId }))[0];
     const sid = String((await repo.findUnique("Skill", { curriculumId: cur.id, code: "G4.theme" }))!.id);
     const items = await loadSkillItems(repo, sid);
-    const answerWrong = async (sessionId: string, q: ClientQuestion) => submitAnswer(repo, omar, { sessionId, questionId: q.questionId, response: wrongFor(items.find((i) => i.questionId === q.questionId)!, q) }, later(30), rng);
+    // the route's decision log is written after the response (as in production): wait for it before the next answer
+    const answerWrong = async (sessionId: string, q: ClientQuestion) => { const r = await submitAnswer(repo, omar, { sessionId, questionId: q.questionId, response: wrongFor(items.find((i) => i.questionId === q.questionId)!, q) }, later(30), rng); await afterResponseSettled(); return r; };
     let view = await startPractice(repo, omar, sid, later(0), rng);
     let first: string | null = null; let n = 0;
     while (view.question && n < 6) { const r = await answerWrong(view.sessionId, view.question); n++; view = r.view; if (r.feedback.next.endReason === "PREREQ_ROUTE") { first = r.feedback.next.routeToSkillId; break; } }

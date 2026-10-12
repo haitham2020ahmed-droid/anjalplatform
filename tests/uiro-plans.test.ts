@@ -140,7 +140,8 @@ describe("UI reorg Phase 4: Plans wizard, source tags, assign across grades, Gra
     const v11 = (await teacherCurriculum(repo, t4, class4, { grade: 11 }))!;
     assert.equal(v11.viewGrade!.level, 11);
     const found = await searchSkillsAnyGrade(repo, t4, g6SkillName.slice(0, 12));
-    assert.ok(found.some((k) => k.id === g6Skill && k.grade === 6), "search lists skills of every grade with their grade");
+    // one question bank: one row per skill family (any grade's copy stands for it)
+    assert.ok(found.some((k) => k.name.toLowerCase().replace(/[^a-z]/g, "") === g6SkillName.toLowerCase().replace(/[^a-z]/g, "")), "search lists skills of every grade");
     const r = await assignSkill(repo, t4, { classId: class4, skillId: g6Skill, track: "NAFS" }, NOW);
     assert.ok(r.assignmentId, "Nafs is no longer Grade 6 only and the skill may come from Grade 6");
     // older paths too: multi-skill assignment, assign-by-level

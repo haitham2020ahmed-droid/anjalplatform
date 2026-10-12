@@ -1,10 +1,12 @@
 "use client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { MapPlacePicker } from "@/components/curriculum-map/place-picker";
 import { useState, useTransition } from "react";
 import type { EditorInput } from "@/server/admin/questions";
 import { field, label } from "@/components/admin/styles";
 import { saveQuestionWithTypesAction } from "./save-actions";
+import { useT } from "@/i18n/client";
 import { MISCONCEPTIONS } from "@/insights/misconceptions";
 import { possibleMissingPassage } from "@/lib/passage-detect";
 import { ImageField } from "./image-field";
@@ -48,7 +50,8 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
     skillId: initialPlace ? "" : skillsIn[0]?.id ?? "", type: "MULTIPLE_CHOICE", stem: "", level: 4, whyCorrect: "", tip: "",
     options: [{ label: "A", text: "", correct: true, rationale: null }, { label: "B", text: "", correct: false, rationale: "" }, { label: "C", text: "", correct: false, rationale: "" }],
   });
-  const [msg, setMsg] = useState<{ ok?: string; error?: string }>({});
+  const [msg, setMsg] = useState<{ ok?: string; error?: string; duplicateId?: string }>({});
+  const t = useT();
   const [pending, start] = useTransition();
   const set = (patch: Partial<EditorInput>) => setQ({ ...q, ...patch });
   const optionTypes = ["MULTIPLE_CHOICE", "MULTI_SELECT", "DROPDOWN"].includes(q.type);
@@ -91,7 +94,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
         return setMsg(o.error ? { error: o.error } : { ok: o.message ?? "Saved." });
       }
       const r = await saveQuestionWithTypesAction(questionId, payload);
-      if (r.error) return setMsg({ error: r.error });
+      if (r.error) return setMsg({ error: r.error, duplicateId: r.duplicateId });
       setMsg({ ok: r.message });
       if (!questionId && r.id) router.push(`/admin/questions/${r.id}`);
       else router.refresh();
@@ -267,7 +270,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
         <div className="flex flex-wrap items-center gap-3">
           <button type="button" onClick={save} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">{pending ? "Saving…" : questionId ? "Save changes" : "Create draft"}</button>
           {msg.ok && <span role="status" className="text-sm text-brand-teal">{msg.ok}</span>}
-          {msg.error && <span role="alert" className="rounded-lg bg-red-50 px-3 py-1.5 text-sm text-red-700">{msg.error}</span>}
+          {msg.error && <span role="alert" className="rounded-lg bg-red-50 px-3 py-1.5 text-sm text-red-700">{t(msg.error)}{msg.duplicateId && <> <Link href={`/admin/questions/${msg.duplicateId}`} className="font-semibold underline">{t("Open the existing question")}</Link></>}</span>}
         </div>
       )}
     </fieldset>

@@ -24,8 +24,6 @@ import { myExitTicket } from "../teacher/classroom";
 import { myTests as mapPracticeTests } from "../map/sim";
 import { studentRespondWork } from "../curriculum-map/respond-assign";
 import { myTasks } from "../teacher/writing";
-import { latestDiagnostic } from "../assessment/diagnostic";
-import { placementRequired } from "./assigned";
 import { MINUTES } from "../tiers/weekly-plan";
 import type { MyMap } from "../map/map-more";
 
@@ -129,19 +127,18 @@ export interface StudentHome {
  */
 export async function studentHome(repo: Repo, actor: Actor, now = new Date()): Promise<StudentHome> {
   const sid = studentIdOf(actor);
-  const [work, testsToDo, last, rti, rr, diag, games, exit, mapTests, respond, writing, comments, required, diagnostic] = await Promise.all([
+  const [work, testsToDo, last, rti, rr, diag, games, exit, mapTests, respond, writing, comments] = await Promise.all([
     myWorkItems(repo, actor, now), testsToDoCount(repo, actor, now), lastActivity(repo, actor, now), rtiStatus(repo, sid),
     repo.findUnique("RRStudent", { studentId: sid }),
     myDiagnostic(repo, actor, now).catch(() => null), openGamesFor(repo, actor).catch(() => []), myExitTicket(repo, actor).catch(() => null),
     mapPracticeTests(repo, actor, now).catch(() => ({ windows: [], warmupDone: false })), studentRespondWork(repo, actor).catch(() => []),
     myTasks(repo, actor).catch(() => []),
     repo.count("WorkComment", { studentId: sid, createdAt: { gte: new Date(now.getTime() - 7 * DAY) } }),
-    placementRequired(repo, actor.schoolId ?? ""), latestDiagnostic(repo, sid),
   ]);
   const rows = work.map((w) => ({ ...w, reteach: /^Reteach:/i.test(s(w.note)) }));
   const notices: HomeNotice[] = [];
   if (diag && diag.status !== "DONE") notices.push({ key: "diagnostic", icon: "🩺", text: diag.status === "STARTED" ? "Finish your Diagnostic Test" : "Take your Diagnostic Test", href: diag.href, cta: diag.status === "STARTED" ? "Continue" : "Start", urgent: true });
-  else if (required && !diagnostic) notices.push({ key: "placement", icon: "🩺", text: "Take your Diagnostic Test", href: "/student/placement", cta: "Start", urgent: true });
+  // 🗓️ no self-start: the Diagnostic shows only while the school admin has it open for the grade (myDiagnostic)
   for (const g of games) notices.push({ key: `game-${g.code}`, icon: "🎮", text: "A live game is open: {title}", vars: { title: g.title }, href: `/play/${g.code}`, cta: "Join a Game", urgent: true });
   if (exit) notices.push({ key: "exit", icon: "🎟️", text: "Exit ticket: 3 quick questions", href: `/student/exit/${exit.id}`, cta: "Start" });
   const mapTodo = mapTests.windows.filter((w) => w.open).reduce((n, w) => n + w.sessions.filter((x) => x.status !== "DONE").length, 0);

@@ -38,6 +38,11 @@ export interface ChromiumOptions {
   queueTimeoutMs?: number;
   /** Extra Chromium flags, e.g. ["--no-sandbox"] when the container cannot provide a sandbox. */
   args?: string[];
+  /**
+   * Close Chromium after this long without a render (default 60 s; 0 = keep it open). A headless Chromium holds
+   * 100+ MB of the server's memory (512 MB plan) even when idle; it starts again in about a second on the next PDF.
+   */
+  idleCloseMs?: number;
 }
 
 /** Minimal counting semaphore with a wait timeout. */
@@ -77,6 +82,25 @@ type Browser = import("playwright-core").Browser;
 export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
   const gate = new Semaphore(opts.concurrency ?? 2);
   let browser: Promise<Browser> | null = null;
+  const idleMs = opts.idleCloseMs ?? 60_000;
+  let idleTimer: ReturnType<typeof setTimeout> | null = null;
+  const stopIdle = () => { if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; } };
+  const closeBrowser = async () => {
+    stopIdle();
+    const old = browser;
+    browser = null; // a render starting now launches a new one instead of using the closing one
+    if (old) {
+      const b = await old.catch(() => null);
+      await b?.close().catch(() => undefined);
+    }
+  };
+  /** after the last render: close the idle browser later (a render that starts meanwhile cancels it) */
+  const armIdle = () => {
+    if (!idleMs || gate.inUse > 0 || !browser) return;
+    stopIdle();
+    idleTimer = setTimeout(() => { idleTimer = null; if (gate.inUse === 0) void closeBrowser(); }, idleMs);
+    (idleTimer as { unref?: () => void }).unref?.();
+  };
 
   const getBrowser = async (): Promise<Browser> => {
     if (browser) {
@@ -96,7 +120,9 @@ export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
   return {
     async render(html, doc, fontStack, ropts) {
       const release = await gate.acquire(opts.queueTimeoutMs ?? 30_000);
-      const b = await getBrowser();
+      stopIdle();
+      let b: Browser;
+      try { b = await getBrowser(); } catch (e) { release(); armIdle(); throw e; }
       const ctx = await b.newContext({ javaScriptEnabled: false, offline: true, locale: doc.locale === "ar" ? "ar-SA" : "en-GB" });
       try {
         await ctx.route("**/*", (route) => (route.request().url().startsWith("data:") ? route.continue() : route.abort("blockedbyclient")));
@@ -119,14 +145,11 @@ export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
       } finally {
         await ctx.close().catch(() => undefined);
         release();
+        armIdle();
       }
     },
     async close() {
-      if (browser) {
-        const b = await browser.catch(() => null);
-        browser = null;
-        await b?.close().catch(() => undefined);
-      }
+      await closeBrowser();
     },
   };
 }

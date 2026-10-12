@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
+import { BankTabs } from "../questions/bank-tabs";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { reviewBatch, reviewBatches, type QuestionTags } from "@/server/questions/tag-review";
 import { reviewAction } from "./actions";
@@ -35,6 +36,7 @@ export default async function QuestionReviewPage({ searchParams }: { searchParam
         subtitle={<>Every question is in one bank. Its tags come from its place on the Curriculum Map, its skill and standard, and its difficulty — marked <b>Suggested</b> until you check them. Open a skill (one batch), look at the random ~10% sample, fix anything with <b>Edit</b>, then verify the ticked questions or the whole batch.</>}>
         <form action={reviewAction}><input type="hidden" name="grade" value={grade} /><input type="hidden" name="op" value="recalibrate" /><button className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Uses real answers of students with a MAP score">📐 Recalibrate RIT (Grade {grade})</button></form>
       </PageHeader>
+      <BankTabs />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <nav aria-label="Grade" className="flex flex-wrap gap-2">{grades.map((g) => <Link key={g} href={`/admin/question-review?grade=${g}`} className={chip(g === grade)}>Grade {g}</Link>)}</nav>
       <p className="mt-3 text-sm text-slate-600">Grade {grade}: <b>{verified}</b> of <b>{total}</b> questions verified ({total ? Math.round((verified / total) * 100) : 0}%).</p>

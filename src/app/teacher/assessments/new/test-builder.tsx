@@ -50,7 +50,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
   const unique = useMemo(() => dedupeSkillsByName(skills, (k) => k.filter, (a, b) => a.available > b.available), [skills]);
   const shown = useMemo(() => {
     const w = q.trim().toLowerCase();
-    return unique.filter((k) => picked[k.id] !== undefined || ((filter === "ALL" || k.filter === filter) && (!w || k.name.toLowerCase().includes(w)))).slice(0, 80);
+    return unique.filter((k) => picked[k.id] !== undefined || ((filter === "ALL" || k.filter === filter) && (!w || k.name.toLowerCase().split(/[^a-z0-9]+/).some((x) => x.startsWith(w)) || k.name.toLowerCase().includes(w)))).sort((a, b) => Number(b.available > 0) - Number(a.available > 0) || a.name.localeCompare(b.name));
   }, [unique, q, filter, picked]);
   const pickedList = skills.filter((k) => picked[k.id] !== undefined);
   const klass = classes.find((c) => c.id === classId);
@@ -79,6 +79,10 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
   function remove(key: string, id: string) {
     if (!preview) return;
     setPreview({ ...preview, versions: { ...preview.versions, [key]: (preview.versions[key as keyof typeof preview.versions] ?? []).filter((x) => x.id !== id) } });
+  }
+  function printHref(): string {
+    const ids = [...new Set(Object.values(preview?.versions ?? {}).flatMap((l) => (l ?? []).map((x) => x.id)))];
+    return `/teacher/assessments/print?${new URLSearchParams({ ids: ids.join(","), title: name || t("Test") })}`;
   }
   async function doSaveTemplate() {
     if (!preview) return setMsg({ ok: false, text: t("Press Preview first.") });
@@ -109,13 +113,15 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
           {FILTERS.map((f) => <button key={f.id} type="button" onClick={() => setFilter(f.id)} aria-pressed={filter === f.id} className={`min-h-11 rounded-full px-4 font-semibold ${filter === f.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-300"}`}>{t(f.label)}</button>)}
         </div>
         {!shown.length ? <EmptyState compact icon="🔎" title="Nothing matches your search" text="Try another word or filter." className="mt-4" /> : (
-          <ul className="mt-4 grid max-h-96 gap-1 overflow-y-auto">
+          <ul className="mt-4 grid max-h-[32rem] gap-1 overflow-y-auto">
             {shown.map((k) => (
-              <li key={k.id} className="flex items-center gap-3 rounded-xl px-2 py-1.5 hover:bg-slate-50">
-                <label className="flex flex-1 cursor-pointer items-center gap-3">
-                  <input type="checkbox" className="h-5 w-5 accent-brand-teal" checked={picked[k.id] !== undefined} onChange={() => toggle(k.id)} />
+              <li key={k.id} className="flex flex-wrap items-center gap-3 rounded-xl px-2 py-1.5 hover:bg-slate-50">
+                <label className={`flex flex-1 items-center gap-3 ${k.available ? "cursor-pointer" : "opacity-60"}`}>
+                  <input type="checkbox" className="h-5 w-5 accent-brand-teal" checked={picked[k.id] !== undefined} disabled={!k.available && picked[k.id] === undefined} onChange={() => toggle(k.id)} />
                   <span>{k.name}</span>
+                  <span className="text-xs text-slate-500">{k.available ? t("{n} questions", { n: k.available }) : t("No questions yet")}</span>
                 </label>
+                {k.available > 0 && picked[k.id] === undefined && <div className="ms-auto max-w-full"><SkillQuestionPicker skillId={k.id} skillName={t("See questions")} mode="view" name={null} /></div>}
               </li>
             ))}
           </ul>
@@ -189,7 +195,8 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
                 </ol>
               </div>
             ))}
-            <div><button type="button" disabled={busy} onClick={() => void doSaveTemplate()} className={`${btn} text-brand-navy ring-1 ring-slate-300`}>{templateId ? t("Save template changes") : t("Save as template")}</button></div>
+            <div className="flex flex-wrap gap-2"><a href={printHref()} target="_blank" rel="noopener" className={`${btn} inline-flex items-center text-brand-navy ring-1 ring-slate-300`}>🖨 {t("Print / Save as PDF")}</a>
+            <button type="button" disabled={busy} onClick={() => void doSaveTemplate()} className={`${btn} text-brand-navy ring-1 ring-slate-300`}>{templateId ? t("Save template changes") : t("Save as template")}</button></div>
           </div>
         )}
       </section>

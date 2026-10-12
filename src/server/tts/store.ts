@@ -2,6 +2,7 @@
 import type { Repo } from "../seeding/repo";
 import { isSpeechKey, ttsCacheKey, type TtsSpeed, type WordTimings } from "@/lib/tts/text";
 import type { TtsProvider, TtsResult } from "./providers";
+import { forgetAudio } from "./audio-cache";
 
 export interface AudioMeta { id: string; mime: string; durationMs: number; size: number; voice: string; timings: WordTimings }
 
@@ -47,7 +48,7 @@ export async function findSpeechAudio(repo: Repo, textKey: string, voice: string
 /** Stores one generated audio under its cache key (replaces audio of another voice at the same key). */
 export async function saveAudio(repo: Repo, a: { key: string; provider: TtsProvider; result: TtsResult; chars: number; source: string; now: Date; replace?: boolean }): Promise<void> {
   const row = { textHash: a.key, provider: a.provider.id, voice: a.provider.voice, mime: a.result.mime, bytes: Buffer.from(a.result.audio), size: a.result.audio.length, durationMs: a.result.durationMs, chars: a.chars, timings: JSON.stringify(a.result.timings), source: a.source.slice(0, 80), createdAt: a.now };
-  if (a.replace) { await repo.updateMany("TtsAudio", { textHash: a.key }, row); return; }
+  if (a.replace) { await repo.updateMany("TtsAudio", { textHash: a.key }, row); forgetAudio(a.key); return; }
   try { await repo.create("TtsAudio", row); }
   catch (e) { if (!(await findAudioMeta(repo, a.key))) throw e; /* made at the same moment by another request: keep that one */ }
 }

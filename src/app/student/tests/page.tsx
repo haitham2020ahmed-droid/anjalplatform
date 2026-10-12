@@ -18,6 +18,20 @@ export default async function MyTestsPage() {
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/student", label: "Home" }} icon="📝" title="My Tests" />
+      {v.completed.length > 0 && (() => {
+        const avg = Math.round(v.completed.reduce((n, x) => n + Number(x.pct ?? 0), 0) / v.completed.length);
+        const best = Math.max(...v.completed.map((x) => Number(x.pct ?? 0)));
+        return (
+          <section aria-label={tr("My test results")} className="mb-6 rounded-3xl bg-gradient-to-br from-emerald-50 to-sky-50 p-5 ring-1 ring-emerald-100 sm:p-6">
+            <h2 className="text-xl font-semibold text-brand-navy"><span aria-hidden="true">📊 </span>{tr("My test results")}</h2>
+            <div className="mt-3 grid grid-cols-3 gap-3 text-center">
+              <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200"><p className="text-3xl font-bold text-brand-navy tabular-nums">{v.completed.length}</p><p className="text-sm text-slate-600">{tr("Tests finished")}</p></div>
+              <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200"><p className="text-3xl font-bold text-emerald-700 tabular-nums">{avg}%</p><p className="text-sm text-slate-600">{tr("Average score")}</p></div>
+              <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200"><p className="text-3xl font-bold text-amber-600 tabular-nums">{best}%</p><p className="text-sm text-slate-600">{tr("Best score")}</p></div>
+            </div>
+          </section>
+        );
+      })()}
       <section className="rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6">
         <h2 className="text-xl font-semibold text-brand-navy">{tr("To Do")} <span className="ms-1 rounded-full bg-brand-navy px-2.5 py-0.5 text-sm text-white">{v.toDo.length}</span></h2>
         {!v.toDo.length ? <EmptyState compact title="No tests waiting — well done!" className="mt-3" /> : (

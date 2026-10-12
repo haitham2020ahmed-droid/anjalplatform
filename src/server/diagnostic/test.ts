@@ -444,6 +444,10 @@ export async function openDiagnostic(repo: Repo, actor: Actor, id: string, input
     students += await repo.count("ClassMembership", { classId: c.id, leftAt: null });
   }
   await repo.updateMany("DiagnosticTest", { id }, { status: "OPEN", opensAt: input.opensAt ?? now, closesAt: input.closesAt ?? null, bands: { above, on } });
+  // 🗓️ the grade's window follows: dates → AUTO, else open now (MANUAL); /admin/diagnostic changes it afterwards
+  const { writeWindow } = await import("./window");
+  const auto = Boolean(input.opensAt || input.closesAt);
+  await writeWindow(repo, s(t.schoolId), Number(t.grade), s(t.year), { mode: auto ? "AUTO" : "MANUAL", isOpen: !auto, opensAt: auto ? input.opensAt ?? now : null, closesAt: auto ? input.closesAt ?? null : null }, actor.userId ?? null, now);
   // dates of the class assignments follow the test
   const aids = (await repo.findMany("Assignment", { assessmentId: t.assessmentId }, { select: ["id"] })).map((a) => a.id);
   if (aids.length) await repo.updateMany("Assignment", { id: { in: aids } }, { startAt: input.opensAt ?? null, dueAt: input.closesAt ?? null });
@@ -475,8 +479,11 @@ async function ensureClassAssignmentUnlocked(repo: Repo, t: Row, klass: Row, act
 
 export async function closeDiagnostic(repo: Repo, actor: Actor, id: string): Promise<void> {
   assertAdmin(actor);
-  await testRow(repo, actor, id);
+  const t = await testRow(repo, actor, id);
   await repo.updateMany("DiagnosticTest", { id }, { status: "CLOSED" });
+  // 🗓️ closing the test closes the grade's window (students keep their answers), unless another test of the year is open
+  const { writeWindow } = await import("./window");
+  if (!(await repo.count("DiagnosticTest", { schoolId: t.schoolId, grade: t.grade, year: t.year, status: "OPEN" }))) await writeWindow(repo, s(t.schoolId), Number(t.grade), s(t.year), { mode: "MANUAL", isOpen: false, opensAt: null, closesAt: null }, actor.userId ?? null);
 }
 
 export interface DiagnosticSummary { id: string; grade: number; year: string; period: Period; form: "full" | "focus"; title: string; status: string; questions: number; adaptive: boolean; pool: number; opensAt: string | null; closesAt: string | null; bands: { above: number; on: number }; students: number; finished: number }
@@ -536,8 +543,13 @@ export async function myDiagnostic(repo: Repo, actor: Actor, now = new Date()): 
   const klass = m ? await repo.findUnique("Class", { id: m.classId }) : null;
   const g = klass ? await repo.findUnique("Grade", { id: klass.gradeId }) : null;
   if (!klass || !g) return null;
-  const t = (await repo.findMany("DiagnosticTest", { schoolId: klass.schoolId, grade: Number(g.level), status: "OPEN" })).sort((a, b) => s(b.year).localeCompare(s(a.year)) || PERIODS.indexOf(asPeriod(b.period)) - PERIODS.indexOf(asPeriod(a.period)))[0];
+  // this school year's test only (each year has its own test, window and results)
+  const t = (await repo.findMany("DiagnosticTest", { schoolId: klass.schoolId, grade: Number(g.level), status: "OPEN", year: schoolYear(now) })).sort((a, b) => s(b.year).localeCompare(s(a.year)) || PERIODS.indexOf(asPeriod(b.period)) - PERIODS.indexOf(asPeriod(a.period)))[0];
   if (!t) return null;
+  // 🗓️ only while the admin has it open for the grade, once per school year (window.ts); a finished student sees DONE
+  const { diagnosticAccess } = await import("./window");
+  const access = await diagnosticAccess(repo, actor.studentId, t, now);
+  if (access !== "OPEN" && !(access === "DONE" && (await repo.count("DiagnosticScore", { diagnosticId: t.id, studentId: actor.studentId })))) return null;
   // independent reads together (Update 42B)
   const [scores] = await Promise.all([
     repo.findMany("DiagnosticScore", { diagnosticId: t.id, studentId: actor.studentId }),

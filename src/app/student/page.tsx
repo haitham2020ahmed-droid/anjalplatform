@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { studentHome, type StudentHome } from "@/server/student/student-home";
-import { workProgress } from "@/server/student/program-work";
+import { myWorkView } from "@/server/student/program-work";
 import { hasNafsPlan } from "@/server/student/menu-flags";
 import { rewardChip } from "@/server/motivation/coins";
 import { StudentTour } from "@/components/student/student-tour";
@@ -63,10 +63,8 @@ export default async function StudentHomePage() {
   const sid = actor.studentId!;
   const [{ t }, h, chip, nafs] = await Promise.all([getT(), studentHome(repo, actor), rewardChip(repo, sid).catch(() => null), hasNafsPlan(repo, sid).catch(() => false)]);
   const first = String(me.displayName ?? "").trim().split(/\s+/)[0] || String(me.displayName ?? "");
-  const open = h.work.filter((r) => r.status !== "Done");
-  const done = h.work.filter((r) => r.status === "Done");
-  const prog = workProgress(h.work);
-  const cont = h.last ? { href: h.last.href, title: h.last.title } : open[0] ? { href: open[0].href, title: open[0].skill } : null;
+  // one source for the rows, "X of Y done", the to-do badge and Continue (they always match)
+  const { open, done, progress: prog, toDo, cont, allDone } = myWorkView(h.work, h.last);
   const programs = 2 + (h.rti ? 1 : 0) + (nafs ? 1 : 0);
   return (
     <AppShell name={String(me.displayName)}>
@@ -96,8 +94,8 @@ export default async function StudentHomePage() {
         <div className="flex flex-wrap items-center gap-4">
           <span aria-hidden="true" className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-sky-100 to-violet-100 text-3xl shadow-card">📘</span>
           <div className="min-w-0 flex-1 basis-48">
-            <h2 id="my-work-h" className="text-2xl font-semibold text-brand-navy">{t("Your work for today")}</h2>
-            {prog.total > 0 && <p data-testid="my-work-progress" className="text-sm font-semibold text-slate-600">{t("{done} of {total} done", { done: prog.done, total: prog.total })}{prog.done === prog.total && <span className="ms-2 inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-amber-900"><span aria-hidden="true">🌟</span>{t("All done for today!")}</span>}</p>}
+            <h2 id="my-work-h" className="flex flex-wrap items-center gap-2 text-2xl font-semibold text-brand-navy">{t("Your work for today")}{toDo > 0 && <span data-testid="my-work-todo" className="rounded-full bg-brand-navy px-2.5 py-0.5 text-sm font-semibold text-white">{t("{n} to do", { n: toDo })}</span>}</h2>
+            {prog.total > 0 && <p data-testid="my-work-progress" className="text-sm font-semibold text-slate-600">{t("{done} of {total} done", { done: prog.done, total: prog.total })}{allDone && <span className="ms-2 inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-amber-900"><span aria-hidden="true">🌟</span>{t("All done for today!")}</span>}</p>}
           </div>
           {cont && (
             <Link prefetch={false} href={cont.href} data-testid="continue" title={cont.title} className={`${BTN_PRIMARY} min-h-14 w-full rounded-2xl px-8 text-lg sm:w-auto`}>
@@ -110,7 +108,7 @@ export default async function StudentHomePage() {
             <div className="bar-fill h-full rounded-full" style={{ width: `${prog.pct}%` }} />
           </div>
         )}
-        {cont && h.last && <p className="mt-2 truncate text-sm text-slate-500">{t("Continue where you left off")}: <bdi>{cont.title}</bdi></p>}
+        {cont && h.last && cont.href === h.last.href && <p className="mt-2 truncate text-sm text-slate-500">{t("Continue where you left off")}: <bdi>{cont.title}</bdi></p>}
         <div className="mt-4">
           {open.length ? (
             <>

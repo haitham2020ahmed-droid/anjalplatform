@@ -272,8 +272,8 @@ export async function studentArticles(repo: Repo, actor: Actor): Promise<{ lexil
 
 /** Below < On < Above: a version counts toward the student's level only when read at their own level or higher. */
 export const LEVEL_RANK: Record<Level, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
-/** Reading time on the cards: words of the On version ÷ 120 words a minute (at least 1 minute). */
-export const READ_WPM = 120;
+/** Reading time on the cards: words of the On version ÷ 130 words a minute (at least 1 minute). */
+export const READ_WPM = 130;
 export const readingMinutes = (wordCount: number) => Math.max(1, Math.ceil((Number(wordCount) || 0) / READ_WPM));
 const isStaffActor = (a: Actor) => a.role === "TEACHER" || a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
 /** Unit number from the article code (RM-G4-U1-TS1 → 1); null = no unit ("Other"). */

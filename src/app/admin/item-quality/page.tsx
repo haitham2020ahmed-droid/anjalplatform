@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
+import { BankTabs } from "../questions/bank-tabs";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { itemQuality, MIN_ANSWERS, type ItemFlag } from "@/server/admin/item-quality";
 import { alertList, levelChangeList, questionData } from "@/server/admin/question-data";
@@ -146,6 +147,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
       <PageHeader back={{ href: tab === "question" ? "/admin/item-quality?tab=alerts" : "/admin/questions", label: tab === "question" ? "Question Quality" : "Question Bank" }} icon="🔬" title="Question Quality" subtitle={subtitle}>
         <Link href="/admin/bank-gaps" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">🕳 Bank gaps</Link>
       </PageHeader>
+      {actor.role !== "TEACHER" && <BankTabs />}
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {tab !== "question" && <div className="mb-4 flex flex-wrap gap-2">{TABS.map(([k, l]) => <Link key={k} href={`/admin/item-quality?tab=${k}`} className={chip(tab === k)}>{l}</Link>)}</div>}
       {body}

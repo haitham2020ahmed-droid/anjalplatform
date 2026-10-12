@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useT } from "@/i18n/client";
 import { matchesStudent } from "./name-match";
+import { NeedsHelpBadge } from "./repeated-mistakes";
 
 export interface ListStudent { id: string; name: string; number: string; username: string; grade: number; className: string }
 export interface ListClass { classId: string; className: string; grade: number; students: ListStudent[]; alerts?: number }
@@ -11,7 +12,7 @@ export interface ListClass { classId: string; className: string; grade: number; 
  * 👥 My Students: the whole list is on the page at once (grouped by class); the box filters it instantly on the
  * device (Arabic and English names, student ID, username). A name opens the student's file.
  */
-export function StudentList({ classes, initialQuery = "", manage = false }: { classes: ListClass[]; initialQuery?: string; manage?: boolean }) {
+export function StudentList({ classes, initialQuery = "", manage = false, help = {} }: { classes: ListClass[]; initialQuery?: string; manage?: boolean; help?: Record<string, number> }) {
   const t = useT();
   const [q, setQ] = useState(initialQuery);
   const dq = q;
@@ -60,6 +61,7 @@ export function StudentList({ classes, initialQuery = "", manage = false }: { cl
                       <span className="min-w-0">
                         <bdi className="block truncate font-semibold text-slate-900">{x.name || x.username}</bdi>
                         <span dir="ltr" className="block truncate text-xs text-slate-500">{x.number}{x.username ? ` · ${x.username}` : ""}</span>
+                        <NeedsHelpBadge n={help[x.id] ?? 0} className="mt-1" />
                       </span>
                       <span aria-hidden="true" className="text-slate-400 rtl:rotate-180">›</span>
                     </Link>

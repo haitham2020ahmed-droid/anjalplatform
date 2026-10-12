@@ -485,6 +485,7 @@ CREATE TABLE "Question" (
   "textLevel" INTEGER,
   "intelligenceAt" TEXT,
   "metaReviewedAt" TEXT,
+  "contentHash" TEXT,
   PRIMARY KEY ("id"),
   CONSTRAINT "Question_skillId_externalRef_key" UNIQUE ("skillId", "externalRef"),
   CONSTRAINT "Question_skillId_fkey" FOREIGN KEY ("skillId") REFERENCES "Skill"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -504,6 +505,10 @@ CREATE INDEX "Question_standardId_idx" ON "Question"("standardId");
 CREATE INDEX "Question_mapInstructionalArea_status_idx" ON "Question"("mapInstructionalArea", "status");
 
 CREATE INDEX "Question_intelligenceAt_idx" ON "Question"("intelligenceAt");
+
+CREATE INDEX "Question_contentHash_idx" ON "Question"("contentHash");
+
+CREATE INDEX "Question_status_updatedAt_idx" ON "Question"("status", "updatedAt");
 
 CREATE INDEX "Question_subskillId_fk_idx" ON "Question"("subskillId");
 
@@ -591,6 +596,8 @@ CREATE TABLE "PracticeSession" (
 );
 
 CREATE INDEX "PracticeSession_studentId_startedAt_idx" ON "PracticeSession"("studentId", "startedAt");
+
+CREATE INDEX "PracticeSession_startedAt_idx" ON "PracticeSession"("startedAt");
 
 CREATE INDEX "PracticeSession_assignmentId_idx" ON "PracticeSession"("assignmentId");
 
@@ -1320,6 +1327,8 @@ CREATE TABLE "SkillPlan" (
 
 CREATE INDEX "SkillPlan_schoolId_classId_idx" ON "SkillPlan"("schoolId", "classId");
 
+CREATE INDEX "SkillPlan_classId_kind_idx" ON "SkillPlan"("classId", "kind");
+
 CREATE TABLE "SkillPlanItem" (
   "id" TEXT NOT NULL,
   "planId" TEXT NOT NULL,
@@ -1913,6 +1922,8 @@ CREATE TABLE "DiagnosticTest" (
 );
 
 CREATE INDEX "DiagnosticTest_schoolId_grade_idx" ON "DiagnosticTest"("schoolId", "grade");
+
+CREATE INDEX "DiagnosticTest_assessmentId_idx" ON "DiagnosticTest"("assessmentId");
 
 CREATE TABLE "DiagnosticScore" (
   "id" TEXT NOT NULL,
@@ -2701,3 +2712,31 @@ CREATE TABLE "Feedback" (
 CREATE INDEX "Feedback_schoolId_resolved_createdAt_idx" ON "Feedback"("schoolId", "resolved", "createdAt");
 
 CREATE INDEX "Feedback_userId_createdAt_idx" ON "Feedback"("userId", "createdAt");
+
+CREATE TABLE "SecondChanceAnswer" (
+  "id" TEXT NOT NULL,
+  "studentId" TEXT NOT NULL,
+  "questionId" TEXT NOT NULL,
+  "correct" INTEGER NOT NULL,
+  "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  PRIMARY KEY ("id")
+);
+
+CREATE INDEX "SecondChanceAnswer_studentId_questionId_idx" ON "SecondChanceAnswer"("studentId", "questionId");
+
+CREATE INDEX "SecondChanceAnswer_studentId_createdAt_idx" ON "SecondChanceAnswer"("studentId", "createdAt");
+
+CREATE TABLE "DiagnosticWindow" (
+  "id" TEXT NOT NULL,
+  "schoolId" TEXT NOT NULL,
+  "grade" INTEGER NOT NULL,
+  "mode" TEXT NOT NULL DEFAULT 'MANUAL',
+  "isOpen" INTEGER NOT NULL DEFAULT 0,
+  "opensAt" TEXT,
+  "closesAt" TEXT,
+  "schoolYear" TEXT NOT NULL,
+  "updatedAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "updatedById" TEXT,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "DiagnosticWindow_schoolId_grade_schoolYear_key" UNIQUE ("schoolId", "grade", "schoolYear")
+);

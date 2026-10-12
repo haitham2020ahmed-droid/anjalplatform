@@ -24,7 +24,8 @@ export default async function AssessmentsPage({ searchParams }: { searchParams: 
       </ReportHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-sky-50 px-4 py-3 text-sky-900 ring-1 ring-sky-200">{sp.msg}</p>}
       <section className="rk-section rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6">
-        <h2 className="text-lg font-semibold text-brand-navy">{t("My tests")}</h2>
+        <h2 className="text-lg font-semibold text-brand-navy"><span aria-hidden="true">📊 </span>{t("Test results")}</h2>
+        <p className="mt-1 text-sm text-slate-600">{t("Every test you assigned. Open Results to see each student and each skill.")}</p>
         {!tests.length ? <EmptyState compact icon="📝" title="No tests yet" text="Press “+ New test” to build your first one." className="mt-3" /> : (
           <ul className="mt-3 divide-y divide-slate-100">
             {tests.map((x) => (

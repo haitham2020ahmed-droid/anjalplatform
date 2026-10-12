@@ -90,12 +90,12 @@ const FILTER_KINDS: Record<Exclude<SkillFilter, "ALL">, SkillKind[]> = { READING
 export const filterOf = (k: SkillKind): Exclude<SkillFilter, "ALL"> => (k === "GRAMMAR" || k === "LANGUAGE" ? "GRAMMAR" : k === "VOCABULARY" ? "VOCABULARY" : "READING");
 export interface BuilderSkill { id: string; name: string; grade: number; filter: Exclude<SkillFilter, "ALL">; available: number }
 
-/** Every grade's skills that have questions (ACCESS RULES: all content is open to every teacher), with the grade tag. */
+/** Every skill of the bank, all grades (ACCESS RULES: all content is open to every teacher); `available` = the pooled count. */
 export async function builderSkills(repo: Repo, actor: Actor, opts: { q?: string; filter?: SkillFilter; grade?: number } = {}): Promise<BuilderSkill[]> {
   staff(actor);
   const q = s(opts.q).trim().toLowerCase();
   const kinds = opts.filter && opts.filter !== "ALL" ? new Set(FILTER_KINDS[opts.filter]) : null;
-  return (await masterSkills(repo, actor.schoolId!, { withQuestionsOnly: true }))
+  return (await masterSkills(repo, actor.schoolId!, { withQuestionsOnly: false }))
     .filter((k) => (!kinds || kinds.has(k.kind)) && (!opts.grade || k.grade === opts.grade) && (!q || k.name.toLowerCase().includes(q) || k.code.toLowerCase().includes(q)))
     .map((k) => ({ id: k.id, name: k.name, grade: k.grade, filter: filterOf(k.kind), available: k.questions }))
     .sort((x, y) => x.grade - y.grade || x.name.localeCompare(y.name));

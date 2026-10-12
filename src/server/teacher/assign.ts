@@ -195,7 +195,9 @@ export async function refreshSkillAssignments(repo: Repo, assignments: Row[], st
     const st = assignmentStatus({ answered: answered.get(`${s(a.id)}|${s(r.studentId)}`) ?? 0, mastery: score.get(`${s(r.studentId)}|${s(a.skillId)}`) ?? 0, target: Number(a.targetMastery ?? DEFAULT_TARGET_MASTERY), dueAt: d(a.dueAt), now, completedAt: d(r.completedAt) });
     const completedAt = st.status === "COMPLETED" ? (d(r.completedAt) ?? now) : null;
     if (st.status !== r.status || Math.abs(st.progress - Number(r.progress)) > 0.0005 || (completedAt === null) !== (d(r.completedAt) === null)) {
-      writes.push(repo.updateMany("AssignmentStudent", { assignmentId: a.id, studentId: r.studentId }, { status: st.status, progress: st.progress, completedAt }));
+      // never moves a row back from Done: a refresh that read the row before a finishing answer was saved must not
+      // overwrite it (completedAt IS NULL guard)
+      writes.push(repo.updateMany("AssignmentStudent", { assignmentId: a.id, studentId: r.studentId, ...(completedAt ? {} : { completedAt: null }) }, { status: st.status, progress: st.progress, completedAt }));
     }
   }
   await Promise.all(writes);
@@ -227,7 +229,7 @@ export async function refreshAfterAnswer(repo: Repo, assignmentId: string, stude
   const st = assignmentStatus({ answered: sessions.reduce((n, x) => n + Number(x.questionCount ?? 0), 0), mastery: Number(mastery[0]?.score ?? 0), target: Number(a.targetMastery ?? DEFAULT_TARGET_MASTERY), dueAt: d(a.dueAt), now, completedAt: d(r.completedAt) });
   const completedAt = st.status === "COMPLETED" ? (d(r.completedAt) ?? now) : null;
   if (st.status !== r.status || Math.abs(st.progress - Number(r.progress)) > 0.0005 || (completedAt === null) !== (d(r.completedAt) === null)) {
-    await repo.updateMany("AssignmentStudent", { assignmentId, studentId }, { status: st.status, progress: st.progress, completedAt });
+    await repo.updateMany("AssignmentStudent", { assignmentId, studentId, ...(completedAt ? {} : { completedAt: null }) }, { status: st.status, progress: st.progress, completedAt });
   }
 }
 
@@ -583,15 +585,16 @@ export async function refreshQuestionSets(repo: Repo, assignments: Row[], studen
     const k = answered.get(`${s(a.id)}|${s(r.studentId)}`) ?? 0;
     const goal = goalOf.get(s(a.assessmentId));
     const ses = sessionOf.get(`${s(a.id)}|${s(r.studentId)}`);
-    // a goal set: done once the goal of correct answers was reached (the student may go on practising)
-    const done = goal ? Boolean(ses?.goalReachedAt) || Boolean(ses?.endedAt && Number(ses.correctCount ?? 0) >= goal)
+    // a goal set: done once the goal of correct answers was reached (the student may go on practising), or when the
+    // set ended without it (its questions ran out: the student finished everything there was)
+    const done = goal ? Boolean(ses?.goalReachedAt) || Boolean(ses?.endedAt)
       : n > 0 && (k >= n || (adaptive.has(s(a.assessmentId)) && ended.has(`${s(a.id)}|${s(r.studentId)}`)));
     const due = d(a.dueAt);
     const status = done ? "COMPLETED" : due && now > due ? "OVERDUE" : k > 0 ? "IN_PROGRESS" : "NOT_STARTED";
     const progress = goal ? (done ? 1 : Math.round((1000 * Math.min(Number(ses?.correctCount ?? 0), goal - 1)) / goal) / 1000) : n ? Math.round((1000 * Math.min(k, n)) / n) / 1000 : 0;
     const completedAt = done ? (d(r.completedAt) ?? now) : null;
     if (status !== r.status || Math.abs(progress - Number(r.progress)) > 0.0005 || (completedAt === null) !== (d(r.completedAt) === null)) {
-      writes.push(repo.updateMany("AssignmentStudent", { assignmentId: a.id, studentId: r.studentId }, { status, progress, completedAt }));
+      writes.push(repo.updateMany("AssignmentStudent", { assignmentId: a.id, studentId: r.studentId, ...(completedAt ? {} : { completedAt: null }) }, { status, progress, completedAt }));
     }
   }
   await Promise.all(writes);

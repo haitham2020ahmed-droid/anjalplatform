@@ -4,7 +4,7 @@ import { AtAGlance, BandBar, Callout, ReportHeader, SimpleBar } from "@/componen
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { coverage, intelligenceOverview, missingList, COVERAGE_TARGET } from "@/server/questions/intelligence";
 import { META_FIELDS, type MetaField } from "@/questions/intelligence";
-import { analyzeAction, confirmSkillAction, duplicatesAction, reanalyzeAllAction } from "./actions";
+import { analyzeAction, confirmSkillAction, reanalyzeAllAction } from "./actions";
 
 export const metadata = { title: "Question Intelligence" };
 const FLAG: Record<string, { label: string; tone: string }> = {
@@ -39,7 +39,7 @@ export default async function QuestionIntelligencePage({ searchParams }: { searc
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 p-3 text-sm text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <div className="mb-4 flex flex-wrap items-center gap-2">
         <form action={analyzeAction}><button className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-purple">🧠 Analyse new questions ({o.notAnalysed})</button></form>
-        <form action={duplicatesAction}><button className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">👯 Find duplicates</button></form>
+        <Link href="/admin/questions/duplicates" className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">👯 Duplicate Questions</Link>
         <form action={reanalyzeAllAction}><button className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">🔁 Re-analyse all</button></form>
         <Link href="/admin/ai-tools?tab=review" className="rounded-xl bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-900">Review queue ({o.openSuggestions} questions) →</Link>
       </div>

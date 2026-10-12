@@ -4,6 +4,7 @@ import { Fragment, useMemo, useState, useTransition } from "react";
 import type { ImportJobView, PreviewRow, ImportDecision, CommitProgress } from "@/server/admin/question-import";
 import type { EditorInput } from "@/server/admin/questions";
 import { QuestionEditor } from "../../question-editor";
+import { useT } from "@/i18n/client";
 import { commitImportAction, importRowAction, importSelectAllAction } from "../../../actions";
 
 type Skill = Parameters<typeof QuestionEditor>[0]["skills"][number];
@@ -37,6 +38,7 @@ export function ImportPreview({ job, skills, standards, canPublish }: { job: Imp
   const [rows, setRows] = useState<PreviewRow[]>(job.rows);
   const [editing, setEditing] = useState<string | null>(null);
   const [publish, setPublish] = useState(false);
+  const t = useT();
   const [progress, setProgress] = useState<CommitProgress | null>(null);
   const [running, setRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -194,6 +196,7 @@ export function ImportPreview({ job, skills, standards, canPublish }: { job: Imp
           </div>
           <p className="mt-2 text-sm">{progress.done ? "Finished." : `Importing… ${progress.processed} of ${progress.total} rows`}</p>
           <p className="text-sm font-semibold text-brand-navy">Imported {progress.counts.imported + progress.counts.replaced}, skipped {progress.counts.skipped}, failed {progress.counts.failed}</p>
+          {progress.counts.duplicatesSkipped > 0 && <p className="text-sm font-semibold text-amber-900">👯 {t("Skipped {n} duplicate questions", { n: progress.counts.duplicatesSkipped })}</p>}
         </div>
       )}
     </div>

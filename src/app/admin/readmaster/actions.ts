@@ -7,6 +7,7 @@ import { extract } from "@/imports/questions/extract";
 import { importReadMaster } from "@/server/readmaster/import";
 import { addVersionQuestion, linkReadMasterToMap, listArticles, requestArticleReview, saveArticle, saveVersion, setArticleStatus, setArticlesStatus } from "@/server/readmaster/service";
 import type { Level } from "@/server/curriculum-map/lexile";
+import { runLibraryLoad } from "@/server/readmaster/library";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "questions:edit" as const };
 const msgOf = (e: unknown) => { if (e instanceof ValidationError || e instanceof ForbiddenError) return friendlyForbidden(e.message); throw e; };
@@ -110,4 +111,17 @@ export async function linkToMapAction(f: FormData): Promise<void> {
   try { const r = await linkReadMasterToMap(repo, actor); msg = r.linked ? `🔗 ${r.linked} ReadMaster question(s) of ${r.articles} article(s) are now on the Curriculum Map: they serve the adaptive sets, plans and the Diagnostic.` : "All ReadMaster questions are already on the Curriculum Map."; }
   catch (e) { msg = msgOf(e); }
   redirect(`/admin/readmaster?grade=${encodeURIComponent(String(f.get("grade") ?? ""))}&msg=${encodeURIComponent(msg)}`);
+}
+
+/** 📚 Loads the ReadMaster library (Grades 4–5): the missing articles are created and published; the rest are kept. */
+export async function loadLibraryAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:publish" });
+  let msg: string;
+  try {
+    if (!actor.schoolId) throw new ValidationError("Open ReadMaster as a school admin to load the library.");
+    const r = await runLibraryLoad(repo, actor.schoolId, { actor });
+    msg = `📚 ReadMaster library: ${r.created} new article(s)${r.completed ? `, ${r.completed} completed` : ""}, ${r.skipped} already there · ${r.versions} version(s), ${r.questions} question(s) added · ${r.published} published.`;
+    if (r.errors.length) msg += ` ${r.errors.length} problem(s): ${r.errors.slice(0, 3).join(" · ")}`;
+  } catch (e) { msg = e instanceof Error && !(e instanceof ValidationError) && !(e instanceof ForbiddenError) ? `The library could not be loaded: ${e.message}` : msgOf(e); }
+  redirect(`/admin/readmaster?grade=${encodeURIComponent(String(f.get("grade") ?? "4"))}&msg=${encodeURIComponent(msg)}`);
 }
