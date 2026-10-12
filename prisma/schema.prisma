@@ -1065,6 +1065,10 @@ model AssignmentStudent {
   status       AssignmentStatus @default(NOT_STARTED)
   progress     Float            @default(0)
   completedAt  DateTime?
+  /// skill work: answers counted for the assignment's core result (the FIRST 25 answers; frozen at 25)
+  coreAnswered Int?
+  /// skill work: correct answers among those first answers (accuracy = coreCorrect / coreAnswered)
+  coreCorrect  Int?
 
   assignment Assignment @relation(fields: [assignmentId], references: [id])
   student    Student    @relation(fields: [studentId], references: [id])
@@ -1490,6 +1494,7 @@ enum MapCategoryType {
   CONCEPT_VOCABULARY
   ANALYZE_CRAFT_AND_STRUCTURE
   RESPOND_TO_READING
+  REVIEW
 }
 
 enum MapLevel {
@@ -2181,6 +2186,8 @@ model ExitTicketAnswer {
 
   @@id([ticketId, studentId, questionId])
   @@index([ticketId])
+  /// Second Chance reads a student's exit-ticket mistakes
+  @@index([studentId, createdAt])
 }
 
 /// 🖨 A worksheet a teacher built from chosen questions (kept to print again or share with colleagues).
@@ -2312,8 +2319,70 @@ model WritingTask {
   aiFeedback  Boolean   @default(false)
   createdAt   DateTime  @default(now())
   deletedAt   DateTime?
+  /// 🔒 locked (exam-style) writing with a teacher rubric: written on the locked page, graded on the grading page
+  locked       Boolean?
+  /// the writing prompt as sanitized HTML (bold, italic, lists, headings); `prompt` keeps the plain text
+  promptHtml   String?   @db.Text
+  /// the grade level the task is written for (1–12)
+  gradeLevel   Int?
+  /// the time limit in minutes (counted from the student's own start, enforced on the server)
+  timeLimitMin Int?
+  /// the saved rubric it was built from (if any) and the rubric snapshot used for grading { title, criteria: [{ key, title, description, levels: [{ label, points, description }] }] }
+  rubricId     String?
+  rubric       Json?
+  /// CLASS | GROUP | STUDENTS (null = the whole class, as before)
+  assignTo     String?   @db.VarChar(8)
+  /// the support group (Intervention) it was assigned to
+  groupId      String?
+  /// the students it was assigned to (GROUP / STUDENTS); null = every student of the class
+  studentIds   Json?
+  /// the teacher's own rubric text ("Write or paste my rubric": a pasted table or typed lines), kept as written and sent to the AI as the teacher's wording
+  rubricText   String?   @db.Text
+  /// the teacher's notes for AI grading (e.g. "focus on the thesis; this class just learned paragraphs"); never student identifiers
+  aiNotes      String?   @db.Text
 
   @@index([classId, createdAt])
+}
+
+/// 📏 A writing rubric a teacher saved for reuse (their own, or shared with the school's teachers).
+model WritingRubric {
+  id          String    @id @default(cuid())
+  schoolId    String
+  createdById String
+  title       String    @db.VarChar(120)
+  /// shared with every teacher of the school
+  shared      Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
+
+  @@index([schoolId, createdAt])
+}
+
+/// One criterion of a saved rubric with its performance levels [{ label, points, description }] (lowest first).
+model WritingRubricCriterion {
+  id          String  @id @default(cuid())
+  rubricId    String
+  position    Int
+  title       String  @db.VarChar(120)
+  description String? @db.VarChar(500)
+  levels      Json
+
+  @@index([rubricId, position])
+}
+
+/// 🛡️ What happened on the locked writing page (leaving, pastes, extensions, reloads, start / submit, a teacher's reopen).
+model WritingIntegrityEvent {
+  id        String   @id @default(cuid())
+  taskId    String
+  studentId String
+  /// START | HIDDEN | BLUR | FULLSCREEN | RELOAD | PASTE | COPY | DROP | MENU | EXTENSION | SUBMIT | AUTO_SUBMIT | TIME_UP | REOPEN | RETURNED
+  kind      String   @db.VarChar(12)
+  detail    String?  @db.VarChar(300)
+  /// the teacher who reopened / returned (teacher events only)
+  byUserId  String?
+  at        DateTime @default(now())
+
+  @@index([taskId, studentId, at])
 }
 
 model WritingSubmission {
@@ -2348,6 +2417,24 @@ model WritingSubmission {
   /// NONE | PENDING | APPROVED | DISMISSED
   aiStatus    String    @default("NONE") @db.VarChar(9)
   updatedAt   DateTime  @updatedAt
+  /// 🔒 locked writing: when the student pressed Start (the time limit counts from here)
+  startedAt   DateTime?
+  /// the last autosave
+  autosavedAt DateTime?
+  /// MANUAL | AUTO (left the page twice) | TIME (time limit)
+  submitMode  String?   @db.VarChar(6)
+  /// times the student left the locked page (counted on the server)
+  leaveCount  Int?
+  /// lock bookkeeping { opens, lastOpenAt, lastLeaveAt, extension }
+  lock        Json?
+  /// the teacher's grading { levels: { key: index }, comment, sentences: [{ index, text, comment }], approved?: {…} }
+  grading     Json?
+  /// the AI's suggested grade for the teacher (never shown to the student)
+  aiGrade     Json?
+  /// when the teacher approved and returned the grade
+  returnedAt  DateTime?
+  /// the approved rubric score in percent
+  scorePct    Int?
 
   @@id([taskId, studentId])
   @@index([studentId, status])
@@ -3336,6 +3423,9 @@ model SecondChanceAnswer {
   questionId String   @db.VarChar(64)
   correct    Boolean
   createdAt  DateTime @default(now())
+  /// null = an answer given in Second Chance · GAME = a question missed in a game (solo round or live game), which
+  /// waits in Second Chance like any other mistake (games never write attempts)
+  source     String?  @db.VarChar(12)
 
   @@index([studentId, questionId])
   @@index([studentId, createdAt])

@@ -267,7 +267,10 @@ export async function rosterForGrade(repo: Repo, actor: Actor, gradeLevel: numbe
   const classes = await accessibleClasses(repo, actor);
   if (!classes.length) return [];
   const grades = await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => s(c.gradeId)))] } }, { select: ["id", "level"] });
-  const mine = classes.filter((c) => Number(grades.find((g) => g.id === c.gradeId)?.level) === gradeLevel).sort((a, b) => s(a.name).localeCompare(s(b.name)));
+  // every class the teacher teaches (the map's grade first): content is open to all teachers and a teacher may
+  // assign any grade's place to their own students — a teacher of two classes sees both
+  const lvl = (c: Row) => Number(grades.find((g) => g.id === c.gradeId)?.level);
+  const mine = [...classes].sort((a, b) => Number(lvl(b) === gradeLevel) - Number(lvl(a) === gradeLevel) || s(a.name).localeCompare(s(b.name)));
   if (!mine.length) return [];
   const members = await repo.findMany("ClassMembership", { classId: { in: mine.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"] });
   const ids = [...new Set(members.map((m) => s(m.studentId)))];

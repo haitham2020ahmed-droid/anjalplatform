@@ -136,7 +136,8 @@ export async function connections(repo: Repo, actor: Actor, now = new Date()): P
   const ids = [...liveIds];
   const [mapRows, attempts, plans] = await Promise.all([
     ids.length ? repo.findMany("MapResult", { studentId: { in: ids } }, { select: ["studentId", "subject", "goalName"] }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(now.getTime() - 14 * 86_400_000) } }, { select: ["studentId"] }) : Promise.resolve([] as Row[]),
+    // ⚡ who practised: their practice sessions (a few per student), not every answer
+    ids.length ? repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: { gte: new Date(now.getTime() - 14 * 86_400_000) }, questionCount: { gt: 0 } }, { select: ["studentId"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("MapPlan", { studentId: { in: ids } }, { select: ["studentId", "status", "subject"] }) : Promise.resolve([] as Row[]),
   ]);
   const withRead = new Set(mapRows.filter((r) => /read/i.test(s(r.subject)) && !r.goalName).map((r) => s(r.studentId)));

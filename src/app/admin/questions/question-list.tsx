@@ -188,9 +188,10 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
                         {q.mine && <span className="rounded bg-indigo-50 px-1.5 text-indigo-800">{t("mine")}</span>}
                       </span>
                     </td>
-                    <td className="pe-2">G{q.grade} · {q.skill}</td>
+                    {/* bank questions: skill + level only (no grade); Curriculum Map questions keep their grade */}
+                    <td className="pe-2">{q.onMap ? <>🧭 G{q.grade} · {q.skill}</> : q.skill}</td>
                     <td className="pe-2 text-xs">{q.type.replace(/_/g, " ").toLowerCase()}</td>
-                    <td className="pe-2 whitespace-nowrap">{q.level} · {q.levelLabel}</td>
+                    <td className="pe-2 whitespace-nowrap">{q.level} · {q.levelLabel}{!q.onMap && <span className="block text-xs text-slate-500">RIT {q.ritBand}</span>}</td>
                     <td className="pe-2"><span className={`whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-semibold ${CHIP[q.status]}`}>{t(STATUS_LABEL[q.status])}</span></td>
                     <td className="py-1.5 text-end">
                       <span className="inline-flex flex-wrap justify-end gap-1">

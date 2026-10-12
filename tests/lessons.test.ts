@@ -112,12 +112,20 @@ describe("💡 hint ladder, evidence picker, organizers, item choice (pure)", ()
     assert.deepEqual(organizerCompleteness(wp, { head: "", rows: [], foot: "" }).missing.length, 3, "head, rows and foot");
   });
 
-  test("items: at/below the level first, unused first, approach 2 = easiest first, repeats only when the pool is too small", () => {
+  test("items: at/below the level first, unused first, approach 2 = easiest first, never twice in a run (no-repeat rule)", () => {
     const items = [{ questionId: "a", b: -1 }, { questionId: "b", b: 0 }, { questionId: "c", b: 0.2 }, { questionId: "d", b: 1.5 }, { questionId: "e", b: -2 }];
     assert.deepEqual(pickItems(items, 0, 3, new Map(), 0), ["c", "b", "a"]);
     assert.deepEqual(pickItems(items, 0, 3, new Map([["c", 1]]), 0), ["b", "a", "e"]);
     assert.deepEqual(pickItems(items, 0, 3, new Map(), 2), ["e", "a", "b"], "easier items");
-    assert.deepEqual(pickItems(items.slice(0, 2), 0, 5, new Map(), 0).length, 5);
+    // a small pool gives a shorter set: never the same item twice in one set, never an item already used in the run
+    assert.deepEqual(pickItems(items.slice(0, 2), 0, 5, new Map(), 0), ["b", "a"]);
+    assert.deepEqual(pickItems(items, 0, 3, new Map([["a", 1], ["b", 1], ["c", 1], ["e", 1]]), 0), ["d"]);
+    // copies of one content count as the same item; items the student never attempted come first
+    const withCopy = [...items, { questionId: "c2", b: 0.1, keys: ["s:c"] }].map((i) => (i.questionId === "c" ? { ...i, keys: ["s:c"] } : i));
+    assert.deepEqual(pickItems(withCopy, 0, 3, new Map([["c", 1]]), 0), ["b", "a", "e"], "the copy of a used item is not used");
+    assert.deepEqual(pickItems(items, 0, 3, new Map(), 0, (id) => (id === "c" ? 5 : 0)), ["b", "a", "e"], "unseen first");
+    // the whole bank used in this run: least used first, still never twice in a set
+    assert.deepEqual(pickItems(items.slice(0, 2), 0, 3, new Map([["a", 2], ["b", 1]]), 0), ["b", "a"]);
   });
 });
 

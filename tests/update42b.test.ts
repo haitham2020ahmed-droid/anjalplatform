@@ -5,7 +5,10 @@
  *    log, mastery, ability, XP, status and session (tests/fixtures/update42b-golden.json was recorded with the base
  *    revision's code by the same scenario, tests/helpers/update42b-scenario.ts; RE-RECORDED for the no-repeat rule
  *    (src/server/practice/no-repeat.ts): the old recording served the same practice question up to three times in one
- *    session — now each is served once, so the practice part is shorter and the later lesson starts from that history)
+ *    session — now each is served once, so the practice part is shorter and the later lesson starts from that history;
+ *    RE-RECORDED again for the school's fresh-questions rule (src/server/questions/fresh.ts, record with
+ *    tests/helpers/record-update42b.ts): the lesson now gives questions the student never attempted first, so its
+ *    items differ from #17 on — the practice and the set are unchanged, and the engine's math is the same)
  *  - work after the response: it does not run before the answer returns, it always runs afterwards, a failure is
  *    logged and never reaches the student
  *  - an answer's transaction only writes; the reads are done before it, in parallel
@@ -48,6 +51,12 @@ describe("Update 42B · same results, less waiting", () => {
   test("equivalence: feedback, next screens and everything saved are identical to the code before Update 42B", async () => {
     const golden = JSON.parse(readFileSync(join(ROOT, "tests/fixtures/update42b-golden.json"), "utf8"));
     const now = JSON.parse(JSON.stringify(await runScenario((p) => import(join(ROOT, p)))));
+    // Update 54: a finished Curriculum Map lesson (skill not mastered yet) now also offers "Keep practising" with bank
+    // questions — a new link only; everything else the student sees and everything saved stays identical
+    const cont = JSON.stringify(now.log).match(/"continueHref":"\/practice\/[^"?]+\?work=[^"]+"/g) ?? [];
+    assert.ok(cont.length >= 1, "the lesson's end offers bank practice of its skill");
+    const strip = (x: unknown): unknown => Array.isArray(x) ? x.map(strip) : x && typeof x === "object" ? Object.fromEntries(Object.entries(x).filter(([k]) => k !== "continueHref").map(([k, v]) => [k, strip(v)])) : x;
+    now.log = strip(now.log);
     // (no repeats: each practice question once, so the practice part is shorter than before)
     assert.ok(golden.log.length >= 20 && golden.saved.attempts.length >= 20, "the scenario covers practice, a set and a lesson");
     assert.deepEqual(now.log, golden.log, "what the student sees after every answer");
@@ -77,8 +86,9 @@ describe("Update 42B · same results, less waiting", () => {
     const rnd = seededRandom(9);
     const T = Date.UTC(2026, 10, 3, 8, 0, 0);
     let view = await startPractice(raw, lina, skill, new Date(T), rnd);
-    const items = await loadSkillItems(raw, skill);
     const { repo, n } = counting(raw);
+    // warm caches: the per-database lookups (Curriculum Map questions, skill grades) are read once through this repo
+    const items = await loadSkillItems(repo, skill);
     let maxAll = 0, maxTx = 0;
     for (let i = 0; i < 4 && view.question; i++) {
       const it = items.find((x) => x.questionId === view.question!.questionId)!;

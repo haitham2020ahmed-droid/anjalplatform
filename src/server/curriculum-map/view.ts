@@ -17,10 +17,24 @@ const LEVEL_RANK: Record<string, number> = { BELOW: 1, ON: 2, ABOVE: 3 };
 export interface LevelCoverage { category: string; level: "BELOW" | "ON" | "ABOVE"; places: number; atTarget: number }
 export interface MapView { grades: { level: number; name: string }[]; level: number | null; book: MapViewNode | null; attachmentNodes: number; questions: number; coverage: LevelCoverage[] }
 
+/**
+ * 🧭 The grades a teacher sees on the Curriculum Map: only the grades of the classes they teach (null = all grades,
+ * for admins). ReadRise, ReadMaster and the Question Bank stay open to every teacher.
+ */
+export async function teacherMapGrades(repo: Repo, actor: Actor): Promise<Set<number> | null> {
+  if (actor.role !== "TEACHER") return null;
+  const t = await repo.findUnique("Teacher", { userId: actor.userId });
+  const links = t ? await repo.findMany("ClassTeacher", { teacherId: t.id }, { select: ["classId"] }) : [];
+  const classes = links.length ? await repo.findMany("Class", { id: { in: links.map((l) => String(l.classId)) }, deletedAt: null }, { select: ["gradeId"] }) : [];
+  const grades = classes.length ? await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => String(c.gradeId)))] } }, { select: ["level"] }) : [];
+  return new Set(grades.map((g) => Number(g.level)));
+}
+
 export async function curriculumMapView(repo: Repo, actor: Actor, level?: number): Promise<MapView> {
   assertCan(actor, "curriculum:read");
   if (actor.role === "STUDENT" || actor.role === "PARENT") throw new ForbiddenError("Only staff can open the Curriculum Map.");
-  const grades = (await repo.findMany("Grade", { schoolId: actor.schoolId })).sort((a, b) => Number(a.level) - Number(b.level));
+  const own = await teacherMapGrades(repo, actor);
+  const grades = (await repo.findMany("Grade", { schoolId: actor.schoolId })).filter((g) => !own || own.has(Number(g.level))).sort((a, b) => Number(a.level) - Number(b.level));
   const withMap: Row[] = [];
   for (const g of grades) if (await repo.count("CurriculumMapNode", { gradeId: g.id })) withMap.push(g);
   const list = withMap.map((g) => ({ level: Number(g.level), name: String(g.name) }));

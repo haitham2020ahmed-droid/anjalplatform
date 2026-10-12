@@ -4,7 +4,8 @@
  * character for character (curly quotes ’ “ ” and unusual spellings included); nothing is retyped.
  * Any line the reader does not understand stops it with the line number (it never guesses).
  */
-export type CategoryType = "CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "RESPOND_TO_READING";
+/** REVIEW (Update 56) is not in the school's source file: the map adds it after the last category of every set. */
+export type CategoryType = "CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "RESPOND_TO_READING" | "REVIEW";
 export type LevelName = "Above Level" | "On Level" | "Below Level";
 
 export interface MapCategory { type: CategoryType; label: string; skills: string | null; levels: LevelName[] }

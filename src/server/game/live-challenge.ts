@@ -31,6 +31,7 @@ import type { GameId, LiveQuestionView, PlayLevel } from "../../games/types";
 import { assignReteach } from "../tests/assessments";
 import { fittingCounts, pickItems, studentsPlayLevels, type Picked } from "./questions";
 import { savePlay } from "./results";
+import { recordGameMisses } from "../second-chance/service";
 import { emblemsFor } from "../motivation/coins";
 import { recordLiveChallengePlayed, recordLiveChallengeWin } from "../motivation/badges";
 import { liveFeatures } from "../../games/live-features";
@@ -269,6 +270,12 @@ export async function saveSummary(repo: Repo, room: Room): Promise<void> {
     }
   }
   if (answers.length) await repo.createMany("LiveGameAnswer", answers);
+  // ⭐ every question a student missed waits in their Second Chance: the version THEY saw (their level in a
+  // "each student's level" game). Never an attempt, level or mastery change.
+  for (const p of room.players.values()) {
+    const missed = [...p.answers].filter(([, a]) => !a.correct).map(([ix]) => { const sl = room.slots[ix]; return sl ? (sl.byLevel[room.levelMode === "LEVEL" ? p.level : "ON"] ?? sl.byLevel.ON).item.questionId : ""; }).filter(Boolean);
+    if (missed.length) await recordGameMisses(repo, p.studentId, missed, finished).catch(() => 0);
+  }
   room.savedId = room.id;
 }
 

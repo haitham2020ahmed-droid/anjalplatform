@@ -25,76 +25,57 @@ export function navItemsFor(role: string, opts: NavOpts = {}): NavItem[] {
 }
 
 // ------------------------------------------------------------------ Student
-function studentMenu(opts: NavOpts): NavItem[] {
+/** Five entries only (owner's spec): Home · My Work · My Tests · My Plan · ReadMaster / ReadRise. No RTI wording. */
+function studentMenu(_opts: NavOpts): NavItem[] {
   return [
-    { href: "/student", label: "My Work", icon: "🏠" },
-    // Programs (RTI only for students in Tier 2/3; NAFS only when the student has NAFS work)
-    { href: "/student/map", label: "MAP", icon: "🗺️", group: "Programs" },
-    { href: "/student/curriculum", label: "Curriculum Map", icon: "🧭", group: "Programs" },
-    ...(opts.rti ? [{ href: "/student/rti", label: "RTI", icon: "🛟", group: "Programs" }] : []),
-    ...(opts.nafs ? [{ href: "/student/nafs", label: "NAFS", icon: "🎓", group: "Programs" }] : []),
-    // Reading
-    { href: "/student/readmaster", label: "ReadMaster", icon: "⭐", group: "Reading" },
-    { href: "/student/readrise", label: "ReadRise", icon: "🚀", group: "Reading" },
-    { href: "/student/fluency-coach", label: "Fluency Coach", icon: "🎙️", group: "Reading" },
-    // Achievements
-    { href: "/student/second-chance", label: "Second Chance", icon: "🌟", group: "Achievements" },
-    { href: "/student/tests", label: "My Tests", icon: "📝", group: "Achievements" },
-    { href: "/student/certificates", label: "My Certificates", icon: "📜", group: "Achievements" },
-    { href: "/student/badges", label: "Badges", icon: "🏅", group: "Achievements" },
-    { href: "/student/reports", label: "My Reports", icon: "📊" },
-    // More (folded)
-    { href: "/student/lesson", label: "My Lessons", icon: "📘", group: MORE },
-    { href: "/student/review", label: "Review", icon: "🔁", group: MORE },
-    { href: "/student/words", label: "My Words", icon: "📒", group: MORE },
-    { href: "/student/respond", label: "Respond to Reading", icon: "✍️", group: MORE },
-    { href: "/student/writing", label: "Writing", icon: "🖊", group: MORE },
-    { href: "/student/decoding", label: "Word Sounds Check", icon: "🔤", group: MORE },
-    { href: "/student/strategy-survey", label: "My Reading Strategies", icon: "🧠", group: MORE },
-    { href: "/guide", label: "Help", icon: "❔", group: MORE },
+    { href: "/student", label: "Home", icon: "🏠" },
+    { href: "/student/work", label: "My Work", icon: "📋" },
+    { href: "/student/tests", label: "My Tests", icon: "📝" },
+    { href: "/student/map", label: "My Plan", icon: "🗺️" },
+    { href: "/student/reading", label: "ReadMaster / ReadRise", icon: "📚" },
   ];
 }
 
 // ------------------------------------------------------------------ Teacher
+/** Seven entries only (owner's spec); every other page opens from Home's quick buttons, a hub, or "Find a page". */
 const TEACHER_MENU: NavItem[] = [
   { href: "/teacher", label: "Home", icon: "🏠" },
-  { href: "/teacher/students", label: "My Students", icon: "👥" },
-  { href: "/teacher/map-center", label: "MAP", icon: "🗺️", group: "Programs" },
-  { href: "/admin/curriculum-map", label: "Curriculum Map", icon: "🧭", group: "Programs" },
-  { href: "/teacher/rti-plan", label: "RTI", icon: "🛟", group: "Programs" },
-  { href: "/teacher/plans", label: "Plans", icon: "🗂️", group: "Programs" },
-  { href: "/teacher/assessments", label: "Assessments", icon: "📝" },
-  { href: "/teacher/games", label: "Live Challenge", icon: "🏁" },
+  { href: "/teacher/students", label: "My Classes", icon: "👥" },
+  { href: "/admin/curriculum-map", label: "Curriculum Map", icon: "🧭" },
+  { href: "/teacher/map-center", label: "MAP", icon: "🗺️" },
+  { href: "/teacher/plans", label: "Plans", icon: "🗂️" },
   { href: "/teacher/reports", label: "Reports", icon: "📊" },
-  { href: "/teacher/week", label: "My Week", icon: "📅" },
-  { href: "/teacher/messages", label: "Messages", icon: "📨" },
-  // More (folded): every other page that is still useful
-  { href: "/teacher/tiers", label: "Support Tiers", icon: "🪜", group: MORE },
-  { href: "/teacher/groups", label: "Groups", icon: "🤝", group: MORE },
-  { href: "/teacher/data-meeting", label: "Data Meeting", icon: "🗃", group: MORE },
-  { href: "/teacher/diagnostic", label: "Diagnostic Test", icon: "🩺", group: MORE },
-  { href: "/teacher/progress-checks", label: "Progress Checks", icon: "✅", group: MORE },
-  { href: "/teacher/decoding", label: "Decoding Screener", icon: "🔡", group: MORE },
-  { href: "/teacher/fluency", label: "Reading Fluency", icon: "🔊", group: MORE },
-  { href: "/teacher/readrise", label: "ReadRise", icon: "🚀", group: MORE },
-  { href: "/teacher/worksheet", label: "Worksheets", icon: "🖨", group: MORE },
-  { href: "/teacher/lessons", label: "Intervention Lessons", icon: "🧩", group: MORE },
-  { href: "/teacher/writing", label: "Writing & Reading Aloud", icon: "🖊", group: MORE },
-  { href: "/teacher/respond", label: "Respond to Reading", icon: "✍️", group: MORE },
-  { href: "/admin/dictionary", label: "Dictionary", icon: "📖", group: MORE },
-  { href: "/admin/grammar", label: "Grammar", icon: "🔤", group: MORE },
-  { href: "/student/readmaster", label: "ReadMaster", icon: "⭐", group: MORE },
-  { href: "/teacher/calendar", label: "Calendar", icon: "🗓️", group: MORE },
-  { href: "/teacher/word-journal", label: "Word Journals", icon: "📒", group: MORE },
-  { href: "/guide", label: "Help", icon: "❔", group: MORE },
+  { href: "/teacher/reading", label: "ReadMaster / ReadRise", icon: "📚" },
 ];
 
 /**
- * Pages that left a menu but still open (docs/WHAT-MOVED-WHERE.md): the top bar's "Find a page" and the search
- * still find them by name, so nobody loses a page they knew.
+ * Pages that left a menu but still open (docs/WHAT-MOVED-WHERE.md): "Find a page" in the side menu still finds
+ * them by name, so nobody loses a page they knew.
  */
 const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
   TEACHER: [
+    { href: "/teacher/plans/support", label: "Support (RTI)", icon: "🛟" },
+    { href: "/teacher/assessments", label: "Tests", icon: "📝" },
+    { href: "/teacher/games", label: "Live Challenge", icon: "🏁" },
+    { href: "/teacher/week", label: "My Week", icon: "📅" },
+    { href: "/teacher/messages", label: "Messages", icon: "📨" },
+    { href: "/teacher/rti-plan", label: "Weekly Support Sessions", icon: "🗓" },
+    { href: "/teacher/groups", label: "Groups", icon: "🤝" },
+    { href: "/teacher/diagnostic", label: "Diagnostic Test", icon: "🩺" },
+    { href: "/teacher/progress-checks", label: "Progress Checks", icon: "✅" },
+    { href: "/teacher/decoding", label: "Decoding Screener", icon: "🔡" },
+    { href: "/teacher/fluency", label: "Reading Fluency", icon: "🔊" },
+    { href: "/teacher/readrise", label: "ReadRise", icon: "🚀" },
+    { href: "/student/readmaster", label: "ReadMaster", icon: "⭐" },
+    { href: "/teacher/worksheet", label: "Worksheets", icon: "🖨" },
+    { href: "/teacher/lessons", label: "Intervention Lessons", icon: "🧩" },
+    { href: "/teacher/writing", label: "Writing & Reading Aloud", icon: "🖊" },
+    { href: "/teacher/respond", label: "Respond to Reading", icon: "✍️" },
+    { href: "/admin/dictionary", label: "Dictionary", icon: "📖" },
+    { href: "/admin/grammar", label: "Grammar", icon: "🔤" },
+    { href: "/teacher/calendar", label: "Calendar", icon: "🗓️" },
+    { href: "/teacher/word-journal", label: "Word Journals", icon: "📒" },
+    { href: "/guide", label: "Help", icon: "❔" },
     { href: "/teacher/progress", label: "Student Progress", icon: "📈" },
     { href: "/teacher/intervention", label: "Who Needs Help", icon: "🚨" },
     { href: "/teacher/alerts", label: "Alerts", icon: "🔔" },
@@ -110,11 +91,25 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
     { href: "/teacher/knowledge-graph", label: "Skill Connections", icon: "🕸️" },
   ],
   STUDENT: [
-    { href: "/student/plans", label: "My Plans", icon: "🗂️" },
+    { href: "/student/readmaster", label: "ReadMaster", icon: "⭐" },
+    { href: "/student/readrise", label: "ReadRise", icon: "🚀" },
+    { href: "/student/fluency-coach", label: "Fluency Coach", icon: "🎙️" },
+    { href: "/student/curriculum", label: "Curriculum Map", icon: "🧭" },
+    { href: "/student/second-chance", label: "Second Chance", icon: "🌟" },
+    { href: "/student/certificates", label: "My Certificates", icon: "📜" },
+    { href: "/student/badges", label: "Badges", icon: "🏅" },
+    { href: "/student/reports", label: "My Reports", icon: "📊" },
+    { href: "/student/lesson", label: "My Lessons", icon: "📘" },
+    { href: "/student/words", label: "My Words", icon: "📒" },
+    { href: "/student/respond", label: "Respond to Reading", icon: "✍️" },
+    { href: "/student/writing", label: "Writing", icon: "🖊" },
+    { href: "/student/decoding", label: "Word Sounds Check", icon: "🔤" },
+    { href: "/student/strategy-survey", label: "My Reading Strategies", icon: "🧠" },
     { href: "/student/insights", label: "Progress Report", icon: "🌟" },
     { href: "/student/skills", label: "My Skills", icon: "🧩" },
     { href: "/student/family", label: "Family Report", icon: "👪" },
     { href: "/play", label: "Join Live", icon: "🎮" },
+    { href: "/guide", label: "Help", icon: "❔" },
   ],
 };
 

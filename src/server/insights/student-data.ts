@@ -4,6 +4,7 @@
  * assignments (done / pending / late), levels. Shared by auto placement, the teacher dashboard, the student
  * plan, alerts, the grade summary and the parent report — one definition of each number.
  */
+import { idsKey, sharedRead } from "../lib/shared-read";
 import type { Repo, Row } from "../seeding/repo";
 import { nationalNorm, seasonOf, type Season } from "../map/rit";
 import { bandOf as planBand } from "../map/personal-plan";
@@ -121,8 +122,15 @@ export async function answerTotals(repo: Repo, studentIds: string[]): Promise<Ma
 /** `opts.attempts`: answers already loaded by the caller (any superset of the last 30 days of these students, with
  *  studentId, isCorrect, rapidGuess, createdAt) — filtered here, so the answers are not read twice (Update 40). */
 export async function practiceStats(repo: Repo, studentIds: string[], now = new Date(), opts: { attempts?: Row[] } = {}): Promise<Map<string, PracticeStats>> {
+  if (!studentIds.length) return new Map();
+  // ⚡ the same students' stats asked again while a page is built: read once (fresh after any write)
+  if (!opts.attempts) return new Map(await sharedRead(repo, `practiceStats|${Math.floor(now.getTime() / 60_000)}|${idsKey(studentIds)}`, PRACTICE_MODELS, 20_000, () => practiceStatsUncached(repo, studentIds, now, opts)));
+  return practiceStatsUncached(repo, studentIds, now, opts);
+}
+const PRACTICE_MODELS = ["QuestionAttempt", "PracticeSession", "StudentSkillMastery", "StudentAbility"];
+
+async function practiceStatsUncached(repo: Repo, studentIds: string[], now: Date, opts: { attempts?: Row[] }): Promise<Map<string, PracticeStats>> {
   const out = new Map<string, PracticeStats>();
-  if (!studentIds.length) return out;
   const monthAgo = new Date(now.getTime() - 30 * 86_400_000);
   const want = opts.attempts ? new Set(studentIds) : null;
   const [attempts, sessions, mastery, abilities, exact] = await Promise.all([

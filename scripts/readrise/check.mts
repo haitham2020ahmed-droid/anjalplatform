@@ -2,6 +2,8 @@
 import { readFileSync } from "node:fs";
 import { estimateLevel, RR_LEVELS, targetWords } from "../../src/server/readrise/level";
 
+/** STRICT=1: every version within ±50 of its level (the library standard since Update 56); default ±100 */
+const TOL = process.env.STRICT ? 50 : 100;
 let bad = 0;
 for (const f of process.argv.slice(2)) {
   const a = JSON.parse(readFileSync(f, "utf8"));
@@ -13,7 +15,7 @@ for (const f of process.argv.slice(2)) {
     const v = vs.find((x) => x.level === lvl);
     if (!v) { problems.push(`missing level ${lvl}`); continue; }
     const est = estimateLevel(v.text), words = (v.text.match(/[A-Za-z’'-]+/g) ?? []).length, tw = targetWords(lvl);
-    const flag = Math.abs(est - lvl) > 100 ? " ✗ level" : "";
+    const flag = Math.abs(est - lvl) > TOL ? " ✗ level" : "";
     const wflag = words < tw.min * 0.85 || words > tw.max * 1.2 ? ` ✗ words (${tw.min}-${tw.max})` : "";
     if (est <= prev - 30) problems.push(`level ${lvl} reads easier than the level below (${est} ≤ ${prev})`);
     prev = est;

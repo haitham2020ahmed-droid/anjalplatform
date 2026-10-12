@@ -1,0 +1,2998 @@
+{
+ "source": "Grades 4 & 5 Respond to Reading — Differentiated Writing Tasks — Units 1–6 (the school's own document)",
+ "levels": {
+  "BELOW": "Word Bank + Fill in the Gaps: students complete six guided sentences, then copy them as one paragraph.",
+  "ON": "Sentence Starters: seven starters that walk students through claim, evidence, explanation and conclusion.",
+  "ABOVE": "Independent Writing: a success checklist and a Challenge Sentence Starter for a full paragraph."
+ },
+ "tasks": {
+  "G4.U1.TS1": {
+   "code": "G4.U1.TS1.RTR",
+   "grade": 4,
+   "unit": 1,
+   "textSet": 1,
+   "selection": "A World of Change",
+   "genre": "Expository Text",
+   "prompt": "Why is it important to understand the fast and slow changes to the Earth's surface?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "slow",
+      "fast",
+      "erosion",
+      "protect",
+      "plan",
+      "prepared",
+      "evacuate",
+      "safe",
+      "volcano",
+      "dangerous"
+     ],
+     "gapSentences": [
+      "Understanding Earth's changes helps people make a _______________ for them.",
+      "A _______________ change, like erosion, happens over a long time.",
+      "People can build walls and grow plants to _______________ the soil from _______________.",
+      "A _______________ change, like a _______________ eruption or a landslide, can happen at any time.",
+      "If we understand fast changes, we can be _______________ and know when to _______________.",
+      "Understanding Earth's fast and slow changes helps keep people _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "It is important to understand Earth's fast and slow changes because ______________________.",
+      "One slow change to Earth's surface is ______________________.",
+      "People can deal with this slow change by ______________________.",
+      "One fast change to Earth's surface is ______________________.",
+      "Fast changes are dangerous because ______________________.",
+      "The text explains that people can prepare by ______________________.",
+      "Therefore, understanding Earth's changes helps us ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Why is it important to understand the fast and slow changes to the Earth's surface?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to the question",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison between slow changes and fast changes"
+     ],
+     "challengeStarter": "Understanding the fast and slow changes to Earth's surface is important because __________________. For example, a slow change such as __________________ can be managed by __________________. In contrast, fast changes such as __________________ are dangerous because __________________. This shows that __________________. Overall, knowing about Earth's changes helps people __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Understanding Earth's changes helps people make a plan for them. A slow change, like erosion, happens over a long time. People can build walls and grow plants to protect the soil from erosion. A fast change, like a volcano eruption or a landslide, can happen at any time. If we understand fast changes, we can be prepared and know when to evacuate. Understanding Earth's fast and slow changes helps keep people safe.",
+    "ON": "It is important to understand Earth's fast and slow changes because it helps people plan for them and stay safe. One slow change to Earth's surface is erosion, which happens over a long time. People can deal with this slow change by building structures to block waves and growing plants to hold the soil. One fast change to Earth's surface is a volcanic eruption or a landslide. Fast changes are dangerous because they are unpredictable and cannot be prevented. The text explains that people can prepare by making a plan to evacuate. Therefore, understanding Earth's changes helps us keep people safe.",
+    "ABOVE": "Understanding the fast and slow changes to Earth's surface is important because it helps people plan for these changes and stay safe. For example, a slow change such as erosion can be managed by building structures to block waves and growing plants to hold the soil. In contrast, fast changes such as volcanic eruptions and landslides are dangerous because they are unpredictable and cannot be prevented. This shows that people need different plans for different kinds of changes. Overall, knowing about Earth's changes helps people protect their communities and be prepared to evacuate when danger comes."
+   }
+  },
+  "G4.U1.TS2": {
+   "code": "G4.U1.TS2.RTR",
+   "grade": 4,
+   "unit": 1,
+   "textSet": 2,
+   "selection": "The Talent Show",
+   "genre": "Realistic Fiction",
+   "prompt": "What can readers learn from Maura?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "own",
+      "charge",
+      "resentful",
+      "grandmother",
+      "truth",
+      "honest",
+      "stand up",
+      "scary",
+      "friendship",
+      "communicate"
+     ],
+     "gapSentences": [
+      "Maura wants to do her _______________ act in the talent show.",
+      "Tina always takes _______________ and makes decisions for both of them.",
+      "This makes Maura feel _______________.",
+      "Maura's _______________ advises her to \"tell the _______________.\"",
+      "Maura is _______________ with Tina, and they keep their _______________.",
+      "Readers learn that it is important to _______________ for yourself, even when it feels _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "Readers can learn from Maura that ______________________.",
+      "In the beginning of the story, Maura feels ______________________ because ______________________.",
+      "Maura's grandmother advises her to ______________________.",
+      "Maura decides to ______________________.",
+      "One piece of evidence from the text is ______________________.",
+      "This shows that ______________________.",
+      "Through Maura, readers learn that ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: What can readers learn from Maura?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about what readers learn from Maura",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of how Maura feels at the beginning and at the end"
+     ],
+     "challengeStarter": "Through Maura, readers learn that __________________. In the beginning of the story, Maura feels __________________ because Tina __________________. After her grandmother advises her to __________________, Maura decides to __________________. The strongest evidence is __________________. This proves that __________________. Overall, Maura's story teaches readers that __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Maura wants to do her own act in the talent show. Tina always takes charge and makes decisions for both of them. This makes Maura feel resentful. Maura's grandmother advises her to \"tell the truth.\" Maura is honest with Tina, and they keep their friendship. Readers learn that it is important to stand up for yourself, even when it feels scary.",
+    "ON": "Readers can learn from Maura that it is important to stand up for what you want. In the beginning of the story, Maura feels resentful because Tina always takes charge and wants to do an act with her. Maura's grandmother advises her to respect her own ideas and \"tell the truth.\" Maura decides to call Tina and tell her she wants to do her own act. One piece of evidence from the text is that the next day Tina describes her own act and lets Maura choose the game at recess. This shows that standing up for herself was a good thing and did not hurt their friendship. Through Maura, readers learn that it is best to be honest and communicate about what you want, even when it is scary.",
+    "ABOVE": "Through Maura, readers learn that it is important to be honest and stand up for yourself. In the beginning of the story, Maura feels resentful because Tina takes charge and plans an act for both of them. After her grandmother advises her to \"tell the truth,\" Maura decides to call Tina and say that she wants to do her own act. The strongest evidence is that the next day Tina describes her own act and lets Maura choose the game at recess. This proves that honest communication can make a friendship stronger instead of ending it. Overall, Maura's story teaches readers that standing up for yourself can be scary, but it can also get you what you want."
+   }
+  },
+  "G4.U1.TS3": {
+   "code": "G4.U1.TS3.RTR",
+   "grade": 4,
+   "unit": 1,
+   "textSet": 3,
+   "selection": "Dollars and Sense",
+   "genre": "Argumentative Text",
+   "prompt": "Do you agree with the author's claim that businesses can help others? Explain your answer.",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "agree",
+      "shoes",
+      "gives",
+      "charity",
+      "volunteering",
+      "prove",
+      "profit",
+      "disagree",
+      "glasses",
+      "employees"
+     ],
+     "gapSentences": [
+      "I _______________ with the author's claim that businesses can help others.",
+      "Blake Mycoskie started TOMS after he saw poor kids who needed _______________.",
+      "For every pair of shoes TOMS sells, it _______________ a pair to a child in need.",
+      "The Hard Rock Cafe has given a lot of money to _______________.",
+      "Workers at these companies help others by _______________, raising money, and donating.",
+      "These examples _______________ that businesses can make a _______________ and help others."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "I agree / disagree with the author's claim because ______________________.",
+      "One example from the text is ______________________.",
+      "Blake Mycoskie got the idea for TOMS when ______________________.",
+      "Another business that helps others is ______________________.",
+      "This evidence supports my opinion because ______________________.",
+      "Businesses also help others when their employees ______________________.",
+      "Therefore, I think businesses ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Do you agree with the author's claim that businesses can help others? Explain your answer.",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim: agree or disagree",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your opinion",
+      "At least two business examples from the text"
+     ],
+     "challengeStarter": "I agree / disagree with the author's claim that businesses can help others because __________________. For example, TOMS __________________. Another example is __________________. This proves that __________________. Some people might think businesses only care about __________________, but __________________. Overall, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "I agree with the author's claim that businesses can help others. Blake Mycoskie started TOMS after he saw poor kids who needed shoes. For every pair of shoes TOMS sells, it gives a pair to a child in need. The Hard Rock Cafe has given a lot of money to charity. Workers at these companies help others by volunteering, raising money, and donating. These examples prove that businesses can make a profit and help others.",
+    "ON": "I agree with the author's claim because the text gives real examples of businesses that make money and help people. One example from the text is TOMS, the shoe company started by Blake Mycoskie. Blake Mycoskie got the idea for TOMS when he was traveling in South America and saw poor kids who needed shoes. Another business that helps others is the Hard Rock Cafe, which has given a lot of money to charity. This evidence supports my opinion because both companies make a profit and still help people in need. Businesses also help others when their employees volunteer, raise money, and donate. Therefore, I think businesses can make money and help others at the same time.",
+    "ABOVE": "I agree with the author's claim that businesses can help others because the text shows companies that do both. For example, TOMS gives a pair of shoes to a child in need for every pair it sells, and it did so well that it expanded to sell glasses. Another example is the Hard Rock Cafe, which has given a lot of money to charity. This proves that a business can make a profit and still make a difference. Some people might think businesses only care about money, but TOMS and Hard Rock also give their employees ways to volunteer, raise money, and donate. Overall, these companies prove that businesses can help others."
+   }
+  },
+  "G4.U2.TS1": {
+   "code": "G4.U2.TS1.RTR",
+   "grade": 4,
+   "unit": 2,
+   "textSet": 1,
+   "selection": "Animal Adaptations",
+   "genre": "Expository Text",
+   "prompt": "Why are adaptations important? Use evidence from the text to support your response.",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "alive",
+      "vibrations",
+      "predator",
+      "camouflaged",
+      "plant",
+      "difficult",
+      "surviving",
+      "prey",
+      "safety",
+      "fur"
+     ],
+     "gapSentences": [
+      "Adaptations are important because they help animals stay _______________.",
+      "Some animals can sense small _______________ on the ground.",
+      "This helps them know when a _______________ is nearby so they can get to _______________.",
+      "Other animals change their coloring so they are _______________.",
+      "Phasmids look like a _______________, so predators cannot see them easily.",
+      "Without adaptations, animals would have a more _______________ time _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "Adaptations are important because ______________________.",
+      "An example of an adaptation is ______________________.",
+      "This adaptation is important because ______________________.",
+      "Another kind of adaptation is ______________________.",
+      "The text says that ______________________.",
+      "This evidence shows that ______________________.",
+      "Without adaptations, animals would ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Why are adaptations important? Use evidence from the text to support your response.",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to the question",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of at least two different kinds of adaptations"
+     ],
+     "challengeStarter": "Adaptations are important because __________________. One example from the text is __________________, which helps animals __________________. Another kind of adaptation is __________________. For instance, __________________. This proves that __________________. Without these adaptations, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Adaptations are important because they help animals stay alive. Some animals can sense small vibrations on the ground. This helps them know when a predator is nearby so they can get to safety. Other animals change their coloring so they are camouflaged. Phasmids look like a plant, so predators cannot see them easily. Without adaptations, animals would have a more difficult time surviving.",
+    "ON": "Adaptations are important because they help animals stay alive. An example of an adaptation is being able to sense small vibrations on the ground. This adaptation is important because it helps animals know when a predator is nearby so they can get to safety. Another kind of adaptation is changing color to blend in with the surroundings. The text says that phasmids camouflage themselves by looking like a plant. This evidence shows that adaptations help animals hide from predators. Without adaptations, animals would have a more difficult time surviving.",
+    "ABOVE": "Adaptations are important because they help animals survive in their environments. One example from the text is sensing small vibrations on the ground, which helps animals know when a predator is sneaking up on them. Another kind of adaptation is camouflage. For instance, phasmids look like plants, so predators cannot see them easily. This proves that adaptations protect animals from being eaten. Without these adaptations, animals would have a much more difficult time staying alive."
+   }
+  },
+  "G4.U2.TS2": {
+   "code": "G4.U2.TS2.RTR",
+   "grade": 4,
+   "unit": 2,
+   "textSet": 2,
+   "selection": "The Ant and the Grasshopper",
+   "genre": "Drama",
+   "prompt": "What is your opinion of Ant and his actions in this story? Why do you feel that way?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "agree",
+      "rainwater",
+      "lazy",
+      "giving",
+      "lesson",
+      "friend",
+      "cares",
+      "selfish",
+      "prepared",
+      "dry"
+     ],
+     "gapSentences": [
+      "I _______________ with Ant's actions in the story.",
+      "The ants stored _______________ to use in the _______________ season.",
+      "Grasshopper was _______________ and did not think ahead.",
+      "Ant did the right thing by _______________ Grasshopper some water.",
+      "Ant wants Grasshopper to learn his _______________.",
+      "I think Ant is a good _______________ because he _______________ about Grasshopper."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "My opinion of Ant is that ______________________.",
+      "In the story, Ant ______________________.",
+      "One piece of evidence from the text is ______________________.",
+      "Grasshopper did not ______________________, so ______________________.",
+      "Ant shows he cares about Grasshopper when ______________________.",
+      "This shows that Ant ______________________.",
+      "I feel this way because ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: What is your opinion of Ant and his actions in this story? Why do you feel that way?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear opinion about Ant and his actions",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your opinion",
+      "A comparison between Ant's actions and Grasshopper's actions"
+     ],
+     "challengeStarter": "In my opinion, Ant is __________________ because __________________. During the rainy season, Ant __________________, while Grasshopper __________________. The strongest evidence is __________________. This proves that __________________. Unlike Grasshopper, Ant __________________. Overall, I feel that __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "I agree with Ant's actions in the story. The ants stored rainwater to use in the dry season. Grasshopper was lazy and did not think ahead. Ant did the right thing by giving Grasshopper some water. Ant wants Grasshopper to learn his lesson. I think Ant is a good friend because he cares about Grasshopper.",
+    "ON": "My opinion of Ant is that he is a hardworking and caring friend. In the story, Ant stores up rainwater during the rainy season to use in the dry season. One piece of evidence from the text is that Ant gives Grasshopper some water when he is thirsty. Grasshopper did not think ahead, so he has no water in the dry season. Ant shows he cares about Grasshopper when he shares water even though Grasshopper was lazy. This shows that Ant wants Grasshopper to learn his lesson but does not want him to suffer. I feel this way because a good friend helps you and also teaches you to do better.",
+    "ABOVE": "In my opinion, Ant is a good friend because he is both responsible and kind. During the rainy season, Ant stores up rainwater, while Grasshopper relaxes and does not think ahead. The strongest evidence is that Ant still gives Grasshopper some water when the dry season comes. This proves that Ant cares about Grasshopper and does not want him to be thirsty. Unlike Grasshopper, Ant plans for the future and works hard. Overall, I feel that Ant did the right thing because he helped Grasshopper and taught him that laziness does not pay off."
+   }
+  },
+  "G4.U2.TS3": {
+   "code": "G4.U2.TS3.RTR",
+   "grade": 4,
+   "unit": 2,
+   "textSet": 3,
+   "selection": "Dog",
+   "genre": "Poetry | Poems: \"Dog,\" \"The Eagle,\" \"Chimpanzee,\" \"The Rat\"",
+   "prompt": "How do you feel about each animal after reading the poems? Explain your answer.",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "good",
+      "playful",
+      "thunderbolt",
+      "powerful",
+      "tools",
+      "smart",
+      "gross",
+      "chews",
+      "descriptive",
+      "awe"
+     ],
+     "gapSentences": [
+      "After reading \"Dog,\" I felt _______________ because the dog sounds fun and _______________.",
+      "In \"The Eagle,\" the eagle is compared to a _______________, which is very strong.",
+      "The eagle seems more _______________ than the ocean, so I feel _______________.",
+      "The chimpanzee uses _______________ to find and eat insects, so it seems _______________.",
+      "After reading \"The Rat,\" I felt _______________ because the rat _______________ through concrete.",
+      "The poets use _______________ words to show what each animal is like."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "After reading \"Dog,\" I felt ______________________ because ______________________.",
+      "In \"The Eagle,\" the poet compares the eagle to ______________________, which makes me feel ______________________.",
+      "In \"Chimpanzee,\" the chimpanzee seems ______________________ because ______________________.",
+      "After reading \"The Rat,\" I felt ______________________ because ______________________.",
+      "One line from the poems that shows my feelings is ______________________.",
+      "The animal I liked most is ______________________ because ______________________.",
+      "Overall, the poems made me feel ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: How do you feel about each animal after reading the poems? Explain your answer.",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear statement of how you feel about each animal",
+      "Words or lines quoted from the poems",
+      "Explanation of how the poet's words create that feeling",
+      "A comparison of your feelings about at least two animals"
+     ],
+     "challengeStarter": "After reading the poems, my feelings about each animal were different. I felt __________________ about the dog because __________________. The eagle made me feel __________________ because the poet __________________. The chimpanzee seemed __________________ since __________________. However, the rat made me feel __________________ because __________________. Overall, the poets' descriptive language __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "After reading \"Dog,\" I felt good because the dog sounds fun and playful. In \"The Eagle,\" the eagle is compared to a thunderbolt, which is very strong. The eagle seems more powerful than the ocean, so I feel awe. The chimpanzee uses tools to find and eat insects, so it seems smart. After reading \"The Rat,\" I felt gross because the rat chews through concrete. The poets use descriptive words to show what each animal is like.",
+    "ON": "After reading \"Dog,\" I felt good because the dog sounds fun and playful. In \"The Eagle,\" the poet compares the eagle to a thunderbolt, which makes me feel awe. In \"Chimpanzee,\" the chimpanzee seems very smart because it uses tools to find and eat insects. After reading \"The Rat,\" I felt gross because the rat brings the outdoors inside and likes to \"chew through concrete.\" One line from the poems that shows my feelings is that the sea \"crawls\" beneath the eagle. The animal I liked most is the dog because it flies back into the arms of the speaker. Overall, the poems made me feel many different feelings about animals.",
+    "ABOVE": "After reading the poems, my feelings about each animal were different. I felt good about the dog because it sounds fun and playful when it flies back into the speaker's arms. The eagle made me feel awe because the poet compares it to a thunderbolt and says the sea \"crawls\" beneath it. The chimpanzee seemed smart since it uses tools to find and eat insects, just like humans. However, the rat made me feel gross because it likes to \"chew through concrete\" and bring the outdoors inside. Overall, the poets' descriptive language helped me picture each animal and decide how I feel about it."
+   }
+  },
+  "G4.U3.TS1": {
+   "code": "G4.U3.TS1.RTR",
+   "grade": 4,
+   "unit": 3,
+   "textSet": 1,
+   "selection": "Remembering Hurricane Katrina",
+   "genre": "Realistic Fiction",
+   "prompt": "How did Hurricane Katrina affect Hector? What can readers learn from this?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "newscast",
+      "teddy bear",
+      "help",
+      "toys",
+      "need",
+      "difference",
+      "good",
+      "volunteer",
+      "donations",
+      "generosity"
+     ],
+     "gapSentences": [
+      "As a boy, Hector saw a _______________ about people who lost their homes in Hurricane Katrina.",
+      "He noticed a little boy hugging a _______________.",
+      "Seeing this made Hector want to _______________.",
+      "Hector and his friends collected _______________ for the children in the Astrodome.",
+      "As a grown-up, Hector continues to help people in _______________.",
+      "Readers learn that helping others can make a _______________ and make you feel _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "Hurricane Katrina affected Hector because ______________________.",
+      "Hector thinks back to the days following Hurricane Katrina because ______________________.",
+      "When Hector saw ______________________, he decided to ______________________.",
+      "Hector decides to help the children by ______________________.",
+      "As a grown-up, Hector ______________________.",
+      "This shows that ______________________.",
+      "From Hector's actions, readers can learn that ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: How did Hurricane Katrina affect Hector? What can readers learn from this?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to both parts of the question",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of Hector as a boy and Hector as a grown-up"
+     ],
+     "challengeStarter": "Hurricane Katrina affected Hector by __________________. When he saw __________________ on the newscast, he decided to __________________. With his friends' help, he __________________. The strongest evidence is __________________. This shows that __________________. Even as a grown-up, Hector __________________. From Hector's experience, readers learn that __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "As a boy, Hector saw a newscast about people who lost their homes in Hurricane Katrina. He noticed a little boy hugging a teddy bear. Seeing this made Hector want to help. Hector and his friends collected toys for the children in the Astrodome. As a grown-up, Hector continues to help people in need. Readers learn that helping others can make a difference and make you feel good.",
+    "ON": "Hurricane Katrina affected Hector because it made him want to help people in need. Hector thinks back to the days following Hurricane Katrina because they changed his life. When Hector saw a little boy hugging a teddy bear on the newscast, he decided to help the children living in the Astrodome. Hector decides to help the children by collecting toy donations with his friends at their volunteer club. As a grown-up, Hector continues to help people in need. This shows that one experience can change how a person acts for the rest of his life. From Hector's actions, readers can learn that helping others makes a difference and can make you feel good.",
+    "ABOVE": "Hurricane Katrina affected Hector by showing him how much people suffer after a disaster. When he saw a little boy hugging a teddy bear on the newscast, he decided to help the children living in the Astrodome. With his friends' help, he planned a way to collect toy donations for them. The strongest evidence is that the children were very happy to get the toys. This shows that Hector and his friends made a real difference. Even as a grown-up, Hector continues to help people in need. From Hector's experience, readers learn that anyone can help others and that helping can make you feel good."
+   }
+  },
+  "G4.U3.TS2": {
+   "code": "G4.U3.TS2.RTR",
+   "grade": 4,
+   "unit": 3,
+   "textSet": 2,
+   "selection": "Judy's Appalachia",
+   "genre": "Biography",
+   "prompt": "How do Judy's actions help readers understand why it is important to stand up for what is right?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "mining",
+      "forests",
+      "pollution",
+      "sick",
+      "protested",
+      "protect",
+      "better",
+      "injustice",
+      "courage",
+      "community"
+     ],
+     "gapSentences": [
+      "Mountaintop removal _______________ was taking place in Judy's community.",
+      "This kind of mining destroyed whole _______________ and created a lot of _______________.",
+      "It made people living in the towns below the mountains _______________.",
+      "Judy _______________ against the mining and pushed for changes.",
+      "Slowly, changes were made \"to _______________ communities in mining areas.\"",
+      "Judy's actions show that standing up for what is right can make things _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "It is important to stand up for what is right because ______________________.",
+      "Judy Bonds realized she needed to protest against mountaintop removal mining when ______________________.",
+      "Some effects of mountaintop removal mining were ______________________.",
+      "According to the selection, \"______________________.\"",
+      "Judy stood up for what was right by ______________________.",
+      "Because of Judy's actions, ______________________.",
+      "Judy's story helps readers understand that ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: How do Judy's actions help readers understand why it is important to stand up for what is right?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about why standing up for what is right is important",
+      "Evidence from the text (use quotation marks around exact words)",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of Judy's community before and after her actions"
+     ],
+     "challengeStarter": "Judy's actions help readers understand that standing up for what is right is important because __________________. In her community, mountaintop removal mining __________________. According to the selection, it made people \"__________________.\" Judy decided to __________________. This proves that __________________. Because Judy did not give up, __________________. Overall, her story shows that __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Mountaintop removal mining was taking place in Judy's community. This kind of mining destroyed whole forests and created a lot of pollution. It made people living in the towns below the mountains sick. Judy protested against the mining and pushed for changes. Slowly, changes were made \"to protect communities in mining areas.\" Judy's actions show that standing up for what is right can make things better.",
+    "ON": "It is important to stand up for what is right because that is how things change for the better. Judy Bonds realized she needed to protest against mountaintop removal mining when she saw how it was hurting her community. Some effects of mountaintop removal mining were destroyed forests and a lot of pollution. According to the selection, the mining made \"people living in the towns below the mountains sick.\" Judy stood up for what was right by protesting and pushing for changes to the mining process. Because of Judy's actions, changes were made \"to protect communities in mining areas.\" Judy's story helps readers understand that one brave person can make a positive change.",
+    "ABOVE": "Judy's actions help readers understand that standing up for what is right is important because it can make life better for others. In her community, mountaintop removal mining destroyed whole forests and created a lot of pollution. According to the selection, it made \"people living in the towns below the mountains sick.\" Judy decided to protest against the mining and push for changes. This proves that one person's courage can lead to real change. Because Judy did not give up, changes were made \"to protect communities in mining areas.\" Overall, her story shows that standing up against injustice makes a difference."
+   }
+  },
+  "G4.U3.TS3": {
+   "code": "G4.U3.TS3.RTR",
+   "grade": 4,
+   "unit": 3,
+   "textSet": 3,
+   "selection": "Food Fight",
+   "genre": "Argumentative Text",
+   "prompt": "What does reading opposing claims, or arguments, about genetically modified food help you understand?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "opposing",
+      "rice",
+      "benefit",
+      "allergies",
+      "decide",
+      "both",
+      "decision",
+      "concern",
+      "healthier",
+      "one"
+     ],
+     "gapSentences": [
+      "Reading _______________ arguments about GM food helps me understand the issue.",
+      "Some GM foods, like golden _______________, are \"extra nutritious.\"",
+      "This is one _______________ of genetically modified food.",
+      "But there is also a _______________ that GM foods may trigger _______________.",
+      "It is not easy to _______________ whether GM food is good or bad.",
+      "Reading _______________ sides helps me make a better _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "Reading opposing claims about genetically modified food helps me understand ______________________.",
+      "One benefit of genetically modifying food is ______________________.",
+      "The text says that \"______________________.\"",
+      "One reason why some people are opposed to genetically modified food is ______________________.",
+      "Another concern is ______________________.",
+      "Reading both sides of the argument helps me to ______________________.",
+      "Therefore, I think reading opposing claims is important because ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: What does reading opposing claims, or arguments, about genetically modified food help you understand?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to the question",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison between the two sides of the argument"
+     ],
+     "challengeStarter": "Although the two sides disagree about genetically modified food, reading both arguments helps me understand __________________. One side argues that __________________. For example, the text says __________________. However, the other side is concerned that __________________. This shows that __________________. If I only read one side, __________________. Overall, reading opposing claims helps me __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Reading opposing arguments about GM food helps me understand the issue. Some GM foods, like golden rice, are \"extra nutritious.\" This is one benefit of genetically modified food. But there is also a concern that GM foods may trigger allergies. It is not easy to decide whether GM food is good or bad. Reading both sides helps me make a better decision.",
+    "ON": "Reading opposing claims about genetically modified food helps me understand both the positive and negative sides. One benefit of genetically modifying food is that it can make food healthier. The text says that some modified foods, like golden rice, are \"extra nutritious.\" One reason why some people are opposed to genetically modified food is that \"GM foods may trigger allergies.\" Another concern is that GM foods may leave foreign substances in our bodies. Reading both sides of the argument helps me to make a better decision about which side I agree with. Therefore, I think reading opposing claims is important because you cannot make up your mind by reading only one side.",
+    "ABOVE": "Although the two sides disagree about genetically modified food, reading both arguments helps me understand that the issue is not simple. One side argues that GM food can be healthier. For example, the text says golden rice is \"extra nutritious.\" However, the other side is concerned that \"GM foods may trigger allergies\" and leave foreign substances in our bodies. This shows that GM food has both benefits and risks. If I only read one side, I could not make a fair decision. Overall, reading opposing claims helps me understand why each side feels the way it does."
+   }
+  },
+  "G4.U4.TS1": {
+   "code": "G4.U4.TS1.RTR",
+   "grade": 4,
+   "unit": 4,
+   "textSet": 1,
+   "selection": "A World Without Rules",
+   "genre": "Narrative Nonfiction",
+   "prompt": "Do you agree with the author that laws and government are important?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "agree",
+      "safe",
+      "laws",
+      "pollution",
+      "army",
+      "dangerous",
+      "democracy",
+      "legislation",
+      "rules",
+      "protect"
+     ],
+     "gapSentences": [
+      "I _______________ with the author that laws and government are important.",
+      "One reason they are important is that they keep us _______________.",
+      "Without traffic _______________, cars would \"zip by at an alarming speed.\"",
+      "The Environmental Protection Agency inspects the water and air for _______________.",
+      "The government also runs the _______________ that helps _______________ our country.",
+      "A world without rules would be very _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "I agree / disagree with the author because ______________________.",
+      "I think this because ______________________.",
+      "One example the author uses is ______________________.",
+      "Without laws, ______________________.",
+      "The author also explains that the government ______________________.",
+      "For example, ______________________.",
+      "In conclusion, laws and government are ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Do you agree with the author that laws and government are important?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim: agree or disagree",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your opinion",
+      "Transition words to connect ideas (for example, also, in addition, consequently)"
+     ],
+     "challengeStarter": "I agree / disagree with the author that laws and government are important because __________________. In the first place, the author describes a world without laws, where __________________. For example, __________________. In addition, the government __________________, such as __________________. Consequently, __________________. In conclusion, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "I agree with the author that laws and government are important. One reason they are important is that they keep us safe. Without traffic laws, cars would \"zip by at an alarming speed.\" The Environmental Protection Agency inspects the water and air for pollution. The government also runs the army that helps protect our country. A world without rules would be very dangerous.",
+    "ON": "I agree with the author because laws and government keep us safe. I think this because a world without rules would be very dangerous. One example the author uses is traffic laws. Without laws, cars would \"zip by at an alarming speed,\" and it would be hard to cross the street. The author also explains that the government runs the Environmental Protection Agency, which inspects the water and air for pollution. For example, the government also runs the army that protects us from other countries. In conclusion, laws and government are important because they protect people.",
+    "ABOVE": "I agree with the author that laws and government are important because they keep us safe. In the first place, the author describes a world without laws, where it would be hard to cross the street. For example, cars would \"zip by at an alarming speed.\" In addition, the government protects us through agencies, such as the Environmental Protection Agency, which \"made a commitment to inspect the water and air for pollution.\" Consequently, people can live healthier and safer lives. In conclusion, laws and government are necessary, and the government also runs the army to protect our country."
+   }
+  },
+  "G4.U4.TS2": {
+   "code": "G4.U4.TS2.RTR",
+   "grade": 4,
+   "unit": 4,
+   "textSet": 2,
+   "selection": "A Telephone Mix-Up",
+   "genre": "Historical Fiction",
+   "prompt": "How does setting contribute to the story's plot?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "new",
+      "mix-up",
+      "hear",
+      "farm",
+      "veterinarian",
+      "setting",
+      "happened",
+      "plot",
+      "telephone",
+      "doctor"
+     ],
+     "gapSentences": [
+      "The story is set in a time when telephones were _______________.",
+      "The main event of the story is a _______________ caused by the telephone.",
+      "When Dr. Ericksen gets his first telephone call, he cannot clearly _______________ the message.",
+      "Dr. Ericksen goes to the Turner _______________.",
+      "He realizes that Mr. Turner needed Dr. Kerrigan, a _______________.",
+      "Without this historical _______________, the mix-up would not have _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "In the story, the historical setting is ______________________.",
+      "The main story event is ______________________.",
+      "When Dr. Ericksen receives his first telephone call, ______________________.",
+      "Because telephones were new, ______________________.",
+      "One piece of evidence from the text is ______________________.",
+      "The historical setting affects the events of the story because ______________________.",
+      "If the story took place today, ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: How does setting contribute to the story's plot?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about how the setting affects the plot",
+      "Evidence from the text (describe events in the present tense)",
+      "Explanation of why the evidence supports your answer",
+      "A comparison: how the plot would be different in a modern setting"
+     ],
+     "challengeStarter": "The setting contributes to the plot because the story takes place __________________. The main event is __________________. When Dr. Ericksen receives his first telephone call, he __________________. As a result, he goes to __________________ and realizes that __________________. This shows that __________________. If the story took place today, __________________. Overall, the historical setting __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "The story is set in a time when telephones were new. The main event of the story is a mix-up caused by the telephone. When Dr. Ericksen gets his first telephone call, he cannot clearly hear the message. Dr. Ericksen goes to the Turner farm. He realizes that Mr. Turner needed Dr. Kerrigan, a veterinarian. Without this historical setting, the mix-up would not have happened.",
+    "ON": "In the story, the historical setting is a time when telephones were new. The main story event is a mix-up caused by the newness of telephones. When Dr. Ericksen receives his first telephone call, he cannot clearly hear the message. Because telephones were new, people did not know how to use them well. One piece of evidence from the text is that Dr. Ericksen goes to the Turner farm and finds out that Mr. Turner needed Dr. Kerrigan, a veterinarian. The historical setting affects the events of the story because the mix-up happens only because the telephone is new. If the story took place today, the message would be clear and the mix-up would not happen.",
+    "ABOVE": "The setting contributes to the plot because the story takes place at a time when telephones are new. The main event is a mix-up caused by the telephone. When Dr. Ericksen receives his first telephone call, he cannot clearly hear the message. As a result, he goes to the Turner farm and realizes that Mr. Turner needed Dr. Kerrigan, a veterinarian. This shows that the new technology causes the problem in the story. If the story took place today, the call would be clear and there would be no mix-up. Overall, the historical setting creates the main event of the plot."
+   }
+  },
+  "G4.U4.TS3": {
+   "code": "G4.U4.TS3.RTR",
+   "grade": 4,
+   "unit": 4,
+   "textSet": 3,
+   "selection": "Sing to Me",
+   "genre": "Narrative Poetry | Poems: \"Sing to Me,\" \"The Climb\"",
+   "prompt": "According to the poems, what helps people become successful?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "trying",
+      "piano",
+      "this",
+      "mother",
+      "tree",
+      "top",
+      "accept",
+      "brother",
+      "practice",
+      "give up"
+     ],
+     "gapSentences": [
+      "In both poems, the speakers keep _______________ even when a task is hard.",
+      "In \"Sing to Me,\" the speaker wants to play the _______________ well.",
+      "The speaker thinks, \"I can't do _______________,\" but he keeps practicing.",
+      "His _______________ helps him and tells him it took her a long time to learn.",
+      "In \"The Climb,\" the speaker tries to climb a _______________ and finally makes it to the _______________.",
+      "To be successful, people need to keep trying and _______________ help from others."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "According to the poems, people become successful by ______________________.",
+      "In both of the poems, the speakers ______________________.",
+      "In \"Sing to Me,\" the speaker achieves success by ______________________.",
+      "One line from the poem that shows this is \"______________________.\"",
+      "In \"The Climb,\" the speaker achieves success by ______________________.",
+      "Both poems show that ______________________.",
+      "Therefore, what helps people become successful is ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: According to the poems, what helps people become successful?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to the question",
+      "Evidence from the poems (use quotation marks)",
+      "Explanation of why the evidence supports your answer",
+      "A comparison between \"Sing to Me\" and \"The Climb\""
+     ],
+     "challengeStarter": "According to both poems, what helps people become successful is __________________. In \"Sing to Me,\" the speaker __________________, but he __________________. The line \"__________________\" shows that __________________. Similarly, in \"The Climb,\" the speaker __________________. This proves that __________________. However, \"Sing to Me\" also shows that __________________. Overall, both poems teach that __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "In both poems, the speakers keep trying even when a task is hard. In \"Sing to Me,\" the speaker wants to play the piano well. The speaker thinks, \"I can't do this,\" but he keeps practicing. His mother helps him and tells him it took her a long time to learn. In \"The Climb,\" the speaker tries to climb a tree and finally makes it to the top. To be successful, people need to keep trying and accept help from others.",
+    "ON": "According to the poems, people become successful by trying again and again, even when something is hard. In both of the poems, the speakers keep working at their goals. In \"Sing to Me,\" the speaker achieves success by practicing the piano and accepting help from his mother. One line from the poem that shows this is \"I can't do this. / I can't do this,\" but he keeps practicing anyway. In \"The Climb,\" the speaker achieves success by trying to climb the tree again after she fails. Both poems show that people should not give up. Therefore, what helps people become successful is hard work, practice, and help from others.",
+    "ABOVE": "According to both poems, what helps people become successful is to keep trying, even when a task is hard. In \"Sing to Me,\" the speaker keeps failing at the piano, but he keeps practicing. The line \"I can't do this. / I can't do this\" shows that he feels like giving up but does not. Similarly, in \"The Climb,\" the speaker does not make it up the tree at first, but later she tries again and reaches the top. This proves that success can take time. However, \"Sing to Me\" also shows that accepting help and learning from others can help you succeed. Overall, both poems teach that hard work and not giving up lead to success."
+   }
+  },
+  "G4.U5.TS1": {
+   "code": "G4.U5.TS1.RTR",
+   "grade": 4,
+   "unit": 5,
+   "textSet": 1,
+   "selection": "Your World Up Close",
+   "genre": "Expository Text",
+   "prompt": "Why are electron microscopes useful?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "small",
+      "snowflake",
+      "diseases",
+      "behave",
+      "fruit",
+      "natural",
+      "magnify",
+      "scientists",
+      "changes",
+      "eyes"
+     ],
+     "gapSentences": [
+      "Electron microscopes let us see things too _______________ to see with our _______________.",
+      "They show how a _______________ actually dissolves.",
+      "_______________ use them to see what causes diseases.",
+      "This helps scientists understand how these _______________ \"behave.\"",
+      "Electron microscopes can show what happens when _______________ decays.",
+      "They help explain things that happen in the _______________ world."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "Electron microscopes are useful because ______________________.",
+      "They allow us to see ______________________.",
+      "One example from the text is ______________________.",
+      "According to the text, scientists ______________________.",
+      "Another example the text gives is ______________________.",
+      "This evidence shows that ______________________.",
+      "Therefore, electron microscopes help us ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Why are electron microscopes useful?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to the question",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison between what our eyes can see and what an electron microscope can see"
+     ],
+     "challengeStarter": "Electron microscopes are useful because __________________. Unlike our eyes, they __________________. For example, the text explains that __________________. According to the text, they also help scientists __________________. Another example is __________________. This proves that __________________. Overall, electron microscopes help us understand __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Electron microscopes let us see things too small to see with our eyes. They show how a snowflake actually dissolves. Scientists use them to see what causes diseases. This helps scientists understand how these diseases \"behave.\" Electron microscopes can show what happens when fruit decays. They help explain things that happen in the natural world.",
+    "ON": "Electron microscopes are useful because they let us see things too small to see with our eyes. They allow us to see how a snowflake actually dissolves. One example from the text is that scientists use electron microscopes to see what causes diseases. According to the text, scientists now better understand how \"these diseases behave.\" Another example the text gives is fruit, because the microscope shows what happens when fruit decays. This evidence shows that electron microscopes detect changes much sooner than our eyes can. Therefore, electron microscopes help us learn about diseases and the natural world.",
+    "ABOVE": "Electron microscopes are useful because they let us see things that are too small for our eyes. Unlike our eyes, they can show tiny details, such as how a snowflake actually dissolves. For example, the text explains that scientists use them to see what causes diseases. According to the text, they also help scientists understand how \"these diseases behave.\" Another example is fruit, since the microscope shows when fruit begins to decay much sooner than we can see it. This proves that electron microscopes help scientists make important discoveries. Overall, electron microscopes help us understand diseases and things that happen in the natural world."
+   }
+  },
+  "G4.U5.TS2": {
+   "code": "G4.U5.TS2.RTR",
+   "grade": 4,
+   "unit": 5,
+   "textSet": 2,
+   "selection": "Sadie's Game",
+   "genre": "Realistic Fiction",
+   "prompt": "What can readers learn from Sadie's relationship with Richie?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "brother",
+      "care",
+      "friends",
+      "flowers",
+      "friend",
+      "show up",
+      "basketball",
+      "unimportant",
+      "argument",
+      "accident"
+     ],
+     "gapSentences": [
+      "Sadie and her _______________ Richie had an _______________ before her basketball game.",
+      "Sadie felt that Richie didn't _______________ about her anymore.",
+      "Richie spends more time with his new _______________ and new car.",
+      "Richie comes to the game and brings _______________.",
+      "He tells Sadie that she is his best _______________.",
+      "Readers learn that it is important to _______________ for people when it really matters."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "From Sadie's relationship with Richie, readers can learn that ______________________.",
+      "At the beginning of the story, Sadie feels ______________________ because ______________________.",
+      "Richie taught Sadie ______________________.",
+      "Sadie feels unimportant to Richie because ______________________.",
+      "However, Richie shows he cares when ______________________.",
+      "Richie tells Sadie, \"______________________.\"",
+      "This teaches readers that ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: What can readers learn from Sadie's relationship with Richie?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about what readers can learn",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of how Sadie feels at the beginning and at the end"
+     ],
+     "challengeStarter": "Sadie's relationship with Richie teaches readers that __________________. At the beginning of the story, Sadie feels __________________ because Richie __________________. However, Richie __________________ and tells her, \"__________________.\" This proves that __________________. As a result, Sadie __________________. Overall, readers learn that __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Sadie and her brother Richie had an argument before her basketball game. Sadie felt that Richie didn't care about her anymore. Richie spends more time with his new friends and new car. Richie comes to the game and brings flowers. He tells Sadie that she is his best friend. Readers learn that it is important to show up for people when it really matters.",
+    "ON": "From Sadie's relationship with Richie, readers can learn that someone can have new friends and still care about you. At the beginning of the story, Sadie feels sad and plays badly because she and Richie argued about him not coming to her game. Richie taught Sadie how to play basketball after her accident. Sadie feels unimportant to Richie because he spends more time with his new friends and new car. However, Richie shows he cares when he comes to the game and brings flowers. Richie tells Sadie, \"It's great to have a lot of new friends, but I realized that you're my best friend.\" This teaches readers that it is important to show up for people when it really matters.",
+    "ABOVE": "Sadie's relationship with Richie teaches readers that people who love you still care, even when they have new interests. At the beginning of the story, Sadie feels unimportant because Richie spends his time with new friends and his new car. However, Richie comes to her game with flowers and tells her, \"It's great to have a lot of new friends, but I realized that you're my best friend.\" This proves that Richie still cares about his sister. As a result, Sadie feels good and plays well. Overall, readers learn that it is important to show up and be there for people when it really matters to them."
+   }
+  },
+  "G4.U5.TS3": {
+   "code": "G4.U5.TS3.RTR",
+   "grade": 4,
+   "unit": 5,
+   "textSet": 3,
+   "selection": "The Founding of Jamestown",
+   "genre": "Expository Text",
+   "prompt": "Why is knowing about Jamestown important?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "history",
+      "permanent",
+      "water",
+      "beads",
+      "artifacts",
+      "government",
+      "John Smith",
+      "Powhatan",
+      "settlers",
+      "archaeology"
+     ],
+     "gapSentences": [
+      "Knowing about Jamestown helps us understand the _______________ of our country.",
+      "Jamestown was the first successful _______________ English settlement in America.",
+      "The _______________ struggled to survive because the _______________ was unsafe to drink.",
+      "They traded English copper and _______________ with local tribes for food.",
+      "Indian _______________ found in the fort show a close relationship between some English and Native American people.",
+      "Jamestown was the start of representative _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "Knowing about Jamestown is important because ______________________.",
+      "Jamestown was ______________________.",
+      "The settlers struggled because ______________________.",
+      "One piece of evidence from the text is ______________________.",
+      "The artifacts found in the fort show that ______________________.",
+      "It is also important to know that Jamestown ______________________.",
+      "Therefore, learning about Jamestown helps us ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Why is knowing about Jamestown important?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to the question",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A connection between Jamestown and our country today"
+     ],
+     "challengeStarter": "Knowing about Jamestown is important because __________________. It was the first __________________. The settlers faced challenges such as __________________, so they __________________. In addition, evidence such as __________________ shows that __________________. According to the selection, Jamestown was also __________________. This proves that __________________. Overall, Jamestown matters today because __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Knowing about Jamestown helps us understand the history of our country. Jamestown was the first successful permanent English settlement in America. The settlers struggled to survive because the water was unsafe to drink. They traded English copper and beads with local tribes for food. Indian artifacts found in the fort show a close relationship between some English and Native American people. Jamestown was the start of representative government.",
+    "ON": "Knowing about Jamestown is important because it helps us understand the history of our country. Jamestown was the first successful permanent English settlement in America. The settlers struggled because the water was unsafe to drink and it was hard to find food. One piece of evidence from the text is that the settlers traded English copper and beads with local tribes for food. The artifacts found in the fort show that there was a close relationship between some English and Native American people. It is also important to know that Jamestown was the start of representative government. Therefore, learning about Jamestown helps us understand how our country began.",
+    "ABOVE": "Knowing about Jamestown is important because it helps us understand the history of our country. It was the first successful permanent English settlement in America. The settlers faced challenges such as unsafe water and little food, so they traded copper and beads with local tribes. In addition, evidence such as Indian artifacts found in the fort shows that some English and Native American people had a close relationship. According to the selection, Jamestown was also where the first representative assembly in English North America met. This proves that Jamestown was the start of representative government. Overall, Jamestown matters today because important parts of our history and government began there."
+   }
+  },
+  "G4.U6.TS1": {
+   "code": "G4.U6.TS1.RTR",
+   "grade": 4,
+   "unit": 6,
+   "textSet": 1,
+   "selection": "The Great Energy Debate",
+   "genre": "Narrative Nonfiction",
+   "prompt": "Do you think it is important to know the benefits and drawbacks of different energy sources? Explain your response.",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "drawbacks",
+      "informed",
+      "nonrenewable",
+      "cars",
+      "renewable",
+      "expensive",
+      "energy",
+      "benefits",
+      "pollution",
+      "efficient"
+     ],
+     "gapSentences": [
+      "I think it is important to know the _______________ and _______________ of energy sources.",
+      "This helps people make _______________ decisions about what sources to use.",
+      "Fossil fuels are _______________ and pollute the air.",
+      "\"Most of our _______________ and factories\" use fossil fuels.",
+      "Wind energy is _______________ and doesn't damage the environment, but it is _______________.",
+      "The United States uses 30 percent of the world's _______________, so our decisions affect the world."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "I think it is important / not important to know the benefits and drawbacks because ______________________.",
+      "One benefit of ______________________ is ______________________.",
+      "One drawback of ______________________ is ______________________.",
+      "The text says that \"______________________.\"",
+      "This evidence supports my opinion because ______________________.",
+      "Another example is ______________________.",
+      "Therefore, knowing about energy sources helps people ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Do you think it is important to know the benefits and drawbacks of different energy sources? Explain your response.",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about your opinion",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your opinion",
+      "A comparison of at least two energy sources"
+     ],
+     "challengeStarter": "Although every energy source has benefits and drawbacks, I believe it is important to know them because __________________. For example, fossil fuels __________________, but __________________. On the other hand, wind energy __________________; however, __________________. The text also states that __________________. This proves that __________________. Overall, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "I think it is important to know the benefits and drawbacks of energy sources. This helps people make informed decisions about what sources to use. Fossil fuels are nonrenewable and pollute the air. \"Most of our cars and factories\" use fossil fuels. Wind energy is renewable and doesn't damage the environment, but it is expensive. The United States uses 30 percent of the world's energy, so our decisions affect the world.",
+    "ON": "I think it is important to know the benefits and drawbacks because it helps people make informed decisions. One benefit of wind energy is that it is renewable and does not damage the environment. One drawback of fossil fuels is that they are nonrenewable and pollute the air. The text says that \"most of our cars and factories\" use fossil fuels. This evidence supports my opinion because changing from fossil fuels will be challenging, so people need to understand all the facts. Another example is that wind energy is expensive. Therefore, knowing about energy sources helps people choose wisely for themselves and for the world.",
+    "ABOVE": "Although every energy source has benefits and drawbacks, I believe it is important to know them because people need information to make good decisions. For example, fossil fuels are used by \"most of our cars and factories,\" but they are nonrenewable and pollute the air. On the other hand, wind energy is renewable and doesn't damage the environment; however, it is expensive. The text also states that the United States uses 30 percent of the world's energy. This proves that our choices affect the whole world. Overall, knowing the benefits and drawbacks helps people make informed decisions about energy."
+   }
+  },
+  "G4.U6.TS2": {
+   "code": "G4.U6.TS2.RTR",
+   "grade": 4,
+   "unit": 6,
+   "textSet": 2,
+   "selection": "A Surprise Reunion",
+   "genre": "Historical Fiction",
+   "prompt": "How do you know that traditions are important to Chief Cameahwait?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "Dance",
+      "food",
+      "game",
+      "sister",
+      "reunited",
+      "generations",
+      "tradition",
+      "honor",
+      "Lewis and Clark",
+      "ancestors"
+     ],
+     "gapSentences": [
+      "At the start of the story, the tribe prepares for the Rabbit _______________.",
+      "This tradition honors the rabbit as a source of _______________ and clothing.",
+      "The children play a traditional _______________ with a ball.",
+      "The game reminds Chief Cameahwait of his _______________.",
+      "At the end, he is so happy to be _______________ with his sister.",
+      "He tells _______________ that his people will tell stories and sing songs for _______________ to come."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "I know traditions are important to Chief Cameahwait because ______________________.",
+      "At the start of the story, his tribe ______________________.",
+      "The Rabbit Dance is important because ______________________.",
+      "When he hears the children playing, ______________________.",
+      "At the end of the story, Chief Cameahwait ______________________.",
+      "This shows that ______________________.",
+      "By saying the story will be told for generations, Chief Cameahwait ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: How do you know that traditions are important to Chief Cameahwait?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to the question",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "Evidence from both the beginning and the end of the story"
+     ],
+     "challengeStarter": "Traditions are clearly important to Chief Cameahwait because __________________. At the beginning of the story, __________________. When he hears __________________, it reminds him of __________________. At the end, after __________________, he tells Lewis and Clark that __________________. This proves that __________________. Overall, Chief Cameahwait not only respects traditions but also __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "At the start of the story, the tribe prepares for the Rabbit Dance. This tradition honors the rabbit as a source of food and clothing. The children play a traditional game with a ball. The game reminds Chief Cameahwait of his sister. At the end, he is so happy to be reunited with his sister. He tells Lewis and Clark that his people will tell stories and sing songs for generations to come.",
+    "ON": "I know traditions are important to Chief Cameahwait because his tribe celebrates them and he remembers them fondly. At the start of the story, his tribe is preparing for the Rabbit Dance. The Rabbit Dance is important because it honors the rabbit as a source of food and clothing. When he hears the children playing, he remembers how much he loved playing the traditional ball game with his sister. At the end of the story, Chief Cameahwait is overjoyed to be reunited with his sister. This shows that his family and his people's ways are very important to him. By saying the story will be told for generations, Chief Cameahwait is creating a new tradition.",
+    "ABOVE": "Traditions are clearly important to Chief Cameahwait because they connect him to his people and his family. At the beginning of the story, his tribe is preparing for the Rabbit Dance, which honors the rabbit as a source of food and clothing. When he hears the children playing a traditional ball game, it reminds him of how much he loved playing with his sister. At the end, after he is reunited with his sister, he tells Lewis and Clark that his people will tell stories and sing songs about it for generations. This proves that he values passing stories down. Overall, Chief Cameahwait not only respects traditions but also creates a new one."
+   }
+  },
+  "G4.U6.TS3": {
+   "code": "G4.U6.TS3.RTR",
+   "grade": 4,
+   "unit": 6,
+   "textSet": 3,
+   "selection": "Climbing Blue Hill",
+   "genre": "Poetry | Poems: \"Climbing Blue Hill,\" \"My Name Is Ivy,\" \"Collage\"",
+   "prompt": "What important lessons do the speakers in the poems learn?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "grandfather",
+      "top",
+      "nature",
+      "grow",
+      "hopes",
+      "family",
+      "blueberries",
+      "heart",
+      "brother",
+      "individuality"
+     ],
+     "gapSentences": [
+      "In \"Climbing Blue Hill,\" the speaker's _______________ takes the children on a hike.",
+      "He encourages them by saying the _______________ isn't much farther.",
+      "The speaker is comfortable in _______________ and they find sweet _______________ together.",
+      "In \"My Name Is Ivy,\" the speaker's mother wants her to _______________ and go wherever she likes.",
+      "The lesson is that her mother has strong _______________ for her.",
+      "In \"Collage,\" the speaker learns that she and her _______________ are made up of parts of each other."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "The speakers in the poems learn ______________________.",
+      "In \"Climbing Blue Hill,\" the speaker learns ______________________.",
+      "One line that shows this is \"______________________.\"",
+      "In \"My Name Is Ivy,\" the speaker learns that ______________________.",
+      "In \"Collage,\" the speaker realizes that ______________________.",
+      "All of the poems show that ______________________.",
+      "The most important lesson, in my opinion, is ______________________ because ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: What important lessons do the speakers in the poems learn?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about the lessons the speakers learn",
+      "Evidence from the poems (use quotation marks)",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of the lessons in at least two poems"
+     ],
+     "challengeStarter": "Although each poem is different, the speakers all learn important lessons about __________________. In \"Climbing Blue Hill,\" the speaker learns __________________. The line \"__________________\" shows that __________________. In \"My Name Is Ivy,\" the speaker discovers that __________________. Similarly, in \"Collage,\" __________________. This proves that __________________. Overall, the poems teach that __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "In \"Climbing Blue Hill,\" the speaker's grandfather takes the children on a hike. He encourages them by saying the top isn't much farther. The speaker is comfortable in nature and they find sweet blueberries together. In \"My Name Is Ivy,\" the speaker's mother wants her to grow and go wherever she likes. The lesson is that her mother has strong hopes for her. In \"Collage,\" the speaker learns that she and her family are made up of parts of each other.",
+    "ON": "The speakers in the poems learn important lessons about family and who they are. In \"Climbing Blue Hill,\" the speaker learns to be comfortable in nature with the grandfather and brother. One line that shows this is \"his words an echo of all the other times / he's had to urge us up a steep trail.\" In \"My Name Is Ivy,\" the speaker learns that her mother named her Ivy so she could grow and go wherever she likes. In \"Collage,\" the speaker realizes that she and her family are made up of parts of each other. All of the poems show that family shapes who we are. The most important lesson, in my opinion, is the one in \"Collage\" because it shows how close a family can be.",
+    "ABOVE": "Although each poem is different, the speakers all learn important lessons about family. In \"Climbing Blue Hill,\" the speaker learns to feel at home in nature because the grandfather has taken them hiking many times. The line \"his words an echo of all the other times / he's had to urge us up a steep trail\" shows that hiking together is a family habit. In \"My Name Is Ivy,\" the speaker discovers that her mother has strong hopes for her to grow and go wherever she likes. Similarly, in \"Collage,\" the speaker realizes that she and her family are made up of parts of each other. This proves that families shape who we become. Overall, the poems teach that family gives us love, hope, and a sense of who we are."
+   }
+  },
+  "G5.U1.TS1": {
+   "code": "G5.U1.TS1.RTR",
+   "grade": 5,
+   "unit": 1,
+   "textSet": 1,
+   "selection": "A Life in the Woods",
+   "genre": "Narrative Nonfiction",
+   "prompt": "How might Thoreau's life have been different had he not spent so much time in the woods?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "frustrated",
+      "nature",
+      "animals",
+      "journal",
+      "open-minded",
+      "inspired",
+      "book",
+      "noise",
+      "observe",
+      "woods"
+     ],
+     "gapSentences": [
+      "In the beginning, Thoreau felt unhappy and _______________ because of the _______________ in his family's house.",
+      "When he went outside, the sounds of _______________ made him want to live there and write.",
+      "In the woods, Thoreau saw and heard many _______________.",
+      "He recorded these experiences in his _______________.",
+      "He became more _______________ about how animals survived.",
+      "Without the woods, he might not have been _______________ to write a _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "If Thoreau had not spent so much time in the woods, ______________________.",
+      "In the beginning, Thoreau felt ______________________ because ______________________.",
+      "Thoreau's desire for change led him to ______________________.",
+      "Thoreau discovered that nature ______________________.",
+      "One piece of evidence from the text is \"______________________.\"",
+      "This shows that the woods ______________________.",
+      "Therefore, without his time in the woods, Thoreau might ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: How might Thoreau's life have been different had he not spent so much time in the woods?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about how Thoreau's life might have been different",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of Thoreau's life before and after he moved to the woods"
+     ],
+     "challengeStarter": "If Thoreau had not spent so much time in the woods, his life might have been very different because __________________. In the beginning, he felt __________________ because __________________. Once he moved into the woods, __________________. The text says he \"__________________.\" This proves that __________________. Without these experiences, Thoreau __________________. Overall, the woods __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "In the beginning, Thoreau felt unhappy and frustrated because of the noise in his family's house. When he went outside, the sounds of nature made him want to live there and write. In the woods, Thoreau saw and heard many animals. He recorded these experiences in his journal. He became more open-minded about how animals survived. Without the woods, he might not have been inspired to write a book.",
+    "ON": "If Thoreau had not spent so much time in the woods, nature might not have inspired him to write as much. In the beginning, Thoreau felt unhappy and frustrated because he couldn't write with the noise in his family's house. Thoreau's desire for change led him to move into the woods. Thoreau discovered that nature inspired him to write. One piece of evidence from the text is that he \"understood forest life as never before.\" This shows that the woods made him more open-minded and helped him write more easily. Therefore, without his time in the woods, Thoreau might never have been ready to \"turn his journal entries into a book.\"",
+    "ABOVE": "If Thoreau had not spent so much time in the woods, his life might have been very different because nature is what inspired his writing. In the beginning, he felt unhappy and frustrated because he couldn't write with the noise in his family's house. Once he moved into the woods, he saw and heard many animals and recorded these experiences in his journal. The text says he \"understood forest life as never before.\" This proves that living in nature changed the way he thought and wrote. Without these experiences, Thoreau might not have become as open-minded or written as easily. Overall, the woods gave him what he needed to \"turn his journal entries into a book.\""
+   }
+  },
+  "G5.U1.TS2": {
+   "code": "G5.U1.TS2.RTR",
+   "grade": 5,
+   "unit": 1,
+   "textSet": 2,
+   "selection": "A Fresh Idea",
+   "genre": "Realistic Fiction",
+   "prompt": "What does Mali and Mr. Taylor's relationship teach you?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "brave",
+      "tomatoes",
+      "sad",
+      "smile",
+      "water",
+      "friends",
+      "stand",
+      "risk",
+      "neighbor",
+      "garden"
+     ],
+     "gapSentences": [
+      "Mali was _______________ and took a _______________ when she asked Mr. Taylor for help.",
+      "Mali wanted to grow _______________.",
+      "Mr. Taylor's garden reminded him of how _______________ he was about his wife's death.",
+      "Talking about planting tomatoes made Mr. Taylor _______________.",
+      "He taught Mali how to plant the tomatoes, _______________ them, and use stakes.",
+      "By the end, they became _______________ and planned a farm _______________ together."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "Mali and Mr. Taylor's relationship teaches me that ______________________.",
+      "At first, Mali and Mr. Taylor both feel ______________________.",
+      "Mali and Mr. Taylor decide to help each other because ______________________.",
+      "Mali helps Mr. Taylor by ______________________.",
+      "Mr. Taylor helps Mali by ______________________.",
+      "Mali and Mr. Taylor both benefit from the relationship by ______________________.",
+      "I learned that sometimes you have to ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: What does Mali and Mr. Taylor's relationship teach you?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about what the relationship teaches",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of how each character helps the other (try compound sentences with and, but, or, so)"
+     ],
+     "challengeStarter": "Mali and Mr. Taylor's relationship teaches me that __________________. At first, Mali __________________, and Mr. Taylor __________________. Mali decides to __________________, so __________________. In return, Mr. Taylor __________________. The strongest evidence is __________________. This proves that __________________. By the end of the story, __________________. Overall, I learned that __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Mali was brave and took a risk when she asked Mr. Taylor for help. Mali wanted to grow tomatoes. Mr. Taylor's garden reminded him of how sad he was about his wife's death. Talking about planting tomatoes made Mr. Taylor smile. He taught Mali how to plant the tomatoes, water them, and use stakes. By the end, they became friends and planned a farm stand together.",
+    "ON": "Mali and Mr. Taylor's relationship teaches me that being brave and helping others can lead to friendship. At first, Mali and Mr. Taylor both feel disappointed or sad. Mali and Mr. Taylor decide to help each other because each one needs something the other can give. Mali helps Mr. Taylor by noticing that he is sad about his wife and coming up with the idea to grow tomatoes in his garden. Mr. Taylor helps Mali by giving her advice and teaching her how to plant, water, and stake the tomatoes. Mali and Mr. Taylor both benefit from the relationship by becoming friends and planning a farm stand together. I learned that sometimes you have to be brave, take a risk, and think of how others feel.",
+    "ABOVE": "Mali and Mr. Taylor's relationship teaches me that taking a risk can help two people at the same time. At first, Mali is disappointed that she cannot grow tomatoes, and Mr. Taylor is sad about his wife's death. Mali decides to ask her neighbor for help, so she comes up with the idea to grow tomatoes in his garden. In return, Mr. Taylor teaches her how to plant the tomatoes, water them, and use stakes. The strongest evidence is that talking about the garden made Mr. Taylor smile. This proves that helping each other made both of them happier. By the end of the story, they are friends and plan a farm stand together. Overall, I learned that sometimes you have to be brave, take a risk, and think of how others feel."
+   }
+  },
+  "G5.U1.TS3": {
+   "code": "G5.U1.TS3.RTR",
+   "grade": 5,
+   "unit": 1,
+   "textSet": 3,
+   "selection": "Are Electronic Devices Good for Us?",
+   "genre": "Argumentative Text",
+   "prompt": "Which author do you think has the more convincing argument? Cite text evidence to support your answer.",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "second author",
+      "first author",
+      "evidence",
+      "statistics",
+      "research",
+      "stronger",
+      "weaker",
+      "facts",
+      "argument",
+      "support"
+     ],
+     "gapSentences": [
+      "I think the _______________ has the more convincing _______________.",
+      "The author uses _______________ and _______________ to support the ideas.",
+      "The text gives _______________ about electronic media and children.",
+      "This _______________ shows that the author's ideas are believable.",
+      "The _______________ has a _______________ argument because the evidence is stronger.",
+      "The other author's argument is _______________ because it does not have enough _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "I think the ______________________ has the more convincing argument.",
+      "The author believes that ______________________.",
+      "One piece of evidence from the text is ______________________.",
+      "This evidence supports the argument because ______________________.",
+      "The author also uses ______________________.",
+      "In contrast, the other author ______________________.",
+      "Therefore, I think ______________________ has the stronger argument."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Which author do you think has the more convincing argument? Cite text evidence to support your answer.",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about which author is stronger",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your opinion",
+      "A comparison between both authors"
+     ],
+     "challengeStarter": "Although both authors present ideas about electronic media, I believe __________________ has the more convincing argument because __________________. The strongest evidence is __________________. This proves that __________________. However, the other author's argument is less convincing because __________________. Overall, __________________ provides the stronger argument."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "I think the second author has the more convincing argument. The author uses statistics and research to support the ideas. The text gives facts about electronic media and children. This evidence shows that the author's ideas are believable. The second author has a stronger argument because the evidence is stronger. The other author's argument is weaker because it does not have enough support.",
+    "ON": "I think the second author has the more convincing argument. The author believes that electronic media is not how kids make new friends. One piece of evidence from the text is a Pew Research Center study about kids and electronic media. This evidence supports the argument because it shows that kids are only connected online to friends they made in other ways. The author also uses statistics and graphics as support. In contrast, the other author does not provide enough details or statistics to support his or her claims. Therefore, I think the second author has the stronger argument.",
+    "ABOVE": "Although both authors present ideas about electronic media, I believe the second author has the more convincing argument because he or she uses statistics and graphics to support the claim. The strongest evidence is a Pew Research Center study showing that electronic media is not how kids make new friends. This proves that the author's ideas are based on research, not only opinion. The author is also honest in saying that more research is needed. However, the other author's argument is less convincing because, even though it refutes counterarguments with facts, the facts lack enough statistics. Overall, the second author provides the stronger argument."
+   }
+  },
+  "G5.U2.TS1": {
+   "code": "G5.U2.TS1.RTR",
+   "grade": 5,
+   "unit": 2,
+   "textSet": 1,
+   "selection": "Creating a Nation",
+   "genre": "Expository Text",
+   "prompt": "Explain why the division between the colonists on whether or not to support the king was significant.",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "unfair",
+      "patriots",
+      "loyalists",
+      "Congress",
+      "independence",
+      "war",
+      "surrendered",
+      "king",
+      "Washington",
+      "Jefferson"
+     ],
+     "gapSentences": [
+      "When Parliament passed laws the colonists thought were _______________, the colonists were not united.",
+      "The _______________ wanted to fight, the _______________ wanted peace, and many colonists were undecided.",
+      "The colonies sent representatives to the First Continental _______________.",
+      "This was the first official step toward _______________.",
+      "The trouble with Britain continued, and _______________ began in 1775.",
+      "The British finally _______________ and recognized the colonies' independence in 1783."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "The division between the colonists was significant because ______________________.",
+      "At first, the colonists ______________________.",
+      "The patriots wanted ______________________, while the loyalists ______________________.",
+      "Then I read that ______________________.",
+      "Because the colonists could not agree, they ______________________.",
+      "Finally, the colonists ______________________.",
+      "This shows that the division led to ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Explain why the division between the colonists on whether or not to support the king was significant.",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about why the division was significant",
+      "Evidence from the text in time order",
+      "Explanation of why the evidence supports your answer",
+      "A comparison between the patriots and the loyalists (capitalize names and titles: King George III)"
+     ],
+     "challengeStarter": "The division between the colonists was significant because __________________. At first, when Parliament passed laws that __________________, the colonists __________________. The patriots __________________, while the loyalists __________________. Because they could not agree, __________________. Then __________________. This proves that __________________. Finally, __________________. Overall, the division __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "When Parliament passed laws the colonists thought were unfair, the colonists were not united. The patriots wanted to fight, the loyalists wanted peace, and many colonists were undecided. The colonies sent representatives to the First Continental Congress. This was the first official step toward independence. The trouble with Britain continued, and war began in 1775. The British finally surrendered and recognized the colonies' independence in 1783.",
+    "ON": "The division between the colonists was significant because it led to tension and eventually to independence from Great Britain. At first, the colonists were not united in how to respond to laws they thought were unfair. The patriots wanted to fight to protest the laws, while the loyalists wanted peace. Then I read that many colonists were undecided. Because the colonists could not agree, they sent representatives from each colony to the First Continental Congress. Finally, the colonists fought back, and war began in 1775. This shows that the division led to the colonies' independence, which Britain recognized in 1783.",
+    "ABOVE": "The division between the colonists was significant because it led to the independence of the colonies from Great Britain. At first, when Parliament passed laws that the colonists thought were unfair, the colonists were not united in how to respond. The patriots wanted to fight, while the loyalists wanted peace. Because they could not agree, they sent representatives to the First Continental Congress, the first official step toward independence. Then, even after a peace proposal to King George III, the trouble continued and war began in 1775. This proves that the disagreement pushed the colonies to organize and act. Finally, the British surrendered and recognized the colonies' independence in 1783. Overall, the division changed the history of the nation."
+   }
+  },
+  "G5.U2.TS2": {
+   "code": "G5.U2.TS2.RTR",
+   "grade": 5,
+   "unit": 2,
+   "textSet": 2,
+   "selection": "The Magical Lost Brocade",
+   "genre": "Folktale",
+   "prompt": "Why do we care about Ping and what happens to him on his dangerous journey?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "bravery",
+      "mother",
+      "heat",
+      "Sun",
+      "instructions",
+      "honest",
+      "rewarded",
+      "brocade",
+      "polite",
+      "thankful"
+     ],
+     "gapSentences": [
+      "We care about Ping because we admire his _______________ and determination.",
+      "Ping goes on a dangerous journey to help his _______________.",
+      "He must travel through the \"intense _______________\" of Fire Valley.",
+      "He must climb the steep Mountain of the _______________.",
+      "Ping follows the man's _______________ exactly so he can find the _______________.",
+      "Ping is _______________ when he returns the horse, and his good traits are _______________ in the end."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "We care about Ping because ______________________.",
+      "Ping's journey is important because ______________________.",
+      "While on the journey, Ping ______________________.",
+      "The author uses imagery such as \"______________________\" to show ______________________.",
+      "Ping shows he is ______________________ when he ______________________.",
+      "Ping's success shows that ______________________.",
+      "Therefore, Ping is a character worth caring about because ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Why do we care about Ping and what happens to him on his dangerous journey?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about why readers care about Ping",
+      "Evidence from the text",
+      "Explanation of how the author's language and imagery make us care",
+      "Both Ping's character traits and the dangers he faces"
+     ],
+     "challengeStarter": "We care about Ping because __________________. He goes on a dangerous journey to __________________. On the way, he must __________________. The author uses imagery such as \"__________________\" to show __________________. Ping also shows he is __________________ when he __________________. This proves that __________________. Ping's success at the end shows that __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "We care about Ping because we admire his bravery and determination. Ping goes on a dangerous journey to help his mother. He must travel through the \"intense heat\" of Fire Valley. He must climb the steep Mountain of the Sun. Ping follows the man's instructions exactly so he can find the brocade. Ping is honest when he returns the horse, and his good traits are rewarded in the end.",
+    "ON": "We care about Ping because we admire his bravery, courage, and determination. Ping's journey is important because he is trying to help his mother. While on the journey, Ping travels through Fire Valley and icy ocean waters and climbs the Mountain of the Sun. The author uses imagery such as \"intense heat\" to show how dangerous the journey is. Ping shows he is honest when he returns the horse to the man after finding the brocade. Ping's success shows that good traits are rewarded in the end. Therefore, Ping is a character worth caring about because he is brave, thankful, polite, and honest.",
+    "ABOVE": "We care about Ping because he is brave and determined, and we want him to succeed. He goes on a dangerous journey to help his mother by finding the lost brocade. On the way, he must cross the \"intense heat\" of Fire Valley and the icy ocean and climb the steep Mountain of the Sun. The author uses imagery such as \"intense heat\" to show how difficult and suspenseful the journey is. Ping also shows he is honest when he returns the horse to the bearded man. This proves that Ping has good character as well as courage. Ping's success at the end shows that good traits like bravery and honesty are rewarded."
+   }
+  },
+  "G5.U2.TS3": {
+   "code": "G5.U2.TS3.RTR",
+   "grade": 5,
+   "unit": 2,
+   "textSet": 3,
+   "selection": "A Simple Plan",
+   "genre": "Poetry | Poems: \"A Simple Plan,\" \"Rescue\"",
+   "prompt": "How do the poems \"A Simple Plan\" and \"Rescue\" motivate readers to action? Do you think they are inspiring? Why or why not?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "helping",
+      "change",
+      "lawn",
+      "bird",
+      "oil",
+      "inspiring",
+      "visualize",
+      "song",
+      "heart",
+      "goal"
+     ],
+     "gapSentences": [
+      "Both poems have the same goal of _______________ others in need.",
+      "In \"A Simple Plan,\" Jack's goal is to _______________ the world.",
+      "Jack \"might mow a _______________\" for a neighbor.",
+      "In \"Rescue,\" the speaker saves a _______________ from the oil spill.",
+      "The birds are \"bogged down in waves of _______________.\"",
+      "I think the poems are _______________ because they help me _______________ how reaching goals helps others."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "The poems motivate readers to action because ______________________.",
+      "In \"A Simple Plan,\" Jack's goal is ______________________.",
+      "The poet helps me visualize ______________________.",
+      "In \"Rescue,\" the speaker's goal is ______________________.",
+      "The poet uses words such as \"______________________\" to show ______________________.",
+      "I think the poems are / are not inspiring because ______________________.",
+      "Both poems show that ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: How do the poems \"A Simple Plan\" and \"Rescue\" motivate readers to action? Do you think they are inspiring? Why or why not?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to both parts of the question",
+      "Words or lines quoted from the poems",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of the two poems (use present tense: the poet describes, the speaker sees)"
+     ],
+     "challengeStarter": "Both \"A Simple Plan\" and \"Rescue\" motivate readers to action because __________________. In \"A Simple Plan,\" the poet shows __________________ through examples such as \"__________________.\" Similarly, in \"Rescue,\" the poet describes __________________. The words \"__________________\" help me visualize __________________. This proves that __________________. I think these poems are / are not inspiring because __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Both poems have the same goal of helping others in need. In \"A Simple Plan,\" Jack's goal is to change the world. Jack \"might mow a lawn\" for a neighbor. In \"Rescue,\" the speaker saves a bird from the oil spill. The birds are \"bogged down in waves of oil.\" I think the poems are inspiring because they help me visualize how reaching goals helps others.",
+    "ON": "The poems motivate readers to action because they both show the goal of helping others in need. In \"A Simple Plan,\" Jack's goal is to change the world by helping others. The poet helps me visualize Jack's helpful actions, such as when he \"might mow a lawn\" for a neighbor. In \"Rescue,\" the speaker's goal is to save a bird from the oil spill. The poet uses words such as \"bogged down in waves of oil\" to show how much the birds need help. I think the poems are inspiring because they show that reaching a goal can help others. Both poems show that small actions can make a big difference.",
+    "ABOVE": "Both \"A Simple Plan\" and \"Rescue\" motivate readers to action because they show people working to help others in need. In \"A Simple Plan,\" the poet shows Jack's goal of changing the world through examples such as \"might mow a lawn\" or \"play a song for you.\" Similarly, in \"Rescue,\" the poet describes what the speaker sees and feels while saving a bird from an oil spill. The words \"Reach, lift, and up—/it beats, this bird's heart!\" help me visualize how excited and relieved the speaker is. This proves that the poets use strong images to make readers want to help. I think these poems are inspiring because they show that accomplishing goals leads to helping others."
+   }
+  },
+  "G5.U3.TS1": {
+   "code": "G5.U3.TS1.RTR",
+   "grade": 5,
+   "unit": 3,
+   "textSet": 1,
+   "selection": "A Reluctant Traveler",
+   "genre": "Realistic Fiction",
+   "prompt": "What does the author want readers to understand about Paul by describing his experience from beginning to end?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "reluctant",
+      "weird",
+      "soccer",
+      "food",
+      "familiar",
+      "perspective",
+      "cultural",
+      "attitude",
+      "Buenos Aires",
+      "excited"
+     ],
+     "gapSentences": [
+      "In the beginning, Paul is _______________ to go on the trip to Argentina.",
+      "He thinks packing winter clothes in August is \"_______________.\"",
+      "He would rather stay home and play _______________ with his friends.",
+      "Paul makes a face when he has to try Argentinian _______________.",
+      "Then he realizes the food is _______________, and he likes it.",
+      "By the end, Paul's _______________ changes and he is open to new _______________ experiences."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "The author wants readers to understand that Paul ______________________.",
+      "In the beginning of the story, Paul ______________________.",
+      "One piece of evidence is ______________________.",
+      "The author shows Paul changing by ______________________.",
+      "Paul starts to change his attitude when ______________________.",
+      "At the end, the author shows that Paul ______________________.",
+      "This teaches readers that ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: What does the author want readers to understand about Paul by describing his experience from beginning to end?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about what the author wants readers to understand",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of Paul at the beginning and at the end of the story"
+     ],
+     "challengeStarter": "By describing Paul's experience from beginning to end, the author wants readers to understand that __________________. In the beginning, Paul is __________________ and says __________________. When he arrives in Buenos Aires, he __________________. However, Paul starts to change when __________________. Later, he learns that __________________. This proves that __________________. By the end of the story, Paul __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "In the beginning, Paul is reluctant to go on the trip to Argentina. He thinks packing winter clothes in August is \"weird.\" He would rather stay home and play soccer with his friends. Paul makes a face when he has to try Argentinian food. Then he realizes the food is familiar, and he likes it. By the end, Paul's perspective changes and he is open to new cultural experiences.",
+    "ON": "The author wants readers to understand that Paul changes and becomes open to new cultural experiences. In the beginning of the story, Paul is reluctant to go on the trip and says he won't enjoy it. One piece of evidence is that he says packing winter clothes in August is \"weird.\" The author shows Paul changing by describing how he tries Argentinian food and likes it. Paul starts to change his attitude when he realizes the food is familiar. At the end, the author shows that Paul is excited to go to a soccer game with his family. This teaches readers that new experiences can be enjoyable if you are open to them.",
+    "ABOVE": "By describing Paul's experience from beginning to end, the author wants readers to understand that Paul's perspective changes. In the beginning, Paul is reluctant and says packing winter clothes in August is \"weird.\" When he arrives in Buenos Aires, he is unhappy and makes a face when he has to try Argentinian food. However, Paul starts to change when he tastes the food and realizes it is familiar. Later, he learns that people in Argentina play soccer, just like he does in New York City. This proves that Paul's attitude improves as he finds things he has in common with a new culture. By the end of the story, Paul is enjoying his vacation and is open to new cultural experiences."
+   }
+  },
+  "G5.U3.TS2": {
+   "code": "G5.U3.TS2.RTR",
+   "grade": 5,
+   "unit": 3,
+   "textSet": 2,
+   "selection": "Gulf Spill Superheroes",
+   "genre": "Expository Text",
+   "prompt": "How might the outcome of the Deepwater Horizon accident have been different if fewer groups responded?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "water",
+      "teams",
+      "oil",
+      "satellites",
+      "animals",
+      "successful",
+      "fishermen",
+      "teamwork",
+      "habitats",
+      "scientists"
+     ],
+     "gapSentences": [
+      "The accident caused enormous problems in the _______________ and on land.",
+      "It was important for many _______________ to work together.",
+      "It was hard to see from the water how far the _______________ had spread.",
+      "Scientists used information from _______________ to decide the best way to help.",
+      "Volunteers and naturalists helped rescue marine _______________ and clean their _______________.",
+      "With fewer groups, the response would have been slower and less _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "If fewer groups had responded, the outcome would ______________________.",
+      "Several groups were needed to ______________________.",
+      "Teamwork was important because ______________________.",
+      "For example, scientists ______________________.",
+      "Volunteers and naturalists ______________________.",
+      "Government officials, insurance companies, and bankers ______________________.",
+      "Without so many groups, the outcome ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: How might the outcome of the Deepwater Horizon accident have been different if fewer groups responded?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about how the outcome might have been different",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of what really happened and what might have happened with fewer groups"
+     ],
+     "challengeStarter": "If fewer groups had responded to the Deepwater Horizon accident, the outcome would have been __________________ because __________________. The accident caused __________________, so __________________. For example, scientists __________________, and volunteers __________________. In addition, __________________. This proves that __________________. Without so many groups, __________________. Overall, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "The accident caused enormous problems in the water and on land. It was important for many teams to work together. It was hard to see from the water how far the oil had spread. Scientists used information from satellites to decide the best way to help. Volunteers and naturalists helped rescue marine animals and clean their habitats. With fewer groups, the response would have been slower and less successful.",
+    "ON": "If fewer groups had responded, the outcome would have been worse and the recovery slower. Several groups were needed to solve the enormous problems in the water and on land. Teamwork was important because many specialized teams could solve different problems at the same time. For example, scientists used information from satellites to see how far the oil had spread. Volunteers and naturalists rescued marine animals and cleaned their habitats. Government officials, insurance companies, and bankers helped local fishermen cope with lost income. Without so many groups, the outcome would not have been as quick or successful.",
+    "ABOVE": "If fewer groups had responded to the Deepwater Horizon accident, the outcome would have been much worse because each group solved a different problem. The accident caused enormous problems in the water and on land, so many specialized teams had to work together. For example, scientists used satellite information to track the oil, and volunteers rescued marine animals and cleaned their habitats. In addition, government officials, insurance companies, and bankers helped fishermen who lost income. This proves that teamwork made the response faster and more successful. Without so many groups, some problems might never have been solved. Overall, it took many different teams working together to respond quickly and successfully."
+   }
+  },
+  "G5.U3.TS3": {
+   "code": "G5.U3.TS3.RTR",
+   "grade": 5,
+   "unit": 3,
+   "textSet": 3,
+   "selection": "What Was the Purpose of the Inca's Knotted Strings?",
+   "genre": "Argumentative Text | Texts: \"String Theory,\" \"Spinning Yarn\"",
+   "prompt": "Which author's claim about the quipu do you agree with more? In your opinion, what makes the claim more valid?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "numbers",
+      "diagram",
+      "language",
+      "symbols",
+      "manuscript",
+      "evidence",
+      "knots",
+      "colors",
+      "String Theory",
+      "Spinning Yarn"
+     ],
+     "gapSentences": [
+      "The author of \"String Theory\" claims that knots on the quipu represented _______________.",
+      "This author shows a _______________ of the quipu as a \"low-tech calculator.\"",
+      "The author of \"Spinning Yarn\" claims the quipu was used as a _______________.",
+      "This author gives proof such as woven _______________ and repeating patterns.",
+      "An old _______________ from the 17th century was found with quipu remnants.",
+      "I agree more with \"_______________\" because its _______________ is stronger."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "I agree more with the author of \"______________________.\"",
+      "The author claims that ______________________.",
+      "The evidence presented includes ______________________.",
+      "The claim is more valid because ______________________.",
+      "In contrast, the other author claims ______________________.",
+      "However, I think that claim is less valid because ______________________.",
+      "Therefore, ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Which author's claim about the quipu do you agree with more? In your opinion, what makes the claim more valid?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about which author you agree with",
+      "Evidence from the text",
+      "Explanation of what makes the claim more valid",
+      "A comparison between both authors' claims (check past-tense verbs: was, were, thought)"
+     ],
+     "challengeStarter": "Although both authors make claims about the quipu, I agree more with the author of \"__________________\" because __________________. The author claims that __________________. The evidence presented includes __________________. This makes the claim more valid because __________________. In contrast, the author of \"__________________\" claims __________________, but __________________. Overall, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "The author of \"String Theory\" claims that knots on the quipu represented numbers. This author shows a diagram of the quipu as a \"low-tech calculator.\" The author of \"Spinning Yarn\" claims the quipu was used as a language. This author gives proof such as woven symbols and repeating patterns. An old manuscript from the 17th century was found with quipu remnants. I agree more with \"String Theory or Spinning Yarn\" because its evidence is stronger.",
+    "ON": "I agree more with the author of \"String Theory.\" The author claims that knots were tied to the strings to represent numbers. The evidence presented includes a description of what a quipu looks like and a diagram. The claim is more valid because the diagram shows how the quipu could be used as a \"low-tech calculator.\" In contrast, the other author claims the quipu was used as a language. However, I think that claim is less valid because the woven symbols and the old manuscript do not clearly prove it was a language. Therefore, I think \"String Theory\" gives stronger facts and reasons.",
+    "ABOVE": "Although both authors make claims about the quipu, I agree more with the author of \"String Theory\" because the evidence is clearer. The author claims that \"knots were tied to the dangling strings to represent numbers.\" The evidence presented includes a description of the quipu and a diagram. This makes the claim more valid because the diagram shows how the quipu could work as a \"low-tech calculator.\" In contrast, the author of \"Spinning Yarn\" claims the quipu was a language, but the woven symbols and the 17th-century manuscript do not prove it as clearly. Overall, \"String Theory\" supports its claim with stronger facts and reasons.\nSample answer: students may agree with either author if they support the claim with evidence."
+   }
+  },
+  "G5.U4.TS1": {
+   "code": "G5.U4.TS1.RTR",
+   "grade": 5,
+   "unit": 4,
+   "textSet": 1,
+   "selection": "Frederick Douglass: Freedom's Voice",
+   "genre": "Biography",
+   "prompt": "Explain the significance of Frederick Douglass's relationship with the abolitionists.",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "Liberator",
+      "speech",
+      "lecturer",
+      "autobiography",
+      "awareness",
+      "newspaper",
+      "segregation",
+      "fugitive",
+      "neutral",
+      "Rochester"
+     ],
+     "gapSentences": [
+      "After reading the abolitionist newspaper The _______________, Douglass began speaking against slavery.",
+      "At an Anti-Slavery Society meeting, his _______________ was so powerful that he was asked to become a speaker.",
+      "Douglass became a full-time _______________ and traveled the country.",
+      "He wrote an _______________ about his life as an enslaved person.",
+      "His book brought more _______________ to the abolition movement.",
+      "Later, he published his own _______________ and worked to end _______________ in schools."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "Frederick Douglass's relationship with the abolitionists was significant because ______________________.",
+      "When he was young, Frederick Douglass was ______________________.",
+      "After he escaped from slavery, Douglass ______________________.",
+      "The abolitionists helped Douglass by ______________________.",
+      "The author states, \"______________________.\"",
+      "Because of this relationship, Douglass ______________________.",
+      "Therefore, ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Explain the significance of Frederick Douglass's relationship with the abolitionists.",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about why the relationship was significant",
+      "Evidence from the text in time order",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of Douglass's life before and after he joined the abolitionists (check that pronouns are clear)"
+     ],
+     "challengeStarter": "Frederick Douglass's relationship with the abolitionists was significant because __________________. After he escaped from slavery, Douglass __________________. Then, at a Massachusetts Anti-Slavery Society meeting, __________________. The author states, \"__________________.\" This proves that __________________. As a result, Douglass __________________. Overall, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "After reading the abolitionist newspaper The Liberator, Douglass began speaking against slavery. At an Anti-Slavery Society meeting, his speech was so powerful that he was asked to become a speaker. Douglass became a full-time lecturer and traveled the country. He wrote an autobiography about his life as an enslaved person. His book brought more awareness to the abolition movement. Later, he published his own newspaper and worked to end segregation in schools.",
+    "ON": "Frederick Douglass's relationship with the abolitionists was significant because it changed his life and helped the abolition movement. When he was young, Frederick Douglass was enslaved. After he escaped from slavery, Douglass read the abolitionist newspaper The Liberator and began to speak against slavery at church meetings. The abolitionists helped Douglass by asking him to speak at a Massachusetts Anti-Slavery Society meeting and to become a speaker for the Society. The author states, \"It was impossible to listen to his powerful words and remain neutral.\" Because of this relationship, Douglass became a full-time lecturer, wrote an autobiography, and later published his own newspaper. Therefore, the abolitionists helped Douglass share his voice with the whole country.",
+    "ABOVE": "Frederick Douglass's relationship with the abolitionists was significant because it gave him a way to fight slavery with his words. After he escaped from slavery, Douglass read The Liberator and began speaking against slavery at church meetings. Then, at a Massachusetts Anti-Slavery Society meeting, his speech was so powerful that he was asked to become a speaker for the Society. The author states, \"It was impossible to listen to his powerful words and remain neutral.\" This proves that Douglass's voice influenced many people. As a result, Douglass became a full-time lecturer, wrote an autobiography that brought awareness to the movement, and published his own newspaper. Overall, the abolitionists helped turn Douglass into a leader for freedom."
+   }
+  },
+  "G5.U4.TS2": {
+   "code": "G5.U4.TS2.RTR",
+   "grade": 5,
+   "unit": 4,
+   "textSet": 2,
+   "selection": "Where's Brownie?",
+   "genre": "Drama",
+   "prompt": "Name three character traits that helped the characters solve the mystery and explain how these qualities were useful.",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "resourceful",
+      "bag",
+      "lobby",
+      "cares",
+      "device",
+      "green",
+      "plant",
+      "observant",
+      "lizard",
+      "clue"
+     ],
+     "gapSentences": [
+      "Three traits that help the characters are being _______________, caring, and _______________.",
+      "In Scene One, Alex observes that the paper _______________ is wet and torn.",
+      "Alex realizes that Brownie might be in the _______________.",
+      "Alex shows she _______________ about finding Brownie, even if her sister doesn't.",
+      "Evan uses his _______________ to find information about chameleons.",
+      "This clue shows Brownie might have turned _______________ and is hiding in the _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "Three character traits that helped the characters solve the mystery are ______________________.",
+      "At the beginning of the selection, the characters seem ______________________.",
+      "Alex is observant when she ______________________.",
+      "Alex shows she is caring when ______________________.",
+      "Evan is resourceful because ______________________.",
+      "As the mystery unfolds, I learn that ______________________.",
+      "The characters were able to solve the mystery because ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Name three character traits that helped the characters solve the mystery and explain how these qualities were useful.",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "Three clear character traits",
+      "Evidence from the play (dialogue or stage directions)",
+      "Explanation of how each trait was useful",
+      "An example for each trait (check that pronouns agree with verbs)"
+     ],
+     "challengeStarter": "Three character traits that helped the characters solve the mystery are __________________, __________________, and __________________. First, Alex is observant when __________________. Next, Alex shows she cares because __________________. Finally, Evan is resourceful when __________________. This proves that __________________. Without these traits, __________________. Overall, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Three traits that help the characters are being observant, caring, and resourceful. In Scene One, Alex observes that the paper bag is wet and torn. Alex realizes that Brownie might be in the lobby. Alex shows she cares about finding Brownie, even if her sister doesn't. Evan uses his device to find information about chameleons. This clue shows Brownie might have turned green and is hiding in the plant.",
+    "ON": "Three character traits that helped the characters solve the mystery are being observant, caring, and resourceful. At the beginning of the selection, the characters seem worried about where Brownie is. Alex is observant when she notices that the paper bag is wet and torn at the bottom. Alex shows she is caring when she asks her twin, \"Don't you want to find Brownie?\" Evan is resourceful because he uses his device to find information about chameleons. As the mystery unfolds, I learn that Brownie might have turned green. The characters were able to solve the mystery because they used what they knew and saw to find Brownie in the green plant in the lobby.",
+    "ABOVE": "Three character traits that helped the characters solve the mystery are being observant, caring, and resourceful. First, Alex is observant when she notices that the paper bag is wet and torn and realizes Brownie might be in the lobby. Next, Alex shows she cares because she keeps looking for Brownie even when Sam says, \"He's just a lizard, Alex.\" Finally, Evan is resourceful when he uses his device to find information about chameleons. This proves that each trait helped the characters find an important clue. Without these traits, they would not have figured out that Brownie turned green and was hiding in the plant. Overall, the characters' qualities worked together to solve the mystery."
+   }
+  },
+  "G5.U4.TS3": {
+   "code": "G5.U4.TS3.RTR",
+   "grade": 5,
+   "unit": 4,
+   "textSet": 3,
+   "selection": "How Do I Hold the Summer?",
+   "genre": "Poetry | Poems: \"How Do I Hold the Summer?,\" \"Catching a Fly,\" \"When I Dance\"",
+   "prompt": "Consider each poem separately. What emotions does the speaker want readers to feel?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "me",
+      "glass",
+      "summer",
+      "alliteration",
+      "joy",
+      "slap",
+      "winter",
+      "frost",
+      "rhyme",
+      "plate"
+     ],
+     "gapSentences": [
+      "All of the speakers use the pronouns I, my, and _______________ to make the poems personal.",
+      "In \"How Do I Hold the Summer?,\" the speaker uses words like \"cold, forbidding _______________.\"",
+      "The speaker does not want to let go of _______________.",
+      "In \"Catching a Fly,\" the poet uses _______________ to create stillness and concentration.",
+      "In \"When I Dance,\" _______________ and rhythm evoke feelings of _______________.",
+      "The repetition of the word \"_______________\" emphasizes movement."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "In \"How Do I Hold the Summer?,\" the speaker thinks about ______________________.",
+      "The speaker wants readers to feel ______________________ because ______________________.",
+      "In \"Catching a Fly,\" the speaker describes ______________________.",
+      "The poet uses words such as \"______________________\" to ______________________.",
+      "In \"When I Dance,\" the speaker shares ______________________.",
+      "The rhyming words \"______________________\" make readers feel ______________________.",
+      "Overall, each speaker wants readers to feel ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Consider each poem separately. What emotions does the speaker want readers to feel?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear emotion for each of the three poems",
+      "Words or phrases quoted from each poem (verbs and adjectives)",
+      "Explanation of how the poet's words create that emotion",
+      "A comparison of the emotions in the three poems"
+     ],
+     "challengeStarter": "Each poem makes readers feel a different emotion. In \"How Do I Hold the Summer?,\" the speaker uses words like \"__________________\" to make readers feel __________________. In \"Catching a Fly,\" the poet uses __________________ to create __________________. However, in \"When I Dance,\" __________________. This proves that __________________. Overall, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "All of the speakers use the pronouns I, my, and me to make the poems personal. In \"How Do I Hold the Summer?,\" the speaker uses words like \"cold, forbidding glass.\" The speaker does not want to let go of summer. In \"Catching a Fly,\" the poet uses alliteration to create stillness and concentration. In \"When I Dance,\" rhyme and rhythm evoke feelings of joy. The repetition of the word \"slap\" emphasizes movement.",
+    "ON": "In \"How Do I Hold the Summer?,\" the speaker thinks about the moment when summer changes to winter. The speaker wants readers to feel sad and cold because she uses words like \"cold, forbidding glass\" and \"winter's veil of frost.\" In \"Catching a Fly,\" the speaker describes the brief moment when a fly lands on his plate. The poet uses words such as \"framed, focused\" and \"plotting, planning\" to create stillness and concentration. In \"When I Dance,\" the speaker shares the joy of dancing. The rhyming words \"out\" and \"shout\" make readers feel happy and full of energy. Overall, each speaker wants readers to feel a different emotion through a personal experience.",
+    "ABOVE": "Each poem makes readers feel a different emotion. In \"How Do I Hold the Summer?,\" the speaker uses words like \"cold, forbidding glass\" and \"winter's veil of frost\" to make readers feel the sadness of letting summer go. In \"Catching a Fly,\" the poet uses alliteration, such as \"plotting, planning\" and \"greedy google eyes,\" to create stillness and concentration. However, in \"When I Dance,\" rhyme and rhythm, like \"move\" and \"groove,\" fill readers with joy, and the repeated word \"slap\" emphasizes movement. This proves that poets choose words, sounds, and images to create feelings. Overall, each speaker uses personal language to share an experience and an emotion with readers."
+   }
+  },
+  "G5.U5.TS1": {
+   "code": "G5.U5.TS1.RTR",
+   "grade": 5,
+   "unit": 5,
+   "textSet": 1,
+   "selection": "Changing Views of Earth",
+   "genre": "Expository Text",
+   "prompt": "What is the author's purpose for providing an in-depth look at the chronology of our study of Earth and space?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "chronological",
+      "observation",
+      "Copernicus",
+      "satellites",
+      "curious",
+      "tools",
+      "discoveries",
+      "Galileo",
+      "text features",
+      "purpose"
+     ],
+     "gapSentences": [
+      "The author uses _______________ order to show how learning about Earth changed over time.",
+      "The author begins with the earliest _______________ methods.",
+      "Then the author discusses the advancements made by _______________ and _______________.",
+      "The author ends with the latest tools, such as _______________.",
+      "This shows that humans have always been _______________ about Earth and space.",
+      "When people want to know more, they develop new _______________ to make new _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "The author's purpose for showing the chronology is ______________________.",
+      "The author begins by ______________________.",
+      "Then the author discusses ______________________.",
+      "The author ends the selection with ______________________.",
+      "With each new discovery, the author shows ______________________.",
+      "The author also uses text features to ______________________.",
+      "Therefore, the author wants readers to understand that ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: What is the author's purpose for providing an in-depth look at the chronology of our study of Earth and space?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about the author's purpose",
+      "Evidence from the text in time order",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of early observation methods and modern tools"
+     ],
+     "challengeStarter": "The author's purpose for providing an in-depth look at the chronology of our study of Earth and space is to __________________. The author begins with __________________. Then the author explains __________________. Finally, the selection ends with __________________. This proves that __________________. Unlike early observers, scientists today __________________. Overall, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "The author uses chronological order to show how learning about Earth changed over time. The author begins with the earliest observation methods. Then the author discusses the advancements made by Galileo and Copernicus. The author ends with the latest tools, such as satellites. This shows that humans have always been curious about Earth and space. When people want to know more, they develop new tools to make new discoveries.",
+    "ON": "The author's purpose for showing the chronology is to explain how and why learning about Earth and space grew and changed over time. The author begins by talking about the earliest observation methods. Then the author discusses the advancements made by Galileo and Copernicus. The author ends the selection with the latest tools, such as satellites. With each new discovery, the author shows that humans constantly try to learn more. The author also uses text features to support her points and increase understanding. Therefore, the author wants readers to understand that people develop new tools to make new discoveries.",
+    "ABOVE": "The author's purpose for providing an in-depth look at the chronology of our study of Earth and space is to show how our knowledge grew and changed over time. The author begins with the earliest observation methods. Then the author explains the advancements made by Galileo and Copernicus. Finally, the selection ends with modern tools, such as satellites. This proves that humans have always been curious about Earth and space. Unlike early observers, scientists today use advanced tools that help them make new discoveries or change what people once believed. Overall, the author shows that curiosity leads to new tools and new knowledge."
+   }
+  },
+  "G5.U5.TS2": {
+   "code": "G5.U5.TS2.RTR",
+   "grade": 5,
+   "unit": 5,
+   "textSet": 2,
+   "selection": "The Day the Rollets Got Their Moxie Back",
+   "genre": "Historical Fiction",
+   "prompt": "Compare and contrast the characters' actions in this story. What does this story tell you about having a positive outlook?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "cheerful",
+      "upset",
+      "mixed",
+      "kitchen",
+      "dance",
+      "joy",
+      "improve",
+      "ashamed",
+      "job",
+      "narrator"
+     ],
+     "gapSentences": [
+      "At the dinner table, the mother and Ruth try to remain _______________.",
+      "But the father is clearly _______________.",
+      "Shirley, the _______________, has _______________ feelings.",
+      "The girls go with their father to the soup _______________.",
+      "Shirley and Ruth perform a simple _______________ routine.",
+      "This reminds everyone that there is still _______________ in life and things can _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "The characters respond to their troubles in different ways. For example, ______________________.",
+      "The mother and Ruth ______________________, but the father ______________________.",
+      "Shirley, the narrator, feels ______________________.",
+      "At the soup kitchen, everyone in line ______________________.",
+      "Then Shirley and Ruth ______________________.",
+      "This reminds their father that ______________________.",
+      "This story tells me that having a positive outlook ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Compare and contrast the characters' actions in this story. What does this story tell you about having a positive outlook?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to both parts of the question",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison and contrast of at least two characters' actions"
+     ],
+     "challengeStarter": "In the story, the characters respond to hard times in different ways. The mother and Ruth __________________, while the father __________________. Shirley feels __________________. Later, at the soup kitchen, __________________. However, when Shirley and Ruth __________________, __________________. This proves that __________________. Overall, the story shows that a positive outlook __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "At the dinner table, the mother and Ruth try to remain cheerful. But the father is clearly upset. Shirley, the narrator, has mixed feelings. The girls go with their father to the soup kitchen. Shirley and Ruth perform a simple dance routine. This reminds everyone that there is still joy in life and things can improve.",
+    "ON": "The characters respond to their troubles in different ways. For example, at the dinner table each family member reacts differently. The mother and Ruth try to remain cheerful, but the father is clearly upset. Shirley, the narrator, feels mixed feelings. At the soup kitchen, everyone in line is sad and ashamed about not having a job. Then Shirley and Ruth perform a simple dance routine. This reminds their father that there is still joy in life and that things can improve. This story tells me that having a positive outlook comes from sharing experiences and connecting with others.",
+    "ABOVE": "In the story, the characters respond to hard times in different ways. The mother and Ruth try to stay cheerful, while the father is clearly upset. Shirley has mixed feelings about the family's troubles. Later, at the soup kitchen, everyone in line is sad and ashamed about not having a job. However, when Shirley and Ruth perform a simple dance routine, their father and the others remember that there is still joy in life. This proves that one hopeful action can change how people feel. Overall, the story shows that a positive outlook comes from sharing experiences and connecting with others."
+   }
+  },
+  "G5.U5.TS3": {
+   "code": "G5.U5.TS3.RTR",
+   "grade": 5,
+   "unit": 5,
+   "textSet": 3,
+   "selection": "Should Plants and Animals from Other Places Live Here?",
+   "genre": "Argumentative Text | Texts: \"A Growing Problem,\" \"New Arrivals Welcome\"",
+   "prompt": "Did you find one author's argument more convincing than the other? Explain your answer.",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "A Growing Problem",
+      "pythons",
+      "native",
+      "carp",
+      "pests",
+      "harm",
+      "good",
+      "New Arrivals Welcome",
+      "invasive",
+      "farm"
+     ],
+     "gapSentences": [
+      "I found \"_______________\" more convincing.",
+      "The author describes 150,000 nonnative _______________ \"crawling through the Everglades.\"",
+      "These animals threaten to harm _______________ species.",
+      "Other examples of harm are Asian _______________, germs, and melaleuca trees.",
+      "The author of \"New Arrivals Welcome\" says nonnative species help control \"_______________ that harm crops.\"",
+      "After reading both essays, I think the _______________ could outweigh the _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "I found the argument in \"______________________\" more convincing.",
+      "The author's claim is that ______________________.",
+      "One piece of evidence the author uses is ______________________.",
+      "This evidence is convincing because ______________________.",
+      "In contrast, the author of \"______________________\" argues that ______________________.",
+      "However, this argument is less convincing because ______________________.",
+      "Therefore, I think ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Did you find one author's argument more convincing than the other? Explain your answer.",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about which argument is more convincing",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your opinion",
+      "A comparison between both authors"
+     ],
+     "challengeStarter": "Although both authors present ideas about nonnative species, I believe \"__________________\" has the more convincing argument because __________________. The strongest evidence is __________________. This proves that __________________. However, the author of \"__________________\" is less convincing because __________________. Overall, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "I found \"A Growing Problem\" more convincing. The author describes 150,000 nonnative pythons \"crawling through the Everglades.\" These animals threaten to harm native species. Other examples of harm are Asian carp, germs, and melaleuca trees. The author of \"New Arrivals Welcome\" says nonnative species help control \"pests that harm crops.\" After reading both essays, I think the harm could outweigh the good.",
+    "ON": "I found the argument in \"A Growing Problem\" more convincing. The author's claim is that nonnative species can harm native species. One piece of evidence the author uses is the 150,000 nonnative pythons \"crawling through the Everglades.\" This evidence is convincing because it helps me visualize how big the problem is. In contrast, the author of \"New Arrivals Welcome\" argues that nonnative species help farm sales and control \"pests that harm crops.\" However, this argument is less convincing because the other essay shows many examples of harm, like Asian carp, germs, and melaleuca trees. Therefore, I think the harm could outweigh the good.",
+    "ABOVE": "Although both authors present ideas about nonnative species, I believe \"A Growing Problem\" has the more convincing argument because the author gives many clear examples of harm. The strongest evidence is the 150,000 nonnative pythons \"crawling through the Everglades\" that threaten native species. This proves that invasive species can be a serious problem. The author also shows that even species meant to help, like melaleuca trees, can end up causing harm. However, the author of \"New Arrivals Welcome\" is less convincing because, although nonnative species help control \"pests that harm crops,\" the harm described in the other essay seems greater. Overall, I feel that the harm could outweigh the good.\nSample answer: accept either author if the opinion is supported by relevant text evidence."
+   }
+  },
+  "G5.U6.TS1": {
+   "code": "G5.U6.TS1.RTR",
+   "grade": 5,
+   "unit": 6,
+   "textSet": 1,
+   "selection": "Shipped Out",
+   "genre": "Historical Fiction",
+   "prompt": "Consider each of the characters in this story. What message does the author want readers to understand about families?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "war",
+      "contributing",
+      "battleship",
+      "bakery",
+      "cupcakes",
+      "important",
+      "way",
+      "navy",
+      "valued",
+      "flashback"
+     ],
+     "gapSentences": [
+      "Libby's father is separated from the family by the _______________.",
+      "Libby feels she isn't _______________ to the war effort as much as her family.",
+      "Her dad is a mechanic on a _______________, and her mom makes uniforms.",
+      "Aunt Lucia runs a _______________.",
+      "Libby helps by decorating _______________ for Aunt Lucia's fund-raiser, and she feels _______________.",
+      "The message is that each family member is _______________ in his or her own _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "The author wants readers to understand that families ______________________.",
+      "At first, Libby feels ______________________ because ______________________.",
+      "Libby's dad ______________________, and her mom ______________________.",
+      "Aunt Lucia helps by ______________________.",
+      "Libby finds a way to help when ______________________.",
+      "This makes Libby feel ______________________.",
+      "The message about families is that ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Consider each of the characters in this story. What message does the author want readers to understand about families?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about the author's message",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "A comparison of how at least two characters contribute"
+     ],
+     "challengeStarter": "The author wants readers to understand that __________________. At first, Libby feels __________________ because __________________. In contrast, her mom and Aunt Lucia __________________. Later, Libby __________________. This leads Aunt Lucia to __________________, and Libby __________________. This proves that __________________. Overall, the story shows that every family member __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Libby's father is separated from the family by the war. Libby feels she isn't contributing to the war effort as much as her family. Her dad is a mechanic on a battleship, and her mom makes uniforms. Aunt Lucia runs a bakery. Libby helps by decorating cupcakes for Aunt Lucia's fund-raiser, and she feels valued. The message is that each family member is important in his or her own way.",
+    "ON": "The author wants readers to understand that families are made of members who are each important in their own way. At first, Libby feels upset because she isn't contributing to the war effort as much as her family is. Libby's dad is a mechanic on a battleship, and her mom makes uniforms. Aunt Lucia helps by running her bakery and holding a fund-raiser. Libby finds a way to help when she decorates cupcakes for Aunt Lucia's fund-raiser. This makes Libby feel valued and helps her find peace with her father's decision to join the navy. The message about families is that every member can contribute something special.",
+    "ABOVE": "The author wants readers to understand that each family member is important in his or her own way. At first, Libby feels upset because she thinks she isn't helping the war effort as much as her family. In contrast, her mom and Aunt Lucia deal with the war by doing their part however they can. Later, Libby decorates the cupcakes for Aunt Lucia's fund-raiser. This leads Aunt Lucia to praise Libby's contribution, and Libby feels valued. This proves that Libby's talent matters just as much as everyone else's. Overall, the story shows that every family member can contribute, and Libby decides to send her dad a picture of the cupcakes to share with his troops."
+   }
+  },
+  "G5.U6.TS2": {
+   "code": "G5.U6.TS2.RTR",
+   "grade": 5,
+   "unit": 6,
+   "textSet": 2,
+   "selection": "Mysterious Oceans",
+   "genre": "Expository Text",
+   "prompt": "Why has so little of the deep sea been explored? Why is deep sea exploration important?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "harsh",
+      "sunshine",
+      "five",
+      "adapt",
+      "food",
+      "things",
+      "questions",
+      "starfish",
+      "geology",
+      "photographs"
+     ],
+     "gapSentences": [
+      "The deep ocean has an extremely _______________ environment.",
+      "Frigid temperatures, lack of _______________, and the depth make it hard to explore.",
+      "Scientists have only explored _______________ percent of the ocean world.",
+      "Deep sea creatures need to _______________ to the harsh environment.",
+      "There is not much _______________ in the deep ocean, so deep sea _______________ are more aggressive.",
+      "Exploring helps us discover new living _______________ and answer _______________."
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "So little of the deep sea has been explored because ______________________.",
+      "The author explains that ______________________.",
+      "For example, ______________________.",
+      "Scientists have found that deep sea creatures ______________________.",
+      "One example of an adaptation is ______________________.",
+      "Deep sea exploration is important because ______________________.",
+      "If we continue to explore, ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: Why has so little of the deep sea been explored? Why is deep sea exploration important?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear answer to both parts of the question",
+      "Evidence from the text",
+      "Explanation of why the evidence supports your answer",
+      "Both the causes (why it is hard) and the effects (why it matters)"
+     ],
+     "challengeStarter": "So little of the deep sea has been explored because __________________. For example, __________________. Even so, scientists have learned that __________________. One example is __________________. This proves that __________________. Deep sea exploration is important because __________________. Overall, if we continue exploring, __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "The deep ocean has an extremely harsh environment. Frigid temperatures, lack of sunshine, and the depth make it hard to explore. Scientists have only explored five percent of the ocean world. Deep sea creatures need to adapt to the harsh environment. There is not much food in the deep ocean, so deep sea starfish are more aggressive. Exploring helps us discover new living things and answer questions.",
+    "ON": "So little of the deep sea has been explored because it is an extremely harsh environment. The author explains that frigid temperatures, the lack of sunshine, and the depth and geology of the sea make it hard to explore. For example, scientists have only explored five percent of the ocean world. Scientists have found that deep sea creatures needed to adapt to the harsh environment. One example of an adaptation is that deep sea starfish are more aggressive than shallow water starfish because there is not much food. Deep sea exploration is important because there are still unanswered questions about deep sea adaptations. If we continue to explore, we can discover new living things and how they have adapted.",
+    "ABOVE": "So little of the deep sea has been explored because its environment is extremely harsh. For example, frigid temperatures, the lack of sunshine, and the depth and geology of the sea make exploration very difficult, so scientists have explored only five percent of the ocean world. Even so, scientists have learned that deep sea creatures adapt to these conditions. One example is that deep sea starfish are more aggressive than shallow water starfish because food is scarce. This proves that exploration teaches us important things about life in the ocean. Deep sea exploration is important because there are still unanswered questions about these adaptations. Overall, if we continue exploring, we can discover new living things and learn how they survive."
+   }
+  },
+  "G5.U6.TS3": {
+   "code": "G5.U6.TS3.RTR",
+   "grade": 5,
+   "unit": 6,
+   "textSet": 3,
+   "selection": "To Travel!",
+   "genre": "Poetry | Poems: \"To Travel!,\" \"Wild Blossoms\"",
+   "prompt": "How does each poet's use of imagery relate to his or her message?",
+   "promptNote": "Use your notes and text evidence to support your response.",
+   "levels": {
+    "BELOW": {
+     "title": "Word Bank + Fill in the Gaps",
+     "instructions": [
+      "Fill in the gaps using words from the Word Bank.",
+      "Now copy your completed answer as one paragraph:"
+     ],
+     "wordBank": [
+      "connecting",
+      "seas",
+      "bird",
+      "reading",
+      "nature",
+      "outstretched",
+      "garden",
+      "seeds",
+      "imagery",
+      "visualize"
+     ],
+     "gapSentences": [
+      "Each poet uses _______________ to express a message about _______________ to the world.",
+      "In \"To Travel!,\" the speaker says, \"I sail across the seven _______________.\"",
+      "The speaker says, \"My heart soars like a _______________.\"",
+      "These images show how _______________ connects the speaker to new places.",
+      "In \"Wild Blossoms,\" the imagery shows the speaker connecting to _______________.",
+      "The speaker \"danced about the backyard, arms _______________.\""
+     ],
+     "starters": [],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ON": {
+     "title": "Sentence Starters",
+     "instructions": [
+      "Complete each sentence starter. Then read your sentences together as one paragraph."
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [
+      "Each poet uses imagery to ______________________.",
+      "In \"To Travel!,\" the poet uses imagery to describe ______________________.",
+      "The speaker says, \"______________________.\"",
+      "This image shows ______________________.",
+      "In \"Wild Blossoms,\" the poet uses imagery to show ______________________.",
+      "The line \"______________________\" helps me visualize ______________________.",
+      "Both poets' message is that ______________________."
+     ],
+     "checklist": [],
+     "challengeStarter": null
+    },
+    "ABOVE": {
+     "title": "Independent Writing",
+     "instructions": [
+      "Write a paragraph answering the question: How does each poet's use of imagery relate to his or her message?",
+      "Your response should include:"
+     ],
+     "wordBank": [],
+     "gapSentences": [],
+     "starters": [],
+     "checklist": [
+      "A clear claim about each poet's message",
+      "Images quoted from both poems",
+      "Explanation of how the imagery connects to the message",
+      "A comparison of the imagery in both poems"
+     ],
+     "challengeStarter": "Both poets use imagery to express a message about __________________. In \"To Travel!,\" the speaker says, \"__________________,\" which shows __________________. In \"Wild Blossoms,\" the image \"__________________\" shows __________________. This proves that __________________. Both poems help readers visualize __________________. Overall, the poets' imagery helps readers understand that __________________."
+    }
+   },
+   "modelAnswers": {
+    "BELOW": "Each poet uses imagery to express a message about connecting to the world. In \"To Travel!,\" the speaker says, \"I sail across the seven seas.\" The speaker says, \"My heart soars like a bird.\" These images show how reading connects the speaker to new places. In \"Wild Blossoms,\" the imagery shows the speaker connecting to nature. The speaker \"danced about the backyard, arms outstretched.\"",
+    "ON": "Each poet uses imagery to express a message about connecting to the world. In \"To Travel!,\" the poet uses imagery to describe what happens when the speaker reads books or views art. The speaker says, \"I sail across the seven seas.\" This image shows how reading connects the speaker to places he or she has never been. In \"Wild Blossoms,\" the poet uses imagery to show how planting a garden connects the speaker to nature. The line \"I danced about the backyard, arms outstretched, letting seeds loose on the wind\" helps me visualize how happy the speaker feels. Both poets' message is that people can connect to the world in meaningful ways.",
+    "ABOVE": "Both poets use imagery to express a message about connecting to the world. In \"To Travel!,\" the speaker says, \"My heart soars like a bird,\" which shows how reading and art carry the speaker to faraway places. In \"Wild Blossoms,\" the image \"Quick swifts and happy sparrows dipped, dove, and darted after the falling seeds\" shows how planting a garden connects the speaker to nature. This proves that imagery helps readers share the speakers' positive experiences. Both poems help readers visualize what the speakers are feeling and doing. Overall, the poets' imagery helps readers understand that we can connect to the world through books, art, and nature."
+   }
+  }
+ }
+}

@@ -70,7 +70,7 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
     <WordLookup>
       <PracticeFrame view={view} shownQuestion={shown} value={value} onChange={setValue} feedback={feedback}
         ready={!!shown && isAnswerReady(shown, value)} pending={pending} error={error} onCheck={check} onNext={next} unitHref={unitHref}
-        onFinish={() => setDone(feedback?.next.endReason ?? "COMPLETED")} />
+        onFinish={() => setDone(feedback?.next.hasQuestion ? "COMPLETED" : feedback?.next.endReason ?? "COMPLETED")} />
       {shown && hint && !feedback && (
         <div className="mx-auto mt-3 max-w-5xl">
           {hints.map((h) => <p key={h.level} className="mb-2 rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">💡 <span className="font-semibold">Hint {h.level}:</span> {h.text}</p>)}

@@ -17,7 +17,7 @@ export function speakTexts(texts: string[], opts: { slow?: boolean; onEnd?: () =
   list.forEach((t, k) => {
     const u = new SpeechSynthesisUtterance(t);
     u.lang = "en-US";
-    u.rate = opts.slow ? 0.55 : 0.85;
+    u.rate = opts.slow ? 0.6 : 0.95;
     if (voice) u.voice = voice;
     if (k === list.length - 1 && opts.onEnd) { u.onend = () => opts.onEnd!(); u.onerror = () => opts.onEnd!(); }
     synth.speak(u);

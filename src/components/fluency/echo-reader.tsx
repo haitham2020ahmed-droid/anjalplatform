@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { CoachResult } from "@/server/fluency/coach";
 import { say, useCoachRecorder } from "./recorder";
 import { MicMeter } from "./mic-meter";
+import { CoachStatus } from "./coach-status";
 import { ProsodyBars } from "./charts";
 
 /**
@@ -42,10 +43,8 @@ export function EchoReader({ passageKey, title, sentences }: { passageKey: strin
             {res && idx < sentences.length - 1 && <button onClick={next} className="rounded-2xl bg-indigo-400 px-6 py-3 text-lg font-extrabold text-white">Next sentence →</button>}
           </>
         )}
-        {r.stage === "recording" && <><p className="flex items-center gap-3 text-lg font-bold"><span className="h-3 w-3 animate-pulse rounded-full bg-rose-400" aria-hidden="true" />Say the sentence…</p><button onClick={r.stop} className="rounded-2xl bg-white px-8 py-3 text-lg font-extrabold text-brand-navy">■ Stop</button></>}
-        {r.stage === "sending" && <p className="text-lg font-semibold">🎧 The coach is comparing your sentence…</p>}
-        {r.stage === "waiting" && <p className="text-lg font-semibold">⏳ Your result comes in about {r.wait}s — keep this page open.</p>}
-        {r.stage === "error" && <><p className="text-base font-semibold">⚠️ {r.msg}</p><button onClick={r.reset} className="rounded-2xl bg-white px-6 py-2.5 font-bold text-brand-navy">Try again</button></>}
+        {r.stage === "recording" && <><p className="flex items-center gap-3 text-lg font-bold"><span className="h-3 w-3 animate-pulse rounded-full bg-rose-400" aria-hidden="true" />Say the sentence…</p><MicMeter mic={r.mic} compact /><button onClick={r.stop} className="rounded-2xl bg-white px-8 py-3 text-lg font-extrabold text-brand-navy">■ Stop</button></>}
+        <CoachStatus r={r} />
       </div>
 
       {res && (

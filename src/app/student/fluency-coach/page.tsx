@@ -8,6 +8,7 @@ import { FluencyCoachIcon } from "@/components/fluency/coach-icon";
 import { CoachReader } from "@/components/fluency/coach-reader";
 import { EchoReader } from "@/components/fluency/echo-reader";
 import { DrillReader } from "@/components/fluency/drill-reader";
+import { MyPlanCard } from "@/components/fluency/my-plan";
 import { ProsodyBars, TrialChart, WcpmChart } from "@/components/fluency/charts";
 import { aiEnv } from "@/server/ai/env";
 
@@ -113,7 +114,7 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
             )}
 
             <div className="grid items-start gap-4 lg:grid-cols-3">
-              <section className="rounded-3xl bg-emerald-50 p-5 ring-1 ring-emerald-200 lg:col-span-2">
+              {home.remedial ? <div className="lg:col-span-2"><MyPlanCard plan={home.remedial} /></div> : <section className="rounded-3xl bg-emerald-50 p-5 ring-1 ring-emerald-200 lg:col-span-2">
                 <h2 className="font-bold text-emerald-900">🗓 My plan</h2>
                 {home.plan ? (
                   <>
@@ -121,7 +122,7 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
                     <ol className="mt-2 space-y-1.5 text-sm">{home.plan.steps.map((st, i) => <li key={i} className="flex items-start gap-2 rounded-xl bg-white px-3 py-2"><span aria-hidden="true">{st.icon}</span><span className="flex-1">{st.text}</span>{st.href && <Link href={st.href} className="shrink-0 font-bold text-emerald-700 hover:underline">Go →</Link>}</li>)}</ol>
                   </>
                 ) : <p className="mt-1 text-sm text-emerald-900">Your plan appears after your first reading.</p>}
-              </section>
+              </section>}
               <section className="rounded-3xl bg-sky-50 p-5 ring-1 ring-sky-200">
                 <h2 className="font-bold text-sky-900">💡 Tips for me</h2>
                 {home.tips.length ? (

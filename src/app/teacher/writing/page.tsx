@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getT } from "@/i18n/server";
+import { isLocked } from "@/server/writing/locked";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
@@ -183,6 +186,9 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
+  const { t: tr } = await getT();
+  // 🔒 a locked rubric task opens its submissions page
+  if (sp.task && isLocked(await repo.findUnique("WritingTask", { id: sp.task }))) redirect(`/teacher/writing/task/${encodeURIComponent(sp.task)}`);
   const classes = (await readableClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
   const classId = classes.some((c) => c.id === sp.classId) ? String(sp.classId) : classes[0] ? String(classes[0].id) : "";
   const [tasks, task, errors, skills] = classId
@@ -196,8 +202,15 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
       <nav className="flex flex-wrap gap-2 print:hidden">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/writing?classId=${String(c.id)}`} className={chip(c.id === classId)}>{String(c.name)}</Link>)}</nav>
       <div className="mt-5 grid gap-5 lg:grid-cols-[22rem_1fr]">
         <aside className="space-y-4 print:hidden">
+          <div className="grid gap-2">
+            <Link prefetch={false} href={`/teacher/writing/new?classId=${classId}`} className="flex min-h-11 items-center gap-2 rounded-2xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">🔒 {tr("New writing task (rubric, locked page)")}</Link>
+            <div className="flex flex-wrap gap-2 text-sm">
+              <Link prefetch={false} href="/teacher/writing/rubrics" className="inline-flex min-h-10 items-center rounded-xl bg-white px-3 font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">📏 {tr("Rubrics")}</Link>
+              <Link prefetch={false} href={`/teacher/writing/report?classId=${classId}`} className="inline-flex min-h-10 items-center rounded-xl bg-white px-3 font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">📊 {tr("Writing results")}</Link>
+            </div>
+          </div>
           <details className="rounded-2xl bg-white p-4 ring-1 ring-slate-200" open={!tasks.length}>
-            <summary className="cursor-pointer font-bold text-brand-navy">➕ New task</summary>
+            <summary className="cursor-pointer font-bold text-brand-navy">➕ New genre task or reading aloud</summary>
             <NewTaskForm classId={classId} skills={skills} />
           </details>
           <section className="rounded-2xl bg-white p-4 text-sm ring-1 ring-slate-200">
@@ -213,7 +226,7 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
             )}
             {errors.pieces > 0 && <p className="mt-2 text-xs text-slate-500">From {errors.pieces} piece{errors.pieces === 1 ? "" : "s"} of approved feedback.{!task && " Open a task to assign reteach skills."}</p>}
           </section>
-          <ul className="space-y-2">{tasks.map((t) => <li key={t.id}><Link href={`/teacher/writing?classId=${classId}&task=${t.id}`} className={`block rounded-2xl p-3 ring-1 ${task?.id === t.id ? "bg-brand-navy text-white ring-brand-navy" : "bg-white ring-slate-200 hover:ring-brand-teal"}`}><span className="block font-semibold">{t.kind === "WRITE" ? GENRE_ICON[t.genre] : "🎙"} {t.title}</span><span className="block text-xs opacity-80">{t.kind === "WRITE" ? `${GENRE_LABEL[t.genre].split(" (")[0]}${t.staged ? " · staged" : ""} · ` : ""}{t.submitted}/{t.members} handed in · {t.scored} scored{t.aiPending ? ` · 🤖 ${t.aiPending} to check` : ""}{t.dueAt ? ` · due ${t.dueAt.slice(0, 10)}` : ""}</span></Link></li>)}</ul>
+          <ul className="space-y-2">{tasks.map((t) => <li key={t.id}><Link href={t.locked ? `/teacher/writing/task/${t.id}` : `/teacher/writing?classId=${classId}&task=${t.id}`} className={`block rounded-2xl p-3 ring-1 ${task?.id === t.id ? "bg-brand-navy text-white ring-brand-navy" : "bg-white ring-slate-200 hover:ring-brand-teal"}`}><span className="block font-semibold">{t.locked ? "🔒" : t.kind === "WRITE" ? GENRE_ICON[t.genre] : "🎙"} {t.title}</span><span className="block text-xs opacity-80">{t.locked ? `${tr("Rubric · locked page")} · ` : t.kind === "WRITE" ? `${GENRE_LABEL[t.genre].split(" (")[0]}${t.staged ? " · staged" : ""} · ` : ""}{t.submitted}/{t.members} handed in · {t.scored} scored{t.aiPending ? ` · 🤖 ${t.aiPending} to check` : ""}{t.dueAt ? ` · due ${t.dueAt.slice(0, 10)}` : ""}</span></Link></li>)}</ul>
         </aside>
         <section>
           {!task ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">Choose a task, or make a new one.</p> : (

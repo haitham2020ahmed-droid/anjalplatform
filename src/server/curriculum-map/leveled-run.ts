@@ -5,6 +5,7 @@ import { decideLevel, LADDER, pickNext, type Decision, type Level, type Rung } f
 import { lexileBands, levelForLexile } from "./lexile";
 import { evidenceLevels } from "./evidence-level";
 import { ladderRulesForStudent } from "./ladder-settings";
+import { cachedContentKeys, cachedSeenIndex, freshFilter, Sitting } from "../questions/fresh";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -62,7 +63,7 @@ export interface AdaptiveState { nextId: string | null; total: number; done: boo
 
 /** In a row at the end: careful correct answers at On level or higher (a strong student finishes early). */
 const STRONG_STREAK = 10;
-/** Careful wrong answers in a row: the student gets help (and the questions they missed come back later). */
+/** Careful wrong answers in a row: the student gets help (the questions they missed wait in Second Chance). */
 const STRUGGLE_RUN = 5;
 /** Answers without reaching the goal: the teacher is told the student is stuck. */
 export const STUCK_AFTER = 60;
@@ -98,21 +99,25 @@ export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessio
     : moved.reason === "MASTERED_ABOVE" ? moved
     : attempts.length >= total ? { ...moved, done: true, reason: "LIMIT" as const } : { ...moved, done: false, reason: null };
   if (decision.done) return { nextId: null, total, done: true, decision, start, goal, attempts: attempts.length };
-  const answered = new Set(attempts.map((a) => s(a.questionId)));
+  // 🛡️ never twice in one sitting: the questions answered in this session and their copies (same content)
+  const keysOf = await cachedContentKeys(repo, `pool:${s(set.id)}:${order.length}`, order);
+  const sitting = new Sitting();
+  for (const a of attempts) sitting.add(s(a.questionId), keysOf.get(s(a.questionId)) ?? []);
+  const answered = new Set(pool.filter((q) => sitting.has(q.id, keysOf.get(q.id) ?? [])).map((q) => q.id));
+  // 🆕 across sittings: questions this student never attempted first; seen ones only once every question of the set
+  // was seen (then the ones seen longest ago) — the level logic below is unchanged, it only chooses among these
+  const seen = await cachedSeenIndex(repo, `set:${sessionId}:${order.length}`, studentId, pool.map((q) => ({ id: q.id, keys: keysOf.get(q.id) ?? [] })), { exceptSessions: [sessionId] });
+  const open = pool.filter((q) => !answered.has(q.id));
+  const fresh = new Set(freshFilter(open, (q) => seen.lastSeen(q.id, keysOf.get(q.id) ?? [])).map((q) => q.id));
+  const notFresh = new Set([...answered, ...open.filter((q) => !fresh.has(q.id)).map((q) => q.id)]);
   const lex = await studentLexile(repo, studentId);
-  let nextId = pickNext(pool, decision.level, answered, lex);
-  // the level has no question left: the nearest level that still has one
+  // the level first; the level has no question left: the nearest level that still has one
   const near: Record<Rung, Rung[]> = { SUPPORT: ["BELOW", "ON"], BELOW: ["ON", "SUPPORT", "ABOVE"], ON: ["BELOW", "ABOVE"], ABOVE: ["ON", "CHALLENGE", "BELOW"], CHALLENGE: ["ABOVE", "ON"] };
-  for (const alt of near[decision.level]) { if (nextId) break; nextId = pickNext(pool, alt, answered, lex); }
-  // 🔁 a goal set whose questions have all been seen: the questions the student missed come back (never one of
-  // the last 5 answered), nearest to their level first
-  if (!nextId && target) {
-    const recent = new Set(attempts.slice(-5).map((a) => s(a.questionId)));
-    const lastOf = new Map<string, boolean>();
-    for (const a of attempts) lastOf.set(s(a.questionId), Boolean(a.isCorrect));
-    const missed = new Set([...lastOf].filter(([id, ok]) => !ok && !recent.has(id)).map(([id]) => id));
-    const notMissed = new Set(pool.map((q) => q.id).filter((id) => !missed.has(id)));
-    for (const lv of [decision.level, ...near[decision.level]]) { if (nextId) break; nextId = pickNext(pool, lv, notMissed, lex); }
-  }
+  const tryLevels = (avoid: Set<string>): string | null => {
+    for (const lv of [decision.level, ...near[decision.level]]) { const id = pickNext(pool, lv, avoid, lex); if (id) return id; }
+    return null;
+  };
+  // a missed question never comes back in the set: it waits in Second Chance (the set ends when nothing new is left)
+  const nextId = tryLevels(notFresh) ?? tryLevels(answered);
   return { nextId, total, done: !nextId, decision: nextId ? decision : { ...decision, done: true, reason: "NO_QUESTIONS" }, start, goal, attempts: attempts.length };
 }

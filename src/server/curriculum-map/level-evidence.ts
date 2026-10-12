@@ -18,6 +18,7 @@
  *   refreshLevelStates  the daily job: evaluates every student, applies the rule, writes StudentLevelState and the
  *                    level history (AuditLog level.change, category OVERALL, with the evidence summary).
  */
+import { idsKey, sharedRead } from "../lib/shared-read";
 import type { Repo, Row } from "../seeding/repo";
 import { estimateAbilityEAP, type EapCache } from "../../adaptive/irt";
 import { scoringParams } from "../practice/scoring-params";
@@ -114,8 +115,14 @@ export const LEVEL_THETA_COLUMNS = ["studentId", "questionId", "skillId", "isCor
  * or trend tests: `recent`/`prior` null, `declining` false, `drift` null) — for callers that need only the level.
  */
 export async function levelThetas(repo: Repo, ids: string[], now = new Date(), opts: { rows?: Row[]; only?: "theta" } = {}): Promise<Map<string, LevelTheta>> {
+  if (!ids.length) return new Map();
+  // ⚡ asked again for the same students while a page is built: computed once (fresh after any write); callers get a copy
+  if (!opts.rows) return new Map(await sharedRead(repo, `levelThetas|${opts.only ?? ""}|${Math.floor(now.getTime() / 60_000)}|${idsKey(ids)}`, ["QuestionAttempt", "QuestionOption", "Question"], 20_000, () => levelThetasUncached(repo, ids, now, opts)));
+  return levelThetasUncached(repo, ids, now, opts);
+}
+
+async function levelThetasUncached(repo: Repo, ids: string[], now: Date, opts: { rows?: Row[]; only?: "theta" }): Promise<Map<string, LevelTheta>> {
   const out = new Map<string, LevelTheta>();
-  if (!ids.length) return out;
   const from = now.getTime() - THETA_WINDOW_DAYS * DAY;
   let rows: Row[];
   const tOf = new Map<Row, number>(); // each answer's time, parsed once

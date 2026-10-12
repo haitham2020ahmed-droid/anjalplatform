@@ -69,11 +69,11 @@ describe("🪪 accounts sheet and sign-in cards", () => {
     assert.ok(cut.includes("pk-cutrows") && cut.includes("Cut here"));
   });
 
-  test("sign-in cards: 8 per page, name, class, username, password, QR, how to sign in", () => {
+  test("sign-in cards: 8 per page, name, class, username, password, QR, website", () => {
     const out = html(h(SignInCards, { cards: fake(10), school: "Demo School", base: "https://anjal.example" }));
     assert.equal(count(out, 'data-pk="card"'), 10);
     assert.equal(count(out, 'data-pk="page"'), 2, "8 + 2");
-    for (const x of ["Test Pupil 1", "pupil.10", "How to sign in", "Grade 4", "pk-cardcell"]) assert.ok(out.includes(x), x);
+    for (const x of ["Test Pupil 1", "pupil.10", "Website", "anjal.example", "Grade 4", "pk-cardcell"]) assert.ok(out.includes(x), x);
     assert.doesNotMatch(out, /<svg[^>]*\sdir=/);
   });
 

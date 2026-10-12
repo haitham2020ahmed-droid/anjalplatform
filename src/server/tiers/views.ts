@@ -18,7 +18,7 @@ const json = <T,>(v: unknown, def: T): T => { if (v === null || v === undefined)
 const asTier = (v: unknown): Tier => (Number(v) === 3 ? 3 : Number(v) === 2 ? 2 : 1);
 
 export interface TierRow {
-  studentId: string; name: string; tier: Tier; computed: boolean; since: string | null; reason: string; focusSkill: string | null;
+  studentId: string; name: string; tier: Tier; computed: boolean; since: string | null; reason: string; focusSkill: string | null; focusSkillId?: string | null;
   nextCheck: string | null; overdue: boolean; source: "AUTO" | "TEACHER"; locked: boolean; refer: boolean;
   /** a teacher's lock: the date it is reviewed (LOCK_DAYS after it was set) and, once due, what the rules suggest */
   lockNote: string | null;
@@ -39,7 +39,7 @@ export async function tierRows(repo: Repo, ids: string[], now = new Date()): Pro
     const next = r ? d(r.reviewAt) : null;
     return {
       studentId: id, name: names.get(id)?.name ?? "Student", tier: r ? asTier(r.tier) : 1, computed: Boolean(r), since: r ? day(r.since) : null,
-      reason: r ? s(r.reason) : "Not computed yet: the daily job sets every student's tier.", focusSkill: r?.focusSkillId ? skills.get(s(r.focusSkillId)) ?? null : null,
+      reason: r ? s(r.reason) : "Not computed yet: the daily job sets every student's tier.", focusSkill: r?.focusSkillId ? skills.get(s(r.focusSkillId)) ?? null : null, focusSkillId: r?.focusSkillId ? s(r.focusSkillId) : null,
       nextCheck: next ? next.toISOString().slice(0, 10) : null, overdue: Boolean(next && next.getTime() < now.getTime()),
       source: (s(r?.source) === "TEACHER" ? "TEACHER" : "AUTO") as TierRow["source"], locked: Boolean(r?.locked), refer: s(r?.reason).includes(REFER_TEXT),
       lockNote: r?.locked ? lockNote(r, suggests.filter((x) => s(x.studentId) === id), now, lockedAt.get(id) ?? null) : null,

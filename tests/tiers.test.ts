@@ -133,7 +133,8 @@ describe("🧭 support tiers on the Test School", () => {
     assert.deepEqual([Number(change.fromTier), Number(change.toTier)], [1, 3]);
     const notes = await repo.findMany("Notification", { userId: teacher.userId, type: "TIER_CHANGE" });
     assert.equal(notes.length, 1, "one summary for the teacher");
-    assert.match(String(notes[0].body), /Tier 1 → Tier 3/);
+    // plain words for the teacher, the Tier term kept in brackets
+    assert.match(String(notes[0].body), /needs more help — now needs strong support \(Tier 3\)/);
     const again = await computeTiers(repo, schoolId, NOW);
     assert.equal(again.changed, 0, "nothing moves on a second run");
     assert.equal(await repo.count("Notification", { userId: teacher.userId, type: "TIER_CHANGE" }), 1);

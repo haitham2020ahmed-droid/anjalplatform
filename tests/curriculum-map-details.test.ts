@@ -85,12 +85,13 @@ describe("Send the curriculum plan", () => {
 
   test("lesson cards merge the details; sections are Ready only with questions", async () => {
     const v = await curriculumLessons(repo, teacher, 4);
-    assert.deepEqual(v.grades, [4, 5, 6], "every grade is open to every teacher");
+    assert.deepEqual(v.grades, [4], "Update 55: a teacher sees the Curriculum Map of their own grade only");
+    assert.deepEqual((await curriculumLessons(repo, admin, 4)).grades, [4, 5, 6], "admins see every grade");
     const l = v.units[0].lessons[0];
     assert.equal(l.name, "A World of Change");
     assert.ok(l.textIdea && l.vocabulary.includes("hazard"));
-    assert.deepEqual(l.sections.map((s) => [s.kind, s.ready]), [["CONCEPT_VOCABULARY", false], ["ANALYZE_CRAFT_AND_STRUCTURE", true], ["RESPOND_TO_READING", false]]);
-    const g6 = await curriculumLessons(repo, teacher, 6);
+    assert.deepEqual(l.sections.map((s) => [s.kind, s.ready]), [["CONCEPT_VOCABULARY", false], ["ANALYZE_CRAFT_AND_STRUCTURE", true], ["RESPOND_TO_READING", false], ["REVIEW", false]]);
+    const g6 = await curriculumLessons(repo, admin, 6);
     assert.equal(g6.units[0].lessons[2].name, "Cocoon");
     assert.equal(outlineOf(v.units).length, 18);
   });

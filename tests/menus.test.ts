@@ -39,37 +39,26 @@ function routeExists(url: string): boolean {
 }
 
 describe("menus: short and tidy", () => {
-  test("student: My Work first; no My Plans / Progress Report / My Skills / Family Report; Join Live only on the home page", () => {
-    const items = navItemsFor("STUDENT");
-    assert.equal(items[0].label, "My Work");
-    assert.equal(items[0].href, "/student");
-    const hrefs = items.map((i) => i.href), labels = items.map((i) => i.label);
-    for (const gone of ["My Plans", "Progress Report", "My Skills", "Family Report", "Join Live"]) assert.ok(!labels.includes(gone), gone);
-    for (const h of ["/student/plans", "/student/insights", "/student/skills", "/student/family", "/play"]) assert.ok(!hrefs.includes(h), h);
-    const groups = [...new Set(items.map((i) => i.group).filter(Boolean))];
-    assert.deepEqual(groups, ["Programs", "Reading", "Achievements", MORE]);
-    for (const h of ["/student/map", "/student/curriculum", "/student/readmaster", "/student/readrise", "/student/fluency-coach", "/student/tests", "/student/certificates", "/student/badges", "/student/reports"]) assert.ok(hrefs.includes(h), h);
-    assert.ok(items.filter((i) => i.group === MORE).every((i) => ["/student/lesson", "/student/review", "/student/words", "/student/respond", "/student/writing", "/student/decoding", "/student/strategy-survey", "/guide"].includes(i.href)));
+  test("student: five entries only — Home, My Work, My Tests, My Plan, ReadMaster / ReadRise (owner's spec)", () => {
+    const items = navItemsFor("STUDENT", { rti: true, nafs: true });
+    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Tests", "My Plan", "ReadMaster / ReadRise"]);
+    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/tests", "/student/map", "/student/reading"]);
   });
 
-  test("student: RTI only with the RTI flag, NAFS only with the NAFS flag (both under Programs)", () => {
-    assert.ok(!navItemsFor("STUDENT").some((i) => i.href === "/student/nafs" || i.href === "/student/rti"));
-    assert.ok(navItemsFor("STUDENT", { nafs: true }).some((i) => i.href === "/student/nafs" && i.group === "Programs"));
-    assert.ok(!navItemsFor("STUDENT", { nafs: true }).some((i) => i.href === "/student/rti"));
-    assert.ok(navItemsFor("STUDENT", { rti: true }).some((i) => i.href === "/student/rti" && i.group === "Programs"));
-    assert.ok(!navItemsFor("STUDENT", { rti: true }).some((i) => i.href === "/student/nafs"));
-    assert.match(read("src/components/app-shell.tsx"), /nafs: "\/student\/nafs" in counts/, "the shell passes the NAFS flag like the RTI one");
+  test("student: never an RTI entry, whatever the flags (support work is ordinary work in My Work)", () => {
+    for (const f of [{}, { rti: true }, { nafs: true }, { rti: true, nafs: true }]) assert.ok(!navItemsFor("STUDENT", f).some((i) => /rti|tier|support/i.test(i.href + i.label)));
+    const pages = searchablePagesFor("STUDENT");
+    assert.ok(!pages.some((p) => p.href === "/student/rti"));
+    for (const h of ["/student/readmaster", "/student/readrise", "/student/fluency-coach", "/student/curriculum", "/student/certificates", "/student/badges", "/student/reports", "/play"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
   });
 
-  test("teacher: at most 8 top-level entries besides Home; duplicates removed; rare pages under More", () => {
+  test("teacher: seven entries only; Curriculum Map and MAP always there; no RTI / Support Tiers / Assessments icons", () => {
     const items = navItemsFor("TEACHER");
-    const top = sections(items).flatMap((s) => (s.name ? [s.name] : s.items.map((i) => i.label))).filter((x) => x !== "Home");
-    assert.ok(top.length <= 8, `top level: ${top.join(", ")}`);
+    assert.deepEqual(items.map((i) => i.label), ["Home", "My Classes", "Curriculum Map", "MAP", "Plans", "Reports", "ReadMaster / ReadRise"]);
     const hrefs = new Set(items.map((i) => i.href));
-    for (const h of ["/teacher/students", "/teacher/map-center", "/admin/curriculum-map", "/teacher/rti-plan", "/teacher/plans", "/teacher/assessments", "/teacher/games", "/teacher/reports", "/teacher/week", "/teacher/messages"]) assert.ok(hrefs.has(h), h);
-    for (const h of ["/teacher/map-rit", "/teacher/map-plans", "/admin/student-file", "/teacher/progress", "/teacher/intervention", "/teacher/alerts", "/teacher/ai", "/teacher/family-reports", "/teacher/assignments", "/teacher/classes"]) assert.ok(!hrefs.has(h), `removed: ${h}`);
-    assert.deepEqual(items.filter((i) => i.group === "Programs").map((i) => i.href), ["/teacher/map-center", "/admin/curriculum-map", "/teacher/rti-plan", "/teacher/plans"]);
-    assert.ok(items.filter((i) => i.group === MORE).length >= 10);
+    for (const h of ["/teacher/rti-plan", "/teacher/tiers", "/teacher/assessments", "/teacher/data-meeting"]) assert.ok(!hrefs.has(h), `removed: ${h}`);
+    const pages = searchablePagesFor("TEACHER");
+    for (const h of ["/teacher/plans/support", "/teacher/assessments", "/teacher/games", "/teacher/week", "/teacher/messages", "/teacher/map-rit"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
   });
 
   test("admin: five sections (School, Content, Assessments & Programs, Reports, Settings), ≤ 6 working tools each, no More", () => {
@@ -99,7 +88,7 @@ describe("menus: short and tidy", () => {
       for (const i of items) { assert.ok(hasAr(i.label), `${role}: “${i.label}”`); if (i.group) assert.ok(hasAr(i.group), `${role}: group “${i.group}”`); }
     }
     // pages that left a menu are still found by name (top bar "Find a page" and the search)
-    for (const [role, h] of [["TEACHER", "/teacher/alerts"], ["TEACHER", "/teacher/map-rit"], ["STUDENT", "/student/plans"], ["STUDENT", "/play"]] as const) {
+    for (const [role, h] of [["TEACHER", "/teacher/alerts"], ["TEACHER", "/teacher/map-rit"], ["STUDENT", "/student/insights"], ["STUDENT", "/play"]] as const) {
       const pages = searchablePagesFor(role);
       assert.ok(pages.some((p) => p.href === h), `${role} finds ${h}`);
       assert.equal(new Set(pages.map((p) => p.href)).size, pages.length);

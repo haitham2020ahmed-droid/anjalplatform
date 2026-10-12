@@ -12,6 +12,7 @@ export const BANK_TABS: readonly { href: string; label: string; icon: string }[]
   { href: "/admin/bank-gaps", label: "Gaps", icon: "🕳" },
   { href: "/admin/questions/duplicates", label: "Duplicates", icon: "👯" },
   { href: "/admin/questions/import", label: "Import", icon: "📥" },
+  { href: "/admin/questions/load", label: "Load new questions", icon: "⬇️" },
 ];
 
 export function BankTabs() {

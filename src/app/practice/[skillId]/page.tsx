@@ -5,32 +5,40 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { startPractice } from "@/server/practice/session";
-import { isAssignedSkill } from "@/server/student/assigned";
+import { skillAccess } from "@/server/student/assigned";
 import { isMapPracticeSkill, seedAbilityFromRit } from "@/server/map/student-map";
 import { hintAction, submitAnswerAction } from "./actions";
 import { canPlaySkill } from "@/server/game/skill-games";
 
 /** Starts (or resumes) adaptive practice for a skill. */
-export default async function PracticePage({ params, searchParams }: { params: Promise<{ skillId: string }>; searchParams: Promise<{ from?: string }> }) {
+export default async function PracticePage({ params, searchParams }: { params: Promise<{ skillId: string }>; searchParams: Promise<{ from?: string; work?: string }> }) {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const { skillId } = await params;
   const me = (await getActor())!.user;
-  // MAP practice: a skill of the student's own grade linked to a MAP goal area (adaptive, starts at their RIT level)
-  const fromMap = (await searchParams).from === "map" && (await isMapPracticeSkill(repo, actor, skillId));
-  const unitHref = fromMap ? "/student/map" : (await searchParams).from === "free" ? "/student/skills" : "/student";
+  const from = (await searchParams).from;
+  // 1) assigned work (the skill, another grade's copy of it, an older multi-skill row, a prerequisite the engine
+  //    routes to) · 2) every skill of the student's MAP plan · 3) any skill of their own grade — all open, no
+  //    "not assigned" message (owner's spec). Checked on the server; all of it counts in reports.
+  const access = await skillAccess(repo, actor, skillId);
+  const fromMap = !access.assigned && !access.startsAt ? await isMapPracticeSkill(repo, actor, skillId) : from === "map" && (await isMapPracticeSkill(repo, actor, skillId));
+  const free = !access.assigned && !access.startsAt && !fromMap && (await canPlaySkill(repo, actor, skillId));
+  const unitHref = fromMap ? "/student/map" : from === "free" ? "/student/skills" : "/student/work";
   if (fromMap) await seedAbilityFromRit(repo, actor, skillId);
-  // otherwise: assigned work, or free practice of any skill of their own grade (“My skills”), checked on the server
-  const free = (await searchParams).from === "free" && (await canPlaySkill(repo, actor, skillId));
-  if (!fromMap && !free && !(await isAssignedSkill(repo, actor, skillId))) {
+  if (!access.assigned && !fromMap && !free) {
     return (
       <AppShell name={String(me.displayName)}>
-        <p className="text-lg text-slate-700">This skill has not been assigned to you. Your teacher will assign the skills to practise.</p>
-        <Link href="/student" className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">My assigned skills</Link>
+        <p className="text-lg text-slate-700">{access.startsAt ? `This skill opens on ${access.startsAt.toISOString().slice(0, 10)}. Come back then!` : "This skill is for another grade. Here is your own work:"}</p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link href="/student/work" className="inline-block rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white">My Work</Link>
+          <Link href="/student/map" className="inline-block rounded-xl bg-white px-5 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">My Plan</Link>
+        </div>
       </AppShell>
     );
   }
   try {
-    const view = await startPractice(repo, actor, skillId);
+    // ?work= : a Curriculum Map lesson continued with skill practice (checked on the server: the student's own lesson)
+    const work = (await searchParams).work;
+    const view = await startPractice(repo, actor, skillId, new Date(), undefined, work ? { work: String(work).slice(0, 64) } : {});
     return (
       <AppShell name={String(me.displayName)}>
         <PracticePlayer initial={view} unitHref={unitHref} submit={submitAnswerAction} hint={hintAction} />

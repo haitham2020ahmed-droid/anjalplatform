@@ -1,10 +1,16 @@
 /**
  * ⭐ Second Chance: every question a student answered WRONG and has not answered correctly since.
  *
- * Sources (all read with bounded, column-limited queries):
- *   QuestionAttempt   practice / My Work, assigned sets, tests, ReadMaster, lessons, games (bank questions)
+ * Sources (all read with bounded, column-limited queries) — EVERY path that serves a bank question feeds it:
+ *   QuestionAttempt   practice / My Work, assigned sets, tests, the Diagnostic, placement, ReadMaster, lessons
  *   QotdAnswer        Question of the Day (bank questions)
+ *   ExitTicketAnswer  exit tickets
+ *   MapSimAnswer      MAP practice tests (finished ones)
+ *   SecondChanceAnswer source GAME: questions missed in games (solo rounds, live games; games write no attempts)
  *   RRRun.answers     ReadRise quizzes (RRQuestion, kept as "rr:<id>")
+ * One entry per question: copies of one question (same fingerprint, or same stem + correct answer, stored under
+ * other skills, grades or map places) are ONE entry, and answering any copy correctly fixes it. Second Chance is the
+ * only place a missed question is shown again (practice, sets and tests never bring it back).
  * A question is FIXED when, after its last wrong answer, there is a correct normal answer or a correct
  * SecondChanceAnswer. Second Chance answers are practice only: they are stored in SecondChanceAnswer and never in
  * the attempt tables, so levels, mastery, tiers, reports and norms never see them.
@@ -15,6 +21,7 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { loadQuestionItems, toClientQuestion, type ClientQuestion } from "../practice/items";
 import { gradeItems } from "../teacher/worksheet";
+import { contentKeysForIds } from "../questions/fresh";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -28,7 +35,17 @@ export const PAGE_SIZE = 20;
 export const RR_PREFIX = "rr:";
 const LETTERS = ["A", "B", "C", "D"];
 
-export type ChanceSource = "PRACTICE" | "TEST" | "READMASTER" | "READRISE" | "QOTD";
+export type ChanceSource = "PRACTICE" | "TEST" | "READMASTER" | "READRISE" | "QOTD" | "EXIT" | "GAME";
+
+/** Marks a SecondChanceAnswer row that is a missed GAME question (not an answer given in Second Chance). */
+export const GAME_MISS = "GAME";
+
+/** Questions missed in a game: they wait in Second Chance (no attempt, level or mastery change). */
+export async function recordGameMisses(repo: Repo, studentId: string, questionIds: string[], now = new Date()): Promise<number> {
+  const ids = [...new Set(questionIds.map(s).filter(Boolean))].slice(0, 200);
+  if (!ids.length || !studentId) return 0;
+  return repo.createMany("SecondChanceAnswer", ids.map((questionId) => ({ studentId, questionId, correct: false, source: GAME_MISS, createdAt: now })));
+}
 
 /** one answer from any source, reduced to what Second Chance needs */
 export interface AnswerEvent { studentId: string; key: string; skillKey: string; correct: boolean; at: number; source: ChanceSource }
@@ -46,14 +63,15 @@ async function inChunks<T>(ids: string[], size: number, fn: (c: string[]) => Pro
 
 /**
  * Every answer of these students from every source (newest first, at most MAX_ROWS per source).
- * `wrongOnly` reads only the wrong answers (the teacher's repeated-mistakes view).
+ * `wrongOnly` reads only the wrong answers (the teacher's repeated-mistakes view). `everySource` adds the exit tickets,
+ * games and MAP practice tests (Second Chance itself; the teacher's view keeps its sources).
  */
-export async function answerEvents(repo: Repo, studentIds: string[], opts: { now?: Date; wrongOnly?: boolean } = {}): Promise<AnswerEvent[]> {
+export async function answerEvents(repo: Repo, studentIds: string[], opts: { now?: Date; wrongOnly?: boolean; everySource?: boolean } = {}): Promise<AnswerEvent[]> {
   if (!studentIds.length) return [];
   const now = opts.now ?? new Date();
   const since = new Date(now.getTime() - LOOKBACK_DAYS * DAY);
   const who = studentIds.length === 1 ? studentIds[0] : { in: studentIds };
-  const [attempts, qotd, runs, open] = await Promise.all([
+  const [attempts, qotd, runs, open, exits, games, sims] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId: who, createdAt: { gte: since }, ...(opts.wrongOnly ? { isCorrect: false } : {}) },
       { select: ["studentId", "questionId", "skillId", "isCorrect", "createdAt", "sessionId", "source"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
     repo.findMany("QotdAnswer", { studentId: who, createdAt: { gte: since }, ...(opts.wrongOnly ? { correct: false } : {}) },
@@ -62,6 +80,12 @@ export async function answerEvents(repo: Repo, studentIds: string[], opts: { now
       { select: ["studentId", "articleId", "band", "answers", "score", "startedAt"], orderBy: [{ field: "startedAt", dir: "desc" }], take: MAX_RR_RUNS * studentIds.length }),
     // tests still being taken: their questions wait until the test is over
     repo.findMany("PracticeSession", { studentId: who, endedAt: null }, { select: ["id", "assessmentId"], take: 200 }),
+    !opts.everySource ? Promise.resolve([] as Row[]) : repo.findMany("ExitTicketAnswer", { studentId: who, createdAt: { gte: since }, ...(opts.wrongOnly ? { isCorrect: false } : {}) },
+      { select: ["studentId", "questionId", "isCorrect", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
+    !opts.everySource ? Promise.resolve([] as Row[]) : repo.findMany("SecondChanceAnswer", { studentId: who, source: GAME_MISS, createdAt: { gte: since } },
+      { select: ["studentId", "questionId", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
+    // MAP practice tests: only finished ones (like other tests)
+    !opts.everySource ? Promise.resolve([] as Row[]) : repo.findMany("MapSimSession", { studentId: who, status: "DONE", startedAt: { gte: since } }, { select: ["id", "studentId"], take: 50 * studentIds.length }),
   ]);
   const openTests = new Set(open.filter((x) => x.assessmentId).map((x) => s(x.id)));
   // which sessions are tests (for the source label): only the sessions of the rows read
@@ -75,6 +99,13 @@ export async function answerEvents(repo: Repo, studentIds: string[], opts: { now
     out.push({ studentId: s(a.studentId), key: s(a.questionId), skillKey: s(a.skillId), correct: Boolean(a.isCorrect), at: time(a.createdAt), source: src });
   }
   for (const q of qotd) out.push({ studentId: s(q.studentId), key: s(q.questionId), skillKey: s(q.skillId), correct: Boolean(q.correct), at: time(q.createdAt), source: "QOTD" });
+  for (const x of exits) out.push({ studentId: s(x.studentId), key: s(x.questionId), skillKey: "", correct: Boolean(x.isCorrect), at: time(x.createdAt), source: "EXIT" });
+  for (const g of games) out.push({ studentId: s(g.studentId), key: s(g.questionId), skillKey: "", correct: false, at: time(g.createdAt), source: "GAME" });
+  if (sims.length) {
+    const who2 = new Map(sims.map((x) => [s(x.id), s(x.studentId)]));
+    const rows = await inChunks(sims.map((x) => s(x.id)), 500, (c) => repo.findMany("MapSimAnswer", { sessionId: { in: c }, ...(opts.wrongOnly ? { isCorrect: false } : {}) }, { select: ["sessionId", "questionId", "isCorrect", "createdAt"], take: MAX_ROWS }));
+    for (const a of rows) out.push({ studentId: who2.get(s(a.sessionId)) ?? "", key: s(a.questionId), skillKey: "", correct: Boolean(a.isCorrect), at: time(a.createdAt), source: "TEST" });
+  }
 
   const scored = runs.filter((r) => r.score !== null && r.score !== undefined && asJson(r.answers));
   if (scored.length) {
@@ -100,7 +131,7 @@ export interface PendingQuestion { key: string; skillKey: string; source: Chance
 /** The student's questions still waiting (newest mistake first), checked against the bank (published questions only). */
 export async function pendingMistakes(repo: Repo, studentId: string, now = new Date()): Promise<PendingQuestion[]> {
   const [events, sc] = await Promise.all([
-    answerEvents(repo, [studentId], { now }),
+    answerEvents(repo, [studentId], { now, everySource: true }),
     repo.findMany("SecondChanceAnswer", { studentId, correct: true }, { select: ["questionId", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
   ]);
   const fixedAt = new Map<string, number>();
@@ -112,19 +143,34 @@ export async function pendingMistakes(repo: Repo, studentId: string, now = new D
     else { v.wrongCount++; if (!v.wrong || e.at > v.wrong.at) v.wrong = e; }
     by.set(e.key, v);
   }
-  const pending: PendingQuestion[] = [];
-  for (const [key, v] of by) {
-    if (!v.wrong) continue;
-    if (v.lastRight > v.wrong.at || (fixedAt.get(key) ?? 0) > v.wrong.at) continue;
-    pending.push({ key, skillKey: v.wrong.skillKey, source: v.wrong.source, lastWrongAt: v.wrong.at, wrongCount: v.wrongCount });
+  // 👯 one entry per CONTENT: copies of one question (same fingerprint, or same stem + correct answer) form one group;
+  // the group is fixed when any of its copies was answered correctly (or fixed here) after the group's last mistake
+  const wrongIds = [...by].filter(([k, v]) => v.wrong && !k.startsWith(RR_PREFIX)).map(([k]) => k);
+  const keysOf = await contentKeysForIds(repo, wrongIds);
+  const rootOf = new Map<string, string>(), rootByKey = new Map<string, string>();
+  for (const id of wrongIds) {
+    const root = (keysOf.get(id) ?? []).map((k) => rootByKey.get(k)).find(Boolean) ?? id;
+    rootOf.set(id, root);
+    for (const k of keysOf.get(id) ?? []) if (!rootByKey.has(k)) rootByKey.set(k, root);
   }
+  const groups = new Map<string, string[]>();
+  for (const [key, v] of by) if (v.wrong) { const r = rootOf.get(key) ?? key; const l = groups.get(r); if (l) l.push(key); else groups.set(r, [key]); }
   // only questions that can still be shown: published bank questions (their skill from the bank)
-  const bankIds = pending.filter((p) => !p.key.startsWith(RR_PREFIX)).map((p) => p.key);
+  const bankIds = [...groups.values()].flat().filter((k) => !k.startsWith(RR_PREFIX));
   const live = new Map((await inChunks(bankIds, 500, (c) => repo.findMany("Question", { id: { in: c }, status: "PUBLISHED", deletedAt: null }, { select: ["id", "skillId"] }))).map((q) => [s(q.id), s(q.skillId)]));
-  return pending
-    .filter((p) => p.key.startsWith(RR_PREFIX) || live.has(p.key))
-    .map((p) => (p.key.startsWith(RR_PREFIX) ? p : { ...p, skillKey: live.get(p.key) || p.skillKey }))
-    .sort((a, b) => b.lastWrongAt - a.lastWrongAt);
+  const pending: PendingQuestion[] = [];
+  for (const members of groups.values()) {
+    const vs = members.map((k) => ({ k, v: by.get(k)! }));
+    const lastWrong = Math.max(...vs.map((x) => x.v.wrong!.at));
+    const fixed = Math.max(...vs.map((x) => Math.max(x.v.lastRight, fixedAt.get(x.k) ?? 0)));
+    if (fixed > lastWrong) continue;
+    // the copy shown: one that can still be shown, the latest mistake first
+    const shown = vs.filter((x) => x.k.startsWith(RR_PREFIX) || live.has(x.k)).sort((a, b) => b.v.wrong!.at - a.v.wrong!.at)[0];
+    if (!shown) continue;
+    const w = shown.v.wrong!;
+    pending.push({ key: shown.k, skillKey: shown.k.startsWith(RR_PREFIX) ? w.skillKey : live.get(shown.k) || w.skillKey, source: w.source, lastWrongAt: lastWrong, wrongCount: vs.reduce((t, x) => t + x.v.wrongCount, 0) });
+  }
+  return pending.sort((a, b) => b.lastWrongAt - a.lastWrongAt);
 }
 
 /** The number of questions waiting (for a menu badge). */

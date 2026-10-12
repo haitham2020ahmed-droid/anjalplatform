@@ -123,13 +123,14 @@ export function replay(design: Design, answers: Answer[]): { open: number[]; slo
  * The next question: the rest of the passage being read (while its strand still has open slots), else the first
  * open slot's skill at the difficulty nearest the current estimate. Null when every slot is answered.
  */
-export function nextItem(design: Design, answers: Answer[], prior: number, seed = ""): string | null {
+export function nextItem(design: Design, answers: Answer[], prior: number, seed = "", allow?: (id: string) => boolean): string | null {
   const { open } = replay(design, answers);
   if (!open.length) return null;
   const byId = new Map(design.items.map((q) => [q.id, q]));
   const used = new Set(answers.map((a) => a.id));
   const est = estimate(answers.map((a) => ({ d: byId.get(a.id)?.d ?? prior, correct: a.correct })), prior).theta;
-  const free = design.items.filter((q) => !used.has(q.id));
+  // `allow` (the school's no-repeat rule, questions/fresh.ts): no copy of an answered question, unseen ones first
+  const free = design.items.filter((q) => !used.has(q.id) && (!allow || allow(q.id)));
   const nearest = (list: DesignItem[]) => [...list].sort((x, y) => Math.abs(x.d - est) - Math.abs(y.d - est) || hash(seed + x.id) - hash(seed + y.id))[0] ?? null;
   // 📖 a passage stays together (up to 4 questions), inside its strand
   const last = answers.length ? byId.get(answers[answers.length - 1].id) : undefined;

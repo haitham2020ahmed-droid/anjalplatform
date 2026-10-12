@@ -791,6 +791,8 @@ CREATE TABLE "AssignmentStudent" (
   "status" TEXT NOT NULL DEFAULT 'NOT_STARTED' CHECK ("status" IN ('NOT_STARTED', 'IN_PROGRESS', 'COMPLETED', 'OVERDUE')),
   "progress" REAL NOT NULL DEFAULT 0,
   "completedAt" TEXT,
+  "coreAnswered" INTEGER,
+  "coreCorrect" INTEGER,
   PRIMARY KEY ("assignmentId", "studentId"),
   CONSTRAINT "AssignmentStudent_assignmentId_fkey" FOREIGN KEY ("assignmentId") REFERENCES "Assignment"("id") ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT "AssignmentStudent_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student"("id") ON DELETE RESTRICT ON UPDATE CASCADE
@@ -1747,6 +1749,8 @@ CREATE TABLE "ExitTicketAnswer" (
 );
 
 CREATE INDEX "ExitTicketAnswer_ticketId_idx" ON "ExitTicketAnswer"("ticketId");
+
+CREATE INDEX "ExitTicketAnswer_studentId_createdAt_idx" ON "ExitTicketAnswer"("studentId", "createdAt");
 
 CREATE TABLE "Worksheet" (
   "id" TEXT NOT NULL,
@@ -2719,6 +2723,7 @@ CREATE TABLE "SecondChanceAnswer" (
   "questionId" TEXT NOT NULL,
   "correct" INTEGER NOT NULL,
   "createdAt" TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  "source" TEXT,
   PRIMARY KEY ("id")
 );
 

@@ -10,7 +10,8 @@ import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "./assignments";
 import { assertClassRead } from "./coordinators";
 import { audit } from "../audit";
-import { loadQuestionItems, loadSkillItems, toClientQuestion, type ClientQuestion } from "../practice/items";
+import { loadQuestionItems, loadSkillItems, toClientQuestion, type ClientQuestion, type PracticeItem } from "../practice/items";
+import { dedupeByContent, dedupeIds, itemContentKeys } from "../questions/fresh";
 import { classMembers, studentNames } from "../insights/student-data";
 import { gradeItems, type Graded } from "./worksheet";
 import { recordEngineAttempt } from "../lessons/run";
@@ -49,6 +50,8 @@ export async function createExitTicket(repo: Repo, actor: Actor, classId: string
     for (const i of sorted) { if (ids.length >= 3) break; if (!ids.includes(i.questionId)) ids.push(i.questionId); }
     if (!title) title = s((await repo.findUnique("Skill", { id: input.skillId }))?.name);
   }
+  // 👯 never two copies of the same content in one ticket (questions/fresh.ts)
+  ids = await dedupeIds(repo, ids);
   const close = await repo.findMany("ExitTicket", { classId, status: "OPEN" }, { select: ["id"] });
   if (close.length) await repo.updateMany("ExitTicket", { id: { in: close.map((c) => c.id) } }, { status: "CLOSED", closedAt: now });
   const t = await repo.create("ExitTicket", { schoolId: actor.schoolId!, classId, createdById: actor.userId, title: `🎫 ${hideLevels(title) || "Exit ticket"}`.slice(0, 191), questionIds: ids, status: "OPEN", createdAt: now, closedAt: null });
@@ -63,6 +66,9 @@ export async function closeExitTicket(repo: Repo, actor: Actor, ticketId: string
   await repo.updateMany("ExitTicket", { id: ticketId }, { status: "CLOSED", closedAt: now });
 }
 
+/** 🛡️ A ticket's questions as served: one copy per content (a ticket made before copies were removed). */
+const ticketItems = (items: PracticeItem[]): PracticeItem[] => dedupeByContent(items, (i) => i.questionId, itemContentKeys);
+
 /** The open exit ticket of the student's class that the student has not answered yet. */
 export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: string; title: string; questions: ClientQuestion[] } | null> {
   const sid = student(actor);
@@ -71,7 +77,7 @@ export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: stri
   const open = (await repo.findMany("ExitTicket", { classId: { in: classes }, status: "OPEN" })).sort((a, b) => time(b.createdAt) - time(a.createdAt));
   for (const t of open) {
     if ((await repo.count("ExitTicketAnswer", { ticketId: t.id, studentId: sid })) > 0) continue;
-    const items = await loadQuestionItems(repo, parseIds(t.questionIds));
+    const items = ticketItems(await loadQuestionItems(repo, parseIds(t.questionIds)));
     return { id: s(t.id), title: s(t.title), questions: items.map((i) => toClientQuestion(i, `${t.id}:${i.questionId}`)) };
   }
   return null;
@@ -83,7 +89,7 @@ export async function submitExitTicket(repo: Repo, actor: Actor, ticketId: strin
   if (!t || !(await myClassIds(repo, sid)).includes(s(t.classId))) throw new ForbiddenError("Not your exit ticket.");
   if (t.status !== "OPEN") throw new ValidationError("This exit ticket is closed.");
   if ((await repo.count("ExitTicketAnswer", { ticketId, studentId: sid })) > 0) throw new ValidationError("You already answered this exit ticket.");
-  const review = gradeItems(await loadQuestionItems(repo, parseIds(t.questionIds)), responses);
+  const review = gradeItems(ticketItems(await loadQuestionItems(repo, parseIds(t.questionIds))), responses);
   await repo.createMany("ExitTicketAnswer", review.map((r) => ({ ticketId, studentId: sid, questionId: r.questionId, isCorrect: r.correct, response: (responses[r.questionId] ?? {}) as never, createdAt: now })));
   return { correct: review.filter((r) => r.correct).length, total: review.length, review };
 }
@@ -271,6 +277,23 @@ export async function flagQuestion(repo: Repo, actor: Actor, questionId: string,
   const have = await repo.findUnique("QuestionFlag", { questionId, studentId: sid });
   if (have) { await repo.updateMany("QuestionFlag", { questionId, studentId: sid }, { reason, note: s(note).slice(0, 500) || null, status: "OPEN", createdAt: now }); return; }
   await repo.create("QuestionFlag", { schoolId: actor.schoolId!, questionId, studentId: sid, reason, note: s(note).slice(0, 500) || null, status: "OPEN", createdAt: now });
+}
+
+/**
+ * 🚩 Report a problem (teachers, Update 55): the same flag list the admin checks (Question Check → Flags), kept
+ * under the teacher's own user id (one open report per teacher and question).
+ */
+export async function reportQuestionProblem(repo: Repo, actor: Actor, questionId: string, reason: string, note = "", now = new Date()): Promise<void> {
+  if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Teachers report problems.");
+  if (!(reason in FLAG_REASONS)) throw new ValidationError("Choose a reason.");
+  const q = await repo.findUnique("Question", { id: questionId });
+  const k = q ? await repo.findUnique("Skill", { id: q.skillId }) : null;
+  const cur = k ? await repo.findUnique("Curriculum", { id: k.curriculumId }) : null;
+  const g = cur ? await repo.findUnique("Grade", { id: cur.gradeId }) : null;
+  if (!q || !g || s(g.schoolId) !== s(actor.schoolId)) throw new ValidationError("Question not found.");
+  const data = { reason, note: s(note).slice(0, 500) || null, status: "OPEN", createdAt: now, resolvedAt: null, resolvedById: null };
+  if (await repo.findUnique("QuestionFlag", { questionId, studentId: actor.userId })) await repo.updateMany("QuestionFlag", { questionId, studentId: actor.userId }, data);
+  else await repo.create("QuestionFlag", { schoolId: actor.schoolId!, questionId, studentId: actor.userId, ...data });
 }
 
 export interface FlagRow { questionId: string; stem: string; skill: string; count: number; reasons: string[]; notes: string[]; lastAt: string; ids: string[] }

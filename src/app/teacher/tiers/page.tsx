@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { BandBar, Callout, ReportHeader } from "@/components/report-kit";
 import { getT } from "@/i18n/server";
@@ -15,8 +16,10 @@ export const metadata = { title: "Support tiers" };
  * 🧭 Support tiers (RTI/MTSS) of a class: set automatically every day by the rules; the teacher sees why, can set a
  * tier (it is then locked) or unlock it (the rules decide again). Counts are compared with the usual 80 / 15 / 5.
  */
-export default async function TiersPage({ searchParams }: { searchParams: Promise<{ class?: string; tier?: string; msg?: string }> }) {
+export default async function TiersPage({ searchParams }: { searchParams: Promise<{ class?: string; tier?: string; msg?: string; full?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
+  // teachers: Support is a plan type inside Plans now (the full table stays for admins and ?full=1)
+  { const q = await searchParams; if (actor.role === "TEACHER" && q.full !== "1") redirect(`/teacher/plans/support${q.class ? `?classId=${encodeURIComponent(q.class)}` : ""}`); }
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const classes = (await readableClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));

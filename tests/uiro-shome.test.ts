@@ -9,6 +9,7 @@
  */
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
+import { giveQuestion } from "./helpers/give-question";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
@@ -78,6 +79,7 @@ describe("UI reorg Phase 2: Student Home", () => {
     const base = (await repo.findMany("Skill", { id: skill1 }))[0];
     const { id: _id, code: _code, ...rest } = base; void _id; void _code;
     grammarSkill = String((await repo.create("Skill", { ...rest, code: "G4.grammar.test-shome-1", name: "Test grammar: capital letters" })).id);
+    await giveQuestion(repo, grammarSkill);
   });
 
   test("welcome counts and My Work rows with their source tags (all grammar inside My Work)", async () => {
@@ -138,17 +140,18 @@ describe("UI reorg Phase 2: Student Home", () => {
     await assignPlan(repo, t4, { classId: class4, type: "RTI" }, NOW);
     const h = await studentHome(repo, B, NOW);
     assert.deepEqual(h.rti, { tier: 2, focusSkillId: skill2 });
-    assert.ok(h.work.some((w) => w.sourceKey === "RTI"), "RTI skills are in My Work with the RTI tag");
+    assert.ok(h.work.some((w) => w.sourceKey === "RTI"), "support skills are in My Work (shown to the student as ordinary practice)");
     const p = (await studentRtiProgram(repo, B, NOW))!;
     assert.equal(p.tier, 2);
     assert.equal(p.focus?.skillId, skill2);
     assert.ok(p.skills.length >= 1 && p.skills.every((w) => w.sourceKey === "RTI"), "the week's skills");
-    assert.ok("/student/rti" in (await navCounts(repo, B, NOW)), "the menu shows the RTI entry");
-    assert.ok(navItemsFor("STUDENT", { rti: true }).some((i) => i.href === "/student/rti" && i.group === "Programs"));
+    // owner's spec (Update 53): students never see RTI — no menu entry and no home tile, even in Tier 2/3
+    assert.ok(!navItemsFor("STUDENT", { rti: true }).some((i) => i.href === "/student/rti"));
     assert.equal((await studentHome(repo, A, NOW)).rti, null, "a student outside RTI still has no RTI icon");
     // the page source shows the tile only when rti is set
     const page = readFileSync(join(ROOT, "src/app/student/page.tsx"), "utf8");
-    assert.match(page, /\{h\.rti && <BigTile href="\/student\/rti"/);
+    assert.doesNotMatch(page, /\/student\/rti|RTI/);
+    assert.match(readFileSync(join(ROOT, "src/components/student/my-work-list.tsx"), "utf8"), /r\.sourceKey === "RTI" \? <SourceTag source="CUSTOM" label=\{t\("Practice"\)\}/);
   });
 
   test("ReadMaster (all of the grade) and ReadRise (whole library) open with no teacher assignment", async () => {
@@ -196,7 +199,7 @@ describe("UI reorg Phase 2: Student Home", () => {
     // b1-nav: MAP is back under Programs; My Plans left the menu (reached from My Reports); My Tests and My Reports are there
     const nav = navItemsFor("STUDENT").map((i) => i.href);
     assert.ok(!nav.includes("/student/plans"));
-    for (const h of ["/student/map", "/student/tests", "/student/reports", "/student/curriculum"]) assert.ok(nav.includes(h), h);
+    for (const h of ["/student/map", "/student/tests", "/student/work", "/student/reading"]) assert.ok(nav.includes(h), h);
     // no student without MAP scores breaks the dashboard
     assert.deepEqual(mapDashboardData(await myMap(repo, B)).subjects, []);
   });
@@ -225,7 +228,6 @@ describe("UI reorg Phase 2: Student Home", () => {
     const page = readFileSync(join(ROOT, "src/app/student/page.tsx"), "utf8");
     assert.doesNotMatch(page, /questionCount|questions`|\badaptive\b/i);
     assert.doesNotMatch(page, /Lexile/);
-    assert.match(page, /ReadRise Level \(estimate\)/);
-    assert.match(page, /tour="plans"/); assert.match(page, /tour="tests"/); assert.match(page, /data-tour="my-work"/);
+    assert.match(page, /data-tour="my-work"/);
   });
 });

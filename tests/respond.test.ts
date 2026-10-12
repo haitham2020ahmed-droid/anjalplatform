@@ -49,7 +49,10 @@ describe("✍️ Respond to Reading: three level pages per Text Set (Below → O
     const again = await importActivities(repo, admin, [HEAD, row("G4.U1.TS1.RTR.ON", "On v2")]);
     assert.equal(again.saved, 1);
     assert.equal((await respondPage(repo, admin, "G4.U1.TS1.RTR")).levels[1].activity?.title, "On v2 title", "importing again replaces that level");
-    assert.equal(await repo.count("RespondActivity", {}), 3);
+    assert.equal(await repo.count("RespondActivity", { code: { in: ["G4.U1.TS1.RTR.BELOW", "G4.U1.TS1.RTR.ON", "G4.U1.TS1.RTR.ABOVE"] } }), 3);
+    // the school's Grades 4–5 library loaded by itself (3 levels per Text Set); an admin's activity is never replaced
+    assert.equal(await repo.count("RespondActivity", { code: { in: ["G5.U1.TS1.RTR.BELOW", "G5.U1.TS1.RTR.ON", "G5.U1.TS1.RTR.ABOVE"] } }), 3, "Grade 5 tasks are there");
+    assert.equal((await respondPage(repo, admin, "G4.U1.TS1.RTR")).levels[1].activity?.title, "On v2 title", "the admin's edit stands");
     const ov = await respondOverview(repo, admin);
     assert.deepEqual(ov.find((g) => g.grade === 4)!.units[0].sets[0].levels, { BELOW: true, ON: true, ABOVE: true });
   });

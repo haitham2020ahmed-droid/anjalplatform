@@ -9,15 +9,20 @@ import { sendTargets } from "@/server/curriculum-map/send-plan";
 import { LessonCard } from "@/components/curriculum-map/lesson-card";
 import { SendPlanButton, SendPlanHost } from "@/components/curriculum-map/send-plan";
 import { getT } from "@/i18n/server";
-import { sendMapPlanAction } from "./actions";
+import { assignPlaceAction, sendMapPlanAction } from "./actions";
+import { MapAssignHost } from "@/components/curriculum-map/assign-button";
+import { rosterForGrade } from "@/server/curriculum-map/levels";
+import { respondCodes } from "@/server/curriculum-map/respond";
+import { sentMapCodes, sentOn } from "@/server/curriculum-map/sent";
 
 export const metadata = { title: "Curriculum Map" };
 
 /**
  * Curriculum Map (teachers and admins): one grade, one unit at a time, as lesson cards (name, genre, Text Idea,
- * vocabulary words, sections Ready / Not ready, Preview). One goal: send the plan — the whole curriculum (top
- * button) or one unit (button under the unit) → choose class / group / student → preview → send.
- * All content is open to every teacher; a teacher sends only to their own classes (checked on the server).
+ * vocabulary words, sections Ready / Not ready, Preview). Each section is one short row: 👁 Review · ⭐ Assign · ✓ Sent (the
+ * date this teacher sent it). A unit's plan can be sent with the button under the unit (the whole-curriculum button
+ * was removed). A teacher sees their own grade(s) only; admins see all grades.
+ * A teacher sends only to their own classes (checked on the server).
  */
 export default async function CurriculumMapPage({ searchParams }: { searchParams: Promise<{ grade?: string; unit?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:read" });
@@ -26,10 +31,21 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
   const [{ t }, v] = await Promise.all([getT(), curriculumLessons(repo, actor, Number(sp.grade) || undefined)]);
   const canSend = can(actor, "assignments:create");
   const isAdmin = actor.role !== "TEACHER";
-  const classes = canSend && v.grade !== null ? await sendTargets(repo, actor) : [];
+  // ⭐ Assign beside each Concept Vocabulary / Analyze Craft and Structure / Respond to Reading section (teachers)
+  const canAssign = canSend && actor.role === "TEACHER";
+  const [classes, roster, sentMap] = await Promise.all([
+    canSend && v.grade !== null ? sendTargets(repo, actor) : Promise.resolve([]),
+    canAssign && v.grade !== null ? rosterForGrade(repo, actor, v.grade).catch(() => []) : Promise.resolve([]),
+    canAssign ? sentMapCodes(repo, actor).catch(() => new Map<string, Date>()) : Promise.resolve(new Map<string, Date>()),
+  ]);
+  // ✓ Sent: each section this teacher already assigned (any of its levels), with the latest date
+  const sent: Record<string, string> = {};
+  for (const u of v.units) for (const l of u.lessons) for (const sec of l.sections) { const d = sentOn(sentMap, sec.code); if (d) sent[sec.code.toUpperCase()] = d.toISOString().slice(0, 10); }
+  // Respond to Reading Text Sets that have a writing task (the Grades 4–5 tasks load by themselves the first time)
+  const respondSets = canAssign && actor.schoolId ? [...new Set([...(await respondCodes(repo, actor.schoolId).catch(() => new Set<string>()))].map((c) => c.replace(/\.(BELOW|ON|ABOVE)$/, "")))] : [];
   const unitIx = Math.min(Math.max(0, (Number(sp.unit) || 1) - 1), Math.max(0, v.units.length - 1));
   const unit = v.units[unitIx];
-  const tab = "inline-flex min-h-11 items-center rounded-full px-5 font-semibold";
+  const tab = "inline-flex min-h-9 items-center rounded-full px-4 text-sm font-semibold";
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} title="Curriculum Map"
@@ -39,14 +55,13 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
 
       {v.grade === null || !v.units.length ? <EmptyState icon="🧭" title="Nothing here yet" text="The Curriculum Map has not been created yet." /> : (
         <>
-          {canSend && <div className="mb-6"><SendPlanButton unitCode={null} label="Send the whole curriculum plan" big /></div>}
-
-          <nav aria-label={t("Grade")} className="flex flex-wrap gap-2">
+          {/* a teacher sees the Curriculum Map of their own grade(s) only; admins see every grade */}
+          {v.grades.length > 1 && <nav aria-label={t("Grade")} className="flex flex-wrap gap-2">
             {v.grades.map((g) => (
               <Link key={g} href={`/admin/curriculum-map?grade=${g}`} prefetch={false} aria-current={g === v.grade ? "page" : undefined}
                 className={`${tab} ${g === v.grade ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{t("Grade {n}", { n: g })}</Link>
             ))}
-          </nav>
+          </nav>}
           <nav aria-label={t("Units")} className="mt-2 flex flex-wrap gap-2">
             {v.units.map((u, i) => (
               <Link key={u.code} href={`/admin/curriculum-map?grade=${v.grade}&unit=${i + 1}`} prefetch={false} aria-current={i === unitIx ? "page" : undefined}
@@ -60,11 +75,12 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
                 <h2 id="unit-title" className="text-2xl font-semibold text-brand-navy">{t("Grade {n}", { n: v.grade })} · {t("Unit {n}", { n: unitIx + 1 })}</h2>
                 {canSend && <SendPlanButton unitCode={unit.code} label="Send this unit's plan" />}
               </div>
-              <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                {unit.lessons.map((l) => <LessonCard key={l.code} lesson={l} previewHref={`/teacher/preview?code=${encodeURIComponent(l.code)}`} />)}
+              <div className="mt-3 grid gap-3 lg:grid-cols-2">
+                {unit.lessons.map((l) => <LessonCard key={l.code} compact lesson={l} sent={sent} canAssign={canAssign && roster.length > 0} respondSets={respondSets} respondClassId={roster[0]?.id ?? null} />)}
               </div>
             </section>
           )}
+          {canAssign && roster.length > 0 && <MapAssignHost classes={roster} assign={assignPlaceAction} />}
           {canSend && <SendPlanHost grade={v.grade} classes={classes} outline={outlineOf(v.units)} send={sendMapPlanAction} />}
         </>
       )}

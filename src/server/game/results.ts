@@ -15,6 +15,7 @@ import { readableClasses } from "../teacher/coordinators";
 import { GAMES, gameMeta } from "../../games/registry";
 import { takeRound } from "./questions";
 import { awardCoins, COINS } from "../motivation/coins";
+import { recordGameMisses } from "../second-chance/service";
 
 const s = (v: unknown) => String(v ?? "");
 const int = (v: unknown, max: number) => Math.max(0, Math.min(max, Math.round(Number(v) || 0)));
@@ -28,7 +29,7 @@ export async function savePlay(repo: Repo, row: PlayRow, now = new Date()): Prom
 }
 
 /** A solo round's result (only for a round the server really handed out to this student; once). */
-export async function recordSoloResult(repo: Repo, actor: Actor, input: { roundId: string; correct: number; incorrect: number; points: number }, now = new Date()): Promise<string> {
+export async function recordSoloResult(repo: Repo, actor: Actor, input: { roundId: string; correct: number; incorrect: number; points: number; missed?: unknown }, now = new Date()): Promise<string> {
   return (await recordSoloPlay(repo, actor, input, now)).id;
 }
 
@@ -37,12 +38,17 @@ export async function recordSoloResult(repo: Repo, actor: Actor, input: { roundI
  * (effort counts — right or wrong), refId = the play id, inside the shared 25-coins-a-day game cap. A coin problem
  * never loses the result row. Coins never change levels, scores or reports.
  */
-export async function recordSoloPlay(repo: Repo, actor: Actor, input: { roundId: string; correct: number; incorrect: number; points: number }, now = new Date()): Promise<{ id: string; coins: number }> {
+export async function recordSoloPlay(repo: Repo, actor: Actor, input: { roundId: string; correct: number; incorrect: number; points: number; missed?: unknown }, now = new Date()): Promise<{ id: string; coins: number }> {
   if (actor.role !== "STUDENT" || !actor.studentId || !actor.schoolId) throw new ForbiddenError("Students play games.");
   const round = takeRound(s(input.roundId), actor.studentId);
   if (!round) throw new ValidationError("This round has ended. Press Play again.");
   const correct = int(input.correct, round.n), incorrect = int(input.incorrect, round.n - correct);
   const id = await savePlay(repo, { schoolId: actor.schoolId, studentId: actor.studentId, skillId: round.skillId, gameId: round.gameId, mode: "SOLO", correct, incorrect, points: int(input.points, 100_000) }, now);
+  // ⭐ every question missed in the round waits in Second Chance (only questions this round really served; never
+  // levels, mastery or attempts — games never feed the engine)
+  const served = new Set(round.ids);
+  const missed = [...new Set((Array.isArray(input.missed) ? input.missed : []).map(s))].filter((q) => served.has(q)).slice(0, incorrect);
+  if (missed.length) await recordGameMisses(repo, actor.studentId, missed, now).catch(() => 0);
   let coins = 0;
   if (correct + incorrect > 0) coins = (await awardCoins(repo, actor.studentId, "game", COINS.game, id, { now }).catch(() => null))?.awarded ?? 0;
   return { id, coins };

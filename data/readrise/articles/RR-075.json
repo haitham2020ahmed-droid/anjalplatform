@@ -1,0 +1,605 @@
+{
+  "code": "RR-075",
+  "title": "Learning to Code",
+  "topic": "Technology",
+  "summary": "How code gives a computer exact step-by-step instructions, and how beginners use blocks, loops, conditions, and debugging to build programs and solve problems.",
+  "poll": "Every student should learn to code at school.",
+  "versions": [
+    {
+      "level": 300,
+      "title": "Let's Code!",
+      "text": "A computer is smart. But it can not think on its own. We must tell it what to do. The words we use are called code.\n\nA computer does just what the code says. It does each step in order. If the order is wrong, the job goes wrong. It can not guess what you mean.\n\nThink of how you make tea. First, you boil the water. Then you add the tea. Then you pour it. Code is a list of steps like that.\n\nKids can start with blocks. Each block is one step. You snap the blocks in a line. Then a cat on the screen can move and jump!\n\nSome steps must be done a lot. You do not need to type them each time. You can use a loop. A loop does the same step again and again.\n\nCode can have a mistake. A mistake in code is a bug. You look for it. Then you fix it. That is part of the fun.\n\nCode helps us make games, apps, and robots. Would you like to try it?"
+    },
+    {
+      "level": 400,
+      "title": "Let's Code!",
+      "text": "A computer is a fast machine. But it can not think on its own. People must tell it what to do. The steps we give a computer are called code.\n\nA computer does just what the code says. It does each step in order. If the steps are in the wrong order, the job goes wrong. It can not guess what you mean.\n\nThink of how you make a cup of tea. First, you boil the water. Next, you put tea in a cup. Then you pour in the hot water. Code is a list of clear steps, just like that.\n\nMany kids start with blocks. Each block is one step. You snap the blocks in a line. Then a cat on the screen can walk, jump, or talk!\n\nSome steps must be done a lot. You do not have to type them each time. You can use a loop. A loop tells the computer to do the same step again and again.\n\nCode can have a mistake. A mistake in code is called a bug. Coders look for the bug and fix it. Good coders make mistakes, too. That is fine.\n\nCode is used to make games, apps, and robots. It helps you learn to solve a big problem one small step at a time."
+    },
+    {
+      "level": 500,
+      "title": "Let's Code!",
+      "text": "A computer is a fast machine. But it can not think for itself. People must tell it what to do. The steps we write for a computer are called code.\n\nA computer does just what the code tells it. It follows each step in order. If the steps are in the wrong order, the job goes wrong. A computer can not guess what you mean.\n\nThink about how you make a cup of tea. First, you boil the water. Next, you put tea in a cup. Then you pour in the hot water. Code is a list of clear steps, just like this.\n\nMany kids start with blocks. Each block is one step. You snap the blocks together in a line. Then a cat on the screen can walk, jump, or talk!\n\nSome steps must be done many times. You do not have to write them over and over. You can use a loop. A loop tells the computer to do the same step again and again.\n\nSometimes code has a mistake. A mistake in code is called a bug. Coders look for the bug and fix it. Even good coders make mistakes, so this is normal.\n\nCode is used to make games, apps, and even robots. It also helps you learn to solve problems one small step at a time."
+    },
+    {
+      "level": 600,
+      "title": "Learning to Code",
+      "text": "A computer is a very fast machine, but it cannot think for itself. People have to tell it exactly what to do. The instructions we write for a computer are called code.\n\nA computer follows code exactly. It carries out each step in order, one after another. If the steps are in the wrong order, the result will be wrong. A computer cannot guess what you meant to say.\n\nThink about making a cup of tea. First, you boil the water. Next, you put a tea bag in a cup. Then you pour in the hot water. Code works the same way. It is a list of clear steps that solve a problem.\n\nMany young coders begin with blocks. Each block stands for one step. You snap the blocks together, like puzzle pieces. Then a character on the screen can walk, jump, or speak.\n\nSome steps need to happen many times. Instead of writing them again and again, you can use a loop. A loop tells the computer to repeat the same steps.\n\nSometimes code has a mistake. A mistake in code is called a bug. Coders search for the bug and fix it. Even expert coders make mistakes, so finding bugs is a normal part of the job.\n\nPeople use code to make games, apps, and robots. Learning to code also teaches you to solve big problems by breaking them into small steps."
+    },
+    {
+      "level": 700,
+      "title": "Learning to Code",
+      "text": "A computer is a very fast machine, but it cannot think for itself. People have to tell it exactly what to do. The steps we write for a computer are called code. We write them in a programming language.\n\nA computer follows code just as it is written. It does each step in order, and this order is called a sequence. If the sequence is wrong, the result will be wrong. A computer cannot guess what you meant.\n\nA set of steps that solves a problem is called an algorithm. You use algorithms every day. Making a cup of tea is one. First, boil the water. Next, put a tea bag in a cup. Then pour in the water. Code turns ideas like this into steps a computer can follow.\n\nMany beginners start with a block language called Scratch. Each block is one step, and you snap the blocks together like puzzle pieces. Later, many coders move on to typed languages such as Python.\n\nCode also uses a few big ideas. A loop repeats steps, so you do not have to write them again and again. A condition lets a program make a choice. For example, \"If the player touches the wall, then the game is over.\"\n\nMistakes in code are called bugs. Fixing them is called debugging. The word has a fun history. In 1947, engineers working with computer scientist Grace Hopper found a real moth stuck inside a computer.\n\nPeople use code to build games, apps, and robots. Learning it also teaches you to solve big problems one small step at a time."
+    },
+    {
+      "level": 800,
+      "title": "Learning to Code",
+      "text": "A computer is an amazingly fast machine, but it cannot think for itself. People have to tell it exactly what to do. The instructions we write for a computer are called code, and we write them in a programming language.\n\nA computer follows code exactly as it is written. It carries out each instruction in order, and this order is called a sequence. If the sequence is wrong, the result will be wrong, because a computer cannot guess what you meant.\n\nA set of steps that solves a problem is called an algorithm. You already use algorithms every day. Making a cup of tea is one: boil the water, put a tea bag in a cup, then pour in the water. Code turns ideas like this into steps a computer can follow.\n\nMany beginners start with a block-based language such as Scratch. Each block is one instruction, and you snap the blocks together like puzzle pieces. Later, many coders move on to typed languages such as Python.\n\nCode also uses a few powerful ideas. A loop repeats steps, so you do not have to write them again and again. A condition lets a program make choices. For example, \"If the player touches the wall, then the game is over.\"\n\nMistakes in code are called bugs, and fixing them is called debugging. The word has a fun history. In 1947, engineers working with computer scientist Grace Hopper found a real moth stuck inside a computer.\n\nPeople use code to build games, apps, and robots. Learning it also teaches you to solve big problems one small step at a time."
+    },
+    {
+      "level": 900,
+      "title": "Learning to Code",
+      "text": "A computer is an extraordinarily fast machine, yet it cannot think for itself. People must tell it precisely what to do. The instructions we write for a computer are called code, and we write them in a special programming language.\n\nA computer follows code exactly as it is written. It carries out each instruction in order, and this order is called a sequence. If the sequence is incorrect, the result will also be incorrect, because a computer cannot guess what the programmer intended.\n\nA set of steps that solves a problem is called an algorithm. You already use algorithms every day without realizing it. Making a cup of tea is one example: boil the water, place a tea bag in a cup, and then pour in the water. Code transforms everyday ideas like this into precise steps a computer can follow.\n\nMany beginners start with a block-based language such as Scratch, which was developed at a university in the United States. Each block represents one instruction, and you connect the blocks like puzzle pieces. Later, many students move on to typed languages such as Python.\n\nCode also depends on a few powerful ideas. A loop repeats steps, so programmers do not have to write the same instructions again and again. A condition allows a program to make decisions. For example, \"If the player touches the wall, then the game is over.\"\n\nMistakes in code are called bugs, and locating and correcting them is called debugging. The word has a surprising history. In 1947, engineers working with computer scientist Grace Hopper discovered an actual moth trapped inside a computer.\n\nToday people use code to build games, applications, websites, and robots. Learning to code also trains your mind to solve complicated problems by dividing them into manageable steps."
+    },
+    {
+      "level": 1000,
+      "title": "Learning to Code",
+      "text": "A computer is an extraordinarily fast machine, yet it cannot think for itself. People must tell it precisely what to do, and the instructions they write are called code. These instructions are written in a programming language, which has its own vocabulary and rules.\n\nA computer follows code exactly as it is written. It carries out each instruction in order, and this order is known as a sequence. If the sequence is incorrect, the result will also be incorrect, because a computer cannot guess what the programmer intended.\n\nA set of steps that solves a problem is called an algorithm. You already use algorithms every day without realizing it. Making a cup of tea is one example: boil the water, place a tea bag in a cup, and then pour in the water. Programming transforms everyday ideas like this into precise steps that a computer can follow.\n\nMany beginners start with a block-based language such as Scratch, which was developed at a university in the United States. Each block represents one instruction, and students connect the blocks like puzzle pieces. Later, many learners move on to typed languages such as Python, which professionals also use.\n\nCode also depends on several powerful ideas. A loop repeats steps, so programmers do not have to write identical instructions again and again. A condition allows a program to make decisions. For example, \"If the player touches the wall, then the game is over.\"\n\nMistakes in code are called bugs, and locating and correcting them is called debugging. The word has a surprising history. In 1947, engineers working with the computer scientist Grace Hopper discovered an actual moth trapped inside a computer, and they recorded it as a \"bug.\"\n\nToday people use code to build games, applications, websites, and robots. Learning to code also trains your mind to solve complicated problems by dividing them into smaller, manageable steps."
+    },
+    {
+      "level": 1100,
+      "title": "Learning to Code",
+      "text": "A computer is an extraordinarily fast machine, yet it cannot think independently. People must tell it precisely what to do. The instructions they write are called code, and they are written in a programming language. Each language has its own vocabulary and its own strict rules, which are known as syntax.\n\nA computer follows code exactly as it is written, carrying out each instruction in a particular order called a sequence. If the sequence is incorrect, the result will also be incorrect, because a computer cannot guess what the programmer intended; its logic is completely literal.\n\nA set of steps that solves a problem is called an algorithm. People use algorithms every day without realizing it. Making a cup of tea is one example: you boil the water, place a tea bag in a cup, and then pour in the water. Programming transforms everyday procedures like this into precise instructions that a computer can follow.\n\nMany beginners start with a block-based language such as Scratch, which was developed at a university in the United States. Each block represents one instruction, and the blocks connect like puzzle pieces, so students cannot make spelling mistakes. Later, many learners progress to typed languages such as Python, where the syntax must be exact, since a single missing symbol can stop a program from running.\n\nCode also depends on several powerful ideas. A loop repeats steps, which makes a program shorter and more efficient. A condition allows a program to make decisions, as in \"If the player touches the wall, then the game is over.\"\n\nMistakes in code are called bugs, and locating and correcting them is called debugging. In 1947, engineers working with the computer scientist Grace Hopper discovered an actual moth trapped inside a computer, and they recorded it as a \"bug.\" Since programs rarely work perfectly the first time, persistence is one of a programmer's most valuable qualities.\n\nLearning to code strengthens problem solving as well, because programmers learn to decompose a large challenge into smaller, manageable parts and solve them one at a time. Schools in many countries, including Saudi Arabia, now teach coding, since these skills are useful in mathematics, science, and many future careers."
+    },
+    {
+      "level": 1200,
+      "title": "Learning to Code",
+      "text": "A computer is an extraordinarily fast machine, yet it cannot think independently, so people must tell it precisely what to do. The instructions they write are called code, and they are written in a programming language that has its own vocabulary and its own strict rules, which are known as syntax.\n\nA computer follows code exactly as it is written, carrying out each instruction in a particular order called a sequence. If the sequence is incorrect, the result will also be incorrect, because a computer cannot guess what the programmer intended; its logic is completely literal.\n\nA set of steps that solves a problem is called an algorithm, and people use algorithms every day without realizing it. Making a cup of tea is one example: you boil the water, place a tea bag in a cup, and then pour in the water. Programming transforms everyday procedures like this into precise instructions that a computer can follow.\n\nMany beginners start with a block-based language such as Scratch, which was developed at a university in the United States. Because each block represents one instruction and the blocks connect like puzzle pieces, students cannot make spelling mistakes. Later, many learners progress to typed languages such as Python, where the syntax must be exact, since a single missing symbol can stop a program from running.\n\nCode also depends on several powerful ideas. A loop repeats steps, which makes a program shorter and more efficient, while a condition allows a program to make decisions, as in \"If the player touches the wall, then the game is over.\"\n\nMistakes in code are called bugs, and locating and correcting them is called debugging. In 1947, engineers working with the computer scientist Grace Hopper discovered an actual moth trapped inside a computer, and they recorded it as a \"bug.\" Since programs rarely work perfectly the first time, persistence is one of a programmer's most valuable qualities.\n\nLearning to code strengthens problem solving as well, because programmers learn to decompose a large challenge into smaller, manageable parts and solve them one at a time. Schools in many countries, including Saudi Arabia, now teach coding, since these skills are useful in mathematics, science, and many future careers."
+    },
+    {
+      "level": 1300,
+      "title": "Learning to Code",
+      "text": "A computer is an extraordinarily fast machine, yet it is incapable of thinking independently, so people must tell it precisely what to do. The instructions they write are called code, and they are composed in a programming language that possesses its own vocabulary and its own strict grammatical rules, which are collectively known as syntax.\n\nA computer follows code exactly as it is written, executing each instruction in a particular order called a sequence. If the sequence is incorrect, the result will also be incorrect, because a computer cannot interpret what the programmer intended; its logic is entirely literal.\n\nA set of steps that solves a problem is called an algorithm, and people use algorithms every day without recognizing them. Preparing a cup of tea is one example: you boil the water, place a tea bag in a cup, and then pour in the water. Programming transforms everyday procedures like this into precise instructions that a computer can reliably follow.\n\nMany beginners start with a block-based language such as Scratch, which was developed at a university in the United States. Because each block represents a single instruction and the blocks connect like puzzle pieces, students cannot make spelling or punctuation errors. Later, many learners progress to typed languages such as Python, in which the syntax must be exact, since a single missing symbol can prevent a program from running.\n\nCode also depends on several powerful concepts. A loop repeats steps, which makes a program shorter and more efficient, whereas a condition allows a program to make decisions, as in \"If the player touches the wall, then the game is over.\"\n\nMistakes in code are called bugs, and the process of locating and correcting them is called debugging. In 1947, engineers collaborating with the computer scientist Grace Hopper discovered an actual moth trapped inside a computer, and they documented it as a \"bug.\" Because programs rarely function perfectly on the first attempt, persistence is one of a programmer's most valuable characteristics.\n\nLearning to code strengthens general problem solving as well, because programmers learn to decompose an intimidating challenge into smaller, manageable components and resolve them individually. Schools in many countries, including Saudi Arabia, now teach coding, since these abilities are valuable in mathematics, science, and numerous future occupations."
+    },
+    {
+      "level": 1400,
+      "title": "Learning to Code",
+      "text": "A computer is an extraordinarily fast machine, yet it is incapable of thinking independently, so people must tell it precisely what to do. The instructions they compose are called code, and they are written in a programming language that possesses its own specialized vocabulary and its own strict grammatical regulations, which are collectively known as syntax.\n\nA computer follows code exactly as it is written, executing every instruction in a particular order called a sequence. If the sequence is incorrect, the result will inevitably be incorrect as well, because a computer cannot interpret what the programmer intended; its logic is entirely literal.\n\nA set of steps that solves a problem is called an algorithm, and people use algorithms continually without recognizing them. Preparing a cup of tea is one illustration: you boil the water, place a tea bag in a cup, and subsequently pour in the water. Programming transforms everyday procedures like this into unambiguous instructions that a computer can reliably follow.\n\nMany beginners start with a block-based language such as Scratch, which was developed at a university in the United States. Because each block represents a single instruction and the blocks interlock like puzzle pieces, students cannot make spelling or punctuation errors. Afterward, many learners progress to typed languages such as Python, in which the syntax must be absolutely exact, since a single missing symbol can prevent an entire program from operating.\n\nCode also depends on several fundamental concepts. A loop repeats instructions, which makes a program shorter and considerably more efficient, whereas a conditional statement enables a program to make decisions, as in \"If the player touches the wall, then the game is over.\"\n\nMistakes in code are called bugs, and the methodical process of identifying and correcting them is called debugging. In 1947, engineers collaborating with the computer scientist Grace Hopper discovered an actual moth trapped inside a computer, and they documented it as a \"bug.\" Because programs rarely function perfectly on the initial attempt, persistence is one of a programmer's most valuable characteristics.\n\nLearning to code strengthens general problem-solving abilities as well, because programmers learn to decompose an intimidating challenge into smaller, manageable components and resolve them systematically. Educational systems in numerous countries, including Saudi Arabia, now incorporate coding into their curricula, since these abilities are valuable in mathematics, science, and a remarkable variety of future occupations."
+    }
+  ],
+  "bands": {
+    "LOW": {
+      "keyWords": [
+        {
+          "word": "code",
+          "partOfSpeech": "noun",
+          "definition": "the steps people write to tell a computer what to do",
+          "example": "My sister wrote code to make a ball bounce on the screen."
+        },
+        {
+          "word": "order",
+          "partOfSpeech": "noun",
+          "definition": "the way things are placed, one after another",
+          "example": "Please line up in order from the shortest to the tallest."
+        },
+        {
+          "word": "block",
+          "partOfSpeech": "noun",
+          "definition": "a piece you can put together with other pieces",
+          "example": "The little boy stacked one block on top of another."
+        },
+        {
+          "word": "loop",
+          "partOfSpeech": "noun",
+          "definition": "a step or group of steps that is done again and again",
+          "example": "The song plays in a loop, so it starts over when it ends."
+        },
+        {
+          "word": "bug",
+          "partOfSpeech": "noun",
+          "definition": "a mistake in a computer program",
+          "example": "A bug made the game freeze every time I won."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "What is this article mostly about?",
+          "options": [
+            "How to fix a broken computer screen",
+            "How people use code to tell computers what to do",
+            "Why cats like to play games on a computer screen",
+            "How to make the best cup of tea"
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The whole article explains code: steps in order, blocks, loops, and bugs.",
+          "wrong": {
+            "A": "The article is not about fixing screens.",
+            "C": "A cat appears on the screen in a block program, but cats are not the topic.",
+            "D": "Tea is only an example of steps."
+          }
+        },
+        {
+          "stem": "What does a computer do with code?",
+          "options": [
+            "It does just what the code says, step by step.",
+            "It guesses what you mean and changes the steps.",
+            "It skips the steps it does not like.",
+            "It writes new code all by itself."
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The article says a computer does just what the code says and does each step in order.",
+          "wrong": {
+            "B": "The article says a computer can not guess what you mean.",
+            "C": "A computer follows every step; it does not skip steps.",
+            "D": "People must tell the computer what to do."
+          }
+        },
+        {
+          "stem": "In the article, what does a loop do?",
+          "options": [
+            "It turns the computer off when the job is done.",
+            "It finds a mistake in the code.",
+            "It does the same step again and again.",
+            "It snaps two blocks apart."
+          ],
+          "answer": "C",
+          "skill": "vocabulary",
+          "why": "The article says a loop tells the computer to do the same step again and again.",
+          "wrong": {
+            "A": "A loop does not turn off the computer.",
+            "B": "Finding mistakes is fixing a bug, not a loop.",
+            "D": "A loop repeats steps; it does not take blocks apart."
+          }
+        },
+        {
+          "stem": "What is a bug in code?",
+          "options": [
+            "A small insect on the keyboard",
+            "A block that makes a cat jump",
+            "A list of steps for making tea",
+            "A mistake in the code"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article says a mistake in code is called a bug.",
+          "wrong": {
+            "A": "In this article, a bug is a mistake, not an insect.",
+            "B": "Blocks are steps, not bugs.",
+            "C": "The tea steps are an example of code, not a bug."
+          }
+        },
+        {
+          "stem": "What happens if the steps in code are in the wrong order?",
+          "options": [
+            "The computer fixes the order for you.",
+            "The job goes wrong.",
+            "The code runs faster.",
+            "The blocks change color."
+          ],
+          "answer": "B",
+          "skill": "cause-effect",
+          "why": "The article says that if the order is wrong, the job goes wrong.",
+          "wrong": {
+            "A": "A computer can not guess what you mean, so it does not fix the order.",
+            "C": "The article does not say wrong order makes code faster.",
+            "D": "The article does not mention blocks changing color."
+          }
+        },
+        {
+          "stem": "Why does the author tell how to make tea?",
+          "options": [
+            "To show that code is a list of clear steps",
+            "To teach readers how to make a new kind of hot drink",
+            "To tell where tea comes from",
+            "To show that computers can make tea"
+          ],
+          "answer": "A",
+          "skill": "author-purpose",
+          "why": "Making tea has steps in order, just like code, so it helps readers understand what code is.",
+          "wrong": {
+            "B": "The tea steps are an example, not a recipe lesson.",
+            "C": "The article does not say where tea comes from.",
+            "D": "The article never says computers make tea."
+          }
+        },
+        {
+          "stem": "Why might blocks be a good way for kids to start coding?",
+          "options": [
+            "Blocks never have any steps.",
+            "Blocks make the computer think and plan for itself.",
+            "Kids can snap steps together without typing them.",
+            "Blocks only work for drawing pictures."
+          ],
+          "answer": "C",
+          "skill": "inference",
+          "why": "Each block is one step, and kids snap them together, which is easier than typing every step.",
+          "wrong": {
+            "A": "Each block is one step.",
+            "B": "The article says a computer can not think on its own.",
+            "D": "The article shows blocks making a character move, not only drawing."
+          }
+        },
+        {
+          "stem": "What can you tell about coders from the part about bugs?",
+          "options": [
+            "They never make any mistakes.",
+            "They stop when they find a bug.",
+            "They only write code for robots.",
+            "Fixing mistakes is part of their job."
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "The article says coders look for bugs and fix them, so fixing mistakes is a normal part of coding.",
+          "wrong": {
+            "A": "The article says code can have mistakes.",
+            "B": "Coders fix the bug; they do not stop.",
+            "C": "Coders make games and apps too, not only robots."
+          }
+        }
+      ],
+      "prompt": "Write the steps for something you do every day, like brushing your teeth. Put them in order, like code.",
+      "checklist": [
+        "I wrote at least four steps.",
+        "My steps are in the right order.",
+        "Each step is clear enough for someone to follow."
+      ]
+    },
+    "MID": {
+      "keyWords": [
+        {
+          "word": "algorithm",
+          "partOfSpeech": "noun",
+          "definition": "a set of steps that solves a problem",
+          "example": "Our class wrote an algorithm for the fastest way to line up for lunch."
+        },
+        {
+          "word": "sequence",
+          "partOfSpeech": "noun",
+          "definition": "the order in which things happen",
+          "example": "The story makes sense only if you read the pictures in sequence."
+        },
+        {
+          "word": "condition",
+          "partOfSpeech": "noun",
+          "definition": "an 'if' rule that decides what happens next",
+          "example": "The game has a condition: if you collect ten stars, you get a new level."
+        },
+        {
+          "word": "debug",
+          "partOfSpeech": "verb",
+          "definition": "to find and fix the mistakes in a computer program",
+          "example": "It took us ten minutes to debug the robot's program."
+        },
+        {
+          "word": "language",
+          "partOfSpeech": "noun",
+          "definition": "a set of words and rules used to write instructions for a computer",
+          "example": "Python is a language many students learn after they try block coding."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which sentence best states the central idea of the article?",
+          "options": [
+            "Computers are smarter than people.",
+            "Only adults can learn to write code.",
+            "Coding means giving a computer exact steps, and it teaches problem solving.",
+            "Scratch is the only programming language that people use today."
+          ],
+          "answer": "C",
+          "skill": "central-idea",
+          "why": "The article explains how code works step by step and how learning it helps solve problems.",
+          "wrong": {
+            "A": "The article says a computer cannot think for itself.",
+            "B": "The article describes beginners starting with Scratch.",
+            "D": "The article also names Python."
+          }
+        },
+        {
+          "stem": "According to the article, what is an algorithm?",
+          "options": [
+            "A set of steps that solves a problem",
+            "A mistake hidden deep inside a program",
+            "A machine that types code",
+            "A game made with blocks"
+          ],
+          "answer": "A",
+          "skill": "vocabulary",
+          "why": "The article defines an algorithm as a set of steps that solves a problem, like making tea.",
+          "wrong": {
+            "B": "A mistake in code is a bug.",
+            "C": "The article does not describe a machine that types code.",
+            "D": "Games can be made with code, but that is not what an algorithm is."
+          }
+        },
+        {
+          "stem": "Which example from the article shows a condition?",
+          "options": [
+            "Boil the water, then pour it into a cup.",
+            "Snap the blocks together like pieces of a puzzle on the screen.",
+            "Repeat the same steps many times.",
+            "If the player touches the wall, then the game is over."
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "A condition lets a program choose using an 'if ... then' rule, as in the wall example.",
+          "wrong": {
+            "A": "This is a sequence of steps, not a choice.",
+            "B": "This describes how block coding works.",
+            "C": "Repeating steps describes a loop."
+          }
+        },
+        {
+          "stem": "What did engineers working with Grace Hopper find in 1947?",
+          "options": [
+            "A new programming language",
+            "A real moth stuck inside a computer",
+            "The first block-based game",
+            "A loop that never stopped running"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article says they found a real moth inside a computer, which connects to the word bug.",
+          "wrong": {
+            "A": "The article does not say they found a new language.",
+            "C": "Block games are not part of that story.",
+            "D": "The story is about a moth, not a loop."
+          }
+        },
+        {
+          "stem": "Why does a wrong sequence give a wrong result?",
+          "options": [
+            "The computer follows the steps exactly and cannot guess what was meant.",
+            "The computer deletes any steps that are out of order and skips to the end.",
+            "Sequences only work in Scratch.",
+            "The computer runs every step at the same time."
+          ],
+          "answer": "A",
+          "skill": "cause-effect",
+          "why": "Because the computer follows code exactly and cannot guess, steps in the wrong order lead to the wrong result.",
+          "wrong": {
+            "B": "The article does not say computers delete steps.",
+            "C": "Sequences matter in every language.",
+            "D": "The article says steps are carried out in order, one after another."
+          }
+        },
+        {
+          "stem": "Why would a coder use a loop instead of writing the same steps ten times?",
+          "options": [
+            "Loops make the computer think for itself and choose the best steps.",
+            "Loops are the only way to make choices.",
+            "Loops let the coder repeat steps without writing them again.",
+            "Loops find and fix bugs automatically."
+          ],
+          "answer": "C",
+          "skill": "inference",
+          "why": "The article says a loop repeats steps so you do not have to write them again and again.",
+          "wrong": {
+            "A": "A computer cannot think for itself.",
+            "B": "Choices are made with conditions.",
+            "D": "Fixing bugs is debugging, which coders do."
+          }
+        },
+        {
+          "stem": "How is learning Scratch different from learning Python, based on the article?",
+          "options": [
+            "Scratch is typed, while Python uses blocks.",
+            "Scratch uses blocks, while Python is typed.",
+            "Scratch is for robots, while Python is for tea.",
+            "Scratch has no steps, while Python has many."
+          ],
+          "answer": "B",
+          "skill": "compare",
+          "why": "The article says beginners snap blocks together in Scratch and later move on to typed languages such as Python.",
+          "wrong": {
+            "A": "This reverses the two languages.",
+            "C": "The article does not link the languages to robots or tea.",
+            "D": "Each Scratch block is a step."
+          }
+        },
+        {
+          "stem": "Why does the author include the story of the moth?",
+          "options": [
+            "To warn readers about insects in classrooms",
+            "To explain how computers are cooled",
+            "To show that Grace Hopper wrote Scratch",
+            "To give an interesting history for the word bug"
+          ],
+          "answer": "D",
+          "skill": "author-purpose",
+          "why": "The author says the word has a fun history and then tells the moth story to explain it.",
+          "wrong": {
+            "A": "The story is not a warning about classrooms.",
+            "B": "The article does not discuss cooling computers.",
+            "C": "The article does not say Grace Hopper made Scratch."
+          }
+        }
+      ],
+      "prompt": "Write an algorithm for a simple game. Include at least one loop and one condition.",
+      "checklist": [
+        "My steps are in a clear sequence.",
+        "I included a loop that repeats something.",
+        "I included an 'if ... then' condition."
+      ]
+    },
+    "HIGH": {
+      "keyWords": [
+        {
+          "word": "syntax",
+          "partOfSpeech": "noun",
+          "definition": "the exact rules for how words and symbols must be written in a language",
+          "example": "The program failed because of a small syntax error in the third line."
+        },
+        {
+          "word": "logic",
+          "partOfSpeech": "noun",
+          "definition": "a clear way of thinking where each step follows from the one before",
+          "example": "She used logic to work out which box held the key."
+        },
+        {
+          "word": "efficient",
+          "partOfSpeech": "adjective",
+          "definition": "doing a job well without wasting time or effort",
+          "example": "Packing the heavy books first was the most efficient way to fill the bag."
+        },
+        {
+          "word": "persistence",
+          "partOfSpeech": "noun",
+          "definition": "the quality of continuing to try even when something is hard",
+          "example": "With persistence, he finally solved the puzzle after many tries."
+        },
+        {
+          "word": "decompose",
+          "partOfSpeech": "verb",
+          "definition": "to break something large into smaller parts",
+          "example": "To plan the school fair, we decomposed the work into small jobs."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which statement best expresses the central idea of the article?",
+          "options": [
+            "Coding needs exact instructions, and learning it builds problem-solving habits.",
+            "Computers will soon be able to guess what programmers mean.",
+            "Typed languages are always better than block-based languages.",
+            "Debugging is only needed by beginners."
+          ],
+          "answer": "A",
+          "skill": "central-idea",
+          "why": "The article stresses that computers follow exact instructions and that coding strengthens problem solving.",
+          "wrong": {
+            "B": "The article says a computer's logic is completely literal.",
+            "C": "The article presents block-based languages as a helpful first step, not as worse.",
+            "D": "The article says programs rarely work the first time for anyone."
+          }
+        },
+        {
+          "stem": "In the article, syntax refers to...",
+          "options": [
+            "the order in which a computer runs instructions",
+            "the strict rules for how code must be written",
+            "a program that repeats steps",
+            "the history of the first computer bug"
+          ],
+          "answer": "B",
+          "skill": "vocabulary",
+          "why": "The article calls a language's strict grammatical rules its syntax.",
+          "wrong": {
+            "A": "The order of instructions is the sequence.",
+            "C": "Repeating steps describes a loop.",
+            "D": "The moth story is about the word bug, not syntax."
+          }
+        },
+        {
+          "stem": "Why can a single missing symbol stop a Python program from running?",
+          "options": [
+            "Python programs are always very short.",
+            "Python cannot use loops.",
+            "Typed languages require exact syntax.",
+            "Python was invented in 1947."
+          ],
+          "answer": "C",
+          "skill": "cause-effect",
+          "why": "In typed languages the syntax must be exact, so even one missing symbol breaks the program.",
+          "wrong": {
+            "A": "Length is not the reason given.",
+            "B": "The article does not say Python lacks loops.",
+            "D": "1947 is the year of the moth story, not Python."
+          }
+        },
+        {
+          "stem": "What advantage does a block-based language give beginners, according to the article?",
+          "options": [
+            "It prevents spelling mistakes.",
+            "It lets the computer guess the coder's meaning.",
+            "It works without any sequence.",
+            "It never needs debugging."
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "Because blocks connect like puzzle pieces, students cannot make spelling mistakes.",
+          "wrong": {
+            "B": "No language lets a computer guess intentions.",
+            "C": "Every program depends on sequence.",
+            "D": "The article says programs rarely work perfectly the first time."
+          }
+        },
+        {
+          "stem": "Why does the article call persistence one of a programmer's most valuable qualities?",
+          "options": [
+            "Programmers must type very quickly.",
+            "Programs rarely work perfectly on the first attempt.",
+            "Computers refuse to run short programs.",
+            "Loops take a long time to write."
+          ],
+          "answer": "B",
+          "skill": "inference",
+          "why": "Since mistakes are almost certain, programmers must keep debugging until the program works.",
+          "wrong": {
+            "A": "Typing speed is not mentioned.",
+            "C": "The article does not say computers refuse short programs.",
+            "D": "Loops make programs shorter, not slower to write."
+          }
+        },
+        {
+          "stem": "What does it mean that a computer's logic is \"completely literal\"?",
+          "options": [
+            "It reads only books and articles.",
+            "It works only with words, not numbers.",
+            "It solves every problem faster than any person ever could.",
+            "It does exactly what is written, not what was meant."
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "The article explains that the computer cannot interpret what the programmer intended; it follows the code exactly.",
+          "wrong": {
+            "A": "Literal here does not mean reading books.",
+            "B": "The article does not say computers avoid numbers.",
+            "C": "Speed is not what literal logic means."
+          }
+        },
+        {
+          "stem": "How is a loop different from a condition?",
+          "options": [
+            "A loop makes decisions; a condition repeats steps.",
+            "A loop is used only in Scratch; a condition only in Python.",
+            "A loop repeats steps; a condition lets a program make decisions.",
+            "A loop finds bugs; a condition fixes them."
+          ],
+          "answer": "C",
+          "skill": "compare",
+          "why": "The article says a loop repeats instructions and a condition enables the program to make decisions.",
+          "wrong": {
+            "A": "This reverses the two ideas.",
+            "B": "The article does not limit either idea to one language.",
+            "D": "Finding and fixing bugs is debugging."
+          }
+        },
+        {
+          "stem": "Why does the author end by describing how programmers decompose problems?",
+          "options": [
+            "To explain how the moth was removed",
+            "To show that coding skills help beyond computers",
+            "To describe how Scratch was built",
+            "To argue that schools should stop teaching mathematics"
+          ],
+          "answer": "B",
+          "skill": "author-purpose",
+          "why": "The ending connects coding to general problem solving that is useful in mathematics, science, and future careers.",
+          "wrong": {
+            "A": "The moth story is in an earlier paragraph.",
+            "C": "The ending does not explain how Scratch was built.",
+            "D": "The article says coding skills are valuable in mathematics, not that math should stop."
+          }
+        }
+      ],
+      "prompt": "Explain how the skills used in coding, such as decomposing problems and persistence, could help you in another school subject. Give a specific example.",
+      "checklist": [
+        "I explained at least two coding skills from the article.",
+        "I connected them to another school subject.",
+        "I gave a specific example."
+      ]
+    }
+  }
+}

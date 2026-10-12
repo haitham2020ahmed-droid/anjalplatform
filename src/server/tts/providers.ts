@@ -114,7 +114,7 @@ const GEMINI_RATE = 16_000; // stored sample rate: speech stays clear at 16 kHz,
 export const DEFAULT_GEMINI_TTS_MODEL = "gemini-2.5-flash-preview-tts";
 /** Warm, clear and natural for young readers (Puck is a livelier alternative). */
 export const DEFAULT_GEMINI_VOICE = "Kore";
-export const DEFAULT_GEMINI_STYLE = "Read aloud in a warm, clear American English voice, at a calm pace for young students";
+export const DEFAULT_GEMINI_STYLE = "Read aloud in a warm, clear American English voice, at a natural, steady pace for young students";
 export const GEMINI_SLOW_STYLE = "Read aloud slowly and clearly, word by word but still natural, with a short pause after each sentence, in a warm American English voice for young students learning English";
 
 /** The instruction for a speed: Slow always asks for a slow reading (even when the school's own style is empty). */

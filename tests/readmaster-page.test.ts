@@ -177,9 +177,12 @@ describe("⭐ ReadMaster: one page for everyone, open to all, counts only at own
   });
 
   test("nav: one ReadMaster entry per role → the shared page; editor kept behind Manage; pages open to staff", () => {
-    for (const role of ["STUDENT", "TEACHER", "SCHOOL_ADMIN"]) {
-      const rm = navItemsFor(role).filter((i) => i.label === "ReadMaster");
-      assert.deepEqual(rm.map((i) => i.href), ["/student/readmaster"], role);
+    // teacher and student: one "ReadMaster / ReadRise" entry → the reading hub, which opens the shared page
+    const admin = navItemsFor("SCHOOL_ADMIN").filter((i) => i.label === "ReadMaster");
+    assert.deepEqual(admin.map((i) => i.href), ["/student/readmaster"]);
+    for (const [role, hub] of [["STUDENT", "src/app/student/reading/page.tsx"], ["TEACHER", "src/app/teacher/reading/page.tsx"]] as const) {
+      assert.equal(navItemsFor(role).filter((i) => i.label === "ReadMaster / ReadRise").length, 1, role);
+      assert.match(read(hub), /href="\/student\/readmaster"/, hub);
     }
     assert.ok(ADMIN_TOOLS.some((x) => x.href === "/admin/readmaster" && x.label === "Manage ReadMaster"), "the editor is still reachable");
     for (const f of ["src/app/student/readmaster/page.tsx", "src/app/student/readmaster/[articleId]/page.tsx"]) assert.match(read(f), /roles: \["STUDENT", "TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"\]/, f);

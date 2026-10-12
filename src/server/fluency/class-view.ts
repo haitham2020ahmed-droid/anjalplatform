@@ -11,7 +11,8 @@ import { classFluency } from "../teacher/support";
 import { fluencySeason, norm50, type Season } from "./norms";
 import { PATTERN_BY_CODE, patternForError } from "./drill-words";
 import { COMPREHENSION_FLAG } from "./comprehension";
-import { PROSODY_TRAITS, type ProsodyTrait } from "./coach";
+import { coldReads, PROSODY_TRAITS, readingEvidence, type ProsodyTrait } from "./coach";
+import { asRemedialPlan, buildRemedialPlan, FOCUS_TEACHER, goalLine, reviewPlan, type RemedialPlan } from "./remedial";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown) => (v instanceof Date ? v : v ? new Date(s(v)) : null);
@@ -23,6 +24,8 @@ export interface ClassFluencyRow {
   prosody: Record<ProsodyTrait, number | null> | null; comprehension: number | null;
   trend: number[]; direction: "UP" | "DOWN" | "FLAT" | null;
   needsWork: boolean; fastNotUnderstanding: boolean; practices: number; expression: number | null;
+  /** the student's remedial plan reviewed today (decision, goal line, latest cold read), or null */
+  plan: (RemedialPlan & { focusName: string; onLine: number }) | null;
 }
 export interface FluencyGroup { key: string; kind: "DRILL" | "PHRASED" | "COMPREHENSION" | "REPEATED"; title: string; why: string; students: { id: string; name: string; detail: string }[] }
 export interface ClassFluencyView {
@@ -43,9 +46,10 @@ export function trendDirection(xs: number[]): "UP" | "DOWN" | "FLAT" | null {
 export async function classFluencyView(repo: Repo, actor: Actor, classId: string): Promise<ClassFluencyView> {
   const base = await classFluency(repo, actor, classId);   // checks the teacher's access
   const ids = base.rows.map((r) => r.id);
-  const practice = ids.length ? await repo.findMany("FluencyPractice", { studentId: { in: ids } }, { select: ["studentId", "errors", "patterns", "prosody", "comprehension", "practiceKind", "wcpm", "createdAt"] }) : [];
-  const checks = ids.length ? await repo.findMany("FluencyCheck", { studentId: { in: ids } }, { select: ["studentId", "wcpm", "checkedAt", "season"] }) : [];
+  const practice = ids.length ? await repo.findMany("FluencyPractice", { studentId: { in: ids } }, { select: ["studentId", "errors", "patterns", "prosody", "comprehension", "practiceKind", "mode", "wcpm", "accuracy", "expression", "trial", "createdAt"] }) : [];
+  const checks = ids.length ? await repo.findMany("FluencyCheck", { studentId: { in: ids } }, { select: ["studentId", "wcpm", "accuracy", "checkedAt", "season"] }) : [];
   const season = fluencySeason();
+  const now = new Date();
   const rows: ClassFluencyRow[] = base.rows.map((r) => {
     const pr = practice.filter((x) => s(x.studentId) === r.id).sort((a, b) => (d(b.createdAt)?.getTime() ?? 0) - (d(a.createdAt)?.getTime() ?? 0));
     const proRow = pr.find((x) => x.prosody && s(x.practiceKind) !== "DRILL");
@@ -56,7 +60,15 @@ export async function classFluencyView(repo: Repo, actor: Actor, classId: string
     const trend = checks.filter((c) => s(c.studentId) === r.id).sort((a, b) => (d(a.checkedAt)?.getTime() ?? 0) - (d(b.checkedAt)?.getTime() ?? 0)).slice(-5).map((c) => Number(c.wcpm));
     const p50 = r.latest ? norm50(base.grade, r.latest.season) : null;
     const fast = !!(r.latest && p50 !== null && r.latest.wcpm >= p50 && comprehension !== null && comprehension < COMPREHENSION_FLAG);
+    // the remedial plan as it stands today: reviewed with every cold read and reading (a check due, raise, change…)
+    const stored = asRemedialPlan(r.coach.remedial);
+    const mineChecks = checks.filter((c) => s(c.studentId) === r.id);
+    const ev = { grade: base.grade, cold: coldReads(mineChecks), readings: readingEvidence(pr), words: [], patterns: [] };
+    // no coach plan yet (e.g. only the teacher's own checks): the plan the evidence suggests
+    const reviewed = stored ? reviewPlan(stored, ev, now) : buildRemedialPlan(ev, now);
+    const plan = reviewed ? { ...reviewed, focusName: FOCUS_TEACHER[reviewed.focus], onLine: goalLine(reviewed, now.toISOString()) } : null;
     return {
+      plan,
       id: r.id, name: r.name, wcpm: r.latest?.wcpm ?? null, percentile: r.latest?.percentile ?? null, band: r.latest?.level ?? null, season: r.latest?.season ?? null, text: r.latest?.text ?? null, date: r.latest?.date ?? null, source: r.latest?.source ?? null,
       prosody, comprehension, trend, direction: trendDirection(trend), needsWork: !!r.latest?.needsWork, fastNotUnderstanding: fast, practices: r.coach.practices, expression: r.coach.expression,
     };

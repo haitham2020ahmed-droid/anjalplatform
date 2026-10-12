@@ -34,7 +34,7 @@ export default async function CurriculumMapEditPage({ searchParams }: { searchPa
       {canAdd && <Link prefetch={false} href={`/admin/curriculum-map/place/${n.code}`} className="rounded-full bg-brand-navy px-2 py-0.5 font-semibold text-white hover:bg-brand-purple">Add questions</Link>}
     </span>
   );
-  const catColor: Record<string, string> = { CONCEPT_VOCABULARY: "border-sky-300 bg-sky-50/50", ANALYZE_CRAFT_AND_STRUCTURE: "border-amber-300 bg-amber-50/50", RESPOND_TO_READING: "border-violet-300 bg-violet-50/50" };
+  const catColor: Record<string, string> = { CONCEPT_VOCABULARY: "border-sky-300 bg-sky-50/50", ANALYZE_CRAFT_AND_STRUCTURE: "border-amber-300 bg-amber-50/50", RESPOND_TO_READING: "border-violet-300 bg-violet-50/50", REVIEW: "border-emerald-300 bg-emerald-50/50" };
   const link = "rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal";
   return (
     <AppShell name={String(me.displayName)}>

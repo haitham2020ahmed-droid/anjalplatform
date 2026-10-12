@@ -37,6 +37,8 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
   }, [open]);
   const [classId, setClassId] = useState(classes[0]?.id ?? "");
   const [who, setWho] = useState<"all" | "some">("all");
+  /** more of the teacher's classes for the same place (🤖 Automatic, all students): one assignment per class */
+  const [also, setAlso] = useState<Set<string>>(new Set());
   const [starred, setStarred] = useState<Set<string>>(new Set());
   const [mode, setMode] = useState<"AUTO" | "MANUAL">("AUTO");
   /** ✋ the starting level the teacher picks for each student (prefilled with their current level, else On) */
@@ -67,7 +69,16 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
     // ✋ Manual: exactly the students given a level here, each starting at it; 🤖 Automatic: the class or the starred
     const r = mode === "MANUAL"
       ? await assign({ classId, code, studentIds: manualIds, mode: "ADAPTIVE", startLevels: manualIds.map((id) => ({ studentId: id, level: picked[id]! })), max, dueAt: due || null })
-      : await assign({ classId, code, studentIds: who === "some" ? [...starred] : undefined, mode: "ADAPTIVE", max, dueAt: due || null });
+      : who === "all" && also.size
+        ? await (async () => {
+          const out: { ok: boolean; message: string }[] = [];
+          for (const id of [classId, ...[...also].filter((x) => x !== classId)]) {
+            const one = await assign({ classId: id, code, mode: "ADAPTIVE", max, dueAt: due || null });
+            out.push({ ok: one.ok, message: `${classes.find((c) => c.id === id)?.name ?? ""}: ${one.message}` });
+          }
+          return { ok: out.every((x) => x.ok), message: out.map((x) => x.message).join(" · ") };
+        })()
+        : await assign({ classId, code, studentIds: who === "some" ? [...starred] : undefined, mode: "ADAPTIVE", max, dueAt: due || null });
     setBusy(false); setResult(r);
   };
   if (!classes.length) return null;
@@ -82,7 +93,7 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
             </div>
             {classes.length > 1 && (
               <label className="mt-3 flex flex-col font-semibold text-slate-700">Class
-                <select value={classId} onChange={(e) => { setClassId(e.target.value); setStarred(new Set()); }} className="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal">{classes.map((c) => <option key={c.id} value={c.id}>{c.name} ({c.students.length})</option>)}</select>
+                <select value={classId} onChange={(e) => { setClassId(e.target.value); setStarred(new Set()); setAlso(new Set()); }} className="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal">{classes.map((c) => <option key={c.id} value={c.id}>{c.name} ({c.students.length})</option>)}</select>
               </label>
             )}
             <fieldset className="mt-3">
@@ -116,6 +127,17 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
                     <button type="button" onClick={() => setStarred(new Set(all.map((s) => s.id)))} className="font-semibold text-brand-navy hover:underline">Star all</button>
                     <button type="button" onClick={() => setStarred(new Set())} className="font-semibold text-slate-600 hover:underline">Clear</button>
                   </p>
+                )}
+                {who === "all" && classes.length > 1 && (
+                  <div data-testid="map-assign-also" className="mt-2">
+                    <p className="text-xs font-semibold text-slate-600">Also assign to my other classes:</p>
+                    <div className="mt-1 flex flex-wrap gap-1.5">
+                      {classes.filter((c) => c.id !== classId).map((c) => (
+                        <button key={c.id} type="button" aria-pressed={also.has(c.id)} onClick={() => setAlso((x) => { const n = new Set(x); if (n.has(c.id)) n.delete(c.id); else n.add(c.id); return n; })}
+                          className={`rounded-full px-3 py-1 text-xs font-semibold ${also.has(c.id) ? "bg-brand-teal text-white" : "ring-1 ring-slate-300"}`}>{also.has(c.id) ? "✓ " : ""}{c.name} ({c.students.length})</button>
+                      ))}
+                    </div>
+                  </div>
                 )}
                 {who === "all" && <p className="mt-2 text-xs text-slate-600">Levels from the data: Below <b>{chosen.filter((s) => autoOf(s).level === "BELOW").length}</b> · On <b>{chosen.filter((s) => autoOf(s).level === "ON").length}</b> · Above <b>{chosen.filter((s) => autoOf(s).level === "ABOVE").length}</b></p>}
                 {noLevel > 0 && <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200">⚠️ <b>{noLevel}</b> of {chosen.length} student(s) have no data at all yet (no MAP, no Diagnostic, no results on the platform): they start at On Level and move up or down with their answers. To choose their level, use ✋ Manual.</p>}

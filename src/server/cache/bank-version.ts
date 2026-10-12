@@ -5,7 +5,7 @@
  * at once by the next request in this process. A short time limit covers other processes (the
  * scheduled-jobs worker updates item statistics).
  */
-const BANK_MODELS = new Set(["Question", "QuestionOption", "QuestionAnswer", "QuestionExplanation", "QuestionType", "ReadingPassage", "Skill"]);
+const BANK_MODELS = new Set(["Question", "QuestionOption", "QuestionAnswer", "QuestionExplanation", "QuestionType", "ReadingPassage", "Skill", "QuestionMapLink"]);
 
 let version = 0;
 

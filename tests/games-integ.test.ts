@@ -333,7 +333,7 @@ describe("🧩 Games integration", () => {
 
   test("student home: no new tiles — only Join Live and the Question of the Day card were added", () => {
     const page = read("src/app/student/page.tsx");
-    assert.equal((page.match(/<BigTile /g) ?? []).length, 9);   // 3 reading · MAP, Curriculum, RTI, NAFS · My Tests, My Reports (My Plans → MAP)
+    assert.equal((page.match(/<BigTile /g) ?? []).length, 0);   // owner's spec (Update 53): one Today card, no tiles
     assert.match(page, /<JoinLive/); assert.match(page, /<QotdCard/);
     assert.doesNotMatch(page, /RocketsView|TugView|ChestPicker|games-usage|LiveHost/);
   });

@@ -23,6 +23,7 @@ export default async function BankGapsPage() {
         <Link href="/admin/questions/import?to=curriculum" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">📥 Import questions</Link>
         {can(actor, "questions:generate") && <Link href="/admin/question-bank/generate" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">✨ Generate with AI</Link>}
         <Link href="/admin/item-quality" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">🔬 Question quality</Link>
+        {actor.role !== "TEACHER" && <Link href="/admin/coverage" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">📊 Coverage Report</Link>}
       </PageHeader>
       {actor.role !== "TEACHER" && <BankTabs />}
       {gaps.length > 0 && (

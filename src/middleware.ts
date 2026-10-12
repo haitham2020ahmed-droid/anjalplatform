@@ -35,6 +35,7 @@ export function middleware(req: NextRequest) {
   return res;
 }
 
-// The question upload route is left out: Next.js cuts request bodies passing through middleware at 10 MB, and
-// Excel files with their pictures can be up to 50 MB. That route checks the session and the origin itself.
-export const config = { matcher: ["/((?!_next/static|_next/image|favicon.ico|api/question-imports).*)"] };
+// The question upload and the Fluency Coach recording routes are left out: Next.js cuts request bodies passing through
+// middleware at 10 MB (Excel files with pictures: up to 50 MB; a 4-minute reading: up to 12 MB). Both routes check
+// the session and the origin themselves.
+export const config = { matcher: ["/((?!_next/static|_next/image|favicon.ico|api/question-imports|api/fluency/score).*)"] };

@@ -7,7 +7,7 @@ out/
 !.env.production.example
 storage/
 *.log
-coverage/
+/coverage/
 .DS_Store
 next-env.d.ts
 *.tsbuildinfo

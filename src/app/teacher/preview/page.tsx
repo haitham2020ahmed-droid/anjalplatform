@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ReportProblem } from "@/components/questions/report-problem";
 import { PrintToggle } from "@/components/print/print-toggle";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
@@ -7,26 +8,30 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ValidationError } from "@/server/curriculum-admin";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { LEVELS, previewWork, type PreviewView } from "@/server/teacher/preview";
+import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Preview" };
 const NAME = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" } as const;
 
 /** 👀 What each level will see — switch Below / On / Above; print or save as PDF. */
-export default async function PreviewPage({ searchParams }: { searchParams: Promise<{ code?: string; skillId?: string; level?: string; key?: string }> }) {
+export default async function PreviewPage({ searchParams }: { searchParams: Promise<{ code?: string; skillId?: string; level?: string; key?: string; msg?: string; test?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
+  const { t } = await getT();
   let v: PreviewView | null = null, error: string | null = null;
   try { v = await previewWork(repo, actor, sp); } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) error = e.message; else throw e; }
   const showKey = sp.key === "1";
-  const q = (o: Record<string, string | undefined>) => `/teacher/preview?${new URLSearchParams(Object.entries({ code: sp.code, skillId: sp.skillId, level: sp.level, key: sp.key, ...o }).filter(([, x]) => x) as [string, string][])}`;
+  const q = (o: Record<string, string | undefined>) => `/teacher/preview?${new URLSearchParams(Object.entries({ code: sp.code, skillId: sp.skillId, test: sp.test, level: sp.level, key: sp.key, ...o }).filter(([, x]) => x) as [string, string][])}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="👀" title={v ? `Preview: ${v.title}` : "Preview"} subtitle={v ? `${v.subtitle} · what students see, level by level` : null}>
+      <PageHeader back={{ href: sp.test ? "/teacher/assessments/new" : actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="👀" title={v?.test ? t("Preview as student: {name}", { name: v.title }) : v ? `Preview: ${v.title}` : "Preview"} subtitle={v?.test ? t(v.subtitle) : v ? `${v.subtitle} · what students see, level by level` : null}>
         {v && <PrintButton />}
         {v?.assignHref && actor.role === "TEACHER" && <Link href={v.assignHref} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple print:hidden">⭐ Assign</Link>}
       </PageHeader>
       {error && <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-red-800">{error}</p>}
+      {sp.msg && <p role="status" className="mb-3 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{String(sp.msg).slice(0, 200)}</p>}
+      {v?.test && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">✓ {t("This is the test as your students will see it. Go back to the test builder tab: Assign is now active.")}</p>}
       {v && (
         <>
           <nav aria-label="Level" className="flex flex-wrap items-center gap-2 print:hidden">
@@ -42,6 +47,11 @@ export default async function PreviewPage({ searchParams }: { searchParams: Prom
                   <div className="flex items-start justify-between gap-2"><p className="text-lg font-medium text-slate-900"><span className="me-2 font-bold text-brand-navy">{i + 1}.</span>{x.stem}</p><PrintToggle id={x.id} stem={x.stem} /></div>
                   {x.options.length > 0 && <ul className="mt-2 grid gap-1 sm:grid-cols-2">{x.options.map((o) => <li key={o.label} className={`rounded-lg px-3 py-1.5 ring-1 ${showKey && o.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-300" : "ring-slate-200"}`}>{o.label}. {o.text}</li>)}</ul>}
                   {showKey && !x.options.length && x.answer && <p className="mt-2 rounded-lg bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-900">Answer: {x.answer}</p>}
+                  {/* 📝 Review & Send: change a question (it waits for the admin) or report a problem */}
+                  <div className="mt-3 flex flex-wrap items-start gap-4 print:hidden">
+                    <Link href={`/admin/questions/${x.id}`} prefetch={false} className="text-sm font-semibold text-brand-navy underline">✏️ Edit</Link>
+                    <ReportProblem questionId={x.id} back={q({})} />
+                  </div>
                 </li>
               ))}
             </ol>

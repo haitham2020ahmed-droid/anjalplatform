@@ -194,7 +194,7 @@ const PARENT_COLUMNS: Record<string, string> = {
   "SkillPlanItem.planId": "SkillPlan", "LiveGamePlayer.gameId": "LiveGame", "LiveGameAnswer.gameId": "LiveGame", "LiveGameAnswer.playerId": "LiveGamePlayer",
   "RespondAssignmentStudent.assignmentId": "RespondAssignment", "AiJobItem.jobId": "AiJob", "AiSuggestion.jobId": "AiJob",
   "ExitTicketAnswer.ticketId": "ExitTicket", "MapSimSession.windowId": "MapSimWindow", "MapSimAnswer.sessionId": "MapSimSession",
-  "WritingSubmission.taskId": "WritingTask", "DiagnosticScore.diagnosticId": "DiagnosticTest", "AdminMessageRecipient.messageId": "AdminMessage",
+  "WritingSubmission.taskId": "WritingTask", "WritingIntegrityEvent.taskId": "WritingTask", "WritingRubricCriterion.rubricId": "WritingRubric", "DiagnosticScore.diagnosticId": "DiagnosticTest", "AdminMessageRecipient.messageId": "AdminMessage",
   "WeeklyCheck.assignmentId": "Assignment", "DiagnosticScore.assignmentId": "Assignment", "ProgressCheck.assignmentId": "Assignment", "WorkComment.assignmentId": "Assignment",
 };
 

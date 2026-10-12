@@ -9,7 +9,7 @@ import { useT } from "@/i18n/client";
 import { answerSecondChanceAction } from "@/app/student/second-chance/actions";
 import type { ChanceQuestion, ChanceResult, ChanceSource } from "@/server/second-chance/service";
 
-const SOURCE: Record<ChanceSource, string> = { PRACTICE: "From practice", TEST: "From a test", READMASTER: "From ReadMaster", READRISE: "From ReadRise", QOTD: "From the Question of the Day" };
+const SOURCE: Record<ChanceSource, string> = { PRACTICE: "From practice", TEST: "From a test", READMASTER: "From ReadMaster", READRISE: "From ReadRise", QOTD: "From the Question of the Day", EXIT: "From an exit ticket", GAME: "From a game" };
 
 /**
  * ⭐ One question at a time: answer → sound + encouragement (AnswerFx). Right = it leaves the list

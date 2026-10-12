@@ -4,15 +4,17 @@ import { assertSameOrigin } from "@/server/auth/http";
 import { apiActor, repo } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { MAX_AUDIO_BYTES, PRACTICE_KINDS, scoreReading, type PracticeKind } from "@/server/fluency/coach";
+import { MAX_AUDIO_BYTES, NotHeardError, PRACTICE_KINDS, scoreReading, type PracticeKind } from "@/server/fluency/coach";
 import { aiEnv } from "@/server/ai/env";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+/** Gemini may take up to 80 s on a long reading (hosts that honour it: the function is not cut earlier) */
+export const maxDuration = 100;
 
 /**
  * POST /api/fluency/score (multipart: key, mode, seconds, audio; optional kind = MINUTE|PASSAGE|ECHO|PHRASED|REPEATED|
- * DRILL, sentence (ECHO), grid (DRILL, JSON), rereadOf (a practice re-read of that reading: compared, never stored or
+ * DRILL, sentence (ECHO), grid (DRILL, JSON), attempt (1+: the same recording sent again after "heard but unclear"), rereadOf (a practice re-read of that reading: compared, never stored or
  * counted)) — the student's recording is scored in memory and dropped (never
  * stored). 200 → the result; 202 → wait N seconds and send again (the school's AI limits).
  */
@@ -31,11 +33,12 @@ export async function POST(req: Request) {
     let grid: unknown = undefined;
     if (kind === "DRILL") { try { grid = JSON.parse(String(form.get("grid") ?? "null")); } catch { grid = null; } }
     const mode = kind ? (kind === "MINUTE" ? "MINUTE" : "PASSAGE") : String(form.get("mode")) === "PASSAGE" ? "PASSAGE" : "MINUTE";
-    const r = await scoreReading(repo, actor, { key: String(form.get("key") ?? ""), mode, kind, sentence: form.get("sentence") === null ? undefined : Number(form.get("sentence")), grid, rereadOf: form.get("rereadOf") ? String(form.get("rereadOf")).slice(0, 64) : undefined, seconds: Number(form.get("seconds")) || 0, audio: new Uint8Array(await audio.arrayBuffer()), mime: audio.type || "audio/wav" }, aiEnv());
+    const r = await scoreReading(repo, actor, { key: String(form.get("key") ?? ""), mode, kind, sentence: form.get("sentence") === null ? undefined : Number(form.get("sentence")), grid, rereadOf: form.get("rereadOf") ? String(form.get("rereadOf")).slice(0, 64) : undefined, seconds: Number(form.get("seconds")) || 0, voiced: Math.max(0, Math.min(600, Number(form.get("voiced")) || 0)), attempt: Math.max(0, Math.min(3, Math.round(Number(form.get("attempt")) || 0))), audio: new Uint8Array(await audio.arrayBuffer()), mime: audio.type || "audio/wav" }, aiEnv());
     if (r.status === "WAIT") return NextResponse.json(r, { status: 202, headers: { "Retry-After": String(r.seconds) } });
     return NextResponse.json(r, { headers: { "Cache-Control": "no-store" } });
   } catch (e) {
-    if (e instanceof ValidationError) return NextResponse.json({ error: e.message }, { status: 422 });
+    // NOT_HEARD: no reading at all → record again; HEARD_UNCLEAR: a voice was measured → the page sends the same recording again
+    if (e instanceof ValidationError) return NextResponse.json({ error: e.message, ...(e instanceof NotHeardError ? { code: e.code } : {}) }, { status: 422 });
     if (e instanceof ForbiddenError) return NextResponse.json({ error: "Not found." }, { status: 404 });
     throw e;
   }

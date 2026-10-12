@@ -225,7 +225,8 @@ describe("My Work: finished work is recorded as Done", () => {
     const page = readFileSync(join(ROOT, "src/app/student/page.tsx"), "utf8");
     assert.match(page, /myWorkView\(h\.work, h\.last\)/);
     assert.match(page, /data-testid="my-work-todo"/);
-    assert.match(page, /EmptyState/);
+    // the empty state lives in the shared list (Home's Today card and the My Work page use it)
+    assert.match(readFileSync(join(ROOT, "src/components/student/my-work-list.tsx"), "utf8"), /EmptyState/);
   });
 
   test("after finishing: 'Great job! ✓' for about 2 seconds, then back to My Work (button kept); strings in English and Arabic", () => {

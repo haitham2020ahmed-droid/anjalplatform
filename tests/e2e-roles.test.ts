@@ -71,11 +71,13 @@ describe("end to end: admin → teacher → student → teacher", () => {
     const usable: string[] = [];
     for (const k of view.units.flatMap((x) => x.skills)) if (!assigned.has(k.id) && !usable.includes(k.id) && (await loadSkillItems(repo, k.id)).length >= 5) usable.push(k.id);
     skillId = usable[0];
-    const before = await unreadCount(repo, student.userId);
+    // "assigned you a new skill" notifications only (a due/overdue reminder may be written in the background meanwhile)
+    const newWork = async () => (await repo.findMany("Notification", { userId: student.userId, type: "NEW_ASSIGNMENT", readAt: null })).length;
+    const before = await newWork();
     assignmentId = (await assignSkill(repo, teacher, { classId, skillId, dueAt: new Date(Date.now() + 5 * 86_400_000), note: "Do your best!" })).assignmentId;
     assert.equal((await assignSkill(repo, teacher, { classId, skillId: usable[1], studentIds: view.students.slice(0, 3).map((x) => x.id) })).students, 3);
     assert.equal((await assignSkill(repo, teacher, { classId, skillId: usable[2], studentIds: [view.students[5].id] })).students, 1);
-    assert.equal(await unreadCount(repo, student.userId), before + 1, "the student got a notification");
+    assert.equal(await newWork(), before + 1, "the student got a notification");
   });
 
   test("STUDENT: only assigned skills, notification link, start, complete, report, still visible", async () => {

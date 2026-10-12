@@ -108,7 +108,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
         </Link>
       )}
       {(extras?.reviewDue ?? 0) > 0 && (
-        <Link href="/student/review" className="lift flex items-center justify-between gap-3 rounded-2xl bg-white px-5 py-4 font-bold text-brand-navy shadow ring-1 ring-slate-200">
+        <Link href="/student/second-chance" className="lift flex items-center justify-between gap-3 rounded-2xl bg-white px-5 py-4 font-bold text-brand-navy shadow ring-1 ring-slate-200">
           <span>🔁 {extras!.reviewDue} question{extras!.reviewDue === 1 ? "" : "s"} to review today (your past mistakes)</span><span className="rounded-xl bg-brand-navy px-4 py-2 text-white">Review ▶</span>
         </Link>
       )}
@@ -217,33 +217,40 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
             <p className="text-slate-600">{summary.assigned ? "Great job. Try a ReadMaster article while you wait." : "When your teacher assigns work, it appears here and you get a notification."}</p>
           </div>
         ) : (
-          <ul className="mt-4 grid gap-3 md:grid-cols-2">
+          <ul className="mt-3 grid gap-2 md:grid-cols-2 xl:grid-cols-3">
             {items.map((i, k) => (
-              <li key={i.assignmentId} className="lift animate-fade-up relative overflow-hidden rounded-2xl bg-white p-4 ps-5 ring-1 ring-slate-200" style={{ animationDelay: `${Math.min(k, 8) * 40}ms` }}>
+              <li key={i.assignmentId} className="lift animate-fade-up relative overflow-hidden rounded-xl bg-white px-3 py-2.5 ps-4 ring-1 ring-slate-200" style={{ animationDelay: `${Math.min(k, 8) * 40}ms` }}>
                 <span aria-hidden="true" className={`absolute inset-y-0 start-0 w-1.5 ${BAR[i.status]}`} />
-                <div className="flex items-start justify-between gap-3">
+                <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0">
-                    <h3 className="truncate text-lg font-bold text-brand-navy" title={i.skill}><span aria-hidden="true">{i.grammar ? "🔤" : i.track === "MAP" ? "🗺️" : i.track === "NAFS" ? "🇸🇦" : i.track === "RTI" ? "🧩" : i.track === "CUSTOM" ? "✏️" : "📘"}</span> {i.skill}</h3>
+                    <h3 className="truncate text-[0.95rem] font-bold text-brand-navy" title={i.skill}><span aria-hidden="true">{i.grammar ? "🔤" : i.track === "MAP" ? "🗺️" : i.track === "NAFS" ? "🇸🇦" : i.track === "RTI" ? "🧩" : i.track === "CUSTOM" ? "✏️" : "📘"}</span> {i.skill}</h3>
                     {(() => { const k = sourceOfWork(i.track, Boolean(i.grammar)); return <span className={`mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${SOURCE_TAG_CLASS[k]}`}>{SOURCE_LABEL[k]}</span>; })()}
-                    <p className="text-sm text-slate-600">{i.kind === "questions" ? `${i.questionCount} questions` : i.standard ?? "Practice"}{i.dueAt ? ` · due ${i.dueAt.slice(0, 10)}` : ""}</p>
+                    <p className="text-xs text-slate-600">{i.kind === "questions" ? `${i.questionCount} questions` : i.standard ?? "Practice"}{i.dueAt ? ` · due ${i.dueAt.slice(0, 10)}` : ""}</p>
                     {i.note && <p className="mt-1 rounded-lg bg-amber-50 px-2 py-1 text-sm text-amber-900">💬 {i.note}</p>}
                   </div>
-                  <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-bold ${TONE[i.status]}`}>{LABEL[i.status]}</span>
+                  <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-bold ${TONE[i.status]}`}>{LABEL[i.status]}</span>
                 </div>
-                <div className="mt-3 flex items-center gap-3">
-                  <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(i.progress * 100)} aria-label={`Progress on ${i.skill}`}>
+                {i.work && i.kind === "skill" && (
+                  <p data-testid="work-stats" className="mt-1 flex flex-wrap gap-x-3 text-xs text-slate-600">
+                    <span>Completion: <b>{i.status === "COMPLETED" ? "Done" : i.work.answered === null ? "In progress" : `${i.work.answered} of ${i.work.of}`}</b></span>
+                    {i.work.accuracy !== null && <span>Accuracy: <b>{i.work.accuracy}%</b></span>}
+                    {i.work.mastery !== null && <span>Mastery: <b>{i.work.mastery}%</b></span>}
+                  </p>
+                )}
+                <div className="mt-2 flex items-center gap-3">
+                  <div className="h-2 flex-1 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(i.progress * 100)} aria-label={`Progress on ${i.skill}`}>
                     <div className={`h-full rounded-full transition-all duration-700 ${BAR[i.status]}`} style={{ width: `${Math.round(i.progress * 100)}%` }} />
                   </div>
                   <span className="w-10 text-end text-sm font-semibold tabular-nums text-slate-700">{Math.round(i.progress * 100)}%</span>
                 </div>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-2 flex flex-wrap gap-2">
                   {i.startsLater ? <span className="text-sm text-slate-600">🔒 Starts {i.startAt!.slice(0, 10)}</span>
                     : i.status === "COMPLETED" ? (
                       <>
-                        <Link href={`/student/assignments/${i.assignmentId}/report`} className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-purple">View report</Link>
-                        {i.kind === "skill" && <Link href={`/practice/${i.skillId}`} className="rounded-xl px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Practise again</Link>}
+                        <Link href={`/student/assignments/${i.assignmentId}/report`} className="rounded-lg bg-brand-navy px-3 py-1.5 text-sm font-semibold text-white hover:bg-brand-purple">View report</Link>
+                        {i.kind === "skill" && <Link href={`/practice/${i.skillId}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Practise again</Link>}
                       </>
-                    ) : <Link href={hrefOf(i)} className="rounded-xl bg-brand-navy px-5 py-2 text-sm font-semibold text-white hover:bg-brand-purple">{i.status === "NOT_STARTED" ? "Start ▶" : "Continue ▶"}</Link>}
+                    ) : <Link href={hrefOf(i)} className="rounded-lg bg-brand-navy px-4 py-1.5 text-sm font-semibold text-white hover:bg-brand-purple">{i.status === "NOT_STARTED" ? "Start ▶" : "Continue ▶"}</Link>}
                 </div>
               </li>
             ))}

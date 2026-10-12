@@ -40,6 +40,7 @@ import {
 } from "../writing/research";
 import { draftAiFeedback, readDraft, type AiDraft, type AiOutcome } from "../writing/ai-feedback";
 import { CODE_FAMILIES, WRITING_ERROR_CODES, reteachFor, skillsForFamilies, type ReteachRow, type ReteachSkill } from "../writing/reteach";
+import { assignedIds, isAssignedTo, isLocked, lockedStatus, scoreMax, type LockedStatus } from "../writing/locked";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -128,16 +129,16 @@ export async function writingSkillOptions(repo: Repo, actor: Actor, classId: str
 
 // ------------------------------------------------------------------ the teacher: lists and the scoring view
 
-export interface TaskSummary { id: string; kind: TaskKind; genre: Genre; staged: boolean; title: string; dueAt: string | null; createdAt: string; submitted: number; scored: number; members: number; aiPending: number }
+export interface TaskSummary { id: string; kind: TaskKind; genre: Genre; staged: boolean; locked: boolean; title: string; dueAt: string | null; createdAt: string; submitted: number; scored: number; members: number; aiPending: number }
 export async function classTasks(repo: Repo, actor: Actor, classId: string): Promise<TaskSummary[]> {
   assertCan(actor, "reports:read");
   await assertClassRead(repo, actor, classId);
   const tasks = await repo.findMany("WritingTask", { classId, deletedAt: null });
   const subs = tasks.length ? await repo.findMany("WritingSubmission", { taskId: { in: tasks.map((t) => t.id) } }, { select: ["taskId", "status", "aiStatus"] }) : [];
-  const members = (await classMembers(repo, classId)).length;
+  const memberIds = await classMembers(repo, classId);
   return tasks.map((t) => ({
-    id: s(t.id), kind: s(t.kind) as TaskKind, genre: genreOf(t), staged: staged(t), title: s(t.title), dueAt: iso(t.dueAt), createdAt: iso(t.createdAt)!,
-    submitted: subs.filter((x) => x.taskId === t.id && x.status !== "DRAFT").length, scored: subs.filter((x) => x.taskId === t.id && x.status === "SCORED").length, members,
+    id: s(t.id), kind: s(t.kind) as TaskKind, genre: genreOf(t), staged: staged(t), locked: isLocked(t), title: s(t.title), dueAt: iso(t.dueAt), createdAt: iso(t.createdAt)!,
+    submitted: subs.filter((x) => x.taskId === t.id && x.status !== "DRAFT").length, scored: subs.filter((x) => x.taskId === t.id && x.status === "SCORED").length, members: assignedIds(t, memberIds).length,
     aiPending: subs.filter((x) => x.taskId === t.id && x.aiStatus === "PENDING").length,
   })).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
@@ -155,7 +156,7 @@ export interface SubmissionView {
   aiStatus: AiStatus; ai: AiDraft | null;
 }
 export interface TaskView {
-  id: string; kind: TaskKind; classId: string; title: string; prompt: string; passage: string | null; minWords: number | null; dueAt: string | null;
+  id: string; kind: TaskKind; locked: boolean; classId: string; title: string; prompt: string; passage: string | null; minWords: number | null; dueAt: string | null;
   genre: Genre; genreLabel: string; staged: boolean; aiFeedback: boolean; skill: { id: string; name: string } | null;
   sources: Source[]; research: ResearchQuestion[]; rubric: Rubric; checklist: CheckItem[]; organizer: Organizer;
   subs: (SubmissionView & { reteach: ReteachRow[] })[]; canScore: boolean; moveOptions: { trait: string; id: string; text: string }[];
@@ -196,7 +197,7 @@ export async function taskForTeacher(repo: Repo, actor: Actor, taskId: string): 
   const classId = s(t.classId);
   await assertClassRead(repo, actor, classId);
   let canScore = true; try { await assertClassAccess(repo, actor, classId); } catch { canScore = false; }
-  const ids = await classMembers(repo, classId);
+  const ids = assignedIds(t, await classMembers(repo, classId));
   const [names, subs, skill] = await Promise.all([
     studentNames(repo, ids), repo.findMany("WritingSubmission", { taskId }, { select: SUB_FIELDS }), t.skillId ? repo.findUnique("Skill", { id: t.skillId }) : Promise.resolve(null),
   ]);
@@ -209,7 +210,7 @@ export async function taskForTeacher(repo: Repo, actor: Actor, taskId: string): 
     return { ...v, reteach };
   }));
   return {
-    id: s(t.id), kind: s(t.kind) as TaskKind, classId, title: s(t.title), prompt: s(t.prompt), passage: t.passage ? s(t.passage) : null, minWords: t.minWords ? Number(t.minWords) : null, dueAt: iso(t.dueAt),
+    id: s(t.id), kind: s(t.kind) as TaskKind, locked: isLocked(t), classId, title: s(t.title), prompt: s(t.prompt), passage: t.passage ? s(t.passage) : null, minWords: t.minWords ? Number(t.minWords) : null, dueAt: iso(t.dueAt),
     genre, genreLabel: s(t.kind) === "READ_ALOUD" ? "Reading aloud" : GENRE_LABEL[genre], staged: staged(t), aiFeedback: bool(t.aiFeedback), skill: skill ? { id: s(skill.id), name: s(skill.name) } : null,
     sources: sourcesOf(t), research: researchOf(t), rubric, checklist: CHECKLISTS[genre], organizer: ORGANIZERS[genre],
     subs: views.sort((a, b) => ORDER.indexOf(a.status) - ORDER.indexOf(b.status) || a.name.localeCompare(b.name)), canScore, moveOptions: movesForRubric(rubric),
@@ -223,6 +224,7 @@ async function scorable(repo: Repo, actor: Actor, taskId: string, studentId: str
   const t = await repo.findUnique("WritingTask", { id: taskId });
   if (!t) throw new ForbiddenError("Task not found.");
   await assertClassAccess(repo, actor, s(t.classId));
+  if (isLocked(t)) throw new ValidationError("Grade this essay on its grading page (rubric task).");
   const sub = await repo.findUnique("WritingSubmission", { taskId, studentId });
   if (!sub || sub.status === "DRAFT") throw new ValidationError("The student has not submitted yet.");
   return { t, sub };
@@ -381,15 +383,17 @@ export async function classWritingErrors(repo: Repo, actor: Actor, classId: stri
 
 // ------------------------------------------------------------------ the student
 
-export async function myTasks(repo: Repo, actor: Actor): Promise<(TaskSummary & { status: SubmissionView["status"]; stage: Stage | null; total: number | null; max: number })[]> {
+export async function myTasks(repo: Repo, actor: Actor): Promise<(TaskSummary & { status: SubmissionView["status"]; stage: Stage | null; total: number | null; max: number; lockedStatus: LockedStatus | null; timeLimitMin: number | null })[]> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError();
   const cls = (await repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] })).map((m) => m.classId);
-  const tasks = cls.length ? await repo.findMany("WritingTask", { classId: { in: cls }, deletedAt: null }) : [];
-  const subs = tasks.length ? await repo.findMany("WritingSubmission", { taskId: { in: tasks.map((t) => t.id) }, studentId: actor.studentId }, { select: ["taskId", "status", "scores", "stage"] }) : [];
+  const tasks = (cls.length ? await repo.findMany("WritingTask", { classId: { in: cls }, deletedAt: null }, { select: ["id", "kind", "genre", "staged", "title", "dueAt", "createdAt", "locked", "rubric", "studentIds", "timeLimitMin", "research", "sources"] }) : [])
+    .filter((t) => isAssignedTo(t, actor.studentId!));
+  const subs = tasks.length ? await repo.findMany("WritingSubmission", { taskId: { in: tasks.map((t) => t.id) }, studentId: actor.studentId }, { select: ["taskId", "status", "scores", "stage", "startedAt", "submitMode", "text"] }) : [];
   return tasks.map((t) => {
-    const v = subView(t, subs.find((x) => x.taskId === t.id), actor.studentId!, "");
-    const rubric = taskRubric(t);
-    return { id: s(t.id), kind: s(t.kind) as TaskKind, genre: genreOf(t), staged: staged(t), title: s(t.title), dueAt: iso(t.dueAt), createdAt: iso(t.createdAt)!, submitted: 0, scored: 0, members: 0, aiPending: 0, status: v.status, stage: v.stage, total: v.status === "SCORED" ? v.total : null, max: rubric.traits.length * rubric.max };
+    const sub = subs.find((x) => x.taskId === t.id);
+    const v = subView(t, sub, actor.studentId!, "");
+    const lk = isLocked(t);
+    return { id: s(t.id), kind: s(t.kind) as TaskKind, genre: genreOf(t), staged: staged(t), locked: lk, title: s(t.title), dueAt: iso(t.dueAt), createdAt: iso(t.createdAt)!, submitted: 0, scored: 0, members: 0, aiPending: 0, status: v.status, stage: v.stage, total: v.status === "SCORED" ? v.total : null, max: scoreMax(t), lockedStatus: lk ? lockedStatus(sub) : null, timeLimitMin: lk && t.timeLimitMin ? Number(t.timeLimitMin) : null };
   }).sort((a, b) => Number(a.status === "SCORED") - Number(b.status === "SCORED") || b.createdAt.localeCompare(a.createdAt));
 }
 
@@ -397,7 +401,7 @@ async function ownTask(repo: Repo, actor: Actor, taskId: string): Promise<Row> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError();
   const t = await loadTask(repo, taskId);
   const ok = await repo.findMany("ClassMembership", { studentId: actor.studentId, classId: t.classId, leftAt: null });
-  if (!ok.length) throw new ForbiddenError("Task not found.");
+  if (!ok.length || !isAssignedTo(t, actor.studentId)) throw new ForbiddenError("Task not found.");
   return t;
 }
 
@@ -417,7 +421,7 @@ export async function taskForStudent(repo: Repo, actor: Actor, taskId: string): 
   const qs = researchOf(t), genre = genreOf(t);
   const skill = t.skillId ? await repo.findUnique("Skill", { id: t.skillId }) : null;
   return {
-    id: s(t.id), kind: s(t.kind) as TaskKind, classId: s(t.classId), title: s(t.title), prompt: s(t.prompt), passage: t.passage ? s(t.passage) : null, minWords: t.minWords ? Number(t.minWords) : null, dueAt: iso(t.dueAt),
+    id: s(t.id), kind: s(t.kind) as TaskKind, locked: isLocked(t), classId: s(t.classId), title: s(t.title), prompt: s(t.prompt), passage: t.passage ? s(t.passage) : null, minWords: t.minWords ? Number(t.minWords) : null, dueAt: iso(t.dueAt),
     genre, genreLabel: s(t.kind) === "READ_ALOUD" ? "Reading aloud" : GENRE_LABEL[genre], staged: staged(t), aiFeedback: bool(t.aiFeedback), skill: skill ? { id: s(skill.id), name: s(skill.name) } : null,
     sources: sourcesOf(t), research: studentView(qs), needsResearch: qs.length > 0 && !mine.research?.submittedAt, rubric: taskRubric(t), checklist: CHECKLISTS[genre], organizer: ORGANIZERS[genre], mine,
   };
@@ -466,6 +470,7 @@ export async function savePlan(repo: Repo, actor: Actor, taskId: string, plan: R
 export async function saveWriting(repo: Repo, actor: Actor, taskId: string, text: string, submit: boolean, now = new Date(), opts: { checklist?: Record<string, unknown>; movesDone?: string[] } = {}): Promise<{ ai: boolean; stage: Stage | null }> {
   const t = await ownTask(repo, actor, taskId);
   if (s(t.kind) !== "WRITE") throw new ValidationError("This task is a recording.");
+  if (isLocked(t)) throw new ValidationError("This task is written on the locked writing page: press “Start Writing”.");
   const sub = await repo.findUnique("WritingSubmission", { taskId, studentId: actor.studentId });
   if (sub && sub.status !== "DRAFT") throw new ValidationError("You already submitted this work.");
   researchGate(t, sub);

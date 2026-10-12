@@ -35,8 +35,10 @@ export function pickBestVoice<T extends VoiceLike>(voices: readonly T[], preferr
 }
 
 /** Browser-speech rates for the two speeds (pre-generated audio uses `AUDIO_RATE`). */
-export const SPEECH_RATE = { slow: 0.75, normal: 0.95 } as const;
-export const AUDIO_RATE = { slow: 0.8, normal: 1 } as const;
+export const SPEECH_RATE = { slow: 0.8, normal: 1 } as const;
+/** Natural audio: `slow` slows a normal recording down; `normal` plays a normal recording a little brisker (the
+ * natural voice was made "at a calm pace": students found it slow). The pitch stays natural (browsers keep it). */
+export const AUDIO_RATE = { slow: 0.85, normal: 1.08 } as const;
 export type ListenSpeed = keyof typeof SPEECH_RATE;
 
 /** Device-side voice pick for code that speaks a single word or sentence. */

@@ -43,6 +43,7 @@ export const ADMIN_TOOLS: AdminTool[] = [
 
   // ---- Content
   { href: "/admin/questions", label: "Questions", icon: "📚", group: "content", home: true, menu: true, hint: "Search, preview and edit every question", perm: "questions:read" },
+  { href: "/admin/coverage", label: "Coverage Report", icon: "📊", group: "content", hint: "Every MAP skill: linked to the bank? how many questions?", perm: "questions:read" },
   { href: "/admin/skill-links", label: "Sort Questions", icon: "🧺", group: "content", home: true, menu: true, hint: "Check each question’s skill link", perm: "curriculum:edit" },
   { href: "/admin/curriculum-map", label: "Curriculum Map", icon: "🧭", group: "content", home: true, menu: true, hint: "Grades 4–6: units, text sets and levels", perm: "curriculum:read" },
   { href: "/admin/readrise", label: "ReadRise Library", icon: "🚀", group: "content", home: true, menu: true, hint: "Articles for every reading level", perm: "questions:read" },

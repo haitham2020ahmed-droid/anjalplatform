@@ -41,7 +41,7 @@ export function PlayRunner({ initial, rating: initialRating, backHref, module: p
     if (sent.current === round.roundId) return;
     sent.current = round.roundId;
     setCoins(0);
-    void fetch("/api/play", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "result", roundId: round.roundId, correct: r.correct, incorrect: r.incorrect, points: r.points }) })
+    void fetch("/api/play", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "result", roundId: round.roundId, correct: r.correct, incorrect: r.incorrect, points: r.points, missed: r.missed }) })
       .then((x) => (x.ok ? x.json() : null)).then((j: { coins?: number } | null) => { if (j && Number(j.coins) > 0) setCoins(Number(j.coins)); }).catch(() => {});
   }, [round.roundId]);
   const api = useRound(round.roundSeconds, onOver);

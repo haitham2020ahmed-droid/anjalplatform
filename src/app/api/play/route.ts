@@ -44,7 +44,7 @@ export async function POST(req: Request) {
   let body: Record<string, unknown>;
   try { body = (await req.json()) as Record<string, unknown>; } catch { return NextResponse.json({ error: "Bad request." }, { status: 400 }); }
   try {
-    if (body.action === "result") return NextResponse.json(await recordSoloPlay(repo, actor, { roundId: String(body.roundId ?? ""), correct: Number(body.correct), incorrect: Number(body.incorrect), points: Number(body.points) }));
+    if (body.action === "result") return NextResponse.json(await recordSoloPlay(repo, actor, { roundId: String(body.roundId ?? ""), correct: Number(body.correct), incorrect: Number(body.incorrect), points: Number(body.points), missed: Array.isArray(body.missed) ? body.missed.slice(0, 100).map(String) : [] }));
     if (body.action === "rate") { await rateGame(repo, actor, String(body.gameId ?? ""), Number(body.stars)); return NextResponse.json({ ok: true }); }
     return NextResponse.json({ error: "Bad request." }, { status: 400 });
   } catch (e) { return fail(e); }

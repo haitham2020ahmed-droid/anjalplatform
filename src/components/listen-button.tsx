@@ -10,9 +10,9 @@ type PreSet = { normal: PreAudio | null; slow: PreAudio | null };
 /** Which recording plays for a speed, and how fast: its own recording, else the other one sped up or slowed down. */
 export function audioForSpeed(pre: PreSet | null, speed: ListenSpeed): { audio: PreAudio; rate: number; own: boolean } | null {
   if (!pre) return null;
-  if (pre[speed]) return { audio: pre[speed]!, rate: 1, own: true };
+  if (pre[speed]) return { audio: pre[speed]!, rate: speed === "normal" ? AUDIO_RATE.normal : 1, own: true };
   if (speed === "slow" && pre.normal) return { audio: pre.normal, rate: AUDIO_RATE.slow, own: false };
-  if (speed === "normal" && pre.slow) return { audio: pre.slow, rate: Math.round((1 / AUDIO_RATE.slow) * 100) / 100, own: false };
+  if (speed === "normal" && pre.slow) return { audio: pre.slow, rate: Math.round((AUDIO_RATE.normal / AUDIO_RATE.slow) * 100) / 100, own: false };
   return null;
 }
 
@@ -116,6 +116,8 @@ export function ListenButton({ text, label = "Listen", className = "", slowFirst
         const main: PreAudio = { audioUrl: j.audioUrl, durationMs: j.durationMs, timings: j.timings };
         setPre(j.speed === "slow" ? { normal: null, slow: main } : { normal: main, slow: j.slow ?? null });
         onAvailRef.current?.(true);
+        // ⚡ ready before the tap: only the file's header is fetched now (light), so playing starts at once
+        try { if (!audio.current) { const a = new Audio(); a.preload = "metadata"; a.src = main.audioUrl; audio.current = a; } } catch { /* no audio element */ }
       } catch { /* no natural audio yet: the device's voice is used */ }
     })();
     return () => { live = false; stop(); };

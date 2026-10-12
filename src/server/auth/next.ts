@@ -4,7 +4,7 @@
  * `requireActor()` (+ `assertCan` / `assertStudentAccess` for the specific record).
  */
 import "server-only";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { cache } from "react";
 import { db } from "@/lib/db";
@@ -56,7 +56,21 @@ export async function requireActor(opts: { roles?: Role[]; permission?: Permissi
   if (s.user.mustChangePassword) redirect("/change-password");
   if (opts.roles && !opts.roles.includes(s.actor.role)) redirect(HOME_BY_ROLE[s.actor.role]);
   if (opts.permission) assertCan(s.actor, opts.permission);
+  void prewarmShell(s.actor);
   return s.actor;
+}
+
+/**
+ * Page renders: start reading the page frame's data (menu numbers, menu flags) now, side by side with the page's own
+ * reads — AppShell is drawn after them and then finds it ready (same request-cached promise). Not for Server
+ * Actions (they change data first; the frame of the page drawn after them reads fresh).
+ */
+async function prewarmShell(actor: Actor): Promise<void> {
+  try {
+    if ((await headers()).has("next-action")) return;
+    const { shellData } = await import("@/server/ui/shell-data");
+    void shellData(repo, actor).catch(() => null);
+  } catch { /* outside a request (scripts/tests): nothing to warm */ }
 }
 
 /** For route handlers (no redirects): the validated actor, or null. */

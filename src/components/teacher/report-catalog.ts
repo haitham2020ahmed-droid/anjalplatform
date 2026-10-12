@@ -58,6 +58,9 @@ export const REPORTS: ReportDef[] = [
   // Tests
   { key: "assessments", category: "Tests", title: "Test results", hint: "Your tests and their results by skill.",
     classUrl: (p) => `/teacher/assessments?${qs({ classId: p.classId })}` },
+  { key: "writing", category: "Tests", title: "Writing results", hint: "Rubric scores (%) of graded writing, by student and task.",
+    classUrl: (p) => `/teacher/writing/report?${qs({ classId: p.classId })}`,
+    studentUrl: (p) => `/teacher/writing/report?${qs({ classId: p.classId, studentId: p.studentId })}` },
   { key: "diagnostic", category: "Tests", title: "Diagnostic results", hint: "Strengths and next steps from the Diagnostic.",
     classUrl: (p) => `/teacher/diagnostic?${qs({ classId: p.classId })}` },
   // MAP

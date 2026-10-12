@@ -17,3 +17,11 @@ export async function releaseHoldAction(f: FormData): Promise<void> {
   await releaseHold(repo, actor, String(f.get("id")));
   redirect(back(f, "✓ The question is back in adaptive practice (the alert stays open)."));
 }
+
+/** 🧹 Run the automatic check now (definite errors are hidden from students). */
+export async function autoCheckAction(): Promise<void> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:review" });
+  const { autoHideBroken } = await import("@/server/questions/auto-check");
+  const r = await autoHideBroken(repo, actor);
+  redirect(`/admin/item-quality?tab=hidden&msg=${encodeURIComponent(`✓ ${r.checked} questions checked · ${r.hidden.length} hidden.`)}`);
+}

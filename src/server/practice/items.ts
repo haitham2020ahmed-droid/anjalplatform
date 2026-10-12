@@ -2,10 +2,12 @@
  * Practice items: load from the DB into a scoring model, and build the SAFE
  * payload sent to the browser (no keys, no rationales, no explanations).
  */
+import { definitelyNeedsPassage } from "../../lib/passage-detect";
 import { createHash } from "node:crypto";
 import { combineGuidance, errorKey, isClassicErrorItem, readErrorResponse, storedParts, twoPartScores, scoreResponse, type BankItem, type BankOption, type QuestionTypeCode } from "../../imports/questions/validate";
 import { chosenMisconception } from "../../insights/misconceptions";
 import type { CandidateItem } from "../../types/domain";
+import { mapLinkedQuestionIds, skillGrades, thetaShift } from "../questions/bank-scope";
 import type { Repo, Row } from "../seeding/repo";
 import { bankVersion } from "../cache/bank-version";
 import { heldBackQuestionIds } from "../questions/held-back";
@@ -21,6 +23,8 @@ export interface PracticeItem extends BankItem {
   hint: string | null;
   /** optional picture (diagram, chart…) shown with the question */
   image: { id: string; alt: string } | null;
+  /** the stored content fingerprint (Question.contentHash): copies of one question share it (questions/fresh.ts) */
+  contentHash?: string | null;
 }
 
 /** What the student's browser receives. Contains nothing that reveals the answer. */
@@ -77,19 +81,42 @@ export async function loadSkillItems(repo: Repo, skillId: string, opts: { questi
   const fam = await skillFamilyIds(repo, skillId);
   const key = [...fam].sort().join(",") || skillId;
   const hit = itemCache.get(key);
-  if (hit && hit.version === bankVersion() && Date.now() - hit.at < ITEM_CACHE_MS) return tag(structuredClone(hit.items));
+  if (hit && hit.version === bankVersion() && Date.now() - hit.at < ITEM_CACHE_MS) return atLevelOf(repo, skillId, tag(structuredClone(hit.items)));
   const version = bankVersion();
   const items = await loadItemsForSkills(repo, fam.length ? fam : [skillId]);
   if (itemCache.size >= ITEM_CACHE_MAX) itemCache.clear();
   itemCache.set(key, { version, at: Date.now(), items: structuredClone(items) });
-  return tag(items);
+  return atLevelOf(repo, skillId, tag(items));
 }
 
-/** Load every PUBLISHED item for several skills at once (used by placement checks). */
+/**
+ * 🏦 Skill + level, not grade: each bank question's difficulty is moved onto the scale of the skill being practised
+ * (a Grade 4 "On level" question is easier for a Grade 6 student, a Grade 6 one harder for a Grade 4 student), so
+ * the engine picks the questions of the whole bank that match the student's own level.
+ */
+async function atLevelOf(repo: Repo, skillId: string, items: PracticeItem[]): Promise<PracticeItem[]> {
+  if (!items.some((i) => i.grade)) return items;
+  const target = (await skillGrades(repo, [skillId])).get(skillId) ?? 0;
+  if (!target) return items;
+  for (const i of items) if (i.grade && i.grade !== target) i.irt = { ...i.irt, b: Math.round((i.irt.b + thetaShift(i.grade, target)) * 100) / 100 };
+  return items;
+}
+
+/**
+ * Load every PUBLISHED bank item for several skills at once (practice pools, placement checks). Curriculum Map
+ * questions are not bank questions: they are left out (they are practised through their lesson's assignment).
+ */
 export async function loadItemsForSkills(repo: Repo, skillIds: string[]): Promise<PracticeItem[]> {
   if (!skillIds.length) return [];
-  const qs = await repo.findMany("Question", { skillId: { in: skillIds }, status: "PUBLISHED", deletedAt: null });
-  return buildItems(repo, qs, true);
+  const [qs, onMap, grades] = await Promise.all([
+    repo.findMany("Question", { skillId: { in: skillIds }, status: "PUBLISHED", deletedAt: null }),
+    mapLinkedQuestionIds(repo),
+    skillGrades(repo, skillIds),
+  ]);
+  const items = await buildItems(repo, qs.filter((q) => !onMap.has(str(q.id))), true);
+  // the grade each question was written for (its level is read there): kept on the item
+  for (const i of items) i.grade = grades.get(i.skillKey) ?? 0;
+  return items;
 }
 
 /**
@@ -162,7 +189,10 @@ async function buildItems(repo: Repo, qs: Row[], holdBack = false): Promise<Prac
   const perSkill = new Map<string, number>();
   for (const q of qs) if (!bad.has(str(q.id))) perSkill.set(str(q.skillId), (perSkill.get(str(q.skillId)) ?? 0) + 1);
   qs = qs.filter((q) => !bad.has(str(q.id)) || (perSkill.get(str(q.skillId)) ?? 0) < 4);
-  return qs.filter((q) => autoScored.has(str(q.typeId))).map((q) => ({ ...toPracticeItem(q, opts, answers, expl, typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
+  // 🧹 never served: a question that clearly needs a reading passage ("according to the passage", "in paragraph 3"…)
+  // but has none attached (or its passage is missing / empty) — Update 55, it reached some students
+  const noText = (q: Row) => { const p = q.passageId ? passage.get(str(q.passageId)) : undefined; return !(p && str(p.body).trim()) && definitelyNeedsPassage(str(q.stem)); };
+  return qs.filter((q) => autoScored.has(str(q.typeId)) && !noText(q)).map((q) => ({ ...toPracticeItem(q, opts, answers, expl, typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
 }
 
 function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCode: Map<string, QuestionTypeCode>, passage: Map<string, Row>): PracticeItem {
@@ -200,6 +230,7 @@ function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCo
     passageTitle: p ? str(p.title) : null,
     hint: q.hint ? str(q.hint) : null,
     image: null,
+    contentHash: q.contentHash ? str(q.contentHash) : null,
   };
   if (type === "TRUE_FALSE") item.answer = Boolean(ans[0]);
   if (type === "FILL_BLANK") item.answers = ans.map(str);

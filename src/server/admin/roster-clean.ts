@@ -17,7 +17,7 @@ const STUDENT_TABLES = ["AdaptiveDecisionLog", "QuestionAttempt", "PracticeSessi
   "AssignmentStudent", "ExternalAssessmentResult", "MapResult", "Recommendation", "InterventionAlert", "StudentBadge", "XpEvent", "StudentDailyActivity", "DiagnosticResult",
   "DiagnosticScore", "FluencyCheck", "FluencyPractice", "WeeklyCheck",
   "StudentLevel", "StudentReadingLexile", "ReadMasterAttempt", "StudentCategoryLevel", "RespondAssignmentStudent", "MapPlan", "StudentAlert", "StudentWord",
-  "WorkComment", "ExitTicketAnswer", "MapSimSession", "TeacherNote", "WritingSubmission", "FamilyReport", "ParentStudent", "ClassMembership"] as const;
+  "WorkComment", "ExitTicketAnswer", "MapSimSession", "TeacherNote", "WritingIntegrityEvent", "WritingSubmission", "FamilyReport", "ParentStudent", "ClassMembership"] as const;
 // QuestionFlag is kept: it is about the question (the bank's quality), not the student
 
 /** Rows the platform rebuilds from the answers: not in the roster backup (they made it 15 MB per class). */

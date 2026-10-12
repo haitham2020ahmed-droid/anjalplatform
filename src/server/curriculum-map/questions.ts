@@ -17,7 +17,7 @@ export const USE_LABELS: Record<QuestionUseKind, string> = { PLACEMENT: "Diagnos
 export interface AttachmentNode {
   id: string; code: string; grade: number; unit: number; unitTitle: string;
   setKind: "TEXT_SET" | "SELECTION"; setNumber: number; setTitle: string; heading: string; sharedRead: string | null; genre: string | null;
-  category: "CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "RESPOND_TO_READING"; categoryLabel: string; skills: string | null;
+  category: "CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "RESPOND_TO_READING" | "REVIEW"; categoryLabel: string; skills: string | null;
   level: "ABOVE" | "ON" | "BELOW" | null;
   /** “Grade 4 › Unit 1 › Text Set 1: Expository Text › 2- Analyze Craft and Structure › On Level” */
   path: string;
@@ -69,7 +69,7 @@ async function loadAttachmentNodes(repo: Repo, schoolId: string): Promise<Attach
       path: [`Grade ${g}`, s(unit.title), s(set.heading), s(cat.title), lv ? LEVEL_TITLE[lv] : null].filter(Boolean).join(" › "),
     });
   }
-  const catOrder = { CONCEPT_VOCABULARY: 1, ANALYZE_CRAFT_AND_STRUCTURE: 2, RESPOND_TO_READING: 3 };
+  const catOrder = { CONCEPT_VOCABULARY: 1, ANALYZE_CRAFT_AND_STRUCTURE: 2, RESPOND_TO_READING: 3, REVIEW: 4 };
   const lvOrder = { ABOVE: 1, ON: 2, BELOW: 3 };
   return out.sort((a, b) => a.grade - b.grade || a.unit - b.unit || a.setNumber - b.setNumber || catOrder[a.category] - catOrder[b.category] || (a.level ? lvOrder[a.level] : 0) - (b.level ? lvOrder[b.level] : 0));
 }
@@ -105,13 +105,14 @@ export function resolveMapLocation(nodes: AttachmentNode[], grade: number | null
   const setRaw = s(raw.set).trim();
   if (!setRaw) errors.push("Text Set / Selection is required (e.g. 2, Text Set 2 or the title).");
   const catRaw = s(raw.category).trim().toLowerCase().replace(/^\d+\s*-\s*/, "");
-  const category = /^(cv|concept vocabulary)/.test(catRaw) ? "CONCEPT_VOCABULARY" : /^(acs|analy[sz]e craft)/.test(catRaw) ? "ANALYZE_CRAFT_AND_STRUCTURE" : /^(rtr|respond to reading)/.test(catRaw) ? "RESPOND_TO_READING" : null;
-  if (!catRaw) errors.push("Category is required: Concept Vocabulary, Analyze Craft and Structure or Respond to Reading.");
-  else if (!category) errors.push(`Category “${raw.category}” is not one of: Concept Vocabulary, Analyze Craft and Structure, Respond to Reading.`);
+  const category = /^(cv|concept vocabulary)/.test(catRaw) ? "CONCEPT_VOCABULARY" : /^(acs|analy[sz]e craft)/.test(catRaw) ? "ANALYZE_CRAFT_AND_STRUCTURE" : /^(rtr|respond to reading)/.test(catRaw) ? "RESPOND_TO_READING" : /^(rev|review)/.test(catRaw) ? "REVIEW" : null;
+  if (!catRaw) errors.push("Category is required: Concept Vocabulary, Analyze Craft and Structure, Respond to Reading or Review.");
+  else if (!category) errors.push(`Category “${raw.category}” is not one of: Concept Vocabulary, Analyze Craft and Structure, Respond to Reading, Review.`);
   const lvRaw = s(raw.level).trim().toLowerCase().replace(/\s*level$/, "");
   const level = lvRaw === "above" ? "ABOVE" : lvRaw === "on" ? "ON" : lvRaw === "below" ? "BELOW" : null;
   if (category === "CONCEPT_VOCABULARY" && lvRaw) errors.push("Concept Vocabulary has no levels: leave Map Level empty.");
-  if (category && category !== "CONCEPT_VOCABULARY" && !level) errors.push(lvRaw ? `Map Level “${raw.level}” must be Above, On or Below.` : "Map Level is required for this category: Above, On or Below.");
+  if (category === "REVIEW" && lvRaw) errors.push("Review has no levels: leave Map Level empty.");
+  if (category && category !== "CONCEPT_VOCABULARY" && category !== "REVIEW" && !level) errors.push(lvRaw ? `Map Level “${raw.level}” must be Above, On or Below.` : "Map Level is required for this category: Above, On or Below.");
   if (errors.length) return { node: null, errors };
   const inUnit = nodes.filter((n) => n.grade === grade && n.unit === unit);
   if (!inUnit.length) return { node: null, errors: [`Grade ${grade} has no Unit ${unit} on the Curriculum Map.`] };
@@ -120,7 +121,7 @@ export function resolveMapLocation(nodes: AttachmentNode[], grade: number | null
   const sets = inUnit.filter((n) => (setNum ? n.setNumber === setNum : norm(n.setTitle) === norm(setRaw) || norm(n.heading) === norm(setRaw)));
   if (!sets.length) return { node: null, errors: [`Unit ${unit} of Grade ${grade} has no “${setRaw}”. Use the number (e.g. 2) or the exact title.`] };
   if (category === "RESPOND_TO_READING" && grade === 6) return { node: null, errors: ["Grade 6 has no Respond to Reading."] };
-  const node = sets.find((n) => n.category === category && n.level === (category === "CONCEPT_VOCABULARY" ? null : level)) ?? null;
+  const node = sets.find((n) => n.category === category && n.level === (category === "CONCEPT_VOCABULARY" || category === "REVIEW" ? null : level)) ?? null;
   return node ? { node, errors: [] } : { node: null, errors: [`That place does not exist on the Curriculum Map (Grade ${grade}, Unit ${unit}, ${setRaw}, ${raw.category}${level ? `, ${raw.level}` : ""}).`] };
 }
 

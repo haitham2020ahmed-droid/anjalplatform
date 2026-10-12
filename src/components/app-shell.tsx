@@ -1,4 +1,3 @@
-import { studentMenuFlags } from "@/server/student/menu-flags";
 import { Suspense } from "react";
 import { headers } from "next/headers";
 import { LogoutButton } from "./logout-button";
@@ -15,7 +14,8 @@ import { RewardChip } from "./motivation/reward-chip";
 import { FeedbackButton } from "@/components/feedback/feedback-button";
 import { getActor, HOME_BY_ROLE, repo } from "@/server/auth/next";
 import type { Role } from "@/server/auth/rbac";
-import { navCountsCached } from "@/server/teacher/week-plan";
+import type { NavCount } from "@/server/teacher/week-plan";
+import { shellData } from "@/server/ui/shell-data";
 import { needsTour } from "@/server/ui/prefs";
 import { getT } from "@/i18n/server";
 import { isContentPath } from "@/i18n/content-routes";
@@ -35,12 +35,9 @@ export async function AppShell({ name, children }: { name: string; children: Rea
   let content = false;
   if (lang === "ar") { try { content = isContentPath((await headers()).get("x-pathname")); } catch { content = false; } }
   // the menu numbers and a student's menu flags are independent: read them at the same time (every page)
-  const sid = me?.actor.role === "STUDENT" ? me.actor.studentId : undefined;
-  const [countsR, flagsR] = await Promise.all([
-    me ? navCountsCached(repo, me.actor).catch(() => null) : Promise.resolve(null),
-    sid ? studentMenuFlags(repo, sid).catch(() => null) : Promise.resolve(null),
-  ]);
-  const counts: Awaited<ReturnType<typeof navCountsCached>> = countsR ?? {};
+  // (started by requireActor, so it was read at the same time as the page's own data)
+  const [countsR, flagsR] = me ? await shellData(repo, me.actor) : [null, null];
+  const counts: Record<string, NavCount> = countsR ?? {};
   const role = String(me?.actor.role ?? "");
   // "/student/rti" in the counts = the student is in the RTI program (Tier 2/3): only then the RTI entry.
   // NAFS the same way: "/student/nafs" in the counts.
@@ -60,49 +57,46 @@ export async function AppShell({ name, children }: { name: string; children: Rea
   // on phones the drawer carries the extras, so the top bar keeps only the big buttons
   const drawerFooter = (
     <div className="flex flex-wrap items-center gap-2">
+      <Suspense fallback={null}><NotificationBell /></Suspense>
       {role === "STUDENT" && <ComfortToggle />}
       {me && <FeedbackButton />}
       <LogoutButton label={t("Sign out")} />
     </div>
   );
+  // the top bar keeps only the name, the language switch and Sign out (owner's spec): the rest lives in the side menu
+  const extras = (
+    <div className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
+      <Suspense fallback={<span className="inline-block h-8 w-8" aria-hidden="true" />}><NotificationBell /></Suspense>
+      {staff && <PrintBox />}
+      {role === "STUDENT" && <ComfortToggle />}
+      {me && <FeedbackButton />}
+    </div>
+  );
+  const search = sideNav ? <JumpTo items={[...items, ...searchablePagesFor(role).filter((p) => !items.some((i) => i.href === p.href))]} people={staff} /> : null;
   return (
-    <div className="min-h-screen">
+    <div className={`page-bg role-${role.toLowerCase() || "guest"} min-h-screen ${role === "STUDENT" && (flagsR?.grade ?? 0) >= 7 ? "theme-calm" : "theme-playful"}`}>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-brand-navy focus:px-4 focus:py-2 focus:font-semibold focus:text-white">{t("Skip to content")}</a>
       <Suspense fallback={null}><NavProgress /></Suspense>
       <Suspense fallback={null}><SubmitFeedback /></Suspense>
-      {sideNav && <SideNav items={items} brand={brand} footer={drawerFooter} />}
+      {sideNav && <SideNav items={items} brand={brand} footer={drawerFooter} tools={search} extras={extras} />}
       <div className={sideNav ? "lg:ps-64" : ""}>
-        <header className="sticky top-0 z-20 border-b border-slate-200/80 bg-white/95 backdrop-blur print:hidden">
-          <div className="brand-stripe h-1" aria-hidden="true" />
-          <div className="mx-auto flex max-w-7xl min-w-0 items-center gap-1.5 px-3 py-2 sm:gap-3 sm:px-6">
+        <header className="sticky top-0 z-20 border-b border-slate-200/70 bg-white/85 backdrop-blur-md print:hidden">
+          <div className="brand-stripe h-[3px] opacity-80" aria-hidden="true" />
+          <div className="mx-auto flex max-w-7xl min-w-0 items-center gap-2 px-3 py-1.5 sm:gap-3 sm:px-6">
             {sideNav && <MenuButton label={t("Open the menu")} />}
-            <StickyHome href={home} />
-            <span className="shrink-0"><LangSwitch /></span>
             {!sideNav && <span className="hidden md:block">{brand}</span>}
-            <div className={`min-w-0 flex-1 ${sideNav ? "" : "hidden"}`}>{sideNav && <JumpTo items={[...items, ...searchablePagesFor(role).filter((p) => !items.some((i) => i.href === p.href))]} people={staff} />}</div>
-            {!sideNav && <div className="flex-1" />}
-            <span className="hidden items-center gap-2 2xl:flex" aria-label="Accreditations">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/brand/ncsee.png" alt="NCSEE (Tamayuz) accredited" className="h-8 w-auto" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/brand/cognia.png" alt="Cognia School of Distinction" className="h-8 w-auto" />
-            </span>
-            <div className="flex items-center gap-1.5 text-sm text-slate-600 sm:gap-2">
-              {staff && <span className="hidden sm:inline-flex"><PrintBox /></span>}
-              {role === "STUDENT" && <span className={sideNav ? "hidden sm:inline-flex" : "inline-flex"}><ComfortToggle /></span>}
-              {me && <span className="hidden sm:inline-flex"><FeedbackButton /></span>}
-              <Suspense fallback={<span className="inline-block h-8 w-8" aria-hidden="true" />}><NotificationBell /></Suspense>
-              {/* students: avatar + coins (Avatar Shop) and the favorite badge emblem (Games Part 3) instead of the initials */}
-              {role === "STUDENT" && me?.actor.studentId ? (
-                <Suspense fallback={<span className="inline-block h-11 w-20" aria-hidden="true" />}><RewardChip studentId={me.actor.studentId} name={name} /></Suspense>
-              ) : (
-                <span className="hidden items-center gap-2 ps-1 xl:flex">
-                  <span aria-hidden="true" className="grid h-9 w-9 place-items-center rounded-full bg-brand-navy text-xs font-bold text-white ring-2 ring-brand-teal/40">{initials || "•"}</span>
-                  <span className="leading-tight"><bdi className="block max-w-[11rem] truncate font-semibold text-slate-800">{name}</bdi><span className="block text-xs text-slate-500">{ROLE_NAME[role] ? t(ROLE_NAME[role]) : ""}</span></span>
-                </span>
-              )}
-              <span className={sideNav ? "hidden sm:block" : "block"}><LogoutButton label={t("Sign out")} /></span>
-            </div>
+            <div className="flex-1" />
+            {/* students: avatar + coins + badge next to the name; staff: initials and name */}
+            {role === "STUDENT" && me?.actor.studentId ? (
+              <Suspense fallback={<span className="inline-block h-10 w-20" aria-hidden="true" />}><RewardChip studentId={me.actor.studentId} name={name} /></Suspense>
+            ) : (
+              <span className="flex items-center gap-2">
+                <span aria-hidden="true" className="grid h-8 w-8 place-items-center rounded-full bg-brand-navy text-xs font-semibold text-white">{initials || "•"}</span>
+                <span className="hidden leading-tight sm:block"><bdi className="block max-w-[12rem] truncate text-sm font-semibold text-slate-800">{name}</bdi><span className="block text-xs text-slate-500">{ROLE_NAME[role] ? t(ROLE_NAME[role]) : ""}</span></span>
+              </span>
+            )}
+            <span className="shrink-0"><LangSwitch /></span>
+            <span className={sideNav ? "hidden sm:block" : "block"}><LogoutButton label={t("Sign out")} /></span>
           </div>
         </header>
         <main id="main" tabIndex={-1} {...(content ? { "data-content": "", lang: "en" } : {})} className="animate-fade-up mx-auto max-w-7xl px-4 py-7 outline-none sm:px-6 lg:px-8 print:max-w-none print:p-0">{children}</main>

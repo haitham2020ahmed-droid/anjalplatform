@@ -13,7 +13,7 @@ const s = (v: unknown) => String(v ?? "");
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
 export interface DeletionRequest { reason: string; by: string; byName: string; at: string }
 
-const tagsOf = (q: Row): Record<string, unknown> => {
+export const tagsOf = (q: Row): Record<string, unknown> => {
   const t = q.tags;
   if (t && typeof t === "object") return t as Record<string, unknown>;
   if (typeof t === "string") { try { return JSON.parse(t) as Record<string, unknown>; } catch { return {}; } }
@@ -27,13 +27,13 @@ export function deletionRequestOf(q: Row | null | undefined): DeletionRequest | 
   return r && typeof r === "object" && r.reason ? r : null;
 }
 
-async function schoolSkillIds(repo: Repo, schoolId: string): Promise<string[]> {
+export async function schoolSkillIds(repo: Repo, schoolId: string): Promise<string[]> {
   const grades = await repo.findMany("Grade", { schoolId }, { select: ["id"] });
   const curs = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id"] }) : [];
   return curs.length ? (await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) } }, { select: ["id"] })).map((k) => s(k.id)) : [];
 }
 
-async function questionOfSchool(repo: Repo, actor: Actor, id: string): Promise<Row> {
+export async function questionOfSchool(repo: Repo, actor: Actor, id: string): Promise<Row> {
   const q = await repo.findUnique("Question", { id });
   if (!q || q.deletedAt) throw new ForbiddenError("Question not found.");
   if (!(await schoolSkillIds(repo, actor.schoolId!)).includes(s(q.skillId))) throw new ForbiddenError("Question not found.");
@@ -70,7 +70,12 @@ export async function listDeletionRequests(repo: Repo, actor: Actor): Promise<De
 
 /** For badges: admins see how many requests wait (others: 0). */
 export async function countDeletionRequests(repo: Repo, actor: Actor): Promise<number> {
-  return isAdmin(actor) ? (await pendingRows(repo, actor.schoolId!)).length : 0;
+  if (!isAdmin(actor)) return 0;
+  // one light scan (id + tags only) for both kinds of teacher requests: deletions and ✏️ changes waiting
+  const skills = await schoolSkillIds(repo, actor.schoolId!);
+  if (!skills.length) return 0;
+  const qs = await repo.findMany("Question", { skillId: { in: skills }, deletedAt: null }, { select: ["id", "status", "tags"] });
+  return qs.filter((q) => (deletionRequestOf(q) && q.status !== "ARCHIVED") || Boolean((tagsOf(q).editRequest as { input?: unknown } | undefined)?.input)).length;
 }
 
 export async function decideDeletion(repo: Repo, actor: Actor, questionId: string, approve: boolean, now = new Date()): Promise<"deleted" | "archived" | "rejected"> {

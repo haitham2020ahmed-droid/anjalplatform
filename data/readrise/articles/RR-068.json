@@ -1,0 +1,605 @@
+{
+  "code": "RR-068",
+  "title": "How GPS Knows Where You Are",
+  "topic": "Technology",
+  "summary": "How satellites, exact clocks, and fast radio signals let a GPS receiver work out where it is on Earth.",
+  "poll": "People today depend too much on GPS to find their way.",
+  "versions": [
+    {
+      "level": 300,
+      "title": "Lost? Ask the Sky!",
+      "text": "Your dad drives to a new place. He looks at the map on his phone. A dot shows where the car is. How does the phone know?\n\nIt gets help from space! High up, there are lots of satellites. They go round and round Earth. They are part of GPS.\n\nEach one has a clock. The clock is very good. It keeps the time just right.\n\nEach one sends out a signal. The signal is like a call. It says, \"Here I am. This is the time.\"\n\nYour phone hears the call. It checks how long the call took. That tells it how far off the satellite is.\n\nThe phone does this with four or more. Then it knows just where you are. It puts the dot on the map.\n\nThe phone does not call back. It just hears.\n\nGPS helps cars, ships, and planes. It helps in the desert, too. There, the sand can look the same on all sides!"
+    },
+    {
+      "level": 400,
+      "title": "Lost? Ask the Sky!",
+      "text": "Your family drives to a new place. Your mom looks at the map on her phone. A blue dot shows where the car is. How does the phone know where you are?\n\nIt gets help from space! High above Earth, there are lots of satellites. A satellite is a machine that moves around Earth. These satellites are part of GPS.\n\nEach satellite has a clock on board. The clock is very good. It keeps the time just right.\n\nEach satellite sends out a signal all the time. The signal is like a call. It says, \"Here is where I am, and here is the time.\"\n\nYour phone picks up the call. It checks how long the call took to get there. That tells the phone how far away the satellite is.\n\nThe phone does this with four satellites or more. Then it can tell just where you are. It puts the dot on the map.\n\nThe phone does not send a signal back to space. It just listens.\n\nGPS helps cars, ships, and planes find their way. It is a big help in the desert, too. There, the sand can look the same in every way!"
+    },
+    {
+      "level": 500,
+      "title": "How GPS Finds You",
+      "text": "Your family is driving to a new place. Your mom opens a map on her phone. A blue dot shows just where the car is. How does the phone know?\n\nThe answer is in space! High above Earth, there are about thirty satellites. A satellite is a machine that moves around Earth. These ones make up GPS.\n\nEach satellite has a special clock. The clock is very exact. It keeps time better than any watch.\n\nEach satellite sends out a signal again and again. The signal is like a note. It says, \"This is where I am. This is the time right now.\"\n\nYour phone picks up the signal. It checks how long the signal took to get there. Signals move very fast. But they still take a tiny bit of time. The longer the trip, the farther away the satellite is.\n\nThe phone does this with at least four satellites. Then it can work out just where you are. It puts the blue dot on the map.\n\nThe phone does not send anything back to space. It only listens.\n\nGPS helps cars, ships, and planes find their way. It is a big help in the desert, too. There, the sand can look the same on every side!"
+    },
+    {
+      "level": 600,
+      "title": "How GPS Finds You",
+      "text": "Imagine your family is driving to a new city. Your mom opens a map on her phone. A blue dot shows just where the car is. How does the phone know?\n\nThe answer is high in space. About thirty satellites circle far above Earth. A satellite is a machine that travels around our planet. Together, these satellites make up the Global Positioning System, or GPS.\n\nEach satellite carries a special clock. These clocks are so exact that they almost never make a mistake. They keep time far better than any watch.\n\nEvery satellite sends out a signal again and again. The signal is like a note that says, \"This is where I am, and this is the exact time.\"\n\nYour phone picks up the signal and checks how long it took to arrive. Signals travel very fast, but they still need a tiny bit of time. The longer the trip takes, the farther away the satellite must be.\n\nThe phone does this with at least four satellites. By comparing all the distances, it can work out just where you are. Then it puts the blue dot on the map.\n\nHere is a surprise. Your phone does not send anything back to space. It only listens.\n\nToday, GPS helps cars, ships, and planes find their way. It is also a great help in the desert, where the sand can look the same on every side."
+    },
+    {
+      "level": 700,
+      "title": "How GPS Knows Where You Are",
+      "text": "Imagine your family is driving to a city you have never visited. Your mother opens a map on her phone, and a small blue dot shows exactly where the car is. How does the phone know where you are so quickly?\n\nThe answer is far above you in space. About thirty satellites circle high above Earth. A satellite is a machine that travels around our planet. Together, these satellites make up the Global Positioning System, or GPS.\n\nEach satellite carries very special clocks. These clocks are so accurate that they almost never make a mistake. They keep time much better than any watch on Earth.\n\nEvery satellite sends out a radio signal again and again. The signal is like a message that says, \"This is where I am, and this is the exact time I sent this.\"\n\nYour phone has a receiver, a part that picks up these signals. It checks how long each signal took to arrive. Signals travel very fast, but they still need a tiny amount of time. The longer the trip, the greater the distance to that satellite.\n\nThe phone does this with at least four satellites. By comparing all the distances, it can figure out exactly where you are. Then it places the blue dot on the map.\n\nHere is a surprising fact. Your phone does not send anything back to the satellites. It only listens.\n\nToday, GPS helps cars, ships, and planes find their way. It is also very useful in the desert, where the sand can look the same in every direction."
+    },
+    {
+      "level": 800,
+      "title": "How GPS Knows Where You Are",
+      "text": "Imagine your family is driving to a city you have never visited. Your mother opens a map on her phone, and a small blue dot shows exactly where the car is on the road. How does the phone know your location so quickly?\n\nThe answer is far above you in space. About thirty satellites circle Earth at a height of roughly 20,000 kilometers. A satellite is a machine that travels around our planet. Together, these satellites form the Global Positioning System, which most people simply call GPS.\n\nEach satellite carries extremely special clocks. These clocks are so accurate that they almost never make a mistake, and they keep time much better than any ordinary watch.\n\nEvery satellite constantly sends out a radio signal. The signal works like a message that says, \"This is my position, and this is the exact time I sent this.\"\n\nYour phone contains a receiver, a part that picks up these signals. It measures how long each signal took to arrive. Radio signals travel at the speed of light, but they still need a tiny amount of time. The longer the trip takes, the greater the distance to that satellite.\n\nThe phone repeats this with at least four satellites. By comparing all the distances, it can figure out exactly where you are standing. Then it places the blue dot on the map.\n\nHere is a surprising fact. Your phone does not send anything back to the satellites. It only listens.\n\nToday, GPS guides cars, ships, and airplanes. It is also extremely useful in the desert, where the sand dunes can look the same in every direction."
+    },
+    {
+      "level": 900,
+      "title": "How GPS Knows Where You Are",
+      "text": "Imagine your family is driving to a city you have never visited. Your mother opens a map on her phone, and a small blue dot shows exactly where the car is on the road. How does the phone determine your location so quickly?\n\nThe answer lies far above you in space. About thirty satellites circle Earth at a height of roughly 20,000 kilometers, and each one travels around the planet twice a day. Together, these satellites form the Global Positioning System, which most people simply call GPS.\n\nEach satellite carries extremely precise clocks. These clocks are so accurate that they almost never make a mistake, and they keep time far better than any ordinary watch.\n\nEvery satellite continuously transmits a radio signal. The signal works like a message that announces, \"This is my position, and this is the exact time I sent this.\"\n\nYour phone contains a receiver, a small part that picks up these signals. It measures how long each signal took to arrive. Radio signals travel at the speed of light, but they still require a tiny amount of time. The longer the journey takes, the greater the distance to that satellite.\n\nThe phone repeats this calculation with at least four satellites. By comparing all the distances, it can figure out exactly where you are standing, and then it places the blue dot on the map.\n\nSurprisingly, your phone does not send anything back to the satellites. It only listens.\n\nToday, GPS guides cars, ships, and airplanes. It is also extremely valuable in the desert, where the sand dunes can look identical in every direction."
+    },
+    {
+      "level": 1000,
+      "title": "How GPS Knows Where You Are",
+      "text": "Imagine your family is driving to a city you have never visited. Your mother opens a map on her phone, and a small blue dot shows exactly where the car is traveling. How does the phone determine your location so quickly and so accurately?\n\nThe answer lies far above you in space. About thirty satellites circle Earth at an altitude of roughly 20,000 kilometers, and each one completes a journey around the planet twice a day. Together, these satellites form the Global Positioning System, which most people simply call GPS. The United States originally built it for its military, but it is now used by people all over the world.\n\nEach satellite carries extremely precise clocks. These clocks are so accurate that they almost never make a mistake, and they keep time far more reliably than any ordinary watch.\n\nEvery satellite continuously transmits a radio signal. The signal functions like a message that announces, \"This is my position, and this is the exact time I sent this.\"\n\nYour phone contains a receiver, a small component that collects these signals. It measures how long each signal needed to arrive. Radio signals travel at the speed of light, but they still require a tiny amount of time, so the longer the journey takes, the greater the distance to that satellite.\n\nThe phone repeats this calculation with at least four satellites. By comparing all the distances, it can determine exactly where you are standing, and then it places the blue dot on the map. Because the signals are weak, tall buildings and thick roofs can sometimes block them and confuse the receiver.\n\nSurprisingly, your phone does not transmit anything back to the satellites. It only listens.\n\nToday, GPS guides cars, ships, and airplanes, and it helps ambulances reach emergencies quickly. It is also extremely valuable in the desert, where the sand dunes can appear identical in every direction."
+    },
+    {
+      "level": 1100,
+      "title": "How GPS Knows Where You Are",
+      "text": "Imagine your family is driving to a city you have never visited. Your mother opens a map on her phone, and a small blue dot shows exactly where the car is traveling. How does the phone determine your location so quickly and so accurately?\n\nThe answer lies far above you in space. About thirty satellites circle Earth at an altitude of roughly 20,000 kilometers, and each one completes a journey around the planet twice a day. Together, these satellites form the Global Positioning System, or GPS, which the United States originally developed for its military and which now serves people all over the world. Europe, Russia, and China run similar systems.\n\nEach satellite carries atomic clocks, which measure time by tracking the extremely regular vibrations of atoms. These clocks are so precise that they would lose less than a second over many thousands of years.\n\nEvery satellite continuously transmits a radio signal that functions like a message, announcing, \"This is my position, and this is the exact time I sent this.\"\n\nYour phone contains a receiver, a small component that collects these signals and measures how long each one needed to arrive. Radio signals travel at the speed of light, but they still require a tiny amount of time, so the longer the journey takes, the greater the distance to that satellite.\n\nThe phone repeats this calculation with at least four satellites. Three distances show a position, and the fourth corrects small errors in the phone's own clock. By comparing all the distances, it can calculate exactly where you are standing, and then it places the blue dot on the map. Timing is critical, because an error of only a millionth of a second would place you about 300 meters away from your real position. Because the signals are weak by the time they reach the ground, tall buildings and thick roofs can sometimes block them.\n\nSurprisingly, your phone does not transmit anything back to the satellites; it only listens, which is why millions of people can use GPS at the same time.\n\nToday, GPS guides cars, ships, and airplanes, helps ambulances reach emergencies quickly, and allows farmers to steer tractors in perfectly straight rows. It is also extremely valuable in the desert, where the sand dunes can appear identical in every direction."
+    },
+    {
+      "level": 1200,
+      "title": "How GPS Knows Where You Are",
+      "text": "Imagine your family is driving to a city you have never visited. Your mother opens a navigation map on her phone, and a small blue dot shows exactly where the car is traveling. How does the device determine your location so quickly and so accurately?\n\nThe answer lies far above you in space. About thirty satellites circle Earth at an altitude of roughly 20,000 kilometers, and each one completes a journey around the planet twice a day. Together, these satellites form the Global Positioning System, or GPS, which the United States originally developed for military purposes and which now serves civilians throughout the world. Europe, Russia, and China operate similar systems.\n\nEach satellite carries atomic clocks, which measure time by monitoring the extraordinarily regular vibrations of atoms. These instruments are so precise that they would lose less than a second over many thousands of years.\n\nEvery satellite continuously transmits a radio signal that functions like a message, announcing, \"This is my position, and this is the exact time I sent this.\"\n\nYour phone contains a receiver, a small electronic component that collects these signals and measures how long each one needed to arrive. Radio signals travel at the speed of light, but they still require a tiny amount of time, so the longer the journey takes, the greater the distance to that particular satellite.\n\nThe phone repeats this calculation with at least four satellites, because three distances identify a position and the fourth corrects small errors in the phone's own clock. By comparing all the distances, it can calculate exactly where you are standing, and then it places the blue dot on the map. Timing is absolutely critical, because an error of only a millionth of a second would place you approximately 300 meters away from your actual position. Since the signals are relatively weak by the time they reach the ground, tall buildings and thick roofs can occasionally block them.\n\nSurprisingly, your phone does not transmit anything back to the satellites; it only listens, which explains why millions of people can use the system simultaneously.\n\nToday, GPS guides automobiles, ships, and airplanes, helps ambulances reach emergencies efficiently, and allows farmers to steer tractors in perfectly straight rows. It is also extremely valuable in the desert, where the sand dunes can appear identical in every direction."
+    },
+    {
+      "level": 1300,
+      "title": "How GPS Knows Where You Are",
+      "text": "Imagine your family is driving to a city you have never visited, and your mother opens a navigation application on her phone, and a small blue dot shows exactly where the car is traveling. How does the device determine your location so quickly and so accurately?\n\nThe answer lies far above you in space. About thirty satellites circle Earth at an altitude of roughly 20,000 kilometers, and each one completes a journey around the planet twice a day. Together, these satellites form the Global Positioning System, or GPS, which the United States originally developed for military purposes and which now serves civilians throughout the world, alongside similar systems operated by Europe, Russia, and China.\n\nEach satellite carries atomic clocks, which measure time by monitoring the extraordinarily regular vibrations of atoms; these instruments are so precise that they would lose less than a second over many thousands of years.\n\nEvery satellite continuously transmits a radio signal that functions like an electronic message, announcing, \"This is my position, and this is the exact time I sent this.\"\n\nYour phone contains a receiver, a small electronic component that collects these signals and measures how long each one needed to arrive. Although radio signals travel at the speed of light, they still require a tiny amount of time, so the longer the journey takes, the greater the distance to that particular satellite.\n\nThe phone repeats this calculation with at least four satellites, because three distances identify a position and the fourth corrects small inaccuracies in the phone's own, far less sophisticated clock. By comparing all the distances, it can calculate exactly where you are standing, and then it places the blue dot on the map. Timing is absolutely critical, because an error of only a millionth of a second would place you approximately 300 meters away from your actual position. Since the signals are relatively weak by the time they reach the ground, tall buildings and thick concrete roofs can occasionally interrupt them.\n\nSurprisingly, your phone does not transmit anything back to the satellites; it only listens, which explains why an unlimited number of people can use the system simultaneously.\n\nToday, GPS guides automobiles, ships, and airplanes, helps ambulances reach emergencies efficiently, and allows farmers to steer tractors in perfectly straight rows. It is also extremely valuable in the desert, where the shifting sand dunes can appear identical in every direction."
+    },
+    {
+      "level": 1400,
+      "title": "How GPS Knows Where You Are",
+      "text": "Imagine your family is driving to a city you have never visited, and your mother opens a navigation application on her phone, and a small blue dot immediately shows exactly where the car is traveling. How does the device determine your location so quickly and so accurately?\n\nThe explanation lies far above you in space. Approximately thirty satellites circle Earth at an altitude of roughly 20,000 kilometers, and each one, traveling at several kilometers per second, completes a journey around the planet twice a day. Together, these satellites constitute the Global Positioning System, or GPS, which the United States originally developed for military purposes and which now serves civilians throughout the world, alongside comparable systems operated by Europe, Russia, and China.\n\nEach satellite carries atomic clocks, which measure time by monitoring the extraordinarily regular vibrations of atoms; these instruments are so remarkably precise that they would lose less than a second over many thousands of years.\n\nEvery satellite continuously transmits a radio signal that functions like an electronic message, announcing, \"This is my position, and this is the exact time I sent this.\"\n\nYour phone contains a receiver, a small electronic component that collects these signals and measures how long each one needed to arrive. Although radio signals travel at the speed of light, they nevertheless require a tiny amount of time, so the longer the journey takes, the greater the distance to that particular satellite.\n\nThe phone repeats this calculation with at least four satellites, because three distances identify a position and the fourth corrects small inaccuracies in the phone's own, considerably less sophisticated clock. By comparing all the distances, it can calculate precisely where you are standing, and then it positions the blue dot on the map. Timing is absolutely critical, because an error of only a millionth of a second would place you approximately 300 meters away from your actual location; furthermore, since the signals are relatively weak by the time they reach the ground, tall buildings and thick concrete roofs can occasionally interrupt them.\n\nSurprisingly, your phone does not transmit anything back to the satellites; it only listens, which explains why a practically unlimited number of people can use the system simultaneously.\n\nToday, GPS guides automobiles, ships, and airplanes, helps ambulances reach emergencies efficiently, and allows farmers to steer tractors in perfectly straight rows. It is also exceptionally valuable in the desert, where the shifting sand dunes can appear identical in every direction."
+    }
+  ],
+  "bands": {
+    "LOW": {
+      "keyWords": [
+        {
+          "word": "satellite",
+          "partOfSpeech": "noun",
+          "definition": "a machine sent into space to go around Earth",
+          "example": "A weather satellite takes pictures of the clouds."
+        },
+        {
+          "word": "signal",
+          "partOfSpeech": "noun",
+          "definition": "a message sent from one place to another",
+          "example": "The radio picked up a signal from the city."
+        },
+        {
+          "word": "clock",
+          "partOfSpeech": "noun",
+          "definition": "a tool that shows or keeps the time",
+          "example": "The clock on the wall says it is time for lunch."
+        },
+        {
+          "word": "space",
+          "partOfSpeech": "noun",
+          "definition": "the area far above Earth where the stars and planets are",
+          "example": "Astronauts float when they are in space."
+        },
+        {
+          "word": "map",
+          "partOfSpeech": "noun",
+          "definition": "a drawing that shows where places are",
+          "example": "We used a map to find the park."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "What is this article mostly about?",
+          "options": [
+            "How to draw a map of your town",
+            "Why phones need to be charged",
+            "How GPS uses satellites to find where you are",
+            "How cars are built"
+          ],
+          "answer": "C",
+          "skill": "central-idea",
+          "why": "The whole article explains how satellites, clocks, and signals help a phone know where it is.",
+          "wrong": {
+            "A": "The article is about maps on phones, not drawing maps.",
+            "B": "Charging phones is not in the article.",
+            "D": "Cars use GPS, but the article does not tell how cars are built."
+          }
+        },
+        {
+          "stem": "What does each GPS satellite have on board?",
+          "options": [
+            "A camera",
+            "A very good clock",
+            "A map of every city",
+            "A person to drive it"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article says each satellite has a clock that keeps the time just right.",
+          "wrong": {
+            "A": "The article does not talk about cameras.",
+            "C": "The map is on the phone, not on the satellite.",
+            "D": "The satellites are machines. No one rides in them."
+          }
+        },
+        {
+          "stem": "How many satellites does a phone need to find where you are?",
+          "options": [
+            "Four or more",
+            "Only one",
+            "Two",
+            "Exactly a hundred"
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The article says the phone does this with four or more satellites.",
+          "wrong": {
+            "B": "One satellite is not enough, the article says four or more.",
+            "C": "Two is fewer than the article says.",
+            "D": "The article does not say a hundred are needed."
+          }
+        },
+        {
+          "stem": "How does the phone tell how far away a satellite is?",
+          "options": [
+            "It sends a call up and waits.",
+            "It looks up at the sky with a camera.",
+            "It checks how long the signal took to come.",
+            "It asks another phone."
+          ],
+          "answer": "C",
+          "skill": "cause-effect",
+          "why": "The phone checks how long the signal took. A longer trip means the satellite is farther away.",
+          "wrong": {
+            "A": "The article says the phone does not send a call back.",
+            "B": "Phones do not need to see the satellite.",
+            "D": "The article does not say phones ask each other."
+          }
+        },
+        {
+          "stem": "The article says each satellite sends out a signal. What is a signal?",
+          "options": [
+            "A kind of clock",
+            "A big machine",
+            "A dot on a map",
+            "A message sent out"
+          ],
+          "answer": "D",
+          "skill": "vocabulary",
+          "why": "The article says the signal is like a call that tells where the satellite is and what time it is.",
+          "wrong": {
+            "A": "The clock is inside the satellite. The signal is what it sends.",
+            "B": "The satellite is the machine, not the signal.",
+            "C": "The dot shows where you are on the map."
+          }
+        },
+        {
+          "stem": "Why must the satellite clocks keep the time just right?",
+          "options": [
+            "So the phone can tell how far away each one is",
+            "So people know when to wake up",
+            "So the satellites do not crash",
+            "So the map has the right colors"
+          ],
+          "answer": "A",
+          "skill": "inference",
+          "why": "The phone uses the time the signal took to find the distance, so the time must be just right.",
+          "wrong": {
+            "B": "The clocks are used to find places, not to wake people.",
+            "C": "The article does not talk about crashes.",
+            "D": "Clocks have nothing to do with map colors."
+          }
+        },
+        {
+          "stem": "Why is GPS a big help in the desert?",
+          "options": [
+            "There are no roads at all in any desert.",
+            "The sand can look the same on every side.",
+            "Phones work only in hot places.",
+            "The desert has more satellites."
+          ],
+          "answer": "B",
+          "skill": "inference",
+          "why": "When the sand looks the same everywhere, it is easy to get lost, so GPS helps people find their way.",
+          "wrong": {
+            "A": "The article does not say this.",
+            "C": "Phones work in hot and cold places.",
+            "D": "The satellites go around the whole Earth."
+          }
+        },
+        {
+          "stem": "Why does the author begin with a family driving to a new place?",
+          "options": [
+            "To tell a funny story about a trip",
+            "To explain how to drive a car",
+            "To show that maps are not needed",
+            "To connect GPS to something readers know"
+          ],
+          "answer": "D",
+          "skill": "author-purpose",
+          "why": "Many readers have seen a map dot on a phone, so the opening makes them wonder how it works.",
+          "wrong": {
+            "A": "The opening is not meant to be funny.",
+            "B": "The article does not teach driving.",
+            "C": "The family uses a map, so the article shows maps are useful."
+          }
+        }
+      ],
+      "prompt": "Explain how a phone uses GPS to put a dot on a map. Use at least two facts from the article.",
+      "checklist": [
+        "I explained what the satellites send.",
+        "I used at least two facts from the article.",
+        "I wrote complete sentences with capital letters and periods."
+      ]
+    },
+    "MID": {
+      "keyWords": [
+        {
+          "word": "satellite",
+          "partOfSpeech": "noun",
+          "definition": "a machine that is sent into space to travel around a planet",
+          "example": "Television pictures can bounce off a satellite to reach other countries."
+        },
+        {
+          "word": "signal",
+          "partOfSpeech": "noun",
+          "definition": "a sound, light, or radio wave that carries a message",
+          "example": "The ship sent a signal to ask for help."
+        },
+        {
+          "word": "receiver",
+          "partOfSpeech": "noun",
+          "definition": "a device that picks up signals",
+          "example": "The radio receiver in the car picks up music from far away."
+        },
+        {
+          "word": "distance",
+          "partOfSpeech": "noun",
+          "definition": "how far it is from one place to another",
+          "example": "The distance from my house to school is two kilometers."
+        },
+        {
+          "word": "accurate",
+          "partOfSpeech": "adjective",
+          "definition": "exactly right, with no mistakes",
+          "example": "The nurse used an accurate scale to weigh the baby."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which sentence best states the central idea of the article?",
+          "options": [
+            "GPS finds your location by timing signals from several satellites.",
+            "Phones send messages up to the satellites all day long.",
+            "Satellites are mostly used to take pictures of the land below.",
+            "GPS works only for cars and trucks."
+          ],
+          "answer": "A",
+          "skill": "central-idea",
+          "why": "The article explains that a receiver times signals from at least four satellites to work out where it is.",
+          "wrong": {
+            "B": "The article says phones only listen and send nothing back.",
+            "C": "The article is about satellites that send time signals, not pictures.",
+            "D": "GPS also helps ships, airplanes, and people in the desert."
+          }
+        },
+        {
+          "stem": "What information does each satellite's signal carry?",
+          "options": [
+            "The weather for the day",
+            "Its position and the exact time",
+            "The phone's location",
+            "A picture of the road"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The signal says, in effect, \"This is where I am, and this is the exact time.\"",
+          "wrong": {
+            "A": "Weather is not mentioned.",
+            "C": "The phone figures out its own location; the satellite does not know it.",
+            "D": "Satellites in the article do not send pictures."
+          }
+        },
+        {
+          "stem": "According to the article, what does the receiver in a phone do?",
+          "options": [
+            "It sends signals up to space.",
+            "It keeps the satellites in orbit.",
+            "It draws new roads and buildings on the map.",
+            "It picks up the signals from the satellites."
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article says the receiver is the part that picks up the satellite signals.",
+          "wrong": {
+            "A": "The phone does not send anything back to the satellites.",
+            "B": "The receiver is in the phone and does not control satellites.",
+            "C": "The receiver collects signals; it does not draw roads."
+          }
+        },
+        {
+          "stem": "The clocks are so accurate that they almost never make a mistake. What does accurate mean?",
+          "options": [
+            "Very old",
+            "Very loud",
+            "Exactly correct",
+            "Easy to break"
+          ],
+          "answer": "C",
+          "skill": "vocabulary",
+          "why": "Clocks that almost never make a mistake are exactly correct.",
+          "wrong": {
+            "A": "Age is not what accurate means.",
+            "B": "Sound has nothing to do with being accurate.",
+            "D": "The sentence is about mistakes, not about breaking."
+          }
+        },
+        {
+          "stem": "What happens when a signal takes longer to reach the phone?",
+          "options": [
+            "The satellite is farther away.",
+            "The satellite is closer.",
+            "The phone's battery is low.",
+            "The signal is stronger."
+          ],
+          "answer": "A",
+          "skill": "cause-effect",
+          "why": "The article says the longer the trip, the greater the distance to that satellite.",
+          "wrong": {
+            "B": "A longer trip means more distance, not less.",
+            "C": "Batteries are not mentioned.",
+            "D": "The article links the time to distance, not to strength."
+          }
+        },
+        {
+          "stem": "Why do you think the phone needs signals from several satellites instead of just one?",
+          "options": [
+            "One satellite is too slow to send a signal.",
+            "Each satellite only works for one hour.",
+            "One distance alone cannot show your exact spot.",
+            "Satellites take turns sending maps."
+          ],
+          "answer": "C",
+          "skill": "inference",
+          "why": "Knowing your distance from one satellite could put you anywhere at that distance; comparing several distances narrows it to one spot.",
+          "wrong": {
+            "A": "Signals all travel at the same speed.",
+            "B": "The article says satellites send signals continuously.",
+            "D": "Satellites send time and position, not maps."
+          }
+        },
+        {
+          "stem": "The phone only listens and does not send anything back. What can you infer from this?",
+          "options": [
+            "GPS only works at night.",
+            "Satellites can see every phone on Earth.",
+            "Phones must be close to a satellite to work.",
+            "Many people can use GPS at the same time."
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "Since phones only receive signals, any number of phones can listen to the same satellites at once.",
+          "wrong": {
+            "A": "Nothing in the article limits GPS to the night.",
+            "B": "The satellites never hear from phones, so they cannot track them.",
+            "C": "The satellites are thousands of kilometers away, and phones still work."
+          }
+        },
+        {
+          "stem": "How is the middle part of the article organized?",
+          "options": [
+            "As a list of steps that explain how GPS works",
+            "As a comparison between GPS and old paper maps",
+            "As a story about the person who invented GPS",
+            "As a list of problems with GPS"
+          ],
+          "answer": "A",
+          "skill": "text-structure",
+          "why": "The article goes step by step: satellites keep time, send signals, the phone times them, then it finds your spot.",
+          "wrong": {
+            "B": "Paper maps are not compared.",
+            "C": "No inventor is described.",
+            "D": "The middle explains how GPS works, not its problems."
+          }
+        }
+      ],
+      "prompt": "Explain why exact time is so important for GPS. Use at least two details from the article to support your answer.",
+      "checklist": [
+        "I gave a clear answer to the question.",
+        "I supported my answer with at least two details from the article.",
+        "I explained how time is connected to distance."
+      ]
+    },
+    "HIGH": {
+      "keyWords": [
+        {
+          "word": "satellite",
+          "partOfSpeech": "noun",
+          "definition": "an object, often a machine, that travels in an orbit around a planet",
+          "example": "The new satellite will help scientists track sandstorms."
+        },
+        {
+          "word": "receiver",
+          "partOfSpeech": "noun",
+          "definition": "an electronic device that collects and interprets signals",
+          "example": "The ship's receiver picked up a warning about the storm."
+        },
+        {
+          "word": "atomic",
+          "partOfSpeech": "adjective",
+          "definition": "related to atoms, the tiny particles that make up everything",
+          "example": "Scientists use atomic measurements to decide exactly how long a second is."
+        },
+        {
+          "word": "calculate",
+          "partOfSpeech": "verb",
+          "definition": "to work out an answer using numbers",
+          "example": "We calculated how much paint we needed for the classroom wall."
+        },
+        {
+          "word": "precise",
+          "partOfSpeech": "adjective",
+          "definition": "exact and carefully measured",
+          "example": "The baker used precise amounts of flour and sugar."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which statement best expresses the central idea of the article?",
+          "options": [
+            "GPS was built mainly for farmers who need straight rows.",
+            "A receiver calculates its position by timing precise signals from several satellites.",
+            "Atomic clocks are the single most important invention of the entire modern world.",
+            "Phones must send strong signals into space before they can find their location."
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The article explains how atomic clocks, satellite signals, and timing allow a receiver to work out where it is.",
+          "wrong": {
+            "A": "Farming is one use of GPS, and the article says it was first developed for the military.",
+            "C": "Atomic clocks are a key detail, but the article makes no such claim.",
+            "D": "The article states that phones only listen."
+          }
+        },
+        {
+          "stem": "According to the article, why does a phone use a fourth satellite?",
+          "options": [
+            "To send its location back to space",
+            "To find the weather",
+            "To correct small errors in the phone's own clock",
+            "To replace a satellite that has stopped working"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article explains that three distances identify a position and the fourth corrects errors in the phone's clock.",
+          "wrong": {
+            "A": "Phones do not transmit anything to the satellites.",
+            "B": "Weather is not mentioned.",
+            "D": "The article does not discuss broken satellites."
+          }
+        },
+        {
+          "stem": "How far off would a timing error of one millionth of a second make your position?",
+          "options": [
+            "About 3 meters",
+            "About 300 meters",
+            "About 30 kilometers",
+            "About 20,000 kilometers"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article states that such an error would place you approximately 300 meters away.",
+          "wrong": {
+            "A": "The number in the article is 300 meters, not 3.",
+            "C": "This is far larger than the article's figure.",
+            "D": "20,000 kilometers is the satellites' altitude, not the error."
+          }
+        },
+        {
+          "stem": "The article says atomic clocks are so precise that they would lose less than a second over thousands of years. What does precise mean here?",
+          "options": [
+            "Extremely exact",
+            "Very expensive",
+            "Quite heavy",
+            "Easy to repair"
+          ],
+          "answer": "A",
+          "skill": "vocabulary",
+          "why": "Losing less than a second in thousands of years shows the clocks are extremely exact.",
+          "wrong": {
+            "B": "Cost is not discussed.",
+            "C": "Weight has nothing to do with the example.",
+            "D": "Repair is not mentioned."
+          }
+        },
+        {
+          "stem": "Why can tall buildings and thick roofs sometimes interrupt GPS?",
+          "options": [
+            "Buildings have their own satellites.",
+            "Roofs and walls send out stronger signals of their own.",
+            "Buildings slow down the phone's clock.",
+            "The signals are weak by the time they reach the ground."
+          ],
+          "answer": "D",
+          "skill": "cause-effect",
+          "why": "The article explains that the signals are relatively weak when they reach the ground, so solid structures can block them.",
+          "wrong": {
+            "A": "Buildings do not have satellites.",
+            "B": "Roofs do not send signals in the article.",
+            "C": "The article does not say buildings affect clocks."
+          }
+        },
+        {
+          "stem": "Why are atomic clocks essential to GPS rather than ordinary clocks?",
+          "options": [
+            "Ordinary clocks cannot survive in space.",
+            "Tiny timing errors would cause large mistakes in position.",
+            "Atomic clocks are cheaper to build.",
+            "Ordinary clocks cannot send radio signals."
+          ],
+          "answer": "B",
+          "skill": "inference",
+          "why": "Because a millionth of a second equals about 300 meters, only extremely exact clocks keep positions accurate.",
+          "wrong": {
+            "A": "The article does not discuss clocks surviving in space.",
+            "C": "Cost is not mentioned.",
+            "D": "The satellite transmits the signal; the clock supplies the time."
+          }
+        },
+        {
+          "stem": "What can be inferred from the fact that Europe, Russia, and China operate similar systems?",
+          "options": [
+            "GPS satellites no longer work over those parts of the world.",
+            "Only the United States is allowed to use the GPS system.",
+            "Many countries see satellite positioning as important.",
+            "These systems use no satellites."
+          ],
+          "answer": "C",
+          "skill": "inference",
+          "why": "Building separate systems is costly, so other countries must consider satellite navigation very valuable.",
+          "wrong": {
+            "A": "The article says GPS serves people throughout the world.",
+            "B": "The article says civilians worldwide use GPS.",
+            "D": "They are described as similar systems, which suggests they also use satellites."
+          }
+        },
+        {
+          "stem": "Why does the author end the article by listing ambulances, farmers, and desert travelers?",
+          "options": [
+            "To show how widely GPS affects everyday life",
+            "To argue that people should stop using paper maps",
+            "To explain how atomic clocks are built",
+            "To compare GPS with systems in other countries"
+          ],
+          "answer": "A",
+          "skill": "author-purpose",
+          "why": "After explaining how GPS works, the author shows its many practical uses to highlight its importance.",
+          "wrong": {
+            "B": "Paper maps are never mentioned.",
+            "C": "Atomic clocks are explained earlier, not at the end.",
+            "D": "Other systems are mentioned near the beginning, not compared at the end."
+          }
+        }
+      ],
+      "prompt": "Some people say GPS is one of the most important inventions of modern times. Do you agree or disagree? Support your position with evidence from the article.",
+      "checklist": [
+        "I stated a clear position.",
+        "I supported it with at least two pieces of evidence from the article.",
+        "I explained how my evidence supports my position."
+      ]
+    }
+  }
+}

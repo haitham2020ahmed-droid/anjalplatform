@@ -323,6 +323,9 @@ async function teachersOf(repo: Repo, studentIds: string[]): Promise<Map<string,
   return out;
 }
 
+/** The support levels in plain words (Teacher Home, notifications); the Tier term stays beside them. */
+export const SUPPORT_WORDS: Record<number, string> = { 1: "needs no support", 2: "needs some support", 3: "needs strong support" };
+
 /** One TIER_CHANGE notification per teacher and run, naming the students who moved. */
 async function notifyTeachers(repo: Repo, changes: Change[], now: Date, suggest = false): Promise<number> {
   const by = await teachersOf(repo, changes.map((c) => c.studentId));
@@ -339,7 +342,11 @@ async function notifyTeachers(repo: Repo, changes: Change[], now: Date, suggest 
     const list = mine.slice(0, 6).map((c) => `${name.get(c.studentId)}: Tier ${c.from} → Tier ${c.to}`).join("; ");
     const classId = t.students[0].classId;
     if (suggest) rows.push({ userId: t.userId, type: "TIER_CHANGE", title: `🧭 Review ${mine.length} tier${mine.length === 1 ? "" : "s"} you set`, body: `${list.replace(/Tier (\d) → Tier (\d)/g, "your Tier $1, the rules suggest Tier $2")}${mine.length > 6 ? ` and ${mine.length - 6} more` : ""}. You set these more than ${LOCK_DAYS} days ago: confirm (set the tier again), change it, or unlock it.`, link: `/teacher/tiers?class=${classId}`, readAt: null, createdAt: now });
-    else rows.push({ userId: t.userId, type: "TIER_CHANGE", title: `🧭 Support tier changed for ${mine.length} student${mine.length === 1 ? "" : "s"}`, body: `${list}${mine.length > 6 ? ` and ${mine.length - 6} more` : ""}. Open Support tiers to see why; you can set a tier yourself (it stays for ${LOCK_DAYS / 7} weeks, then you are asked to review it).`, link: `/teacher/tiers?class=${classId}`, readAt: null, createdAt: now });
+    // plain words for the teacher ("Ahmed improved — now needs some support"), the Tier term in brackets
+    else {
+      const plain = mine.slice(0, 6).map((c) => `${name.get(c.studentId)} ${c.to < c.from ? "improved" : "needs more help"} — now ${SUPPORT_WORDS[c.to] ?? `Tier ${c.to}`} (Tier ${c.to})`).join("; ");
+      rows.push({ userId: t.userId, type: "TIER_CHANGE", title: mine.length === 1 ? `🛟 ${plain.split(" (Tier")[0]}` : `🛟 Support changed for ${mine.length} students`, body: `${plain}${mine.length > 6 ? ` and ${mine.length - 6} more` : ""}. Open the Support plan to see why and to create a plan.`, link: `/teacher/plans/support?classId=${classId}`, readAt: null, createdAt: now });
+    }
   }
   if (rows.length) await repo.createMany("Notification", rows);
   return rows.length;

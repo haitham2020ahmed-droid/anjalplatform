@@ -12,6 +12,7 @@ import { attachmentNodes } from "../curriculum-map/questions";
 import { notifyTeachers, recordLevel } from "../curriculum-map/student-level";
 import { isInvalidResult } from "../curriculum-map/level-evidence";
 import { withLock } from "../lib/key-lock";
+import { cachedContentKeys, cachedSeenIndex, freshFilter, Sitting } from "../questions/fresh";
 import { areaOfCategory, areaOfStandard, foundationalArea, STRAND_QUOTA, WORD_STUDY_FAMILIES, type Area, type Strand } from "./standards";
 import { BLUEPRINT_SIZE, difficultyOf, effectiveBlueprint, estimate, focusBlueprint, gradeLabel, nextItem, replay, scoreOf, strandOfAnchor, type Design, type DesignItem } from "./adaptive";
 import { ensureNationalNorms, nationalNorm } from "../map/rit";
@@ -208,7 +209,24 @@ export async function diagnosticNext(repo: Repo, assessmentId: string, sessionId
   const answers = await answersOf(repo, sessionId);
   const start = await startOf(repo, x.t, sessionId, studentId);
   const design = await studentDesign(repo, x.t, x.design, studentId);
-  return { nextId: nextItem(design, answers, start, studentId), total: design.blueprint.length };
+  return { nextId: nextItem(design, answers, start, studentId, await freshAllow(repo, assessmentId, design, answers, sessionId, studentId)), total: design.blueprint.length };
+}
+
+/**
+ * 🆕 The school's no-repeat rule for the Diagnostic (questions/fresh.ts): never a copy of a question answered in this
+ * sitting (copies of one question stored under several grades are common in the pooled design), and per skill
+ * (anchor) the questions this student never attempted first — a seen one only when every question of the anchor
+ * was seen (then the ones seen longest ago). The difficulty targeting inside nextItem is unchanged.
+ */
+async function freshAllow(repo: Repo, assessmentId: string, design: Design, answers: { id: string }[], sessionId: string, studentId: string): Promise<(id: string) => boolean> {
+  const ids = design.items.map((q) => q.id);
+  const keysOf = await cachedContentKeys(repo, `diag:${assessmentId}:${ids.length}`, ids);
+  const sitting = new Sitting();
+  for (const a of answers) sitting.add(a.id, keysOf.get(a.id) ?? []);
+  const seen = await cachedSeenIndex(repo, `diag:${sessionId}:${ids.length}`, studentId, ids.map((id) => ({ id, keys: keysOf.get(id) ?? [] })), { exceptSessions: [sessionId] });
+  const open = design.items.filter((q) => !sitting.has(q.id, keysOf.get(q.id) ?? []));
+  const ok = new Set(freshFilter(open, (q) => seen.lastSeen(q.id, keysOf.get(q.id) ?? []), (q) => q.a).map((q) => q.id));
+  return (id) => ok.has(id);
 }
 
 /** The questions of an adaptive test a student will answer (their blueprint's length), or null for a fixed test. */
@@ -669,7 +687,7 @@ async function recordAdaptiveResult(repo: Repo, t: Row, assignmentId: string, st
   const design = await studentDesign(repo, t, designOf(t)!, studentId);
   const answers = await answersOf(repo, sessionId);
   const start = await startOf(repo, t, sessionId, studentId);
-  if (replay(design, answers).open.length && nextItem(design, answers, start, studentId)) return null;
+  if (replay(design, answers).open.length && nextItem(design, answers, start, studentId, await freshAllow(repo, s(t.assessmentId), design, answers, sessionId, studentId))) return null;
   const grade = Number(t.grade);
   const byId = new Map(design.items.map((q) => [q.id, q]));
   const rows = answers.filter((a) => byId.has(a.id)).map((a) => ({ ...a, q: byId.get(a.id)! }));

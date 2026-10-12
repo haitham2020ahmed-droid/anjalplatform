@@ -31,6 +31,7 @@ import { normalizeResponse, type Feedback } from "../practice/session";
 import type { Repo, Row } from "../seeding/repo";
 import { ORGANIZERS, lessonForSkill, type LessonContent, type OrganizerKind, type OrganizerSpec } from "./content";
 import { itemHintStep } from "./hints";
+import { freshOrder, itemContentKeys, seenIndex, Sitting } from "../questions/fresh";
 
 export type Phase = "MODEL" | "GUIDED" | "INDEPENDENT" | "CHECK" | "DONE";
 export type LessonSource = "STUDENT" | "TEACHER" | "TIER" | "ASSIGNMENT";
@@ -112,24 +113,34 @@ export const previousPhase = (p: ItemPhase): ItemPhase => (p === "CHECK" ? "INDE
 
 /**
  * Bank items for a phase: at or below the student's level (b ≤ θ + 0.3; approach 2: easier, b ≤ θ − 0.7), the
- * closest to the level first (approach 2: the easiest first), items not yet used in this run first. When the skill
- * has too few, items above the level and then items already used come back (least used first). Deterministic.
+ * closest to the level first (approach 2: the easiest first). The school's no-repeat rule (questions/fresh.ts): never
+ * an item used in this run (one sitting), nor a copy of one (`keys`: content keys), never the same item twice in a
+ * set; items the student never attempted before (`seenAt` 0) first, then the ones seen longest ago. A skill with too
+ * few new items gives a shorter set; only a skill whose WHOLE bank was used in this run reuses items (least used
+ * first, never twice in one set) so the lesson can still go on. Deterministic.
  */
-export function pickItems(items: { questionId: string; b: number }[], theta: number, n: number, used: Map<string, number>, approach: number): string[] {
+export function pickItems(items: { questionId: string; b: number; keys?: readonly string[] }[], theta: number, n: number, used: Map<string, number>, approach: number, seenAt: (id: string) => number = () => 0): string[] {
   const ceiling = approach >= 2 ? theta - 0.7 : theta + 0.3;
   const byId = (a: { questionId: string }, b: { questionId: string }) => a.questionId.localeCompare(b.questionId);
   const below = items.filter((i) => i.b <= ceiling).sort((a, b) => (approach >= 2 ? a.b - b.b : b.b - a.b) || byId(a, b));
   const above = items.filter((i) => i.b > ceiling).sort((a, b) => a.b - b.b || byId(a, b));
   const ordered = [...below, ...above];
-  const fresh = ordered.filter((i) => !used.has(i.questionId));
-  const reused = ordered.filter((i) => used.has(i.questionId)).sort((a, b) => (used.get(a.questionId)! - used.get(b.questionId)!) || a.b - b.b || byId(a, b));
-  const out: string[] = [];
-  for (const i of [...fresh, ...reused]) { if (out.length >= n) break; out.push(i.questionId); }
-  // a very small pool: repeat from the start (never an empty set while the skill has items)
-  const base = out.length;
-  for (let k = 0; out.length < n && base; k++) out.push(out[k % base]);
-  return out;
+  const sitting = new Sitting();
+  for (const i of items) if (used.has(i.questionId)) sitting.add(i.questionId, i.keys ?? []);
+  const fresh = freshOrder(ordered.filter((i) => !sitting.has(i.questionId, i.keys ?? [])), (i) => seenAt(i.questionId));
+  const pick = (list: typeof items): string[] => {
+    const set = new Sitting(), out: string[] = [];
+    for (const i of list) { if (out.length >= n) break; if (set.has(i.questionId, i.keys ?? [])) continue; set.add(i.questionId, i.keys ?? []); out.push(i.questionId); }
+    return out;
+  };
+  const out = pick(fresh);
+  if (out.length) return out;
+  // the whole bank of the skill was used in this run: least used first (still never twice in one set)
+  return pick(ordered.filter((i) => used.has(i.questionId)).sort((a, b) => (used.get(a.questionId)! - used.get(b.questionId)!) || a.b - b.b || byId(a, b)));
 }
+
+/** Correct answers needed to pass a phase: the usual number, scaled down when the set had to be shorter. */
+export const passNeed = (phase: ItemPhase, total: number): number => Math.min(PHASE_PASS[phase], Math.ceil((PHASE_PASS[phase] * total) / PHASE_SIZE[phase]));
 
 // ------------------------------------------------------------------ database helpers
 
@@ -283,8 +294,12 @@ async function newSet(repo: Repo, run: Row, phase: ItemPhase, approach: number, 
   const { theta } = await abilityOf(repo, s(run.studentId), skill, cfg.adaptive);
   const used = new Map<string, number>();
   for (const e of logOf(run)) if (e.t === "SET") for (const id of e.ids) used.set(id, (used.get(id) ?? 0) + 1);
-  // the quick check tries not to reuse items of this attempt's guided and independent practice
-  const ids = pickItems(items.map((i) => ({ questionId: i.questionId, b: i.irt.b })), theta, PHASE_SIZE[phase], used, approach);
+  // never an item (or a copy of one) already used in this run; items the student never attempted first
+  const pool = items.map((i) => ({ questionId: i.questionId, b: i.irt.b, keys: itemContentKeys(i) }));
+  const runSession = logOf(run).find((e): e is Extract<LogEntry, { t: "SESSION" }> => e.t === "SESSION")?.sessionId;
+  const seen = await seenIndex(repo, s(run.studentId), pool.map((q) => ({ id: q.questionId, keys: q.keys })), { exceptSessions: runSession ? [runSession] : [] });
+  const keysOf = new Map(pool.map((q) => [q.questionId, q.keys]));
+  const ids = pickItems(pool, theta, PHASE_SIZE[phase], used, approach, (id) => seen.lastSeen(id, keysOf.get(id) ?? []));
   return { t: "SET", phase, approach, ids, at: now.toISOString() };
 }
 
@@ -544,7 +559,7 @@ export function answerLesson(repo: Repo, actor: Actor, input: { runId: string; q
       if (answers.length >= st.set!.ids.length) {
         const right = answers.filter((a) => a.correct).length;
         const total = st.set!.ids.length;
-        const passed = right >= PHASE_PASS[phase];
+        const passed = right >= passNeed(phase, total);
         log.push({ t: "RESULT", phase, correct: right, total, passed, approach, at: now.toISOString() });
         if (phase === "CHECK") { patch.attempts = Number(run.attempts) + 1; patch.checkPct = Math.round((100 * right) / total); }
         if (passed) {

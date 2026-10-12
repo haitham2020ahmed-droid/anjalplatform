@@ -29,12 +29,24 @@ export const MIC_CONSTRAINTS: MediaStreamConstraints[] = [
 ];
 
 /**
+ * Reading aloud (Fluency Coach): automatic gain ON so a soft child's voice comes up, noise suppression on (a
+ * classroom), echo cancellation OFF — nothing plays while the student reads, and on many laptops it ducks a soft voice
+ * to near silence. No sample rate or channel demands that some devices refuse (the recording is resampled to 16 kHz
+ * mono on the device anyway).
+ */
+export const READING_MIC_CONSTRAINTS: MediaStreamConstraints[] = [
+  { audio: { echoCancellation: false, noiseSuppression: true, autoGainControl: true, channelCount: { ideal: 1 } } },
+  { audio: { autoGainControl: true } },
+  { audio: true },
+];
+
+/**
  * Opens the microphone with the best settings the device accepts. A refusal by the student or the browser
  * (NotAllowedError / SecurityError) is not retried: it is passed on.
  */
-export async function openMicrophone(getUserMedia: (c: MediaStreamConstraints) => Promise<MediaStream>): Promise<MediaStream> {
+export async function openMicrophone(getUserMedia: (c: MediaStreamConstraints) => Promise<MediaStream>, constraints: MediaStreamConstraints[] = MIC_CONSTRAINTS): Promise<MediaStream> {
   let last: unknown = null;
-  for (const c of MIC_CONSTRAINTS) {
+  for (const c of constraints) {
     try { return await getUserMedia(c); }
     catch (e) {
       const name = (e as { name?: string })?.name ?? "";
@@ -44,6 +56,9 @@ export async function openMicrophone(getUserMedia: (c: MediaStreamConstraints) =
   }
   throw last ?? new Error("No microphone.");
 }
+
+/** Chunks every second (nothing is lost if the recorder fails late); Safari's MP4 recorder: one piece at the end. */
+export const recorderTimeslice = (mime: string): number | undefined => (/mp4/i.test(mime) ? undefined : 1000);
 
 /** MediaRecorder options: the chosen type and about 64 kbit/s. */
 export const recorderOptions = (mime: string): MediaRecorderOptions => ({ ...(mime ? { mimeType: mime } : {}), audioBitsPerSecond: RECORDER_BITRATE });

@@ -142,10 +142,9 @@ describe("admin review: only working tools", () => {
       assert.doesNotMatch(s, /[Cc]oming soon|\(Soon\)|>Soon</, `${f}: “Soon”`);
     }
     for (const x of ADMIN_TOOLS) assert.doesNotMatch(x.label, /soon/i);
-    // the home: one primary action, no section icons
+    // the home (owner's spec, Update 53): 4 cards, teacher follow-up, shortcuts — no tool grid, no section icons
     const home = read("src/app/admin/page.tsx");
-    assert.match(home, /Open School/);
-    assert.equal((home.match(/BTN_PRIMARY/g) ?? []).length, 2, "one primary button (import + use)");
+    for (const x of ["Teachers", "Students", "Activity this week", "Pending approvals", "Teacher follow-up", "/admin/coverage", "Question Check", "Add a teacher"]) assert.ok(home.includes(x), x);
     assert.ok(ADMIN_GROUPS.every((g) => !("icon" in g)), "sections have no decorative icons");
   });
 

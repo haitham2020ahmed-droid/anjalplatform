@@ -1,4 +1,4 @@
-import { schoolSkillIndex } from "../questions/skill-questions";
+import { countQuestionsOfSkills, schoolSkillIndex } from "../questions/skill-questions";
 /**
  * 📑 MAP reports, built from the MAP results, the Learning Continuum and the platform's own practice:
  *   - Personal Study Plan (one student, one subject): for each goal area the student's RIT, then
@@ -166,6 +166,12 @@ export async function studyPlan(repo: Repo, actor: Actor, studentId: string, sub
         // no continuum yet: the platform's skills of the student's RIT range
         const range = (await buildRanges(repo, schoolId, student.grade, g.key)).find((x) => r.rit >= x.low && r.rit <= x.high);
         if (range) area.stages = [{ key: "DEVELOP", title: "Develop", range: `RIT ${range.label}`, total: range.skills, shown: range.skills, topics: range.areas.map((a) => ({ name: a.name, statements: a.topics.flatMap((t) => t.skills.map((k) => ({ text: k.name, standards: [], skills: [refOf(k, m)] }))) })) }];
+      }
+      // a skill with no questions yet never appears in a plan (its line stays as text: nothing to practise yet)
+      const ids = [...new Set(area.stages.flatMap((st) => st.topics.flatMap((t) => t.statements.flatMap((x) => x.skills.map((k) => k.id)))))];
+      if (ids.length) {
+        const n = await countQuestionsOfSkills(repo, schoolId, ids);
+        for (const st of area.stages) for (const t of st.topics) for (const x of t.statements) x.skills = x.skills.filter((k) => (n.get(k.id) ?? 0) > 0);
       }
       const linked = new Map<string, PlanSkillRef>();
       for (const st of area.stages.filter((x) => x.key === "DEVELOP")) for (const t of st.topics) for (const x of t.statements) for (const k of x.skills) linked.set(k.id, k);

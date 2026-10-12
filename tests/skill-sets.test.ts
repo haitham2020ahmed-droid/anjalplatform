@@ -18,7 +18,7 @@ describe("➕ MAP skill sets (Persuasive Techniques, Rhetorical Questions)", () 
   test("the data file has both sets with 4 options and a correct letter each", async () => {
     const sets = await loadSkillSetsFile();
     assert.deepEqual(sets.map((x) => x.skill), ["Persuasive Techniques", "Rhetorical Questions"]);
-    for (const set of sets) for (const q of set.questions) { assert.equal(q.options.length, 4); assert.match(q.correct, /^[ABCD]/); }
+    for (const set of sets) for (const q of set.questions) { assert.equal(q.options!.length, 4); assert.match(q.correct!, /^[ABCD]/); }
   });
 
   test("skills are created, questions published and found by search; a second run adds nothing", async () => {

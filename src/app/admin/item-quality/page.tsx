@@ -5,7 +5,10 @@ import { BankTabs } from "../questions/bank-tabs";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { itemQuality, MIN_ANSWERS, type ItemFlag } from "@/server/admin/item-quality";
 import { alertList, levelChangeList, questionData } from "@/server/admin/question-data";
-import { resolveAlertAction, releaseHoldAction } from "./actions";
+import { questionsWithoutLevel } from "@/server/questions/bank-levels";
+import { listAutoHidden } from "@/server/questions/auto-check";
+import { MIN_PER_SKILL, skillsUnderMinimum } from "@/server/questions/min-per-skill";
+import { autoCheckAction, resolveAlertAction, releaseHoldAction } from "./actions";
 
 export const metadata = { title: "Question quality" };
 const FLAG: Record<ItemFlag, [string, string, string]> = {
@@ -22,7 +25,7 @@ const ALERT: Record<string, [string, string]> = {
   SLOW: ["🐢 Very slow", "bg-sky-50 text-sky-900 ring-sky-200"],
 };
 const LEVEL: Record<string, string> = { BELOW: "Below", ON: "On", ABOVE: "Above" };
-const TABS = [["quality", "Quality"], ["alerts", "Alerts"], ["changes", "Level changes"]] as const;
+const TABS = [["quality", "Quality"], ["alerts", "Alerts"], ["changes", "Level changes"], ["nolevel", "No level"], ["hidden", "Hidden automatically"], ["under25", "Under 25"]] as const;
 type Tab = (typeof TABS)[number][0] | "question";
 
 /** 🔬 Data-driven content decisions: questions whose real answers do not fit their level, alerts and the level-change log. */
@@ -92,6 +95,45 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
         ))}</ul>
       )}
     </>;
+  } else if (tab === "hidden" && isAdmin) {
+    // 🧹 definite errors (no correct answer, two correct answers, empty or identical choices…) are hidden from students
+    const rows = await listAutoHidden(repo, actor);
+    subtitle = "Questions with a definite error are hidden from students automatically. Fix each one, then approve it to bring it back.";
+    body = <>
+      <form action={autoCheckAction} className="mb-4"><button className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white">🧹 Check all published questions now</button></form>
+      {rows.length === 0 ? <p className="rounded-2xl bg-white p-4 text-slate-600 ring-1 ring-slate-200">✅ No question is hidden.</p> : (
+        <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
+          <table className="w-full text-left text-sm">
+            <thead><tr className="border-b text-slate-500"><th className="p-3">Question</th><th className="p-3">Problem</th><th className="p-3">Hidden on</th><th className="p-3"></th></tr></thead>
+            <tbody>{rows.map((r) => <tr key={r.id} className="border-b last:border-0"><td className="p-3" data-content lang="en">{r.stem}</td><td className="p-3 font-semibold text-red-800">{r.problem}</td><td className="p-3">{r.at.slice(0, 10)}</td><td className="p-3 text-end"><Link href={`/admin/questions/${r.id}`} className="font-semibold text-brand-teal underline">Fix</Link></td></tr>)}</tbody>
+          </table>
+        </div>
+      )}
+    </>;
+  } else if (tab === "under25" && isAdmin) {
+    const rows = await skillsUnderMinimum(repo, actor);
+    subtitle = `Every skill should have at least ${MIN_PER_SKILL} questions (Below / On / Above). These skills have fewer.`;
+    body = rows.length === 0 ? <p className="rounded-2xl bg-white p-4 text-slate-600 ring-1 ring-slate-200">✅ Every skill has at least {MIN_PER_SKILL} questions.</p> : (
+      <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
+        <table className="w-full text-left text-sm">
+          <thead><tr className="border-b text-slate-500"><th className="p-3">Skill</th><th className="p-3">Questions</th><th className="p-3">Missing</th><th className="p-3"></th></tr></thead>
+          <tbody>{rows.map((r) => <tr key={r.id} className="border-b last:border-0"><td className="p-3">{r.name}</td><td className="p-3 tabular-nums">{r.questions}</td><td className="p-3 tabular-nums font-semibold text-red-800">{r.missing}</td><td className="p-3 text-end"><Link href={`/admin/questions?q=${encodeURIComponent(r.name)}`} className="font-semibold text-brand-teal underline">Open</Link></td></tr>)}</tbody>
+        </table>
+      </div>
+    );
+  } else if (tab === "nolevel") {
+    // 🏦 bank questions are classified by skill + level only: a question without a level (Below / On / Above) is
+    // listed here so it can be given one (open it and set its level)
+    const rows = await questionsWithoutLevel(repo, actor);
+    subtitle = "Bank questions without a level (Below / On / Above). Open each one and set its level.";
+    body = rows.length === 0 ? <p className="rounded-2xl bg-white p-4 text-slate-600 ring-1 ring-slate-200">✅ Every bank question has a level.</p> : (
+      <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
+        <table className="w-full text-left text-sm">
+          <thead><tr className="border-b text-slate-500"><th className="p-3">Question</th><th className="p-3">Skill</th><th className="p-3"></th></tr></thead>
+          <tbody>{rows.map((r) => <tr key={r.id} className="border-b last:border-0"><td className="p-3">{r.stem}</td><td className="p-3">{r.skill}</td><td className="p-3 text-end"><Link href={`/admin/questions/${r.id}`} className="font-semibold text-brand-teal underline">Set level</Link></td></tr>)}</tbody>
+        </table>
+      </div>
+    );
   } else if (tab === "changes") {
     const rows = await levelChangeList(repo, actor, { grade });
     subtitle = "Every level change made from students' first answers (automatic), or approved by an admin when the level had been set by a person.";
@@ -149,7 +191,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
       </PageHeader>
       {actor.role !== "TEACHER" && <BankTabs />}
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      {tab !== "question" && <div className="mb-4 flex flex-wrap gap-2">{TABS.map(([k, l]) => <Link key={k} href={`/admin/item-quality?tab=${k}`} className={chip(tab === k)}>{l}</Link>)}</div>}
+      {tab !== "question" && <div className="mb-4 flex flex-wrap gap-2">{TABS.filter(([k]) => isAdmin || (k !== "hidden" && k !== "under25")).map(([k, l]) => <Link key={k} href={`/admin/item-quality?tab=${k}`} className={chip(tab === k)}>{l}</Link>)}</div>}
       {body}
     </AppShell>
   );

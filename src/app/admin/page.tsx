@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { BigTile, TileGroup, EmptyState, PageHero, BTN_PRIMARY, BTN_SECONDARY, type TileTone } from "@/components/ui-kit";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { maybeRunDaily } from "@/server/insights/daily";
@@ -8,12 +7,11 @@ import { adminHomeData } from "@/server/admin/home-data";
 import { runAfterResponse } from "@/server/lib/after-response";
 import { adminMayUse } from "@/server/admin/tools";
 import { ClassRows } from "@/components/home/class-rows";
-import { ADMIN_GROUPS, ADMIN_TOOLS, ALL_TOOLS_HREF } from "@/components/admin-tools";
+import { teacherFollowupForHome, type teacherFollowup } from "@/server/insights/teacher-followup";
+import { ADMIN_TOOLS, ALL_TOOLS_HREF } from "@/components/admin-tools";
 
 export const metadata = { title: "Administration" };
 
-/** one soft colour per section (calm: a dot before the heading and a light wash on its tiles) */
-const GROUP_TONE: Record<string, TileTone> = { school: "sky", content: "violet", programs: "map", reports: "sun", settings: "slate" };
 
 /**
  * 🏠 Admin Home, top to bottom: a short welcome band with ONE primary action (Open School) · the school at a glance
@@ -49,75 +47,73 @@ export default async function AdminHome() {
   const attention = [
     { href: "/admin/report-approvals", icon: "📨", title: "Family reports to approve", n: reportsWaiting },
     { href: "/admin/questions?status=UNDER_REVIEW", icon: "⏳", title: "Questions waiting for approval", n: waiting },
-    { href: "/admin/questions/requests", icon: "🗑️", title: "Deletion requests", n: deletions },
+    { href: "/admin/questions/requests", icon: "✏️", title: "Teacher requests", n: deletions },
     { href: "/admin/question-flags", icon: "🚩", title: "Flagged questions", n: flags },
     { href: "/admin/bank-gaps", icon: "🕳", title: "MAP areas short of questions", n: short.length },
     { href: "/admin/connections", icon: "🔌", title: "Connections to fix", n: weak },
   ].filter((a) => a.n > 0).slice(0, 3);
 
+  // 🧑‍🏫 teacher follow-up: 🟢 active (work sent in the last 7 days) · 🟠 slowing (nothing for 7+ days) · 🔴 sent nothing in 30 days
+  const follow = await teacherFollowupForHome(repo, actor, now).catch(() => ({ rows: [] as Awaited<ReturnType<typeof teacherFollowup>>["rows"] }));
+  const statusOf = (r: (typeof follow.rows)[number]) => r.assignments30 === 0 ? "RED" : !r.lastAssignment || now.getTime() - new Date(r.lastAssignment).getTime() > 7 * 86_400_000 ? "ORANGE" : "GREEN";
+  const FOLLOW = { GREEN: ["🟢", "Active"], ORANGE: ["🟠", "Slowing"], RED: ["🔴", "Sent nothing"] } as const;
+  const order = { RED: 0, ORANGE: 1, GREEN: 2 } as const;
+  const teachers = follow.rows.map((r) => ({ r, st: statusOf(r) as keyof typeof FOLLOW })).sort((a, b) => order[a.st] - order[b.st] || a.r.name.localeCompare(b.r.name));
+  const pending = waiting + reportsWaiting + deletions + flags;
+  const cards = [
+    { href: "/admin/teachers", label: "Teachers", value: String(follow.rows.length), icon: "🧑‍🏫" },
+    { href: "/admin/users", label: "Students", value: String(students), icon: "👥" },
+    { href: "/admin/analytics", label: "Activity this week", value: students ? `${Math.round((100 * practised) / students)}%` : "—", icon: "📈" },
+    { href: attention[0]?.href ?? "/admin/report-approvals", label: "Pending approvals", value: String(pending), icon: "⏳", alert: pending > 0 },
+  ];
+  const shortcut = "flex min-h-10 items-center gap-2 rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy shadow-sm ring-1 ring-slate-200 hover:ring-brand-teal";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHero tone="admin" eyebrow={today} title={<>{t(greet)}, <bdi>{String(me.displayName).split(" ")[0]}</bdi></>} subtitle={t("School administration")}
-        actions={canSchool ? <Link prefetch={false} href="/admin/school" className={`${BTN_PRIMARY} min-h-12 rounded-2xl px-6`}>{t("Open School")}</Link> : undefined}>
-        <h2 className="sr-only">{t("School at a glance")}</h2>
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-          {glance.map((x) => (
-            <Link key={x.label} prefetch={false} href={x.href} className="hero-tile lift flex min-h-20 min-w-0 flex-col justify-center rounded-2xl px-4 py-3">
-              <span dir="ltr" className={`block text-3xl font-semibold tabular-nums ${x.tone}`}>{x.value}</span>
-              <span className="block truncate text-sm text-slate-600">{t(x.label)}</span>
-            </Link>
-          ))}
-        </div>
-      </PageHero>
+      <header className="mb-4">
+        <p className="text-sm text-slate-500">{today}</p>
+        <h1 className="text-3xl font-semibold text-brand-navy">{t(greet)}, <bdi>{String(me.displayName).split(" ")[0]}</bdi></h1>
+      </header>
 
-      <section aria-labelledby="attention-h" className="mt-8">
-        <h2 id="attention-h" className="mb-3 text-xl font-semibold text-brand-navy">{t("Needs your attention")}</h2>
-        {attention.length === 0 ? <EmptyState compact icon="✅" title="Nothing needs your attention right now" /> : (
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {attention.map((a) => (
-              <Link key={a.href} prefetch={false} href={a.href} className="lift flex min-h-24 items-center gap-4 rounded-3xl bg-gradient-to-br from-amber-50 to-white p-4 shadow-card ring-1 ring-amber-200 hover:ring-amber-400">
-                <span aria-hidden="true" className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white text-3xl shadow-sm">{a.icon}</span>
-                <span className="min-w-0">
-                  <span className="block text-3xl font-semibold tabular-nums text-amber-800" dir="ltr">{a.n}</span>
-                  <span className="block font-semibold text-slate-900">{t(a.title)}</span>
-                </span>
-              </Link>
+      <section aria-label={t("School at a glance")} className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        {cards.map((c) => (
+          <Link key={c.label} prefetch={false} href={c.href} className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200 hover:ring-brand-teal">
+            <span className="flex items-center justify-between"><span dir="ltr" className={`text-3xl font-semibold tabular-nums ${c.alert ? "text-amber-700" : "text-brand-navy"}`}>{c.value}</span><span aria-hidden="true" className="text-xl">{c.icon}</span></span>
+            <span className="mt-1 block text-sm font-semibold text-slate-600">{t(c.label)}</span>
+          </Link>
+        ))}
+      </section>
+
+      {attention.length > 0 && (
+        <section aria-label={t("Needs your attention")} className="mt-4 flex flex-wrap gap-2">
+          {attention.map((a) => <Link key={a.href} prefetch={false} href={a.href} className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-amber-50 px-3 text-sm font-semibold text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">{a.icon}</span>{t(a.title)} · {a.n}</Link>)}
+        </section>
+      )}
+
+      <section aria-label={t("Shortcuts")} className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+        <Link prefetch={false} href="/admin/coverage" className={shortcut}><span aria-hidden="true">📊</span>{t("Coverage Report")}</Link>
+        <Link prefetch={false} href="/admin/item-quality" className={shortcut}><span aria-hidden="true">🔬</span>{t("Question Check")}</Link>
+        {actor.role === "SCHOOL_ADMIN" && <Link prefetch={false} href="/admin/questions/load" className={shortcut}><span aria-hidden="true">⬇️</span>{t("Load new questions")}</Link>}
+        <Link prefetch={false} href="/admin/users?role=TEACHER" className={shortcut}><span aria-hidden="true">➕</span>{t("Add a teacher")}</Link>
+        <Link prefetch={false} href={ALL_TOOLS_HREF} className={shortcut}><span aria-hidden="true">🧰</span>{t("All Admin Tools")}</Link>
+      </section>
+
+      <section aria-labelledby="follow-h" className="mt-5 rounded-2xl bg-white shadow-sm ring-1 ring-slate-200">
+        <h2 id="follow-h" className="border-b px-4 py-3 text-lg font-semibold text-brand-navy">🧑‍🏫 {t("Teacher follow-up")}</h2>
+        {teachers.length === 0 ? <p className="p-4 text-sm text-slate-600">{t("No teachers yet.")}</p> : (
+          <ul className="divide-y divide-slate-100">
+            {teachers.map(({ r, st }) => (
+              <li key={r.userId} className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 text-sm">
+                <span className="min-w-0"><span aria-hidden="true">{FOLLOW[st][0]}</span> <bdi className="font-semibold text-slate-900">{r.name}</bdi> <span className="text-slate-500">· {r.classes.join(", ") || "—"}</span></span>
+                <span className="text-slate-600">{t(FOLLOW[st][1])} · {t("{n} sent in 30 days", { n: r.assignments30 })}{r.lastAssignment ? ` · ${t("last")} ${r.lastAssignment.slice(0, 10)}` : ""}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </section>
 
-      {ADMIN_GROUPS.map((g) => {
-        const all = tools.filter((x) => x.group === g.key);
-        const home = all.filter((x) => x.home);
-        if (!home.length) return null;
-        const more = all.length - home.length;
-        return (
-          <div key={g.key}>
-            <TileGroup title={g.title} tone={GROUP_TONE[g.key]} cols={home.length > 4 ? 3 : 4} id={`g-${g.key}`}>
-              <p className="col-span-full -mt-2 text-slate-600">{t(g.blurb)}</p>
-              {home.map((x) => <BigTile key={x.href} href={x.href} icon={x.icon} label={x.label} hint={x.hint} tone={GROUP_TONE[g.key]} />)}
-            </TileGroup>
-            {more > 0 && (
-              <p className="mt-2 flex justify-end">
-                <Link prefetch={false} href={`${ALL_TOOLS_HREF}#${g.key}`} className="inline-flex min-h-11 items-center gap-1 rounded-xl px-3 font-semibold text-brand-teal hover:bg-slate-100 hover:text-brand-navy">
-                  {t("More: {n} tools", { n: more })} <span aria-hidden="true" className="rtl:rotate-180">→</span>
-                </Link>
-              </p>
-            )}
-          </div>
-        );
-      })}
-
-      <div className="mt-8 flex justify-center">
-        <Link prefetch={false} href={ALL_TOOLS_HREF} className={`${BTN_SECONDARY} min-h-12 rounded-2xl px-6`}>
-          {t("All Admin Tools")}
-        </Link>
-      </div>
-
       {rows.length > 0 && (
-        <details className="mt-8 rounded-3xl bg-white p-4 shadow-card ring-1 ring-slate-200/80 sm:px-6">
-          <summary className="min-h-11 cursor-pointer content-center text-lg font-semibold text-brand-navy">{t("Classes at a glance")}</summary>
+        <details className="mt-5 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200 sm:px-6">
+          <summary className="min-h-10 cursor-pointer content-center text-base font-semibold text-brand-navy">{t("Classes at a glance")}</summary>
           <div className="mt-3 overflow-x-auto"><ClassRows rows={rows} admin /></div>
         </details>
       )}

@@ -15,6 +15,7 @@ import { loadItemsForSkills, toClientQuestion, type ClientQuestion, type Practic
 import { normalizeResponse } from "../practice/session";
 import { getStudentCurriculum } from "../queries/student-curriculum";
 import type { Repo, Row } from "../seeding/repo";
+import { freshFilter, itemContentKeys, seenIndex, Sitting, type SeenIndex } from "../questions/fresh";
 
 export const DOMAIN_LABEL: Record<string, string> = {
   READING: "Reading",
@@ -69,6 +70,23 @@ async function diagnosticPool(repo: Repo, student: Row) {
   return { pool, items: new Map(usable.map((i) => [i.questionId, i])), skills, notMeasured };
 }
 
+/**
+ * 🆕 The school's no-repeat rule (questions/fresh.ts): the candidates the engine may choose from — never a question
+ * (or a copy of one) answered in this check, and per skill the questions the student never attempted first (a seen
+ * one only once every question of the skill was seen, the ones seen longest ago). The engine's choice is unchanged.
+ */
+function freshPool(pool: DiagnosticItem[], items: Map<string, PracticeItem>, answeredIds: string[], seen: SeenIndex): DiagnosticItem[] {
+  const keys = new Map(pool.map((p) => [p.id, items.get(p.id) ? itemContentKeys(items.get(p.id)!) : []]));
+  const sitting = new Sitting();
+  for (const id of answeredIds) sitting.add(id, keys.get(id) ?? (items.get(id) ? itemContentKeys(items.get(id)!) : []));
+  // the answered ones stay in the pool (the engine counts them as used); their copies go
+  const open = pool.filter((p) => answeredIds.includes(p.id) || !sitting.has(p.id, keys.get(p.id) ?? []));
+  const fresh = new Set(freshFilter(open.filter((p) => !answeredIds.includes(p.id)), (p) => seen.lastSeen(p.id, keys.get(p.id) ?? []), (p) => p.skillId).map((p) => p.id));
+  return open.filter((p) => answeredIds.includes(p.id) || fresh.has(p.id));
+}
+const seenFor = (repo: Repo, studentId: string, pool: DiagnosticItem[], items: Map<string, PracticeItem>, sessionId?: string) =>
+  seenIndex(repo, studentId, pool.map((p) => ({ id: p.id, keys: items.get(p.id) ? itemContentKeys(items.get(p.id)!) : [] })), { exceptSessions: sessionId ? [sessionId] : [] });
+
 async function sessionState(repo: Repo, session: Row, pool: DiagnosticItem[]) {
   const byId = new Map(pool.map((p) => [p.id, p]));
   const attempts = (await repo.findMany("QuestionAttempt", { sessionId: session.id })).sort((a, b) => d(a.createdAt).getTime() - d(b.createdAt).getTime());
@@ -106,7 +124,8 @@ export async function startDiagnostic(repo: Repo, actor: Actor, now = new Date()
   if (open.length) return viewOf(repo, open[0], items);
 
   const cfg = resolveEngineConfig();
-  const first = nextDiagnosticItem(pool, [], {}, cfg.adaptive);
+  const first = nextDiagnosticItem(freshPool(pool, items, [], await seenFor(repo, String(student.id), pool, items)), [], {}, cfg.adaptive);
+  if (!first.item) throw new ValidationError("The placement check needs more approved questions. Ask your teacher.");
   const session = await repo.create("PracticeSession", {
     studentId: student.id, mode: "DIAGNOSTIC", startedAt: now, currentQuestionId: first.item!.id, currentServedAt: now, lastTargetB: first.targetB,
   });
@@ -120,6 +139,8 @@ export async function startDiagnostic(repo: Repo, actor: Actor, now = new Date()
 export async function submitDiagnosticAnswer(repo: Repo, actor: Actor, input: { sessionId: string; questionId: string; response: unknown }, now = new Date()): Promise<DiagnosticView> {
   const student = await ownStudent(repo, actor);
   const { pool, items, skills, notMeasured } = await diagnosticPool(repo, student);
+  // what the student attempted before this check (other sittings): read once, outside the transaction
+  const seen = await seenFor(repo, String(student.id), pool, items, input.sessionId);
   await repo.transaction(async (tx) => {
     const s = await tx.findUnique("PracticeSession", { id: input.sessionId });
     if (!s || s.studentId !== student.id || s.mode !== "DIAGNOSTIC") throw new ForbiddenError("This placement check is not yours.");
@@ -139,7 +160,7 @@ export async function submitDiagnosticAnswer(repo: Repo, actor: Actor, input: { 
     const { responses, lastTarget } = await sessionState(tx, s, pool);
     const domains = [...new Set(pool.map((p) => p.domain))].sort();
     const done = isDiagnosticComplete(domains, responses, cfg.adaptive);
-    const next = done ? null : nextDiagnosticItem(pool, responses, lastTarget, cfg.adaptive);
+    const next = done ? null : nextDiagnosticItem(freshPool(pool, items, responses.map((r) => r.itemId), seen), responses, lastTarget, cfg.adaptive);
     const thisDomain = pool.find((p) => p.id === item.questionId)!.domain;
     // previousTheta = estimate BEFORE this answer (needed for unbiased item calibration)
     const before = domainEstimates([thisDomain], responses.slice(0, -1), cfg.adaptive)[0];

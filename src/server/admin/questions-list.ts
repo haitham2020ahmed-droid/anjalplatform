@@ -9,13 +9,14 @@
  *   - bulk work goes by ids in batches (the page loops with a progress bar): publish, unpublish, move to a skill,
  *     flag for review, archive, delete. "All matching" ids are read id-only, 500 at a time.
  */
+import { mapLinkedQuestionIds, ritBand, ritOf } from "../questions/bank-scope";
 import { LEVEL_LABELS } from "../../config/engine";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
-import { schoolSkillIndex } from "../questions/skill-questions";
+import { normalizeSkillName, schoolSkillIndex } from "../questions/skill-questions";
 import { STATUSES, type QuestionStatus } from "./questions";
 import { schoolOf } from "./users";
 
@@ -47,10 +48,14 @@ export interface BankListFilter {
   ai?: boolean;
   mapArea?: string;
   grade?: number;
+  /** 🏦 the Question Bank (default: skill + level, no grade) or the Curriculum Map's own questions (grade → unit → lesson) */
+  source?: "BANK" | "MAP" | "ALL";
 }
 
 export interface BankListRow {
   id: string; stem: string; skill: string; skillId: string; grade: number; type: string; level: number; levelLabel: string;
+  /** a Curriculum Map question (shown with its grade); bank questions show their RIT band instead */
+  onMap: boolean; ritBand: string;
   status: QuestionStatus; origin: string; updatedAt: string; hasPassage: boolean; hasImage: boolean; mine: boolean;
 }
 
@@ -89,7 +94,25 @@ async function whereOf(repo: Repo, actor: Actor, f: BankListFilter, withStatus =
   if (q) {
     // a question id or reference is found directly (indexed); otherwise the words are searched in the question text
     if (/^c[a-z0-9]{20,30}$/i.test(q)) w.id = q;
-    else w.stem = { contains: q };
+    else {
+      // 🔎 a skill's name (e.g. "Formal and Informal English") lists that skill's questions; other words search the text
+      // names match whatever the case, "&" / "and" or the apostrophe ("Character Traits & Development", "A Speaker’s …");
+      // the exact name first (its whole family: one question pool), else every skill whose name contains the words
+      const words = normalizeSkillName(q);
+      const nameOf = (k: string) => normalizeSkillName(idx.skillOf.get(k)?.name ?? "");
+      const exactKeys = words.length >= 3 ? new Set(skills.filter((k) => nameOf(k) === words).map((k) => idx.keyOf.get(k))) : new Set();
+      const named = exactKeys.size ? skills.filter((k) => exactKeys.has(idx.keyOf.get(k)))
+        : words.length >= 4 ? skills.filter((k) => nameOf(k).includes(words)) : [];
+      if (named.length) w.skillId = { in: named };
+      else w.stem = { contains: q };
+    }
+  }
+  // 🏦 bank or Curriculum Map (a map place or a question id already narrows it)
+  const source = f.source ?? (f.mapCode ? "MAP" : "BANK");
+  if (source !== "ALL" && !f.mapCode && !w.id) {
+    const onMap = [...(await mapLinkedQuestionIds(repo))];
+    if (source === "MAP") { if (!onMap.length) return null; w.id = { in: onMap.slice(0, MATCH_MAX) }; }
+    else if (onMap.length) w.id = { notIn: onMap };
   }
   if (f.mapCode) {
     const code = f.mapCode.trim().toUpperCase();
@@ -120,7 +143,7 @@ export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter):
   const pages = Math.max(1, Math.ceil(total / per));
   const page = Math.min(pages, Math.max(1, Math.floor(f.page ?? 1)));
   const found = total ? await repo.findMany("Question", where, { select: COLUMNS, orderBy: ORDER[f.sort ?? "new"] ?? ORDER.new, take: per, skip: (page - 1) * per }) : [];
-  const [idx, types] = await Promise.all([schoolSkillIndex(repo, schoolOf(actor)), typeMap(repo)]);
+  const [idx, types, onMap] = await Promise.all([schoolSkillIndex(repo, schoolOf(actor)), typeMap(repo), mapLinkedQuestionIds(repo)]);
   const iso = (v: unknown) => (v instanceof Date ? v : new Date(s(v))).toISOString();
   const rows = found.map((q): BankListRow => {
     const sk = idx.skillOf.get(s(q.skillId));
@@ -129,6 +152,7 @@ export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter):
       id: s(q.id), stem: s(q.stem).replace(/\s+/g, " ").slice(0, 200), skill: sk?.name ?? "", skillId: s(q.skillId), grade: sk?.grade ?? 0,
       type: types.get(s(q.typeId)) ?? "", level, levelLabel: LEVEL_LABELS[level] ?? "", status: s(q.status) as QuestionStatus, origin: s(q.origin),
       updatedAt: iso(q.updatedAt), hasPassage: Boolean(q.passageId), hasImage: Boolean(q.imageId), mine: q.createdById === actor.userId,
+      onMap: onMap.has(s(q.id)), ritBand: ritBand(ritOf(level || 4, sk?.grade ?? 0)),
     };
   });
   return { rows, total, page, pages, per };
@@ -147,7 +171,7 @@ function cached(repo: Repo, key: string, fn: () => Promise<Record<string, number
 /** How many questions of each status match the other filters (for the status tabs). */
 export async function bankStatusCounts(repo: Repo, actor: Actor, f: BankListFilter): Promise<Record<QuestionStatus | "ALL", number>> {
   assertCan(actor, "questions:read");
-  const key = JSON.stringify([schoolOf(actor), f.q ?? "", f.family ?? "", f.skillId ?? "", f.type ?? "", f.level ?? 0, f.mapCode ?? "", f.ai ?? false, f.mapArea ?? "", f.grade ?? 0]);
+  const key = JSON.stringify([schoolOf(actor), f.q ?? "", f.family ?? "", f.skillId ?? "", f.type ?? "", f.level ?? 0, f.mapCode ?? "", f.ai ?? false, f.mapArea ?? "", f.grade ?? 0, f.source ?? ""]);
   return cached(repo, `status:${key}`, async () => {
     const where = await whereOf(repo, actor, f, false);
     const n = where ? await Promise.all(STATUSES.map((st) => repo.count("Question", { ...where, status: st }))) : STATUSES.map(() => 0);
@@ -172,25 +196,34 @@ export async function bankBanners(repo: Repo, actor: Actor): Promise<{ unclassif
   }) as Promise<{ unclassified: number; drafts: number }>;
 }
 
-export interface FamilyOption { key: string; name: string; grades: number[] }
+export interface FamilyOption {
+  key: string; name: string; grades: number[];
+  /** every name the family's skills have ("Prefixes", "Suffixes" share one pool): each one is findable in the filter */
+  names: string[];
+}
 
 /** The skill families of the school (one entry per skill, whatever the grade), for the filter. */
 export async function familyOptions(repo: Repo, actor: Actor): Promise<FamilyOption[]> {
   const idx = await schoolSkillIndex(repo, schoolOf(actor));
   const out: FamilyOption[] = [];
   for (const [key, ids] of idx.members) {
-    const list = ids.map((id) => idx.skillOf.get(id)!).filter(Boolean);
-    if (!list.length || list.every((k) => k.code.endsWith(UNCLASSIFIED))) continue;
-    out.push({ key, name: list[0].name, grades: [...new Set(list.map((k) => k.grade))].sort((a, b) => a - b) });
+    const list = ids.map((id) => idx.skillOf.get(id)!).filter((k) => k && !k.code.endsWith(UNCLASSIFIED));
+    if (!list.length) continue;
+    // the family is named by its most common name; its other names are shown with it ("Suffixes / Prefixes")
+    const common = new Map<string, number>(), first = new Map<string, string>();
+    for (const k of list) { const n = normalizeSkillName(k.name); common.set(n, (common.get(n) ?? 0) + 1); if (!first.has(n)) first.set(n, k.name); }
+    const names = [...first.entries()].sort((a, b) => (common.get(b[0]) ?? 0) - (common.get(a[0]) ?? 0) || a[1].localeCompare(b[1])).map(([, v]) => v);
+    out.push({ key, name: names.join(" / "), names, grades: [...new Set(list.map((k) => k.grade))].sort((a, b) => a - b) });
   }
   return out.sort((a, b) => a.name.localeCompare(b.name) || a.grades[0] - b.grades[0]);
 }
 
-/** Skill families whose name contains the search words (shown as quick links above the list). */
+/** Skill families with a name that contains the search words (shown as quick links above the list), exact name first. */
 export async function familiesMatching(repo: Repo, actor: Actor, q: string, max = 8): Promise<FamilyOption[]> {
-  const words = q.trim().toLowerCase();
+  const words = normalizeSkillName(q);
   if (words.length < 3) return [];
-  return (await familyOptions(repo, actor)).filter((f) => f.name.toLowerCase().includes(words)).slice(0, max);
+  const exact = (f: FamilyOption) => Number(f.names.some((n) => normalizeSkillName(n) === words));
+  return (await familyOptions(repo, actor)).filter((f) => f.names.some((n) => normalizeSkillName(n).includes(words))).sort((a, b) => exact(b) - exact(a)).slice(0, max);
 }
 
 /** The skills of the school (for “Move to skill”), grade then name. */

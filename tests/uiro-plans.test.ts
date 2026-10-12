@@ -7,6 +7,7 @@
  */
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
+import { giveQuestion } from "./helpers/give-question";
 import { createHash } from "node:crypto";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
 import { resolveActor } from "../src/server/auth/actor";
@@ -225,6 +226,7 @@ describe("UI reorg Phase 4: Plans wizard, source tags, assign across grades, Gra
     const { id: _id, code: _code, ...rest } = base;
     void _id; void _code;
     const gram = await repo.create("Skill", { ...rest, code: "G5.grammar.test-u1w1-s1", name: "Test grammar: commas in a series" });
+    await giveQuestion(repo, String(gram.id));
     await assignPlan(repo, t5, { classId: class5, type: "CUSTOM", skillIds: [String(gram.id)] }, NOW);
     const [sid] = await members(class5);
     const me = await studentActor(sid);

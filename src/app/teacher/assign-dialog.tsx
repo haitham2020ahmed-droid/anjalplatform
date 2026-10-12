@@ -1,6 +1,6 @@
 "use client";
 import { useActionState, useEffect, useRef, useState } from "react";
-import { assignSkillAction } from "./actions";
+import { assignSkillAction, withdrawAssignmentsAction } from "./actions";
 import { useT } from "@/i18n/client";
 import { BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import { SkillAssignSteps } from "@/components/skill-picker";
@@ -32,7 +32,12 @@ export function AssignDialog({ skill }: { classId?: string; className?: string; 
 }
 
 /** The page's single assign dialog. */
-export function AssignSkillHost({ classId, className, students, track = "CURRICULUM" }: { classId: string; className: string; students: { id: string; name: string }[]; track?: Track }) {
+type Klass = { id: string; name: string; students: { id: string; name: string }[] };
+/**
+ * The page's single assign dialog. `classes` (optional): EVERY class the teacher teaches, so a skill can go to
+ * several classes at once (the page's own class is ticked first). Without it, only the page's class is offered.
+ */
+export function AssignSkillHost({ classId, className, students, track = "CURRICULUM", classes }: { classId: string; className: string; students: { id: string; name: string }[]; track?: Track; classes?: Klass[] }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [skill, setSkill] = useState<Skill | null>(null);
   const [round, setRound] = useState(0);
@@ -43,33 +48,60 @@ export function AssignSkillHost({ classId, className, students, track = "CURRICU
   }, []);
   return (
     <dialog ref={ref} className="w-[min(96vw,44rem)] max-w-none rounded-2xl p-0 backdrop:bg-slate-900/40" aria-label="Assign a skill">
-      {skill && <div key={round}><AssignForm skill={skill} classId={classId} className={className} students={students} track={track} close={() => ref.current?.close()} /></div>}
+      {skill && <div key={round}><AssignForm skill={skill} classId={classId} classes={classes?.length ? classes : [{ id: classId, name: className, students }]} track={track} close={() => ref.current?.close()} /></div>}
     </dialog>
   );
 }
 
-function AssignForm({ skill, classId, className, students, track, close }: { skill: Skill; classId: string; className: string; students: { id: string; name: string }[]; track: Track; close: () => void }) {
+function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; classId: string; classes: Klass[]; track: Track; close: () => void }) {
   const t = useT();
   const [mode, setMode] = useState<"class" | "students" | "one">("class");
+  // the page's class is ticked first; the teacher may add (or swap to) any other class of theirs
+  const [chosen, setChosen] = useState<string[]>(() => [classes.some((c) => c.id === classId) ? classId : classes[0]?.id].filter(Boolean) as string[]);
+  const picked = classes.filter((c) => chosen.includes(c.id));
+  const students = picked.flatMap((c) => c.students);
+  const className = picked.map((c) => c.name).join(", ");
   const [state, action, pending] = useActionState(assignSkillAction, {});
+  const [withdrawn, setWithdrawn] = useState<string | null>(null);
   useEffect(() => {
     if (!state.message) return;
-    window.dispatchEvent(new CustomEvent(DONE, { detail: skill.id }));
-    const t = setTimeout(close, 1200);   // done: close by itself
+    if (!state.draft) window.dispatchEvent(new CustomEvent(DONE, { detail: skill.id }));
+    // done: close by itself (a few seconds, so ↩ Withdraw can still be pressed)
+    const t = setTimeout(close, state.assignmentIds?.length ? 6000 : 1500);
     return () => clearTimeout(t);
-  }, [state.message, skill.id, close]);
+  }, [state.message, state.draft, state.assignmentIds, skill.id, close]);
+  async function withdraw() {
+    const r = await withdrawAssignmentsAction(state.assignmentIds ?? []);
+    setWithdrawn(r.message);
+  }
   const field = "rounded-lg border border-slate-300 px-3 py-2";
   return (
     <form action={action} className="space-y-4 p-6">
-      <input type="hidden" name="classId" value={classId} /><input type="hidden" name="skillId" value={skill.id} /><input type="hidden" name="mode" value={mode} />
+      {chosen.map((id) => <input key={id} type="hidden" name="classIds" value={id} />)}<input type="hidden" name="skillId" value={skill.id} /><input type="hidden" name="skillName" value={skill.name} /><input type="hidden" name="mode" value={mode} />
       <div>
         <h2 className="text-lg font-bold text-brand-navy">Assign “{skill.name}”</h2>
         <p className="text-sm text-slate-600">{skill.standards.length ? `${skill.standards.join(", ")} · ` : ""}{className}</p>
       </div>
+      {classes.length > 1 && (
+        <fieldset data-testid="assign-classes">
+          <legend className="text-sm font-semibold text-slate-700">Classes <span className="font-normal text-slate-500">(choose one or more)</span></legend>
+          <div className="mt-1 flex flex-wrap gap-2 text-sm">
+            {classes.map((c) => {
+              const on = chosen.includes(c.id);
+              return (
+                <button type="button" key={c.id} aria-pressed={on} onClick={() => setChosen((x) => on ? (x.length > 1 ? x.filter((y) => y !== c.id) : x) : [...x, c.id])}
+                  className={`rounded-full px-3 py-1.5 font-semibold ${on ? "bg-brand-teal text-white" : "ring-1 ring-slate-300"}`}>
+                  {on ? "✓ " : ""}{c.name} <span className="font-normal opacity-80">({c.students.length})</span>
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
+      )}
       <fieldset>
         <legend className="text-sm font-semibold text-slate-700">Assign to</legend>
         <div className="mt-1 flex flex-wrap gap-2 text-sm">
-          {([["class", `Entire class (${students.length})`], ["students", "Selected students"], ["one", "One student"]] as const).map(([v, l]) => (
+          {([["class", picked.length > 1 ? `Entire classes (${students.length})` : `Entire class (${students.length})`], ["students", "Selected students"], ["one", "One student"]] as const).map(([v, l]) => (
             <button type="button" key={v} onClick={() => setMode(v)} aria-pressed={mode === v} className={`rounded-full px-3 py-1.5 font-semibold ${mode === v ? "bg-brand-navy text-white" : "ring-1 ring-slate-300"}`}>{l}</button>
           ))}
         </div>
@@ -77,7 +109,12 @@ function AssignForm({ skill, classId, className, students, track, close }: { ski
       {mode !== "class" && (
         <div className="max-h-48 overflow-y-auto rounded-lg p-2 ring-1 ring-slate-200">
           {students.length === 0 && <p className="text-sm text-slate-600">No students in this class.</p>}
-          {students.map((st) => <label key={st.id} className="flex items-center gap-2 py-0.5 text-sm"><input type={mode === "one" ? "radio" : "checkbox"} name="studentIds" value={st.id} />{st.name}</label>)}
+          {picked.map((c) => (
+            <div key={c.id}>
+              {picked.length > 1 && <p className="mt-1 text-xs font-bold uppercase tracking-wide text-slate-500">{c.name}</p>}
+              {c.students.map((st) => <label key={st.id} className="flex items-center gap-2 py-0.5 text-sm"><input type={mode === "one" ? "radio" : "checkbox"} name="studentIds" value={st.id} />{st.name}</label>)}
+            </div>
+          ))}
         </div>
       )}
       <details className="text-sm">
@@ -88,11 +125,14 @@ function AssignForm({ skill, classId, className, students, track, close }: { ski
         </div>
       </details>
       {state.error && <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">{state.error}</p>}
-      {state.message && <p role="status" className="animate-pop rounded-lg bg-teal-50 px-3 py-2 text-sm text-teal-900">✓ {state.message}</p>}
+      {state.message && <p role="status" className="animate-pop rounded-lg bg-teal-50 px-3 py-2 text-sm text-teal-900">✓ {withdrawn ?? state.message}</p>}
       {state.message
-        ? <div className="flex justify-end"><button type="button" onClick={close} className={BTN_SECONDARY}>{t("Close")}</button></div>
+        ? <div className="flex justify-end gap-2">
+            {state.assignmentIds?.length && !withdrawn ? <button type="button" data-testid="assign-withdraw" onClick={() => void withdraw()} className={`${BTN_SECONDARY} text-rose-700`}>↩ {t("Withdraw")}</button> : null}
+            <button type="button" onClick={close} className={BTN_SECONDARY}>{t("Close")}</button>
+          </div>
         : <SkillAssignSteps skillId={skill.id} track={skill.track ?? track} grammar={skill.track === "GRAMMAR"} trackField pending={pending}
-            cancel={<button type="button" onClick={close} className={BTN_SECONDARY}>{t("Cancel")}</button>} />}
+            cancel={<span className="flex gap-2"><button type="button" onClick={close} className={BTN_SECONDARY}>{t("Cancel")}</button><button type="submit" name="intent" value="draft" disabled={pending} data-testid="assign-draft" className={BTN_SECONDARY}>📝 {t("Save as draft")}</button></span>} />}
     </form>
   );
 }

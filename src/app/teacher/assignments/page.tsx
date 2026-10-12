@@ -2,6 +2,8 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { weeklyAssignments } from "@/server/teacher/assign";
+import { listAssignDrafts } from "@/server/teacher/assign-drafts";
+import { deleteDraftAction, sendDraftAction } from "../actions";
 import { SOURCE_LABEL, SOURCE_TAG_CLASS, sourceKeyOf } from "@/lib/source-tags";
 
 const weekStartOf = (date: Date) => { const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate())); d.setUTCDate(d.getUTCDate() - d.getUTCDay()); return d; }; // weeks start on Sunday
@@ -15,7 +17,7 @@ export default async function WeeklyAssignmentsPage({ searchParams }: { searchPa
   const w = sp.week;
   const start = /^\d{4}-\d{2}-\d{2}$/.test(w ?? "") ? weekStartOf(new Date(`${w}T00:00:00Z`)) : weekStartOf(new Date());
   const prev = new Date(start.getTime() - 7 * 86_400_000), next = new Date(start.getTime() + 7 * 86_400_000), last = new Date(start.getTime() + 6 * 86_400_000);
-  const rows = await weeklyAssignments(repo, actor, start);
+  const [rows, drafts] = await Promise.all([weeklyAssignments(repo, actor, start), listAssignDrafts(repo, actor)]);
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/teacher/curriculum" className="text-brand-teal hover:underline">← Curriculum</Link></p>
@@ -26,6 +28,22 @@ export default async function WeeklyAssignmentsPage({ searchParams }: { searchPa
         <span className="font-semibold">{iso(start)} – {iso(last)}</span>
         <Link href={`/teacher/assignments?week=${iso(next)}`} className="rounded-lg px-3 py-1 ring-1 ring-slate-300">Next week →</Link>
       </div>
+      {drafts.length > 0 && (
+        <section data-testid="assign-drafts" className="mt-4 rounded-2xl bg-amber-50 p-4 ring-1 ring-amber-200">
+          <h2 className="font-semibold text-amber-950">📝 Drafts ({drafts.length}) <span className="text-sm font-normal">— not sent yet; students do not see them</span></h2>
+          <ul className="mt-2 divide-y divide-amber-200">
+            {drafts.map((d) => (
+              <li key={d.id} className="flex flex-wrap items-center justify-between gap-2 py-2 text-sm">
+                <span><b>{d.title}</b> <span className="text-slate-600">· {d.spec.studentIds.length ? `${d.spec.studentIds.length} student(s)` : `${d.spec.classIds.length} class(es)`}{d.spec.dueAt ? ` · due ${d.spec.dueAt}` : ""} · saved {d.updatedAt.slice(0, 10)}</span></span>
+                <span className="flex gap-2">
+                  <form action={sendDraftAction}><input type="hidden" name="draftId" value={d.id} /><button className="rounded-lg bg-teal-700 px-3 py-1.5 font-semibold text-white">▶ Send now</button></form>
+                  <form action={deleteDraftAction}><input type="hidden" name="draftId" value={d.id} /><button className="rounded-lg px-3 py-1.5 font-semibold text-rose-700 ring-1 ring-rose-200">Delete</button></form>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       <div className="mt-4 overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
         <table className="w-full text-left text-sm">
           <thead><tr className="border-b text-slate-500"><th className="p-3">Skill</th><th>Class</th><th>Assigned</th><th>Not started</th><th>In progress</th><th>Completed</th><th>Overdue</th><th>Due</th></tr></thead>

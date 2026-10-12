@@ -23,6 +23,7 @@ import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
 import { loadQuestionItems, toClientQuestion, type ClientQuestion } from "../practice/items";
 import { normalizeResponse } from "../practice/session";
+import { contentKeysForIds, Sitting } from "../questions/fresh";
 import { scoreResponse } from "../../imports/questions/validate";
 import { classMembers, studentNames } from "../insights/student-data";
 import { assertClassRead, readableClasses } from "../teacher/coordinators";
@@ -225,18 +226,24 @@ async function serveNext(repo: Repo, row: Row, grade: number, now: Date, warning
   const subject = s(row.subject) as Subject;
   if (Number(row.answered) >= Number(row.total)) return finish(repo, row, now, warning);
   const pool = await simPool(repo, s(row.schoolId), grade, subject);
-  const mine = await repo.findMany("MapSimAnswer", { sessionId: row.id }, { select: ["area"] });
+  const mine = await repo.findMany("MapSimAnswer", { sessionId: row.id }, { select: ["area", "questionId"] });
   const done = new Map<GroupKey, number>();
   for (const a of mine) done.set(s(a.area) as GroupKey, (done.get(s(a.area) as GroupKey) ?? 0) + 1);
   const seen = await seenIds(repo, s(row.studentId));
   const available = new Set([...pool.byGroup].filter(([, l]) => l.some((q) => !seen.sim.has(q.id))).map(([k]) => k));
   const plan = blueprint(subject, Number(row.total));
+  // 🛡️ never a copy of a question already answered in this test (same content stored under another skill or grade)
+  const mineIds = mine.map((a) => s(a.questionId));
+  const sitting = new Sitting();
+  const mineKeys = mineIds.length ? await contentKeysForIds(repo, mineIds) : new Map<string, string[]>();
+  for (const id of mineIds) sitting.add(id, mineKeys.get(id) ?? []);
   let q: PoolQ | null = null;
-  for (let tries = 0; tries < 6 && !q; tries++) {
+  for (let tries = 0; tries < 12 && !q; tries++) {
     const g = nextGroup(plan, done, available);
     if (!g) break;
     q = pickItem(pool.byGroup.get(g) ?? [], Number(row.rit), seen.sim, seen.practice);
-    if (!q) available.delete(g);
+    if (!q) { available.delete(g); continue; }
+    if (sitting.has(q.id, (await contentKeysForIds(repo, [q.id])).get(q.id) ?? [])) { seen.sim.add(q.id); q = null; }
   }
   if (!q) return finish(repo, row, now, warning);   // the bank ran out: finish with what we have
   await repo.updateMany("MapSimSession", { id: row.id }, { servedQuestionId: q.id, servedAt: now });

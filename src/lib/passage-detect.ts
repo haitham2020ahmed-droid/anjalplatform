@@ -44,3 +44,24 @@ export function passageReference(stem: string): string | null {
   for (const p of PATTERNS) { const m = t.match(p); if (m) return m[0]; }
   return null;
 }
+
+/**
+ * 🧹 A STRICT version for hiding questions automatically (Update 55): only wording that certainly points to a text that
+ * must be shown — "according to the passage", "in paragraph 3", "which detail from the article", "the excerpt"… —
+ * and only when the question does not carry its own text (a quotation of 8+ words, or a long stem). General
+ * questions about reading ("the main character", "a story", "the text says, \"…\"") are never hidden.
+ */
+const STRONG_TEXT = "(?:passage|article|selection|excerpt|poem|story|text|essay|speech)";
+const STRONG: RegExp[] = [
+  new RegExp(`\\b(?:according to|based on|reread) (?:the|this) ${STRONG_TEXT}\\b`, "i"),
+  new RegExp(`\\b(?:which|what) (?:detail|sentence|evidence|line|lines|word|phrase|quotation|quote|paragraph) (?:from|in) (?:the|this) ${STRONG_TEXT}\\b`, "i"),
+  /\b(?:in|from|reread) (?:paragraph|stanza)s? \d+\b/i,
+  /\b(?:the|this) (?:passage|excerpt|selection)\b/i,
+  /\b(?:in|from|of) (?:the|this) article\b/i,   // (not the grammar word: "Choose the article: a / an")
+];
+const OWN_TEXT = /["“][^"”]{40,}["”]/;
+export function definitelyNeedsPassage(stem: string): boolean {
+  const t = String(stem ?? "").trim();
+  if (!t || t.length >= 260 || OWN_TEXT.test(t)) return false;
+  return STRONG.some((p) => p.test(t));
+}

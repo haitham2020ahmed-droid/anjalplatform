@@ -1,10 +1,11 @@
 "use server";
+import { deleteAssignDraft, saveAssignDraft, sendAssignDraft, withdrawAssignments } from "@/server/teacher/assign-drafts";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { repo, requireActor } from "@/server/auth/next";
 import { createAssignment } from "@/server/teacher/assignments";
-import { assignQuestions, assignSkill, trackOf } from "@/server/teacher/assign";
+import { assignQuestions, assignSkillToClasses, trackOf } from "@/server/teacher/assign";
 import { resolveAlert } from "@/server/teacher/interventions";
 import { ValidationError } from "@/server/curriculum-admin";
 import { parseQuestionIdsField, programOf } from "@/components/skill-picker/helpers";
@@ -47,20 +48,30 @@ const day = (v: FormDataEntryValue | null, end: boolean): Date | null => {
   return new Date(`${t}T${end ? "23:59:59" : "00:00:00"}+03:00`);
 };
 
-export async function assignSkillAction(_: { error?: string; message?: string }, f: FormData): Promise<{ error?: string; message?: string }> {
+export async function assignSkillAction(_: { error?: string; message?: string; assignmentIds?: string[] }, f: FormData): Promise<{ error?: string; message?: string; assignmentIds?: string[]; draft?: boolean }> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   try {
     const mode = String(f.get("mode") ?? "class");
     const picked = f.getAll("studentIds").map(String).filter(Boolean);
     if (mode !== "class" && picked.length === 0) return { error: "Choose at least one student." };
     if (mode === "one" && picked.length !== 1) return { error: "Choose exactly one student." };
-    const r = await assignSkill(repo, actor, { track: trackOf(f.get("track")), 
-      classId: String(f.get("classId") ?? ""), skillId: String(f.get("skillId") ?? ""), studentIds: mode === "class" ? [] : picked,
+    // one or several of the teacher's classes (the dialog lists them all); older forms send one classId
+    const classIds = [...new Set(f.getAll("classIds").map(String).filter(Boolean))];
+    if (!classIds.length && f.get("classId")) classIds.push(String(f.get("classId")));
+    // 📝 Save as draft: nothing reaches students; sent later from Weekly Assignments → Drafts
+    if (f.get("intent") === "draft") {
+      const ymd = (v: FormDataEntryValue | null) => (v && /^\d{4}-\d{2}-\d{2}$/.test(String(v)) ? String(v) : null);
+      await saveAssignDraft(repo, actor, { skillId: String(f.get("skillId") ?? ""), skillName: String(f.get("skillName") ?? "Skill"), classIds, studentIds: mode === "class" ? [] : picked, track: trackOf(f.get("track")), program: (programOf(f.get("program")) as string | null) ?? null, questionIds: parseQuestionIdsField(f.get("questionIds")) ?? null, startAt: ymd(f.get("startAt")), dueAt: ymd(f.get("dueAt")), note: String(f.get("note") ?? "") });
+      revalidatePath("/teacher/assignments");
+      return { message: "Saved as a draft. Nothing was sent. Send it from Weekly Assignments → Drafts.", draft: true };
+    }
+    const r = await assignSkillToClasses(repo, actor, { track: trackOf(f.get("track")),
+      classIds, skillId: String(f.get("skillId") ?? ""), studentIds: mode === "class" ? [] : picked,
       startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
       program: programOf(f.get("program")), questionIds: parseQuestionIdsField(f.get("questionIds")),
     });
     revalidatePath("/teacher/assignments");   // not the skills page: rebuilding it after every click made assigning slow
-    return { message: `Assigned to ${r.students} student${r.students === 1 ? "" : "s"}. They have been notified.` };
+    return { message: `Assigned to ${r.students} student${r.students === 1 ? "" : "s"}${r.classes > 1 ? ` in ${r.classes} classes` : ""}. They have been notified.`, assignmentIds: r.assignmentIds };
   } catch (e) {
     if (e instanceof ValidationError || (e as { status?: number }).status === 403) return { error: (e as Error).message };
     throw e;
@@ -87,4 +98,35 @@ export async function assignQuestionsAction(_: { error?: string; message?: strin
     if (e instanceof ValidationError || (e as { status?: number }).status === 403) return { error: (e as Error).message };
     throw e;
   }
+}
+
+// ------------------------------------------------------------------ 📝 Review & Send: withdraw, drafts
+
+/** ↩ Withdraw work just sent (from the assign dialog). */
+export async function withdrawAssignmentsAction(ids: string[]): Promise<{ ok: boolean; message: string }> {
+  const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
+  try {
+    const n = await withdrawAssignments(repo, actor, Array.isArray(ids) ? ids.map(String) : []);
+    revalidatePath("/teacher/assignments");
+    return { ok: true, message: n ? "Withdrawn. It is no longer on the students' lists." : "Nothing to withdraw." };
+  } catch (e) {
+    if (e instanceof ValidationError || (e as { status?: number }).status === 403) return { ok: false, message: (e as Error).message };
+    throw e;
+  }
+}
+
+export async function sendDraftAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
+  let msg: string;
+  try { const r = await sendAssignDraft(repo, actor, String(f.get("draftId") ?? "")); msg = `✓ Sent to ${r.students} student(s). They have been notified.`; }
+  catch (e) { if (e instanceof ValidationError || (e as { status?: number }).status === 403) msg = `⚠️ ${(e as Error).message}`; else throw e; }
+  revalidatePath("/teacher/assignments");
+  redirect(`/teacher/assignments?msg=${encodeURIComponent(msg)}`);
+}
+
+export async function deleteDraftAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
+  await deleteAssignDraft(repo, actor, String(f.get("draftId") ?? "")).catch(() => undefined);
+  revalidatePath("/teacher/assignments");
+  redirect(`/teacher/assignments?msg=${encodeURIComponent("Draft deleted.")}`);
 }

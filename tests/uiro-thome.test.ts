@@ -204,19 +204,19 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
 
   test("teacher menu: short (Programs + More); Assessments added; tour targets; strings translated", () => {
     const items = navItemsFor("TEACHER");
-    const groups = [...new Set(items.map((i) => i.group).filter(Boolean))];
-    assert.deepEqual(groups, ["Programs", "More"]);
+    // owner's spec (Update 53): seven entries, no groups
+    assert.equal(items.length, 7);
     const hrefs = new Set(items.map((i) => i.href));
-    for (const h of ["/teacher/students", "/teacher/plans", "/teacher/assessments", "/teacher/map-center", "/admin/curriculum-map", "/teacher/rti-plan", "/admin/grammar", "/teacher/reports"]) assert.ok(hrefs.has(h), h);
+    for (const h of ["/teacher/students", "/teacher/plans", "/teacher/map-center", "/admin/curriculum-map", "/teacher/reports", "/teacher/reading"]) assert.ok(hrefs.has(h), h);
     // the school asked: no Question Bank entry for teachers (they assign skills from Find a skill, Plans and Assessments)
     assert.ok(!hrefs.has("/admin/questions") && !items.some((i) => i.label === "Question Bank"), "no Question Bank in the teacher menu");
     // pages that left the menu are checked in tests/uiro-shell.test.ts (MOVED / OUT) and tests/menus.test.ts
     assert.equal(new Set(items.map((i) => i.icon)).size, items.length, "one icon per entry");
     const home = readFileSync(join(process.cwd(), "src/app/teacher/page.tsx"), "utf8");
-    for (const tour of ["students", "plans", "assessments"]) assert.ok(home.includes(`tour="${tour}"`), tour);
+    for (const x of ["Needs attention", "Work sent this week", "My students", "Quick actions"]) assert.ok(home.includes(x), x);
     const en = readFileSync(join(process.cwd(), "src/i18n/en.ts"), "utf8");
     assert.ok(en.includes("// ---- teacher home (wave 2)"));
-    for (const s of ["Upload Roster", "Download Accounts", "Find a skill and assign it", "Needs your attention", "Add Student", "Hello, {name}"]) {
+    for (const s of ["Download Accounts", "Find a skill and assign it", "Needs attention", "Add Student", "Hello, {name}"]) {
       assert.ok((UI_STRINGS as readonly string[]).includes(s), s);
       assert.ok(ar[s as keyof typeof ar] && ar[s as keyof typeof ar] !== s, `${s} has Arabic`);
     }

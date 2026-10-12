@@ -25,6 +25,75 @@ const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
 const OPEN = ["NOT_STARTED", "IN_PROGRESS", "OVERDUE"];
 
+/**
+ * 🎯 The owner's 25-question rule: when a student has answered this many questions of an assigned skill, the work is
+ * Done (at once, on the server, once). The work's core result (accuracy shown to the teacher) counts these FIRST
+ * answers only; practice after that still trains ability and mastery but never changes the work's status or result.
+ */
+export const ASSIGNMENT_DONE_AT = 25;
+
+export type Completion = "DONE" | "IN_PROGRESS" | "NOT_STARTED";
+/**
+ * The three things a student's skill work is judged by, kept SEPARATE everywhere:
+ *   completion → Done / In progress / Not started, and "answered x of 25"
+ *   accuracy   → % correct of the first 25 answers (null before any answer)
+ *   mastery    → the engine's mastery % and band for the skill (not part of this object's counts)
+ */
+export interface WorkProgress { assignmentId: string; completion: Completion; answered: number; of: number; correct: number; accuracy: number | null }
+
+export const accuracyOf = (correct: number, answered: number): number | null => (answered > 0 ? Math.round((100 * correct) / answered) : null);
+
+/** The work's progress from its AssignmentStudent row (answered/correct may be passed when just computed). */
+export function workProgressOf(assignmentId: string, row: Row | null | undefined, core?: { answered: number; correct: number }): WorkProgress {
+  const answered = Math.min(ASSIGNMENT_DONE_AT, core?.answered ?? Number(row?.coreAnswered ?? 0));
+  const correct = Math.min(answered, core?.correct ?? Number(row?.coreCorrect ?? 0));
+  const done = Boolean(row && (d(row.completedAt) || s(row.status) === "COMPLETED"));
+  return { assignmentId, completion: done ? "DONE" : answered > 0 || s(row?.status) === "IN_PROGRESS" ? "IN_PROGRESS" : "NOT_STARTED", answered, of: ASSIGNMENT_DONE_AT, correct, accuracy: accuracyOf(correct, answered) };
+}
+
+/**
+ * The work's core counts so far: the stored ones, else (a row from before the 25-question rule) the first answers
+ * given in the practice sessions linked to it — at most ASSIGNMENT_DONE_AT, oldest first. Two bounded reads.
+ */
+export async function coreCountsOf(repo: Repo, assignmentId: string, studentId: string, row: Row | null | undefined): Promise<{ answered: number; correct: number }> {
+  if (row && row.coreAnswered !== null && row.coreAnswered !== undefined) return { answered: Number(row.coreAnswered), correct: Number(row.coreCorrect ?? 0) };
+  const sessions = await repo.findMany("PracticeSession", { assignmentId, studentId, mode: "ADAPTIVE_PRACTICE" }, { select: ["id"] });
+  if (!sessions.length) return { answered: 0, correct: 0 };
+  const first = await repo.findMany("QuestionAttempt", { sessionId: { in: sessions.map((x) => x.id) } }, { select: ["isCorrect"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }], take: ASSIGNMENT_DONE_AT });
+  return { answered: first.length, correct: first.filter((a) => Boolean(a.isCorrect)).length };
+}
+
+/**
+ * Who may open /practice/[skillId] as assigned work. Root causes of "This skill has not been assigned to you" for
+ * work that WAS assigned: the old check compared Assignment.skillId === skillId strictly (via a single-skill helper),
+ * so (1) another grade's copy of the skill (one family, pooled questions) was refused, (2) an older row listing
+ * several skills in skillIds was refused, and (3) the prerequisite the engine itself routes to ("Practise …") was
+ * refused. Now: ANY not-deleted assignment of the student whose skill(s) are in the skill's family counts; a
+ * prerequisite of such a skill counts too. Work that has not started yet gives its start date (a clear message).
+ */
+export async function assignedSkillAccess(repo: Repo, studentId: string, skillId: string, now = new Date()): Promise<{ assigned: boolean; startsAt: Date | null }> {
+  const rows = await repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId"] });
+  if (!rows.length) return { assigned: false, startsAt: null };
+  const [list, family] = await Promise.all([
+    repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }, { select: ["skillId", "skillIds", "startAt"] }),
+    skillFamilyIds(repo, skillId),
+  ]);
+  const fam = new Set([skillId, ...family]);
+  const skillsOf = (a: Row): string[] => {
+    let ids: unknown = a.skillIds;
+    if (typeof ids === "string") { try { ids = JSON.parse(ids); } catch { ids = null; } }
+    return [...new Set([...(a.skillId ? [s(a.skillId)] : []), ...(Array.isArray(ids) ? ids.map(s) : [])])].filter(Boolean);
+  };
+  const started = (a: Row) => !(d(a.startAt) && d(a.startAt)! > now);
+  const mine = list.filter((a) => skillsOf(a).some((k) => fam.has(k)));
+  if (mine.some(started)) return { assigned: true, startsAt: null };
+  // a prerequisite of an assigned (started) skill: the engine sends the student there from the assigned practice
+  const open = [...new Set(list.filter(started).flatMap(skillsOf))];
+  if (open.length && (await repo.count("SkillPrerequisite", { prerequisiteSkillId: { in: [...fam] }, skillId: { in: open } })) > 0) return { assigned: true, startsAt: null };
+  const later = mine.map((a) => d(a.startAt)!).sort((x, y) => x.getTime() - y.getTime())[0];
+  return { assigned: false, startsAt: later ?? null };
+}
+
 /** Practice endings that mean "the student finished this practice" (not a pause, a detour or a time-out). */
 export const FINISH_REASONS: ReadonlySet<string> = new Set(["COMPLETED", "LEVEL_CONFIRMED", "ALL_QUESTIONS_ANSWERED", "POOL_EXHAUSTED", "SKILL_FINISHED", "RETRY_LATER"]);
 export const isFinishReason = (r: unknown): boolean => FINISH_REASONS.has(s(r));
@@ -83,6 +152,28 @@ export async function markDone(repo: Repo, assignmentIds: readonly string[], stu
   const ids = [...new Set(assignmentIds.filter(Boolean))];
   if (!ids.length) return 0;
   return repo.updateMany("AssignmentStudent", { assignmentId: { in: ids }, studentId, completedAt: null }, { status: "COMPLETED", progress: 1, completedAt: at });
+}
+
+/**
+ * One answer counted toward the work's core result (the first ASSIGNMENT_DONE_AT answers), in the answer's own
+ * transaction. Guarded by the stored count (a double submit or a second tab is counted once); at the 25th answer the
+ * work becomes Done (completedAt IS NULL guard: written once). Returns the new counts, or null when not counted.
+ */
+export async function countCoreAnswer(tx: Repo, assignmentId: string, studentId: string, prev: { answered: number; correct: number; stored: number | null; done: boolean }, correct: boolean, at: Date): Promise<{ answered: number; correct: number; justDone: boolean } | null> {
+  if (prev.answered >= ASSIGNMENT_DONE_AT) {
+    // a row from before the rule that already had 25 answers: its first 25 are its result, and it is Done now
+    if (prev.done && prev.stored !== null) return null;
+    if (prev.stored === null) await tx.updateMany("AssignmentStudent", { assignmentId, studentId, coreAnswered: null }, { coreAnswered: ASSIGNMENT_DONE_AT, coreCorrect: Math.min(prev.correct, ASSIGNMENT_DONE_AT) });
+    const n = await markDone(tx, [assignmentId], studentId, at);
+    return n > 0 ? { answered: ASSIGNMENT_DONE_AT, correct: prev.correct, justDone: true } : null;
+  }
+  const answered = prev.answered + 1, right = prev.correct + (correct ? 1 : 0);
+  const n = await tx.updateMany("AssignmentStudent", { assignmentId, studentId, coreAnswered: prev.stored }, { coreAnswered: answered, coreCorrect: right });
+  if (n !== 1) return null;
+  // the 25th answer: Done now (or already Done earlier — e.g. the target mastery was reached — and stays Done)
+  const justDone = answered >= ASSIGNMENT_DONE_AT;
+  if (justDone) await markDone(tx, [assignmentId], studentId, at);
+  return { answered, correct: right, justDone };
 }
 
 /** Per-process memo so the backfill runs at most once per student every few minutes (My Work loads often). */
@@ -192,6 +283,8 @@ export async function completeFinished(repo: Repo, open: Row[], assignments: Row
         .filter((x) => x.endedAt && isFinishReason(x.endReason))
         .sort((p, q) => (d(p.endedAt)?.getTime() ?? 0) - (d(q.endedAt)?.getTime() ?? 0))[0];
       if (fin) at = d(fin.endedAt);
+      // the 25-question rule for work answered before it existed: 25+ answers in its linked practice → Done
+      else if (Number(r.coreAnswered ?? 0) >= ASSIGNMENT_DONE_AT || own.filter((x) => x.mode === "ADAPTIVE_PRACTICE").reduce((n, x) => n + Number(x.questionCount ?? 0), 0) >= ASSIGNMENT_DONE_AT) at = now;
     }
     if (at) done += await markDone(repo, [s(a.id)], sid, at);
   }

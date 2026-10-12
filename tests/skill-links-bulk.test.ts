@@ -38,9 +38,10 @@ describe("skill links · bulk review", () => {
     skills = (await repo.findMany("Skill", { curriculumId: { in: cur.map((c) => c.id) }, isActive: true, deletedAt: null }, { select: ["id", "name", "code"] }))
       .filter((k) => !isHiddenSkill(k.code)).map((k) => ({ id: s(k.id), name: s(k.name) }));
     assert.ok(skills.length >= 4, "Grade 4 has skills");
-    const qs = await repo.findMany("Question", { skillId: { in: skills.map((k) => k.id) }, deletedAt: null }, { select: ["id", "skillId"], take: 40 });
+    const qs = await repo.findMany("Question", { skillId: { in: skills.map((k) => k.id) }, deletedAt: null }, { select: ["id", "skillId", "stem"], take: 40 });
     // questions not already on the skills we move them to
-    qIds = qs.filter((q) => ![skills[0].id, skills[1].id, skills[2].id].includes(s(q.skillId))).map((q) => s(q.id));
+    // (questions whose own wording mentions a student are left out: the privacy check below looks for that word)
+    qIds = qs.filter((q) => ![skills[0].id, skills[1].id, skills[2].id].includes(s(q.skillId)) && !/student|username|email|rev\d/i.test(s(q.stem))).map((q) => s(q.id));
     assert.ok(qIds.length >= 12);
   });
 

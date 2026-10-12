@@ -1,0 +1,605 @@
+{
+  "code": "RR-069",
+  "title": "How Computers Learn: Artificial Intelligence",
+  "topic": "Technology",
+  "summary": "How computers learn patterns from labeled data, how AI helps people every day, and why its mistakes and bias mean humans must check its work.",
+  "poll": "Artificial intelligence does more good than harm.",
+  "versions": [
+    {
+      "level": 300,
+      "title": "Can a Computer Learn?",
+      "text": "You talk to a phone. It types what you say. How? It learned!\n\nA computer does what it is told. The list of steps is a program. People write it.\n\nSome jobs have too many rules. Look at a cat and a dog. You know which is which. But it is hard to write all the rules.\n\nSo people train it. They give it data. Data is lots of facts and pics. It sees lots of cat pics. Each one says \"cat.\" It looks for a pattern. That is a thing you see again and again.\n\nThen it makes a guess. Is this a cat? If it is wrong, it fixes its math. It tries once more. Bit by bit, it gets good. We call this AI.\n\nAI helps us. It can change words to a new tongue. It can tell which roads are full. It helps doctors look at scans.\n\nBut AI can make a mistake. It learns from its data. Bad data can teach it wrong things. So we must check its work.\n\nSaudi Arabia has a big team for AI. Kids there learn to code, too."
+    },
+    {
+      "level": 400,
+      "title": "Can a Computer Learn?",
+      "text": "You speak to a phone, and it types your words. How does it do that? It learned how!\n\nA computer does just what it is told. The list of steps it follows is called a program. People write it.\n\nSome jobs have too many rules. Think of a cat and a dog. You can tell them apart. But it is hard to write down all the rules.\n\nSo people train the computer. They give it data. Data is a big set of facts or pictures. It sees lots of cat pictures. Each one is marked \"cat.\" It looks for a pattern. A pattern is something that shows up again and again.\n\nNext, it makes a guess. Is this a cat? If it is wrong, it changes its math a bit. Then it tries again. Little by little, it gets better. This is called AI. AI is short for artificial intelligence.\n\nAI helps us in many ways. It can turn words into a new language. It can tell which roads are busy. It helps doctors look at scans.\n\nBut AI can make a mistake. It learns from data. If the data is bad, it learns wrong things. So people must check its work.\n\nSaudi Arabia has a big group that works on AI. Kids there learn to code, too."
+    },
+    {
+      "level": 500,
+      "title": "How Computers Learn",
+      "text": "You speak to a phone, and it types your words. A map app shows you the fastest road. How do they do it? The computer learned how!\n\nA computer does just what it is told. The list of steps it follows is called a program. People write programs one step at a time.\n\nBut some jobs have too many rules. Think of a cat and a dog. You can tell them apart fast. But it is very hard to write down every rule for how you know.\n\nSo people train the computer. They give it data. Data is a big set of facts, numbers, or pictures. They show it lots of cat pictures. Each one is marked \"cat.\" The computer looks for a pattern. A pattern is something that shows up again and again, like pointed ears.\n\nThen the computer makes a guess. Is this new picture a cat? If it is wrong, it changes its math a bit and tries again. Little by little, it gets better. This is called AI, or artificial intelligence.\n\nAI helps us in many ways. It can change words from one language to another. It can tell which roads are busy. It can help doctors look at scans of the body.\n\nBut AI can make a mistake. It only learns from its data. If the data is wrong or unfair, it learns wrong things. So people must check its work.\n\nSaudi Arabia has a national group that works on AI. Many students there learn to code, too."
+    },
+    {
+      "level": 600,
+      "title": "How Computers Learn",
+      "text": "You speak to a phone, and it types your words. A map app shows you the fastest road home. How do they do it? The computer learned how!\n\nA computer does exactly what it is told. The list of steps it follows is called a program. People write programs carefully, one step at a time.\n\nHowever, some jobs have too many rules to write. Think about a cat and a dog. You can tell them apart in a second. Still, it is very hard to write down every rule that explains how you know.\n\nSo people train the computer instead. They give it data, which is a large set of facts, numbers, or pictures. For example, they might show it thousands of photos of cats. Each photo is marked \"cat.\" The computer searches for a pattern, something that shows up again and again, like pointed ears or whiskers.\n\nNext, the computer makes a guess about a new photo. If its guess is wrong, it changes its math a little and tries again. Little by little, it gets better. When a computer learns like this, we call it AI, or artificial intelligence.\n\nAI helps people in many ways. It can translate words from one language to another. It can tell which roads are crowded. It can even help doctors study scans of the body.\n\nBut AI can still make a mistake. It only knows what its data teaches it. If the data is wrong or unfair, the computer learns wrong things. That is why people must always check its work.\n\nSaudi Arabia has a national group that leads its work on AI. Many students are learning to code, too."
+    },
+    {
+      "level": 700,
+      "title": "How Computers Learn: Artificial Intelligence",
+      "text": "You speak to a phone, and it types your words. A map app warns you about traffic before you leave home. How can a machine do these things? The answer is that the computer has learned.\n\nA computer does exactly what it is told. The set of steps it follows is called a program, and a step-by-step plan for solving a problem is called an algorithm. For many jobs, people write every rule themselves.\n\nHowever, some jobs have too many rules to write. You can recognize a cat in a second, but try to explain every rule for how you know. It is almost impossible!\n\nSo people train the computer instead. They give it data, a large set of facts, numbers, or pictures. For example, they might show it thousands of photos, each with a label that says \"cat\" or \"not cat.\" The computer searches for a pattern, such as pointed ears or whiskers, that shows up again and again.\n\nNext, the computer makes a guess about a new photo. If the guess is wrong, it adjusts its math a little and tries again. After many tries, it becomes quite accurate. When a computer learns this way, we call it artificial intelligence, or AI.\n\nAI helps people every day. It can translate words from one language to another. It can predict which roads will be crowded. It can even help doctors find signs of illness in scans of the body.\n\nStill, AI can make a mistake. It only knows what its data teaches it, so if the data is wrong or unfair, the computer learns wrong things. That is why people must check its work.\n\nIn Saudi Arabia, a national authority leads the country's work on AI, and many students are learning to code."
+    },
+    {
+      "level": 800,
+      "title": "How Computers Learn: Artificial Intelligence",
+      "text": "You speak to a phone, and it types your words. A map app warns you about traffic before you even leave home. How can a machine do these things? The answer is that the computer has learned.\n\nA computer does exactly what it is told. The set of instructions it follows is called a program, and a step-by-step plan for solving a problem is called an algorithm. For many tasks, people write every rule themselves.\n\nHowever, some tasks involve too many rules to write. You can recognize a cat in a second, but try explaining every rule you use to decide. It is almost impossible!\n\nSo instead, people train the computer. They give it data, a large collection of facts, numbers, or pictures. For example, they might show it thousands of photos, each with a label that says \"cat\" or \"not cat.\" The computer searches for a pattern, such as pointed ears or whiskers, that appears again and again.\n\nNext, the computer makes a guess about a new photo. If the guess is wrong, it adjusts its math slightly and tries again. After many attempts, it becomes quite accurate. When a computer learns in this way, we call it artificial intelligence, or AI.\n\nAI helps people every day. It can translate words from one language to another, and it can predict which roads will be crowded. It can even help doctors find signs of illness in medical scans.\n\nNevertheless, AI can make a mistake. It only knows what its data teaches it, so if the data is wrong or unfair, the computer learns wrong things. That is why people must always check its work.\n\nIn Saudi Arabia, a national authority leads the country's work on AI, and many students are learning to write code."
+    },
+    {
+      "level": 900,
+      "title": "How Computers Learn: Artificial Intelligence",
+      "text": "You speak to a phone, and it types your words. A map application warns you about traffic before you even leave home. How can a machine accomplish these things? The answer is that the computer has learned.\n\nA computer does exactly what it is instructed to do. The set of instructions it follows is called a program, and a step-by-step method for solving a problem is called an algorithm. For many tasks, programmers write every rule themselves.\n\nHowever, some tasks involve too many rules to write. You can recognize a cat instantly, but try explaining every rule you use to decide. It is almost impossible!\n\nSo instead, people train the computer. They provide it with data, an enormous collection of facts, numbers, or pictures. For example, they might show it thousands of photographs, each with a label that says \"cat\" or \"not cat.\" The computer searches for a pattern, such as pointed ears or whiskers, that appears repeatedly.\n\nNext, the computer makes a guess about an unfamiliar photograph. If the guess is incorrect, it adjusts its calculations slightly and tries again. After thousands of attempts, it becomes remarkably accurate. When a computer learns in this way, we call it artificial intelligence, or AI.\n\nAI assists people every day. It can translate sentences from one language to another. It can predict which roads will become crowded. It can even help doctors identify signs of illness in medical scans.\n\nNevertheless, AI can make a serious mistake. It only knows what its data teaches it, so if the data is inaccurate or unfair, the computer learns incorrect lessons. That is why people must always examine its work.\n\nIn Saudi Arabia, a national authority guides the country's work on AI, and many students are learning to write computer code."
+    },
+    {
+      "level": 1000,
+      "title": "How Computers Learn: Artificial Intelligence",
+      "text": "You speak to a phone, and it types your words. A map application warns you about traffic before you even leave home. How can a machine accomplish these things? The answer is that the computer has learned from experience.\n\nA computer does precisely what it is instructed to do. The set of instructions it follows is called a program, and a step-by-step procedure for solving a problem is called an algorithm. For many tasks, programmers write every rule themselves.\n\nHowever, some tasks involve too many rules to write. You can recognize a cat instantly, yet explaining every rule you use to decide is almost impossible.\n\nConsequently, people train the computer instead. They provide it with data, an enormous collection of facts, measurements, or pictures. For example, they might show it thousands of photographs, each accompanied by a label that says \"cat\" or \"not cat.\" The computer searches for a pattern, such as pointed ears or whiskers, that appears repeatedly.\n\nNext, the computer makes a prediction about an unfamiliar photograph. If the prediction is incorrect, it adjusts its calculations slightly and tries again, and after thousands of attempts, it becomes remarkably accurate. When a computer learns in this way, we call it artificial intelligence, or AI.\n\nAI assists people every day. It can translate sentences from one language to another, and it can predict which roads will become congested. It can even help doctors identify early signs of illness in medical scans.\n\nNevertheless, AI can make serious mistakes. It only understands what its data teaches it, so if the data is inaccurate or unfair, the computer absorbs incorrect lessons. That is why people must always examine its work carefully.\n\nIn Saudi Arabia, a national authority, established in 2019, guides the country's work on AI, and many students are learning to write computer code."
+    },
+    {
+      "level": 1100,
+      "title": "Teaching Machines to Think: Artificial Intelligence",
+      "text": "You speak to a phone, and it types your words almost perfectly. A map application warns you about traffic before you even leave home. These machines seem clever, but their skill comes from a process in which the computer has learned from experience.\n\nTraditionally, a computer does precisely what it is instructed to do. The instructions it follows form a program, and a step-by-step procedure for solving a problem is called an algorithm. For many tasks, programmers write every rule themselves.\n\nHowever, some tasks involve far too many rules to write. You can recognize a cat instantly, yet explaining every rule your brain uses to decide is nearly impossible.\n\nConsequently, engineers use a method called machine learning. Rather than writing the rules, they provide the computer with data, an enormous collection of examples. They might show it thousands of photographs, each with a label that says \"cat\" or \"not cat,\" and the computer searches for patterns, such as pointed ears or whiskers, that appear again and again. Many of these systems use a neural network, which is a structure of connected layers loosely inspired by the way cells in the brain link together.\n\nThe computer then makes a prediction about an unfamiliar photograph. If the prediction is incorrect, it adjusts its internal calculations slightly and tries again. After thousands of attempts, it becomes remarkably accurate, and when a computer performs tasks that normally require human thinking, we call it artificial intelligence, or AI.\n\nAI assists people every day. It translates sentences between languages, predicts which roads will become congested, and helps doctors identify early signs of illness in medical scans.\n\nNevertheless, AI has important limits. It understands only what its data teaches it, so if the examples are inaccurate or incomplete, the system can develop a bias, an unfair tendency to favor some answers or groups over others. It also does not truly understand the world or feel anything the way people do. For these reasons, building AI raises ethical questions about fairness, privacy, and responsibility, and humans must always check its work.\n\nIn Saudi Arabia, a national authority for data and AI, established in 2019, guides the country's plans, and many students are learning to write computer code."
+    },
+    {
+      "level": 1200,
+      "title": "Teaching Machines to Think: Artificial Intelligence",
+      "text": "You speak to a phone, and it transcribes your words almost perfectly. A navigation application warns you about traffic before you even leave home. These machines appear clever, but their skill comes from a process in which the computer has learned from experience.\n\nTraditionally, a computer does precisely what it is instructed to do, and the instructions it follows form a program, and a step-by-step procedure for solving a problem is called an algorithm, so for many tasks, programmers write every rule themselves.\n\nHowever, some tasks involve far too many rules to write. You can recognize a cat instantly, yet explaining every rule your brain applies to reach that decision is nearly impossible.\n\nConsequently, engineers rely on a method called machine learning. Rather than writing the rules, they provide the computer with data, an enormous collection of examples. They might show it thousands of photographs, each accompanied by a label that says \"cat\" or \"not cat,\" and the computer searches for patterns, such as pointed ears or whiskers, that appear repeatedly. Many of these systems use a neural network, which is a structure of interconnected layers loosely inspired by the way cells in the brain communicate.\n\nThe computer then makes a prediction about an unfamiliar photograph. If the prediction is incorrect, it adjusts its internal calculations slightly and tries again. After thousands of attempts, it becomes remarkably accurate, and when a computer performs tasks that ordinarily require human thinking, we call it artificial intelligence, or AI.\n\nAI assists people every day. It translates sentences between languages, predicts which roads will become congested, and helps physicians identify early signs of illness in medical scans.\n\nNevertheless, AI has significant limitations. It understands only what its data teaches it, so if the examples are inaccurate or incomplete, the system can develop a bias, an unfair tendency to favor certain answers or groups over others. It also does not genuinely understand the world or experience feelings the way people do. For these reasons, developing AI raises ethical questions about fairness, privacy, and responsibility, and humans must always evaluate its work.\n\nIn Saudi Arabia, a national authority for data and AI, established in 2019, coordinates the country's plans, and many students are learning to write computer code."
+    },
+    {
+      "level": 1300,
+      "title": "Teaching Machines to Think: Artificial Intelligence",
+      "text": "You speak to a phone, and it transcribes your words almost flawlessly, while a navigation application warns you about traffic before you even leave home. These machines appear clever, but their abilities come from a process in which the computer has learned from experience rather than from a complete list of rules.\n\nTraditionally, a computer does precisely what it is instructed to do, and the instructions it follows form a program, and a step-by-step procedure for solving a problem is called an algorithm, so for many tasks, programmers write every rule themselves.\n\nHowever, some tasks involve far too many rules to write, because you can recognize a cat instantly, yet explaining every rule your brain applies to reach that decision is nearly impossible.\n\nConsequently, engineers rely on a method called machine learning. Rather than writing the rules, they provide the computer with data, an enormous collection of examples, such as thousands of photographs, each accompanied by a label that says \"cat\" or \"not cat.\" The computer then searches for patterns, such as pointed ears or whiskers, that appear repeatedly. Many of these systems use a neural network, which is a structure of interconnected layers loosely inspired by the way cells in the brain communicate.\n\nThe computer subsequently makes a prediction about an unfamiliar photograph, and if the prediction is incorrect, it adjusts its internal calculations slightly and tries again. After thousands of attempts, it becomes remarkably accurate, and when a computer performs tasks that ordinarily require human thinking, we call it artificial intelligence, or AI.\n\nAI assists people every day, since it translates sentences between languages, predicts which roads will become congested, and helps physicians identify early signs of illness in medical scans.\n\nNevertheless, AI has significant limitations. It understands only what its data teaches it, so if the examples are inaccurate or incomplete, the system can develop a bias, an unfair tendency to favor certain answers or groups over others. Furthermore, it does not genuinely comprehend the world or experience feelings the way people do. For these reasons, developing AI raises ethical questions about fairness, privacy, and responsibility, and humans must continually evaluate its decisions.\n\nIn Saudi Arabia, a national authority for data and AI, established in 2019, coordinates the country's plans, and many students are learning to write computer code."
+    },
+    {
+      "level": 1400,
+      "title": "Teaching Machines to Think: Artificial Intelligence",
+      "text": "You speak to a phone, and it transcribes your words almost flawlessly, while a navigation application warns you about traffic before you even leave home. These machines appear intelligent, but their abilities originate in a process through which the computer has learned from experience rather than from an exhaustive list of rules.\n\nTraditionally, a computer executes precisely what it is instructed to do, and the instructions it follows constitute a program, and a step-by-step procedure for solving a particular problem is called an algorithm, so for many tasks, programmers compose every rule themselves.\n\nHowever, some tasks involve far too many rules to specify, because you can recognize a cat instantly, yet articulating every rule your brain applies to reach that decision is practically impossible.\n\nConsequently, engineers rely on a method called machine learning. Rather than writing the rules, they supply the computer with data, an enormous collection of examples, such as thousands of photographs, each accompanied by a label identifying it as \"cat\" or \"not cat.\" The computer then searches for patterns, such as pointed ears or whiskers, that appear repeatedly. Many of these systems employ a neural network, which is a structure of interconnected computational layers loosely inspired by the way cells in the brain communicate.\n\nThe computer subsequently generates a prediction about an unfamiliar photograph, and if the prediction is incorrect, it adjusts its internal calculations slightly and tries again. After thousands of attempts, it becomes remarkably accurate, and when a computer performs tasks that ordinarily require human reasoning, we call it artificial intelligence, or AI.\n\nAI assists people every day, since it translates sentences between languages, anticipates which roads will become congested, and helps physicians identify early indications of illness in medical images.\n\nNevertheless, AI has significant limitations. It understands only what its data teaches it, so if the examples are inaccurate or incomplete, the system can develop a bias, an unfair tendency to favor particular answers or groups over others. Furthermore, it does not genuinely comprehend the world or experience emotions the way people do. For these reasons, developing AI raises ethical questions about fairness, privacy, and accountability, and humans must continually evaluate its decisions.\n\nIn Saudi Arabia, a national authority for data and artificial intelligence, established in 2019, coordinates the kingdom's strategy, and many students are learning to write computer code."
+    }
+  ],
+  "bands": {
+    "LOW": {
+      "keyWords": [
+        {
+          "word": "program",
+          "partOfSpeech": "noun",
+          "definition": "a list of steps that tells a computer what to do",
+          "example": "My brother wrote a program that makes a robot car turn left."
+        },
+        {
+          "word": "data",
+          "partOfSpeech": "noun",
+          "definition": "facts, numbers, or pictures that are collected to learn something",
+          "example": "The class collected data about the weather every morning."
+        },
+        {
+          "word": "pattern",
+          "partOfSpeech": "noun",
+          "definition": "something that happens or shows up again and again in the same way",
+          "example": "The tiles on the floor made a pattern of blue and white squares."
+        },
+        {
+          "word": "train",
+          "partOfSpeech": "verb",
+          "definition": "to teach a person, animal, or machine to do something by practice",
+          "example": "Faisal will train his puppy to sit and wait."
+        },
+        {
+          "word": "mistake",
+          "partOfSpeech": "noun",
+          "definition": "something that is wrong or done in the wrong way",
+          "example": "I found a mistake in my math and fixed it."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "What is this article mostly about?",
+          "options": [
+            "How to fix a phone that has a cracked screen and a dead battery",
+            "How computers learn from examples and how AI helps us",
+            "Why cats and dogs do not get along",
+            "How to build a road map"
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The article explains how people train computers with data so they can learn, and how this AI helps people.",
+          "wrong": {
+            "A": "The article does not explain fixing phones.",
+            "C": "Cats and dogs are only an example used to explain learning.",
+            "D": "Maps are mentioned only as one use of AI."
+          }
+        },
+        {
+          "stem": "What is a program?",
+          "options": [
+            "A picture of a cat",
+            "A doctor's scan of the body",
+            "A road full of cars",
+            "A list of steps a computer follows"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article says the list of steps a computer follows is called a program.",
+          "wrong": {
+            "A": "Cat pictures are data used to train the computer.",
+            "B": "Scans are something AI can help doctors look at.",
+            "C": "Busy roads are something AI can tell us about."
+          }
+        },
+        {
+          "stem": "What do people give a computer to train it?",
+          "options": [
+            "Food and water, the same way a pet is fed",
+            "A new phone",
+            "Lots of data, like pictures with names",
+            "A list of roads"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article says people train the computer by giving it data, such as many cat pictures, each marked \"cat.\"",
+          "wrong": {
+            "A": "Computers do not eat or drink.",
+            "B": "The article does not say a new phone is needed.",
+            "D": "Roads are something AI can learn about, not how it is trained."
+          }
+        },
+        {
+          "stem": "The computer looks for a pattern, like pointed ears. What does pattern mean here?",
+          "options": [
+            "A loud noise",
+            "A fast car",
+            "A broken part",
+            "Something that shows up again and again"
+          ],
+          "answer": "D",
+          "skill": "vocabulary",
+          "why": "The article explains that a pattern is something that shows up again and again.",
+          "wrong": {
+            "A": "A pattern is not a sound.",
+            "B": "A pattern has nothing to do with cars here.",
+            "C": "A pattern is not a broken part."
+          }
+        },
+        {
+          "stem": "What does the computer do when its guess is wrong?",
+          "options": [
+            "It stops working for good.",
+            "It asks a cat for help.",
+            "It changes its math a bit and tries again.",
+            "It deletes all of its data."
+          ],
+          "answer": "C",
+          "skill": "sequence",
+          "why": "The article says that if the guess is wrong, the computer changes its math and tries again, getting better bit by bit.",
+          "wrong": {
+            "A": "The computer keeps trying; it does not stop.",
+            "B": "This is silly; cats cannot help a computer.",
+            "D": "The article does not say the computer deletes its data."
+          }
+        },
+        {
+          "stem": "Why do people train a computer instead of writing every rule for spotting a cat?",
+          "options": [
+            "There are too many rules to write.",
+            "Computers do not like rules.",
+            "Cats change shape every day.",
+            "Writing rules is against the law."
+          ],
+          "answer": "A",
+          "skill": "inference",
+          "why": "The article says some jobs have too many rules, so it is hard to write them all down.",
+          "wrong": {
+            "B": "Computers follow rules; they do not like or dislike them.",
+            "C": "The article does not say cats change shape.",
+            "D": "The article never says writing rules is not allowed."
+          }
+        },
+        {
+          "stem": "What could happen if a computer is trained with bad data?",
+          "options": [
+            "It would get faster and faster.",
+            "It would only work at night when no one is using it.",
+            "It could learn wrong things and make mistakes.",
+            "It would turn into a phone."
+          ],
+          "answer": "C",
+          "skill": "cause-effect",
+          "why": "The article says bad data can teach the computer wrong things, so people must check its work.",
+          "wrong": {
+            "A": "Bad data does not make a computer faster.",
+            "B": "The article says nothing about working only at night.",
+            "D": "A computer does not change into a phone."
+          }
+        },
+        {
+          "stem": "Why does the author say people must check the work of AI?",
+          "options": [
+            "Because AI can make mistakes",
+            "Because AI is always right",
+            "Because AI is too slow",
+            "Because AI cannot read"
+          ],
+          "answer": "A",
+          "skill": "author-purpose",
+          "why": "The author warns that AI can make a mistake, especially with bad data, so people need to check it.",
+          "wrong": {
+            "B": "The article says the opposite: AI can be wrong.",
+            "C": "Speed is not given as the reason.",
+            "D": "The article does not talk about AI reading."
+          }
+        }
+      ],
+      "prompt": "Explain how a computer learns to spot a cat. Use at least two facts from the article.",
+      "checklist": [
+        "I explained the steps the computer takes.",
+        "I used at least two facts from the article.",
+        "I wrote complete sentences with capital letters and periods."
+      ]
+    },
+    "MID": {
+      "keyWords": [
+        {
+          "word": "algorithm",
+          "partOfSpeech": "noun",
+          "definition": "a step-by-step plan for solving a problem",
+          "example": "Our teacher gave us an algorithm for solving long division."
+        },
+        {
+          "word": "recognize",
+          "partOfSpeech": "verb",
+          "definition": "to know who or what something is because you have seen or heard it before",
+          "example": "I could recognize my grandfather's voice on the phone right away."
+        },
+        {
+          "word": "label",
+          "partOfSpeech": "noun",
+          "definition": "a word or name that tells what something is",
+          "example": "Each jar in the kitchen had a label that said what was inside."
+        },
+        {
+          "word": "predict",
+          "partOfSpeech": "verb",
+          "definition": "to say what you think will happen before it happens",
+          "example": "Can you predict who will win the race?"
+        },
+        {
+          "word": "translate",
+          "partOfSpeech": "verb",
+          "definition": "to change words from one language into another",
+          "example": "Noura helped translate the sign from English into Arabic."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which sentence best states the main idea of the article?",
+          "options": [
+            "Computers will soon replace all doctors.",
+            "Computers can learn from many labeled examples, which lets AI help people, though it still needs checking.",
+            "Cats are the hardest animals for computers to see.",
+            "Map apps were the first kind of AI."
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The article explains how computers learn from data, how AI is used, and why people must still check it.",
+          "wrong": {
+            "A": "The article says AI helps doctors, not that it replaces them.",
+            "C": "The cat is only an example.",
+            "D": "The article does not say which AI came first."
+          }
+        },
+        {
+          "stem": "What is an algorithm?",
+          "options": [
+            "A photo with a label",
+            "A kind of phone",
+            "A step-by-step plan for solving a problem",
+            "A mistake made by a computer"
+          ],
+          "answer": "C",
+          "skill": "vocabulary",
+          "why": "The article defines an algorithm as a step-by-step plan or method for solving a problem.",
+          "wrong": {
+            "A": "That describes training data.",
+            "B": "An algorithm is a plan, not a device.",
+            "D": "A mistake is not an algorithm."
+          }
+        },
+        {
+          "stem": "In the cat example, what does each photo come with?",
+          "options": [
+            "A short sound recording of the cat's meow",
+            "A doctor's report",
+            "A list of road names",
+            "A label saying \"cat\" or \"not cat\""
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article says each photo has a label that says \"cat\" or \"not cat.\"",
+          "wrong": {
+            "A": "No sounds are mentioned.",
+            "B": "Doctors are mentioned in a different part.",
+            "C": "Roads are a different use of AI."
+          }
+        },
+        {
+          "stem": "Which of these is a use of AI named in the article?",
+          "options": [
+            "Cooking dinner for a family at home every night",
+            "Predicting which roads will be crowded",
+            "Painting houses",
+            "Planting trees"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article says AI can predict which roads will be crowded.",
+          "wrong": {
+            "A": "Cooking is not mentioned.",
+            "C": "Painting is not mentioned.",
+            "D": "Planting trees is not mentioned."
+          }
+        },
+        {
+          "stem": "What happens after the computer makes a wrong guess about a new photo?",
+          "options": [
+            "It adjusts its math and tries again.",
+            "It gives up and shuts down.",
+            "It asks people to write every rule.",
+            "It throws away all the labels."
+          ],
+          "answer": "A",
+          "skill": "sequence",
+          "why": "The article says the computer adjusts its math a little and tries again, becoming more accurate over many tries.",
+          "wrong": {
+            "B": "The computer keeps trying.",
+            "C": "The point of training is that people do not write every rule.",
+            "D": "The labels are needed for learning."
+          }
+        },
+        {
+          "stem": "Why does the author say it is almost impossible to explain every rule for recognizing a cat?",
+          "options": [
+            "To show why training with examples is needed",
+            "To prove that cats are dangerous",
+            "To say that people are not smart",
+            "To explain how maps work"
+          ],
+          "answer": "A",
+          "skill": "author-purpose",
+          "why": "The author uses this idea to show why people train computers with examples instead of writing rules.",
+          "wrong": {
+            "B": "The article never says cats are dangerous.",
+            "C": "The point is about rules, not intelligence.",
+            "D": "Maps are discussed elsewhere."
+          }
+        },
+        {
+          "stem": "Suppose a computer was trained only on photos of white cats. What might happen?",
+          "options": [
+            "It would recognize every cat perfectly, whatever its color.",
+            "It might fail to recognize a black cat.",
+            "It would learn to translate languages.",
+            "It would stop needing data."
+          ],
+          "answer": "B",
+          "skill": "inference",
+          "why": "The article says a computer only knows what its data teaches it, so missing examples could lead to wrong answers.",
+          "wrong": {
+            "A": "Its data would be missing many kinds of cats.",
+            "C": "Cat photos do not teach translation.",
+            "D": "AI always depends on its data."
+          }
+        },
+        {
+          "stem": "Why must people always check the work of AI?",
+          "options": [
+            "AI refuses to finish tasks.",
+            "AI cannot store pictures.",
+            "AI only works in Saudi Arabia.",
+            "AI can learn wrong things if its data is wrong or unfair."
+          ],
+          "answer": "D",
+          "skill": "cause-effect",
+          "why": "The article says that if data is wrong or unfair, the computer learns wrong things, so people need to check it.",
+          "wrong": {
+            "A": "The article does not say AI refuses tasks.",
+            "B": "AI uses thousands of pictures, so it can store them.",
+            "C": "AI is used in many places."
+          }
+        }
+      ],
+      "prompt": "Explain why people must check the work of AI. Use at least two details from the article.",
+      "checklist": [
+        "I gave a clear reason.",
+        "I used at least two details from the article.",
+        "I explained how the details support my reason."
+      ]
+    },
+    "HIGH": {
+      "keyWords": [
+        {
+          "word": "artificial intelligence",
+          "partOfSpeech": "noun",
+          "definition": "the ability of a computer to do tasks that usually need human thinking",
+          "example": "The app uses artificial intelligence to suggest the next word I want to type."
+        },
+        {
+          "word": "machine learning",
+          "partOfSpeech": "noun",
+          "definition": "a way of building computer systems that learn from examples instead of following only written rules",
+          "example": "Engineers used machine learning so the program could sort thousands of emails."
+        },
+        {
+          "word": "neural network",
+          "partOfSpeech": "noun",
+          "definition": "a computer system made of connected layers that is loosely based on how brain cells link together",
+          "example": "The neural network slowly improved at reading handwritten numbers."
+        },
+        {
+          "word": "bias",
+          "partOfSpeech": "noun",
+          "definition": "an unfair leaning toward some answers or groups over others",
+          "example": "The judges tried to avoid bias by hiding the names on the entries."
+        },
+        {
+          "word": "ethical",
+          "partOfSpeech": "adjective",
+          "definition": "having to do with what is right and fair",
+          "example": "Doctors must make ethical choices to protect their patients."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which statement best expresses the central idea of the article?",
+          "options": [
+            "Machine learning lets computers learn patterns from data, which makes AI useful but also raises limits and ethical concerns.",
+            "Neural networks are copies of the human brain.",
+            "Programmers no longer write algorithms.",
+            "AI understands the world better than people do."
+          ],
+          "answer": "A",
+          "skill": "central-idea",
+          "why": "The article explains machine learning, its everyday uses, and its limits such as bias and the need for human checking.",
+          "wrong": {
+            "B": "The article says neural networks are only loosely inspired by the brain.",
+            "C": "The article says programmers still write rules for many tasks.",
+            "D": "The article says AI does not truly understand the world."
+          }
+        },
+        {
+          "stem": "How is machine learning different from traditional programming?",
+          "options": [
+            "It uses no computers at all, because people sort every one of the photographs by hand.",
+            "It never makes predictions.",
+            "It works only with sounds.",
+            "The computer finds patterns in examples instead of following only rules people wrote."
+          ],
+          "answer": "D",
+          "skill": "compare",
+          "why": "Traditionally, programmers write every rule; in machine learning, the computer learns patterns from labeled data.",
+          "wrong": {
+            "A": "Machine learning runs on computers.",
+            "B": "Making predictions is a key step in machine learning.",
+            "C": "The main example uses photographs."
+          }
+        },
+        {
+          "stem": "According to the article, what is a neural network?",
+          "options": [
+            "A group of doctors and scientists who meet to study how the human brain works",
+            "A list of labeled photographs",
+            "A structure of connected layers loosely inspired by brain cells",
+            "A national authority for data"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article describes a neural network as connected layers loosely inspired by the way brain cells communicate.",
+          "wrong": {
+            "A": "It is a computer structure, not a group of people.",
+            "B": "Labeled photos are the data, not the network.",
+            "D": "That is the Saudi organization mentioned at the end."
+          }
+        },
+        {
+          "stem": "The article says a system can develop a bias. What does bias mean in this context?",
+          "options": [
+            "A strong electric current",
+            "An unfair tendency to favor some answers or groups",
+            "A very fast calculation done by thousands of connected computers",
+            "A type of medical scan"
+          ],
+          "answer": "B",
+          "skill": "vocabulary",
+          "why": "The article defines bias as an unfair tendency to favor certain answers or groups over others.",
+          "wrong": {
+            "A": "Bias is not about electricity.",
+            "C": "Bias is about fairness, not speed.",
+            "D": "Medical scans are a separate use of AI."
+          }
+        },
+        {
+          "stem": "According to the article, what can cause an AI system to develop bias?",
+          "options": [
+            "Using too many computers",
+            "Learning from examples that are inaccurate or incomplete",
+            "Being turned off at night",
+            "Translating too many languages at the same time, which overloads the system"
+          ],
+          "answer": "B",
+          "skill": "cause-effect",
+          "why": "The article says that if the examples are inaccurate or incomplete, the system can develop a bias.",
+          "wrong": {
+            "A": "The number of computers is not mentioned as a cause.",
+            "C": "Turning off the computer is not mentioned.",
+            "D": "Translation is a use, not a cause of bias."
+          }
+        },
+        {
+          "stem": "Which detail best supports the claim that AI does not think exactly like a person?",
+          "options": [
+            "It translates sentences between languages.",
+            "It becomes remarkably accurate after thousands and thousands of practice attempts.",
+            "It does not genuinely understand the world or feel emotions.",
+            "It uses data about traffic."
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article states that AI does not truly understand the world or feel things the way people do.",
+          "wrong": {
+            "A": "Translation shows a skill, not a difference from humans.",
+            "B": "Accuracy shows improvement, not a difference in thinking.",
+            "D": "Traffic data is just one kind of input."
+          }
+        },
+        {
+          "stem": "A hospital wants to use AI to help read medical scans. Based on the article, what would be the wisest plan?",
+          "options": [
+            "Let the AI decide alone, since it is always accurate.",
+            "Avoid giving the AI any examples.",
+            "Use the AI, but have doctors check its results and make sure its training data is complete.",
+            "Use only one scan to train it."
+          ],
+          "answer": "C",
+          "skill": "inference",
+          "why": "The article says AI can make mistakes and develop bias, so humans must evaluate its work and its data must be complete.",
+          "wrong": {
+            "A": "The article says AI can be wrong and needs checking.",
+            "B": "AI cannot learn without examples.",
+            "D": "Learning needs thousands of examples, not one."
+          }
+        },
+        {
+          "stem": "Why does the author include the paragraph about limits and ethical questions?",
+          "options": [
+            "To give a balanced view by showing that AI has risks as well as benefits",
+            "To persuade readers never to use AI",
+            "To explain how to write computer code",
+            "To describe the history of phones"
+          ],
+          "answer": "A",
+          "skill": "author-purpose",
+          "why": "After describing AI's uses, the author balances the article by explaining its limits and the need for fairness and human checking.",
+          "wrong": {
+            "B": "The author describes many helpful uses, so the goal is not to reject AI.",
+            "C": "The paragraph does not teach coding.",
+            "D": "Phone history is not discussed."
+          }
+        }
+      ],
+      "prompt": "Some people say AI should be allowed to make important decisions on its own. Do you agree or disagree? Support your position with evidence from the article.",
+      "checklist": [
+        "I stated a clear position.",
+        "I supported it with at least two pieces of evidence from the article.",
+        "I explained how my evidence supports my position."
+      ]
+    }
+  }
+}

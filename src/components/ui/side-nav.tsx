@@ -8,8 +8,8 @@ import { useT } from "@/i18n/client";
 
 /** Menu entries the first-login tour points at (home tiles with the same data-tour win when visible). */
 const TOUR_TARGET: Record<string, string> = {
-  "/student": "my-work", "/student/plans": "plans", "/student/tests": "tests",
-  "/teacher/students": "students", "/teacher/plans": "plans", "/teacher/assessments": "assessments", "/admin/all": "all-tools",
+  "/student/work": "my-work", "/student/map": "plans", "/student/tests": "tests",
+  "/teacher/students": "students", "/teacher/plans": "plans", "/teacher/reports": "teacher-reports", "/admin/all": "all-tools",
 };
 
 /** Groups that start folded (opened by a tap, and the choice is remembered): every role's rarely used pages. */
@@ -33,7 +33,7 @@ const GROUP_DOT: Record<string, string> = {
  * headings, the current page highlighted, numbers for what is waiting (red = late / urgent). "More" starts folded;
  * groups fold and the choice is remembered.
  */
-export function SideNav({ items, brand, footer }: { items: NavItem[]; brand: React.ReactNode; footer?: React.ReactNode }) {
+export function SideNav({ items, brand, footer, tools, extras }: { items: NavItem[]; brand: React.ReactNode; footer?: React.ReactNode; /** under the brand: "Find a page" */ tools?: React.ReactNode; /** bottom of the menu on every screen (notifications, feedback, print) */ extras?: React.ReactNode }) {
   const t = useT();
   const hasAssessments = items.some((i) => i.href === "/teacher/assessments");
   const path = usePathname() ?? "";
@@ -53,6 +53,7 @@ export function SideNav({ items, brand, footer }: { items: NavItem[]; brand: Rea
   const list = (
     <nav aria-label={t("Main menu")} className="flex h-full flex-col">
       <div className="px-4 pb-3 pt-4">{brand}</div>
+      {tools && <div className="px-3 pb-3">{tools}</div>}
       <div className="flex-1 overflow-y-auto px-3 pb-6">
         {sections(items).map((s, si) => {
           const tourGroup = s.name ? TOUR_GROUP[s.name] : undefined;
@@ -75,11 +76,11 @@ export function SideNav({ items, brand, footer }: { items: NavItem[]; brand: Rea
                     return (
                       <li key={i.href}>
                         <Link prefetch={false} href={i.href} aria-current={on ? "page" : undefined} data-tour={TOUR_TARGET[i.href] ?? (i.href === "/teacher/assignments" && !hasAssessments ? "assessments" : undefined)}
-                          className={`group relative flex min-h-11 items-center gap-2.5 rounded-xl px-2.5 py-1.5 text-[15px] transition ${on ? "bg-gradient-to-r from-brand-navy to-[#2c5590] font-semibold text-white shadow-btn" : "text-slate-700 hover:bg-white hover:text-brand-navy hover:shadow-sm"}`}>
+                          className={`group relative flex min-h-11 items-center gap-2.5 rounded-xl px-2.5 py-1.5 text-[15px] transition ${on ? "bg-brand-navy/[0.07] font-semibold text-brand-navy ring-1 ring-brand-navy/10" : "text-slate-600 hover:bg-slate-100/70 hover:text-brand-navy"}`}>
                           {on && <span aria-hidden="true" className="absolute inset-y-1.5 -start-3 w-1 rounded-e bg-brand-teal" />}
                           <span aria-hidden="true" className="w-5 text-center text-[15px] transition group-hover:scale-110">{i.icon}</span>
                           <span className="flex-1 truncate">{t(i.label)}</span>
-                          {i.count ? <span dir="ltr" className={`rounded-full px-1.5 text-[11px] font-bold leading-5 ${i.alert ? "bg-red-500 text-white" : on ? "bg-brand-teal text-white" : "bg-slate-200 text-slate-700"}`}>{i.count > 99 ? "99+" : i.count}<span className="sr-only">{i.alert ? " need attention" : " waiting"}</span></span> : null}
+                          {i.count ? <span dir="ltr" className={`rounded-full px-1.5 text-[11px] font-bold leading-5 ${i.alert ? "bg-rose-500 text-white" : on ? "bg-brand-navy text-white" : "bg-slate-200 text-slate-700"}`}>{i.count > 99 ? "99+" : i.count}<span className="sr-only">{i.alert ? " need attention" : " waiting"}</span></span> : null}
                         </Link>
                       </li>
                     );
@@ -90,12 +91,13 @@ export function SideNav({ items, brand, footer }: { items: NavItem[]; brand: Rea
           );
         })}
       </div>
+      {extras && <div className="hidden border-t border-slate-200 bg-white px-4 py-2 lg:block">{extras}</div>}
       {footer && <div className="border-t border-slate-200 bg-white px-4 py-3 lg:hidden">{footer}</div>}
     </nav>
   );
   return (
     <>
-      <aside className="fixed inset-y-0 start-0 z-30 hidden w-64 border-e border-slate-200/80 bg-gradient-to-b from-white via-white to-slate-50 lg:block print:hidden">{list}</aside>
+      <aside className="fixed inset-y-0 start-0 z-30 hidden w-64 border-e border-slate-200/70 bg-white/90 backdrop-blur-md lg:block print:hidden">{list}</aside>
       {drawer && (
         <div className="fixed inset-0 z-50 lg:hidden print:hidden" role="dialog" aria-modal="true" aria-label={t("Menu")}>
           <button type="button" aria-label={t("Close the menu")} className="absolute inset-0 bg-slate-900/50" onClick={() => setDrawer(false)} />

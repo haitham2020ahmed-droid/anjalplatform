@@ -47,8 +47,8 @@ export function workStatus(v: string | null | undefined): WorkStatus {
   return "NOT_STARTED";
 }
 
-/** Shared sizes: every button and tile is at least 44px tall (iPad / phone friendly). */
-export const BTN = "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-2 font-semibold transition hover:-translate-y-px active:translate-y-0 active:scale-[.98] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-brand-teal motion-reduce:hover:translate-y-0";
+/** Shared sizes: smaller, lighter buttons (14px text), still at least 40px tall for fingers on iPad / phone. */
+export const BTN = "inline-flex min-h-10 items-center justify-center gap-2 rounded-xl px-3.5 py-1.5 text-sm font-semibold transition hover:-translate-y-px active:translate-y-0 active:scale-[.98] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-brand-teal motion-reduce:hover:translate-y-0";
 /** the ONE main action of a page (navy, soft glow) */
 export const BTN_PRIMARY = `${BTN} bg-brand-navy text-white shadow-btn hover:bg-[#25467c]`;
 /** every other action: white with a thin outline */

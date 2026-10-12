@@ -11,6 +11,8 @@ import { taskForStudent, type StudentTaskView } from "@/server/teacher/writing";
 import { GENRE_ICON } from "@/server/writing/genres";
 import { MISCONCEPTION_BY_CODE } from "@/insights/misconceptions";
 import { researchAction, savePlanAction, saveWritingAction } from "../actions";
+import { isLocked, lockedTaskForStudent } from "@/server/writing/locked";
+import { LockedTaskView } from "./locked-view";
 
 export const metadata = { title: "Writing" };
 
@@ -48,6 +50,11 @@ export default async function WritingTaskPage({ params, searchParams }: { params
   const me = (await getActor())!.user;
   const { taskId } = await params;
   const sp = await searchParams;
+  // 🔒 a locked rubric task: preview → the locked page → the returned grade
+  if (isLocked(await repo.findUnique("WritingTask", { id: taskId }))) {
+    let v; try { v = await lockedTaskForStudent(repo, actor, taskId); } catch (e) { if (e instanceof ForbiddenError) notFound(); throw e; }
+    return <AppShell name={String(me.displayName)}><LockedTaskView v={v} msg={sp.msg} /></AppShell>;
+  }
   let t: StudentTaskView; try { t = await taskForStudent(repo, actor, taskId); } catch (e) { if (e instanceof ForbiddenError) notFound(); throw e; }
   const m = t.mine;
   const locked = m.status === "SUBMITTED" || m.status === "SCORED";

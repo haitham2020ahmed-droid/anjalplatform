@@ -70,8 +70,10 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
       <div className="rounded-2xl bg-white p-8 text-center ring-1 ring-slate-200">
         <h1 className="text-2xl font-bold text-brand-navy">Finished! 🎉</h1>
         <p className="mt-2 text-lg text-slate-700">{g ? `${view.title}: ${g.correct} correct answers${g.reached ? " — goal reached ✅" : ` of the ${g.target} needed`}.` : `${view.title}: ${view.correct} of ${view.total} correct.`}</p>
-        {g && !g.reached && <p className="mt-2 text-slate-600">You answered every question of this place. Your teacher will help you with what was hard.</p>}
-        <div className="mt-6 flex justify-center gap-3">
+        {g && !g.reached && !view.continueHref && <p className="mt-2 text-slate-600">You answered every question of this place. Your teacher will help you with what was hard.</p>}
+        {view.continueHref && <p data-testid="lesson-continue" className="mx-auto mt-3 max-w-lg rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">You finished the lesson&apos;s questions. Now keep practising this skill with questions at your level until you master it.</p>}
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          {view.continueHref && <Link href={view.continueHref} className="rounded-xl bg-brand-teal px-6 py-3 font-semibold text-white">Keep practising ▶</Link>}
           <Link href={`/student/assignments/${view.assignmentId}/report`} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">View report</Link>
           {g ? <Link href={nextHref} className="rounded-xl px-6 py-3 font-semibold text-brand-navy ring-1 ring-slate-300">Next ▶</Link> : <Link href="/student" className="rounded-xl px-6 py-3 font-semibold text-brand-navy ring-1 ring-slate-300">My assigned work</Link>}
         </div>
@@ -82,7 +84,15 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
   return (
     <WordLookup>
       <header className="flex flex-wrap items-center justify-between gap-3">
-        <div><h1 className="text-2xl font-bold text-brand-navy">{view.title}</h1><p className="text-slate-600">{g ? <>Question {shownIndex}{g.reached ? " · ✅ done — practising more" : ""}</> : <>Question {shownIndex} of {view.total}</>}</p></div>
+        <div><h1 className="text-2xl font-bold text-brand-navy">{view.title}</h1><p className="text-slate-600">{g ? <>Question {shownIndex}{g.reached ? " · ✅ done — practising more" : ""}</> : <>Question {shownIndex} of {view.total}</>}</p>
+          {/* right and wrong so far (not in a test: a test never shows right or wrong) */}
+          {!view.testMode && (
+            <p data-testid="score-line" className="mt-1 flex flex-wrap items-center gap-2 text-sm">
+              <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 font-semibold text-emerald-900">✓ {view.correct} correct</span>
+              <span className="rounded-full bg-rose-100 px-2.5 py-0.5 font-semibold text-rose-900">✗ {Math.max(0, view.answered - view.correct)} wrong</span>
+            </p>
+          )}
+        </div>
         {g ? (
           <div className="min-w-[13rem]">
             <p className="text-end text-sm font-semibold text-brand-navy">🎯 {Math.min(g.correct, g.target)} / {g.target} correct</p>

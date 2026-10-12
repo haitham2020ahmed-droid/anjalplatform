@@ -22,6 +22,7 @@ import { bandOf as descriptorOf, ensureNationalNorms, nationalNorm, seasonOf, ty
 import { ritFromDifficulty } from "../questions/tag-review";
 import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
+import { mapLinkedQuestionIds } from "../questions/bank-scope";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 
@@ -161,7 +162,7 @@ export type Pools = { pools: Map<GroupKey, PoolQ[]>; skills: Map<string, { id: s
 /** Kept in memory per school and grade (speed: My MAP, the matrix and the plans all need it) until a question,
  *  skill or goal-area link changes in this process, and at most 60 s (other processes). */
 const poolCache = new WeakMap<object, Map<string, { at: number; v: string; p: Promise<Pools> }>>();
-const POOL_MODELS = ["Question", "Skill", "SkillFamily", "MapGoalArea", "QuestionType", "Curriculum", "Grade", "SkillStandard", "Standard", "QuestionMapLink", "CurriculumMapNode"];
+const POOL_MODELS = ["QuestionMapLink", "Question", "Skill", "SkillFamily", "MapGoalArea", "QuestionType", "Curriculum", "Grade", "SkillStandard", "Standard", "QuestionMapLink", "CurriculumMapNode"];
 export function groupPools(repo: Repo, schoolId: string, grade: number): Promise<Pools> {
   let m = poolCache.get(repo);
   if (!m) poolCache.set(repo, (m = new Map()));
@@ -179,7 +180,9 @@ async function loadPools(repo: Repo, schoolId: string, grade: number): Promise<P
   const groupOfSkill = new Map<string, GroupKey>();
   for (const f of fams) { const code = s(areas.find((a) => a.id === famRows.find((x) => x.id === f.familyId)?.mapGoalAreaId)?.code); const g = GROUPS.find((x) => x.codes.includes(code)); if (g) groupOfSkill.set(s(f.id), g.key); }
   const ids = [...groupOfSkill.keys()];
-  const qs = ids.length ? await repo.findMany("Question", { skillId: { in: ids }, status: "PUBLISHED", deletedAt: null }, { select: ["id", "skillId", "difficultyLevel", "tags", "typeId"] }) : [];
+  // the bank only: Curriculum Map questions stay with their lesson (Update 54)
+  const onMap = await mapLinkedQuestionIds(repo);
+  const qs = (ids.length ? await repo.findMany("Question", { skillId: { in: ids }, status: "PUBLISHED", deletedAt: null }, { select: ["id", "skillId", "difficultyLevel", "tags", "typeId"] }) : []).filter((q) => !onMap.has(s(q.id)));
   const manual = new Set((await repo.findMany("QuestionType", {}, { select: ["id", "code", "isAutoScored"] })).filter((t) => t.code === "SHORT_ANSWER" || t.isAutoScored === false).map((t) => s(t.id)));
   await ensureNationalNorms(repo);
   const norm = await nationalNorm(repo, grade, "FALL");

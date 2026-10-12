@@ -36,7 +36,7 @@ describe("questions on the Curriculum Map: import to Curriculum, import to Bank 
 
   test("the place is found from numbers, titles or the ID; wrong places are explained", async () => {
     const nodes = await attachmentNodes(repo, schoolId);
-    assert.equal(nodes.length, 344);
+    assert.equal(nodes.length, 403, "Update 56: + 59 Review places");
     const r = (grade: number, x: Record<string, string>) => resolveMapLocation(nodes, grade, x);
     assert.equal(r(4, { unit: "1", set: "1", category: "Concept Vocabulary" }).node?.code, "G4.U1.TS1.CV");
     assert.equal(r(4, { unit: "Unit 1", set: "Realistic Fiction", category: "2- Analyze Craft and Structure", level: "On Level" }).node?.code, "G4.U1.TS2.ACS.ON");
@@ -117,12 +117,12 @@ describe("questions on the Curriculum Map: import to Curriculum, import to Bank 
     assert.equal(await repo.count("QuestionUse", { questionId: id }), 0);
   });
 
-  test("advanced Curriculum template: ready rows for all 344 places; one question per place imports in bulk", async () => {
+  test("advanced Curriculum template: ready rows for all 403 places; one question per place imports in bulk", async () => {
     const places = await attachmentNodes(repo, schoolId);
     const xlsx = curriculumTemplateXlsx(places, 5);
     const { table } = extract("curriculum-import-template.xlsx", xlsx);
     assert.deepEqual(table[0], [...CURRICULUM_SHEET_HEADERS], "the Excel file reads back with the same columns");
-    assert.equal(table.length, 1 + 2 + 344 * 5, "header + 2 examples + 5 ready rows per place");
+    assert.equal(table.length, 1 + 2 + 403 * 5, "header + 2 examples + 5 ready rows per place");
     // fill one ready row per place (drop the examples), keep the other ready rows empty
     const rows = curriculumTemplateRows(places, 5);
     const H = rows[0];
@@ -145,11 +145,11 @@ describe("questions on the Curriculum Map: import to Curriculum, import to Bank 
     const csv = new TextEncoder().encode(filled.map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(",")).join("\n") + "\n");
     const jobId = await analyzeImport(repo, admin, { fileName: "bulk.csv", bytes: csv, target: "CURRICULUM" });
     const job = await getImportJob(repo, admin, jobId);
-    assert.equal(job.rows.length, 344, "empty ready rows are skipped");
+    assert.equal(job.rows.length, 403, "empty ready rows are skipped");
     assert.ok(job.rows.every((x) => x.status === "VALID"), JSON.stringify(job.rows.filter((x) => x.status !== "VALID").slice(0, 3).map((x) => x.errors)));
     await commitAll(jobId);
     const made = await repo.findMany("Question", {}).then((qs) => qs.filter((q) => String(q.stem).startsWith("Bulk question for ")));
-    assert.equal(made.length, 344);
+    assert.equal(made.length, 403);
     for (const q of made.slice(0, 40)) assert.equal(await linksOf(String(q.id)), String(q.stem).replace("Bulk question for ", "").split(":")[0]);
     // every attachment node now has a question
     const nodesWithQ = new Set((await repo.findMany("QuestionMapLink", {})).map((l) => String(l.nodeId)));

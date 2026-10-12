@@ -6,11 +6,14 @@ import { accessibleClasses } from "@/server/teacher/assign";
 import { classFluencyView } from "@/server/fluency/class-view";
 import { SEASON_NAME, NORM_SOURCE } from "@/server/fluency/norms";
 import { saveFluencyAction } from "./actions";
+import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Reading Fluency" };
 const TRAITS = [["phrasing", "Phr"], ["smoothness", "Smo"], ["pace", "Pace"], ["intonation", "Int"]] as const;
 const GROUP_TONE = { DRILL: "bg-amber-50 ring-amber-200", PHRASED: "bg-violet-50 ring-violet-200", COMPREHENSION: "bg-sky-50 ring-sky-200", REPEATED: "bg-rose-50 ring-rose-200" } as const;
 const GROUP_ICON = { DRILL: "⚡", PHRASED: "🎼", COMPREHENSION: "🧠", REPEATED: "🔁" } as const;
+const DECISION_NAME: Record<string, string> = { NEW: "New plan", ON_TRACK: "On track", KEEP_GOING: "Under the goal line", RAISE: "Goal raised", NEXT_FOCUS: "Goal met → next area", CHANGE_METHOD: "No growth → Plan changed", EASIER_TEXT: "Accuracy first", CHECK_DUE: "Cold read due", NEW_CYCLE: "New cycle" };
+const DECISION_TONE: Record<string, string> = { ON_TRACK: "bg-emerald-100 text-emerald-900", RAISE: "bg-emerald-100 text-emerald-900", NEXT_FOCUS: "bg-emerald-100 text-emerald-900", KEEP_GOING: "bg-amber-100 text-amber-900", CHECK_DUE: "bg-sky-100 text-sky-900", CHANGE_METHOD: "bg-rose-100 text-rose-900", EASIER_TEXT: "bg-rose-100 text-rose-900" };
 
 /** 🔊 Oral reading fluency for a class: WCPM on the season's norms, prosody, comprehension, trends and groups. */
 export default async function FluencyPage({ searchParams }: { searchParams: Promise<{ classId?: string; msg?: string }> }) {
@@ -20,6 +23,7 @@ export default async function FluencyPage({ searchParams }: { searchParams: Prom
   const classes = (await accessibleClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
   const classId = classes.some((c) => c.id === sp.classId) ? String(sp.classId) : classes[0] ? String(classes[0].id) : "";
   const v = classId ? await classFluencyView(repo, actor, classId) : null;
+  const { t } = await getT();
   const tone = (lv: string | null) => (lv === "ABOVE" ? "bg-emerald-100 text-emerald-900" : lv === "ON" ? "bg-sky-100 text-sky-900" : "bg-rose-100 text-rose-900");
   const traitTone = (n: number | null) => (n === null ? "text-slate-300" : n >= 3 ? "bg-emerald-100 text-emerald-900" : n === 2 ? "bg-amber-100 text-amber-900" : "bg-rose-100 text-rose-900");
   const arrow = { UP: "↗", DOWN: "↘", FLAT: "→" } as const;
@@ -49,6 +53,41 @@ export default async function FluencyPage({ searchParams }: { searchParams: Prom
                   </div>
                 ))}
               </div>
+            </section>
+          )}
+
+          {v.rows.some((r) => r.plan) && (
+            <section className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+              <h2 className="font-bold text-brand-navy">🧭 {t("Fluency plans")}</h2>
+              <p className="mb-3 text-xs text-slate-500">{t("Made from each student's readings and cold reads; they adjust by themselves: goal line met twice → goal raised; no growth after 2 weeks → Plan B; under 90% accuracy → easier passages.")}</p>
+              <ul className="space-y-2">
+                {v.rows.filter((r) => r.plan).map((r) => { const pl = r.plan!; const tone = DECISION_TONE[pl.status.decision] ?? "bg-slate-100 text-slate-800"; return (
+                  <li key={r.id}>
+                    <details className="rounded-xl bg-slate-50 px-3 py-2 ring-1 ring-slate-200">
+                      <summary className="flex cursor-pointer flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                        <b className="min-w-[8rem] text-slate-900">{r.name}</b>
+                        <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-bold text-indigo-900">{pl.focusName}{pl.methodSet === "B" ? " · Plan B" : ""}</span>
+                        <span className="tabular-nums text-slate-700">{pl.baseline.wcpm} → <b>{pl.goals.wcpm}</b> WCPM {t("by")} {pl.endsOn.slice(0, 10)} (+{pl.goals.weeklyGain}/{t("wk")}) · {t("accuracy")} {pl.baseline.accuracy}% → {pl.goals.accuracy}%</span>
+                        <span className="tabular-nums text-slate-600">{t("Week {n} of {m}", { n: Math.min(pl.weeks, pl.status.week), m: pl.weeks })} · {t("goal line")} {pl.onLine}{pl.status.latest !== null ? <> · {t("latest cold read")} <b className={pl.status.latest >= pl.onLine - 1 ? "text-emerald-700" : "text-rose-700"}>{pl.status.latest}</b></> : null}</span>
+                        <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${tone}`}>{t(DECISION_NAME[pl.status.decision])}</span>
+                      </summary>
+                      <div className="mt-2 grid gap-3 text-sm md:grid-cols-2">
+                        <div>
+                          <p className="font-semibold text-slate-800">{pl.status.teacher}</p>
+                          <p className="mt-2 text-xs font-bold uppercase text-slate-500">{t("Daily routine")} · {pl.minutesPerDay} {t("min")} · {pl.daysPerWeek} {t("days/week")} · {pl.weeks} {t("weeks")}</p>
+                          <ol className="mt-1 list-inside list-decimal space-y-1 text-slate-700">{pl.daily.map((st, i) => <li key={i}><b>{st.title}</b> ({st.minutes} {t("min")}): {st.teacher}</li>)}<li><b>{pl.weekly.title}</b> ({pl.weekly.minutes} {t("min")}): {pl.weekly.teacher}</li></ol>
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold uppercase text-slate-500">{t("Success criteria")}</p>
+                          <ul className="mt-1 list-inside list-disc text-slate-700">{pl.success.map((x, i) => <li key={i}>{x.teacher}</li>)}</ul>
+                          <p className="mt-2 text-xs font-bold uppercase text-slate-500">{t("When it moves on")}</p>
+                          <ul className="mt-1 list-inside list-disc text-xs text-slate-600">{pl.rules.map((x, i) => <li key={i}>{x}</li>)}</ul>
+                          {pl.words.length > 0 && <p className="mt-2 text-xs text-slate-600">{t("Words")}: {pl.words.join(", ")}{pl.patterns.length ? ` · ${t("patterns")}: ${pl.patterns.join(", ")}` : ""}</p>}
+                        </div>
+                      </div>
+                    </details>
+                  </li>); })}
+              </ul>
             </section>
           )}
 

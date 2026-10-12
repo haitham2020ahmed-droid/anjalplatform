@@ -29,7 +29,7 @@ export function lessonDetail(grade: number, name: string | null | undefined): Le
   return g[key] ?? Object.values(g).find((l) => l.name.toLowerCase() === key.toLowerCase()) ?? null;
 }
 
-export type SectionKind = "CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "RESPOND_TO_READING";
+export type SectionKind = "CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "RESPOND_TO_READING" | "REVIEW";
 export interface LessonSection { code: string; title: string; kind: SectionKind | null; ready: boolean }
 export interface LessonCard {
   code: string; unitCode: string; unit: string; name: string; genre: string | null; textIdea: string | null;

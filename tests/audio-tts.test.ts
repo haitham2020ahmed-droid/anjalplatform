@@ -181,7 +181,9 @@ describe("fallback to the device voice", () => {
     assert.equal(audioForSpeed(null, "slow"), null);
     assert.deepEqual(audioForSpeed({ normal: a("n"), slow: a("s") }, "slow"), { audio: a("s"), rate: 1, own: true });
     assert.deepEqual(audioForSpeed({ normal: a("n"), slow: null }, "slow"), { audio: a("n"), rate: AUDIO_RATE.slow, own: false });
-    assert.equal(audioForSpeed({ normal: null, slow: a("s") }, "normal")!.rate, 1.25);
+    // Update 55: the normal natural voice plays a little brisker (students found the calm pace slow)
+    assert.equal(audioForSpeed({ normal: null, slow: a("s") }, "normal")!.rate, 1.27);
+    assert.deepEqual(audioForSpeed({ normal: a("n"), slow: null }, "normal"), { audio: a("n"), rate: AUDIO_RATE.normal, own: true });
   });
 });
 

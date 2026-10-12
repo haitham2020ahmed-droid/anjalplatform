@@ -153,6 +153,7 @@ describe("student levels, assign by level, Placement and MAP tests, curriculum r
     const cls = fast.find((c) => c.id === classId)!;
     const slow = await classLevels(repo, teacher, classId);
     assert.deepEqual(cls.students.map((x) => [x.id, x.level]), slow.students.map((x) => [x.id, x.level]));
-    assert.deepEqual(await rosterForGrade(repo, teacher, 6), [], "no Grade 6 class for this teacher");
+    // another grade's map: the teacher still sees ALL their classes (they may assign any grade to their own students)
+    assert.deepEqual((await rosterForGrade(repo, teacher, 6)).map((c) => c.id).sort(), fast.map((c) => c.id).sort(), "every class of the teacher");
   });
 });

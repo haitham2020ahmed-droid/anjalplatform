@@ -21,6 +21,7 @@ import { groupPools, GROUPS, mapProfiles } from "../map/map-plan";
 import { questionsOfSkill, schoolSkillIndex, type SkillLevel } from "../questions/skill-questions";
 import { awardCoins, COINS, ksaDay } from "./coins";
 import { evaluateBadges } from "./badges";
+import { freshOrder, seenIndex } from "../questions/fresh";
 
 const s = (v: unknown) => String(v ?? "");
 /** question types the platform cannot mark on its own: never a Question of the Day */
@@ -65,9 +66,12 @@ async function pickFromSkills(repo: Repo, studentId: string, schoolId: string, d
     for (const level of target.levels) {
       const qs = await questionsOfSkill(repo, schoolId, skillId, { level, take: 80 });
       if (!qs.length) continue;
+      // 🆕 a question the student never attempted first (then the one seen longest ago): questions/fresh.ts
+      const seen = await seenIndex(repo, studentId, qs.map((q) => ({ id: q.id })));
+      const ordered = freshOrder(qs.map((_, k) => qs[(seed + k * 7) % qs.length]).filter((q, i, a) => a.indexOf(q) === i), (q) => seen.lastSeen(q.id));
       // up to 3 tries in this skill (a question the platform cannot mark is skipped)
-      for (let k = 0; k < Math.min(3, qs.length); k++) {
-        const q = qs[(seed + k * 7) % qs.length];
+      for (let k = 0; k < Math.min(3, ordered.length); k++) {
+        const q = ordered[k];
         const [item] = await loadQuestionItems(repo, [q.id]);
         if (item && !MANUAL.has(s(item.type))) {
           const skill = await repo.findUnique("Skill", { id: skillId });

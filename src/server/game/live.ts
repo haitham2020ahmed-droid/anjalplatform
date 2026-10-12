@@ -15,6 +15,7 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
 import { loadQuestionItems } from "../practice/items";
+import { recordGameMisses } from "../second-chance/service";
 import { randomInt } from "node:crypto";
 import { openChallengesFor } from "./live-challenge";
 
@@ -202,6 +203,9 @@ export async function answerGame(repo: Repo, actor: Actor, gameId: string, index
     await repo.create("LiveGameAnswer", { gameId, playerId: p.id, questionIndex: index, choice: s(choice).slice(0, 191), correct, points, ms: Math.max(0, elapsed), createdAt: now });
   } catch { throw new ValidationError("You already answered."); }   // the unique key stops double taps
   await repo.updateMany("LiveGamePlayer", { id: p.id }, { score: Number(p.score) + points, streak: correct ? Number(p.streak) + 1 : 0 });
+  // ⭐ a missed question waits in the student's Second Chance (never an attempt, level or mastery change)
+  const qid = ids(g.questionIds)[index];
+  if (!correct && qid && actor.studentId) await recordGameMisses(repo, actor.studentId, [qid], now).catch(() => 0);
   // Games Part 1: a game answer NEVER feeds the adaptive engine (owner rule: games never change levels, mastery or
   // scores). Update 39B's half-weight feed was removed; the answer row above is all a live game keeps.
   return { correct, points };

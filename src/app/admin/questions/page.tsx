@@ -15,7 +15,7 @@ import { QuestionList } from "./question-list";
 export const metadata = { title: "Questions" };
 
 /** Every filter the list understands. The last five only come from links on other pages (shown as chips). */
-type SP = { q?: string; family?: string; type?: string; status?: string; level?: string; sort?: string; page?: string; skill?: string; map?: string; ai?: string; area?: string; grade?: string; deleted?: string };
+type SP = { q?: string; family?: string; type?: string; status?: string; level?: string; sort?: string; page?: string; skill?: string; map?: string; ai?: string; area?: string; grade?: string; deleted?: string; source?: string };
 
 const TYPES: [string, string][] = [["MULTIPLE_CHOICE", "Multiple choice"], ["MULTI_SELECT", "Multi select"], ["TRUE_FALSE", "True/false"], ["DROPDOWN", "Dropdown"], ["FILL_BLANK", "Fill in the blank"], ["SHORT_ANSWER", "Short answer"], ["MATCHING", "Matching"], ["SENTENCE_ORDER", "Sentence order"], ["WORD_ORDER", "Word order"], ["ERROR_CORRECTION", "Error correction"], ["TWO_PART", "Two-part (A/B)"], ["GRID", "Table match (grid)"], ["HOT_TEXT", "Hot text"], ["DICTATION", "Dictation"], ["SENTENCE_COMBINE", "Sentence combining"]];
 const STATUS_LABEL: Record<QuestionStatus | "ALL", string> = { ALL: "All", PUBLISHED: "Published", DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", ARCHIVED: "Archived" };
@@ -39,6 +39,8 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     // from links on other pages
     skillId: sp.skill?.slice(0, 191) || undefined, mapCode: /^G\d+\.[A-Z0-9.]+$/i.test(sp.map ?? "") ? String(sp.map).toUpperCase() : undefined, ai: sp.ai === "1" || undefined,
     mapArea: ["LIT", "INFO", "VOCAB", "GRAMMAR", "MECH", "WRITING", "NONE"].includes(sp.area ?? "") ? sp.area : undefined, grade: Number(sp.grade) || undefined,
+    // 🏦 the bank (skill + level, no grade) or the Curriculum Map's own questions (grade → unit → lesson)
+    source: sp.source === "map" ? "MAP" : sp.source === "all" ? "ALL" : undefined,
   };
   const [list, counts, banners, families, matches, targets, deletions, roster] = await Promise.all([
     listBankPage(repo, actor, filter), bankStatusCounts(repo, actor, filter), bankBanners(repo, actor), familyOptions(repo, actor),
@@ -48,7 +50,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
   ]);
   const qs = (over: Record<string, string | number | undefined>) => {
     const p = new URLSearchParams();
-    for (const [k, v] of Object.entries({ q: sp.q, family: sp.family, type: sp.type, status: sp.status, level: sp.level, sort: sp.sort, skill: sp.skill, map: sp.map, ai: sp.ai, area: sp.area, grade: sp.grade, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
+    for (const [k, v] of Object.entries({ q: sp.q, family: sp.family, type: sp.type, status: sp.status, level: sp.level, sort: sp.sort, skill: sp.skill, map: sp.map, ai: sp.ai, area: sp.area, grade: sp.grade, source: sp.source, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
     const s = p.toString();
     return `/admin/questions${s ? `?${s}` : ""}`;
   };
@@ -65,6 +67,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
       <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="📚" title="Questions"
         subtitle={t("Search, preview and edit every question. Open a row to see its choices and answer.")}>
         <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">{t("New question")}</Link>
+        {actor.role === "SCHOOL_ADMIN" && <Link href="/admin/questions/load" prefetch={false} className="rounded-xl bg-white px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇️ {t("Load new questions")}</Link>}
       </PageHeader>
       {isAdmin && <BankTabs />}
       <div className="space-y-2">
@@ -82,7 +85,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         )}
         {deletions > 0 && (
           <p role="status" className="flex flex-wrap items-center gap-2 rounded-2xl bg-red-50 px-4 py-3 text-red-900 ring-1 ring-red-200">
-            <span aria-hidden="true">🗑</span>{t("{n} deletion requests from teachers.", { n: deletions })}
+            <span aria-hidden="true">✏️</span>{t("{n} requests from teachers (changes or deletions).", { n: deletions })}
             <Link href="/admin/questions/requests" className="font-semibold underline">{t("Decide")}</Link>
           </p>
         )}
@@ -93,7 +96,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <input name="q" defaultValue={sp.q ?? ""} placeholder={t("Search the question text")} aria-label={t("Search")} className={sel} />
         <select name="family" defaultValue={filter.family ?? ""} aria-label={t("Skill")} className={sel}>
           <option value="">{t("All skills")}</option>
-          {families.map((f) => <option key={f.key} value={f.key}>{f.name} · G{f.grades.join(", ")}</option>)}
+          {families.map((f) => <option key={f.key} value={f.key}>{f.name}</option>)}
         </select>
         <select name="type" defaultValue={filter.type ?? ""} aria-label={t("Question type")} className={sel}><option value="">{t("All types")}</option>{TYPES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="status" defaultValue={status} aria-label={t("Status")} className={sel}>{(["ALL", ...STATUSES] as const).map((st) => <option key={st} value={st}>{t(STATUS_LABEL[st])}</option>)}</select>
@@ -104,12 +107,19 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         {sp.ai && <input type="hidden" name="ai" value={sp.ai} />}
         {sp.area && <input type="hidden" name="area" value={sp.area} />}
         {sp.grade && <input type="hidden" name="grade" value={sp.grade} />}
+        {sp.source && <input type="hidden" name="source" value={sp.source} />}
         <div className="flex items-center gap-2">
           <button className="min-h-11 rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">{t("Filter")}</button>
           <Link href="/admin/questions" className="text-sm text-brand-teal hover:underline">{t("Clear")}</Link>
         </div>
       </form>
 
+      <nav className="mt-3 flex flex-wrap gap-2" aria-label={t("Question source")}>
+        {([["", "🏦 Question Bank", "Skill + level (Below / On / Above), for every grade"], ["map", "🧭 Curriculum Map", "Grade → Unit → Lesson"]] as const).map(([v, label, hint]) => {
+          const on = (sp.source ?? "") === v;
+          return <Link key={v || "bank"} href={qs({ source: v || undefined, page: undefined })} aria-current={on ? "page" : undefined} title={t(hint)} className={`rounded-xl px-4 py-2 text-sm font-semibold ${on ? "bg-brand-teal text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{t(label)}</Link>;
+        })}
+      </nav>
       <nav className="mt-3 flex flex-wrap gap-2" aria-label={t("Status")}>
         {(["ALL", ...STATUSES] as const).map((st) => (
           <Link key={st} href={qs({ status: st, page: undefined })} aria-current={st === status ? "page" : undefined}
@@ -120,7 +130,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
           {chips.map((c) => <Link key={c.label} href={qs({ ...c.clear, page: undefined })} className="rounded-full bg-indigo-50 px-3 py-1 font-medium text-indigo-900 ring-1 ring-indigo-200" aria-label={`${t("Remove filter")}: ${c.label}`}>{c.label} ✕</Link>)}
           {matches.length > 0 && <span className="text-slate-600">{t("Skills named like your search:")}</span>}
-          {matches.map((m) => <Link key={m.key} href={qs({ family: m.key, q: undefined, page: undefined })} className="rounded-full bg-white px-3 py-1 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{m.name} · G{m.grades.join(", ")}</Link>)}
+          {matches.map((m) => <Link key={m.key} href={qs({ family: m.key, q: undefined, page: undefined })} className="rounded-full bg-white px-3 py-1 font-medium text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{m.name}</Link>)}
         </div>
       )}
 

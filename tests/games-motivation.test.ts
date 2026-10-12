@@ -267,8 +267,8 @@ describe("Games Part 3: motivation", () => {
     assert.match(shell, /<RewardChip studentId=/);
     const page = read("src/app/student/page.tsx");
     const welcome = page.indexOf('data-testid="welcome"'), qotd = page.indexOf("<QotdCard"), work = page.indexOf('id="my-work"');
-    assert.ok(welcome > 0 && qotd > welcome && qotd < work, "the card sits under the welcome line");
-    assert.equal((page.match(/<BigTile /g) ?? []).length, 9, "no new tiles on the student home (My Plans became MAP; NAFS only with a NAFS plan)");
+    assert.ok(welcome > 0 && work > welcome && qotd > work, "the Today card first, then the Question of the Day");
+    assert.equal((page.match(/<BigTile /g) ?? []).length, 0, "no tiles on the student home (one Today card)");
     assert.equal(toAvatar("not json").base, "cat"); assert.equal(toAvatar({ base: "nope", hat: "crown" }).hat, "crown");
   });
 

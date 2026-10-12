@@ -8,6 +8,7 @@ import { z } from "zod";
 import { repo, requireActor } from "@/server/auth/next";
 import { ValidationError } from "@/server/curriculum-admin";
 import { createDraft, duplicateOfInput, updateDraft, type EditorInput } from "@/server/admin/questions";
+import { editNeedsApproval, requestEdit } from "@/server/admin/question-edits";
 
 const id = z.string().min(1).max(191);
 const option = z.object({ label: z.string().max(4), text: z.string().max(500), correct: z.boolean(), rationale: z.string().max(500).nullable(), misconception: z.string().max(40).nullish() });
@@ -42,6 +43,13 @@ export async function saveQuestionWithTypesAction(questionId: string | null, inp
     const dup = await duplicateOfInput(repo, actor, parsed, questionId ? id.parse(questionId) : null);
     if (dup) return { error: "This question already exists.", duplicateId: dup.id };
     let r: { id: string; message: string };
+    // ✏️ a teacher's change of a question that is not their own draft waits for the admin (students keep the current version)
+    const current = questionId ? await repo.findUnique("Question", { id: id.parse(questionId) }) : null;
+    if (questionId && current && editNeedsApproval(actor, current)) {
+      await requestEdit(repo, actor, id.parse(questionId), parsed);
+      revalidatePath(`/admin/questions/${questionId}`);
+      return { ok: true, id: questionId, message: "Sent to the admin for approval. Students keep seeing the current version until it is approved." };
+    }
     if (questionId) {
       await updateDraft(repo, actor, id.parse(questionId), parsed);
       revalidatePath(`/admin/questions/${questionId}`);

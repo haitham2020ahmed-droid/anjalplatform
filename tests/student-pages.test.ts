@@ -8,6 +8,7 @@
  */
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
+import { giveQuestion } from "./helpers/give-question";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
@@ -124,12 +125,13 @@ describe("student pages (b1): pure rules", () => {
   });
 
   test("My Work: one goal, one primary button (Continue), progress bar, chips; Join Live and Question of the Day kept", () => {
+    // owner's spec (Update 53): one big "Today" card with Start / Continue, the progress bar and the next tasks
     const page = read("src/app/student/page.tsx");
-    assert.match(page, /"Your work for today"/);
-    assert.equal((page.match(/BTN_PRIMARY/g) ?? []).length, 2, "imported once, used once: the Continue button");
+    assert.match(page, /t\("Today"\)/);
+    assert.equal((page.match(/BTN_PRIMARY/g) ?? []).length, 2, "imported once, used once: Start / Continue");
     assert.match(page, /t\("Continue"\)/);
     assert.match(page, /"\{done\} of \{total\} done"/);
-    assert.match(page, /<SourceTag source=\{r\.sourceKey\}/);
+    assert.match(read("src/components/student/my-work-list.tsx"), /<SourceTag source=\{r\.sourceKey\}/);
     assert.match(page, /<JoinLive/); assert.match(page, /<QotdCard/);
     assert.match(page, /<LatestCertificate/);
     assert.doesNotMatch(page, /\/student\/plans|"My Plans"/);
@@ -161,6 +163,8 @@ describe("student pages (b1): data and access", () => {
     [a, b] = (await repo.findMany("ClassMembership", { classId, leftAt: null })).map((m) => String(m.studentId)).sort();
     A = await studentActor(a); B = await studentActor(b);
     skills = cur.units.flatMap((u) => u.skills).map((k) => k.id).slice(0, 4);
+    // a skill with no questions cannot be assigned: each test skill gets one
+    for (const k of cur.units.flatMap((u) => u.skills).slice(0, 4)) if (!k.questions) await giveQuestion(repo, k.id);
     assert.equal(skills.length, 4);
   });
 
@@ -179,10 +183,11 @@ describe("student pages (b1): data and access", () => {
   });
 
   test("studentMenuFlags: RTI only for Tier 2/3; NAFS only with NAFS work", async () => {
-    assert.deepEqual(await studentMenuFlags(repo, a), { rti: false, nafs: true });
-    assert.deepEqual(await studentMenuFlags(repo, b), { rti: false, nafs: false });
+    const fl = async (id: string) => { const f = await studentMenuFlags(repo, id); return { rti: f.rti, nafs: f.nafs }; };
+    assert.deepEqual(await fl(a), { rti: false, nafs: true });
+    assert.deepEqual(await fl(b), { rti: false, nafs: false });
     await repo.create("StudentTier", { studentId: b, schoolId: t4.schoolId, tier: 3, source: "TEACHER", locked: false, reason: "Test", focusSkillId: skills[3], since: NOW, monitorEveryDays: 14, updatedAt: NOW });
-    assert.deepEqual(await studentMenuFlags(repo, b), { rti: true, nafs: false });
+    assert.deepEqual(await fl(b), { rti: true, nafs: false });
     await repo.create("StudentTier", { studentId: a, schoolId: t4.schoolId, tier: 1, source: "TEACHER", locked: false, reason: "Test", focusSkillId: null, since: NOW, monitorEveryDays: 14, updatedAt: NOW });
     assert.equal((await studentMenuFlags(repo, a)).rti, false, "Tier 1 is not RTI");
   });

@@ -12,7 +12,7 @@ import type { CategoryType, MapGrade, LevelName } from "./source";
 export const BOOKS: Record<number, { title: string; code: string }> = {
   4: { title: "Wonders", code: "WONDERS-G4" }, 5: { title: "Wonders", code: "WONDERS-G5" }, 6: { title: "StudySync ELA", code: "STUDYSYNC-G6" },
 };
-const CAT_CODE: Record<CategoryType, string> = { CONCEPT_VOCABULARY: "CV", ANALYZE_CRAFT_AND_STRUCTURE: "ACS", RESPOND_TO_READING: "RTR" };
+const CAT_CODE: Record<CategoryType, string> = { CONCEPT_VOCABULARY: "CV", ANALYZE_CRAFT_AND_STRUCTURE: "ACS", RESPOND_TO_READING: "RTR", REVIEW: "REV" };
 const LEVEL: Record<LevelName, "ABOVE" | "ON" | "BELOW"> = { "Above Level": "ABOVE", "On Level": "ON", "Below Level": "BELOW" };
 
 /** The fields the map stores (everything except ids and timestamps). */
@@ -41,6 +41,10 @@ export function expectedNodes(g: MapGrade): ExpectedNode[] {
         out.push({ ...blank, code: cc, parentCode: sc, kind: "CATEGORY", title: c.label, categoryType: c.type, skills: c.skills, acceptsQuestions: c.type === "CONCEPT_VOCABULARY", sortOrder: ci + 1 });
         c.levels.forEach((l, li) => out.push({ ...blank, code: `${cc}.${LEVEL[l]}`, parentCode: cc, kind: "LEVEL", title: l, level: LEVEL[l], acceptsQuestions: true, sortOrder: li + 1 }));
       });
+      // 🔁 Review (Update 56): a whole-selection review after the last category (Respond to Reading in Grades 4–5,
+      // Analyze Craft and Structure in Grade 6); it takes questions itself
+      const n = st.categories.length + 1;
+      out.push({ ...blank, code: `${sc}.REV`, parentCode: sc, kind: "CATEGORY", title: `${n}- Review`, categoryType: "REVIEW", acceptsQuestions: true, sortOrder: n });
     });
   });
   return out;
@@ -103,7 +107,7 @@ export interface GradeCheck {
 export interface VerifyResult { grades: GradeCheck[]; totalAttachment: number; questionsLinked: number; ok: boolean; problems: string[] }
 
 /** Compares the database with the source, node by node and field by field (exact text). */
-export async function verifyCurriculumMap(repo: Repo, map: MapGrade[], expected = { 4: { units: 6, sets: 18, nodes: 126 }, 5: { units: 6, sets: 18, nodes: 126 }, 6: { units: 6, sets: 23, nodes: 92 } } as Record<number, { units: number; sets: number; nodes: number }>, opts: { schoolId?: string } = {}): Promise<VerifyResult> {
+export async function verifyCurriculumMap(repo: Repo, map: MapGrade[], expected = { 4: { units: 6, sets: 18, nodes: 144 }, 5: { units: 6, sets: 18, nodes: 144 }, 6: { units: 6, sets: 23, nodes: 115 } } as Record<number, { units: number; sets: number; nodes: number }>, opts: { schoolId?: string } = {}): Promise<VerifyResult> {
   const grades = await repo.findMany("Grade", { level: { in: map.map((g) => g.level) }, ...(opts.schoolId ? { schoolId: opts.schoolId } : {}) });
   const checks: GradeCheck[] = [];
   const problems: string[] = [];

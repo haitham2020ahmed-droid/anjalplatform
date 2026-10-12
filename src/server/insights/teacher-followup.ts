@@ -6,6 +6,7 @@
  * Only work the teacher made counts (automatic Weekly Checks, re-checks, reteach and Diagnostic sets are left out),
  * and alerts left open for more than 7 days are shown. Every warning shows its context (number of classes and students) so the admin can judge fairly.
  */
+import { sharedRead } from "../lib/shared-read";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -123,4 +124,13 @@ export async function teacherFollowup(repo: Repo, actor: Actor, now = new Date()
 export async function recordResultsView(repo: Repo, actor: Actor, now = new Date()): Promise<void> {
   if (actor.role !== "TEACHER") return;
   await repo.create("AuditLog", { actorId: actor.userId, action: "results.view", entityType: "User", entityId: actor.userId, before: null, after: null, createdAt: now });
+}
+
+/**
+ * ⚡ The admin home's teacher follow-up (Update 55, performance): it reads every student's recent practice, so the
+ * home page keeps it for a few minutes per school (the full Teacher Follow-Up page stays live). Fresh after a
+ * change of classes or teachers in this process.
+ */
+export function teacherFollowupForHome(repo: Repo, actor: Actor, now = new Date()): ReturnType<typeof teacherFollowup> {
+  return sharedRead(repo, `followup-home|${s(actor.schoolId)}`, ["ClassTeacher", "ClassMembership", "Class", "Teacher", "User"], 5 * 60_000, () => teacherFollowup(repo, actor, now));
 }

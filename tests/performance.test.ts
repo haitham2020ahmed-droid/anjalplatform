@@ -1,5 +1,6 @@
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
+import { skillsMatching } from "../src/server/questions/skill-questions";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
@@ -65,7 +66,9 @@ describe("performance: question list in the database", () => {
     const qs = await repo.findMany("Question", { id: { in: all.map((x) => x.id) } });
     // search matches the question text, its reference, or its skill's name
     const skillNames = new Map((await repo.findMany("Skill", { id: { in: [...new Set(qs.map((q) => q.skillId))] } })).map((k) => [String(k.id), String(k.name).toLowerCase()]));
-    const expected = qs.filter((q) => String(q.stem).toLowerCase().includes(word.toLowerCase()) || String(q.externalRef ?? "").toLowerCase().includes(word.toLowerCase()) || (skillNames.get(String(q.skillId)) ?? "").includes(word.toLowerCase())).map((q) => String(q.id)).sort();
+    // …and the skills the words name (skillsMatching: the same family of skills, other names of the skill)
+    const named = new Set((await skillsMatching(repo, admin.schoolId!, word.toUpperCase())).flatMap((m) => m.familySkillIds ?? [m.id]).map(String));
+    const expected = qs.filter((q) => String(q.stem).toLowerCase().includes(word.toLowerCase()) || String(q.externalRef ?? "").toLowerCase().includes(word.toLowerCase()) || (skillNames.get(String(q.skillId)) ?? "").includes(word.toLowerCase()) || named.has(String(q.skillId))).map((q) => String(q.id)).sort();
     // one page of 50 at most: every row shown is a real match, and the count covers them all
     for (const x of hits.items) assert.ok(expected.includes(x.id), x.id);
     assert.equal(hits.items.length, Math.min(expected.length, hits.items.length));

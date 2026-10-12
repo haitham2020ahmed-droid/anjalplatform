@@ -56,7 +56,16 @@ async function setNode(repo: Repo, schoolId: string, setCode: string): Promise<{
   return { grade, node, parent, unit };
 }
 
+/**
+ * The school's Grades 4–5 Respond to Reading tasks (respond-library.ts) are written into RespondActivity the first
+ * time any Respond to Reading list or page is opened (once per school; existing activities are never overwritten).
+ */
+async function ensureLibrary(repo: Repo, schoolId: string): Promise<void> {
+  try { await (await import("./respond-library")).autoLoadRespondLibrary(repo, schoolId); } catch { /* the pages still work without it */ }
+}
+
 async function activitiesOf(repo: Repo, schoolId: string, setCode: string): Promise<Map<string, Row>> {
+  await ensureLibrary(repo, schoolId);
   const codes = RESPOND_LEVELS.map((l) => `${setCode}.${l}`);
   return new Map((await repo.findMany("RespondActivity", { schoolId, code: { in: codes } })).map((r) => [s(r.code), r]));
 }
@@ -78,6 +87,7 @@ export async function respondPage(repo: Repo, actor: Actor, code: string): Promi
 
 /** The RTR codes of the school that have an activity (for the Curriculum Map badges). */
 export async function respondCodes(repo: Repo, schoolId: string): Promise<Set<string>> {
+  await ensureLibrary(repo, schoolId);
   return new Set((await repo.findMany("RespondActivity", { schoolId }, { select: ["code"] })).map((r) => s(r.code)));
 }
 

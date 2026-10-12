@@ -162,9 +162,15 @@ describe("answering", () => {
     const view = await startPractice(repo, lina, sid, later(0), rng);
     const item = (await loadSkillItems(repo, sid)).find((i) => i.questionId === view.question!.questionId)!;
     const r = responseFor(item, view.question!, true);
-    await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: r }, later(20));
-    await assert.rejects(submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: r }, later(1)), /already answered/);
+    const first = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: r }, later(20));
+    // a second submit (double click, a retry after a lost reply) gets the SAME saved result back; nothing is saved again
+    const again = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: r }, later(21));
+    assert.equal(again.feedback.replayed, true);
+    assert.equal(again.feedback.correct, first.feedback.correct);
+    assert.equal(again.view.answered, first.view.answered);
     assert.equal(await repo.count("QuestionAttempt", { sessionId: view.sessionId }), 1);
+    // a question never served in this session is refused
+    await assert.rejects(submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: "not-served", response: r }, later(22)), /already answered/);
   });
 
   test("another student cannot answer in my session", async () => {

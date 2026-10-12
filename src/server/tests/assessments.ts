@@ -22,8 +22,9 @@ import { evidenceLevels } from "../curriculum-map/evidence-level";
 import { instructionalWeekOf, loadCycle } from "../assessment-cycle/cycle";
 import { correctAnswerText, loadQuestionItems, seededShuffle, studentAnswerText } from "../practice/items";
 import { questionsOfSkill, type QLevel } from "./question-source";
-import { familyRepresentatives } from "../questions/skill-questions";
+import { familyRepresentatives, normalizeSkillName } from "../questions/skill-questions";
 import { TEST_MARK, testOrder } from "./runtime";
+import { contentKeysForIds, Sitting } from "../questions/fresh";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -93,10 +94,11 @@ export interface BuilderSkill { id: string; name: string; grade: number; filter:
 /** Every skill of the bank, all grades (ACCESS RULES: all content is open to every teacher); `available` = the pooled count. */
 export async function builderSkills(repo: Repo, actor: Actor, opts: { q?: string; filter?: SkillFilter; grade?: number } = {}): Promise<BuilderSkill[]> {
   staff(actor);
-  const q = s(opts.q).trim().toLowerCase();
+  // a name is found whatever its case, "&" / "and" or apostrophe ("Character Traits & Development")
+  const raw = s(opts.q).trim().toLowerCase(), q = normalizeSkillName(raw);
   const kinds = opts.filter && opts.filter !== "ALL" ? new Set(FILTER_KINDS[opts.filter]) : null;
   return (await masterSkills(repo, actor.schoolId!, { withQuestionsOnly: false }))
-    .filter((k) => (!kinds || kinds.has(k.kind)) && (!opts.grade || k.grade === opts.grade) && (!q || k.name.toLowerCase().includes(q) || k.code.toLowerCase().includes(q)))
+    .filter((k) => (!kinds || kinds.has(k.kind)) && (!opts.grade || k.grade === opts.grade) && (!raw || normalizeSkillName(k.name).includes(q) || k.code.toLowerCase().includes(raw)))
     .map((k) => ({ id: k.id, name: k.name, grade: k.grade, filter: filterOf(k.kind), available: k.questions }))
     .sort((x, y) => x.grade - y.grade || x.name.localeCompare(y.name));
 }
@@ -132,17 +134,28 @@ export async function previewTest(repo: Repo, actor: Actor, input: { skills: Pic
   const chosen: Record<string, string[]> = Object.fromEntries(keys.map((k) => [k, []]));
   const notes: string[] = [];
   const all = await skillMeta(repo, actor.schoolId!, skills.map((k) => k.skillId));
+  // 👯 one version never holds two copies of the same content (also across skills: copies stored under different
+  // skills, grades or map places) — questions/fresh.ts
+  const inVersion = Object.fromEntries(keys.map((k) => [k, new Sitting()])) as Record<string, Sitting>;
   for (const k of skills) {
     const meta = all.find((x) => x.id === k.skillId);
     if (!meta) throw new ValidationError("A chosen skill was not found.");
     const pool = await questionsOfSkill(repo, actor.schoolId!, k.skillId);
     if (!pool.length) { notes.push(`${meta.name} has no questions yet.`); continue; }
+    const contentOf = await contentKeysForIds(repo, pool.map((p) => p.id));
     for (const key of keys) {
       const seed = `${s(input.seed)}:${k.skillId}:${key}`;
       const order = (lv: QLevel | null) => seededShuffle(pool.filter((p) => !lv || p.level === lv).map((p) => p.id), seed);
       // same for all: a spread of levels; a level version: that level first, then On Level, then the rest
       const ranked = key === "SAME" ? order(null) : [...new Set([...order(key), ...order("ON"), ...order(null)])];
-      const take = ranked.slice(0, k.count);
+      const take: string[] = [];
+      for (const id of ranked) {
+        if (take.length >= k.count) break;
+        const ck = contentOf.get(id) ?? [];
+        if (inVersion[key].has(id, ck)) continue;
+        inVersion[key].add(id, ck);
+        take.push(id);
+      }
       if (take.length < k.count) notes.push(`${meta.name}: only ${take.length} question(s) available${key === "SAME" ? "" : ` for ${LEVEL_NAME[key]}`}.`);
       else if (key !== "SAME" && pool.filter((p) => p.level === key).length < k.count) notes.push(`${meta.name}: not enough ${LEVEL_NAME[key]} questions — topped up from other levels.`);
       chosen[key].push(...take);
@@ -277,7 +290,10 @@ export async function assignTest(repo: Repo, actor: Actor, input: AssignTestInpu
 
 // ------------------------------------------------------------------ 4. templates
 
-export interface TemplateSpec { skills: PickedSkill[]; levelMode: LevelMode; timeLimitMin: number | null; shuffle: boolean; questions: Versions }
+/** `mapQuestionIds`: the Curriculum Map questions the teacher picked (in order), kept with the draft. */
+export interface TemplateSpec { skills: PickedSkill[]; levelMode: LevelMode; timeLimitMin: number | null; shuffle: boolean; questions: Versions; mapQuestionIds?: string[] }
+/** Rows of TestTemplate that are not test templates (skill-assignment drafts, "Preview as student" records). */
+const NOT_TEMPLATES = new Set(["ASSIGN_DRAFT", "TEST_PREVIEW"]);
 export interface TemplateRow { id: string; title: string; type: TestType; typeName: string; skills: number; questions: number; updatedAt: string }
 
 export async function saveTemplate(repo: Repo, actor: Actor, input: { id?: string | null; title: string; type: TestType | string; spec: TemplateSpec }, now = new Date()): Promise<string> {
@@ -286,8 +302,11 @@ export async function saveTemplate(repo: Repo, actor: Actor, input: { id?: strin
   if (!title) throw new ValidationError("Give the template a name.");
   const type = asTestType(input.type);
   const sp = input.spec ?? ({} as TemplateSpec);
+  const mapQuestionIds = [...new Set((Array.isArray(sp.mapQuestionIds) ? sp.mapQuestionIds : []).map(s).filter(Boolean))].slice(0, MAX_TEST_QUESTIONS);
+  const hasQuestions = mapQuestionIds.length > 0 || Object.values(sp.questions ?? {}).some((l) => Array.isArray(l) && l.length > 0);
   const spec: TemplateSpec = {
-    skills: cleanSkills(sp.skills), levelMode: sp.levelMode === "LEVEL" ? "LEVEL" : "SAME",
+    // a test made only of Curriculum Map questions has no skills
+    skills: (sp.skills ?? []).length || !hasQuestions ? cleanSkills(sp.skills) : [], mapQuestionIds, levelMode: sp.levelMode === "LEVEL" ? "LEVEL" : "SAME",
     timeLimitMin: sp.timeLimitMin ? Math.max(1, Math.min(MAX_TIME_LIMIT_MIN, Math.round(Number(sp.timeLimitMin)))) : null, shuffle: Boolean(sp.shuffle),
     questions: Object.fromEntries(Object.entries(sp.questions ?? {}).filter(([k]) => ["SAME", ...LEVELS].includes(k)).map(([k, v]) => [k, [...new Set((Array.isArray(v) ? v : []).map(s).filter(Boolean))].slice(0, MAX_TEST_QUESTIONS)])),
   };
@@ -303,7 +322,7 @@ export async function saveTemplate(repo: Repo, actor: Actor, input: { id?: strin
 async function ownTemplate(repo: Repo, actor: Actor, id: string): Promise<Row> {
   staff(actor);
   const t = await repo.findUnique("TestTemplate", { id });
-  if (!t || t.deletedAt || s(t.schoolId) !== s(actor.schoolId) || s(t.createdById) !== actor.userId) throw new ForbiddenError("Template not found.");
+  if (!t || t.deletedAt || NOT_TEMPLATES.has(s(t.testType)) || s(t.schoolId) !== s(actor.schoolId) || s(t.createdById) !== actor.userId) throw new ForbiddenError("Template not found.");
   return t;
 }
 
@@ -315,7 +334,8 @@ export async function openTemplate(repo: Repo, actor: Actor, id: string): Promis
 export async function listTemplates(repo: Repo, actor: Actor): Promise<TemplateRow[]> {
   staff(actor);
   const rows = await repo.findMany("TestTemplate", { schoolId: actor.schoolId, createdById: actor.userId, deletedAt: null }, { orderBy: [{ field: "updatedAt", dir: "desc" }], take: 100 });
-  return rows.map((t) => {
+  // (📝 Review & Send drafts of skill assignments share this table; they are not test templates)
+  return rows.filter((t) => !NOT_TEMPLATES.has(s(t.testType))).map((t) => {
     const sp = json<TemplateSpec>(t.spec, { skills: [], levelMode: "SAME", timeLimitMin: null, shuffle: false, questions: {} });
     const type = asTestType(t.testType);
     return { id: s(t.id), title: s(t.title), type, typeName: TEST_TYPE_NAME[type], skills: sp.skills.length, questions: Math.max(0, ...Object.values(sp.questions ?? {}).map((l) => (l ?? []).length)), updatedAt: iso(t.updatedAt) ?? "" };

@@ -18,6 +18,7 @@ import { EmptyState, SourceTag, StatusPill } from "@/components/ui-kit";
 import { AtAGlance, Callout, ReportHeader, toneOfPct } from "@/components/report-kit";
 import { MASTERED_AT, NEEDS_BELOW } from "@/server/teacher/student-profile";
 import type { MapSummary } from "@/server/insights/student-data";
+import { writingResults } from "@/server/writing/locked";
 
 const day = (iso: string | null) => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Riyadh" }) : "—");
 const mins = (m: number) => (m >= 60 ? `${Math.floor(m / 60)}h ${m % 60}m` : `${m}m`);
@@ -35,6 +36,9 @@ export default async function StudentPage({ params }: { params: Promise<{ studen
   // the detail (access check) first, then every section at once (Update 42B): src/server/teacher/page-data.ts
   const { d, st, member, analytics, profile, tier, reports, path, mapCompare, extras: x } = await teacherStudentData(repo, actor, studentId);
   const classId = member ? String(member.classId) : null;
+  // ✍️ graded writing (rubric score %), with the other results
+  const writing = classId ? await writingResults(repo, actor, classId, { studentId, limit: 20 }).catch(() => null) : null;
+  const myWriting = writing ? writing.tasks.filter((k) => writing.rows[0]?.pct[k.id] !== undefined).map((k) => ({ ...k, pct: writing.rows[0].pct[k.id] })) : [];
   const mastered = d.skills.filter((k) => k.score >= MASTERED_AT || /master/i.test(k.band)).sort((a, b) => b.score - a.score);
   const needed = d.skills.filter((k) => k.score < NEEDS_BELOW && !/master/i.test(k.band)).sort((a, b) => a.score - b.score);
   const avgTest = x.tests.completed.filter((c) => c.pct !== null);
@@ -124,6 +128,17 @@ export default async function StudentPage({ params }: { params: Promise<{ studen
                 ))}
               </tbody>
             </table>
+          </div>
+        )}
+        {myWriting.length > 0 && (
+          <div className="mt-4">
+            <h3 className="font-semibold text-brand-navy">✍️ {t("Writing results")} <span className="text-sm font-normal text-slate-500">· {t("Average")} <span dir="ltr">{writing!.rows[0].average}%</span></span></h3>
+            <ul className="mt-2 divide-y divide-slate-100 text-sm">{myWriting.map((w) => (
+              <li key={w.id} className="flex items-center justify-between gap-2 py-1.5">
+                {w.locked ? <Link prefetch={false} href={`/teacher/writing/task/${w.id}/${studentId}`} className="font-medium text-brand-navy underline" data-content lang="en">🔒 {w.title}</Link> : <span data-content lang="en">{w.title}</span>}
+                <span className="tabular-nums" dir="ltr">{w.pct}%</span>
+              </li>
+            ))}</ul>
           </div>
         )}
       </section>

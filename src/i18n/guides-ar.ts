@@ -16,7 +16,7 @@ export const GUIDES: Record<"STUDENT" | "TEACHER" | "SCHOOL_ADMIN", Guide> = {
       { title: "القراءة", where: "مجموعة «Reading»", text: "ReadMaster و ReadRise و Fluency Coach. اقرأ في مستواك أو أعلى. انقر مرتين على أي كلمة لترى معناها.", href: "/student/readmaster" },
       { title: "إنجازاتي", where: "مجموعة «Achievements»", text: "اختباراتي (My Tests) وشهاداتي (My Certificates) وأوسمتي (Badges).", href: "/student/tests" },
       { title: "تقاريري", where: "زر «My Reports»", text: "كل تقاريرك في مكان واحد: تقدمك، واختباراتك، وتقرير الأسرة.", href: "/student/reports" },
-      { title: "المزيد", where: "مجموعة «More» (مطوية)", text: "اضغط «More» لفتحها: دروسي، مراجعة أخطائي، كلماتي، الكتابة، الاستجابة للقراءة، والمساعدة.", href: "/student/review" },
+      { title: "المزيد", where: "مجموعة «More» (مطوية)", text: "اضغط «More» لفتحها: دروسي، مراجعة أخطائي، كلماتي، الكتابة، الاستجابة للقراءة، والمساعدة.", href: "/student/second-chance" },
       { title: "اللعب المباشر", where: "زر الصفحة الرئيسية", text: "للانضمام إلى تحدٍ مباشر استخدم زر «Join Live» في صفحتك الرئيسية واكتب الرمز من المعلم.", href: "/student" },
     ],
   },

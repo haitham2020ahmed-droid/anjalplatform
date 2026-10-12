@@ -2,7 +2,8 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { NO_CURRICULUM_MESSAGE, teacherCurriculum, type CurriculumSkill } from "@/server/teacher/assign";
-import { AssignDialog, AssignSkillHost } from "../assign-dialog";
+import { AssignDialog } from "../assign-dialog";
+import { AssignHostAll } from "../assign-host-all";
 import { CcssNote } from "@/components/ccss-note";
 import { SkillQuestionPicker } from "@/components/skill-picker";
 
@@ -37,7 +38,7 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
       </div>
       <div className="flex flex-wrap items-center gap-2">
         {canAssign && <Link href={`/teacher/skill-assign?${new URLSearchParams({ skillId: k.id, classId: view!.classId })}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Questions linked to the lesson, the same skill and the same standard; assign practice at each student’s level or a ready set">🔎 Questions from the bank</Link>}
-        {canAssign && <AssignDialog skill={k} />}
+        {canAssign && (k.questions > 0 ? <AssignDialog skill={k} /> : <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-sm text-slate-600">This skill has no questions yet.</span>)}
       </div>
       <details className="w-full">
         <summary className="inline-flex min-h-11 cursor-pointer items-center rounded-lg px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">View questions ({k.questions})</summary>
@@ -103,7 +104,7 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
           )}
         </>
       )}
-      {canAssign && view && <AssignSkillHost classId={view.classId} className={view.classes.find((c) => c.id === view.classId)?.name ?? ""} students={view.students} track={map ? "MAP" : "NAFS"} />}
+      {canAssign && view && <AssignHostAll classId={view.classId} className={view.classes.find((c) => c.id === view.classId)?.name ?? ""} students={view.students} track={map ? "MAP" : "NAFS"} />}
     </AppShell>
   );
 }

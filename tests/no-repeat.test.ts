@@ -1,13 +1,13 @@
 /**
  * 🔁 No repeated questions in skill practice (demo school in memory; never a real database):
- *   a. an answered question never comes back — across sessions, across the skill family (another grade's copy), and
+ *   a. an attempted question never comes back — across sessions, across the skill family (another grade's copy), and
  *      within a session
- *   b. when every question at the student's level is answered, ONLY the missed ones (never answered correctly) come
- *   c. a question answered correctly never comes back
- *   d. nothing left → "You finished this skill! 🎉" (SKILL_FINISHED) and the work is Done
- *   e. Assignment.questionIds: the same rules inside the teacher's picks
- *   f. the Diagnostic's answers do not count; levels and mastery are computed exactly as before (only the choice of
- *      the next question changes)
+ *   b. a MISSED question does not come back in practice either: it waits in Second Chance (the only place a missed
+ *      question is shown again)
+ *   c. nothing new left → "You finished this skill! 🎉" (SKILL_FINISHED) and the work is Done
+ *   d. Assignment.questionIds: the same rules inside the teacher's picks
+ *   e. any attempt history counts (the Diagnostic too); levels and mastery are computed exactly as before (only the
+ *      choice of the next question changes)
  */
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
@@ -16,7 +16,8 @@ import { resolveActor } from "../src/server/auth/actor";
 import type { Actor } from "../src/server/auth/rbac";
 import { assignSkill, teacherCurriculum } from "../src/server/teacher/assign";
 import { endPractice, startPractice, submitAnswer, type PracticeView } from "../src/server/practice/session";
-import { allowedQuestions, answerState, withAnswer } from "../src/server/practice/no-repeat";
+import { allowedQuestions, answerState, keyed, withAnswer } from "../src/server/practice/no-repeat";
+import { loadSkillItems } from "../src/server/practice/items";
 import { afterResponseSettled } from "../src/server/lib/after-response";
 import { processAnswer, type SkillState } from "../src/adaptive/engine";
 import { DEFAULT_ADAPTIVE, DEFAULT_MASTERY } from "../src/config/engine";
@@ -63,64 +64,44 @@ describe("no repeated questions within a skill (per student, across sessions)", 
     return r;
   };
 
-  test("pure rule: unanswered first, then only missed ones (not twice in a session), then finished", () => {
-    const pool = qs.slice(0, 3).map((questionId) => ({ questionId, b: 0 }));
-    const none = { answered: new Set<string>(), correct: new Set<string>() };
-    assert.deepEqual(allowedQuestions(pool, none, new Set(), 0), { phase: "NEW", ids: qs.slice(0, 3) });
-    const st = withAnswer(withAnswer(withAnswer(none, qs[0], true), qs[1], false), qs[2], true);
-    assert.deepEqual(allowedQuestions(pool, st, new Set(), 0), { phase: "RETRY", ids: [qs[1]] }, "only the missed one");
-    assert.deepEqual(allowedQuestions(pool, st, new Set([qs[1]]), 0), { phase: "LATER", ids: [] }, "not twice in one session");
-    assert.deepEqual(allowedQuestions(pool, withAnswer(st, qs[1], true), new Set(), 0), { phase: "DONE", ids: [] }, "a correct answer never comes back");
-    // an unanswered question far above the level does not hide the missed ones at the level
-    const far = [...pool, { questionId: "far", b: 5 }];
-    assert.equal(allowedQuestions(far, st, new Set(), 0).phase, "RETRY");
-    assert.deepEqual(allowedQuestions(far, withAnswer(st, qs[1], true), new Set(), 0), { phase: "NEW", ids: ["far"] });
+  test("pure rule: never-attempted questions only (copies count as attempted), then finished", () => {
+    const pool = [
+      { questionId: qs[0], b: 0, keys: ["s:one"] },
+      { questionId: qs[1], b: 0, keys: ["s:two"] },
+      { questionId: qs[2], b: 0, keys: ["s:three"] },
+      { questionId: "copy-of-1", b: 0.2, keys: ["s:one"] },
+    ];
+    const none = { answered: new Set<string>(), keys: new Set<string>() };
+    assert.deepEqual(allowedQuestions(pool, none), { phase: "NEW", ids: [qs[0], qs[1], qs[2], "copy-of-1"] });
+    const st = withAnswer(withAnswer(none, pool[0]), pool[1]);
+    assert.deepEqual(allowedQuestions(pool, st), { phase: "NEW", ids: [qs[2]] }, "the copy of an answered question is not new");
+    assert.deepEqual(allowedQuestions(pool, withAnswer(st, pool[2])), { phase: "DONE", ids: [] }, "a missed question never comes back here");
   });
 
-  test("across sessions: never an answered question; then only the missed ones; correct ones never return; finished → Done", async () => {
+  test("across sessions: never an attempted question; a missed one does not come back; finished → Done", async () => {
     const served: string[] = [];
-    const correctOnes = new Set<string>();
     const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: g4, studentIds: [A.studentId!] }, tick(0));
     // session 1: one right, one wrong, then the student leaves
     let v = await startPractice(repo, A, g4, tick());
     served.push(v.question!.questionId);
-    let r = await answer(A, v, true); correctOnes.add(served[0]); v = r.view;
+    let r = await answer(A, v, true); v = r.view;
     assert.ok(v.question && !served.includes(v.question.questionId), "a new question in the same session");
     served.push(v.question.questionId);
     r = await answer(A, v, false); v = r.view;
-    const missed1 = served[1];
     await endPractice(repo, A, v.sessionId, tick());
     // session 2: the first question is one never answered
     v = await startPractice(repo, A, g4, tick());
-    assert.ok(!served.includes(v.question!.questionId), "a new session never repeats an answered question");
-    // the four questions left: the first wrong, the rest right
-    let missed2 = "";
     for (let k = 0; k < 4; k++) {
       const id = v.question!.questionId;
       assert.ok(!served.includes(id), `question ${k + 3} is new`);
       served.push(id);
       r = await answer(A, v, k !== 0); v = r.view;
-      if (k === 0) missed2 = id; else correctOnes.add(id);
     }
     assert.equal(new Set(served).size, 6, "all six questions answered, each once");
-    // every question answered → ONLY the missed ones come back (never a correct one, never one just answered), until
-    // each is answered correctly: then nothing is left and the skill is finished
-    const missed = new Set([missed1, missed2]);
-    const back: string[] = [];
-    let end = "";
-    for (let k = 0; k < 6 && !end; k++) {
-      if (!v.question) { assert.equal(r.feedback.next.endReason, "RETRY_LATER"); v = await startPractice(repo, A, g4, tick()); }
-      const id = v.question!.questionId;
-      assert.ok(missed.has(id), "only a missed question comes back");
-      assert.ok(!correctOnes.has(id), "a correct answer never comes back");
-      back.push(id);
-      r = await answer(A, v, true); correctOnes.add(id); missed.delete(id); v = r.view;
-      if (r.feedback.next.endReason === "SKILL_FINISHED") end = "SKILL_FINISHED";
-    }
-    assert.deepEqual([...back].sort(), [missed1, missed2].sort(), "each missed question came back once");
-    assert.equal(end, "SKILL_FINISHED", "nothing left: the skill is finished");
+    // every question attempted (two of them missed): the missed ones wait in Second Chance, practice is finished
+    assert.equal(r.feedback.next.endReason, "SKILL_FINISHED");
     assert.equal(r.view.ended, true);
-    // session 4: nothing to serve — the finished screen at once, and the work is Done
+    // session 3: nothing to serve — the finished screen at once, and the work is Done
     const again = await assignSkill(repo, teacher, { classId, skillId: g4, studentIds: [A.studentId!] }, tick(0));
     v = await startPractice(repo, A, g4, tick());
     assert.deepEqual([v.question, v.ended, v.endReason], [null, true, "SKILL_FINISHED"]);
@@ -132,9 +113,8 @@ describe("no repeated questions within a skill (per student, across sessions)", 
   });
 
   test("the skill family counts: answers on Grade 4's copy finish Grade 5's copy too", async () => {
-    const st = await answerState(repo, A.studentId!, g5);
+    const st = await answerState(repo, A.studentId!, keyed(await loadSkillItems(repo, g5)));
     assert.equal(st.answered.size, 6, "attempts recorded on the Grade 4 skill id are read for the Grade 5 copy");
-    assert.equal(st.correct.size, 6);
     const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: g5, studentIds: [A.studentId!] }, tick(0));
     const v = await startPractice(repo, A, g5, tick());
     assert.deepEqual([v.question, v.endReason], [null, "SKILL_FINISHED"], "no repeat through another grade's copy");
@@ -146,42 +126,33 @@ describe("no repeated questions within a skill (per student, across sessions)", 
     const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: g4, studentIds: [B.studentId!], questionIds: picks }, tick(0));
     let v = await startPractice(repo, B, g4, tick());
     const served: string[] = [];
-    let wrongOnce = false;
-    let guard = 0;
+    let guard = 0, last = null as Awaited<ReturnType<typeof answer>> | null;
     while (v.question && guard++ < 10) {
       const id = v.question.questionId;
       assert.ok(picks.includes(id), "only picked questions");
       served.push(id);
-      // the first one is missed once; it comes back only after the other picks
-      const right = !(id === served[0] && !wrongOnce);
-      if (!right) wrongOnce = true;
-      const r = await answer(B, v, right);
-      v = r.view;
-      if (!v.question && !v.ended) break;
-      // the work is Done once every pick was answered; practising again stays inside the teacher's picks
-      if (!v.question && r.feedback.next.endReason === "RETRY_LATER") {
-        assert.equal((await repo.findMany("AssignmentStudent", { assignmentId, studentId: B.studentId! }))[0].status, "COMPLETED");
-        v = await startPractice(repo, B, g4, tick());
-      }
+      // the first one is missed: it does NOT come back (Second Chance)
+      last = await answer(B, v, served.length !== 1);
+      v = last.view;
     }
-    assert.equal(served.length, 4, JSON.stringify(served));
-    assert.deepEqual(served.slice(0, 3).sort(), [...picks].sort(), "each pick once before any repeat");
-    assert.equal(served[3], served[0], "then only the missed pick");
+    assert.deepEqual([...served].sort(), [...picks].sort(), "each pick exactly once");
     assert.equal(v.endReason, "SKILL_FINISHED");
     assert.equal((await repo.findMany("AssignmentStudent", { assignmentId, studentId: B.studentId! }))[0].status, "COMPLETED");
     // a double submit of the last answer writes nothing more
     const n = await repo.count("QuestionAttempt", { studentId: B.studentId! });
-    const dup = await submitAnswer(repo, B, { sessionId: v.sessionId, questionId: served[3], response: "A" }, tick());
+    const dup = await submitAnswer(repo, B, { sessionId: v.sessionId, questionId: served[served.length - 1], response: "A" }, tick());
     assert.equal(dup.feedback.alreadyEnded, true);
     assert.equal(await repo.count("QuestionAttempt", { studentId: B.studentId! }), n);
+    void last;
     await afterResponseSettled();
   });
 
-  test("the Diagnostic's answers do not count as answered", async () => {
+  test("any attempt history counts — the Diagnostic's answers too", async () => {
     const C = await resolveActor(repo, (await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: (await teacherCurriculum(repo, teacher))!.students[2].id }))!.userId }))!);
     const diag = await repo.create("PracticeSession", { studentId: C.studentId!, mode: "DIAGNOSTIC", startedAt: tick(), endedAt: tick() });
     await repo.create("QuestionAttempt", { sessionId: diag.id, studentId: C.studentId!, questionId: qs[0], skillId: g5, response: { value: "A" }, isCorrect: true, responseMs: 9000, usedHint: false, rapidGuess: false, difficultyB: 0, createdAt: tick() });
-    assert.equal((await answerState(repo, C.studentId!, g4)).answered.size, 0);
+    const st = await answerState(repo, C.studentId!, keyed(await loadSkillItems(repo, g4)));
+    assert.deepEqual([...st.answered], [qs[0]]);
   });
 
   test("levels and mastery are unchanged: the engine scores the same; only the choice of the next question differs", () => {

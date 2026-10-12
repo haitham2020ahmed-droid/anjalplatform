@@ -22,6 +22,7 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import { modelVersion } from "../cache/bank-version";
+import { mapLinkedQuestionIds } from "./bank-scope";
 import { remember } from "../cache/lru";
 
 const s = (v: unknown) => String(v ?? "");
@@ -249,7 +250,9 @@ export async function questionsOfSkill(repo: Repo, schoolId: string, skillId: st
   const fam = await familyIdsInSchool(repo, schoolId, skillId);
   if (!fam.length) return [];
   const take = Math.max(1, Math.min(MAX_TAKE, Math.floor(opts.take ?? 200)));
-  const rows = await repo.findMany("Question", { skillId: fam.length === 1 ? fam[0] : { in: fam }, ...statusWhere(opts.status), ...levelWhere(opts.level) }, {
+  // the bank only (Curriculum Map questions stay with their lesson)
+  const onMap = [...(await mapLinkedQuestionIds(repo))];
+  const rows = await repo.findMany("Question", { skillId: fam.length === 1 ? fam[0] : { in: fam }, ...statusWhere(opts.status), ...levelWhere(opts.level), ...(onMap.length ? { id: { notIn: onMap } } : {}) }, {
     select: ["id", "skillId", "difficultyLevel", "typeId", "standardId", "passageId", "status"],
     orderBy: [{ field: "difficultyLevel", dir: "asc" }, { field: "id", dir: "asc" }], take, ...(opts.skip ? { skip: Math.max(0, Math.floor(opts.skip)) } : {}),
   });
@@ -281,14 +284,16 @@ export async function countOwnQuestionsOfSkills(repo: Repo, schoolId: string, sk
   // the whole school's counts for this status/level are cached (one entry), then picked
   let m = countCache.get(repo); if (!m) countCache.set(repo, (m = new Map()));
   const key = `${schoolId}|${opts.status ?? "PUBLISHED"}|${JSON.stringify(opts.level ?? null)}`;
-  const v = modelVersion("Question", "Skill", "Curriculum", "Grade"), hit = m.get(key);
+  const v = modelVersion("Question", "Skill", "Curriculum", "Grade", "QuestionMapLink"), hit = m.get(key);
   let all: Promise<Map<string, number>>;
   if (hit && hit.v === v && Date.now() - hit.at < 60_000) all = hit.p;
   else {
     all = (async () => {
       const ids = [...idx.ids], counts = new Map<string, number>();
+      // the bank only: Curriculum Map questions belong to their lesson, not to the bank's counts (Update 54)
+      const onMap = await mapLinkedQuestionIds(repo);
       for (let i = 0; i < ids.length; i += CHUNK) {
-        for (const q of await repo.findMany("Question", { skillId: { in: ids.slice(i, i + CHUNK) }, ...statusWhere(opts.status), ...levelWhere(opts.level) }, { select: ["skillId"] })) counts.set(s(q.skillId), (counts.get(s(q.skillId)) ?? 0) + 1);
+        for (const q of await repo.findMany("Question", { skillId: { in: ids.slice(i, i + CHUNK) }, ...statusWhere(opts.status), ...levelWhere(opts.level) }, { select: ["id", "skillId"] })) if (!onMap.has(s(q.id))) counts.set(s(q.skillId), (counts.get(s(q.skillId)) ?? 0) + 1);
       }
       return counts;
     })().catch((e) => { m!.delete(key); throw e; });

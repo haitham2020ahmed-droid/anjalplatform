@@ -699,6 +699,8 @@ CREATE TABLE `AssignmentStudent` (
   `status` ENUM('NOT_STARTED', 'IN_PROGRESS', 'COMPLETED', 'OVERDUE') NOT NULL DEFAULT 'NOT_STARTED',
   `progress` DOUBLE NOT NULL DEFAULT 0,
   `completedAt` DATETIME(3),
+  `coreAnswered` INTEGER,
+  `coreCorrect` INTEGER,
   PRIMARY KEY (`assignmentId`, `studentId`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -1609,6 +1611,8 @@ CREATE TABLE `ExitTicketAnswer` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE INDEX `ExitTicketAnswer_ticketId_idx` ON `ExitTicketAnswer`(`ticketId`);
+
+CREATE INDEX `ExitTicketAnswer_studentId_createdAt_idx` ON `ExitTicketAnswer`(`studentId`, `createdAt`);
 
 CREATE TABLE `Worksheet` (
   `id` VARCHAR(191) NOT NULL,
@@ -2582,6 +2586,7 @@ CREATE TABLE `SecondChanceAnswer` (
   `questionId` VARCHAR(64) NOT NULL,
   `correct` BOOLEAN NOT NULL,
   `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `source` VARCHAR(12),
   PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

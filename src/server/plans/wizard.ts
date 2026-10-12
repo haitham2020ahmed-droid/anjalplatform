@@ -355,6 +355,13 @@ export async function assignPlan(repo: Repo, actor: Actor, input: AssignPlanInpu
       if (k) skills.push({ ...k, track: trackFor(p.type, k.grammar), reason: "Added by the teacher", studentIds: p.students.map((x) => x.id) });
     }
   }
+  // a skill with no questions never goes into a plan: it is left out, and the teacher is told
+  if (skills.length) {
+    const { countQuestionsOfSkills } = await import("../questions/skill-questions");
+    const counts = await countQuestionsOfSkills(repo, s(actor.schoolId), skills.map((k) => k.id));
+    const empty = skills.filter((k) => !(counts.get(k.id) ?? 0));
+    for (const k of empty) { p.notes.push(`${k.name}: This skill has no questions yet.`); skills.splice(skills.indexOf(k), 1); }
+  }
   if (!skills.length) throw new ValidationError(p.notes.length ? `Nothing to assign. ${p.notes.join(" ")}` : "Choose at least one skill.");
   if (skills.length > MAX_PLAN_SKILLS) throw new ValidationError(`A plan can have at most ${MAX_PLAN_SKILLS} skills.`);
   const klass = await assertClassAccess(repo, actor, p.classId);

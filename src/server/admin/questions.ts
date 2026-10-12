@@ -921,3 +921,8 @@ async function mapAreaFilter(repo: Repo, base: Record<string, unknown>, filter: 
   }
   return out;
 }
+
+/** Checks an editor input with the bank rules without saving anything (teacher edit requests). */
+export async function validateEditorInput(repo: Repo, actor: Actor, input: EditorInput, ref: string): Promise<void> {
+  await toBankItem(repo, actor, input, ref);
+}

@@ -69,12 +69,13 @@ describe("admin: calm home, nothing lost", () => {
       assert.ok(n >= 3 && n <= 6, `${g.title}: ${n} tiles`);
       for (const x of ADMIN_TOOLS.filter((y) => y.group === g.key && y.home)) assert.ok(x.hint && isUi(x.hint), `hint of ${x.label}`);
     }
+    // owner's spec (Update 53): 4 cards, at most three waiting items, teacher follow-up, shortcuts; the tools are
+    // in the side menu and All Admin Tools (no tool grid on the home)
     const page = read("src/app/admin/page.tsx");
-    assert.match(page, /\.slice\(0, 3\)/, "at most three attention cards");
-    assert.match(page, /href="\/admin\/school" className=\{`\$\{BTN_PRIMARY\}/, "one primary action: Open School");
-    assert.match(page, /ALL_TOOLS_HREF\}#\$\{g\.key\}/, "each group's More opens All Admin Tools at the group");
+    assert.match(page, /\.slice\(0, 3\)/, "at most three waiting items");
+    assert.match(page, /ALL_TOOLS_HREF/, "a shortcut to All Admin Tools");
     assert.doesNotMatch(page, /ToolFinder|Everything you can do/, "the long list of 45 cards is gone");
-    assert.ok((page.match(/<BigTile /g) ?? []).length === 1, "tiles come from the tool list only");
+    assert.equal((page.match(/<BigTile /g) ?? []).length, 0, "no tile grid on the home");
   });
 
   test("labels, groups and hints are interface strings with Arabic", () => {

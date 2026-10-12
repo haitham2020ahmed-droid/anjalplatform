@@ -37,7 +37,8 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
   const cls = get("classId") ? `classId=${encodeURIComponent(String(get("classId")))}` : "";
   if (get("unit") && !get("type")) redirect(`/teacher/plans/curriculum?${new URLSearchParams({ classId: get("classId") ?? "", unit: get("unit") ?? "" })}`);
   if (get("type") === "MAP") redirect(`/teacher/map-center?tab=plan${cls ? `&${cls}` : ""}`);
-  if (get("type") === "RTI") redirect(`/teacher/rti-plan${cls ? `?${cls}` : ""}`);
+  if (get("type") === "RTI" || get("type") === "SUPPORT") redirect(`/teacher/plans/support${cls ? `?${cls}` : ""}`);
+  if (get("type") === "TEST") redirect(`/teacher/assessments${cls ? `?${cls}` : ""}`);
   if (get("type") === "CURRICULUM") redirect(`/teacher/plans/curriculum${cls ? `?${cls}` : ""}`);
   const tab: Tab = get("tab") === "custom" || get("type") === "CUSTOM" ? "custom" : get("tab") === "sent" ? "sent" : "nafs";
   let ctx: WizardContext | null = null;
@@ -54,11 +55,21 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
       <nav aria-label={t("Plans")} className="mb-3 flex flex-wrap gap-2">
         {TABS.map(([k, label, icon]) => <Link key={k} href={tabHref(k)} aria-current={k === tab ? "page" : undefined} className={`inline-flex min-h-11 items-center gap-2 rounded-xl px-5 font-semibold ${k === tab ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`}><span aria-hidden="true">{icon}</span>{t(label)}</Link>)}
       </nav>
-      <p className="mb-5 text-sm text-slate-600">
-        {t("Other plans:")} <Link href={`/teacher/map-center?tab=plan${klass ? `&classId=${klass.id}` : ""}`} className="font-semibold text-brand-teal underline">{t("MAP plan")}</Link>
-        {" · "}<Link href={`/teacher/rti-plan${klass ? `?classId=${klass.id}` : ""}`} className="font-semibold text-brand-teal underline">{t("RTI plan")}</Link>
-        {" · "}<Link href={`/teacher/plans/curriculum${klass ? `?classId=${klass.id}` : ""}`} className="font-semibold text-brand-teal underline">{t("Curriculum plans")}</Link>
-      </p>
+      {/* every plan type in one place: MAP · NAFS · Curriculum · Support (RTI) · Test · Custom */}
+      <section aria-label={t("Plan types")} className="mb-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+        {([
+          ["🗺️", "MAP", `/teacher/map-center?tab=plan${klass ? `&classId=${klass.id}` : ""}`],
+          ["🇸🇦", "NAFS", `/teacher/plans?tab=nafs${klass ? `&classId=${klass.id}` : ""}`],
+          ["🧭", "Curriculum", `/teacher/plans/curriculum${klass ? `?classId=${klass.id}` : ""}`],
+          ["🛟", "Support", `/teacher/plans/support${klass ? `?classId=${klass.id}` : ""}`],
+          ["📝", "Test", `/teacher/assessments${klass ? `?classId=${klass.id}` : ""}`],
+          ["✏️", "Custom", `/teacher/plans?tab=custom${klass ? `&classId=${klass.id}` : ""}`],
+        ] as const).map(([icon, label, href]) => (
+          <Link key={label} href={href} prefetch={false} className="flex min-h-11 items-center gap-2 rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy shadow-sm ring-1 ring-slate-200 hover:ring-brand-teal">
+            <span aria-hidden="true">{icon}</span>{t(label)}
+          </Link>
+        ))}
+      </section>
       {msg && <p role="status" className="mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{t(msg)}</p>}
       {tab === "sent" ? <SentList t={t} actor={actor} /> : !klass ? (
         <EmptyState icon="🗂️" title="No classes yet" text="When the admin adds you to a class, you can make plans here." action={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} />

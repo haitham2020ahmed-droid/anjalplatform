@@ -21,20 +21,20 @@ describe("Curriculum Map (Grade → Book → Unit → Text Set/Selection → Cat
 
   test("the source gives exactly the expected structure", () => {
     const sum = (g: MapGrade) => expectedNodes(g).filter((n) => n.acceptsQuestions).length;
-    assert.deepEqual(map.map((g) => [g.level, g.units.length, g.units.flatMap((u) => u.sets).length, sum(g)]), [[4, 6, 18, 126], [5, 6, 18, 126], [6, 6, 23, 92]]);
+    assert.deepEqual(map.map((g) => [g.level, g.units.length, g.units.flatMap((u) => u.sets).length, sum(g)]), [[4, 6, 18, 144], [5, 6, 18, 144], [6, 6, 23, 115]]);
     assert.deepEqual(map[2].units.map((u) => u.sets.length), [3, 3, 2, 4, 4, 7], "Grade 6 selections per unit");
-    assert.equal(map.reduce((n, g) => n + sum(g), 0), 344);
+    assert.equal(map.reduce((n, g) => n + sum(g), 0), 403, "Update 56: + one Review per Text Set / Selection (59)");
     assert.throws(() => parseCurriculumMap("Grade 4\nUnit 1\nSomething unexpected"), /line 3: line not understood/);
   });
 
-  test("seed: 344 attachment nodes, exact text, no questions, curriculum tables untouched", async () => {
+  test("seed: 403 attachment nodes, exact text, no questions, curriculum tables untouched", async () => {
     const before = await backupCurriculum(repo);
     const r = await seedCurriculumMap(repo, map, { schoolId });
     assert.equal(r.questionsAfter, r.questionsBefore, "no question created");
     assert.deepEqual(r.grades.map((g) => g.level).sort(), [4, 5, 6]);
     const v = await verifyCurriculumMap(repo, map, undefined, { schoolId });
     assert.ok(v.ok, v.problems.join("\n"));
-    assert.equal(v.totalAttachment, 344);
+    assert.equal(v.totalAttachment, 403);
     assert.deepEqual(v.grades.map((g) => [g.level, g.units, g.sets, g.conceptVocabulary, g.analyzeLevels, g.respondLevels]).sort(), [[4, 6, 18, 18, 54, 54], [5, 6, 18, 18, 54, 54], [6, 6, 23, 23, 69, 0]]);
     // the existing curriculum is exactly as before
     const after = await backupCurriculum(repo);
@@ -59,9 +59,11 @@ describe("Curriculum Map (Grade → Book → Unit → Text Set/Selection → Cat
     const g6nodes = await repo.findMany("CurriculumMapNode", { gradeId: g6 });
     assert.ok(g6nodes.filter((n) => n.kind === "SELECTION").every((n) => n.sharedRead === null));
     assert.equal(g6nodes.filter((n) => n.categoryType === "RESPOND_TO_READING").length, 0);
-    // only Concept Vocabulary categories and the levels accept questions
+    // only Concept Vocabulary, Review (Update 56) and the levels accept questions
     const all = await repo.findMany("CurriculumMapNode", {});
-    for (const n of all.filter((x) => Boolean(x.acceptsQuestions))) assert.ok(n.kind === "LEVEL" || n.categoryType === "CONCEPT_VOCABULARY", String(n.code));
+    for (const n of all.filter((x) => Boolean(x.acceptsQuestions))) assert.ok(n.kind === "LEVEL" || n.categoryType === "CONCEPT_VOCABULARY" || n.categoryType === "REVIEW", String(n.code));
+    assert.equal(all.filter((n) => n.categoryType === "REVIEW").length, 59, "one Review per Text Set / Selection");
+    assert.equal((await node("G6.U1.SEL3.REV", 6)).title, "3- Review", "Grade 6: after Analyze Craft and Structure");
     assert.ok(all.filter((n) => n.categoryType === "ANALYZE_CRAFT_AND_STRUCTURE").every((n) => !n.acceptsQuestions), "the ACS category itself takes no questions");
     // one Analyze Craft and Structure category per text set (skills combined)
     assert.equal(all.filter((n) => n.categoryType === "ANALYZE_CRAFT_AND_STRUCTURE").length, 59);
@@ -87,15 +89,17 @@ describe("Curriculum Map (Grade → Book → Unit → Text Set/Selection → Cat
     const teacher = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.4a" }))!);
     const student = await resolveActor(repo, (await repo.findMany("User", { role: "STUDENT" }))[0]);
     const v = await curriculumMapView(repo, teacher, 4);
-    assert.deepEqual(v.grades.map((g) => g.level), [4, 5, 6]);
+    assert.deepEqual(v.grades.map((g) => g.level), [4], "Update 55: a teacher sees their own grade only");
     assert.equal(v.book!.title, "Wonders");
     assert.deepEqual(v.book!.children.map((u) => u.title), ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6"]);
     const ts = v.book!.children[0].children[0];
     assert.deepEqual([ts.heading, ts.sharedRead, ts.genre], ["Text Set 1: Expository Text", "“A World of Change”", "Expository Text"]);
-    assert.deepEqual(ts.children.map((c) => c.title), ["1- Concept Vocabulary", "2- Analyze Craft and Structure", "3- Respond to Reading"]);
+    assert.deepEqual(ts.children.map((c) => c.title), ["1- Concept Vocabulary", "2- Analyze Craft and Structure", "3- Respond to Reading", "4- Review"]);
     assert.deepEqual(ts.children[1].children.map((l) => l.title), ["Below Level", "On Level", "Above Level"], "levels read Below → On → Above");
-    assert.equal(v.attachmentNodes, 126);
-    const g6 = await curriculumMapView(repo, teacher, 6);
+    assert.equal(v.attachmentNodes, 144);
+    const admin = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.admin" }))!);
+    assert.deepEqual((await curriculumMapView(repo, admin, 4)).grades.map((g) => g.level), [4, 5, 6], "admins see every grade");
+    const g6 = await curriculumMapView(repo, admin, 6);
     assert.deepEqual(g6.book!.children.map((u) => u.children.length), [3, 3, 2, 4, 4, 7]);
     await assert.rejects(curriculumMapView(repo, student), ForbiddenError);
   });

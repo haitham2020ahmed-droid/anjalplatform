@@ -9,7 +9,8 @@ import { EXTRA_SECONDS, fiftyFifty, freshPowers, hintFor, powerApplies, scoreSol
 import { playSound } from "./sound";
 import { confetti } from "./confetti";
 
-export interface RoundResult { correct: number; incorrect: number; points: number; bestStreak: number; answered: string[] }
+/** missed: the questions answered wrong (they wait in Second Chance) */
+export interface RoundResult { correct: number; incorrect: number; points: number; bestStreak: number; answered: string[]; missed: string[] }
 
 export function useRound(roundSeconds: number, onOver: (r: RoundResult) => void): RoundApi & { result: RoundResult; reset: () => void } {
   const [deadline, setDeadline] = useState(() => Date.now() + roundSeconds * 1000);
@@ -23,6 +24,7 @@ export function useRound(roundSeconds: number, onOver: (r: RoundResult) => void)
   const [armed, setArmed] = useState<PowerUpId[]>([]);
   const [over, setOver] = useState(false);
   const answered = useRef<string[]>([]);
+  const missed = useRef<string[]>([]);
   // the latest values for the synchronous answer() (state updates land later)
   const live = useRef({ points: 0, streak: 0, best: 0, correct: 0, incorrect: 0, armed: [] as PowerUpId[], powerLeft: freshPowers(), over: false });
   const overCb = useRef(onOver); overCb.current = onOver;
@@ -32,7 +34,7 @@ export function useRound(roundSeconds: number, onOver: (r: RoundResult) => void)
     live.current.over = true;
     setOver(true);
     const r = live.current;
-    overCb.current({ correct: r.correct, incorrect: r.incorrect, points: Math.max(0, r.points), bestStreak: r.best, answered: [...answered.current] });
+    overCb.current({ correct: r.correct, incorrect: r.incorrect, points: Math.max(0, r.points), bestStreak: r.best, answered: [...answered.current], missed: [...missed.current] });
   }, []);
 
   useEffect(() => {
@@ -54,6 +56,7 @@ export function useRound(roundSeconds: number, onOver: (r: RoundResult) => void)
     if (ok) r.correct++; else r.incorrect++;
     r.armed = r.armed.filter((p) => !sc.spent.includes(p));
     answered.current.push(q.id);
+    if (!ok) missed.current.push(q.id);
     setPoints(r.points); setStreak(r.streak); setBest(r.best); setCorrect(r.correct); setIncorrect(r.incorrect); setArmed(r.armed);
     playSound(ok ? "correct" : "wrong");
     if (ok && (r.streak === 3 || r.streak === 5 || r.streak % 10 === 0)) confetti({ pieces: 18 });
@@ -85,6 +88,7 @@ export function useRound(roundSeconds: number, onOver: (r: RoundResult) => void)
   const reset = useCallback(() => {
     live.current = { points: 0, streak: 0, best: 0, correct: 0, incorrect: 0, armed: [], powerLeft: freshPowers(), over: false };
     answered.current = [];
+    missed.current = [];
     setPoints(0); setStreak(0); setBest(0); setCorrect(0); setIncorrect(0); setArmed([]); setPowerLeft(freshPowers()); setOver(false);
     setDeadline(Date.now() + roundSeconds * 1000); setNow(Date.now());
   }, [roundSeconds]);
@@ -93,6 +97,6 @@ export function useRound(roundSeconds: number, onOver: (r: RoundResult) => void)
   return useMemo(() => ({
     secondsLeft, points, streak, correct, incorrect, powerLeft, armed, over,
     activate, answer, bonus, finish: end, sound, celebrate, reset,
-    result: { correct, incorrect, points, bestStreak: best, answered: answered.current },
+    result: { correct, incorrect, points, bestStreak: best, answered: answered.current, missed: missed.current },
   }), [secondsLeft, points, streak, correct, incorrect, powerLeft, armed, over, activate, answer, bonus, end, sound, celebrate, reset, best]);
 }

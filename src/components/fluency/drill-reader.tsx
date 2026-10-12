@@ -5,6 +5,7 @@ import type { CoachResult } from "@/server/fluency/coach";
 import type { DrillGrid } from "@/server/fluency/drill";
 import { say, useCoachRecorder } from "./recorder";
 import { MicMeter } from "./mic-meter";
+import { CoachStatus } from "./coach-status";
 
 /** ⚡ The 60-second speed drill: read the rows of pattern words aloud, as many as you can in one minute. */
 export function DrillReader({ grid }: { grid: DrillGrid }) {
@@ -35,10 +36,8 @@ export function DrillReader({ grid }: { grid: DrillGrid }) {
       {r.stage !== "done" && (
         <div className="sticky bottom-3 z-10 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-brand-navy p-4 text-white shadow-lg">
           {r.stage === "ready" && <><p className="text-sm">Press Start and read the words aloud, row by row. It stops by itself after 60 seconds.</p><MicMeter mic={r.mic} onCheck={() => void r.check()} /><button onClick={r.start} className="rounded-2xl bg-gradient-to-r from-amber-300 to-orange-400 px-8 py-3 text-lg font-extrabold text-brand-navy shadow">⚡ Start</button></>}
-          {r.stage === "recording" && <><p className="flex items-center gap-3 text-lg font-bold"><span className="h-3 w-3 animate-pulse rounded-full bg-rose-400" aria-hidden="true" />Go! {60 - r.secs}s left</p><button onClick={r.stop} className="rounded-2xl bg-white px-8 py-3 text-lg font-extrabold text-brand-navy">■ Stop</button></>}
-          {r.stage === "sending" && <p className="text-lg font-semibold">🎧 The coach is checking your words…</p>}
-          {r.stage === "waiting" && <p className="text-lg font-semibold">⏳ Your result comes in about {r.wait}s — keep this page open.</p>}
-          {r.stage === "error" && <><p className="text-base font-semibold">⚠️ {r.msg}</p><button onClick={r.reset} className="rounded-2xl bg-white px-6 py-2.5 font-bold text-brand-navy">Try again</button></>}
+          {r.stage === "recording" && <><p className="flex items-center gap-3 text-lg font-bold"><span className="h-3 w-3 animate-pulse rounded-full bg-rose-400" aria-hidden="true" />Go! {60 - r.secs}s left</p><MicMeter mic={r.mic} compact /><button onClick={r.stop} className="rounded-2xl bg-white px-8 py-3 text-lg font-extrabold text-brand-navy">■ Stop</button></>}
+          <CoachStatus r={r} />
         </div>
       )}
 

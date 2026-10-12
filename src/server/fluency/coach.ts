@@ -23,6 +23,13 @@
  * the first read, but NEVER stored — no FluencyPractice row, no FluencyCheck — so only the first read counts toward the
  * level, the reports and the norms.
  *
+ * After every reading (feedback.ts): each word marked (also self-corrections, repetitions and extra words — shown,
+ * never counted), the counts, the NAEP level, the 3 words to practise, 2–3 next steps and the growth since the last
+ * reading of the same text. Every passage reading also reviews the student's remedial plan (remedial.ts: goal from the
+ * norms and the baseline, daily routine with minutes, weekly cold read, automatic raise / Plan B / easier text).
+ * "Heard nothing" while the device measured a voice: every backup model listens, the listener is told a voice is
+ * there, and the page sends the same recording once more (another model first) — never "we could not hear you".
+ *
  * Privacy: the audio is scored in memory and dropped — it is never stored. Only the passage text and the audio go to
  * the AI provider (Gemini); never the student's name or any record. The admin can switch the coach off.
  */
@@ -34,11 +41,13 @@ import { aiSettings, extractJson, rateState, type EnvLike } from "../ai/engine";
 import { chooseAiProvider } from "../ai/question-generator";
 import { fluencyBands, fluencyLevel, fluencyRubricText } from "../diagnostic/standards";
 import { audit } from "../audit";
-import { fluencySeason, normView, weeklyGoal, wcpmPercentile, isSeason, type NormView, type Season } from "./norms";
+import { bandEdges, fluencySeason, normView, weeklyGoal, wcpmPercentile, isSeason, type NormView, type Season } from "./norms";
 import { chunkPassage, marksForTrial, sentences, type PhraseMark } from "./phrasing";
 import { buildDrill, gridWords, scoreDrill, validateGrid, DRILL_SECONDS, type DrillGrid, type DrillResult } from "./drill";
 import { patternForError } from "./drill-words";
 import { arabicTags, tipsFor, type ArabicTip } from "./arabic";
+import { feedbackSummary, type FeedbackSummary, type MarkedWord, type WordNote } from "./feedback";
+import { asRemedialPlan, nextRemedialPlan, reviewPlan, type PlanEvidence, type ReadingEvidence, type RemedialPlan } from "./remedial";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown) => (v instanceof Date ? v : v ? new Date(s(v)) : null);
@@ -140,9 +149,17 @@ export interface ReadingMarks {
   /** indexes of the words the reader stopped on for more than 3 seconds (also in errors as HESITATION) */
   hesitations?: number[];
   prosody?: Prosody | null;
+  /** about how many words the AI heard the reader say (0: silence / noise only); undefined when not given */
+  heardWords?: number;
+  /**
+   * shown on the word, NOT errors (standard ORF scoring): a self-correction within 3 s, a repeated word, an inserted
+   * extra word (i = the passage word it came before; heard = the extra word)
+   */
+  notes?: { i: number; kind: WordNote; heard: string }[];
 }
 export type ScoreTask = "READ" | "ECHO" | "DRILL";
-export type AudioScorer = (input: { words: string[]; audio: Uint8Array; mime: string; task?: ScoreTask }) => Promise<ReadingMarks>;
+/** voiced: seconds of voice the student's device measured (a hint for the listener; never a name or record) */
+export type AudioScorer = (input: { words: string[]; audio: Uint8Array; mime: string; task?: ScoreTask; voiced?: number }) => Promise<ReadingMarks>;
 
 const SYSTEM = `You are an expert assessor of oral reading fluency (running records, Hasbrouck & Tindal, NAEP). You get the passage as a numbered list of words and an audio recording of a school student (an English learner whose first language is Arabic) reading it aloud.
 Mark only real reading errors on passage words:
@@ -151,8 +168,10 @@ Mark only real reading errors on passage words:
  - SKIPPED: the word was left out,
  - HESITATION: the 3-second rule — the reader stopped on the word for MORE than 3 seconds before saying it (or never said it and went on after the pause). This counts as an error.
 NEVER count an accent as an error. A recognisable word said with an Arabic accent is CORRECT (for example a slightly different vowel, a rolled r, p close to b, v close to f, or th close to s/z/t/d while the word is still clearly the word). Count it only when it clearly becomes a different word.
-Do NOT count as errors: self-corrections made within 3 seconds (the word is correct), repetitions, short pauses, inserted extra words.
-lastWordIndex = the index of the last passage word the reader reached (they may stop before the end). If nothing of the passage can be heard, lastWordIndex = -1.
+Do NOT count as errors (standard oral reading fluency scoring): self-corrections made within 3 seconds (the word is CORRECT), repetitions, pauses of 3 seconds or less, "um"/"uh" fillers, sounding a word out before saying it right, inserted extra words. Never list them and never use any other error kind.
+The recording may be quiet (its volume was raised on the device), start with a moment of silence, contain classroom noise or other voices in the background, or contain long pauses: listen to all of it. A young reader often pauses between words or sentences, reads slowly, softly or with a strong accent — that is still reading. If you can recognise the reader saying ANY words of the passage (even a few, even with many errors), it is a reading: give lastWordIndex for the last word they reached.
+lastWordIndex = the index of the last passage word the reader reached (they may stop before the end). Use -1 ONLY when no passage word at all can be heard (silence, noise or a different text).
+heardWords = about how many words the reader said aloud (0 for silence or noise only).
 hesitations = the indexes of every word the reader stopped on for more than 3 seconds (the same words are HESITATION errors unless already marked as another error).
 prosody = four traits, each a whole number 1–4 with ONE short reason in simple English (max 15 words):
  - phrasing: 1 word by word · 2 two-word groups · 3 mostly meaningful phrases · 4 phrases that follow the meaning and punctuation,
@@ -162,7 +181,10 @@ prosody = four traits, each a whole number 1–4 with ONE short reason in simple
 expression = the overall NAEP fluency scale: 1 word by word, 2 mostly two-word phrases, 3 mostly meaningful phrases with some expression, 4 phrased, smooth, expressive with attention to punctuation. null if too short to judge (then prosody null too).
 patterns = up to 3 short sound/spelling patterns behind the errors (e.g. "-tion endings", "silent e", "vowel team ea", "-ed endings", "th sound"), or [] when none.
 For each error, "heard" is what the reader said (as letters, e.g. "wus"), or "" when skipped or stuck.
-Reply with JSON only: {"lastWordIndex": number, "errors": [{"i": number, "kind": "MISPRONOUNCED"|"SUBSTITUTED"|"SKIPPED"|"HESITATION", "heard": string}], "hesitations": [number], "expression": 1|2|3|4|null, "prosody": {"phrasing": {"score": 1|2|3|4, "reason": string}, "smoothness": {...}, "pace": {...}, "intonation": {...}} | null, "patterns": [string]}`;
+notes = what a teacher marks on a running record that is NOT an error: SELF_CORRECTION (the word was misread, then fixed within 3 seconds: i = that word), REPETITION (a word or phrase said twice: i = its first word), INSERTION (an extra word not in the text: i = the passage word it came before, heard = the extra word). [] when none.
+Reply with JSON only: {"lastWordIndex": number, "heardWords": number, "errors": [{"i": number, "kind": "MISPRONOUNCED"|"SUBSTITUTED"|"SKIPPED"|"HESITATION", "heard": string}], "hesitations": [number], "notes": [{"i": number, "kind": "SELF_CORRECTION"|"REPETITION"|"INSERTION", "heard": string}], "expression": 1|2|3|4|null, "prosody": {"phrasing": {"score": 1|2|3|4, "reason": string}, "smoothness": {...}, "pace": {...}, "intonation": {...}} | null, "patterns": [string]}`;
+/** the student's device measured a voice: said to the listener so a soft, accented or noisy reading is not missed */
+const VOICE_NOTE = (s: number) => `\nThe student's device measured about ${Math.round(s * 10) / 10} seconds of voice in this recording: someone IS speaking. Listen to the whole recording carefully (raise the volume in your mind; the voice may be soft, accented, far from the microphone or under classroom noise) and give the last passage word reached. Use lastWordIndex -1 only if the voice clearly reads none of these passage words.`;
 
 const TASK_NOTE: Record<ScoreTask, string> = {
   READ: "",
@@ -188,16 +210,44 @@ export function validateProsody(o: unknown): Prosody | null {
 }
 export const prosodyScores = (p: Prosody | null | undefined): Record<ProsodyTrait, number> | null => (p ? (Object.fromEntries(PROSODY_TRAITS.filter((t) => p[t]).map((t) => [t, p[t]!.score])) as Record<ProsodyTrait, number>) : null);
 
+/** Kinds a model sometimes lists that are NOT errors in oral reading fluency scoring (never counted). */
+const NOT_ERRORS = new Set(["SELF_CORRECTION", "SELF_CORRECTED", "SELFCORRECTION", "CORRECTED", "SC", "REPETITION", "REPEATED", "INSERTION", "INSERTED", "CORRECT", "OK", "PAUSE", "FILLER"]);
+/** …of those, the ones shown on the word as a note (the reader's own work, worth seeing) */
+const NOTE_KIND: Record<string, WordNote> = { SELF_CORRECTION: "SELF_CORRECTION", SELF_CORRECTED: "SELF_CORRECTION", SELFCORRECTION: "SELF_CORRECTION", CORRECTED: "SELF_CORRECTION", SC: "SELF_CORRECTION", REPETITION: "REPETITION", REPEATED: "REPETITION", INSERTION: "INSERTION", INSERTED: "INSERTION" };
+/** Other names for the four error kinds. */
+const KIND_ALIASES: Record<string, string> = { MISPRONUNCIATION: "MISPRONOUNCED", MISPRONOUNCE: "MISPRONOUNCED", MISREAD: "MISPRONOUNCED", SUBSTITUTION: "SUBSTITUTED", SUBSTITUTE: "SUBSTITUTED", OMISSION: "SKIPPED", OMITTED: "SKIPPED", DELETION: "SKIPPED", SKIP: "SKIPPED", HESITATED: "HESITATION", LONG_PAUSE: "HESITATION" };
+
+/**
+ * A reply that says "nothing heard" (lastWordIndex -1) but also lists errors, an expression, prosody or words heard
+ * contradicts itself: the model is asked once more before the student is told anything.
+ */
+export function heardButNoWords(data: unknown): boolean {
+  const o = data as Record<string, unknown> | null;
+  if (!o || typeof o !== "object" || Number(o.lastWordIndex) !== -1) return false;
+  return (Array.isArray(o.errors) && o.errors.length > 0) || Number(o.heardWords) > 0 || (o.expression !== null && o.expression !== undefined && Number(o.expression) >= 1) || validateProsody(o.prosody) !== null;
+}
+
 /** Checks the AI's reply against the passage (indexes in range, known kinds, one mark per word, 3-second rule). */
 export function validateMarks(data: unknown, n: number): { ok: true; value: ReadingMarks } | { ok: false; error: string } {
   const o = data as Partial<ReadingMarks> | null;
   if (!o || typeof o !== "object") return { ok: false, error: "reply must be an object" };
-  const last = Number(o.lastWordIndex);
+  let last = Number(o.lastWordIndex);
+  // a count instead of an index ("reached word n" for an n-word passage): the last word
+  if (Number.isInteger(last) && last >= n && last <= n + 1) last = n - 1;
   if (!Number.isInteger(last) || last < -1 || last >= n) return { ok: false, error: `lastWordIndex must be a whole number from -1 to ${n - 1}` };
-  if (!Array.isArray(o.errors)) return { ok: false, error: "errors must be a list" };
+  const rawErrors = o.errors === undefined || o.errors === null ? [] : o.errors;
+  if (!Array.isArray(rawErrors)) return { ok: false, error: "errors must be a list" };
   const seen = new Set<number>(); const errors: ReadingMarks["errors"] = [];
-  for (const e of o.errors) {
-    const i = Number((e as { i?: unknown })?.i), kind = s((e as { kind?: unknown })?.kind).toUpperCase();
+  const noteList: { i: number; kind: WordNote; heard: string }[] = [];
+  const addNote = (e: unknown, kind0: string) => {
+    const i = Number((e as { i?: unknown })?.i), kind = NOTE_KIND[kind0];
+    if (kind && Number.isInteger(i) && i >= 0 && i <= Math.max(last, 0) && !noteList.some((x) => x.i === i)) noteList.push({ i, kind, heard: s((e as { heard?: unknown })?.heard).slice(0, 40) });
+  };
+  for (const e of rawErrors) {
+    const i = Number((e as { i?: unknown })?.i), kind0 = s((e as { kind?: unknown })?.kind).toUpperCase().replace(/[\s-]+/g, "_");
+    // standard scoring: a self-correction, a repetition or an inserted word is not an error (the word counts as correct)
+    if (NOT_ERRORS.has(kind0)) { addNote(e, kind0); continue; }
+    const kind = KIND_ALIASES[kind0] ?? kind0;
     if (!Number.isInteger(i) || i < 0 || i >= n) return { ok: false, error: `error index ${s((e as { i?: unknown })?.i)} is not a passage word` };
     if (!["MISPRONOUNCED", "SUBSTITUTED", "SKIPPED", "HESITATION"].includes(kind)) return { ok: false, error: `unknown error kind ${kind}` };
     if (seen.has(i) || i > last) continue;
@@ -212,7 +262,12 @@ export function validateMarks(data: unknown, n: number): { ok: true; value: Read
   let expression = exRaw !== null && Number.isFinite(exRaw) && exRaw >= 1 && exRaw <= 4 ? Math.round(exRaw) : null;
   if (expression === null && prosody) { const sc = PROSODY_TRAITS.map((t) => prosody[t]?.score).filter((x): x is number => typeof x === "number"); expression = Math.round(sc.reduce((a, b) => a + b, 0) / sc.length); }
   const patterns = Array.isArray(o.patterns) ? o.patterns.map((p) => s(p).slice(0, 60)).filter(Boolean).slice(0, 3) : [];
-  return { ok: true, value: { lastWordIndex: last, errors: errors.sort((a, b) => a.i - b.i), expression, patterns, hesitations, prosody } };
+  const hw = Number((o as { heardWords?: unknown }).heardWords);
+  const heardWords = Number.isFinite(hw) && hw >= 0 ? Math.round(hw) : undefined;
+  if (Array.isArray(o.notes)) for (const x of o.notes) addNote(x, s((x as { kind?: unknown })?.kind).toUpperCase().replace(/[\s-]+/g, "_"));
+  // a note never sits on a word that is an error (the error wins); a self-correction or repetition needs a word read
+  const notes = noteList.filter((x) => !seen.has(x.i) && (x.kind === "INSERTION" || x.i <= last)).sort((a, b) => a.i - b.i);
+  return { ok: true, value: { lastWordIndex: last, errors: errors.sort((a, b) => a.i - b.i), expression, patterns, hesitations, prosody, ...(heardWords !== undefined ? { heardWords } : {}), ...(notes.length ? { notes } : {}) } };
 }
 
 // ------------------------------------------------------------------ the Gemini call (Update 41: robust connection)
@@ -279,13 +334,21 @@ export function thinkingConfigFor(model: string): Record<string, unknown> | null
   return null;
 }
 
+/** The recording as base64, made once per recording (retries and backup models reuse it: less memory, less time). */
+const B64 = new WeakMap<Uint8Array, string>();
+function base64Of(audio: Uint8Array): string {
+  let b = B64.get(audio);
+  if (b === undefined) { b = Buffer.from(audio.buffer, audio.byteOffset, audio.byteLength).toString("base64"); B64.set(audio, b); }
+  return b;
+}
+
 /** The Gemini request body for one scoring call. */
 export function geminiAudioRequest(model: string, system: string, userText: string, audio: Uint8Array, mime: string, opts: { thinking?: boolean } = {}): Record<string, unknown> {
   const thinking = opts.thinking === false ? null : thinkingConfigFor(model);
   const gemini3 = /^gemini-[3-9]/.test(model.trim().toLowerCase());
   return {
     systemInstruction: { parts: [{ text: system }] },
-    contents: [{ role: "user", parts: [{ text: userText }, { inline_data: { mime_type: mime, data: Buffer.from(audio).toString("base64") } }] }],
+    contents: [{ role: "user", parts: [{ text: userText }, { inline_data: { mime_type: mime, data: base64Of(audio) } }] }],
     generationConfig: {
       maxOutputTokens: FLUENCY_MAX_OUTPUT_TOKENS, responseMimeType: "application/json",
       // Gemini 3 is tuned for its default temperature (lower values can make it loop until the reply is cut off)
@@ -317,6 +380,8 @@ export function fluencyModel(env: EnvLike): string {
 }
 
 const COMPACT = "\nKeep the reply short: list ONLY the words with errors (never the correct words), each reason at most 12 words, no other text.";
+/** the second try after an unusable reply: stricter */
+const STRICT = "\nSTRICT: your previous reply could not be used (see yourPreviousReplyWasRejectedBecause). Reply with ONE valid JSON object exactly in the given shape, indexes from the numbered list only, error kinds only MISPRONOUNCED, SUBSTITUTED, SKIPPED or HESITATION. If the reader can be heard reading any passage word, lastWordIndex MUST be the index of the last word they reached (not -1).";
 
 /** Gemini listens to the recording (audio inline, JSON reply). Null when Gemini is not set up. */
 export function geminiAudioScorer(env: EnvLike, fetchImpl: typeof fetch = fetch, opts: { timeoutMs?: number } = {}): AudioScorer | null {
@@ -324,13 +389,17 @@ export function geminiAudioScorer(env: EnvLike, fetchImpl: typeof fetch = fetch,
   if ("error" in c || c.provider !== "gemini") return null;
   const model = c.model;
   const budget = opts.timeoutMs ?? FLUENCY_TIMEOUT_MS;
-  return async ({ words, audio, mime, task = "READ" }) => {
+  return async ({ words, audio, mime, task = "READ", voiced = 0 }) => {
     const sendMime = geminiAudioMime(mime, audio);
     if (!sendMime) throw new CoachProviderError("REQUEST", `REQUEST: the recording type “${mime}” cannot be sent to Gemini.`);
     const numbered = words.map((w, i) => `${i}:${w}`).join(" ");
-    let body = { passageWords: numbered, wordCount: words.length } as Record<string, unknown>;
+    // only the passage words and the measured seconds of voice go with the audio (no name, no record)
+    const hint = voiced >= SECOND_OPINION_VOICED_S ? { deviceMeasuredVoiceSeconds: Math.round(voiced * 10) / 10 } : {};
+    const system = SYSTEM + TASK_NOTE[task] + (voiced >= SECOND_OPINION_VOICED_S ? VOICE_NOTE(voiced) : "") + COMPACT;
+    let body = { passageWords: numbered, wordCount: words.length, ...hint } as Record<string, unknown>;
     let lastError = "";
     let thinking = true, answers = 0;
+    let heardBefore: ReadingMarks | null = null;
     const deadline = Date.now() + budget;
     for (let attempt = 0; attempt < 3; attempt++) {
       const left = deadline - Date.now();
@@ -339,7 +408,7 @@ export function geminiAudioScorer(env: EnvLike, fetchImpl: typeof fetch = fetch,
       try {
         res = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
           method: "POST", headers: { "content-type": "application/json", "x-goog-api-key": c.apiKey },
-          body: JSON.stringify(geminiAudioRequest(model, SYSTEM + TASK_NOTE[task] + COMPACT, JSON.stringify(body), audio, sendMime, { thinking })),
+          body: JSON.stringify(geminiAudioRequest(model, system + (answers ? STRICT : ""), JSON.stringify(body), audio, sendMime, { thinking })),
           signal: AbortSignal.timeout(Math.max(1_000, left)),
         });
       } catch (e) {
@@ -359,12 +428,22 @@ export function geminiAudioScorer(env: EnvLike, fetchImpl: typeof fetch = fetch,
       if (data.promptFeedback?.blockReason) lastError = `Gemini refused the recording (${data.promptFeedback.blockReason})`;
       else if (!text.trim()) lastError = cand?.finishReason === "MAX_TOKENS" ? "the reply was cut off before the answer (MAX_TOKENS: thinking used the output budget)" : `the reply was empty${cand?.finishReason ? ` (${cand.finishReason})` : ""}`;
       else {
-        try { const v = validateMarks(extractJson(text), words.length); if (v.ok) return v.value; lastError = v.error; }
+        try {
+          const raw = extractJson(text);
+          const v = validateMarks(raw, words.length);
+          if (v.ok) {
+            // "nothing heard" while also describing the reading: ask once more; a second -1 is believed
+            if (!heardButNoWords(raw) || answers >= 1) return v.value;
+            heardBefore = v.value;
+            lastError = "lastWordIndex was -1 although you described words being read; give the index of the last passage word the reader reached";
+          } else lastError = v.error;
+        }
         catch (e) { lastError = `${(e as Error).message}${cand?.finishReason === "MAX_TOKENS" ? " (cut off: MAX_TOKENS)" : ""}`; }
       }
-      body = { passageWords: numbered, wordCount: words.length, yourPreviousReplyWasRejectedBecause: lastError };
+      body = { passageWords: numbered, wordCount: words.length, ...hint, yourPreviousReplyWasRejectedBecause: lastError };
       if (++answers >= 2) break;   // two answers at most
     }
+    if (heardBefore) return heardBefore;   // no time for the second try: the first (valid) answer stands
     throw new CoachProviderError("INVALID", `INVALID: The AI reply could not be used (${lastError || "no answer in time"}).`);
   };
 }
@@ -419,8 +498,11 @@ export async function notifyCoachProblem(repo: Repo, schoolId: string, reason: s
 
 export interface CoachResult {
   id: string; mode: CoachMode; kind: PracticeKind; title: string; passageKey: string;
-  words: { text: string; mark: "OK" | ErrorKind | "NOT_READ"; heard: string }[];
+  /** every passage word with its mark; note = a self-correction / repetition / an extra word said before it (not errors) */
+  words: MarkedWord[];
   wordsRead: number; wordsCorrect: number; seconds: number; wcpm: number; accuracy: number; expression: number | null;
+  /** the counts of each miscue, the NAEP level, the 3 words to practise, 2–3 next steps and the growth on this text */
+  feedback?: FeedbackSummary;
   /** MINUTE: the official level; PASSAGE: an estimate (practice) */
   level: Level; official: boolean; rubric: string; patterns: string[]; practise: string[];
   plan: CoachPlan; date: string;
@@ -455,6 +537,8 @@ export interface CoachPlan {
   level: Level; goal: number; nextCheck: string; perWeek: number; steps: { icon: string; text: string; href?: string }[]; words: string[]; patterns: string[]; nextPassageKey: string | null;
   /** the weekly goal toward the next season's 50th percentile */
   growth?: { nextGoal: number; perWeek: number; target: number; weeks: number; season: Season; reached: boolean } | null;
+  /** the remedial plan (goal, daily routine with minutes, weeks, success criteria, automatic adjustment) — remedial.ts */
+  remedial?: RemedialPlan | null;
 }
 
 /** The counts (the platform's own arithmetic: the AI only marks the words). */
@@ -501,6 +585,43 @@ export function makePlan(input: { level: Level; wcpm: number; expression: number
 const clampKind = (k: unknown, mode: CoachMode): PracticeKind => (PRACTICE_KINDS.includes(k as PracticeKind) ? (k as PracticeKind) : mode);
 const day = (x: unknown) => (d(x) ?? new Date(0)).toISOString().slice(0, 10);
 
+/** One prosody number (NAEP 1–4) for a reading: the mean of the four traits, else the overall expression score. */
+export function prosodyMean(traits: Record<string, unknown> | null | undefined, expression: unknown = null): number | null {
+  const xs = traits ? PROSODY_TRAITS.map((t) => traits[t]).filter((v): v is number => typeof v === "number" && v >= 1 && v <= 4) : [];
+  if (xs.length) return Math.round((xs.reduce((a, b) => a + b, 0) / xs.length) * 10) / 10;
+  const e = Number(expression);
+  return expression !== null && expression !== undefined && e >= 1 && e <= 4 ? e : null;
+}
+
+/** Stored readings → the evidence the remedial plan is made from (oldest first). */
+export function readingEvidence(rows: Row[]): ReadingEvidence[] {
+  return rows.map((r) => ({ date: (d(r.createdAt) ?? new Date(0)).toISOString(), kind: s(r.practiceKind) || s(r.mode), wcpm: Number(r.wcpm), accuracy: Number(r.accuracy), prosody: prosodyMean(json<Record<string, unknown> | null>(r.prosody, null), r.expression), trial: r.trial === null || r.trial === undefined ? null : Number(r.trial) }))
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
+/** Official checks → cold reads (oldest first). */
+export const coldReads = (checks: Row[]) => checks.map((c) => ({ date: (d(c.checkedAt) ?? new Date(0)).toISOString(), wcpm: Number(c.wcpm), accuracy: c.accuracy === null || c.accuracy === undefined ? null : Number(c.accuracy) })).sort((a, b) => a.date.localeCompare(b.date));
+/** The latest stored remedial plan in a list of readings (newest first). */
+export const latestRemedial = (rows: Row[]): RemedialPlan | null => { for (const r of rows) { const pl = asRemedialPlan(json<{ remedial?: unknown } | null>(r.plan, null)?.remedial); if (pl) return pl; } return null; };
+
+/**
+ * The remedial plan after a reading: the student's last plan reviewed with all the evidence (cold reads, readings),
+ * or a new one. Two small reads: the official checks and the last plans (only their plan column).
+ */
+async function remedialAfter(repo: Repo, studentId: string, grade: number, history: Row[], current: ReadingEvidence, ctx: { words: string[]; patterns: string[]; links: PlanEvidence["links"] }, repeatedOk: boolean, now: Date): Promise<RemedialPlan | null> {
+  const [checks, planRows] = await Promise.all([
+    repo.findMany("FluencyCheck", { studentId }, { select: ["wcpm", "accuracy", "checkedAt"], orderBy: [{ field: "checkedAt", dir: "desc" }], take: 30 }),
+    repo.findMany("FluencyPractice", { studentId }, { select: ["plan", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 8 }),
+  ]);
+  const ev: PlanEvidence = { grade, cold: coldReads(checks), readings: [...readingEvidence(history), current], words: ctx.words.slice(0, 8), patterns: ctx.patterns, links: ctx.links };
+  const plan = nextRemedialPlan(latestRemedial(planRows), ev, now);
+  if (plan && !repeatedOk) {
+    // students already reading strongly get wider reading, never repeated reading of one passage
+    const fix = (st: RemedialPlan["daily"][number]) => (st.href && /mode=REPEATED/.test(st.href) ? { ...st, href: st.href.replace("mode=REPEATED", "mode=PASSAGE") } : st);
+    plan.daily = plan.daily.map(fix);
+  }
+  return plan;
+}
+
 /** The student's latest official level (from the checks, season of each check). */
 async function latestOfficial(repo: Repo, studentId: string, grade: number): Promise<{ wcpm: number; level: Level; season: Season } | null> {
   const c = (await repo.findMany("FluencyCheck", { studentId })).sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0];
@@ -524,13 +645,88 @@ export async function drillFor(repo: Repo, actor: Actor, now = new Date()): Prom
   return buildDrill({ errorWords: own.words, notes: own.notes, seed: `${actor.studentId}:${now.toISOString().slice(0, 10)}` });
 }
 
-export interface ScoreInput { key: string; mode: CoachMode; seconds: number; audio: Uint8Array; mime: string; kind?: PracticeKind; sentence?: number; grid?: unknown; /** a practice re-read of this earlier reading (not stored, not counted) */ rereadOf?: string }
+/** The student is told this only when the coach heard no reading at all in a recording that had a voice. */
+export const NOT_HEARD = "We could not hear the passage in the recording. Check the microphone, read a little louder, and try again.";
+/** said when the device DID measure a voice but no model could follow the passage (never "we could not hear you") */
+export const HEARD_UNCLEAR = "We heard your voice, but not clearly enough to follow the passage. Hold the device closer, read in a clear voice, and start from the first word.";
+/**
+ * NOT_HEARD: no voice at all (record again). HEARD_UNCLEAR: the device measured a voice — the page listens to the
+ * same recording once more by itself before showing this, and "Send again" stays possible.
+ */
+export class NotHeardError extends ValidationError {
+  constructor(message = NOT_HEARD, readonly code: "NOT_HEARD" | "HEARD_UNCLEAR" = "NOT_HEARD") { super(message); }
+}
+const SCORING_FAILED = "The coach could not finish scoring this reading. Please try again in a moment — your recording is kept.";
+
+/** Recordings scored at the same time by this server (each holds its audio in memory: 512 MB on Render). */
+export const FLUENCY_MAX_INFLIGHT = 6;
+let inflight = 0;
+export const fluencyInflight = () => inflight;
+
+/** Gives back one use of a daily limit (a reading that could not be scored). */
+export async function refundRateLimit(repo: Repo, key: string): Promise<void> {
+  const b = await repo.findUnique("RateLimitBucket", { key });
+  if (b && Number(b.count) > 0) await repo.updateMany("RateLimitBucket", { key }, { count: Number(b.count) - 1 });
+}
+
+/** The first model's share of the time when backup models may follow (the rest is kept for them). */
+export const FIRST_MODEL_MS = 55_000;
+const MIN_BACKUP_MS = 15_000;
+/**
+ * at least this much voice (seconds, measured on the device) before a "nothing heard" reply is checked by the other
+ * models (and the listener is told a voice is there) — about one short sentence
+ */
+export const SECOND_OPINION_VOICED_S = 0.6;
+
+/**
+ * The configured model, then the steadier ones (gemini-2.5-flash, then gemini-2.5-flash-lite), all within the one
+ * time limit under the hosting proxy. A backup is tried when a model is busy (5xx), missing, refuses audio, gives no
+ * usable answer twice, or runs out of time while time is left.
+ */
+async function scoreWithFallback(a: { repo: Repo; schoolId: string; env: EnvLike; model: string; scorer: AudioScorer; own: boolean; fetchImpl?: typeof fetch; started: number; voiced?: number; attempt?: number; input: Parameters<AudioScorer>[0] }): Promise<ReadingMarks> {
+  const deadline = a.started + FLUENCY_TIMEOUT_MS;
+  let backups = a.own ? FLUENCY_FALLBACK_MODELS.filter((x) => x !== a.model) : [];
+  // the page sends the same recording again after "heard but unclear": this time another model listens first
+  const rotate = (a.attempt ?? 0) > 0 && backups.length > 0;
+  const firstModel = rotate ? backups[0] : a.model;
+  if (rotate) backups = [...backups.slice(1), a.model];
+  const first = backups.length ? geminiAudioScorer(rotate ? { ...a.env, GEMINI_MODEL: firstModel } : a.env, a.fetchImpl, { timeoutMs: FIRST_MODEL_MS }) ?? a.scorer : a.scorer;
+  let last: unknown;
+  try {
+    const m = await first(a.input);
+    // 🎙 second opinions: the coach heard "nothing" but the device measured a voice → each other model listens in
+    // turn (while time is left) before the student is told anything
+    if (m.lastWordIndex < 0 && (a.voiced ?? 0) >= SECOND_OPINION_VOICED_S) {
+      for (const fb of backups) {
+        if (deadline - Date.now() < MIN_BACKUP_MS) break;
+        const backup = geminiAudioScorer({ ...a.env, GEMINI_MODEL: fb }, a.fetchImpl, { timeoutMs: deadline - Date.now() });
+        if (!backup) break;
+        try { const m2 = await backup(a.input); if (m2.lastWordIndex >= 0) { await a.repo.create("AiRequestLog", { schoolId: a.schoolId, tool: "fluency", provider: "gemini", model: a.model, ok: true, items: 1, ms: Date.now() - a.started, error: `${firstModel} heard nothing although the device measured ${Math.round((a.voiced ?? 0) * 10) / 10} s of voice -> second opinion from ${fb}`, createdAt: new Date() }); return m2; } }
+        catch { /* try the next model; the first answer stands at the end */ }
+      }
+    }
+    return m;
+  } catch (e) { last = e; }
+  for (const fb of backups) {
+    const e0 = last;
+    const retryable = e0 instanceof CoachProviderError && (e0.kind === "DOWN" || e0.kind === "INVALID" || e0.kind === "TIMEOUT" || (e0.kind === "CONFIG" && e0.status === 404) || (e0.kind === "REQUEST" && /model|not supported|audio/i.test(e0.message)));
+    const left = deadline - Date.now();
+    if (!retryable || left < MIN_BACKUP_MS) break;
+    const backup = geminiAudioScorer({ ...a.env, GEMINI_MODEL: fb }, a.fetchImpl, { timeoutMs: left });
+    if (!backup) break;
+    await a.repo.create("AiRequestLog", { schoolId: a.schoolId, tool: "fluency", provider: "gemini", model: a.model, ok: false, items: 1, ms: Date.now() - a.started, error: `${s((e0 as Error).message).slice(0, 400)} -> retried with ${fb}`, createdAt: new Date() });
+    try { return await backup(a.input); } catch (e) { last = e; }
+  }
+  throw last;
+}
+
+export interface ScoreInput { key: string; mode: CoachMode; seconds: number; audio: Uint8Array; mime: string; /** seconds of voice the student's device measured in the recording (a second opinion is asked when the coach hears nothing) */ voiced?: number; kind?: PracticeKind; sentence?: number; grid?: unknown; /** a practice re-read of this earlier reading (not stored, not counted) */ rereadOf?: string; /** 1+: the page sends the same recording again after "heard but unclear" (another model listens first) */ attempt?: number }
 
 /**
  * Scores one recording. The school's AI limits are kept: when the provider needs a pause, the reply says how long
  * to wait and the page sends the same recording again by itself (a queue, without storing the audio).
  */
-export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, env: EnvLike, deps: { scorer?: AudioScorer | null } = {}, now = new Date()): Promise<{ status: "OK"; result: CoachResult } | { status: "WAIT"; seconds: number; reason: string; timeout?: boolean }> {
+export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, env: EnvLike, deps: { scorer?: AudioScorer | null; fetchImpl?: typeof fetch } = {}, now = new Date()): Promise<{ status: "OK"; result: CoachResult } | { status: "WAIT"; seconds: number; reason: string; timeout?: boolean }> {
   const grade = await studentGrade(repo, actor);
   const schoolId = s(actor.schoolId);
   if (!(await coachSettings(repo, schoolId)).enabled) throw new ValidationError("The Fluency Coach is switched off by the school.");
@@ -579,53 +775,57 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
       if (kind === "REPEATED" && trial > REPEATED_MAX_TRIALS) throw new ValidationError(`You read this passage ${REPEATED_MAX_TRIALS} times — well done! Choose a new passage.`);
     }
   }
-  const scorer = deps.scorer === undefined ? geminiAudioScorer(env) : deps.scorer;
+  const scorer = deps.scorer === undefined ? geminiAudioScorer(env, deps.fetchImpl) : deps.scorer;
   if (!scorer) throw new ValidationError("The Fluency Coach needs the school's Gemini key (GEMINI_API_KEY). Ask the admin.");
   // the school's AI limits (shared with the other AI tools), and a daily limit per student
   const settings = await aiSettings(repo, schoolId);
   if (settings.provider === "off") throw new ValidationError("The AI tools are switched off by the school.");
   const rs = await rateState(repo, schoolId, settings, now);
   if (rs.waitMs > 0) return { status: "WAIT", seconds: Math.ceil(rs.waitMs / 1000), reason: rs.reason ?? "Many students are reading right now. Your result is next." };
-  const mine = kind === "ECHO" ? await consumeRateLimit(repo, `fluency-echo:${actor.userId}`, ECHO_PER_DAY, 86_400_000, now) : await consumeRateLimit(repo, `fluency:${actor.userId}`, COACH_PER_DAY, 86_400_000, now);
+  // this server scores a few recordings at a time (each holds its audio in memory): the rest wait a moment, in order
+  if (inflight >= FLUENCY_MAX_INFLIGHT) return { status: "WAIT", seconds: 6, reason: "Many students are reading right now. Your result is next." };
+  const limitKey = kind === "ECHO" ? `fluency-echo:${actor.userId}` : `fluency:${actor.userId}`;
+  const mine = await consumeRateLimit(repo, limitKey, kind === "ECHO" ? ECHO_PER_DAY : COACH_PER_DAY, 86_400_000, now);
   if (!mine.allowed) throw new ValidationError(`That is a lot of reading today — well done! Come back tomorrow.`);
+  // a reading that could not be scored does not count toward the student's daily limit
+  const refund = () => refundRateLimit(repo, limitKey).catch(() => undefined);
   const started = Date.now();
   const model = fluencyModel(env).slice(0, 80);
   let marks: ReadingMarks;
   const task = kind === "ECHO" ? "ECHO" : kind === "DRILL" ? "DRILL" : "READ";
+  inflight++;
   try {
-    try { marks = await scorer({ words, audio: input.audio, mime: input.mime, task }); }
-    catch (e0) {
-      // Gemini busy ("high demand", HTTP 5xx): try once with a steadier model before giving up
-      // also when the configured model is not found / not allowed to listen (HTTP 404 / 400 "not supported"): a model
-      // that surely listens to audio is tried, so a renamed model never stops the coach
-      const retryable = e0 instanceof CoachProviderError && (e0.kind === "DOWN" || (e0.kind === "CONFIG" && e0.status === 404) || (e0.kind === "REQUEST" && /model|not supported|audio/i.test(e0.message)));
-      const fb = deps.scorer === undefined && retryable ? FLUENCY_FALLBACK_MODELS.find((x) => x !== model) : undefined;
-      const backup = fb ? geminiAudioScorer({ ...env, GEMINI_MODEL: fb }) : null;
-      if (!backup) throw e0;
-      await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model, ok: false, items: 1, ms: Date.now() - started, error: `${s((e0 as Error).message).slice(0, 400)} -> retried with ${fb}`, createdAt: new Date() });
-      marks = await backup({ words, audio: input.audio, mime: input.mime, task });
+    try { marks = await scoreWithFallback({ repo, schoolId, env, model, scorer, own: deps.scorer === undefined, fetchImpl: deps.fetchImpl, started, voiced: input.voiced, attempt: input.attempt, input: { words, audio: input.audio, mime: input.mime, task, voiced: input.voiced ?? 0 } }); }
+    catch (e) {
+      await refund();
+      const m = s((e as Error)?.message);
+      const kindOf: CoachFailureKind | null = e instanceof CoachProviderError ? e.kind : /RATE_LIMIT|429/.test(m) ? "RATE_LIMIT" : null;
+      // the real reason goes to the AI log (admins see it under AI Tools → Log): never the audio, never a name
+      await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model, ok: false, items: 1, ms: Date.now() - started, error: m.slice(0, 500) || "unknown error", createdAt: new Date() });
+      if (kindOf === "RATE_LIMIT") return { status: "WAIT", seconds: 60, reason: "The AI provider asked us to slow down. Your result is next." };
+      if (kindOf === "TIMEOUT") return { status: "WAIT", seconds: 15, reason: "The coach is taking longer than usual to listen. It will try again by itself.", timeout: true };
+      if (kindOf === "DOWN") return { status: "WAIT", seconds: 20, reason: "Many schools are using the coach right now. It will try again by itself.", timeout: true };
+      if (kindOf === "CONFIG") {
+        await notifyCoachProblem(repo, schoolId, m, now).catch(() => 0);
+        throw new ValidationError("The Fluency Coach is not set up correctly. Your teacher has been told.");
+      }
+      throw new ValidationError(SCORING_FAILED);
     }
-  }
-  catch (e) {
-    const m = s((e as Error)?.message);
-    const kindOf: CoachFailureKind | null = e instanceof CoachProviderError ? e.kind : /RATE_LIMIT|429/.test(m) ? "RATE_LIMIT" : null;
-    // the real reason goes to the AI log (admins see it under AI Tools → Log): never the audio, never a name
-    await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model, ok: false, items: 1, ms: Date.now() - started, error: m.slice(0, 500) || "unknown error", createdAt: new Date() });
-    if (kindOf === "RATE_LIMIT") return { status: "WAIT", seconds: 60, reason: "The AI provider asked us to slow down. Your result is next." };
-    if (kindOf === "TIMEOUT") return { status: "WAIT", seconds: 15, reason: "The coach is taking longer than usual to listen. It will try again by itself.", timeout: true };
-    if (kindOf === "DOWN") return { status: "WAIT", seconds: 20, reason: "Many schools are using the coach right now. It will try again by itself.", timeout: true };
-    if (kindOf === "CONFIG") {
-      await notifyCoachProblem(repo, schoolId, m, now).catch(() => 0);
-      throw new ValidationError("The Fluency Coach is not set up correctly. Your teacher has been told.");
-    }
-    throw new ValidationError("The coach could not listen to this recording. Please try again in a moment.");
-  }
+  } finally { inflight--; }
   await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model, ok: true, items: 1, ms: Date.now() - started, error: null, createdAt: new Date() });
   // a fake or older scorer may skip the checks: run the reply through the validator once more
   const v = validateMarks(marks, words.length);
-  if (!v.ok) throw new ValidationError("The coach could not listen to this recording. Please try again in a moment.");
-  marks = v.value;
-  if (marks.lastWordIndex < 0) throw new ValidationError("We could not hear the passage in the recording. Check the microphone, read a little louder, and try again.");
+  if (!v.ok) { await refund(); throw new ValidationError(SCORING_FAILED); }
+  marks = { ...v.value, ...(marks.heardWords !== undefined ? { heardWords: marks.heardWords } : {}) };
+  if (marks.lastWordIndex < 0) {
+    await refund();
+    // the coach heard speech, but not this passage; or it heard no reading at all (the only "could not hear")
+    if ((marks.heardWords ?? 0) > 0) throw new ValidationError("The coach heard you, but not the words of this passage. Start from the first word on the screen and read it aloud.");
+    // the device measured a voice: the student did speak — never "we could not hear you": the page listens again
+    // to the same recording (another model first), then asks for a clearer reading, not a microphone check
+    if ((input.voiced ?? 0) >= SECOND_OPINION_VOICED_S) throw new NotHeardError(HEARD_UNCLEAR, "HEARD_UNCLEAR");
+    throw new NotHeardError();
+  }
   if (kind === "DRILL") marks = { ...marks, expression: null, prosody: null };
 
   const season = fluencySeason(now);
@@ -640,14 +840,21 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   const tips = tipsFor(storedErrors);
   const prosody = marks.prosody ?? null;
 
-  // the plan (passage readings only; a practice re-read keeps the plan of the first read)
-  let plan: CoachPlan | null = null;
-  if (p && kind !== "ECHO" && !practiceRead) {
-    const sameLevel = all.filter((x) => x.level === p!.level && x.key !== p!.key);
-    const harder = all.filter((x) => (p!.lexile && x.lexile ? x.lexile > p!.lexile : x.grade > p!.grade || (x.level === "ABOVE" && p!.level !== "ABOVE")));
-    plan = makePlan({ level: official ? level : official0?.level ?? level, wcpm: official ? n.wcpm : official0?.wcpm ?? n.wcpm, expression: marks.expression, grade, words: errWords, patterns: marks.patterns, passageKey: p.key, nextKey: { same: p.key, harder: harder[0]?.key ?? null, another: sameLevel[0]?.key ?? null }, phrasing: prosody?.phrasing?.score ?? null }, now);
-    if (!repeatedOffered(official0?.level ?? (official ? level : null))) plan.steps = plan.steps.map((st) => (/repeated reading/.test(st.text) ? { icon: "🚀", text: "Wider reading: choose a new, harder passage this week.", href: "/student/fluency-coach" } : st));
-  }
+  // every word with its mark, and the notes that are not errors (a self-correction, a repetition, an extra word)
+  const byIndex = new Map(marks.errors.map((e) => [e.i, e]));
+  const noteAt = new Map((marks.notes ?? []).map((x) => [x.i, x]));
+  const marked: MarkedWord[] = words.map((w, i) => {
+    const e = byIndex.get(i), nt = noteAt.get(i);
+    return { text: w, mark: i > marks.lastWordIndex ? "NOT_READ" : e ? e.kind : "OK", heard: e?.heard ?? "", ...(nt ? { note: nt.kind, ...(nt.kind === "INSERTION" && nt.heard ? { inserted: nt.heard } : {}) } : {}) };
+  });
+  // the student's earlier readings (only the columns needed, newest first, one page): growth on this text and the plan
+  const history = p && kind !== "ECHO" ? await repo.findMany("FluencyPractice", { studentId: actor.studentId }, { select: ["passageKey", "practiceKind", "mode", "wcpm", "accuracy", "expression", "prosody", "trial", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 40 }) : [];
+  const prevSame = practiceRead ? first : p ? history.find((r) => s(r.passageKey) === p!.key && !["ECHO", "DRILL"].includes(s(r.practiceKind))) ?? null : null;
+  const edges = bandEdges(grade, season);
+  const feedback = feedbackSummary({
+    words: marked, wcpm: n.wcpm, accuracy: n.accuracy, expression: marks.expression, prosody, p25: edges?.below ?? null, p50: edges?.p50 ?? null, task,
+    previous: prevSame ? { wcpm: Number(prevSame.wcpm), accuracy: Number(prevSame.accuracy), date: day(prevSame.createdAt) } : null,
+  });
 
   // repeated / phrased trials: every trial's WCPM and the stretch goal for the next one
   const p50 = norm.p50;
@@ -659,7 +866,6 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   }
   const nextGoal = trial !== null && (kind !== "REPEATED" || trial < REPEATED_MAX_TRIALS) ? trialGoal(n.wcpm, p50) : null;
 
-  const byIndex = new Map(marks.errors.map((e) => [e.i, e]));
   const emptyPlan: CoachPlan = { level, goal: n.wcpm + 1, nextCheck: "", perWeek: 0, steps: [], words: errWords, patterns: marks.patterns, nextPassageKey: null, growth: null };
   if (practiceRead) {
     // practice only: nothing is written (no reading, no check), so the level, the reports and the norms never see it
@@ -667,19 +873,13 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
       status: "OK",
       result: {
         id: "", mode, kind, title: p!.title, passageKey: p!.key,
-        words: words.map((w, i) => { const e = byIndex.get(i); return { text: w, mark: i > marks.lastWordIndex ? "NOT_READ" : e ? e.kind : "OK", heard: e?.heard ?? "" }; }),
+        words: marked, feedback,
         ...n, expression: marks.expression, level, official: false, rubric: fluencyRubricText(grade, season), patterns: marks.patterns, practise: errWords, plan: emptyPlan, date: now.toISOString().slice(0, 10),
         norm, prosody, hesitations: marks.hesitations?.length ?? 0, tips, average: null, trial: null, trials: [], nextGoal: null, drill: null, echo: null,
         practice: true, improvement: improvementOf({ wcpm: Number(first!.wcpm), accuracy: Number(first!.accuracy) }, n),
       },
     };
   }
-  const row = await repo.create("FluencyPractice", {
-    studentId: actor.studentId, mode, passageKey: p ? p.key : "DRILL", title: (p ? (kind === "ECHO" ? `Echo · ${p.title}` : p.title) : "Speed drill").slice(0, 191), lexile: p?.lexile ?? null, wordsRead: n.wordsRead, wordsCorrect: n.wordsCorrect, seconds: n.seconds, wcpm: n.wcpm, accuracy: n.accuracy,
-    expression: marks.expression, level: official ? level : null, errors: storedErrors, patterns: drill ? drill.reteach : marks.patterns, plan,
-    prosody: prosody ? { ...prosodyScores(prosody), reasons: Object.fromEntries(PROSODY_TRAITS.map((t) => [t, prosody[t]?.reason ?? ""])) } : null,
-    hesitations: marks.hesitations?.length ?? 0, comprehension: null, practiceKind: kind, trial, percentile: official ? norm.percentile : null, createdAt: now,
-  });
 
   // the official 1-minute check joins Reading Fluency (and from there every report); two the same day → the average
   let average: CoachResult["average"] = null;
@@ -698,11 +898,34 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
     }
     // a third check on the same day is kept as a reading; the day's official score stays the average of two
   }
+
+  // the plan (passage readings only; a practice re-read keeps the plan of the first read)
+  let plan: CoachPlan | null = null;
+  if (p && kind !== "ECHO") {
+    const sameLevel = all.filter((x) => x.level === p!.level && x.key !== p!.key);
+    const harder = all.filter((x) => (p!.lexile && x.lexile ? x.lexile > p!.lexile : x.grade > p!.grade || (x.level === "ABOVE" && p!.level !== "ABOVE")));
+    const easier = all.filter((x) => (p!.lexile && x.lexile ? x.lexile < p!.lexile : x.grade < p!.grade || (x.level === "BELOW" && p!.level !== "BELOW")));
+    plan = makePlan({ level: official ? level : official0?.level ?? level, wcpm: official ? n.wcpm : official0?.wcpm ?? n.wcpm, expression: marks.expression, grade, words: errWords, patterns: marks.patterns, passageKey: p.key, nextKey: { same: p.key, harder: harder[0]?.key ?? null, another: sameLevel[0]?.key ?? null }, phrasing: prosody?.phrasing?.score ?? null }, now);
+    const repeatedOk = repeatedOffered(official0?.level ?? (official ? level : null));
+    if (!repeatedOk) plan.steps = plan.steps.map((st) => (/repeated reading/.test(st.text) ? { icon: "🚀", text: "Wider reading: choose a new, harder passage this week.", href: "/student/fluency-coach" } : st));
+    // 🧭 the remedial plan: the previous one reviewed with this reading (goal met → raised; no growth → new methods), or a new one
+    const current: ReadingEvidence = { date: now.toISOString(), kind, wcpm: n.wcpm, accuracy: n.accuracy, prosody: prosodyMean(prosodyScores(prosody), marks.expression), trial };
+    plan.remedial = await remedialAfter(repo, actor.studentId!, grade, history, current, {
+      words: feedback.practise.map((x) => x.word.toLowerCase()).concat(errWords).filter((w, i, a) => a.indexOf(w) === i), patterns: marks.patterns,
+      links: { same: p.key, easier: easier[easier.length - 1]?.key ?? null, harder: harder[0]?.key ?? null, another: sameLevel[0]?.key ?? null },
+    }, repeatedOk, now);
+  }
+  const row = await repo.create("FluencyPractice", {
+    studentId: actor.studentId, mode, passageKey: p ? p.key : "DRILL", title: (p ? (kind === "ECHO" ? `Echo · ${p.title}` : p.title) : "Speed drill").slice(0, 191), lexile: p?.lexile ?? null, wordsRead: n.wordsRead, wordsCorrect: n.wordsCorrect, seconds: n.seconds, wcpm: n.wcpm, accuracy: n.accuracy,
+    expression: marks.expression, level: official ? level : null, errors: storedErrors, patterns: drill ? drill.reteach : marks.patterns, plan,
+    prosody: prosody ? { ...prosodyScores(prosody), reasons: Object.fromEntries(PROSODY_TRAITS.map((t) => [t, prosody[t]?.reason ?? ""])) } : null,
+    hesitations: marks.hesitations?.length ?? 0, comprehension: null, practiceKind: kind, trial, percentile: official ? norm.percentile : null, createdAt: now,
+  });
   return {
     status: "OK",
     result: {
       id: s(row.id), mode, kind, title: p ? p.title : "Speed drill", passageKey: p ? p.key : "DRILL",
-      words: words.map((w, i) => { const e = byIndex.get(i); return { text: w, mark: i > marks.lastWordIndex ? "NOT_READ" : e ? e.kind : "OK", heard: e?.heard ?? "" }; }),
+      words: marked, feedback,
       ...n, expression: marks.expression, level, official, rubric: fluencyRubricText(grade, season), patterns: marks.patterns, practise: errWords, plan: plan ?? emptyPlan, date: now.toISOString().slice(0, 10),
       norm: average ? normView(grade, average.wcpm, season) : norm, prosody, hesitations: marks.hesitations?.length ?? 0, tips, average, trial, trials, nextGoal, drill, echo,
     },
@@ -730,13 +953,15 @@ export interface CoachHome {
   /** repeated reading is not offered to students already Above (wider reading instead) */
   repeatedOffered: boolean;
   officialLevel: Level | null;
+  /** the student's remedial plan, reviewed today (a check due, on track…) — shown in friendly words */
+  remedial: RemedialPlan | null;
 }
 export async function coachHome(repo: Repo, actor: Actor, env: EnvLike, now = new Date()): Promise<CoachHome> {
   const grade = await studentGrade(repo, actor);
   const schoolId = s(actor.schoolId);
   const [{ enabled }, all, lex, practice, checkRows] = await Promise.all([
     coachSettings(repo, schoolId), passagesFor(repo, schoolId, grade), repo.findUnique("StudentReadingLexile", { studentId: actor.studentId }),
-    repo.findMany("FluencyPractice", { studentId: actor.studentId }, { select: ["id", "mode", "practiceKind", "title", "wcpm", "accuracy", "level", "plan", "createdAt", "prosody", "errors", "comprehension"] }),
+    repo.findMany("FluencyPractice", { studentId: actor.studentId }, { select: ["id", "mode", "practiceKind", "title", "wcpm", "accuracy", "level", "plan", "createdAt", "prosody", "errors", "comprehension", "expression", "trial"] }),
     repo.findMany("FluencyCheck", { studentId: actor.studentId }),
   ]);
   const passages = all.map(({ body: _b, ...x }) => x);
@@ -763,6 +988,10 @@ export async function coachHome(repo: Repo, actor: Actor, env: EnvLike, now = ne
   const comp = mine.find((x) => x.comprehension !== null && x.comprehension !== undefined);
   const compPct = comp ? Number(comp.comprehension) : null;
   const errs = mine.slice(0, 8).flatMap((x) => json<{ word?: string; heard?: string; arabic?: string[] }[]>(x.errors, []).map((e) => ({ word: s(e.word), heard: s(e.heard), arabic: e.arabic })));
+  // the remedial plan as it stands today (reviewed with the latest checks: a check due, on track, …)
+  const stored = latestRemedial(mine);
+  const remedial = stored ? reviewPlan(stored, { grade, cold: coldReads(checks), readings: readingEvidence(mine), words: [], patterns: [] }, now) : null;
+  if (remedial && !repeatedOffered(officialLevel)) remedial.daily = remedial.daily.map((st) => (st.href && /mode=REPEATED/.test(st.href) ? { ...st, href: st.href.replace("mode=REPEATED", "mode=PASSAGE") } : st));
   return {
     enabled, ready: !("error" in chooseAiProvider({ ...env, AI_PROVIDER: "gemini" })), grade, rubric: fluencyRubricText(grade, season), bands: fluencyBands(grade, season),
     passages, recommended,
@@ -778,6 +1007,7 @@ export async function coachHome(repo: Repo, actor: Actor, env: EnvLike, now = ne
     fastNotUnderstanding: !!(comp && norm && norm.p50 !== null && Number(comp.wcpm ?? norm.wcpm) >= norm.p50 && compPct! < 60),
     repeatedOffered: repeatedOffered(officialLevel),
     officialLevel,
+    remedial,
   };
 }
 

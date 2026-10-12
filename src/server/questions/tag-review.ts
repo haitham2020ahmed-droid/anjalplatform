@@ -21,7 +21,7 @@ import { ensureNationalNorms, nationalNorm } from "../map/rit";
 const s = (v: unknown) => String(v ?? "");
 const tagsOf = (q: Row): Record<string, unknown> => { let t: unknown = q.tags; if (typeof t === "string") { try { t = JSON.parse(t); } catch { t = null; } } return t && typeof t === "object" ? (t as Record<string, unknown>) : {}; };
 export const MIN_CALIBRATION_ANSWERS = 15;
-const SECTION: Record<string, string> = { CONCEPT_VOCABULARY: "Concept Vocabulary", ANALYZE_CRAFT_AND_STRUCTURE: "Analyze Craft and Structure", RESPOND_TO_READING: "Respond to Reading" };
+const SECTION: Record<string, string> = { CONCEPT_VOCABULARY: "Concept Vocabulary", ANALYZE_CRAFT_AND_STRUCTURE: "Analyze Craft and Structure", RESPOND_TO_READING: "Respond to Reading", REVIEW: "Review" };
 
 export interface QuestionTags {
   id: string; stem: string; status: string;

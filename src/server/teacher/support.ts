@@ -27,7 +27,7 @@ export interface FluencyRow {
   latest: { wcpm: number; accuracy: number | null; date: string; source: string; level: "BELOW" | "ON" | "ABOVE"; season: Season; percentile: number | null; text: string; needsWork: boolean; prosody: Record<string, number> | null; comprehension: number | null } | null;
   history: { wcpm: number; date: string }[];
   /** 🎙 the Fluency Coach: practice readings in the last 14 days, the latest goal */
-  coach: { practices: number; goal: number | null; expression: number | null };
+  coach: { practices: number; goal: number | null; expression: number | null; /** the latest remedial plan as stored (fluency/remedial.ts reads it) */ remedial?: unknown };
 }
 const checkSeason = (c: Row): Season => (isSeason(c.season) ? (c.season as Season) : fluencySeason(d(c.checkedAt) ?? new Date()));
 export async function classFluency(repo: Repo, actor: Actor, classId: string): Promise<{ className: string; grade: number; benchmark: number; rubric: string; bands: { below: number; above: number }; season: Season; rows: FluencyRow[]; missed: { word: string; students: number }[] }> {
@@ -48,7 +48,7 @@ export async function classFluency(repo: Repo, actor: Actor, classId: string): P
       id, name: names.get(id)?.name ?? "Student",
       latest: l && nv ? { wcpm: Number(l.wcpm), accuracy: l.accuracy === null || l.accuracy === undefined ? null : Number(l.accuracy), date: d(l.checkedAt)!.toISOString().slice(0, 10), source: s(l.source), level: fluencyLevel(Number(l.wcpm), grade, se), season: se, percentile: l.percentile === null || l.percentile === undefined ? nv.percentile : Number(l.percentile), text: nv.text, needsWork: nv.needsWork, prosody: json<Record<string, number> | null>(l.prosody, null), comprehension: l.comprehension === null || l.comprehension === undefined ? null : Number(l.comprehension) } : null,
       history: mine.slice(0, 6).reverse().map((c) => ({ wcpm: Number(c.wcpm), date: d(c.checkedAt)!.toISOString().slice(0, 10) })),
-      coach: { practices: pr.filter((x) => (d(x.createdAt)?.getTime() ?? 0) >= twoWeeks).length, goal: plan?.goal ?? null, expression: pr.find((x) => x.expression !== null && x.expression !== undefined)?.expression as number ?? null },
+      coach: { practices: pr.filter((x) => (d(x.createdAt)?.getTime() ?? 0) >= twoWeeks).length, goal: plan?.goal ?? null, expression: pr.find((x) => x.expression !== null && x.expression !== undefined)?.expression as number ?? null, remedial: (() => { for (const x of pr) { const v = json<{ remedial?: unknown } | null>(x.plan, null)?.remedial; if (v && typeof v === "object") return v; } return null; })() },
     };
   }).sort((a, b) => a.name.localeCompare(b.name));
   // the words the class misses most in the Fluency Coach (one count per student)

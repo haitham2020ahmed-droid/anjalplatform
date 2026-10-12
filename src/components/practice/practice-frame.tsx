@@ -52,7 +52,21 @@ export function PracticeFrame(props: {
         <div className="min-w-0">
           <a href={props.unitHref} className="inline-flex min-h-10 items-center rounded-lg px-2 text-sm font-medium text-brand-teal hover:underline">Leave practice</a>
           <h1 className="truncate text-2xl font-bold text-brand-navy">{view.skillName}</h1>
-          <p className="text-sm text-slate-500">{view.answered} answered, {view.correct} correct</p>
+          {/* the student always sees how many are right and wrong so far */}
+          <p data-testid="score-line" className="mt-1 flex flex-wrap items-center gap-2 text-sm">
+            <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 font-semibold text-emerald-900">✓ {view.correct} correct</span>
+            <span className="rounded-full bg-rose-100 px-2.5 py-0.5 font-semibold text-rose-900">✗ {Math.max(0, view.answered - view.correct)} wrong</span>
+            <span className="text-slate-500">{view.answered} answered</span>
+          </p>
+          {/* assigned work: completion (x of 25 / Done) and first-25 accuracy, apart from the mastery meter */}
+          {view.work && (
+            <p data-testid="work-progress" className="mt-1 flex flex-wrap items-center gap-2 text-sm">
+              {view.work.completion === "DONE"
+                ? <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 font-semibold text-emerald-900">✓ Done</span>
+                : <span className="rounded-full bg-sky-100 px-2.5 py-0.5 font-semibold text-sky-900">{view.work.answered} of {view.work.of}</span>}
+              {view.work.accuracy !== null && <span className="text-slate-600">Accuracy {view.work.accuracy}%</span>}
+            </p>
+          )}
         </div>
         <div className="w-64"><BandMeter band={view.band as MasteryBandName} score={view.mastery} started={view.answered > 0 || view.mastery > 0} /></div>
       </header>
@@ -70,11 +84,12 @@ export function PracticeFrame(props: {
               // eslint-disable-next-line @next/next/no-img-element
               <img src={q.image.url} alt={q.image.alt} className="mb-4 max-h-[50vh] w-auto max-w-full rounded-xl bg-white ring-1 ring-slate-200" />
             )}
-            {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900">{q.stem}</p>}
+            {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-lg font-medium leading-relaxed text-slate-900">{q.stem}</p>}
             <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
             <div className="mt-5"><AnswerInput q={q} value={props.value} onChange={props.onChange} disabled={!!fb || props.pending} /></div>
             {props.error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{props.error}</p>}
-            {fb && view.answered > 0 && view.answered % 15 === 0 && <p role="status" className="mt-4 rounded-2xl bg-amber-50 px-4 py-3 text-center text-lg font-semibold text-amber-900 ring-1 ring-amber-200">Great work! {view.answered} questions done. Take a deep breath 💪</p>}
+            {fb?.work?.justDone && <p role="status" data-testid="work-done" className="mt-4 rounded-2xl bg-emerald-50 px-4 py-3 text-center text-lg font-semibold text-emerald-900 ring-1 ring-emerald-200">🎉 You answered {fb.work.of} questions — this work is Done! Accuracy: {fb.work.accuracy ?? 0}%. Finish now, or keep practising to grow your mastery.</p>}
+            {fb && !fb.work?.justDone && view.answered > 0 && view.answered % 15 === 0 && <p role="status" className="mt-4 rounded-2xl bg-amber-50 px-4 py-3 text-center text-lg font-semibold text-amber-900 ring-1 ring-amber-200">Great work! {view.answered} questions done. Take a deep breath 💪</p>}
             <div className="mt-6">{fb && <FeedbackPanel fb={fb} questionId={q.questionId} fxKey={`${view.sessionId}|${q.questionId}|${view.answered}`} />}</div>
             <div className="mt-6 flex flex-wrap gap-3">
               {!fb && (
@@ -83,7 +98,13 @@ export function PracticeFrame(props: {
                   {props.pending ? "Checking…" : "Check answer"}
                 </button>
               )}
-              {fb && fb.next.hasQuestion && (
+              {fb && fb.next.hasQuestion && fb.work?.justDone && props.onFinish && (
+                <button type="button" data-testid="finish-work" onClick={props.onFinish} autoFocus className="rounded-xl bg-emerald-600 px-8 py-3 text-lg font-semibold text-white hover:bg-emerald-700">Finish ✓</button>
+              )}
+              {fb && fb.next.hasQuestion && fb.work?.justDone && (
+                <button type="button" data-testid="continue-practising" onClick={props.onNext} className="rounded-xl border-2 border-slate-300 px-6 py-3 text-lg font-semibold text-brand-navy">Continue practising</button>
+              )}
+              {fb && fb.next.hasQuestion && !fb.work?.justDone && (
                 <button type="button" onClick={props.onNext} autoFocus className="rounded-xl bg-brand-navy px-8 py-3 text-lg font-semibold text-white hover:bg-brand-purple">Next question</button>
               )}
               {fb && !fb.next.hasQuestion && fb.next.routeToSkillId && (

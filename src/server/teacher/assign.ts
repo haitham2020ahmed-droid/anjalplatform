@@ -19,6 +19,7 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "./assignments";
 import { schoolSkillIndex } from "../questions/skill-questions";
+import { dedupeIds } from "../questions/fresh";
 
 /** Answers needed (together with the target mastery) to complete an assigned skill. */
 export const MIN_ANSWERS_TO_COMPLETE = 10;
@@ -120,6 +121,8 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
   const target = input.targetMastery ?? DEFAULT_TARGET_MASTERY;
   if (target < 40 || target > 100) throw new ValidationError("Target mastery must be between 40 and 100.");
   const picked = await pickedQuestionIds(repo, klass.schoolId, input.questionIds);
+  // never a skill with no questions (the student would open an empty practice)
+  if (!picked && (await skillQuestionCount(repo, s(klass.schoolId), s(skill.id))) === 0) throw new ValidationError(NO_QUESTIONS_YET);
 
   const students = await repo.findMany("Student", { id: { in: recipients } }, { select: ["id", "userId"] });
   const id = await repo.transaction(async (tx) => {
@@ -139,6 +142,15 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
     return s(a.id);
   });
   return { assignmentId: id, students: recipients.length };
+}
+
+/** What the teacher reads when a skill cannot be assigned or planned yet. */
+export const NO_QUESTIONS_YET = "This skill has no questions yet.";
+
+/** Published questions a practice of this skill can use (the skill and its other grades' copies: the shared count). */
+export async function skillQuestionCount(repo: Repo, schoolId: string, skillId: string): Promise<number> {
+  const { countQuestionsOfSkills } = await import("../questions/skill-questions");
+  return (await countQuestionsOfSkills(repo, schoolId, [skillId])).get(skillId) ?? 0;
 }
 
 /**
@@ -506,8 +518,12 @@ export interface AssignQuestionsInput {
 export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQuestionsInput, now = new Date()): Promise<{ assignmentId: string; students: number; questions: number }> {
   assertCan(actor, "assignments:create");
   if (!input.classId) throw new ValidationError("Choose a class.");
-  const ids = [...new Set((input.questionIds ?? []).filter(Boolean))];
-  if (!ids.length) throw new ValidationError("Choose at least one question.");
+  const picked = [...new Set((input.questionIds ?? []).filter(Boolean))];
+  if (!picked.length) throw new ValidationError("Choose at least one question.");
+  if (picked.length > 2000) throw new ValidationError(`Choose at most ${input.adaptive ? 1000 : MAX_SET_QUESTIONS} questions at a time.`);
+  // 👯 never two copies of the same content in one set or test (same fingerprint, or same stem + correct answer —
+  // copies stored under different skills, grades or map places): the first copy stays (questions/fresh.ts)
+  const ids = await dedupeIds(repo, picked);
   if (ids.length > (input.adaptive ? 1000 : MAX_SET_QUESTIONS)) throw new ValidationError(`Choose at most ${input.adaptive ? 1000 : MAX_SET_QUESTIONS} questions at a time.`);
   const klass = await assertClassAccess(repo, actor, input.classId);
   await assertTrackFitsClass(repo, klass, trackOf(input.track));
@@ -538,8 +554,8 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
   const title = input.exactTitle && s(input.title).trim() ? s(input.title).replace(/\s+/g, " ").trim().slice(0, 180) : (s(input.title).replace(/\s+/g, " ").trim() || `${skillNames.slice(0, 2).join(" & ")}${skillNames.length > 2 ? " & more" : ""}`).slice(0, 150) + ` (${ids.length} question${ids.length === 1 ? "" : "s"})`;
   const students = await repo.findMany("Student", { id: { in: recipients } }, { select: ["id", "userId"] });
   const id = await repo.transaction(async (tx) => {
-    // a goal of correct answers: the student answers until they reach it (questions they missed come back when
-    // the pool runs out), so the set's length is only a safety cap
+    // a goal of correct answers: the student answers until they reach it or the pool runs out (a missed question
+    // never comes back in the set: it waits in Second Chance), so the set's length is only a safety cap
     const target = input.adaptive?.targetCorrect ? Math.max(5, Math.min(50, Math.round(input.adaptive.targetCorrect))) : null;
     const set = await tx.create("Assessment", { title: title.slice(0, 191), type: input.kind ?? "TEACHER_QUIZ", isAdaptive: Boolean(input.adaptive), maxQuestions: input.adaptive ? (target ? GOAL_SAFETY_CAP : Math.min(ids.length, input.adaptive.maxQuestions)) : ids.length, targetCorrect: target, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
     await tx.createMany("AssessmentQuestion", ids.map((questionId, order) => ({ assessmentId: set.id, questionId, order, points: 1 })));
@@ -598,6 +614,34 @@ export async function refreshQuestionSets(repo: Repo, assignments: Row[], studen
     }
   }
   await Promise.all(writes);
+}
+
+/**
+ * ⭐ Assign one skill to SEVERAL of the teacher's classes at once (the dialog lists every class the teacher teaches).
+ * One assignment per class (each class keeps its own list and reports). Picked students are matched to their own
+ * class; a class with none of the picked students is skipped in "selected students" mode. Each class is checked by
+ * assignSkill itself (own classes only).
+ */
+export async function assignSkillToClasses(repo: Repo, actor: Actor, input: Omit<AssignSkillInput, "classId"> & { classIds: string[] }, now = new Date()): Promise<{ assignmentIds: string[]; students: number; classes: number }> {
+  const classIds = [...new Set(input.classIds.map(s).filter(Boolean))];
+  if (!classIds.length) throw new ValidationError("Choose at least one class.");
+  // every class is checked BEFORE anything is written (all or nothing)
+  for (const id of classIds) await assertClassAccess(repo, actor, id);
+  const picked = [...new Set((input.studentIds ?? []).map(s).filter(Boolean))];
+  const members = picked.length ? await repo.findMany("ClassMembership", { classId: { in: classIds }, studentId: { in: picked }, leftAt: null }, { select: ["classId", "studentId"] }) : [];
+  if (picked.length) {
+    const known = new Set(members.map((m) => s(m.studentId)));
+    if (picked.some((id) => !known.has(id))) throw new ForbiddenError("You can only assign work to students in the chosen classes.");
+  }
+  const ids: string[] = []; let students = 0;
+  for (const classId of classIds) {
+    const mine = picked.length ? members.filter((m) => s(m.classId) === classId).map((m) => s(m.studentId)) : [];
+    if (picked.length && !mine.length) continue;
+    const r = await assignSkill(repo, actor, { ...input, classId, studentIds: mine }, now);
+    ids.push(r.assignmentId); students += r.students;
+  }
+  if (!ids.length) throw new ValidationError("Choose at least one student.");
+  return { assignmentIds: ids, students, classes: ids.length };
 }
 
 /** The teacher's classes with their students (for the “assign questions” dialog). */

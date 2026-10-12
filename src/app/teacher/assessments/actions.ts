@@ -4,8 +4,10 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { getT } from "@/i18n/server";
-import { assertCan } from "@/server/auth/rbac";
-import { assignTest, deleteTemplate, describe, MAX_TEST_QUESTIONS, personalizeNafsFromTest, previewTest, reteach, saveTemplate, type AssignTestInput, type LevelMode, type PickedSkill, type TemplateSpec, type TestPreview } from "@/server/tests/assessments";
+import { assignTest, deleteTemplate, personalizeNafsFromTest, reteach, saveTemplate, type AssignTestInput, type LevelMode, type TemplateSpec, type TestPreview, type Versions } from "@/server/tests/assessments";
+import { composeTest, type ComposeInput } from "@/server/tests/compose";
+import { assertNoDuplicateQuestions, mapSectionQuestions, mapSourceTree, type MapSectionPage, type MapSourceTree } from "@/server/tests/map-source";
+import { assertPreviewedAsStudent, saveStudentPreview } from "@/server/tests/student-preview";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "assignments:create" as const };
 const known = (e: unknown) => e instanceof ValidationError || e instanceof ForbiddenError;
@@ -14,31 +16,46 @@ const dateOf = (v: unknown, endOfDay = false): Date | null => { let t = String(v
 
 /**
  * Preview: the platform picks `count` questions for each skill; a skill with the teacher's own questions
- * ("I'll pick the questions") uses exactly those, in every version.
+ * ("I'll pick the questions") uses exactly those, in every version; Curriculum Map picks come first, in the
+ * teacher's order. Repeated questions (same question, or same text and answer) are refused.
  */
-export async function previewTestAction(input: { skills: (PickedSkill & { questionIds?: string[] })[]; levelMode: LevelMode; seed?: string }): Promise<{ preview?: TestPreview; error?: string }> {
+export async function previewTestAction(input: ComposeInput): Promise<{ preview?: TestPreview; error?: string }> {
+  const actor = await requireActor(STAFF);
+  try { return { preview: await composeTest(repo, actor, { skills: Array.isArray(input?.skills) ? input.skills : [], levelMode: input?.levelMode, seed: String(input?.seed ?? ""), mapQuestionIds: Array.isArray(input?.mapQuestionIds) ? input.mapQuestionIds.map(String) : [] }) }; }
+  catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
+}
+
+/** 📚 Curriculum Map questions: one grade's units, text sets / selections and sections (with counts). */
+export async function mapTreeAction(grade?: number | null): Promise<{ tree?: MapSourceTree; error?: string }> {
+  const actor = await requireActor(STAFF);
+  try { return { tree: await mapSourceTree(repo, actor, grade === null || grade === undefined ? null : Number(grade)) }; }
+  catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
+}
+
+/** 📚 One section's questions (a page at a time; `all` for "Select all in section"). */
+export async function mapSectionAction(input: { code: string; page?: number; type?: string | null; level?: string | null; all?: boolean }): Promise<{ page?: MapSectionPage; error?: string }> {
+  const actor = await requireActor(STAFF);
+  try { return { page: await mapSectionQuestions(repo, actor, { code: String(input?.code ?? ""), page: Number(input?.page) || 1, type: input?.type ? String(input.type) : null, level: input?.level ? String(input.level) : null, all: Boolean(input?.all) }) }; }
+  catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
+}
+
+/** 👀 Saves the test for "Preview as student" and returns the preview page address. */
+export async function studentPreviewAction(input: { title: string; levelMode: LevelMode; questions: Versions }): Promise<{ href?: string; error?: string }> {
   const actor = await requireActor(STAFF);
   try {
-    const levelMode: LevelMode = input?.levelMode === "LEVEL" ? "LEVEL" : "SAME";
-    const all = Array.isArray(input?.skills) ? input.skills : [];
-    const own = (k: (typeof all)[number]) => Array.isArray(k?.questionIds) && k.questionIds.length > 0;
-    const auto = all.filter((k) => !own(k)).map((k) => ({ skillId: String(k?.skillId ?? ""), count: Number(k?.count) || 5 }));
-    const ids = [...new Set(all.filter(own).flatMap((k) => k.questionIds!.map(String)))];
-    if (!ids.length) return { preview: await previewTest(repo, actor, { skills: auto, levelMode, seed: String(input?.seed ?? "") }) };
-    assertCan(actor, "questions:read");
-    if (ids.length > MAX_TEST_QUESTIONS) throw new ValidationError(`A test can have at most ${MAX_TEST_QUESTIONS} questions — lower the numbers.`);
-    const base: TestPreview = auto.length ? await previewTest(repo, actor, { skills: auto, levelMode, seed: String(input?.seed ?? "") }) : { levelMode, versions: {}, notes: [] };
-    const mine = (await describe(repo, actor, { SAME: ids })).SAME ?? [];
-    const keys = levelMode === "LEVEL" ? (["BELOW", "ON", "ABOVE"] as const) : (["SAME"] as const);
-    const versions: TestPreview["versions"] = {};
-    for (const key of keys) versions[key] = [...(base.versions[key] ?? []), ...mine];
-    return { preview: { levelMode, versions, notes: base.notes } };
+    const id = await saveStudentPreview(repo, actor, { title: String(input?.title ?? ""), levelMode: input?.levelMode === "LEVEL" ? "LEVEL" : "SAME", questions: input?.questions ?? {} });
+    return { href: `/teacher/preview?test=${encodeURIComponent(id)}` };
   } catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
 }
 
 export async function assignTestAction(input: Omit<AssignTestInput, "openAt" | "dueAt"> & { openAt?: string; dueAt?: string }): Promise<{ testId?: string; error?: string }> {
   const actor = await requireActor(STAFF);
   try {
+    // no repeated questions, and "Preview as student" first (exactly these questions)
+    const levelMode: LevelMode = input?.levelMode === "LEVEL" ? "LEVEL" : "SAME";
+    const qs: Versions = input?.questions ?? {};
+    for (const key of levelMode === "LEVEL" ? (["BELOW", "ON", "ABOVE"] as const) : (["SAME"] as const)) await assertNoDuplicateQuestions(repo, (qs[key] ?? []).map(String));
+    await assertPreviewedAsStudent(repo, actor, { levelMode, questions: qs });
     const r = await assignTest(repo, actor, {
       classId: String(input?.classId ?? ""), type: String(input?.type ?? ""), title: String(input?.title ?? ""), levelMode: input?.levelMode,
       studentIds: Array.isArray(input?.studentIds) ? input.studentIds.map(String) : [], openAt: dateOf(input?.openAt), dueAt: dateOf(input?.dueAt, true),

@@ -64,7 +64,7 @@ export default async function StudentFilePage({ params }: { params: Promise<{ st
         </section>
         <section className={box}>
           <h2 className="text-lg font-bold text-brand-navy">✍️ Writing & Reading Aloud</h2>
-          <ul className="mt-2 space-y-1 text-sm">{f.writing.length ? f.writing.map((w) => <li key={w.taskId} className="flex justify-between gap-2"><Link href={`/teacher/writing?classId=${f.classId}&task=${w.taskId}`} className="text-brand-navy hover:underline">{w.kind === "READ_ALOUD" ? "🎙" : "✍️"} {w.title}</Link><span>{w.status === "SCORED" ? `${w.total}/${w.max}` : w.status.toLowerCase()}</span></li>) : <li className="text-slate-500">None yet.</li>}</ul>
+          <ul className="mt-2 space-y-1 text-sm">{f.writing.length ? f.writing.map((w) => <li key={w.taskId} className="flex justify-between gap-2"><Link href={w.locked ? `/teacher/writing/task/${w.taskId}/${f.id}` : `/teacher/writing?classId=${f.classId}&task=${w.taskId}`} className="text-brand-navy hover:underline">{w.locked ? "🔒" : w.kind === "READ_ALOUD" ? "🎙" : "✍️"} {w.title}</Link><span>{w.status === "SCORED" ? `${w.total}/${w.max}${w.pct !== null ? ` · ${w.pct}%` : ""}` : w.status.toLowerCase()}</span></li>) : <li className="text-slate-500">None yet.</li>}</ul>
         </section>
         <section className={box}>
           <h2 className="text-lg font-bold text-brand-navy">🏅 Badges</h2>

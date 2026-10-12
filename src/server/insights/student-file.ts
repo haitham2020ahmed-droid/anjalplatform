@@ -4,6 +4,7 @@
  * MAP (results, plans, practice test), writing and recordings, words, badges, alerts and what was done, comments,
  * private notes, sign-ins. Read only. Plus a search over the whole school.
  */
+import { isLocked, scoreMax, scorePercent } from "../writing/locked";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { readableClasses } from "../teacher/coordinators";
@@ -89,7 +90,7 @@ export interface StudentFile {
   skills: { strong: { name: string; pct: number; answers: number }[]; weak: { name: string; pct: number; answers: number }[]; mastered: number; started: number };
   map: MapProfile[]; plans: PlanDoc[]; draftPlans: number;
   tests: { title: string; subject: string; status: string; rit: number | null; low: number | null; high: number | null; answered: number; total: number; rapid: number; when: string | null }[];
-  writing: { taskId: string; title: string; kind: string; status: string; total: number | null; max: number; hasAudio: boolean; when: string | null }[];
+  writing: { taskId: string; title: string; kind: string; status: string; total: number | null; max: number; pct: number | null; locked: boolean; hasAudio: boolean; when: string | null }[];
   words: { count: number; recent: string[] }; review: { due: number; learned: number };
   badges: { icon: string; name: string; earnedAt: string | null }[];
   alerts: { title: string; icon: string; detail: string; status: string; action: string | null; date: string }[];
@@ -114,7 +115,7 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
     mapProfiles(repo, actor.schoolId!, ids, "READING"), mapProfiles(repo, actor.schoolId!, ids, "LANGUAGE"),
     sentPlans(repo, studentId, now), repo.count("MapPlan", { studentId, status: "DRAFT" }),
     repo.findMany("MapSimSession", { studentId, kind: "SIM" }),
-    repo.findMany("WritingSubmission", { studentId }, { select: ["taskId", "status", "scores", "audioType", "submittedAt"] }),
+    repo.findMany("WritingSubmission", { studentId }, { select: ["taskId", "status", "scores", "audioType", "submittedAt", "scorePct"] }),
     repo.findMany("StudentWord", { studentId }, { select: ["word", "lastAt"] }), dueMistakes(repo, studentId, now),
     studentBadges(repo, studentId, now), repo.findMany("StudentAlert", { studentId }),
     commentsFor(repo, actor, studentId), notesFor(repo, actor, studentId),
@@ -125,7 +126,7 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
   ]);
   const profile = await repo.findUnique("StudentProfile", { studentId });
   const windows = sims.length ? await repo.findMany("MapSimWindow", { id: { in: [...new Set(sims.map((x) => s(x.windowId)).filter(Boolean))] } }, { select: ["id", "title"] }) : [];
-  const tasks = subs.length ? await repo.findMany("WritingTask", { id: { in: subs.map((x) => x.taskId) } }, { select: ["id", "title", "kind"] }) : [];
+  const tasks = subs.length ? await repo.findMany("WritingTask", { id: { in: subs.map((x) => x.taskId) } }, { select: ["id", "title", "kind", "genre", "locked", "rubric"] }) : [];
   const asg = asgRows.length ? await repo.findMany("Assignment", { id: { in: asgRows.map((a) => a.assignmentId) }, deletedAt: null }, { select: ["id", "title", "dueAt", "createdAt"] }) : [];
   const tickets = exitAns.length ? await repo.findMany("ExitTicket", { id: { in: [...new Set(exitAns.map((a) => s(a.ticketId)))] } }, { select: ["id", "title", "createdAt"] }) : [];
   const skills = mastery.length ? await repo.findMany("Skill", { id: { in: mastery.map((m) => m.skillId) } }, { select: ["id", "name"] }) : [];
@@ -138,7 +139,7 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
     skills: { strong: [...tried].sort((a, b) => b.pct - a.pct).filter((x) => x.pct >= 70).slice(0, 5), weak: [...tried].sort((a, b) => a.pct - b.pct).filter((x) => x.pct < 60).slice(0, 5), mastered: mastery.filter((m) => m.isMastered).length, started: mastery.length },
     map: [reading.get(studentId)!, language.get(studentId)!].filter((p) => p.term), plans, draftPlans,
     tests: sims.sort((a, b) => time(b.startedAt) - time(a.startedAt)).map((x) => ({ title: s(windows.find((w) => w.id === x.windowId)?.title) || "MAP practice test", subject: s(x.subject), status: s(x.status), rit: x.resultRit === null || x.resultRit === undefined ? null : Number(x.resultRit), low: x.resultLow === null || x.resultLow === undefined ? null : Number(x.resultLow), high: x.resultHigh === null || x.resultHigh === undefined ? null : Number(x.resultHigh), answered: Number(x.answered), total: Number(x.total), rapid: Number(x.rapid), when: iso(x.finishedAt ?? x.startedAt) })),
-    writing: subs.map((x) => { const t = tasks.find((y) => y.id === x.taskId); const sc = x.scores ? (typeof x.scores === "string" ? JSON.parse(x.scores) : x.scores) as Record<string, number> : null; const kind = s(t?.kind); return { taskId: s(x.taskId), title: s(t?.title), kind, status: s(x.status), total: sc ? Object.values(sc).reduce((a, b) => a + Number(b), 0) : null, max: kind === "READ_ALOUD" ? 12 : 16, hasAudio: Boolean(x.audioType), when: iso(x.submittedAt) }; }),
+    writing: subs.map((x) => { const t = tasks.find((y) => y.id === x.taskId); const sc = x.scores ? (typeof x.scores === "string" ? JSON.parse(x.scores) : x.scores) as Record<string, number> : null; const kind = s(t?.kind); return { taskId: s(x.taskId), title: s(t?.title), kind, status: s(x.status), total: sc ? Object.values(sc).reduce((a, b) => a + Number(b), 0) : null, max: t ? scoreMax(t) : kind === "READ_ALOUD" ? 12 : 16, pct: t ? scorePercent(t, x) : null, locked: isLocked(t), hasAudio: Boolean(x.audioType), when: iso(x.submittedAt) }; }),
     words: { count: wordsRows.length, recent: wordsRows.sort((a, b) => time(b.lastAt) - time(a.lastAt)).slice(0, 12).map((w) => s(w.word)) },
     review: { due: review.due.length, learned: review.learned },
     badges: badges.filter((b) => b.earned).map((b) => ({ icon: b.icon, name: b.name, earnedAt: b.earnedAt })),

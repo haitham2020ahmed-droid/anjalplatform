@@ -23,6 +23,7 @@ import { hideLevels } from "../../lib/hide-levels";
 import { GAMES, gameMeta } from "../../games/registry";
 import type { BankType, GameMeta, PlayLevel, PlayQuestion } from "../../games/types";
 import { randomInt } from "node:crypto";
+import { freshOrder, itemContentKeys, NEVER_SEEN, seenIndex, Sitting } from "../questions/fresh";
 
 const s = (v: unknown) => String(v ?? "");
 const LEVEL_RANGE: Record<PlayLevel, number[]> = { BELOW: [1, 2, 3], ON: [4], ABOVE: [5, 6, 7] };
@@ -144,19 +145,24 @@ export async function studentsPlayLevels(repo: Repo, schoolId: string, studentId
  * `count` fitting questions of a skill for a game: the level first, topped up from the nearest levels. Returns
  * fewer when the bank is short. Pure on top of playableOfSkill + loadQuestionItems.
  */
-export async function pickItems(repo: Repo, schoolId: string, skillId: string, meta: GameMeta, level: PlayLevel, count: number, opts: { exclude?: Set<string>; rnd?: () => number } = {}): Promise<Picked[]> {
+export async function pickItems(repo: Repo, schoolId: string, skillId: string, meta: GameMeta, level: PlayLevel, count: number, opts: { exclude?: Set<string>; rnd?: () => number; studentId?: string } = {}): Promise<Picked[]> {
   const all = (await playableOfSkill(repo, schoolId, skillId)).filter((q) => meta.types.includes(q.type) && !opts.exclude?.has(q.id));
+  // 🆕 one student's round: the questions they never attempted first, then the ones seen longest ago (questions/fresh.ts)
+  const seen = opts.studentId ? await seenIndex(repo, opts.studentId, all.map((q) => ({ id: q.id }))) : NEVER_SEEN;
   const ordered: string[] = [];
-  for (const l of TOP_UP[level]) ordered.push(...shuffle(all.filter((q) => q.level === l).map((q) => q.id), opts.rnd));
+  for (const l of TOP_UP[level]) ordered.push(...freshOrder(shuffle(all.filter((q) => q.level === l).map((q) => q.id), opts.rnd), (id) => seen.lastSeen(id)));
   const out: Picked[] = [];
+  // 🛡️ one round never holds the same question twice, nor two copies of the same content
+  const round = new Sitting();
+  const keep = (list: Picked[]) => list.filter((x) => { const k = itemContentKeys(x.item); if (round.has(x.item.questionId, k)) return false; round.add(x.item.questionId, k); return true; });
   // read a little more than needed (a few items may not fit the game's own check)
-  for (let i = 0; i < ordered.length && out.length < count; i += count + 4) out.push(...(await fillItems(repo, meta, ordered.slice(i, i + count + 4))));
+  for (let i = 0; i < ordered.length && out.length < count; i += count + 4) out.push(...keep(await fillItems(repo, meta, ordered.slice(i, i + count + 4))));
   // one question bank: a question from another grade's copy of the skill counts for the skill played (results by skill)
   for (const x of out) { x.item.skillKey = skillId; x.q.skillId = skillId; }
   return out.slice(0, count);
 }
 
-export async function pickQuestions(repo: Repo, schoolId: string, skillId: string, meta: GameMeta, level: PlayLevel, count: number, opts: { exclude?: Set<string>; rnd?: () => number } = {}): Promise<PlayQuestion[]> {
+export async function pickQuestions(repo: Repo, schoolId: string, skillId: string, meta: GameMeta, level: PlayLevel, count: number, opts: { exclude?: Set<string>; rnd?: () => number; studentId?: string } = {}): Promise<PlayQuestion[]> {
   return (await pickItems(repo, schoolId, skillId, meta, level, count, opts)).map((x) => x.q);
 }
 
@@ -209,9 +215,9 @@ export async function canPlayGameSkill(repo: Repo, actor: Actor, skillId: string
 export interface SoloRound { roundId: string; gameId: string; skillId: string; skillName: string; level: PlayLevel; questions: PlayQuestion[]; roundSeconds: number }
 
 /** Rounds handed out (in memory, single use): a result row is only accepted for a round really served. */
-const rounds = new Map<string, { studentId: string; gameId: string; skillId: string; n: number; at: number }>();
+const rounds = new Map<string, { studentId: string; gameId: string; skillId: string; n: number; at: number; ids: string[] }>();
 const ROUND_TTL = 45 * 60_000;
-export function takeRound(roundId: string, studentId: string): { gameId: string; skillId: string; n: number } | null {
+export function takeRound(roundId: string, studentId: string): { gameId: string; skillId: string; n: number; ids: string[] } | null {
   const r = rounds.get(roundId);
   if (!r || r.studentId !== studentId || Date.now() - r.at > ROUND_TTL) return null;
   rounds.delete(roundId);
@@ -224,12 +230,12 @@ export async function soloRound(repo: Repo, actor: Actor, gameId: string, skillI
   if (!meta || !meta.ready) throw new ValidationError("This game is coming soon.");
   if (!(await canPlayGameSkill(repo, actor, skillId))) throw new ForbiddenError("This skill is not in your work.");
   const level = await studentPlayLevel(repo, actor.schoolId, actor.studentId, now);
-  const questions = await pickQuestions(repo, actor.schoolId, skillId, meta, level, meta.roundSize);
+  const questions = await pickQuestions(repo, actor.schoolId, skillId, meta, level, meta.roundSize, { studentId: actor.studentId });
   if (questions.length < meta.minQuestions) throw new ValidationError("This game is coming soon for this skill.");
   const skill = await repo.findUnique("Skill", { id: skillId });
   const roundId = `${Date.now().toString(36)}${randomInt(1e9).toString(36)}`;
   for (const [k, r] of rounds) if (Date.now() - r.at > ROUND_TTL) rounds.delete(k);
   if (rounds.size > 20_000) rounds.delete(rounds.keys().next().value as string);
-  rounds.set(roundId, { studentId: actor.studentId, gameId, skillId, n: questions.length, at: Date.now() });
+  rounds.set(roundId, { studentId: actor.studentId, gameId, skillId, n: questions.length, at: Date.now(), ids: questions.map((q) => q.id) });
   return { roundId, gameId, skillId, skillName: hideLevels(s(skill?.name)), level, questions, roundSeconds: meta.roundSeconds };
 }
