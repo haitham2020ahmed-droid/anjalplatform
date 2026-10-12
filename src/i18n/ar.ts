@@ -2470,4 +2470,5 @@ export const ar: Record<UiString, string> = {
   "{n} questions restored and published.": "تمت استعادة {n} سؤالًا ونشرها.",
   "Restore {n} archived questions? They will be published again.": "استعادة {n} سؤالًا مؤرشفًا؟ ستُنشر من جديد.",
   "Restore": "استعادة",
+  "Print accounts": "طباعة الحسابات",
 };

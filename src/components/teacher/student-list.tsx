@@ -48,6 +48,7 @@ export function StudentList({ classes, initialQuery = "", manage = false, help =
                 </h2>
                 {manage && c.classId && (
                   <div className="flex flex-wrap gap-2">
+                    <Link prefetch={false} href={`/teacher/accounts?classId=${c.classId}`} className={link}>🖨 {t("Print accounts")}</Link>
                     <Link prefetch={false} href={`/teacher/classes/${c.classId}`} className={link}>{t("Class page")}</Link>
                     <Link prefetch={false} href={`/teacher/progress?classId=${c.classId}`} className={link}>{t("Dashboard")}</Link>
                     <Link prefetch={false} href={`/teacher/levels?classId=${c.classId}`} className={link}>{t("Levels")}</Link>

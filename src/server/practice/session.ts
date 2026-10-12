@@ -41,11 +41,18 @@ import { withLock } from "../lib/key-lock";
 import { afterResponseSettled, runAfterResponse } from "../lib/after-response";
 import { choiceSeed, finishTimedOut, isTestAssignment, shuffleChoices, testEndsAt, testOrder, timeIsUp, unshuffleResponse } from "../tests/runtime";
 
-export const SESSION_RESUME_MINUTES = 120;
-export const MAX_QUESTIONS_PER_SESSION = 20;
+/** an unfinished practice is continued (same session, same count) when the student comes back within 7 days */
+export const SESSION_RESUME_MINUTES = 7 * 24 * 60;
+export const MAX_QUESTIONS_PER_SESSION = 50;
 /** Adaptive stop: after this many answers in a session, stop once the ability estimate is this precise (SE). */
-export const MIN_QUESTIONS_BEFORE_STOP = 12;
+export const MIN_QUESTIONS_BEFORE_STOP = 25;
 export const STOP_SE = 0.3;
+/** From MIN_QUESTIONS_BEFORE_STOP on, the practice stops early only with this share of right answers in it (else it goes on, up to 50). */
+export const GOOD_SESSION_ACCURACY = 0.8;
+function sessionAccuracy(rows: readonly Record<string, unknown>[], lastCorrect: boolean, answered: number): number {
+  const right = rows.filter((r) => Boolean(r.isCorrect)).length + (lastCorrect ? 1 : 0);
+  return answered > 0 ? right / answered : 0;
+}
 const HISTORY_WINDOW = 60;
 
 export interface PracticeView {
@@ -510,7 +517,9 @@ async function submitAnswerUnlocked(
   let routeToSkillId: string | null = null;
   if (allowed.phase === "DONE") { nextId = null; endReason = "SKILL_FINISHED"; }
   else if (answeredThisSession >= MAX_QUESTIONS_PER_SESSION) { nextId = null; endReason = "COMPLETED"; }
-  else if (answeredThisSession >= MIN_QUESTIONS_BEFORE_STOP && step.ability.se <= STOP_SE) { nextId = null; endReason = "LEVEL_CONFIRMED"; }
+  // the owner's rule: at least 25 answers; from then on stop only when the level is sure AND the student is doing
+  // well (80 %+ right in this practice); otherwise keep practising — at 50 it stops in every case
+  else if (answeredThisSession >= MIN_QUESTIONS_BEFORE_STOP && step.ability.se <= STOP_SE && sessionAccuracy(sessionRows, correct, answeredThisSession) >= GOOD_SESSION_ACCURACY) { nextId = null; endReason = "LEVEL_CONFIRMED"; }
   else if (allowed.phase === "LATER") { nextId = null; endReason = "RETRY_LATER"; }
   else if (step.next.reasonCode === "PREREQ_ROUTE") { nextId = null; endReason = "PREREQ_ROUTE"; routeToSkillId = step.next.routeToSkillId ?? null; }
   else if (!nextId) endReason = "POOL_EXHAUSTED";

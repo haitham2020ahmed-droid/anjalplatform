@@ -58,6 +58,7 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
         : session ? <CoachReader passageKey={session.key} title={session.title} words={session.words} kind={kind === "ECHO" || kind === "DRILL" || !kind ? "MINUTE" : kind} grade={home.grade} marks={session.marks} trial={session.trial} trials={session.trials} goal={session.goal} />
         : (
           <div className="space-y-6">
+            {kind && !reading && <p role="alert" className="rounded-2xl bg-amber-50 px-4 py-3 font-semibold text-amber-900 ring-1 ring-amber-200">{home.passages.length ? "That reading could not be opened. Please choose a passage below and try again." : "There are no passages to read yet. Your teacher has been told; please try again later."}</p>}
             {/* my fluency · my goal · how I sound */}
             <div className="grid items-start gap-4 lg:grid-cols-3">
               <section className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">

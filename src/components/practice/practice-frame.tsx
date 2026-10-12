@@ -74,6 +74,7 @@ export function PracticeFrame(props: {
             <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
             <div className="mt-5"><AnswerInput q={q} value={props.value} onChange={props.onChange} disabled={!!fb || props.pending} /></div>
             {props.error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{props.error}</p>}
+            {fb && view.answered > 0 && view.answered % 15 === 0 && <p role="status" className="mt-4 rounded-2xl bg-amber-50 px-4 py-3 text-center text-lg font-semibold text-amber-900 ring-1 ring-amber-200">Great work! {view.answered} questions done. Take a deep breath 💪</p>}
             <div className="mt-6">{fb && <FeedbackPanel fb={fb} questionId={q.questionId} fxKey={`${view.sessionId}|${q.questionId}|${view.answered}`} />}</div>
             <div className="mt-6 flex flex-wrap gap-3">
               {!fb && (

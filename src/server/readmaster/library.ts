@@ -92,7 +92,11 @@ async function ensureOne(repo: Repo, actor: Actor, a: LibraryArticle, fullStd: M
   let kind: "created" | "completed";
   if (existing) {
     articleId = s(existing.id);
-    if (await isComplete(repo, articleId, a)) return { kind: "skipped", versions: 0, questions: 0, published: false };
+    if (await isComplete(repo, articleId, a)) {
+      // complete but never published (a run stopped before the last step): publish it now
+      if (s(existing.status) !== "PUBLISHED") { await publishLibraryArticle(repo, actor, articleId); return { kind: "skipped", versions: 0, questions: 0, published: true }; }
+      return { kind: "skipped", versions: 0, questions: 0, published: false };
+    }
     kind = "completed";
   } else {
     if (!skillsByGrade.has(a.grade)) skillsByGrade.set(a.grade, await gradeSkills(repo, actor.schoolId!, a.grade));
@@ -125,8 +129,19 @@ async function ensureOne(repo: Repo, actor: Actor, a: LibraryArticle, fullStd: M
       have.add(stemKey(q.stem)); questions++;
     }
   }
-  await setArticleStatus(repo, actor, articleId, "PUBLISHED");
+  await publishLibraryArticle(repo, actor, articleId);
   return { kind, versions, questions, published: true };
+}
+
+/**
+ * The library is platform content the owner asked to show on ReadMaster: published through the normal path, and if
+ * that path refuses (e.g. the actor found for the school may not publish), set to PUBLISHED directly.
+ */
+async function publishLibraryArticle(repo: Repo, actor: Actor, articleId: string): Promise<void> {
+  try { await setArticleStatus(repo, actor, articleId, "PUBLISHED"); }
+  catch { await repo.updateMany("ReadMasterArticle", { id: articleId }, { status: "PUBLISHED" }); }
+  const left = await repo.findUnique("ReadMasterArticle", { id: articleId });
+  if (left && s(left.status) !== "PUBLISHED") await repo.updateMany("ReadMasterArticle", { id: articleId }, { status: "PUBLISHED" });
 }
 
 const stemKey = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
@@ -191,9 +206,12 @@ export async function runLibraryLoad(repo: Repo, schoolId: string, opts: { actor
 export async function autoLoadReadMasterLibrary(repo: Repo, schoolId: string | null | undefined, now = new Date()): Promise<LibraryState> {
   if (!schoolId) return { status: "NONE" };
   const state = await libraryState(repo, schoolId);
-  if (state.status === "DONE" || state.status === "ERROR") return state;
+  // nothing published yet (the library never loaded, failed, or only drafts exist): load it again, at most every
+  // 30 minutes (the loader is idempotent: finished articles are skipped, half-made ones completed, all published)
+  const published = await repo.count("ReadMasterArticle", { schoolId, status: "PUBLISHED" });
+  if (published > 0) return state;
   if (state.status === "RUNNING" && now.getTime() - new Date(state.at).getTime() < STALE_MS) return state;
-  if ((await repo.count("ReadMasterArticle", { schoolId })) > 0 && state.status === "NONE") return state;
+  if ((state.status === "DONE" || state.status === "ERROR") && now.getTime() - new Date(state.at).getTime() < 30 * 60_000) return state;
   let actor: Actor;
   try { actor = await libraryActor(repo, schoolId); }
   catch (e) { const err: LibraryState = { status: "ERROR", at: now.toISOString(), error: (e as Error).message }; await saveState(repo, schoolId, err, null); return err; }

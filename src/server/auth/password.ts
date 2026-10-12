@@ -5,8 +5,22 @@
  */
 import { randomBytes, scrypt as scryptCb, timingSafeEqual, type ScryptOptions } from "node:crypto";
 
+/**
+ * Each scrypt run takes ~32 MB. A whole class signing in at the same moment (30 students) used to run them all at
+ * once and push the 512 MB server out of memory (the connection dropped on /login/submit). At most
+ * SCRYPT_CONCURRENCY run together; the others wait their turn (a fraction of a second each).
+ */
+export const SCRYPT_CONCURRENCY = 2;
+let running = 0;
+const waiting: (() => void)[] = [];
+async function slot<T>(fn: () => Promise<T>): Promise<T> {
+  if (running >= SCRYPT_CONCURRENCY) await new Promise<void>((go) => waiting.push(go));
+  running++;
+  try { return await fn(); }
+  finally { running--; waiting.shift()?.(); }
+}
 const scrypt = (pw: string, salt: Buffer, len: number, opts: ScryptOptions) =>
-  new Promise<Buffer>((resolve, reject) => scryptCb(pw, salt, len, opts, (err, key) => (err ? reject(err) : resolve(key))));
+  slot(() => new Promise<Buffer>((resolve, reject) => scryptCb(pw, salt, len, opts, (err, key) => (err ? reject(err) : resolve(key)))));
 
 const N = 2 ** 15;
 const r = 8;

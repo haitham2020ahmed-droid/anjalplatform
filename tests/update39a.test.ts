@@ -356,7 +356,7 @@ describe("Update 39A · readiness fixes", () => {
     const backup = await rosterBackup(repo, admin, { kind: "CLASS", classId }) as { tables: Record<string, Record<string, unknown>[]> };
     assert.equal(backup.tables.AdaptiveDecisionLog, undefined, "the engine's decision trail is left out");
     assert.ok(backup.tables.QuestionAttempt.length > 0 && backup.tables.QuestionAttempt.every((r) => !("difficultyB" in r) && "isCorrect" in r && "response" in r));
-    assert.match(readFileSync(join(ROOT, "src/lib/env.ts"), "utf8"), /LOGIN_RATE_LIMIT_PER_IP: z\.coerce\.number\(\)\.int\(\)\.min\(20\)\.max\(100_000\)\.default\(300\)/);
+    assert.match(readFileSync(join(ROOT, "src/lib/env.ts"), "utf8"), /LOGIN_RATE_LIMIT_PER_IP: z\.coerce\.number\(\)\.int\(\)\.min\(20\)\.max\(100_000\)\.default\(2000\)/);
     assert.match(readFileSync(join(ROOT, "src/server/auth/next.ts"), "utf8"), /rateLimitPerIp: env\.LOGIN_RATE_LIMIT_PER_IP/);
     const run = (daysAgo: number) => ({ completedAt: new Date(now.getTime() - daysAgo * DAY) });
     const falling = [0, 1, 2, 3, 4, 5, 6, 7, 8].map((w) => ({ at: new Date(now.getTime() - (8 - w) * 7 * DAY), level: 700 - w * 50 }));

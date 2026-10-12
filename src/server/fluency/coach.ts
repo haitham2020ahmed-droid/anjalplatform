@@ -85,7 +85,13 @@ export async function studentGrade(repo: Repo, actor: Actor): Promise<number> {
 /** Passages of the student's grade (one below to one above): ReadMaster versions, then the bank's reading passages. */
 export async function passagesFor(repo: Repo, schoolId: string, grade: number): Promise<(CoachPassage & { body: string })[]> {
   const out: (CoachPassage & { body: string })[] = [];
-  const arts = (await repo.findMany("ReadMasterArticle", { schoolId, status: "PUBLISHED" }, { select: ["id", "title", "gradeLevel"] })).filter((a) => Math.abs(Number(a.gradeLevel) - grade) <= 1);
+  const allArts = await repo.findMany("ReadMasterArticle", { schoolId, status: "PUBLISHED" }, { select: ["id", "title", "gradeLevel"] });
+  const allBank = (await repo.findMany("ReadingPassage", {}, { select: ["id", "title", "body", "wordCount", "gradeLevel", "genre"] })).filter((p) => p.gradeLevel !== null && Number(p.wordCount) >= 60 && !/poem|poetry|drama|play/i.test(s(p.genre)));
+  // a grade with no passages of its own (e.g. Grade 11): the nearest grades that have some, so the coach always opens
+  const dists = [...allArts.map((a) => Math.abs(Number(a.gradeLevel) - grade)), ...allBank.map((p) => Math.abs(Number(p.gradeLevel) - grade))];
+  const minDist = dists.length ? Math.min(...dists) : 0;
+  const tol = minDist <= 1 ? 1 : minDist + 1;
+  const arts = allArts.filter((a) => Math.abs(Number(a.gradeLevel) - grade) <= tol);
   const vers = arts.length ? await repo.findMany("ReadMasterVersion", { articleId: { in: arts.map((a) => a.id) } }, { select: ["id", "articleId", "level", "lexile", "body", "wordCount"] }) : [];
   const ORDER: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
   for (const v of vers.sort((a, b) => s(a.articleId).localeCompare(s(b.articleId)) || (ORDER[s(a.level)] ?? 1) - (ORDER[s(b.level)] ?? 1))) {
@@ -94,7 +100,7 @@ export async function passagesFor(repo: Repo, schoolId: string, grade: number): 
     if (words < 40) continue;
     out.push({ key: `RM:${s(v.id)}`, title: `${s(a.title)} · ${s(v.level).charAt(0)}${s(v.level).slice(1).toLowerCase()}`, words, lexile: Number(v.lexile) || null, level: (s(v.level) as Level) || null, grade: Number(a.gradeLevel), source: "READMASTER", body });
   }
-  const bank = (await repo.findMany("ReadingPassage", {}, { select: ["id", "title", "body", "wordCount", "gradeLevel", "genre"] })).filter((p) => p.gradeLevel !== null && Math.abs(Number(p.gradeLevel) - grade) <= 1 && Number(p.wordCount) >= 60 && !/poem|poetry|drama|play/i.test(s(p.genre)));
+  const bank = allBank.filter((p) => Math.abs(Number(p.gradeLevel) - grade) <= tol);
   // a ReadMaster version also lives in the bank as a passage: list it once
   const head = (x: string) => x.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().toLowerCase().slice(0, 80);
   const rmHeads = new Set(out.map((x) => head(x.body)));
