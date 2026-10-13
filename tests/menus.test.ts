@@ -14,7 +14,7 @@ import { accessibleClasses } from "../src/server/teacher/assign";
 import { navItemsFor, navSections as sections, searchablePagesFor, MORE } from "../src/components/nav-items";
 import { ADMIN_GROUPS, ADMIN_TOOLS } from "../src/components/admin-tools";
 import { matchesStudent, normalizeName } from "../src/components/teacher/name-match";
-import { REPORTS, REPORT_CATEGORIES, reportUrls, scopesOf } from "../src/components/teacher/report-catalog";
+import { REPORTS, REPORT_CATEGORIES, openReportUrl, reportUrls, scopesOf } from "../src/components/teacher/report-catalog";
 import { myStudentsList, searchStudents } from "../src/server/insights/student-file";
 import { classToday, myWeek, schoolWeekStart } from "../src/server/teacher/my-week";
 import { UI_STRINGS } from "../src/i18n/en";
@@ -39,9 +39,12 @@ function routeExists(url: string): boolean {
 }
 
 describe("menus: short and tidy", () => {
-  test("student: five entries only — Home, My Work, My Tests, My Plan, ReadMaster / ReadRise (owner's spec)", () => {
+  test("student: five entries only — Home, My Work, My Tests, MAP, ReadMaster / ReadRise (owner's spec), line icons, no repeats", () => {
     const items = navItemsFor("STUDENT", { rti: true, nafs: true });
-    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Tests", "My Plan", "ReadMaster / ReadRise"]);
+    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise"]);
+    assert.ok(items.every((i) => i.line), "every student entry has a clean line icon");
+    assert.equal(new Set(items.map((i) => i.href)).size, items.length, "no page twice in the menu");
+    assert.equal(new Set(items.map((i) => i.label)).size, items.length, "no label twice in the menu");
     assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/tests", "/student/map", "/student/reading"]);
   });
 
@@ -52,11 +55,13 @@ describe("menus: short and tidy", () => {
     for (const h of ["/student/readmaster", "/student/readrise", "/student/fluency-coach", "/student/curriculum", "/student/certificates", "/student/badges", "/student/reports", "/play"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
   });
 
-  test("teacher: seven entries only; Curriculum Map and MAP always there; no RTI / Support Tiers / Assessments icons", () => {
+  test("teacher (Update 15): one place per area — Students & Classes, Curriculum Map, Plans, Assessments, Writing, Reading, MAP, Reports; the rest folded under More", () => {
     const items = navItemsFor("TEACHER");
-    assert.deepEqual(items.map((i) => i.label), ["Home", "My Classes", "Curriculum Map", "MAP", "Plans", "Reports", "ReadMaster / ReadRise"]);
+    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Plans", "Assessments", "Writing", "Reading", "MAP", "Reports"]);
+    assert.deepEqual(items.filter((i) => i.group).map((i) => i.group), items.filter((i) => i.group).map(() => MORE), "the rest is under More");
+    assert.ok(items.every((i) => i.line), "every teacher entry has a line icon");
     const hrefs = new Set(items.map((i) => i.href));
-    for (const h of ["/teacher/rti-plan", "/teacher/tiers", "/teacher/assessments", "/teacher/data-meeting"]) assert.ok(!hrefs.has(h), `removed: ${h}`);
+    for (const h of ["/teacher/rti-plan", "/teacher/tiers", "/teacher/data-meeting", "/teacher/map-rit", "/teacher/progress"]) assert.ok(!hrefs.has(h), `not in the menu: ${h}`);
     const pages = searchablePagesFor("TEACHER");
     for (const h of ["/teacher/plans/support", "/teacher/assessments", "/teacher/games", "/teacher/week", "/teacher/messages", "/teacher/map-rit"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
   });
@@ -155,21 +160,21 @@ describe("My Students, Reports and My Week on the Test School", () => {
     assert.match(read("src/components/teacher/student-list.tsx"), /href=\{`\/admin\/student-file\/\$\{x\.id\}`\}/, "a name opens the file");
   });
 
-  test("reports wizard: seven categories, every report has a page, strings translated; old pages kept", () => {
-    assert.deepEqual(REPORT_CATEGORIES.map((c) => c.key), ["Class", "Student", "Skills", "Tests", "MAP", "Reading", "Games"]);
-    for (const c of REPORT_CATEGORIES) assert.ok(REPORTS.some((r) => r.category === c.key), c.key);
+  test("reports (no wizard): five groups, every report has a page, strings translated; old pages kept", () => {
+    assert.deepEqual(REPORT_CATEGORIES.map((c) => c.key), ["Class", "Student", "Skills", "MAP", "Family"]);
+    for (const c of REPORT_CATEGORIES) { assert.ok(REPORTS.some((r) => r.category === c.key), c.key); assert.ok(hasAr(c.key) && hasAr(c.hint), c.key); }
     for (const r of REPORTS) {
       assert.ok(hasAr(r.title) && hasAr(r.hint), r.key);
       assert.ok(scopesOf(r).length > 0, r.key);
       for (const p of [...reportUrls(r, "class", { classId: "c1", period: "week" }, ["s1", "s2"]), ...reportUrls(r, "student", { classId: "c1", studentId: "s1", period: "term" })]) assert.ok(routeExists(p.url), `${r.key}: ${p.url}`);
+      assert.ok(routeExists(openReportUrl(r, { classId: "c1", firstStudent: "s1" })!), r.key);
     }
     const fam = REPORTS.find((r) => r.key === "family-progress")!;
-    assert.ok(fam.send, "family reports can be sent after the preview");
-    assert.deepEqual(reportUrls(fam, "group", { classId: "c1", period: "month" }, ["a", "b"]).map((x) => x.studentId), ["a", "b"]);
+    assert.ok(fam.send, "family reports can be sent");
     assert.match(reportUrls(REPORTS.find((r) => r.key === "practice")!, "class", { classId: "c1", period: "week" })[0].url, /range=LAST_7_DAYS/);
     const page = read("src/app/teacher/reports/page.tsx");
-    assert.match(page, /preview/); assert.match(page, /Send to parents/); assert.match(page, /PrintReportButton/);
-    for (const f of ["games/page.tsx", "games-usage/page.tsx", "grammar/page.tsx", "readmaster/page.tsx"]) assert.ok(existsSync(join(ROOT, "src/app/teacher/reports", f)), f);
+    assert.doesNotMatch(page, /Pick a report|Who and when|STEPS/, "no wizard");
+    for (const f of ["games/page.tsx", "games-usage/page.tsx", "grammar/page.tsx", "readmaster/page.tsx", "needs-help/page.tsx"]) assert.ok(existsSync(join(ROOT, "src/app/teacher/reports", f)), f);
   });
 
   test("My Week and the class today: own class only; days Sunday → Thursday", async () => {

@@ -17,7 +17,11 @@ import { planPlaces } from "./plans";
 const s = (v: unknown) => String(v ?? "");
 export const CURRICULUM_PROGRAM = "CURRICULUM";
 
-export interface SendMapPlanInput { grade: number; unitCode?: string | null; classId: string; studentIds?: string[] | null }
+export interface SendMapPlanInput {
+  grade: number; unitCode?: string | null; classId: string; studentIds?: string[] | null;
+  /** only these sections (category codes, in this order) — the scoped Send window; default: every part of the grade / unit */
+  codes?: string[] | null; title?: string | null; dueAt?: Date | null; startAt?: Date | null;
+}
 export interface SendMapPlanResult { planId: string; parts: number; students: number; skipped: string[] }
 
 /** "G4.U2" → 2 */
@@ -39,18 +43,21 @@ export async function sendMapPlan(repo: Repo, actor: Actor, input: SendMapPlanIn
 
   const unitNo = input.unitCode ? unitNumberOf(s(input.unitCode)) : null;
   if (input.unitCode && unitNo === null) throw new ValidationError("That unit is not on the Curriculum Map.");
-  const groups = (await planPlaces(repo, actor.schoolId!, grade)).filter((g) => unitNo === null || g.unit.split(":")[0].trim() === `Unit ${unitNo}`);
-  const places = groups.flatMap((g) => g.places.map((p) => ({ code: p.code, label: `${g.unit} · ${g.set} · ${p.label.replace(/ \(adaptive\)$/, "")}` })));
+  const only = input.codes ? [...new Set(input.codes.map((c) => s(c).trim().toUpperCase()).filter(Boolean))] : null;
+  const groups = (await planPlaces(repo, actor.schoolId!, grade)).filter((g) => only !== null || unitNo === null || g.unit.split(":")[0].trim() === `Unit ${unitNo}`);
+  let places = groups.flatMap((g) => g.places.map((p) => ({ code: p.code, label: `${g.unit} · ${g.set} · ${p.label.replace(/ \(adaptive\)$/, "")}` })));
+  if (only) places = only.map((c) => places.find((p) => p.code.toUpperCase() === c)).filter((p): p is { code: string; label: string } => Boolean(p));
+  if (!places.length && only) throw new ValidationError("Choose at least one part to send.");
   if (!places.length) throw new ValidationError(unitNo ? `Unit ${unitNo} of Grade ${grade} is not on the Curriculum Map.` : `Grade ${grade} is not on the Curriculum Map.`);
 
-  const title = unitNo ? `Grade ${grade} · Unit ${unitNo} plan` : `Grade ${grade} Curriculum plan`;
+  const title = s(input.title).trim().slice(0, 191) || (unitNo ? `Grade ${grade} · Unit ${unitNo} plan` : `Grade ${grade} Curriculum plan`);
   const plan = await repo.create("SkillPlan", { schoolId: actor.schoolId, classId: klass.id, title, kind: "UNIT", targetCorrect: DEFAULT_TARGET_CORRECT, gradeLevel: grade, note: null, createdById: actor.userId, createdAt: now });
   const skipped: string[] = [];
   const made: string[] = [];
   let order = 0;
   for (const p of places) {
     try {
-      const r = await assignFromMap(repo, actor, { classId: s(klass.id), categoryCode: p.code, studentIds: chosen.length ? chosen : undefined, mode: "ADAPTIVE", targetCorrect: DEFAULT_TARGET_CORRECT, silent: true, curriculumPlanId: s(plan.id), note: title }, now);
+      const r = await assignFromMap(repo, actor, { classId: s(klass.id), categoryCode: p.code, studentIds: chosen.length ? chosen : undefined, mode: "ADAPTIVE", targetCorrect: DEFAULT_TARGET_CORRECT, silent: true, curriculumPlanId: s(plan.id), note: title, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null }, now);
       const aids = r.groups.map((g) => g.assignmentId);
       made.push(...aids);
       await repo.create("SkillPlanItem", { planId: plan.id, code: p.code, label: p.label.slice(0, 255), assignmentIds: aids, order: order++ });
@@ -70,7 +77,7 @@ export async function sendMapPlan(repo: Repo, actor: Actor, input: SendMapPlanIn
 }
 
 /** The classes the actor may send to (teacher: own classes; admin: every class of the school), with student names. */
-export interface SendClass { id: string; name: string; students: { id: string; name: string }[] }
+export interface SendClass { id: string; name: string; /** the class's grade (the Send window lists the classes of the grade shown) */ grade?: number | null; students: { id: string; name: string }[] }
 export async function sendTargets(repo: Repo, actor: Actor): Promise<SendClass[]> {
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") return [];
   const classes = (await accessibleClasses(repo, actor)).sort((a, b) => s(a.name).localeCompare(s(b.name)));
@@ -80,8 +87,10 @@ export async function sendTargets(repo: Repo, actor: Actor): Promise<SendClass[]
   const users = sts.length ? await repo.findMany("User", { id: { in: sts.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
   const userName = new Map(users.map((u) => [s(u.id), s(u.displayName)]));
   const nameOf = new Map(sts.map((x) => [s(x.id), userName.get(s(x.userId)) || "Student"]));
+  const gIds = [...new Set(classes.map((c) => s(c.gradeId)).filter(Boolean))];
+  const levelOf = new Map((gIds.length ? await repo.findMany("Grade", { id: { in: gIds } }, { select: ["id", "level"] }) : []).map((g) => [s(g.id), Number(g.level)]));
   return classes.map((c) => ({
-    id: s(c.id), name: s(c.name),
+    id: s(c.id), name: s(c.name), grade: levelOf.get(s(c.gradeId)) ?? null,
     students: members.filter((m) => m.classId === c.id).map((m) => ({ id: s(m.studentId), name: nameOf.get(s(m.studentId)) ?? "Student" })).sort((a, b) => a.name.localeCompare(b.name)),
   }));
 }

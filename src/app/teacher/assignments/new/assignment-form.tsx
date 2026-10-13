@@ -1,10 +1,11 @@
 "use client";
 import { useActionState, useState } from "react";
 import { createAssignmentAction } from "../../actions";
+import { SkillListPicker, type SkillListRow } from "@/components/skill-picker";
 
 const input = "w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/30";
 
-export function AssignmentForm({ classId, units, skills }: { classId: string; units: { id: string; label: string }[]; skills: { id: string; name: string }[] }) {
+export function AssignmentForm({ classId, units, skills }: { classId: string; units: { id: string; label: string }[]; skills: SkillListRow[] }) {
   const [state, action, pending] = useActionState(createAssignmentAction, {});
   const [target, setTarget] = useState<"SKILL" | "UNIT">("SKILL");
   return (
@@ -19,10 +20,9 @@ export function AssignmentForm({ classId, units, skills }: { classId: string; un
         </div>
       </fieldset>
       {target === "SKILL" ? (
-        <fieldset className="max-h-72 overflow-y-auto rounded-xl bg-white p-4 ring-1 ring-slate-200">
-          <legend className="sr-only">Skills</legend>
-          <div className="grid gap-2 sm:grid-cols-2">{skills.map((k) => <label key={k.id} className="flex items-start gap-2"><input type="checkbox" name="skillIds" value={k.id} className="mt-1" />{k.name}</label>)}</div>
-        </fieldset>
+        <div className="rounded-xl bg-white p-4 ring-1 ring-slate-200">
+          <SkillListPicker skills={skills} mode="multiple" name="skillIds" />
+        </div>
       ) : (
         <label className="block font-medium">Unit<select name="unitId" className={input}>{units.map((u) => <option key={u.id} value={u.id}>{u.label}</option>)}</select></label>
       )}

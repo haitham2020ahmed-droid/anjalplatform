@@ -1,5 +1,6 @@
 import type { StudentDiagnosticReport } from "@/server/diagnostic/report";
 import { heat, LEVEL_CHIP, LEVEL_NAME } from "./class-report";
+import { gradeGoalWords } from "@/server/reports/family-words";
 
 const STATUS = { Strength: "bg-emerald-100 text-emerald-900", Developing: "bg-amber-100 text-amber-900", "Needs support": "bg-rose-100 text-rose-900" } as const;
 
@@ -10,12 +11,14 @@ export function StudentDiagnosticView({ r, family }: { r: StudentDiagnosticRepor
   return (
     <article className="mx-auto max-w-4xl space-y-5">
       <header className="overflow-hidden rounded-3xl bg-gradient-to-br from-brand-navy to-indigo-800 p-6 text-white shadow-md print:shadow-none">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-200">Al-Anjal English · Diagnostic Report</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-200">Literise · Diagnostic Report</p>
         <h1 className="mt-1 text-3xl font-extrabold">{r.student.name}</h1>
         <p className="text-white/80">{r.student.className} · Grade {r.grade} · {r.year} · taken {r.date}</p>
         <div className="mt-5 grid gap-3 sm:grid-cols-4">
           <div className="rounded-2xl bg-white/10 p-3"><p className="text-xs uppercase tracking-wide text-white/70">Score</p><p className="text-4xl font-extrabold tabular-nums">{r.pct}{u}</p><p className="text-xs text-white/70">{r.adaptive ? `Reading at ${r.readingLevel ?? "—"}` : `${r.correct} of ${r.total} correct`}</p></div>
-          <div className="rounded-2xl bg-white/10 p-3"><p className="text-xs uppercase tracking-wide text-white/70">Starting level</p><p className="mt-1"><span className={`rounded-full px-3 py-1 text-lg font-bold ${LEVEL_CHIP[r.level]}`}>{LEVEL_NAME[r.level]} Level</span></p><p className="mt-2 text-xs text-white/70">{r.tier.name.replace(/^Tier \d · /, "")} · {r.tier.sub}</p></div>
+          <div className="rounded-2xl bg-white/10 p-3"><p className="text-xs uppercase tracking-wide text-white/70">{family ? "Grade goal" : "Starting level"}</p>{family
+            ? <p className="mt-1 text-lg font-bold">{gradeGoalWords(r.level)}</p>
+            : <><p className="mt-1"><span className={`rounded-full px-3 py-1 text-lg font-bold ${LEVEL_CHIP[r.level]}`}>{LEVEL_NAME[r.level]} Level</span></p><p className="mt-2 text-xs text-white/70">{r.tier.name.replace(/^Tier \d · /, "")} · {r.tier.sub}</p></>}</div>
           <div className="rounded-2xl bg-white/10 p-3"><p className="text-xs uppercase tracking-wide text-white/70">MAP Reading</p><p className="text-3xl font-extrabold tabular-nums">{r.rit ?? r.ritEstimate ?? "—"}</p><p className="text-xs text-white/70">{r.rit ? "RIT" : r.ritEstimate ? "RIT (estimated by the Diagnostic)" : "RIT"}</p></div>
           <div className="rounded-2xl bg-white/10 p-3"><p className="text-xs uppercase tracking-wide text-white/70">Reading fluency</p><p className="text-3xl font-extrabold tabular-nums">{r.wcpm?.value ?? "—"}</p><p className="text-xs text-white/70">{r.wcpm ? `words / minute · goal ~${r.wcpm.benchmark}` : "not checked yet"}</p></div>
         </div>
@@ -81,12 +84,12 @@ export function StudentDiagnosticView({ r, family }: { r: StudentDiagnosticRepor
       <section className="rounded-3xl bg-sky-50 p-5 text-sky-950 ring-1 ring-sky-200">
         <h2 className="text-lg font-bold">🏠 {family ? "How to help at home" : "What happens next"}</h2>
         <ul className="mt-2 list-disc space-y-1 ps-5 text-sm">
-          <li>The platform now starts {first} at <b>{LEVEL_NAME[r.level]} Level</b>; the questions get easier or harder with every answer.</li>
+          <li>{family ? <>The platform now gives {first} questions that match this result; they get easier or harder with every answer.</> : <>The platform now starts {first} at <b>{LEVEL_NAME[r.level]} Level</b>; the questions get easier or harder with every answer.</>}</li>
           <li>{family ? `Ask ${first} to open “Today’s plan” on the platform for 15 minutes a day.` : "The weakest standards are in the class support plan and the student’s curriculum plan."}</li>
           <li>{family ? "Read together for 15 minutes and ask: What is the main idea? How do you know?" : "A Weekly Check keeps the level up to date between MAP tests."}</li>
         </ul>
       </section>
-      <p className="text-center text-xs text-slate-500">{r.adaptive ? "Adaptive test: the same 50 skills for every student, each at their own difficulty. Score 0–100 against the grade (72.5 = on grade level). " : ""}Levels: Above ≥ {r.bands.above}{u} · On {r.bands.on}–{r.bands.above - 1}{u} · Below &lt; {r.bands.on}{u}{r.rapid >= r.total * 0.3 ? ` · ⚡ ${r.rapid} answers were very fast, so this score may be lower than ${first}’s real level.` : ""}</p>
+      <p className="text-center text-xs text-slate-500">{r.adaptive ? `Adaptive test: the same 50 skills for every student, each at their own difficulty. Score 0–100 against the grade (72.5 = ${family ? "meeting the grade goal" : "on grade level"}). ` : ""}{family ? `Grade goal: ${r.bands.on}${u} and more` : <>Levels: Above ≥ {r.bands.above}{u} · On {r.bands.on}–{r.bands.above - 1}{u} · Below &lt; {r.bands.on}{u}</>}{r.rapid >= r.total * 0.3 ? ` · ⚡ ${r.rapid} answers were very fast, so this score may be lower than ${first}’s real level.` : ""}</p>
     </article>
   );
 }

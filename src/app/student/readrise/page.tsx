@@ -7,6 +7,9 @@ import { ReadRiseIcon } from "@/components/readrise/readrise-icon";
 import { GoalRing, GrowthChart, LevelBadge } from "@/components/readrise/widgets";
 import { ReadRiseLibrary } from "@/components/readrise/library";
 import { ProgramTabs } from "@/components/student/program-tabs";
+import { GrowthStory } from "@/components/readrise/growth-story";
+import { myGrowthStory } from "@/server/readrise/growth-report";
+import { getT } from "@/i18n/server";
 
 export const metadata = { title: "ReadRise" };
 export const dynamic = "force-dynamic";
@@ -22,6 +25,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
   const first = String(me.displayName ?? "").split(" ")[0];
   /** 📊 "My report" tab: my level, weekly goal, reading numbers and growth; the default tab is the library */
   const report = sp.tab === "report";
+  const [{ t }, story] = await Promise.all([getT(), report ? myGrowthStory(repo, actor).catch(() => null) : Promise.resolve(null)]);
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/student" className="inline-flex min-h-10 items-center text-sm font-medium text-slate-500 hover:text-brand-teal">‹ My Work</Link></p>
@@ -87,6 +91,8 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
         <h2 id="growth-h" className="text-xl font-bold text-brand-navy">📈 My growth</h2>
         <div className="mt-3"><GrowthChart points={h.growth.points} projected={h.growth.projected} yearEnd={h.growth.yearEnd} /></div>
       </section>
+
+      {story && <GrowthStory story={story} t={t} />}
 
       </>}
 

@@ -8,7 +8,7 @@ export interface TourStep { target: string; icon: string; title: string; text: s
 export const TOUR_STEPS: Record<string, TourStep[]> = {
   STUDENT: [
     { target: "my-work", icon: "📘", title: "My Work", text: "Everything your teacher gives you is in My Work. Tap Start on the first row." },
-    { target: "plans", icon: "🗺️", title: "My Plan", text: "Your plan: practise any of its skills, at your level." },
+    { target: "plans", icon: "🗺️", title: "MAP", text: "Your MAP scores, your goal and your MAP practice." },
     { target: "tests", icon: "📝", title: "My Tests", text: "Tests to do and tests you finished are in My Tests." },
     { target: "lang", icon: "🌐", title: "Language", text: "Parents: tap the language button at the top to read the menus in Arabic. Lessons and questions stay in English." },
   ],

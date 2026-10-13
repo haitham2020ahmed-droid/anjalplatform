@@ -30,7 +30,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
 import { refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
 import { allowedQuestions, answerState, keyed, withAnswer, type Allowed, type AnswerState, type KeyedQuestion } from "./no-repeat";
-import { ASSIGNMENT_DONE_AT, assignedSkillAccess, coreCountsOf, countCoreAnswer, isFinishReason, lastPickedWorkFor, markDone, openWorkFor, workProgressOf, type WorkProgress } from "./completion";
+import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess, coreCountsOf, countCoreAnswer, isFinishReason, lastPickedWorkFor, markDone, openWorkFor, workProgressOf, type WorkProgress } from "./completion";
 import { chosenQuestionIdsOfAssignment } from "../questions/skill-questions";
 import { applyPlacementResult } from "../curriculum-map/placement-result";
 import { adaptiveNext, STUCK_AFTER, type AdaptiveState } from "../curriculum-map/leveled-run";
@@ -45,9 +45,12 @@ import { choiceSeed, finishTimedOut, isTestAssignment, shuffleChoices, testEndsA
 /** an unfinished practice is continued (same session, same count) when the student comes back within 7 days */
 export const SESSION_RESUME_MINUTES = 7 * 24 * 60;
 /**
- * The owner's 25-question rule (it REPLACES the earlier "stop between 25 and 50" rule): the 25th answer of an assigned
- * skill makes the work Done (completion.ts, ASSIGNMENT_DONE_AT) and the student CHOOSES — Finish or Continue
- * practising. There is no forced stop at 25; one session is gently capped at this many answers.
+ * The owner's 30–50 rule for assigned skill work (completion.ts, ASSIGNMENT_MIN_QUESTIONS / ASSIGNMENT_MAX_QUESTIONS;
+ * it REPLACES the earlier "25 questions = Done, then Finish or Continue" rule): at least 30 questions; mastered at 30
+ * (or as soon as mastered after 30) → Done and the session ends with a celebration (WORK_MASTERED); not mastered →
+ * practice goes on by itself up to 50; at 50 → Done and the student chooses "Stop for now" or "Keep practising".
+ * Running out of fresh questions still ends the session (Done). One session is gently capped at this many answers
+ * (above 50, so it never cuts the rule short).
  */
 export const MAX_QUESTIONS_PER_SESSION = 60;
 /** the small cheer in the practice screen ("Great work! 15 questions done") */
@@ -65,7 +68,7 @@ export interface PracticeView {
   band: string;
   ended: boolean;
   endReason: string | null;
-  /** assigned work only: completion ("answered x of 25") and accuracy of the first 25 — kept apart from mastery above */
+  /** assigned work only: completion ("answered x of 30", of 50 once past 30) and its accuracy — kept apart from mastery above */
   work?: WorkProgress;
 }
 
@@ -89,8 +92,12 @@ export interface Feedback {
   alreadyEnded?: boolean;
   /** this question had already been answered (a double click, a second tab): its saved result, nothing saved again */
   replayed?: boolean;
-  /** assigned work only: completion and first-25 accuracy after this answer; justDone = this answer made it Done (25) */
-  work?: WorkProgress & { justDone: boolean };
+  /**
+   * assigned work only: completion and accuracy after this answer; justDone = this answer made it Done, doneBy = why:
+   * "MASTERED" (30+ answers and mastered: the session ends with a celebration) or "MAX" (50 answers without mastery:
+   * the student chooses "Stop for now" or "Keep practising")
+   */
+  work?: WorkProgress & { justDone: boolean; doneBy?: "MASTERED" | "MAX" | null };
 }
 
 /** The tutor's turn when the repeat count is already known (Update 42B: read with the answer's other data). */
@@ -147,7 +154,7 @@ async function ownSession(repo: Repo, actor: Actor, sessionId: string): Promise<
  * (access rules, UI reorg: a teacher may assign a skill of ANY grade, e.g. a Grade 6 skill to a Grade 11 class with
  * no curriculum yet). The adaptive engine itself is unchanged.
  */
-async function assertSkillInCurriculum(repo: Repo, student: Row, skillId: string): Promise<Row> {
+async function assertSkillInCurriculum(repo: Repo, student: Row, skillId: string, actor?: Actor): Promise<Row> {
   const [skill, curs] = await Promise.all([repo.findUnique("Skill", { id: skillId }), repo.findMany("Curriculum", { gradeId: student.gradeId, isActive: true })]);
   const cur = curs[0];
   if (!skill || !skill.isActive || skill.deletedAt) throw new ForbiddenError("This skill is not part of your curriculum.");
@@ -155,6 +162,9 @@ async function assertSkillInCurriculum(repo: Repo, student: Row, skillId: string
   // assigned work (any status: "Practise again" after finishing works too), another grade's copy of it, an older
   // skillIds row, or a prerequisite the engine routes to from it (completion.ts, assignedSkillAccess)
   if ((await assignedSkillAccess(repo, String(student.id), skillId)).assigned) return skill;
+  // a skill of another grade in the student's OWN plan (a teacher-sent MAP plan, the Personal Study Plan): open, at
+  // the student's own level (plan-access.ts); random other-grade skills stay closed
+  if (actor && (await (await import("../student/plan-access")).isPlanSkill(repo, actor, skillId))) return skill;
   throw new ForbiddenError("This skill is not part of your curriculum.");
 }
 
@@ -224,16 +234,17 @@ async function abilityOf(repo: Repo, studentId: string, skillId: string, cfg: Ad
  * questions": Assignment.questionIds, in order), else the skill's whole pool (the platform chooses at each student's
  * level). The adaptive engine then selects from these items exactly as before.
  */
-async function practiceItems(repo: Repo, skillId: string, assignmentId: unknown): Promise<{ items: PracticeItem[]; chosen: boolean }> {
+async function practiceItems(repo: Repo, skillId: string, assignmentId: unknown): Promise<{ items: PracticeItem[]; chosen: boolean; lesson: boolean }> {
   // a lesson's question set (Curriculum Map) continued with skill practice: the bank, at the student's level
   // (the lesson's own questions were answered in the set itself) — only a skill assignment's picks restrict practice
   const a = assignmentId ? await repo.findUnique("Assignment", { id: String(assignmentId) }) : null;
   const ids = a && !a.assessmentId ? await chosenQuestionIdsOfAssignment(repo, String(assignmentId)) : null;
   if (ids?.length) {
     const items = await loadSkillItems(repo, skillId, { questionIds: ids });
-    if (items.length) return { items, chosen: true };
+    if (items.length) return { items, chosen: true, lesson: false };
   }
-  return { items: await loadSkillItems(repo, skillId), chosen: false };
+  // lesson = practice continuing a Curriculum Map lesson's question set (lessonContinuation)
+  return { items: await loadSkillItems(repo, skillId), chosen: false, lesson: Boolean(a?.assessmentId) };
 }
 
 /** The allowed next questions for a student (never attempted, nor a copy of one): see no-repeat.ts. */
@@ -264,7 +275,7 @@ async function finishSkill(repo: Repo, actor: Actor, studentId: string, skillId:
 
 async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, now = new Date(), random?: () => number, opts: StartOpts = {}): Promise<PracticeView> {
   const student = await ownStudent(repo, actor);
-  const skill = await assertSkillInCurriculum(repo, student, skillId);
+  const skill = await assertSkillInCurriculum(repo, student, skillId, actor);
   const studentId = String(student.id);
   const [openRows, work] = await Promise.all([
     repo.findMany("PracticeSession", { studentId: student.id, skillId, endedAt: null }),
@@ -340,7 +351,7 @@ export async function currentQuestion(repo: Repo, actor: Actor, sessionId: strin
     known ? cachedSkill(repo, String(s.skillId)) : repo.findUnique("Skill", { id: s.skillId }),
     known ? Promise.resolve(known.mastery) : repo.findUnique("StudentSkillMastery", { studentId: s.studentId, skillId: s.skillId }),
     s.currentQuestionId && !s.endedAt ? practiceItems(repo, String(s.skillId), s.assignmentId).then((x) => x.items) : Promise.resolve([] as PracticeItem[]),
-    // the assigned work's own progress (answered x of 25, first-25 accuracy): read only for a linked session
+    // the assigned work's own progress (answered x of 30/50, its accuracy): read only for a linked session
     known?.work !== undefined ? Promise.resolve(known.work) : s.assignmentId ? workOfSession(repo, s) : Promise.resolve(null),
   ]);
   const skill = skillRow!;
@@ -358,7 +369,7 @@ export async function currentQuestion(repo: Repo, actor: Actor, sessionId: strin
   };
 }
 
-/** The linked work's progress for a session (one read; a row from before the 25-question rule: its first answers). */
+/** The linked work's progress for a session (one read; a row from before the stored counts: its first answers). */
 async function workOfSession(repo: Repo, s: Row): Promise<WorkProgress | null> {
   const aid = String(s.assignmentId), sid = String(s.studentId);
   const row = (await repo.findMany("AssignmentStudent", { assignmentId: aid, studentId: sid }))[0];
@@ -478,7 +489,7 @@ async function submitAnswerUnlocked(
   const skillId = String(s.skillId);
   const studentId = String(s.studentId);
   // the skill row is cached here too, so the ability read below needs no extra round trip
-  const [{ items }, cfg] = await Promise.all([practiceItems(repo, skillId, s.assignmentId), engineConfig(repo, actor.schoolId), cachedSkill(repo, skillId)]);
+  const [{ items, lesson }, cfg] = await Promise.all([practiceItems(repo, skillId, s.assignmentId), engineConfig(repo, actor.schoolId), cachedSkill(repo, skillId)]);
   const byId = new Map(items.map((i) => [i.questionId, i]));
   const item = byId.get(input.questionId);
   if (!item) throw new ValidationError("This question is no longer available.");
@@ -503,11 +514,11 @@ async function submitAnswerUnlocked(
     misconception ? repo.count("QuestionAttempt", { studentId, misconception, createdAt: { gte: new Date(now.getTime() - 30 * 86_400_000) } }) : Promise.resolve(0),
     // 🔁 no repeats: what the student already attempted among these questions and their copies (one batched read)
     answerState(repo, studentId, pool),
-    // 🎯 the linked work's row (its first-25 counts): read with the rest, written in the answer's transaction
+    // 🎯 the linked work's row (its core counts): read with the rest, written in the answer's transaction
     linkedAssignment ? repo.findMany("AssignmentStudent", { assignmentId: linkedAssignment, studentId }) : Promise.resolve([] as Row[]),
   ]);
   const workRow = workRows[0] ?? null;
-  // a row from before the 25-question rule has no stored counts yet: its first answers are counted once (two reads)
+  // a row from before the stored counts has none yet: its first answers are counted once (two reads)
   const workBefore = workRow && linkedAssignment ? await coreCountsOf(repo, linkedAssignment, studentId, workRow) : null;
   // practising again in a NEW session after the work was Done never changes its result
   const workFrozen = Boolean(workRow?.completedAt) && d(s.startedAt).getTime() > d(workRow!.completedAt).getTime();
@@ -543,8 +554,7 @@ async function submitAnswerUnlocked(
   let endReason: string | null = null;
   let routeToSkillId: string | null = null;
   if (allowed.phase === "DONE") { nextId = null; endReason = "SKILL_FINISHED"; }
-  // a gentle cap per session; there is no forced stop at 25 (the 25th answer makes the work Done and the student
-  // chooses Finish or Continue practising)
+  // a gentle cap per session (60, above the 30–50 rule: at 50 the work is Done and the student chooses)
   else if (answeredThisSession >= MAX_QUESTIONS_PER_SESSION) { nextId = null; endReason = "COMPLETED"; }
   else if (step.next.reasonCode === "PREREQ_ROUTE") { nextId = null; endReason = "PREREQ_ROUTE"; routeToSkillId = step.next.routeToSkillId ?? null; }
   else if (!nextId) endReason = "POOL_EXHAUSTED";
@@ -560,6 +570,19 @@ async function submitAnswerUnlocked(
     masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
     ...nextReview(prevMastery, mst.isMastered, correct, now),
   };
+  // 🎯 the 30–50 rule (completion.ts): this answer is the work's next core answer while the work is open
+  const workOpen = Boolean(workBefore && !workFrozen && !workRow?.completedAt);
+  const coreNext = workBefore ? Math.min(ASSIGNMENT_MAX_QUESTIONS, workBefore.answered + 1) : 0;
+  // mastered at (or after) the 30th answer: the work is Done and the session ends with a celebration
+  const masteredDone = workOpen && coreNext >= ASSIGNMENT_MIN_QUESTIONS && mst.isMastered;
+  // the 50th answer without mastery: the work is Done; practice goes on only if the student chooses "Keep practising"
+  const maxDone = workOpen && coreNext >= ASSIGNMENT_MAX_QUESTIONS;
+  // a Curriculum Map lesson continued with skill practice (its set already Done): the same 30–50 rule, counted in this
+  // session — mastered at 30+ ends it with the celebration; at 50 the student chooses (the lesson stays Done)
+  const lessonRule = lesson && Boolean(linkedAssignment) && !workOpen;
+  const lessonMastered = lessonRule && answeredThisSession >= ASSIGNMENT_MIN_QUESTIONS && mst.isMastered;
+  const lessonMax = lessonRule && !lessonMastered && answeredThisSession === ASSIGNMENT_MAX_QUESTIONS;
+  if ((masteredDone || lessonMastered) && (!endReason || endReason === "COMPLETED")) { nextId = null; endReason = "WORK_MASTERED"; routeToSkillId = null; }
   const sessionPatch = {
     questionCount: answeredThisSession, correctCount: Number(s.correctCount) + (correct ? 1 : 0), activeMs: Number(s.activeMs) + responseMs,
     currentQuestionId: nextId, currentServedAt: nextId ? now : null, lastTargetB: step.next.targetB, hintQuestionId: null,
@@ -569,9 +592,9 @@ async function submitAnswerUnlocked(
   // ✅ the practice is finished: the student's work for this skill becomes Done in the SAME transaction as this last
   // answer (immediate, server-side; guarded by completedAt IS NULL so a retry or a second tab writes it once)
   const finished = Boolean(endReason && isFinishReason(endReason));
-  // the 25th answer of the linked work (or a finished practice): every open work of this skill is Done with it
-  const reaches25 = Boolean(workBefore && !workFrozen && workBefore.answered + 1 >= ASSIGNMENT_DONE_AT && (workBefore.answered < ASSIGNMENT_DONE_AT || !workRow?.completedAt));
-  const doneWork = finished || reaches25 ? [...new Set([...(linkedAssignment ? [linkedAssignment] : []), ...(await openWorkFor(repo, studentId, skillId, now))])] : [];
+  // the linked work is Done by this answer (mastered at 30+, or 50 answers) or the practice is finished: every open
+  // work of this skill is Done with it
+  const doneWork = finished || masteredDone || maxDone ? [...new Set([...(linkedAssignment ? [linkedAssignment] : []), ...(await openWorkFor(repo, studentId, skillId, now))])] : [];
 
   const attempt = await repo.transaction(async (tx) => {
     // guarded by the database: only one request can move the session past this question (two servers, double clicks)
@@ -586,17 +609,18 @@ async function submitAnswerUnlocked(
       { theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 });
     await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
     if (step.xp > 0) await tx.create("XpEvent", { studentId, points: step.xp, reason: mst.isMastered && !prevMastery?.isMastered ? "skill_mastered" : "practice", createdAt: now });
-    // 🎯 the work's core result: this answer counts if it is among the first 25 (the 25th makes the work Done)
+    // 🎯 the work's core result: this answer counts while the work is open (mastered at 30+, or the 50th, makes it Done)
     const core = workBefore && !workFrozen && linkedAssignment
-      ? await countCoreAnswer(tx, linkedAssignment, studentId, { ...workBefore, stored: workRow!.coreAnswered === null || workRow!.coreAnswered === undefined ? null : Number(workRow!.coreAnswered), done: Boolean(workRow!.completedAt) }, correct, now)
+      ? await countCoreAnswer(tx, linkedAssignment, studentId, { ...workBefore, stored: workRow!.coreAnswered === null || workRow!.coreAnswered === undefined ? null : Number(workRow!.coreAnswered), done: Boolean(workRow!.completedAt) }, correct, now, mst.isMastered)
       : null;
     if (doneWork.length) await markDone(tx, doneWork, studentId, now);
     return { row, core };
   });
   const core = attempt.core;
-  const workNow: (WorkProgress & { justDone: boolean }) | null = workRow && linkedAssignment
-    ? { ...workProgressOf(linkedAssignment, { ...workRow, ...(doneWork.length || core?.justDone ? { status: "COMPLETED", completedAt: workRow.completedAt ?? now } : {}) }, core ?? workBefore ?? undefined), justDone: Boolean(core?.justDone) }
+  const workNow: (WorkProgress & { justDone: boolean; doneBy: "MASTERED" | "MAX" | null }) | null = workRow && linkedAssignment
+    ? { ...workProgressOf(linkedAssignment, { ...workRow, ...(doneWork.length || core?.justDone ? { status: "COMPLETED", completedAt: workRow.completedAt ?? now } : {}) }, core ?? workBefore ?? undefined), justDone: Boolean(core?.justDone), doneBy: core?.justDone ? core.doneBy : null }
     : null;
+  if (workNow && !workNow.justDone && (lessonMastered || lessonMax)) Object.assign(workNow, { justDone: true, doneBy: lessonMastered ? "MASTERED" : "MAX" });
 
   const feedback: Feedback = {
     correct, credit,
@@ -622,7 +646,7 @@ async function submitAnswerUnlocked(
   // the work is Done (it never moves back) or when this answer was not counted for it
   if (linkedAssignment && !finished && !workNow?.justDone && workNow?.completion !== "DONE") runAfterResponse("practice.assignment_refresh", () => refreshAfterAnswer(repo, linkedAssignment, studentId, now, skillId || undefined));
   // the next screen comes from this answer's own results (no re-reading)
-  const view = await currentQuestion(repo, actor, input.sessionId, now, { session: { ...s, ...sessionPatch }, mastery: { studentId, skillId, ...masteryData }, work: workNow ? (({ justDone: _j, ...w }) => (void _j, w))(workNow) : null });
+  const view = await currentQuestion(repo, actor, input.sessionId, now, { session: { ...s, ...sessionPatch }, mastery: { studentId, skillId, ...masteryData }, work: workNow ? (({ justDone: _j, doneBy: _b, ...w }) => (void _j, void _b, w))(workNow) : null });
   return { feedback, view };
 }
 
@@ -948,8 +972,9 @@ async function lessonWorkOf(repo: Repo, studentId: string, assignmentId: string)
 
 /**
  * 🧭 → 🏦 After a Curriculum Map lesson's own questions: if the student has not mastered the lesson's skill yet, the
- * platform continues with bank questions of that skill at the student's level (25 to 50 a session, never a question
- * already solved), inside the same assignment, so reports show the lesson as one piece of work.
+ * platform continues with bank questions of that skill at the student's level (the 30–50 rule: at least 30, Done when
+ * mastered, at most 50 before the student chooses; never a question already solved), inside the same assignment, so
+ * reports show the lesson as one piece of work.
  */
 export async function lessonContinuation(repo: Repo, a: Row, studentId: string): Promise<string | null> {
   if (!a.assessmentId || String(a.track ?? "") !== "CURRICULUM" || isTestAssignment(a)) return null;

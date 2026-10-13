@@ -6,12 +6,12 @@
  *     otherwise (and for Review) to the grade's "Unclassified (Curriculum Map)" skill, as for any map question.
  *   - Safe to run again: a question already on that node (same text and same right answer) is skipped.
  */
-import type { Repo } from "../seeding/repo";
+import type { Repo, Row } from "../seeding/repo";
 import type { Actor } from "../auth/rbac";
 import { createDraft } from "../admin/questions";
 import { libraryActor } from "../readmaster/library";
 import { attachmentNodes } from "../curriculum-map/questions";
-import { answerText, typeFields, withPassages, type SetQuestion } from "./skill-sets";
+import { analyseAndPublish, answerText, typeFields, withPassages, type SetQuestion } from "./skill-sets";
 
 const s = (v: unknown) => String(v ?? "");
 const LEVEL: Record<string, number> = { BELOW: 2, ON: 4, ABOVE: 6 };
@@ -59,6 +59,8 @@ export async function addMapSets(repo: Repo, schoolId: string, nodes: MapSetNode
     const ans = new Map<string, string[]>();
     for (const o of right.sort((a, b) => s(a.label).localeCompare(s(b.label)))) ans.set(s(o.questionId), [...(ans.get(s(o.questionId)) ?? []), s(o.text)]);
     const have = new Set(qs.map((q) => ans.has(s(q.id)) ? `${key(s(q.stem))}|${key(ans.get(s(q.id))!.join(" "))}` : `${key(s(q.stem))}|*`));
+    // ⚡ created first, analysed together (one pass per place), then published (one statement)
+    const made: { qid: string; data: Row }[] = [];
     for (const q of node.questions) {
       const k = `${key(q.stem)}|${key(answerText(q))}`;
       if (have.has(k) || have.has(`${key(q.stem)}|*`)) { r.skipped++; continue; }
@@ -66,14 +68,15 @@ export async function addMapSets(repo: Repo, schoolId: string, nodes: MapSetNode
         const qid = await createDraft(repo, actor, {
           ...(skillId ? { skillId } : {}), mapNodeCode: place.code, stem: q.stem, level: LEVEL[s(q.level).toUpperCase()] ?? 4, whyCorrect: q.why, ...typeFields(q),
           ...(q.passage ? { passageText: q.passageTitle ? `${q.passageTitle}\n\n${q.passage}` : q.passage } : {}),
-        } as never, now);
-        await repo.updateMany("Question", { id: qid }, { status: "PUBLISHED", publishedAt: now, reviewedById: actor.userId });
+        } as never, now, { deferAnalysis: true });
+        made.push({ qid, data: { status: "PUBLISHED", publishedAt: now, reviewedById: actor.userId } });
         have.add(k); r.added++;
       } catch (e) {
         if (/already exists|duplicate/i.test((e as Error).message)) r.skipped++;
         else r.errors.push(`${q.ref}: ${(e as Error).message}`);
       }
     }
+    await analyseAndPublish(repo, schoolId, made, now);
     out.push(r);
   }
   return out;

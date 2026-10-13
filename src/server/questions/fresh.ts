@@ -150,6 +150,20 @@ export const NEVER_SEEN: SeenIndex = { lastSeen: () => 0 };
  * indexed read per BATCH), then the student's attempts on those ids (one read per BATCH, two columns).
  */
 export async function seenIndex(repo: Repo, studentId: string, pool: readonly { id: string; keys?: readonly string[] }[], opts: { exceptSessions?: readonly string[] } = {}): Promise<SeenIndex> {
+  return seenIndexOf(repo, studentId, pool, opts);
+}
+
+/**
+ * ⚡ seenIndex for a GROUP (a plan's students): when ANY of them last saw each question — the same as the latest of
+ * their own indexes (every step is a maximum), in one read per batch for the whole group instead of one per student.
+ */
+export async function seenIndexAny(repo: Repo, studentIds: readonly string[], pool: readonly { id: string; keys?: readonly string[] }[]): Promise<SeenIndex> {
+  const who = [...new Set(studentIds.filter(Boolean))];
+  if (!who.length) return NEVER_SEEN;
+  return seenIndexOf(repo, who.length === 1 ? who[0] : { in: who }, pool, {});
+}
+
+async function seenIndexOf(repo: Repo, studentId: string | { in: string[] }, pool: readonly { id: string; keys?: readonly string[] }[], opts: { exceptSessions?: readonly string[] }): Promise<SeenIndex> {
   if (!pool.length || !studentId) return NEVER_SEEN;
   const hashes = [...new Set(pool.flatMap((p) => (p.keys ?? []).filter((k) => k.startsWith("h:")).map((k) => k.slice(2))))];
   const hashOf = new Map<string, string>();

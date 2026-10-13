@@ -83,6 +83,8 @@ export function parseReportRequest(q: URLSearchParams): ReportRequest {
     const sc = EXTRA_SCHOOL[kind];
     req.scope = sc === "always" ? "school" : sc === "never" ? "class" : oneOf(q.get("scope"), ["class", "school"] as const, "scope", "class");
     if (req.scope === "class") req.classId = id("classId");
+    // the ReadRise export can be one student of the class (the growth evidence page)
+    if (kind === "readrise" && req.scope === "class" && q.get("studentId")) req.studentId = id("studentId");
     const days = q.get("days");
     req.days = days ? Number(oneOf(days, ["7", "30", "90", "365"] as const, "window")) : kind === "readmaster" ? 90 : 30;
   }
@@ -191,7 +193,7 @@ export async function exportReport(deps: ReportDeps, actor: Actor, req: ReportRe
     req.kind === "student" ? await buildStudentReport(ctx, req.studentId!)
     : req.kind === "class" ? await buildClassReport(ctx, req.classId!)
     : req.kind === "standards" ? await buildStandardsReport(ctx, req.scope === "school" ? { school: true } : { classId: req.classId! })
-    : isExtraKind(req.kind) ? await buildExtraReport(ctx, req.kind, { classId: req.classId, scope: req.scope, days: req.days ?? 30 })
+    : isExtraKind(req.kind) ? await buildExtraReport(ctx, req.kind, { classId: req.classId, studentId: req.studentId, scope: req.scope, days: req.days ?? 30 })
     : await buildSchoolReport(ctx);
 
   let bytes: Uint8Array;
@@ -206,7 +208,7 @@ export async function exportReport(deps: ReportDeps, actor: Actor, req: ReportRe
 
   // 5. audit (metadata only)
   await audit(repo, {
-    actorId: actor.userId, action: "report.export", entityType: req.kind === "student" ? "Student" : req.classId ? "Class" : "School",
+    actorId: actor.userId, action: "report.export", entityType: req.studentId ? "Student" : req.classId ? "Class" : "School",
     entityId: req.studentId ?? req.classId ?? schoolId,
     after: { kind: req.kind, format: req.format, locale: req.locale, period: req.period, from: req.from ?? null, to: req.to ?? null, scope: req.scope ?? null, days: req.days ?? null, bytes: bytes.length },
     at: now,

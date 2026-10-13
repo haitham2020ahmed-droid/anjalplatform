@@ -26,17 +26,27 @@ const d = (v: unknown): Date | null => (v === null || v === undefined || v === "
 const OPEN = ["NOT_STARTED", "IN_PROGRESS", "OVERDUE"];
 
 /**
- * 🎯 The owner's 25-question rule: when a student has answered this many questions of an assigned skill, the work is
- * Done (at once, on the server, once). The work's core result (accuracy shown to the teacher) counts these FIRST
- * answers only; practice after that still trains ability and mastery but never changes the work's status or result.
+ * 🎯 The owner's 30–50 rule for an assigned skill (it REPLACES the earlier "25 questions = Done" rule):
+ *   · a student works at least ASSIGNMENT_MIN_QUESTIONS (30) questions;
+ *   · mastered by the 30th answer (or as soon as mastered after it) → the work is Done and the session ends with a
+ *     celebration;
+ *   · not mastered at 30 → practice simply goes on (no choice shown) up to ASSIGNMENT_MAX_QUESTIONS (50);
+ *   · still not mastered at 50 → the work is Done (My Work shows Done) and the student chooses "Stop for now" or
+ *     "Keep practising";
+ *   · running out of fresh questions (the no-repeat rule) still ends the session, and the work is Done.
+ * The work's core result (accuracy shown to the teacher) counts the answers given until the work is Done (at most
+ * 50); practice after that still trains ability and mastery but never changes the work's status or result.
  */
-export const ASSIGNMENT_DONE_AT = 25;
+export const ASSIGNMENT_MIN_QUESTIONS = 30;
+export const ASSIGNMENT_MAX_QUESTIONS = 50;
+/** "x of N" for the student: 30 first; once past 30 without mastery, 50. */
+export const workGoalOf = (answered: number): number => (answered >= ASSIGNMENT_MIN_QUESTIONS ? ASSIGNMENT_MAX_QUESTIONS : ASSIGNMENT_MIN_QUESTIONS);
 
 export type Completion = "DONE" | "IN_PROGRESS" | "NOT_STARTED";
 /**
  * The three things a student's skill work is judged by, kept SEPARATE everywhere:
- *   completion → Done / In progress / Not started, and "answered x of 25"
- *   accuracy   → % correct of the first 25 answers (null before any answer)
+ *   completion → Done / In progress / Not started, and "answered x of 30" (of 50 once past 30)
+ *   accuracy   → % correct of the answers counted for the work (null before any answer)
  *   mastery    → the engine's mastery % and band for the skill (not part of this object's counts)
  */
 export interface WorkProgress { assignmentId: string; completion: Completion; answered: number; of: number; correct: number; accuracy: number | null }
@@ -45,21 +55,21 @@ export const accuracyOf = (correct: number, answered: number): number | null => 
 
 /** The work's progress from its AssignmentStudent row (answered/correct may be passed when just computed). */
 export function workProgressOf(assignmentId: string, row: Row | null | undefined, core?: { answered: number; correct: number }): WorkProgress {
-  const answered = Math.min(ASSIGNMENT_DONE_AT, core?.answered ?? Number(row?.coreAnswered ?? 0));
+  const answered = Math.min(ASSIGNMENT_MAX_QUESTIONS, core?.answered ?? Number(row?.coreAnswered ?? 0));
   const correct = Math.min(answered, core?.correct ?? Number(row?.coreCorrect ?? 0));
   const done = Boolean(row && (d(row.completedAt) || s(row.status) === "COMPLETED"));
-  return { assignmentId, completion: done ? "DONE" : answered > 0 || s(row?.status) === "IN_PROGRESS" ? "IN_PROGRESS" : "NOT_STARTED", answered, of: ASSIGNMENT_DONE_AT, correct, accuracy: accuracyOf(correct, answered) };
+  return { assignmentId, completion: done ? "DONE" : answered > 0 || s(row?.status) === "IN_PROGRESS" ? "IN_PROGRESS" : "NOT_STARTED", answered, of: workGoalOf(answered), correct, accuracy: accuracyOf(correct, answered) };
 }
 
 /**
- * The work's core counts so far: the stored ones, else (a row from before the 25-question rule) the first answers
- * given in the practice sessions linked to it — at most ASSIGNMENT_DONE_AT, oldest first. Two bounded reads.
+ * The work's core counts so far: the stored ones, else (a row from before the stored counts) the first answers
+ * given in the practice sessions linked to it — at most ASSIGNMENT_MAX_QUESTIONS, oldest first. Two bounded reads.
  */
 export async function coreCountsOf(repo: Repo, assignmentId: string, studentId: string, row: Row | null | undefined): Promise<{ answered: number; correct: number }> {
   if (row && row.coreAnswered !== null && row.coreAnswered !== undefined) return { answered: Number(row.coreAnswered), correct: Number(row.coreCorrect ?? 0) };
   const sessions = await repo.findMany("PracticeSession", { assignmentId, studentId, mode: "ADAPTIVE_PRACTICE" }, { select: ["id"] });
   if (!sessions.length) return { answered: 0, correct: 0 };
-  const first = await repo.findMany("QuestionAttempt", { sessionId: { in: sessions.map((x) => x.id) } }, { select: ["isCorrect"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }], take: ASSIGNMENT_DONE_AT });
+  const first = await repo.findMany("QuestionAttempt", { sessionId: { in: sessions.map((x) => x.id) } }, { select: ["isCorrect"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }], take: ASSIGNMENT_MAX_QUESTIONS });
   return { answered: first.length, correct: first.filter((a) => Boolean(a.isCorrect)).length };
 }
 
@@ -95,7 +105,7 @@ export async function assignedSkillAccess(repo: Repo, studentId: string, skillId
 }
 
 /** Practice endings that mean "the student finished this practice" (not a pause, a detour or a time-out). */
-export const FINISH_REASONS: ReadonlySet<string> = new Set(["COMPLETED", "LEVEL_CONFIRMED", "ALL_QUESTIONS_ANSWERED", "POOL_EXHAUSTED", "SKILL_FINISHED", "RETRY_LATER"]);
+export const FINISH_REASONS: ReadonlySet<string> = new Set(["WORK_MASTERED", "COMPLETED", "LEVEL_CONFIRMED", "ALL_QUESTIONS_ANSWERED", "POOL_EXHAUSTED", "SKILL_FINISHED", "RETRY_LATER"]);
 export const isFinishReason = (r: unknown): boolean => FINISH_REASONS.has(s(r));
 
 /** The one skill of an assignment (single-skill, or an older row with exactly one skill in skillIds). */
@@ -155,25 +165,28 @@ export async function markDone(repo: Repo, assignmentIds: readonly string[], stu
 }
 
 /**
- * One answer counted toward the work's core result (the first ASSIGNMENT_DONE_AT answers), in the answer's own
- * transaction. Guarded by the stored count (a double submit or a second tab is counted once); at the 25th answer the
- * work becomes Done (completedAt IS NULL guard: written once). Returns the new counts, or null when not counted.
+ * One answer counted toward the work's core result (the answers given until the work is Done, at most 50), in the
+ * answer's own transaction. Guarded by the stored count (a double submit or a second tab is counted once). The work
+ * becomes Done (completedAt IS NULL guard: written once) when the skill is mastered at or after the 30th answer, or at
+ * the 50th answer. `mastered` = the engine's mastery after this answer. Returns the new counts and, when this answer
+ * made the work Done, why ("MASTERED", or "MAX": 50 answers without mastery — the student then chooses), else null.
  */
-export async function countCoreAnswer(tx: Repo, assignmentId: string, studentId: string, prev: { answered: number; correct: number; stored: number | null; done: boolean }, correct: boolean, at: Date): Promise<{ answered: number; correct: number; justDone: boolean } | null> {
-  if (prev.answered >= ASSIGNMENT_DONE_AT) {
-    // a row from before the rule that already had 25 answers: its first 25 are its result, and it is Done now
-    if (prev.done && prev.stored !== null) return null;
-    if (prev.stored === null) await tx.updateMany("AssignmentStudent", { assignmentId, studentId, coreAnswered: null }, { coreAnswered: ASSIGNMENT_DONE_AT, coreCorrect: Math.min(prev.correct, ASSIGNMENT_DONE_AT) });
+export async function countCoreAnswer(tx: Repo, assignmentId: string, studentId: string, prev: { answered: number; correct: number; stored: number | null; done: boolean }, correct: boolean, at: Date, mastered = false): Promise<{ answered: number; correct: number; justDone: boolean; doneBy: "MASTERED" | "MAX" | null } | null> {
+  // Done already (mastered, the questions ran out, …): its result is frozen
+  if (prev.done && prev.stored !== null) return null;
+  if (prev.answered >= ASSIGNMENT_MAX_QUESTIONS) {
+    // a row from before the stored counts that already had 50 answers: its first 50 are its result, and it is Done now
+    if (prev.stored === null) await tx.updateMany("AssignmentStudent", { assignmentId, studentId, coreAnswered: null }, { coreAnswered: ASSIGNMENT_MAX_QUESTIONS, coreCorrect: Math.min(prev.correct, ASSIGNMENT_MAX_QUESTIONS) });
     const n = await markDone(tx, [assignmentId], studentId, at);
-    return n > 0 ? { answered: ASSIGNMENT_DONE_AT, correct: prev.correct, justDone: true } : null;
+    return n > 0 ? { answered: ASSIGNMENT_MAX_QUESTIONS, correct: prev.correct, justDone: true, doneBy: mastered ? "MASTERED" : "MAX" } : null;
   }
   const answered = prev.answered + 1, right = prev.correct + (correct ? 1 : 0);
   const n = await tx.updateMany("AssignmentStudent", { assignmentId, studentId, coreAnswered: prev.stored }, { coreAnswered: answered, coreCorrect: right });
   if (n !== 1) return null;
-  // the 25th answer: Done now (or already Done earlier — e.g. the target mastery was reached — and stays Done)
-  const justDone = answered >= ASSIGNMENT_DONE_AT;
-  if (justDone) await markDone(tx, [assignmentId], studentId, at);
-  return { answered, correct: right, justDone };
+  const doneBy = answered >= ASSIGNMENT_MIN_QUESTIONS && mastered ? "MASTERED" : answered >= ASSIGNMENT_MAX_QUESTIONS ? "MAX" : null;
+  // Done now (written once: a row already Done stays Done and is not "just" Done)
+  const justDone = Boolean(doneBy) && !prev.done && (await markDone(tx, [assignmentId], studentId, at)) > 0;
+  return { answered, correct: right, justDone, doneBy: justDone ? doneBy : null };
 }
 
 /** Per-process memo so the backfill runs at most once per student every few minutes (My Work loads often). */
@@ -283,8 +296,9 @@ export async function completeFinished(repo: Repo, open: Row[], assignments: Row
         .filter((x) => x.endedAt && isFinishReason(x.endReason))
         .sort((p, q) => (d(p.endedAt)?.getTime() ?? 0) - (d(q.endedAt)?.getTime() ?? 0))[0];
       if (fin) at = d(fin.endedAt);
-      // the 25-question rule for work answered before it existed: 25+ answers in its linked practice → Done
-      else if (Number(r.coreAnswered ?? 0) >= ASSIGNMENT_DONE_AT || own.filter((x) => x.mode === "ADAPTIVE_PRACTICE").reduce((n, x) => n + Number(x.questionCount ?? 0), 0) >= ASSIGNMENT_DONE_AT) at = now;
+      // the 50-answer end of the 30–50 rule for work answered before the stored counts: 50+ answers in its linked
+      // practice → Done (mastery at 30+ is completed with the answer itself)
+      else if (Number(r.coreAnswered ?? 0) >= ASSIGNMENT_MAX_QUESTIONS || own.filter((x) => x.mode === "ADAPTIVE_PRACTICE").reduce((n, x) => n + Number(x.questionCount ?? 0), 0) >= ASSIGNMENT_MAX_QUESTIONS) at = now;
     }
     if (at) done += await markDone(repo, [s(a.id)], sid, at);
   }

@@ -11,6 +11,7 @@ import { classTasks, classWritingErrors, taskForTeacher, writingSkillOptions, ty
 import { GENRES, GENRE_ICON, GENRE_LABEL } from "@/server/writing/genres";
 import { WRITING_ERROR_CODES } from "@/server/writing/reteach";
 import { MISCONCEPTION_BY_CODE } from "@/insights/misconceptions";
+import { SkillListPicker, type SkillListRow } from "@/components/skill-picker";
 import { approveAiAction, createTaskAction, dismissAiAction, reteachAction, requestAiAction, researchScoreAction, scoreAction } from "./actions";
 
 export const metadata = { title: "Writing & reading aloud" };
@@ -148,7 +149,7 @@ function MovePicker({ task }: { task: TaskView }) {
   );
 }
 
-function NewTaskForm({ classId, skills }: { classId: string; skills: { id: string; name: string }[] }) {
+function NewTaskForm({ classId, skills }: { classId: string; skills: SkillListRow[] }) {
   return (
     <form action={createTaskAction} className="mt-3 space-y-2 text-sm">
       <input type="hidden" name="classId" value={classId} />
@@ -160,7 +161,7 @@ function NewTaskForm({ classId, skills }: { classId: string; skills: { id: strin
       <div className="flex gap-2"><label className="font-semibold">Min. words<input name="minWords" type="number" min={10} max={1000} className={`${box} w-24`} /></label><label className="font-semibold">Due<input name="dueAt" type="date" className={box} /></label></div>
       <label className="flex items-start gap-2"><input type="checkbox" name="staged" value="1" className="mt-1" /> <span><b>Staged</b>: plan (organizer + sentence frames) → draft → revise with 1–2 steps → final</span></label>
       <label className="flex items-start gap-2"><input type="checkbox" name="aiFeedback" value="1" className="mt-1" /> <span><b>🤖 AI feedback drafts</b>: you check and approve each one before the student sees it (only the writing, genre and rubric are sent)</span></label>
-      <label className="block font-semibold">Skill it practises (optional)<select name="skillId" defaultValue="" className={box}><option value="">–</option>{skills.map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}</select></label>
+      <SkillListPicker skills={skills} mode="single" name="skillId" optional allowEmpty legend="Skill it practises (optional)" height="max-h-64" />
       <details className="rounded-xl bg-slate-50 p-3">
         <summary className="cursor-pointer font-semibold">📚 Sources (up to 3) — needed for Research</summary>
         {[1, 2, 3].map((i) => <div key={i} className="mt-2"><label className="block font-semibold">Source {i} title<input name={`src${i}.title`} maxLength={120} className={box} /></label><label className="block">Text<textarea name={`src${i}.text`} rows={3} maxLength={8000} className={box} /></label></div>)}

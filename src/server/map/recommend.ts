@@ -3,6 +3,7 @@
  * MAP file when present; otherwise every area) and, inside them, the skills of their grade where their mastery
  * is lowest. Teachers choose and assign; a student with no MAP work sees their own recommendations.
  */
+import { countGroups } from "../db/group-count";
 import type { Repo } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -21,7 +22,7 @@ export async function gradeAreaSkills(repo: Repo, schoolId: string, grade: numbe
   if (!skills.length) return [];
   const fams = await repo.findMany("SkillFamily", { id: { in: [...new Set(skills.map((k) => s(k.familyId)))] } }, { select: ["id", "mapGoalAreaId"] });
   const areas = await repo.findMany("MapGoalArea", { id: { in: [...new Set(fams.map((f) => s(f.mapGoalAreaId)).filter(Boolean))] } }, { select: ["id", "name"] });
-  const withQ = new Set((await repo.findMany("Question", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId"] })).map((q) => s(q.skillId)));
+  const withQ = new Set([...(await countGroups(repo, "Question", "skillId", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null })).entries()].filter(([, n]) => n > 0).map(([k]) => k));
   const areaOf = new Map(fams.map((f) => [s(f.id), s(f.mapGoalAreaId)]));
   return areas.map((a) => ({ areaId: s(a.id), area: s(a.name), skills: skills.filter((k) => areaOf.get(s(k.familyId)) === a.id && (includeEmpty || withQ.has(s(k.id)))).map((k) => ({ id: s(k.id), name: s(k.name) })) })).filter((a) => a.skills.length);
 }

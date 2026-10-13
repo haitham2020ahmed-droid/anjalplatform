@@ -2,16 +2,37 @@
  * ✓ Sent on the Curriculum Map: the places this teacher has already assigned (their own live assignments made from
  * the map), so each section shows "✓ Sent" with the date instead of looking new.
  */
-import type { Repo } from "../seeding/repo";
+import type { Repo, Row } from "../seeding/repo";
 import type { Actor } from "../auth/rbac";
 
 const s = (v: unknown) => String(v ?? "");
 
 /** map node code → the latest date this teacher sent questions of that node (teachers only; admins: empty). */
 export async function sentMapCodes(repo: Repo, actor: Actor): Promise<Map<string, Date>> {
+  if (actor.role !== "TEACHER") return new Map();
+  // Assignment.createdById is the Teacher row's id (not the user id)
+  const t = await repo.findUnique("Teacher", { userId: actor.userId });
+  const as = await repo.findMany("Assignment", { createdById: { in: [actor.userId, ...(t ? [s(t.id)] : [])] }, track: "CURRICULUM", deletedAt: null }, { select: ["id", "assessmentId", "createdAt"] });
+  return codesOf(repo, as);
+}
+
+/**
+ * The scoped Send window: per class, the map codes already sent to that class (by anyone), so a part already
+ * sent is marked and skipped. classIds must already be checked by the caller.
+ */
+export async function sentCodesByClass(repo: Repo, classIds: string[]): Promise<Map<string, Map<string, Date>>> {
+  const out = new Map<string, Map<string, Date>>(classIds.map((c) => [c, new Map()]));
+  if (!classIds.length) return out;
+  const as = await repo.findMany("Assignment", { classId: { in: classIds }, track: "CURRICULUM", deletedAt: null }, { select: ["id", "classId", "assessmentId", "createdAt"] });
+  for (const c of classIds) {
+    const mine = as.filter((a) => s(a.classId) === c);
+    if (mine.length) out.set(c, await codesOf(repo, mine));
+  }
+  return out;
+}
+
+async function codesOf(repo: Repo, as: Row[]): Promise<Map<string, Date>> {
   const out = new Map<string, Date>();
-  if (actor.role !== "TEACHER") return out;
-  const as = await repo.findMany("Assignment", { createdById: actor.userId, track: "CURRICULUM", deletedAt: null }, { select: ["id", "assessmentId", "createdAt"] });
   const withSet = as.filter((a) => a.assessmentId);
   if (!withSet.length) return out;
   const when = new Map<string, Date>();

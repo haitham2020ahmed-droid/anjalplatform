@@ -4,10 +4,10 @@
  * and its questions are added to the bank under the Grade 5 skill (or the school's middle grade), PUBLISHED (the
  * school asked for them on the platform). Safe to run again: a question already in the bank is skipped.
  */
-import type { Repo } from "../seeding/repo";
+import type { Repo, Row } from "../seeding/repo";
 import type { Actor } from "../auth/rbac";
 import { createSkill } from "../curriculum-manage";
-import { createDraft } from "../admin/questions";
+import { createDraft, saveMapArea } from "../admin/questions";
 import { libraryActor } from "../readmaster/library";
 import { RIT_MEAN, RIT_SD, ritOf, THETA_PER_RIT } from "./bank-scope";
 import type { Grid, HotText, TwoPart } from "@/imports/questions/validate";
@@ -199,6 +199,9 @@ export async function addSkillSets(repo: Repo, schoolId: string, sets: SkillSet[
     }
     const cap = opts.max?.get(set.skill) ?? Infinity;
     const added = new Set<string>();
+    // ⚡ the questions are created first, then analysed together (one saveMapArea pass for the set, not one per
+    // question), then published — each question still goes create → analyse → publish, as before
+    const made: { qid: string; data: Row }[] = [];
     for (const q of opts.onlyExisting ? balancedOrder(set.questions) : set.questions) {
       if (r.added >= cap) break;
       const k2 = `${key(q.stem)}|${key(s(q.passageTitle))}`;
@@ -217,21 +220,42 @@ export async function addSkillSets(repo: Repo, schoolId: string, sets: SkillSet[
           skillId: homeSkillId, stem: q.stem, level, whyCorrect: q.why, ...fields,
           ...(q.passage ? { passageText: q.passageTitle ? `${q.passageTitle}\n\n${q.passage}` : q.passage } : {}),
           ...(std ? { standardCode: std } : {}),
-        } as never, now);
-        await repo.updateMany("Question", { id: qid }, {
+        } as never, now, { deferAnalysis: true });
+        made.push({ qid, data: {
           status: "PUBLISHED", publishedAt: now, reviewedById: actor.userId,
           // gap sets: the exact difficulty on the engine's scale (not clamped to 1–7), its MAP test / area and DOK
           ...(written ? { irtB: Math.round((rit - (RIT_MEAN[grade] ?? 205)) * THETA_PER_RIT * 100) / 100, tags: { rit: { value: rit, source: "GAP_SET" } } } : {}),
           ...(q.mapTest ? { mapTest: q.mapTest.slice(0, 20) } : {}), ...(q.mapArea ? { mapInstructionalArea: q.mapArea.slice(0, 80), mapAreaSource: "IMPORT" } : {}),
           ...(q.dok ? { dok: q.dok, dokSource: "IMPORT" } : {}),
-        });
+        } });
         added.add(k2); r.added++;
       } catch (e) {
         if (/already exists|duplicate/i.test((e as Error).message)) r.skipped++;
         else r.errors.push(`${q.ref}: ${(e as Error).message}`);
       }
     }
+    await analyseAndPublish(repo, schoolId, made, now);
     out.push(r);
   }
   return out;
+}
+
+/**
+ * ⚡ After a batch of createDraft(…, { deferAnalysis: true }): the area / skill / tag / intelligence pass once for the
+ * whole batch (saveMapArea never throws for an input without a MAP area), then each question's publish update —
+ * questions with the same update share one statement.
+ */
+export async function analyseAndPublish(repo: Repo, schoolId: string, made: { qid: string; data: Row }[], now: Date): Promise<void> {
+  if (!made.length) return;
+  await saveMapArea(repo, schoolId, made.map((m) => m.qid), {}, now);
+  const same = new Map<string, { data: Row; ids: string[] }>();
+  for (const m of made) {
+    const k = JSON.stringify(m.data);
+    const g = same.get(k);
+    if (g) g.ids.push(m.qid); else same.set(k, { data: m.data, ids: [m.qid] });
+  }
+  for (const g of same.values()) for (let i = 0; i < g.ids.length; i += 500) {
+    const part = g.ids.slice(i, i + 500);
+    await repo.updateMany("Question", { id: part.length === 1 ? part[0] : { in: part } }, g.data);
+  }
 }

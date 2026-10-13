@@ -66,7 +66,7 @@ export default async function SupportPlanPage({ searchParams }: { searchParams: 
                 const skills = weak.get(r.studentId) ?? [];
                 const ids = [...new Set([...(r.focusSkillId ? [r.focusSkillId] : []), ...skills.map((k: { id: string }) => k.id)])].slice(0, 5);
                 const names = [...new Set([...(r.focusSkill ? [r.focusSkill] : []), ...skills.map((k: { name: string }) => k.name)])].slice(0, 4);
-                const plan = `/teacher/plans?${new URLSearchParams([["tab", "custom"], ["classId", String(klass!.id)], ["who", "student"], ["sid", r.studentId], ...ids.map((id) => ["add", id] as [string, string])])}`;
+                const plan = `/teacher/plans?${new URLSearchParams([["tab", "new"], ["program", "RTI"], ["classId", String(klass!.id)], ["who", "student"], ["sid", r.studentId], ...ids.map((id) => ["add", id] as [string, string])])}`;
                 return (
                   <tr key={r.studentId} className="border-b last:border-0 align-top">
                     <td className="p-3"><Link href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link></td>

@@ -1,47 +1,25 @@
 import { LoginForm } from "./login-form";
+import { LoginHero } from "./login-hero";
 import { LangSwitch } from "@/components/ui-kit";
+import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Sign in" };
 
-const FEATURES = [
-  ["🎯", "Practice at your level", "Every answer chooses the next question: never too easy, never too hard."],
-  ["🗺️", "Ready for MAP Growth", "Goal areas, RIT bands, personal plans and a practice test."],
-  ["⭐", "Reading at my level", "Leveled articles, a dictionary at a click, my word notebook."],
-] as const;
-
-/** Sign-in page. The form posts to /login/submit (a fixed address that survives deployments). */
+/**
+ * Sign-in page (Literise). Deep-navy brand side (logo, "Every reader rises.", rising bars) and a white card with the
+ * form. The form posts to /login/submit (a fixed address that survives deployments); the role tiles on the card
+ * only change the wording: the real role always comes from the account.
+ */
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string; u?: string; next?: string }> }) {
   const sp = await searchParams;
+  const { t } = await getT();
   return (
-    <main className="grid min-h-screen lg:grid-cols-[1.1fr_1fr]">
-      {/* brand side */}
-      <section className="relative hidden overflow-hidden bg-gradient-to-br bg-linear-to-br from-brand-navy via-[#2b3f8f] to-brand-purple p-12 text-white lg:flex lg:flex-col lg:justify-between">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-brand-teal/30 blur-3xl" />
-        <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-10 h-96 w-96 rounded-full bg-brand-gold/20 blur-3xl" />
-        <div className="relative">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">Al-Anjal Private Schools</p>
-          <h2 className="mt-3 text-5xl font-extrabold leading-tight tracking-tight">Al-Anjal<br />English</h2>
-          <p className="mt-4 max-w-md text-lg text-white/85">The English platform for every grade: practice, reading and MAP preparation in one place.</p>
-        </div>
-        <ul className="relative mt-10 space-y-4">
-          {FEATURES.map(([icon, title, text], i) => (
-            <li key={title} className="animate-fade-up flex items-start gap-4 rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur" style={{ animationDelay: `${120 + i * 90}ms` }}>
-              <span aria-hidden="true" className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-white/15 text-2xl">{icon}</span>
-              <span><span className="block font-bold">{title}</span><span className="block text-sm text-white/80">{text}</span></span>
-            </li>
-          ))}
-        </ul>
-        <div className="relative mt-10 flex items-center gap-4 rounded-2xl bg-white/95 px-5 py-3 text-xs text-slate-600 shadow-lg" aria-label="Accreditations">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/ncsee.png" alt="NCSEE (Tamayuz) accredited" className="h-10 w-auto" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/cognia.png" alt="Cognia School of Distinction" className="h-10 w-auto" />
-          <span>Accredited · NCSEE (Tamayuz) · Cognia School of Distinction</span>
-        </div>
-      </section>
-      {/* form side: the language switch for parents sits at the top, as on every page */}
-      <section className="relative flex flex-col items-center justify-center gap-4 p-6 pt-20 sm:p-10 sm:pt-20">
-        <div className="absolute end-4 top-4"><LangSwitch /></div>
+    <main className="relative min-h-screen bg-[#161b4f] lg:grid lg:grid-cols-[1.15fr_1fr]">
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 bg-[radial-gradient(70%_60%_at_15%_10%,rgb(91_63_160/.35),transparent_70%),radial-gradient(60%_50%_at_90%_90%,rgb(31_163_163/.18),transparent_70%)]" />
+      {/* the language switch for parents sits at the top, as on every page */}
+      <div className="absolute end-4 top-4 z-10 rounded-xl bg-white/95 shadow-sm"><LangSwitch /></div>
+      <LoginHero t={t} />
+      <section className="relative flex items-start justify-center px-4 pb-10 sm:px-8 lg:min-h-screen lg:items-center lg:py-10">
         <LoginForm error={sp.error ? String(sp.error).slice(0, 200) : null} username={sp.u ? String(sp.u).slice(0, 100) : ""} next={sp.next ? String(sp.next).slice(0, 300) : ""} />
       </section>
     </main>

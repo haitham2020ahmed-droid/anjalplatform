@@ -24,6 +24,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { modelVersion } from "../cache/bank-version";
 import { mapLinkedQuestionIds } from "./bank-scope";
 import { remember } from "../cache/lru";
+import { countGroups } from "../db/group-count";
 
 const s = (v: unknown) => String(v ?? "");
 const CHUNK = 400;
@@ -290,11 +291,18 @@ export async function countOwnQuestionsOfSkills(repo: Repo, schoolId: string, sk
   else {
     all = (async () => {
       const ids = [...idx.ids], counts = new Map<string, number>();
-      // the bank only: Curriculum Map questions belong to their lesson, not to the bank's counts (Update 54)
-      const onMap = await mapLinkedQuestionIds(repo);
-      for (let i = 0; i < ids.length; i += CHUNK) {
-        for (const q of await repo.findMany("Question", { skillId: { in: ids.slice(i, i + CHUNK) }, ...statusWhere(opts.status), ...levelWhere(opts.level) }, { select: ["id", "skillId"] })) if (!onMap.has(s(q.id))) counts.set(s(q.skillId), (counts.get(s(q.skillId)) ?? 0) + 1);
-      }
+      const where = { ...statusWhere(opts.status), ...levelWhere(opts.level) };
+      // ⚡ counted by the database (GROUP BY skill: one row per skill, not one per question), the parts in parallel
+      const parts = (list: string[], size: number) => Array.from({ length: Math.ceil(list.length / size) }, (_, i) => list.slice(i * size, (i + 1) * size));
+      // the bank only: Curriculum Map questions belong to their lesson, not to the bank's counts (Update 54) — their
+      // counts per skill are taken away (read at the same time)
+      const onMap = [...(await mapLinkedQuestionIds(repo))];
+      const [all, linked] = await Promise.all([
+        Promise.all(parts(ids, CHUNK).map((c) => countGroups(repo, "Question", "skillId", { skillId: { in: c }, ...where }))),
+        Promise.all(parts(onMap, 1000).map((c) => countGroups(repo, "Question", "skillId", { id: { in: c }, ...where }))),
+      ]);
+      for (const part of all) for (const [k, n] of part) counts.set(k, (counts.get(k) ?? 0) + n);
+      for (const part of linked) for (const [k, n] of part) if (counts.has(k)) counts.set(k, counts.get(k)! - n);
       return counts;
     })().catch((e) => { m!.delete(key); throw e; });
     remember(m, key, { v, at: Date.now(), p: all }, 24);

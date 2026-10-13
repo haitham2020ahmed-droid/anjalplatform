@@ -12,6 +12,8 @@ import { useMemo, useState } from "react";
 import { useT } from "@/i18n/client";
 import { AUTO, LEVEL_FILTERS, MAX_PICKED, filterQuestions, isCorrectChoice, pickerOutput, questionIdsField, type LevelFilter, type PickerQuestion, type PickerValue } from "./helpers";
 import { draftsOf, useSkillQuestions } from "./load";
+import { QuestionDrawer } from "@/components/tests/question-drawer";
+import type { MapSourceQuestion } from "@/server/tests/map-source";
 
 const LEVEL_LABEL: Record<string, string> = { ALL: "All", BELOW: "Below", ON: "On", ABOVE: "Above" };
 const LEVEL_CHIP: Record<string, string> = { BELOW: "bg-amber-50 text-amber-900 ring-amber-200", ON: "bg-sky-50 text-sky-900 ring-sky-200", ABOVE: "bg-violet-50 text-violet-900 ring-violet-200" };
@@ -31,9 +33,14 @@ export interface SkillQuestionPickerProps {
   max?: number;
   /** open the list at once */
   defaultOpen?: boolean;
+  /** 👁 "View" on every row (and on the stem): the full question in a drawer (the test builder) */
+  viewable?: boolean;
+  /** the drawer's "Select" when the teacher is not ticking this skill's own questions: add to / take out of a test */
+  isPicked?: (id: string) => boolean;
+  onPick?: (row: MapSourceQuestion, on: boolean) => void;
 }
 
-export function SkillQuestionPicker({ skillId, skillName, mode = "pick", defaultValue = AUTO, onChange, name = "questionIds", max = MAX_PICKED, defaultOpen = false }: SkillQuestionPickerProps) {
+export function SkillQuestionPicker({ skillId, skillName, mode = "pick", defaultValue = AUTO, onChange, name = "questionIds", max = MAX_PICKED, defaultOpen = false, viewable = false, isPicked, onPick }: SkillQuestionPickerProps) {
   const t = useT();
   const pick = mode === "pick";
   const [auto, setAuto] = useState(pick ? defaultValue.auto : true);
@@ -44,6 +51,8 @@ export function SkillQuestionPicker({ skillId, skillName, mode = "pick", default
   const { list, failed } = useSkillQuestions(skillId, open);
   const shown = useMemo(() => (list ? filterQuestions(list, level, search) : []), [list, level, search]);
   const value = pickerOutput(auto, selected);
+  const [viewAt, setViewAt] = useState<number | null>(null);
+  const ticking = pick && !auto;
 
   const emit = (a: boolean, sel: string[]) => onChange?.(pickerOutput(a, sel));
   const chooseAuto = (a: boolean) => { setAuto(a); if (!a) setOpen(true); emit(a, selected); };
@@ -97,16 +106,21 @@ export function SkillQuestionPicker({ skillId, skillName, mode = "pick", default
             : !shown.length ? <p className="rounded-xl bg-white px-3 py-4 text-center text-slate-600">{t("Nothing matches your search")}</p>
             : (
               <ul className="grid max-h-96 gap-2 overflow-y-auto" aria-label={t("Questions")}>
-                {shown.map((q) => <QuestionRow key={q.id} q={q} checkable={pick && !auto} checked={selected.includes(q.id)} onToggle={() => toggle(q.id)} />)}
+                {shown.map((q, i) => <QuestionRow key={q.id} q={q} checkable={ticking} checked={selected.includes(q.id)} onToggle={() => toggle(q.id)} onView={viewable ? () => setViewAt(i) : undefined} />)}
               </ul>
             )}
         </div>
+      )}
+      {viewable && viewAt !== null && shown[viewAt] && (
+        <QuestionDrawer ids={shown.map((q) => q.id)} index={viewAt} onIndex={setViewAt} onClose={() => setViewAt(null)}
+          isSelected={ticking ? (id) => selected.includes(id) : isPicked}
+          onToggle={ticking ? (d, on) => { if (on !== selected.includes(d.id)) toggle(d.id); } : onPick ? (d, on) => onPick(d.row, on) : undefined} />
       )}
     </div>
   );
 }
 
-function QuestionRow({ q, checkable, checked, onToggle }: { q: PickerQuestion; checkable: boolean; checked: boolean; onToggle: () => void }) {
+function QuestionRow({ q, checkable, checked, onToggle, onView }: { q: PickerQuestion; checkable: boolean; checked: boolean; onToggle: () => void; onView?: () => void }) {
   const t = useT();
   const body = (
     <span className="min-w-0 flex-1">
@@ -114,7 +128,8 @@ function QuestionRow({ q, checkable, checked, onToggle }: { q: PickerQuestion; c
         <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${LEVEL_CHIP[q.level] ?? "bg-slate-100 text-slate-700 ring-slate-200"}`}>{t(LEVEL_LABEL[q.level] ?? "On")}</span>
         {q.passageTitle && <span className="text-xs text-slate-500" lang="en" data-content>{q.passageTitle}</span>}
       </span>
-      <span className="mt-1 block text-slate-900" lang="en" dir="ltr" data-content>{q.stem || "—"}</span>
+      {onView ? <button type="button" onClick={(e) => { e.preventDefault(); onView(); }} className="mt-1 block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content>{q.stem || "—"}</button>
+        : <span className="mt-1 block text-slate-900" lang="en" dir="ltr" data-content>{q.stem || "—"}</span>}
       {q.choices?.length ? (
         <ol className="mt-1 grid gap-0.5 text-sm" lang="en" dir="ltr">
           {q.choices.map((c, i) => {
@@ -125,9 +140,11 @@ function QuestionRow({ q, checkable, checked, onToggle }: { q: PickerQuestion; c
       ) : q.answer ? <span className="mt-1 block text-sm text-emerald-800"><span className="font-semibold">{t("Answer")}:</span> <span lang="en" data-content>{q.answer}</span></span> : null}
     </span>
   );
+  const view = onView ? <button type="button" onClick={onView} className="min-h-9 shrink-0 rounded-lg px-2.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50">👁 {t("View")}</button> : null;
   return (
     <li className={`rounded-xl bg-white p-3 ring-1 ${checked ? "ring-2 ring-brand-teal" : "ring-slate-200"}`}>
-      {checkable ? <label className="flex cursor-pointer items-start gap-3"><input type="checkbox" checked={checked} onChange={onToggle} className="mt-1 h-5 w-5 shrink-0 accent-brand-teal" />{body}</label> : <div className="flex items-start gap-3">{body}</div>}
+      {checkable && onView ? <div className="flex items-start gap-3"><input type="checkbox" checked={checked} onChange={onToggle} aria-label={t("Select question: {stem}", { stem: q.stem.slice(0, 80) })} className="mt-1 h-5 w-5 shrink-0 accent-brand-teal" />{body}{view}</div>
+        : checkable ? <label className="flex cursor-pointer items-start gap-3"><input type="checkbox" checked={checked} onChange={onToggle} className="mt-1 h-5 w-5 shrink-0 accent-brand-teal" />{body}</label> : <div className="flex items-start gap-3">{body}{view}</div>}
     </li>
   );
 }

@@ -42,6 +42,11 @@ export interface Repo {
   findUnique(model: string, where: Record<string, unknown>): Promise<Row | null>;
   findMany(model: string, where?: Where, opts?: FindOptions): Promise<Row[]>;
   count(model: string, where?: Where): Promise<number>;
+  /**
+   * Optional: how many rows match, per value of one column (one GROUP BY; a null value counts under "").
+   * Use countGroups (src/server/db/read-cache-repo.ts), which falls back to reading the column when a repo has none.
+   */
+  groupCount?(model: string, by: string, where?: Where): Promise<Map<string, number>>;
   /** Update rows matching `where` (equality / in). Returns the number of rows changed. */
   updateMany(model: string, where: Where, data: Row): Promise<number>;
   /** Delete rows matching `where`. Returns the number of rows deleted. */

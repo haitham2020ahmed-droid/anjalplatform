@@ -14,12 +14,15 @@ import { ReadingLevelLabel } from "@/components/reading-level";
 import { skillName } from "@/app/admin/readrise/_components/article-view";
 import { ReadRiseTabs, TEACHER_TABS } from "@/app/admin/readrise/_components/tabs";
 import { btn, day, field, Flash, fmt, LevelHistogram, levelRange, RR_NOTE, ScaledLineChart, signed } from "@/app/admin/readrise/_components/ui";
+import { classGrowth, studentGrowthReport } from "@/server/readrise/growth-report";
+import { ClassGrowthTab, StudentGrowthView } from "./_components/growth";
 import { allowReadRiseRetakeAction, assignReadRiseAction, scoreReadRiseWritingAction, setReadRiseLevelAction, unassignReadRiseAction } from "./actions";
 
 export const metadata = { title: "ReadRise" };
 
 const TABS = [
   { key: "students", label: "👩‍🎓 Students" },
+  { key: "growth", label: "📈 Growth" },
   { key: "skills", label: "🧠 Skills" },
   { key: "polls", label: "🗳 Polls" },
   { key: "writing", label: "✍️ Scoring" },
@@ -30,7 +33,7 @@ const LINE_COLORS = ["#93c5fd", "#fdba74", "#86efac", "#c4b5fd", "#f9a8d4", "#a5
 const pctTone = (c?: SkillCell) => (!c || c.pct === null ? "text-slate-300" : c.pct >= 75 ? "bg-emerald-50 text-emerald-800" : c.pct >= 50 ? "bg-amber-50 text-amber-900" : "bg-red-50 text-red-800");
 
 /** 🚀 ReadRise (teacher): the class dashboard — levels and growth, skills, polls, writing to score, assignments. */
-export default async function ReadRiseTeacher({ searchParams }: { searchParams: Promise<{ class?: string; tab?: string; msg?: string }> }) {
+export default async function ReadRiseTeacher({ searchParams }: { searchParams: Promise<{ class?: string; tab?: string; msg?: string; student?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -39,10 +42,11 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   const tab: Tab = TABS.some((t) => t.key === sp.tab) ? (sp.tab as Tab) : "students";
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   const { t } = await getT();
+  const studentId = typeof sp.student === "string" && /^[\w-]{1,64}$/.test(sp.student) ? sp.student : null;
   const header = (
     <ReportHeader back={{ href: "/teacher", label: "Home" }} icon="🚀" title="ReadRise"
       subtitle={<>Every student reads the same articles at their own level; the level moves with first-try scores (75%+ up, under 50% down). <span className="text-xs text-slate-500">{RR_NOTE}</span></>}
-      who={klass?.name} downloads={klass ? exportsOf({ kind: "readrise", classId: klass.id, period: "TERM" }).map((d) => ({ ...d, label: d.label })) : []}
+      who={klass?.name} downloads={klass ? exportsOf({ kind: "readrise", classId: klass.id, period: "TERM", ...(studentId ? { studentId } : {}) }).map((d) => ({ ...d, label: d.label })) : []}
       filters={classes.length ? <nav aria-label="Class" className="flex flex-wrap gap-2">
         {classes.map((c) => <Link key={c.id} href={`/teacher/readrise?class=${c.id}&tab=${tab}`} className={chip(c.id === klass?.id)}>{c.name}{!c.own && <span className="ms-1 text-xs opacity-70">(view)</span>}</Link>)}
       </nav> : undefined}>
@@ -51,6 +55,10 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   );
   if (!klass) {
     return <AppShell name={String(me.displayName)}>{header}<p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">You have no classes yet.</p></AppShell>;
+  }
+  if (studentId) {
+    const g = await studentGrowthReport(repo, actor, klass.id, studentId);
+    return <AppShell name={String(me.displayName)}>{header}<StudentGrowthView g={g} t={t} backHref={`/teacher/readrise?class=${klass.id}&tab=growth`} /></AppShell>;
   }
   const r = await classReport(repo, actor, klass.id);
   const canWrite = klass.own;
@@ -92,6 +100,7 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
       </nav>
 
       {tab === "students" && <StudentsTab r={r} canWrite={canWrite} classId={klass.id} />}
+      {tab === "growth" && <ClassGrowthTab g={await classGrowth(repo, actor, klass.id)} t={t} studentHref={(id) => `/teacher/readrise?class=${klass.id}&student=${id}`} assignHref={url("assign")} />}
       {tab === "skills" && <SkillsTab data={await skillsReport(repo, actor, klass.id)} />}
       {tab === "polls" && <PollsTab rows={await pollReport(repo, actor, klass.id)} />}
       {tab === "writing" && <WritingTab q={await writingQueue(repo, actor, klass.id, { scored: true })} classId={klass.id} canWrite={canWrite} />}
@@ -133,7 +142,7 @@ function StudentsTab({ r, canWrite, classId }: { r: Report; canWrite: boolean; c
             <tbody>
               {r.students.map((x) => (
                 <tr key={x.studentId} className="border-b align-top last:border-0">
-                  <td className="p-2 font-semibold text-brand-navy">{x.name}</td>
+                  <td className="p-2 font-semibold text-brand-navy"><Link href={`/teacher/readrise?class=${classId}&student=${x.studentId}`} className="hover:underline">{x.name}</Link></td>
                   <td className="p-2 font-bold tabular-nums">{fmt(x.level)}{x.source === "TEACHER" && <span className="ms-1 text-xs font-normal text-slate-400" title="Set by a teacher">✎</span>}</td>
                   <td className="p-2 tabular-nums text-slate-600">{fmt(x.startLevel)}</td>
                   <td className={`p-2 font-semibold tabular-nums ${x.growth === null ? "" : x.growth > 0 ? "text-emerald-700" : x.growth < 0 ? "text-red-700" : "text-slate-600"}`}>{signed(x.growth)}</td>

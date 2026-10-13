@@ -27,10 +27,9 @@ export default async function MyStudentsPage({ searchParams }: { searchParams: P
   const more = "inline-flex min-h-11 items-center rounded-xl bg-white px-4 text-sm font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader icon="👥" title="My Students"
+      <PageHeader title="Students & Classes"
         subtitle={actor.role === "TEACHER" ? t("Every student of your classes. Type to find one; tap a name to open the file.") : t("Every student of the school. Type to find one; tap a name to open the file.")}>
         <Link prefetch={false} href="/teacher/intervention" className={more}>{t("Who Needs Help")}</Link>
-        <Link prefetch={false} href="/teacher/reports#needs-help" className={more}>🧡 {t("Needs help")}</Link>
         <Link prefetch={false} href="/teacher/alerts" className={more}>{t("Alerts")}</Link>
         <Link prefetch={false} href="/teacher/ai" className={more}>{t("Class Insights")}</Link>
       </PageHeader>

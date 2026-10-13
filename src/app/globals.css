@@ -2,7 +2,7 @@
 /* scan every source file explicitly (do not rely on automatic detection in container builds) */
 @source "../";
 
-/* Theme tokens (configurable per school in a later phase). Al-Anjal palette. */
+/* Theme tokens (configurable per school in a later phase). Literise / Al-Anjal palette. */
 @theme {
   --color-brand-navy: #1f3a68;
   --color-brand-purple: #5b3fa0;
@@ -26,6 +26,8 @@
   --font-sans: var(--font-lexend), "Lexend", "Segoe UI", system-ui, sans-serif;
   --font-mono: var(--font-lexend), "Lexend", "Segoe UI", system-ui, sans-serif;
   --font-serif: var(--font-lexend), "Lexend", "Segoe UI", system-ui, sans-serif;
+  /* the Literise brand serif: the wordmark and the sign-in headline only */
+  --font-display: var(--font-literise), "DM Serif Display", serif;
   /* medium, elegant type (owner's spec): page title 22px (text-3xl) · card/section title 16px (text-lg) · body and
      buttons 14px (text-base / text-sm) · small 12px (text-xs). Headings semi-bold, never heavy. */
   --text-xs: 0.75rem;
@@ -48,7 +50,7 @@ html { font-size: 16px; }
 body { font-size: 0.875rem; }
 .reading-text, [data-reading] { font-size: 1rem; line-height: 1.7; }
 
-/* 🎨 student theme by grade: Grades 4–6 playful (default); Grade 7+ calm and elegant — no cartoons, no bouncing */
+/* 🎨 student theme: calm and elegant for every grade (2–12) — no cartoons, no bouncing (staff pages keep theme-playful) */
 .theme-calm .playful { display: none !important; }
 .theme-calm [class*="animate-float"], .theme-calm [class*="animate-pop"], .theme-calm [class*="animate-shake"] { animation: none !important; }
 .theme-calm .lift:hover { transform: none; }
@@ -231,11 +233,15 @@ html[data-comfort="1"] body { background: #fbf7ee; }
   }
 }
 
+/* a report opened from Reports: the report bar on top carries "All reports", Download and Print, so the report's
+   own back link and download / print buttons are not shown a second time */
+.has-report-bar .rk-header [data-rk="back"], .has-report-bar .rk-header [data-rk="print"], .has-report-bar .rk-header [data-rk="download"] { display: none; }
+
 /* paper: no menus, buttons or filters; tables and cards print whole; colours kept.
    Every page prints only its main content on A4 portrait (wide sheets ask for landscape themselves), Lexend,
    colours kept, page numbers in the footer where the browser supports page boxes. */
 @media print {
-  @page { size: A4 portrait; margin: 12mm 12mm 14mm; @bottom-right { content: counter(page) " / " counter(pages); font: 500 8pt "Lexend", "Segoe UI", sans-serif; color: #64748b; } @bottom-left { content: "Al-Anjal English"; font: 500 8pt "Lexend", "Segoe UI", sans-serif; color: #94a3b8; } }
+  @page { size: A4 portrait; margin: 12mm 12mm 14mm; @bottom-right { content: counter(page) " / " counter(pages); font: 500 8pt "Lexend", "Segoe UI", sans-serif; color: #64748b; } @bottom-left { content: "Literise"; font: 500 8pt "Lexend", "Segoe UI", sans-serif; color: #94a3b8; } }
   html, body { background: #fff !important; font-family: var(--font-sans); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   aside, nav, dialog, [role="dialog"], header.sticky, .sr-only, button, [data-rk="print"], [data-print="hide"] { display: none !important; }
   main, #main { max-width: none !important; padding: 0 !important; margin: 0 !important; animation: none !important; }
@@ -245,9 +251,9 @@ html[data-comfort="1"] body { background: #fbf7ee; }
   h1, h2, h3 { break-after: avoid; }
   a { color: inherit; }
   .lg\:ps-64 { padding-inline-start: 0 !important; }
-  /* report kit on paper: the header gets the print kit's band (Al-Anjal + title + date) and sections get rounded coloured headers */
+  /* report kit on paper: the header gets the print kit's band (Literise + title + date) and sections get rounded coloured headers */
   .rk-header > div { border-radius: 14px !important; border-top: 5px solid var(--color-brand-navy); background: linear-gradient(100deg, #fff 0%, #fff 55%, #e6f6f6 100%) !important; }
-  .rk-header > div::before { content: "Al-Anjal"; display: block; padding: 8px 20px 0; font-weight: 800; font-size: 13px; letter-spacing: .02em; color: var(--color-brand-navy); }
+  .rk-header > div::before { content: "Literise"; display: block; padding: 8px 20px 0; font-weight: 800; font-size: 13px; letter-spacing: .02em; color: var(--color-brand-navy); }
   .rk-header .brand-stripe { display: none; }
   .rk-header h1 > span[aria-hidden] { display: none; }
   .rk-section > div:first-child h2 { display: flex; padding: 6px 14px; border-radius: 12px; background: #eef3fa; border-inline-start: 6px solid var(--color-brand-navy); font-size: 15px; }

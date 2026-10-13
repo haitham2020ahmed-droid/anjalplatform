@@ -204,8 +204,8 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
 
   test("teacher menu: short (Programs + More); Assessments added; tour targets; strings translated", () => {
     const items = navItemsFor("TEACHER");
-    // owner's spec (Update 53): seven entries, no groups
-    assert.equal(items.length, 7);
+    // owner's spec (Update 15): one entry per area, the occasional tools folded under More
+    assert.equal(items.filter((i) => !i.group).length, 9);
     const hrefs = new Set(items.map((i) => i.href));
     for (const h of ["/teacher/students", "/teacher/plans", "/teacher/map-center", "/admin/curriculum-map", "/teacher/reports", "/teacher/reading"]) assert.ok(hrefs.has(h), h);
     // the school asked: no Question Bank entry for teachers (they assign skills from Find a skill, Plans and Assessments)
@@ -213,7 +213,8 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
     // pages that left the menu are checked in tests/uiro-shell.test.ts (MOVED / OUT) and tests/menus.test.ts
     assert.equal(new Set(items.map((i) => i.icon)).size, items.length, "one icon per entry");
     const home = readFileSync(join(process.cwd(), "src/app/teacher/page.tsx"), "utf8");
-    for (const x of ["Needs attention", "Work sent this week", "My students", "Quick actions"]) assert.ok(home.includes(x), x);
+    for (const x of ["Needs attention", "Work sent this week", "My students"]) assert.ok(home.includes(x), x);
+    assert.ok(!home.includes("Quick actions") && !/href=\{?["`]\/teacher\/(plans|assessments|map-center|reports|week|messages|games)["`]/.test(home), "no page tiles on Home: the menu is the one place");
     const en = readFileSync(join(process.cwd(), "src/i18n/en.ts"), "utf8");
     assert.ok(en.includes("// ---- teacher home (wave 2)"));
     for (const s of ["Download Accounts", "Find a skill and assign it", "Needs attention", "Add Student", "Hello, {name}"]) {

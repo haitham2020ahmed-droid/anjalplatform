@@ -16,13 +16,14 @@ import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
-import { accessibleClasses, assignQuestions, assignSkill, MAX_SET_QUESTIONS, openAssignmentFor, refreshQuestionSets } from "../teacher/assign";
-import { masterSkills, type SkillKind } from "../skills/master";
+import { accessibleClasses, assignQuestions, assignSkill, MAX_TEST_SET_QUESTIONS, openAssignmentFor, refreshQuestionSets } from "../teacher/assign";
+import { skillPickerList } from "../skills/picker";
+import type { SkillTab, SkillTabFilter } from "../../lib/skill-picker";
 import { evidenceLevels } from "../curriculum-map/evidence-level";
 import { instructionalWeekOf, loadCycle } from "../assessment-cycle/cycle";
 import { correctAnswerText, loadQuestionItems, seededShuffle, studentAnswerText } from "../practice/items";
 import { questionsOfSkill, type QLevel } from "./question-source";
-import { familyRepresentatives, normalizeSkillName } from "../questions/skill-questions";
+import { familyRepresentatives } from "../questions/skill-questions";
 import { TEST_MARK, testOrder } from "./runtime";
 import { contentKeysForIds, Sitting } from "../questions/fresh";
 
@@ -48,7 +49,7 @@ export const LEVEL_NAME: Record<QLevel, string> = { BELOW: "Below Level", ON: "O
 /** A skill scored under this (percent) goes back to the student's My Work with Reteach. */
 export const RETEACH_PCT = 70;
 export const MAX_PER_SKILL = 20;
-export const MAX_TEST_QUESTIONS = MAX_SET_QUESTIONS;
+export const MAX_TEST_QUESTIONS = MAX_TEST_SET_QUESTIONS;
 export const MAX_TIME_LIMIT_MIN = 240;
 
 export const asTestType = (v: unknown): TestType => (TEST_TYPES as readonly string[]).includes(s(v)) ? (s(v) as TestType) : "CUSTOM";
@@ -86,21 +87,22 @@ function staff(actor: Actor): void {
 
 // ------------------------------------------------------------------ 1. pick skills (any grade)
 
-export type SkillFilter = "ALL" | "READING" | "GRAMMAR" | "VOCABULARY";
-const FILTER_KINDS: Record<Exclude<SkillFilter, "ALL">, SkillKind[]> = { READING: ["READING", "OTHER"], GRAMMAR: ["GRAMMAR", "LANGUAGE"], VOCABULARY: ["VOCABULARY"] };
-export const filterOf = (k: SkillKind): Exclude<SkillFilter, "ALL"> => (k === "GRAMMAR" || k === "LANGUAGE" ? "GRAMMAR" : k === "VOCABULARY" ? "VOCABULARY" : "READING");
-export interface BuilderSkill { id: string; name: string; grade: number; filter: Exclude<SkillFilter, "ALL">; available: number }
+export type SkillFilter = SkillTabFilter;
+export interface BuilderSkill {
+  id: string; name: string; grade: number; filter: SkillTab; available: number;
+  /** every name / skill id of the skill's shared pool (all grades): the search finds it by any name */
+  names: string[]; skillIds: string[];
+}
 
-/** Every skill of the bank, all grades (ACCESS RULES: all content is open to every teacher); `available` = the pooled count. */
+/**
+ * Every active skill (ACCESS RULES: all content is open to every teacher), one row per shared pool, from the one
+ * picker source (skillPickerList), A–Z; `available` = the pooled published count (0 → shown disabled).
+ * A name is found whatever its case, "&" / "and" or apostrophe ("Character Traits & Development").
+ */
 export async function builderSkills(repo: Repo, actor: Actor, opts: { q?: string; filter?: SkillFilter; grade?: number } = {}): Promise<BuilderSkill[]> {
   staff(actor);
-  // a name is found whatever its case, "&" / "and" or apostrophe ("Character Traits & Development")
-  const raw = s(opts.q).trim().toLowerCase(), q = normalizeSkillName(raw);
-  const kinds = opts.filter && opts.filter !== "ALL" ? new Set(FILTER_KINDS[opts.filter]) : null;
-  return (await masterSkills(repo, actor.schoolId!, { withQuestionsOnly: false }))
-    .filter((k) => (!kinds || kinds.has(k.kind)) && (!opts.grade || k.grade === opts.grade) && (!raw || normalizeSkillName(k.name).includes(q) || k.code.toLowerCase().includes(raw)))
-    .map((k) => ({ id: k.id, name: k.name, grade: k.grade, filter: filterOf(k.kind), available: k.questions }))
-    .sort((x, y) => x.grade - y.grade || x.name.localeCompare(y.name));
+  return (await skillPickerList(repo, actor, { onlyGrade: opts.grade, q: opts.q, tab: opts.filter }))
+    .map((k) => ({ id: k.id, name: k.name, grade: k.grade, filter: k.tab, available: k.questions, names: k.names, skillIds: k.skillIds }));
 }
 
 // ------------------------------------------------------------------ 2. preview (choose the questions)
@@ -205,7 +207,47 @@ export interface AssignTestInput {
   /** one question bank (optional): the skills the teacher picked, so pooled questions count for them */
   skillIds?: string[];
   templateId?: string | null;
+  /** points per question (questionId → points); missing questions count 1 point */
+  marks?: Record<string, number> | null;
 }
+
+/** Highest points one question may carry. */
+export const MAX_QUESTION_MARKS = 100;
+/** Points rounded to two decimals (0.5, 1.25, 3.33…). */
+const roundMark = (n: number) => Math.round(n * 100) / 100;
+
+/**
+ * The marks of a test's questions, cleaned: only the test's questions, numbers 0–100 (two decimals). Null when every
+ * question has the default 1 point (nothing to store).
+ */
+export function cleanMarks(marks: unknown, ids: string[]): Record<string, number> | null {
+  if (!marks || typeof marks !== "object" || Array.isArray(marks)) return null;
+  const raw = marks as Record<string, unknown>;
+  const out: Record<string, number> = {};
+  for (const id of new Set(ids)) {
+    if (raw[id] === undefined || raw[id] === null || raw[id] === "") continue;
+    const n = Number(raw[id]);
+    if (!Number.isFinite(n) || n < 0 || n > MAX_QUESTION_MARKS) throw new ValidationError(`Marks must be 0 to ${MAX_QUESTION_MARKS} for each question.`);
+    out[id] = roundMark(n);
+  }
+  return Object.values(out).some((v) => v !== 1) ? out : null;
+}
+
+/**
+ * Total marks shared out over the questions: total / number each (two decimals); the last question takes the
+ * rounding difference, so the marks always add up to the total.
+ */
+export function spreadMarks(ids: string[], total: number): Record<string, number> {
+  const list = [...new Set(ids)];
+  if (!list.length) return {};
+  const t = roundMark(Math.max(0, Math.min(MAX_QUESTION_MARKS * list.length, Number(total) || list.length)));
+  const each = roundMark(t / list.length);
+  const out: Record<string, number> = Object.fromEntries(list.map((id) => [id, each]));
+  out[list[list.length - 1]] = roundMark(t - each * (list.length - 1));
+  return out;
+}
+/** A question's points (1 when the test has no marks for it). */
+export const markOf = (marks: Record<string, number> | null | undefined, id: string): number => (marks && typeof marks[id] === "number" ? marks[id] : 1);
 
 /** Who built it: the teacher; for an admin, the class's teacher. */
 async function testTeacher(repo: Repo, actor: Actor, classId: string): Promise<Row | null> {
@@ -259,8 +301,9 @@ export async function assignTest(repo: Repo, actor: Actor, input: AssignTestInpu
   const second = await familyRepresentatives(repo, s(klass.schoolId), firstOf, { ids: [...(input.skillIds ?? []), ...majorityRows(firstOf)] });
   const repOf = new Map(qRows.map((q, n) => [s(q.skillId), second.get(firstOf[n]) ?? firstOf[n]]));
   const skillIds = [...new Set(qRows.map((q) => repOf.get(s(q.skillId)) ?? s(q.skillId)))];
+  const marks = cleanMarks(input.marks, allIds);
   const test = await repo.create("TeacherTest", {
-    schoolId: klass.schoolId, classId: klass.id, teacherId: teacher.id, createdById: actor.userId, title, testType: type, levelMode, skillIds,
+    schoolId: klass.schoolId, classId: klass.id, teacherId: teacher.id, createdById: actor.userId, title, testType: type, levelMode, skillIds, marks,
     openAt, dueAt, timeLimitMin: limit, shuffle: Boolean(input.shuffle), templateId: input.templateId ? s(input.templateId) : null, createdAt: now,
   });
   const made: string[] = [];
@@ -268,7 +311,7 @@ export async function assignTest(repo: Repo, actor: Actor, input: AssignTestInpu
     for (const g of groups) {
       const r = await assignQuestions(repo, actor, {
         classId: s(klass.id), studentIds: g.students, questionIds: qOf(g.key), title: g.key === "SAME" ? title : `${title} (${LEVEL_NAME[g.key]})`, exactTitle: true,
-        startAt: openAt, dueAt, curriculumPlanId: TEST_MARK, silent: true, track: type === "MAP" ? "MAP" : "CURRICULUM",
+        startAt: openAt, dueAt, curriculumPlanId: TEST_MARK, silent: true, track: type === "MAP" ? "MAP" : "CURRICULUM", test: true,
       }, now);
       made.push(r.assignmentId);
     }
@@ -291,7 +334,7 @@ export async function assignTest(repo: Repo, actor: Actor, input: AssignTestInpu
 // ------------------------------------------------------------------ 4. templates
 
 /** `mapQuestionIds`: the Curriculum Map questions the teacher picked (in order), kept with the draft. */
-export interface TemplateSpec { skills: PickedSkill[]; levelMode: LevelMode; timeLimitMin: number | null; shuffle: boolean; questions: Versions; mapQuestionIds?: string[] }
+export interface TemplateSpec { skills: PickedSkill[]; levelMode: LevelMode; timeLimitMin: number | null; shuffle: boolean; questions: Versions; mapQuestionIds?: string[]; marks?: Record<string, number> | null }
 /** Rows of TestTemplate that are not test templates (skill-assignment drafts, "Preview as student" records). */
 const NOT_TEMPLATES = new Set(["ASSIGN_DRAFT", "TEST_PREVIEW"]);
 export interface TemplateRow { id: string; title: string; type: TestType; typeName: string; skills: number; questions: number; updatedAt: string }
@@ -310,6 +353,8 @@ export async function saveTemplate(repo: Repo, actor: Actor, input: { id?: strin
     timeLimitMin: sp.timeLimitMin ? Math.max(1, Math.min(MAX_TIME_LIMIT_MIN, Math.round(Number(sp.timeLimitMin)))) : null, shuffle: Boolean(sp.shuffle),
     questions: Object.fromEntries(Object.entries(sp.questions ?? {}).filter(([k]) => ["SAME", ...LEVELS].includes(k)).map(([k, v]) => [k, [...new Set((Array.isArray(v) ? v : []).map(s).filter(Boolean))].slice(0, MAX_TEST_QUESTIONS)])),
   };
+  const marks = cleanMarks(sp.marks, [...mapQuestionIds, ...Object.values(spec.questions).flatMap((l) => l ?? [])]);
+  if (marks) spec.marks = marks;
   if (input.id) {
     const t = await ownTemplate(repo, actor, s(input.id));
     await repo.updateMany("TestTemplate", { id: t.id }, { title, testType: type, spec, updatedAt: now });
@@ -373,11 +418,15 @@ export async function teacherTests(repo: Repo, actor: Actor, classId?: string): 
 // ------------------------------------------------------------------ 5. results by skill + Reteach
 
 export interface SkillResult { skillId: string; name: string; grade: number; questions: number; avgPct: number | null; below: { id: string; name: string; pct: number }[] }
-export interface StudentResult { id: string; name: string; status: "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "OVERDUE"; finished: boolean; correct: number; total: number; pct: number | null; completedAt: string | null; assignmentId: string; bySkill: Record<string, { correct: number; total: number; pct: number }> }
+export interface StudentResult { id: string; name: string; status: "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "OVERDUE"; finished: boolean; correct: number; total: number; pct: number | null; completedAt: string | null; assignmentId: string; bySkill: Record<string, { correct: number; total: number; pct: number }>;
+  /** marks earned / the student's version's total marks (every question 1 point unless the test has marks) */
+  points: number; maxPoints: number }
 export interface TestResults {
   test: { id: string; title: string; type: TestType; typeName: string; classId: string; className: string; levelMode: LevelMode; openAt: string | null; dueAt: string | null; timeLimitMin: number | null; shuffle: boolean; reteachAt: string | null; nafsPlanAt: string | null; createdAt: string };
   finished: number; notFinished: number; avgPct: number | null;
   skills: SkillResult[]; students: StudentResult[];
+  /** the test has its own marks per question (shown as "12 / 20 marks"); null = 1 point each */
+  marks: Record<string, number> | null;
 }
 
 async function testFor(repo: Repo, actor: Actor, testId: string): Promise<{ t: Row; klass: Row }> {
@@ -412,6 +461,7 @@ export async function testResults(repo: Repo, actor: Actor, testId: string, now 
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
   const nameOf = (id: string) => s(users.find((u) => u.id === students.find((x) => x.id === id)?.userId)?.displayName ?? "Student");
   const setOf = new Map(sets.map((a) => [s(a.id), a]));
+  const marks = json<Record<string, number> | null>(t.marks, null);
   const qsOfSet = new Map<string, string[]>();
   for (const x of aqs) { const l = qsOfSet.get(s(x.assessmentId)) ?? []; l.push(s(x.questionId)); qsOfSet.set(s(x.assessmentId), l); }
   const out: StudentResult[] = rows.map((r) => {
@@ -430,7 +480,11 @@ export async function testResults(repo: Repo, actor: Actor, testId: string, now 
     }
     for (const b of Object.values(bySkill)) b.pct = Math.round((100 * b.correct) / Math.max(1, b.total));
     const correct = mine.filter((x) => x.isCorrect).length;
+    const right = new Set(mine.filter((x) => x.isCorrect).map((x) => s(x.questionId)));
+    const maxPoints = roundMark(qs.reduce((a, q) => a + markOf(marks, q), 0));
+    const points = roundMark(qs.filter((q) => right.has(q)).reduce((a, q) => a + markOf(marks, q), 0));
     return {
+      points: finished ? points : 0, maxPoints,
       id: s(r.studentId), name: nameOf(s(r.studentId)), status: r.status as StudentResult["status"], finished, correct, total: qs.length,
       pct: finished ? Math.round((100 * correct) / Math.max(1, qs.length)) : null, completedAt: iso(r.completedAt), assignmentId: s(r.assignmentId), bySkill: finished ? bySkill : {},
     };
@@ -452,7 +506,7 @@ export async function testResults(repo: Repo, actor: Actor, testId: string, now 
     },
     finished: done.length, notFinished: out.length - done.length,
     avgPct: done.length ? Math.round(done.reduce((a, x) => a + (x.pct ?? 0), 0) / done.length) : null,
-    skills: skillRows, students: out,
+    skills: skillRows, students: out, marks,
   };
 }
 

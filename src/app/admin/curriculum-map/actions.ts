@@ -4,8 +4,8 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { assignFromMap, setStudentLevels } from "@/server/curriculum-map/levels";
 import { DEFAULT_TARGET_CORRECT } from "@/server/teacher/assign";
-import { sendMapPlan, type SendMapPlanInput } from "@/server/curriculum-map/send-plan";
 import { getT } from "@/i18n/server";
+import { buildSendPreview, sendScope, type SendPreview, type SendScopeKind, type SendScopeResult } from "@/server/curriculum-map/send-scope";
 
 export interface PlaceAssignInput { classId: string; code: string; studentIds?: string[]; mode?: "ADAPTIVE" | "BY_LEVEL"; startLevels?: { studentId: string; level: "ABOVE" | "ON" | "BELOW" }[]; max?: number; dueAt?: string | null; note?: string | null }
 
@@ -29,14 +29,34 @@ export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: 
   }
 }
 
-/** 📘 Send the whole curriculum plan, or one unit's plan, to a class / a group / one student (checked on the server). */
-export async function sendMapPlanAction(input: SendMapPlanInput): Promise<{ ok: boolean; message: string; planId?: string }> {
+
+export interface ScopeInput { grade: number; kind: SendScopeKind; codes?: string[] | null; classIds?: string[] }
+export interface ScopeSendInput extends ScopeInput { studentIds?: string[] | null; exclude?: string[] | null; resend?: boolean; dueAt?: string | null; startAt?: string | null }
+const day = (v: unknown, end: boolean): Date | null => (typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v) ? new Date(`${v}T${end ? "23:59:59" : "00:00:00"}`) : null);
+const list = (v: unknown): string[] => (Array.isArray(v) ? v.map(String) : []);
+
+/** 📘 Send window → Preview: what the chosen selection / unit(s) / whole plan holds, and what each class already has. */
+export async function sendPreviewAction(input: ScopeInput): Promise<{ ok: true; preview: SendPreview } | { ok: false; message: string }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+  try {
+    return { ok: true, preview: await buildSendPreview(repo, actor, { grade: Number(input.grade), kind: input.kind, codes: list(input.codes) }, list(input.classIds)) };
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message };
+    throw e;
+  }
+}
+
+/** 📘 Send window → Send: one plan per class (+ Respond to Reading writing tasks); parts a class already has are skipped. */
+export async function sendScopeAction(input: ScopeSendInput): Promise<{ ok: boolean; message: string; result?: SendScopeResult }> {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
   const { t } = await getT();
   try {
-    const r = await sendMapPlan(repo, actor, { grade: Number(input.grade), unitCode: input.unitCode ?? null, classId: String(input.classId ?? ""), studentIds: Array.isArray(input.studentIds) ? input.studentIds.map(String) : null });
-    const msg = t("Sent: {n} parts to {m} students.", { n: r.parts, m: r.students });
-    return { ok: true, planId: r.planId, message: r.skipped.length ? `${msg} ${t("{n} parts have no questions yet and were left out.", { n: r.skipped.length })}` : msg };
+    const r = await sendScope(repo, actor, {
+      grade: Number(input.grade), kind: input.kind, codes: list(input.codes), classIds: list(input.classIds), studentIds: list(input.studentIds),
+      exclude: list(input.exclude), resend: input.resend === true, dueAt: day(input.dueAt, true), startAt: day(input.startAt, false),
+    });
+    const msg = [t("Sent ✓ {n} parts and {m} writing tasks.", { n: r.parts, m: r.writing }), r.alreadySent ? t("{n} parts were already sent and were skipped.", { n: r.alreadySent }) : ""].filter(Boolean).join(" ");
+    return { ok: true, message: msg, result: r };
   } catch (e) {
     if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message };
     throw e;

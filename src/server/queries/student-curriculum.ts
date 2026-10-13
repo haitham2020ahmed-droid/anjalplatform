@@ -4,6 +4,7 @@
  * Batched queries (one round trip per table, `in` filters) — no per-skill lookups.
  * All callers must check access first (assertStudentAccess / own student id).
  */
+import { countGroups } from "../db/group-count";
 import { DEFAULT_MASTERY } from "../../config/engine";
 import { bandFor } from "../../mastery/mastery";
 import { recommendSkills, type SkillSnapshot } from "../../recommendations/recommend";
@@ -143,9 +144,8 @@ export async function getUnitSkillCards(repo: Repo, studentId: string, unitId: s
   const skillIds = links.map((l) => String(l.skillId));
   const skills = new Map((await repo.findMany("Skill", { id: { in: skillIds } })).map((s) => [String(s.id), s]));
   const m = await masteryMap(repo, studentId, skillIds);
-  const published = await repo.findMany("Question", { skillId: { in: skillIds }, status: "PUBLISHED", deletedAt: null });
-  const qCount = new Map<string, number>();
-  for (const q of published) qCount.set(String(q.skillId), (qCount.get(String(q.skillId)) ?? 0) + 1);
+  // ⚡ counted by the database (one row per skill), not read question by question
+  const qCount = skillIds.length ? await countGroups(repo, "Question", "skillId", { skillId: { in: skillIds }, status: "PUBLISHED", deletedAt: null }) : new Map<string, number>();
   const lessons = await repo.findMany("Lesson", { unitId, deletedAt: null });
   const lessonSkills = lessons.length ? await repo.findMany("LessonSkill", { lessonId: { in: lessons.map((l) => l.id) } }) : [];
   const lessonTitle = new Map(lessons.map((l) => [String(l.id), lessonDisplayTitle(l)]));

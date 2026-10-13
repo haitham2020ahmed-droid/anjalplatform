@@ -9,6 +9,7 @@ import type { PlanSkill } from "@/server/plans/send";
 import { pickField } from "@/server/plans/plan-form";
 import { AUTO, SkillQuestionPicker, dedupeSkillsByName, questionIdsField } from "@/components/skill-picker";
 import { StudentPlanPreview } from "./student-preview";
+import { builderDraftAction } from "@/app/teacher/plans/editor-actions";
 
 /**
  * The program pages' plan builder (server-rendered, one GET form): 1 Who → 2 the suggested skills (untick to
@@ -143,6 +144,11 @@ export function PlanBuilder(p: BuilderProps) {
         <p className="mt-3 text-sm text-slate-600">{t("{skills} skill(s) for {students} student(s).", { skills: p.plan.length, students: withWork.length })}{pickedPairs.length > 0 && <> {t("Your own questions: {n} skill(s). The others: the platform chooses at each student's level.", { n: pickedPairs.length })}</>}</p>
         <div className="mt-4 flex flex-wrap justify-end gap-3">
           <button name="step" value="edit" className={BTN_SOFT}>{t("Change the skills")}</button>
+          {/* ✏️ the full editor: every question visible and editable, saved as a draft (nothing is sent) */}
+          {p.canSend && as && <>
+            <input type="hidden" name="draftSpec" value={JSON.stringify({ classId: p.carry.find(([k]) => k === "classId")?.[1] ?? "", program: p.program, skills: p.plan.map((k) => ({ id: k.id, studentIds: k.studentIds, reason: k.reason, picks: picks[k.id] ?? [] })) })} />
+            <button formAction={builderDraftAction} formMethod="post" className={BTN_SOFT}>{t("Save as draft and edit every question")}</button>
+          </>}
           {p.canSend && as && <button formAction={p.send} formMethod="post" className={`${BTN_MAIN} px-8 text-lg`}>{t("Send")}</button>}
         </div>
       </Section>

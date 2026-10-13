@@ -20,8 +20,12 @@ const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) 
 const TABS: [MapTab, string, string][] = [["results", "Results", "📊"], ["reports", "Reports", "📑"], ["plan", "Make a MAP plan", "🎯"]];
 
 /**
- * 🗺️ MAP — the ONE MAP page (MAP Center, MAP plans, MAP skill plan, personal / 3-level plan, growth, MAP reports,
- * overview and recommendations merged): Results · Reports · Make a MAP plan. One class and one MAP test at a time.
+ * 🗺️ MAP — one page, three views (MAP Center, MAP plans, MAP skill plan, personal / 3-level plan, growth, MAP reports,
+ * overview and recommendations merged). Every page lives in ONE place (Update 15):
+ *  - Results (the MAP menu entry): the class's scores, with Upload MAP Scores and the MAP Practice Test next to it;
+ *  - Reports (?tab=reports): opened from Reports → MAP (growth, overview), with the report bar on top;
+ *  - Make a MAP plan (?tab=plan): opened from Plans → MAP.
+ * One class and one MAP test at a time.
  */
 export default async function MapPage({ searchParams }: { searchParams: Promise<SP> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
@@ -44,19 +48,26 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
   const msg = one(sp.msg);
   const href = (p: Record<string, string>) => `/teacher/map-center?${new URLSearchParams({ tab, classId, subject, ...p })}`;
   const pill = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
-  const back = actor.role === "TEACHER" ? "/teacher" : "/admin";
+  const home = actor.role === "TEACHER" ? "/teacher" : "/admin";
+  // MAP reports belong to Reports and the MAP plan to Plans: their own title and way back, no MAP tabs
+  const head = tab === "reports" ? { back: { href: "/teacher/reports", label: "Reports" }, title: one(sp.view) === "overview" ? "Grade and school overview" : "MAP Growth Report", subtitle: "Every student's RIT and who reached the expected growth." }
+    : tab === "plan" ? { back: { href: "/teacher/plans", label: "Plans" }, title: TABS[2][1], subtitle: "Skills suggested from the lowest MAP sub-areas, for the class, a group or each student." }
+    : { back: { href: home, label: "Home" }, title: "MAP", subtitle: "Your class's MAP scores, the score upload and the MAP Practice Test." };
   return (
     <AppShell name={String(me.displayName)}>
-      <ReportHeader back={{ href: back, label: "Home" }} icon="🗺️" title="MAP" print={tab !== "plan"}
-        subtitle={t("Your class's MAP scores, every MAP report, and plans made from the scores.")}
+      <ReportHeader back={head.back} title={head.title} print={tab !== "plan"} subtitle={t(head.subtitle)}
         filters={<div className="flex flex-col gap-3">
-          <nav aria-label={t("MAP")} className="flex flex-wrap gap-2">
-            {TABS.map(([k, label, icon]) => <Link key={k} href={`/teacher/map-center?${new URLSearchParams({ tab: k, classId, subject })}`} aria-current={k === tab ? "page" : undefined} className={`inline-flex min-h-11 items-center gap-2 rounded-xl px-5 font-semibold ${k === tab ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`}><span aria-hidden="true">{icon}</span>{t(label)}</Link>)}
-          </nav>
+          {tab === "results" && (
+            <nav aria-label={t("MAP")} className="flex flex-wrap gap-2">
+              <Link href={`/teacher/map-center?${new URLSearchParams({ tab: "results", classId, subject })}`} aria-current="page" className="inline-flex min-h-10 items-center rounded-lg bg-brand-navy px-4 text-sm font-semibold text-white">{t(TABS[0][1])}</Link>
+              <Link href={`/teacher/map-entry${classId ? `?classId=${classId}` : ""}`} className="inline-flex min-h-10 items-center rounded-lg bg-white px-4 text-sm font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">{t("Upload MAP Scores")}</Link>
+              <Link href={`/teacher/map-test${classId ? `?classId=${classId}` : ""}`} className="inline-flex min-h-10 items-center rounded-lg bg-white px-4 text-sm font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">{t("MAP Practice Test")}</Link>
+            </nav>
+          )}
           {tab !== "plan" && classes.length > 0 && (
             <div className="flex flex-wrap items-center gap-2">
-              {classes.length > 1 && classes.map((c) => <Link key={c.id} href={href({ classId: c.id })} aria-current={c.id === classId ? "page" : undefined} className={pill(c.id === classId)}>{c.name}</Link>)}
-              {classes.length > 1 && <span aria-hidden="true" className="mx-1 h-6 w-px bg-slate-300" />}
+              {tab === "results" && classes.length > 1 && classes.map((c) => <Link key={c.id} href={href({ classId: c.id })} aria-current={c.id === classId ? "page" : undefined} className={pill(c.id === classId)}>{c.name}</Link>)}
+              {tab === "results" && classes.length > 1 && <span aria-hidden="true" className="mx-1 h-6 w-px bg-slate-300" />}
               <Link href={href({ subject: "READING" })} className={pill(subject === "READING")}>{t("Reading")}</Link>
               <Link href={href({ subject: "LANGUAGE" })} className={pill(subject === "LANGUAGE")}>{t("Language Usage")}</Link>
             </div>

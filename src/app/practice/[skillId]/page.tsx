@@ -9,6 +9,7 @@ import { skillAccess } from "@/server/student/assigned";
 import { isMapPracticeSkill, seedAbilityFromRit } from "@/server/map/student-map";
 import { hintAction, submitAnswerAction } from "./actions";
 import { canPlaySkill } from "@/server/game/skill-games";
+import { isPlanSkill } from "@/server/student/plan-access";
 
 /** Starts (or resumes) adaptive practice for a skill. */
 export default async function PracticePage({ params, searchParams }: { params: Promise<{ skillId: string }>; searchParams: Promise<{ from?: string; work?: string }> }) {
@@ -17,14 +18,19 @@ export default async function PracticePage({ params, searchParams }: { params: P
   const me = (await getActor())!.user;
   const from = (await searchParams).from;
   // 1) assigned work (the skill, another grade's copy of it, an older multi-skill row, a prerequisite the engine
-  //    routes to) · 2) every skill of the student's MAP plan · 3) any skill of their own grade — all open, no
-  //    "not assigned" message (owner's spec). Checked on the server; all of it counts in reports.
+  //    routes to) · 2) every skill of the student's MAP plan · 3) any skill of their own grade · 4) a skill of
+  //    ANOTHER grade that is in the student's own plan (a teacher-sent MAP plan, the Personal Study Plan) — all open,
+  //    no "not assigned" message (owner's spec). Checked on the server; all of it counts in reports.
   const access = await skillAccess(repo, actor, skillId);
   const fromMap = !access.assigned && !access.startsAt ? await isMapPracticeSkill(repo, actor, skillId) : from === "map" && (await isMapPracticeSkill(repo, actor, skillId));
   const free = !access.assigned && !access.startsAt && !fromMap && (await canPlaySkill(repo, actor, skillId));
-  const unitHref = fromMap ? "/student/map" : from === "free" ? "/student/skills" : "/student/work";
+  // a skill in the student's own plan, even from another grade (e.g. a Grade 4 skill for a Grade 5 student): its
+  // questions open at the student's own level (the adaptive engine on the skill's one family bank)
+  const planned = !access.assigned && !access.startsAt && !fromMap && !free && (await isPlanSkill(repo, actor, skillId));
+  if (planned && from === "map") await seedAbilityFromRit(repo, actor, skillId);
+  const unitHref = fromMap || planned ? "/student/map" : from === "free" ? "/student/skills" : "/student/work";
   if (fromMap) await seedAbilityFromRit(repo, actor, skillId);
-  if (!access.assigned && !fromMap && !free) {
+  if (!access.assigned && !fromMap && !free && !planned) {
     return (
       <AppShell name={String(me.displayName)}>
         <p className="text-lg text-slate-700">{access.startsAt ? `This skill opens on ${access.startsAt.toISOString().slice(0, 10)}. Come back then!` : "This skill is for another grade. Here is your own work:"}</p>

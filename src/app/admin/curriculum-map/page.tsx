@@ -4,12 +4,12 @@ import { AppShell } from "@/components/app-shell";
 import { EmptyState } from "@/components/ui-kit/empty-state";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
-import { curriculumLessons, outlineOf } from "@/server/curriculum-map/lesson-details";
+import { curriculumLessons } from "@/server/curriculum-map/lesson-details";
 import { sendTargets } from "@/server/curriculum-map/send-plan";
 import { LessonCard } from "@/components/curriculum-map/lesson-card";
 import { SendPlanButton, SendPlanHost } from "@/components/curriculum-map/send-plan";
 import { getT } from "@/i18n/server";
-import { assignPlaceAction, sendMapPlanAction } from "./actions";
+import { assignPlaceAction, sendPreviewAction, sendScopeAction } from "./actions";
 import { MapAssignHost } from "@/components/curriculum-map/assign-button";
 import { rosterForGrade } from "@/server/curriculum-map/levels";
 import { respondCodes } from "@/server/curriculum-map/respond";
@@ -20,8 +20,9 @@ export const metadata = { title: "Curriculum Map" };
 /**
  * Curriculum Map (teachers and admins): one grade, one unit at a time, as lesson cards (name, genre, Text Idea,
  * vocabulary words, sections Ready / Not ready, Preview). Each section is one short row: 👁 Review · ⭐ Assign · ✓ Sent (the
- * date this teacher sent it). A unit's plan can be sent with the button under the unit (the whole-curriculum button
- * was removed). A teacher sees their own grade(s) only; admins see all grades.
+ * date this teacher sent it). 📘 Send (top): one selection, one unit, several units or the whole plan → classes,
+ * students and dates → Preview (untick parts, read the questions) → Send; "Send this unit's plan" and each card's
+ * "Send this selection" open the same window with that scope. A teacher sees their own grade(s) only; admins see all grades.
  * A teacher sends only to their own classes (checked on the server).
  */
 export default async function CurriculumMapPage({ searchParams }: { searchParams: Promise<{ grade?: string; unit?: string }> }) {
@@ -62,7 +63,13 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
                 className={`${tab} ${g === v.grade ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{t("Grade {n}", { n: g })}</Link>
             ))}
           </nav>}
-          <nav aria-label={t("Units")} className="mt-2 flex flex-wrap gap-2">
+          {canSend && (
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-blue-50 px-4 py-3 ring-1 ring-blue-100">
+              <p className="text-sm text-blue-900">{t("Send one selection, a unit, several units or the whole plan. You see a preview first.")}</p>
+              <SendPlanButton label="Send…" big />
+            </div>
+          )}
+          <nav aria-label={t("Units")} className="mt-3 flex flex-wrap gap-2">
             {v.units.map((u, i) => (
               <Link key={u.code} href={`/admin/curriculum-map?grade=${v.grade}&unit=${i + 1}`} prefetch={false} aria-current={i === unitIx ? "page" : undefined}
                 className={`${tab} text-sm ${i === unitIx ? "bg-blue-700 text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{t("Unit {n}", { n: i + 1 })}</Link>
@@ -73,15 +80,17 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
             <section className="mt-6" aria-labelledby="unit-title">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <h2 id="unit-title" className="text-2xl font-semibold text-brand-navy">{t("Grade {n}", { n: v.grade })} · {t("Unit {n}", { n: unitIx + 1 })}</h2>
-                {canSend && <SendPlanButton unitCode={unit.code} label="Send this unit's plan" />}
+                {canSend && <SendPlanButton kind="UNIT" codes={[unit.code]} label="Send this unit's plan" />}
               </div>
               <div className="mt-3 grid gap-3 lg:grid-cols-2">
-                {unit.lessons.map((l) => <LessonCard key={l.code} compact lesson={l} sent={sent} canAssign={canAssign && roster.length > 0} respondSets={respondSets} respondClassId={roster[0]?.id ?? null} />)}
+                {unit.lessons.map((l) => <LessonCard key={l.code} compact lesson={l} sent={sent} canAssign={canAssign && roster.length > 0} respondSets={respondSets} respondClassId={roster[0]?.id ?? null} canSend={canSend} />)}
               </div>
             </section>
           )}
           {canAssign && roster.length > 0 && <MapAssignHost classes={roster} assign={assignPlaceAction} />}
-          {canSend && <SendPlanHost grade={v.grade} classes={classes} outline={outlineOf(v.units)} send={sendMapPlanAction} />}
+          {canSend && <SendPlanHost grade={v.grade} send={sendScopeAction} preview={sendPreviewAction}
+            classes={classes.filter((c) => c.grade == null || c.grade === v.grade).map(({ id, name, students }) => ({ id, name, students }))}
+            units={v.units.map((u, i) => ({ code: u.code, n: i + 1, lessons: u.lessons.map((l) => ({ code: l.code, name: l.name })) }))} />}
         </>
       )}
     </AppShell>

@@ -20,6 +20,7 @@ const CSS = `
 .pt-pass-note{font-size:11.5px;color:#475569;margin:0 0 6px}
 .pt-q{display:grid;grid-template-columns:28px 1fr;gap:0 4px;break-inside:avoid;page-break-inside:avoid;margin:0 0 14px}
 .pt-n{font-weight:700;color:#0f2a4a}
+.pt-mk{float:right;margin-left:8px;font-size:11.5px;font-weight:600;color:#475569;border:1px solid #cbd5e1;border-radius:999px;padding:0 7px}
 .pt-stem{margin:0 0 6px;line-height:1.5}
 .pt-opts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}
 .pt-opts.pt-wide{grid-template-columns:1fr}
@@ -56,7 +57,7 @@ function Answer({ a, t }: { a: PrintAnswer; t: (x: string) => string }) {
  * passage sit under it and the passage is printed once. Header: test title, class, date and a name line. The
  * answer key is a separate page for the teacher (?key=1). Staff only.
  */
-export default async function PrintTestPage({ searchParams }: { searchParams: Promise<{ ids?: string; title?: string; key?: string; class?: string }> }) {
+export default async function PrintTestPage({ searchParams }: { searchParams: Promise<{ ids?: string; title?: string; key?: string; class?: string; marks?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:read" });
   const me = (await getActor())!.user;
   const { t } = await getT();
@@ -64,11 +65,15 @@ export default async function PrintTestPage({ searchParams }: { searchParams: Pr
   const ids = [...new Set(String(sp.ids ?? "").split(",").map((x) => x.trim()).filter((x) => /^[\w-]{1,191}$/.test(x)))].slice(0, 120);
   const title = String(sp.title ?? "").trim().slice(0, 120) || t("Test");
   const className = String(sp.class ?? "").trim().slice(0, 80);
+  // marks per question (same order as ids; from the builder): shown beside each question and in the header
+  const markList = String(sp.marks ?? "").split(",").map((x) => Number(x));
+  const marks = sp.marks && markList.length === ids.length && markList.every((x) => Number.isFinite(x) && x >= 0 && x <= 100) ? new Map(ids.map((id, i) => [id, Math.round(markList[i] * 100) / 100])) : null;
   // all bank content is open to every teacher (access rules): published questions only
   const groups = printLayout(await loadQuestionItems(repo, ids));
   const count = groups.reduce((n, g) => n + g.questions.length, 0);
   const school = actor.schoolId ? String((await repo.findUnique("School", { id: actor.schoolId }))?.name ?? "") : "";
-  const keyHref = `/teacher/assessments/print?${new URLSearchParams({ ids: ids.join(","), title, ...(className ? { class: className } : {}), ...(sp.key ? {} : { key: "1" }) })}`;
+  const totalMarks = marks ? Math.round(groups.flatMap((g) => g.questions).reduce((a, q) => a + (marks.get(q.id) ?? 1), 0) * 100) / 100 : null;
+  const keyHref = `/teacher/assessments/print?${new URLSearchParams({ ids: ids.join(","), title, ...(className ? { class: className } : {}), ...(marks ? { marks: String(sp.marks) } : {}), ...(sp.key ? {} : { key: "1" }) })}`;
   return (
     <AppShell name={String(me.displayName)}>
       <PrintStyles extra={CSS} />
@@ -83,7 +88,7 @@ export default async function PrintTestPage({ searchParams }: { searchParams: Pr
       {!count ? <EmptyState icon="📝" title="No questions to print" text="Go back, choose questions and press Preview first." /> : (
         <>
           <PrintPage label={title}>
-            <PrintHeader title={title} subtitle={t("{n} questions", { n: count })} school={school} date={null} t={t} />
+            <PrintHeader title={title} subtitle={totalMarks !== null ? `${t("{n} questions", { n: count })} · ${t("{n} marks", { n: totalMarks })}` : t("{n} questions", { n: count })} school={school} date={null} t={t} />
             <div className="pt-who">
               <div>{t("Name")}: <span /></div>
               <div>{t("Class")}: <span>{className}</span></div>
@@ -101,7 +106,7 @@ export default async function PrintTestPage({ searchParams }: { searchParams: Pr
                 {g.questions.map((q) => (
                   <div key={q.id} className="pt-q">
                     <span className="pt-n">{q.n}.</span>
-                    <div><p className="pt-stem">{q.stem}</p><Answer a={q.answer} t={t} /></div>
+                    <div>{marks && <span className="pt-mk">{marks.get(q.id) === 1 ? "1 mark" : `${marks.get(q.id) ?? 1} marks`}</span>}<p className="pt-stem">{q.stem}</p><Answer a={q.answer} t={t} /></div>
                   </div>
                 ))}
               </div>
@@ -110,7 +115,7 @@ export default async function PrintTestPage({ searchParams }: { searchParams: Pr
           {sp.key && (
             <PrintPage label={t("Answer key")}>
               <PrintHeader title={`${title} · ${t("Answer key")}`} subtitle={className || undefined} school={school} t={t} />
-              <ol className="pt-key" lang="en" dir="ltr">{groups.flatMap((g) => g.questions).map((q) => <li key={q.id}><b>{q.n}.</b> {q.key || "—"}</li>)}</ol>
+              <ol className="pt-key" lang="en" dir="ltr">{groups.flatMap((g) => g.questions).map((q) => <li key={q.id}><b>{q.n}.</b> {q.key || "—"}{marks ? ` (${marks.get(q.id) ?? 1})` : ""}</li>)}</ol>
             </PrintPage>
           )}
         </>

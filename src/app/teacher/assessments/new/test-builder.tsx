@@ -3,22 +3,27 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { BuilderClass, BuilderSkill, LevelMode, TemplateSpec, TestPreview, TestType } from "@/server/tests/assessments";
 import type { MapSourceQuestion, MapSourceTree } from "@/server/tests/map-source";
-import { assignTestAction, previewTestAction, saveTemplateAction, studentPreviewAction } from "../actions";
+import { assignTestAction, previewTestAction, replaceQuestionAction, saveTemplateAction, studentPreviewAction } from "../actions";
+import type { GeneratedTest } from "@/server/tests/generate";
+import { QuestionDrawer } from "@/components/tests/question-drawer";
+import { MakeTest } from "./make-test";
 import { testFingerprint } from "@/lib/test-fingerprint";
 import { MapQuestionSource } from "./map-source";
 import { useT } from "@/i18n/client";
 import { EmptyState } from "@/components/ui-kit";
-import { SkillQuestionPicker, dedupeSkillsByName, type PickerValue } from "@/components/skill-picker";
+import { SkillQuestionPicker, type PickerValue } from "@/components/skill-picker";
+import { SKILL_TABS, byName, filterSkills, questionBadge, type SkillTabFilter } from "@/lib/skill-picker";
 
 const TYPES: { id: TestType; label: string }[] = [
   { id: "NAFS", label: "NAFS" }, { id: "MAP", label: "MAP" }, { id: "DIAGNOSTIC", label: "Diagnostic" },
   { id: "WEEKLY_QUIZ", label: "Weekly Quiz" }, { id: "CHAPTER_TEST", label: "Chapter Test" }, { id: "CUSTOM", label: "+ Custom" },
 ];
-const FILTERS = [{ id: "ALL", label: "All" }, { id: "READING", label: "Reading" }, { id: "GRAMMAR", label: "Grammar" }, { id: "VOCABULARY", label: "Vocabulary" }] as const;
 const VERSION_NAME: Record<string, string> = { SAME: "Questions", BELOW: "Below Level version", ON: "On Level version", ABOVE: "Above Level version" };
 const defaultMode = (t: TestType): LevelMode => (t === "WEEKLY_QUIZ" ? "LEVEL" : "SAME");
 const btn = "inline-flex min-h-11 items-center justify-center rounded-xl px-5 font-semibold";
-const MAX_QUESTIONS = 50;
+const MAX_QUESTIONS = 60;
+/** two decimals: 3.33, 2.5 */
+const round2 = (n: number) => Math.round(n * 100) / 100;
 const LEVEL_SHORT: Record<string, string> = { BELOW: "Below", ON: "On", ABOVE: "Above" };
 const move = <T,>(l: T[], i: number, d: -1 | 1): T[] => { const j = i + d; if (j < 0 || j >= l.length) return l; const n = [...l]; [n[i], n[j]] = [n[j], n[i]]; return n; };
 
@@ -34,9 +39,10 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
   const router = useRouter();
   const t = useT();
   const [q, setQ] = useState("");
-  const [filter, setFilter] = useState<(typeof FILTERS)[number]["id"]>("ALL");
+  const [filter, setFilter] = useState<SkillTabFilter>("ALL");
   const [own, setOwn] = useState<Record<string, string[]>>({});   // "I'll pick the questions", per skill
-  const [picked, setPicked] = useState<Record<string, number>>(() => Object.fromEntries((template?.spec.skills ?? []).map((k) => [k.skillId, k.count])));
+  // a template may name another grade's copy of a skill: the row of its shared pool stands for it
+  const [picked, setPicked] = useState<Record<string, number>>(() => Object.fromEntries((template?.spec.skills ?? []).map((k) => [skills.find((x) => x.id === k.skillId || x.skillIds.includes(k.skillId))?.id ?? k.skillId, k.count])));
   const [type, setType] = useState<TestType>(template?.type ?? "WEEKLY_QUIZ");
   const [name, setName] = useState(template?.title ?? names.WEEKLY_QUIZ);
   const [nameEdited, setNameEdited] = useState(Boolean(template));
@@ -55,17 +61,27 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
   const [templateId, setTemplateId] = useState<string | null>(template?.id ?? null);
   const [onlyReady, setOnlyReady] = useState(false);
   const [randomN, setRandomN] = useState("10");
-  const [source, setSource] = useState<"MAP" | "SKILLS">(mapTree.grades.length ? "MAP" : "SKILLS");
+  const [source, setSource] = useState<"MAKE" | "MAP" | "SKILLS">(mapTree.grades.length ? "MAP" : "SKILLS");
   const [mapPicks, setMapPicks] = useState<MapSourceQuestion[]>(initialPicks);
   const [pickMsg, setPickMsg] = useState<string | null>(null);
   const [previewedFp, setPreviewedFp] = useState<string | null>(null);
+  // marks per selected question (missing = 1 point); ⚡ Make the test for me shares out the total marks
+  const [marks, setMarks] = useState<Record<string, number>>(() => ({ ...(template?.spec.marks ?? {}) }));
+  const [viewAt, setViewAt] = useState<number | null>(null);
+  const [replacing, setReplacing] = useState<string | null>(null);
+  const markOf = (id: string) => (typeof marks[id] === "number" ? marks[id] : 1);
+  const pickIds = new Set(mapPicks.map((p) => p.id));
+  // the skills the generator offers: every skill of the teacher's grades (admin without classes: all)
+  const myGrades = useMemo(() => new Set([...classes.map((c) => c.grade), ...mapTree.grades]), [classes, mapTree.grades]);
+  // the picker list is already one row per skill (all names of its pool searchable)
+  const gradeSkills = useMemo(() => skills.filter((k) => !myGrades.size || myGrades.has(k.grade)).sort((a, b) => a.name.localeCompare(b.name)), [skills, myGrades]);
 
-  // one row per skill name (+ kind): the copy with the most questions stands for the skill
-  const unique = useMemo(() => dedupeSkillsByName(skills, (k) => k.filter, (a, b) => a.available > b.available), [skills]);
+  // the one picker list (one row per skill, every name of its pool searchable, a domain tab each), A–Z
+  const rows = useMemo(() => skills.map((k) => ({ ...k, tab: k.filter })), [skills]);
   const shown = useMemo(() => {
-    const w = q.trim().toLowerCase();
-    return unique.filter((k) => picked[k.id] !== undefined || ((filter === "ALL" || k.filter === filter) && (!onlyReady || k.available > 0) && (!w || k.name.toLowerCase().split(/[^a-z0-9]+/).some((x) => x.startsWith(w)) || k.name.toLowerCase().includes(w)))).sort((a, b) => Number(b.available > 0) - Number(a.available > 0) || a.name.localeCompare(b.name));
-  }, [unique, q, filter, picked, onlyReady]);
+    const hit = new Set(filterSkills(rows, q, filter).filter((k) => !onlyReady || k.available > 0).map((k) => k.id));
+    return rows.filter((k) => picked[k.id] !== undefined || hit.has(k.id)).sort(byName);
+  }, [rows, q, filter, picked, onlyReady]);
   const pickedList = skills.filter((k) => picked[k.id] !== undefined);
   // 🔢 the running total: questions chosen across all skills (own picks count as chosen)
   const totalChosen = pickedList.reduce((n, k) => n + (own[k.id]?.length ? Math.min(20, own[k.id].length) : picked[k.id] ?? 0), 0);
@@ -87,6 +103,32 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
       : repeated ? t("{n} question(s) were already in the test (same question, or same text and answer) and were not added again.", { n: repeated }) : null);
   }
   const removePick = (id: string) => { setMapPicks((l) => l.filter((p) => p.id !== id)); setPreview(null); setPickMsg(null); };
+  /** ⚡ the generated test fills the selected list (replacing what was there) */
+  function takeGenerated(r: GeneratedTest) {
+    if ((mapPicks.length || Object.keys(picked).length) && !window.confirm(t("Replace the questions you selected with the new test?"))) return;
+    setMapPicks(r.questions.map(({ marks: _m, ...row }) => row));
+    setMarks(r.marks);
+    setPicked({}); setOwn({});
+    setLevelMode("SAME");
+    setPreview(null);
+    setPickMsg(null);
+    setMsg({ ok: true, text: [t("✓ {n} questions are in the selected list. View, replace, remove or reorder them, then press Preview.", { n: r.questions.length }), ...r.notes.map((x) => t(x))].join(" ") });
+  }
+  /** 🔁 a similar question (same skill and level) in the same place */
+  async function replacePick(id: string) {
+    setReplacing(id); setPickMsg(null);
+    const r = await replaceQuestionAction({ questionId: id, exclude: mapPicks.map((p) => p.id), classId: classId || null });
+    setReplacing(null);
+    if (r.error) return setPickMsg(t(r.error));
+    const row = r.row!;
+    setMapPicks((l) => l.map((p) => (p.id === id ? row : p)));
+    setMarks((m) => { const n = { ...m }; if (id in n) { n[row.id] = n[id]; delete n[id]; } return n; });
+    setPreview(null);
+  }
+  const setMark = (id: string, v: string) => { const n = Number(v); setMarks((m) => ({ ...m, [id]: Number.isFinite(n) && n >= 0 ? Math.min(100, round2(n)) : 1 })); };
+  /** the marks of the selected list only (to save and assign) */
+  const marksOut = () => Object.fromEntries(mapPicks.map((p) => [p.id, markOf(p.id)]));
+  const totalMarks = round2(mapPicks.reduce((a, p) => a + markOf(p.id), 0) + totalChosen);
   /** 🎲 Random N: spread N questions over the chosen skills (as evenly as their questions allow, at most 20 each). */
   function spreadRandom() {
     const n = Math.max(1, Math.min(100, Number(randomN) || 0));
@@ -134,7 +176,8 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
   }
   function printHref(): string {
     const ids = [...new Set(Object.values(preview?.versions ?? {}).flatMap((l) => (l ?? []).map((x) => x.id)))];
-    return `/teacher/assessments/print?${new URLSearchParams({ ids: ids.join(","), title: name || t("Test"), ...(klass ? { class: klass.name } : {}) })}`;
+    const hasMarks = ids.some((id) => markOf(id) !== 1);
+    return `/teacher/assessments/print?${new URLSearchParams({ ids: ids.join(","), title: name || t("Test"), ...(klass ? { class: klass.name } : {}), ...(hasMarks ? { marks: ids.map((id) => markOf(id)).join(",") } : {}) })}`;
   }
   // 👀 Assign opens only after "Preview as student" of exactly these questions
   const fingerprint = preview ? testFingerprint(questions()) : "";
@@ -153,7 +196,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
   async function doSaveTemplate() {
     if (!preview) return setMsg({ ok: false, text: t("Press Preview first.") });
     setBusy(true); setMsg(null);
-    const r = await saveTemplateAction({ id: templateId, title: name || "My test", type, spec: { skills: specSkills(), levelMode, timeLimitMin: limit ? Number(limit) : null, shuffle, questions: questions(), mapQuestionIds: mapPicks.map((p) => p.id) } });
+    const r = await saveTemplateAction({ id: templateId, title: name || "My test", type, spec: { skills: specSkills(), levelMode, timeLimitMin: limit ? Number(limit) : null, shuffle, questions: questions(), mapQuestionIds: mapPicks.map((p) => p.id), marks: marksOut() } });
     setBusy(false);
     if (r.error) return setMsg({ ok: false, text: t(r.error) });
     setTemplateId(r.id!);
@@ -164,7 +207,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
     if (!previewed) return setMsg({ ok: false, text: t("Open “Preview as student” first: check the test as your students will see it, then assign it.") });
     if (who === "SOME" && !chosen.length) return setMsg({ ok: false, text: t("Choose at least one student, or choose the whole class.") });
     setBusy(true); setMsg(null);
-    const r = await assignTestAction({ classId, type, title: name, levelMode, studentIds: who === "SOME" ? chosen : [], openAt, dueAt, timeLimitMin: limit ? Number(limit) : null, shuffle, questions: questions(), templateId });
+    const r = await assignTestAction({ classId, type, title: name, levelMode, studentIds: who === "SOME" ? chosen : [], openAt, dueAt, timeLimitMin: limit ? Number(limit) : null, shuffle, questions: questions(), templateId, marks: marksOut() });
     setBusy(false);
     if (r.error) return setMsg({ ok: false, text: t(r.error) });
     router.push(`/teacher/assessments/${r.testId}?msg=${encodeURIComponent(t("✓ Assigned. It is in your students' My Tests."))}`);
@@ -179,16 +222,18 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
           <p className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700" aria-live="polite">{t("{n} selected", { n: grandTotal })}</p>
         </div>
         <div className="mt-3 flex flex-wrap gap-2" role="tablist" aria-label={t("Question source")}>
+          <button type="button" role="tab" aria-selected={source === "MAKE"} onClick={() => setSource("MAKE")} className={`min-h-11 rounded-xl px-4 font-semibold ${source === "MAKE" ? "bg-amber-500 text-white" : "bg-amber-50 text-amber-900 ring-1 ring-amber-300"}`}>⚡ {t("Make the test for me")}</button>
           <button type="button" role="tab" aria-selected={source === "MAP"} onClick={() => setSource("MAP")} className={`min-h-11 rounded-xl px-4 font-semibold ${source === "MAP" ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-300"}`}>📚 {t("Curriculum Map questions")}</button>
           <button type="button" role="tab" aria-selected={source === "SKILLS"} onClick={() => setSource("SKILLS")} className={`min-h-11 rounded-xl px-4 font-semibold ${source === "SKILLS" ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-300"}`}>🧩 {t("Skills & grammar")}</button>
         </div>
         <p className="mt-2 text-sm text-slate-500">{t("One test can mix both: tick lesson questions, then add skills or grammar.")}</p>
+        {source === "MAKE" && <MakeTest tree={mapTree} skills={gradeSkills} classes={classes} classId={classId} onClassId={setClassId} onDone={takeGenerated} />}
         {source === "MAP" && <MapQuestionSource initialTree={mapTree} picked={mapPicks} onAdd={addPicks} onRemove={removePick} />}
         {pickMsg && <p role="alert" className="mt-3 rounded-xl bg-amber-50 px-4 py-2 text-sm text-amber-900 ring-1 ring-amber-200">{pickMsg}</p>}
         {source === "SKILLS" && (<>
         <div className="mt-3 flex flex-wrap items-center gap-2">
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("Search a skill…")} aria-label={t("Search a skill")} className="min-h-11 w-full max-w-sm rounded-xl px-4 ring-1 ring-slate-300" />
-          {FILTERS.map((f) => <button key={f.id} type="button" onClick={() => setFilter(f.id)} aria-pressed={filter === f.id} className={`min-h-11 rounded-full px-4 font-semibold ${filter === f.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-300"}`}>{t(f.label)}</button>)}
+          <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("Search skills…")} aria-label={t("Search skills…")}className="min-h-11 w-full max-w-sm rounded-xl px-4 ring-1 ring-slate-300" />
+          {SKILL_TABS.map((f) => <button key={f.key} type="button" onClick={() => setFilter(f.key)} aria-pressed={filter === f.key} className={`min-h-11 rounded-full px-4 font-semibold ${filter === f.key ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-300"}`}>{t(f.label)}</button>)}
           <label className="flex min-h-11 items-center gap-2 text-sm font-semibold text-slate-700"><input type="checkbox" checked={onlyReady} onChange={(e) => setOnlyReady(e.target.checked)} className="h-5 w-5" /> {t("Only skills with questions")}</label>
         </div>
         {!shown.length ? <EmptyState compact icon="🔎" title="Nothing matches your search" text="Try another word or filter." className="mt-4" /> : (
@@ -198,9 +243,9 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
                 <label className={`flex flex-1 items-center gap-3 ${k.available ? "cursor-pointer" : "opacity-60"}`}>
                   <input type="checkbox" className="h-5 w-5 accent-brand-teal" checked={picked[k.id] !== undefined} disabled={!k.available && picked[k.id] === undefined} onChange={() => toggle(k.id)} />
                   <span>{k.name}</span>
-                  <span className="text-xs text-slate-500">{k.available ? t("{n} questions", { n: k.available }) : t("No questions yet")}</span>
+                  <span className="text-xs text-slate-500" dir="ltr" title={k.available ? t("{n} questions", { n: k.available }) : t("No questions yet")}>{questionBadge(k.available)}</span>
                 </label>
-                {k.available > 0 && picked[k.id] === undefined && <div className="ms-auto max-w-full"><SkillQuestionPicker skillId={k.id} skillName={t("See questions")} mode="view" name={null} /></div>}
+                {k.available > 0 && picked[k.id] === undefined && <div className="ms-auto max-w-full"><SkillQuestionPicker skillId={k.id} skillName={t("See questions")} mode="view" name={null} viewable isPicked={(id) => pickIds.has(id)} onPick={(row, on) => (on ? addPicks([row]) : removePick(row.id))} /></div>}
               </li>
             ))}
           </ul>
@@ -224,7 +269,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
                     {!own[k.id] && <input type="number" min={1} max={20} value={picked[k.id]} aria-label={t("Number of questions for {name}", { name: k.name })} onChange={(e) => { setPicked({ ...picked, [k.id]: Math.max(1, Math.min(20, Number(e.target.value) || 1)) }); setPreview(null); }} className="min-h-11 w-20 rounded-xl px-3 ring-1 ring-slate-300" />}
                     <button type="button" onClick={() => { toggle(k.id); choose(k.id, { auto: true }); }} className="min-h-11 rounded-xl px-3 text-sm font-semibold text-rose-700 ring-1 ring-rose-200">{t("Remove")}</button>
                   </div>
-                  <SkillQuestionPicker skillId={k.id} name={null} max={20} defaultValue={own[k.id] ? { auto: false, questionIds: own[k.id] } : undefined} onChange={(v) => choose(k.id, v)} />
+                  <SkillQuestionPicker skillId={k.id} name={null} max={20} defaultValue={own[k.id] ? { auto: false, questionIds: own[k.id] } : undefined} onChange={(v) => choose(k.id, v)} viewable isPicked={(id) => pickIds.has(id)} onPick={(row, on) => (on ? addPicks([row]) : removePick(row.id))} />
                 </li>
               ))}
             </ul>
@@ -237,19 +282,25 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
           <div className="mt-5 rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <p className="font-semibold text-brand-navy">{t("Selected questions")}</p>
-              <p data-testid="selected-total" className="rounded-full bg-brand-navy px-3 py-1 text-sm font-bold text-white">{t("Total: {n} questions", { n: grandTotal })}</p>
+              <p className="flex flex-wrap gap-2">
+                <span data-testid="selected-total" className="rounded-full bg-brand-navy px-3 py-1 text-sm font-bold text-white">{t("Total: {n} questions", { n: grandTotal })}</span>
+                <span data-testid="selected-marks" className="rounded-full bg-white px-3 py-1 text-sm font-bold text-brand-navy ring-1 ring-slate-300">{t("{n} marks", { n: totalMarks })}</span>
+              </p>
             </div>
             {mapPicks.length > 0 && (
               <ol className="mt-2 grid gap-1.5">
                 {mapPicks.map((q, i) => (
                   <li key={q.id} className="flex items-start gap-2 rounded-xl bg-white p-2.5 ring-1 ring-slate-200">
                     <span className="w-6 shrink-0 pt-0.5 text-end font-semibold text-slate-500">{i + 1}.</span>
-                    <span className="flex-1 text-sm">
+                    <span className="min-w-0 flex-1 text-sm">
                       <span className="block text-xs font-semibold text-slate-500" lang="en" data-content>{q.section}</span>
-                      <span className="block text-slate-900" lang="en" dir="ltr" data-content>{q.stem}</span>
-                      <span className="text-xs text-slate-500">{q.typeLabel} · {t(LEVEL_SHORT[q.level])}</span>
+                      <button type="button" onClick={() => setViewAt(i)} className="block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content>{q.stem}</button>
+                      <span className="text-xs text-slate-500">{q.typeLabel} · {t(LEVEL_SHORT[q.level])}{q.passageTitle ? <> · <span lang="en" data-content>📖 {q.passageTitle}</span></> : null}</span>
                     </span>
-                    <span className="flex shrink-0 gap-1">
+                    <span className="flex shrink-0 flex-wrap items-center justify-end gap-1">
+                      <label className="flex items-center gap-1 text-xs text-slate-600"><input type="number" min={0} max={100} step={0.5} value={markOf(q.id)} onChange={(e) => setMark(q.id, e.target.value)} aria-label={t("Marks for question {n}", { n: i + 1 })} className="min-h-9 w-16 rounded-lg px-2 text-sm ring-1 ring-slate-300" />{t("marks")}</label>
+                      <button type="button" onClick={() => setViewAt(i)} className="min-h-9 rounded-lg px-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">👁 {t("View")}</button>
+                      <button type="button" disabled={replacing !== null} onClick={() => void replacePick(q.id)} title={t("A similar question: same skill and level")} className="min-h-9 rounded-lg px-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 disabled:opacity-50">{replacing === q.id ? t("Working…") : `🔁 ${t("Replace")}`}</button>
                       <button type="button" disabled={i === 0} onClick={() => { setMapPicks(move(mapPicks, i, -1)); setPreview(null); }} aria-label={t("Move question {n} up", { n: i + 1 })} className="min-h-9 min-w-9 rounded-lg text-slate-600 ring-1 ring-slate-300 disabled:opacity-30">▲</button>
                       <button type="button" disabled={i === mapPicks.length - 1} onClick={() => { setMapPicks(move(mapPicks, i, 1)); setPreview(null); }} aria-label={t("Move question {n} down", { n: i + 1 })} className="min-h-9 min-w-9 rounded-lg text-slate-600 ring-1 ring-slate-300 disabled:opacity-30">▼</button>
                       <button type="button" onClick={() => removePick(q.id)} aria-label={t("Remove question {n}", { n: i + 1 })} className="min-h-9 rounded-lg px-2 text-sm font-semibold text-rose-700 ring-1 ring-rose-200">✕</button>
@@ -257,6 +308,10 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
                   </li>
                 ))}
               </ol>
+            )}
+            {viewAt !== null && mapPicks[viewAt] && (
+              <QuestionDrawer ids={mapPicks.map((p) => p.id)} index={viewAt} onIndex={setViewAt} onClose={() => setViewAt(null)}
+                isSelected={(id) => pickIds.has(id)} onToggle={(d, on) => (on ? addPicks([d.row]) : removePick(d.id))} />
             )}
             {pickedList.length > 0 && (
               <ul className="mt-2 grid gap-1 text-sm">

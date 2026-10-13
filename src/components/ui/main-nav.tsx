@@ -2,8 +2,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import type { LineIconName } from "./line-icon";
 
-export interface NavItem { href: string; label: string; icon: string; count?: number; alert?: boolean; group?: string }
+export interface NavItem { href: string; label: string; icon: string; count?: number; alert?: boolean; group?: string; /** a clean line icon (staff menus) drawn instead of the emoji */ line?: LineIconName }
 
 const GROUP_ICON: Record<string, string> = { Teach: "📚", Students: "👥", MAP: "🗺️", Content: "📚", "Follow-up": "📈", School: "🏫" };
 

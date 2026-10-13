@@ -65,6 +65,8 @@ const str = (v: unknown) => String(v ?? "");
  * made by another process, e.g. the item-statistics job). Callers get their own copy.
  */
 const ITEM_CACHE_MS = 60_000;
+/** the question columns an item is built from (not the analysis / statistics columns) */
+const ITEM_COLUMNS = ["id", "externalRef", "skillId", "typeId", "passageId", "imageId", "stem", "content", "hint", "difficultyLevel", "estimatedSeconds", "irtA", "irtB", "irtC", "contentHash"] as const;
 const ITEM_CACHE_MAX = 500;
 const itemCache = new Map<string, { version: number; at: number; items: PracticeItem[] }>();
 
@@ -109,7 +111,7 @@ async function atLevelOf(repo: Repo, skillId: string, items: PracticeItem[]): Pr
 export async function loadItemsForSkills(repo: Repo, skillIds: string[]): Promise<PracticeItem[]> {
   if (!skillIds.length) return [];
   const [qs, onMap, grades] = await Promise.all([
-    repo.findMany("Question", { skillId: { in: skillIds }, status: "PUBLISHED", deletedAt: null }),
+    repo.findMany("Question", { skillId: { in: skillIds }, status: "PUBLISHED", deletedAt: null }, { select: ITEM_COLUMNS }),
     mapLinkedQuestionIds(repo),
     skillGrades(repo, skillIds),
   ]);
@@ -134,7 +136,7 @@ export async function loadQuestionItems(repo: Repo, questionIds: string[]): Prom
   const pos = new Map(questionIds.map((id, i) => [id, i]));
   const order = (items: PracticeItem[]) => items.sort((a, b) => (pos.get(a.questionId) ?? 0) - (pos.get(b.questionId) ?? 0));
   if (questionIds.length > QUESTION_CACHE_LIST) {
-    const qs = await repo.findMany("Question", { id: { in: questionIds }, status: "PUBLISHED", deletedAt: null });
+    const qs = await repo.findMany("Question", { id: { in: questionIds }, status: "PUBLISHED", deletedAt: null }, { select: ITEM_COLUMNS });
     return order(await buildItems(repo, qs));
   }
   const version = bankVersion();
@@ -147,7 +149,7 @@ export async function loadQuestionItems(repo: Repo, questionIds: string[]): Prom
     else missing.push(id);
   }
   if (missing.length) {
-    const qs = await repo.findMany("Question", { id: { in: missing }, status: "PUBLISHED", deletedAt: null });
+    const qs = await repo.findMany("Question", { id: { in: missing }, status: "PUBLISHED", deletedAt: null }, { select: ITEM_COLUMNS });
     for (const it of await buildItems(repo, qs)) {
       out.push(it);
       questionCache.delete(it.questionId);
@@ -192,7 +194,10 @@ async function buildItems(repo: Repo, qs: Row[], holdBack = false): Promise<Prac
   // 🧹 never served: a question that clearly needs a reading passage ("according to the passage", "in paragraph 3"…)
   // but has none attached (or its passage is missing / empty) — Update 55, it reached some students
   const noText = (q: Row) => { const p = q.passageId ? passage.get(str(q.passageId)) : undefined; return !(p && str(p.body).trim()) && definitelyNeedsPassage(str(q.stem)); };
-  return qs.filter((q) => autoScored.has(str(q.typeId)) && !noText(q)).map((q) => ({ ...toPracticeItem(q, opts, answers, expl, typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
+  // ⚡ each question's options / answers / explanations grouped once (was a scan of every row per question)
+  const by = (rows: Row[]) => { const m = new Map<string, Row[]>(); for (const r of rows) { const k = str(r.questionId); const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
+  const optsOf = by(opts), answersOf = by(answers), explOf = by(expl);
+  return qs.filter((q) => autoScored.has(str(q.typeId)) && !noText(q)).map((q) => ({ ...toPracticeItem(q, optsOf.get(str(q.id)) ?? [], answersOf.get(str(q.id)) ?? [], explOf.get(str(q.id)) ?? [], typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
 }
 
 function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCode: Map<string, QuestionTypeCode>, passage: Map<string, Row>): PracticeItem {

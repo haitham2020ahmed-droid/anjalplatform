@@ -21,6 +21,7 @@ import { topUpSkills, thinSkills } from "./min-per-skill";
 import { normalizeSkillName, schoolSkillIndex } from "./skill-questions";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
+import { readCacheFor } from "../db/read-cache-repo";
 
 const s = (v: unknown) => String(v ?? "");
 
@@ -88,7 +89,15 @@ export interface ChunkWork { from: number; next: number; total: number; added: n
  * Loads units [from, …) of one pack for one school: at most `perChunk` units and stops early when `budgetMs` is spent
  * (a web request stays short). Returns where to go on from (`next`); `next === total` = the pack is done.
  */
-export async function runPackChunk(repo: Repo, schoolId: string, def: PackDef, from: number, opts: { budgetMs?: number; maxUnits?: number; now?: Date } = {}): Promise<ChunkWork> {
+export async function runPackChunk(repoIn: Repo, schoolId: string, def: PackDef, from: number, opts: { budgetMs?: number; maxUnits?: number; now?: Date } = {}): Promise<ChunkWork> {
+  // ⚡ the reference rows every question of the chunk reads again (grades, skills, standards, areas, types …) are read
+  // once per chunk; writes drop what they change (db/read-cache-repo.ts)
+  const repo = readCacheFor(repoIn);
+  repo.clear();
+  try { return await runChunk(repo, schoolId, def, from, opts); } finally { repo.clear(); }
+}
+
+async function runChunk(repo: Repo, schoolId: string, def: PackDef, from: number, opts: { budgetMs?: number; maxUnits?: number; now?: Date }): Promise<ChunkWork> {
   const loaded = await loadPack(def);
   if (!loaded) return { from, next: 0, total: 0, added: 0, skipped: 0, created: 0, errors: [], notes: ["The file of this pack is not on the server yet."] };
   const total = unitsOf(def, loaded);
@@ -157,6 +166,26 @@ export function countPack(repo: Repo, schoolId: string, def: PackDef): Promise<P
   return p;
 }
 
+/** a stored text equals a pack text as the database compares them (case and trailing spaces ignored) */
+const stemKey = (t: string) => t.toLowerCase().trimEnd();
+const stemCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Map<string, string>> }>>();
+/** The school's (not deleted) question texts: compare key → the stored text. Cached per bank version, ≤ 2 minutes. */
+function schoolStems(repo: Repo, schoolId: string, skillIds: string[]): Promise<Map<string, string>> {
+  let m = stemCache.get(repo); if (!m) stemCache.set(repo, (m = new Map()));
+  const v = modelVersion("Question", "Skill", "Curriculum", "Grade"), hit = m.get(schoolId);
+  if (hit && hit.v === v && Date.now() - hit.at < 120_000) return hit.p;
+  const p = (async () => {
+    const out = new Map<string, string>();
+    for (let i = 0; i < skillIds.length; i += 400) {
+      for (const r of await repo.findMany("Question", { skillId: { in: skillIds.slice(i, i + 400) }, deletedAt: null }, { select: ["stem"] })) { const st = s(r.stem); out.set(stemKey(st), st); }
+    }
+    return out;
+  })();
+  remember(m, schoolId, { v, at: Date.now(), p }, 4);
+  p.catch(() => m!.delete(schoolId));
+  return p;
+}
+
 async function countPackNow(repo: Repo, schoolId: string, def: PackDef): Promise<PackCount> {
   const loaded = (await loadPack(def))!;
   const idx = await schoolSkillIndex(repo, schoolId);
@@ -166,12 +195,11 @@ async function countPackNow(repo: Repo, schoolId: string, def: PackDef): Promise
   const groups = (loaded.nodes ?? loaded.sets ?? []) as { skill?: string; questions: SkillSet["questions"] }[];
   const usable = groups.filter((g) => def.onlyExisting ? g46.has(normalizeSkillName(s(g.skill))) : def.kind === "topup" ? true : hasGrades);
   const questions = usable.flatMap((g) => g.questions);
-  const stems = [...new Set(questions.map((q) => s(q.stem)))];
+  // ⚡ the school's question texts are read ONCE (by skill, indexed) for every pack of the page, instead of looking the
+  // pack's texts up 300 at a time (an unindexed text column: each lookup scanned the whole question table)
+  const have = await schoolStems(repo, schoolId, [...idx.ids]);
   const found = new Set<string>();
-  for (let i = 0; i < stems.length; i += 300) {
-    const rows = await repo.findMany("Question", { stem: { in: stems.slice(i, i + 300) }, deletedAt: null }, { select: ["stem", "skillId"] });
-    for (const r of rows) if (idx.ids.has(s(r.skillId))) found.add(qkey(s(r.stem)));
-  }
+  for (const q of questions) { const raw = stemKey(s(q.stem)); if (have.has(raw)) found.add(qkey(have.get(raw)!)); }
   const inBank = questions.filter((q) => found.has(qkey(s(q.stem)))).length;
   let left = questions.length - inBank;
   if (def.kind === "topup") {

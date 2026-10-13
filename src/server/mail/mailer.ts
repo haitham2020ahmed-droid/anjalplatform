@@ -7,7 +7,7 @@
  *   SMTP_SECURE  "true" for port 465
  *   SMTP_USER    login (for Gmail: the full Gmail address)
  *   SMTP_PASS    password (for Gmail: an app password)
- *   MAIL_FROM    "Al-Anjal Platform <name@gmail.com>"
+ *   MAIL_FROM    "Literise <name@gmail.com>"
  */
 import { sendSmtp, type SmtpOptions } from "./smtp";
 

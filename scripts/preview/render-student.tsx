@@ -126,9 +126,9 @@ async function main() {
   const r2 = await submitAnswer(repo, actor, { sessionId: r1.view.sessionId, questionId: q2.questionId, response: right }, new Date(pnow.getTime() + 650_000));
   const practiceRight = frame({ view: r2.view, shownQuestion: q2, value: right as string, feedback: r2.feedback });
 
-  const shell = (body: string) => `<header class="border-b border-slate-200 bg-white"><div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3"><a href="#" class="font-bold text-brand-navy">Al-Anjal English</a><div class="flex items-center gap-4 text-sm text-slate-600"><span>Lina Al-Harbi</span><button class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium">Sign out</button></div></div></header><main class="mx-auto max-w-6xl px-6 py-8">${body}</main>`;
+  const shell = (body: string) => `<header class="border-b border-slate-200 bg-white"><div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3"><a href="#" class="font-bold text-brand-navy">Literise</a><div class="flex items-center gap-4 text-sm text-slate-600"><span>Lina Al-Harbi</span><button class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium">Sign out</button></div></div></header><main class="mx-auto max-w-6xl px-6 py-8">${body}</main>`;
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Al-Anjal English — student screens preview</title>
+<title>Literise — student screens preview</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{brand:{navy:"#1f3a68",purple:"#5b3fa0",teal:"#1fa3a3",gold:"#f5b800"}},fontFamily:{sans:["Lexend","Segoe UI","system-ui","sans-serif"]}}}}</script>

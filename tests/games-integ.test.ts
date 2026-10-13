@@ -331,9 +331,10 @@ describe("🧩 Games integration", () => {
     }
   });
 
-  test("student home: no new tiles — only Join Live and the Question of the Day card were added", () => {
+  test("student home: no game tiles — Join Live and the Question of the Day only (the main-page grid is HomeTiles)", () => {
     const page = read("src/app/student/page.tsx");
-    assert.equal((page.match(/<BigTile /g) ?? []).length, 0);   // owner's spec (Update 53): one Today card, no tiles
+    assert.equal((page.match(/<BigTile /g) ?? []).length, 0);   // the main pages are one HomeTiles grid (refined student pages)
+    assert.equal((page.match(/<HomeTiles /g) ?? []).length, 1);
     assert.match(page, /<JoinLive/); assert.match(page, /<QotdCard/);
     assert.doesNotMatch(page, /RocketsView|TugView|ChestPicker|games-usage|LiveHost/);
   });

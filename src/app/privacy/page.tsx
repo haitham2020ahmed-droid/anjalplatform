@@ -11,7 +11,7 @@ export default async function PrivacyPage() {
   const item = (t: string, d: string) => <li className="rounded-2xl bg-white p-4 ring-1 ring-slate-200"><p className="font-bold text-brand-navy">{t}</p><p className="mt-1 text-slate-700">{d}</p></li>;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader icon="🔒" title="Privacy" subtitle="How Al-Anjal English looks after students’ data." />
+      <PageHeader icon="🔒" title="Privacy" subtitle="How Literise looks after students’ data." />
       <ul className="grid gap-3 md:grid-cols-2">
         {item("What we keep", "Name, class, the school student ID, answers on the platform, MAP scores entered or imported by the school, and the words a student looks up. No national ID, address or phone number of students.")}
         {item("Who sees it", "The student, their parents (only what the teacher shares), the student’s teachers, grade coordinators for their grades, and the head of department.")}

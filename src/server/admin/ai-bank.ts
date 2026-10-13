@@ -246,7 +246,7 @@ async function contextFor(repo: Repo, actor: Actor, req: GenerateRequest) {
 
 /** Up to 5 approved questions of the skill, spread across levels, as style examples for the AI. */
 async function examplesFor(repo: Repo, skillId: string): Promise<NonNullable<GenerationContext["examples"]>> {
-  const qs = (await repo.findMany("Question", { skillId, status: "PUBLISHED" })).filter((q) => !q.deletedAt).sort((a, b) => Number(a.difficultyLevel) - Number(b.difficultyLevel));
+  const qs = (await repo.findMany("Question", { skillId, status: "PUBLISHED", deletedAt: null }, { select: ["id", "stem", "difficultyLevel"] })).sort((a, b) => Number(a.difficultyLevel) - Number(b.difficultyLevel));
   const picked = qs.length <= 5 ? qs : [0, 1, 2, 3, 4].map((i) => qs[Math.round((i * (qs.length - 1)) / 4)]);
   const opts = picked.length ? await repo.findMany("QuestionOption", { questionId: { in: picked.map((q) => q.id) } }) : [];
   return picked.map((q) => {
@@ -256,7 +256,7 @@ async function examplesFor(repo: Repo, skillId: string): Promise<NonNullable<Gen
 }
 
 async function existingFor(repo: Repo, skillId: string): Promise<ExistingItem[]> {
-  const qs = (await repo.findMany("Question", { skillId })).filter((q) => !q.deletedAt && q.status !== "ARCHIVED");
+  const qs = (await repo.findMany("Question", { skillId, deletedAt: null }, { select: ["id", "stem", "status"] })).filter((q) => q.status !== "ARCHIVED");
   const opts = qs.length ? await repo.findMany("QuestionOption", { questionId: { in: qs.map((q) => q.id) } }) : [];
   return qs.map((q) => {
     const mine = opts.filter((o) => o.questionId === q.id);

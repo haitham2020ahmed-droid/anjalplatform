@@ -11,7 +11,8 @@ import { aiSettings, pickProvider, rateState } from "@/server/ai/engine";
 import { AI_LOG_TOOL, aiErrors, aiLogSummary, aiSince, listJobs, runWeekly, suggestions, weeklyState } from "@/server/ai/jobs";
 import { gapReport, suspiciousQuestions } from "@/server/ai/tools";
 import { wizardList } from "@/server/ai/wizard";
-import { masterSkills } from "@/server/skills/master";
+import { skillPickerList } from "@/server/skills/picker";
+import { SkillSearchSelect } from "@/components/skill-picker";
 import { coachSettingsAction, settingsAction, startToolAction, stopJobAction, testCoachAction, tickAction, weeklyAction } from "./actions";
 import { coachSettings, fluencyModel, plainFailure } from "@/server/fluency/coach";
 
@@ -38,7 +39,8 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
   const jobs = await listJobs(repo, actor, 15);
   const active = jobs.find((j) => j.status === "QUEUED" || j.status === "RUNNING");
   const wizardRows = tab === "wizard" ? await wizardList(repo, actor, grade) : [];
-  const toolSkills = tab === "tools" ? await masterSkills(repo, actor.schoolId!, { grade, withQuestionsOnly: true }) : [];
+  // the one picker list of the grade (every skill; one without questions is shown disabled "0 Q")
+  const toolSkills = tab === "tools" ? await skillPickerList(repo, actor, { onlyGrade: grade }) : [];
   const gaps = tab === "tools" && sp.tool === "GAP" ? await gapReport(repo, actor.schoolId!, grade, sp.skillId || undefined) : null;
   const reviewRows = tab === "review" ? await suggestions(repo, actor, { tool: sp.tool || undefined, jobId: sp.job || undefined, skillId: sp.skillId || undefined }) : [];
   const suspicious = tab === "suspicious" ? await suspiciousQuestions(repo, actor.schoolId!, { grade }) : [];
@@ -95,7 +97,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
                 <h3 className="text-lg font-bold text-brand-navy">{title}</h3><p className="text-sm text-slate-600">{what}</p>
                 <div className="mt-3 flex flex-wrap items-end gap-2 text-sm">
                   <label className="flex flex-col">Grade<select name="grade" defaultValue={grade} className={field}>{grades.map((g) => <option key={g} value={g}>Grade {g}</option>)}</select></label>
-                  <label className="flex min-w-[12rem] flex-1 flex-col">Skill<select name="skillId" defaultValue={sp.skillId ?? ""} className={field}><option value="">All skills</option>{skills.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}</select></label>
+                  <label className="flex min-w-[12rem] flex-1 flex-col">Skill<SkillSearchSelect skills={skills} name="skillId" defaultValue={sp.skillId ?? ""} emptyLabel="All skills" /></label>
                   {k !== "GAP" && k !== "READING" && <label className="flex flex-col">Section<select name="section" className={field}><option value="">All</option><option value="CONCEPT_VOCABULARY">Concept Vocabulary</option><option value="ANALYZE_CRAFT_AND_STRUCTURE">Analyze Craft &amp; Structure</option><option value="RESPOND_TO_READING">Respond to Reading</option></select></label>}
                   <button disabled={k !== "GAP" && k !== "DUPLICATE" && !picked.ok} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">▶ Start</button>
                 </div>

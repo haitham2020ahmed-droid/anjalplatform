@@ -1,6 +1,6 @@
 /**
  * 📜 The certificate page (A4 landscape) in the print kit's design, as self-contained HTML (escaped text, no
- * scripts): a double navy-and-gold border with corner ornaments, "Al-Anjal" and the school name, a big student
+ * scripts): a double navy-and-gold border with corner ornaments, "Literise" and the school name, a big student
  * name, the achievement, the date, a teacher's signature line and a seal drawn in SVG (no image files).
  * Used by the PDF / Print certificate (src/server/motivation/certificates.ts) and the unit certificate page.
  * Never puts a dir attribute on SVG elements.
@@ -25,7 +25,7 @@ export interface CertificateView {
 
 const GOLD = "#c99a06", GOLD_SOFT = "#f5d76e";
 
-/** A seal: a gold starburst, a navy disc, a dotted ring with "AL-ANJAL · EXCELLENCE" around a star, two ribbons. */
+/** A seal: a gold starburst, a navy disc, a dotted ring with "LITERISE · EXCELLENCE" around a star, two ribbons. */
 export function sealSvg(id = "seal"): string {
   const pts: string[] = [];
   for (let i = 0; i < 64; i++) {
@@ -44,7 +44,7 @@ export function sealSvg(id = "seal"): string {
 <circle cx="60" cy="60" r="41" fill="none" stroke="${GOLD_SOFT}" stroke-width="1.2" stroke-dasharray="1.6 2.2"/>
 <circle cx="60" cy="60" r="25" fill="none" stroke="${GOLD_SOFT}" stroke-width="1"/>
 <defs><path id="${id}-arc" d="M60 60 m-33 0 a33 33 0 1 1 66 0 a33 33 0 1 1 -66 0"/></defs>
-<text font-size="8.6" font-weight="700" letter-spacing="1.6" fill="${GOLD_SOFT}" font-family="Lexend, Segoe UI, sans-serif"><textPath href="#${id}-arc" startOffset="0">AL-ANJAL ★ EXCELLENCE ★ ENGLISH ★</textPath></text>
+<text font-size="8.6" font-weight="700" letter-spacing="1.6" fill="${GOLD_SOFT}" font-family="Lexend, Segoe UI, sans-serif"><textPath href="#${id}-arc" startOffset="0">LITERISE ★ EXCELLENCE ★ ENGLISH ★</textPath></text>
 <polygon points="${star.join(" ")}" fill="${GOLD_SOFT}"/>
 </svg>`;
 }
@@ -98,7 +98,7 @@ export function certificateBody(v: CertificateView): string {
   const logo = v.logo ? `<img class="cert-logo" alt="" src="data:${esc(v.logo.mime)};base64,${v.logo.base64}">` : "";
   return `<div class="cert-sheet" data-pk="certificate"><div class="cert-page"><div class="cert-frame"><div class="cert-inner">
 <span class="corner c-tl">${CORNER}</span><span class="corner c-tr">${CORNER}</span><span class="corner c-bl">${CORNER}</span><span class="corner c-br">${CORNER}</span>
-<div class="cert-top">${logo}<div><div class="cert-brand">Al-<i>Anjal</i></div><div class="cert-school"><bdi>${esc(v.school)}</bdi></div></div></div>
+<div class="cert-top">${logo}<div><div class="cert-brand">Lite<i>rise</i></div><div class="cert-school"><bdi>${esc(v.school)}</bdi></div></div></div>
 <h1 class="cert-title">${esc(v.title)}</h1>
 <div class="cert-rule" aria-hidden="true"><span></span><b>✦</b><span></span></div>
 <div class="cert-to">${esc(v.presented)}</div>

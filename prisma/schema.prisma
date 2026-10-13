@@ -749,6 +749,8 @@ model Question {
 
   @@unique([skillId, externalRef])
   @@index([skillId, status, irtB])
+  // ⚡ a skill's published / live questions by level, and the per-skill counts (GROUP BY skillId) read from the index alone
+  @@index([skillId, deletedAt, status, difficultyLevel])
   @@index([status, origin])
   @@index([standardId])
   mapLinks              QuestionMapLink[]
@@ -1702,9 +1704,28 @@ model SkillPlan {
   note        String?  @db.VarChar(1000)
   createdById String?
   createdAt   DateTime @default(now())
+  /// 🗂️ Plan editor: DRAFT (nothing reaches students) | SENT | PAUSED (hidden from students for now) | WITHDRAWN.
+  /// Rows from before the editor are SENT.
+  status      String    @default("SENT") @db.VarChar(10)
+  /// MAP | RTI | CURRICULUM | NAFS; null = custom (or an older row: read from kind)
+  program     String?   @db.VarChar(16)
+  /// the plan as the teacher edits it: { v, sections: [{ key, skillId, skillName, questionIds, auto, studentIds, lesson, assignmentId… }] }
+  doc         Json?
+  /// the platform's version (the suggestion before the teacher's edits), to show what changed
+  baseline    Json?
+  /// why the platform suggested it: { reason, sources, rows: [{ name, lines }] }
+  source      Json?
+  /// who the plan is for (null = the whole class)
+  studentIds  Json?
+  goals       String?   @db.VarChar(1000)
+  startAt     DateTime?
+  dueAt       DateTime?
+  sentAt      DateTime?
+  updatedAt   DateTime?
 
   @@index([schoolId, classId])
   @@index([classId, kind]) // a class's plans of one kind (Update 46)
+  @@index([schoolId, status])
 }
 
 model SkillPlanItem {
@@ -3288,6 +3309,8 @@ model TeacherTest {
   reteachAt     DateTime?
   /// NAFS tests: when the personal NAFS plans were made from the results (button, or the daily job after the due date)
   nafsPlanAt    DateTime?
+  /// points per question { questionId: points } (⚡ Make the test for me / the builder's marks); null = 1 point each
+  marks         Json?
   createdAt     DateTime  @default(now())
   deletedAt     DateTime?
 

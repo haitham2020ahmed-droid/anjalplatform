@@ -54,14 +54,17 @@ export function canView(actor: Actor, a: Row, hidden: Set<string>): boolean {
   return isAdmin(actor) || a.status === "PUBLISHED" || s(a.createdById) === actor.userId;
 }
 
+/** the article columns the list shows and checks (not the poll text) */
+const LIST_COLUMNS = ["id", "schoolId", "code", "title", "topic", "summary", "status", "createdById", "updatedAt", "deletedAt"] as const;
+
 /** Every article this actor can see, with the filters (topic, status, source, search). */
 export async function listLibrary(repo: Repo, actor: Actor, f: LibraryFilters = {}): Promise<{ items: LibraryItem[]; topics: string[] }> {
   if (!isStaff(actor)) throw new ForbiddenError("Only teachers and admins can open the ReadRise library.");
   assertCan(actor, "questions:read");
   const hidden = await hiddenArticleIds(repo, actor.schoolId);
   const [platform, school] = await Promise.all([
-    repo.findMany("RRArticle", { schoolId: null, deletedAt: null }),
-    actor.schoolId ? repo.findMany("RRArticle", { schoolId: actor.schoolId, deletedAt: null }) : Promise.resolve([] as Row[]),
+    repo.findMany("RRArticle", { schoolId: null, deletedAt: null }, { select: LIST_COLUMNS }),
+    actor.schoolId ? repo.findMany("RRArticle", { schoolId: actor.schoolId, deletedAt: null }, { select: LIST_COLUMNS }) : Promise.resolve([] as Row[]),
   ]);
   const all = [...platform, ...school].filter((a) => canView(actor, a, hidden));
   const versions = all.length ? await repo.findMany("RRVersion", { articleId: { in: all.map((a) => a.id) } }, { select: ["articleId", "level", "estLevel"] }) : [];

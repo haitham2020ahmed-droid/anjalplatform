@@ -32,7 +32,7 @@ export function ReportHeader({ back, icon, title, subtitle, who, when, filters, 
   const today = fmtDay(new Date());
   return (
     <header className="rk-header mb-5" data-rk="header">
-      {back && <Link href={back.href} className="inline-flex min-h-10 items-center gap-1 rounded-md text-sm font-medium text-slate-500 hover:text-brand-teal print:hidden"><span aria-hidden="true" className="inline-block rtl:rotate-180">‹</span> {t(back.label)}</Link>}
+      {back && <Link href={back.href} data-rk="back" className="inline-flex min-h-10 items-center gap-1 rounded-md text-sm font-medium text-slate-500 hover:text-brand-teal print:hidden"><span aria-hidden="true" className="inline-block rtl:rotate-180">‹</span> {t(back.label)}</Link>}
       <div className="mt-1.5 overflow-hidden rounded-3xl bg-white bg-gradient-to-br from-white via-white to-sky-50/70 shadow-card ring-1 ring-slate-200/80 print:rounded-none print:shadow-none print:ring-0">
         <div className="brand-stripe h-1.5" aria-hidden="true" />
         <div className="flex flex-wrap items-start justify-between gap-4 p-5 sm:p-6">
@@ -53,7 +53,7 @@ export function ReportHeader({ back, icon, title, subtitle, who, when, filters, 
             <div className="flex flex-wrap items-center gap-2 print:hidden">
               {children}
               {downloads.map((d) => (
-                <a key={d.href} href={d.href} {...(d.download === false ? {} : { download: true })}
+                <a key={d.href} href={d.href} data-rk="download" {...(d.download === false ? {} : { download: true })}
                   className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">
                   <span aria-hidden="true">{d.icon ?? "⬇️"}</span>{t(d.label)}
                 </a>
@@ -64,7 +64,7 @@ export function ReportHeader({ back, icon, title, subtitle, who, when, filters, 
         </div>
         {filters && <div className="rk-filters border-t border-slate-100 bg-slate-50/70 px-5 py-3 sm:px-6 print:hidden">{filters}</div>}
       </div>
-      <p className="mt-2 hidden text-xs text-slate-500 print:block" suppressHydrationWarning>{t("Printed {date}", { date: today })} · Al-Anjal English</p>
+      <p className="mt-2 hidden text-xs text-slate-500 print:block" suppressHydrationWarning>{t("Printed {date}", { date: today })} · Literise</p>
     </header>
   );
 }

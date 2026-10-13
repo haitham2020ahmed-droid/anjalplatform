@@ -23,7 +23,7 @@ export function SkillRow({ card }: { card: SkillCard }) {
         )}
       </div>
       <div>
-        <BandMeter band={card.band} score={card.mastery} started={started} />
+        <BandMeter band={card.band} score={card.mastery} started={started} answered={card.attempts} />
         <p className="mt-1 text-sm text-slate-500">
           {started ? `${card.attempts} ${card.attempts === 1 ? "question" : "questions"} answered, ${card.accuracy}% correct` : "No questions answered yet"}
         </p>

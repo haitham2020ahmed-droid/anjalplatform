@@ -8,6 +8,8 @@ import { assignTest, deleteTemplate, personalizeNafsFromTest, reteach, saveTempl
 import { composeTest, type ComposeInput } from "@/server/tests/compose";
 import { assertNoDuplicateQuestions, mapSectionQuestions, mapSourceTree, type MapSectionPage, type MapSourceTree } from "@/server/tests/map-source";
 import { assertPreviewedAsStudent, saveStudentPreview } from "@/server/tests/student-preview";
+import { generateTest, replaceQuestion, type GeneratedTest, type GenerateInput } from "@/server/tests/generate";
+import type { MapSourceQuestion } from "@/server/tests/map-source";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "assignments:create" as const };
 const known = (e: unknown) => e instanceof ValidationError || e instanceof ForbiddenError;
@@ -39,7 +41,27 @@ export async function mapSectionAction(input: { code: string; page?: number; typ
   catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
 }
 
-/** 👀 Saves the test for "Preview as student" and returns the preview page address. */
+/** ⚡ Make the test for me: a balanced test from the chosen lessons and skills (fills the builder's selected list). */
+export async function generateTestAction(input: GenerateInput): Promise<{ test?: GeneratedTest; error?: string }> {
+  const actor = await requireActor(STAFF);
+  const num = (v: unknown) => (v === null || v === undefined || v === "" ? null : Number(v));
+  try {
+    return { test: await generateTest(repo, actor, {
+      lessons: Array.isArray(input?.lessons) ? input.lessons.map(String) : [], skillIds: Array.isArray(input?.skillIds) ? input.skillIds.map(String) : [],
+      count: Number(input?.count), level: String(input?.level ?? ""), classId: input?.classId ? String(input.classId) : null,
+      types: input?.types && typeof input.types === "object" ? input.types : null, passageShare: num(input?.passageShare), totalMarks: num(input?.totalMarks), seed: String(input?.seed ?? ""),
+    }) };
+  } catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
+}
+
+/** 🔁 Replace one question with a similar one (same skill and level, not already in the test). */
+export async function replaceQuestionAction(input: { questionId: string; exclude: string[]; classId?: string | null }): Promise<{ row?: MapSourceQuestion; error?: string }> {
+  const actor = await requireActor(STAFF);
+  try { return { row: await replaceQuestion(repo, actor, { questionId: String(input?.questionId ?? ""), exclude: Array.isArray(input?.exclude) ? input.exclude.map(String) : [], classId: input?.classId ? String(input.classId) : null, seed: String(Date.now()) }) }; }
+  catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
+}
+
+/** 👀 Saves the test for "Preview as student"and returns the preview page address. */
 export async function studentPreviewAction(input: { title: string; levelMode: LevelMode; questions: Versions }): Promise<{ href?: string; error?: string }> {
   const actor = await requireActor(STAFF);
   try {
@@ -60,6 +82,7 @@ export async function assignTestAction(input: Omit<AssignTestInput, "openAt" | "
       classId: String(input?.classId ?? ""), type: String(input?.type ?? ""), title: String(input?.title ?? ""), levelMode: input?.levelMode,
       studentIds: Array.isArray(input?.studentIds) ? input.studentIds.map(String) : [], openAt: dateOf(input?.openAt), dueAt: dateOf(input?.dueAt, true),
       timeLimitMin: input?.timeLimitMin ?? null, shuffle: Boolean(input?.shuffle), questions: input?.questions ?? {}, templateId: input?.templateId ? String(input.templateId) : null,
+      marks: input?.marks && typeof input.marks === "object" ? input.marks : null,
     });
     return { testId: r.testId };
   } catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }

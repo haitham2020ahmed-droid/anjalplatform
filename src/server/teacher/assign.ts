@@ -12,6 +12,7 @@
  * Only practice done FOR the assignment counts (sessions with this assignmentId), so a skill
  * practised months ago is not "completed" the moment it is assigned.
  */
+import { countGroups } from "../db/group-count";
 import { hideLevels } from "../../lib/hide-levels";
 import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
@@ -294,8 +295,8 @@ export async function teacherCurriculum(repo: Repo, actor: Actor, classId?: stri
   // access rules (UI reorg): every grade's curriculum is open to every teacher; the class (and its students) stay theirs
   const allGrades = (await repo.findMany("Grade", { schoolId: klass.schoolId })).sort((a, b) => Number(a.level) - Number(b.level));
   const allCurs = allGrades.length ? await repo.findMany("Curriculum", { gradeId: { in: allGrades.map((g) => g.id) }, isActive: true }, { select: ["id", "gradeId"] }) : [];
-  const skillCount = new Map<string, number>();
-  if (allCurs.length) for (const k of await repo.findMany("Skill", { curriculumId: { in: allCurs.map((c) => c.id) }, deletedAt: null, isActive: true }, { select: ["curriculumId"] })) skillCount.set(s(k.curriculumId), (skillCount.get(s(k.curriculumId)) ?? 0) + 1);
+  // ⚡ counted by the database (one row per curriculum)
+  const skillCount = allCurs.length ? await countGroups(repo, "Skill", "curriculumId", { curriculumId: { in: allCurs.map((c) => c.id) }, deletedAt: null, isActive: true }) : new Map<string, number>();
   const skillsOfGrade = (gid: unknown) => allCurs.filter((c) => s(c.gradeId) === s(gid)).reduce((n, c) => n + (skillCount.get(s(c.id)) ?? 0), 0);
   const chosen = opts.grade !== undefined && opts.grade !== null ? allGrades.find((g) => Number(g.level) === Number(opts.grade)) : undefined;
   const shown = chosen ?? grade;
@@ -490,6 +491,8 @@ export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: s
 // ------------------------------------------------------------------ ⭐ assign chosen questions (question sets)
 
 export const MAX_SET_QUESTIONS = 50;
+/** a teacher-built test (Assessments) may hold a few more questions than a practice set */
+export const MAX_TEST_SET_QUESTIONS = 60;
 /** sets with a goal of correct answers stop here anyway (the teacher is told the student is stuck) */
 export const GOAL_SAFETY_CAP = 100;
 /** the default goal of correct answers for Curriculum Map places and plans */
@@ -508,7 +511,9 @@ export interface AssignQuestionsInput {
   curriculumPlanId?: string | null;
   /** MAP | RTI | CURRICULUM | NAFS (the Program choice), stored as Assignment.program */
   program?: string | null;
-  track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null }
+  track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null;
+  /** a teacher-built test: at most MAX_TEST_SET_QUESTIONS questions (instead of MAX_SET_QUESTIONS) */
+  test?: boolean }
 
 /**
  * Assigns specific questions chosen by the teacher (from the question list) to a class, selected students or
@@ -520,11 +525,12 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
   if (!input.classId) throw new ValidationError("Choose a class.");
   const picked = [...new Set((input.questionIds ?? []).filter(Boolean))];
   if (!picked.length) throw new ValidationError("Choose at least one question.");
-  if (picked.length > 2000) throw new ValidationError(`Choose at most ${input.adaptive ? 1000 : MAX_SET_QUESTIONS} questions at a time.`);
+  const cap = input.adaptive ? 1000 : input.test ? MAX_TEST_SET_QUESTIONS : MAX_SET_QUESTIONS;
+  if (picked.length > 2000) throw new ValidationError(`Choose at most ${cap} questions at a time.`);
   // 👯 never two copies of the same content in one set or test (same fingerprint, or same stem + correct answer —
   // copies stored under different skills, grades or map places): the first copy stays (questions/fresh.ts)
   const ids = await dedupeIds(repo, picked);
-  if (ids.length > (input.adaptive ? 1000 : MAX_SET_QUESTIONS)) throw new ValidationError(`Choose at most ${input.adaptive ? 1000 : MAX_SET_QUESTIONS} questions at a time.`);
+  if (ids.length > cap) throw new ValidationError(`Choose at most ${cap} questions at a time.`);
   const klass = await assertClassAccess(repo, actor, input.classId);
   await assertTrackFitsClass(repo, klass, trackOf(input.track));
   const teacher = await assigningTeacher(repo, actor, String(klass.id));

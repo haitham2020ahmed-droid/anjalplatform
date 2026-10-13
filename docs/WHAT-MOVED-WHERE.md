@@ -29,6 +29,26 @@ Checked by `tests/menus.test.ts`.
 
 ## Teacher
 
+### Update 15: every page in ONE place
+
+The teacher menu: **Home · Students & Classes · Curriculum Map · Plans · Assessments · Writing · Reading · MAP · Reports**,
+then **More** (folded): My Week, Messages, Live Challenge, Calendar, Help. Nothing is repeated on Home, in a hub page or
+in a second menu entry. Every old address still opens.
+
+| Page | Its one place |
+| --- | --- |
+| Home quick buttons (New Plan, New Test, Curriculum Map, MAP, Support plan, Live Challenge, My Week, Messages, Download Accounts, Upload MAP Scores) | Removed from Home: each is in the menu (Plans, Assessments, Curriculum Map, MAP, More) or in its area (Download Accounts: Students & Classes; Upload MAP Scores: MAP). Home keeps the numbers, Needs attention, Add Student and Find a skill. |
+| MAP reports `/teacher/map-center?tab=reports`, `/map-report/…` (profile, groups, study plans, family) | **Reports → MAP** (and Family). `/teacher/map-reports`, `/teacher/growth`, `/teacher/map-overview` still redirect. |
+| MAP plan `/teacher/map-center?tab=plan` | **Plans** (the MAP plan type). `/teacher/map-plans`, `/teacher/map-skill-plan`, `/teacher/personal-plan`, `/teacher/map-recommendations` still redirect. |
+| MAP `/teacher/map-center` | **MAP**: results, Upload MAP Scores (`/teacher/map-entry`) and the MAP Practice Test (`/teacher/map-test`) only. |
+| Reports wizard (`/teacher/reports?report=…&preview=1`) | **Reports**: a grid of cards (Class · Student · Skills · MAP · Family). A card opens the report at once; the bar on top has the class switcher, the student picker, the date range (this term by default), Download (PDF / print, Excel / CSV) and Send to family. Old wizard addresses open the report. |
+| Needs help (a section of Reports) | **Reports → Skills → Needs help** `/teacher/reports/needs-help` |
+| Test results, Diagnostic, ReadRise, Reading Fluency, Student page (old report cards) | Their own area: **Assessments**, **Reading**, **Students & Classes** (old wizard keys redirect there). |
+| Writing & Reading Aloud (a Reading tile) | **Writing** (menu) |
+| NAFS plan `/teacher/plans?tab=nafs`, NAFS curriculum view | **Plans → NAFS**, only for teachers of a Grade 6 class and admins (others are refused). |
+
+### Earlier moves
+
 | Old menu entry / route | New place |
 | --- | --- |
 | My Students `/teacher/classes` | **My Students** `/teacher/students`. `/teacher/classes` redirects there. Each class keeps its class page, dashboard and levels links. |

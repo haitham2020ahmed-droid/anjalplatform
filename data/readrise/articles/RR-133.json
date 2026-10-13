@@ -1,0 +1,605 @@
+{
+  "code": "RR-133",
+  "title": "Video Games: How They Are Made",
+  "topic": "Technology",
+  "summary": "How teams of designers, artists, programmers, sound makers, and testers build a video game step by step, from a simple test version to a finished game.",
+  "poll": "Making a video game is harder than playing one.",
+  "versions": [
+    {
+      "level": 300,
+      "title": "How a Game Is Made",
+      "text": "Do you like to play games on a screen? Lots of kids do. But how is a game made?\n\nSome games are made by one person. Big games need a team. The team may have lots of people. It can take years!\n\nEach person has a job. Some think up the rules. They plan what you do in the game. An artist draws the hero and the world. Some write the code. Code tells the game what to do.\n\nSome make the sounds. They make the songs, the steps, and the jumps.\n\nFirst, the team makes a small test game. It is plain. It may just use blocks. Kids play it. They say what is fun and what is not. Then the team fixes it.\n\nNext, the team builds the real game. Then they test it a lot. They look for a bug. A bug is a mistake. It can make the game stop! They fix each bug they find.\n\nAt last, the game is done. Kids can play it. But the team still fixes bugs and adds new parts.\n\nLots of kids in Saudi Arabia now learn to make games, too!"
+    },
+    {
+      "level": 400,
+      "title": "How a Game Is Made",
+      "text": "Do you like to play video games? Lots of kids do. But have you ever asked how a game is made?\n\nSome small games are made by just one person. Big games need a big team. The team may have hundreds of people. It can take years to make one game!\n\nEach person on the team has a job. Some plan the rules. They choose what you must do to win. An artist draws the hero and the world. Some people write the code. Code is a set of steps that tells the game what to do.\n\nOthers make the sounds. They make the music, the footsteps, and the splash when you jump in the water.\n\nFirst, the team makes a small test game. It is very plain. It may just use blocks. Then kids play it. They say what is fun and what is not. The team fixes the game.\n\nNext, the team builds the real game. Then they test it again and again. They look for a bug. A bug is a mistake in the game. It can make the game stop! They fix each bug they find.\n\nAt last, the game is done, and kids can play it. But the team still fixes bugs and adds new parts.\n\nLots of kids in Saudi Arabia now learn to make games, too!"
+    },
+    {
+      "level": 500,
+      "title": "Video Games: How They Are Made",
+      "text": "Do you like to play video games? Millions of kids do. But have you ever wondered how a game is made?\n\nSome small games are made by just one person. Big games need a big team. The team may have hundreds of people, and it can take years to finish one game!\n\nEach person on the team has a job. Some people plan the rules. They decide what players must do to win. An artist draws the heroes and the worlds. Other people write the code. Code is a list of steps that tells the computer what to do.\n\nSome people make the sounds. They create the music, the footsteps, and the splash when a hero jumps into the water.\n\nFirst, the team makes a simple test game. It may use plain blocks instead of nice pictures. Then players try it. They say what is fun and what is boring. The team changes the game to make it better.\n\nNext, the team builds the full game. Then testers play it again and again. They look for bugs. A bug is a mistake in the game. It can make a hero fall through the floor! The team fixes each bug they find.\n\nAt last, the game is ready. But the team still fixes bugs and adds new levels.\n\nToday, many young people in Saudi Arabia are learning to make games, too!"
+    },
+    {
+      "level": 600,
+      "title": "Video Games: How They Are Made",
+      "text": "Do you like to play video games? Millions of people around the world do. But have you ever wondered how a game is made?\n\nSome small games are made by just one person. Big games need a big team. The team may have hundreds of people, and it can take several years to finish one game.\n\nEach person on the team has a special job. Some people plan the rules and decide what players must do to win. An artist draws the heroes, the animals, and the worlds. Other people write the code. Code is a long list of steps that tells the computer exactly what to do.\n\nSome team members make the sounds. They create the music, the footsteps, and the splash when a hero jumps into a lake.\n\nFirst, the team makes a simple test game. It may use plain blocks instead of nice pictures. Then players try it and say what is fun and what is boring. The team changes the game to make it better.\n\nNext, the team builds the full game. Then testers play it again and again to look for bugs. A bug is a mistake in the game. It can make a hero fall through the floor! The team fixes every bug they find.\n\nFinally, the game is ready to sell. But the team still fixes bugs and adds new levels.\n\nToday, many young people in Saudi Arabia are learning to make games, too!"
+    },
+    {
+      "level": 700,
+      "title": "Video Games: How They Are Made",
+      "text": "Millions of people around the world play video games every day. A game may look simple on the screen, but making it can be a huge job.\n\nSome small games are made by just one person. Big games, however, need large teams. A team may have hundreds of people, and it can take several years to finish one game.\n\nEach team member has a special job. Game designers plan the rules, the goals, and the levels. Artists draw the characters and build the worlds, often as 3D models. Programmers write the code, which is a set of instructions that tells the computer what to do. Sound designers and composers create the music and sound effects.\n\nMost teams use a game engine. An engine is a set of software tools that already knows how to show pictures, play sounds, and make objects fall or bounce. This saves the team from starting from zero.\n\nThe first step is to build a prototype, a simple test version of the game. It might use plain gray blocks instead of finished art. Then players try it and give feedback about what is fun and what is confusing. The team uses the feedback to make changes.\n\nNext, the team builds the full game. Testers play it again and again to find bugs, which are mistakes in the code. A bug might let a hero walk through a wall! Programmers fix each bug.\n\nEven after the game is released, the team keeps fixing bugs and adding new levels.\n\nIn Saudi Arabia, more and more young people are now learning to design and program games."
+    },
+    {
+      "level": 800,
+      "title": "Video Games: How They Are Made",
+      "text": "Millions of people around the world play video games every day. A game may look simple on the screen, but making it can be an enormous job.\n\nSome small games are created by just one person. Big games, however, need large teams, which may include hundreds of people, and it can take several years to finish a single game.\n\nEach team member has a special job. Game designers plan the rules, the goals, and the levels, while artists draw the characters and build the worlds, often as 3D models. Programmers write the code, which is a set of instructions that tells the computer what to do. Sound designers and composers create the music and sound effects.\n\nMost teams use a game engine, which is a collection of software tools that already knows how to display pictures, play sounds, and make objects fall or bounce. Using an engine saves the team from starting from nothing.\n\nThe first step is to build a prototype, a simple test version of the game. It might use plain gray blocks instead of finished artwork. Then players try it and give feedback about what is fun and what is confusing, and the team uses this feedback to improve the game.\n\nNext, the team builds the complete game. Testers play it again and again to find bugs, which are mistakes in the code. A bug might allow a hero to walk through a wall! Programmers then fix each bug.\n\nEven after the game is released, the team continues fixing bugs and adding new levels.\n\nIn Saudi Arabia, an increasing number of young people are learning to design and program games."
+    },
+    {
+      "level": 900,
+      "title": "Video Games: How They Are Made",
+      "text": "Millions of people around the world play video games every day. A game may appear simple on the screen, but creating it can be an enormous project.\n\nSome small games are produced by a single person. Major games, however, require large teams that may include hundreds of people, and it can take several years to complete one game.\n\nEach team member has a specialized role. Game designers plan the rules, the goals, and the levels. Artists draw the characters and construct the worlds, often as 3D models. Programmers write the code, which is a set of instructions that tells the computer exactly what to do. Sound designers and composers create the music and sound effects.\n\nMost teams use a game engine, which is a collection of software tools that already knows how to display images, play sounds, and make objects fall or bounce. Using an engine saves the team from starting from nothing.\n\nThe first stage is to build a prototype, a simple test version of the game. It might use plain gray blocks instead of finished artwork. Players then try the prototype and provide feedback about what is enjoyable and what is confusing, and the team uses this feedback to improve the design.\n\nNext, the team develops the complete game. Testers play it repeatedly to discover bugs, which are mistakes in the code. A bug might allow a character to walk through a solid wall! Programmers then correct each bug.\n\nEven after the game is released, the team continues correcting bugs and adding new levels.\n\nIn Saudi Arabia, an increasing number of young people are learning to design and program their own games."
+    },
+    {
+      "level": 1000,
+      "title": "Video Games: How They Are Made",
+      "text": "Millions of people around the world play video games every day. A game may appear simple on the screen, but creating it can be an enormous and complicated project.\n\nSome small games are produced by a single person. Major games, however, require large teams that may include hundreds of people, and it can take several years to complete one game.\n\nEach team member has a specialized role. Game designers plan the rules, the objectives, and the levels, whereas artists illustrate the characters and construct the environments, frequently as three-dimensional models. Programmers write the code, which is a set of instructions that tells the computer exactly what to do, and sound designers and composers create the music and sound effects.\n\nMost teams use a game engine, which is a collection of software tools that already knows how to display images, play sounds, and make objects fall or bounce realistically. Using an engine prevents the team from having to start from nothing.\n\nThe first stage is to build a prototype, a simplified test version of the game. It might use plain gray blocks instead of finished artwork. Players then experiment with the prototype and provide feedback about what is enjoyable and what is confusing, and the team uses this feedback to improve the design.\n\nNext, the team develops the complete game, and testers play it repeatedly to discover bugs, which are errors in the code. A bug might allow a character to walk through a solid wall, so programmers must carefully correct each one.\n\nEven after the game is released, the team continues correcting bugs and adding new levels.\n\nIn Saudi Arabia, an increasing number of young people are studying how to design and program their own games."
+    },
+    {
+      "level": 1100,
+      "title": "Video Games: How They Are Made",
+      "text": "Millions of people around the world play video games every day, and although a game may appear simple on the screen, creating it can be an enormous and complicated project.\n\nSome small games are produced by a single person, but major games require large teams that may include hundreds of people, and completing one game can take several years. To succeed, these specialists must collaborate closely.\n\nEach team member has a specialized role. Game designers plan the rules, objectives, and levels, while artists illustrate the characters and construct the environments, frequently as three-dimensional models. Programmers write the code, a set of instructions that tells the computer exactly how the game should respond whenever a player presses a button, which is what makes a game interactive. Sound designers and composers create the music and sound effects.\n\nMost teams rely on a game engine, a collection of software tools that already knows how to render images, play sounds, and make objects fall or bounce realistically. An engine draws a fresh picture, called a frame, many times every second, often thirty or sixty times, so movement looks smooth.\n\nDevelopment begins with a prototype, a simplified test version that might use plain gray blocks instead of finished artwork. Players experiment with the prototype and provide feedback, and the team improves the design through repeated iteration, testing and changing the game again and again.\n\nNext, the team develops the complete game, and testers play it repeatedly to discover bugs, which are errors in the code. A bug might allow a character to walk through a solid wall! Programmers then correct each bug.\n\nEven after the game is released, the team continues correcting bugs and adding new levels, characters, and challenges for players. In Saudi Arabia, an increasing number of young people are studying how to design and program their own games."
+    },
+    {
+      "level": 1200,
+      "title": "Video Games: How They Are Made",
+      "text": "Millions of people around the world play video games every day, and although a game may appear simple on the screen, creating it can be an enormous and complicated undertaking.\n\nSome small games are produced by a single individual, but major games require large teams that may include hundreds of people, and completing one game can take several years. To succeed, these specialists must collaborate closely and communicate constantly.\n\nEach team member has a specialized role. Game designers plan the rules, objectives, and levels, while artists illustrate the characters and construct the environments, frequently as three-dimensional models. Programmers write the code, a set of instructions that tells the computer exactly how the game should respond whenever a player presses a button, which is what makes a game interactive. Sound designers and composers create the music and sound effects.\n\nMost teams rely on a game engine, a collection of software tools that already knows how to render images, play sounds, and simulate objects falling or bouncing realistically, and it generates a fresh picture, called a frame, many times every second, often thirty or sixty times, so that movement appears smooth.\n\nDevelopment begins with a prototype, a simplified test version that might use plain gray blocks instead of finished artwork. Players experiment with the prototype and provide feedback, and the team refines the design through repeated iteration, testing and modifying the game again and again.\n\nSubsequently, the team develops the complete game, and testers play it repeatedly to discover bugs, which are errors in the code. A bug might allow a character to walk through a solid wall! Programmers then investigate and correct each bug before the game is finally released to the public.\n\nEven after the game is released, the team continues correcting bugs and adding new content. In Saudi Arabia, an increasing number of young people are studying how to design and program their own games, and the capital, Riyadh, has hosted the Esports World Cup, one of the largest international video game competitions."
+    },
+    {
+      "level": 1300,
+      "title": "Video Games: How They Are Made",
+      "text": "Millions of people around the world play video games every day, and although a game may appear simple on the screen, creating it can be an enormous and complicated undertaking.\n\nSome small games are produced by a single individual, but major games require large teams that may include hundreds of professionals, and completing one game can take several years. To succeed, these specialists must collaborate closely and communicate constantly.\n\nEach team member has a specialized responsibility. Game designers determine the rules, objectives, and levels, while artists illustrate the characters and construct the environments, frequently as three-dimensional models. Programmers write the code, a set of instructions that tells the computer precisely how the game should respond whenever a player presses a button, which is what makes a game interactive. Sound designers and composers produce the music and sound effects.\n\nMost teams rely on a game engine, a collection of software tools that already knows how to render images, play sounds, and simulate objects falling or bouncing realistically, and it generates a fresh picture, called a frame, many times every second, typically thirty or sixty times, so that movement appears smooth and continuous.\n\nDevelopment begins with a prototype, a simplified test version that might use plain gray blocks instead of finished artwork. Players experiment with the prototype and provide honest feedback about what feels enjoyable or frustrating, and the team refines the design through repeated iteration, evaluating and modifying the game again and again.\n\nSubsequently, the team develops the complete game, and quality-assurance testers play it repeatedly to discover bugs, which are errors in the code. A bug might allow a character to walk through a solid wall! Programmers then investigate and correct each bug, a process that can occupy months before the game is finally released to the public.\n\nEven after the game is released, the team continues correcting bugs and adding new content. In Saudi Arabia, an increasing number of young people are studying how to design and program their own games, and the capital, Riyadh, has hosted the Esports World Cup, one of the largest international video game competitions, demonstrating the industry's growing significance in the Kingdom."
+    },
+    {
+      "level": 1400,
+      "title": "Video Games: How They Are Made",
+      "text": "Millions of people around the world play video games every day, and although a game may appear simple on the screen, creating it can be an enormous and extraordinarily complicated undertaking.\n\nSome small games are produced by a single individual, but major games require large teams that may include hundreds of professionals, and completing one game can take several years. To succeed, these specialists must collaborate closely and communicate constantly throughout the entire process.\n\nEach team member has a specialized responsibility. Game designers determine the rules, objectives, and levels, while artists illustrate the characters and construct the environments, frequently as three-dimensional models. Programmers write the code, a set of instructions that tells the computer precisely how the game should respond whenever a player presses a button, which is what makes a game interactive. Meanwhile, sound designers and composers produce the music and sound effects that make each virtual environment feel believable.\n\nMost teams rely on a game engine, a collection of software tools that already knows how to render images, play sounds, and simulate objects falling or bouncing realistically, and it generates a fresh picture, called a frame, many times every second, typically thirty or sixty times, so that movement appears smooth and continuous.\n\nDevelopment begins with a prototype, a simplified experimental version that might use plain gray blocks instead of finished artwork. Players experiment with the prototype and provide honest feedback about which elements feel enjoyable, confusing, or frustrating, and the team refines the design through repeated iteration, systematically evaluating and modifying the game again and again.\n\nSubsequently, the team develops the complete game, and quality-assurance testers play it repeatedly to discover bugs, which are errors in the code. A bug might allow a character to walk through a solid wall! Programmers then investigate and correct each individual bug, a meticulous process that can occupy months before the game is finally released to the public.\n\nEven after the game is released, the team continues correcting bugs and adding new content, such as additional characters and challenges. In Saudi Arabia, an increasing number of young people are studying how to design and program their own interactive entertainment, and the capital, Riyadh, has hosted the Esports World Cup, one of the largest international video game competitions, demonstrating the industry's growing economic and cultural significance in the Kingdom."
+    }
+  ],
+  "bands": {
+    "LOW": {
+      "keyWords": [
+        {
+          "word": "team",
+          "partOfSpeech": "noun",
+          "definition": "a group of people who work together",
+          "example": "Our class team cleaned the school garden."
+        },
+        {
+          "word": "artist",
+          "partOfSpeech": "noun",
+          "definition": "a person who draws, paints, or makes art",
+          "example": "The artist painted a big picture of the desert."
+        },
+        {
+          "word": "code",
+          "partOfSpeech": "noun",
+          "definition": "steps written for a computer that tell it what to do",
+          "example": "My brother wrote code to make a robot move."
+        },
+        {
+          "word": "test",
+          "partOfSpeech": "verb",
+          "definition": "to try something to see if it works well",
+          "example": "We test the bike brakes before we ride."
+        },
+        {
+          "word": "bug",
+          "partOfSpeech": "noun",
+          "definition": "a mistake in a computer program",
+          "example": "A bug made the app close by itself."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "What is this article mostly about?",
+          "options": [
+            "How to win a video game",
+            "How video games are made",
+            "Why games are bad for kids",
+            "How to fix a broken screen"
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The article tells who makes games and the steps they follow.",
+          "wrong": {
+            "A": "The article does not give tips to win.",
+            "C": "The article does not say games are bad.",
+            "D": "Broken screens are not in the article."
+          }
+        },
+        {
+          "stem": "What does code do?",
+          "options": [
+            "It draws the hero",
+            "It makes the music",
+            "It tells the game what to do",
+            "It sells the game"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article says code tells the game what to do.",
+          "wrong": {
+            "A": "An artist draws the hero.",
+            "B": "Other people make the sounds and music.",
+            "D": "Code does not sell the game."
+          }
+        },
+        {
+          "stem": "Who draws the hero and the world in a game?",
+          "options": [
+            "The artist",
+            "The tester",
+            "The player",
+            "The coder"
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The article says an artist draws the hero and the world.",
+          "wrong": {
+            "B": "Testers look for bugs.",
+            "C": "Players play the game.",
+            "D": "Coders write the code."
+          }
+        },
+        {
+          "stem": "In the article, a bug is…",
+          "options": [
+            "a small insect in the room",
+            "a new level in the game",
+            "a song in the game",
+            "a mistake in the game"
+          ],
+          "answer": "D",
+          "skill": "vocabulary",
+          "why": "The article says a bug is a mistake that can make the game stop.",
+          "wrong": {
+            "A": "In this article, a bug is not an insect.",
+            "B": "New levels are added, but they are not bugs.",
+            "C": "Songs are made by the sound makers."
+          }
+        },
+        {
+          "stem": "What does the team do first?",
+          "options": [
+            "Sells the game",
+            "Makes a small test game",
+            "Fixes all the bugs",
+            "Adds new parts"
+          ],
+          "answer": "B",
+          "skill": "sequence",
+          "why": "The article says that first, the team makes a small test game.",
+          "wrong": {
+            "A": "Selling comes at the end.",
+            "C": "Fixing bugs comes after the real game is built.",
+            "D": "New parts are added after the game is done."
+          }
+        },
+        {
+          "stem": "Why do kids play the test game?",
+          "options": [
+            "To help the team see what is fun",
+            "To earn money",
+            "To draw new heroes",
+            "To write the code"
+          ],
+          "answer": "A",
+          "skill": "inference",
+          "why": "Kids say what is fun and what is not, so the team can fix the game.",
+          "wrong": {
+            "B": "The article does not say kids earn money.",
+            "C": "Artists draw the heroes.",
+            "D": "The team writes the code."
+          }
+        },
+        {
+          "stem": "Why does a big game take years to make?",
+          "options": [
+            "The team plays it all day",
+            "The team only has one person",
+            "There are many jobs and many steps",
+            "The computer is very slow"
+          ],
+          "answer": "C",
+          "skill": "inference",
+          "why": "The article shows many people doing many jobs and many steps of testing and fixing.",
+          "wrong": {
+            "A": "The team builds and tests the game, not just plays it.",
+            "B": "Big games need a big team.",
+            "D": "Slow computers are not mentioned."
+          }
+        },
+        {
+          "stem": "How does the author explain making a game?",
+          "options": [
+            "By telling a funny story",
+            "By giving rules for a game",
+            "By comparing games and books",
+            "By listing jobs and then steps in order"
+          ],
+          "answer": "D",
+          "skill": "text-structure",
+          "why": "The article first tells the jobs on the team, then the steps: first, next, and at last.",
+          "wrong": {
+            "A": "It is not a story.",
+            "B": "It does not give rules for a game.",
+            "C": "Books are not compared."
+          }
+        }
+      ],
+      "prompt": "Which job on a game team would you like best? Tell what the job is and why you like it.",
+      "checklist": [
+        "I named one job.",
+        "I told what the job does.",
+        "I gave a reason."
+      ]
+    },
+    "MID": {
+      "keyWords": [
+        {
+          "word": "designer",
+          "partOfSpeech": "noun",
+          "definition": "a person who plans how something will look or work",
+          "example": "The designer planned where every room in the house would go."
+        },
+        {
+          "word": "programmer",
+          "partOfSpeech": "noun",
+          "definition": "a person who writes code for computers",
+          "example": "The programmer fixed the app so it would load faster."
+        },
+        {
+          "word": "engine",
+          "partOfSpeech": "noun",
+          "definition": "in games, a set of software tools that runs the pictures, sounds, and movement",
+          "example": "The students used a free game engine to build their first game."
+        },
+        {
+          "word": "prototype",
+          "partOfSpeech": "noun",
+          "definition": "a first, simple model used for testing an idea",
+          "example": "The engineers built a prototype of the car before making the real one."
+        },
+        {
+          "word": "feedback",
+          "partOfSpeech": "noun",
+          "definition": "comments that tell someone what is good and what could be better",
+          "example": "My teacher gave me feedback on my story."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "What is the main idea of the article?",
+          "options": [
+            "Teams with different jobs make games through careful steps.",
+            "Video games are always made by one person working alone at home late at night.",
+            "Video games are easy to make in a few days.",
+            "Video games do not need testing."
+          ],
+          "answer": "A",
+          "skill": "central-idea",
+          "why": "The article explains the jobs on a game team and the stages of making a game.",
+          "wrong": {
+            "B": "Only some small games are made by one person.",
+            "C": "Big games can take years.",
+            "D": "Testing is an important step."
+          }
+        },
+        {
+          "stem": "What does a game designer do?",
+          "options": [
+            "Writes the music",
+            "Fixes the computer when it breaks down",
+            "Plans the rules, goals, and levels",
+            "Sells the game in stores"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article says game designers plan the rules, the goals, and the levels.",
+          "wrong": {
+            "A": "Composers write the music.",
+            "B": "The article does not say designers fix computers.",
+            "D": "Selling is not their job."
+          }
+        },
+        {
+          "stem": "Why do most teams use a game engine?",
+          "options": [
+            "So they do not have to start from nothing",
+            "So the game costs more",
+            "So the finished game has no sound or music at all",
+            "So players cannot find bugs"
+          ],
+          "answer": "A",
+          "skill": "cause-effect",
+          "why": "The engine already knows how to show pictures, play sounds, and move objects, which saves the team work.",
+          "wrong": {
+            "B": "The article does not say engines raise costs.",
+            "C": "Engines help play sounds.",
+            "D": "Engines do not hide bugs."
+          }
+        },
+        {
+          "stem": "What might a prototype use instead of finished art?",
+          "options": [
+            "Real photographs",
+            "Plain gray blocks",
+            "Hand-painted pictures",
+            "Moving videos"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article says a prototype might use plain gray blocks instead of finished art.",
+          "wrong": {
+            "A": "Photographs are not mentioned.",
+            "C": "Finished art comes later.",
+            "D": "Videos are not mentioned."
+          }
+        },
+        {
+          "stem": "In the article, the word feedback means…",
+          "options": [
+            "a part of the computer",
+            "a kind of music",
+            "comments about what is fun or confusing",
+            "a type of game level"
+          ],
+          "answer": "C",
+          "skill": "vocabulary",
+          "why": "Players give feedback about what is fun and what is confusing.",
+          "wrong": {
+            "A": "Feedback is not a computer part.",
+            "B": "Feedback is not music.",
+            "D": "Feedback is not a level."
+          }
+        },
+        {
+          "stem": "Which step comes right after players try the prototype?",
+          "options": [
+            "The game is released.",
+            "The team uses feedback to make changes.",
+            "The music is deleted.",
+            "The testers go home."
+          ],
+          "answer": "B",
+          "skill": "sequence",
+          "why": "The article says the team uses the players' feedback to improve the game.",
+          "wrong": {
+            "A": "Release comes much later.",
+            "C": "Nothing says music is deleted.",
+            "D": "Testers play the full game later."
+          }
+        },
+        {
+          "stem": "What can you infer from the bug that lets a hero walk through a wall?",
+          "options": [
+            "Bugs can make a game act in ways it should not.",
+            "Bugs make games more fun.",
+            "Walls are not needed in games.",
+            "Heroes are supposed to walk through walls in every game."
+          ],
+          "answer": "A",
+          "skill": "inference",
+          "why": "The example shows that a mistake in the code makes the game behave wrongly.",
+          "wrong": {
+            "B": "Bugs are mistakes the team fixes.",
+            "C": "The example is about a mistake, not walls.",
+            "D": "Walking through walls is the mistake."
+          }
+        },
+        {
+          "stem": "Why does the author end with young people in Saudi Arabia?",
+          "options": [
+            "To argue that games should be banned",
+            "To list famous Saudi games",
+            "To explain how engines work",
+            "To show that readers could learn to make games too"
+          ],
+          "answer": "D",
+          "skill": "author-purpose",
+          "why": "Mentioning young Saudis learning to make games connects the topic to readers and their future.",
+          "wrong": {
+            "A": "The article does not argue that.",
+            "B": "No games are listed.",
+            "C": "Engines are explained earlier."
+          }
+        }
+      ],
+      "prompt": "Explain why making a prototype and getting feedback are important steps in making a game.",
+      "checklist": [
+        "I explained what a prototype is.",
+        "I explained how feedback helps.",
+        "I used details from the article."
+      ]
+    },
+    "HIGH": {
+      "keyWords": [
+        {
+          "word": "collaborate",
+          "partOfSpeech": "verb",
+          "definition": "to work together with others to reach a goal",
+          "example": "Scientists from many countries collaborate to study the weather."
+        },
+        {
+          "word": "interactive",
+          "partOfSpeech": "adjective",
+          "definition": "responding to what a person does",
+          "example": "The museum has an interactive map that lights up when you touch it."
+        },
+        {
+          "word": "render",
+          "partOfSpeech": "verb",
+          "definition": "to create a picture on a screen using a computer",
+          "example": "The computer took a minute to render the 3D drawing of the building."
+        },
+        {
+          "word": "frame",
+          "partOfSpeech": "noun",
+          "definition": "one single picture in a moving image",
+          "example": "The film moved so fast that each frame lasted only a moment."
+        },
+        {
+          "word": "iteration",
+          "partOfSpeech": "noun",
+          "definition": "doing something again and again, improving it each time",
+          "example": "After many iterations, the team's paper plane flew across the room."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which statement best expresses the central idea of the article?",
+          "options": [
+            "Video games mainly depend on one talented artist who works alone for many years.",
+            "Specialists collaborate to build, test, and improve a game in stages.",
+            "Game engines make human teams unnecessary.",
+            "Testing is the only important stage of development."
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The article describes the specialized roles, the engine, prototyping, iteration, and bug testing.",
+          "wrong": {
+            "A": "Major games need hundreds of people.",
+            "C": "Engines are tools that teams use.",
+            "D": "Testing is one of several stages."
+          }
+        },
+        {
+          "stem": "According to the article, how many times per second does an engine often draw a new frame?",
+          "options": [
+            "Once or twice",
+            "About one hundred",
+            "Thirty or sixty",
+            "Several thousand"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article says an engine draws a frame many times every second, often thirty or sixty times.",
+          "wrong": {
+            "A": "That would make movement look jerky.",
+            "B": "This number is not in the article.",
+            "D": "This number is not in the article."
+          }
+        },
+        {
+          "stem": "What makes a game interactive, according to the article?",
+          "options": [
+            "Its music and sound effects",
+            "The number of people on the team",
+            "The detailed three-dimensional models of characters",
+            "Code that responds when a player presses a button"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article says the code tells the computer how to respond to a player's button press, which makes the game interactive.",
+          "wrong": {
+            "A": "Sound adds to a game but does not make it respond to players.",
+            "B": "Team size does not make a game interactive.",
+            "C": "Models are visual, not responsive."
+          }
+        },
+        {
+          "stem": "Why does movement in a game look smooth?",
+          "options": [
+            "Because the engine draws many frames every second",
+            "Because artists paint each scene by hand",
+            "Because testers remove all bugs",
+            "Because composers add music"
+          ],
+          "answer": "A",
+          "skill": "cause-effect",
+          "why": "Drawing thirty or sixty frames per second makes movement appear smooth.",
+          "wrong": {
+            "B": "Hand painting is not how motion is produced.",
+            "C": "Removing bugs fixes mistakes, not smoothness.",
+            "D": "Music does not affect motion."
+          }
+        },
+        {
+          "stem": "In the article, the word iteration refers to…",
+          "options": [
+            "selling a game in many countries",
+            "repeating the cycle of testing and changing a design",
+            "drawing characters in three dimensions",
+            "hiring more programmers"
+          ],
+          "answer": "B",
+          "skill": "vocabulary",
+          "why": "The article explains that the team refines the design through iteration, testing and changing the game again and again.",
+          "wrong": {
+            "A": "Iteration is not about sales.",
+            "C": "That is the artists' task.",
+            "D": "Hiring is not mentioned."
+          }
+        },
+        {
+          "stem": "Which sequence matches the development process in the article?",
+          "options": [
+            "Release first, then prototype, testing, and design last",
+            "Testing, release, prototype, full game",
+            "Prototype, feedback, full game and testing, release",
+            "Full game, prototype, release, feedback"
+          ],
+          "answer": "C",
+          "skill": "sequence",
+          "why": "The article begins with a prototype, uses feedback to improve it, builds and tests the full game, then releases and updates it.",
+          "wrong": {
+            "A": "Release cannot come first.",
+            "B": "Testing the full game comes after the prototype.",
+            "D": "The prototype comes before the full game."
+          }
+        },
+        {
+          "stem": "What can you infer about why a prototype uses plain gray blocks?",
+          "options": [
+            "The team wants to test whether the game is fun before spending time on finished art.",
+            "Artists refuse to work on early versions.",
+            "Players prefer gray blocks to colorful art.",
+            "Game engines cannot display colors."
+          ],
+          "answer": "A",
+          "skill": "inference",
+          "why": "Testing ideas with simple shapes first avoids wasting effort on art for parts that may change.",
+          "wrong": {
+            "B": "Nothing suggests artists refuse.",
+            "C": "The article does not say players prefer gray.",
+            "D": "Engines can render images."
+          }
+        },
+        {
+          "stem": "How is the work of a designer different from that of a programmer?",
+          "options": [
+            "Designers write code; programmers plan levels.",
+            "There is no difference between the two roles.",
+            "Designers compose the music, while programmers draw all the characters.",
+            "Designers plan rules and levels; programmers write the code."
+          ],
+          "answer": "D",
+          "skill": "compare",
+          "why": "The article says designers determine rules, objectives, and levels, while programmers write the code.",
+          "wrong": {
+            "A": "This reverses the roles.",
+            "B": "The article describes them as separate roles.",
+            "C": "Composers make music and artists draw characters."
+          }
+        }
+      ],
+      "prompt": "The article says specialists must collaborate closely. Explain why teamwork is so important in making a video game, using at least two examples from the article.",
+      "checklist": [
+        "I explained why teamwork matters.",
+        "I used at least two examples of roles or stages.",
+        "I showed how the roles depend on each other."
+      ]
+    }
+  }
+}

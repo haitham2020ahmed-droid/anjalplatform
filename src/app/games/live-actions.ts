@@ -10,7 +10,7 @@ const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN
 
 export async function searchChallengeSkillsAction(input: { q?: string; filter?: SkillFilter; grade?: number; mode?: string }): Promise<{ skills?: ChallengeSkill[]; error?: string }> {
   const actor = await requireActor(STAFF);
-  try { return { skills: (await challengeSkills(repo, actor, input)).slice(0, 300) }; } catch (e) { return { error: friendly(e) }; }
+  try { return { skills: await challengeSkills(repo, actor, input) }; } catch (e) { return { error: friendly(e) }; }
 }
 
 export async function startChallengeAction(input: Partial<ChallengeSpec> & { classId: string; title?: string }): Promise<{ id?: string; error?: string }> {

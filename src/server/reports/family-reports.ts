@@ -1,9 +1,10 @@
 /**
  * 👪 Family reports with the admin's approval.
  *
- * The teacher prepares a report for one student — the platform writes it (AUTO: MAP, Diagnostic, reading fluency,
- * practice, strengths, next steps, help at home) or the teacher writes it (MANUAL, from a short template) — then
- * reads it, edits it and sends it for approval. Every school admin is notified; an admin approves it (the student
+ * The teacher prepares a report for one student — the platform writes it (AUTO: MAP, Diagnostic, ReadRise level,
+ * reading fluency, the Fluency Coach plan, Writing (approved grades only), practice, strengths, next steps, help at
+ * home — family-sections.ts; never level or tier wording: the student sees it too) or the teacher writes it (MANUAL,
+ * from a short template) — then reads it, edits it and sends it for approval. Every school admin is notified; an admin approves it (the student
  * and the parents are notified and see it in the Family Report) or returns it to the teacher with a note.
  *
  * Sharing the progress report or the Diagnostic report with the family goes the same way for a teacher (PROGRESS /
@@ -16,6 +17,7 @@ import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
 import { readableClasses } from "../teacher/coordinators";
 import { studentNames } from "../insights/student-data";
+import { fluencyGoalWords, fluencyPlanSection, gradeGoalWords, hasLevelWords, readRiseSection, writingSection } from "./family-sections";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v instanceof Date ? v : v ? new Date(s(v)) : null);
@@ -95,24 +97,31 @@ export async function autoContent(repo: Repo, actor: Actor, studentId: string, n
   const { parentReport } = await import("../insights/parent-report");
   const { studentDiagnosticReport } = await import("../diagnostic/report");
   const { coachSummary } = await import("../fluency/coach");
-  const [p, map, diag, flu] = await Promise.all([
+  const st = await repo.findUnique("Student", { id: studentId });
+  const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 0);
+  const [p, map, diag, flu, writing, readrise, plan] = await Promise.all([
     parentReport(repo, actor, studentId, now),
     mapLines(repo, studentId),
     studentDiagnosticReport(repo, actor, studentId).catch(() => null),
     coachSummary(repo, studentId),
+    writingSection(repo, studentId),
+    readRiseSection(repo, studentId, now),
+    fluencyPlanSection(repo, studentId, grade, now),
   ]);
   const first = p.name.split(" ")[0];
   const sections: ReportSection[] = [];
   if (map.lines.length) sections.push({ heading: "MAP Growth", icon: "📈", lines: map.lines });
   if (diag) sections.push({ heading: "Diagnostic test", icon: "📝", lines: [
-    `${diag.title}: ${diag.pct}% · ${diag.level === "ABOVE" ? "Above" : diag.level === "ON" ? "On" : "Below"} grade level${diag.readingLevel ? ` · reading level ${diag.readingLevel}` : ""}.`,
+    `${diag.title}: ${diag.pct}% · ${gradeGoalWords(diag.level)}${diag.readingLevel ? ` · reading level ${diag.readingLevel}` : ""}.`,
     ...(diag.strengths.length ? [`Strong in: ${diag.strengths.slice(0, 3).join(", ")}.`] : []),
     ...(diag.needs.length ? [`To work on: ${diag.needs.slice(0, 3).map((x) => x.label).join(", ")}.`] : []),
   ] });
+  if (readrise) sections.push(readrise);
   if (flu.latest) sections.push({ heading: "Reading fluency", icon: "🎙️", lines: [
-    `${flu.latest.wcpm} words correct per minute (${flu.latest.date}) · ${flu.latest.level === "ABOVE" ? "Above" : flu.latest.level === "ON" ? "On" : "Below"} the grade benchmark.`,
-    ...(flu.plan ? [`Goal: ${flu.plan.goal}. Next check: ${flu.plan.nextCheck}.`] : []),
+    `${flu.latest.wcpm} words correct per minute (${flu.latest.date}) · ${fluencyGoalWords(flu.latest.level)}.`,
   ] });
+  if (plan) sections.push(plan);
+  if (writing) sections.push(writing);
   sections.push({ heading: "Practice on the platform", icon: "💻", lines: [
     `${p.practice.answers} answers${p.practice.accuracy !== null ? `, ${p.practice.accuracy}% correct` : ""} · ${p.practice.minutesMonth} minutes this month.`,
     `Tasks: ${p.practice.tasksDone} done${p.practice.tasksLate ? `, ${p.practice.tasksLate} late` : ""}.`,
@@ -125,10 +134,13 @@ export async function autoContent(repo: Repo, actor: Actor, studentId: string, n
   sections.push({ heading: "How to help at home", icon: "🏠", lines: [
     "Read together for 15 minutes every day and ask: “What was it mostly about? How do you know?”",
     "15 minutes on the platform (“Today’s plan”) a few times a week.",
-    ...(flu.latest && flu.latest.level === "BELOW" ? ["Let your child read a short page aloud twice: the second reading is smoother and faster."] : []),
+    // the Fluency Coach plan has its own two home ideas
+    ...(!plan && flu.latest && flu.latest.level === "BELOW" ? ["Let your child read a short page aloud twice: the second reading is smoother and faster."] : []),
     ...(next.length ? [`Ask your child to show you their practice on: ${next[0]}.`] : []),
   ] });
-  return clean({ summary: p.summary.en.replace(/^[^ ]+/, first), sections, message: "" });
+  // the student reads this report too: never level / tier wording about them
+  const safe = (x: string) => !hasLevelWords(x);
+  return clean({ summary: p.summary.en.replace(/^[^ ]+/, first), sections: sections.map((x) => ({ ...x, lines: x.lines.filter(safe) })), message: "" });
 }
 
 export function manualTemplate(name: string): FamilyContent {
@@ -283,7 +295,7 @@ export async function requestShareApproval(repo: Repo, actor: Actor, input: { st
     const { studentDiagnosticReport } = await import("../diagnostic/report");
     const r = await studentDiagnosticReport(repo, actor, input.studentId, input.refId ?? null);
     if (!r) throw new ValidationError(`${name} has no Diagnostic result yet.`);
-    content = clean({ summary: `${r.title}: ${r.pct}% · ${r.level === "ABOVE" ? "Above" : r.level === "ON" ? "On" : "Below"} grade level.`, message: s(input.note ?? r.note).trim(), sections: [
+    content = clean({ summary: `${r.title}: ${r.pct}% · ${gradeGoalWords(r.level)}.`, message: s(input.note ?? r.note).trim(), sections: [
       { heading: "Strengths", icon: "⭐", lines: r.strengths },
       { heading: "To work on", icon: "🎯", lines: r.needs.map((x) => `${x.label} (${x.pct}%): ${x.tip}`) },
       { heading: "Areas", icon: "📊", lines: r.strands.map((x) => `${x.label}: ${x.pct}%`) },

@@ -16,6 +16,7 @@ type Delegate = {
   findUnique(args: unknown): Promise<Row | null>;
   findMany(args: unknown): Promise<Row[]>;
   count(args: unknown): Promise<number>;
+  groupBy(args: unknown): Promise<Row[]>;
   updateMany(args: unknown): Promise<{ count: number }>;
   deleteMany(args: unknown): Promise<{ count: number }>;
 };
@@ -75,6 +76,10 @@ export class PrismaRepo implements Repo {
   }
   count(model: string, where?: Where) {
     return this.d(model).count({ where: where });
+  }
+  async groupCount(model: string, by: string, where?: Where) {
+    const rows = await this.d(model).groupBy({ by: [by], where: where, _count: { _all: true } });
+    return new Map(rows.map((r) => [String(r[by] ?? ""), Number((r._count as { _all: number })._all)]));
   }
   async updateMany(model: string, where: Where, data: Row) {
     noteWrite(model);

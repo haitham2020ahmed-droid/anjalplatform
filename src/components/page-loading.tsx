@@ -1,3 +1,4 @@
+import { LiteriseLogo } from "./brand/literise-logo";
 /**
  * Shown by Next.js the moment a link is clicked, while the server prepares the page (loading.tsx).
  * Same frame as AppShell (header, content width) so nothing jumps when the page arrives; grey
@@ -8,7 +9,7 @@ export function PageLoading({ blocks = 3 }: { blocks?: number }) {
     <div className="min-h-screen">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
-          <span className="font-bold text-brand-navy">Al-Anjal English</span>
+          <LiteriseLogo size="sm" />
         </div>
       </header>
       <main className="mx-auto max-w-6xl px-6 py-8" aria-busy="true">

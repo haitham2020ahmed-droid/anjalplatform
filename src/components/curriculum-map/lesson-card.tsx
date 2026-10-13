@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useT } from "@/i18n/client";
 import { BTN } from "@/components/ui-kit/tokens";
 import { MapAssignButton } from "./assign-button";
+import { SendPlanButton } from "./send-plan";
 
 export interface LessonCardSection { code: string; title: string; ready: boolean; kind?: string | null }
 /** the sections a teacher can assign from the map (⭐ Assign beside each) */
@@ -15,13 +16,13 @@ export interface LessonCardData { code: string; name: string; genre: string | nu
  * Staff see Ready / Not ready on each section and one Preview button; students see the same card without them.
  * Lesson content stays English (data-content lang="en").
  */
-export function LessonCard({ lesson, previewHref, showStatus = true, canAssign = false, respondSets, respondClassId, compact = false, sent }: { lesson: LessonCardData; previewHref?: string | null; showStatus?: boolean; canAssign?: boolean; /** Respond to Reading Text Sets with a writing task (G4.U1.TS1.RTR) */ respondSets?: string[]; respondClassId?: string | null; /** staff map: one short row per section (Review · Assign · ✓ Sent) */ compact?: boolean; /** section code → the date this teacher sent it (yyyy-mm-dd) */ sent?: Record<string, string> }) {
+export function LessonCard({ lesson, previewHref, showStatus = true, canAssign = false, respondSets, respondClassId, compact = false, sent, canSend = false }: { /** 📘 "Send this selection" (opens the page's Send window) */ canSend?: boolean; lesson: LessonCardData; previewHref?: string | null; showStatus?: boolean; canAssign?: boolean; /** Respond to Reading Text Sets with a writing task (G4.U1.TS1.RTR) */ respondSets?: string[]; respondClassId?: string | null; /** staff map: one short row per section (Review · Assign · ✓ Sent) */ compact?: boolean; /** section code → the date this teacher sent it (yyyy-mm-dd) */ sent?: Record<string, string> }) {
   // Respond to Reading is a writing task: its Assign opens the Respond to Reading assign page (Below / On / Above)
   const isRtr = (sec: LessonCardSection) => sec.kind === "RESPOND_TO_READING" || /respond to reading/i.test(sec.title);
   const rtrCode = (sec: LessonCardSection) => (sec.code.match(/^(G\d+\.U\d+\.(?:TS|SEL)\d+\.RTR)/i)?.[1] ?? "").toUpperCase();
   const rtrReady = (sec: LessonCardSection) => Boolean(rtrCode(sec) && respondSets?.includes(rtrCode(sec)));
   const t = useT();
-  if (compact) return <CompactLesson lesson={lesson} canAssign={canAssign} sent={sent ?? {}} isRtr={isRtr} rtrCode={rtrCode} rtrReady={rtrReady} respondClassId={respondClassId ?? null} />;
+  if (compact) return <CompactLesson lesson={lesson} canAssign={canAssign} canSend={canSend} sent={sent ?? {}} isRtr={isRtr} rtrCode={rtrCode} rtrReady={rtrReady} respondClassId={respondClassId ?? null} />;
   return (
     <article className="flex flex-col rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
       <div data-content lang="en">
@@ -63,14 +64,17 @@ export function LessonCard({ lesson, previewHref, showStatus = true, canAssign =
  * 🧭 The compact lesson (staff Curriculum Map): name · genre on one line, skills under it, the Text Idea and the
  * vocabulary folded under "More", and one short row per section: Ready · 👁 Review · ⭐ Assign · ✓ Sent.
  */
-function CompactLesson({ lesson, canAssign, sent, isRtr, rtrCode, rtrReady, respondClassId }: { lesson: LessonCardData; canAssign: boolean; sent: Record<string, string>; isRtr: (s: LessonCardSection) => boolean; rtrCode: (s: LessonCardSection) => string; rtrReady: (s: LessonCardSection) => boolean; respondClassId: string | null }) {
+function CompactLesson({ lesson, canAssign, canSend, sent, isRtr, rtrCode, rtrReady, respondClassId }: { lesson: LessonCardData; canAssign: boolean; canSend: boolean; sent: Record<string, string>; isRtr: (s: LessonCardSection) => boolean; rtrCode: (s: LessonCardSection) => string; rtrReady: (s: LessonCardSection) => boolean; respondClassId: string | null }) {
   const t = useT();
   const pill = "inline-flex min-h-8 items-center rounded-full px-2.5 text-xs font-bold ring-1";
   return (
     <article data-testid="map-lesson" className="rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-slate-200">
-      <div data-content lang="en" className="flex flex-wrap items-baseline gap-x-2">
-        <h3 className="font-semibold text-slate-900">{lesson.name}</h3>
-        {lesson.genre && <span className="text-xs font-medium text-blue-800">{lesson.genre}</span>}
+      <div className="flex flex-wrap items-start justify-between gap-2">
+        <div data-content lang="en" className="flex flex-wrap items-baseline gap-x-2">
+          <h3 className="font-semibold text-slate-900">{lesson.name}</h3>
+          {lesson.genre && <span className="text-xs font-medium text-blue-800">{lesson.genre}</span>}
+        </div>
+        {canSend && <SendPlanButton kind="SELECTION" codes={[lesson.code]} label="Send this selection" small />}
       </div>
       {(lesson.vocabularySkill || lesson.readingSkills.length > 0) && <p data-content lang="en" className="mt-0.5 text-xs text-slate-500">{[lesson.vocabularySkill, ...lesson.readingSkills].filter(Boolean).join(" · ")}</p>}
       {(lesson.textIdea || lesson.vocabulary.length > 0) && (

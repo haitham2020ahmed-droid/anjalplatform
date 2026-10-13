@@ -23,7 +23,8 @@ import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead } from "../teacher/coordinators";
 import { audit } from "../audit";
-import { masterSkills, type SkillKind } from "../skills/master";
+import { skillPickerList } from "../skills/picker";
+import type { SkillTab, SkillTabFilter } from "../../lib/skill-picker";
 import { schoolSkillIndex } from "../questions/skill-questions";
 import { hideLevels } from "../../lib/hide-levels";
 import { gameMeta, liveModes } from "../../games/registry";
@@ -55,22 +56,28 @@ function staff(actor: Actor): void {
 
 // ------------------------------------------------------------------ 1. setup: skills of any grade
 
-export type SkillFilter = "ALL" | "READING" | "GRAMMAR" | "VOCABULARY";
-const FILTER_KINDS: Record<Exclude<SkillFilter, "ALL">, SkillKind[]> = { READING: ["READING", "OTHER"], GRAMMAR: ["GRAMMAR", "LANGUAGE"], VOCABULARY: ["VOCABULARY"] };
-const filterOf = (k: SkillKind): Exclude<SkillFilter, "ALL"> => (k === "GRAMMAR" || k === "LANGUAGE" ? "GRAMMAR" : k === "VOCABULARY" ? "VOCABULARY" : "READING");
-export interface ChallengeSkill { id: string; name: string; grade: number; filter: Exclude<SkillFilter, "ALL">; fitting: number }
+export type SkillFilter = SkillTabFilter;
+export interface ChallengeSkill {
+  id: string; name: string; grade: number; filter: SkillTab; fitting: number;
+  /** every name of the skill's shared pool (the search finds it by any of them) */
+  names: string[];
+  /** published questions of the pool */
+  questions: number;
+  /** every skill id of the pool (all grades) */
+  skillIds: string[];
+}
 
-/** Every grade's skills with enough questions for the game mode (ACCESS: all content is open to every teacher). */
+/**
+ * EVERY active skill, one row per shared pool, from the one picker source (skillPickerList: the teacher's grades and —
+ * all content being open to every teacher — the other grades), A–Z, each in a domain tab. `fitting` = the pool's
+ * published questions this game mode can use (0 → the picker shows the skill disabled, "0 Q").
+ */
 export async function challengeSkills(repo: Repo, actor: Actor, opts: { q?: string; filter?: SkillFilter; grade?: number; mode?: string } = {}): Promise<ChallengeSkill[]> {
   staff(actor);
   const meta = gameMeta(s(opts.mode) || "quiz-race") ?? gameMeta("quiz-race")!;
-  const q = s(opts.q).trim().toLowerCase();
-  const kinds = opts.filter && opts.filter !== "ALL" ? new Set(FILTER_KINDS[opts.filter]) : null;
-  const skills = (await masterSkills(repo, actor.schoolId!, { withQuestionsOnly: true }))
-    .filter((k) => (!kinds || kinds.has(k.kind)) && (!opts.grade || k.grade === opts.grade) && (!q || k.name.toLowerCase().includes(q) || k.code.toLowerCase().includes(q)));
-  const counts = await fittingCounts(repo, actor.schoolId!, skills.map((k) => k.id), meta);
-  return skills.map((k) => ({ id: k.id, name: hideLevels(k.name), grade: k.grade, filter: filterOf(k.kind), fitting: counts.get(k.id) ?? 0 }))
-    .filter((k) => k.fitting >= 1).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name));
+  const rows = await skillPickerList(repo, actor, { onlyGrade: opts.grade, q: opts.q, tab: opts.filter });
+  const counts = await fittingCounts(repo, actor.schoolId!, rows.map((k) => k.id), meta);
+  return rows.map((k) => ({ id: k.id, name: hideLevels(k.name), names: k.names.map(hideLevels), grade: k.grade, filter: k.tab, fitting: counts.get(k.id) ?? 0, questions: k.questions, skillIds: k.skillIds }));
 }
 
 export interface ChallengeSpec { skillIds: string[]; mode: GameId; count: number; seconds: number; levelMode: LevelMode; /** the teacher's own questions per skill ("I'll pick the questions"); a skill not listed: the platform picks */ picks?: Record<string, string[]> }

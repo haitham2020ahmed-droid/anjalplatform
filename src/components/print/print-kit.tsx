@@ -6,7 +6,7 @@
  *
  *   PrintStyles   the kit's stylesheet (inline <style>, screen + paper; works in a test render too)
  *   PrintPage     one A4 sheet: a white rounded card on screen, a clean page on paper (each starts a new page)
- *   PrintHeader   the header band: "Al-Anjal" + school name, the document title, the date
+ *   PrintHeader   the header band: "Literise" + school name, the document title, the date
  *   PrintMeta     small chips under the header (class, teacher, grade…)
  *   PrintSection  a rounded, coloured section header + its content (never split across pages when it fits)
  *   PrintTable    a clear table: coloured header row, zebra rows, rows never split
@@ -91,13 +91,13 @@ export function PrintPage({ children, landscape = false, className = "", label }
   return <section className={`pk-doc pk-page ${landscape ? "pk-land" : ""} ${className}`.trim()} aria-label={label} data-pk="page">{children}</section>;
 }
 
-/** The header band: "Al-Anjal" + school, the title (and subtitle) and the date; the five source colours below it. */
+/** The header band: "Literise" + school, the title (and subtitle) and the date; the five source colours below it. */
 export function PrintHeader({ title, subtitle, school, date = new Date(), t = tEn }: { title: string; subtitle?: ReactNode; school?: string; date?: Date | string | null; t?: T }) {
   return (
     <header data-pk="header">
       <div className="pk-head">
         <div className="pk-brand">
-          <span className="pk-logo">Al-<i>Anjal</i></span>
+          <span className="pk-logo">Lite<i>rise</i></span>
           {school ? <span className="pk-school"><bdi>{school}</bdi></span> : <span className="pk-school">{t("English")}</span>}
         </div>
         <div className="pk-title">
@@ -154,8 +154,8 @@ export function PrintPill({ children, accent }: { children: ReactNode; accent?: 
 }
 
 /** The footer line of a sheet. */
-export function PrintFooter({ left, right, t = tEn }: { left?: ReactNode; right?: ReactNode; t?: T }) {
-  return <footer className="pk-foot" data-pk="footer"><span>{left ?? `${PLATFORM} ${t("English")}`}</span><span>{right}</span></footer>;
+export function PrintFooter({ left, right }: { left?: ReactNode; right?: ReactNode; t?: T }) {
+  return <footer className="pk-foot" data-pk="footer"><span>{left ?? PLATFORM}</span><span>{right}</span></footer>;
 }
 
 /** A dashed "cut here" guide. */

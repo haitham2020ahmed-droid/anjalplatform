@@ -26,8 +26,8 @@ import type { QLevel } from "./question-source";
 
 const s = (v: unknown) => String(v ?? "");
 export const SECTION_PAGE = 20;
-/** at most this many questions in one test (the question-set cap) */
-export const MAX_PICKS = 50;
+/** at most this many questions in one test (the test cap, MAX_TEST_QUESTIONS) */
+export const MAX_PICKS = 60;
 const LEVEL_TITLE: Record<QLevel, string> = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" };
 /** the usual order of the map's categories; any other (new) category follows them, by name */
 const CATEGORY_ORDER: Record<string, number> = { CONCEPT_VOCABULARY: 1, ANALYZE_CRAFT_AND_STRUCTURE: 2, RESPOND_TO_READING: 3 };
@@ -37,7 +37,7 @@ export interface MapSourceSection { code: string; category: string; label: strin
 export interface MapSourceSet { code: string; kind: string; number: number; heading: string; title: string; genre: string | null; keyWords: string[]; count: number; sections: MapSourceSection[] }
 export interface MapSourceUnit { unit: number; title: string; count: number; sets: MapSourceSet[] }
 export interface MapSourceTree { grades: number[]; grade: number | null; units: MapSourceUnit[] }
-export interface MapSourceQuestion { id: string; stem: string; type: string; typeLabel: string; level: QLevel; passageTitle: string | null; contentKey: string; section: string; code: string }
+export interface MapSourceQuestion { id: string; stem: string; type: string; typeLabel: string; level: QLevel; passageTitle: string | null; contentKey: string; section: string; code: string; skill?: string }
 export interface MapSectionPage {
   code: string; label: string; total: number; page: number; pages: number;
   types: { code: string; label: string; count: number }[]; levels: { level: QLevel; count: number }[];
@@ -56,13 +56,13 @@ const sectionLabel = (n: AttachmentNode): string => [sectionTitle(n.categoryLabe
 const setCode = (n: AttachmentNode): string => n.code.split(".").slice(0, 3).join(".");
 
 /** The places the actor may use: a teacher's own grades only. */
-async function allowedNodes(repo: Repo, actor: Actor): Promise<AttachmentNode[]> {
+export async function allowedNodes(repo: Repo, actor: Actor): Promise<AttachmentNode[]> {
   const own = await teacherMapGrades(repo, actor);
   return (await attachmentNodes(repo, actor.schoolId!)).filter((n) => !own || own.has(n.grade));
 }
 
 /** Question ids of these places that a test can use (published, not deleted, auto-marked), with their place. */
-async function usableLinks(repo: Repo, nodeIds: string[]): Promise<{ nodeId: string; q: Row }[]> {
+export async function usableLinks(repo: Repo, nodeIds: string[]): Promise<{ nodeId: string; q: Row }[]> {
   if (!nodeIds.length) return [];
   const links: Row[] = [];
   for (let i = 0; i < nodeIds.length; i += 300) links.push(...(await repo.findMany("QuestionMapLink", { nodeId: { in: nodeIds.slice(i, i + 300) } }, { select: ["nodeId", "questionId"] })));
@@ -164,17 +164,25 @@ export async function describePicks(repo: Repo, actor: Actor, ids: string[]): Pr
   staff(actor);
   const list = [...new Set((ids ?? []).map(s).filter(Boolean))].slice(0, MAX_PICKS);
   if (!list.length) return [];
-  const [items, qs] = await Promise.all([loadQuestionItems(repo, list), repo.findMany("Question", { id: { in: list } }, { select: ["id", "typeId", "difficultyLevel"] })]);
-  const types = qs.length ? await repo.findMany("QuestionType", { id: { in: [...new Set(qs.map((q) => s(q.typeId)))] } }, { select: ["id", "code", "name"] }) : [];
+  const [items, qs] = await Promise.all([loadQuestionItems(repo, list), repo.findMany("Question", { id: { in: list } }, { select: ["id", "typeId", "difficultyLevel", "skillId"] })]);
+  const [types, skills] = qs.length ? await Promise.all([
+    repo.findMany("QuestionType", { id: { in: [...new Set(qs.map((q) => s(q.typeId)))] } }, { select: ["id", "code", "name"] }),
+    repo.findMany("Skill", { id: { in: [...new Set(qs.map((q) => s(q.skillId)))] } }, { select: ["id", "name"] }),
+  ]) : [[], []];
   const links = await repo.findMany("QuestionMapLink", { questionId: { in: list } }, { select: ["questionId", "nodeId"] });
   const nodes = await attachmentNodes(repo, actor.schoolId!);
+  // ⚡ lookups by id (the map has hundreds of places)
+  const first = <T,>(rows: readonly T[], key: (r: T) => string) => { const m = new Map<string, T>(); for (const r of rows) { const k = key(r); if (!m.has(k)) m.set(k, r); } return m; };
+  const itemOf = first(items, (x) => x.questionId), qOf = first(qs, (x) => s(x.id)), typeOf = first(types, (x) => s(x.id)), skillOf = first(skills, (k) => s(k.id));
+  const nodeOf = first(nodes, (x) => x.id), linkOf = first(links, (l) => s(l.questionId));
   return list.flatMap((id) => {
-    const it = items.find((x) => x.questionId === id);
-    const q = qs.find((x) => s(x.id) === id);
+    const it = itemOf.get(id);
+    const q = qOf.get(id);
     if (!it || !q) return [];
-    const t = types.find((x) => x.id === q.typeId);
-    const n = nodes.find((x) => x.id === s(links.find((l) => s(l.questionId) === id)?.nodeId));
-    return [{ id, stem: s(it.stem).slice(0, 220), type: s(t?.code), typeLabel: s(t?.name ?? t?.code), level: (n?.level ?? fromDifficulty(Number(q.difficultyLevel ?? 4))) as QLevel, passageTitle: it.passageTitle ?? null, contentKey: contentKey(it), section: n ? `${n.heading} · ${sectionLabel(n)}` : "", code: n?.code ?? "" }];
+    const t = typeOf.get(s(q.typeId));
+    const n = nodeOf.get(s(linkOf.get(id)?.nodeId));
+    const skill = s(skillOf.get(s(q.skillId))?.name);
+    return [{ id, stem: s(it.stem).slice(0, 220), type: s(t?.code), typeLabel: s(t?.name ?? t?.code), level: (n?.level ?? fromDifficulty(Number(q.difficultyLevel ?? 4))) as QLevel, passageTitle: it.passageTitle ?? null, contentKey: contentKey(it), section: n ? `${n.heading} · ${sectionLabel(n)}` : skill ? `🧩 ${skill}` : "", code: n?.code ?? "", skill }];
   });
 }
 

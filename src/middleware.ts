@@ -29,6 +29,7 @@ export function middleware(req: NextRequest) {
   const headers = new Headers(req.headers);
   headers.set("x-nonce", nonce);
   headers.set("x-pathname", pathname);   // the page frame keeps English content left-to-right in Arabic mode
+  headers.set("x-search", req.nextUrl.search);   // the page frame's report bar (which report, class, student, range)
   headers.set("Content-Security-Policy", csp);
   const res = NextResponse.next({ request: { headers } });
   res.headers.set("Content-Security-Policy", csp);

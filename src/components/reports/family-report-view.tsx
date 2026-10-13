@@ -1,5 +1,6 @@
 import type { FamilyContent, FamilyReportRow, ReportStatus } from "@/server/reports/family-reports";
 import { KIND_LABEL } from "@/server/reports/family-reports";
+import type { TFn } from "@/i18n";
 import { cycleColor } from "@/components/print/print-kit";
 import { SOURCE_COLORS } from "@/components/print/tokens";
 
@@ -15,12 +16,14 @@ export function StatusChip({ status }: { status: ReportStatus }) {
 }
 
 /** 👪 The report as the family sees it (also the preview for the teacher and the admin). Prints on A4. */
-export function FamilyReportView({ r, content, school }: { r: Pick<FamilyReportRow, "title" | "studentName" | "grade" | "className" | "kind" | "reviewedAt" | "createdAt" | "author">; content?: FamilyContent; school?: string }) {
+export function FamilyReportView({ r, content, school, t }: { r: Pick<FamilyReportRow, "title" | "studentName" | "grade" | "className" | "kind" | "reviewedAt" | "createdAt" | "author">; content?: FamilyContent; school?: string; t?: TFn }) {
   const c = content ?? (r as FamilyReportRow).content;
+  // section headings are interface words (translated when known); the report's lines stay as written
+  const h = (x: string) => (t ? t(x) : x);
   return (
     <article className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200 print:shadow-none print:ring-0">
       <header className="bg-gradient-to-r from-brand-navy via-brand-navy to-brand-teal px-6 py-5 text-white [print-color-adjust:exact]">
-        <p className="flex flex-wrap items-baseline gap-x-3"><span dir="ltr" className="text-xl font-extrabold">Al-<span className="text-brand-gold">Anjal</span></span><span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-100">Family Report{school ? ` · ${school}` : ""}</span></p>
+        <p className="flex flex-wrap items-baseline gap-x-3"><span dir="ltr" className="font-display text-xl">Lite<span className="text-brand-gold">rise</span></span><span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-100">Family Report{school ? ` · ${school}` : ""}</span></p>
         <h2 className="mt-1 text-2xl font-extrabold"><bdi>{r.studentName}</bdi></h2>
         <p className="text-sm text-white/80">Grade {r.grade}{r.className ? ` · ${r.className}` : ""} · {r.reviewedAt ?? r.createdAt}{r.author ? ` · ${r.author}` : ""}</p>
         <p className="mt-1 text-xs text-white/60">{r.title} · {KIND_LABEL[r.kind]}</p>
@@ -31,7 +34,7 @@ export function FamilyReportView({ r, content, school }: { r: Pick<FamilyReportR
         <div className="grid gap-4 md:grid-cols-2 print:grid-cols-2">
           {c.sections.map((x, i) => (
             <section key={i} className="break-inside-avoid rounded-2xl p-4 ring-1 ring-slate-200">
-              <h3 className="rounded-xl px-3 py-1.5 font-bold [print-color-adjust:exact]" style={{ color: cycleColor(i), background: `color-mix(in srgb, ${cycleColor(i)} 11%, #fff)`, borderInlineStart: `5px solid ${cycleColor(i)}` }}><span aria-hidden="true">{x.icon}</span> {x.heading}</h3>
+              <h3 className="rounded-xl px-3 py-1.5 font-bold [print-color-adjust:exact]" style={{ color: cycleColor(i), background: `color-mix(in srgb, ${cycleColor(i)} 11%, #fff)`, borderInlineStart: `5px solid ${cycleColor(i)}` }}><span aria-hidden="true">{x.icon}</span> {h(x.heading)}</h3>
               <ul className="mt-2 space-y-1.5 text-sm text-slate-700">{x.lines.map((l, k) => <li key={k} className="flex gap-2"><span aria-hidden="true" className="text-brand-teal">•</span><span>{l}</span></li>)}</ul>
             </section>
           ))}

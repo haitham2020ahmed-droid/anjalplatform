@@ -36,9 +36,9 @@ const count = (s: string, needle: string) => s.split(needle).length - 1;
 const fake = (n: number, cls = "4A"): AccountEntry[] => Array.from({ length: n }, (_, i) => ({ userId: `u${i}`, name: i === 1 ? "سارة أحمد" : `Test Pupil ${i + 1}`, username: `pupil.${i + 1}`, number: "", password: i === 2 ? null : `pupil.${i + 1}`, className: cls, grade: 4 }));
 
 describe("🖨 print kit", () => {
-  test("the header band: Al-Anjal, the school, the title and the date; source colours below", () => {
+  test("the header band: Literise, the school, the title and the date; source colours below", () => {
     const out = html(h(PrintHeader, { title: "Class accounts", school: "Demo School", date: new Date("2026-10-11T10:00:00Z") }));
-    for (const x of ["pk-head", "Al-<i>Anjal</i>", "Demo School", "Class accounts", "11 Oct 2026"]) assert.ok(out.includes(x), x);
+    for (const x of ["pk-head", "Lite<i>rise</i>", "Demo School", "Class accounts", "11 Oct 2026"]) assert.ok(out.includes(x), x);
     for (const c of Object.values(SOURCE_COLORS)) assert.ok(out.includes(c), c);
     assert.deepEqual(ACCENTS, SOURCE_COLORS, "the PDF reports use the same source colours");
   });
@@ -101,7 +101,7 @@ describe("🪪 accounts sheet and sign-in cards", () => {
 describe("📜 certificate", () => {
   test("landscape A4 with the name, the achievement, the date, the school, a signature line and an SVG seal", () => {
     const doc = certificateDocument({ lang: "en", title: "Certificate of Achievement", presented: "This certificate is proudly presented to", forWord: "for", studentName: "Test <Pupil> One", achievement: "Star reader", date: "11 October 2026", dateLabel: "Date", signLabel: "Teacher's signature", school: "Demo School" }, { css: "", stack: "sans-serif" });
-    for (const x of ["@page{size:A4 landscape", "Test &lt;Pupil&gt; One", "Star reader", "11 October 2026", "Demo School", "Teacher&#39;s signature", 'class="seal"', "Al-<i>Anjal</i>"]) assert.ok(doc.includes(x), x);
+    for (const x of ["@page{size:A4 landscape", "Test &lt;Pupil&gt; One", "Star reader", "11 October 2026", "Demo School", "Teacher&#39;s signature", 'class="seal"', "Lite<i>rise</i>"]) assert.ok(doc.includes(x), x);
     assert.doesNotMatch(doc, /<script/i);
     assert.doesNotMatch(doc, /<svg[^>]*\sdir=/);
     assert.doesNotMatch(sealSvg(), /\sdir=/);
@@ -156,7 +156,7 @@ describe("👪 weekly family summary", () => {
     assert.equal(snapshotOf(85), "Strong"); assert.equal(snapshotOf(65), "On track"); assert.equal(snapshotOf(40), "Growing"); assert.equal(snapshotOf(null), "Not this week");
     const batch = await weeklySummaries(repo, teacher, { studentId: mine });
     const en = html(h(WeeklySummaryPage, { w: batch.items[0], batch }));
-    for (const x of ["Weekly family summary", "Minutes practised", "Reading snapshot", "One tip for home", "First Steps", "Al-<i>Anjal</i>"]) assert.ok(en.includes(x), x);
+    for (const x of ["Weekly family summary", "Minutes practised", "Reading snapshot", "One tip for home", "First Steps", "Lite<i>rise</i>"]) assert.ok(en.includes(x), x);
     assert.doesNotMatch(en, /Below|Above|On Level/);
     const t = (x: string, v?: Record<string, string | number>) => translate("ar", x, v);
     const arOut = html(h(WeeklySummaryPage, { w: batch.items[0], batch, t }));

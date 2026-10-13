@@ -8,6 +8,7 @@ import type { ClientQuestion } from "../../server/practice/items";
 import type { Feedback, PracticeView } from "../../server/practice/session";
 import { isAnswerReady, type AnswerValue } from "./answer-input";
 import { CELEBRATE, PracticeFrame, endText } from "./practice-frame";
+import { CelebrateFx } from "../feedback-fx/answer-fx";
 import { WordLookup } from "../learn/word-lookup";
 import { FlagButton } from "../learn/flag-button";
 
@@ -105,7 +106,8 @@ export function PracticeDone({ reason, href }: { reason: string; href: string })
     <div data-testid="practice-done" role="status" aria-live="polite" className="mx-auto mt-10 max-w-xl rounded-3xl bg-white p-8 text-center shadow-sm ring-1 ring-emerald-200">
       <p className="text-5xl text-emerald-600" aria-hidden="true">✓</p>
       <h2 className="mt-2 text-3xl font-bold text-brand-navy">{t("Great job! ✓")}</h2>
-      <p className="mt-2 text-lg text-slate-700">{reason === "SKILL_FINISHED" ? t("You finished this skill! 🎉") : endText(reason)}</p>
+      <p className="mt-2 text-lg text-slate-700">{reason === "SKILL_FINISHED" ? t("You finished this skill! 🎉") : reason === "WORK_MASTERED" ? t("You mastered this skill — your work is Done! 🎉") : endText(reason)}</p>
+      {reason === "WORK_MASTERED" && <div className="mt-4"><CelebrateFx /></div>}
       <p className="mt-1 text-sm text-slate-500">{t("Going back to My Work…")}</p>
       <a href={href} className="mt-6 inline-flex min-h-[44px] items-center rounded-xl bg-brand-navy px-6 py-3 text-lg font-semibold text-white hover:bg-brand-purple">{t("Back to My Work")}</a>
     </div>

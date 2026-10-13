@@ -1,4 +1,4 @@
-/* Al-Anjal English — a small service worker: the app can be added to the home screen, static files load fast,
+/* Literise — a small service worker: the app can be added to the home screen, static files load fast,
    and a friendly page appears when there is no internet. Pages and answers always come from the server. */
 const CACHE = "anjal-static-v1";
 const OFFLINE = "/offline.html";

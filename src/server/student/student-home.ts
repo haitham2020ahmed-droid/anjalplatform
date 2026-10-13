@@ -114,6 +114,8 @@ export interface StudentHome {
   /** skills to work on (rows not done) — the badge on My Work and the X of the welcome line */
   toDo: number;
   testsToDo: number;
+  /** writing tasks not handed in yet (the badge on the Writing tile) */
+  writingToDo: number;
   last: LastActivity | null;
   rti: RtiStatus | null;
   readRiseLevel: number | null;
@@ -146,10 +148,10 @@ export async function studentHome(repo: Repo, actor: Actor, now = new Date()): P
   const respondTodo = respond.filter((r) => !r.finishedAt);
   if (respondTodo.length) notices.push({ key: "respond", icon: "✍️", text: "Respond to Reading: {n} to write", vars: { n: respondTodo.length }, href: respondTodo[0]?.setCode ? `/student/respond/${respondTodo[0].setCode}` : "/student/respond", cta: "Open" });
   const writingTodo = writing.filter((w) => w.status === "NOT_STARTED" || w.status === "DRAFT").length;
-  if (writingTodo) notices.push({ key: "writing", icon: "🖊", text: "Writing tasks from your teacher: {n}", vars: { n: writingTodo }, href: "/student/writing", cta: "Open" });
+  // writing tasks: the number sits on the home's Writing tile (no second link to the same page)
   if (comments) notices.push({ key: "comments", icon: "💬", text: "New comments from your teacher: {n}", vars: { n: comments }, href: "/student/comments", cta: "Open" });
   return {
-    work: rows, toDo: rows.filter((r) => r.status !== "Done").length, testsToDo, last, rti,
+    work: rows, toDo: rows.filter((r) => r.status !== "Done").length, testsToDo, writingToDo: writingTodo, last, rti,
     readRiseLevel: rr ? Number(rr.level) : null, notices,
   };
 }

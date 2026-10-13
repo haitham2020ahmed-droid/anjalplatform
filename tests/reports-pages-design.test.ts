@@ -36,7 +36,8 @@ const html = (el: React.ReactElement, lang: "en" | "ar" = "en") => renderToStati
 
 /** Every on-screen report page → the loader(s) it must still call (the numbers come from them, untouched). */
 const PAGES: Record<string, string[]> = {
-  "src/app/teacher/reports/page.tsx": ["staffFamilyReports", "isReportShared"],
+  "src/app/teacher/reports/page.tsx": ["readableClasses"],
+  "src/app/teacher/reports/needs-help/page.tsx": ["repeatedMistakes"],
   "src/app/teacher/progress/page.tsx": ["classProgress"],
   "src/app/teacher/progress/[studentId]/page.tsx": ["studentProgress"],
   "src/components/teacher/class-overview.tsx": [],

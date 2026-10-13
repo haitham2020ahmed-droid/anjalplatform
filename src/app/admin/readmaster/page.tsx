@@ -4,7 +4,9 @@ import { CcssNote } from "@/components/ccss-note";
 import { PageHeader, Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
-import { gradeSkills, gradeStandards, listArticles, LEVEL_NAMES } from "@/server/readmaster/service";
+import { gradeStandards, listArticles, LEVEL_NAMES } from "@/server/readmaster/service";
+import { skillPickerList } from "@/server/skills/picker";
+import { SkillListPicker } from "@/components/skill-picker";
 import { lexileBands } from "@/server/curriculum-map/lexile";
 import { autoLoadReadMasterLibrary, LIBRARY_LABEL } from "@/server/readmaster/library";
 import { bulkStatusAction, createArticleAction, importReadMasterAction, linkToMapAction, loadLibraryAction } from "./actions";
@@ -25,7 +27,7 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
   const grade = [4, 5, 6].includes(Number(sp.grade)) ? Number(sp.grade) : 4;
   // 📚 a school with no ReadMaster article gets the Grades 4–5 library once (in the background)
   const lib = await autoLoadReadMasterLibrary(repo, actor.schoolId).catch(() => null);
-  const [arts, skills, bands, standards] = await Promise.all([listArticles(repo, actor, grade), gradeSkills(repo, actor.schoolId!, grade), lexileBands(repo, actor.schoolId ?? null), gradeStandards(repo, grade)]);
+  const [arts, skills, bands, standards] = await Promise.all([listArticles(repo, actor, grade), skillPickerList(repo, actor, { onlyGrade: grade }), lexileBands(repo, actor.schoolId ?? null), gradeStandards(repo, grade)]);
   const b = bands[grade];
   const published = arts.filter((a) => a.status === "PUBLISHED").length;
   const inReview = arts.filter((a) => a.status === "REVIEW").length;
@@ -76,8 +78,8 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
               </select>
             </label>
             <label className={label}>Skill name <span className="font-normal text-slate-400">(optional)</span><input name="skillName" maxLength={191} placeholder="e.g. Main Idea and Key Details" className={field} /></label>
+            <SkillListPicker skills={skills} mode="single" name="skillId" optional allowEmpty legend="Platform skill (optional)" height="max-h-64" />
             <div className="grid grid-cols-2 gap-4">
-              <label className={label}>Platform skill <span className="font-normal text-slate-400">(optional)</span><select name="skillId" className={field}><option value="">— none —</option>{skills.map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}</select></label>
               <label className={label}>Code <span className="font-normal text-slate-400">(optional)</span><input name="code" maxLength={60} placeholder="SOLAR-01" className={field} /></label>
             </div>
           </div>

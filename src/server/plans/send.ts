@@ -81,11 +81,13 @@ export async function sendProgramPlan(repo: Repo, actor: Actor, input: SendPlanI
   const grades = curs.length ? await repo.findMany("Grade", { id: { in: [...new Set(curs.map((c) => s(c.gradeId)))] } }, { select: ["id", "level"] }) : [];
   const gradeOf = (k: Row) => Number(grades.find((g) => g.id === curs.find((c) => c.id === k.curriculumId)?.gradeId)?.level ?? 0);
   const classGrade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
+  if (input.program === "NAFS" && classGrade !== 6) throw new ValidationError("NAFS plans are for Grade 6 classes only.");
   const classSize = members.size;
   const label = planLabel(input.program);
   const title = (s(input.title).replace(/\s+/g, " ").trim() || `${label} · ${s(klass.name)}`).slice(0, 191);
   const note = s(input.note).replace(/\s+/g, " ").trim().slice(0, 1000) || null;
-  const plan = await repo.create("SkillPlan", { schoolId: klass.schoolId, classId: klass.id, title, kind: planKindOf(input.program), targetCorrect: null, gradeLevel: classGrade, note, createdById: actor.userId, createdAt: now });
+  const plan = await repo.create("SkillPlan", { schoolId: klass.schoolId, classId: klass.id, title, kind: planKindOf(input.program), targetCorrect: null, gradeLevel: classGrade, note, createdById: actor.userId, createdAt: now,
+    status: "SENT", program: input.program ?? null, dueAt: input.dueAt ?? null, sentAt: now, updatedAt: now });
   const assignmentIds: string[] = [];
   const students = new Set<string>();
   try {

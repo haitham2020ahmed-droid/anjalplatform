@@ -10,6 +10,7 @@ import { useT } from "@/i18n/client";
 import { MISCONCEPTIONS } from "@/insights/misconceptions";
 import { possibleMissingPassage } from "@/lib/passage-detect";
 import { ImageField } from "./image-field";
+import { byName, skillMatches } from "@/lib/skill-picker";
 import { createSkillAction, createStandardAction } from "../curriculum/manage-actions";
 import { CcssNote } from "@/components/ccss-note";
 
@@ -43,6 +44,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
 }) {
   const router = useRouter();
   const [skills, setSkills] = useState<Skill[]>(skillsIn);
+  const [skillQ, setSkillQ] = useState("");   // 🔎 find a skill by name (case, "&" / "and", apostrophes ignored)
   const [standards, setStandards] = useState<string[]>(standardsIn);
   const [adding, setAdding] = useState<"skill" | "standard" | null>(null);
   const [q, setQ] = useState<EditorInput>(initial ?? {
@@ -129,7 +131,9 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
         </div>
       )}
       <div className="grid gap-3 sm:grid-cols-3">
-        <label className={label}>Skill<select value={q.skillId} onChange={(e) => set({ skillId: e.target.value })} className={field}>{q.mapNodeCode && <option value="">— No skill yet (Unclassified) —</option>}{skills.map((s) => <option key={s.id} value={s.id}>G{s.grade} · {s.name}</option>)}</select></label>
+        <label className={label}>Skill
+          <input type="search" value={skillQ} onChange={(e) => setSkillQ(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") e.preventDefault(); }} placeholder={t("Search skills…")} aria-label={t("Search skills…")} dir="ltr" autoComplete="off" className={`${field} mb-1`} />
+          <select value={q.skillId} onChange={(e) => set({ skillId: e.target.value })} className={field}>{q.mapNodeCode && <option value="">— No skill yet (Unclassified) —</option>}{skills.filter((s) => s.id === q.skillId || skillMatches(s, skillQ)).sort((a, b) => byName(a, b) || a.grade - b.grade).map((s) => <option key={s.id} value={s.id}>G{s.grade} · {s.name}</option>)}</select></label>
         <label className={label}>Type<select value={q.type} onChange={(e) => set({ type: e.target.value as EditorInput["type"] })} className={field}>{TYPES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select></label>
         <label className={label}>Difficulty<select value={q.level} onChange={(e) => set({ level: Number(e.target.value) })} className={field}>{LEVELS.map((l, i) => <option key={l} value={i + 1}>{i + 1} · {l}</option>)}</select></label>
         <label className={label}>Standard (optional)<input list="standards" value={q.standardCode ?? ""} onChange={(e) => set({ standardCode: e.target.value || null })} placeholder="Skill's standard" className={field} /></label>

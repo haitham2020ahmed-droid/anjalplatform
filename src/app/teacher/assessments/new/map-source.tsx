@@ -9,6 +9,7 @@ import { useT } from "@/i18n/client";
 import { EmptyState } from "@/components/ui-kit";
 import type { MapSectionPage, MapSourceQuestion, MapSourceSection, MapSourceTree } from "@/server/tests/map-source";
 import { mapSectionAction, mapTreeAction } from "../actions";
+import { QuestionDrawer } from "@/components/tests/question-drawer";
 
 const LEVEL_LABEL: Record<string, string> = { ALL: "All", BELOW: "Below", ON: "On", ABOVE: "Above" };
 const LEVEL_CHIP: Record<string, string> = { BELOW: "bg-amber-50 text-amber-900 ring-amber-200", ON: "bg-sky-50 text-sky-900 ring-sky-200", ABOVE: "bg-violet-50 text-violet-900 ring-violet-200" };
@@ -99,6 +100,7 @@ function SectionBlock({ section, pickedIds, picked, onAdd, onRemove }: { section
   const [level, setLevel] = useState("ALL");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [viewAt, setViewAt] = useState<number | null>(null);
   const chosenHere = picked.filter((p) => p.code === section.code).length;
 
   async function load(page: number, ty = type, lv = level) {
@@ -145,19 +147,18 @@ function SectionBlock({ section, pickedIds, picked, onAdd, onRemove }: { section
             </div>
             {!data.questions.length ? <p className="rounded-lg bg-slate-50 px-3 py-3 text-center text-sm text-slate-600">{t("No questions match these filters.")}</p> : (
               <ul className="grid gap-1">
-                {data.questions.map((q) => (
-                  <li key={q.id}>
-                    <label className="flex cursor-pointer items-start gap-3 rounded-lg px-2 py-1.5 hover:bg-slate-50">
-                      <input type="checkbox" className="mt-1 h-5 w-5 shrink-0 accent-brand-teal" checked={pickedIds.has(q.id)} onChange={(e) => (e.target.checked ? onAdd([q]) : onRemove(q.id))} />
-                      <span className="flex-1 text-sm">
-                        <span className="block text-slate-900" lang="en" dir="ltr" data-content>{q.stem}</span>
-                        <span className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
-                          <span>{q.typeLabel}</span>
-                          <span className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${LEVEL_CHIP[q.level]}`}>{t(LEVEL_LABEL[q.level])}</span>
-                          {q.passageTitle && <span lang="en" data-content>📖 {q.passageTitle}</span>}
-                        </span>
+                {data.questions.map((q, i) => (
+                  <li key={q.id} className="flex items-start gap-3 rounded-lg px-2 py-1.5 hover:bg-slate-50">
+                    <input type="checkbox" className="mt-1 h-5 w-5 shrink-0 accent-brand-teal" checked={pickedIds.has(q.id)} onChange={(e) => (e.target.checked ? onAdd([q]) : onRemove(q.id))} aria-label={t("Select question: {stem}", { stem: q.stem.slice(0, 80) })} />
+                    <span className="min-w-0 flex-1 text-sm">
+                      <button type="button" onClick={() => setViewAt(i)} className="block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content>{q.stem}</button>
+                      <span className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+                        <span>{q.typeLabel}</span>
+                        <span className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${LEVEL_CHIP[q.level]}`}>{t(LEVEL_LABEL[q.level])}</span>
+                        {q.passageTitle && <span lang="en" data-content>📖 {q.passageTitle}</span>}
                       </span>
-                    </label>
+                    </span>
+                    <button type="button" onClick={() => setViewAt(i)} className="min-h-9 shrink-0 rounded-lg px-2.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-white">👁 {t("View")}</button>
                   </li>
                 ))}
               </ul>
@@ -172,6 +173,10 @@ function SectionBlock({ section, pickedIds, picked, onAdd, onRemove }: { section
           </>
         )}
       </div>
+      {viewAt !== null && data && data.questions[viewAt] && (
+        <QuestionDrawer ids={data.questions.map((q) => q.id)} index={viewAt} onIndex={setViewAt} onClose={() => setViewAt(null)}
+          isSelected={(id) => pickedIds.has(id)} onToggle={(d, on) => (on ? onAdd([d.row]) : onRemove(d.id))} />
+      )}
     </details>
   );
 }

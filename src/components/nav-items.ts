@@ -9,7 +9,7 @@ export const MORE_TOOLS = MORE;
 export interface NavOpts {
   /** the student is in the RTI program (Tier 2/3) */
   rti?: boolean;
-  /** the student has NAFS work / results (src/server/student/menu-flags.ts) */
+  /** student: has NAFS work / results (src/server/student/menu-flags.ts); teacher: teaches a Grade 6 class (NAFS) */
   nafs?: boolean;
 }
 
@@ -25,28 +25,47 @@ export function navItemsFor(role: string, opts: NavOpts = {}): NavItem[] {
 }
 
 // ------------------------------------------------------------------ Student
-/** Five entries only (owner's spec): Home · My Work · My Tests · My Plan · ReadMaster / ReadRise. No RTI wording. */
+/**
+ * Five entries only (owner's spec): Home · My Work · My Tests · MAP · ReadMaster / ReadRise. No RTI wording.
+ * Clean line icons (no emoji) and each page once: the home page's tiles open the rest (Curriculum Map, Second
+ * Chance, Fluency Coach, Writing).
+ */
 function studentMenu(_opts: NavOpts): NavItem[] {
   return [
-    { href: "/student", label: "Home", icon: "🏠" },
-    { href: "/student/work", label: "My Work", icon: "📋" },
-    { href: "/student/tests", label: "My Tests", icon: "📝" },
-    { href: "/student/map", label: "My Plan", icon: "🗺️" },
-    { href: "/student/reading", label: "ReadMaster / ReadRise", icon: "📚" },
+    { href: "/student", label: "Home", icon: "🏠", line: "home" },
+    { href: "/student/work", label: "My Work", icon: "📋", line: "work" },
+    { href: "/student/tests", label: "My Tests", icon: "📝", line: "tests" },
+    { href: "/student/map", label: "MAP", icon: "🗺️", line: "map" },
+    { href: "/student/reading", label: "ReadMaster / ReadRise", icon: "📚", line: "reading" },
   ];
 }
 
 // ------------------------------------------------------------------ Teacher
-/** Seven entries only (owner's spec); every other page opens from Home's quick buttons, a hub, or "Find a page". */
-const TEACHER_MENU: NavItem[] = [
-  { href: "/teacher", label: "Home", icon: "🏠" },
-  { href: "/teacher/students", label: "My Classes", icon: "👥" },
-  { href: "/admin/curriculum-map", label: "Curriculum Map", icon: "🧭" },
-  { href: "/teacher/map-center", label: "MAP", icon: "🗺️" },
-  { href: "/teacher/plans", label: "Plans", icon: "🗂️" },
-  { href: "/teacher/reports", label: "Reports", icon: "📊" },
-  { href: "/teacher/reading", label: "ReadMaster / ReadRise", icon: "📚" },
+/**
+ * Every teacher page lives in ONE place (owner's spec, Update 15): each area below is the only way in to its pages
+ * (no Home tiles, hub cards or second menu entries repeat them). Reports = every report (MAP reports too) · MAP = MAP
+ * results, score entry and the MAP practice test · Plans = every plan (MAP, NAFS, curriculum, support, custom) ·
+ * Reading = ReadMaster, ReadRise and Reading Fluency. The tools used now and then sit under "More" (folded).
+ * NAFS (inside Plans) is only for teachers of a Grade 6 class and admins: src/server/teacher/nafs-access.ts.
+ */
+export const TEACHER_MENU: NavItem[] = [
+  { href: "/teacher", label: "Home", icon: "🏠", line: "home" },
+  { href: "/teacher/students", label: "Students & Classes", icon: "👥", line: "users" },
+  { href: "/admin/curriculum-map", label: "Curriculum Map", icon: "🧭", line: "compass" },
+  { href: "/teacher/plans", label: "Plans", icon: "🗂️", line: "plans" },
+  { href: "/teacher/assessments", label: "Assessments", icon: "📝", line: "check" },
+  { href: "/teacher/writing", label: "Writing", icon: "🖊", line: "pen" },
+  { href: "/teacher/reading", label: "Reading", icon: "📚", line: "book" },
+  { href: "/teacher/map-center", label: "MAP", icon: "🗺️", line: "target" },
+  { href: "/teacher/reports", label: "Reports", icon: "📊", line: "chart" },
+  { href: "/teacher/week", label: "My Week", icon: "📅", line: "week", group: MORE },
+  { href: "/teacher/messages", label: "Messages", icon: "📨", line: "mail", group: MORE },
+  { href: "/teacher/games", label: "Live Challenge", icon: "🏁", line: "game", group: MORE },
+  { href: "/teacher/calendar", label: "Calendar", icon: "🗓️", line: "calendar", group: MORE },
+  { href: "/guide", label: "Help", icon: "❔", line: "help", group: MORE },
 ];
+/** The NAFS plan (a tab of Plans): found by name only by teachers of a Grade 6 class and by admins. */
+export const NAFS_PAGE: NavItem = { href: "/teacher/plans?tab=nafs", label: "NAFS plan", icon: "🇸🇦", line: "flag" };
 
 /**
  * Pages that left a menu but still open (docs/WHAT-MOVED-WHERE.md): "Find a page" in the side menu still finds
@@ -55,10 +74,6 @@ const TEACHER_MENU: NavItem[] = [
 const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
   TEACHER: [
     { href: "/teacher/plans/support", label: "Support (RTI)", icon: "🛟" },
-    { href: "/teacher/assessments", label: "Tests", icon: "📝" },
-    { href: "/teacher/games", label: "Live Challenge", icon: "🏁" },
-    { href: "/teacher/week", label: "My Week", icon: "📅" },
-    { href: "/teacher/messages", label: "Messages", icon: "📨" },
     { href: "/teacher/rti-plan", label: "Weekly Support Sessions", icon: "🗓" },
     { href: "/teacher/groups", label: "Groups", icon: "🤝" },
     { href: "/teacher/diagnostic", label: "Diagnostic Test", icon: "🩺" },
@@ -69,21 +84,19 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
     { href: "/student/readmaster", label: "ReadMaster", icon: "⭐" },
     { href: "/teacher/worksheet", label: "Worksheets", icon: "🖨" },
     { href: "/teacher/lessons", label: "Intervention Lessons", icon: "🧩" },
-    { href: "/teacher/writing", label: "Writing & Reading Aloud", icon: "🖊" },
     { href: "/teacher/respond", label: "Respond to Reading", icon: "✍️" },
     { href: "/admin/dictionary", label: "Dictionary", icon: "📖" },
     { href: "/admin/grammar", label: "Grammar", icon: "🔤" },
-    { href: "/teacher/calendar", label: "Calendar", icon: "🗓️" },
     { href: "/teacher/word-journal", label: "Word Journals", icon: "📒" },
-    { href: "/guide", label: "Help", icon: "❔" },
-    { href: "/teacher/progress", label: "Student Progress", icon: "📈" },
     { href: "/teacher/intervention", label: "Who Needs Help", icon: "🚨" },
     { href: "/teacher/alerts", label: "Alerts", icon: "🔔" },
     { href: "/teacher/ai", label: "Class Insights", icon: "💡" },
     { href: "/teacher/family-reports", label: "Family Reports", icon: "👪" },
     { href: "/teacher/assignments", label: "Assignments", icon: "📋" },
     { href: "/teacher/map-rit", label: "MAP Scores", icon: "📥" },
-    { href: "/teacher/map-plans", label: "MAP Plans", icon: "🧾" },
+    { href: "/teacher/progress", label: "Students dashboard", icon: "📈" },
+    { href: "/teacher/map-center?tab=plan", label: "MAP plan", icon: "🧾" },
+    { href: "/teacher/map-center?tab=reports", label: "MAP reports", icon: "📑" },
     { href: "/teacher/levels", label: "Levels", icon: "🎚" },
     { href: "/teacher/intervention/groups", label: "Intervention Groups", icon: "🎯" },
     { href: "/teacher/strategy-groups", label: "Strategy Groups", icon: "🧠" },
@@ -91,18 +104,18 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
     { href: "/teacher/knowledge-graph", label: "Skill Connections", icon: "🕸️" },
   ],
   STUDENT: [
-    { href: "/student/readmaster", label: "ReadMaster", icon: "⭐" },
-    { href: "/student/readrise", label: "ReadRise", icon: "🚀" },
-    { href: "/student/fluency-coach", label: "Fluency Coach", icon: "🎙️" },
-    { href: "/student/curriculum", label: "Curriculum Map", icon: "🧭" },
-    { href: "/student/second-chance", label: "Second Chance", icon: "🌟" },
-    { href: "/student/certificates", label: "My Certificates", icon: "📜" },
+    { href: "/student/readmaster", label: "ReadMaster", icon: "⭐", line: "star" },
+    { href: "/student/readrise", label: "ReadRise", icon: "🚀", line: "rise" },
+    { href: "/student/fluency-coach", label: "Fluency Coach", icon: "🎙️", line: "mic" },
+    { href: "/student/curriculum", label: "Curriculum Map", icon: "🧭", line: "curriculum" },
+    { href: "/student/second-chance", label: "Second Chance", icon: "🌟", line: "retry" },
+    { href: "/student/certificates", label: "My Certificates", icon: "📜", line: "award" },
     { href: "/student/badges", label: "Badges", icon: "🏅" },
     { href: "/student/reports", label: "My Reports", icon: "📊" },
     { href: "/student/lesson", label: "My Lessons", icon: "📘" },
-    { href: "/student/words", label: "My Words", icon: "📒" },
-    { href: "/student/respond", label: "Respond to Reading", icon: "✍️" },
-    { href: "/student/writing", label: "Writing", icon: "🖊" },
+    { href: "/student/words", label: "My Words", icon: "📒", line: "words" },
+    { href: "/student/respond", label: "Respond to Reading", icon: "✍️", line: "writing" },
+    { href: "/student/writing", label: "Writing", icon: "🖊", line: "writing" },
     { href: "/student/decoding", label: "Word Sounds Check", icon: "🔤" },
     { href: "/student/strategy-survey", label: "My Reading Strategies", icon: "🧠" },
     { href: "/student/insights", label: "Progress Report", icon: "🌟" },
@@ -116,7 +129,8 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
 /** Every page a role can find by name: the menu, then the pages that left it (no duplicates). */
 export function searchablePagesFor(role: string, opts: NavOpts = {}): NavItem[] {
   const menu = navItemsFor(role, opts);
-  const extra = role === "TEACHER" || role === "STUDENT" ? OFF_MENU[role] : role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN" ? adminOffMenu() : [];
+  const extra = role === "TEACHER" ? [...OFF_MENU.TEACHER, ...(opts.nafs ? [NAFS_PAGE] : [])] : role === "STUDENT" ? OFF_MENU[role]
+    : role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN" ? [...adminOffMenu(), NAFS_PAGE] : [];
   const seen = new Set(menu.map((i) => i.href));
   return [...menu, ...extra.filter((i) => !seen.has(i.href))];
 }

@@ -42,7 +42,7 @@ export default async function GamesPage({ searchParams }: { searchParams: Promis
         </Section>
       )}
       {classes.length === 0 ? <EmptyState icon="🏁" title="You do not teach a class yet." text="Ask the school admin to add your class." /> : (
-        <ChallengeSetup classes={classes} initialClassId={sp.classId ?? null} initialSkills={skills.slice(0, 300)} templates={templates} />
+        <ChallengeSetup classes={classes} initialClassId={sp.classId ?? null} initialSkills={skills} templates={templates} />
       )}
       {games.length > 0 && (
         <Section title="Earlier games" icon="🕹️" className="mt-6">

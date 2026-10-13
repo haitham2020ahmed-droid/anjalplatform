@@ -40,7 +40,7 @@ export interface CurriculumUnit { code: string; title: string; lessons: LessonCa
 const has = (n: MapViewNode): boolean => n.counts.adaptive + n.counts.teacher > 0 || n.children.some(has);
 
 /** Lesson cards of one unit node of the map view, with the details merged in. */
-function unitCards(grade: number, u: MapViewNode, ready?: (n: MapViewNode) => boolean): CurriculumUnit {
+export function unitCards(grade: number, u: MapViewNode, ready?: (n: MapViewNode) => boolean): CurriculumUnit {
   const title = u.title.split(":")[0].trim();
   return {
     code: u.code, title,

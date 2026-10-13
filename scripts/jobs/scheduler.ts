@@ -36,7 +36,7 @@ function run(job: JobSpec): Promise<number> {
         await notify(process.env[envKey(job.name)], { job: job.name, ok: true, ms });
       } else {
         log("error", "job.failed", { job: job.name, code, ms });
-        await notify(process.env.ALERT_WEBHOOK_URL, { text: `Al-Anjal ELA: job "${job.name}" failed (exit ${code}). Check the jobs container logs.` });
+        await notify(process.env.ALERT_WEBHOOK_URL, { text: `Literise: job "${job.name}" failed (exit ${code}). Check the jobs container logs.` });
       }
       resolve(code ?? 1);
     });

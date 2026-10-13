@@ -6,6 +6,7 @@
  *   - MAP practice is the platform's ADAPTIVE practice on skills linked to MAP goal areas; the first question's
  *     difficulty starts at the student's RIT level (seedAbilityFromRit), then adapts after every answer.
  */
+import { countGroups } from "../db/group-count";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -387,10 +388,9 @@ async function practiceAreas(repo: Repo, studentId: string): Promise<MapArea[]> 
   const areaIds = [...new Set(fams.map((f) => s(f.mapGoalAreaId)).filter(Boolean))];
   if (!areaIds.length) return [];
   const areas = await repo.findMany("MapGoalArea", { id: { in: areaIds } }, { select: ["id", "code", "name"] });
-  const qs = await repo.findMany("Question", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId", "typeId"] });
-  const manual = new Set((await repo.findMany("QuestionType", { code: "SHORT_ANSWER" }, { select: ["id"] })).map((t) => s(t.id)));
-  const count = new Map<string, number>();
-  for (const q of qs) if (!manual.has(s(q.typeId))) count.set(s(q.skillId), (count.get(s(q.skillId)) ?? 0) + 1);
+  const manual = [...new Set((await repo.findMany("QuestionType", { code: "SHORT_ANSWER" }, { select: ["id"] })).map((t) => s(t.id)))];
+  // ⚡ counted by the database (one row per skill); teacher-marked questions left out as before
+  const count = await countGroups(repo, "Question", "skillId", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null, ...(manual.length ? { typeId: { notIn: manual } } : {}) });
   const mastery = new Map((await repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "score"] })).map((m) => [s(m.skillId), Math.round(Number(m.score))]));
   const areaOf = new Map(fams.map((f) => [s(f.id), s(f.mapGoalAreaId)]));
   return areas.map((a) => {

@@ -3,8 +3,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { NavItem } from "./main-nav";
 import { useT } from "@/i18n/client";
+import { LineIcon, type LineIconName } from "./line-icon";
 
-interface Hit { kind: "page" | "student" | "class" | "skill"; label: string; sub: string; href: string; icon: string }
+interface Hit { kind: "page" | "student" | "class" | "skill"; label: string; sub: string; href: string; icon: string; line?: LineIconName }
 const KIND_ICON = { student: "🧒", class: "👥", skill: "🧩" } as const;
 
 /**
@@ -44,7 +45,7 @@ export function JumpTo({ items, people }: { items: NavItem[]; people: boolean })
     const words = q.toLowerCase().split(/\s+/).filter(Boolean);
     // matches the English names and the translated ones (a parent may type in Arabic)
     return items.filter((i) => words.every((w) => `${i.label} ${i.group ?? ""} ${t(i.label)} ${i.group ? t(i.group) : ""}`.toLowerCase().includes(w))).slice(0, words.length ? 8 : 12)
-      .map((i) => ({ kind: "page", label: t(i.label), sub: i.group ? `${t("Page")} · ${t(i.group)}` : t("Page"), href: i.href, icon: i.icon }));
+      .map((i) => ({ kind: "page", label: t(i.label), sub: i.group ? `${t("Page")} · ${t(i.group)}` : t("Page"), href: i.href, icon: i.icon, line: i.line }));
   }, [q, items, t]);
   // staff: the last line opens the full search (lessons, map places, articles, questions … with ⭐ Assign)
   const all: Hit[] = people && q.trim().length >= 2 ? [{ kind: "page", label: `Search everything for “${q.trim()}”`, sub: "Skills, grammar lessons, map places, articles, questions — and ⭐ Assign", href: `/teacher/search?q=${encodeURIComponent(q.trim())}`, icon: "🔎" }] : [];
@@ -73,7 +74,7 @@ export function JumpTo({ items, people }: { items: NavItem[]; people: boolean })
               {hits.map((h, i) => (
                 <li key={`${h.kind}${h.href}`} role="option" aria-selected={i === at}>
                   <button type="button" onMouseEnter={() => setAt(i)} onClick={() => go(h)} className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-start ${i === at ? "bg-brand-navy text-white" : "text-slate-800"}`}>
-                    <span aria-hidden="true" className="w-6 text-center text-lg">{h.icon}</span>
+                    {h.line ? <span aria-hidden="true" className="grid w-6 place-items-center"><LineIcon name={h.line} /></span> : <span aria-hidden="true" className="w-6 text-center text-lg">{h.icon}</span>}
                     <span className="min-w-0 flex-1"><span className="block truncate font-medium">{h.label}</span><span className={`block truncate text-xs ${i === at ? "text-white/70" : "text-slate-500"}`}>{h.sub}</span></span>
                   </button>
                 </li>

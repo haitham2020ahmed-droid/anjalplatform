@@ -13,6 +13,8 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
 import { countQuestionsOfSkills } from "../questions/skill-questions";
+import { modelVersion } from "../cache/bank-version";
+import { remember } from "../cache/lru";
 
 const s = (v: unknown) => String(v ?? "");
 export type SkillKind = "GRAMMAR" | "VOCABULARY" | "READING" | "LANGUAGE" | "OTHER";
@@ -31,8 +33,26 @@ function kindOf(code: string, domain: string, areaSubject: string | null): Skill
   return "OTHER";
 }
 
-/** The master list (optionally one grade). Fixed number of queries whatever the size. */
-export async function masterSkills(repo: Repo, schoolId: string, opts: { grade?: number; withQuestionsOnly?: boolean } = {}): Promise<MasterSkill[]> {
+const listCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<MasterSkill[]> }>>();
+/** what the list is built from: a write to any of these (in this process) builds it again */
+const LIST_MODELS = ["Grade", "Curriculum", "Skill", "SkillFamily", "SkillStandard", "Standard", "UnitSkill", "MapGoalArea", "Question", "QuestionMapLink"];
+
+/**
+ * The master list (optionally one grade). Fixed number of queries whatever the size. ⚡ Every skill picker, the
+ * curriculum pages and the question analysis read it: kept per school until one of its tables changes (and at most
+ * a minute, like the skill index); callers get their own copy.
+ */
+export function masterSkills(repo: Repo, schoolId: string, opts: { grade?: number; withQuestionsOnly?: boolean } = {}): Promise<MasterSkill[]> {
+  let m = listCache.get(repo); if (!m) listCache.set(repo, (m = new Map()));
+  const key = `${schoolId}|${opts.grade ?? ""}|${opts.withQuestionsOnly ? 1 : 0}`, v = modelVersion(...LIST_MODELS), hit = m.get(key);
+  if (hit && hit.v === v && Date.now() - hit.at < 60_000) return hit.p.then((x) => structuredClone(x));
+  const p = masterSkillsNow(repo, schoolId, opts);
+  remember(m, key, { v, at: Date.now(), p }, 16);
+  p.catch(() => m!.delete(key));
+  return p.then((x) => structuredClone(x));
+}
+
+async function masterSkillsNow(repo: Repo, schoolId: string, opts: { grade?: number; withQuestionsOnly?: boolean }): Promise<MasterSkill[]> {
   const grades = (await repo.findMany("Grade", { schoolId }, { select: ["id", "level", "isActive"] })).filter((g) => g.isActive !== false && (!opts.grade || Number(g.level) === opts.grade));
   if (!grades.length) return [];
   const curs = await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id", "gradeId"] });
@@ -53,12 +73,23 @@ export async function masterSkills(repo: Repo, schoolId: string, opts: { grade?:
     links.length ? repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => s(l.standardId)))] } }, { select: ["id", "code"] }) : Promise.resolve([] as Row[]),
   ]);
   const inUnit = new Set(units.map((u) => s(u.skillId)));
-  const gradeOfCur = new Map(curs.map((c) => [s(c.id), Number(grades.find((g) => g.id === c.gradeId)?.level ?? 0)]));
+  // ⚡ lookups by id (were a scan of every family / area / link / standard for each skill)
+  const levelOf = new Map(grades.map((g) => [s(g.id), Number(g.level ?? 0)]));
+  const gradeOfCur = new Map(curs.map((c) => [s(c.id), levelOf.get(s(c.gradeId)) ?? 0]));
+  const famArea = new Map<string, unknown>();
+  for (const f of fams) if (!famArea.has(s(f.id))) famArea.set(s(f.id), f.mapGoalAreaId);
+  const areaById = new Map<string, Row>();
+  for (const a of areas) if (!areaById.has(s(a.id))) areaById.set(s(a.id), a);
+  const codeOf = new Map<string, unknown>();
+  for (const x of stds) if (!codeOf.has(s(x.id))) codeOf.set(s(x.id), x.code);
+  const linksOf = new Map<string, Row[]>();
+  for (const l of links) { const k = s(l.skillId); const list = linksOf.get(k); if (list) list.push(l); else linksOf.set(k, [l]); }
   const out = skills.map((k) => {
-    const area = areas.find((a) => a.id === fams.find((f) => f.id === k.familyId)?.mapGoalAreaId);
+    const areaId = famArea.get(s(k.familyId));
+    const area = areaId === undefined || areaId === null ? undefined : areaById.get(s(areaId));
     return {
       id: s(k.id), code: s(k.code), name: s(k.name), grade: gradeOfCur.get(s(k.curriculumId)) ?? 0, kind: kindOf(s(k.code), s(k.domain), area ? s(area.subject) : null), area: area ? s(area.name) : null,
-      standards: links.filter((l) => l.skillId === k.id).sort((a, b) => Number(b.isPrimary) - Number(a.isPrimary)).map((l) => s(stds.find((x) => x.id === l.standardId)?.code).replace(/^CCSS\.ELA-LITERACY\./, "")).filter(Boolean),
+      standards: (linksOf.get(s(k.id)) ?? []).sort((a, b) => Number(b.isPrimary) - Number(a.isPrimary)).map((l) => s(codeOf.get(s(l.standardId))).replace(/^CCSS\.ELA-LITERACY\./, "")).filter(Boolean),
       questions: count.get(s(k.id)) ?? 0, inUnit: inUnit.has(s(k.id)),
     };
   });

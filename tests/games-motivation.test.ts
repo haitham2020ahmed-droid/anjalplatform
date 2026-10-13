@@ -268,7 +268,7 @@ describe("Games Part 3: motivation", () => {
     const page = read("src/app/student/page.tsx");
     const welcome = page.indexOf('data-testid="welcome"'), qotd = page.indexOf("<QotdCard"), work = page.indexOf('id="my-work"');
     assert.ok(welcome > 0 && work > welcome && qotd > work, "the Today card first, then the Question of the Day");
-    assert.equal((page.match(/<BigTile /g) ?? []).length, 0, "no tiles on the student home (one Today card)");
+    assert.equal((page.match(/<BigTile /g) ?? []).length, 0, "no big cartoon tiles: one calm HomeTiles grid");
     assert.equal(toAvatar("not json").base, "cat"); assert.equal(toAvatar({ base: "nope", hat: "crown" }).hat, "crown");
   });
 

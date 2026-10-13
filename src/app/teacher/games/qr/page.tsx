@@ -5,7 +5,8 @@ import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { accessibleClasses } from "@/server/teacher/assign";
-import { masterSkills, KIND_NAME } from "@/server/skills/master";
+import { skillPickerList } from "@/server/skills/picker";
+import { SkillListPicker } from "@/components/skill-picker";
 import { qrJoins } from "@/server/game/skill-games";
 import { qrPath } from "@/lib/qr";
 
@@ -19,7 +20,8 @@ export default async function SkillQrPage({ searchParams }: { searchParams: Prom
   const classes = (await accessibleClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
   const klass = classes.find((c) => c.id === sp.classId) ?? classes[0];
   const grade = klass ? Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0) : 0;
-  const skills = klass ? await masterSkills(repo, actor.schoolId!, { grade, withQuestionsOnly: true }) : [];
+  // every skill the class's students may play (their grade's copy of each shared skill); none without questions is lost
+  const skills = klass ? await skillPickerList(repo, actor, { onlyGrade: grade }) : [];
   const picked = (Array.isArray(sp.skill) ? sp.skill : sp.skill ? [sp.skill] : []).filter((id) => skills.some((k) => k.id === id));
   const h = await headers();
   const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
@@ -36,9 +38,7 @@ export default async function SkillQrPage({ searchParams }: { searchParams: Prom
         <form method="get" className="mt-4 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200 print:hidden">
           <input type="hidden" name="classId" value={String(klass.id)} />
           <p className="font-bold text-brand-navy">Tick the skills (Grade {grade}), then make the cards</p>
-          <div className="mt-2 grid max-h-80 gap-1 overflow-y-auto rounded-2xl p-3 ring-1 ring-slate-200 sm:grid-cols-2 lg:grid-cols-3">
-            {skills.map((k) => <label key={k.id} className="flex items-center gap-2 rounded-lg px-2 py-1 text-sm hover:bg-slate-50"><input type="checkbox" name="skill" value={k.id} defaultChecked={picked.includes(k.id)} /><span className="flex-1">{k.name}</span><span className="text-xs text-slate-400">{KIND_NAME[k.kind]}</span></label>)}
-          </div>
+          <div className="mt-2"><SkillListPicker skills={skills} mode="multiple" name="skill" defaultValue={picked} /></div>
           <button className="mt-3 rounded-xl bg-brand-navy px-6 py-2.5 font-bold text-white hover:bg-brand-purple">📱 Make QR cards</button>
         </form>
       )}

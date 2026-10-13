@@ -146,7 +146,7 @@ export function SignInCards({ cards, school, base, hidden = "ask your teacher", 
             {p.map((c, i) => (
               <div key={c.userId} className="pk-cardcell">
                 <article className="pk-card" style={{ ["--pk-c" as string]: cycleColor(pi * CARDS_PER_PAGE + i) }} data-pk="card">
-                  <div className="pk-card-top"><span className="pk-logo">Al-<i>Anjal</i></span>{school ? <span className="pk-card-school"><bdi>{school}</bdi></span> : null}</div>
+                  <div className="pk-card-top"><span className="pk-logo">Lite<i>rise</i></span>{school ? <span className="pk-card-school"><bdi>{school}</bdi></span> : null}</div>
                   <div className="pk-card-head">
                     <div className="pk-card-who">
                       <div className={`pk-card-name${[...c.name].length > 40 ? " pk-long" : ""}`} dir="auto" title={c.name}><bdi>{c.name}</bdi></div>

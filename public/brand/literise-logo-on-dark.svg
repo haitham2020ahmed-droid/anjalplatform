@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 40" width="196" height="40" role="img" aria-label="Literise">
+  <title>Literise</title>
+  <rect x="2" y="24" width="7" height="13" rx="3.5" fill="#9b8bdb"/>
+  <rect x="12" y="17" width="7" height="20" rx="3.5" fill="#a9c4ee"/>
+  <rect x="22" y="10" width="7" height="27" rx="3.5" fill="#2bb3b3"/>
+  <rect x="32" y="3" width="7" height="34" rx="3.5" fill="#f5b800"/>
+  <text x="50" y="31" font-family="'DM Serif Display', Georgia, 'Times New Roman', serif" font-size="30" fill="#ffffff">Literise</text>
+</svg>

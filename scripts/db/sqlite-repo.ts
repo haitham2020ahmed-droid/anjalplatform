@@ -168,6 +168,14 @@ export class SqliteRepo implements Repo {
     return Number((this.db.prepare(`SELECT COUNT(*) AS n FROM "${model}"${w.sql}`).get(...(w.params as never[])) as { n: number }).n);
   }
 
+  async groupCount(model: string, by: string, where?: Where): Promise<Map<string, number>> {
+    const m = this.model(model);
+    if (!columns(m, this.schema).some((c) => c.name === by)) throw new Error(`Unknown field ${model}.${by}`);
+    const w = this.whereSql(m, where);
+    const rows = this.db.prepare(`SELECT "${by}" AS k, COUNT(*) AS n FROM "${model}"${w.sql} GROUP BY "${by}"`).all(...(w.params as never[])) as { k: unknown; n: number }[];
+    return new Map(rows.map((r) => [String(r.k ?? ""), Number(r.n)]));
+  }
+
   async upsert(model: string, where: Record<string, unknown>, create: Row, update: Row = {}): Promise<Row> {
     noteWrite(model);
     const m = this.model(model);

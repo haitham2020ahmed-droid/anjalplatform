@@ -10,6 +10,7 @@ import { sendCurriculumPlan, setOpenUnits } from "@/server/curriculum-map/curric
 import { getT } from "@/i18n/server";
 import { skillsByIds } from "@/server/plans/wizard";
 import { suggestNafsPlan } from "@/server/plans/nafs-suggest";
+import { assertNafs } from "@/server/teacher/nafs-access";
 import { fromFormData, readPlanForm, readQuestionPicks } from "@/server/plans/plan-form";
 import { applyEdits, picksOf, sendProgramPlan } from "@/server/plans/send";
 
@@ -108,6 +109,7 @@ async function sendFromPlansPage(actor: Actor, f: FormData, kind: "nafs" | "cust
     const added = await skillsByIds(repo, actor, form.add);
     let plan;
     if (kind === "nafs") {
+      await assertNafs(repo, actor);   // NAFS: Grade 6 teachers and admins only
       const sug = await suggestNafsPlan(repo, actor, { classId: form.classId, studentIds: form.studentIds, areas: areas.length ? areas : null });
       plan = applyEdits(sug.skills, form.keep, added, sug.students.map((x) => x.id));
     } else {

@@ -1,7 +1,7 @@
 /**
- * 🎯 The 25-question rule (demo school in memory; never a real database):
- *   - the 25th answer of an assigned skill makes the work Done at once; the student chooses Finish or Continue
- *   - the work's accuracy counts the FIRST 25 answers only; practising on keeps it Done and never changes it
+ * 🎯 Assigned skill work (demo school in memory; never a real database). The old 25-question rule is REPLACED by the
+ * 30–50 rule (tests/work-30-50.test.ts covers mastered at 30, 50 + choice, and running out of questions):
+ *   - 25 answers no longer make the work Done; the student sees "x of 30"
  *   - completion, accuracy and mastery are three separate values (My Work list, the practice screen, the report)
  *   - "Skill not assigned" no longer shows for another grade's copy of an assigned skill or an older skillIds row
  *   - a double submit is saved once
@@ -13,7 +13,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import type { Actor } from "../src/server/auth/rbac";
 import { assignSkill, teacherCurriculum } from "../src/server/teacher/assign";
 import { startPractice, submitAnswer, type PracticeView } from "../src/server/practice/session";
-import { ASSIGNMENT_DONE_AT, assignedSkillAccess } from "../src/server/practice/completion";
+import { ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess } from "../src/server/practice/completion";
 import { assignedSkills, assignmentReport } from "../src/server/student/assigned";
 import { myWorkItems } from "../src/server/plans/wizard";
 import { afterResponseSettled } from "../src/server/lib/after-response";
@@ -22,7 +22,7 @@ import { demoDatabase } from "./helpers/db";
 const s = (v: unknown) => String(v ?? "");
 const T0 = new Date("2027-06-07T08:00:00Z");
 
-describe("the 25-question rule", () => {
+describe("assigned skill work (was: the 25-question rule)", () => {
   let repo: SqliteRepo; let teacher: Actor; let classId = "";
   const kids: Actor[] = [];
   const skill: Record<string, string> = {};
@@ -55,46 +55,38 @@ describe("the 25-question rule", () => {
     await mk("g4copy", cur4.id, "quasar theme", 0);
   });
 
-  test("25th answer → Done; first-25 accuracy; Finish or Continue; practising on never changes the result", async () => {
+  test("25 answers no longer finish the work (the 30–50 rule): x of 30, accuracy and mastery kept apart", async () => {
     const me = kids[0];
     const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: skill.big, studentIds: [me.studentId!], targetMastery: 99 }, tick(0));
     let v: PracticeView = await startPractice(repo, me, skill.big, tick());
     assert.equal(v.work?.answered, 0);
-    assert.equal(v.work?.of, ASSIGNMENT_DONE_AT);
+    assert.equal(v.work?.of, ASSIGNMENT_MIN_QUESTIONS);
     let right = 0;
-    for (let k = 0; k < ASSIGNMENT_DONE_AT; k++) {
+    for (let k = 0; k < 25; k++) {
       const ok = k % 5 !== 0; // 20 of 25 right → 80 %
       if (ok) right++;
       const r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: ok ? "A" : "B" }, tick());
       v = r.view;
-      if (k < ASSIGNMENT_DONE_AT - 1) assert.notEqual(r.feedback.work?.justDone, true, `not Done at ${k + 1}`);
-      else {
-        assert.equal(r.feedback.work?.justDone, true, "the 25th answer makes the work Done");
-        assert.equal(r.feedback.next.hasQuestion, true, "the student may continue practising");
-        assert.equal(r.feedback.work?.accuracy, Math.round((100 * right) / ASSIGNMENT_DONE_AT));
-      }
+      assert.notEqual(r.feedback.work?.justDone, true, `not Done at ${k + 1}`);
+      assert.equal(r.feedback.next.hasQuestion, true, "practice goes on (no choice before 30)");
     }
-    const done = await row(assignmentId, me.studentId!);
-    assert.deepEqual([done.status, Number(done.coreAnswered), Number(done.coreCorrect)], ["COMPLETED", 25, right]);
-    const at = s(done.completedAt);
-    // Continue practising: 5 more answers, all wrong — the work stays Done, its accuracy unchanged
-    for (let k = 0; k < 5 && v.question; k++) v = (await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question.questionId, response: "B" }, tick())).view;
     await afterResponseSettled();
-    const after = await row(assignmentId, me.studentId!);
-    assert.deepEqual([after.status, s(after.completedAt), Number(after.coreAnswered), Number(after.coreCorrect)], ["COMPLETED", at, 25, right]);
-    assert.equal(v.work?.completion, "DONE");
+    const now = await row(assignmentId, me.studentId!);
+    assert.notEqual(now.status, "COMPLETED", "25 answers are not enough any more");
+    assert.deepEqual([Number(now.coreAnswered), Number(now.coreCorrect)], [25, right]);
+    assert.deepEqual([v.work?.completion, v.work?.answered, v.work?.of, v.work?.accuracy], ["IN_PROGRESS", 25, 30, 80]);
     // three separate values in My Work and in the report
     const item = (await assignedSkills(repo, me, tick())).items.find((x) => x.assignmentId === assignmentId)!;
-    assert.equal(item.status, "COMPLETED");
-    assert.equal(item.work?.answered, 25);
-    assert.equal(item.work?.accuracy, 80);
+    assert.notEqual(item.status, "COMPLETED");
+    assert.deepEqual([item.work?.answered, item.work?.of, item.work?.accuracy], [25, 30, 80]);
     assert.ok(item.work?.mastery !== null);
     const rep = await assignmentReport(repo, me, assignmentId);
-    assert.equal(rep.accuracy, 80, "the report's accuracy counts the first 25 answers");
-    assert.equal(rep.answered, 30, "all answers are still listed");
-    assert.deepEqual(rep.completion, { answered: 25, of: 25, correct: right });
+    assert.equal(rep.accuracy, 80, "the report's accuracy counts the work's answers");
+    assert.equal(rep.answered, 25);
+    assert.deepEqual(rep.completion, { answered: 25, of: 30, correct: right });
+    assert.match(rep.nextStep, /at least 5 more question/);
     const w = (await myWorkItems(repo, me, tick())).find((x) => x.assignmentId === assignmentId)!;
-    assert.deepEqual([w.status, w.action], ["Done", "Review"], "a Done work never shows Continue");
+    assert.notEqual(w.status, "Done");
   });
 
   test("another grade's copy of an assigned skill and an older skillIds row are 'assigned' (no false message)", async () => {

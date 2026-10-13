@@ -48,3 +48,53 @@ export function targetWords(level: number): { min: number; max: number } {
 }
 
 export const clampLevel = (l: number) => Math.min(RR_MAX + 100, Math.max(RR_MIN - 100, Math.round(l / 10) * 10));
+
+// ------------------------------------------------------------------ measured level and fit (version precision)
+
+/** One version as the picker sees it: its nominal level and what the text measures. */
+export interface MeasuredVersion { level: number; estLevel?: unknown; officialLexile?: unknown }
+
+/**
+ * The text's MEASURED level: the official measure when the school stored one, else the platform's cached estimate
+ * (RRVersion.estLevel, computed with estimateLevel at import), else the nominal version level.
+ */
+export function measuredLevel(v: MeasuredVersion): number {
+  const off = v.officialLexile === null || v.officialLexile === undefined ? NaN : Number(v.officialLexile);
+  if (Number.isFinite(off) && off > 0) return off;
+  const est = v.estLevel === null || v.estLevel === undefined ? NaN : Number(v.estLevel);
+  return Number.isFinite(est) && est > 0 ? est : Number(v.level);
+}
+
+/** The band around the student's level that counts as a just-right text (± this many points). */
+export const FIT_BAND = 75;
+export type Fit = "EXACT" | "STRETCH" | "EASY";
+
+/** How a text fits a reader: within ± FIT_BAND = exact, harder = stretch, easier = easy. */
+export function fitOf(textLevel: number, studentLevel: number): Fit {
+  const d = textLevel - studentLevel;
+  return d > FIT_BAND ? "STRETCH" : d < -FIT_BAND ? "EASY" : "EXACT";
+}
+
+/**
+ * The version to show, using each version's MEASURED level: among the nominal pick (versionFor) and its two
+ * neighbours, the one whose measured level is closest to the student's level (a text measuring more than 50 above
+ * the student counts 1.5× as far: a little easy beats too hard). Ties keep the nominal pick, so when every text
+ * measures at its target this is exactly versionFor. Never more than one version away from the nominal pick.
+ */
+export function chooseVersion(studentLevel: number, versions: MeasuredVersion[]): number {
+  if (!versions.length) return RR_MIN;
+  const nominal = versionFor(studentLevel, versions.map((v) => Number(v.level)));
+  const cost = (v: MeasuredVersion) => { const m = measuredLevel(v), d = m - studentLevel; return d > 50 ? d * 1.5 : Math.abs(d); };
+  let best = versions.find((v) => Number(v.level) === nominal)!, bestCost = cost(best);
+  for (const v of versions) {
+    if (Math.abs(Number(v.level) - nominal) > 100 || Number(v.level) === nominal) continue;
+    const c = cost(v);
+    if (c < bestCost) { best = v; bestCost = c; }
+  }
+  return Number(best.level);
+}
+
+/** The stretch version: the next version above the one the student reads, or null. */
+export function stretchAbove(current: number, available: number[]): number | null {
+  return [...available].sort((a, b) => a - b).find((l) => l > current) ?? null;
+}

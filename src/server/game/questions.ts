@@ -11,6 +11,7 @@
  * Reads are bounded (one page of ≤ 1000 ids per skill, then only the round's items) and cached briefly.
  * One question bank: a skill's questions are its family's (questionsOfSkill pools every grade's copy of the skill).
  */
+import { countGroups } from "../db/group-count";
 import type { Repo } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -183,7 +184,7 @@ export async function fittingCounts(repo: Repo, schoolId: string, skillIds: stri
       if (!typeIds.length) return counts;
       const ids = [...idx.ids];
       for (let i = 0; i < ids.length; i += 400) {
-        for (const q of await repo.findMany("Question", { skillId: { in: ids.slice(i, i + 400) }, status: "PUBLISHED", deletedAt: null, typeId: { in: typeIds } }, { select: ["skillId"] })) counts.set(s(q.skillId), (counts.get(s(q.skillId)) ?? 0) + 1);
+        for (const [k, n] of await countGroups(repo, "Question", "skillId", { skillId: { in: ids.slice(i, i + 400) }, status: "PUBLISHED", deletedAt: null, typeId: { in: typeIds } })) counts.set(k, (counts.get(k) ?? 0) + n);
       }
       return counts;
     })().catch((e) => { m!.delete(key); throw e; });

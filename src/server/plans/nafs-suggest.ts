@@ -5,6 +5,7 @@
  */
 import type { Repo } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
+import { ValidationError } from "../curriculum-admin";
 import { RETEACH_PCT, testResults } from "../tests/assessments";
 import { proposePlan } from "./wizard";
 import type { PlanSkill } from "./send";
@@ -20,6 +21,10 @@ export interface NafsSuggestion {
 
 export async function suggestNafsPlan(repo: Repo, actor: Actor, input: { classId: string; studentIds?: string[]; areas?: string[] | null; grade?: number | null }, now = new Date()): Promise<NafsSuggestion> {
   assertCan(actor, "assignments:create");
+  // NAFS plans are for Grade 6 classes only (the class itself is checked by proposePlan: own class only)
+  const klass = await repo.findUnique("Class", { id: input.classId });
+  const grade = klass ? Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0) : 0;
+  if (klass && grade !== 6) throw new ValidationError("NAFS plans are for Grade 6 classes only.");
   // the general proposal also checks the class (own class only) and the students (in the class)
   const general = await proposePlan(repo, actor, { classId: input.classId, studentIds: input.studentIds, type: "NAFS", areas: input.areas, grade: input.grade });
   const recipients = new Set(general.students.map((s) => s.id));

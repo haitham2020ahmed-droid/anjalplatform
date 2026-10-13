@@ -1,3 +1,4 @@
+import { LiteriseLogo } from "./brand/literise-logo";
 /**
  * Shown by Next.js the moment a link is clicked (loading.tsx), shaped like the page that is coming, so the screen
  * answers at once and nothing jumps when the page arrives (Update 42B). Same frame as AppShell; grey placeholder
@@ -10,7 +11,7 @@ function Frame({ label, children }: { label: string; children: React.ReactNode }
     <div className="min-h-screen">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-          <span className="font-bold text-brand-navy">Al-Anjal English</span>
+          <LiteriseLogo size="sm" />
           <span className="h-8 w-8 rounded-full bg-slate-200" aria-hidden="true" />
         </div>
       </header>

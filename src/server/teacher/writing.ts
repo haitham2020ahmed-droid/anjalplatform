@@ -26,6 +26,7 @@ import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "./assignments";
 import { assertClassRead } from "./coordinators";
 import { assignSkill } from "./assign";
+import { skillPickerList, type PickerSkill } from "../skills/picker";
 import { classMembers, studentNames } from "../insights/student-data";
 import { MISCONCEPTION_BY_CODE } from "../../insights/misconceptions";
 import type { EnvLike } from "../ai/engine";
@@ -117,14 +118,16 @@ export async function createTask(repo: Repo, actor: Actor, input: CreateTaskInpu
 }
 
 /** The skills a writing task can practise: the active skills of the class's curriculum, by name. */
-export async function writingSkillOptions(repo: Repo, actor: Actor, classId: string): Promise<{ id: string; name: string; code: string }[]> {
+/**
+ * The skills a writing task may practise: the one picker list for the class's grade (a task's skill is a skill of the
+ * class's curriculum — that grade's copy of every shared skill), A–Z, in domain tabs (Writing among them).
+ */
+export async function writingSkillOptions(repo: Repo, actor: Actor, classId: string): Promise<PickerSkill[]> {
   assertCan(actor, "reports:read");
   await assertClassRead(repo, actor, classId);
   const klass = await repo.findUnique("Class", { id: classId });
-  const curs = klass ? await repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }, { select: ["id"] }) : [];
-  if (!curs.length) return [];
-  const rows = await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, deletedAt: null }, { select: ["id", "name", "code", "isActive"] });
-  return rows.filter((r) => r.isActive !== false).map((r) => ({ id: s(r.id), name: s(r.name), code: s(r.code) })).sort((a, b) => Number(!/writ/i.test(a.code)) - Number(!/writ/i.test(b.code)) || a.name.localeCompare(b.name));
+  const grade = klass ? Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0) : 0;
+  return grade ? skillPickerList(repo, actor, { onlyGrade: grade }) : [];
 }
 
 // ------------------------------------------------------------------ the teacher: lists and the scoring view

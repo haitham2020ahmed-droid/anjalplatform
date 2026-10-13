@@ -84,8 +84,9 @@ describe("🔎 every skill is findable everywhere", () => {
   test("teacher test builder: every skill is in the picker and its search finds it", async () => {
     const all = await builderSkills(repo, teacher);
     for (const x of present) {
-      for (const id of x.ids) assert.ok(all.some((b) => b.id === id), `picker has ${x.name} (${id})`);
-      for (const q of variants(x.name)) assert.ok((await builderSkills(repo, teacher, { q })).some((b) => x.ids.includes(b.id)), `builder search "${q}"`);
+      // one row per shared pool (the teacher's grade copy stands for every grade's copy)
+      for (const id of x.ids) assert.ok(all.some((b) => b.skillIds.includes(id)), `picker has ${x.name} (${id})`);
+      for (const q of variants(x.name)) assert.ok((await builderSkills(repo, teacher, { q })).some((b) => b.skillIds.some((id) => x.ids.includes(id))), `builder search "${q}"`);
     }
   });
 

@@ -11,7 +11,8 @@ import { correctAnswerText, loadQuestionItems, seededShuffle, type PracticeItem 
 import { normalizeResponse } from "../practice/session";
 import { scoreResponse } from "../../imports/questions/validate";
 import { masterSkills } from "../skills/master";
-import { readableClasses } from "./coordinators";
+import { skillPickerList, type PickerSkill } from "../skills/picker";
+import { questionsOfSkill } from "../questions/skill-questions";
 import { hideLevels } from "../../lib/hide-levels";
 
 const s = (v: unknown) => String(v ?? "");
@@ -85,21 +86,20 @@ async function assertSchoolQuestions(repo: Repo, actor: Actor, ids: string[]) {
   }
 }
 
-/** Skills to pick questions from (the grades the teacher teaches; admins: all). */
-export async function pickerSkills(repo: Repo, actor: Actor): Promise<{ id: string; name: string; grade: number; kind: string; questions: number }[]> {
+/**
+ * Skills to pick questions from: the one picker list (every active skill, one row per shared pool — the copy of the
+ * teacher's grade — A–Z, each in a domain tab; a skill without questions is listed and shown disabled).
+ */
+export async function pickerSkills(repo: Repo, actor: Actor, opts: { preferGrade?: number | null } = {}): Promise<PickerSkill[]> {
   staff(actor);
-  const all = await masterSkills(repo, actor.schoolId!, { withQuestionsOnly: true });
-  if (actor.role !== "TEACHER") return all.map((k) => ({ id: k.id, name: k.name, grade: k.grade, kind: k.kind, questions: k.questions }));
-  const classes = await readableClasses(repo, actor);
-  const gr = classes.length ? await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => s(c.gradeId)))] } }, { select: ["level"] }) : [];
-  const grades = new Set(gr.map((g) => Number(g.level)));
-  return all.filter((k) => grades.has(k.grade)).map((k) => ({ id: k.id, name: k.name, grade: k.grade, kind: k.kind, questions: k.questions }));
+  return skillPickerList(repo, actor, opts);
 }
 
+/** The published questions of a skill's shared pool (every grade's copy, as counted in the picker). */
 export async function skillQuestions(repo: Repo, actor: Actor, skillId: string): Promise<{ id: string; stem: string; type: string; level: number; passage: string | null }[]> {
   staff(actor);
   if (!(await masterSkills(repo, actor.schoolId!)).some((k) => k.id === skillId)) throw new ForbiddenError("Skill not found.");
-  const items = (await loadQuestionItems(repo, (await repo.findMany("Question", { skillId, status: "PUBLISHED", deletedAt: null }, { select: ["id"] })).map((q) => s(q.id))));
+  const items = (await loadQuestionItems(repo, (await questionsOfSkill(repo, actor.schoolId!, skillId, { take: 1000 })).map((q) => q.id)));
   return items.map((i) => ({ id: i.questionId, stem: i.stem.slice(0, 220), type: s(i.type), level: i.level, passage: i.passageTitle })).sort((a, b) => a.level - b.level || a.stem.localeCompare(b.stem));
 }
 

@@ -12,6 +12,7 @@ import { FirstLoginTour, LangSwitch, StickyHome } from "./ui-kit";
 import { navItemsFor, searchablePagesFor } from "./nav-items";
 import { RewardChip } from "./motivation/reward-chip";
 import { FeedbackButton } from "@/components/feedback/feedback-button";
+import { LiteriseLogo } from "./brand/literise-logo";
 import { getActor, HOME_BY_ROLE, repo } from "@/server/auth/next";
 import type { Role } from "@/server/auth/rbac";
 import type { NavCount } from "@/server/teacher/week-plan";
@@ -19,6 +20,9 @@ import { shellData } from "@/server/ui/shell-data";
 import { needsTour } from "@/server/ui/prefs";
 import { getT } from "@/i18n/server";
 import { isContentPath } from "@/i18n/content-routes";
+import { canSeeNafsCached } from "@/server/teacher/nafs-access";
+import { matchReport } from "./teacher/report-catalog";
+import { ReportBar } from "./teacher/report-bar";
 
 const ROLE_NAME: Record<string, string> = { TEACHER: "Teacher", SCHOOL_ADMIN: "School admin", SUPER_ADMIN: "Platform admin", STUDENT: "Student", PARENT: "Parent" };
 
@@ -32,8 +36,9 @@ export async function AppShell({ name, children }: { name: string; children: Rea
   const me = await getActor();   // cached for the request: no extra query
   const { t, lang } = await getT();
   // English learning content (passages, questions, feedback) keeps its own direction in Arabic mode
-  let content = false;
-  if (lang === "ar") { try { content = isContentPath((await headers()).get("x-pathname")); } catch { content = false; } }
+  let content = false, pathname = "", search = "";
+  try { const h = await headers(); pathname = h.get("x-pathname") ?? ""; search = h.get("x-search") ?? ""; } catch { /* outside a request */ }
+  if (lang === "ar") content = isContentPath(pathname);
   // the menu numbers and a student's menu flags are independent: read them at the same time (every page)
   // (started by requireActor, so it was read at the same time as the page's own data)
   const [countsR, flagsR] = me ? await shellData(repo, me.actor) : [null, null];
@@ -41,16 +46,29 @@ export async function AppShell({ name, children }: { name: string; children: Rea
   const role = String(me?.actor.role ?? "");
   // "/student/rti" in the counts = the student is in the RTI program (Tier 2/3): only then the RTI entry.
   // NAFS the same way: "/student/nafs" in the counts.
-  const flags = flagsR ?? { rti: "/student/rti" in counts, nafs: "/student/nafs" in counts };
+  // a teacher's NAFS flag = teaches a Grade 6 class (NAFS is for Grade 6 only)
+  const flags = role === "TEACHER" ? { nafs: me ? await canSeeNafsCached(repo, me.actor).catch(() => false) : false }
+    : flagsR ?? { rti: "/student/rti" in counts, nafs: "/student/nafs" in counts };
   const items = navItemsFor(role, flags).map((i) => ({ ...i, ...(counts[i.href] ?? {}) }));
   const staff = ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"].includes(role);
+  // a report page (the Reports catalogue): the report bar on top — class switcher, student, date range, Download, Send
+  const report = staff && me ? matchReport(pathname, search) : null;
+  const calm = role === "TEACHER";
   const home = HOME_BY_ROLE[role as Role] ?? "/";
   const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase()).join("");
-  const brand = (
+  const brand = calm ? (
+    <a href={home} className="flex flex-col gap-2 rounded-xl px-1 py-1">
+      <LiteriseLogo size="md" />
+      <span className="flex items-center gap-2 border-t border-slate-100 pt-2 text-[11px] font-medium uppercase tracking-[0.08em] text-slate-400">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/api/school-logo" alt="Al-Anjal Private Schools" className="h-6 w-auto" />{t("Teacher")}
+      </span>
+    </a>
+  ) : (
     <a href={home} className="flex items-center gap-3 rounded-xl bg-white px-3 py-2">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/api/school-logo" alt="Al-Anjal Private Schools" className="h-9 w-auto" />
-      <span dir="ltr" className="border-s border-slate-200 ps-3 text-[15px] font-semibold leading-tight text-brand-navy">Al-Anjal<br />English</span>
+      <span className="border-s border-slate-200 ps-3"><LiteriseLogo size="sm" /></span>
     </a>
   );
   const sideNav = items.length > 0;
@@ -72,19 +90,20 @@ export async function AppShell({ name, children }: { name: string; children: Rea
       {me && <FeedbackButton />}
     </div>
   );
-  const search = sideNav ? <JumpTo items={[...items, ...searchablePagesFor(role).filter((p) => !items.some((i) => i.href === p.href))]} people={staff} /> : null;
+  const finder = sideNav ? <JumpTo items={[...items, ...searchablePagesFor(role, flags).filter((p) => !items.some((i) => i.href === p.href))]} people={staff} /> : null;
   return (
-    <div className={`page-bg role-${role.toLowerCase() || "guest"} min-h-screen ${role === "STUDENT" && (flagsR?.grade ?? 0) >= 7 ? "theme-calm" : "theme-playful"}`}>
+    <div className={`page-bg role-${role.toLowerCase() || "guest"} min-h-screen ${role === "STUDENT" ? "theme-calm" : calm ? "theme-calm" : "theme-playful"}`}>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-brand-navy focus:px-4 focus:py-2 focus:font-semibold focus:text-white">{t("Skip to content")}</a>
       <Suspense fallback={null}><NavProgress /></Suspense>
       <Suspense fallback={null}><SubmitFeedback /></Suspense>
-      {sideNav && <SideNav items={items} brand={brand} footer={drawerFooter} tools={search} extras={extras} />}
+      {sideNav && <SideNav items={items} brand={brand} footer={drawerFooter} tools={finder} extras={extras} variant={calm ? "calm" : "default"} />}
       <div className={sideNav ? "lg:ps-64" : ""}>
         <header className="sticky top-0 z-20 border-b border-slate-200/70 bg-white/85 backdrop-blur-md print:hidden">
           <div className="brand-stripe h-[3px] opacity-80" aria-hidden="true" />
           <div className="mx-auto flex max-w-7xl min-w-0 items-center gap-2 px-3 py-1.5 sm:gap-3 sm:px-6">
             {sideNav && <MenuButton label={t("Open the menu")} />}
             {!sideNav && <span className="hidden md:block">{brand}</span>}
+            {sideNav && calm && <a href={home} className="lg:hidden" aria-label="Literise"><LiteriseLogo size="sm" /></a>}
             <div className="flex-1" />
             {/* students: avatar + coins + badge next to the name; staff: initials and name */}
             {role === "STUDENT" && me?.actor.studentId ? (
@@ -99,7 +118,10 @@ export async function AppShell({ name, children }: { name: string; children: Rea
             <span className={sideNav ? "hidden sm:block" : "block"}><LogoutButton label={t("Sign out")} /></span>
           </div>
         </header>
-        <main id="main" tabIndex={-1} {...(content ? { "data-content": "", lang: "en" } : {})} className="animate-fade-up mx-auto max-w-7xl px-4 py-7 outline-none sm:px-6 lg:px-8 print:max-w-none print:p-0">{children}</main>
+        <main id="main" tabIndex={-1} {...(content ? { "data-content": "", lang: "en" } : {})} className={`animate-fade-up mx-auto max-w-7xl px-4 py-7 outline-none sm:px-6 lg:px-8 print:max-w-none print:p-0${report ? " has-report-bar" : ""}`}>
+          {report && me && <ReportBar actor={me.actor} report={report.report} at={report.at} search={search} />}
+          {children}
+        </main>
       </div>
       {me && <FirstLoginTour role={role} open={needsTour(me.user, role)} />}
     </div>

@@ -8,6 +8,7 @@ import { getT } from "@/i18n/server";
 import { onboarding, weekSuggestions } from "@/server/teacher/week-plan";
 import { classTickets, classWeek } from "@/server/teacher/classroom";
 import { pickerSkills } from "@/server/teacher/worksheet";
+import { SkillListPicker } from "@/components/skill-picker";
 import { myWeek } from "@/server/teacher/my-week";
 import { classGoalAction, exitTicketAction, planNextWeekAction, rhythmAction } from "./actions";
 
@@ -28,11 +29,12 @@ export default async function WeekPage({ searchParams }: { searchParams: Promise
   const [sug, ob] = await Promise.all([weekSuggestions(repo, actor), actor.role === "TEACHER" ? onboarding(repo, actor) : Promise.resolve(null)]);
   const classId = sug.some((c) => c.classId === sp.classId) ? String(sp.classId) : sug[0]?.classId ?? "";
   const cur = sug.find((c) => c.classId === classId);
-  const [w, wk, tickets, skills] = classId
-    ? await Promise.all([myWeek(repo, actor, classId), classWeek(repo, actor, classId), classTickets(repo, actor, classId), pickerSkills(repo, actor)])
-    : [null, null, [], []];
   const klass = classId ? await repo.findUnique("Class", { id: classId }) : null;
   const grade = klass ? Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0) : 0;
+  // every skill (the class grade's copy of a shared skill first), searchable, in domain tabs
+  const [w, wk, tickets, skills] = classId
+    ? await Promise.all([myWeek(repo, actor, classId), classWeek(repo, actor, classId), classTickets(repo, actor, classId), pickerSkills(repo, actor, { preferGrade: grade })])
+    : [null, null, [], []];
   const today = new Date(Date.now() + 3 * 3_600_000).toISOString().slice(0, 10);
   const day = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString(lang === "ar" ? "ar-SA-u-nu-latn" : "en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
   const chip = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
@@ -140,7 +142,7 @@ export default async function WeekPage({ searchParams }: { searchParams: Promise
                   <h3 className="font-semibold text-brand-navy">{t("Exit Ticket")}</h3>
                   <form action={exitTicketAction} className="mt-2 space-y-2 text-sm">
                     <input type="hidden" name="classId" value={classId} />
-                    <select name="skillId" required className={`${box} w-full`} aria-label={t("Skill")}><option value="">{t("Choose today’s skill…")}</option>{skills.filter((k) => k.grade === grade).map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}</select>
+                    <SkillListPicker skills={skills} mode="single" name="skillId" required legend="Choose today’s skill…" height="max-h-64" />
                     <button className="min-h-11 rounded-lg bg-white px-3 font-semibold text-brand-navy ring-1 ring-slate-300">{t("Open the exit ticket")}</button>
                   </form>
                   {tickets.length > 0 && <ul className="mt-3 space-y-1 text-sm">{tickets.slice(0, 5).map((x) => <li key={x.id}><Link prefetch={false} href={`/teacher/exit/${x.id}`} className="text-brand-teal underline">{x.title}</Link> <span className="text-slate-500">· {x.createdAt.slice(0, 10)}</span></li>)}</ul>}

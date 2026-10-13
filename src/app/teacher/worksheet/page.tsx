@@ -8,6 +8,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { levelSheets, MAX_WORKSHEET, openWorksheet, pickerSkills, skillQuestions, worksheetList, worksheetView } from "@/server/teacher/worksheet";
 import { groupWorksheetIds, type GroupKey } from "@/server/map/map-plan";
 import { deleteWorksheetAction, saveWorksheetAction } from "./actions";
+import { SkillListPicker } from "@/components/skill-picker";
 
 export const metadata = { title: "Worksheets" };
 
@@ -87,8 +88,6 @@ export default async function WorksheetPage({ searchParams }: { searchParams: Pr
 
   // ---------------------------------------------------------------- picker
   const [skills, list] = await Promise.all([pickerSkills(repo, actor), worksheetList(repo, actor)]);
-  const grades = [...new Set(skills.map((k) => k.grade))].sort();
-  const grade = Number(sp.grade) || grades[0] || 0;
   const qs = sp.skillId ? await skillQuestions(repo, actor, sp.skillId) : [];
   const keep = ids;
   return (
@@ -98,13 +97,13 @@ export default async function WorksheetPage({ searchParams }: { searchParams: Pr
       {keep.length > 0 && <p className="mb-4 flex flex-wrap items-center gap-3 rounded-2xl bg-emerald-50 px-4 py-3 text-emerald-900 ring-1 ring-emerald-200"><b>{keep.length} question(s) chosen.</b><Link href={`/teacher/worksheet?${new URLSearchParams({ ids: keep.join(","), title })}`} className="rounded-lg bg-emerald-600 px-3 py-1.5 font-semibold text-white">Build the worksheet ▶</Link></p>}
       <div className="grid gap-5 lg:grid-cols-[18rem_1fr]">
         <aside className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-          <nav className="flex flex-wrap gap-1">{grades.map((g) => <Link key={g} href={`/teacher/worksheet?${new URLSearchParams({ grade: String(g), keep: keep.join(","), title })}`} className={`rounded-full px-3 py-1 text-sm font-semibold ${g === grade ? "bg-brand-navy text-white" : "ring-1 ring-slate-200"}`}>Grade {g}</Link>)}</nav>
-          <ul className="mt-3 max-h-[60vh] space-y-1 overflow-y-auto text-sm">{skills.filter((k) => k.grade === grade).map((k) => <li key={k.id}><Link href={`/teacher/worksheet?${new URLSearchParams({ grade: String(grade), skillId: k.id, keep: keep.join(","), title })}`} className={`block rounded-lg px-2 py-1 ${sp.skillId === k.id ? "bg-brand-navy text-white" : "hover:bg-slate-50"}`}>{k.name} <span className="opacity-60">({k.questions})</span></Link></li>)}</ul>
+          <SkillListPicker skills={skills} mode="link" legend="Choose a skill" current={sp.skillId ?? null} height="max-h-[60vh]"
+            href={`/teacher/worksheet?${new URLSearchParams({ keep: keep.join(","), title })}&skillId=`} />
         </aside>
         <section>
           {sp.skillId ? (
             <form action="/teacher/worksheet" className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-              <input type="hidden" name="keep" value={keep.join(",")} /><input type="hidden" name="title" value={title} /><input type="hidden" name="grade" value={grade} />
+              <input type="hidden" name="keep" value={keep.join(",")} /><input type="hidden" name="title" value={title} />
               <div className="flex items-center justify-between gap-2"><h2 className="font-bold text-brand-navy">Tick the Questions You Want</h2><button className="rounded-lg bg-brand-navy px-4 py-2 font-semibold text-white">＋ Add to the worksheet</button></div>
               <ul className="mt-3 space-y-1 text-sm">{qs.map((q) => <li key={q.id} className="flex items-start gap-1"><PrintToggle id={q.id} stem={q.stem} className="mt-1.5" /><label className="flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-slate-50"><input type="checkbox" name="q" value={q.id} defaultChecked={keep.includes(q.id)} className="mt-1" /><span><span className="me-1 rounded bg-slate-100 px-1 text-xs">{q.type.replace(/_/g, " ").toLowerCase()} · {q.level <= 2 ? "easier" : q.level >= 6 ? "harder" : "middle"}</span>{q.passage && <span className="me-1 text-xs text-sky-700">📖 {q.passage}</span>}{q.stem}</span></label></li>)}</ul>
             </form>

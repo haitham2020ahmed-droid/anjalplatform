@@ -6,6 +6,7 @@ import { AssignDialog } from "../assign-dialog";
 import { AssignHostAll } from "../assign-host-all";
 import { CcssNote } from "@/components/ccss-note";
 import { SkillQuestionPicker } from "@/components/skill-picker";
+import { canSeeNafs } from "@/server/teacher/nafs-access";
 
 /**
  * Teacher's organized view for one class, in two areas taught in class:
@@ -20,7 +21,9 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
   // access rules: any grade's curriculum may be viewed (and its skills assigned to this teacher's own class)
   const view = await teacherCurriculum(repo, actor, sp.classId, { grade: /^\d{1,2}$/.test(String(sp.grade ?? "")) ? Number(sp.grade) : null });
   // MAP or NAFS: skills grouped by area with the ONE shared question count; any grade's skills may be viewed
-  const nafs = sp.area === "nafs";
+  // NAFS: Grade 6 teachers and admins only — anyone else asking for it gets MAP
+  const nafsOk = await canSeeNafs(repo, actor);
+  const nafs = sp.area === "nafs" && nafsOk;
   const map = !nafs;
   const canAssign = actor.role === "TEACHER";
   const href = (o: { classId?: string; area?: string; grade?: number }) => {
@@ -75,7 +78,7 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
           {(
             <nav aria-label="Area" className="mt-5 flex flex-wrap gap-3">
               <Link href={href({ area: "map" })} aria-current={map ? "page" : undefined} className={tab(map)}><span aria-hidden="true" className="text-2xl">🗺️</span> MAP</Link>
-              <Link href={href({ area: "nafs" })} aria-current={nafs ? "page" : undefined} className={tab(nafs)}><span aria-hidden="true" className="text-2xl">🇸🇦</span> NAFS</Link>
+              {nafsOk && <Link href={href({ area: "nafs" })} aria-current={nafs ? "page" : undefined} className={tab(nafs)}><span aria-hidden="true" className="text-2xl">🇸🇦</span> NAFS</Link>}
             </nav>
           )}
           <CcssNote className="mt-4" />

@@ -278,14 +278,22 @@ async function typeIdFor(repo: Repo, code: string): Promise<string> {
   return String((await repo.create("QuestionType", { code, name: code.replace(/_/g, " ").toLowerCase(), isAutoScored: code !== "SHORT_ANSWER" })).id);
 }
 
-async function writeParts(tx: Repo, questionId: string, item: BankItem): Promise<void> {
-  await tx.deleteMany("QuestionOption", { questionId });
-  await tx.deleteMany("QuestionAnswer", { questionId });
-  await tx.deleteMany("QuestionExplanation", { questionId });
-  for (const [i, o] of (item.options ?? []).entries()) await tx.create("QuestionOption", { questionId, label: o.label, text: o.text, isCorrect: o.correct, rationale: o.rationale, order: i });
-  for (const [i, v] of answerValues(item).entries()) await tx.create("QuestionAnswer", { questionId, value: v as object, isPrimary: i === 0 });
-  await tx.create("QuestionExplanation", { questionId, kind: "WHY_CORRECT", body: [{ type: "text", text: item.explanation.whyCorrect }], order: 0 });
-  if (item.explanation.tip) await tx.create("QuestionExplanation", { questionId, kind: "TIP", body: [{ type: "text", text: item.explanation.tip }], order: 1 });
+/** The options / answers / explanations of a question (replaced). `fresh`: a question just created has none to clear. */
+async function writeParts(tx: Repo, questionId: string, item: BankItem, fresh = false): Promise<void> {
+  if (!fresh) {
+    await tx.deleteMany("QuestionOption", { questionId });
+    await tx.deleteMany("QuestionAnswer", { questionId });
+    await tx.deleteMany("QuestionExplanation", { questionId });
+  }
+  // one insert per table (was one per row)
+  const options = (item.options ?? []).map((o, i) => ({ questionId, label: o.label, text: o.text, isCorrect: o.correct, rationale: o.rationale, order: i }));
+  if (options.length) await tx.createMany("QuestionOption", options);
+  const answers = answerValues(item).map((v, i) => ({ questionId, value: v as object, isPrimary: i === 0 }));
+  if (answers.length) await tx.createMany("QuestionAnswer", answers);
+  await tx.createMany("QuestionExplanation", [
+    { questionId, kind: "WHY_CORRECT", body: [{ type: "text", text: item.explanation.whyCorrect }], order: 0 },
+    ...(item.explanation.tip ? [{ questionId, kind: "TIP", body: [{ type: "text", text: item.explanation.tip }], order: 1 }] : []),
+  ]);
 }
 
 function tagsFor(input: EditorInput, existing: unknown): Record<string, unknown> | null {
@@ -400,7 +408,11 @@ export async function duplicateOfInput(repo: Repo, actor: Actor, inputIn: Editor
   return hit ? { id: String(hit.id), stem: String(hit.stem).slice(0, 200), status: String(hit.status) } : null;
 }
 
-export async function createDraft(repo: Repo, actor: Actor, inputIn: EditorInput, now = new Date()): Promise<string> {
+/**
+ * `deferAnalysis` (bulk loaders only): the area / skill / tag / intelligence pass (saveMapArea) is left to the caller,
+ * which runs it ONCE for all the questions it created (same result, a fraction of the database calls).
+ */
+export async function createDraft(repo: Repo, actor: Actor, inputIn: EditorInput, now = new Date(), opts: { deferAnalysis?: boolean } = {}): Promise<string> {
   assertCan(actor, "questions:edit");
   const placed = await placeOnMap(repo, actor, inputIn);
   const input = placed.input;
@@ -419,12 +431,12 @@ export async function createDraft(repo: Repo, actor: Actor, inputIn: EditorInput
       lessonId: input.lessonId ?? null, tags: tagsFor(input, null), imageId: input.imageId ? await checkedImage(tx, input) : null, lexile: cleanLexile(input.lexile),
       createdById: actor.userId, createdAt: now, updatedAt: now,
     });
-    await writeParts(tx, String(q.id), item);
+    await writeParts(tx, String(q.id), item, true);
     return String(q.id);
   });
   if (placed.nodeId) await setQuestionMapNode(repo, id, placed.nodeId, actor.userId);
   if (input.uses?.length) await setQuestionUses(repo, id, input.uses);
-  await saveMapArea(repo, schoolOf(actor), [id], input, now);
+  if (!opts.deferAnalysis) await saveMapArea(repo, schoolOf(actor), [id], input, now);
   await audit(repo, { actorId: actor.userId, action: "question.create", entityType: "Question", entityId: id, after: { ref, skillId: input.skillId, type: item.type, level: item.level, aiDrafted: !!input.aiDrafted }, at: now });
   return id;
 }

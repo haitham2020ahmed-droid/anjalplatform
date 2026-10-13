@@ -23,7 +23,7 @@ export const accentHex = (a: PrintAccent | undefined): string =>
 export const CARD_CYCLE: string[] = [SOURCE_COLORS.curriculum, SOURCE_COLORS.map, SOURCE_COLORS.rti, SOURCE_COLORS.grammar, SOURCE_COLORS.nafs, BRAND.navy];
 
 /** The platform name printed in every header band. */
-export const PLATFORM = "Al-Anjal";
+export const PLATFORM = "Literise";
 
 /** "11 Oct 2026" (English digits and month names, as in the PDF reports). */
 export function printDate(d: Date | string = new Date()): string {

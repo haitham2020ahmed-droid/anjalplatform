@@ -100,10 +100,11 @@ describe("no Arabic outside the translation files", () => {
   });
 });
 
-describe("Lexend only", () => {
-  test("Lexend is loaded with next/font and is the only font family", () => {
+describe("Lexend only (plus the Literise brand serif)", () => {
+  test("Lexend is loaded with next/font and is the interface font; DM Serif Display only for the Literise brand", () => {
     const layout = read("src/app/layout.tsx");
-    assert.match(layout, /import \{ Lexend \} from "next\/font\/google"/);
+    assert.match(layout, /import \{ DM_Serif_Display, Lexend \} from "next\/font\/google"/);
+    assert.match(read("src/app/globals.css"), /--font-display: var\(--font-literise\)/);
     const css = read("src/app/globals.css");
     assert.match(css, /--font-sans: var\(--font-lexend\)/);
     assert.match(css, /--font-mono: var\(--font-lexend\)/);

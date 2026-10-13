@@ -5,7 +5,8 @@
  *            school's hidden list (SchoolSetting "readrise.hidden"). Teacher-assigned (RRClassArticle of the
  *            student's classes) first, then "Recommended for you" (topics not read lately, a variety of topics).
  *  Routine   one RRRun per reading: PREPOLL → READ → QUIZ → WRITE → POSTPOLL → DONE, strictly in order, resumable.
- *            The version is versionFor(level); its question band is bandOf(version).
+ *            The version is chooseVersion(level, versions): the version whose MEASURED level (official measure, else
+ *            the cached estimate RRVersion.estLevel) best fits the student's level; its question band is bandOf(version).
  *  Scoring   on the server. FIRST-TRY rule: only the first scored reading of an article counts (score, level,
  *            goals); later re-reads have firstTry = false. After submitting, every answer's "why" is shown and a
  *            practice pass is allowed that never changes the score.
@@ -18,7 +19,7 @@ import { runAfterResponse } from "../lib/after-response";
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
-import { RR_LEVELS, bandOf, versionFor, type RRBand } from "./level";
+import { RR_LEVELS, bandOf, chooseVersion, stretchAbove, type MeasuredVersion, type RRBand } from "./level";
 import { ENGINE, applyFirstTryScore, ensureRRStudent, goalStats, levelHistory, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
 import { placementStatus } from "./placement";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
@@ -78,7 +79,7 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
   const arts = await visibleArticles(repo, schoolId);
   const ids = arts.map((a) => s(a.id));
   const [vers, runs, mems] = await Promise.all([
-    ids.length ? repo.findMany("RRVersion", { articleId: { in: ids } }, { select: ["articleId", "level", "title", "wordCount"] }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("RRVersion", { articleId: { in: ids } }, { select: ["articleId", "level", "title", "wordCount", "estLevel", "officialLexile"] }) : Promise.resolve([] as Row[]),
     repo.findMany("RRRun", { studentId }, { select: ["articleId", "step", "score", "firstTry", "stretch", "completedAt", "startedAt"] }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
   ]);
@@ -92,7 +93,7 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
   for (const a of arts) {
     const vs = vers.filter((v) => v.articleId === a.id);
     if (!vs.length) continue;
-    const vl = versionFor(level, vs.map((v) => Number(v.level)));
+    const vl = chooseVersion(level, vs.map((v) => ({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile })));
     const v = vs.find((x) => Number(x.level) === vl)!;
     const mine = runs.filter((r) => r.articleId === a.id);
     const main = mine.filter((r) => r.stretch !== true);
@@ -206,10 +207,12 @@ function expectStep(run: Row, step: RunStep): void {
 }
 
 /** The stretch version for a level: the next version above the student's version, or null. */
-export function stretchVersion(level: number, available: number[]): number | null {
-  const cur = versionFor(level, available);
-  return [...available].sort((a, b) => a - b).find((l) => l > cur) ?? null;
+export function stretchVersion(level: number, available: (number | MeasuredVersion)[]): number | null {
+  const vs = available.map((v) => (typeof v === "number" ? { level: v } : v));
+  return stretchAbove(chooseVersion(level, vs), vs.map((v) => Number(v.level)));
 }
+const asMeasured = (rows: Row[]): MeasuredVersion[] => rows.map((v) => ({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile }));
+const MEASURE_COLS = ["level", "estLevel", "officialLexile"];
 
 async function goalFor(repo: Repo, studentId: string, now: Date): Promise<GoalStats> {
   const rr = await repo.findUnique("RRStudent", { studentId });
@@ -234,13 +237,13 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
   let done: DoneView | null = null;
   if (run.step === "DONE") {
     const studentId = s(run.studentId);
-    const vers = await repo.findMany("RRVersion", { articleId }, { select: ["level"] });
+    const vers = await repo.findMany("RRVersion", { articleId }, { select: MEASURE_COLS });
     const rr = await ensureRRStudent(repo, studentId, now);
     const others = await repo.findMany("RRRun", { studentId, articleId, stretch: true });
     done = {
       score: scored ? Number(run.score) : null, firstTry: run.firstTry === true, stretch: run.stretch === true,
       levelBefore: Number(run.levelBefore), levelAfter: Number(run.levelAfter ?? run.levelBefore), goal: await goalFor(repo, studentId, now),
-      canStretch: run.stretch !== true && !others.length && stretchVersion(Number(rr.level), vers.map((v) => Number(v.level))) !== null,
+      canStretch: run.stretch !== true && !others.length && stretchVersion(Number(rr.level), asMeasured(vers)) !== null,
       prePoll: run.prePoll === null || run.prePoll === undefined ? null : Number(run.prePoll), postPoll: run.postPoll === null || run.postPoll === undefined ? null : Number(run.postPoll),
     };
   }
@@ -265,9 +268,9 @@ export async function articlePage(repo: Repo, actor: Actor, articleId: string, n
   const { studentId, schoolId } = studentOf(actor);
   const art = await visibleArticle(repo, schoolId, articleId);
   const rr = await ensureRRStudent(repo, studentId, now);
-  const vers = await repo.findMany("RRVersion", { articleId }, { select: ["level", "title", "wordCount"] });
+  const vers = await repo.findMany("RRVersion", { articleId }, { select: [...MEASURE_COLS, "title", "wordCount"] });
   if (!vers.length) throw new ForbiddenError("Article not found.");
-  const vl = versionFor(Number(rr.level), vers.map((v) => Number(v.level)));
+  const vl = chooseVersion(Number(rr.level), asMeasured(vers));
   const v = vers.find((x) => Number(x.level) === vl)!;
   const runs = (await repo.findMany("RRRun", { studentId, articleId })).sort((a, b) => toDate(b.startedAt).getTime() - toDate(a.startedAt).getTime());
   const open = runs.find((r) => r.step !== "DONE");
@@ -276,7 +279,7 @@ export async function articlePage(repo: Repo, actor: Actor, articleId: string, n
   return {
     articleId, title: s(v.title) || s(art.title), topic: s(art.topic), summary: s(art.summary), minutes: minutesFor(Number(v.wordCount) || 0), versionLevel: vl, level: Number(rr.level),
     run: latest ? await runView(repo, actor, s(latest.id), now) : null,
-    canStretch: !open && !stretchUsed && runs.some((r) => r.stretch !== true && r.step === "DONE") && stretchVersion(Number(rr.level), vers.map((x) => Number(x.level))) !== null,
+    canStretch: !open && !stretchUsed && runs.some((r) => r.stretch !== true && r.step === "DONE") && stretchVersion(Number(rr.level), asMeasured(vers)) !== null,
     hasRead: runs.some((r) => r.step === "DONE"),
   };
 }
@@ -291,7 +294,7 @@ export async function startRun(repo: Repo, actor: Actor, articleId: string, opts
     if (open) return s(open.id);
     const rr = await ensureRRStudent(tx, studentId, now);
     const level = Number(rr.level);
-    const levels = (await tx.findMany("RRVersion", { articleId }, { select: ["level"] })).map((v) => Number(v.level));
+    const levels = asMeasured(await tx.findMany("RRVersion", { articleId }, { select: MEASURE_COLS }));
     if (!levels.length) throw new ForbiddenError("Article not found.");
     let versionLevel: number;
     if (opts.stretch) {
@@ -300,7 +303,7 @@ export async function startRun(repo: Repo, actor: Actor, articleId: string, opts
       const up = stretchVersion(level, levels);
       if (up === null) throw new ValidationError("There is no higher version of this article.");
       versionLevel = up;
-    } else versionLevel = versionFor(level, levels);
+    } else versionLevel = chooseVersion(level, levels);
     const firstTry = !runs.some((r) => (r.stretch === true) === Boolean(opts.stretch));
     const row = await tx.create("RRRun", {
       studentId, schoolId, articleId, versionLevel, band: bandOf(versionLevel), step: "PREPOLL", levelBefore: level,
