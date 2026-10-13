@@ -119,6 +119,8 @@ export interface StudentHome {
   last: LastActivity | null;
   rti: RtiStatus | null;
   readRiseLevel: number | null;
+  /** the ReadRise starting level and when it was set (the "Up N since …" line on the home; same row, no extra read) */
+  readRiseStart: { level: number; at: string } | null;
   notices: HomeNotice[];
 }
 
@@ -153,6 +155,7 @@ export async function studentHome(repo: Repo, actor: Actor, now = new Date()): P
   return {
     work: rows, toDo: rows.filter((r) => r.status !== "Done").length, testsToDo, writingToDo: writingTodo, last, rti,
     readRiseLevel: rr ? Number(rr.level) : null, notices,
+    readRiseStart: rr && rr.startLevel !== null && rr.startLevel !== undefined ? { level: Number(rr.startLevel), at: rr.placedAt instanceof Date ? rr.placedAt.toISOString() : String(rr.placedAt ?? "") } : null,
   };
 }
 

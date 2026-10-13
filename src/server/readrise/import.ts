@@ -227,6 +227,21 @@ export async function importArticleJson(repo: Repo, actor: Actor | null, json: u
     let id: string;
     if (existing) { id = String(existing.id); await tx.updateMany("RRArticle", { id }, fields); }
     else id = String((await tx.create("RRArticle", { ...fields, schoolId: opts.schoolId, code: art.code, createdById: actor?.userId ?? null, createdAt: now })).id);
+    if (!existing) {
+      // ⚡ a NEW article has no versions / questions / prompts yet: 3 inserts instead of ~40 upserts (the same rows)
+      await tx.createMany("RRVersion", art.versions.map((ver) => {
+        const c = v.checks.find((x) => x.level === ver.level)!;
+        return { articleId: id, level: ver.level, title: ver.title, body: ver.text, wordCount: c.wordCount, estLevel: c.estLevel, ...(ver.officialLexile !== undefined ? { officialLexile: ver.officialLexile } : {}) };
+      }));
+      await tx.createMany("RRQuestion", BANDS.flatMap((b) => art.bands[b].questions.map((q, i) => {
+        const rationale: Record<string, string> = { ...(q.wrong ?? {}) };
+        if (q.why) rationale[q.answer] = q.why;
+        // an empty rationale is left out (stored as NULL, as before)
+        return { articleId: id, band: b, number: i + 1, stem: q.stem, options: q.options, answer: q.answer, skill: q.skill, ...(Object.keys(rationale).length ? { rationale } : {}) };
+      })));
+      await tx.createMany("RRPrompt", BANDS.map((b) => ({ articleId: id, band: b, prompt: art.bands[b].prompt, checklist: art.bands[b].checklist ?? [], keyWords: art.bands[b].keyWords })));
+      return id;
+    }
     for (const ver of art.versions) {
       const c = v.checks.find((x) => x.level === ver.level)!;
       const data: Row = { title: ver.title, body: ver.text, wordCount: c.wordCount, estLevel: c.estLevel };

@@ -43,14 +43,14 @@ export default async function MapAssignPage({ searchParams }: { searchParams: Pr
               <table className="mt-3 w-full max-w-xl text-left text-sm">
                 <thead><tr className="border-b text-slate-500"><th className="py-2">Level</th><th>Students</th><th>Questions on the map</th></tr></thead>
                 <tbody>{p.levels.map((l) => (
-                  <tr key={l.level ?? "all"} className="border-b last:border-0"><td className="py-2 font-medium">{l.level ? LEVEL_NAMES[l.level] : "All students"}</td><td className="tabular-nums">{l.students}</td><td className={`tabular-nums ${l.questions ? "" : "font-semibold text-amber-800"}`}>{l.questions}{!l.questions && l.students ? " (will use On Level)" : ""}</td></tr>
+                  <tr key={l.level ?? "all"} className="border-b last:border-0"><td className="py-2 font-medium">{l.level ? LEVEL_NAMES[l.level] : "All students"}</td><td className="tabular-nums">{l.students}</td><td className={`tabular-nums ${l.questions ? "" : "font-semibold text-amber-800"}`}>{l.questions}{!l.questions && l.students ? " (will use Meeting)" : ""}</td></tr>
                 ))}</tbody>
               </table>
               <p className="mt-3 flex flex-wrap gap-2 text-sm">
                 <Link href={`/teacher/preview?code=${code}`} className="rounded-lg bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Preview each level</Link>
                 <Link href={`/teacher/levels?classId=${classId}&auto=1`} className="rounded-lg bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🎯 Check / move student levels</Link>
               </p>
-              {p.studentsWithoutLevel > 0 && <p className="mt-2 text-sm text-amber-900">{p.studentsWithoutLevel} student(s) have no level yet and will get On Level questions. <Link href={`/teacher/levels?classId=${classId}`} className="underline">Set levels</Link></p>}
+              {p.studentsWithoutLevel > 0 && <p className="mt-2 text-sm text-amber-900">{p.studentsWithoutLevel} student(s) have no level yet and will get Meeting questions. <Link href={`/teacher/levels?classId=${classId}`} className="underline">Set levels</Link></p>}
               {roster && (
                 <fieldset className="mt-4">
                   <legend className="text-sm font-semibold text-slate-700">Assign to</legend>
@@ -76,7 +76,7 @@ export default async function MapAssignPage({ searchParams }: { searchParams: Pr
                 <fieldset className="mt-4">
                   <legend className="text-sm font-semibold text-slate-700">How</legend>
                   <div className="mt-1 grid gap-2 md:grid-cols-2 text-sm">
-                    <label className="flex gap-2 rounded-xl p-3 ring-1 ring-slate-200 has-[:checked]:bg-emerald-50 has-[:checked]:ring-emerald-400"><input type="radio" name="mode" value="ADAPTIVE" defaultChecked /><span><b>🤖 Automatic (recommended)</b><br />Each student starts at their own level (from their data; On Level without data) and moves up or down by their answers.</span></label>
+                    <label className="flex gap-2 rounded-xl p-3 ring-1 ring-slate-200 has-[:checked]:bg-emerald-50 has-[:checked]:ring-emerald-400"><input type="radio" name="mode" value="ADAPTIVE" defaultChecked /><span><b>🤖 Automatic (recommended)</b><br />Each student starts at their own level (from their data; Meeting without data) and moves up or down by their answers.</span></label>
                     <label className="flex gap-2 rounded-xl p-3 ring-1 ring-slate-200 has-[:checked]:bg-sky-50 has-[:checked]:ring-sky-400"><input type="radio" name="mode" value="BY_LEVEL" /><span><b>✋ Manual (by the levels you set)</b><br />Each student gets only the questions of the level you placed them in on the <i>Student levels</i> board.</span></label>
                   </div>
                 </fieldset>

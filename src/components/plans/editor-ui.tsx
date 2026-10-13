@@ -26,7 +26,7 @@ const BOX = "min-h-11 rounded-xl border border-slate-300 bg-white px-3";
 const SMALL = "inline-flex min-h-9 items-center justify-center rounded-lg px-3 text-sm font-semibold";
 const SMALL_SOFT = `${SMALL} bg-white text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal`;
 const LEVEL_TONE: Record<string, string> = { BELOW: "bg-amber-50 text-amber-900 ring-amber-200", ON: "bg-sky-50 text-sky-900 ring-sky-200", ABOVE: "bg-violet-50 text-violet-900 ring-violet-200" };
-const LEVEL_NAME: Record<string, string> = { BELOW: "Below", ON: "On", ABOVE: "Above" };
+const LEVEL_NAME: Record<string, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 export const STATUS_CHIP: Record<PlanStatus, { label: string; className: string }> = {
   DRAFT: { label: "Draft", className: "bg-slate-100 text-slate-800 ring-slate-300" },
   SENT: { label: "Sent", className: "bg-emerald-50 text-emerald-900 ring-emerald-200" },

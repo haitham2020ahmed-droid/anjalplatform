@@ -1,28 +1,30 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { DM_Serif_Display, Lexend } from "next/font/google";
+import { Hanken_Grotesk, IBM_Plex_Sans_Arabic, Young_Serif } from "next/font/google";
 import { Pwa } from "@/components/ui/pwa";
 import { I18nProvider } from "@/i18n/client";
 import { getLang } from "@/i18n/server";
 import { dirOf } from "@/i18n";
+import { getTheme } from "@/server/ui/theme";
 
 export const metadata: Metadata = { title: { default: "Literise", template: "%s · Literise" }, applicationName: "Literise", description: "Literise — the English Language Arts platform of Al-Anjal Private Schools", manifest: "/manifest.webmanifest", icons: { icon: [{ url: "/brand/literise-mark.svg", type: "image/svg+xml" }, { url: "/icons/icon-192.png" }], apple: "/icons/apple-touch-icon.png" }, appleWebApp: { capable: true, title: "Literise", statusBarStyle: "default" } };
 /**
- * Lexend — the font of the whole interface (headings 600, body 400–500): designed to make reading easier;
- * self-hosted at build by next/font (no request to Google at run time). Arabic interface words fall back to the
- * system's Arabic glyphs inside the same stack (Lexend has no Arabic letters).
+ * Fonts (Literise D1), self-hosted at build by next/font (no request to Google at run time):
+ * Hanken Grotesk = the interface (body, buttons, tables) · Young Serif = H1 / H2, big numbers and the Literise wordmark
+ * (one weight) · IBM Plex Sans Arabic = the Arabic interface (body and headings) and the Arabic line of the school logo
+ * (Arabic letters only).
  */
-const lexend = Lexend({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800"], display: "swap", variable: "--font-lexend" });
-/** DM Serif Display: the Literise brand serif, ONLY for the wordmark and the sign-in headline (one weight, Latin only). */
-const brandSerif = DM_Serif_Display({ subsets: ["latin"], weight: "400", display: "swap", variable: "--font-literise" });
+const hanken = Hanken_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", variable: "--font-hanken" });
+const youngSerif = Young_Serif({ subsets: ["latin"], weight: "400", display: "swap", variable: "--font-young-serif" });
+const plexArabic = IBM_Plex_Sans_Arabic({ subsets: ["arabic"], weight: ["400", "500", "600"], display: "swap", variable: "--font-plex-arabic" });
 
-export const viewport = { themeColor: "#1f3a68" };
+export const viewport = { themeColor: "#232a6e" };
 
-/** <html lang dir> follow the interface language (English default; Arabic = right-to-left). */
+/** <html lang dir> follow the interface language (English default; Arabic = right-to-left); data-theme = day | night | system. */
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const lang = await getLang();
+  const [lang, theme] = await Promise.all([getLang(), getTheme()]);
   return (
-    <html lang={lang} dir={dirOf(lang)} className={`${lexend.variable} ${brandSerif.variable}`}>
+    <html lang={lang} dir={dirOf(lang)} data-theme={theme} className={`${hanken.variable} ${youngSerif.variable} ${plexArabic.variable}`}>
       <body className="min-h-screen"><I18nProvider lang={lang}>{children}</I18nProvider><Pwa /></body>
     </html>
   );

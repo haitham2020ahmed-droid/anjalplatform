@@ -106,9 +106,9 @@ export default async function ReadMasterReportPage({ searchParams }: { searchPar
             </ReportSection>
           )}
           {view === "texts" && (
-            <ReportSection title="By text" icon="📰" hint={t("Average score of each version: Below / On / Above (number of reads).")}>
+            <ReportSection title="By text" icon="📰" hint={t("Average score of each version: Approaching / Meeting / Exceeding (number of reads).")}>
               <ReportTable label="By text" empty="No ReadMaster reads in this window."
-                cols={[{ key: "t", label: "Text" }, { key: "g", label: "Grade", num: true }, { key: "s", label: "Skill" }, { key: "r", label: "Readers", num: true }, { key: "a", label: "Avg score", num: true }, { key: "b", label: "Below", num: true }, { key: "o", label: "On", num: true }, { key: "ab", label: "Above", num: true }, { key: "p", label: "Practice", num: true }]}
+                cols={[{ key: "t", label: "Text" }, { key: "g", label: "Grade", num: true }, { key: "s", label: "Skill" }, { key: "r", label: "Readers", num: true }, { key: "a", label: "Avg score", num: true }, { key: "b", label: "Approaching", num: true }, { key: "o", label: "Meeting", num: true }, { key: "ab", label: "Exceeding", num: true }, { key: "p", label: "Practice", num: true }]}
                 rows={r.texts.map((x) => ({
                   id: x.articleId, sort: { t: x.title, g: x.grade, s: x.skill, r: x.readers, a: x.avgScore, b: x.byLevel.BELOW.avg, o: x.byLevel.ON.avg, ab: x.byLevel.ABOVE.avg, p: x.practice },
                   cells: { t: <span dir="ltr" className="font-medium">{x.title}</span>, g: x.grade, s: <span dir="ltr">{x.skill}</span>, r: x.readers, a: score(x.avgScore),

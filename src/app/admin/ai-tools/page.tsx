@@ -86,7 +86,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
           ["GAP", "📊 Gap Report", "How many questions each skill has at each level, against the targets (60 per skill = 20 per level · 30 per Grammar skill · 25 per Concept Vocabulary selection). No AI."],
           ["QUALITY", "🩺 Quality Check", "Finds wrong answer keys and several correct answers (shown first), weak options, spelling mistakes and unclear questions."],
           ["DUPLICATE", "👯 Duplicate Finder", "Finds identical or very similar questions, also across sections. No AI."],
-          ["TAG", "🏷️ Auto-Tag", "Suggests skill, CCSS standard, MAP goal area, level (Below / On / Above) and difficulty, from the allowed lists only."],
+          ["TAG", "🏷️ Auto-Tag", "Suggests skill, CCSS standard, MAP goal area, level (Approaching / Meeting / Exceeding) and difficulty, from the allowed lists only."],
           ["READING", "📖 Reading Level Estimate", "For passages: a free formula plus the AI. Shown as “Estimated reading level” — it is not a Lexile."],
         ];
         return (
@@ -111,7 +111,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
             {gaps && (
               <section className="mt-5 overflow-x-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
                 <h3 className="text-lg font-bold text-brand-navy">📊 Gap Report · Grade {grade}</h3>
-                <table className="mt-2 min-w-full text-left text-sm"><thead><tr className="border-b text-xs text-slate-500"><th className="py-2 pe-3">Skill / selection</th><th className="px-2">Below</th><th className="px-2">On</th><th className="px-2">Above</th><th className="px-2">Total / target</th><th className="px-2">Missing</th></tr></thead>
+                <table className="mt-2 min-w-full text-left text-sm"><thead><tr className="border-b text-xs text-slate-500"><th className="py-2 pe-3">Skill / selection</th><th className="px-2">Approaching</th><th className="px-2">Meeting</th><th className="px-2">Exceeding</th><th className="px-2">Total / target</th><th className="px-2">Missing</th></tr></thead>
                   <tbody>{gaps.map((g) => <tr key={g.kind + g.id} className="border-b last:border-0"><td className="py-1.5 pe-3">{g.name}</td>{g.perLevel ? (["BELOW", "ON", "ABOVE"] as const).map((l) => <td key={l} className={`px-2 tabular-nums ${g.counts[l] < g.perLevel! ? "text-red-700" : "text-emerald-700"}`}>{g.counts[l]}/{g.perLevel}</td>) : <td colSpan={3} className="px-2 text-slate-500">no levels</td>}<td className="px-2 tabular-nums">{g.total}/{g.target}</td><td className={`px-2 font-bold tabular-nums ${g.missingTotal ? "text-red-700" : "text-emerald-700"}`}>{g.missingTotal || "✓"}</td></tr>)}</tbody></table>
               </section>
             )}

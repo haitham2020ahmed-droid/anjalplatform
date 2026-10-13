@@ -8,7 +8,7 @@ import { gradeLabel } from "@/server/diagnostic/adaptive";
 import { closeDiagnosticAction, openDiagnosticAction, swapQuestionAction } from "@/app/diagnostic/actions";
 
 export const metadata = { title: "Diagnostic Test" };
-const LV = (n: number) => (n <= 3 ? "Below" : n === 4 ? "On" : "Above");
+const LV = (n: number) => (n <= 3 ? "Approaching" : n === 4 ? "Meeting" : "Exceeding");
 
 /** One grade's test: what it covers, every question (swap any while it is a draft), open / close. */
 export default async function DiagnosticDetail({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ msg?: string }> }) {
@@ -32,7 +32,7 @@ export default async function DiagnosticDetail({ params, searchParams }: { param
         </Section>
         <Section title={v.slots ? `Skill Slots (${v.slots.length} skills · ${t.questions} questions)` : `Standards (${v.byStandard.length})`} icon="🎯" className="lg:col-span-2" hint={v.slots ? "Every student answers these skills in this order; the pool gives each slot easier · on-grade · harder questions." : undefined}>
           {v.slots ? (
-            <table className="w-full text-sm"><thead><tr className="border-b border-slate-200 text-left text-xs text-slate-500"><th className="py-1">Skill</th><th className="text-center">Slots</th><th className="text-center">Easier · On · Harder</th></tr></thead>
+            <table className="w-full text-sm"><thead><tr className="border-b border-slate-200 text-left text-xs text-slate-500"><th className="py-1">Skill</th><th className="text-center">Slots</th><th className="text-center">Easier · Meeting · Harder</th></tr></thead>
               <tbody>{v.slots.map((x) => <tr key={x.code} className="border-b border-slate-100"><td className="py-1"><b className="font-mono text-xs text-brand-teal">{x.code}</b> {x.label}</td><td className="text-center tabular-nums">{x.slots}</td><td className={`text-center tabular-nums ${x.easier && x.on && x.harder ? "" : "font-bold text-amber-700"}`}>{x.easier} · {x.on} · {x.harder}</td></tr>)}</tbody></table>
           ) : <ul className="grid gap-x-6 gap-y-1 text-sm sm:grid-cols-2">{v.byStandard.map((x) => <li key={x.code} className="flex justify-between gap-2"><span><b className="font-mono text-xs text-brand-teal">{x.code}</b> {x.label}</span><span className="tabular-nums text-slate-600">{x.n}</span></li>)}</ul>}
         </Section>
@@ -43,12 +43,12 @@ export default async function DiagnosticDetail({ params, searchParams }: { param
             <input type="hidden" name="id" value={id} />
             <label className="flex flex-col gap-1 font-semibold text-slate-700">Opens<input type="date" name="opensAt" defaultValue={t.opensAt ?? ""} className={box} /></label>
             <label className="flex flex-col gap-1 font-semibold text-slate-700">Closes (optional)<input type="date" name="closesAt" defaultValue={t.closesAt ?? ""} className={box} /></label>
-            <label className="flex flex-col gap-1 font-semibold text-slate-700">Above Level from<span className="flex items-center gap-1"><input type="number" name="above" min={50} max={100} defaultValue={t.bands.above} className={`${box} w-20`} />{t.adaptive ? "" : "%"}</span></label>
-            <label className="flex flex-col gap-1 font-semibold text-slate-700">On Level from<span className="flex items-center gap-1"><input type="number" name="on" min={20} max={99} defaultValue={t.bands.on} className={`${box} w-20`} />{t.adaptive ? "" : "%"}</span></label>
+            <label className="flex flex-col gap-1 font-semibold text-slate-700">Exceeding from<span className="flex items-center gap-1"><input type="number" name="above" min={50} max={100} defaultValue={t.bands.above} className={`${box} w-20`} />{t.adaptive ? "" : "%"}</span></label>
+            <label className="flex flex-col gap-1 font-semibold text-slate-700">Meeting from<span className="flex items-center gap-1"><input type="number" name="on" min={20} max={99} defaultValue={t.bands.on} className={`${box} w-20`} />{t.adaptive ? "" : "%"}</span></label>
             <button className="rounded-xl bg-emerald-600 px-6 py-2.5 font-bold text-white hover:bg-emerald-700">{draft ? "🚀 Open the test" : "Save"}</button>
           </form>
           {!draft && <form action={closeDiagnosticAction} className="mt-3"><input type="hidden" name="id" value={id} /><button className="rounded-xl px-4 py-2 text-sm font-semibold text-red-700 ring-1 ring-red-300 hover:bg-red-50">Close the test</button></form>}
-          <p className="mt-2 text-xs text-slate-600">{t.adaptive ? `Score 0–100 against the grade (72.5 = on grade level, each grade above or below = 25 points). Below Level: under ${t.bands.on} (about half a grade below) · On Level: ${t.bands.on}–${t.bands.above - 1} · Above Level: ${t.bands.above} and over (about half a grade above).` : `Below Level: under ${t.bands.on}% · On Level: ${t.bands.on}–${t.bands.above - 1}% · Above Level: ${t.bands.above}% and over.`} The result sets each student’s starting level everywhere on the platform.</p>
+          <p className="mt-2 text-xs text-slate-600">{t.adaptive ? `Score 0–100 against the grade (72.5 = on grade level, each grade above or below = 25 points). Approaching: under ${t.bands.on} (about half a grade below) · Meeting: ${t.bands.on}–${t.bands.above - 1} · Exceeding: ${t.bands.above} and over (about half a grade above).` : `Approaching: under ${t.bands.on}% · Meeting: ${t.bands.on}–${t.bands.above - 1}% · Exceeding: ${t.bands.above}% and over.`} The result sets each student’s starting level everywhere on the platform.</p>
         </Section>
       )}
       <Section title={t.adaptive ? `Question Pool (${v.questions.length})` : "Questions"} icon="❓" hint={draft ? (t.adaptive ? "Not happy with a question? 🚫 Leave out removes it from the pool; the other questions of its skill take its place." : "Not happy with a question? 🔄 Swap gives another question of the same standard.") : undefined}>

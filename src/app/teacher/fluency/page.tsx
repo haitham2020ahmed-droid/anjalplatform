@@ -101,7 +101,7 @@ export default async function FluencyPage({ searchParams }: { searchParams: Prom
 
           <form action={saveFluencyAction} className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
             <input type="hidden" name="classId" value={classId} />
-            <p className="mb-3 text-sm text-slate-600">Rubric now · <b>{v.rubric}</b> ({NORM_SOURCE}, {SEASON_NAME[v.season]}). Each check is read on the norms of its own season. <span className="rounded bg-rose-100 px-1">Below</span> <span className="rounded bg-sky-100 px-1">On</span> <span className="rounded bg-emerald-100 px-1">Above</span> · prosody 1–4 (Phr phrasing · Smo smoothness · Pace · Int intonation).</p>
+            <p className="mb-3 text-sm text-slate-600">Rubric now · <b>{v.rubric}</b> ({NORM_SOURCE}, {SEASON_NAME[v.season]}). Each check is read on the norms of its own season. <span className="rounded bg-rose-100 px-1">Approaching</span> <span className="rounded bg-sky-100 px-1">Meeting</span> <span className="rounded bg-emerald-100 px-1">Exceeding</span> · prosody 1–4 (Phr phrasing · Smo smoothness · Pace · Int intonation).</p>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[1100px] text-sm">
                 <thead><tr className="border-b border-slate-200 text-left text-slate-500"><th className="py-2">Student</th><th>WCPM</th><th>Percentile</th><th>Prosody</th><th className="text-center">Questions</th><th>Trend (last 5)</th><th>Flags</th><th>🎙 Coach (14 d)</th><th>New WCPM</th><th>Acc. %</th><th>Note</th></tr></thead>

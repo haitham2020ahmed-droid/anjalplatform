@@ -12,7 +12,7 @@ import { PassageText } from "@/components/passage-text";
 import { questionDetailAction } from "@/server/tests/question-detail-actions";
 import type { DetailOption, QuestionDetail } from "@/server/tests/question-detail";
 
-const LEVEL_LABEL: Record<string, string> = { BELOW: "Below", ON: "On", ABOVE: "Above" };
+const LEVEL_LABEL: Record<string, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 const LEVEL_CHIP: Record<string, string> = { BELOW: "bg-amber-50 text-amber-900 ring-amber-200", ON: "bg-sky-50 text-sky-900 ring-sky-200", ABOVE: "bg-violet-50 text-violet-900 ring-violet-200" };
 const MAX_CACHE = 40;
 const cache = new Map<string, Promise<{ detail?: QuestionDetail; error?: string }>>();

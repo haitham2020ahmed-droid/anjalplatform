@@ -94,7 +94,7 @@ export function respondTemplateDocx(grade: number, sets: { code: string; heading
     ...levelCodes(sets).flatMap((x) => [
       para("--------------------------------------------"),
       para(`Curriculum Map ID: ${x.code}`, true),
-      para(`(${x.heading} · ${x.level === "BELOW" ? "Below" : x.level === "ON" ? "On" : "Above"} Level)`),
+      para(`(${x.heading} · ${x.level === "BELOW" ? "Approaching" : x.level === "ON" ? "Meeting" : "Exceeding"} the standard)`),
       para("Title: "), para("Prompt: "), para("Instructions:"), para("- "), para("Word Bank:"), para("- "), para("Sentence Starters:"), para("- "), para("Checklist:"), para("- "), para("Hint: "), para("Model Answer: "),
     ]),
   ].join("");

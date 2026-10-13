@@ -11,7 +11,7 @@ import type { MapSectionPage, MapSourceQuestion, MapSourceSection, MapSourceTree
 import { mapSectionAction, mapTreeAction } from "../actions";
 import { QuestionDrawer } from "@/components/tests/question-drawer";
 
-const LEVEL_LABEL: Record<string, string> = { ALL: "All", BELOW: "Below", ON: "On", ABOVE: "Above" };
+const LEVEL_LABEL: Record<string, string> = { ALL: "All", BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 const LEVEL_CHIP: Record<string, string> = { BELOW: "bg-amber-50 text-amber-900 ring-amber-200", ON: "bg-sky-50 text-sky-900 ring-sky-200", ABOVE: "bg-violet-50 text-violet-900 ring-violet-200" };
 const chip = (on: boolean) => `min-h-9 rounded-full px-3 text-sm font-semibold ring-1 ${on ? "bg-brand-navy text-white ring-brand-navy" : "bg-white text-brand-navy ring-slate-300"}`;
 const count = "rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600";

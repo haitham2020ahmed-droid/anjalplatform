@@ -128,7 +128,8 @@ describe("student pages (b1): pure rules", () => {
     // owner's spec (Update 53): one big "Today" card with Start / Continue, the progress bar and the next tasks
     const page = read("src/app/student/page.tsx");
     assert.match(page, /t\("Today"\)/);
-    assert.equal((page.match(/BTN_PRIMARY/g) ?? []).length, 2, "imported once, used once: Start / Continue");
+    // Literise D1: the one main button is the saffron Start / Continue on the navy hero card
+    assert.equal((page.match(/BTN_ACCENT/g) ?? []).length, 2, "imported once, used once: Start / Continue");
     assert.match(page, /t\("Continue"\)/);
     assert.match(page, /"\{done\} of \{total\} done"/);
     assert.match(read("src/components/student/my-work-list.tsx"), /<SourceTag source=\{r\.sourceKey\}/);

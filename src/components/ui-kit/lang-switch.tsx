@@ -1,3 +1,5 @@
+/** @jsxRuntime automatic */
+/** @jsxImportSource react */
 "use client";
 import { useState } from "react";
 import { useLang, useT } from "@/i18n/client";
@@ -23,11 +25,11 @@ export function LangSwitch({ className = "" }: { className?: string }) {
   };
   const btn = (l: Lang) => (
     <button type="button" lang={l} dir={l === "ar" ? "rtl" : "ltr"} onClick={() => void pick(l)} aria-pressed={lang === l} disabled={busy}
-      className={`min-h-11 min-w-11 rounded-lg px-2.5 text-sm font-semibold transition sm:px-3 ${lang === l ? "bg-white text-brand-navy shadow-sm ring-1 ring-slate-200" : "text-slate-600 hover:text-brand-navy"}`}>{LANG_NAMES[l]}</button>
+      className={`min-h-9 min-w-10 rounded-full px-2.5 text-sm font-semibold transition sm:px-3 ${lang === l ? "bg-brand-navy text-white" : "text-ink-2 hover:text-ink"}`}>{LANG_NAMES[l]}</button>
   );
   return (
-    <div role="group" aria-label={t("Interface language")} data-tour="lang" className={`inline-flex shrink-0 items-center gap-0.5 rounded-xl bg-slate-100 p-0.5 ${className}`}>
-      {btn("en")}<span aria-hidden="true" className="text-slate-300">|</span>{btn("ar")}
+    <div role="group" aria-label={t("Interface language")} data-tour="lang" className={`inline-flex shrink-0 items-center gap-0.5 rounded-full p-0.5 ring-1 ring-line ${className}`}>
+      {btn("en")}{btn("ar")}
     </div>
   );
 }

@@ -60,7 +60,7 @@ export default async function SkillHubPage({ params }: { params: Promise<{ skill
             <div className="mt-3 flex h-2.5 overflow-hidden rounded-full bg-slate-100" aria-hidden="true">
               {(["Below", "On", "Above"] as const).map((l, i) => <span key={l} className={["bg-amber-400", "bg-brand-teal", "bg-brand-purple"][i]} style={{ width: `${h.questions.published ? (h.questions.byLevel[l] / h.questions.published) * 100 : 0}%` }} />)}
             </div>
-            <p className="mt-1.5 text-xs text-slate-600">Below {h.questions.byLevel.Below} · On {h.questions.byLevel.On} · Above {h.questions.byLevel.Above}</p>
+            <p className="mt-1.5 text-xs text-slate-600">Approaching {h.questions.byLevel.Below} · Meeting {h.questions.byLevel.On} · Exceeding {h.questions.byLevel.Above}</p>
             {h.questions.byType.length > 0 && <p className="mt-2 text-xs text-slate-500">{h.questions.byType.map((t) => `${t.name} ${t.n}`).join(" · ")}</p>}
           </div>
           <div className={`${node} ring-violet-200`}>

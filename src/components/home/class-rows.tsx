@@ -34,7 +34,7 @@ export function ClassRows({ rows, admin }: { rows: ClassRow[]; admin: boolean })
                 </td>
                 <td className="px-3 py-3">
                   {!r.map.scored ? <Link href="/teacher/map-rit" className="text-xs text-slate-500 hover:underline">No scores yet</Link> : (
-                    <Link href={`/teacher/personal-plan?classId=${r.id}`} className="group block" title={`Below ${r.map.below} · On ${r.map.on} · Above ${r.map.above}`}>
+                    <Link href={`/teacher/personal-plan?classId=${r.id}`} className="group block" title={`Approaching ${r.map.below} · Meeting ${r.map.on} · Exceeding ${r.map.above}`}>
                       <span className="flex h-2 w-28 overflow-hidden rounded-full bg-slate-100" aria-hidden="true">
                         <span className="bg-rose-400" style={{ width: `${n ? (r.map.below / n) * 100 : 0}%` }} /><span className="bg-amber-300" style={{ width: `${n ? (r.map.on / n) * 100 : 0}%` }} /><span className="bg-emerald-500" style={{ width: `${n ? (r.map.above / n) * 100 : 0}%` }} />
                       </span>

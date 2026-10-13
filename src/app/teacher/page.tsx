@@ -5,6 +5,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { maybeRunDaily } from "@/server/insights/daily";
 import { scanAlerts } from "@/server/insights/alerts";
+import { runAfterResponse } from "@/server/lib/after-response";
 import { teacherHomeData } from "@/server/teacher/home";
 import { AddStudentButton, SkillFinder } from "@/components/teacher/home-widgets";
 import { AssignHostAll } from "./assign-host-all";
@@ -23,12 +24,16 @@ export const metadata = { title: "Teacher Home" };
 export default async function TeacherHome({ searchParams }: { searchParams?: Promise<{ classId?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   const sp = (await searchParams) ?? {};
-  // the daily learning job and the student-alert scan: in the background, at most once a day / every 3 hours
-  await maybeRunDaily(repo, actor.schoolId).catch(() => false);
-  if (actor.schoolId) await scanAlerts(repo, actor.schoolId).catch(() => 0);
+  // the daily learning job and the student-alert scan: AFTER the response (the page never waits for them),
+  // at most once a day / every 3 hours — as on the admin home
+  const schoolId = actor.schoolId;
+  if (schoolId) runAfterResponse("teacher.daily", async () => {
+    await maybeRunDaily(repo, schoolId).catch(() => false);
+    await scanAlerts(repo, schoolId).catch(() => 0);
+  });
   const me = (await getActor())!.user;
-  const { t } = await getT();
-  const [h, sum, toGrade] = await Promise.all([
+  const [{ t }, h, sum, toGrade] = await Promise.all([
+    getT(),
     teacherHomeData(repo, actor, sp.classId ?? null).catch(() => teacherHomeData(repo, actor, null)),
     teacherHomeSummary(repo, actor).catch(() => ({ students: 0, workThisWeek: 0, needsAttention: 0, list: [] as TeacherHomeSummary["list"] })),
     writingToGrade(repo, actor).catch(() => 0),
@@ -42,11 +47,11 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
   ];
   return (
     <AppShell name={String(me.displayName)}>
-      <header className="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-slate-200 pb-5">
+      <header className="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-line pb-5">
         <div>
-          <p className="text-sm font-medium text-slate-500">{t("Hello, {name}", { name: String(me.displayName) })}</p>
-          <h1 className="mt-0.5 text-[28px] font-semibold tracking-tight text-brand-navy">{t("Home")}</h1>
-          {k && <p className="mt-1 text-sm text-slate-500"><bdi>{k.name}</bdi> · {t("Grade {n}", { n: k.grade })}</p>}
+          <p className="text-sm font-medium text-muted">{t("Hello, {name}", { name: String(me.displayName) })}</p>
+          <h1 className="mt-0.5 text-3xl text-ink">{t("Home")}</h1>
+          {k && <p className="mt-1 text-sm text-muted"><bdi>{k.name}</bdi> · {t("Grade {n}", { n: k.grade })}</p>}
         </div>
         {k && <div className="w-full sm:w-44"><AddStudentButton classId={k.id} className={k.name} /></div>}
       </header>
@@ -56,21 +61,21 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
           const body = (
             <>
               <span className="flex items-center justify-between">
-                <span className="text-sm font-medium text-slate-500">{t(c.label)}</span>
-                <span className={`grid h-8 w-8 place-items-center rounded-lg ring-1 ${c.alert ? "bg-rose-50 text-rose-700 ring-rose-200" : "bg-slate-50 text-slate-500 ring-slate-200"}`}><LineIcon name={c.line} className="h-4 w-4" /></span>
+                <span className="text-sm font-medium text-ink-2">{t(c.label)}</span>
+                <span className={`grid h-9 w-9 place-items-center rounded-xl ring-1 ${c.alert ? "bg-rose-50 text-rose-700 ring-rose-200" : "bg-surface-2 text-ink-2 ring-line"}`}><LineIcon name={c.line} className="h-[18px] w-[18px]" /></span>
               </span>
-              <span dir="ltr" className={`mt-2 block text-3xl font-semibold tabular-nums tracking-tight ${c.alert ? "text-rose-700" : "text-brand-navy"}`}>{c.value}</span>
+              <span dir="ltr" className={`mt-2 block font-display text-[2.25rem] leading-none tabular-nums ${c.alert ? "text-rose-700" : "text-ink"}`}>{c.value}</span>
             </>
           );
           // the numbers are not links to pages (the menu has them); "Needs attention" jumps to its list below
           return c.alert
-            ? <a key={c.label} href="#needs-attention" className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-rose-200 hover:ring-rose-300">{body}</a>
-            : <div key={c.label} className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-200">{body}</div>;
+            ? <a key={c.label} href="#needs-attention" className="rounded-[1.25rem] bg-surface p-4 shadow-card ring-1 ring-rose-200 hover:ring-rose-300">{body}</a>
+            : <div key={c.label} className="rounded-[1.25rem] bg-surface p-4 shadow-card ring-1 ring-line">{body}</div>;
         })}
       </section>
 
-      <section id="needs-attention" aria-labelledby="na-h" className="group/na mt-6 rounded-xl bg-white shadow-sm ring-1 ring-slate-200">
-        <h2 id="na-h" className="flex items-center gap-2 border-b border-slate-100 px-4 py-3 text-base font-semibold text-brand-navy"><LineIcon name="alert" className="h-5 w-5 text-rose-600" />{t("Needs attention")}</h2>
+      <section id="needs-attention" aria-labelledby="na-h" className="group/na mt-6 rounded-[1.25rem] bg-surface shadow-card ring-1 ring-line">
+        <h2 id="na-h" className="flex items-center gap-2 border-b border-line px-4 py-3 text-xl text-ink"><LineIcon name="alert" className="h-5 w-5 text-rose-600" />{t("Needs attention")}</h2>
         <p className="px-4 pt-2 text-xs text-slate-500">{t("No practice for 7 days or more · stuck on a skill (15+ questions and a score under 50).")}</p>
         {sum.list.length === 0 ? <p className="p-4 text-sm text-slate-600">{t("Everyone is on track.")}</p> : (
           <ul className="divide-y divide-slate-100">

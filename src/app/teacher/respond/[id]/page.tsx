@@ -7,7 +7,7 @@ import { respondTracking } from "@/server/curriculum-map/respond-assign";
 import { cancelRespondAction, saveRespondMarksAction } from "../actions";
 
 export const metadata = { title: "Respond to Reading · follow up" };
-const LV = { BELOW: ["Below", "bg-orange-100 text-orange-900"], ON: ["On", "bg-sky-100 text-sky-900"], ABOVE: ["Above", "bg-emerald-100 text-emerald-900"] } as const;
+const LV = { BELOW: ["Approaching", "bg-orange-100 text-orange-900"], ON: ["Meeting", "bg-sky-100 text-sky-900"], ABOVE: ["Exceeding", "bg-emerald-100 text-emerald-900"] } as const;
 
 /** 📋 Who received which version, who finished, scores and comments. */
 export default async function RespondFollowUp({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ msg?: string }> }) {

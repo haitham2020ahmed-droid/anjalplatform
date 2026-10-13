@@ -95,7 +95,7 @@ export async function recordLevel(repo: Repo, e: LevelEvent): Promise<"CHANGED" 
         const pa = prevChange ? String(((prevChange.after ?? {}) as Record<string, unknown>).level ?? "") : "";
         if (pb && pa && RANK[pa] < RANK[pb]) {
           const name = String((await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: e.studentId }))?.userId }))?.displayName ?? "A student");
-          await notifyTeachers(repo, e.studentId, `📉 ${name} dropped twice in ${CATEGORY_NAME[e.category]}`, `Now at ${e.level.charAt(0) + e.level.slice(1).toLowerCase()} Level after two adaptive sets in a row. Consider small-group re-teaching.`, now);
+          await notifyTeachers(repo, e.studentId, `📉 ${name} dropped twice in ${CATEGORY_NAME[e.category]}`, `Now at ${({ BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" } as Record<string, string>)[e.level] ?? e.level} after two adaptive sets in a row. Consider small-group re-teaching.`, now);
         }
       }
     }

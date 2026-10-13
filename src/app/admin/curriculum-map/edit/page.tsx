@@ -68,7 +68,7 @@ export default async function CurriculumMapEditPage({ searchParams }: { searchPa
                       <span className="w-56 text-slate-700">{cat}</span>
                       {v.coverage.filter((c) => c.category === cat).map((c) => (
                         <span key={c.level} className={`rounded-full px-2.5 py-0.5 font-bold ring-1 ${c.atTarget === c.places ? "bg-emerald-50 text-emerald-800 ring-emerald-300" : c.atTarget ? "bg-amber-50 text-amber-900 ring-amber-300" : "bg-red-50 text-red-800 ring-red-300"}`}>
-                          {c.level === "BELOW" ? "Below" : c.level === "ON" ? "On" : "Above"} {c.atTarget}/{c.places}
+                          {c.level === "BELOW" ? "Approaching" : c.level === "ON" ? "Meeting" : "Exceeding"} {c.atTarget}/{c.places}
                         </span>
                       ))}
                     </div>

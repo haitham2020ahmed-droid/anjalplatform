@@ -15,7 +15,7 @@ import { draftsOf, useSkillQuestions } from "./load";
 import { QuestionDrawer } from "@/components/tests/question-drawer";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
 
-const LEVEL_LABEL: Record<string, string> = { ALL: "All", BELOW: "Below", ON: "On", ABOVE: "Above" };
+const LEVEL_LABEL: Record<string, string> = { ALL: "All", BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 const LEVEL_CHIP: Record<string, string> = { BELOW: "bg-amber-50 text-amber-900 ring-amber-200", ON: "bg-sky-50 text-sky-900 ring-sky-200", ABOVE: "bg-violet-50 text-violet-900 ring-violet-200" };
 const chipBtn = (on: boolean) => `min-h-11 rounded-full px-4 text-sm font-semibold ring-1 ${on ? "bg-brand-navy text-white ring-brand-navy" : "bg-white text-brand-navy ring-slate-300"}`;
 
@@ -125,7 +125,7 @@ function QuestionRow({ q, checkable, checked, onToggle, onView }: { q: PickerQue
   const body = (
     <span className="min-w-0 flex-1">
       <span className="flex flex-wrap items-center gap-2">
-        <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${LEVEL_CHIP[q.level] ?? "bg-slate-100 text-slate-700 ring-slate-200"}`}>{t(LEVEL_LABEL[q.level] ?? "On")}</span>
+        <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${LEVEL_CHIP[q.level] ?? "bg-slate-100 text-slate-700 ring-slate-200"}`}>{t(LEVEL_LABEL[q.level] ?? "Meeting")}</span>
         {q.passageTitle && <span className="text-xs text-slate-500" lang="en" data-content>{q.passageTitle}</span>}
       </span>
       {onView ? <button type="button" onClick={(e) => { e.preventDefault(); onView(); }} className="mt-1 block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content>{q.stem || "—"}</button>

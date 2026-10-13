@@ -8,7 +8,7 @@ export function StatusBadge({ status }: { status: "ON_TRACK" | "AT_RISK" | "MET"
 
 export function LevelBadge({ level }: { level: "BELOW" | "ON" | "ABOVE" | null | undefined }) {
   if (!level) return <span className="text-xs text-slate-400">not set</span>;
-  const v = { BELOW: ["🟠 Below", "bg-orange-50 text-orange-900 ring-orange-200"], ON: ["🔵 On", "bg-sky-50 text-sky-900 ring-sky-200"], ABOVE: ["🟢 Above", "bg-emerald-50 text-emerald-900 ring-emerald-200"] }[level];
+  const v = { BELOW: ["🟠 Approaching", "bg-orange-50 text-orange-900 ring-orange-200"], ON: ["🔵 Meeting", "bg-sky-50 text-sky-900 ring-sky-200"], ABOVE: ["🟢 Exceeding", "bg-emerald-50 text-emerald-900 ring-emerald-200"] }[level];
   return <span className={`inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${v[1]}`}>{v[0]}</span>;
 }
 

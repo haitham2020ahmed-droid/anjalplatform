@@ -6,14 +6,14 @@ import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { schoolLevels, type DistRow, type TierDist } from "@/server/reports/level-distribution";
 
-export const metadata = { title: "Below / On / Above" };
+export const metadata = { title: "Approaching / Meeting / Exceeding" };
 
 /** One stacked bar: Below / On / Above / not evaluated, with the numbers written out (not color alone). */
 function Bar({ d }: { d: DistRow["now"] }) {
   return (
     <div className="min-w-[160px]">
       <BandBar height="h-4" legend={false} parts={[{ key: "BELOW", value: d.below }, { key: "ON", value: d.on }, { key: "ABOVE", value: d.above }, ...(d.none ? [{ key: "NONE" as const, value: d.none, label: "Not evaluated" }] : [])]} />
-      <p className="mt-1 text-xs tabular-nums text-slate-600">▼ Below {d.below} · ● On {d.on} · ▲ Above {d.above}{d.none ? ` · ○ not evaluated ${d.none}` : ""}</p>
+      <p className="mt-1 text-xs tabular-nums text-slate-600">▼ Approaching {d.below} · ● Meeting {d.on} · ▲ Exceeding {d.above}{d.none ? ` · ○ not evaluated ${d.none}` : ""}</p>
     </div>
   );
 }
@@ -35,14 +35,14 @@ export default async function LevelsDistributionPage() {
   const { t } = await getT();
   return (
     <AppShell name={String(me.displayName)}>
-      <ReportHeader back={{ href: "/admin", label: "Home" }} icon="⚖️" title="Below / On / Above"
+      <ReportHeader back={{ href: "/admin", label: "Home" }} icon="⚖️" title="Approaching / Meeting / Exceeding"
         subtitle={<>Every student's confirmed overall level (the one the Level Story and the tiers use), by grade, class and Curriculum-Map strand. Change = now ({L.asOf}) minus 30 days ago ({L.monthAgo}).</>}
         who={t("Whole school")} when={L.asOf} downloads={exportsOf({ kind: "levels", scope: "school", period: "TERM" })} />
       <AtAGlance items={[
         { icon: "👩‍🎓", label: "Students", value: o.now.total, meaning: t("{n} not evaluated yet", { n: o.now.none }) },
-        { icon: "▼", label: "Below Level", value: `${o.pctNow.below ?? 0}%`, meaning: t("{n} students · {c} in a month", { n: o.now.below, c: fmtSigned(o.change.below) }), tone: o.change.below > 0 ? "warn" : "neutral" },
-        { icon: "●", label: "On Level", value: `${o.pctNow.on ?? 0}%`, meaning: t("{n} students · {c} in a month", { n: o.now.on, c: fmtSigned(o.change.on) }), tone: "info" },
-        { icon: "▲", label: "Above Level", value: `${o.pctNow.above ?? 0}%`, meaning: t("{n} students · {c} in a month", { n: o.now.above, c: fmtSigned(o.change.above) }), tone: "good" },
+        { icon: "▼", label: "Approaching the standard", value: `${o.pctNow.below ?? 0}%`, meaning: t("{n} students · {c} in a month", { n: o.now.below, c: fmtSigned(o.change.below) }), tone: o.change.below > 0 ? "warn" : "neutral" },
+        { icon: "●", label: "Meeting the standard", value: `${o.pctNow.on ?? 0}%`, meaning: t("{n} students · {c} in a month", { n: o.now.on, c: fmtSigned(o.change.on) }), tone: "info" },
+        { icon: "▲", label: "Exceeding the standard", value: `${o.pctNow.above ?? 0}%`, meaning: t("{n} students · {c} in a month", { n: o.now.above, c: fmtSigned(o.change.above) }), tone: "good" },
         { icon: "🛟", label: "Tier 2 · Tier 3", value: `${o.tiers.tier2} · ${o.tiers.tier3}`, meaning: t("Tier 1: {n}", { n: o.tiers.tier1 }), tone: o.tiers.tier3 ? "bad" : "neutral" },
       ]} />
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
@@ -52,11 +52,11 @@ export default async function LevelsDistributionPage() {
         </ReportSection>
         <div className="space-y-4">
           <Callout kind="meaning" items={[
-            t("Below / On / Above is each student's confirmed overall level, compared with their grade."),
-            o.change.below > 0 ? t("{n} more students are Below Level than a month ago.", { n: o.change.below }) : t("No more students are Below Level than a month ago."),
+            t("Approaching / Meeting / Exceeding is each student's confirmed overall level, compared with the grade standard."),
+            o.change.below > 0 ? t("{n} more students are Approaching the standard than a month ago.", { n: o.change.below }) : t("No more students are Approaching the standard than a month ago."),
           ]} />
           <Callout kind="next" items={[
-            (() => { const w = [...L.classes].sort((a, b) => b.now.below / Math.max(1, b.now.total) - a.now.below / Math.max(1, a.now.total))[0]; return w && w.now.below ? <>{t("Visit the class with the most students Below Level")}: <bdi className="font-semibold">{w.name}</bdi> ({w.now.below})</> : null; })(),
+            (() => { const w = [...L.classes].sort((a, b) => b.now.below / Math.max(1, b.now.total) - a.now.below / Math.max(1, a.now.total))[0]; return w && w.now.below ? <>{t("Visit the class with the most students Approaching the standard")}: <bdi className="font-semibold">{w.name}</bdi> ({w.now.below})</> : null; })(),
             o.tiers.tier3 ? t("Check that every Tier 3 student has a weekly intervention group.") : null,
           ]} />
         </div>
@@ -69,7 +69,7 @@ export default async function LevelsDistributionPage() {
         </ReportSection>
         <ReportSection title="By class" icon="👥">
           <ReportTable label="By class"
-            cols={[{ key: "c", label: "Class" }, { key: "s", label: "Students", num: true }, { key: "n", label: "Now", hint: "Sort by the number Below Level" }, { key: "ch", label: "Change in a month", sort: false }, { key: "t", label: "Tiers", hint: "Sort by Tier 3" }]}
+            cols={[{ key: "c", label: "Class" }, { key: "s", label: "Students", num: true }, { key: "n", label: "Now", hint: "Sort by the number Approaching the standard" }, { key: "ch", label: "Change in a month", sort: false }, { key: "t", label: "Tiers", hint: "Sort by Tier 3" }]}
             rows={L.classes.map((c) => ({ id: c.classId, flag: c.tiers.tier3 ? "bad" : undefined, sort: { c: c.name, s: c.now.total, n: c.now.below, t: c.tiers.tier3 }, cells: { c: <Link href={`/teacher/tiers?class=${c.classId}`} className="font-semibold text-brand-teal hover:underline"><bdi>{c.name}</bdi></Link>, s: c.now.total, n: <Bar d={c.now} />, ch: <Change r={c} />, t: <Tiers t={c.tiers} /> } }))} />
         </ReportSection>
         <ReportSection title="By Curriculum-Map strand" icon="🧭" hint="Each strand's own level (set by the strand's adaptive sets).">

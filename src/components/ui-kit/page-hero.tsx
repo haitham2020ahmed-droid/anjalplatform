@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 /** the welcome band's title style (for a page that passes its own <h1> as `title`) */
-export const HERO_TITLE = "text-2xl font-semibold leading-snug tracking-tight text-brand-navy sm:text-[2rem]";
+export const HERO_TITLE = "text-2xl leading-snug text-ink sm:text-3xl";
 
 export type HeroTone = "student" | "teacher" | "admin";
 
@@ -10,7 +10,7 @@ function HeroDeco({ tone }: { tone: HeroTone }) {
   if (tone === "student") {
     return (
       <svg aria-hidden="true" focusable="false" className="hero-deco" viewBox="0 0 420 220" preserveAspectRatio="xMaxYMid slice">
-        <circle cx="410" cy="10" r="96" fill="#ffffff" opacity=".55" />
+        <circle cx="410" cy="10" r="96" fill="var(--lr-surface-2)" opacity=".55" />
         <circle cx="400" cy="232" r="64" fill="#c7f0e6" opacity=".6" />
         <circle cx="236" cy="212" r="40" fill="#ffd9a8" opacity=".45" />
         <path className="tw" d="M190 52l5 12 13 1-10 8 3 13-11-7-11 7 3-13-10-8 13-1z" fill="#f5b800" />
@@ -23,7 +23,7 @@ function HeroDeco({ tone }: { tone: HeroTone }) {
   }
   return (
     <svg aria-hidden="true" focusable="false" className="hero-deco" viewBox="0 0 420 220" preserveAspectRatio="xMaxYMid slice">
-      <circle cx="380" cy="30" r="110" fill="#ffffff" opacity=".6" />
+      <circle cx="380" cy="30" r="110" fill="var(--lr-surface-2)" opacity=".6" />
       <circle cx="330" cy="210" r="80" fill={tone === "teacher" ? "#bfe9e4" : "#dbe5f3"} opacity=".55" />
     </svg>
   );
@@ -45,9 +45,9 @@ export function PageHero({ title, subtitle, eyebrow, tone = "teacher", lead, act
       <div className="flex flex-wrap items-center gap-4 sm:gap-5">
         {lead && <div className="shrink-0">{lead}</div>}
         <div className="min-w-0 flex-1 basis-60">
-          {eyebrow && <p className="text-sm font-medium text-slate-600">{eyebrow}</p>}
+          {eyebrow && <p className="text-sm font-medium text-muted">{eyebrow}</p>}
           {typeof title === "object" && title !== null && (title as { type?: unknown }).type === "h1" ? title : <h1 id={titleId} data-testid={titleTestId} className={HERO_TITLE}>{title}</h1>}
-          {subtitle && <div className="mt-1 text-base text-slate-700 sm:text-lg">{subtitle}</div>}
+          {subtitle && <div className="mt-1 text-base text-ink-2">{subtitle}</div>}
         </div>
         {actions && <div className="flex flex-wrap items-center gap-3">{actions}</div>}
       </div>

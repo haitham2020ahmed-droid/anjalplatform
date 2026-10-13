@@ -13,7 +13,7 @@ import type { GeneratedTest } from "@/server/tests/generate";
 import { generateTestAction, mapTreeAction } from "../actions";
 
 const LEVELS = [
-  { id: "MIXED", label: "Mixed levels" }, { id: "BELOW", label: "Below" }, { id: "ON", label: "On" }, { id: "ABOVE", label: "Above" }, { id: "FIT", label: "Fit my class" },
+  { id: "MIXED", label: "Mixed levels" }, { id: "BELOW", label: "Approaching" }, { id: "ON", label: "Meeting" }, { id: "ABOVE", label: "Exceeding" }, { id: "FIT", label: "Fit my class" },
 ] as const;
 const TYPES = [
   ["MULTIPLE_CHOICE", "Multiple choice"], ["MULTI_SELECT", "Multiple select"], ["TRUE_FALSE", "True / False"], ["FILL_BLANK", "Fill in the blank"],
@@ -134,7 +134,7 @@ export function MakeTest({ tree: initialTree, skills, classes, classId, onClassI
         <div className="mt-2 flex flex-wrap gap-2">{LEVELS.map((l) => <button key={l.id} type="button" onClick={() => setLevel(l.id)} aria-pressed={level === l.id} className={chip(level === l.id)}>{t(l.label)}</button>)}</div>
         {level === "FIT" && (
           <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-slate-600">
-            <span>{t("From the class's recent accuracy (80%+ Above, 60–79% On, under 60% Below).")}</span>
+            <span>{t("From the class's recent accuracy (80%+ Exceeding, 60–79% Meeting, under 60% Approaching).")}</span>
             {classes.length > 1 && <select value={classId} onChange={(e) => onClassId(e.target.value)} aria-label={t("Class")} className={field}>{classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select>}
           </div>
         )}

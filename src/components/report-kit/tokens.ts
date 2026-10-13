@@ -10,9 +10,9 @@ export interface BandStyle { label: string; mark: string; bg: string; text: stri
 
 /** Levels keep the platform's colours (Below orange · On sky · Above green, as on the level badges). */
 export const BAND: Record<BandKey, BandStyle> = {
-  BELOW: { label: "Below Level", mark: "▼", bg: "bg-orange-500", text: "text-orange-900", soft: "bg-orange-50 ring-orange-200", hex: "#f97316" },
-  ON: { label: "On Level", mark: "●", bg: "bg-sky-500", text: "text-sky-900", soft: "bg-sky-50 ring-sky-200", hex: "#0ea5e9" },
-  ABOVE: { label: "Above Level", mark: "▲", bg: "bg-emerald-500", text: "text-emerald-900", soft: "bg-emerald-50 ring-emerald-200", hex: "#10b981" },
+  BELOW: { label: "Approaching", mark: "▼", bg: "bg-orange-500", text: "text-orange-900", soft: "bg-orange-50 ring-orange-200", hex: "#f97316" },
+  ON: { label: "Meeting", mark: "●", bg: "bg-sky-500", text: "text-sky-900", soft: "bg-sky-50 ring-sky-200", hex: "#0ea5e9" },
+  ABOVE: { label: "Exceeding", mark: "▲", bg: "bg-emerald-500", text: "text-emerald-900", soft: "bg-emerald-50 ring-emerald-200", hex: "#10b981" },
   NONE: { label: "Not set", mark: "○", bg: "bg-slate-300", text: "text-slate-700", soft: "bg-slate-50 ring-slate-200", hex: "#cbd5e1" },
   T1: { label: "Tier 1", mark: "1", bg: "bg-emerald-500", text: "text-emerald-900", soft: "bg-emerald-50 ring-emerald-200", hex: "#10b981" },
   T2: { label: "Tier 2", mark: "2", bg: "bg-amber-400", text: "text-amber-900", soft: "bg-amber-50 ring-amber-200", hex: "#fbbf24" },

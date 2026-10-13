@@ -23,6 +23,7 @@ import {
   type AnswerKey, type GrowthConfidence, type LevelChangeEvent, type ProjectionRange, type SkillCell, type StoryLine,
 } from "./growth";
 import { visibleArticles } from "./student";
+import { questionKeys } from "./question-key";
 
 const DAY = 86_400_000;
 const time = (v: unknown) => (v === null || v === undefined ? 0 : toDate(v).getTime());
@@ -45,8 +46,9 @@ export async function termStartOf(repo: Repo, schoolId: string, now: Date): Prom
 }
 
 async function answerKey(repo: Repo, articleIds: string[]): Promise<AnswerKey> {
-  const qs = articleIds.length ? await repo.findMany("RRQuestion", { articleId: { in: articleIds } }, { select: ["articleId", "band", "number", "answer", "skill"] }) : [];
-  return new Map(qs.map((q) => [keyOf(s(q.articleId), s(q.band), Number(q.number)), { answer: s(q.answer), skill: s(q.skill) }]));
+  const out: AnswerKey = new Map();
+  for (const [id, qs] of await questionKeys(repo, articleIds)) for (const q of qs) out.set(keyOf(id, q.band, q.number), { answer: q.answer, skill: q.skill });
+  return out;
 }
 
 const changeEvents = (rows: Row[]): LevelChangeEvent[] => rows
@@ -285,7 +287,8 @@ export async function classGrowth(repo: Repo, actor: Actor, classId: string, now
     for (const r of runs) { const set = readers.get(s(r.articleId)) ?? new Set<string>(); set.add(s(r.studentId)); readers.set(s(r.articleId), set); }
     const fresh = arts.filter((a) => (readers.get(s(a.id))?.size ?? 0) * 2 < Math.max(1, ids.length));
     const freshIds = fresh.map((a) => s(a.id));
-    const qs = freshIds.length ? await repo.findMany("RRQuestion", { articleId: { in: freshIds }, skill: { in: weak.map((w) => w.skill) } }, { select: ["articleId", "band", "skill"] }) : [];
+    const weakSkills = new Set(weak.map((w) => w.skill));
+    const qs = [...(await questionKeys(repo, freshIds))].flatMap(([articleId, rows]) => rows.filter((q) => weakSkills.has(q.skill)).map((q) => ({ articleId, band: q.band, skill: q.skill })));
     suggestions = new Map(weak.map((w) => {
       // questions on the skill in one band (each student answers one band), the best band of the article
       const perBand = new Map<string, number>(), count = new Map<string, number>();

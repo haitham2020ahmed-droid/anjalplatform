@@ -49,7 +49,7 @@ export type Level = "BELOW" | "ON" | "ABOVE";
 export type Basis = "ON_LEVEL_STUDENTS" | "ALL_STUDENTS";
 export type AlertKind = "KEY_SUSPECT" | "DISTRACTOR_MAGNET" | "NEGATIVE_DISCRIMINATION" | "TOO_EASY" | "SLOW";
 export const HOLD_KINDS: ReadonlySet<AlertKind> = new Set(["KEY_SUSPECT", "NEGATIVE_DISCRIMINATION"]);
-export const LEVEL_NAME: Record<Level, string> = { BELOW: "Below", ON: "On", ABOVE: "Above" };
+export const LEVEL_NAME: Record<Level, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0);

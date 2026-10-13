@@ -10,7 +10,7 @@ const fmtMin = (m: number) => (m >= 60 ? `${Math.floor(m / 60)} h ${m % 60} min`
 const GROUP_STYLE: Record<GroupName, string> = {
   Intervention: "border-amber-400",
   Developing: "border-teal-300",
-  "On level": "border-teal-600",
+  Meeting: "border-teal-600",
   Advanced: "border-brand-gold",
 };
 

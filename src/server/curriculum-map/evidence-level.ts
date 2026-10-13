@@ -60,8 +60,8 @@ export function withFluency(level: Level, from: Evidence, borderline: boolean, f
   if (!fluency.below) return { level, note: `${p}: strong enough` };
   if (from === "TEACHER" || from === "CATEGORY" || from === "NO_DATA" || from === "SAVED") return { level, note: `${p}: fluency below` };
   if (level === "BELOW") return { level, note: `${p}: both comprehension and fluency weak` };
-  if (level === "ABOVE") return { level: "ON", note: `${p}: fluency below, so On Level rather than Above` };
-  return borderline ? { level: "BELOW", note: `${p}: fluency below and comprehension borderline, so Below Level` } : { level, note: `${p}: fluency below` };
+  if (level === "ABOVE") return { level: "ON", note: `${p}: fluency below, so Meeting rather than Exceeding` };
+  return borderline ? { level: "BELOW", note: `${p}: fluency below and comprehension borderline, so Approaching` } : { level, note: `${p}: fluency below` };
 }
 const TEACHER_DAYS = 30;
 /** ability (θ) boundaries of the overall level (0 = grade level; recalibrated in Update 39B with the guessing floor) */
@@ -138,10 +138,10 @@ export async function rawEvidenceLevels(repo: Repo, schoolId: string | null, ids
     const rm = reading.find((x) => s(x.studentId) === id && s(x.source) === "READMASTER");
     const lex = rm ? Number(rm.lexile) : m?.lexile ?? null;
     const lexLevel = subject === "READING" && band ? levelForLexile(band, lex) : null;
-    if (lexLevel) { put(lexLevel, "LEXILE", `${rm ? "ReadMaster reading" : "MAP"} Lexile ${lex}L (On Level ${band.onMin}–${band.onMax}L).`, lex !== null && lex < band.onMin + (band.onMax - band.onMin) / 4); continue; }
+    if (lexLevel) { put(lexLevel, "LEXILE", `${rm ? "ReadMaster reading" : "MAP"} Lexile ${lex}L (Meeting ${band.onMin}–${band.onMax}L).`, lex !== null && lex < band.onMin + (band.onMax - band.onMin) / 4); continue; }
     if (m?.band && m.latest) { put(m.band, "MAP", `MAP ${m.latest.term}: RIT ${m.latest.rit}${m.latest.percentile !== null ? `, ${m.latest.percentile}th percentile` : ""}.`, m.latest.percentile !== null && m.latest.percentile <= MAP_BORDERLINE); continue; }
     if (lv.level && !(lv.source === "PLACEMENT" && dg && !dv.valid)) { put(lv.level, "SAVED", "Their saved level."); continue; }
-    put("ON", "NO_DATA", dg && !dv.valid ? `No valid results yet (Diagnostic ${dv.why}): starts at On Level.` : "No results yet: starts at On Level.");
+    put("ON", "NO_DATA", dg && !dv.valid ? `No valid results yet (Diagnostic ${dv.why}): starts at Meeting.` : "No results yet: starts at Meeting.");
   }
   return out;
 }

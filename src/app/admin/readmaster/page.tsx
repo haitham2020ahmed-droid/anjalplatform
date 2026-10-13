@@ -40,7 +40,7 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="⭐" title="ReadMaster"
-        subtitle="One article, three reading levels: the same topic and skill written for Below, On and Above Level. Each student reads the version of their Lexile, which moves after every article (75%+ → +30L, under 50% → −30L).">
+        subtitle="One article, three reading levels: the same topic and skill written for Approaching, Meeting and Exceeding readers. Each student reads the version of their Lexile, which moves after every article (75%+ → +30L, under 50% → −30L).">
         <nav aria-label="Grade" className="flex gap-2">{[4, 5, 6].map((g) => <Link key={g} href={`/admin/readmaster?grade=${g}`} aria-current={g === grade ? "page" : undefined} className={`rounded-full px-5 py-2 text-sm font-bold transition ${g === grade ? "bg-brand-navy text-white shadow" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`}>Grade {g}</Link>)}</nav>
         <Link href={`/student/readmaster?grade=${grade}`} className="rounded-full px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Open the ReadMaster page</Link>
       </PageHeader>
@@ -50,7 +50,7 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
       {canPublish && (
         <form action={loadLibraryAction} className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-violet-50 to-white px-4 py-3 ring-1 ring-violet-200">
           <input type="hidden" name="grade" value={grade} />
-          <p className="text-sm text-slate-700"><b className="text-brand-navy">📚 The ReadMaster library: every lesson of Grades 4 and 5.</b> 36 original texts, one per lesson (Text Set), grouped by Unit, each written Below, On and Above Level with 5 questions. Articles already there are skipped.</p>
+          <p className="text-sm text-slate-700"><b className="text-brand-navy">📚 The ReadMaster library: every lesson of Grades 4 and 5.</b> 36 original texts, one per lesson (Text Set), grouped by Unit, each written at the Approaching, Meeting and Exceeding levels with 5 questions. Articles already there are skipped.</p>
           <button className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-bold text-white hover:bg-violet-700">{LIBRARY_LABEL}</button>
         </form>
       )}

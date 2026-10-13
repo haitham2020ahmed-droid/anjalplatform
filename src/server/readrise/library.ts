@@ -12,6 +12,7 @@ import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
 import { BANDS, LEVEL_TOLERANCE, type ArticleJson, type BandJson } from "./import";
 import { targetWords, type RRBand } from "./level";
+import { modelVersion } from "../cache/bank-version";
 
 export const HIDDEN_KEY = "readrise.hidden";
 const s = (v: unknown) => String(v ?? "");
@@ -57,27 +58,57 @@ export function canView(actor: Actor, a: Row, hidden: Set<string>): boolean {
 /** the article columns the list shows and checks (not the poll text) */
 const LIST_COLUMNS = ["id", "schoolId", "code", "title", "topic", "summary", "status", "createdById", "updatedAt", "deletedAt"] as const;
 
+type VersionStats = Map<string, { versions: number; levelWarnings: number }>;
+/** Per article: how many versions, and how many whose measured level is off the target (the list's warning). */
+async function versionStats(repo: Repo, ids: string[]): Promise<VersionStats> {
+  const out: VersionStats = new Map();
+  if (!ids.length) return out;
+  for (const v of await repo.findMany("RRVersion", { articleId: { in: ids } }, { select: ["articleId", "level", "estLevel"] })) {
+    const k = s(v.articleId), c = out.get(k) ?? { versions: 0, levelWarnings: 0 };
+    c.versions++;
+    if (Math.abs(Number(v.estLevel) - Number(v.level)) > LEVEL_TOLERANCE) c.levelWarnings++;
+    out.set(k, c);
+  }
+  return out;
+}
+
+const platformCache = new WeakMap<object, { v: string; at: number; p: Promise<{ rows: Row[]; stats: VersionStats }> }>();
+/**
+ * ⚡ The platform library's list rows and version stats: the same for every school, so kept in memory per data
+ * source until a write to RRArticle / RRVersion in this process (import, publish, delete, a new library file) and for
+ * at most a minute (another process may change them). Rows are shared: callers never change them.
+ */
+function platformList(repo: Repo): Promise<{ rows: Row[]; stats: VersionStats }> {
+  const v = modelVersion("RRArticle", "RRVersion"), hit = platformCache.get(repo);
+  if (hit && hit.v === v && Date.now() - hit.at < 60_000) return hit.p;
+  const p = (async () => {
+    const rows = await repo.findMany("RRArticle", { schoolId: null, deletedAt: null }, { select: LIST_COLUMNS });
+    return { rows, stats: await versionStats(repo, rows.map((a) => s(a.id))) };
+  })();
+  platformCache.set(repo, { v, at: Date.now(), p });
+  p.catch(() => { if (platformCache.get(repo)?.p === p) platformCache.delete(repo); });
+  return p;
+}
+
 /** Every article this actor can see, with the filters (topic, status, source, search). */
 export async function listLibrary(repo: Repo, actor: Actor, f: LibraryFilters = {}): Promise<{ items: LibraryItem[]; topics: string[] }> {
   if (!isStaff(actor)) throw new ForbiddenError("Only teachers and admins can open the ReadRise library.");
   assertCan(actor, "questions:read");
-  const hidden = await hiddenArticleIds(repo, actor.schoolId);
-  const [platform, school] = await Promise.all([
-    repo.findMany("RRArticle", { schoolId: null, deletedAt: null }, { select: LIST_COLUMNS }),
+  const [hidden, platform, school] = await Promise.all([
+    hiddenArticleIds(repo, actor.schoolId),
+    platformList(repo),
     actor.schoolId ? repo.findMany("RRArticle", { schoolId: actor.schoolId, deletedAt: null }, { select: LIST_COLUMNS }) : Promise.resolve([] as Row[]),
   ]);
-  const all = [...platform, ...school].filter((a) => canView(actor, a, hidden));
-  const versions = all.length ? await repo.findMany("RRVersion", { articleId: { in: all.map((a) => a.id) } }, { select: ["articleId", "level", "estLevel"] }) : [];
-  const byArticle = new Map<string, Row[]>();
-  for (const v of versions) { const l = byArticle.get(s(v.articleId)) ?? []; l.push(v); byArticle.set(s(v.articleId), l); }
+  const all = [...platform.rows, ...school].filter((a) => canView(actor, a, hidden));
+  const schoolStats = await versionStats(repo, all.filter((a) => a.schoolId).map((a) => s(a.id)));
   const topics = [...new Set(all.map((a) => s(a.topic)))].sort();
   const q = (f.q ?? "").trim().toLowerCase();
   const items = all.map((a): LibraryItem => {
-    const vs = byArticle.get(s(a.id)) ?? [];
+    const vs = (a.schoolId ? schoolStats : platform.stats).get(s(a.id)) ?? { versions: 0, levelWarnings: 0 };
     return {
       id: s(a.id), code: s(a.code), title: s(a.title), topic: s(a.topic), summary: a.summary ? s(a.summary) : null, status: s(a.status),
       source: a.schoolId ? "SCHOOL" : "PLATFORM", hidden: hidden.has(s(a.id)), mine: s(a.createdById) === actor.userId,
-      versions: vs.length, levelWarnings: vs.filter((v) => Math.abs(Number(v.estLevel) - Number(v.level)) > LEVEL_TOLERANCE).length,
+      versions: vs.versions, levelWarnings: vs.levelWarnings,
       updatedAt: new Date(a.updatedAt as string | Date).toISOString(), canEdit: canManage(actor, a),
     };
   }).filter((i) =>

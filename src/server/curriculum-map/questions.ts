@@ -52,7 +52,7 @@ async function loadAttachmentNodes(repo: Repo, schoolId: string): Promise<Attach
   const nodes = await repo.findMany("CurriculumMapNode", { gradeId: { in: grades.map((g) => g.id) } });
   const byId = new Map(nodes.map((n) => [s(n.id), n]));
   const level = new Map(grades.map((g) => [s(g.id), Number(g.level)]));
-  const LEVEL_TITLE = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" } as const;
+  const LEVEL_TITLE = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
   const out: AttachmentNode[] = [];
   for (const n of nodes.filter((x) => Boolean(x.acceptsQuestions))) {
     const cat = n.kind === "CATEGORY" ? n : byId.get(s(n.parentId));

@@ -24,7 +24,7 @@ const ALERT: Record<string, [string, string]> = {
   TOO_EASY: ["🟢 Too easy", "bg-emerald-50 text-emerald-800 ring-emerald-200"],
   SLOW: ["🐢 Very slow", "bg-sky-50 text-sky-900 ring-sky-200"],
 };
-const LEVEL: Record<string, string> = { BELOW: "Below", ON: "On", ABOVE: "Above" };
+const LEVEL: Record<string, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 const TABS = [["quality", "Quality"], ["alerts", "Alerts"], ["changes", "Level changes"], ["nolevel", "No level"], ["hidden", "Hidden automatically"], ["under25", "Under 25"]] as const;
 type Tab = (typeof TABS)[number][0] | "question";
 
@@ -112,7 +112,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
     </>;
   } else if (tab === "under25" && isAdmin) {
     const rows = await skillsUnderMinimum(repo, actor);
-    subtitle = `Every skill should have at least ${MIN_PER_SKILL} questions (Below / On / Above). These skills have fewer.`;
+    subtitle = `Every skill should have at least ${MIN_PER_SKILL} questions (Approaching / Meeting / Exceeding). These skills have fewer.`;
     body = rows.length === 0 ? <p className="rounded-2xl bg-white p-4 text-slate-600 ring-1 ring-slate-200">✅ Every skill has at least {MIN_PER_SKILL} questions.</p> : (
       <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
         <table className="w-full text-left text-sm">
@@ -125,7 +125,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
     // 🏦 bank questions are classified by skill + level only: a question without a level (Below / On / Above) is
     // listed here so it can be given one (open it and set its level)
     const rows = await questionsWithoutLevel(repo, actor);
-    subtitle = "Bank questions without a level (Below / On / Above). Open each one and set its level.";
+    subtitle = "Bank questions without a level (Approaching / Meeting / Exceeding). Open each one and set its level.";
     body = rows.length === 0 ? <p className="rounded-2xl bg-white p-4 text-slate-600 ring-1 ring-slate-200">✅ Every bank question has a level.</p> : (
       <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
         <table className="w-full text-left text-sm">

@@ -302,7 +302,7 @@ export async function generateTest(repo: Repo, actor: Actor, input: GenerateInpu
   const total = input?.totalMarks === null || input?.totalMarks === undefined || s(input.totalMarks) === "" ? rows.length : Number(input.totalMarks);
   if (!Number.isFinite(total) || total <= 0) throw new ValidationError("Total marks must be more than 0.");
   const marks = spreadMarks(rows.map((r) => r.id), total);
-  const extra = choice === "FIT" ? [history.accuracy === null ? "Fit my class: no recent answers yet, so On Level was used." : `Fit my class: recent accuracy ${history.accuracy}%, so the questions are ${level === "ABOVE" ? "Above" : level === "BELOW" ? "Below" : "On"} Level.`] : [];
+  const extra = choice === "FIT" ? [history.accuracy === null ? "Fit my class: no recent answers yet, so Meeting was used." : `Fit my class: recent accuracy ${history.accuracy}%, so the questions are ${level === "ABOVE" ? "Exceeding" : level === "BELOW" ? "Approaching" : "Meeting"}.`] : [];
   return { questions: rows.map((r) => ({ ...r, marks: marks[r.id] })), marks, level, accuracy: history.accuracy, notes: [...new Set([...extra, ...notes, ...plan.notes])] };
 }
 

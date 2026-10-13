@@ -7,7 +7,7 @@ interface RosterLevel { level: Lv; from: string; reason: string }
 export interface RosterClass { id: string; name: string; students: { id: string; name: string; level: Lv | null; auto: RosterLevel; byCategory: Record<"CV" | "ACS" | "RTR", RosterLevel> }[] }
 /** where the level comes from, in a word */
 const FROM: Record<string, string> = { TEACHER: "teacher", CATEGORY: "own work", PLATFORM: "platform", PLACEMENT: "Diagnostic", LEXILE: "Lexile", MAP: "MAP", SAVED: "saved", NO_DATA: "no data" };
-const LV = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
+const LV = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
 
 const EVENT = "map-assign:open";
 
@@ -100,7 +100,7 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
               <legend className="font-semibold text-slate-700">How</legend>
               <div className="mt-1 grid gap-2 sm:grid-cols-2">
                 <button type="button" onClick={() => setMode("AUTO")} aria-pressed={mode === "AUTO"} className={`rounded-xl px-3 py-2 text-start font-semibold ${mode === "AUTO" ? "bg-emerald-600 text-white" : "ring-1 ring-slate-300 hover:bg-slate-50"}`}>🤖 Automatic<span className="block text-xs font-normal opacity-90">The platform puts each student at their level (Diagnostic, MAP, their results).</span></button>
-                <button type="button" onClick={() => setMode("MANUAL")} aria-pressed={mode === "MANUAL"} className={`rounded-xl px-3 py-2 text-start font-semibold ${mode === "MANUAL" ? "bg-sky-600 text-white" : "ring-1 ring-slate-300 hover:bg-slate-50"}`}>✋ Manual<span className="block text-xs font-normal opacity-90">I tick students and choose their level: Below, On or Above.</span></button>
+                <button type="button" onClick={() => setMode("MANUAL")} aria-pressed={mode === "MANUAL"} className={`rounded-xl px-3 py-2 text-start font-semibold ${mode === "MANUAL" ? "bg-sky-600 text-white" : "ring-1 ring-slate-300 hover:bg-slate-50"}`}>✋ Manual<span className="block text-xs font-normal opacity-90">I tick students and choose their level: Approaching, Meeting or Exceeding.</span></button>
               </div>
             </fieldset>
             {mode === "AUTO" && (
@@ -139,8 +139,8 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
                     </div>
                   </div>
                 )}
-                {who === "all" && <p className="mt-2 text-xs text-slate-600">Levels from the data: Below <b>{chosen.filter((s) => autoOf(s).level === "BELOW").length}</b> · On <b>{chosen.filter((s) => autoOf(s).level === "ON").length}</b> · Above <b>{chosen.filter((s) => autoOf(s).level === "ABOVE").length}</b></p>}
-                {noLevel > 0 && <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200">⚠️ <b>{noLevel}</b> of {chosen.length} student(s) have no data at all yet (no MAP, no Diagnostic, no results on the platform): they start at On Level and move up or down with their answers. To choose their level, use ✋ Manual.</p>}
+                {who === "all" && <p className="mt-2 text-xs text-slate-600">Levels from the data: Approaching <b>{chosen.filter((s) => autoOf(s).level === "BELOW").length}</b> · Meeting <b>{chosen.filter((s) => autoOf(s).level === "ON").length}</b> · Exceeding <b>{chosen.filter((s) => autoOf(s).level === "ABOVE").length}</b></p>}
+                {noLevel > 0 && <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200">⚠️ <b>{noLevel}</b> of {chosen.length} student(s) have no data at all yet (no MAP, no Diagnostic, no results on the platform): they start at Meeting and move up or down with their answers. To choose their level, use ✋ Manual.</p>}
               </fieldset>
             )}
             {mode === "MANUAL" && (
@@ -160,7 +160,7 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
                       {(["BELOW", "ON", "ABOVE"] as const).map((lv) => <button key={lv} type="button" disabled={!sel.size} onClick={() => setLevel([...sel], lv)} className={`rounded-lg px-4 py-1.5 font-bold text-white disabled:opacity-40 ${lv === "BELOW" ? "bg-rose-500 hover:bg-rose-600" : lv === "ON" ? "bg-sky-600 hover:bg-sky-700" : "bg-emerald-600 hover:bg-emerald-700"}`}>{LV[lv]}</button>)}
                       {sel.size > 0 && [...sel].some((id) => picked[id]) && <button type="button" onClick={() => { setPicked((p) => { const n = { ...p }; for (const id of sel) delete n[id]; return n; }); setSel(new Set()); }} className="rounded-lg px-3 py-1.5 font-semibold text-slate-600 ring-1 ring-slate-300 hover:bg-white">Remove</button>}
                     </div>
-                    <p className="tabular-nums text-slate-600">Below <b>{counts.BELOW}</b> · On <b>{counts.ON}</b> · Above <b>{counts.ABOVE}</b> · not assigned <b>{counts.NONE}</b></p>
+                    <p className="tabular-nums text-slate-600">Approaching <b>{counts.BELOW}</b> · Meeting <b>{counts.ON}</b> · Exceeding <b>{counts.ABOVE}</b> · not assigned <b>{counts.NONE}</b></p>
                   </div>
                   <ul className="max-h-64 space-y-0.5 overflow-y-auto p-2" aria-label="Students and their starting level">
                     {all.map((s) => {
@@ -178,7 +178,7 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
                     })}
                   </ul>
                 </div>
-                <p className="mt-2 text-xs text-slate-500">Only the students with a level here get this work. Each starts at the level you chose, then moves up when they answer well and down when it is too hard (Below ↔ On ↔ Above).</p>
+                <p className="mt-2 text-xs text-slate-500">Only the students with a level here get this work. Each starts at the level you chose, then moves up when they answer well and down when it is too hard (Approaching ↔ Meeting ↔ Exceeding).</p>
               </fieldset>
             )}
             <div className="mt-3 flex flex-wrap gap-3">

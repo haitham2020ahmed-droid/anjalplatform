@@ -17,7 +17,7 @@ import { familyIdsInSchool } from "../questions/skill-questions";
 
 const s = (v: unknown) => String(v ?? "");
 type Level = "BELOW" | "ON" | "ABOVE";
-const NAME: Record<Level, string> = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" };
+const NAME: Record<Level, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 
 /** The skill's auto-marked published questions, by level. */
 export async function skillPool(repo: Repo, schoolId: string, skillId: string): Promise<{ skill: { id: string; name: string; grade: number; grammar: boolean }; byLevel: Record<Level, string[]> }> {
@@ -59,7 +59,7 @@ export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { clas
   const notes: string[] = [];
   const groups: { level: Level | null; students: number; questions: number }[] = [];
   if (input.mode === "AUTOMATIC") {
-    await assignQuestions(repo, actor, { classId: input.classId, studentIds: students, questionIds: all, title: `${skill.name} (adaptive: Below → On → Above)`, exactTitle: true, adaptive: { maxQuestions: Math.min(max, all.length) }, dueAt: input.dueAt ?? null, note: input.note ?? null, program: input.program ?? null }, now);
+    await assignQuestions(repo, actor, { classId: input.classId, studentIds: students, questionIds: all, title: `${skill.name} (adaptive: Approaching → Meeting → Exceeding)`, exactTitle: true, adaptive: { maxQuestions: Math.min(max, all.length) }, dueAt: input.dueAt ?? null, note: input.note ?? null, program: input.program ?? null }, now);
     groups.push({ level: null, students: students.length, questions: all.length });
     for (const l of ["BELOW", "ON", "ABOVE"] as Level[]) if (!byLevel[l].length) notes.push(`${NAME[l]} has no questions yet.`);
     return { groups, notes };

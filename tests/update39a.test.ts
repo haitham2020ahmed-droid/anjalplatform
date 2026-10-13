@@ -291,7 +291,7 @@ describe("Update 39A · readiness fixes", () => {
     if (t) {
       await repo.create("DiagnosticScore", { diagnosticId: t.id, studentId: sid, assignmentId: "x", correct: 30, total: 40, pct: 75, level: "ON", byStandard: [], byStrand: [{ strand: "LIT", correct: 9, total: 10 }, { strand: "INFO", correct: 4, total: 10 }], completedAt: now });
       const d = await latestDiagnostic(repo, sid);
-      assert.ok(d && /On Level/.test(d.proficiency), "Placement shows the Diagnostic Test, not “Not taken”");
+      assert.ok(d && /Meeting the standard/.test(d.proficiency), "Placement shows the Diagnostic Test, not “Not taken”");
       assert.deepEqual(d!.strong, ["Literature"]);
     }
     assert.equal(bandFor(79.2, "ON").name, "Proficient", "never “On Level · Advanced”");

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 118" width="470" height="118" role="img" aria-label="Al-Anjal Private Schools, since 1985">
+  <title>Al-Anjal Private Schools, since 1985</title>
+  <g fill="#5b5f6b" text-anchor="end">
+    <text x="318" y="58" font-family="'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif" font-size="34" font-weight="600">مدارس الأنجال الأهلية</text>
+    <text x="318" y="92" font-family="'Hanken Grotesk', 'Segoe UI', Arial, sans-serif" font-size="28" font-weight="500">Al-Anjal Private Schools</text>
+  </g>
+  <g transform="translate(330 0)">
+    <g stroke-width="1.5" stroke-linejoin="round">
+      <polygon points="67,3 75,3 79.5,70.5 64.5,70.5" fill="#1639b2" stroke="#1639b2"/>
+      <polygon points="86,35 119,39.5 119,50 86,50" fill="#f4b840" stroke="#f4b840"/>
+      <polygon points="24,60 57.5,55.5 57.5,70.5 24,70.5" fill="#86b1f7" stroke="#86b1f7"/>
+      <polygon points="86,60 132.5,55 132.5,70.5 86,70.5" fill="#49a2b1" stroke="#49a2b1"/>
+      <polygon points="9,75.5 81,80.5 81,90.5 9,90.5" fill="#7f46bd" stroke="#7f46bd"/>
+    </g>
+    <text x="70" y="108" text-anchor="middle" font-family="'Hanken Grotesk', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#3352b9">Since ✦ 1985</text>
+  </g>
+</svg>

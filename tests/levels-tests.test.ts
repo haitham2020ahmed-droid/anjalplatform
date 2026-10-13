@@ -83,12 +83,12 @@ describe("student levels, assign by level, Placement and MAP tests, curriculum r
     const g = new Map(r.groups.map((x) => [x.level, x]));
     assert.deepEqual([g.get("ABOVE")!.students, g.get("BELOW")!.students, g.get("ON")!.students], [3, 2, studentIds.length - 5]);
     assert.equal(g.get("BELOW")!.usedLevel, "ON");
-    assert.ok(r.notes.some((n) => /Below Level has no questions/.test(n)) && r.notes.some((n) => /have no level yet/.test(n)));
+    assert.ok(r.notes.some((n) => /Approaching has no questions/.test(n)) && r.notes.some((n) => /have no level yet/.test(n)));
     const aboveSet = await repo.findUnique("Assignment", { id: g.get("ABOVE")!.assignmentId });
     const qs = (await repo.findMany("AssessmentQuestion", { assessmentId: aboveSet!.assessmentId })).map((x) => String(x.questionId));
     const stems = (await repo.findMany("Question", { id: { in: qs } })).map((x) => String(x.stem));
     assert.ok(stems.length === 3 && stems.every((x) => x.startsWith("Above question")));
-    assert.match(String(aboveSet!.title), /Unit 1 · Text Set 2: Realistic Fiction · Analyze Craft and Structure \(Above Level\)/);
+    assert.match(String(aboveSet!.title), /Unit 1 · Text Set 2: Realistic Fiction · Analyze Craft and Structure \(Exceeding\)/);
     const cv = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS2.CV" });
     assert.deepEqual(cv.groups.map((x) => [x.level, x.students, x.questions]), [[null, studentIds.length, 2]]);
     await assert.rejects(assignFromMap(repo, teacher, { classId, categoryCode: "G4.U2.TS1.ACS" }), /no published questions/);

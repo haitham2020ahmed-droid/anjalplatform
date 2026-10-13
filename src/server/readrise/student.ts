@@ -23,6 +23,8 @@ import { RR_LEVELS, bandOf, chooseVersion, stretchAbove, type MeasuredVersion, t
 import { ENGINE, applyFirstTryScore, ensureRRStudent, goalStats, levelHistory, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
 import { placementStatus } from "./placement";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
+import { modelVersion } from "../cache/bank-version";
+import { remember } from "../cache/lru";
 import { cleanAnnotations, keyWordFor, minutesFor, tokenize, type Annotation, type KeyWord } from "../../components/readrise/text";
 
 export const STEPS = ["PREPOLL", "READ", "QUIZ", "WRITE", "POSTPOLL", "DONE"] as const;
@@ -47,14 +49,46 @@ export async function hiddenArticleIds(repo: Repo, schoolId: string): Promise<Se
   return new Set(ids.map(String));
 }
 
-/** Published, not deleted articles a school's students can read. */
+/** the article columns students' lists use (not the poll text) and the version columns a card needs (not the text) */
+const CARD_ARTICLE_COLS = ["id", "schoolId", "code", "title", "topic", "summary", "status"];
+const CARD_VERSION_COLS = ["articleId", "level", "title", "wordCount", "estLevel", "officialLexile"];
+interface Catalog { arts: Row[]; versions: Map<string, Row[]> }
+const catalogCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Catalog> }>>();
+const CATALOG_MODELS = ["RRArticle", "RRVersion"];
+
+/**
+ * ⚡ The published articles of the platform library (schoolId null) or of one school, with their versions' card
+ * columns. The same for every student, so it is kept in memory per data source until a write to RRArticle /
+ * RRVersion in this process (import, publish, delete, a new library file) and for at most a minute (another
+ * process may change them). Rows are shared: callers never change them.
+ */
+function publishedCatalog(repo: Repo, schoolId: string | null): Promise<Catalog> {
+  let m = catalogCache.get(repo); if (!m) catalogCache.set(repo, (m = new Map()));
+  const key = schoolId ?? "", v = modelVersion(...CATALOG_MODELS), hit = m.get(key);
+  if (hit && hit.v === v && Date.now() - hit.at < 60_000) return hit.p;
+  const p = (async (): Promise<Catalog> => {
+    const arts = await repo.findMany("RRArticle", { schoolId, status: "PUBLISHED", deletedAt: null }, { select: CARD_ARTICLE_COLS });
+    const versions = new Map<string, Row[]>();
+    if (arts.length) for (const r of await repo.findMany("RRVersion", { articleId: { in: arts.map((a) => s(a.id)) } }, { select: CARD_VERSION_COLS })) {
+      const l = versions.get(s(r.articleId)); if (l) l.push(r); else versions.set(s(r.articleId), [r]);
+    }
+    return { arts, versions };
+  })();
+  remember(m, key, { v, at: Date.now(), p }, 64);
+  p.catch(() => m!.delete(key));
+  return p;
+}
+
+/** Published articles a school's students can read (minus the school's hidden ones), with their versions. */
+async function visibleCatalog(repo: Repo, schoolId: string): Promise<Catalog> {
+  const [lib, own, hidden] = await Promise.all([publishedCatalog(repo, null), publishedCatalog(repo, schoolId), hiddenArticleIds(repo, schoolId)]);
+  const arts = [...lib.arts, ...own.arts].filter((a) => !hidden.has(s(a.id)));
+  return { arts, versions: new Map([...lib.versions, ...own.versions]) };
+}
+
+/** Published, not deleted articles a school's students can read (list columns: id, code, title, topic, summary). */
 export async function visibleArticles(repo: Repo, schoolId: string): Promise<Row[]> {
-  const [lib, own, hidden] = await Promise.all([
-    repo.findMany("RRArticle", { schoolId: null, status: "PUBLISHED", deletedAt: null }),
-    repo.findMany("RRArticle", { schoolId, status: "PUBLISHED", deletedAt: null }),
-    hiddenArticleIds(repo, schoolId),
-  ]);
-  return [...lib, ...own].filter((a) => !hidden.has(s(a.id)));
+  return (await visibleCatalog(repo, schoolId)).arts.map((a) => ({ ...a }));
 }
 
 async function visibleArticle(repo: Repo, schoolId: string, articleId: string): Promise<Row> {
@@ -74,16 +108,19 @@ export interface Library { level: number; assigned: ArticleCard[]; recommended: 
 
 export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: string; topic?: string } = {}, now = new Date()): Promise<Library> {
   const { studentId, schoolId } = studentOf(actor);
-  const rr = await ensureRRStudent(repo, studentId, now);
-  const level = Number(rr.level);
-  const arts = await visibleArticles(repo, schoolId);
-  const ids = arts.map((a) => s(a.id));
-  const [vers, runs, mems] = await Promise.all([
-    ids.length ? repo.findMany("RRVersion", { articleId: { in: ids } }, { select: ["articleId", "level", "title", "wordCount", "estLevel", "officialLexile"] }) : Promise.resolve([] as Row[]),
+  // independent reads in parallel; the article catalog is cached (the same for every student)
+  const [rr, { arts, versions }, runs, mems] = await Promise.all([
+    ensureRRStudent(repo, studentId, now),
+    visibleCatalog(repo, schoolId),
     repo.findMany("RRRun", { studentId }, { select: ["articleId", "step", "score", "firstTry", "stretch", "completedAt", "startedAt"] }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
   ]);
-  const assignedRows = mems.length && ids.length ? await repo.findMany("RRClassArticle", { classId: { in: mems.map((m) => s(m.classId)) }, articleId: { in: ids } }) : [];
+  const level = Number(rr.level);
+  const visible = new Set(arts.map((a) => s(a.id)));
+  // the classes' assigned articles (few rows), kept to the visible ones: no list of every article id in the query
+  const assignedRows = mems.length && arts.length ? (await repo.findMany("RRClassArticle", { classId: { in: mems.map((m) => s(m.classId)) } }, { select: ["articleId", "dueAt"] })).filter((r) => visible.has(s(r.articleId))) : [];
+  const runsBy = new Map<string, Row[]>();
+  for (const r of runs) { const l = runsBy.get(s(r.articleId)); if (l) l.push(r); else runsBy.set(s(r.articleId), [r]); }
   const due = new Map<string, Date | null>();
   for (const r of assignedRows) {
     const d = r.dueAt ? toDate(r.dueAt) : null, prev = due.get(s(r.articleId));
@@ -91,11 +128,11 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
   }
   const cards: ArticleCard[] = [];
   for (const a of arts) {
-    const vs = vers.filter((v) => v.articleId === a.id);
+    const vs = versions.get(s(a.id)) ?? [];
     if (!vs.length) continue;
     const vl = chooseVersion(level, vs.map((v) => ({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile })));
     const v = vs.find((x) => Number(x.level) === vl)!;
-    const mine = runs.filter((r) => r.articleId === a.id);
+    const mine = runsBy.get(s(a.id)) ?? [];
     const main = mine.filter((r) => r.stretch !== true);
     const first = main.find((r) => r.firstTry === true && r.score !== null && r.score !== undefined);
     const open = mine.some((r) => r.step !== "DONE");
@@ -110,7 +147,8 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
   }
   const topics = [...new Set(cards.map((c) => c.topic))].filter(Boolean).sort();
   const q = (filter.q ?? "").trim().toLowerCase(), topic = (filter.topic ?? "").trim();
-  const match = (c: ArticleCard) => (!topic || c.topic === topic) && (!q || `${c.title} ${c.topic} ${c.summary}`.toLowerCase().includes(q) || s(arts.find((a) => a.id === c.id)?.title).toLowerCase().includes(q));
+  const titleOf = new Map(arts.map((a) => [s(a.id), s(a.title)]));
+  const match = (c: ArticleCard) => (!topic || c.topic === topic) && (!q || `${c.title} ${c.topic} ${c.summary}`.toLowerCase().includes(q) || (titleOf.get(c.id) ?? "").toLowerCase().includes(q));
   const byTitle = (a: ArticleCard, b: ArticleCard) => a.title.localeCompare(b.title);
   const assigned = cards.filter((c) => c.assigned && match(c)).sort((a, b) => Number(a.status === "DONE") - Number(b.status === "DONE") || (a.dueAt ?? "9").localeCompare(b.dueAt ?? "9") || byTitle(a, b));
   const recommended = recommend(cards.filter((c) => !c.assigned && c.status === "NEW" && match(c)), runs, arts, now);
@@ -235,14 +273,19 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
   const scored = run.score !== null && run.score !== undefined;
   const answers = scored && run.answers && typeof run.answers === "object" ? (run.answers as Record<string, string>) : null;
   let done: DoneView | null = null;
+  const keyWords = keyWordsFor(repo, articleId, s(run.band), body); // read alongside the rest
+  keyWords.catch(() => undefined); // (awaited below; never an unhandled rejection meanwhile)
   if (run.step === "DONE") {
     const studentId = s(run.studentId);
-    const vers = await repo.findMany("RRVersion", { articleId }, { select: MEASURE_COLS });
-    const rr = await ensureRRStudent(repo, studentId, now);
-    const others = await repo.findMany("RRRun", { studentId, articleId, stretch: true });
+    const [vers, rr, others, goal] = await Promise.all([
+      repo.findMany("RRVersion", { articleId }, { select: MEASURE_COLS }),
+      ensureRRStudent(repo, studentId, now),
+      repo.findMany("RRRun", { studentId, articleId, stretch: true }, { select: ["id"] }),
+      goalFor(repo, studentId, now),
+    ]);
     done = {
       score: scored ? Number(run.score) : null, firstTry: run.firstTry === true, stretch: run.stretch === true,
-      levelBefore: Number(run.levelBefore), levelAfter: Number(run.levelAfter ?? run.levelBefore), goal: await goalFor(repo, studentId, now),
+      levelBefore: Number(run.levelBefore), levelAfter: Number(run.levelAfter ?? run.levelBefore), goal,
       canStretch: run.stretch !== true && !others.length && stretchVersion(Number(rr.level), asMeasured(vers)) !== null,
       prePoll: run.prePoll === null || run.prePoll === undefined ? null : Number(run.prePoll), postPoll: run.postPoll === null || run.postPoll === undefined ? null : Number(run.postPoll),
     };
@@ -251,7 +294,7 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
     runId: s(run.id), articleId, step: s(run.step) as RunStep, stretch: run.stretch === true, firstTry: run.firstTry === true,
     versionLevel: Number(run.versionLevel), band: s(run.band) as RRBand, title: s(version?.title) || s(art?.title), topic: s(art?.topic), poll: s(art?.pollStatement),
     prePoll: run.prePoll === null || run.prePoll === undefined ? null : Number(run.prePoll), postPoll: run.postPoll === null || run.postPoll === undefined ? null : Number(run.postPoll),
-    body, keyWords: await keyWordsFor(repo, articleId, s(run.band), body), annotations: cleanAnnotations(run.annotations, tokenize(body).flat().length),
+    body, keyWords: await keyWords, annotations: cleanAnnotations(run.annotations, tokenize(body).flat().length),
     readSeconds: Number(run.readSeconds ?? 0), listened: run.listened === true,
     questions: qs.map((q) => ({ number: Number(q.number), stem: s(q.stem), options: Array.isArray(q.options) ? (q.options as unknown[]).map(String) : [], skill: s(q.skill) })),
     score: scored ? Number(run.score) : null, answers, review: answers ? scoreAnswers(qs, answers).review : null,
@@ -267,12 +310,16 @@ export interface ArticlePage { articleId: string; title: string; topic: string; 
 export async function articlePage(repo: Repo, actor: Actor, articleId: string, now = new Date()): Promise<ArticlePage> {
   const { studentId, schoolId } = studentOf(actor);
   const art = await visibleArticle(repo, schoolId, articleId);
-  const rr = await ensureRRStudent(repo, studentId, now);
-  const vers = await repo.findMany("RRVersion", { articleId }, { select: [...MEASURE_COLS, "title", "wordCount"] });
+  // independent reads in parallel (after the visibility check)
+  const [rr, vers, allRuns] = await Promise.all([
+    ensureRRStudent(repo, studentId, now),
+    repo.findMany("RRVersion", { articleId }, { select: [...MEASURE_COLS, "title", "wordCount"] }),
+    repo.findMany("RRRun", { studentId, articleId }),
+  ]);
   if (!vers.length) throw new ForbiddenError("Article not found.");
   const vl = chooseVersion(Number(rr.level), asMeasured(vers));
   const v = vers.find((x) => Number(x.level) === vl)!;
-  const runs = (await repo.findMany("RRRun", { studentId, articleId })).sort((a, b) => toDate(b.startedAt).getTime() - toDate(a.startedAt).getTime());
+  const runs = allRuns.sort((a, b) => toDate(b.startedAt).getTime() - toDate(a.startedAt).getTime());
   const open = runs.find((r) => r.step !== "DONE");
   const latest = open ?? runs[0];
   const stretchUsed = runs.some((r) => r.stretch === true);
@@ -429,10 +476,11 @@ export interface ReadRiseHome {
 /** Everything /student/readrise shows: level, goal, streak, growth + projection, placement prompt and the library. */
 export async function readRiseHome(repo: Repo, actor: Actor, filter: { q?: string; topic?: string } = {}, now = new Date(), passages: PlacementPassage[] = loadPlacementPassages()): Promise<ReadRiseHome> {
   const { studentId, schoolId } = studentOf(actor);
-  const library = await studentLibrary(repo, actor, filter, now); // creates the RRStudent row on first use
-  const [summary, hist, yearEnd, pst] = await Promise.all([
-    studentReadRiseSummary(repo, studentId, now), levelHistory(repo, studentId), yearEndFor(repo, schoolId, now), placementStatus(repo, studentId),
+  const [library, yearEnd, pst] = await Promise.all([
+    studentLibrary(repo, actor, filter, now), // creates the RRStudent row on first use
+    yearEndFor(repo, schoolId, now), placementStatus(repo, studentId),
   ]);
+  const [summary, hist] = await Promise.all([studentReadRiseSummary(repo, studentId, now), levelHistory(repo, studentId)]);
   const ready = passages.length >= 5;
   const state = pst.open ? "OPEN" : !ready ? "NONE" : !pst.last ? "NEED" : pst.canStart ? "RETAKE" : "NONE";
   return {

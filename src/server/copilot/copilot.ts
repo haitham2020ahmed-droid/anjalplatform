@@ -113,7 +113,7 @@ export async function copilotAnswer(repo: Repo, intel: ClassIntel, intent: Inten
   const gap = intel.gaps[0], mis = intel.misconceptions[0], area = intel.weakAreas[0];
   const lvl = thetaToLevel(intel.thetaAvg ?? 0);
   const evidence = [
-    `${intel.students.length} students · ${intel.levels.BELOW} Below · ${intel.levels.ON} On · ${intel.levels.ABOVE} Above Level`,
+    `${intel.students.length} students · ${intel.levels.BELOW} Approaching · ${intel.levels.ON} Meeting · ${intel.levels.ABOVE} Exceeding`,
     `${high.length} at high risk of missing the MAP goal · ${medium.length} at medium risk`,
     ...(gap ? [`Weakest foundation: ${gap.name} (${gap.students.length} students, average mastery ${gap.avgMastery}${gap.unblocks.length ? `, it blocks ${gap.unblocks.slice(0, 3).join(", ")}` : ""})`] : []),
     ...(mis ? [`Most common misconception (14 days): ${mis.label} (${mis.students.length} students)`] : []),
@@ -154,7 +154,7 @@ export async function copilotAnswer(repo: Repo, intel: ClassIntel, intent: Inten
   if (gap) add({ name: `🧱 ${gap.name} group`, focus: gap.name, studentIds: gap.students, activity: `15 minutes on ${gap.name} at an easier level, then one question of ${gap.unblocks[0] ?? "the next skill"}.`, skillId: gap.skillId });
   if (mis) add({ name: "🔍 Misconception group", focus: mis.label, studentIds: mis.students.map((x) => x.id), activity: misFix || "Reteach with a model and two guided questions.", skillId: null });
   add({ name: "⏰ Practice routine", focus: "Daily practice", studentIds: intel.risks.filter((r) => r.reasons.some((x) => x.key === "lowPractice" || x.key === "decliningPractice")).map((r) => r.studentId), activity: "Agree a 10-minute daily routine; check My Next Step together on Sunday.", skillId: null });
-  add({ name: "🚀 Stretch", focus: "Challenge", studentIds: intel.risks.filter((r) => r.level === "LOW" && (r.signals.theta ?? 0) >= 0.75).map((r) => r.studentId), activity: "Independent challenge: the Stretch step of their learning path (Above Level questions).", skillId: null });
+  add({ name: "🚀 Stretch", focus: "Challenge", studentIds: intel.risks.filter((r) => r.level === "LOW" && (r.signals.theta ?? 0) >= 0.75).map((r) => r.studentId), activity: "Independent challenge: the Stretch step of their learning path (Exceeding questions).", skillId: null });
   const worked = intel.worked[0];
   const summary: string[] = [];
   let headline = "";

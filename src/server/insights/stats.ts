@@ -34,7 +34,7 @@ export function percentRank(values: number[], x: number): number | null {
 export function spreadNote(sd: number | null, scale = 100): string {
   if (sd === null) return "Not enough results yet.";
   const r = sd / scale;
-  return r < 0.1 ? "Close together: whole-class teaching fits most students." : r < 0.18 ? "Moderately spread: plan two groups (support and extension)." : "Very spread out: teach in three level groups (Below · On · Above).";
+  return r < 0.1 ? "Close together: whole-class teaching fits most students." : r < 0.18 ? "Moderately spread: plan two groups (support and extension)." : "Very spread out: teach in three level groups (Approaching · Meeting · Exceeding).";
 }
 
 export type Trend = "UP" | "DOWN" | "FLAT";

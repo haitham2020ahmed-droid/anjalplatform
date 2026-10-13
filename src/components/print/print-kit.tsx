@@ -21,7 +21,7 @@ import { BRAND, CARD_CYCLE, PLATFORM, SOURCE_COLORS, accentHex, printDate, type 
 export type T = (x: string, v?: Record<string, string | number>) => string;
 export const tEn: T = (x, v) => translate("en", x, v);
 
-const FONT = `var(--font-lexend), "Lexend", "Segoe UI", Tahoma, system-ui, sans-serif`;
+const FONT = `var(--font-hanken), "Hanken Grotesk", "Segoe UI", Tahoma, system-ui, sans-serif`;
 
 /** The kit's stylesheet. Class names start with pk- so nothing else on the page is touched. */
 export const PRINT_CSS = `

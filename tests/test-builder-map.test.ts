@@ -115,8 +115,8 @@ describe("📚 Test builder: Curriculum Map questions", () => {
     assert.match(ts1.heading, /Text Set 1/);
     const labels = ts1.sections.map((x) => x.label);
     assert.equal(labels[0], "Concept Vocabulary");
-    assert.ok(labels.includes("Analyze Craft and Structure · On Level"));
-    assert.ok(labels.includes("Respond to Reading · Below Level"));
+    assert.ok(labels.includes("Analyze Craft and Structure · Meeting"));
+    assert.ok(labels.includes("Respond to Reading · Approaching"));
     const review = ts1.sections.find((x) => x.category === "REVIEW");
     assert.ok(review, "the new Review section appears without any code change");
     assert.equal(review!.label, "Review");

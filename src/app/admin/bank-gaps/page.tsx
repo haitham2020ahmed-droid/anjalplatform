@@ -6,6 +6,9 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { bankGaps, levelGaps, MIN_PER_LEVEL, practiceGaps } from "@/server/map/bank-gaps";
 
+/** the displayed level words (the counts keep their Below / On / Above keys) */
+const LEVEL_WORD = { Below: "Approaching", On: "Meeting", Above: "Exceeding" } as const;
+
 export const metadata = { title: "Question bank gaps" };
 const STATUS = { GAP: ["🔴 No questions", "bg-red-100 text-red-900"], LOW: ["🟠 Too few", "bg-amber-100 text-amber-900"], OK: ["🟢 OK", "bg-emerald-100 text-emerald-900"] } as const;
 
@@ -39,12 +42,12 @@ export default async function BankGapsPage() {
       {lv.length > 0 && (
         <details className="mb-6 rounded-3xl bg-white shadow-sm ring-1 ring-amber-300" open={lv.some((x) => x.missing.includes("Below"))}>
           <summary className="min-h-10 cursor-pointer px-4 py-3 text-lg font-bold text-brand-navy">Levels lacking questions · {lv.length} skill(s)</summary>
-          <p className="px-4 text-sm text-slate-600">Published questions per skill at each level (difficulty 1–3 Below, 4 On, 5–7 Above). A level with fewer than {MIN_PER_LEVEL} questions makes adaptive practice run out of items for students at that level — easier (Below) questions first.</p>
+          <p className="px-4 text-sm text-slate-600">Published questions per skill at each level (difficulty 1–3 Approaching, 4 Meeting, 5–7 Exceeding). A level with fewer than {MIN_PER_LEVEL} questions makes adaptive practice run out of items for students at that level — easier (Approaching) questions first.</p>
           <div className="overflow-x-auto"><table className="w-full min-w-[560px] text-left text-sm">
-            <thead><tr className="border-b text-slate-500"><th className="p-3">Grade</th><th className="p-3">Skill</th><th className="p-3">Below</th><th className="p-3">On</th><th className="p-3">Above</th><th className="p-3">Needs</th></tr></thead>
+            <thead><tr className="border-b text-slate-500"><th className="p-3">Grade</th><th className="p-3">Skill</th><th className="p-3">Approaching</th><th className="p-3">Meeting</th><th className="p-3">Exceeding</th><th className="p-3">Needs</th></tr></thead>
             <tbody>{lv.slice(0, 120).map((x) => {
               const cell = (n: number) => <td className={`p-3 tabular-nums ${n < MIN_PER_LEVEL ? "font-semibold text-red-700" : ""}`}>{n}</td>;
-              return <tr key={x.skillId} className="border-b last:border-0"><td className="p-3">{x.grade}</td><td className="p-3 font-medium">{x.skill}</td>{cell(x.below)}{cell(x.on)}{cell(x.above)}<td className="p-3">{x.missing.join(", ")}</td></tr>;
+              return <tr key={x.skillId} className="border-b last:border-0"><td className="p-3">{x.grade}</td><td className="p-3 font-medium">{x.skill}</td>{cell(x.below)}{cell(x.on)}{cell(x.above)}<td className="p-3">{x.missing.map((m) => LEVEL_WORD[m]).join(", ")}</td></tr>;
             })}</tbody>
           </table></div>
         </details>

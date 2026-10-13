@@ -86,7 +86,7 @@ export default async function ProgressPage({ searchParams }: { searchParams: Pro
                   <div className="text-sm text-slate-700">
                     <p>Mean <b>{v.stats.mean ?? "—"}%</b> · spread (SD) <b>{v.stats.sd === null ? "—" : `±${v.stats.sd}`}</b> — {v.stats.spread}</p>
                     <p className="mt-2">Last 4 weeks vs the 4 before: <b className="text-emerald-700">▲ {v.stats.improved} improved</b> · <b className="text-rose-700">▼ {v.stats.declined} declined</b> · → {v.stats.maintained} maintained</p>
-                    <p className="mt-2 text-xs text-slate-500">Levels: {v.stats.levels.map((l) => `${l.level === "ABOVE" ? "Above" : l.level === "ON" ? "On" : "Below"} ${l.count} (${l.pct}%)`).join(" · ")}</p>
+                    <p className="mt-2 text-xs text-slate-500">Levels: {v.stats.levels.map((l) => `${l.level === "ABOVE" ? "Exceeding" : l.level === "ON" ? "Meeting" : "Approaching"} ${l.count} (${l.pct}%)`).join(" · ")}</p>
                   </div>
                   <BandBar label="Levels" parts={(["BELOW", "ON", "ABOVE"] as const).map((k) => ({ key: k, value: v.stats.levels.find((l) => l.level === k)?.count ?? 0 }))} />
                 </div>

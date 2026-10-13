@@ -18,7 +18,7 @@ export default async function BridgePage({ searchParams }: { searchParams: Promi
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: `/admin/curriculum-map?grade=${grade}`, label: "Curriculum Map" }} icon="🌉" title="Cross-Grade Bridge"
-        subtitle={<>Each category is linked to the <b>same skill</b> one grade up — a <b>🚀 challenge path</b> for students who master Above Level — and one grade down — a <b>🛟 support path</b> for students who struggle at Below Level. The adaptive ladder becomes 🛟 Support → Below → On → Above → 🚀 Challenge: a real difference in text difficulty, with no question copied.</>}>
+        subtitle={<>Each category is linked to the <b>same skill</b> one grade up — a <b>🚀 challenge path</b> for students who master Exceeding — and one grade down — a <b>🛟 support path</b> for students who struggle at Approaching. The adaptive ladder becomes 🛟 Support → Approaching → Meeting → Exceeding → 🚀 Challenge: a real difference in text difficulty, with no question copied.</>}>
         <a href="/api/bridge-csv" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇ Download (CSV)</a>
       </PageHeader>
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}

@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { Suspense } from "react";
+import type { Actor } from "@/server/auth/rbac";
+import type { TFn } from "@/i18n";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { ensureReadRiseLibrary } from "@/server/readrise/seed";
+import { startReadRiseLibraryLoad } from "@/server/readrise/seed";
 import { readRiseHome } from "@/server/readrise/student";
 import { ReadRiseIcon } from "@/components/readrise/readrise-icon";
 import { GoalRing, GrowthChart, LevelBadge } from "@/components/readrise/widgets";
@@ -17,15 +20,17 @@ export const dynamic = "force-dynamic";
 /** 🚀 ReadRise home: my level, weekly goal and streak, growth + projection, the placement prompt and the library. */
 export default async function ReadRiseHomePage({ searchParams }: { searchParams: Promise<{ q?: string; topic?: string; tab?: string }> }) {
   const actor = await requireActor({ roles: ["STUDENT"] });
-  await ensureReadRiseLibrary(repo).catch(() => null); // first visit after a deploy loads the platform library
+  startReadRiseLibraryLoad(repo); // new article files of a deploy load in the background — the page never waits for them
   const me = (await getActor())!.user;
   const sp = await searchParams;
-  const h = await readRiseHome(repo, actor, { q: typeof sp.q === "string" ? sp.q.slice(0, 100) : "", topic: typeof sp.topic === "string" ? sp.topic.slice(0, 100) : "" });
-  const sum = h.summary;
-  const first = String(me.displayName ?? "").split(" ")[0];
   /** 📊 "My report" tab: my level, weekly goal, reading numbers and growth; the default tab is the library */
   const report = sp.tab === "report";
-  const [{ t }, story] = await Promise.all([getT(), report ? myGrowthStory(repo, actor).catch(() => null) : Promise.resolve(null)]);
+  const [h, { t }] = await Promise.all([
+    readRiseHome(repo, actor, { q: typeof sp.q === "string" ? sp.q.slice(0, 100) : "", topic: typeof sp.topic === "string" ? sp.topic.slice(0, 100) : "" }),
+    getT(),
+  ]);
+  const sum = h.summary;
+  const first = String(me.displayName ?? "").split(" ")[0];
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/student" className="inline-flex min-h-10 items-center text-sm font-medium text-slate-500 hover:text-brand-teal">‹ My Work</Link></p>
@@ -92,11 +97,20 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
         <div className="mt-3"><GrowthChart points={h.growth.points} projected={h.growth.projected} yearEnd={h.growth.yearEnd} /></div>
       </section>
 
-      {story && <GrowthStory story={story} t={t} />}
+      {/* ⚡ the growth story streams in after the page: the level, goal and chart above show at once */}
+      <Suspense fallback={<div aria-hidden="true" className="mt-6 h-40 animate-pulse rounded-2xl bg-slate-100 motion-reduce:animate-none" />}>
+        <StoryPanel actor={actor} t={t} />
+      </Suspense>
 
       </>}
 
       {!report && <ReadRiseLibrary lib={h.library} />}
     </AppShell>
   );
+}
+
+/** "My report" tab: the growth story, read after the home data (which creates the reader's ReadRise row on first use). */
+async function StoryPanel({ actor, t }: { actor: Actor; t: TFn }) {
+  const story = await myGrowthStory(repo, actor).catch(() => null);
+  return story ? <GrowthStory story={story} t={t} /> : null;
 }

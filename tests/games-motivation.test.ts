@@ -225,7 +225,7 @@ describe("Games Part 3: motivation", () => {
     assert.ok(s1.certificates >= 1);
     const certs = await listCertificates(repo, A);
     const up = certs.find((x) => x.kind === "LEVEL_UP")!;
-    assert.match(up.title, /Moved up to On Level/);
+    assert.match(up.title, /Moved up to Meeting/);
     assert.ok((await rewardChip(repo, a)).coins >= coins0 + COINS.levelup, "moving up pays coins");
     const s2 = (await syncRewards(repo, a, new Date(NOW.getTime() + 1000), { force: true }))!;
     assert.equal(s2.certificates, 0); assert.equal(s2.newCoins, 0, "never twice");
@@ -251,7 +251,7 @@ describe("Games Part 3: motivation", () => {
     for (const x of ["Certificate of Achievement", d.studentName, "Star reader of the month", "Demo International School", "@page{size:A4 landscape"]) assert.ok(en.includes(x), x);
     assert.doesNotMatch(en, /<script/i);
     const arHtml = certificateHtml(await certificateFor(repo, A, up.id), branding, "ar", { css: "", stack: "sans-serif" });
-    assert.match(arHtml, /dir="rtl"/); assert.ok(arHtml.includes(ar["Certificate of Achievement"])); assert.ok(arHtml.includes(ar["Moved up to the next level"])); assert.ok(!arHtml.includes(ar["On Level"]), "no level words about the student");
+    assert.match(arHtml, /dir="rtl"/); assert.ok(arHtml.includes(ar["Certificate of Achievement"])); assert.ok(arHtml.includes(ar["Moved up to the next level"])); assert.ok(!arHtml.includes(ar["Meeting"]), "no level words about the student");
     // Reports lists them
     // My Certificates (own page; the student's own list, server-checked)
     assert.match(read("src/server/student/certificates.ts"), /listCertificates\(repo, actor, actor\.studentId\)/);

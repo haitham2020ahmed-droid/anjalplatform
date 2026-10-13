@@ -2,8 +2,11 @@
 import Link from "next/link";
 import { useT } from "@/i18n/client";
 import { BTN } from "@/components/ui-kit/tokens";
-import { MapAssignButton } from "./assign-button";
-import { SendPlanButton } from "./send-plan";
+import dynamic from "next/dynamic";
+
+// ⚡ staff-only buttons (Assign / Send): loaded only when shown, so the students' Curriculum Map never downloads them
+const MapAssignButton = dynamic(() => import("./assign-button").then((m) => m.MapAssignButton));
+const SendPlanButton = dynamic(() => import("./send-plan").then((m) => m.SendPlanButton));
 
 export interface LessonCardSection { code: string; title: string; ready: boolean; kind?: string | null }
 /** the sections a teacher can assign from the map (⭐ Assign beside each) */

@@ -37,11 +37,10 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
-  const classes = await teacherReadRiseClasses(repo, actor);
+  const [classes, { t }] = await Promise.all([teacherReadRiseClasses(repo, actor), getT()]);
   const klass = classes.find((c) => c.id === sp.class) ?? classes.find((c) => c.own) ?? classes[0];
   const tab: Tab = TABS.some((t) => t.key === sp.tab) ? (sp.tab as Tab) : "students";
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`;
-  const { t } = await getT();
   const studentId = typeof sp.student === "string" && /^[\w-]{1,64}$/.test(sp.student) ? sp.student : null;
   const header = (
     <ReportHeader back={{ href: "/teacher", label: "Home" }} icon="🚀" title="ReadRise"
@@ -60,8 +59,17 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
     const g = await studentGrowthReport(repo, actor, klass.id, studentId);
     return <AppShell name={String(me.displayName)}>{header}<StudentGrowthView g={g} t={t} backHref={`/teacher/readrise?class=${klass.id}&tab=growth`} /></AppShell>;
   }
-  const r = await classReport(repo, actor, klass.id);
   const canWrite = klass.own;
+  // ⚡ the class summary and the open tab's data load at the same time (all of them only read)
+  const [r, growth, skills, polls, writing, assigned, library] = await Promise.all([
+    classReport(repo, actor, klass.id),
+    tab === "growth" ? classGrowth(repo, actor, klass.id) : null,
+    tab === "skills" ? skillsReport(repo, actor, klass.id) : null,
+    tab === "polls" ? pollReport(repo, actor, klass.id) : null,
+    tab === "writing" ? writingQueue(repo, actor, klass.id, { scored: true }) : null,
+    tab === "assign" ? classArticles(repo, actor, klass.id) : null,
+    tab === "assign" && canWrite ? assignableArticles(repo, actor) : [],
+  ]);
   const url = (t: Tab) => `/teacher/readrise?class=${klass.id}&tab=${t}`;
   const s = r.summary;
   const medBelow = s.medianLevel !== null && s.medianLevel < r.band.low;
@@ -100,11 +108,11 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
       </nav>
 
       {tab === "students" && <StudentsTab r={r} canWrite={canWrite} classId={klass.id} />}
-      {tab === "growth" && <ClassGrowthTab g={await classGrowth(repo, actor, klass.id)} t={t} studentHref={(id) => `/teacher/readrise?class=${klass.id}&student=${id}`} assignHref={url("assign")} />}
-      {tab === "skills" && <SkillsTab data={await skillsReport(repo, actor, klass.id)} />}
-      {tab === "polls" && <PollsTab rows={await pollReport(repo, actor, klass.id)} />}
-      {tab === "writing" && <WritingTab q={await writingQueue(repo, actor, klass.id, { scored: true })} classId={klass.id} canWrite={canWrite} />}
-      {tab === "assign" && <AssignTab classId={klass.id} canWrite={canWrite && can(actor, "assignments:create")} assigned={await classArticles(repo, actor, klass.id)} library={canWrite ? await assignableArticles(repo, actor) : []} />}
+      {growth && <ClassGrowthTab g={growth} t={t} studentHref={(id) => `/teacher/readrise?class=${klass.id}&student=${id}`} assignHref={url("assign")} />}
+      {skills && <SkillsTab data={skills} />}
+      {polls && <PollsTab rows={polls} />}
+      {writing && <WritingTab q={writing} classId={klass.id} canWrite={canWrite} />}
+      {assigned && <AssignTab classId={klass.id} canWrite={canWrite && can(actor, "assignments:create")} assigned={assigned} library={library} />}
     </AppShell>
   );
 }

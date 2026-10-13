@@ -8,7 +8,7 @@ import { listQuestions } from "@/server/admin/questions";
 import { ImportUpload } from "@/app/admin/questions/import/upload-form";
 import { CcssNote } from "@/components/ccss-note";
 
-const LV = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" } as const;
+const LV = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
 
 /** One place of the Curriculum Map: add one question, or many from a template made for this place. */
 export default async function PlacePage({ params }: { params: Promise<{ code: string }> }) {

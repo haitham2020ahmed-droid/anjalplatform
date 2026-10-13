@@ -276,7 +276,7 @@ export function decideTier(e: TierEvidenceInput, now: Date = new Date()): TierDe
   if (mapP !== null && mapP <= R.CORROBORATE_MAP_PERCENTILE) concern.push(`${mapLabel(e.map?.term)} ${ord(mapP)} percentile`);
   if (checksPointLow(checks)) concern.push(lastTwo && pooled ? `the last 2 checks low (ability ${sgn(pooled.theta)} ± ${pooled.se.toFixed(1)})` : `low checks (last ${checkText(last!)})`);
   if (fluP !== null && fluP < R.CORROBORATE_FLUENCY_PERCENTILE) concern.push(`fluency ${ord(fluP)} percentile`);
-  if (e.level?.level === "BELOW" && e.level.source === "PLATFORM") concern.push("platform level Below");
+  if (e.level?.level === "BELOW" && e.level.source === "PLATFORM") concern.push("platform level Approaching");
   if (e.level?.declining) concern.push("a sustained decline");
   const riskHigh = e.risk !== null && e.risk >= R.T2_RISK && riskCounts;
 
@@ -290,9 +290,9 @@ export function decideTier(e: TierEvidenceInput, now: Date = new Date()): TierDe
   if (riskHigh && concern.length) add(2, "RISK", "T2_RISK", `early-warning risk ${e.risk} (${R.T2_RISK}+) with ${concern.join(", ")}`);
   if (mapP !== null && mapP <= R.T2_MAP_PERCENTILE && mapP >= R.T3_MAP_PERCENTILE) add(2, "MAP", "T2_MAP", `${mapName}: Reading at the ${ord(mapP)} percentile`);
   if (fluP !== null && fluP < R.T2_FLUENCY_PERCENTILE && !codes.includes("T3_FLUENCY")) add(2, "FLUENCY", "T2_FLUENCY", `fluency at the ${ord(fluP)} percentile (under the ${R.T2_FLUENCY_PERCENTILE}th${(e.fluency?.checks ?? 1) > 1 ? `, median of ${e.fluency!.checks} checks` : ""})`);
-  if (diagBelow && concern.length) add(2, "DIAGNOSTIC", "T2_DIAGNOSTIC", `Diagnostic Test Below Level (${pct(e.diagnostic!.pct)}, ${e.diagnostic!.at.toISOString().slice(0, 10)}) with ${concern.join(", ")}`);
+  if (diagBelow && concern.length) add(2, "DIAGNOSTIC", "T2_DIAGNOSTIC", `Diagnostic Test Approaching (${pct(e.diagnostic!.pct)}, ${e.diagnostic!.at.toISOString().slice(0, 10)}) with ${concern.join(", ")}`);
   if (checksLow) add(2, "CHECKS", "T2_CHECK", lastTwo && sp && isLow(sp) ? `two checks in a row below grade level (${checkText(prev!)}; ${checkText(last!)})${conf}` : `a long check below grade level (${checkText(last!)})`);
-  if (declineBelow) add(2, "DECLINE", "T2_DECLINE", `a sustained decline on the platform (ability ${e.level!.priorTheta !== null && e.level!.priorTheta !== undefined ? sgn(e.level!.priorTheta) : "?"} → ${e.level!.recentTheta !== null && e.level!.recentTheta !== undefined ? sgn(e.level!.recentTheta) : "?"}) has taken the level to Below`);
+  if (declineBelow) add(2, "DECLINE", "T2_DECLINE", `a sustained decline on the platform (ability ${e.level!.priorTheta !== null && e.level!.priorTheta !== undefined ? sgn(e.level!.priorTheta) : "?"} → ${e.level!.recentTheta !== null && e.level!.recentTheta !== undefined ? sgn(e.level!.recentTheta) : "?"}) has taken the level to Approaching`);
 
   const screened = riskHigh || mapCurrent || Boolean(e.diagnostic && diagDrop === null) || checks.length > 0 || fluUsable || Boolean(e.level && e.level.source === "PLATFORM") || (riskCounts && Boolean(e.platform)) || e.interventions.length > 0;
   const rulesTier: Tier = t3.length ? 3 : t2.length ? 2 : 1;
@@ -325,11 +325,11 @@ export function decideTier(e: TierEvidenceInput, now: Date = new Date()): TierDe
   else reason = checks.length || e.map || e.diagnostic || e.fluency ? `Tier 1: on track with core teaching${last ? ` (last check ${checkText(last)})` : ""}.` : "Tier 1: no warning signs yet (little data so far).";
   if (tier === 2 && current === 3 && !held && rulesTier === 1) reason = `Down to Tier 2 (one tier at a time): ${exitByChecks ? `${R.EXIT_CHECKS_IN_A_ROW} checks in a row at ${R.EXIT_CHECK_PCT}%+ or at grade level (${checkText(prev!)}; ${checkText(last!)})${conf}` : `risk under ${R.EXIT_RISK} for ${R.EXIT_RISK_WEEKS}+ weeks`}.`;
   if (invalidChecks.length && invalidChecks.at(-1)!.at.getTime() > (last?.at.getTime() ?? 0)) reason += ` The latest check was not used: ${invalidChecks.at(-1)!.rapid ?? "many"} rapid guesses — re-test.`;
-  if (e.diagnostic && diagDrop && e.diagnostic.level === "BELOW") reason += ` Diagnostic Below not used (${diagDrop}).`;
-  if (diagBelow && !concern.length) reason += ` Diagnostic Below (${pct(e.diagnostic!.pct)}) noted: one test alone does not set a tier — the first checks confirm or overrule it.`;
+  if (e.diagnostic && diagDrop && e.diagnostic.level === "BELOW") reason += ` Diagnostic Approaching not used (${diagDrop}).`;
+  if (diagBelow && !concern.length) reason += ` Diagnostic Approaching (${pct(e.diagnostic!.pct)}) noted: one test alone does not set a tier — the first checks confirm or overrule it.`;
   if (riskHigh && !concern.length) reason += ` Early-warning risk ${e.risk} noted (practice habits): not a reading tier signal on its own — see the alerts.`;
   if (e.fluency && !fluUsable && e.fluency.percentile !== null && e.fluency.percentile < R.T2_FLUENCY_PERCENTILE) reason += ` One fluency score (${ord(e.fluency.percentile)} percentile) is noted, not used until a second check confirms it.`;
-  if (tier === 1 && !codes.includes("NOT_SCREENED") && e.level?.level === "BELOW" && e.level.source === "PLATFORM") reason += ` Their platform level is Below${e.level.theta !== null && e.level.theta !== undefined ? ` (ability ${sgn(e.level.theta)})` : ""}, but no second source supports Tier 2 yet — watch the next checks.`;
+  if (tier === 1 && !codes.includes("NOT_SCREENED") && e.level?.level === "BELOW" && e.level.source === "PLATFORM") reason += ` Their platform level is Approaching${e.level.theta !== null && e.level.theta !== undefined ? ` (ability ${sgn(e.level.theta)})` : ""}, but no second source supports Tier 2 yet — watch the next checks.`;
   if (refer) reason += ` ${REFER_TEXT}: Tier 3 with no gain after ${failed} interventions.`;
   if (focus && e.practice.weakSkill) reason += ` Focus: ${e.practice.weakSkill.name ?? "weakest current skill"} (mastery ${Math.round(e.practice.weakSkill.mastery)}).`;
 

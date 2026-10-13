@@ -3,7 +3,7 @@ import type { ProfileView } from "@/server/insights/student-profile";
 import { MISCONCEPTION_BY_CODE } from "@/insights/misconceptions";
 import { EVIDENCE_NAME, type Evidence } from "@/server/curriculum-map/evidence-level";
 
-const LEVEL = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level", UNKNOWN: "No data yet" } as Record<string, string>;
+const LEVEL = { ABOVE: "Exceeding the standard", ON: "Meeting the standard", BELOW: "Approaching the standard", UNKNOWN: "No data yet" } as Record<string, string>;
 const AREA: Record<string, string> = { LIT: "Literary Text", INFO: "Informational Text", VOCAB: "Vocabulary", GRAMMAR: "Grammar and Usage", MECH: "Mechanics", WRITING: "Writing" };
 
 /** 🧭 the student's support tier (from src/server/tiers/views.ts → tierLine) */

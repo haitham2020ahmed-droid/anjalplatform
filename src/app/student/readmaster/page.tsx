@@ -46,7 +46,7 @@ export default async function ReadMasterPage({ searchParams }: { searchParams: P
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: HOME_BY_ROLE[actor.role] ?? "/", label: "Home" }} icon="⭐" title="ReadMaster"
-        subtitle={t(student ? "Every article is open to you. It opens at your reading level; you can switch to Below, On or Above." : "Students see this same page. Every published article is open to every student: no assignment needed.")}>
+        subtitle={t(student ? "Every article is open to you. It opens at your reading level; you can switch to a lighter or a challenge text." : "Students see this same page. Every published article is open to every student: no assignment needed.")}>
         {v.canManage && <Link href={`/admin/readmaster${v.grade ? `?grade=${v.grade}` : ""}`} prefetch={false} className="inline-flex min-h-10 items-center gap-1 rounded-lg px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">🛠</span>{t("Manage")}</Link>}
       </PageHeader>
       {student && <ProgramTabs tabs={[{ href: "/student/readmaster", label: "Articles", icon: "📚", on: !reportTab }, { href: "/student/readmaster?tab=report", label: "My report", icon: "📊", on: reportTab }]} />}

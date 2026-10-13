@@ -49,3 +49,23 @@ export async function streakAndPoints(repo: Repo, studentId: string, now = new D
   const extra = bonus.filter((x) => /^(respond\.finished|level\.up)/.test(String(x.reason))).reduce((t, x) => t + Number(x.points ?? 0), 0);
   return { streak, points: correct * 10 + articles * 25 + extra, activeToday: days.includes(today) };
 }
+
+/** The school week (Sunday → Thursday, Saudi time) for the home's week strip: which days had practice. */
+export interface PracticeWeek { days: { day: number; date: string; practised: boolean; today: boolean; future: boolean }[] }
+export const SCHOOL_DAYS = 5;
+
+/** Sunday-first weekday of a Saudi day number (day 0 = 1 Jan 1970, a Thursday). */
+export const weekdayOf = (day: number) => (day + 4) % 7;
+
+/** Days of this school week, from two bounded reads (this week's answers and ReadMaster articles, dates only). */
+export async function practiceWeek(repo: Repo, studentId: string, now = new Date()): Promise<PracticeWeek> {
+  const today = dayOf(now);
+  const start = today - weekdayOf(today);
+  const done = new Set(await activeDays(repo, studentId, new Date(start * DAY - KSA)));
+  return {
+    days: Array.from({ length: SCHOOL_DAYS }, (_, i) => {
+      const day = start + i;
+      return { day, date: new Date(day * DAY).toISOString().slice(0, 10), practised: done.has(day), today: day === today, future: day > today };
+    }),
+  };
+}

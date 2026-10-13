@@ -20,7 +20,7 @@ export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: 
     // ✋ the teacher chose each student's starting level: saved as their level (the set adapts from there)
     if (input.startLevels?.length) await setStudentLevels(repo, actor, input.classId, input.startLevels.filter((x) => ["ABOVE", "ON", "BELOW"].includes(x.level)));
     const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: input.code, studentIds: input.studentIds, mode: input.mode, maxQuestions: input.max, targetCorrect: adaptive ? input.max ?? DEFAULT_TARGET_CORRECT : null, dueAt: due, note: input.note ?? null });
-    const LV = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
+    const LV = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
     const parts = r.groups.map((g) => `${g.level ? LV[g.level] : "everyone"}: ${g.students} student(s)`);
     return { ok: true, message: `Assigned ✓ ${parts.join(" · ")}. Students were notified.${r.notes.length ? ` ${r.notes.join(" ")}` : ""}` };
   } catch (e) {

@@ -160,7 +160,7 @@ export function gradeItems(items: PracticeItem[], responses: Record<string, unkn
 
 export type SheetLevel = "BELOW" | "ON" | "ABOVE";
 export const LEVEL_MARK: Record<SheetLevel, string> = { BELOW: "●", ON: "●●", ABOVE: "●●●" };
-export const LEVEL_NAME: Record<SheetLevel, string> = { BELOW: "easier (Below Level)", ON: "On Level", ABOVE: "harder (Above Level)" };
+export const LEVEL_NAME: Record<SheetLevel, string> = { BELOW: "easier (Approaching)", ON: "Meeting", ABOVE: "harder (Exceeding)" };
 const levelOf = (d: number): SheetLevel => (d <= 3 ? "BELOW" : d >= 5 ? "ABOVE" : "ON");
 const LEVEL_CENTER: Record<SheetLevel, number> = { BELOW: 2, ON: 4, ABOVE: 6 };
 

@@ -7,7 +7,7 @@ import { gradeLabel } from "@/server/diagnostic/adaptive";
 
 export const heat = (p: number | null | undefined) => (p === null || p === undefined ? "bg-slate-50 text-slate-400" : p >= 75 ? "bg-emerald-100 text-emerald-900" : p >= 60 ? "bg-sky-100 text-sky-900" : p >= 40 ? "bg-amber-100 text-amber-900" : "bg-rose-100 text-rose-900");
 export const LEVEL_CHIP = { ABOVE: "bg-emerald-600 text-white", ON: "bg-sky-600 text-white", BELOW: "bg-rose-500 text-white" } as const;
-export const LEVEL_NAME = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
+export const LEVEL_NAME = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
 const PERF: Record<string, string> = { Strength: "bg-emerald-100 text-emerald-900", Moderate: "bg-sky-100 text-sky-900", Approaching: "bg-amber-100 text-amber-900", "Priority Need": "bg-rose-100 text-rose-900" };
 const TIER_TONE = ["border-emerald-400 bg-emerald-50", "border-sky-400 bg-sky-50", "border-amber-400 bg-amber-50", "border-rose-400 bg-rose-50"];
 
@@ -59,7 +59,7 @@ export function ClassDiagnosticView({ r, canShare, back }: { r: ClassDiagnosticR
             <div className="mt-1 flex h-7 overflow-hidden rounded-xl text-xs font-bold text-white">
               {(["BELOW", "ON", "ABOVE"] as const).map((k) => lv[k] ? <div key={k} className={`grid place-items-center ${k === "BELOW" ? "bg-rose-500" : k === "ON" ? "bg-sky-600" : "bg-emerald-600"}`} style={{ width: `${(100 * lv[k]) / Math.max(1, n)}%` }}>{LEVEL_NAME[k]} {lv[k]} ({Math.round((100 * lv[k]) / Math.max(1, n))}%)</div> : null)}
             </div>
-            <p className="mt-1 text-xs text-slate-500">Above ≥ {r.bands.above}{u} · On {r.bands.on}–{r.bands.above - 1}{u} · Below &lt; {r.bands.on}{u}. Each student now starts the curriculum at this level.</p>
+            <p className="mt-1 text-xs text-slate-500">Exceeding ≥ {r.bands.above}{u} · Meeting {r.bands.on}–{r.bands.above - 1}{u} · Approaching &lt; {r.bands.on}{u}. Each student now starts the curriculum at this level.</p>
             {r.adaptive && <p className="mt-1 rounded-lg bg-indigo-50 px-2 py-1 text-xs text-indigo-900">🎯 Adaptive test: every student answered the same 50 skills, each at their own difficulty (Grades {r.grade - 2}–{r.grade + 2}). Scores are on one scale against Grade {r.grade}: 72.5 = on grade level; +25 = one grade above.</p>}
           </div>
           <ul className="space-y-1.5 text-sm">
@@ -144,13 +144,13 @@ export function ClassDiagnosticView({ r, canShare, back }: { r: ClassDiagnosticR
 
       {/* 4 · levels */}
       <section className={card}>
-        <H n={4}>Levels: Below · On · Above</H>
+        <H n={4}>Levels: Approaching · Meeting · Exceeding</H>
         <div className="grid gap-3 md:grid-cols-3">
           {(["BELOW", "ON", "ABOVE"] as const).map((k) => {
             const list = r.students.filter((x) => x.level === k);
             return (
               <div key={k} className={`rounded-2xl p-4 ${k === "BELOW" ? "bg-rose-50 ring-1 ring-rose-200" : k === "ON" ? "bg-sky-50 ring-1 ring-sky-200" : "bg-emerald-50 ring-1 ring-emerald-200"}`}>
-                <p className="font-bold text-brand-navy">{LEVEL_NAME[k]} Level <span className="text-sm font-normal text-slate-500">· {k === "BELOW" ? `0–${r.bands.on - 1}${u}` : k === "ON" ? `${r.bands.on}–${r.bands.above - 1}${u}` : `${r.bands.above}–100${u}`} · {list.length}</span></p>
+                <p className="font-bold text-brand-navy">{LEVEL_NAME[k]} the standard <span className="text-sm font-normal text-slate-500">· {k === "BELOW" ? `0–${r.bands.on - 1}${u}` : k === "ON" ? `${r.bands.on}–${r.bands.above - 1}${u}` : `${r.bands.above}–100${u}`} · {list.length}</span></p>
                 <ol className="mt-2 space-y-0.5 text-sm">{list.map((x) => <li key={x.id} className="flex justify-between gap-2"><span>{x.name}</span><span className="tabular-nums text-slate-600">{x.pct}{u}{x.readingLevel ? ` · ${x.readingLevel}` : ""}</span></li>)}</ol>
               </div>
             );
@@ -207,7 +207,7 @@ export function ClassDiagnosticView({ r, canShare, back }: { r: ClassDiagnosticR
       <section className={card}>
         <H n={8}>Reading Fluency</H>
         <p className="text-sm text-slate-700">Fluency rubric (words correct per minute) · <b>{r.fluency.rubric ?? `Grade ${r.grade} benchmark ${r.fluency.benchmark}`}</b>. {r.fluency.checked} of {r.students.length} students have a fluency check (teacher check, a scored Reading Aloud recording or the Fluency Coach’s 1-minute check).</p>
-        {r.fluency.below.length > 0 ? <p className="mt-2 rounded-xl bg-rose-50 px-3 py-2 text-sm text-rose-900">🔊 Below Level: <NameList items={r.fluency.below.map((x) => ({ name: x.name, note: `(${x.wcpm})` }))} /> — add repeated reading and partner reading.</p> : null}
+        {r.fluency.below.length > 0 ? <p className="mt-2 rounded-xl bg-rose-50 px-3 py-2 text-sm text-rose-900">🔊 Approaching: <NameList items={r.fluency.below.map((x) => ({ name: x.name, note: `(${x.wcpm})` }))} /> — add repeated reading and partner reading.</p> : null}
         <Link href="/teacher/fluency" className="mt-3 inline-block rounded-xl px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal print:hidden">🔊 Record fluency checks</Link>
       </section>
 

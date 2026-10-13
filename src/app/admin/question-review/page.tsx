@@ -8,7 +8,7 @@ import { reviewAction } from "./actions";
 
 export const metadata = { title: "Tags & review" };
 
-const LV: Record<string, string> = { BELOW: "🟠 Below", ON: "🔵 On", ABOVE: "🟢 Above" };
+const LV: Record<string, string> = { BELOW: "🟠 Approaching", ON: "🔵 Meeting", ABOVE: "🟢 Exceeding" };
 
 /** 🏷️ Every question's tags (derived) and the admin's check: a ~10% random sample per skill, or the whole batch. */
 export default async function QuestionReviewPage({ searchParams }: { searchParams: Promise<{ grade?: string; skillId?: string; msg?: string }> }) {

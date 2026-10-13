@@ -85,7 +85,7 @@ export async function certificateFor(repo: Repo, actor: Actor, id: string): Prom
 export function achievementText(c: CertificateRow, lang: Lang): string {
   if (c.kind === "LEVEL_UP") {
     // students never read Below / On / Above about themselves: the certificate says "moved up to the next level"
-    if (/^Moved up to (Below|On|Above) Level/.test(c.title)) return translate(lang, "Moved up to the next level") + (c.detail ? ` · ${c.detail}` : "");
+    if (/^Moved up to ((Below|On|Above) Level|Approaching|Meeting|Exceeding)\b/.test(c.title)) return translate(lang, "Moved up to the next level") + (c.detail ? ` · ${c.detail}` : "");
   }
   if (c.kind === "PLAN") return translate(lang, "Finished every part of the plan “{title}”", { title: c.title.replace(/^Finished the plan: /, "") });
   return c.title;

@@ -18,7 +18,7 @@ import { fromDifficulty } from "./leveled-run";
 
 const s = (v: unknown) => String(v ?? "");
 export type Level = "ABOVE" | "ON" | "BELOW";
-export const LEVEL_NAMES: Record<Level, string> = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" };
+export const LEVEL_NAMES: Record<Level, string> = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" };
 const MANUAL_TYPES = new Set(["SHORT_ANSWER"]);   // the platform cannot mark these: never put in a set
 
 /** Levels of these students (students without one are “not set”, treated as On Level when assigning). */
@@ -55,7 +55,7 @@ export async function setStudentLevels(repo: Repo, actor: Actor, classId: string
   let n = 0;
   for (const e of entries) {
     if (!inClass.has(e.studentId)) throw new ForbiddenError("That student is not in this class.");
-    if (e.level && !["ABOVE", "ON", "BELOW"].includes(e.level)) throw new ValidationError("Level must be Above, On or Below.");
+    if (e.level && !["ABOVE", "ON", "BELOW"].includes(e.level)) throw new ValidationError("Level must be Exceeding, Meeting or Approaching.");
     if (!e.level) { n += await repo.deleteMany("StudentLevel", { studentId: e.studentId }); continue; }
     await recordLevel(repo, { studentId: e.studentId, level: e.level as Level, source: "TEACHER", setById: actor.userId, now });
     n++;
@@ -151,7 +151,7 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
       const maxQ = Math.max(5, Math.min(60, input.maxQuestions ?? 20));
       const r = await assignQuestions(repo, actor, {
         classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: ids, track: "CURRICULUM", exactTitle: true,
-        title: `${base} (adaptive: Below → On → Above)`, adaptive: { maxQuestions: maxQ, targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
+        title: `${base} (adaptive: Approaching → Meeting → Exceeding)`, adaptive: { maxQuestions: maxQ, targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
         dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
       }, now);
       groups.push({ level: null, students: chosen.length, questions: ids.length, assignmentId: r.assignmentId, usedLevel: null });
@@ -178,21 +178,21 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     const challenge = await bridgeIds(br.challenge, ["ON", "ABOVE", null]);
     const support = await bridgeIds(br.support, ["BELOW", "ON", null]);
     pool.push(...challenge.filter((id) => !pool.includes(id)), ...support.filter((id) => !pool.includes(id)));
-    if (challenge.length) notes.push(`🚀 Challenge path: ${challenge.length} question(s) from Grade ${places[0].grade + 1} (same skill) for students who master Above Level.`);
-    if (support.length) notes.push(`🛟 Support path: ${support.length} question(s) from Grade ${places[0].grade - 1} (same skill) for students who struggle at Below Level.`);
+    if (challenge.length) notes.push(`🚀 Challenge path: ${challenge.length} question(s) from Grade ${places[0].grade + 1} (same skill) for students who master Exceeding.`);
+    if (support.length) notes.push(`🛟 Support path: ${support.length} question(s) from Grade ${places[0].grade - 1} (same skill) for students who struggle at Approaching.`);
     const r = await assignQuestions(repo, actor, {
       classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: pool, track: "CURRICULUM", exactTitle: true,
-      title: `${base} (adaptive: Below → On → Above)`, adaptive: { maxQuestions: Math.max(5, Math.min(60, input.maxQuestions ?? 20)), targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
+      title: `${base} (adaptive: Approaching → Meeting → Exceeding)`, adaptive: { maxQuestions: Math.max(5, Math.min(60, input.maxQuestions ?? 20)), targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
       dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
     }, now);
     groups.push({ level: null, students: chosen.length, questions: pool.length, assignmentId: r.assignmentId, usedLevel: null });
     const noLevel = chosen.filter((x) => !levels.has(x.id)).length;
-    if (noLevel) notes.push(`ℹ️ ${noLevel} student(s) have no level yet: they start at On Level (or from their MAP Lexile) and move by their answers.`);
+    if (noLevel) notes.push(`ℹ️ ${noLevel} student(s) have no level yet: they start at Meeting (or from their MAP Lexile) and move by their answers.`);
     for (const l of ["BELOW", "ON", "ABOVE"] as Level[]) if (!(byLevel.get(l) ?? []).length) notes.push(`${LEVEL_NAMES[l]} has no questions yet: students cannot move to it until you add some.`);
     return { groups, notes };
   }
   const unset = chosen.filter((x) => !levels.has(x.id)).length;
-  if (unset) notes.push(`${unset} student(s) have no level yet: they got On Level questions. Set levels on the Student levels page or give the Placement test.`);
+  if (unset) notes.push(`${unset} student(s) have no level yet: they got Meeting questions. Set levels on the Student levels page or give the Placement test.`);
   for (const level of ["ABOVE", "ON", "BELOW"] as Level[]) {
     const students = chosen.filter((x) => (levels.get(x.id)?.level ?? "ON") === level).map((x) => x.id);
     if (!students.length) continue;

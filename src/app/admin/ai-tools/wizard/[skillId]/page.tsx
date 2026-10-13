@@ -49,7 +49,7 @@ export default async function WizardPage({ params, searchParams }: { params: Pro
           {cur.blocked && <p className="mt-3 rounded-xl bg-amber-50 px-3 py-2 text-amber-900">🔒 {cur.blocked}</p>}
           {gap && (
             <div className="mt-4 grid gap-3 sm:grid-cols-4">
-              {(["BELOW", "ON", "ABOVE"] as const).map((l) => <div key={l} className={`rounded-2xl p-3 ring-1 ${gap.counts[l] >= (gap.perLevel ?? 0) ? "bg-emerald-50 ring-emerald-200" : "bg-red-50 ring-red-200"}`}><p className="text-xs font-semibold text-slate-500">{l === "BELOW" ? "Below" : l === "ON" ? "On" : "Above"}</p><p className="text-2xl font-extrabold text-brand-navy">{gap.counts[l]} / {gap.perLevel}</p></div>)}
+              {(["BELOW", "ON", "ABOVE"] as const).map((l) => <div key={l} className={`rounded-2xl p-3 ring-1 ${gap.counts[l] >= (gap.perLevel ?? 0) ? "bg-emerald-50 ring-emerald-200" : "bg-red-50 ring-red-200"}`}><p className="text-xs font-semibold text-slate-500">{l === "BELOW" ? "Approaching" : l === "ON" ? "Meeting" : "Exceeding"}</p><p className="text-2xl font-extrabold text-brand-navy">{gap.counts[l]} / {gap.perLevel}</p></div>)}
               <div className="rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200"><p className="text-xs font-semibold text-slate-500">Still missing</p><p className={`text-2xl font-extrabold ${gap.missingTotal ? "text-red-700" : "text-emerald-700"}`}>{gap.missingTotal || "Nothing ✓"}</p></div>
             </div>
           )}

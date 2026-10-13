@@ -26,7 +26,7 @@ export async function levelsFromRitAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
   const classId = String(f.get("classId") ?? ""), term = String(f.get("term") ?? "");
   let msg: string;
-  try { const r = await levelsFromClassAverage(repo, actor, classId, term || undefined); msg = `Levels set from the class average: ${r.above} Above, ${r.on} On, ${r.below} Below Level.`; }
+  try { const r = await levelsFromClassAverage(repo, actor, classId, term || undefined); msg = `Levels set from the class average: ${r.above} Exceeding, ${r.on} Meeting, ${r.below} Approaching.`; }
   catch (e) { msg = friendly(e); }
   back({ classId, term, msg });
 }

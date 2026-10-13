@@ -9,7 +9,7 @@ import { ReadingScalesHelp } from "@/components/reading-level";
 
 export const metadata = { title: "Level Story" };
 const CHIP = { ABOVE: "bg-emerald-600 text-white", ON: "bg-sky-600 text-white", BELOW: "bg-rose-500 text-white" } as const;
-const NAME = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
+const NAME = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
 
 /** 🧭 Why a student is at their level: every section, every source, every change. */
 export default async function LevelStoryPage({ params }: { params: Promise<{ studentId: string }> }) {
@@ -28,12 +28,12 @@ export default async function LevelStoryPage({ params }: { params: Promise<{ stu
         <Link href="/teacher/levels" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">🎯 Change a level</Link>
       </PageHeader>
       {tier && <p className="mb-5 rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-700 ring-1 ring-slate-200">🧭 <b>Support tier: Tier {tier.tier}</b>{tier.since ? ` since ${tier.since}` : ""} — {tier.reason} <span className="text-slate-500">The level says where the student works against the grade; the tier says how much extra support they get now (it also weighs checks, MAP, fluency and interventions), so the two can differ. <Link href={`/teacher/tiers/${studentId}`} className="font-semibold text-brand-teal underline">Tier history</Link></span></p>}
-      {v.conflict && <p role="alert" className="mb-5 rounded-2xl bg-amber-50 px-4 py-3 text-amber-950 ring-1 ring-amber-300">⚖️ <b>The data disagree:</b> {v.conflict.high.source} says <b>Above</b>, {v.conflict.low.source} says <b>Below</b>. {v.conflict.note}</p>}
+      {v.conflict && <p role="alert" className="mb-5 rounded-2xl bg-amber-50 px-4 py-3 text-amber-950 ring-1 ring-amber-300">⚖️ <b>The data disagree:</b> {v.conflict.high.source} says <b>Exceeding</b>, {v.conflict.low.source} says <b>Approaching</b>. {v.conflict.note}</p>}
       <section className="mb-6 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
         {v.sections.map((x) => (
           <div key={x.key} className={card}>
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{x.name}</p>
-            <p className="mt-2"><span className={`rounded-full px-3 py-1 text-lg font-bold ${CHIP[x.level]}`}>{NAME[x.level]} Level</span></p>
+            <p className="mt-2"><span className={`rounded-full px-3 py-1 text-lg font-bold ${CHIP[x.level]}`}>{NAME[x.level]} the standard</span></p>
             <p className="mt-3 text-sm font-semibold text-brand-navy">From: {x.fromName}</p>
             <p className="text-xs text-slate-600">{x.reason}</p>
           </div>

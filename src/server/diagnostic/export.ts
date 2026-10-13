@@ -15,10 +15,10 @@ import { CONTENT_TYPES, loadBranding, RateLimitedError, REPORT_RATE, type Report
 import { classDiagnosticReport, studentDiagnosticReport, type ClassDiagnosticReport, type StudentDiagnosticReport } from "./report";
 import { STRAND_LABEL, TIERS } from "./standards";
 
-const LV: Record<string, string> = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" };
-const SHORT: Record<string, string> = { ABOVE: "Above", ON: "On", BELOW: "Below" };
+const LV: Record<string, string> = { ABOVE: "Exceeding the standard", ON: "Meeting the standard", BELOW: "Approaching the standard" };
+const SHORT: Record<string, string> = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" };
 /** Colour + text for levels and statuses (the PDF adds a colour key under each table). */
-const LEVEL_TONES: Record<string, Tone> = { Above: "good", On: "info", Below: "bad", "Above Level": "good", "On Level": "info", "Below Level": "bad" };
+const LEVEL_TONES: Record<string, Tone> = { Exceeding: "good", Meeting: "info", Approaching: "bad", "Exceeding the standard": "good", "Meeting the standard": "info", "Approaching the standard": "bad" };
 const PERF_TONES: Record<string, Tone> = { Strength: "good", Moderate: "info", Approaching: "warn", "Priority Need": "bad", Developing: "warn", "Needs support": "bad" };
 const slug = (x: string) => x.replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "report";
 
@@ -33,7 +33,7 @@ export function classDoc(r: ClassDiagnosticReport, base: Pick<ReportDoc, "brandi
     sections: [
       { type: "kpis", title: "Executive Summary", items: [
         { label: "Assessed", value: `${S.assessed} / ${S.roster}`, kind: "latin", glance: true, hint: "students who took the test / students in the group" }, { label: "Mean score", value: S.mean, kind: P, glance: true, hint: r.adaptive ? "average score on the grade scale (72.5 = on grade level)" : "average share of questions answered correctly" }, { label: "Median", value: S.median, kind: P },
-        { label: "Range", value: `${S.min}${u} – ${S.max}${u}`, kind: "latin" }, { label: "Spread (SD)", value: S.sd === null ? "—" : `±${S.sd}`, kind: "latin" }, { label: "Above / On / Below", value: `${S.levels.ABOVE} / ${S.levels.ON} / ${S.levels.BELOW}`, kind: "latin", glance: true, hint: "students above, on and below grade level" }, { label: "Not taken yet", value: S.roster - S.assessed, kind: "int", tone: S.roster - S.assessed ? "warn" : "good", glance: true, hint: "students who still need to take the test" },
+        { label: "Range", value: `${S.min}${u} – ${S.max}${u}`, kind: "latin" }, { label: "Spread (SD)", value: S.sd === null ? "—" : `±${S.sd}`, kind: "latin" }, { label: "Exceeding / Meeting / Approaching", value: `${S.levels.ABOVE} / ${S.levels.ON} / ${S.levels.BELOW}`, kind: "latin", glance: true, hint: "students above, on and below grade level" }, { label: "Not taken yet", value: S.roster - S.assessed, kind: "int", tone: S.roster - S.assessed ? "warn" : "good", glance: true, hint: "students who still need to take the test" },
       ] },
       { type: "notes", title: "Key Findings", items: [
         ...(S.best ? [`Highest-performing standard: ${S.best.label} (${S.best.code}) at ${S.best.pct}${u}.`] : []),
@@ -68,7 +68,7 @@ export function classDoc(r: ClassDiagnosticReport, base: Pick<ReportDoc, "brandi
         note: r.growth.offset !== null ? `MAP was ${r.growth.offset >= 0 ? "+" : ""}${r.growth.offset} RIT from the Diagnostic estimate (median of ${r.growth.pairs} students); the start is calibrated by it.` : "The start is calibrated once 5 students have a MAP test after the Diagnostic.",
         columns: [{ key: "name", label: "Student", kind: "name" as const, width: 2 }, { key: "start", label: "Diagnostic (est.)", kind: "int" as const }, { key: "calibrated", label: "Start (calibrated)", kind: "int" as const }, { key: "maps", label: "MAP tests", kind: "latin" as const, width: 2.5 }, { key: "growth", label: "Growth", kind: "signed" as const }],
         rows: r.growth.rows.filter((x) => x.maps.length).map((x) => ({ name: x.name, start: x.start, calibrated: x.calibrated, maps: x.maps.map((m) => `${m.term}: ${m.rit}`).join(" → "), growth: x.growth })) }] : []),
-      { type: "notes", title: "How to read this report", items: [`Levels: Above ≥ ${r.bands.above}${u}, On ${r.bands.on}–${r.bands.above - 1}${u}, Below < ${r.bands.on}${u}.`, `Tiers: ${TIERS.map((t) => `${t.name} ${t.min}${u}+`).join(" · ")}.`, ...(r.adaptive ? ["Reads at: the student's reading level on the grade scale (Gr 5.3 = like a Grade 5 student early in the year). Est. RIT: the MAP Reading RIT the Diagnostic predicts."] : []), "Pct Rank: the share of the group scoring lower (1–99).", "WCPM: words correct per minute in oral reading (fluency)."] },
+      { type: "notes", title: "How to read this report", items: [`Levels: Exceeding ≥ ${r.bands.above}${u}, Meeting ${r.bands.on}–${r.bands.above - 1}${u}, Approaching < ${r.bands.on}${u}.`, `Tiers: ${TIERS.map((t) => `${t.name} ${t.min}${u}+`).join(" · ")}.`, ...(r.adaptive ? ["Reads at: the student's reading level on the grade scale (Gr 5.3 = like a Grade 5 student early in the year). Est. RIT: the MAP Reading RIT the Diagnostic predicts."] : []), "Pct Rank: the share of the group scoring lower (1–99).", "WCPM: words correct per minute in oral reading (fluency)."] },
     ],
   };
 }

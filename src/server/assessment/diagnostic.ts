@@ -242,7 +242,7 @@ export async function latestDiagnostic(repo: Repo, studentId: string): Promise<D
   return legacy ? summarize(repo, legacy) : null;
 }
 
-const LEVEL_TEXT: Record<string, string> = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" };
+const LEVEL_TEXT: Record<string, string> = { ABOVE: "Exceeding the standard", ON: "Meeting the standard", BELOW: "Approaching the standard" };
 const STRAND_TEXT: Record<string, string> = { LIT: "Literature", INFO: "Informational Text", VOCAB: "Vocabulary", LANG: "Language", WRITE: "Writing", FOUND: "Foundational Skills" };
 
 /** A Diagnostic Test score (DiagnosticScore) as a placement summary. */

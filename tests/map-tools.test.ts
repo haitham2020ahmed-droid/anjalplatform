@@ -44,7 +44,7 @@ describe("📋 personalized plan · 🚨 intervention board · 🕳 bank gaps", 
     assert.deepEqual([by.BELOW.students.length, by.ON.students.length, by.ABOVE.students.length], [2, 1, 1]);
     assert.equal(by.BELOW.ritRange, "170–185");
     assert.equal(by.BELOW.goals[0].area.startsWith("Literary Text"), true, "Literary Text is the Below group's weakest area");
-    assert.ok(by.BELOW.goals.length >= 1 && by.BELOW.resources[0].includes("Below"));
+    assert.ok(by.BELOW.goals.length >= 1 && by.BELOW.resources[0].includes("Approaching"));
     assert.equal(by.ABOVE.students[0].projection, 213);
     assert.equal(p.notTested.length, roster.length - 4, "the rest of the class is listed as not tested");
   });

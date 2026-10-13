@@ -17,7 +17,7 @@ import { startLevel } from "./leveled-run";
 
 export const RESPOND_LEVELS = ["BELOW", "ON", "ABOVE"] as const;
 export type RespondLevel = (typeof RESPOND_LEVELS)[number];
-export const RESPOND_LEVEL_NAME: Record<RespondLevel, string> = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" };
+export const RESPOND_LEVEL_NAME: Record<RespondLevel, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 
 const s = (v: unknown) => String(v ?? "").trim();
 const list = (v: unknown): string[] => (Array.isArray(v) ? v.map((x) => s(x)).filter(Boolean) : []);

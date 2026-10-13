@@ -40,9 +40,9 @@ describe("sign-in page (Literise)", () => {
     const html = renderPage("en");
     const words = text(html);
     assert.ok(words.includes("Literise"));
-    assert.ok(words.includes("English Language Arts"));
-    assert.match(words, /Every reader rises\./);
-    assert.ok(words.includes("Read, write and grow at your own level."));
+    // Literise D1 (redesign): the navy half says "Read today. Rise tomorrow." and one short line
+    assert.ok(words.includes("Read today. Rise tomorrow."));
+    assert.ok(words.includes("Reading, writing and vocabulary at the right level for every student in Grades 4 to 6."));
     assert.ok(words.includes("Welcome back!") && words.includes("Who's signing in today?"));
     for (const r of ["Student", "Teacher", "Admin"]) assert.match(html, new RegExp(`type="radio"[^>]*value="${r}"`), r);
     const form = html.match(/<form[^>]*>/)![0];
@@ -53,7 +53,9 @@ describe("sign-in page (Literise)", () => {
     assert.match(html, /placeholder="Your student username"/, "Student is chosen first");
     assert.ok(words.includes("Let's go, Student!"));
     assert.ok(words.includes("Literise · Al-Anjal Private Schools"));
-    assert.match(html, /src="\/api\/school-logo"[^>]*alt="Al-Anjal Private Schools"|alt="Al-Anjal Private Schools"[^>]*src="\/api\/school-logo"/);
+    // the crisp vector school logo (SchoolLogo), not the blurry uploaded image
+    assert.match(html, /role="img" aria-label="Al-Anjal Private Schools, since 1985"/);
+    assert.doesNotMatch(html, /src="\/api\/school-logo"/);
     assert.ok(existsSync(join(ROOT, "src/app/login/submit/route.ts")));
   });
 
@@ -88,8 +90,8 @@ describe("sign-in page (Literise)", () => {
     const words = text(html);
     assert.ok(words.includes("Literise"));
     assert.ok(words.includes("مرحبًا بعودتك!"));
-    assert.ok(words.includes("فنون اللغة الإنجليزية"));
-    const keys = ["English Language Arts", "Every reader", "rises.", "Welcome back!", "Who's signing in today?", "Enter your password", "Al-Anjal Private Schools",
+    assert.ok(words.includes("اقرأ اليوم، وارتقِ غدًا."));
+    const keys = ["Read today. Rise tomorrow.", "Reading, writing and vocabulary at the right level for every student in Grades 4 to 6.", "Welcome back!", "Who's signing in today?", "Enter your password", "Al-Anjal Private Schools",
       ...SIGN_IN_ROLES.flatMap((r) => [r.who, r.placeholder, r.help, r.go])];
     for (const k of keys) {
       assert.ok((UI_STRINGS as readonly string[]).includes(k), `en.ts: ${k}`);
@@ -110,7 +112,9 @@ describe("Literise brand everywhere the platform names itself", () => {
   test("shell, metadata, manifest, print and offline page say Literise; the school logo stays", () => {
     const shell = read("src/components/app-shell.tsx");
     assert.match(shell, /<LiteriseLogo/);
-    assert.match(shell, /src="\/api\/school-logo" alt="Al-Anjal Private Schools"/);
+    assert.match(shell, /<SchoolLogo size="sm"/, "the vector school logo in the top bar");
+    assert.ok(existsSync(join(ROOT, "public/brand/al-anjal-logo.svg")), "static school logo for e-mails and PDFs");
+    assert.ok(existsSync(join(ROOT, "src/app/api/school-logo/route.ts")), "uploaded logos still served");
     assert.doesNotMatch(shell, /Al-Anjal<br \/>English/);
     assert.match(read("src/app/layout.tsx"), /default: "Literise", template: "%s · Literise"/);
     const manifest = JSON.parse(read("public/manifest.webmanifest"));

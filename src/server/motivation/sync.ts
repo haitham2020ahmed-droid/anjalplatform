@@ -28,7 +28,7 @@ export const SYNC_EVERY_MS = 10 * 60_000;
 /** the first sync looks back this far for coins; certificates only for the last FIRST_CERT_DAYS */
 const FIRST_LOOKBACK_DAYS = 365, FIRST_CERT_DAYS = 14;
 const RANK: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
-const LEVEL_NAME: Record<string, string> = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" };
+const LEVEL_NAME: Record<string, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 
 /** Level-up events in these audit rows (up moves only; a first level is not a move). */
 export function levelUps(rows: Row[]): { id: string; at: number; level: string; category: string | null }[] {

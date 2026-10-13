@@ -73,7 +73,7 @@ export function riskReasons(r: RawSignals, x: FeatureVector, m: RiskWeights = EX
     lowPractice: "Agree a short daily routine (10 minutes, 5 days) and assign the My Next Step skill.",
     decliningPractice: "Check in with the student and the family this week; set a weekly goal.",
     slowGrowth: "Look at the skills with little progress: teach the foundation first (Knowledge Graph).",
-    lowAbility: "Practise at their level first (Below Level sets), then step up.",
+    lowAbility: "Practise at their level first (Approaching sets), then step up.",
     lowGoalChance: "Send a MAP plan on the weakest instructional area and check it weekly.",
     weakFoundations: `Put the student in a small group on ${r.weakSkill ?? "the weak foundation"} (Intervention Groups).`,
     guessing: "Talk about careful reading; turn on read-aloud; praise careful answers.",

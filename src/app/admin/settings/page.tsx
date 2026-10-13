@@ -87,7 +87,7 @@ export default async function SettingsPage() {
       {ladder && (
         <section className={card}>
           <h2 className={h2}>🎯 Level Movement &amp; Mastery</h2>
-          <p className="text-sm text-slate-600">How students move between Below, On and Above Level during their work, and when a skill counts as mastered. Students never see the level names.</p>
+          <p className="text-sm text-slate-600">How students move between Approaching, Meeting and Exceeding during their work, and when a skill counts as mastered. Students never see the level names.</p>
           <ActionForm action={ladderAction} submit="Save rules" className="mt-3 space-y-3">
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {(Object.keys(LADDER_LIMITS) as (keyof LadderSettings)[]).map((k) => (
@@ -97,7 +97,7 @@ export default async function SettingsPage() {
                 </label>
               ))}
             </div>
-            <p className="text-sm text-slate-600">Now: up when {ladder.upPct}% of the last {ladder.upWindow} answers are correct · down at {ladder.downPct}% or less of the last {ladder.downWindow} · mastered at {ladder.masteredPct}% over {ladder.masteredMin}+ answers. A student with no data starts at On Level.</p>
+            <p className="text-sm text-slate-600">Now: up when {ladder.upPct}% of the last {ladder.upWindow} answers are correct · down at {ladder.downPct}% or less of the last {ladder.downWindow} · mastered at {ladder.masteredPct}% over {ladder.masteredMin}+ answers. A student with no data starts at Meeting.</p>
           </ActionForm>
           <ActionForm action={ladderAction} submit="Restore defaults" danger className="mt-2"><input type="hidden" name="reset" value="true" /></ActionForm>
         </section>

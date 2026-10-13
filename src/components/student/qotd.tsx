@@ -29,7 +29,7 @@ export function QuestionOfTheDay({ q, area, answered, result }: { q: ClientQuest
   const [fresh, setFresh] = useState(false);
   const done = res ?? (answered ? null : undefined);
   const title = (
-    <span className="flex items-center gap-2 font-semibold text-brand-navy">
+    <span className="flex items-center gap-2.5 font-display text-lg text-ink">
       <span aria-hidden="true" className="grid h-8 w-8 place-items-center rounded-lg bg-amber-50 text-amber-700 ring-1 ring-amber-200/70"><LineIcon name="question" className="h-[18px] w-[18px]" /></span>
       {t("Question of the Day")}
     </span>
@@ -37,7 +37,7 @@ export function QuestionOfTheDay({ q, area, answered, result }: { q: ClientQuest
   if (done !== undefined) {
     // one line: the verdict, the coins, and (when wrong) the answer with its explanation on demand
     return (
-      <section data-testid="qotd" data-state="answered" aria-label={t("Question of the Day")} className="flex min-h-12 flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl bg-white px-4 py-2 text-sm ring-1 ring-slate-200/80">
+      <section data-testid="qotd" data-state="answered" aria-label={t("Question of the Day")} className="flex min-h-12 flex-wrap items-center gap-x-3 gap-y-1 rounded-[1.25rem] bg-amber-50 px-4 py-2 text-sm ring-1 ring-amber-200/70">
         {title}
         {done ? (
           <>
@@ -57,16 +57,16 @@ export function QuestionOfTheDay({ q, area, answered, result }: { q: ClientQuest
     );
   }
   return (
-    <section data-testid="qotd" data-state={open ? "open" : "closed"} aria-labelledby="qotd-h" className="rounded-2xl bg-white ring-1 ring-slate-200/80">
+    <section data-testid="qotd" data-state={open ? "open" : "closed"} aria-labelledby="qotd-h" className="rounded-[1.25rem] bg-amber-50 ring-1 ring-amber-200/70">
       <div className="flex min-h-12 flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2 text-sm">
         <h2 id="qotd-h">{title}</h2>
-        <span className="min-w-0 truncate text-slate-500"><bdi>{area}</bdi> · {t("Challenge question")}</span>
+        <span className="min-w-0 truncate text-ink-2"><bdi>{area}</bdi> · {t("Challenge question")}</span>
         <span className="inline-flex items-center gap-1 text-xs font-medium text-amber-800"><CoinIcon size={14} /> {t("Up to {n} coins · one try", { n: 20 })}</span>
         <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-controls="qotd-body"
-          className="ms-auto min-h-9 rounded-lg bg-brand-navy px-3.5 py-1.5 text-sm font-semibold text-white hover:bg-brand-navy/90">{open ? t("Close") : t("Answer")}</button>
+          className="ms-auto min-h-10 rounded-xl bg-brand-navy px-4 py-1.5 text-sm font-semibold text-white hover:brightness-110">{open ? t("Close") : t("Answer")}</button>
       </div>
       {open && (
-        <div id="qotd-body" className="border-t border-slate-100 px-4 pb-4 pt-3">
+        <div id="qotd-body" className="rounded-b-[1.25rem] border-t border-amber-200/70 bg-surface px-4 pb-4 pt-3">
           <div data-content lang="en">
             {q.passage && <details className="rounded-xl bg-slate-50 p-3 text-sm ring-1 ring-slate-200/70"><summary className="cursor-pointer font-semibold text-slate-700">{q.passage.title || "Read the text"}</summary><p className="mt-2 whitespace-pre-line">{q.passage.text}</p></details>}
             {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="mt-3 text-base font-medium text-slate-900">{q.stem}</p>}

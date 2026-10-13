@@ -55,7 +55,7 @@ export async function assignRespond(repo: Repo, actor: Actor, input: { classId: 
   const rows = chosen.map(([studentId, raw]) => {
     if (!members.has(studentId)) throw new ForbiddenError("You can only assign work to students in this class.");
     let level = raw.toUpperCase() as RespondLevel;
-    if (!RESPOND_LEVELS.includes(level)) throw new ValidationError("Level must be Below, On or Above.");
+    if (!RESPOND_LEVELS.includes(level)) throw new ValidationError("Level must be Approaching, Meeting or Exceeding.");
     if (!has.has(level)) { level = has.has("ON") ? "ON" : [...has][0]; fallback++; }   // the level has no activity yet
     byLevel[level]++;
     return { studentId, level };

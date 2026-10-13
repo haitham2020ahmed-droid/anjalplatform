@@ -9,7 +9,7 @@
 import type { PersonalPlan } from "./personal-plan";
 
 const esc = (v: unknown) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
-const TITLE = { BELOW: "Below level", ON: "On level", ABOVE: "Above level" } as const;
+const TITLE = { BELOW: "Approaching the standard", ON: "Meeting the standard", ABOVE: "Exceeding the standard" } as const;
 const RULE = { BELOW: "below the 41st percentile", ON: "41st–60th percentile", ABOVE: "above the 60th percentile" } as const;
 /** group colours (MAP green family for the document, red/blue/green per group) — always shown with the group's name */
 const TONE = { BELOW: { bg: "#FDE2E1", fg: "#A32A22" }, ON: { bg: "#DBE6F7", fg: "#1F3A68" }, ABOVE: { bg: "#DCF3E6", fg: "#166534" } } as const;

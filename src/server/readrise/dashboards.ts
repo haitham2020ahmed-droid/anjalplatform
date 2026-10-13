@@ -17,6 +17,7 @@ import { assertCan, type Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
 import { RR_SKILLS } from "./import";
 import { weekStart as engineWeekStart } from "./engine";
+import { questionKeys } from "./question-key";
 
 const s = (v: unknown) => String(v ?? "");
 const DAY = 86_400_000;
@@ -80,7 +81,8 @@ interface Data {
   placedTest: Set<string>;
 }
 
-async function loadData(repo: Repo, ids: string[], opts: { map?: boolean } = {}): Promise<Data> {
+/** `runCols` = the reading columns a report needs (default: all it may show; the school dashboard needs only scores and times) */
+async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCols?: string[] } = {}): Promise<Data> {
   if (!ids.length) return { names: new Map(), rr: new Map(), changes: new Map(), runs: [], map: new Map(), placedTest: new Set() };
   const chunks: string[][] = [];
   for (let i = 0; i < ids.length; i += 500) chunks.push(ids.slice(i, i + 500));
@@ -90,7 +92,7 @@ async function loadData(repo: Repo, ids: string[], opts: { map?: boolean } = {})
     many("Student", (p) => ({ id: { in: p } }), ["id", "userId"]),
     many("RRStudent", (p) => ({ studentId: { in: p } })),
     many("RRLevelChange", (p) => ({ studentId: { in: p } }), ["studentId", "toLevel", "createdAt"]),
-    many("RRRun", (p) => ({ studentId: { in: p } }), ["id", "studentId", "articleId", "band", "versionLevel", "step", "prePoll", "postPoll", "answers", "score", "writing", "writingScore", "firstTry", "stretch", "levelBefore", "levelAfter", "startedAt", "completedAt"]),
+    many("RRRun", (p) => ({ studentId: { in: p } }), opts.runCols ?? ["id", "studentId", "articleId", "band", "versionLevel", "step", "prePoll", "postPoll", "answers", "score", "writing", "writingScore", "firstTry", "stretch", "levelBefore", "levelAfter", "startedAt", "completedAt"]),
     opts.map === false ? Promise.resolve([] as Row[]) : many("MapResult", (p) => ({ studentId: { in: p }, lexile: { not: null } }), ["studentId", "lexile", "testDate"]),
     many("RRPlacement", (p) => ({ studentId: { in: p }, completedAt: { not: null } }), ["studentId"]),
   ]);
@@ -210,8 +212,8 @@ export async function skillsReport(repo: Repo, actor: Actor, classId: string): P
   const d = await loadData(repo, ids, { map: false });
   const ft = firstTryDone(d.runs);
   const articleIds = [...new Set(ft.map((r) => s(r.articleId)))];
-  const qs = articleIds.length ? await repo.findMany("RRQuestion", { articleId: { in: articleIds } }, { select: ["articleId", "band", "number", "answer", "skill"] }) : [];
-  const key = new Map(qs.map((q) => [`${q.articleId}|${q.band}|${q.number}`, { answer: s(q.answer), skill: s(q.skill) }]));
+  const key = new Map<string, { answer: string; skill: string }>();
+  for (const [id, qs] of await questionKeys(repo, articleIds)) for (const q of qs) key.set(`${id}|${q.band}|${q.number}`, { answer: q.answer, skill: q.skill });
   const tally = new Map<string, Map<string, [number, number]>>();
   const classT = new Map<string, [number, number]>();
   for (const r of ft) {
@@ -312,12 +314,15 @@ export interface SchoolDashboard {
 /** The admin's school-wide view (last 8 weeks for usage and goals). */
 export async function schoolDashboard(repo: Repo, actor: Actor, now = new Date(), weeks = 8): Promise<SchoolDashboard> {
   assertCan(actor, "analytics:school");
-  const classes = actor.schoolId ? await repo.findMany("Class", { schoolId: actor.schoolId, deletedAt: null }) : [];
-  const grades = actor.schoolId ? await repo.findMany("Grade", { schoolId: actor.schoolId }) : [];
+  // ⚡ only the columns used below, both reads at once
+  const [classes, grades] = actor.schoolId ? await Promise.all([
+    repo.findMany("Class", { schoolId: actor.schoolId, deletedAt: null }, { select: ["id", "name", "gradeId"] }),
+    repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] }),
+  ]) : [[], []];
   const gradeOf = new Map(grades.map((g) => [s(g.id), Number(g.level)]));
   const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"] }) : [];
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
-  const d = await loadData(repo, ids, { map: false });
+  const d = await loadData(repo, ids, { map: false, runCols: ["studentId", "score", "firstTry", "completedAt"] });
   const nowT = now.getTime(), thisWeek = weekStart(nowT);
   const starts = Array.from({ length: weeks }, (_, i) => thisWeek - (weeks - 1 - i) * 7 * DAY);
   const ftBy = new Map<string, { at: number; score: number }[]>();

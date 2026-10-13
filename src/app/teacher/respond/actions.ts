@@ -17,7 +17,7 @@ export async function assignRespondAction(f: FormData): Promise<void> {
     const skip = new Set(f.getAll("skip").map(String));
     const levels = Object.fromEntries([...f.keys()].filter((k) => k.startsWith("lv:") && !skip.has(k.slice(3))).map((k) => [k.slice(3), String(f.get(k) ?? "")]));
     const r = await assignRespond(repo, actor, { classId, code, levels, dueAt: day(f.get("dueAt")), note: String(f.get("note") ?? "") || null });
-    const msg = `Sent to ${r.students} student(s): ${r.byLevel.BELOW} Below · ${r.byLevel.ON} On · ${r.byLevel.ABOVE} Above.${r.fallback ? ` ${r.fallback} got the On Level activity because their level has none yet.` : ""}`;
+    const msg = `Sent to ${r.students} student(s): ${r.byLevel.BELOW} Approaching · ${r.byLevel.ON} Meeting · ${r.byLevel.ABOVE} Exceeding.${r.fallback ? ` ${r.fallback} got the Meeting activity because their level has none yet.` : ""}`;
     target = `/teacher/respond/${r.assignmentId}?${new URLSearchParams({ msg })}`;
   } catch (e) { target = `/teacher/respond/assign?${new URLSearchParams({ classId, code, msg: friendly(e) })}`; }
   redirect(target);

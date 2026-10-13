@@ -83,8 +83,8 @@ describe("Fluency Coach · advanced", () => {
     assert.deepEqual(fluencyBands(5, "WINTER"), { below: 109, above: 160 });
     assert.deepEqual(fluencyBands(6, "SPRING"), { below: 122, above: 171 });
     assert.deepEqual([fluencyLevel(100, 5, "FALL"), fluencyLevel(100, 5, "WINTER")], ["ON", "BELOW"]);
-    assert.equal(fluencyRubricText(5, "WINTER"), "Grade 5: Below ≤ 109 · On 110–160 · Above > 160 WCPM");
-    assert.equal(fluencyRubricSeasonText(5, "WINTER"), "Grade 5 · winter: Below ≤ 109 · On 110–160 · Above > 160 WCPM");
+    assert.equal(fluencyRubricText(5, "WINTER"), "Grade 5: Approaching ≤ 109 · Meeting 110–160 · Exceeding > 160 WCPM");
+    assert.equal(fluencyRubricSeasonText(5, "WINTER"), "Grade 5 · winter: Approaching ≤ 109 · Meeting 110–160 · Exceeding > 160 WCPM");
     const now = fluencySeason();
     assert.equal(WCPM_BENCHMARK[5], norm50(5, now)); assert.equal(wcpmBenchmark(6, "WINTER"), 145);
     assert.deepEqual(FLUENCY_RUBRIC[4], fluencyBands(4, now));

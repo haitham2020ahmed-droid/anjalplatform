@@ -25,7 +25,7 @@ import { scoreResponse } from "../../imports/questions/validate";
 
 const s = (v: unknown) => String(v ?? "");
 export const LEVELS: Level[] = ["BELOW", "ON", "ABOVE"];
-export const LEVEL_NAMES: Record<Level, string> = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" };
+export const LEVEL_NAMES: Record<Level, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 export const RULES = { up: 75, down: 50, step: 30, min: 100, max: 1800 } as const;
 const words = (t: string) => t.trim().split(/\s+/).filter(Boolean).length;
 const staff = (actor: Actor) => { if (actor.role === "STUDENT" || actor.role === "PARENT") throw new ForbiddenError("Only staff can manage ReadMaster."); };
@@ -109,7 +109,7 @@ export async function saveArticle(repo: Repo, actor: Actor, input: { id?: string
 export async function saveVersion(repo: Repo, actor: Actor, articleId: string, level: Level, input: { lexile: number; body: string }): Promise<string> {
   assertCan(actor, "questions:edit"); staff(actor);
   await articleInSchool(repo, actor, articleId);
-  if (!LEVELS.includes(level)) throw new ValidationError("Level must be Below, On or Above.");
+  if (!LEVELS.includes(level)) throw new ValidationError("Level must be Approaching, Meeting or Exceeding.");
   const body = s(input.body).replace(/\r\n?/g, "\n").trim();
   if (words(body) < 20) throw new ValidationError("The text needs at least 20 words.");
   if (body.length > 20_000) throw new ValidationError("The text is too long (limit 20,000 characters).");

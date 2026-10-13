@@ -33,7 +33,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/plans", label: "Plans" }} icon="🗂️" title="Curriculum Map plans"
-        subtitle={t("Pick places of the Curriculum Map and assign them together. Students open the plan as a map and tap a place to start its questions at their level (Below → On → Above). Print it or save it as PDF to share.")} />
+        subtitle={t("Pick places of the Curriculum Map and assign them together. Students open the plan as a map and tap a place to start its questions at their level (Approaching → Meeting → Exceeding). Print it or save it as PDF to share.")} />
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {plans.length > 0 && (
         <Section title="Plans" icon="📋" className="mb-6">

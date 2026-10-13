@@ -18,7 +18,7 @@ export default async function DataHealth({ searchParams }: { searchParams: Promi
   const sum = (k: "noMap" | "noDiagnostic" | "inactive" | "noData") => v.rows.reduce((t, r) => t + r[k].length, 0);
   // never round a gap away (199 of 200 is 99.5%, not 100%): 100% only when nothing is missing (Update 39C)
   const pct = (n: number) => { if (!total) return 0; const v = (100 * (total - n)) / total; return n > 0 && v >= 99.5 ? Math.floor(v * 10) / 10 : Math.round(v); };
-  const COLS = [["noMap", "No MAP score", "Import MAP scores", "/teacher/map-rit"], ["noDiagnostic", "No Diagnostic", "Open the Diagnostic", actor.role === "TEACHER" ? "/teacher/diagnostic" : "/admin/diagnostic"], ["inactive", "No practice in 14 days", "Remind them", "/teacher/alerts"], ["noData", "No data at all", "These start at On Level", "/teacher/levels"]] as const;
+  const COLS = [["noMap", "No MAP score", "Import MAP scores", "/teacher/map-rit"], ["noDiagnostic", "No Diagnostic", "Open the Diagnostic", actor.role === "TEACHER" ? "/teacher/diagnostic" : "/admin/diagnostic"], ["inactive", "No practice in 14 days", "Remind them", "/teacher/alerts"], ["noData", "No data at all", "These start at Meeting", "/teacher/levels"]] as const;
   const list = sp.show && sp.classId ? v.rows.find((r) => r.classId === sp.classId)?.[sp.show as "noMap"] : null;
   const { t } = await getT();
   const cell = (n: number, of: number) => (n === 0 ? "text-emerald-700" : n / Math.max(1, of) > 0.3 ? "font-bold text-rose-700" : "font-semibold text-amber-700");
@@ -61,10 +61,10 @@ export default async function DataHealth({ searchParams }: { searchParams: Promi
           </div>
         )}
       </Section>
-      <Section title={`Data Disagree (${v.conflicts.length})`} icon="⚖️" hint="One source says Above, another says Below. Often guessing, a bad test day, or real growth — worth a look.">
+      <Section title={`Data Disagree (${v.conflicts.length})`} icon="⚖️" hint="One source says Exceeding, another says Approaching. Often guessing, a bad test day, or real growth — worth a look.">
         {!v.conflicts.length ? <p className="text-emerald-800">✅ No strong disagreement.</p> : (
           <ul className="divide-y divide-slate-100">
-            {v.conflicts.map((c) => <li key={c.studentId} className="flex flex-wrap items-center justify-between gap-2 py-2.5 text-sm"><span><Link href={`/teacher/level-story/${c.studentId}`} className="font-semibold text-brand-navy hover:underline">{c.name}</Link> <span className="text-xs text-slate-500">{c.className}</span><span className="block text-slate-600">{c.note}</span></span><span className="text-xs"><span className="rounded-full bg-emerald-100 px-2 py-0.5 font-bold text-emerald-900">{c.high.source}: Above</span> <span className="rounded-full bg-rose-100 px-2 py-0.5 font-bold text-rose-900">{c.low.source}: Below</span></span></li>)}
+            {v.conflicts.map((c) => <li key={c.studentId} className="flex flex-wrap items-center justify-between gap-2 py-2.5 text-sm"><span><Link href={`/teacher/level-story/${c.studentId}`} className="font-semibold text-brand-navy hover:underline">{c.name}</Link> <span className="text-xs text-slate-500">{c.className}</span><span className="block text-slate-600">{c.note}</span></span><span className="text-xs"><span className="rounded-full bg-emerald-100 px-2 py-0.5 font-bold text-emerald-900">{c.high.source}: Exceeding</span> <span className="rounded-full bg-rose-100 px-2 py-0.5 font-bold text-rose-900">{c.low.source}: Approaching</span></span></li>)}
           </ul>
         )}
       </Section>

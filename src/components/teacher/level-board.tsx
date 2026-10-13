@@ -5,9 +5,9 @@ type Level = "BELOW" | "ON" | "ABOVE";
 export interface BoardStudent { id: string; name: string; start: Level; original: Level | null; note?: string | null; tag?: string | null }
 
 const COLS: { level: Level; title: string; tone: string; head: string }[] = [
-  { level: "BELOW", title: "Below Level", tone: "bg-orange-50 ring-orange-200", head: "text-orange-900" },
-  { level: "ON", title: "On Level", tone: "bg-sky-50 ring-sky-200", head: "text-sky-900" },
-  { level: "ABOVE", title: "Above Level", tone: "bg-emerald-50 ring-emerald-200", head: "text-emerald-900" },
+  { level: "BELOW", title: "Approaching the standard", tone: "bg-orange-50 ring-orange-200", head: "text-orange-900" },
+  { level: "ON", title: "Meeting the standard", tone: "bg-sky-50 ring-sky-200", head: "text-sky-900" },
+  { level: "ABOVE", title: "Exceeding the standard", tone: "bg-emerald-50 ring-emerald-200", head: "text-emerald-900" },
 ];
 const ORDER: Level[] = ["BELOW", "ON", "ABOVE"];
 

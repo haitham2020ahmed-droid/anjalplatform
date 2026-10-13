@@ -389,7 +389,7 @@ const BANDS: Record<string, [string, string]> = {
 const GROUPS: Record<string, [string, string]> = {
   Intervention: ["Intervention", "يحتاج إلى تدخّل"],
   Developing: ["Developing", "في طور النمو"],
-  "On level": ["On level", "ضمن المستوى"],
+  Meeting: ["Meeting", "يحقق المعيار"],
   Advanced: ["Advanced", "متقدّم"],
 };
 

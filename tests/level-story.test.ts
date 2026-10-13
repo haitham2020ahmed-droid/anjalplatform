@@ -36,7 +36,7 @@ describe("level story, conflicts and data health", () => {
     assert.equal(v.sections[0].from, "PLATFORM", "recent work comes before MAP");
     assert.equal(v.sources.find((x) => x.key === "MAP")!.level, "ABOVE");
     assert.equal(v.sources.find((x) => x.key === "PLATFORM")!.level, "BELOW");
-    assert.ok(v.conflict && /recent work says Below/.test(v.conflict.note));
+    assert.ok(v.conflict && /recent work says Approaching/.test(v.conflict.note));
     await assert.rejects(levelStory(repo, other, roster[0].id), ForbiddenError);
   });
 

@@ -37,7 +37,7 @@ export default async function LevelsPage({ searchParams }: { searchParams: Promi
   const editBands = actor.role !== "TEACHER" && can(actor, "settings:school");
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: isTeacher ? "/teacher" : "/admin", label: "Back" }} icon="🎯" title="Student Levels &amp; Tests" subtitle={<>Each student’s level decides which Curriculum Map questions they get (Above / On / Below Level). Set it here, or let the Diagnostic Test set it automatically from its score.</>} />
+      <PageHeader back={{ href: isTeacher ? "/teacher" : "/admin", label: "Back" }} icon="🎯" title="Student Levels &amp; Tests" subtitle={<>Each student’s level decides which Curriculum Map questions they get (Exceeding / Meeting / Approaching). Set it here, or let the Diagnostic Test set it automatically from its score.</>} />
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {!v ? <p className="mt-6 text-slate-600">No classes yet.</p> : (
         <>
@@ -76,20 +76,20 @@ export default async function LevelsPage({ searchParams }: { searchParams: Promi
             </div>
             {auto ? <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900">🤖 Suggested from each student’s data (their results on the platform, Placement test, MAP). Move anyone you want, then <b>Save levels</b>. Nothing changes until you save.</p>
               : <p className="mt-2 text-sm text-slate-600">Drag a student to another column (or use ◀ ▶), then <b>Save levels</b>. Students never see these names.</p>}
-            {noData > 0 && <p className="mt-2 rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-900">ℹ️ {noData} student(s) have no data yet, so they start at On Level. Their level will adjust by itself as they work.</p>}
+            {noData > 0 && <p className="mt-2 rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-900">ℹ️ {noData} student(s) have no data yet, so they start at Meeting. Their level will adjust by itself as they work.</p>}
             <div className="mt-3"><LevelBoard students={board} /></div>
             <button className="mt-4 rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">Save levels</button>
           </form>
         </>
       )}
       <form action={saveLexileBandsAction} className="mt-8 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-        <h2 className="text-lg font-bold text-brand-navy">Lexile bands (Below / On / Above Level)</h2>
-        <p className="text-sm text-slate-600">A text (or a student) under the On Level band is Below Level, above it Above Level. Source: {LEXILE_SOURCE}.</p>
+        <h2 className="text-lg font-bold text-brand-navy">Lexile bands (Approaching / Meeting / Exceeding)</h2>
+        <p className="text-sm text-slate-600">A text (or a student) under the Meeting band is Approaching, above it Exceeding. Source: {LEXILE_SOURCE}.</p>
         <table className="mt-3 text-sm">
-          <thead><tr className="text-slate-500"><th className="pe-4 text-left">Grade</th><th className="px-2 text-left">Below Level</th><th className="px-2 text-left">On Level</th><th className="px-2 text-left">Above Level</th></tr></thead>
+          <thead><tr className="text-slate-500"><th className="pe-4 text-left">Grade</th><th className="px-2 text-left">Approaching</th><th className="px-2 text-left">Meeting</th><th className="px-2 text-left">Exceeding</th></tr></thead>
           <tbody>{[4, 5, 6].map((g) => (
             <tr key={g}><td className="pe-4 font-semibold">{g}</td><td className="px-2">&lt; {bands[g].onMin}L</td>
-              <td className="px-2 py-1">{editBands ? <><input name={`min:${g}`} type="number" defaultValue={bands[g].onMin} aria-label={`Grade ${g} On Level from`} className="w-20 rounded-md border border-slate-300 px-2 py-1" />–<input name={`max:${g}`} type="number" defaultValue={bands[g].onMax} aria-label={`Grade ${g} On Level to`} className="w-20 rounded-md border border-slate-300 px-2 py-1" />L</> : `${bands[g].onMin}–${bands[g].onMax}L`}</td>
+              <td className="px-2 py-1">{editBands ? <><input name={`min:${g}`} type="number" defaultValue={bands[g].onMin} aria-label={`Grade ${g} Meeting from`} className="w-20 rounded-md border border-slate-300 px-2 py-1" />–<input name={`max:${g}`} type="number" defaultValue={bands[g].onMax} aria-label={`Grade ${g} Meeting to`} className="w-20 rounded-md border border-slate-300 px-2 py-1" />L</> : `${bands[g].onMin}–${bands[g].onMax}L`}</td>
               <td className="px-2">&gt; {bands[g].onMax}L</td></tr>
           ))}</tbody>
         </table>

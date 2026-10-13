@@ -17,7 +17,7 @@ export async function assignSkillAction(f: FormData): Promise<void> {
   try {
     const levels = Object.fromEntries([...f.keys()].filter((k) => k.startsWith("lv:")).map((k) => [k.slice(3), String(f.get(k) ?? "")]));
     const r = await assignSkillByLevel(repo, actor, { classId, skillId, mode, levels, skip: f.getAll("skip").map(String), dueAt: day(f.get("dueAt")), note: String(f.get("note") ?? "") || null, max: Number(f.get("max") ?? 20) || 20, program: programOf(f.get("program")), questionIds: parseQuestionIdsField(f.get("questionIds")) });
-    const parts = r.groups.map((g) => `${g.level ? { BELOW: "Below", ON: "On", ABOVE: "Above" }[g.level] + ": " : ""}${g.students} student(s)`);
+    const parts = r.groups.map((g) => `${g.level ? { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" }[g.level] + ": " : ""}${g.students} student(s)`);
     msg = `✅ Assigned. ${parts.join(" · ")}.${r.notes.length ? ` ${r.notes.join(" ")}` : ""}`;
   } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = e.message; else throw e; }
   redirect(`/teacher/skill-assign?${new URLSearchParams({ classId, skillId, ...(mode === "MANUAL" ? { manual: "1" } : {}), msg })}`);

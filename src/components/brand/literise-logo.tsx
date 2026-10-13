@@ -7,7 +7,7 @@
  * No client code: usable from server and client components.
  */
 export const LITERISE = "Literise";
-export const LITERISE_BARS = ["#9b8bdb", "#a9c4ee", "#2bb3b3", "#f5b800"] as const;
+export const LITERISE_BARS = ["#9b8bdb", "#a9c4ee", "#1fa3a3", "#f2b705"] as const;
 
 /** The four rising bars only (decorative; the wordmark next to it carries the name). */
 export function LiteriseMark({ className = "h-7 w-7" }: { className?: string }) {
@@ -18,7 +18,7 @@ export function LiteriseMark({ className = "h-7 w-7" }: { className?: string }) 
   );
 }
 
-const SIZE = { sm: { mark: "h-6 w-6", text: "text-xl" }, md: { mark: "h-8 w-8", text: "text-2xl" }, lg: { mark: "h-10 w-10", text: "text-[2rem]" } } as const;
+const SIZE = { sm: { mark: "h-6 w-6", text: "text-[1.25rem]" }, md: { mark: "h-7 w-7", text: "text-[1.5rem]" }, lg: { mark: "h-9 w-9", text: "text-[1.75rem]" } } as const;
 
 /** Mark + "Literise" in the brand serif. `tone="dark"` = white letters for a dark background; default navy on light. */
 export function LiteriseLogo({ tone = "light", size = "md", className = "" }: { tone?: "light" | "dark"; size?: keyof typeof SIZE; className?: string }) {
@@ -26,7 +26,7 @@ export function LiteriseLogo({ tone = "light", size = "md", className = "" }: { 
   return (
     <span dir="ltr" className={`inline-flex items-center gap-2 ${className}`.trim()}>
       <LiteriseMark className={s.mark} />
-      <span className={`font-display ${s.text} leading-none tracking-tight ${tone === "dark" ? "text-white" : "text-[#1f2a5c]"}`}>{LITERISE}</span>
+      <span className={`font-display ${s.text} leading-none tracking-tight ${tone === "dark" ? "text-white" : "text-ink"}`}>{LITERISE}</span>
     </span>
   );
 }

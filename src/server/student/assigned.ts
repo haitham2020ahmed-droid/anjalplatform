@@ -323,9 +323,13 @@ async function questionSetReport(repo: Repo, a: Row, row: Row, studentId: string
     const order = (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).map((x) => s(x.questionId));
     const st = await adaptiveNext(repo, set, order, s(sessions[0].id), studentId);
     total2 = Math.max(answered, 1);
-    const N = { SUPPORT: "🛟 Support (grade below)", BELOW: "Below", ON: "On", ABOVE: "Above", CHALLENGE: "🚀 Challenge (grade above)" } as const;
-    const lv = st.decision.level;
-    reached = `${st.done ? "Reached" : "Now at"} ${N[lv]}${lv === "SUPPORT" || lv === "CHALLENGE" ? "" : " Level"} (path: ${st.decision.path.map((l) => N[l]).join(" → ")})`;
+    // students never see level words: the result says how far they climbed, not a level name
+    const RANK = { SUPPORT: 0, BELOW: 1, ON: 2, ABOVE: 3, CHALLENGE: 4 } as const;
+    const path = st.decision.path;
+    const climbs = path.slice(1).filter((l, i) => RANK[l] > RANK[path[i]]).length;
+    reached = st.done
+      ? (climbs ? `Finished: you moved up ${climbs} step${climbs === 1 ? "" : "s"} on the way.` : "Finished.")
+      : (climbs ? `In progress: ${climbs} step${climbs === 1 ? "" : "s"} up so far.` : "In progress.");
   }
   const score = total2 ? Math.round((100 * correct) / total2) : 0;
   const status = row.status as Status;

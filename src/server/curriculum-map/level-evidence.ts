@@ -257,7 +257,7 @@ export function nextLevelState(cur: LevelStateLike | null, raw: RawLevel, now: D
   return { state: { ...cur, pending: raw.level, pendingSince, pendingCount }, changed: false, held };
 }
 
-const NAME: Record<Level, string> = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" };
+const NAME: Record<Level, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 export const levelName = (l: Level) => NAME[l];
 
 /**

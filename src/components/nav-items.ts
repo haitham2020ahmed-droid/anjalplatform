@@ -1,4 +1,5 @@
 import type { NavItem } from "./ui/main-nav";
+import type { LineIconName } from "./ui/line-icon";
 import { ADMIN_GROUPS, ADMIN_TOOLS, ALL_TOOLS_HREF } from "./admin-tools";
 
 /** The side-menu group that starts folded for every role (rarely used pages). */
@@ -142,11 +143,22 @@ export function searchablePagesFor(role: string, opts: NavOpts = {}): NavItem[] 
  */
 function adminMenu(): NavItem[] {
   return [
-    { href: "/admin", label: "Home", icon: "🏠" },
-    { href: ALL_TOOLS_HREF, label: "All Admin Tools", icon: "🧰" },
-    ...ADMIN_GROUPS.flatMap((g) => ADMIN_TOOLS.filter((x) => x.menu && x.group === g.key).map((x) => ({ href: x.href, label: x.label, icon: x.icon, group: g.title }))),
+    { href: "/admin", label: "Home", icon: "🏠", line: "home" },
+    { href: ALL_TOOLS_HREF, label: "All Admin Tools", icon: "🧰", line: "tools" },
+    ...ADMIN_GROUPS.flatMap((g) => ADMIN_TOOLS.filter((x) => x.menu && x.group === g.key).map((x) => ({ href: x.href, label: x.label, icon: x.icon, group: g.title, line: ADMIN_LINE[x.href] }))),
   ];
 }
+
+/** The admin menu's calm line icons (Literise D1: no emoji in any menu), by page address. */
+export const ADMIN_LINE: Record<string, LineIconName> = {
+  "/admin/school": "school", "/admin/users": "users", "/teacher/students": "search", "/admin/teachers": "teacher",
+  "/admin/questions": "question", "/admin/skill-links": "layers", "/admin/curriculum-map": "compass", "/admin/readrise": "rise",
+  "/student/readmaster": "star", "/admin/grammar": "words", "/admin/tests": "tests", "/admin/diagnostic": "check",
+  "/teacher/map-center": "target", "/admin/nafs-links": "link", "/admin/levels": "scale", "/teacher/rti-plan": "calendar",
+  "/admin/analytics": "growth", "/admin/term-report": "file", "/admin/report-approvals": "inbox", "/teacher/reports": "chart",
+  "/admin/department": "building", "/admin/ai-dashboard": "sparkle", "/admin/settings": "settings", "/admin/ai-tools": "sparkle",
+  "/admin/backup": "download", "/admin/data-health": "heart", "/admin/data-cleanup": "broom", "/admin/feedback": "chat",
+};
 
 /** The admin tools that are not in the side menu (found by name in the top bar). */
 function adminOffMenu(): NavItem[] {

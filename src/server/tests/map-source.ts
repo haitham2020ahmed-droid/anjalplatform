@@ -28,7 +28,7 @@ const s = (v: unknown) => String(v ?? "");
 export const SECTION_PAGE = 20;
 /** at most this many questions in one test (the test cap, MAX_TEST_QUESTIONS) */
 export const MAX_PICKS = 60;
-const LEVEL_TITLE: Record<QLevel, string> = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" };
+const LEVEL_TITLE: Record<QLevel, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 /** the usual order of the map's categories; any other (new) category follows them, by name */
 const CATEGORY_ORDER: Record<string, number> = { CONCEPT_VOCABULARY: 1, ANALYZE_CRAFT_AND_STRUCTURE: 2, RESPOND_TO_READING: 3 };
 const LEVEL_ORDER: Record<string, number> = { BELOW: 1, ON: 2, ABOVE: 3 };

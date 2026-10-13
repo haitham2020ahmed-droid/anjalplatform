@@ -125,10 +125,10 @@ export async function supportGroups(repo: Repo, actor: Actor, classId: string): 
   // 3. fluency well below the benchmark
   const flu = ids.length ? await repo.findMany("FluencyCheck", { studentId: { in: ids } }) : [];
   const low = ids.map((id) => ({ id, c: flu.filter((f) => s(f.studentId) === id).sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0] })).filter((x) => x.c && fluencyLevel(Number(x.c.wcpm), grade, checkSeason(x.c)) === "BELOW");
-  if (low.length) groups.push({ key: "fluency", kind: "FLUENCY", title: "Reading Fluency", code: `RF.${grade}.4`, why: `Below Level on the fluency rubric (${fluencyRubricText(grade)}, ${SEASON_NAME[fluencySeason()]} norms, Hasbrouck & Tindal 2017)`, students: low.map((x) => ({ id: x.id, name: nm(x.id), detail: normView(grade, Number(x.c!.wcpm), checkSeason(x.c!)).text })), lessonHref: `/teacher/groups/lesson?classId=${classId}&code=${encodeURIComponent(`RF.${grade}.4`)}` });
+  if (low.length) groups.push({ key: "fluency", kind: "FLUENCY", title: "Reading Fluency", code: `RF.${grade}.4`, why: `Approaching on the fluency rubric (${fluencyRubricText(grade)}, ${SEASON_NAME[fluencySeason()]} norms, Hasbrouck & Tindal 2017)`, students: low.map((x) => ({ id: x.id, name: nm(x.id), detail: normView(grade, Number(x.c!.wcpm), checkSeason(x.c!)).text })), lessonHref: `/teacher/groups/lesson?classId=${classId}&code=${encodeURIComponent(`RF.${grade}.4`)}` });
   // 4. the data disagree (MAP says Above, the platform says Below…): look at these levels again
   const conflicts = await levelConflicts(repo, actor, [classId]);
-  if (conflicts.length) groups.push({ key: "check", kind: "CHECK", title: "Check Their Level", code: "", why: "Their data disagree (one source says Above, another Below)", students: conflicts.map((c) => ({ id: c.studentId, name: c.name, detail: `${c.high.source} ↑ · ${c.low.source} ↓` })), lessonHref: `/admin/data-health?classId=${classId}` });
+  if (conflicts.length) groups.push({ key: "check", kind: "CHECK", title: "Check Their Level", code: "", why: "Their data disagree (one source says Exceeding, another Approaching)", students: conflicts.map((c) => ({ id: c.studentId, name: c.name, detail: `${c.high.source} ↑ · ${c.low.source} ↓` })), lessonHref: `/admin/data-health?classId=${classId}` });
   return { className: s(klass.name), grade, groups };
 }
 

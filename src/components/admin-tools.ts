@@ -62,7 +62,7 @@ export const ADMIN_TOOLS: AdminTool[] = [
   { href: "/admin/diagnostic", label: "Diagnostic Test", icon: "🩺", group: "programs", home: true, menu: true, hint: "The placement test and its results", perm: "reports:read" },
   { href: "/teacher/map-center", label: "MAP", icon: "🗺️", group: "programs", home: true, menu: true, hint: "Scores, plans and reports", perm: "reports:read" },
   { href: "/admin/nafs-links", label: "Bank ↔ NAFS", icon: "🪢", group: "programs", home: true, menu: true, hint: "NAFS standards linked to the questions", perm: "curriculum:edit" },
-  { href: "/admin/levels", label: "Below / On / Above", icon: "⚖️", group: "programs", home: true, menu: true, hint: "Levels by grade, class and strand", perm: "analytics:school" },
+  { href: "/admin/levels", label: "Approaching / Meeting / Exceeding", icon: "⚖️", group: "programs", home: true, menu: true, hint: "Levels by grade, class and strand", perm: "analytics:school" },
   { href: "/teacher/rti-plan", label: "RTI Weekly Plan", icon: "🗓", group: "programs", home: true, menu: true, hint: "RTI groups and weekly sessions", perm: "reports:read" },
   { href: "/admin/tiers", label: "Support Tiers", icon: "🪜", group: "programs" },
   { href: "/teacher/map-rit", label: "MAP Scores", icon: "📥", group: "programs", perm: "reports:read" },

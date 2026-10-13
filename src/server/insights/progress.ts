@@ -181,7 +181,7 @@ export async function studentProgress(repo: Repo, actor: Actor, studentId: strin
   })).filter((x) => x.skills.length);
   const pct = row.map?.latest?.percentile ?? null;
   const startLevel: Level = row.level ?? (pct === null ? "ON" : pct < 41 ? "BELOW" : pct > 60 ? "ABOVE" : "ON");
-  const why = row.level ? "The level set for the student (board / their work)." : pct === null ? "No data yet: On Level." : `MAP ${row.map!.latest!.term}: ${pct}th percentile.`;
+  const why = row.level ? "The level set for the student (board / their work)." : pct === null ? "No data yet: Meeting." : `MAP ${row.map!.latest!.term}: ${pct}th percentile.`;
   // history of level changes
   const logs = (await repo.findMany("AuditLog", { entityType: "Student", entityId: studentId, action: "level.change" })).sort((a, b) => time(b.createdAt) - time(a.createdAt)).slice(0, 15);
   const history = logs.map((l) => { const a = (l.after ?? {}) as Record<string, unknown>, b = (l.before ?? {}) as Record<string, unknown>; return { at: new Date(time(l.createdAt)).toISOString(), category: a.category ? s(a.category) : null, from: b.level ? s(b.level) : null, to: s(a.level), source: s(a.source), outcome: s(a.outcome) }; });
@@ -238,7 +238,7 @@ export async function teacherAlerts(repo: Repo, actor: Actor, now = new Date()):
   const rtr = await repo.findMany("RespondAssignmentStudent", { studentId: { in: ids }, finishedAt: null });
   const ra = rtr.length ? await repo.findMany("RespondAssignment", { id: { in: [...new Set(rtr.map((r) => s(r.assignmentId)))] }, deletedAt: null }) : [];
   for (const r of rtr) { const a = ra.find((x) => x.id === r.assignmentId); if (!a?.dueAt || time(a.dueAt) >= now.getTime() || time(a.dueAt) < now.getTime() - 30 * 86_400_000) continue; const c = count.get(s(r.studentId)) ?? { n: 0, title: s(a.title), at: time(a.dueAt) }; c.n++; count.set(s(r.studentId), c); }
-  for (const [id, c] of count) out.push({ kind: "NOT_STARTED", studentId: id, name: nameOf(id), className: classOf.get(id) ?? "", detail: c.n === 1 ? `Did not start “${c.title.replace(/\s*\((?:adaptive[^)]*|(?:Below|On|Above) Level)\)/g, "")}” by its due date.` : `${c.n} tasks not started by their due date.`, at: new Date(c.at).toISOString() });
+  for (const [id, c] of count) out.push({ kind: "NOT_STARTED", studentId: id, name: nameOf(id), className: classOf.get(id) ?? "", detail: c.n === 1 ? `Did not start “${c.title.replace(/\s*\((?:adaptive[^)]*|(?:Below|On|Above) Level|Approaching|Meeting|Exceeding)\)/g, "")}” by its due date.` : `${c.n} tasks not started by their due date.`, at: new Date(c.at).toISOString() });
   const order: Record<AlertKind, number> = { AT_RISK: 0, DROPPED: 1, NOT_STARTED: 2 };
   return out.sort((a, b) => order[a.kind] - order[b.kind] || a.name.localeCompare(b.name));
 }

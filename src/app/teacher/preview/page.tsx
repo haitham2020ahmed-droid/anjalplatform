@@ -11,7 +11,7 @@ import { LEVELS, previewWork, type PreviewView } from "@/server/teacher/preview"
 import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Preview" };
-const NAME = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" } as const;
+const NAME = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" } as const;
 
 /** 👀 What each level will see — switch Below / On / Above; print or save as PDF. */
 export default async function PreviewPage({ searchParams }: { searchParams: Promise<{ code?: string; skillId?: string; level?: string; key?: string; msg?: string; test?: string }> }) {

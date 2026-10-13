@@ -102,8 +102,8 @@ describe("report kit · rendering", () => {
 
   test("BandBar and Legend: colour + mark + words + count + %; an accessible text for the whole bar", () => {
     const out = html(h(BandBar, { label: "Levels", parts: [{ key: "BELOW", value: 46 }, { key: "ON", value: 63 }, { key: "ABOVE", value: 91 }] }));
-    assert.match(out, /role="img" aria-label="Levels: Below Level 46 \(23%\), On Level 63 \(32%\), Above Level 91 \(45%\)"/);
-    for (const w of ["Below Level", "On Level", "Above Level", "▼", "●", "▲"]) assert.ok(out.includes(w), w);
+    assert.match(out, /role="img" aria-label="Levels: Approaching 46 \(23%\), Meeting 63 \(32%\), Exceeding 91 \(45%\)"/);
+    for (const w of ["Approaching", "Meeting", "Exceeding", "▼", "●", "▲"]) assert.ok(out.includes(w), w);
     const lg = html(h(Legend, { parts: [{ key: "T1", value: 15 }, { key: "T3", value: 25 }] }));
     assert.match(lg, /Tier 1/); assert.match(lg, /15 \(38%\)/);
   });
@@ -181,7 +181,7 @@ describe("report pages wear the kit and keep their loaders", () => {
     assert.ok(g > 0 && g < k && k < w, "en.ts: games (part 1) → report kit → wave-1");
     assert.ok(arSrc.indexOf("// ---- games (part 1)") < arSrc.indexOf("// ---- report kit"));
     assert.equal(new Set(UI_STRINGS).size, UI_STRINGS.length, "no duplicate interface strings");
-    for (const s of ["What this means", "Next step", "Who needs help", "At a glance", "Printed {date}", "Below", "Tier 3", "Last {n} days", "Median ReadRise Level"]) {
+    for (const s of ["What this means", "Next step", "Who needs help", "At a glance", "Printed {date}", "Approaching", "Tier 3", "Last {n} days", "Median ReadRise Level"]) {
       assert.ok((UI_STRINGS as readonly string[]).includes(s), s);
       assert.match(ar[s as keyof typeof ar], /[؀-ۿ]/, `${s} has Arabic`);
     }
@@ -210,12 +210,12 @@ describe("loader equivalence (Test School)", () => {
     const out = html(h(AtAGlance, { items: [
       { label: "Practised", value: `${g1.summary.practised} / ${g1.summary.students}` },
       { label: "On track", value: String(p1.summary.onTrack) },
-      { label: "Below Level", value: `${l1.overall.pctNow.below ?? 0}%` },
+      { label: "Approaching the standard", value: `${l1.overall.pctNow.below ?? 0}%` },
     ] }));
     assert.ok(out.includes(`${g1.summary.practised} / ${g1.summary.students}`));
     assert.ok(out.includes(`>${p1.summary.onTrack}<`));
     assert.ok(out.includes(`${l1.overall.pctNow.below ?? 0}%`));
     const bar = html(h(BandBar, { parts: [{ key: "BELOW", value: l1.overall.now.below }, { key: "ON", value: l1.overall.now.on }, { key: "ABOVE", value: l1.overall.now.above }] }));
-    assert.ok(bar.includes(`Below Level ${l1.overall.now.below} (`), "the counts are the loader's");
+    assert.ok(bar.includes(`Approaching ${l1.overall.now.below} (`), "the counts are the loader's");
   });
 });

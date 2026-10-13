@@ -29,7 +29,7 @@ export default async function LearningEnginePage({ searchParams }: { searchParam
         <span className="text-sm text-slate-600">Last update: {o.lastRun ? o.lastRun.day : "never"}</span>
       </form>
       <section className="grid gap-4 md:grid-cols-4">
-        <div className={box}><p className="text-xs text-slate-500">Student profiles</p><p className="text-2xl font-extrabold text-brand-navy">{o.profiles.total}</p><p className="text-xs text-slate-600">{o.profiles.below} Below · {o.profiles.on} On · {o.profiles.above} Above · {o.profiles.unknown} no data</p></div>
+        <div className={box}><p className="text-xs text-slate-500">Student profiles</p><p className="text-2xl font-extrabold text-brand-navy">{o.profiles.total}</p><p className="text-xs text-slate-600">{o.profiles.below} Approaching · {o.profiles.on} Meeting · {o.profiles.above} Exceeding · {o.profiles.unknown} no data</p></div>
         <div className={box}><p className="text-xs text-slate-500">🔮 Low chance of the MAP goal</p><p className="text-2xl font-extrabold text-red-700">{o.profiles.atRisk}</p><p className="text-xs text-slate-600">students under 40% (next MAP term)</p></div>
         <div className={box}><p className="text-xs text-slate-500">Wrong options with a misconception</p><p className="text-2xl font-extrabold text-brand-navy">{pct(o.options.tagged, o.options.wrong)}</p><p className="text-xs text-slate-600">{o.options.tagged} of {o.options.wrong}</p></div>
         <div className={box}><p className="text-xs text-slate-500">Skill prerequisites</p><p className="text-2xl font-extrabold text-brand-navy">{o.prerequisites}</p><p className="text-xs text-slate-600">practice sends a stuck student to the skill underneath</p></div>

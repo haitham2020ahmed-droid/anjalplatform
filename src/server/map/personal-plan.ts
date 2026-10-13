@@ -45,9 +45,9 @@ export interface PlanBand {
 export interface PersonalPlan { classId: string; className: string; grade: number; teacher: string; subject: "READING" | "LANGUAGE"; term: string | null; bands: PlanBand[]; notTested: string[] }
 
 const RESOURCES: Record<Band, string[]> = {
-  BELOW: ["🔁 Adaptive practice starting at Below Level, with the 🛟 support path (same skill, grade below)", "⭐ ReadMaster Below versions at the student's Lexile, with 🔊 Listen", "Small-group re-teaching of the goal skills; personalized worksheets"],
-  ON: ["🔁 Adaptive practice On → Above Level", "⭐ ReadMaster On-level versions; 🎮 Live games for review", "Quizzes and personalized worksheets on the goal skills"],
-  ABOVE: ["🔁 Adaptive practice Above Level with the 🚀 challenge path (same skill, grade above)", "⭐ ReadMaster Above versions; extension texts", "Peer leaders in 🎮 Live games; independent projects"],
+  BELOW: ["🔁 Adaptive practice starting at Approaching, with the 🛟 support path (same skill, grade below)", "⭐ ReadMaster Approaching versions at the student's Lexile, with 🔊 Listen", "Small-group re-teaching of the goal skills; personalized worksheets"],
+  ON: ["🔁 Adaptive practice Meeting → Exceeding", "⭐ ReadMaster Meeting versions; 🎮 Live games for review", "Quizzes and personalized worksheets on the goal skills"],
+  ABOVE: ["🔁 Adaptive practice at Exceeding with the 🚀 challenge path (same skill, grade above)", "⭐ ReadMaster Exceeding versions; extension texts", "Peer leaders in 🎮 Live games; independent projects"],
 };
 const MONITORING = ["Platform: mastery and the adaptive path of each assignment (reports)", "Quizzes and personalized worksheets", "MAP Winter results against the Spring projection"];
 

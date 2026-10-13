@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { LearningPath } from "@/server/student/learning-path";
 
-const RUNG: Record<string, [string, string]> = { SUPPORT: ["🛟", "Support"], BELOW: ["🟠", "Below"], ON: ["🔵", "On"], ABOVE: ["🟢", "Above"], CHALLENGE: ["🚀", "Challenge"] };
+const RUNG: Record<string, [string, string]> = { SUPPORT: ["🛟", "Support"], BELOW: ["🟠", "Approaching"], ON: ["🔵", "Meeting"], ABOVE: ["🟢", "Exceeding"], CHALLENGE: ["🚀", "Challenge"] };
 const SRC: Record<string, string> = { MAP_RIT: "MAP scores", TEACHER: "the teacher", PLACEMENT: "the Diagnostic Test", ADAPTIVE: "an adaptive set" };
 const OUT: Record<string, string> = { CHANGED: "", KEPT_TEACHER: "kept the teacher's level (suggestion only)", TOO_FEW_ANSWERS: "not changed: too few answers", PENDING: "not changed yet: waits for a second set to confirm" };
 const day = (v: string) => (v ? new Date(v).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "");
@@ -21,7 +21,7 @@ export function LearningPathView({ p, classId }: { p: LearningPath; classId: str
       </div>
       <div className="mt-4 grid gap-3 sm:grid-cols-3">
         <div className="rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200"><p className="text-xs text-slate-500">Overall level</p>
-          <p className="mt-1 text-2xl font-extrabold text-brand-navy">{p.level ? r(p.level.level) : "On (default)"}</p>
+          <p className="mt-1 text-2xl font-extrabold text-brand-navy">{p.level ? r(p.level.level) : "Meeting (default)"}</p>
           {p.level && <p className="text-xs text-slate-500">from {SRC[p.level.source] ?? p.level.source} · {day(p.level.at)}</p>}
           {p.categories.length > 0 && <ul className="mt-2 space-y-0.5 border-t border-slate-200 pt-2 text-xs">{p.categories.map((c) => <li key={c.category} className="flex justify-between gap-2"><span className="text-slate-600">{c.name}</span><b>{r(c.level)}</b></li>)}</ul>}
           <p className="mt-1 text-[11px] text-slate-500">A set starts at the teacher's recent choice, else the category level, else placement / MAP.</p></div>

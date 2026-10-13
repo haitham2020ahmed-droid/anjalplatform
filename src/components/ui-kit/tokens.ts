@@ -50,7 +50,9 @@ export function workStatus(v: string | null | undefined): WorkStatus {
 /** Shared sizes: smaller, lighter buttons (14px text), still at least 40px tall for fingers on iPad / phone. */
 export const BTN = "inline-flex min-h-10 items-center justify-center gap-2 rounded-xl px-3.5 py-1.5 text-sm font-semibold transition hover:-translate-y-px active:translate-y-0 active:scale-[.98] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-brand-teal motion-reduce:hover:translate-y-0";
 /** the ONE main action of a page (navy, soft glow) */
-export const BTN_PRIMARY = `${BTN} bg-brand-navy text-white shadow-btn hover:bg-[#25467c]`;
+export const BTN_PRIMARY = `${BTN} bg-brand-navy text-white shadow-btn hover:brightness-110`;
+/** the saffron action on a navy card (the student home's Continue / Start): navy text on saffron, both day and night */
+export const BTN_ACCENT = `${BTN} bg-accent text-on-accent font-bold shadow-sm hover:brightness-105`;
 /** every other action: white with a thin outline */
-export const BTN_SECONDARY = `${BTN} bg-white text-brand-navy shadow-sm ring-1 ring-slate-300 hover:bg-slate-50 hover:ring-brand-teal`;
-export const CARD = "rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6";
+export const BTN_SECONDARY = `${BTN} bg-surface text-ink shadow-sm ring-1 ring-line hover:bg-surface-2 hover:ring-brand-teal`;
+export const CARD = "rounded-[1.25rem] bg-surface p-5 shadow-card ring-1 ring-line sm:p-6";

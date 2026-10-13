@@ -115,7 +115,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
       </form>
 
       <nav className="mt-3 flex flex-wrap gap-2" aria-label={t("Question source")}>
-        {([["", "🏦 Question Bank", "Skill + level (Below / On / Above), for every grade"], ["map", "🧭 Curriculum Map", "Grade → Unit → Lesson"]] as const).map(([v, label, hint]) => {
+        {([["", "🏦 Question Bank", "Skill + level (Approaching / Meeting / Exceeding), for every grade"], ["map", "🧭 Curriculum Map", "Grade → Unit → Lesson"]] as const).map(([v, label, hint]) => {
           const on = (sp.source ?? "") === v;
           return <Link key={v || "bank"} href={qs({ source: v || undefined, page: undefined })} aria-current={on ? "page" : undefined} title={t(hint)} className={`rounded-xl px-4 py-2 text-sm font-semibold ${on ? "bg-brand-teal text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{t(label)}</Link>;
         })}

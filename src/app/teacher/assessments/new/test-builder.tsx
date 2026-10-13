@@ -18,13 +18,13 @@ const TYPES: { id: TestType; label: string }[] = [
   { id: "NAFS", label: "NAFS" }, { id: "MAP", label: "MAP" }, { id: "DIAGNOSTIC", label: "Diagnostic" },
   { id: "WEEKLY_QUIZ", label: "Weekly Quiz" }, { id: "CHAPTER_TEST", label: "Chapter Test" }, { id: "CUSTOM", label: "+ Custom" },
 ];
-const VERSION_NAME: Record<string, string> = { SAME: "Questions", BELOW: "Below Level version", ON: "On Level version", ABOVE: "Above Level version" };
+const VERSION_NAME: Record<string, string> = { SAME: "Questions", BELOW: "Approaching version", ON: "Meeting version", ABOVE: "Exceeding version" };
 const defaultMode = (t: TestType): LevelMode => (t === "WEEKLY_QUIZ" ? "LEVEL" : "SAME");
 const btn = "inline-flex min-h-11 items-center justify-center rounded-xl px-5 font-semibold";
 const MAX_QUESTIONS = 60;
 /** two decimals: 3.33, 2.5 */
 const round2 = (n: number) => Math.round(n * 100) / 100;
-const LEVEL_SHORT: Record<string, string> = { BELOW: "Below", ON: "On", ABOVE: "Above" };
+const LEVEL_SHORT: Record<string, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 const move = <T,>(l: T[], i: number, d: -1 | 1): T[] => { const j = i + d; if (j < 0 || j >= l.length) return l; const n = [...l]; [n[i], n[j]] = [n[j], n[i]]; return n; };
 
 type Template = { id: string; title: string; type: TestType; spec: TemplateSpec } | null;
@@ -344,7 +344,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
             <fieldset>
               <legend className="font-semibold text-slate-700">{t("Question level")}</legend>
               <label className="mt-2 flex min-h-11 items-center gap-2"><input type="radio" name="level" checked={levelMode === "SAME"} onChange={() => { setLevelMode("SAME"); setPreview(null); }} className="h-5 w-5" /> {t("Same for all")}</label>
-              <label className="mt-2 flex min-h-11 items-center gap-2"><input type="radio" name="level" checked={levelMode === "LEVEL"} onChange={() => { setLevelMode("LEVEL"); setPreview(null); }} className="h-5 w-5" /> {t("At each student's level (Below / On / Above)")}</label>
+              <label className="mt-2 flex min-h-11 items-center gap-2"><input type="radio" name="level" checked={levelMode === "LEVEL"} onChange={() => { setLevelMode("LEVEL"); setPreview(null); }} className="h-5 w-5" /> {t("At each student's level (Approaching / Meeting / Exceeding)")}</label>
             </fieldset>
             <div className="grid gap-3">
               <label className="font-semibold text-slate-700">{t("Open date")}<input type="date" value={openAt} onChange={(e) => setOpenAt(e.target.value)} className="mt-1 block min-h-11 rounded-xl px-3 font-normal ring-1 ring-slate-300" /></label>

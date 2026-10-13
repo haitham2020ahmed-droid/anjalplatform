@@ -9,9 +9,12 @@ import type { Repo } from "../seeding/repo";
 import type { Actor } from "../auth/rbac";
 import { navCountsCached, type NavCount } from "../teacher/week-plan";
 import { studentMenuFlagsCached, type StudentMenuFlags } from "../student/menu-flags";
+import { canSeeNafsCached } from "../teacher/nafs-access";
 
 export const shellData = cache(async (repo: Repo, actor: Actor): Promise<[Record<string, NavCount> | null, StudentMenuFlags | null]> => {
   const sid = actor.role === "STUDENT" ? actor.studentId : undefined;
+  // a teacher's NAFS menu flag: started here too (same request-cached promise AppShell asks for), not after the counts
+  if (actor.role === "TEACHER") void canSeeNafsCached(repo, actor).catch(() => false);
   return Promise.all([
     navCountsCached(repo, actor).catch(() => null),
     sid ? studentMenuFlagsCached(repo, sid).catch(() => null) : Promise.resolve(null),

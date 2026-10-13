@@ -3,7 +3,8 @@ import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { ensureReadRiseLibrary } from "@/server/readrise/seed";
+import { readRiseLibraryStatus, startReadRiseLibraryLoad } from "@/server/readrise/seed";
+import { getT } from "@/i18n/server";
 import { listLibrary } from "@/server/readrise/library";
 import { LibraryView, libraryFilters } from "./_components/library-view";
 import { ADMIN_TABS, ReadRiseTabs } from "./_components/tabs";
@@ -14,15 +15,16 @@ export const metadata = { title: "ReadRise library" };
 /** 🚀 ReadRise (admin): the article library — platform articles (hide / show for the school) and the school's own. */
 export default async function ReadRiseLibraryAdmin({ searchParams }: { searchParams: Promise<{ topic?: string; status?: string; source?: string; q?: string; msg?: string }> }) {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:read" });
-  // first visit after a deploy loads the platform library; problems are SHOWN to the admin (never silently swallowed)
-  const seed = await ensureReadRiseLibrary(repo).then((r) => ({ report: r, error: null as string | null })).catch((e: Error) => ({ report: null, error: String(e?.message ?? e).slice(0, 400) }));
+  // new article files of a deploy load in the BACKGROUND (the page never waits); problems are SHOWN to the admin
+  startReadRiseLibraryLoad(repo);
+  const status = readRiseLibraryStatus(repo);
+  const seed = { report: status.last, error: status.error };
   const dir = join(process.cwd(), "data", "readrise", "articles");
   const fileCount = existsSync(dir) ? readdirSync(dir).filter((n) => n.endsWith(".json")).length : 0;
-  const platformCount = (await repo.findMany("RRArticle", { schoolId: null, deletedAt: null }, { select: ["id"] })).length;
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const f = libraryFilters(sp);
-  const { items, topics } = await listLibrary(repo, actor, f);
+  const [platformCount, { items, topics }, { t }] = await Promise.all([repo.count("RRArticle", { schoolId: null, deletedAt: null }), listLibrary(repo, actor, f), getT()]);
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/admin", label: "Admin" }} icon="🚀" title="ReadRise Library"
@@ -33,6 +35,7 @@ export default async function ReadRiseLibraryAdmin({ searchParams }: { searchPar
       {platformCount < fileCount || fileCount === 0 || seed.error || (seed.report?.skipped.length ?? 0) > 0 ? (
         <div role="alert" className="mb-5 rounded-2xl bg-amber-50 px-5 py-4 text-amber-950 ring-1 ring-amber-200">
           <p className="font-semibold">Platform library: {platformCount} of {fileCount} articles loaded.</p>
+          {status.loading && <p className="mt-1 text-sm" role="status">{status.pending ? t("Loading {n} new articles in the background. Reload this page in a minute to see them.", { n: status.pending }) : t("Loading new articles in the background. Reload this page in a minute to see them.")}</p>}
           {fileCount === 0 && <p className="mt-1 text-sm">The article files were not found on the server (data/readrise/articles). Check that the deploy includes the data folder.</p>}
           {seed.error && <p className="mt-1 text-sm">Loading failed: <span dir="ltr" className="font-mono">{seed.error}</span></p>}
           {(seed.report?.skipped ?? []).slice(0, 5).map((x) => <p key={x.file} className="mt-1 text-sm" dir="ltr">{x.file}: {x.problems.slice(0, 2).join("; ")}</p>)}

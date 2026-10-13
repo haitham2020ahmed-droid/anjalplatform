@@ -45,7 +45,7 @@ export type TestType = (typeof TEST_TYPES)[number];
 export const TEST_TYPE_NAME: Record<TestType, string> = { NAFS: "NAFS", MAP: "MAP", DIAGNOSTIC: "Diagnostic", WEEKLY_QUIZ: "Weekly Quiz", CHAPTER_TEST: "Chapter Test", CUSTOM: "Other" };
 export type LevelMode = "SAME" | "LEVEL";
 export const LEVELS: QLevel[] = ["BELOW", "ON", "ABOVE"];
-export const LEVEL_NAME: Record<QLevel, string> = { BELOW: "Below Level", ON: "On Level", ABOVE: "Above Level" };
+export const LEVEL_NAME: Record<QLevel, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 /** A skill scored under this (percent) goes back to the student's My Work with Reteach. */
 export const RETEACH_PCT = 70;
 export const MAX_PER_SKILL = 20;

@@ -457,8 +457,8 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
       try { lexile = cleanLexile(r.cells.lexile); } catch (e) { errors.push((e as Error).message); }
       if (lexile !== null && place?.node?.level) {
         const lv = levelForLexile(bands[place.node.grade], lexile);
-        const LN = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
-        if (lv && lv !== place.node.level) warnings.push(`Lexile ${lexile}L is in the ${LN[lv]} Level band for Grade ${place.node.grade} (On Level ${bands[place.node.grade].onMin}–${bands[place.node.grade].onMax}L), but the question is placed at ${LN[place.node.level]} Level.`);
+        const LN = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
+        if (lv && lv !== place.node.level) warnings.push(`Lexile ${lexile}L is in the ${LN[lv]} band for Grade ${place.node.grade} (Meeting ${bands[place.node.grade].onMin}–${bands[place.node.grade].onMax}L), but the question is placed at ${LN[place.node.level]}.`);
       }
       const c = r.cells;
       const extras = { ...(c.mapArea?.trim() ? { mapArea: c.mapArea.trim(), mapTest: c.mapTest?.trim() || null } : {}), ...(c.dok?.trim() ? { dok: c.dok.trim() } : {}), ...(c.domain?.trim() ? { domain: c.domain.trim() } : {}), ...(c.passageTitle?.trim() ? { passageTitle: c.passageTitle.trim() } : {}) };

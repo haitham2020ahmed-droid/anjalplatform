@@ -8,4 +8,4 @@ export { TileGroup } from "./tile-group";
 export { StickyHome } from "./sticky-home";
 export { LangSwitch } from "./lang-switch";
 export { FirstLoginTour, TourButton, TOUR_STEPS, tourStepsFor, type TourStep } from "./first-login-tour";
-export { TAG_STYLE, STATUS_STYLE, tagKey, workStatus, BTN, BTN_PRIMARY, BTN_SECONDARY, CARD, type SourceKey, type TestTypeKey, type TagKey, type WorkStatus } from "./tokens";
+export { TAG_STYLE, STATUS_STYLE, tagKey, workStatus, BTN, BTN_PRIMARY, BTN_SECONDARY, BTN_ACCENT, CARD, type SourceKey, type TestTypeKey, type TagKey, type WorkStatus } from "./tokens";

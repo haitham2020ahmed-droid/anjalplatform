@@ -7,7 +7,7 @@ import { PERIODS, PERIOD_LABEL, type Period } from "@/server/diagnostic/test";
 const flag = (met: boolean) => (met ? "bg-emerald-50 text-emerald-800 ring-emerald-200" : "bg-rose-50 text-rose-800 ring-rose-200");
 const fmtDelta = (x: number | null | undefined) => (x === null || x === undefined ? "—" : `${x > 0 ? "+" : ""}${x}`);
 const deltaColor = (x: number | null | undefined) => (x === null || x === undefined ? "text-slate-500" : x > 0 ? "text-emerald-700" : x < 0 ? "text-rose-700" : "text-slate-700");
-const LEVEL_NAME = { ABOVE: "Above", ON: "On", BELOW: "Below" } as const;
+const LEVEL_NAME = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
 
 /** 🎯 Benchmark categories of a class: raw + %, the 80% target, and a reteach link for each weak category. */
 export function BenchmarkPanel({ b }: { b: ClassBenchmark }) {
@@ -89,7 +89,7 @@ export function ClassGrowthPanel({ g }: { g: ClassGrowth }) {
           {PERIODS.map((p) => (
             <div key={p} className={`rounded-2xl p-4 ring-1 ${g.levels[p] ? "bg-slate-50 ring-slate-200" : "bg-slate-50/50 ring-slate-100 text-slate-400"}`}>
               <p className="text-sm font-semibold">{p} · {PERIOD_LABEL[p]}</p>
-              {g.levels[p] ? <><p className="text-2xl font-bold tabular-nums text-brand-navy">{g.mean[p] ?? "—"}</p><p className="text-xs">Below {g.levels[p]!.BELOW} · On {g.levels[p]!.ON} · Above {g.levels[p]!.ABOVE}</p></> : <p className="text-sm">Not taken yet</p>}
+              {g.levels[p] ? <><p className="text-2xl font-bold tabular-nums text-brand-navy">{g.mean[p] ?? "—"}</p><p className="text-xs">Approaching {g.levels[p]!.BELOW} · Meeting {g.levels[p]!.ON} · Exceeding {g.levels[p]!.ABOVE}</p></> : <p className="text-sm">Not taken yet</p>}
             </div>
           ))}
         </div>
@@ -137,7 +137,7 @@ export function StudentGrowthPanel({ g }: { g: StudentGrowth & { year: string; s
     <section aria-labelledby="sgrowth-h" className="mx-auto mb-5 max-w-4xl rounded-3xl bg-white p-5 ring-1 ring-slate-200">
       <h2 id="sgrowth-h" className="text-lg font-bold text-brand-navy">📈 Growth this year ({g.year})</h2>
       <ul className="mt-3 grid gap-2 sm:grid-cols-3">
-        {PERIODS.map((p) => <li key={p} className="rounded-xl bg-slate-50 p-3 text-center ring-1 ring-slate-200"><p className="text-xs font-semibold text-slate-600">{p} · {PERIOD_LABEL[p]}</p><p className="text-xl font-bold tabular-nums text-brand-navy">{g.scores[p]?.pct ?? "—"}</p><p className="text-xs text-slate-600">{g.scores[p] ? `${LEVEL_NAME[g.scores[p]!.level]} level` : "Not taken"}</p></li>)}
+        {PERIODS.map((p) => <li key={p} className="rounded-xl bg-slate-50 p-3 text-center ring-1 ring-slate-200"><p className="text-xs font-semibold text-slate-600">{p} · {PERIOD_LABEL[p]}</p><p className="text-xl font-bold tabular-nums text-brand-navy">{g.scores[p]?.pct ?? "—"}</p><p className="text-xs text-slate-600">{g.scores[p] ? LEVEL_NAME[g.scores[p]!.level] : "Not taken"}</p></li>)}
       </ul>
       {periods.length >= 2 ? (
         <>

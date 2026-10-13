@@ -286,7 +286,7 @@ describe("Arabic interface strings for every wave-1 page", () => {
   test("labels the pages translate at run time (plan types, test types, review kinds, player labels, sources)", () => {
     const want = [
       ...PLAN_TYPES.flatMap((p) => [p.label, p.text]), ...Object.values(TEST_TYPE_NAME), ...Object.values(KIND_LABEL),
-      "Below Level version", "On Level version", "Above Level version", "All", "Reading", "Grammar", "Vocabulary",
+      "Approaching version", "Meeting version", "Exceeding version", "All", "Reading", "Grammar", "Vocabulary",
       "Curriculum", "MAP", "NAFS", "RTI", "Custom", "Chosen by the teacher", "Added by the teacher",
       "This grade has no curriculum yet — you can still assign skills from any grade.",
       "Listen", "Stop", "Slow", "Normal", "Follow along", "Voice", "Reading speed",

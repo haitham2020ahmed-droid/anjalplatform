@@ -24,7 +24,7 @@ export default async function BuildDiagnosticPage({ searchParams }: { searchPara
   );
   const formField = (
     <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Form (MOY / EOY)
-      <select name="form" defaultValue="full" className={box}><option value="full">Full — every skill</option><option value="focus">Focus — each student re-tests the strands still Below or borderline</option></select>
+      <select name="form" defaultValue="full" className={box}><option value="full">Full — every skill</option><option value="focus">Focus — each student re-tests the strands still Approaching or borderline</option></select>
     </label>
   );
   return (

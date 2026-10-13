@@ -41,7 +41,7 @@ export function answerText(v: unknown): string {
   try { return (JSON.stringify(v) ?? "").slice(0, 60); } catch { return ""; }
 }
 
-export type GroupName = "Intervention" | "Developing" | "On level" | "Advanced";
+export type GroupName = "Intervention" | "Developing" | "Meeting" | "Advanced";
 
 /**
  * Automatic grouping from an ability θ (0 = grade level) when available, otherwise average mastery of
@@ -52,13 +52,13 @@ export function groupFor(globalTheta: number | null, avgMastery: number | null):
   if (globalTheta !== null) {
     if (globalTheta < -1) return "Intervention";
     if (globalTheta < -0.35) return "Developing";
-    if (globalTheta <= 0.75) return "On level";
+    if (globalTheta <= 0.75) return "Meeting";
     return "Advanced";
   }
   if (avgMastery === null) return null;
   if (avgMastery < 40) return "Intervention";
   if (avgMastery < 60) return "Developing";
-  if (avgMastery < 85) return "On level";
+  if (avgMastery < 85) return "Meeting";
   return "Advanced";
 }
 
@@ -117,7 +117,7 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   const diag = ids.length ? await repo.findMany("DiagnosticScore", { studentId: { in: ids } }, { select: ["studentId", "level", "pct", "completedAt"] }) : [];
   const diagOf = new Map<string, Row>();
   for (const x of diag) { const cur = diagOf.get(String(x.studentId)); if (!cur || ms(x.completedAt) > ms(cur.completedAt)) diagOf.set(String(x.studentId), x); }
-  const DIAG_LEVEL: Record<string, string> = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" };
+  const DIAG_LEVEL: Record<string, string> = { ABOVE: "Exceeding the standard", ON: "Meeting the standard", BELOW: "Approaching the standard" };
   const inRange = attempts.filter((a) => ms(a.createdAt) <= range.to.getTime());
   const skillIds = [...new Set(mastery.map((m) => String(m.skillId)))];
   const byQ = new Map<string, Row[]>();
@@ -155,7 +155,7 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
     };
   }).sort((x, y) => x.name.localeCompare(y.name));
 
-  const groups: Record<GroupName, string[]> = { Intervention: [], Developing: [], "On level": [], Advanced: [] };
+  const groups: Record<GroupName, string[]> = { Intervention: [], Developing: [], Meeting: [], Advanced: [] };
   for (const s of students) if (s.group) groups[s.group].push(s.name);
 
   const bySkill = new Map<string, number[]>();

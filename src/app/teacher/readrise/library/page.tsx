@@ -1,7 +1,7 @@
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { ensureReadRiseLibrary } from "@/server/readrise/seed";
+import { startReadRiseLibraryLoad } from "@/server/readrise/seed";
 import { listLibrary } from "@/server/readrise/library";
 import { LibraryView, libraryFilters } from "@/app/admin/readrise/_components/library-view";
 import { ReadRiseTabs, TEACHER_TABS } from "@/app/admin/readrise/_components/tabs";
@@ -12,7 +12,7 @@ export const metadata = { title: "ReadRise library" };
 /** 🚀 ReadRise (teacher): published articles plus the teacher's own drafts; open one to review or assign it. */
 export default async function ReadRiseLibraryTeacher({ searchParams }: { searchParams: Promise<{ topic?: string; status?: string; source?: string; q?: string; msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:read" });
-  await ensureReadRiseLibrary(repo).catch(() => null); // first visit after a deploy loads the platform library
+  startReadRiseLibraryLoad(repo); // new article files of a deploy load in the background — the page never waits for them
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const f = libraryFilters(sp);

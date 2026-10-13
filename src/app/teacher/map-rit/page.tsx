@@ -89,7 +89,7 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
           {v.classId && (
             <form action={levelsFromRitAction} className="mt-4">
               <input type="hidden" name="classId" value={v.classId} /><input type="hidden" name="term" value={v.term ?? ""} />
-              <button className="rounded-xl bg-amber-100 px-4 py-2 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">🎯 Set student levels from the class average (Above / On / Below)</button>
+              <button className="rounded-xl bg-amber-100 px-4 py-2 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">🎯 Set student levels from the class average (Exceeding / Meeting / Approaching)</button>
             </form>
           )}
         </>

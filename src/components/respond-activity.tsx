@@ -1,9 +1,9 @@
 import type { RespondActivityView, RespondLevel } from "@/server/curriculum-map/respond";
 
 const TONE: Record<RespondLevel, { ring: string; head: string; icon: string; name: string }> = {
-  BELOW: { ring: "ring-orange-200", head: "bg-orange-50 text-orange-900", icon: "🟠", name: "Below Level" },
-  ON: { ring: "ring-sky-200", head: "bg-sky-50 text-sky-900", icon: "🔵", name: "On Level" },
-  ABOVE: { ring: "ring-emerald-200", head: "bg-emerald-50 text-emerald-900", icon: "🟢", name: "Above Level" },
+  BELOW: { ring: "ring-orange-200", head: "bg-orange-50 text-orange-900", icon: "🟠", name: "Approaching the standard" },
+  ON: { ring: "ring-sky-200", head: "bg-sky-50 text-sky-900", icon: "🔵", name: "Meeting the standard" },
+  ABOVE: { ring: "ring-emerald-200", head: "bg-emerald-50 text-emerald-900", icon: "🟢", name: "Exceeding the standard" },
 };
 
 /** ✍️ One Respond to Reading activity: prompt, steps, word bank, sentence starters, checklist, hidden hint. */

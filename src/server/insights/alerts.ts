@@ -33,7 +33,7 @@ export const ALERT_INFO: Record<AlertKind, { icon: string; title: string; tip: s
   NO_PRACTICE: { icon: "💤", title: "No practice for 7 days", tip: "Check in with the student; a short task to restart." },
   DECLINING: { icon: "📉", title: "Declining", tip: "Their recent answers are clearly weaker than before: check in with the student, look at the skills that fell, and give support now." },
   INVALID_TEST: { icon: "⚡", title: "Invalid result — re-test", tip: "Too many answers were too fast to read: the result is not used for the level or the tier. Talk with the student and let them take it again." },
-  LEVEL_CONFLICT: { icon: "⚖️", title: "Data disagree", tip: "Open their Level Story: one source says Above, another Below. Decide the level, or check for guessing." },
+  LEVEL_CONFLICT: { icon: "⚖️", title: "Data disagree", tip: "Open their Level Story: one source says Exceeding, another Approaching. Decide the level, or check for guessing." },
 };
 const ORDER: AlertKind[] = ["DECLINING", "INVALID_TEST", "MAP_RISK", "RAPID_GUESS", "LEVEL_CONFLICT", "DROPPED", "WEAK_SKILL", "LATE_WORK", "NO_PRACTICE"];
 
@@ -91,7 +91,7 @@ async function alertsFor(repo: Repo, schoolId: string, now: Date, ids: string[],
   // 📉 a sustained decline (the daily level check: the last 2 weeks clearly under the 4 weeks before) — Update 39B
   const states = await repo.findMany("StudentLevelState", { studentId: { in: ids }, declining: true }, { select: ["studentId", "thetaRecent", "thetaPrior", "level"] });
   const sg = (v: unknown) => { const x = Number(v); return `${x >= 0 ? "+" : "−"}${Math.abs(x).toFixed(1)}`; };
-  for (const st of states) add(s(st.studentId), "DECLINING", wk, `Ability fell from ${sg(st.thetaPrior)} (the 4 weeks before) to ${sg(st.thetaRecent)} in the last 2 weeks (0 = grade level). Confirmed level: ${s(st.level) === "BELOW" ? "Below" : s(st.level) === "ABOVE" ? "Above" : "On"} Level.`);
+  for (const st of states) add(s(st.studentId), "DECLINING", wk, `Ability fell from ${sg(st.thetaPrior)} (the 4 weeks before) to ${sg(st.thetaRecent)} in the last 2 weeks (0 = grade level). Confirmed level: ${s(st.level) === "BELOW" ? "Approaching" : s(st.level) === "ABOVE" ? "Exceeding" : "Meeting"}.`);
   // ⚡ invalid results (30%+ rapid guesses): Diagnostic (last 30 days) and checks (last 14 days) — not used; re-test
   const { isInvalidResult } = await import("../curriculum-map/level-evidence");
   const diags = await repo.findMany("DiagnosticScore", { studentId: { in: ids }, completedAt: { gte: new Date(now.getTime() - 30 * DAY) } }, { select: ["studentId", "rapid", "total", "completedAt", "pct"] });

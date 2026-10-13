@@ -1,61 +1,101 @@
 @import "tailwindcss";
+/* NIGHT mode (optional, chosen in the top bar): overrides of the tokens below and of Tailwind's palette */
+@import "./night.css";
 /* scan every source file explicitly (do not rely on automatic detection in container builds) */
 @source "../";
 
-/* Theme tokens (configurable per school in a later phase). Literise / Al-Anjal palette. */
-@theme {
-  --color-brand-navy: #1f3a68;
-  --color-brand-purple: #5b3fa0;
-  --color-brand-teal: #1fa3a3;
-  --color-brand-gold: #f5b800;
-  /* soft pastel tints, one per program (same hue as the source tags) + a few cheerful extras */
-  --color-tint-curriculum: #f6f8fb;
-  --color-tint-map: #f6f8fb;
-  --color-tint-rti: #f6f8fb;
-  --color-tint-grammar: #f6f8fb;
-  --color-tint-nafs: #f6f8fb;
-  --color-tint-sun: #f6f8fb;
-  --color-tint-rose: #f6f8fb;
-  --color-tint-sky: #f6f8fb;
-  --color-tint-violet: #f6f8fb;
-  /* soft shadows: cards rest on the page, lift on hover */
-  --shadow-card: 0 1px 2px rgb(15 23 42 / .03), 0 10px 28px -18px rgb(15 23 42 / .16);
-  --shadow-pop: 0 2px 4px rgb(15 23 42 / .04), 0 18px 36px -16px rgb(31 58 104 / .38);
-  --shadow-btn: 0 8px 18px -10px rgb(31 58 104 / .65);
-  /* Lexend everywhere — the only font (system glyphs only for letters Lexend lacks, e.g. Arabic interface words) */
-  --font-sans: var(--font-lexend), "Lexend", "Segoe UI", system-ui, sans-serif;
-  --font-mono: var(--font-lexend), "Lexend", "Segoe UI", system-ui, sans-serif;
-  --font-serif: var(--font-lexend), "Lexend", "Segoe UI", system-ui, sans-serif;
-  /* the Literise brand serif: the wordmark and the sign-in headline only */
-  --font-display: var(--font-literise), "DM Serif Display", serif;
-  /* medium, elegant type (owner's spec): page title 22px (text-3xl) · card/section title 16px (text-lg) · body and
-     buttons 14px (text-base / text-sm) · small 12px (text-xs). Headings semi-bold, never heavy. */
-  --text-xs: 0.75rem;
-  --text-sm: 0.8125rem;
-  --text-base: 0.875rem;
-  --text-lg: 1rem;
-  --text-xl: 1.0625rem;
-  --text-2xl: 1.25rem;
-  --text-3xl: 1.375rem;
-  --text-4xl: 1.625rem;
-  --text-5xl: 2rem;
-  --text-6xl: 2.5rem;
-  --font-weight-bold: 600;
-  --font-weight-extrabold: 650;
-  --font-weight-black: 700;
+
+/* ------------------------------------------------------------------ Literise "Mashrabiya light" (DAY = default)
+   Every page reads these tokens; night.css redefines them under <html data-theme="night"> (and "system" when the
+   device prefers dark). Navy ink on a soft blue-grey page, white cards, saffron for the one main action. */
+:root {
+  --lr-bg: #f3f6fb; --lr-surface: #ffffff; --lr-surface-2: #f5f6fd; --lr-border: #e3e7f4;
+  --lr-ink: #232a6e; --lr-ink-2: #4a5185; --lr-muted: #5a6090;
+  --lr-accent: #f2b705; --lr-on-accent: #232a6e; --lr-teal: #1fa3a3; --lr-teal-ink: #127a7a; --lr-lavender: #9b8bdb; --lr-sky: #a9c4ee;
+  /* the navy student hero card and its mashrabiya pattern; the login backdrop pattern */
+  --lr-hero: #232a6e; --lr-hero-pattern: #2f3786; --lr-pattern: #d7dcf0;
+  --lr-track: #e7eaf6; --lr-topbar: #ffffff; --lr-reading-bg: #ffffff; --lr-reading-ink: #1e2340; --lr-school-ink: #5b5f6b; --lr-shadow: rgb(35 42 110 / .12);
+  color-scheme: light;
 }
 
-/* body text 14px; reading passages and questions for students stay 16px (.reading-text, the practice question) */
+/* Theme tokens (configurable per school in a later phase). Literise / Al-Anjal palette. */
+@theme {
+  --color-brand-navy: #232a6e;
+  --color-brand-purple: #5b3fa0;
+  --color-brand-teal: #1fa3a3;
+  --color-brand-gold: #f2b705;
+  /* soft pastel tints, one per program (same hue as the source tags) + a few cheerful extras */
+  --color-tint-curriculum: #f5f6fd;
+  --color-tint-map: #f5f6fd;
+  --color-tint-rti: #f5f6fd;
+  --color-tint-grammar: #f5f6fd;
+  --color-tint-nafs: #f5f6fd;
+  --color-tint-sun: #f5f6fd;
+  --color-tint-rose: #f5f6fd;
+  --color-tint-sky: #f5f6fd;
+  --color-tint-violet: #f5f6fd;
+  /* soft shadows: cards rest on the page, lift on hover */
+  --shadow-card: 0 1px 2px rgb(35 42 110 / .03), 0 10px 28px -18px rgb(35 42 110 / .18);
+  --shadow-pop: 0 2px 4px rgb(35 42 110 / .04), 0 18px 36px -16px rgb(35 42 110 / .38);
+  --shadow-btn: 0 8px 18px -10px rgb(35 42 110 / .6);
+  /* Hanken Grotesk for the interface, Young Serif for H1 / H2 and big numbers; Arabic interface = IBM Plex Sans Arabic
+     (set on [lang="ar"] below). All self-hosted by next/font (src/app/layout.tsx). */
+  --font-sans: var(--font-hanken), "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--font-hanken), "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-serif: var(--font-young-serif), "Young Serif", serif;
+  /* the display serif: page titles, section titles, big numbers and the Literise wordmark */
+  --font-display: var(--font-young-serif), "Young Serif", serif;
+  /* calm sizes (owner: smaller than the mockups; right at 100% zoom on a 1366 x 768 laptop): page title 28px
+     (text-3xl) · section title 18–21px · body 15px (text-base) · small 13–14px. */
+  --text-xs: 0.75rem;
+  --text-sm: 0.84375rem;
+  --text-base: 0.9375rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.125rem;
+  --text-2xl: 1.3125rem;
+  --text-3xl: 1.75rem;
+  --text-4xl: 2rem;
+  --text-5xl: 2.25rem;
+  --text-6xl: 2.5rem;
+  --font-weight-bold: 650;
+  --font-weight-extrabold: 700;
+  --font-weight-black: 700;
+}
+/* the tokens as utilities: bg-surface, text-ink, border-line … (they follow day / night) */
+@theme inline {
+  --color-page: var(--lr-bg);
+  --color-surface: var(--lr-surface);
+  --color-surface-2: var(--lr-surface-2);
+  --color-line: var(--lr-border);
+  --color-ink: var(--lr-ink);
+  --color-ink-2: var(--lr-ink-2);
+  --color-muted: var(--lr-muted);
+  --color-accent: var(--lr-accent);
+  --color-on-accent: var(--lr-on-accent);
+  --color-teal-ink: var(--lr-teal-ink);
+  --color-hero: var(--lr-hero);
+  --color-topbar: var(--lr-topbar);
+}
+
+/* body text 15px; reading passages and questions for students 16px (.reading-text, the practice question) */
 html { font-size: 16px; }
-body { font-size: 0.875rem; }
+body { font-size: 0.9375rem; line-height: 1.55; }
 .reading-text, [data-reading] { font-size: 1rem; line-height: 1.7; }
+/* Arabic interface: IBM Plex Sans Arabic for body and headings; English content blocks (lang="en") keep the Latin fonts */
+[lang="ar"] { --font-sans: var(--font-plex-arabic), var(--font-hanken), "IBM Plex Sans Arabic", "Segoe UI", system-ui, sans-serif; --font-display: var(--font-plex-arabic), var(--font-young-serif), "IBM Plex Sans Arabic", serif; }
+[lang="en"] { --font-sans: var(--font-hanken), "Hanken Grotesk", "Segoe UI", system-ui, sans-serif; --font-display: var(--font-young-serif), "Young Serif", serif; }
+:is([lang="ar"], [lang="en"]) :is(input, select, textarea, button) { font-family: var(--font-sans); }
+/* page and section titles in the display serif (one weight); small uppercase labels stay in the interface font */
+h1:not(.font-sans), h2:not([class*="text-xs"]):not([class*="text-sm"]):not([class*="uppercase"]):not(.font-sans) { font-family: var(--font-display); font-weight: 400; letter-spacing: 0; }
+[lang="ar"] :is(h1, h2), [lang="ar"] .font-display { font-weight: 600; }
+.font-display { font-weight: 400; }
 
 /* 🎨 student theme: calm and elegant for every grade (2–12) — no cartoons, no bouncing (staff pages keep theme-playful) */
 .theme-calm .playful { display: none !important; }
 .theme-calm [class*="animate-float"], .theme-calm [class*="animate-pop"], .theme-calm [class*="animate-shake"] { animation: none !important; }
 .theme-calm .lift:hover { transform: none; }
 
-body { @apply bg-slate-50 text-slate-900 antialiased; }
+body { @apply antialiased; background: var(--lr-bg); color: var(--lr-ink); font-family: var(--font-sans); }
 
 /* Form fields are always visible, even if a utility class is missing. */
 @layer base {
@@ -63,18 +103,19 @@ body { @apply bg-slate-50 text-slate-900 antialiased; }
   select,
   textarea {
     border: 1px solid var(--color-slate-300);
-    border-radius: 0.5rem;
-    background-color: #fff;
+    border-radius: 0.625rem;
+    background-color: var(--lr-surface);
+    color: var(--lr-ink);
     padding: 0.5rem 0.75rem;
   }
   input:focus, select:focus, textarea:focus {
-    outline: 2px solid var(--color-brand-teal);
+    outline: 2px solid var(--lr-accent);
     outline-offset: 1px;
   }
   textarea { min-height: 4.5rem; }
   /* touch targets (readiness S-2): checkboxes and radios are at least 20 px; their labels carry the rest of the 40 px */
   input[type="checkbox"], input[type="radio"] { width: 1.25rem; height: 1.25rem; flex-shrink: 0; }
-  /* "font-mono" (usernames, codes) stays Lexend with even digits */
+  /* "font-mono" (usernames, codes) stays the interface font with even digits */
   .font-mono, code, kbd, samp, pre { font-family: var(--font-sans); font-variant-numeric: tabular-nums; }
   /* big buttons: every button-looking control (rounded-xl / rounded-2xl with a fill or outline) is >= 44 px tall.
      In the base layer, so a page's own utilities (block, flex, min-h-…) still win. */
@@ -91,16 +132,8 @@ body { @apply bg-slate-50 text-slate-900 antialiased; }
 
 
 /* ------------------------------------------------------------------ look & motion (CSS only, fast) */
-/* 🎨 calm, elegant pages (Update 55): white cards on a very soft background, a faint wash of each role's colour at
-   the top (teacher teal, admin navy, student lavender) — no strong colours behind the content */
-body { background: #f4f6f9; }
-.page-bg { background:
-  radial-gradient(1200px 380px at 70% -120px, var(--page-wash, rgb(31 163 163 / .07)) 0%, transparent 70%),
-  linear-gradient(180deg, #f7f9fb 0%, #f3f5f8 60%, #f1f4f7 100%); background-attachment: fixed; }
-.role-teacher { --page-wash: rgb(31 163 163 / .08); }
-.role-school_admin, .role-super_admin { --page-wash: rgb(31 58 104 / .07); }
-.role-student { --page-wash: rgb(124 108 214 / .08); }
-.role-student.theme-calm { --page-wash: rgb(31 58 104 / .06); }
+/* 🎨 calm pages (Literise D1): white cards on the soft blue-grey page; the same calm page for every role */
+.page-bg { background: var(--lr-bg); }
 @keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @keyframes pop { 0% { transform: scale(.92); } 60% { transform: scale(1.04); } 100% { transform: scale(1); } }
 @keyframes shake { 10%, 90% { transform: translateX(-1px); } 20%, 80% { transform: translateX(2px); } 30%, 50%, 70% { transform: translateX(-4px); } 40%, 60% { transform: translateX(4px); } }
@@ -114,7 +147,7 @@ body { background: #f4f6f9; }
 /* a card that lifts on hover */
 @utility lift { transition: transform .18s ease, box-shadow .18s ease; &:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -12px rgb(15 23 42 / .35); } }
 /* the brand stripe (logo colors) */
-@utility brand-stripe { background: linear-gradient(90deg, var(--color-brand-navy), #3a6aa8 45%, var(--color-brand-teal) 80%, #7fd1c8); }
+@utility brand-stripe { background: linear-gradient(90deg, #9b8bdb, #a9c4ee 33%, var(--color-brand-teal) 66%, var(--color-brand-gold)); }
 /* comfortable long reading (ReadMaster) */
 @utility reading { font-family: var(--font-sans); font-size: 1.2rem; line-height: 1.85; letter-spacing: .005em; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -126,23 +159,21 @@ body { background: #f4f6f9; }
 @keyframes twinkle { 0%, 100% { opacity: .9; transform: scale(1); } 50% { opacity: .45; transform: scale(.8); } }
 @layer components {
   /* the welcome band on the home pages */
-  .hero { position: relative; isolation: isolate; overflow: hidden; border-radius: 1.75rem; box-shadow: 0 0 0 1px rgb(255 255 255 / .7) inset, var(--shadow-card); }
-  .hero-student { background: radial-gradient(120% 140% at 0% 0%, #fff8dc 0%, rgb(255 248 220 / 0) 40%), linear-gradient(115deg, #eef5fd 0%, #f2effc 55%, #fdf5ee 100%); }
-  .hero-teacher { background: radial-gradient(90% 160% at 100% 0%, #e6f6f4 0%, rgb(230 246 244 / 0) 55%), linear-gradient(110deg, #f1f5fb 0%, #f7f9fc 60%, #f6fbfa 100%); }
-  .hero-admin { background: linear-gradient(110deg, #f1f4f9 0%, #f8f9fb 55%, #f1f8f7 100%); }
+  .hero { position: relative; isolation: isolate; overflow: hidden; border-radius: 1.75rem; background: var(--lr-surface); box-shadow: 0 0 0 1px var(--lr-border), var(--shadow-card); }
+  .hero-student, .hero-teacher, .hero-admin { background: var(--lr-surface); }
   .hero-deco { position: absolute; inset-block: 0; inset-inline-end: 0; z-index: -1; height: 100%; width: min(46%, 420px); pointer-events: none; }
   [dir="rtl"] .hero-deco { transform: scaleX(-1); }
   .hero-deco { opacity: .7; }
   .hero-deco .tw { transform-box: fill-box; transform-origin: center; }
   .hero-deco .tw:nth-of-type(2n) { animation-delay: 1.1s; }
   /* a number or link tile that sits on a welcome band */
-  .hero-tile { background: rgb(255 255 255 / .82); box-shadow: 0 0 0 1px rgb(255 255 255 / .9) inset, 0 6px 18px -12px rgb(15 23 42 / .35); backdrop-filter: blur(4px); }
+  .hero-tile { background: var(--lr-surface-2); box-shadow: 0 0 0 1px var(--lr-border); }
 
   /* big tiles: white by default, a soft pastel wash with data-tone */
-  .tile { --tile-a: #fff; --tile-ring: #e2e8f0; --tile-ink: #1f3a68; background: linear-gradient(170deg, var(--tile-a) 0%, var(--tile-a) 40%, #fff 100%); box-shadow: 0 0 0 1px var(--tile-ring), var(--shadow-card); transition: transform .18s ease, box-shadow .18s ease; }
+  .tile { --tile-a: var(--lr-surface); --tile-ring: var(--lr-border); --tile-ink: var(--lr-ink); background: var(--lr-surface); box-shadow: 0 0 0 1px var(--tile-ring), var(--shadow-card); transition: transform .18s ease, box-shadow .18s ease; }
   .tile:hover { transform: translateY(-1px); box-shadow: 0 0 0 1.5px var(--tile-ring), var(--shadow-pop); }
   .tile:active { transform: translateY(0) scale(.985); }
-  .tile .tile-icon { background: #fff; box-shadow: 0 0 0 1px rgb(15 23 42 / .05), 0 8px 16px -10px var(--tile-ink); transition: transform .2s ease; }
+  .tile .tile-icon { background: var(--lr-surface-2); box-shadow: 0 0 0 1px var(--lr-border); transition: transform .2s ease; }
   .tile:hover .tile-icon { transform: scale(1.04); }
   .tile[data-tone="curriculum"], .tone-curriculum { --tile-a: var(--color-tint-curriculum); --tile-ring: #c9dcfb; --tile-ink: #1d4ed8; }
   .tile[data-tone="map"], .tone-map { --tile-a: var(--color-tint-map); --tile-ring: #bfe6cc; --tile-ink: #15803d; }
@@ -159,19 +190,19 @@ body { background: #f4f6f9; }
   .heading-dot { display: inline-block; width: .625rem; height: .625rem; flex-shrink: 0; border-radius: 9999px; background: var(--tile-ink, var(--color-brand-teal)); box-shadow: 0 0 0 4px var(--tile-a, #e2f6f4); }
 
   /* friendly empty state: the icon sits in a soft bubble with two little sparkles */
-  .empty-card { background: radial-gradient(70% 90% at 50% 0%, #f2f8ff 0%, #fff 70%); box-shadow: 0 0 0 1px #e2e8f0, var(--shadow-card); }
-  .empty-card[data-compact] { background: linear-gradient(180deg, #f6f9fd, #fff); box-shadow: inset 0 0 0 1.5px #e2e8f0; }
+  .empty-card { background: var(--lr-surface); box-shadow: 0 0 0 1px var(--lr-border), var(--shadow-card); }
+  .empty-card[data-compact] { background: var(--lr-surface); box-shadow: inset 0 0 0 1.5px var(--lr-border); }
   .empty-art { position: relative; display: grid; place-items: center; border-radius: 9999px; background: linear-gradient(140deg, var(--color-tint-sky), var(--color-tint-violet) 55%, var(--color-tint-sun)); }
   .empty-art::before, .empty-art::after { content: ""; position: absolute; border-radius: 9999px; }
   .empty-art::before { width: .7rem; height: .7rem; inset-block-start: .1rem; inset-inline-end: -.35rem; background: var(--color-brand-gold); opacity: .8; }
   .empty-art::after { width: .45rem; height: .45rem; inset-block-end: .35rem; inset-inline-start: -.5rem; background: var(--color-brand-teal); opacity: .6; }
 
   /* progress bars: a soft track and a bright, rounded fill */
-  .bar-track { background: #e9eef5; box-shadow: inset 0 1px 2px rgb(15 23 42 / .08); }
-  .bar-fill { background: linear-gradient(90deg, #38bdf8, var(--color-brand-teal) 55%, #22c55e); box-shadow: 0 2px 6px -2px rgb(31 163 163 / .7); }
+  .bar-track { background: var(--lr-surface-2); box-shadow: inset 0 0 0 1px var(--lr-border); }
+  .bar-fill { background: var(--lr-teal); }
 }
 /* one clear keyboard focus ring everywhere (mouse clicks show none) */
-:where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid var(--color-brand-teal); outline-offset: 2px; border-radius: .75rem; }
+:where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid var(--lr-accent); outline-offset: 2px; border-radius: .75rem; }
 @utility focus-ring { &:focus-visible { outline: 3px solid var(--color-brand-teal); outline-offset: 2px; } }
 /* a gentle press for any big button */
 @utility press { transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease; &:hover { transform: translateY(-1px); } &:active { transform: translateY(0) scale(.98); } }
@@ -186,7 +217,7 @@ button:not(:disabled):active, a.lift:active { transform: scale(.98); }
 /* comfortable reading mode (students can switch it on) */
 html[data-comfort="1"] main { font-size: 1.12rem; line-height: 1.8; }
 html[data-comfort="1"] main p, html[data-comfort="1"] main li { letter-spacing: .01em; }
-html[data-comfort="1"] body { background: #fbf7ee; }
+html[data-comfort="1"]:not([data-theme="night"]) body { background: #fbf7ee; }
 /* printed reports keep their colours (headers, bars, charts) and use the whole page */
 .report-doc, .report-doc * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 @media print { @page { size: A4; margin: 12mm; } .report-doc { background: #fff; } }
@@ -195,14 +226,14 @@ html[data-comfort="1"] body { background: #fbf7ee; }
    Tables: sticky header, zebra rows, even digits, numbers aligned to the end; under 640 px each row is a card.
    In the components layer so a page's own utility classes still win. */
 @layer components {
-  .rk-box { position: relative; max-width: 100%; overflow-x: auto; border-radius: 1.25rem; background: #fff; box-shadow: 0 0 0 1px #e2e8f0, var(--shadow-card); }
+  .rk-box { position: relative; max-width: 100%; overflow-x: auto; border-radius: 1rem; background: var(--lr-surface); box-shadow: 0 0 0 1px var(--lr-border), var(--shadow-card); }
   .rk-box table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .875rem; line-height: 1.35; }
-  .rk-box thead th { position: sticky; top: 0; z-index: 1; background: #f4f7fb; color: #475569; font-size: .75rem; font-weight: 600; letter-spacing: .02em; text-align: start; white-space: nowrap; padding: .6rem .75rem; border-bottom: 1px solid #e2e8f0; }
-  .rk-box tbody td { padding: .65rem .8rem; border-bottom: 1px solid #f1f5f9; vertical-align: top; font-variant-numeric: tabular-nums; }
-  .rk-box tbody tr:nth-child(even) > td { background: rgb(248 250 252 / .8); }
-  .rk-box tbody tr:hover > td { background: rgb(240 253 250); }
+  .rk-box thead th { position: sticky; top: 0; z-index: 1; background: var(--lr-surface-2); color: var(--lr-ink-2); font-size: .75rem; font-weight: 600; letter-spacing: .02em; text-align: start; white-space: nowrap; padding: .6rem .75rem; border-bottom: 1px solid var(--lr-border); }
+  .rk-box tbody td { padding: .6rem .8rem; border-bottom: 1px solid var(--lr-border); vertical-align: top; font-variant-numeric: tabular-nums; }
+  .rk-box tbody tr:nth-child(even) > td { background: color-mix(in oklab, var(--lr-surface-2) 70%, transparent); }
+  .rk-box tbody tr:hover > td { background: color-mix(in oklab, var(--lr-teal) 8%, var(--lr-surface)); }
   .rk-box tbody tr:last-child > td { border-bottom: 0; }
-  .rk-box tfoot td { padding: .55rem .75rem; border-top: 1px solid #e2e8f0; color: #475569; font-size: .8rem; }
+  .rk-box tfoot td { padding: .55rem .75rem; border-top: 1px solid var(--lr-border); color: var(--lr-ink-2); font-size: .8rem; }
   .rk-box .rk-num { text-align: end; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .rk-box .rk-first { font-weight: 600; }
   .rk-sort { display: inline-flex; align-items: center; gap: .25rem; min-height: 2rem; font: inherit; color: inherit; cursor: pointer; border-radius: .375rem; }
@@ -222,11 +253,11 @@ html[data-comfort="1"] body { background: #fbf7ee; }
     .rk-cards { overflow: visible; background: transparent; box-shadow: none; }
     .rk-cards table, .rk-cards tbody, .rk-cards tr, .rk-cards td { display: block; width: 100%; }
     .rk-cards thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-    .rk-cards tbody tr { margin-bottom: .75rem; border-radius: 1rem; background: #fff; box-shadow: 0 0 0 1px #e2e8f0; overflow: hidden; }
+    .rk-cards tbody tr { margin-bottom: .75rem; border-radius: 1rem; background: var(--lr-surface); box-shadow: 0 0 0 1px var(--lr-border); overflow: hidden; }
     .rk-cards tbody tr > td, .rk-cards tbody tr:nth-child(even) > td { background: transparent; }
-    .rk-cards tbody td { display: flex; justify-content: space-between; align-items: flex-start; gap: .75rem; padding: .45rem .9rem; border-bottom: 1px solid #f1f5f9; text-align: end; }
-    .rk-cards tbody td::before { content: attr(data-label); flex: 0 0 auto; max-width: 48%; text-align: start; font-size: .75rem; font-weight: 600; color: #64748b; }
-    .rk-cards tbody td.rk-first { display: block; background: #f8fafc; font-size: 1rem; text-align: start; }
+    .rk-cards tbody td { display: flex; justify-content: space-between; align-items: flex-start; gap: .75rem; padding: .45rem .9rem; border-bottom: 1px solid var(--lr-border); text-align: end; }
+    .rk-cards tbody td::before { content: attr(data-label); flex: 0 0 auto; max-width: 48%; text-align: start; font-size: .75rem; font-weight: 600; color: var(--lr-muted); }
+    .rk-cards tbody td.rk-first { display: block; background: var(--lr-surface-2); font-size: 1rem; text-align: start; }
     .rk-cards tbody td.rk-first::before { content: none; }
     .rk-cards tbody tr > td:last-child { border-bottom: 0; }
     .rk-cards tfoot, .rk-cards tfoot tr, .rk-cards tfoot td { display: block; }
@@ -238,10 +269,10 @@ html[data-comfort="1"] body { background: #fbf7ee; }
 .has-report-bar .rk-header [data-rk="back"], .has-report-bar .rk-header [data-rk="print"], .has-report-bar .rk-header [data-rk="download"] { display: none; }
 
 /* paper: no menus, buttons or filters; tables and cards print whole; colours kept.
-   Every page prints only its main content on A4 portrait (wide sheets ask for landscape themselves), Lexend,
+   Every page prints only its main content on A4 portrait (wide sheets ask for landscape themselves), Hanken Grotesk,
    colours kept, page numbers in the footer where the browser supports page boxes. */
 @media print {
-  @page { size: A4 portrait; margin: 12mm 12mm 14mm; @bottom-right { content: counter(page) " / " counter(pages); font: 500 8pt "Lexend", "Segoe UI", sans-serif; color: #64748b; } @bottom-left { content: "Literise"; font: 500 8pt "Lexend", "Segoe UI", sans-serif; color: #94a3b8; } }
+  @page { size: A4 portrait; margin: 12mm 12mm 14mm; @bottom-right { content: counter(page) " / " counter(pages); font: 500 8pt "Hanken Grotesk", "Segoe UI", sans-serif; color: #64748b; } @bottom-left { content: "Literise"; font: 500 8pt "Hanken Grotesk", "Segoe UI", sans-serif; color: #94a3b8; } }
   html, body { background: #fff !important; font-family: var(--font-sans); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   aside, nav, dialog, [role="dialog"], header.sticky, .sr-only, button, [data-rk="print"], [data-print="hide"] { display: none !important; }
   main, #main { max-width: none !important; padding: 0 !important; margin: 0 !important; animation: none !important; }
@@ -289,3 +320,13 @@ html[data-comfort="1"] body { background: #fbf7ee; }
 [dir="rtl"] :is(div, p, span, li, h1, h2, h3, h4, h5, h6, td, th, dt, dd, label, summary, figcaption, blockquote, option, a, button) { unicode-bidi: plaintext; }
 [dir="rtl"] body { letter-spacing: 0; }
 
+
+/* ------------------------------------------------------------------ Literise D1 pieces (day + night)
+   Mashrabiya pattern (8-point star): ONLY the sign-in backdrop and the student hero card. */
+.lr-card { background: var(--lr-surface); border: 1px solid var(--lr-border); border-radius: 1.25rem; }
+.lr-hero { position: relative; isolation: isolate; overflow: hidden; background: var(--lr-hero); color: #fff; border-radius: 1.5rem; }
+.lr-btn-accent { background: var(--lr-accent); color: var(--lr-on-accent); }
+.lr-btn-accent:hover { filter: brightness(1.04); }
+/* reading and question passages: never pure black on white glare at night */
+@media screen { :root[data-theme="night"] :is(.reading, .reading-text, [data-reading], [data-content] .bg-white) { background-color: var(--lr-reading-bg); color: var(--lr-reading-ink); } }
+@media screen and (prefers-color-scheme: dark) { :root[data-theme="system"] :is(.reading, .reading-text, [data-reading], [data-content] .bg-white) { background-color: var(--lr-reading-bg); color: var(--lr-reading-ink); } }

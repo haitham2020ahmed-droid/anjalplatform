@@ -39,7 +39,9 @@ const readMe = (title: string, intro: string[], sheets: { sheet: string; cols: C
 // ------------------------------------------------------------------ 📈 students dashboard
 
 const STATUS_TONES: Record<string, SheetTone> = { "ON TRACK": "good", MET: "good", "AT RISK": "warn", MISSED: "bad", "NO DATA": "neutral" };
-const LEVEL_TONES: Record<string, SheetTone> = { ABOVE: "good", ON: "info", BELOW: "bad", Above: "good", On: "info", Below: "bad" };
+/** the level as staff read it (the stored BELOW / ON / ABOVE stay as they are) */
+const LEVEL_WORD: Record<string, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
+const LEVEL_TONES: Record<string, SheetTone> = { ABOVE: "good", ON: "info", BELOW: "bad", Exceeding: "good", Meeting: "info", Approaching: "bad" };
 const PLAN_TONES: Record<string, SheetTone> = { INTENSIVE: "bad", TARGETED: "warn", CORE: "good" };
 
 const PROGRESS_COLS: Col[] = [
@@ -47,7 +49,7 @@ const PROGRESS_COLS: Col[] = [
   { h: "Student ID", w: 14, m: "The school's student number." },
   { h: "Status", w: 13, m: "Progress towards the MAP spring target: ON TRACK, AT RISK, MET, MISSED or NO DATA.", tones: STATUS_TONES },
   { h: "Why", w: 40, m: "The reason for the status, in words." },
-  { h: "Level", w: 9, m: "The student's confirmed overall level (Below / On / Above).", tones: LEVEL_TONES },
+  { h: "Level", w: 12, m: "The student's confirmed overall level (Approaching / Meeting / Exceeding).", tones: LEVEL_TONES },
   { h: "Answers", k: "int", w: 10, m: "Practice questions answered." },
   { h: "Correct", k: "int", w: 10, m: "Of those, answered correctly." },
   { h: "Accuracy %", k: "int", w: 11, m: "Correct ÷ answers × 100 (the bar shows it from 0 to 100).", bar: true },
@@ -71,7 +73,7 @@ const PROGRESS_COLS: Col[] = [
 
 export function progressRows(v: ClassProgress): string[][] {
   const head = ["Student", "Student ID", "Status", "Why", "Level", "Answers", "Correct", "Accuracy %", "Skills mastered", "Skills needing work", "Minutes this week", "Minutes this month", "Minutes total", "Tasks done", "Tasks pending", "Tasks late", "Last active", "MAP Fall RIT", "MAP latest RIT", "Latest term", "Spring target", "Growth needed", "Plan", "Weakest goal areas"];
-  const rows = v.rows.map((r) => [r.name, r.number, r.status.replace("_", " "), r.statusWhy, r.level ?? "", String(r.practice.answers), String(r.practice.correct), r.practice.accuracy === null ? "" : String(r.practice.accuracy), String(r.mastered), String(r.needsWork), String(r.practice.week.minutes), String(r.practice.month.minutes), String(r.practice.totalMinutes), String(r.work.done), String(r.work.pending), String(r.work.late), r.practice.lastActive?.slice(0, 10) ?? "", String(r.map?.fall?.rit ?? ""), String(r.map?.latest?.rit ?? ""), r.map?.latest?.term ?? "", String(r.map?.springTarget ?? ""), String(r.map?.gap ?? ""), r.intensity ?? "", r.weakest.join(", ")]);
+  const rows = v.rows.map((r) => [r.name, r.number, r.status.replace("_", " "), r.statusWhy, r.level ? LEVEL_WORD[r.level] ?? r.level : "", String(r.practice.answers), String(r.practice.correct), r.practice.accuracy === null ? "" : String(r.practice.accuracy), String(r.mastered), String(r.needsWork), String(r.practice.week.minutes), String(r.practice.month.minutes), String(r.practice.totalMinutes), String(r.work.done), String(r.work.pending), String(r.work.late), r.practice.lastActive?.slice(0, 10) ?? "", String(r.map?.fall?.rit ?? ""), String(r.map?.latest?.rit ?? ""), r.map?.latest?.term ?? "", String(r.map?.springTarget ?? ""), String(r.map?.gap ?? ""), r.intensity ?? "", r.weakest.join(", ")]);
   return [head, ...rows];
 }
 

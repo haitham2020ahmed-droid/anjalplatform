@@ -27,7 +27,7 @@ export default async function GrammarPage({ searchParams }: { searchParams: Prom
         subtitle="Every grammar lesson in one list. Search a skill, then ⭐ Assign it to any of your classes: each student practises it at their own level, and the results join their progress and MAP Language goals." />
 
       <div className="mb-6 grid gap-3 sm:grid-cols-4">
-        {([["Lessons", v.lessons.length, "🔤"], ["🟠 Below", v.totals.below, ""], ["🔵 On", v.totals.on, ""], ["🟢 Above", v.totals.above, ""]] as const).map(([l, n, i]) => (
+        {([["Lessons", v.lessons.length, "🔤"], ["🟠 Approaching", v.totals.below, ""], ["🔵 Meeting", v.totals.on, ""], ["🟢 Exceeding", v.totals.above, ""]] as const).map(([l, n, i]) => (
           <div key={l} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200"><p className="text-sm font-semibold text-slate-500">{i} {l}{l === "Lessons" ? "" : " questions"}</p><p className="text-2xl font-extrabold text-brand-navy">{n.toLocaleString("en")}</p></div>
         ))}
       </div>

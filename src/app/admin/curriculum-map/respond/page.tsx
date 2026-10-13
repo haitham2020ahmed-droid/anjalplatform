@@ -22,7 +22,7 @@ export default async function RespondOverviewPage({ searchParams }: { searchPara
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/admin/curriculum-map", label: "Curriculum Map" }} icon="✍️" title="Respond to Reading"
-        subtitle={`Each Text Set has three level pages, Below → On → Above, each with its own activity: the prompt, steps, word bank, sentence starters, checklist and a hidden hint. Students open the version of their level. ${done}/${total} level pages written.`}>
+        subtitle={`Each Text Set has three level pages, Approaching → Meeting → Exceeding, each with its own activity: the prompt, steps, word bank, sentence starters, checklist and a hidden hint. Students open the version of their level. ${done}/${total} level pages written.`}>
         <nav aria-label="Grade" className="flex gap-2">{all.map((g) => <Link key={g.grade} href={`/admin/curriculum-map/respond?grade=${g.grade}`} aria-current={g.grade === grade?.grade ? "page" : undefined} className={chip(g.grade === grade?.grade)}>Grade {g.grade}</Link>)}</nav>
       </PageHeader>
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
@@ -50,7 +50,7 @@ export default async function RespondOverviewPage({ searchParams }: { searchPara
                 <div className="flex flex-wrap gap-2">
                   {RESPOND_LEVELS.map((l) => (
                     <Link key={l} href={`/admin/curriculum-map/respond/${x.setCode}?level=${l}`} className={`rounded-full px-3 py-1 text-sm font-semibold ring-1 ${x.levels[l] ? "bg-violet-50 text-violet-900 ring-violet-300" : "bg-slate-50 text-slate-400 ring-slate-200"}`}>
-                      {x.levels[l] ? "✍️" : "➕"} {l === "BELOW" ? "Below" : l === "ON" ? "On" : "Above"}
+                      {x.levels[l] ? "✍️" : "➕"} {l === "BELOW" ? "Approaching" : l === "ON" ? "Meeting" : "Exceeding"}
                     </Link>
                   ))}
                 </div>

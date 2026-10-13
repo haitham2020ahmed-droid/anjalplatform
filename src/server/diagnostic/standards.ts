@@ -126,6 +126,6 @@ export function fluencyBands(grade: number, season: Season = fluencySeason()): {
   return { below: Math.round(b * 0.75) - 1, above: Math.round(b * 1.25) };
 }
 export const fluencyLevel = (wcpm: number, grade: number, season: Season = fluencySeason()): "BELOW" | "ON" | "ABOVE" => { const r = fluencyBands(grade, season); return wcpm <= r.below ? "BELOW" : wcpm > r.above ? "ABOVE" : "ON"; };
-export const fluencyRubricText = (grade: number, season: Season = fluencySeason()) => { const r = fluencyBands(grade, season); return `Grade ${grade}: Below ≤ ${r.below} · On ${r.below + 1}–${r.above} · Above > ${r.above} WCPM`; };
+export const fluencyRubricText = (grade: number, season: Season = fluencySeason()) => { const r = fluencyBands(grade, season); return `Grade ${grade}: Approaching ≤ ${r.below} · Meeting ${r.below + 1}–${r.above} · Exceeding > ${r.above} WCPM`; };
 /** The rubric line with its season, e.g. "Grade 5 · winter: Below ≤ 109 · On 110–160 · Above > 160 WCPM". */
 export const fluencyRubricSeasonText = (grade: number, season: Season = fluencySeason()) => fluencyRubricText(grade, season).replace(/^Grade (\d+):/, `Grade $1 · ${SEASON_NAME[season]}:`);

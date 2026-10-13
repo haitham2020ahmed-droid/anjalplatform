@@ -79,7 +79,7 @@ describe("adaptive curriculum levels (Below → On → Above) driven by Lexile",
       }
       assert.deepEqual(seen, [...Array(4).fill("ON"), ...Array(4).fill("ABOVE")], "no data → On Level; 4 at each level, then done");
       const rep = await assignmentReport(repo, st, aid);
-      assert.match(rep.masteryLevel, /Reached Above Level \(path: On → Above\)/);
+      assert.match(rep.masteryLevel, /^Finished: you moved up 1 step on the way\.$/);
       assert.equal((await assignedSkills(repo, st)).items.find((i) => i.assignmentId === aid)!.status, "COMPLETED");
       // the level reached is kept for THIS category (the next set of the category starts there); the overall level is MAP / teacher
       const cat = (await repo.findMany("StudentCategoryLevel", { studentId: roster[0].id }))[0];
@@ -102,7 +102,7 @@ describe("adaptive curriculum levels (Below → On → Above) driven by Lexile",
       const row = (stem: string, lexile: string) => H.map((h) => ({ "Question Text": stem, "Question Type": "Multiple Choice", "Option A": "a", "Option B": "b", "Option C": "c", "Option D": "d", "Correct Answer": "A", Explanation: "Because.", Grade: "4", Unit: "1", "Text Set / Selection": "2", Category: "Analyze Craft and Structure", "Map Level": "Below", Lexile: lexile } as Record<string, string>)[h] ?? "");
       const csv = new TextEncoder().encode([H, row("Too hard for Below level text", "950"), row("A bad Lexile value here", "abc")].map((r) => r.map((c) => `"${c}"`).join(",")).join("\n") + "\n");
       const job = await getImportJob(repo, admin, await analyzeImport(repo, admin, { fileName: "lex.csv", bytes: csv, target: "CURRICULUM" }));
-      assert.match(job.rows[0].warnings.join(" "), /Lexile 950L is in the Above Level band for Grade 4/);
+      assert.match(job.rows[0].warnings.join(" "), /Lexile 950L is in the Exceeding band for Grade 4/);
       assert.equal(job.rows[1].status, "INVALID");
       assert.match(job.rows[1].errors.join(" "), /Lexile “abc”/);
     });

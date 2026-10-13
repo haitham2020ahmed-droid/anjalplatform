@@ -6,6 +6,7 @@
 import { cache } from "react";
 import type { Repo } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
+import { TtlCache } from "../lib/ttl-cache";
 
 export const NAFS_GRADE = 6;
 export const NAFS_REFUSED = "NAFS is for Grade 6 teachers only.";
@@ -22,8 +23,13 @@ export async function canSeeNafs(repo: Repo, actor: Actor): Promise<boolean> {
   return (await repo.count("Grade", { id: { in: [...new Set(classes.map((c) => c.gradeId))] }, level: NAFS_GRADE })) > 0;
 }
 
-/** Once per request (the shell and the page ask the same question). */
-export const canSeeNafsCached = cache(canSeeNafs);
+/**
+ * The menu's question (the page frame on every teacher page): once per request, and a teacher's answer is kept for a
+ * minute (4 reads one after another otherwise). NAFS pages and actions still ask canSeeNafs / assertNafs directly.
+ */
+const menuCache = new TtlCache<boolean>(60_000, 5000);
+export const canSeeNafsCached = cache((repo: Repo, actor: Actor): Promise<boolean> =>
+  actor.role === "TEACHER" ? menuCache.getOrLoad(`${actor.schoolId}|${actor.userId}`, () => canSeeNafs(repo, actor)) : canSeeNafs(repo, actor));
 
 export async function assertNafs(repo: Repo, actor: Actor): Promise<void> {
   if (!(await canSeeNafs(repo, actor))) throw new ForbiddenError(NAFS_REFUSED);

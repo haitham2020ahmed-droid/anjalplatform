@@ -55,7 +55,7 @@ describe("Update 28 · search, grammar, Fluency Coach", () => {
     assert.deepEqual([fluencyLevel(75, 4, "FALL"), fluencyLevel(76, 4, "FALL"), fluencyLevel(125, 4, "FALL"), fluencyLevel(126, 4, "FALL")], ["BELOW", "ON", "ON", "ABOVE"]);
     assert.deepEqual([fluencyLevel(87, 5, "FALL"), fluencyLevel(88, 5, "FALL"), fluencyLevel(153, 5, "FALL"), fluencyLevel(154, 5, "FALL")], ["BELOW", "ON", "ON", "ABOVE"]);
     assert.deepEqual([fluencyLevel(112, 6, "FALL"), fluencyLevel(113, 6, "FALL"), fluencyLevel(159, 6, "FALL"), fluencyLevel(160, 6, "FALL")], ["BELOW", "ON", "ON", "ABOVE"]);
-    assert.equal(fluencyRubricText(5), "Grade 5: Below ≤ 87 · On 88–153 · Above > 153 WCPM");
+    assert.equal(fluencyRubricText(5), "Grade 5: Approaching ≤ 87 · Meeting 88–153 · Exceeding > 153 WCPM");
   });
 
   test("counting: the platform counts, the AI only marks words", () => {

@@ -29,7 +29,7 @@ export async function curriculumResults(repo: Repo, actor: Actor, classId: strin
     const g = agg.get(node) ?? { n: 0, ok: 0, who: new Set<string>() };
     g.n++; if (a.isCorrect) g.ok++; g.who.add(s(a.studentId)); agg.set(node, g);
   }
-  const LV = { ABOVE: "Above Level", ON: "On Level", BELOW: "Below Level" } as const;
+  const LV = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
   const resultOf = (n: (typeof nodes)[number]): PlaceResult => {
     const g = agg.get(n.id);
     return { code: n.code, label: `${n.categoryLabel.replace(/^\d+-\s*/, "")}${n.level ? ` · ${LV[n.level]}` : ""}`, answered: g?.n ?? 0, correct: g?.ok ?? 0, pct: g ? Math.round((100 * g.ok) / g.n) : null, students: g?.who.size ?? 0 };

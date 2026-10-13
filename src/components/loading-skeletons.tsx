@@ -1,4 +1,5 @@
 import { LiteriseLogo } from "./brand/literise-logo";
+import { LoadingStatus } from "./loading-status";
 /**
  * Shown by Next.js the moment a link is clicked (loading.tsx), shaped like the page that is coming, so the screen
  * answers at once and nothing jumps when the page arrives (Update 42B). Same frame as AppShell; grey placeholder
@@ -16,7 +17,7 @@ function Frame({ label, children }: { label: string; children: React.ReactNode }
         </div>
       </header>
       <main className="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8" aria-busy="true">
-        <p role="status" className="sr-only">{label}</p>
+        <LoadingStatus label={label} />
         <div className="animate-pulse motion-reduce:animate-none" aria-hidden="true">{children}</div>
       </main>
     </div>
@@ -88,6 +89,32 @@ export function ClassPageSkeleton() {
         <div className="mt-4 grid grid-cols-6 gap-1 sm:grid-cols-10">{Array.from({ length: 40 }, (_, i) => <div key={i} className="h-8 rounded bg-slate-100" />)}</div>
       </Card>
       <div className="mt-6 space-y-3">{[0, 1, 2].map((i) => <Card key={i}><Bar w="w-64" h="h-4" /><div className="mt-2"><Bar w="w-1/2" tone="bg-slate-100" /></div></Card>)}</div>
+    </Frame>
+  );
+}
+
+/** A section page (title, then a few cards): student and staff pages without a more specific shape. */
+export function SectionSkeleton({ label = "Loading…", cards = 3 }: { label?: string; cards?: number }) {
+  return (
+    <Frame label={label}>
+      <Bar w="w-24" tone="bg-slate-100" />
+      <div className="mt-3"><Bar w="w-64" h="h-8" /></div>
+      <div className="mt-6 space-y-4">{Array.from({ length: cards }, (_, i) => <Card key={i}><Bar w="w-40" h="h-5" /><div className="mt-4 space-y-3"><Bar w="w-full" tone="bg-slate-100" /><Bar w="w-11/12" tone="bg-slate-100" /><Bar w="w-4/5" tone="bg-slate-100" /></div></Card>)}</div>
+    </Frame>
+  );
+}
+
+/** Reports and dashboards: a tab row, number tiles, then a table. */
+export function ReportSkeleton({ label = "Loading the report…" }: { label?: string }) {
+  return (
+    <Frame label={label}>
+      <Bar w="w-64" h="h-8" />
+      <div className="mt-4 flex flex-wrap gap-2">{[0, 1, 2, 3, 4].map((i) => <div key={i} className="h-9 w-24 rounded-xl bg-slate-100" />)}</div>
+      <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[0, 1, 2, 3].map((i) => <Card key={i}><Bar w="w-24" /><div className="mt-3"><Bar w="w-16" h="h-8" /></div></Card>)}</div>
+      <Card className="mt-6">
+        <Bar w="w-48" h="h-5" />
+        <div className="mt-4 space-y-2">{Array.from({ length: 8 }, (_, i) => <div key={i} className="h-9 rounded-lg bg-slate-100" />)}</div>
+      </Card>
     </Frame>
   );
 }

@@ -64,7 +64,7 @@ async function sourcesOf(repo: Repo, schoolId: string | null, ids: string[], gra
     const rm = reading.find((x) => s(x.studentId) === id && s(x.source) === "READMASTER");
     const band = bands[gradeOf.get(id) ?? 0];
     if (rm) rows.push({ key: "LEXILE_RM", name: "Reading Lexile (ReadMaster)", level: band ? levelForLexile(band, Number(rm.lexile)) : null, detail: `${Number(rm.lexile)}L (moves after every article).`, date: d(rm.updatedAt)?.toISOString().slice(0, 10) ?? null });
-    if (m?.lexile) rows.push({ key: "LEXILE_MAP", name: "MAP Lexile", level: band ? levelForLexile(band, m.lexile) : null, detail: `${m.lexile}L${band ? ` (On Level ${band.onMin}–${band.onMax}L)` : ""}.`, date: null });
+    if (m?.lexile) rows.push({ key: "LEXILE_MAP", name: "MAP Lexile", level: band ? levelForLexile(band, m.lexile) : null, detail: `${m.lexile}L${band ? ` (Meeting ${band.onMin}–${band.onMax}L)` : ""}.`, date: null });
     rows.push(m?.latest ? { key: "MAP", name: "MAP Reading", level: m.band, detail: `${m.latest.term}: RIT ${m.latest.rit}${m.latest.percentile !== null ? `, ${m.latest.percentile}th percentile` : ""}.`, date: null } : { key: "MAP", name: "MAP Reading", level: null, detail: "No MAP score yet.", date: null });
     out.set(id, rows);
   }
@@ -78,8 +78,8 @@ function conflictOf(rows: SourceRow[]): { high: SourceRow; low: SourceRow } | nu
   return high && low ? { high, low } : null;
 }
 const conflictNote = (high: SourceRow, low: SourceRow) =>
-  low.key === "PLATFORM" || low.key === "WEEKLY" ? `${high.name} says Above but recent work says Below: check for guessing, effort or a gap since the test.`
-  : high.key === "PLATFORM" || high.key === "WEEKLY" ? `Recent work says Above but ${low.name} says Below: the student may have grown — consider moving them up.`
+  low.key === "PLATFORM" || low.key === "WEEKLY" ? `${high.name} says Exceeding but recent work says Approaching: check for guessing, effort or a gap since the test.`
+  : high.key === "PLATFORM" || high.key === "WEEKLY" ? `Recent work says Exceeding but ${low.name} says Approaching: the student may have grown — consider moving them up.`
   : `${high.name} and ${low.name} disagree: look at both results before deciding.`;
 
 /** What the fast conflict path can reuse from its caller (Data Health loads these once for its own columns). */
@@ -253,6 +253,6 @@ export async function conflictsFor(repo: Repo, schoolId: string, ids: string[], 
   if (!ids.length) return [];
   const src = await sourcesOf(repo, schoolId, ids, gradeOf, now);
   const out: { studentId: string; key: string; detail: string }[] = [];
-  for (const id of ids) { const c = conflictOf(src.get(id)!); if (c) out.push({ studentId: id, key: `${c.high.key}>${c.low.key}`, detail: `${c.high.name}: Above (${c.high.detail}) · ${c.low.name}: Below (${c.low.detail}) ${conflictNote(c.high, c.low)}` }); }
+  for (const id of ids) { const c = conflictOf(src.get(id)!); if (c) out.push({ studentId: id, key: `${c.high.key}>${c.low.key}`, detail: `${c.high.name}: Exceeding (${c.high.detail}) · ${c.low.name}: Approaching (${c.low.detail}) ${conflictNote(c.high, c.low)}` }); }
   return out;
 }

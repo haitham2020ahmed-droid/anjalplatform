@@ -55,10 +55,10 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
           </nav>
           <div className="grid gap-2 md:grid-cols-2">
             <Link href={link({ manual: "" })} aria-current={!manual ? "page" : undefined} className={`rounded-2xl p-4 ring-2 ${!manual ? "bg-emerald-50 ring-emerald-400" : "bg-white ring-slate-200"}`}><b>🤖 Automatic (recommended)</b><br /><span className="text-sm text-slate-600">Each student starts at their own level and moves up or down by their answers.</span></Link>
-            <Link href={link({ manual: "1" })} aria-current={manual ? "page" : undefined} className={`rounded-2xl p-4 ring-2 ${manual ? "bg-sky-50 ring-sky-400" : "bg-white ring-slate-200"}`}><b>✋ Manual</b><br /><span className="text-sm text-slate-600">You choose who is Below, On and Above; each gets only that level.</span></Link>
+            <Link href={link({ manual: "1" })} aria-current={manual ? "page" : undefined} className={`rounded-2xl p-4 ring-2 ${manual ? "bg-sky-50 ring-sky-400" : "bg-white ring-slate-200"}`}><b>✋ Manual</b><br /><span className="text-sm text-slate-600">You choose who is Approaching, Meeting and Exceeding; each gets only that level.</span></Link>
           </div>
           {manual && sug && <div className="mt-4"><p className="mb-2 text-sm text-slate-600">Students are placed from their data — drag anyone to another column.</p><LevelBoard sendAll prefix="lv:" students={sug.rows.map((r) => ({ id: r.studentId, name: r.name, start: r.suggested, original: null, note: r.reason, tag: r.from === "NO_DATA" ? "No data" : null }))} /></div>}
-          {!manual && sug && sug.noData > 0 && <p className="mt-3 rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-900">ℹ️ {sug.noData} student(s) have no data yet: they start at On Level.</p>}
+          {!manual && sug && sug.noData > 0 && <p className="mt-3 rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-900">ℹ️ {sug.noData} student(s) have no data yet: they start at Meeting.</p>}
           <details className="mt-3 text-sm"><summary className="cursor-pointer font-semibold text-brand-navy">Leave some students out</summary>
             <div className="mt-2 grid gap-1 sm:grid-cols-3">{(sug?.rows ?? []).map((r) => <label key={r.studentId} className="flex items-center gap-2"><input type="checkbox" name="skip" value={r.studentId} />{r.name}</label>)}</div>
           </details>
