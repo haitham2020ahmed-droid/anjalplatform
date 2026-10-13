@@ -1,0 +1,169 @@
+{
+  "code": "NP-056",
+  "title": "Catching the Wind",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Wind is simply moving air, and moving air carries energy. For thousands of years, people have used that energy to push sailing ships and to turn windmills that ground grain. Today, giant wind turbines capture the same energy and convert it into electricity for homes, schools, and factories.\n\nA modern turbine usually has three long blades attached to a hub at the top of a tall tower. The blades are shaped like the wings of an aeroplane, so when wind flows over them, the air pressure on one side becomes lower than on the other. This difference creates a force called lift, which makes the blades spin. The spinning blades turn a shaft connected to a gearbox, which increases the speed of rotation. Finally, a generator inside the housing changes this motion into electrical energy, which travels through cables to the power grid.\n\nEngineers build turbines on tall towers because wind is usually stronger and steadier high above the ground. They also place them in open areas such as coastlines, plains, and even the sea, where buildings and hills do not block the airflow. A computer constantly turns the top of the turbine to face the wind and can stop the blades during dangerous storms.\n\nWind power produces no smoke, but it has limitations: turbines generate nothing on calm days. For this reason, many countries, including Saudi Arabia with its Dumat Al-Jandal wind farm, combine wind with other energy sources.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word belongs to the same word family as 'generate'?",
+      "options": [
+        "greatly",
+        "generator",
+        "gentle",
+        "garden"
+      ],
+      "answer": "B",
+      "why": "A generator is a machine that generates electricity; both words share the same root."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is an exclamatory sentence?",
+      "options": [
+        "The blades turn slowly in the wind.",
+        "Look at the tall tower on the hill.",
+        "Do turbines work on calm days?",
+        "What a powerful wind is blowing today!"
+      ],
+      "answer": "D",
+      "why": "An exclamatory sentence shows strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "According to the passage, why do engineers build turbines on tall towers?",
+      "options": [
+        "Tall towers keep birds away from blades.",
+        "Generators only work when very high.",
+        "Wind is stronger and steadier high up.",
+        "Tall towers cost less than short ones."
+      ],
+      "answer": "C",
+      "why": "The passage states that wind is usually stronger and steadier high above the ground."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 3,
+      "stem": "Which shows the correct order of steps in making electricity?",
+      "options": [
+        "blades spin → shaft turns → gearbox → generator",
+        "gearbox → blades spin → shaft turns → generator",
+        "shaft turns → blades spin → generator → gearbox",
+        "blades spin → generator → shaft turns → gearbox"
+      ],
+      "answer": "A",
+      "why": "Lift spins the blades, the blades turn a shaft, the gearbox speeds up the rotation, and the generator makes electricity."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What causes the blades of a turbine to spin?",
+      "options": [
+        "The computer inside the housing",
+        "Lift from a difference in air pressure",
+        "The heat of the sun on the tower",
+        "A motor powered by the electricity grid"
+      ],
+      "answer": "B",
+      "why": "Wind flowing over the wing-shaped blades lowers the pressure on one side, creating lift that spins them."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says the blades 'are shaped like the wings of an aeroplane.' Why does the writer use this comparison?",
+      "options": [
+        "To say turbines are built in aircraft factories",
+        "To show that turbines are able to fly",
+        "To prove that aeroplanes need wind power",
+        "To help readers picture how the blades make lift"
+      ],
+      "answer": "D",
+      "why": "Readers know aeroplane wings; the comparison helps them imagine the blade shape that creates lift."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best shows the writer's viewpoint about wind power?",
+      "options": [
+        "It should replace every other energy source now.",
+        "It is less useful than the old grain windmills.",
+        "It is clean but works best alongside other sources.",
+        "It is too dangerous to use anywhere near homes."
+      ],
+      "answer": "C",
+      "why": "The writer says wind power makes no smoke but has limits on calm days, so countries combine it with other sources."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the passage?",
+      "options": [
+        "What the gearbox does to the rotation",
+        "How much electricity one turbine can produce",
+        "Why turbines are placed in open areas",
+        "What happens to turbines on calm days"
+      ],
+      "answer": "B",
+      "why": "The passage never gives the amount of electricity a turbine makes; the other points are explained."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Turbine blades fly away to chase the wind.",
+        "A windmill grinds grain while the air is still.",
+        "A turbine stops spinning on a windless day.",
+        "A turbine with no wind lights a whole city."
+      ],
+      "answer": "C",
+      "why": "The passage says turbines generate nothing on calm days, so a turbine stopping then is realistic."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which is the best solution to the problem that turbines generate nothing on calm days?",
+      "options": [
+        "Combine wind with other energy sources",
+        "Remove the gearbox from turbines",
+        "Turn the blades away from the wind",
+        "Build turbines only inside cities"
+      ],
+      "answer": "A",
+      "why": "The passage says many countries, including Saudi Arabia, combine wind with other energy sources for this reason."
+    }
+  ]
+}

@@ -1,0 +1,568 @@
+{
+  "code": "NB-008",
+  "title": "A City Girl in the Oasis",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "words": 461,
+  "passage": "I had lived in Riyadh all my life, surrounded by towering buildings and crowded roads, so when my parents announced that we would spend the spring holiday at my grandparents' farm in Al-Ahsa, I felt uncertain. What would I do all day without my friends?\n\nWe travelled by train, and the comfortable journey lasted approximately three hours. As we approached Al-Ahsa, the yellow desert outside the window was suddenly replaced by an ocean of green, where thousands of palm trees stood in neat rows like soldiers. My father smiled and said, \"Welcome to one of the largest oases in the world, Lama.\"\n\nMy grandparents were waiting for us at the station in Hofuf. My grandmother embraced me so tightly that I could hardly breathe, while my grandfather laughed and declared that I had grown as tall as a young palm.\n\nThe next morning, Grandfather woke me before sunrise, explaining that on a farm the day begins early. We walked between the palms beside narrow channels of water, which, he explained, carried water from deep wells to every tree. Then he showed me a small field of rice, and I was amazed! I had never imagined that rice could grow in Saudi Arabia, but Grandfather told me proudly that Hasawi rice has been cultivated here for hundreds of years.\n\nMy greatest challenge, however, was the goats. When Grandmother asked me to feed them, I stood frozen at the gate, clutching the bucket. One goat stared at me with its strange yellow eyes and pushed its head insistently against my hand, and I almost dropped the bucket! Grandmother laughed gently and reassured me that he only wanted his breakfast. By the end of the week, I was feeding the goats every morning, and I had even named the most adventurous one Sukkar, which means sugar.\n\nOne afternoon, we explored Jabal Al-Qarah, a mountain riddled with narrow caves. Although the sun was blazing outside, the air inside the caves was surprisingly cool, almost like natural air conditioning. I ran my fingers along the smooth rock walls and listened to the echo of my own voice drifting through the passages.\n\nOn our final evening, we sat on a mat beneath the palms and ate fresh dates while the sky slowly turned orange. Grandfather told stories about his childhood on the farm, when there were no cars and people travelled enormous distances by camel.\n\nWhen it was time to leave, Grandmother gave me a box of dates to share with my classmates. As the train pulled away, I pressed my face against the window, watching the green fields gradually disappear into the distance. I had arrived as a city girl who was worried about being bored, yet I left wishing that I could stay much longer.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “embraced” as it is used in paragraph 3?",
+      "options": [
+        "greeted",
+        "pushed",
+        "lifted",
+        "hugged"
+      ],
+      "answer": "D",
+      "why": "Grandmother held Lama “so tightly that I could hardly breathe”, so she hugged her; “greeted” is too general."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “uncertain” as it is used in paragraph 1?",
+      "options": [
+        "worried",
+        "doubtful",
+        "sure",
+        "curious"
+      ],
+      "answer": "C",
+      "why": "Uncertain means not sure; its opposite is sure. “Doubtful” has the same meaning as uncertain."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 5, Lama “stood frozen at the gate”. This means she …",
+      "options": [
+        "did not move because she was nervous",
+        "was very cold in the morning air",
+        "was covered in ice and snow",
+        "stood happily in the sunshine"
+      ],
+      "answer": "A",
+      "why": "“Frozen” here means unable to move because of fear, not cold; she was “clutching the bucket”."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is a verb?",
+      "options": [
+        "strange",
+        "reassured",
+        "gently",
+        "adventurous"
+      ],
+      "answer": "B",
+      "why": "“Reassured” is the action Grandmother did; “strange” and “adventurous” are adjectives and “gently” is an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In “a mountain riddled with narrow caves” (paragraph 6), the word “narrow” is …",
+      "options": [
+        "an adjective",
+        "an adverb",
+        "a noun",
+        "a verb"
+      ],
+      "answer": "A",
+      "why": "“Narrow” describes the caves, so it is an adjective."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “adventurous”?",
+      "options": [
+        "advertise",
+        "advice",
+        "adventure",
+        "advance"
+      ],
+      "answer": "C",
+      "why": "Adventure and adventurous share the same root; the other words only begin with “adv”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “child” (from “his childhood” in paragraph 7)?",
+      "options": [
+        "childs",
+        "children",
+        "childes",
+        "childrens"
+      ],
+      "answer": "B",
+      "why": "“Child” has an irregular plural: children."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is a statement?",
+      "options": [
+        "My grandparents were waiting for us at the station in Hofuf.",
+        "What would I do all day without my friends?",
+        "Feed the goats before you eat your breakfast.",
+        "What a beautiful oasis this is!"
+      ],
+      "answer": "A",
+      "why": "A statement gives information and ends with a full stop; the others are a question, a command and an exclamation."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “challenge” (paragraph 5) in a meaningful sentence of your own.",
+      "model": "Learning to swim was a real challenge for me, but I practised every week until I could swim across the pool.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “challenge” with its meaning (something difficult that needs effort or courage)",
+        "1 = the word is used but the sentence is incomplete or the meaning is unclear",
+        "0 = the word is missing or used with a wrong meaning"
+      ],
+      "why": "A challenge is something difficult that needs effort; for Lama it was feeding the goats."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to persuade families to move away from Riyadh",
+        "to explain how Hasawi rice is grown",
+        "to describe the train between Riyadh and Hofuf",
+        "to share how a girl came to love her grandparents’ farm"
+      ],
+      "answer": "D",
+      "why": "Lama tells how her uncertainty changed into love for the farm; rice and the train are only details."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "Sukkar the Adventurous Goat",
+        "The Caves of Jabal Al-Qarah",
+        "Seven Days That Changed My Mind",
+        "How Hasawi Rice Is Grown"
+      ],
+      "answer": "C",
+      "why": "The whole story shows Lama changing from worried to wishing she could stay; the other titles fit only one paragraph."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "Lama was excited about seeing the goats.",
+        "Lama felt unsure about spending the holiday on the farm.",
+        "Lama wanted to move to a new school.",
+        "Lama’s friends were going to the farm with her."
+      ],
+      "answer": "B",
+      "why": "She says she “felt uncertain” and wonders what she will do without her friends."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Grandfather wake Lama before sunrise?",
+      "options": [
+        "because on a farm the day begins early",
+        "because they had to catch the train",
+        "because the goats were making noise",
+        "because they were visiting the caves"
+      ],
+      "answer": "A",
+      "why": "He explained “that on a farm the day begins early”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, how did water reach every palm tree on the farm?",
+      "options": [
+        "Rain fell on the farm every morning.",
+        "Workers carried it in heavy buckets.",
+        "It flowed down from the caves of Jabal Al-Qarah.",
+        "Narrow channels carried it from deep wells."
+      ],
+      "answer": "D",
+      "why": "The channels “carried water from deep wells to every tree”."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which feature shows that this text is a personal narrative?",
+      "options": [
+        "It gives step-by-step instructions.",
+        "It lists facts under headings.",
+        "The writer tells about her own experience using “I”.",
+        "It tries to sell a product to readers."
+      ],
+      "answer": "C",
+      "why": "Lama tells a true-to-life experience of her own in the first person."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which event happened FIRST?",
+      "options": [
+        "Lama saw the desert turn green from the train.",
+        "Grandmother embraced Lama at the station.",
+        "Grandfather showed Lama the rice field.",
+        "Lama fed the goats for the first time."
+      ],
+      "answer": "A",
+      "why": "She saw the green oasis during the train journey, before she reached Hofuf and the farm."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did Lama do AFTER she explored Jabal Al-Qarah?",
+      "options": [
+        "She saw the rice field for the first time.",
+        "She ate dates under the palms on the final evening.",
+        "She arrived at the station in Hofuf.",
+        "She heard that Al-Ahsa is a huge oasis."
+      ],
+      "answer": "B",
+      "why": "The cave visit was followed by the final evening under the palms; the other events happened earlier."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Who tells Lama that Al-Ahsa is one of the largest oases in the world?",
+      "options": [
+        "Grandfather",
+        "Grandmother",
+        "the train driver",
+        "her father"
+      ],
+      "answer": "D",
+      "why": "“My father smiled and said, ‘Welcome to one of the largest oases in the world, Lama.’”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Lama almost drop the bucket?",
+      "options": [
+        "The bucket was full of heavy stones.",
+        "Grandfather called her from the rice field.",
+        "A goat pushed its head against her hand.",
+        "She saw a snake near the gate."
+      ],
+      "answer": "C",
+      "why": "The goat stared at her and pushed its head insistently against her hand, which startled her."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Lama’s feeling when she first stood at the goats’ gate?",
+      "options": [
+        "proud",
+        "nervous",
+        "bored",
+        "impatient"
+      ],
+      "answer": "B",
+      "why": "She “stood frozen”, clutching the bucket, and almost dropped it."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused Lama to be amazed during her early morning walk?",
+      "options": [
+        "seeing goats for the first time",
+        "discovering that rice grows in Saudi Arabia",
+        "hearing her echo in the caves",
+        "watching the sky turn orange"
+      ],
+      "answer": "B",
+      "why": "She was amazed because she “had never imagined that rice could grow in Saudi Arabia”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Lama’s feelings at the end differ from her feelings at the beginning?",
+      "options": [
+        "She was happy at first but very bored by the end.",
+        "She was angry at first and still angry at the end.",
+        "She was excited at first but frightened at the end.",
+        "She was worried at first but did not want to leave at the end."
+      ],
+      "answer": "D",
+      "why": "She felt uncertain and “worried about being bored”, yet left “wishing that I could stay much longer”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Lama’s grandmother and grandfather have in common in the story?",
+      "options": [
+        "Both teach her how to grow rice.",
+        "Both are strict and unfriendly.",
+        "Both are warm and welcoming to Lama.",
+        "Both are afraid of the goats."
+      ],
+      "answer": "C",
+      "why": "Grandmother embraces and reassures her, and Grandfather laughs, shows her the farm and tells her stories."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Grandmother’s gentle laugh and reassurance?",
+      "options": [
+        "Lama gradually became confident enough to feed the goats.",
+        "Lama refused to go near the goats again.",
+        "Grandfather fed the goats instead of Lama.",
+        "The goats ran away from the gate."
+      ],
+      "answer": "A",
+      "why": "By the end of the week she was feeding them every morning and had even named one."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is an exclamatory sentence?",
+      "options": [
+        "What would I do all day without my friends?",
+        "Then he showed me a small field of rice, and I was amazed!",
+        "My grandparents were waiting for us at the station in Hofuf.",
+        "I had arrived as a city girl who was worried about being bored."
+      ],
+      "answer": "B",
+      "why": "It expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The writer says the desert was “replaced by an ocean of green”. This expression shows that …",
+      "options": [
+        "a lake of green water lay beside the railway",
+        "the train had reached the sea",
+        "the rice fields were flooded with water",
+        "a huge area was covered with green trees"
+      ],
+      "answer": "D",
+      "why": "Comparing the oasis to an ocean shows how vast the green area of palm trees was; it is not real water."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "What is your opinion of how the writer describes the visit?",
+      "options": [
+        "Unclear, because nobody in the story says anything.",
+        "Dull, because she gives no details about the farm.",
+        "Lively, because she uses details of sight, touch and sound.",
+        "Confusing, because the events have no clear order."
+      ],
+      "answer": "C",
+      "why": "She describes the green palms, the smooth rock walls, the cool air and the echo of her voice."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, what was the most important thing Lama gained from the visit?",
+      "options": [
+        "a love of the farm and her family’s way of life",
+        "a box of dates for her classmates",
+        "knowledge of how trains work",
+        "a pet goat to take back to Riyadh"
+      ],
+      "answer": "A",
+      "why": "She left wishing to stay longer; the dates are a gift, but her new feelings matter most."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to tell this story?",
+      "options": [
+        "to show that new places can surprise us in good ways",
+        "to complain about life in big cities",
+        "to warn children not to travel by train",
+        "to explain how caves are formed"
+      ],
+      "answer": "A",
+      "why": "Lama expected to be bored but discovered many wonderful things."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the end of the story?",
+      "options": [
+        "relief at going back home",
+        "boredom with life on the farm",
+        "fear of the goats and the caves",
+        "love mixed with sadness at leaving"
+      ],
+      "answer": "D",
+      "why": "She pressed her face to the window as the fields disappeared, wishing she could stay longer."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the story?",
+      "options": [
+        "how long the train journey took",
+        "where the grandparents met the family",
+        "how the water is brought up from the deep wells",
+        "what the name Sukkar means"
+      ],
+      "answer": "C",
+      "why": "The story gives the other facts but does not explain how the water is raised from the wells."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A family travels by train from Riyadh to Hofuf.",
+        "Rice grows inside the dark caves of Jabal Al-Qarah.",
+        "The air in the caves is hotter than the blazing sun outside.",
+        "A goat tells Lama in words that it wants breakfast."
+      ],
+      "answer": "A",
+      "why": "There is a train line from Riyadh to Hofuf; the other events are impossible or contradict the story."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the whole story?",
+      "options": [
+        "The Train That Never Arrived",
+        "My Week of Surprises in Al-Ahsa",
+        "A Bored Girl in the City",
+        "The Goat Who Ran Away"
+      ],
+      "answer": "B",
+      "why": "The story is about the surprising things Lama discovered during her week in Al-Ahsa."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could Lama keep her new love for the farm after returning to Riyadh?",
+      "options": [
+        "by staying away from her friends at school",
+        "by throwing away the box of dates",
+        "by never talking about the farm again",
+        "by keeping in touch with her grandparents and planning another visit"
+      ],
+      "answer": "D",
+      "why": "Keeping in touch and returning would keep the connection alive."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story.",
+      "model": "On the last day, Grandfather gave Lama a small palm offshoot in a pot. She planted it on the roof of her house in Riyadh and promised to bring photographs of it on her next visit, so that a piece of the oasis would grow with her in the city.",
+      "rubric": [
+        "2 = a clear, new ending that fits Lama, her family and the events of the story",
+        "1 = an ending that is very short, unclear or only partly linked to the story",
+        "0 = no ending, or one copied from the story or unrelated to it"
+      ],
+      "why": "Any sensible ending that differs from the original and fits the story is accepted."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "code": "NP-035",
+  "title": "Along the Silk Road",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "For more than fifteen centuries, a vast network of trade routes connected China with Central Asia, Persia, Arabia, and the Mediterranean world. In the nineteenth century, a German geographer named this network the Silk Road. He chose the name because of the valuable Chinese silk that travelled west along it. However, it was never a single road. It was a web of caravan tracks across deserts and mountains, together with sea routes through the Indian Ocean.\n\nVery few merchants travelled the entire distance. Instead, goods usually passed from one trader to another, moving slowly from city to city. Caravans of camels carried silk, porcelain, and paper westward, while horses, glassware, wool, and silver moved east. Arabian merchants traded frankincense and spices, and great cities such as Samarkand and Baghdad grew rich as busy marketplaces where travellers rested and exchanged goods.\n\nThe Silk Road carried far more than merchandise. Along with their goods, travellers brought languages, stories, inventions, and scientific knowledge. The skill of papermaking, for example, spread from China to Samarkand and then to Baghdad. There, paper mills helped scholars produce books more cheaply than ever before. Sadly, travellers sometimes carried diseases as well, which spread quickly between distant peoples.\n\nBy the fifteenth and sixteenth centuries, the overland routes had become less important, partly because European ships began sailing directly to Asia. Even so, the Silk Road remains a powerful reminder that trade has always connected people and cultures across great distances.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is used as a VERB?",
+      "options": [
+        "porcelain",
+        "exchanged",
+        "valuable",
+        "nineteenth"
+      ],
+      "answer": "B",
+      "why": "In \"travellers rested and exchanged goods\", exchanged is an action, so it is a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "What is the correct plural of the word \"city\"?",
+      "options": [
+        "citys",
+        "cityes",
+        "city's",
+        "cities"
+      ],
+      "answer": "D",
+      "why": "Nouns ending in a consonant + y change y to i and add -es: city → cities."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the German geographer call the network the Silk Road?",
+      "options": [
+        "Because valuable Chinese silk travelled west along it",
+        "Because the roads were paved with silk cloth",
+        "Because silk was the only product traded on it",
+        "Because he worked as a silk merchant himself"
+      ],
+      "answer": "A",
+      "why": "The passage says he chose the name because of the valuable Chinese silk that travelled west along the routes."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "In what order did the skill of papermaking spread, according to the passage?",
+      "options": [
+        "Baghdad → Samarkand → China",
+        "Samarkand → China → Baghdad",
+        "China → Samarkand → Baghdad",
+        "China → Baghdad → Samarkand"
+      ],
+      "answer": "C",
+      "why": "The passage says papermaking spread from China to Samarkand and then to Baghdad."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What was one effect of the paper mills in Baghdad?",
+      "options": [
+        "Scholars could produce books more cheaply.",
+        "Camels could carry much heavier loads.",
+        "European ships sailed directly to Asia.",
+        "Silk became less valuable in China."
+      ],
+      "answer": "A",
+      "why": "The passage links the paper mills to scholars producing books more cheaply than ever before."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "The writer calls the Silk Road \"a web of caravan tracks.\" Why does the writer use the word \"web\"?",
+      "options": [
+        "To show the roads were made by spiders",
+        "To show the tracks were very easy to follow",
+        "To show that travellers used the internet",
+        "To show routes crossing in many directions"
+      ],
+      "answer": "D",
+      "why": "A web has many connected threads, so the word shows the routes were many and interconnected, not one road."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which statement BEST matches the writer's viewpoint?",
+      "options": [
+        "The Silk Road only mattered because of silk.",
+        "The Silk Road shared ideas as well as goods.",
+        "Merchants should travel the whole distance alone.",
+        "Ships made contact between cultures unimportant."
+      ],
+      "answer": "B",
+      "why": "The writer says the Silk Road \"carried far more than merchandise\" and connected people and cultures."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "Which goods camels carried westward",
+        "Which cities grew rich from trade",
+        "Which diseases spread and how serious they were",
+        "What Arabian merchants traded"
+      ],
+      "answer": "C",
+      "why": "The passage mentions that diseases spread but never names them or says how serious they were."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY have happened on the Silk Road?",
+      "options": [
+        "A camel carries a ship across the mountains.",
+        "A trader walks from China to Baghdad in one day.",
+        "Silk cloth grows on trees beside the road.",
+        "A merchant sells silk to another trader in Samarkand."
+      ],
+      "answer": "D",
+      "why": "The passage explains that goods passed from trader to trader in cities such as Samarkand; the others are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "Routes That Carried Goods and Ideas",
+        "The Life of a Silkworm",
+        "Ships of the Indian Ocean",
+        "How to Make Paper at Home"
+      ],
+      "answer": "A",
+      "why": "It covers the whole passage: the trade routes and the knowledge, inventions and cultures they carried."
+    }
+  ]
+}

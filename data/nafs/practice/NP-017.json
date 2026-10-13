@@ -1,0 +1,169 @@
+{
+  "code": "NP-017",
+  "title": "Grandfather's Radio",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "passage": "On the highest shelf in my grandfather's sitting room stands an old wooden radio with a cracked dial and two brass knobs that have faded to a dull brown. For years I assumed it was simply a decoration, something too ancient and fragile to actually work.\n\nOne rainy evening, when the electricity in our neighborhood suddenly failed, Grandfather lifted the radio down carefully and fitted it with fresh batteries from the kitchen drawer. He turned the left knob slowly, and after a few seconds of crackling static, a clear voice began reading the evening news.\n\n\"This radio was my companion for forty years,\" he explained, settling into his favorite chair. He described how, as a young man working far from home, he had listened to it every night, waiting anxiously for news about the weather and the harvest in his village. Sometimes he heard recitations of the Quran or poetry programs, and he told me those broadcasts made the lonely nights feel shorter.\n\nAs he spoke, his eyes sparkled like a boy's, and I realized that the radio was not just a machine to him. It was a treasure box full of memories.\n\nWhen the lights finally returned, I asked whether I could help him clean the radio and repair its cracked dial. Grandfather smiled warmly and said that nothing would make him happier.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the story is a noun?",
+      "options": [
+        "slowly",
+        "companion",
+        "fragile",
+        "explained"
+      ],
+      "answer": "B",
+      "why": "\"Companion\" names a person or thing; \"slowly\" is an adverb, \"fragile\" an adjective and \"explained\" a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What is the plural form of \"memory\"?",
+      "options": [
+        "memories",
+        "memorys",
+        "memoryes",
+        "memory's"
+      ],
+      "answer": "A",
+      "why": "When a word ends in a consonant followed by y, change y to i and add -es: memories."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who is the narrator of the story?",
+      "options": [
+        "the grandfather's grandchild",
+        "the grandfather himself",
+        "a news reader on the radio",
+        "a neighbor in the village"
+      ],
+      "answer": "A",
+      "why": "The narrator says \"my grandfather's sitting room\" and \"I asked,\" so the story is told by the grandchild."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Why did Grandfather take the radio down from the shelf?",
+      "options": [
+        "He wanted to sell it to a collector.",
+        "The narrator asked him to repair it.",
+        "Its brass knobs needed to be polished.",
+        "The electricity in the neighborhood had failed."
+      ],
+      "answer": "D",
+      "why": "The second paragraph says he lifted it down on a rainy evening when the electricity failed."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How did the narrator's view of the radio change during the story?",
+      "options": [
+        "From a useful tool to a broken toy",
+        "From a family secret to a school project",
+        "From a mere decoration to a treasure of memories",
+        "From a gift for Grandfather to a gift for a neighbor"
+      ],
+      "answer": "C",
+      "why": "At first the narrator thought it was just a decoration; later the narrator saw it as \"a treasure box full of memories.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "The narrator says Grandfather's \"eyes sparkled like a boy's.\" What does this comparison show?",
+      "options": [
+        "He was having trouble seeing in the dark.",
+        "He was crying because the radio was broken.",
+        "He was angry that the electricity had failed.",
+        "He felt young and excited as he remembered."
+      ],
+      "answer": "D",
+      "why": "This simile shows the joy and youthful excitement that the memories brought him."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which event in the story could really happen?",
+      "options": [
+        "A radio plays a man's own memories aloud.",
+        "A radio restores the electricity in a neighborhood.",
+        "An old radio works again after new batteries are added.",
+        "A radio's dial repairs its own crack overnight."
+      ],
+      "answer": "C",
+      "why": "Old battery radios can work again with fresh batteries; the other events are imaginary."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which feeling is MOST present in the story?",
+      "options": [
+        "fear of storms and darkness",
+        "warm affection between a grandchild and a grandparent",
+        "jealousy about an expensive gift",
+        "anger at a broken machine"
+      ],
+      "answer": "B",
+      "why": "The shared memories, Grandfather's warm smile and the offer to help all show affection between them."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information does the story leave LEAST clear?",
+      "options": [
+        "What the radio was made of",
+        "Where Grandfather was working when he was young",
+        "What the voice on the radio read",
+        "What the narrator offered to do at the end"
+      ],
+      "answer": "B",
+      "why": "The story says he worked \"far from home\" but never tells us where; the other details are stated."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which title BEST describes the events of the story?",
+      "options": [
+        "A Storm Destroys the Village",
+        "How to Build a New Radio",
+        "The Narrator's First Day at Work",
+        "The Voice on Grandfather's Shelf"
+      ],
+      "answer": "D",
+      "why": "The story centers on Grandfather's old radio and the memories it carries."
+    }
+  ]
+}

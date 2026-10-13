@@ -1,0 +1,568 @@
+{
+  "code": "NB-016",
+  "title": "Grandma's Bread",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 515,
+  "passage": "Every Friday morning, the comforting aroma of freshly baked bread drifted through Grandma Noura's small kitchen and out into the narrow street beyond. Eleven-year-old Sami, who had always devoured her bread without wondering how it was made, finally decided that he wanted to discover her secret.\n\n“Will you teach me, Grandma?” he asked eagerly, sliding onto the bench beside the wooden table. Grandma smiled, and her eyes shone like two bright lanterns as she replied that she would gladly teach him, although she warned him that bread does not like people who are in a hurry.\n\nTogether, they carefully measured flour, a spoonful of salt, a little sugar and some yeast into a large bowl. Then Grandma poured in warm water, explaining that it must never be hot, because hot water kills the yeast, and then the dough will not rise.\n\nSami stirred everything until it became a sticky, shapeless ball. Next came the kneading, which Grandma demonstrated patiently: she pushed the dough away with the palm of her hand, folded it back and turned it, repeating the movements in a steady rhythm. After only two minutes, however, Sami's arms were aching, and he asked hopefully whether the dough was ready yet.\n\nGrandma shook her head and told him to continue for ten more minutes, adding that the dough itself would tell him when it was ready. Sami sighed, but he kept going, and gradually the sticky mixture became soft and smooth, like a baby's cheek, and when Grandma pressed it with her finger, it gently sprang back. Satisfied, she covered the bowl with a clean cloth, placed it in a warm corner and announced that they would now wait for an hour.\n\nSami groaned in disbelief at the thought of waiting a whole hour, but Grandma laughed and explained that her own mother had taught her this recipe when she was his age, and that she had been just as impatient. “Good things need time to grow,” she said, “just like you.”\n\nWhile they waited, Grandma described her childhood in the village, where neighbouring families baked bread together in an enormous clay oven and generously shared every loaf. Sami listened so attentively that he forgot about the time.\n\nWhen Grandma finally lifted the cloth, Sami gasped in amazement, because the dough had doubled in size! After they had shaped it into round loaves and slid them into the hot oven, the kitchen was soon filled with a warm, golden fragrance.\n\nAs soon as the loaves came out, Sami wanted to eat one immediately. Instead, Grandma wrapped the first loaf in a cloth and handed it to him, explaining that it was for their neighbour, Umm Fahad, who lived alone. “Bread tastes better when it is shared,” she reminded him gently.\n\nSami carried the loaf next door, and Umm Fahad's face lit up with joy when she saw it. At home, he tore a piece from his own loaf, and he thought it was the most delicious bread he had ever tasted. “Next Friday,” he announced proudly, “I will bake the bread for you, Grandma.”",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “devoured” as it is used in paragraph 1?",
+      "options": [
+        "cooked slowly",
+        "ate eagerly and quickly",
+        "refused to taste",
+        "shared with others"
+      ],
+      "answer": "B",
+      "why": "Sami had always devoured the bread without wondering how it was made, so he ate it eagerly and quickly."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “impatient” as it is used in paragraph 6?",
+      "options": [
+        "anxious",
+        "eager",
+        "patient",
+        "hungry"
+      ],
+      "answer": "C",
+      "why": "Removing the prefix im- gives the opposite, patient. Anxious and eager describe feelings close to impatience, not its opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 4: “Next came the kneading, which Grandma demonstrated patiently: she pushed the dough away with the palm of her hand, folded it back and turned it.” What does “demonstrated” mean?",
+      "options": [
+        "showed how to do it",
+        "refused to do it",
+        "forgot how to do it",
+        "described in writing"
+      ],
+      "answer": "A",
+      "why": "The words after the colon describe Grandma doing each movement so Sami can see it, so demonstrated means showed how to do it."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from the story is a noun?",
+      "options": [
+        "generously",
+        "shapeless",
+        "demonstrated",
+        "fragrance"
+      ],
+      "answer": "D",
+      "why": "Fragrance names a thing (a pleasant smell); generously is an adverb, shapeless an adjective and demonstrated a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “loaves” is plural. What is its singular form?",
+      "options": [
+        "loave",
+        "loaf",
+        "loafs",
+        "loav"
+      ],
+      "answer": "B",
+      "why": "Loaf is an irregular noun: one loaf, two loaves."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “impatient” in paragraph 6?",
+      "options": [
+        "pattern",
+        "patio",
+        "patience",
+        "patent"
+      ],
+      "answer": "C",
+      "why": "Impatient, patient and patience all come from the same root word; the others only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “generously” in a sentence of your own.",
+      "model": "During Ramadan, our neighbours generously shared their dates and coffee with every family on the street.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “generously” with a meaning that fits",
+        "1 = uses the word, but the sentence is incomplete, copied from the text, or has errors that affect meaning",
+        "0 = no answer, the word is missing, or it is used with the wrong meaning"
+      ],
+      "why": "The sentence must be original and show that generously means giving or sharing freely and kindly."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The story mentions “a baby's cheek” (paragraph 5). Which pair shows the correct singular and plural forms?",
+      "options": [
+        "baby → babies",
+        "loaf → loafs",
+        "family → familys",
+        "knife → knifes"
+      ],
+      "answer": "A",
+      "why": "Baby ends in a consonant + y, so y changes to i and -es is added; the other plurals should be loaves, families and knives."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read: “Will you teach me, Grandma?” What type of sentence is this, and what does it show about Sami?",
+      "options": [
+        "a command that shows he is rude",
+        "a statement that shows he knows the recipe",
+        "an exclamation that shows he is angry",
+        "a question that shows he is eager to learn"
+      ],
+      "answer": "D",
+      "why": "It ends with a question mark and asks for something; the word eagerly shows how keen Sami is."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Lost Recipe Book",
+        "Sami's Football Match",
+        "A Lesson in Patience",
+        "A Day at the Bakery"
+      ],
+      "answer": "C",
+      "why": "Sami learns that bread, like other good things, needs time."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to give an exact recipe for bread",
+        "to show the value of patience and sharing",
+        "to describe life in a big city",
+        "to explain how ovens work"
+      ],
+      "answer": "B",
+      "why": "Through Sami's lesson, the story teaches patience and sharing; it does not give exact amounts, so it is not a recipe."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "Sami decides to learn Grandma's bread secret",
+        "Sami does not like the smell of bread",
+        "Grandma Noura sells bread in the street",
+        "Sami bakes bread alone for the first time"
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says Sami finally decided that he wanted to discover her secret."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why must the water never be hot?",
+      "options": [
+        "It burns the bowl",
+        "It makes the bread too salty",
+        "It dries out the flour",
+        "It kills the yeast, so the dough will not rise"
+      ],
+      "answer": "D",
+      "why": "Grandma explains that hot water kills the yeast, and then the dough will not rise."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which features show that this text is a narrative story?",
+      "options": [
+        "facts, headings and diagrams",
+        "characters, events, dialogue and a lesson",
+        "rhyming lines and verses",
+        "a list of numbered steps"
+      ],
+      "answer": "B",
+      "why": "It tells events with characters, dialogue and a lesson, so it is a narrative story, even though it includes some baking steps."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Grandma give the first loaf to Umm Fahad?",
+      "options": [
+        "Umm Fahad was a baker",
+        "The loaf was burnt",
+        "Umm Fahad lived alone",
+        "Sami did not like it"
+      ],
+      "answer": "C",
+      "why": "Paragraph 9 says the loaf was for their neighbour, Umm Fahad, who lived alone, and that bread tastes better when it is shared."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What did Grandma do right after the dough was ready?",
+      "options": [
+        "She covered it and put it in a warm corner",
+        "She put it straight into the hot oven",
+        "She shaped it into round loaves",
+        "She gave it to Umm Fahad"
+      ],
+      "answer": "A",
+      "why": "After the dough sprang back, Grandma covered the bowl with a cloth and placed it in a warm corner; shaping and baking came an hour later."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells this story?",
+      "options": [
+        "Sami",
+        "Grandma Noura",
+        "Umm Fahad",
+        "a narrator outside the story"
+      ],
+      "answer": "D",
+      "why": "The story uses he and she for all the characters, so it is told by a narrator outside the story."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "How did Grandma know the dough was ready?",
+      "options": [
+        "It turned golden brown",
+        "It became very sticky",
+        "It sprang back when she pressed it",
+        "It doubled in size"
+      ],
+      "answer": "C",
+      "why": "Paragraph 5 says she pressed it with her finger and it gently sprang back; it doubled in size later, after resting."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the dough to double in size?",
+      "options": [
+        "It rested in a warm place while the yeast worked",
+        "Sami added more flour to it",
+        "Grandma poured in hot water",
+        "It was put straight into the oven"
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 explains that the yeast makes the dough rise, and paragraph 5 shows it resting for an hour in a warm corner."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, what most makes the reader want to keep reading the story?",
+      "options": [
+        "a long list of kitchen tools",
+        "wanting to know if Sami will be patient",
+        "the exact weight of the flour",
+        "the history of the clay oven"
+      ],
+      "answer": "B",
+      "why": "The reader wonders whether impatient Sami will wait and succeed."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which detail best shows how Sami felt when Grandma lifted the cloth?",
+      "options": [
+        "He sighed, but he kept going",
+        "He groaned in disbelief",
+        "He asked hopefully",
+        "He gasped in amazement"
+      ],
+      "answer": "D",
+      "why": "Paragraph 8 says Sami gasped in amazement; the other details come from earlier moments in the story."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How was baking in Grandma's childhood different from baking in her kitchen today?",
+      "options": [
+        "Children were not allowed to bake",
+        "Bread was bought from shops",
+        "Neighbouring families baked together in a clay oven",
+        "Nobody shared their bread"
+      ],
+      "answer": "C",
+      "why": "Paragraph 7 says families in the village baked bread together in an enormous clay oven."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Grandma's stories on Sami?",
+      "options": [
+        "He fell asleep at the table",
+        "He forgot about the time",
+        "He wanted to leave the kitchen",
+        "He became impatient again"
+      ],
+      "answer": "B",
+      "why": "Paragraph 7 says Sami listened so attentively that he forgot about the time."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Grandma as a child and Sami have in common?",
+      "options": [
+        "Both were impatient when learning to bake",
+        "Both lived alone in a village",
+        "Both baked bread alone the first time",
+        "Both disliked fresh bread"
+      ],
+      "answer": "A",
+      "why": "Grandma says she had been just as impatient when her mother taught her the recipe."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “her eyes shone like two bright lanterns” tell us about Grandma?",
+      "options": [
+        "She was very tired",
+        "She could not see well",
+        "She was angry with Sami",
+        "She was happy and warm-hearted"
+      ],
+      "answer": "D",
+      "why": "The simile shows Grandma's eyes lit up with happiness at Sami's request."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why does the writer end the first sentence of paragraph 8 with an exclamation mark?",
+      "options": [
+        "to show that Grandma is angry",
+        "to ask the reader a question",
+        "to show Sami's surprise and excitement",
+        "to give Sami an order"
+      ],
+      "answer": "C",
+      "why": "The exclamatory sentence expresses Sami's amazement that the dough had doubled in size."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is your opinion of the way the writer describes the kitchen?",
+      "options": [
+        "Smells, textures and comparisons make it come alive",
+        "It gives no details about the kitchen",
+        "It uses only numbers and measurements",
+        "It describes a place we never see"
+      ],
+      "answer": "A",
+      "why": "Details such as the comforting aroma, the golden fragrance and dough smooth like a baby's cheek help readers imagine the scene."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, which lessons from the story are the most useful?",
+      "options": [
+        "being patient",
+        "sharing with others",
+        "eating as fast as possible",
+        "A and B"
+      ],
+      "answer": "D",
+      "why": "The story teaches both patience (waiting for the bread) and sharing (the loaf for Umm Fahad)."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do you think motivated the writer to write this story?",
+      "options": [
+        "to complain about cooking",
+        "to celebrate traditions passed between generations",
+        "to advertise a bakery",
+        "to warn children about ovens"
+      ],
+      "answer": "B",
+      "why": "The story celebrates a recipe passed from Grandma's mother to Grandma and now to Sami."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the story?",
+      "options": [
+        "fear and worry",
+        "anger and jealousy",
+        "warmth and love",
+        "sadness and loss"
+      ],
+      "answer": "C",
+      "why": "Grandma's kindness, her family stories and the shared bread fill the story with warmth and love."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the least clear in the story?",
+      "options": [
+        "how long to knead the dough",
+        "how much flour they used",
+        "how long the dough rested",
+        "why the water must not be hot"
+      ],
+      "answer": "B",
+      "why": "The story says they measured flour but never says how much; the others are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, which of the following could really happen?",
+      "options": [
+        "A boy learns to bake bread from his grandmother",
+        "Dough really speaks to tell the baker it is ready",
+        "Dough rises well after hot water kills the yeast",
+        "Two minutes of kneading make the dough smooth"
+      ],
+      "answer": "A",
+      "why": "Learning to bake from a grandparent is realistic; dough cannot speak (Grandma's words are figurative), and the other two contradict the story."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Broken Oven",
+        "Sami Goes Shopping",
+        "A Rainy Friday",
+        "Bread Made with Love"
+      ],
+      "answer": "D",
+      "why": "Grandma and Sami bake bread with care and share it with love."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story.",
+      "model": "The next Friday, Sami bakes the bread by himself, but he is in a hurry and puts the dough into the oven without letting it rise, so the loaves come out flat and hard. Grandma laughs kindly and reminds him that bread does not like people who are in a hurry. They try again together, Sami waits the whole hour, and this time he proudly carries a perfect loaf to Umm Fahad.",
+      "rubric": [
+        "2 = a clear, logical ending in complete sentences that is different from the original and fits the characters and ideas of the story",
+        "1 = an ending is given but it is very short, unclear, or only partly connected to the story",
+        "0 = no answer, or the answer repeats the original ending or is unrelated to the story"
+      ],
+      "why": "Any logical ending that is different from the original and fits the characters and the lessons of patience and sharing is accepted."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How can families keep old traditions like Grandma's recipe alive?",
+      "options": [
+        "Keep them a secret forever",
+        "Teach them to their children",
+        "Buy all their bread from shops",
+        "Stop cooking at home"
+      ],
+      "answer": "B",
+      "why": "Grandma learned from her mother and now teaches Sami, so teaching children keeps traditions alive."
+    }
+  ]
+}

@@ -34,7 +34,7 @@ export const SIMPLE_REFS: readonly (readonly [string, string])[] = [
   ["PracticeSession", "currentQuestionId"], ["PracticeSession", "hintQuestionId"], ["MapSimSession", "servedQuestionId"],
   ["ImportedQuestionLog", "questionId"], ["ImportedQuestionLog", "duplicateOfId"], ["AiSuggestion", "questionId"],
   ["QuestionStandardFix", "questionId"], ["QuestionLevelChange", "questionId"], ["MapSimAnswer", "questionId"],
-  ["SecondChanceAnswer", "questionId"], ["QotdAnswer", "questionId"],
+  ["SecondChanceAnswer", "questionId"], ["QotdAnswer", "questionId"], ["NafsBankItem", "copyOfId"], ["NafsPracticeAnswer", "questionId"],
 ];
 /**
  * Tables where the question is part of a unique key (with `key`): a row the kept copy already has is merged (`merge`)
@@ -51,11 +51,13 @@ export const KEYED_REFS: readonly { table: string; key: readonly string[]; id?: 
   { table: "QuestionAlert", key: ["grade", "kind"], id: "id" },
   { table: "QuestionStats", key: [], merge: ["attempts", "correct"] },
   { table: "NafsQuestionArea", key: [] },
+  { table: "NafsBankItem", key: ["schoolId"], id: "id" },
 ];
 /** JSON columns holding question ids (lists, or objects keyed by question id, or logs with questionId fields). */
 export const JSON_REFS: readonly (readonly [string, string])[] = [
   ["Assignment", "questionIds"], ["LiveGame", "questionIds"], ["ExitTicket", "questionIds"], ["Worksheet", "questionIds"],
-  ["ProgressCheck", "categories"], ["LessonRun", "log"],
+  ["ProgressCheck", "categories"], ["LessonRun", "log"], ["NafsTest", "questionIds"], ["NafsTest", "marks"],
+  ["NafsPractice", "questionIds"], ["NafsPracticeRun", "state"],
 ];
 
 /** Every id of `map` replaced by its kept copy, anywhere in a JSON value; repeated ids in a list are kept once. */

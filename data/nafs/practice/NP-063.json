@@ -1,0 +1,169 @@
+{
+  "code": "NP-063",
+  "title": "A Short History of Soap",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Today, a bar of soap costs very little and sits beside almost every sink, but people have been making and improving it for nearly five thousand years.\n\nThe earliest evidence of soap comes from ancient Mesopotamia. Clay tablets from around 2800 BCE describe a mixture of animal fat and wood ash boiled in water. However, this early soap was probably used for washing wool and cloth rather than for cleaning the body.\n\nCenturies later, during the golden age of Islamic civilization, craftsmen in cities such as Aleppo, Nablus and Fez transformed soap making. They used olive oil instead of animal fat, and they added perfumes and natural colours. As a result, their hard, sweet-smelling bars became famous and were traded across the Mediterranean.\n\nSoap was still expensive in Europe for many centuries, so ordinary families often made their own at home. Then, in the nineteenth century, factories began producing soap in huge quantities, and its price fell sharply.\n\nAt the same time, doctors were discovering that germs cause many diseases. They realized that washing hands with soap could stop these germs from spreading. The molecules in soap grab both oil and water, so they lift dirt and harmful microbes off the skin and let water carry them away.\n\nThanks to this simple invention, millions of lives have been saved.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the price of soap fall sharply in the nineteenth century?",
+      "options": [
+        "Families stopped making soap at home.",
+        "Olive oil became cheaper than animal fat.",
+        "Factories began producing it in huge quantities.",
+        "Doctors started giving soap away for free."
+      ],
+      "answer": "C",
+      "why": "The passage says factories began producing soap in huge quantities, and its price fell sharply."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Craftsmen in Aleppo perfumed their soap.",
+        "Factories made soap in huge amounts.",
+        "Doctors linked germs to many diseases.",
+        "Soap was used to wash wool and cloth."
+      ],
+      "answer": "D",
+      "why": "The Mesopotamian soap of about 2800 BCE came first; the others happened centuries later."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "The passage uses the word \"lives.\" What is its singular form?",
+      "options": [
+        "live",
+        "life",
+        "lifes",
+        "lived"
+      ],
+      "answer": "B",
+      "why": "'Lives' is the irregular plural of 'life' (f changes to v and -es is added)."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"transform\" correctly?",
+      "options": [
+        "She transform her soap every morning yesterday.",
+        "The transform was sitting beside the sink.",
+        "Rain can transform a dry valley into a meadow.",
+        "He is very transform about washing his hands."
+      ],
+      "answer": "C",
+      "why": "'Transform' is a verb meaning to change completely; only this sentence uses it as a verb correctly."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says soap molecules \"grab\" both oil and water. Why does the writer use the word \"grab\"?",
+      "options": [
+        "To make a scientific idea easy to picture",
+        "To show that soap molecules have tiny hands",
+        "To prove that soap is dangerous to touch",
+        "To explain why soap was once so expensive"
+      ],
+      "answer": "A",
+      "why": "'Grab' is an expressive word that helps readers imagine how soap holds on to oil and water."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What was the effect of craftsmen using olive oil and perfumes?",
+      "options": [
+        "Soap became too soft to use for washing.",
+        "People stopped washing wool and cloth.",
+        "Doctors discovered germs for the first time.",
+        "Their bars became famous and widely traded."
+      ],
+      "answer": "D",
+      "why": "'As a result, their hard, sweet-smelling bars became famous and were traded across the Mediterranean.'"
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A Mesopotamian scribe buys soap from a 19th-century factory.",
+        "Washing with soap turns germs into olive oil.",
+        "A family in the 1700s makes soap at home.",
+        "One bar of Aleppo soap cures every disease instantly."
+      ],
+      "answer": "C",
+      "why": "The passage says ordinary families often made their own soap for centuries; the other events are impossible."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST complete in the passage?",
+      "options": [
+        "What Mesopotamian soap was used for — it says 'probably'.",
+        "What early soap was made from — fat and ash are named.",
+        "Which cities improved soap — three cities are named.",
+        "Why soap removes germs — the molecules are explained."
+      ],
+      "answer": "A",
+      "why": "The writer is unsure about the use of the earliest soap and only says it was 'probably' used for wool and cloth."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST expresses the writer's viewpoint?",
+      "options": [
+        "Soap is a simple invention with a huge effect on health.",
+        "Soap was more useful in ancient times than today.",
+        "Factory soap is much worse than soap made at home.",
+        "Soap is too expensive for most families today."
+      ],
+      "answer": "A",
+      "why": "The writer ends by saying that 'thanks to this simple invention, millions of lives have been saved'."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "The Germ That Ate Aleppo",
+        "From Clay Tablets to Clean Hands",
+        "How to Open a Soap Factory",
+        "Olive Trees of the Mediterranean"
+      ],
+      "answer": "B",
+      "why": "The passage traces soap from ancient clay tablets to modern handwashing."
+    }
+  ]
+}

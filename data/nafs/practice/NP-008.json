@@ -1,0 +1,169 @@
+{
+  "code": "NP-008",
+  "title": "How Volcanoes Build Islands",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Many beautiful islands in the ocean did not form from sand or coral. Instead, they were gradually constructed by volcanoes that began erupting far beneath the surface of the ocean.\n\nDeep inside the Earth, rock becomes so hot that some of it melts into a thick liquid called magma. Because magma is lighter than the solid rock around it, it slowly rises. When it finds a weak spot in the ocean floor, it pushes through and erupts. The cold seawater quickly cools the glowing lava, transforming it into new volcanic rock.\n\nEruption after eruption, layers of rock pile on top of one another. Over thousands of years, this underwater mountain grows taller until finally its peak breaks through the waves and becomes an island.\n\nThe Hawaiian Islands formed in this way above a hot spot, an area where magma rises continuously. Because the Pacific Plate moves slowly over the hot spot, a chain of islands has formed, with the oldest islands lying farthest from it.\n\nScientists have even watched a new island appear. In 1963, an eruption off the coast of Iceland created the island of Surtsey within a few months. Researchers have studied it ever since to learn how plants and animals arrive and settle on brand-new land.\n\nVolcanic islands remind us that the surface of our planet is still changing today.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a verb?",
+      "options": [
+        "magma",
+        "volcanic",
+        "surface",
+        "erupts"
+      ],
+      "answer": "D",
+      "why": "'Erupts' is an action the magma performs, so it is a verb; 'magma' and 'surface' are nouns and 'volcanic' is an adjective."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which of these sentences about the passage is a command?",
+      "options": [
+        "Look at a map and find the Hawaiian Islands.",
+        "Magma rises slowly through solid rock.",
+        "Did Surtsey appear in 1963?",
+        "What a fast-growing island Surtsey was!"
+      ],
+      "answer": "A",
+      "why": "It begins with the verb 'Look' and tells the reader to do something, so it is a command; the others are a statement, a question and an exclamation."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why does magma rise toward the surface?",
+      "options": [
+        "Seawater pulls it upward from above.",
+        "It is colder than the rock around it.",
+        "It is lighter than the solid rock around it.",
+        "New islands press down on it."
+      ],
+      "answer": "C",
+      "why": "The passage says, 'Because magma is lighter than the solid rock around it, it slowly rises.'"
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which list shows the correct order of how a volcanic island forms?",
+      "options": [
+        "lava cools, peak appears, magma rises, layers build",
+        "magma rises, lava cools, layers build, peak appears",
+        "layers build, magma rises, peak appears, lava cools",
+        "peak appears, layers build, lava cools, magma rises"
+      ],
+      "answer": "B",
+      "why": "Magma rises and erupts, seawater cools the lava, layers pile up over thousands of years, and finally the peak breaks through the waves."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Why are the oldest Hawaiian Islands farthest from the hot spot?",
+      "options": [
+        "Waves have pushed them across the ocean.",
+        "The hot spot moves quickly toward the west.",
+        "They were made from coral, not from lava.",
+        "The Pacific Plate has carried them away over time."
+      ],
+      "answer": "D",
+      "why": "The passage explains that 'the Pacific Plate moves slowly over the hot spot', so older islands have been carried farther away."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The writer ends by saying islands 'remind us that the surface of our planet is still changing today.' What is the effect of this ending?",
+      "options": [
+        "It leaves readers thinking about how active the Earth is.",
+        "It shows that islands can speak to people.",
+        "It suggests that all islands will soon vanish.",
+        "It explains how plants reach new islands."
+      ],
+      "answer": "A",
+      "why": "The closing sentence widens the topic from islands to the whole planet, leaving readers aware that the Earth is still active."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "Volcanic islands are too dangerous to study.",
+        "Surtsey is a valuable place for scientists to study.",
+        "Coral islands are prettier than volcanic ones.",
+        "Hawaii is the youngest island chain on Earth."
+      ],
+      "answer": "B",
+      "why": "Researchers have studied Surtsey 'ever since' to learn how life settles on new land, which shows its value."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "what magma is made of and how it forms",
+        "where the island of Surtsey is located",
+        "how plants and animals reach a brand-new island",
+        "in which year Surtsey first appeared"
+      ],
+      "answer": "C",
+      "why": "The passage says researchers study how plants and animals arrive, but it never explains how they do so; the other facts are given."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A mountain of lava floats across the sea like a boat.",
+        "Seawater turns into magma and rises from the seabed.",
+        "An island made of sand erupts with hot lava.",
+        "An underwater eruption slowly builds a new island."
+      ],
+      "answer": "D",
+      "why": "Surtsey and Hawaii were built by eruptions that started underwater; the other events are not possible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "How Coral Reefs Grow",
+        "Islands Born from Fire",
+        "Life in Hawaii Today",
+        "The Coldest Islands on Earth"
+      ],
+      "answer": "B",
+      "why": "The passage explains how underwater volcanoes build islands; the other titles describe topics it does not discuss."
+    }
+  ]
+}

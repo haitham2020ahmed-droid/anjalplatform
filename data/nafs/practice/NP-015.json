@@ -1,0 +1,169 @@
+{
+  "code": "NP-015",
+  "title": "A Letter to Kyoto",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "passage": "Dear Haruto,\n\nThank you for your wonderful letter and the beautiful photographs of the cherry blossoms in Kyoto, which I proudly showed to my entire class. My teacher pinned one on our display board beside a map of Japan, and my classmates could hardly believe that an entire street could turn pink in springtime!\n\nYou asked me to describe everyday life in Abha, so I will try my best to explain it. Our city sits high in the Asir Mountains, which means that the summers are considerably cooler than in Riyadh or Jeddah. On weekends my family often drives to a nearby park, where the fog rolls over the green hills like a soft blanket and the air smells of juniper trees. Many visitors travel here during the summer holidays to escape the exhausting heat of the lowlands.\n\nLast month our school celebrated Saudi National Day with great enthusiasm. We wore green, sang patriotic songs, and prepared a small exhibition about traditional Asiri houses, whose interior walls are decorated with brightly painted geometric patterns. I helped paint a triangle design on a large board, and it took me three afternoons to complete it carefully.\n\nI am also curious about your school, because our teacher told us something surprising about Japanese classrooms. Do students in Japan really clean their own classrooms every day? I think that is an excellent idea, and I am planning to suggest it to my class.\n\nPlease write back soon and tell me all about your winter.\n\nYour friend, Faisal",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "In the letter, which word is a plural noun?",
+      "options": [
+        "wonderful",
+        "believe",
+        "photographs",
+        "decorated"
+      ],
+      "answer": "C",
+      "why": "\"Photographs\" names more than one thing, so it is a plural noun."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which sentence from the letter is a question?",
+      "options": [
+        "Please write back soon and tell me about your winter.",
+        "I am curious about your school too.",
+        "Do students really clean their own classrooms in Japan?",
+        "I think that is a great idea."
+      ],
+      "answer": "C",
+      "why": "It asks for information and ends with a question mark; \"Please write back\" is a polite command."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What type of text is this?",
+      "options": [
+        "a poem",
+        "a friendly letter",
+        "a news report",
+        "a science article"
+      ],
+      "answer": "B",
+      "why": "It has a greeting, body and closing signed by a friend, so it is a friendly letter."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Who is the writer of this text?",
+      "options": [
+        "Faisal, a student in Abha",
+        "Haruto, a student in Kyoto",
+        "Faisal's teacher in Riyadh",
+        "A visitor to the Asir Mountains"
+      ],
+      "answer": "A",
+      "why": "The letter is signed \"Your friend, Faisal,\" and he describes his own city, Abha."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "According to the letter, how is Abha different from Riyadh and Jeddah?",
+      "options": [
+        "Abha has no mountains nearby.",
+        "Abha has cherry blossoms in spring.",
+        "Abha has fewer visitors in summer.",
+        "Abha has much cooler summers."
+      ],
+      "answer": "D",
+      "why": "Faisal says Abha sits high in the mountains, so its summers are much cooler than in Riyadh or Jeddah."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Faisal writes that the fog \"rolls over the green hills like a soft blanket.\" What does this comparison help the reader imagine?",
+      "options": [
+        "A storm destroying the park",
+        "Fog gently covering the hills",
+        "Blankets drying on the hills",
+        "Rain falling heavily on the city"
+      ],
+      "answer": "B",
+      "why": "The simile compares the fog to a blanket to show it softly covering the hills."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which event from the letter could really happen?",
+      "options": [
+        "A letter flies by itself from Kyoto to Abha.",
+        "A class pins a photo from a pen pal beside a map.",
+        "Fog turns into a real blanket on the hills.",
+        "A whole street paints itself pink overnight."
+      ],
+      "answer": "B",
+      "why": "Pinning a photograph on a class board is realistic; the others are imaginary."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST shows Faisal's viewpoint about the Japanese school custom?",
+      "options": [
+        "He admires it and wants his class to try it.",
+        "He thinks it is unfair to the students.",
+        "He believes it would never work in Saudi Arabia.",
+        "He is not interested in Haruto's school."
+      ],
+      "answer": "A",
+      "why": "Faisal writes, \"I think that is a great idea, and I want to suggest it to my class.\""
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the letter is the LEAST clear for a reader who has never visited Abha?",
+      "options": [
+        "What the triangle design on Asiri houses looks like",
+        "Which national day the school celebrated last month",
+        "What color the students wore for the celebration",
+        "Which mountains the city of Abha is located in"
+      ],
+      "answer": "A",
+      "why": "Faisal mentions the painted triangle design but does not describe its shapes or colors in detail."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for this letter?",
+      "options": [
+        "The Cherry Trees of My Street",
+        "How to Clean a Classroom",
+        "A Winter Holiday in Riyadh",
+        "Greetings from the Mountains of Abha"
+      ],
+      "answer": "D",
+      "why": "Most of the letter describes Faisal's life in Abha to his pen pal."
+    }
+  ]
+}

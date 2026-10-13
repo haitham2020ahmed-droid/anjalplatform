@@ -1,0 +1,169 @@
+{
+  "code": "NP-021",
+  "title": "Saving the Arabian Oryx",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "The Arabian oryx is a graceful antelope with a brilliant white coat and two long, straight horns. Its pale fur reflects the fierce desert sunlight, while its wide hooves allow it to walk comfortably across soft sand. Remarkably, an oryx can survive for weeks without drinking, because it obtains moisture from plants and the dew that settles on them at night.\n\nDespite these adaptations, the oryx nearly vanished. During the twentieth century, uncontrolled hunting reduced the wild population dramatically. By 1972, scientists declared the species extinct in the wild. Fortunately, a small number of animals had already been moved to zoos, where careful breeding programs slowly increased the herd.\n\nIn the following decades, conservation teams began returning oryx to protected desert reserves. Saudi Arabia released animals into the fenced reserve of Mahazat as-Sayd in 1990 and later into the vast sands of Uruq Bani Ma'arid. Rangers monitored the herds, protected them from poachers, and recorded every new calf.\n\nThese efforts produced an extraordinary result. In 2011, the International Union for Conservation of Nature changed the oryx's status from \"extinct in the wild\" to \"vulnerable.\" It became the first animal ever to return to \"vulnerable\" after being listed as extinct in the wild. Today, thousands of oryx live in reserves and zoos. However, experts warn that drought and illegal hunting remain serious dangers. The oryx's story demonstrates that determined cooperation can rescue a species from the edge of extinction.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is an ADJECTIVE?",
+      "options": [
+        "obtains",
+        "rangers",
+        "slowly",
+        "graceful"
+      ],
+      "answer": "D",
+      "why": "\"Graceful\" describes the noun \"antelope,\" so it is an adjective. \"Obtains\" is a verb, \"rangers\" is a noun and \"slowly\" is an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which of these sentences about the oryx is EXCLAMATORY?",
+      "options": [
+        "How did the oryx survive without water?",
+        "What an amazing comeback the oryx has made!",
+        "Protect the oryx from illegal hunters.",
+        "The oryx now lives in desert reserves."
+      ],
+      "answer": "B",
+      "why": "An exclamatory sentence expresses strong feeling and ends with an exclamation mark. The others are a question, a command and a statement."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why can an oryx survive for weeks without drinking?",
+      "options": [
+        "Its white coat stores extra water.",
+        "Its wide hooves dig for underground water.",
+        "It drinks from desert wells at night.",
+        "It gets moisture from plants and dew."
+      ],
+      "answer": "D",
+      "why": "The passage states that the oryx \"obtains moisture from plants and the dew that settles on them at night.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Oryx were released at Uruq Bani Ma'arid.",
+        "The oryx's status changed to vulnerable.",
+        "Some oryx were moved to zoos.",
+        "Oryx were released at Mahazat as-Sayd."
+      ],
+      "answer": "C",
+      "why": "The animals \"had already been moved to zoos\" by 1972, before the releases in 1990 and later and before the 2011 status change."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "How was the oryx's situation in 1972 different from its situation in 2011?",
+      "options": [
+        "In 1972 it lived only in reserves; in 2011 only in zoos.",
+        "In 1972 it had no enemies; in 2011 hunting had ended.",
+        "In 1972 none lived in the wild; in 2011 it was vulnerable.",
+        "In 1972 it was vulnerable; in 2011 it was extinct in the wild."
+      ],
+      "answer": "C",
+      "why": "In 1972 the species was declared extinct in the wild; in 2011 the IUCN improved its status to vulnerable."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says cooperation can rescue a species \"from the edge of extinction.\" What does this phrase suggest?",
+      "options": [
+        "The oryx lived near the borders of the desert.",
+        "The species was very close to disappearing forever.",
+        "The species was safe but needed more water.",
+        "Scientists found the last oryx on a cliff."
+      ],
+      "answer": "B",
+      "why": "\"The edge of extinction\" is a figurative phrase meaning the species was just one step away from dying out completely."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best reflects the writer's viewpoint?",
+      "options": [
+        "Conservation worked, but the oryx still needs protection.",
+        "Hunting the oryx can safely be allowed again.",
+        "The oryx no longer faces any danger at all.",
+        "Zoos are better homes for oryx than the desert."
+      ],
+      "answer": "A",
+      "why": "The writer praises the \"extraordinary result\" but also says \"drought and illegal hunting remain serious dangers.\""
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "How the oryx's pale coat helps it in the heat",
+        "The year the species was declared extinct in the wild",
+        "How many oryx were taken to zoos to be bred",
+        "The name of the first Saudi reserve to get oryx"
+      ],
+      "answer": "C",
+      "why": "The passage only says \"a small number of animals\" without giving a figure; the other details are stated clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of these events could really happen?",
+      "options": [
+        "An oryx tells rangers where poachers are hiding.",
+        "An oryx drinks a whole lake in a single day.",
+        "An oryx grows new horns overnight to escape.",
+        "A ranger records the birth of a new oryx calf."
+      ],
+      "answer": "D",
+      "why": "Rangers really do record new calves, as the passage says. Animals cannot talk, regrow horns overnight or drink a lake."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "The Oryx Returns from the Brink",
+        "Hunting Methods in the Arabian Desert",
+        "Life Inside a Modern City Zoo",
+        "The Fastest Animals in Saudi Arabia"
+      ],
+      "answer": "A",
+      "why": "The passage tells how the oryx was rescued after disappearing from the wild; \"returns from the brink\" sums this up."
+    }
+  ]
+}

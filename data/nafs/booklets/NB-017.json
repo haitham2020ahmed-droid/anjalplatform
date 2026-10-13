@@ -1,0 +1,568 @@
+{
+  "code": "NB-017",
+  "title": "AlUla: A Museum Under the Open Sky",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 459,
+  "passage": "In the northwest of Saudi Arabia, within the region of Madinah, lies a valley of golden sand surrounded by towering sandstone mountains. This is AlUla, a place where people have lived, travelled and traded for thousands of years. Visitors often describe it as a museum under the open sky, because its history is not displayed behind glass; instead, it is carved into the cliffs that rise on every side.\n\nLong ago, AlUla was an important stop on the incense route, which connected the south of Arabia with the markets of the north. Camel caravans carried frankincense, spices and cloth across the desert, and the travellers depended on the fertile oasis of AlUla for water, food and rest. Kingdoms grew wealthy from this trade. One of them, the ancient kingdom of Dadan, left behind temples, statues and inscriptions written in an early Arabian alphabet.\n\nThe most celebrated site in AlUla is Hegra, also known as Al-Hijr. About two thousand years ago, a people called the Nabataeans carved more than one hundred monumental tombs into its sandstone hills. The front of each tomb is decorated with columns, stepped patterns and carved birds, which shows how skilled these builders were. The Nabataeans also built the famous city of Petra in Jordan, and experts regard Hegra as their largest site south of Petra. In 2008, it became the first place in Saudi Arabia to be added to the UNESCO World Heritage List.\n\nAlUla possesses other remarkable treasures as well. At Jabal Ikmah, hundreds of ancient inscriptions cover the cliffs, so the site is sometimes called an open-air library. Near the town stands Elephant Rock, an enormous formation that wind and time have gradually sculpted until it resembles an elephant whose trunk touches the ground. Meanwhile, the old town of AlUla, with its narrow lanes and mud-brick houses, shows how families lived there for hundreds of years.\n\nWhy must these places be protected? First, they are irreplaceable: if a carving is scratched or a wall collapses, it is lost forever. Second, they preserve valuable evidence about the people who lived in Arabia long before us. Third, they belong to the whole world, not only to one nation. Although sandstone looks solid, it is quite fragile, and wind, rain and careless visitors can all damage it.\n\nFor these reasons, the Kingdom established the Royal Commission for AlUla in 2017. The commission studies the sites, restores historic buildings and trains young Saudis to work as guides and specialists. Visitors are expected to remain on the marked paths and must never touch or climb on the tombs. What a wonderful gift it is to walk where ancient travellers once walked! When we treat AlUla with respect, we help keep its story alive for our children and grandchildren.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “enormous” as it is used in paragraph 4?",
+      "options": [
+        "distant",
+        "gigantic",
+        "graceful",
+        "ancient"
+      ],
+      "answer": "B",
+      "why": "Elephant Rock is an enormous formation, which means extremely large, or gigantic."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “fragile” in the sentence “Although sandstone looks solid, it is quite fragile”?",
+      "options": [
+        "delicate",
+        "valuable",
+        "sturdy",
+        "ancient"
+      ],
+      "answer": "C",
+      "why": "Fragile means easily damaged; sturdy (strong and hard to break) is its opposite. Delicate is a synonym, not an antonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does the word “irreplaceable” mean in paragraph 5?",
+      "options": [
+        "easy to repair after it is damaged",
+        "impossible to make again once it is lost",
+        "too heavy to be moved to a museum",
+        "not yet discovered by historians"
+      ],
+      "answer": "B",
+      "why": "The paragraph explains that if a carving is scratched or a wall collapses, “it is lost forever”, so irreplaceable means it cannot be replaced."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a noun?",
+      "options": [
+        "frankincense",
+        "connected",
+        "fertile",
+        "depended"
+      ],
+      "answer": "A",
+      "why": "Frankincense names a thing (a sweet-smelling resin); connected and depended are verbs, and fertile is an adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 6, the word “specialists” is …",
+      "options": [
+        "an adjective",
+        "a singular noun",
+        "a verb",
+        "a plural noun"
+      ],
+      "answer": "D",
+      "why": "Specialists names people and ends in -s, meaning more than one specialist, so it is a plural noun."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “preserve” in paragraph 5?",
+      "options": [
+        "reservation",
+        "prevent",
+        "present",
+        "preservation"
+      ],
+      "answer": "D",
+      "why": "Preservation is the noun formed from the verb preserve; the other words only look or sound similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “remarkable” in a sentence of your own.",
+      "model": "The young athlete made a remarkable recovery and returned to the team only three weeks after his injury.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “remarkable” with a clear meaning (unusual and worth noticing)",
+        "1 = the word is used, but the sentence is unclear or has errors",
+        "0 = no sentence, or the word is missing or used wrongly"
+      ],
+      "why": "Remarkable means unusual or impressive enough to be noticed, as in “remarkable treasures”."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “valley”?",
+      "options": [
+        "vallies",
+        "valleies",
+        "valleys",
+        "valleyes"
+      ],
+      "answer": "C",
+      "why": "When a noun ends in a vowel + y (-ey), we simply add -s: valleys. Only consonant + y changes to -ies."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “What a wonderful gift it is to walk where ancient travellers once walked!”?",
+      "options": [
+        "a question",
+        "a statement",
+        "a command",
+        "an exclamatory sentence"
+      ],
+      "answer": "D",
+      "why": "Although it begins with “What”, it does not ask anything; it expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "AlUla: Protecting an Open-Air Museum",
+        "How the Nabataeans Built Petra",
+        "Elephant Rock: Shaped by the Wind",
+        "The Incense Route and Its Caravans"
+      ],
+      "answer": "A",
+      "why": "The text describes AlUla's many historic sites and explains why they must be protected; the other titles cover only one detail."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to inform readers about AlUla's heritage and why it needs protection",
+        "to describe daily life on the camel caravans of the incense route",
+        "to persuade tourists to book guided tours with the Royal Commission",
+        "to compare the tombs of Hegra with the city of Petra in Jordan"
+      ],
+      "answer": "A",
+      "why": "Most paragraphs give facts about AlUla's sites, and the last two explain why and how they are protected."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "People began living in AlUla only a short time ago.",
+        "AlUla is located in the northwest, in the region of Madinah.",
+        "Visitors prefer AlUla to museums that are kept indoors.",
+        "AlUla's history can be seen in its cliffs rather than behind glass."
+      ],
+      "answer": "D",
+      "why": "The paragraph explains why AlUla is called a museum under the open sky: its history is carved into the cliffs. Its location is only a supporting detail."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why did camel caravans depend on AlUla?",
+      "options": [
+        "Its cliffs sheltered them from desert storms.",
+        "Its fertile oasis provided water, food and rest.",
+        "Its kingdoms produced the frankincense they carried.",
+        "It was the final market at the end of the route."
+      ],
+      "answer": "B",
+      "why": "Paragraph 2 says the travellers “depended on the fertile oasis of AlUla for water, food and rest.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "an expository text that gives facts and reasons",
+        "a biography of a famous Nabataean king",
+        "an advertisement that sells tour tickets",
+        "a narrative with characters, a setting and a plot"
+      ],
+      "answer": "A",
+      "why": "It explains facts about a real place and gives reasons for protecting it, so it is an informational (expository) text."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why is Jabal Ikmah sometimes called “an open-air library”?",
+      "options": [
+        "Its tombs are decorated with carved columns.",
+        "Students study there in the open air every day.",
+        "Hundreds of ancient inscriptions cover its cliffs.",
+        "The kingdom of Dadan stored its books there."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: “hundreds of ancient inscriptions cover the cliffs”, so the cliffs are like the pages of a library outdoors."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which event happened AFTER the Nabataeans carved the tombs at Hegra but BEFORE the Royal Commission for AlUla was established?",
+      "options": [
+        "Hegra was added to the UNESCO World Heritage List.",
+        "The commission began training young Saudi guides.",
+        "Visitors were asked to remain on the marked paths.",
+        "The commission started restoring historic buildings."
+      ],
+      "answer": "A",
+      "why": "The tombs were carved about two thousand years ago, Hegra joined the UNESCO list in 2008, and the commission was set up in 2017; the other events are the commission's work."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what made Hegra special in 2008?",
+      "options": [
+        "Its tombs were restored by the Royal Commission.",
+        "It became the first Saudi site on the UNESCO list.",
+        "It was discovered by historians for the first time.",
+        "It became the largest Nabataean site in the world."
+      ],
+      "answer": "B",
+      "why": "“In 2008, it became the first place in Saudi Arabia to be added to the UNESCO World Heritage List.” Petra, not Hegra, is the larger site."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which rule must visitors to the tombs follow?",
+      "options": [
+        "Never take photographs of the carvings.",
+        "Stay on the marked paths and never touch the tombs.",
+        "Enter the tombs only through the front.",
+        "Visit only with a member of the commission."
+      ],
+      "answer": "B",
+      "why": "Paragraph 6: visitors “are expected to remain on the marked paths and must never touch or climb on the tombs.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What can you infer about how kingdoms such as Dadan became wealthy?",
+      "options": [
+        "They sold mud-brick houses to the caravans.",
+        "They mined gold from the sandstone mountains.",
+        "They charged travellers to visit the Nabataean tombs.",
+        "They profited from the trade passing along the incense route."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2 describes the caravans stopping at AlUla and says “Kingdoms grew wealthy from this trade”, so the kingdoms profited from the traders who passed through."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Based on paragraphs 5 and 6, why did the Kingdom most likely establish the Royal Commission for AlUla?",
+      "options": [
+        "The fragile sites needed expert study and protection.",
+        "Visitors were no longer allowed to enter AlUla.",
+        "The tombs needed to be moved to a city museum.",
+        "New tombs had to be carved for tourists."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5 explains that the sites are fragile and irreplaceable, and paragraph 6 begins “For these reasons” before describing how the commission studies and restores them."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.IMPLIED",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase best describes the writer's attitude towards AlUla?",
+      "options": [
+        "calm indifference and boredom",
+        "deep admiration and respect",
+        "mild curiosity and amusement",
+        "doubt and growing worry"
+      ],
+      "answer": "B",
+      "why": "The writer calls the sites “remarkable treasures” and exclaims “What a wonderful gift it is…”, which shows admiration and respect."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Hegra different from Jabal Ikmah?",
+      "options": [
+        "Hegra is known for tombs; Jabal Ikmah for inscriptions.",
+        "Hegra is modern; Jabal Ikmah is very ancient.",
+        "Hegra is a natural rock; Jabal Ikmah was built by people.",
+        "Hegra is in Jordan; Jabal Ikmah is in AlUla."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 describes Hegra's carved tombs, while paragraph 4 says Jabal Ikmah's cliffs are covered with inscriptions."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Using paragraphs 4 and 5, what effect can wind have on sandstone?",
+      "options": [
+        "It affects only the mud-brick houses of the old town.",
+        "It can slowly shape the rock and also damage it.",
+        "It makes the rock harder and stronger over time.",
+        "It carries the inscriptions away to other cliffs."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 says wind and time sculpted Elephant Rock, and paragraph 5 says wind can damage sandstone."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What do Hegra and Petra have in common, according to the text?",
+      "options": [
+        "Both were built by the kingdom of Dadan.",
+        "Both joined the UNESCO list in 2008.",
+        "Both were built by the Nabataeans.",
+        "Both are located in Saudi Arabia."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 says the Nabataeans carved the tombs at Hegra and “also built the famous city of Petra in Jordan.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “a museum under the open sky”?",
+      "options": [
+        "AlUla has a large museum with a glass roof.",
+        "Visitors to AlUla must sleep outside in tents.",
+        "AlUla's history can be seen outdoors in its rocks.",
+        "The sky over AlUla is full of bright pictures."
+      ],
+      "answer": "C",
+      "why": "The history “is not displayed behind glass; instead, it is carved into the cliffs”, so the whole valley is like an outdoor museum."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "What is your opinion of the way the writer presents the reasons in paragraph 5?",
+      "options": [
+        "clear, because First, Second and Third signal each reason",
+        "confusing, because the reasons are given in no order",
+        "unclear, because its opening question is never answered",
+        "weak, because the paragraph gives no real reasons"
+      ],
+      "answer": "A",
+      "why": "The question “Why must these places be protected?” is answered by three reasons, each introduced with First, Second or Third, which makes them easy to follow."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase from the text is figurative (not meant literally)?",
+      "options": [
+        "“within the region of Madinah”",
+        "“keep its story alive”",
+        "“remain on the marked paths”",
+        "“restores historic buildings”"
+      ],
+      "answer": "B",
+      "why": "A story cannot really be alive; the phrase means making sure people continue to know and remember AlUla's history."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which action would be most helpful to AlUla's heritage?",
+      "options": [
+        "carving your initials on a smooth cliff",
+        "staying on the paths and not touching the carvings",
+        "collecting small pieces of sandstone",
+        "climbing a tomb to take a better photo"
+      ],
+      "answer": "B",
+      "why": "The text asks visitors to remain on the paths and never touch the tombs; the other actions damage fragile sandstone."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to explain how tombs were carved",
+        "a wish to describe the history of trade",
+        "a wish to help readers value and protect AlUla",
+        "a wish to compare AlUla's sites with Petra"
+      ],
+      "answer": "C",
+      "why": "The text praises AlUla's treasures, gives reasons to protect them and ends by asking readers to treat AlUla with respect."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which is the strongest reason given for protecting AlUla's sites?",
+      "options": [
+        "They are newer than the sites in Petra.",
+        "They are easy for experts to rebuild.",
+        "They cannot be replaced once they are damaged.",
+        "They attract more visitors than museums."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5 gives this as the first reason: once a carving or wall is damaged, “it is lost forever.” The other options are not supported by the text."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which information in the text is the least clear, in your opinion?",
+      "options": [
+        "the year Hegra joined the UNESCO list",
+        "what Elephant Rock looks like",
+        "where AlUla is located in Saudi Arabia",
+        "how the commission restores historic buildings"
+      ],
+      "answer": "D",
+      "why": "The text says the commission “restores historic buildings” but never explains how; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "The tombs carve themselves overnight.",
+        "The inscriptions read themselves aloud.",
+        "A student explores Hegra with a young Saudi guide.",
+        "Elephant Rock walks to the oasis at night."
+      ],
+      "answer": "C",
+      "why": "The text says the commission trains young Saudis as guides, so this could really happen; the others are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas of the whole text?",
+      "options": [
+        "Petra: The Famous City of Jordan",
+        "How Wind Shapes Desert Rocks",
+        "The Rise and Fall of the Incense Trade",
+        "AlUla: Where Ancient Stones Tell Stories"
+      ],
+      "answer": "D",
+      "why": "The text is about AlUla's carvings, tombs and inscriptions that reveal its past; the other titles cover only one detail or a different place."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences giving young visitors your own advice for a visit to AlUla.",
+      "model": "Before you visit AlUla, read about the Nabataeans and the incense route so that you understand what you are seeing. Remain on the marked paths, listen carefully to your guide and never touch the fragile carvings. Take home photographs and memories, not pieces of sandstone.",
+      "rubric": [
+        "2 = a clear new ending with at least two sensible pieces of advice linked to the text",
+        "1 = a new ending with one idea, or ideas only loosely linked to the text",
+        "0 = no answer, or the answer is unrelated to the text"
+      ],
+      "why": "A good ending stays on the topic of respecting and protecting AlUla and gives practical advice based on the text."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the text, how can visitors help keep AlUla's sites safe?",
+      "options": [
+        "by remaining on the marked paths",
+        "by never touching or climbing on the tombs",
+        "by treating the sites with respect",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "Paragraph 6 mentions all three: remaining on the paths, never touching or climbing on the tombs, and treating AlUla with respect."
+    }
+  ]
+}

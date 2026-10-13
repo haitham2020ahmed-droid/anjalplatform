@@ -1,0 +1,169 @@
+{
+  "code": "NP-062",
+  "title": "The Night the Lights Went Out",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "It was the hottest night of August when the electricity suddenly disappeared, and our apartment, which had been pleasantly cool only a moment earlier, sank into a thick and uncomfortable darkness. The air conditioner gave one tired sigh before it fell completely silent.\n\n\"Nobody panic,\" Father said calmly, although I could clearly hear him bumping into the coffee table. My little brother Faisal, who has always been frightened of the dark, grabbed my arm so tightly that it actually hurt.\n\nMother eventually located the emergency lantern in the kitchen drawer, and soon a small circle of yellow light glowed in the middle of the living room. Within ten minutes, however, the heat had crept into every corner, and perspiration was running down my neck as though the walls themselves were breathing fire.\n\n\"Let's go up to the roof,\" Grandmother suggested. \"That is exactly what our family always did when I was a little girl.\"\n\nWe carried mats, a jug of cold water and a plate of dates up the narrow staircase. On the roof, a gentle breeze was blowing from the direction of the sea, and above us, without the usual glow of the city, the sky was crowded with more stars than I had ever imagined.\n\nGrandmother patiently identified the constellations and described peaceful summer nights in her village long ago. Faisal fell asleep with his head resting on her lap, and I completely forgot about the heat.\n\nWhen the power returned at two o'clock in the morning, none of us wanted to go back inside.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Faisal grab the narrator's arm so tightly?",
+      "options": [
+        "He wanted to lead the way to the roof.",
+        "He has always been frightened of the dark.",
+        "He had hurt himself on the coffee table.",
+        "He felt cold when the air conditioner stopped."
+      ],
+      "answer": "B",
+      "why": "The story states that Faisal 'has always been frightened of the dark'."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who is the narrator of the story?",
+      "options": [
+        "Faisal's grandmother",
+        "Faisal's father",
+        "Faisal's older brother or sister",
+        "A neighbour on the roof"
+      ],
+      "answer": "C",
+      "why": "The narrator says 'My little brother Faisal', so the narrator is one of the children in the family."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the story is a plural noun?",
+      "options": [
+        "darkness",
+        "breeze",
+        "lantern",
+        "constellations"
+      ],
+      "answer": "D",
+      "why": "'Constellations' names more than one thing; the other words are singular nouns."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the story is a command (imperative sentence)?",
+      "options": [
+        "None of us wanted to go back inside.",
+        "\"Nobody panic,\" Father said calmly.",
+        "The air conditioner gave one tired sigh.",
+        "That is exactly what our family always did."
+      ],
+      "answer": "B",
+      "why": "'Nobody panic' tells people what to do, so it is a command; the others are statements."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The narrator says it felt \"as though the walls themselves were breathing fire.\" What does this comparison show?",
+      "options": [
+        "That a real fire had started in the building",
+        "That the walls were painted bright red",
+        "How unbearably hot the apartment had become",
+        "How noisy the city was without electricity"
+      ],
+      "answer": "C",
+      "why": "The walls were not really burning; the comparison expresses how terribly hot the apartment felt."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How was the roof different from the apartment that night?",
+      "options": [
+        "It was cooler because a breeze was blowing.",
+        "It was darker because the lantern broke.",
+        "It was noisier because of the traffic.",
+        "It was hotter because it was nearer the sun."
+      ],
+      "answer": "A",
+      "why": "On the roof 'a gentle breeze was blowing from the direction of the sea', unlike the hot apartment."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which event could really happen during a power cut?",
+      "options": [
+        "The walls of a flat actually breathe out flames.",
+        "One small lantern lights up the whole city.",
+        "Grandmother brings the power back by clapping.",
+        "More stars become visible when city lights go out."
+      ],
+      "answer": "D",
+      "why": "Without the glow of city lights, many more stars can be seen; the other events are impossible."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "Where the lantern was — the kitchen drawer is named.",
+        "What they carried up — mats, water and dates are listed.",
+        "Why the power was cut — no cause is ever given.",
+        "When the power came back — the time is stated."
+      ],
+      "answer": "C",
+      "why": "The story never explains what caused the power cut, while the other details are stated clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion about Grandmother is BEST supported by the story?",
+      "options": [
+        "Her experience turned a problem into a pleasant evening.",
+        "She was annoyed that the family could not cope with heat.",
+        "She cared more about the stars than her grandchildren.",
+        "She made things worse by suggesting the roof."
+      ],
+      "answer": "A",
+      "why": "Her idea of going to the roof, plus her stories, made the night so pleasant that nobody wanted to go back inside."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the story?",
+      "options": [
+        "A Starry Night on the Roof",
+        "The Broken Air Conditioner Shop",
+        "Faisal's First Day at School",
+        "Grandmother's Village Market"
+      ],
+      "answer": "A",
+      "why": "The most important events happen on the roof under the stars during the power cut."
+    }
+  ]
+}

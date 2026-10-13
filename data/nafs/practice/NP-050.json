@@ -1,0 +1,169 @@
+{
+  "code": "NP-050",
+  "title": "Pasha and the Bath",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Everyone in the Al-Harbi family agreed that Pasha was a wonderful cat, except on Thursdays, which was bath day. As soon as he heard the bathroom tap running, Pasha would disappear so completely that the family sometimes wondered whether he had learned to become invisible.\n\nOne Thursday, Omar decided to outsmart him. \"I'll fill the bath very quietly,\" he whispered to his sister Lina, \"and you can carry him in before he realises what is happening.\"\n\nLina tiptoed into the living room, where Pasha was dozing peacefully on the sofa. She lifted him gently, and for a few seconds everything went perfectly. Then Pasha's nose detected the unmistakable smell of shampoo. His eyes opened wide, his body stiffened like a plank of wood, and he let out a howl that echoed through the entire house.\n\nWhat happened next was a blur. Pasha twisted out of Lina's arms, bounced off the edge of the bath and leapt onto Omar's shoulders. Omar lost his balance and toppled backwards into the water with a tremendous splash. Lina burst out laughing, and even their mother came running to see what the commotion was about.\n\nTen minutes later, Omar sat on the floor, soaked from head to toe and wrapped in a towel. Meanwhile, Pasha sat calmly on the windowsill, perfectly dry, licking his paw with an expression of complete satisfaction.\n\n\"Well,\" said Lina, grinning, \"at least someone in this house had a bath today.\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which word belongs to the same word family as \"satisfaction\"?",
+      "options": [
+        "station",
+        "satisfied",
+        "fraction",
+        "factual"
+      ],
+      "answer": "B",
+      "why": "\"Satisfied\" shares the base word \"satisfy\" with \"satisfaction\"; the others only share some letters."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which of these sentences about the story is a COMMAND?",
+      "options": [
+        "Carry Pasha into the bathroom now.",
+        "Pasha hates bath day very much.",
+        "Did Omar fall into the water?",
+        "What a mess the bathroom is!"
+      ],
+      "answer": "A",
+      "why": "A command tells someone to do something; it often begins with a verb such as \"Carry.\""
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What made Pasha disappear on Thursdays?",
+      "options": [
+        "seeing Omar carrying a towel",
+        "hearing the bathroom tap running",
+        "smelling food in the kitchen",
+        "hearing his name being called"
+      ],
+      "answer": "B",
+      "why": "\"As soon as he heard the bathroom tap running, Pasha would disappear.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who says, \"At least someone in this house had a bath today\"?",
+      "options": [
+        "Omar",
+        "their mother",
+        "Lina",
+        "the narrator"
+      ],
+      "answer": "C",
+      "why": "The story says, \"'Well,' said Lina, grinning.\""
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What CAUSED Omar to fall into the bath?",
+      "options": [
+        "Lina pushed him in as a joke.",
+        "He slipped on some shampoo.",
+        "Their mother called him suddenly.",
+        "Pasha leapt onto his shoulders."
+      ],
+      "answer": "D",
+      "why": "Pasha \"leapt onto Omar's shoulders. Omar lost his balance and toppled backwards into the water.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "\"His body stiffened like a plank of wood.\" What does this comparison show about Pasha?",
+      "options": [
+        "He was fast asleep and could not be woken up.",
+        "He suddenly became tense and rigid with alarm.",
+        "He was as heavy as a large piece of furniture.",
+        "He was relaxed and happy to be carried."
+      ],
+      "answer": "B",
+      "why": "A plank is hard and straight; the simile shows Pasha tensing up the moment he smelled the shampoo."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion about Pasha is BEST supported by the story?",
+      "options": [
+        "He was a lazy cat who never noticed anything.",
+        "He enjoyed bath day more than the children did.",
+        "He was cleverer than Omar's plan allowed for.",
+        "He was frightened of Lina and Omar at all times."
+      ],
+      "answer": "C",
+      "why": "Pasha escaped the plan, stayed dry and looked satisfied, while Omar ended up in the water."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is the LEAST clear or complete?",
+      "options": [
+        "Which day of the week was bath day",
+        "Who carried Pasha towards the bath",
+        "What Pasha smelled before he howled",
+        "Where Pasha usually hid on Thursdays"
+      ],
+      "answer": "D",
+      "why": "The story says Pasha would \"disappear\" but never says where he hid; the other details are stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which of the following events could REALLY happen?",
+      "options": [
+        "A cat jumps onto someone's shoulders to escape a bath.",
+        "A cat learns how to make itself completely invisible.",
+        "A cat turns the bathroom tap on and off to trick people.",
+        "A cat speaks to the children and refuses to have a bath."
+      ],
+      "answer": "A",
+      "why": "Frightened cats often jump and climb to escape water; becoming invisible is only a joke in the story."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "What would be the BEST solution to the family's bath-day problem?",
+      "options": [
+        "Lock Pasha in the bathroom for the whole day.",
+        "Throw Pasha into the bath before he can escape.",
+        "Ask a vet whether Pasha needs a weekly bath.",
+        "Stop giving Pasha any food on Thursdays."
+      ],
+      "answer": "C",
+      "why": "Asking a vet is a sensible, kind solution; the other choices are unkind or unsafe for the cat."
+    }
+  ]
+}

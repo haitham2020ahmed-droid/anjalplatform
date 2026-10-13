@@ -1,0 +1,169 @@
+{
+  "code": "NP-030",
+  "title": "The Tuesday Mystery",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "For three weeks, books had been vanishing from the Al-Noor School library. First, an atlas disappeared, followed by two encyclopedias about astronomy and a thick book describing the planets. Mrs. Huda, the librarian, was puzzled because the borrowing records showed nothing unusual.\n\nSara and her friend Lamya decided to investigate, and they soon noticed that every missing book was about space, and that the disappearances always happened on Tuesdays. \"Someone is building a collection,\" Sara whispered.\n\nThe girls began observing the library during lunch on the following Tuesday. Students came and went, but nobody behaved suspiciously. Then Lamya spotted something odd: the school caretaker, Mr. Yusuf, entered with a trolley, collected a pile of books from the returns shelf, and wheeled them toward the stairs leading to the basement.\n\nTheir hearts pounding, the girls followed him quietly, and at the bottom of the stairs, they discovered a dusty storeroom that had been transformed. Paper planets hung from the ceiling, and the missing books were arranged neatly on a table. A small group of younger students sat studying star charts.\n\nMr. Yusuf laughed when he saw the astonished detectives. He explained that a group of enthusiastic fourth graders were preparing a surprise exhibition about the solar system. He had borrowed the books for them, but he had forgotten to record them in the library system.\n\nThe following day, he apologized to Mrs. Huda and registered every book properly. Two weeks later, the whole school visited the exhibition, and Sara and Lamya were invited to cut the ribbon.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "In the phrase \"the astonished detectives,\" what part of speech is \"astonished\"?",
+      "options": [
+        "adverb",
+        "noun",
+        "verb",
+        "adjective"
+      ],
+      "answer": "D",
+      "why": "Here \"astonished\" describes the noun \"detectives,\" so it works as an adjective."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"suspiciously\" correctly?",
+      "options": [
+        "She suspiciously the box under her bed.",
+        "The cat looked suspiciously at the new dog.",
+        "The suspiciously was hidden in the drawer.",
+        "He felt very suspiciously after lunch."
+      ],
+      "answer": "B",
+      "why": "\"Suspiciously\" is an adverb that describes how the cat looked; the other sentences misuse it."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why was Mrs. Huda puzzled?",
+      "options": [
+        "Students refused to visit the library.",
+        "The borrowing records showed nothing unusual.",
+        "The books came back with missing pages.",
+        "She had lost the key to the library."
+      ],
+      "answer": "B",
+      "why": "Books were vanishing, yet \"the borrowing records showed nothing unusual.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "The girls noticed a pattern in the losses.",
+        "The girls followed Mr. Yusuf downstairs.",
+        "The whole school visited the exhibition.",
+        "Mr. Yusuf registered every book properly."
+      ],
+      "answer": "A",
+      "why": "They first noticed that every missing book was about space and vanished on Tuesdays, then watched the library."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What caused the books to disappear from the library?",
+      "options": [
+        "Mr. Yusuf took them for a student exhibition.",
+        "Mrs. Huda moved them to another shelf.",
+        "Students hid them to avoid returning them.",
+        "Sara collected them for a space project."
+      ],
+      "answer": "A",
+      "why": "Mr. Yusuf borrowed the books for the fourth graders' exhibition but forgot to record them."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "\"Their hearts pounding, the girls followed him quietly.\" What does \"hearts pounding\" show?",
+      "options": [
+        "The girls were tired from running.",
+        "The girls were bored with waiting.",
+        "The girls were excited and nervous.",
+        "The girls were angry with Mr. Yusuf."
+      ],
+      "answer": "C",
+      "why": "A pounding heart is an expressive way of showing nervous excitement."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the story?",
+      "options": [
+        "Libraries should stop lending space books.",
+        "Mysteries are always caused by bad intentions.",
+        "Caretakers should never enter school libraries.",
+        "Careful observation can solve a puzzling problem."
+      ],
+      "answer": "D",
+      "why": "The girls solved the mystery by noticing patterns and watching closely; the cause turned out to be innocent."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is the LEAST clear?",
+      "options": [
+        "where the missing books were found",
+        "who was preparing the exhibition",
+        "why the books always vanished on Tuesdays",
+        "what subject the missing books covered"
+      ],
+      "answer": "C",
+      "why": "The Tuesday pattern is mentioned but never explained; the other details are stated clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "A star chart lights a room like the sun.",
+        "Paper planets orbit around the storeroom.",
+        "Books walk down to the basement at night.",
+        "A caretaker forgets to record borrowed books."
+      ],
+      "answer": "D",
+      "why": "Forgetting to record books is a realistic mistake; the other events are imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the best solution to stop this problem from happening again?",
+      "options": [
+        "Move all space books to the basement.",
+        "Lock the library so no one can borrow.",
+        "Ask everyone to record every book they take.",
+        "Ban the fourth graders from the library."
+      ],
+      "answer": "C",
+      "why": "The problem happened because books were taken without being recorded, so recording every loan solves it."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "code": "NP-084",
+  "title": "Above the Clouds in Asir",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "passage": "I had always believed that I was physically prepared for anything, until my father and I attempted the trail to the summit near Abha last spring. The Asir mountains rise more than two thousand meters above sea level, and the morning air felt surprisingly cool, almost like a different country.\n\nWe began our hike shortly after sunrise. At first, the path wound gently through juniper trees, and baboons watched us curiously from the rocks. I hurried ahead confidently, certain that we would reach the top within an hour.\n\nBy midmorning, however, the trail had become steep and rocky. My legs were burning, my water bottle was nearly empty, and a thick blanket of fog crept silently over the slopes, hiding the path ahead. I wanted desperately to turn back, but my father suggested that we rest beside a large boulder and share our remaining water slowly.\n\nWhile we waited, the fog gradually lifted. Below us, terraced farms stretched down the valley like giant green staircases, and the traditional stone villages looked like tiny toys. I suddenly understood why my grandfather had always described these mountains as the jewel of the south.\n\nWhen we finally reached the summit, I was exhausted but incredibly proud. I learned that day that patience matters more than speed, and that the most beautiful views often appear only after the most difficult climbs.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which is the correct plural of 'foot'?",
+      "options": [
+        "feet",
+        "foots",
+        "feets",
+        "footes"
+      ],
+      "answer": "A",
+      "why": "'Foot' has an irregular plural: 'feet'."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is EXCLAMATORY?",
+      "options": [
+        "We began our hike shortly after sunrise.",
+        "Share the water slowly with me, please.",
+        "What a beautiful view we have from here!",
+        "Are we close to the summit yet?"
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the narrator and his father rest beside a boulder?",
+      "options": [
+        "They wanted to watch the baboons",
+        "The trail ended at the large boulder",
+        "The father had hurt his ankle badly",
+        "The narrator was tired and low on water"
+      ],
+      "answer": "D",
+      "why": "The narrator's legs were burning and the bottle was nearly empty, so his father suggested resting."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which of these happened FIRST?",
+      "options": [
+        "Fog crept over the slopes",
+        "Baboons watched them from the rocks",
+        "They reached the summit",
+        "The terraced farms came into view"
+      ],
+      "answer": "B",
+      "why": "The baboons appeared early, while the path wound gently through juniper trees."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How did the narrator's feelings at the start differ from his feelings by midmorning?",
+      "options": [
+        "Scared at first but bored later on",
+        "Tired at first but rested later on",
+        "Cold at first but angry later on",
+        "Confident at first but ready to quit later"
+      ],
+      "answer": "D",
+      "why": "The narrator 'hurried ahead confidently' at first; by midmorning he 'wanted desperately to turn back.'"
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The farms stretched 'like giant green staircases.' What is the effect of this simile?",
+      "options": [
+        "It helps us picture farms rising in steps",
+        "It says the farms were built inside houses",
+        "It shows the farmers climbed on ladders",
+        "It explains that the farms were painted"
+      ],
+      "answer": "A",
+      "why": "Terraced farms are built in levels, so comparing them to staircases creates a clear image."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "What lesson does the writer most want readers to take from the text?",
+      "options": [
+        "Hiking is too dangerous for young people",
+        "Fast hikers always reach the summit first",
+        "Patience helps you overcome hard challenges",
+        "Mountains are less beautiful than deserts"
+      ],
+      "answer": "C",
+      "why": "The writer says that 'patience matters more than speed.'"
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the text is LEAST clear?",
+      "options": [
+        "How high the Asir mountains rise",
+        "The name of the summit they climbed",
+        "When they started their hike",
+        "What the narrator learned that day"
+      ],
+      "answer": "B",
+      "why": "The narrator only says 'the summit near Abha' and never names the peak."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could really happen in the Asir mountains?",
+      "options": [
+        "Hikers climb two thousand meters in ten minutes",
+        "Juniper trees walk along the trail with hikers",
+        "Thick fog speaks to hikers and shows the path",
+        "Baboons watch hikers from rocks near Abha"
+      ],
+      "answer": "D",
+      "why": "Baboons do live in the Asir mountains, as the text describes; the others are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which alternative ending would BEST fit the story's message?",
+      "options": [
+        "They turn back but plan to return with more water",
+        "They fly to the summit by helicopter",
+        "The narrator never visits Abha again",
+        "The fog stays and the hike is forgotten"
+      ],
+      "answer": "A",
+      "why": "Planning patiently to try again still teaches that patience matters more than speed."
+    }
+  ]
+}

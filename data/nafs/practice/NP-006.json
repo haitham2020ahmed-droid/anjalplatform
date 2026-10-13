@@ -1,0 +1,169 @@
+{
+  "code": "NP-006",
+  "title": "The First Saudi in Space",
+  "kind": "INFORMATIONAL",
+  "genre": "biography",
+  "passage": "On 17 June 1985, the American space shuttle Discovery roared away from its launch pad in Florida. On board was Prince Sultan bin Salman bin Abdulaziz, a young Saudi pilot. He was about to become the first Arab and the first Muslim to travel into space.\n\nPrince Sultan had joined the mission as a payload specialist, which meant that he was responsible for particular scientific tasks rather than flying the shuttle. Before the launch, he spent months training with the crew of seven. During the flight, he helped to release ARABSAT, a communications satellite belonging to the Arab Satellite Communications Organization, and he took photographs of the Kingdom from orbit.\n\nThe mission lasted about seven days, during which the shuttle circled the Earth many times. Prince Sultan later explained that seeing the planet from space changed the way he thought about it. From that height, he said, borders disappeared, and the Earth looked like one fragile home shared by everyone.\n\nAfter landing, he was welcomed as a national hero. His journey inspired many young people across the Arab world to study science and engineering.\n\nNearly forty years later, in May 2023, Saudi astronauts Rayyanah Barnawi and Ali AlQarni travelled to the International Space Station, continuing the story that began with that historic flight.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is an adjective?",
+      "options": [
+        "fragile",
+        "photographs",
+        "circled",
+        "orbit"
+      ],
+      "answer": "A",
+      "why": "'Fragile' describes the noun 'home', so it is an adjective; 'photographs' and 'orbit' are nouns and 'circled' is a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word 'inspire' correctly?",
+      "options": [
+        "The rocket inspired into the sky at great speed.",
+        "He inspired his breakfast before the long flight.",
+        "We inspired the satellite with a long cable.",
+        "Her hard work inspired her classmates to study harder."
+      ],
+      "answer": "D",
+      "why": "To inspire means to give someone the wish or courage to do something; only this sentence uses that meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What was Prince Sultan's job as a payload specialist?",
+      "options": [
+        "He was the main pilot who flew the shuttle.",
+        "He was responsible for particular scientific tasks.",
+        "He designed the space shuttle Discovery.",
+        "He trained the other six astronauts."
+      ],
+      "answer": "B",
+      "why": "The passage explains that a payload specialist is 'responsible for particular scientific tasks rather than flying the shuttle'."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "He helped to release ARABSAT.",
+        "He was welcomed as a national hero.",
+        "Prince Sultan trained with the crew.",
+        "Saudi astronauts visited the ISS."
+      ],
+      "answer": "C",
+      "why": "He trained 'before the launch'; ARABSAT was released during the flight, the welcome came after landing and the ISS trip was in 2023."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How was the 2023 mission different from the 1985 mission?",
+      "options": [
+        "It travelled to the International Space Station.",
+        "It was the first Arab journey into space.",
+        "It launched aboard the shuttle Discovery.",
+        "It carried only one Saudi astronaut."
+      ],
+      "answer": "A",
+      "why": "In 2023 Rayyanah Barnawi and Ali AlQarni travelled to the International Space Station; the 1985 flight was the first and used Discovery."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "'The Earth looked like one fragile home shared by everyone.' What idea does this expression suggest?",
+      "options": [
+        "The Earth is made of glass and could break.",
+        "Only astronauts are able to share the Earth.",
+        "People should care for the planet together.",
+        "Borders are easy to see from space."
+      ],
+      "answer": "C",
+      "why": "Calling Earth a 'fragile home shared by everyone' suggests it is precious and belongs to all people, who should protect it together."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "The 1985 mission was too short to be useful.",
+        "Space travel does not interest young Saudis.",
+        "Payload specialists matter more than pilots.",
+        "Prince Sultan's flight was a proud moment for Arabs."
+      ],
+      "answer": "D",
+      "why": "He was the first Arab in space, was welcomed as a national hero and inspired many young people across the Arab world."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "the date the shuttle was launched",
+        "what the 2023 astronauts did on the space station",
+        "how long the 1985 mission lasted",
+        "where Discovery was launched from"
+      ],
+      "answer": "B",
+      "why": "The passage only says the 2023 astronauts travelled to the station, not what they did there; the date, length and place of the 1985 launch are all given."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "An astronaut walks from Earth to the Moon in a day.",
+        "A satellite flies into space by flapping its wings.",
+        "A shuttle circles the Sun many times in one week.",
+        "An astronaut takes photographs of Earth from orbit."
+      ],
+      "answer": "D",
+      "why": "Prince Sultan really photographed the Kingdom from orbit; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "A Saudi Prince Among the Stars",
+        "The History of Florida",
+        "How Satellites Are Built",
+        "A Pilot's Life in the Desert"
+      ],
+      "answer": "A",
+      "why": "The passage tells the story of Prince Sultan's journey into space; the other titles focus on topics the text does not cover."
+    }
+  ]
+}

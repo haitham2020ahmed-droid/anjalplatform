@@ -1,0 +1,169 @@
+{
+  "code": "NP-052",
+  "title": "Checkmate on Friday",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Every Friday after the family lunch, Grandfather Saleh set the old wooden chessboard on the low table in the majlis, and every Friday, eleven-year-old Reem lost. She had studied openings on the school tablet, memorized famous traps, and practised against the computer until her eyes ached, yet her grandfather always seemed to know what she was planning before she did.\n\nThis Friday, however, felt different from the beginning: Reem moved her knight forward carefully, protecting her bishop, and watched as Grandfather stroked his grey beard and frowned at the board for a long time. The only sound in the room was the gentle bubbling of the coffee pot near the window.\n\n\"You are not playing like a beginner anymore,\" he said quietly, sliding his queen across the board.\n\nReem recognized the trap immediately, because if she captured the queen, her king would be exposed to a dangerous attack. Instead, she pushed a small pawn forward, blocking his rook and opening a path for her own queen. Three moves later, Grandfather's king had nowhere to go.\n\n\"Checkmate,\" Reem whispered, hardly believing the word as it left her lips.\n\nFor a moment Grandfather said nothing, but then his face broke into the widest smile she had ever seen, and he clapped his hands like a delighted child. \"What a magnificent game!\" he exclaimed. \"Next Friday, my dear, I will have to study too.\"\n\nReem laughed, but she noticed that he kept the board set up all evening, staring at her winning move as if it were a treasure.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the story is a verb?",
+      "options": [
+        "whispered",
+        "treasure",
+        "magnificent",
+        "wooden"
+      ],
+      "answer": "A",
+      "why": "'Whispered' is an action Reem does, so it is a verb; 'magnificent' and 'wooden' are adjectives and 'treasure' is a noun."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence from the story is an exclamatory sentence?",
+      "options": [
+        "\"You are not playing like a beginner anymore.\"",
+        "\"What a magnificent game!\"",
+        "\"Next Friday, my dear, I will have to study too.\"",
+        "\"Checkmate,\" Reem whispered."
+      ],
+      "answer": "B",
+      "why": "An exclamatory sentence shows strong feeling and ends with an exclamation mark, like 'What a magnificent game!'"
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "A narrative story",
+        "A news report",
+        "A poem",
+        "A set of instructions"
+      ],
+      "answer": "A",
+      "why": "It has characters (Reem and Grandfather), a setting (the majlis), a problem and an ending, so it is a narrative story."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "What happened right after Grandfather slid his queen across the board?",
+      "options": [
+        "Grandfather clapped his hands and smiled.",
+        "Reem moved her knight to protect her bishop.",
+        "Reem quickly captured Grandfather's queen.",
+        "Reem saw the trap and pushed a pawn forward."
+      ],
+      "answer": "D",
+      "why": "After the queen move, Reem recognized the trap and, instead of taking the queen, pushed a pawn forward. The knight move came earlier; the clapping came later."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How was this Friday different from the earlier Fridays?",
+      "options": [
+        "Reem did not practise before the game.",
+        "They played in the garden, not the majlis.",
+        "Reem won the game instead of losing.",
+        "Grandfather played without his queen."
+      ],
+      "answer": "C",
+      "why": "On every earlier Friday Reem lost, but this time she checkmated her grandfather."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "\"He clapped his hands like a delighted child.\" What does this simile show about Grandfather?",
+      "options": [
+        "He was tired after such a long game.",
+        "He was trying to hide that he felt angry.",
+        "He was confused about the rules of chess.",
+        "He was proud and happy, not upset, about losing."
+      ],
+      "answer": "D",
+      "why": "Comparing him to a delighted child shows pure joy; he is happy that his granddaughter played so well."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best expresses the writer's message in the story?",
+      "options": [
+        "Losing a game is something to be ashamed of.",
+        "Grandparents should always let children win games.",
+        "Practice and patience help us improve at what we love.",
+        "Computers are better chess teachers than people."
+      ],
+      "answer": "C",
+      "why": "Reem studied and practised for a long time and finally won; Grandfather even plans to study too."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "How Grandfather felt when he lost",
+        "Where in the house the game was played",
+        "Exactly which moves led to checkmate in the end",
+        "Who usually won the Friday chess games"
+      ],
+      "answer": "C",
+      "why": "The story says only 'Three moves later' and never describes those moves; the other details are stated clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Grandfather hears Reem's thoughts like spoken words.",
+        "A girl improves at chess by practising with a computer.",
+        "A chess knight jumps off the board and runs away.",
+        "A coffee pot speaks to warn Reem about the trap."
+      ],
+      "answer": "B",
+      "why": "Practising against a computer is a real way to improve; chess pieces and coffee pots cannot move or talk, and no one can hear thoughts."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which different ending would best fit the message of the story?",
+      "options": [
+        "Grandfather hides the chessboard in anger.",
+        "Reem says she won only because he was tired.",
+        "Reem decides never to play chess again.",
+        "Grandfather asks Reem to teach him her winning move."
+      ],
+      "answer": "D",
+      "why": "Grandfather admires her move and plans to study, so asking her to teach him matches the story's message about learning."
+    }
+  ]
+}

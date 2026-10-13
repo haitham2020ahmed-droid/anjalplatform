@@ -1,0 +1,568 @@
+{
+  "code": "NB-014",
+  "title": "One Team",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 499,
+  "passage": "Last Thursday was the day of our long-awaited match against Al-Noor School, and I had been counting down to it for an entire month. Because I was the fastest player on our team, my classmates kept telling me that I would win the game for us single-handedly, and, to be honest, I believed every word.\n\nWhen the referee's whistle blew, I seized the ball and sprinted towards the goal. Omar was waving his arms on the left wing and shouting that he was completely free, but I ignored him, since I was determined to score the goal myself. Within seconds, two defenders surrounded me, and the ball rolled helplessly out of play.\n\nUnfortunately, this pattern repeated itself throughout the first half. Each time the ball reached my feet, I attempted to dribble past every opponent alone, so our team resembled a group of strangers, each player running in a different direction. Meanwhile, the Al-Noor players passed the ball smoothly and confidently, as if they could read each other's minds. By half-time, we were losing two–nil.\n\nEarly in the second half, I finally scored, and I raised my arms proudly towards the crowd as if I had already won the match. However, a few minutes later Al-Noor scored again, and when the final whistle blew, the scoreboard showed 3–1. My heart sank like a stone.\n\nIn the changing room, an uncomfortable silence settled over everyone. Yousef, our goalkeeper, stared miserably at his gloves, and I expected Coach Salem to be furious, but instead he sat down calmly and asked, “How many goals did Al-Noor score by one player alone?”\n\nAfter a moment of reflection, Omar replied quietly that every one of their goals had come after three or four passes. The coach nodded slowly and explained that eleven players who cooperate are always stronger than one star who plays alone.\n\nMy face grew hot, because I realised that he was talking about me. Gathering my courage, I turned to my teammates and admitted that I had not trusted them. Omar patted my shoulder reassuringly and reminded me that everyone had made mistakes, so we would correct them together.\n\nFor the following two weeks, we practised passing every afternoon. Coach Salem introduced a new rule: nobody could shoot until the ball had touched three different players. At first the exercise felt slow and awkward, but gradually we began to understand one another's movements and habits. I learned to lift my head, look for an unmarked teammate and trust him with the ball.\n\nIn our next match, I dribbled past one defender and noticed Omar racing into open space on my left. This time I did not hesitate for even a second, and when I passed the ball, he struck it confidently into the net. What a wonderful feeling that was! The whole team ran together, laughing and cheering like one family.\n\nAlthough we lost a match that Thursday, we gained something far more valuable, because we finally became a real team.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “hesitate” as it is used in paragraph 9?",
+      "options": [
+        "act very quickly",
+        "pause because you are unsure",
+        "refuse completely",
+        "look around proudly"
+      ],
+      "answer": "B",
+      "why": "To hesitate is to pause before acting because you are unsure; this time Khalid passed at once."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “confidently” as it is used in paragraph 3?",
+      "options": [
+        "uncertainly",
+        "smoothly",
+        "quickly",
+        "proudly"
+      ],
+      "answer": "A",
+      "why": "Confidently means with certainty and trust in yourself; uncertainly is its opposite. Smoothly and proudly are not opposites."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 3: “our team resembled a group of strangers, each player running in a different direction.” What does “resembled” mean?",
+      "options": [
+        "was cheered by",
+        "was larger than",
+        "looked or acted like",
+        "was afraid of"
+      ],
+      "answer": "C",
+      "why": "The team acted like strangers who do not know each other, so resembled means looked or acted like."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from the story is a verb?",
+      "options": [
+        "miserably",
+        "uncomfortable",
+        "reflection",
+        "admitted"
+      ],
+      "answer": "D",
+      "why": "Admitted is an action (verb); miserably is an adverb, uncomfortable an adjective and reflection a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 5, the word “miserably” in “stared miserably at his gloves” is …",
+      "options": [
+        "an adverb",
+        "an adjective",
+        "a noun",
+        "a verb"
+      ],
+      "answer": "A",
+      "why": "Miserably tells how Yousef stared, so it is an adverb (miserable + -ly)."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “cooperate” in paragraph 6?",
+      "options": [
+        "corporation",
+        "coordinate",
+        "cooperation",
+        "copper"
+      ],
+      "answer": "C",
+      "why": "Cooperation is the noun formed from the verb cooperate; the other words only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “determined” in a sentence of your own.",
+      "model": "Although the science project was difficult, Lina was determined to finish it before the end of the week.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “determined” with a meaning that fits",
+        "1 = uses the word, but the sentence is incomplete, copied from the text, or has errors that affect meaning",
+        "0 = no answer, the word is missing, or it is used with the wrong meaning"
+      ],
+      "why": "The sentence must be original and show that determined means having decided firmly to do something, even when it is hard."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “half” appears in “half-time” (paragraph 3). Which sentence uses the plural of “half” correctly?",
+      "options": [
+        "The coach cut the oranges into halfs.",
+        "The coach cut the oranges into halves.",
+        "The coach cut the oranges into halfes.",
+        "The coach cut the oranges into halvs."
+      ],
+      "answer": "B",
+      "why": "Half is an irregular noun: f changes to v and -es is added, giving halves."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence does Coach Salem use in paragraph 5, and why?",
+      "options": [
+        "a question, to make the players think about their mistakes",
+        "a command, to order the players to score more goals",
+        "an exclamation, to show how angry he is",
+        "a statement, to announce the final score"
+      ],
+      "answer": "A",
+      "why": "He asks “How many goals did Al-Noor score by one player alone?” so that the players discover the lesson for themselves; he is calm, not angry."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Fastest Boy in School",
+        "A Thursday at the Stadium",
+        "The Coach's Secret Rule",
+        "The Star Who Learned to Pass"
+      ],
+      "answer": "D",
+      "why": "The story is about Khalid changing from a player who plays alone to one who passes and trusts his team."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to explain the rules of football",
+        "to describe Al-Noor School",
+        "to show that teamwork matters more than one player's talent",
+        "to teach how to be a goalkeeper"
+      ],
+      "answer": "C",
+      "why": "The story shows that eleven players who cooperate are stronger than one star who plays alone."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "Khalid was nervous about the match",
+        "Khalid felt overconfident before the match",
+        "The match was delayed for a month",
+        "Khalid's classmates doubted his skill"
+      ],
+      "answer": "B",
+      "why": "Khalid believed he would win the game single-handedly, which shows he was too sure of himself."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why didn't Khalid pass the ball to Omar?",
+      "options": [
+        "He could not hear Omar shouting",
+        "Omar was surrounded by two defenders",
+        "The coach had told him not to",
+        "He was determined to score the goal himself"
+      ],
+      "answer": "D",
+      "why": "Paragraph 2 says he ignored Omar “since I was determined to score the goal myself”. It was Khalid, not Omar, who was surrounded."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which features show that this text is a short story?",
+      "options": [
+        "a narrator, characters, a problem and a lesson",
+        "facts, dates and measurements",
+        "rhyming lines and verses",
+        "a greeting and a signature"
+      ],
+      "answer": "A",
+      "why": "The text has a narrator (Khalid), characters, a problem (playing alone) and a lesson (teamwork), so it is a narrative story."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Khalid's face grow hot in paragraph 7?",
+      "options": [
+        "The changing room was very warm",
+        "He realised the coach was talking about him",
+        "He had run too fast in the match",
+        "He was angry with Omar"
+      ],
+      "answer": "B",
+      "why": "The story says: “My face grew hot, because I realised that he was talking about me.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What happened a few minutes after Khalid scored his goal?",
+      "options": [
+        "Half-time began",
+        "The team practised passing",
+        "Al-Noor scored again",
+        "Omar scored a goal"
+      ],
+      "answer": "C",
+      "why": "Paragraph 4 says that a few minutes after Khalid scored, Al-Noor scored again."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells this story, and how do we know?",
+      "options": [
+        "Khalid, because he uses “I” and Omar calls him by name",
+        "Omar, because he gives the final answer",
+        "Coach Salem, because he explains the lesson",
+        "an outside narrator, because no one says “I”"
+      ],
+      "answer": "A",
+      "why": "The narrator says “I” throughout, and paragraph 2 shows Omar shouting to Khalid, so Khalid tells the story in the first person."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "When did the team practise passing?",
+      "options": [
+        "only on Thursday mornings",
+        "during the half-time break",
+        "on the night before the next match",
+        "every afternoon for two weeks"
+      ],
+      "answer": "D",
+      "why": "Paragraph 8 says: “For the following two weeks, we practised passing every afternoon.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the main cause of the team's loss against Al-Noor?",
+      "options": [
+        "The goalkeeper made many mistakes",
+        "Khalid played alone, so the team did not work together",
+        "Al-Noor had faster players",
+        "The referee was unfair"
+      ],
+      "answer": "B",
+      "why": "Paragraphs 2 and 3 show Khalid trying to beat every opponent alone, so the team ran like strangers while Al-Noor passed well."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, what most makes the reader want to keep reading the story?",
+      "options": [
+        "the long list of players' names",
+        "the description of the stadium",
+        "wanting to know whether Khalid will change",
+        "the details of the scoreboard"
+      ],
+      "answer": "C",
+      "why": "After the loss, the reader wonders whether Khalid will learn his lesson."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How does Khalid change from paragraph 1 to paragraph 9?",
+      "options": [
+        "from nervous to angry",
+        "from lazy to selfish",
+        "from proud to bored",
+        "from overconfident to trusting"
+      ],
+      "answer": "D",
+      "why": "In paragraph 1 he believes he can win alone; in paragraph 9 he passes to Omar without hesitating, showing trust in his team."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How was Al-Noor's way of playing different from Khalid's team in the first half?",
+      "options": [
+        "Al-Noor passed smoothly, while Khalid's team ran separately",
+        "Al-Noor had more players on the field",
+        "Al-Noor's goalkeeper was taller",
+        "Khalid's team passed more often"
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 contrasts Al-Noor's smooth, confident passing with Khalid's team running in different directions."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What were the results of the two weeks of practice?",
+      "options": [
+        "The players began to understand one another",
+        "Khalid learned to trust a teammate with the ball",
+        "The team learned to pass before shooting",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "Paragraph 8 says they began to understand one another's movements, Khalid learned to trust a teammate, and the three-player rule made them pass before shooting."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Al-Noor's goals and Omar's goal at the end have in common?",
+      "options": [
+        "They were all scored by Khalid",
+        "They all came after passing",
+        "They were all scored at half-time",
+        "They were all penalty kicks"
+      ],
+      "answer": "B",
+      "why": "Al-Noor's goals came after three or four passes, and Omar scored from Khalid's pass."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is your opinion of telling the story through Khalid's own eyes?",
+      "options": [
+        "It hides all of Khalid's feelings",
+        "It turns the story into a list of facts",
+        "It lets readers share his feelings and see his mistakes honestly",
+        "It explains the coach's private thoughts"
+      ],
+      "answer": "C",
+      "why": "Because Khalid tells the story, readers feel his pride, disappointment and embarrassment and see his honest change."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is an exclamatory sentence?",
+      "options": [
+        "“What a wonderful feeling that was!”",
+        "“My heart sank like a stone.”",
+        "“By half-time, we were losing two–nil.”",
+        "“How many goals did Al-Noor score by one player alone?”"
+      ],
+      "answer": "A",
+      "why": "It expresses strong feeling, begins with “What a …” and ends with an exclamation mark."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the expression “as if they could read each other's minds” suggest about the Al-Noor players?",
+      "options": [
+        "They were secretly talking during the match",
+        "They understood each other so well they hardly needed words",
+        "They had magical powers",
+        "They were confused about where to run"
+      ],
+      "answer": "B",
+      "why": "The figurative expression means their teamwork was so good that each player seemed to know what the others would do."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, which lesson from the story is the most useful for school teams?",
+      "options": [
+        "Always keep the ball for yourself",
+        "Only the fastest player matters",
+        "Never admit your mistakes",
+        "Trust your teammates and work together"
+      ],
+      "answer": "D",
+      "why": "The story shows that trusting each other and working together leads to success."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the main reason the team improved?",
+      "options": [
+        "They bought new football boots",
+        "They changed their coach",
+        "They practised passing and learned to trust each other",
+        "They played against weaker teams"
+      ],
+      "answer": "C",
+      "why": "Daily passing practice and the coach's new rule taught them to understand and trust one another."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the end of the story?",
+      "options": [
+        "joy and pride in the team",
+        "fear and worry",
+        "anger and jealousy",
+        "boredom"
+      ],
+      "answer": "A",
+      "why": "The team runs together, laughing and cheering like one family, and Khalid says they became a real team."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the least clear in the story?",
+      "options": [
+        "the final score against Al-Noor",
+        "the name of the goalkeeper",
+        "the coach's new rule",
+        "the final score of the next match"
+      ],
+      "answer": "D",
+      "why": "The story tells us Omar scored but never gives the final result of the next match; the others are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Players really read each other's minds during a match",
+        "A team loses, practises passing for two weeks and improves",
+        "A player scores eleven goals at the same moment",
+        "The ball moves to a free player by itself"
+      ],
+      "answer": "B",
+      "why": "Losing, practising and improving is realistic; the others are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Broken Scoreboard",
+        "A Coach Who Shouted",
+        "Stronger Together",
+        "Winning Every Game"
+      ],
+      "answer": "C",
+      "why": "The team loses but learns that they are stronger when they play together; the coach did not shout."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story.",
+      "model": "In the next match, Khalid passes to Omar, but Omar misses an easy chance. Instead of losing patience and keeping the ball for himself again, Khalid encourages Omar to try once more. A few minutes later, the team scores after five passes, and they win 2–1 together.",
+      "rubric": [
+        "2 = a clear, logical ending in complete sentences that is different from the original and fits the characters and ideas of the story",
+        "1 = an ending is given but it is very short, unclear, or only partly connected to the story",
+        "0 = no answer, or the answer repeats the original ending or is unrelated to the story"
+      ],
+      "why": "Any logical ending that is different from the original and fits the characters and the lesson of teamwork is accepted."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could a team solve the problem of players who play alone?",
+      "options": [
+        "Practise passing and build trust",
+        "Give the ball only to the best player",
+        "Stop training for a month",
+        "Change the goalkeeper"
+      ],
+      "answer": "A",
+      "why": "The coach's three-player rule and daily passing practice solved the problem in the story."
+    }
+  ]
+}

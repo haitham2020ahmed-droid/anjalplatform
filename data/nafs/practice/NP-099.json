@@ -1,0 +1,169 @@
+{
+  "code": "NP-099",
+  "title": "Fatima al-Fihri: A Gift of Learning",
+  "kind": "INFORMATIONAL",
+  "genre": "biography",
+  "passage": "In the ninth century, a young woman named Fatima al-Fihri made a choice that would shape learning for more than a thousand years. She was born in the city of Kairouan, in what is now Tunisia, and later moved with her family to Fez, in present-day Morocco, where many families from Kairouan had settled.\n\nFatima's father was a successful merchant. When he died, he left a large fortune to Fatima and her sister, Maryam. Rather than spending the money on comfort, the two sisters decided to serve their community. Maryam founded a mosque in one part of the city, while Fatima, in the year 859, founded the Al-Qarawiyyin Mosque. Old accounts say that she watched over the building work herself and spent her wealth to complete it.\n\nOver time, Al-Qarawiyyin became much more than a place of prayer. Scholars came there to teach the Quran, Arabic grammar, law, mathematics, and astronomy. Students travelled from distant lands to hear them. Its library grew into one of the great collections of old books in the Islamic world.\n\nToday, Al-Qarawiyyin is often described as the oldest existing educational institution in the world that has operated continuously, and it still welcomes students. Although historians know relatively few details about Fatima's personal life, her generosity is remembered with great respect. Her story reminds us that a single wise decision, made with care for others, can benefit generations of people who will never know our names.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a verb?",
+      "options": [
+        "scholars",
+        "founded",
+        "generosity",
+        "important"
+      ],
+      "answer": "B",
+      "why": "\"Founded\" is an action (to start or build something), so it is a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "What is the correct plural of \"library\"?",
+      "options": [
+        "librarys",
+        "libraryes",
+        "librarie",
+        "libraries"
+      ],
+      "answer": "D",
+      "why": "Nouns ending in a consonant + y change y to i and add -es: library → libraries."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What type of text is this?",
+      "options": [
+        "A biography",
+        "A poem",
+        "A dialogue story",
+        "A personal letter"
+      ],
+      "answer": "A",
+      "why": "It tells the true life story of a real person, Fatima al-Fihri, so it is a biography."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which of these happened FIRST in Fatima's life?",
+      "options": [
+        "She founded the Al-Qarawiyyin Mosque.",
+        "Her father left her a large fortune.",
+        "She moved with her family to Fez.",
+        "Students travelled to study at the mosque."
+      ],
+      "answer": "C",
+      "why": "She moved to Fez with her family before her father died and before the mosque was founded."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What do Fatima and her sister Maryam have in common?",
+      "options": [
+        "Both were born in the city of Fez.",
+        "Both used their inheritance to found mosques.",
+        "Both taught astronomy at Al-Qarawiyyin.",
+        "Both spent their money on comfort."
+      ],
+      "answer": "B",
+      "why": "Paragraph 2 says Maryam founded one mosque and Fatima founded Al-Qarawiyyin with their father's fortune."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The passage ends: a wise decision \"can benefit generations of people who will never know our names.\" What is its effect?",
+      "options": [
+        "It encourages readers to act generously.",
+        "It shows that Fatima wanted to be famous.",
+        "It suggests that history is not important.",
+        "It warns that names are lost in libraries."
+      ],
+      "answer": "A",
+      "why": "The closing sentence turns Fatima's story into a lesson about doing good that helps others in the future."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best shows the writer's view of Fatima al-Fihri?",
+      "options": [
+        "She was mainly interested in comfort.",
+        "Her story is too unclear to matter.",
+        "She was more famous than any scholar.",
+        "She deserves respect for serving others."
+      ],
+      "answer": "D",
+      "why": "The writer praises her generosity and says she is remembered with great respect."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information is the LEAST clear in the passage?",
+      "options": [
+        "The year the mosque was founded",
+        "The city where Fatima was born",
+        "The details of Fatima's personal life",
+        "The subjects taught at Al-Qarawiyyin"
+      ],
+      "answer": "C",
+      "why": "The passage itself says historians know relatively few details about her personal life."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really have happened in the ninth century?",
+      "options": [
+        "Students travelled far to learn from scholars in Fez.",
+        "Fatima sent emails to invite new students.",
+        "Students flew to Fez by aeroplane.",
+        "The library printed thousands of books a day."
+      ],
+      "answer": "A",
+      "why": "Travelling to study was possible then; email, aeroplanes and printing presses did not yet exist."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "The Merchants of Kairouan",
+        "The Woman Who Founded a Place of Learning",
+        "Astronomy in the Ninth Century",
+        "Maryam's Mosque in Fez"
+      ],
+      "answer": "B",
+      "why": "The passage focuses on Fatima founding Al-Qarawiyyin, which became a centre of learning."
+    }
+  ]
+}

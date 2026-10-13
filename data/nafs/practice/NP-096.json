@@ -1,0 +1,169 @@
+{
+  "code": "NP-096",
+  "title": "A Second Life for Old Phones",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Many families keep a drawer full of old mobile phones that nobody uses anymore. They may seem worthless, but each phone contains small amounts of valuable materials, including copper, silver, and even gold. When millions of phones are thrown away instead of being recycled, those materials are lost forever.\n\nMining these metals from the ground is expensive and can damage the environment. Large areas of land must be dug up, and huge quantities of water and energy are consumed. Recycling, by contrast, recovers metals that have already been mined, so fewer new mines are needed.\n\nOld phones can also be dangerous when they are handled carelessly. Their batteries contain chemicals that can leak into soil and water if they are buried in ordinary rubbish. A damaged battery may even catch fire inside a rubbish truck. For this reason, phones should never be placed in household bins.\n\nFortunately, recycling a phone is usually simple. Many electronics shops and phone companies accept old devices, and some offer a discount on a new one in exchange. Before handing over a phone, however, owners should copy their photographs and remove all personal information, because a phone can store private messages, passwords, and contacts.\n\nSpecialised recycling centres then separate each phone into its parts. The plastic, glass, and metals are sorted, and the metals are melted and purified so that they can be used again, perhaps in the very next phone you buy.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the passage is an adjective?",
+      "options": [
+        "materials",
+        "drawer",
+        "valuable",
+        "recycle"
+      ],
+      "answer": "C",
+      "why": "\"Valuable\" describes the materials, so it is an adjective."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What is the correct plural of \"battery\"?",
+      "options": [
+        "batteries",
+        "batterys",
+        "batteryes",
+        "battery's"
+      ],
+      "answer": "A",
+      "why": "Nouns ending in a consonant + y change y to i and add -es: battery → batteries."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why should owners remove personal information before recycling a phone?",
+      "options": [
+        "Centres refuse phones that contain photographs.",
+        "A phone can store private messages.",
+        "Personal information makes a phone heavier.",
+        "Shops charge more for phones with contacts."
+      ],
+      "answer": "B",
+      "why": "The passage says a phone can store private messages, passwords and contacts."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the last paragraph, what happens AFTER a phone is separated into its parts?",
+      "options": [
+        "The owner copies all the photographs.",
+        "The shop offers a discount on a new phone.",
+        "The phone is placed in a household bin.",
+        "The materials are sorted and the metals melted."
+      ],
+      "answer": "D",
+      "why": "The final paragraph says the parts are sorted and the metals are melted and purified."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is recycling metals different from mining them?",
+      "options": [
+        "Recycling uses more land and water.",
+        "Mining causes no harm to the environment.",
+        "Recycling reuses metals already dug up.",
+        "Mining takes metals out of old phones."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2 says recycling recovers metals that have already been mined, so fewer new mines are needed."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The passage ends with \"perhaps in the very next phone you buy.\" What is the effect of this ending?",
+      "options": [
+        "It warns readers never to buy new phones.",
+        "It connects recycling to the reader's own life.",
+        "It proves every new phone is made from old ones.",
+        "It shows that the writer works in a phone shop."
+      ],
+      "answer": "B",
+      "why": "Addressing \"you\" makes recycling feel personal; the word \"perhaps\" shows it is a possibility, not a proof."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best expresses the writer's viewpoint?",
+      "options": [
+        "Old phones should be recycled, not thrown away.",
+        "Old phones are best kept in drawers forever.",
+        "Mining is the best way to obtain metals.",
+        "Phone batteries are completely harmless."
+      ],
+      "answer": "A",
+      "why": "The passage gives reasons why throwing phones away is wasteful and dangerous and explains how to recycle them."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "Why batteries must not go in household bins",
+        "Where people can take their old phones",
+        "What owners should do before recycling",
+        "How much gold one phone actually contains"
+      ],
+      "answer": "D",
+      "why": "The passage mentions gold but only says \"small amounts\"; the other points are explained."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "An old phone turns into gold after years in a drawer.",
+        "A damaged battery catches fire in a rubbish truck.",
+        "Melting a phone brings back its old photographs.",
+        "Buried batteries turn into clean water after a year."
+      ],
+      "answer": "B",
+      "why": "The passage warns that a damaged battery may catch fire inside a rubbish truck."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST solution the passage suggests for a drawer full of old phones?",
+      "options": [
+        "Bury them deep in the garden.",
+        "Put them in the household bin.",
+        "Take them to a shop that accepts old devices.",
+        "Break them open to remove the gold."
+      ],
+      "answer": "C",
+      "why": "The passage says many shops and phone companies accept old devices for recycling."
+    }
+  ]
+}

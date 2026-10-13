@@ -594,6 +594,16 @@ export interface CurriculumMatch { skill: SkillRef | null; standard: StandardRef
  * Exact matching only. Grade: the school must teach it. Skill: exact code (e.g. G4.reread) or exact
  * name within that grade. Standard: must exist, and must be one of the skill's linked standards.
  */
+/** ⚡ each skill's comparable forms, worked out once per index and grade (not once per row of a file) */
+const formCache = new WeakMap<CurriculumIndex, Map<number, { skill: SkillRef; code: string; codeNoGrade: string; name: string }[]>>();
+function skillForms(idx: CurriculumIndex, grade: number, skills: SkillRef[]) {
+  let byGrade = formCache.get(idx);
+  if (!byGrade) formCache.set(idx, (byGrade = new Map()));
+  let list = byGrade.get(grade);
+  if (!list) byGrade.set(grade, (list = skills.map((s) => ({ skill: s, code: s.code.toLowerCase(), codeNoGrade: s.code.toLowerCase().replace(/^g\d+\./, ""), name: normName(s.name) }))));
+  return list;
+}
+
 export function matchCurriculum(idx: CurriculumIndex, grade: number | null, skillRaw: string, standardRaw: string): CurriculumMatch {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -610,8 +620,9 @@ export function matchCurriculum(idx: CurriculumIndex, grade: number | null, skil
   let skill: SkillRef | null = null;
   if (skillText) {
     const k = normName(skillText);
-    const byCode = skills.filter((s) => s.code.toLowerCase() === k || s.code.toLowerCase().replace(/^g\d+\./, "") === k);
-    const byName = skills.filter((s) => normName(s.name) === k);
+    const forms = skillForms(idx, grade, skills);
+    const byCode = forms.filter((f) => f.code === k || f.codeNoGrade === k).map((f) => f.skill);
+    const byName = forms.filter((f) => f.name === k).map((f) => f.skill);
     const hits = byCode.length ? byCode : byName;
     if (hits.length === 1) skill = hits[0];
     else if (hits.length > 1) errors.push(`Skill “${skillText}” matches ${hits.length} skills in Grade ${grade} (${hits.map((h) => h.code).join(", ")}). Write the skill code instead.`);

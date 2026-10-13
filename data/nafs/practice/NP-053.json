@@ -1,0 +1,169 @@
+{
+  "code": "NP-053",
+  "title": "A Voice Along a Wire",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Before the telephone, the fastest way to send a message across a long distance was the telegraph, which carried coded clicks along wires. Operators had to translate every message into dots and dashes, so ordinary people could not simply pick up a device and talk. In the 1870s, several inventors were racing to change that.\n\nOne of them was Alexander Graham Bell, a Scottish-born teacher who worked with deaf students in Boston. Bell's mother was deaf, and he had spent years studying how sound and speech travel. He believed that the vibrations of a voice could be turned into an electric current, sent along a wire, and changed back into sound at the other end.\n\nWorking with his assistant, Thomas Watson, Bell experimented with thin metal plates, magnets, and batteries. On March 7, 1876, he received a patent for his invention. Three days later, he spoke into his device and asked his assistant to come to him, and Watson, who was waiting in the next room, heard the voice clearly and rushed in with excitement.\n\nHowever, Bell was not the only person with this idea, because on the very same day that Bell's lawyer filed his application, another inventor, Elisha Gray, filed papers describing a similar device, and the two men argued about it for years. Nevertheless, Bell's telephone spread quickly. Within a few decades, millions of homes and businesses were connected, and the world began to feel much smaller.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which word belongs to the same word family as 'invention'?",
+      "options": [
+        "invitation",
+        "event",
+        "inventor",
+        "vent"
+      ],
+      "answer": "C",
+      "why": "'Inventor', 'invent' and 'invention' share the same root and meaning; the other words only look similar."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which of these sentences is a question?",
+      "options": [
+        "Bell received a patent in 1876.",
+        "What an amazing invention it was!",
+        "Listen carefully to the voice on the wire.",
+        "How did Bell's invention change the world?"
+      ],
+      "answer": "D",
+      "why": "A question asks something and ends with a question mark; the others are a statement, a command and an exclamation."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why could ordinary people not use the telegraph to talk?",
+      "options": [
+        "The wires were too short to reach other cities.",
+        "Operators had to turn messages into dots and dashes.",
+        "The telegraph was used only by deaf students.",
+        "It was against the law to use the telegraph."
+      ],
+      "answer": "B",
+      "why": "The first paragraph states that operators had to translate every message into dots and dashes."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Bell spoke to Watson through his device.",
+        "Millions of homes had telephones.",
+        "Bell received a patent for his invention.",
+        "Watson rushed in after hearing Bell's voice."
+      ],
+      "answer": "C",
+      "why": "Bell got his patent on March 7, 1876; he spoke to Watson three days later, and millions of homes were connected decades after."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How was the telephone different from the telegraph?",
+      "options": [
+        "It could only send messages a short way.",
+        "It did not need any wires at all.",
+        "It was invented before the telegraph.",
+        "It carried a speaking voice, not coded clicks."
+      ],
+      "answer": "D",
+      "why": "The telegraph sent coded clicks, while Bell's telephone changed a voice into electric current and back into sound."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says that 'the world began to feel much smaller.' What does this expression mean?",
+      "options": [
+        "Cities became more crowded than before.",
+        "Fewer people travelled to other countries.",
+        "The Earth actually became smaller in size.",
+        "People far apart could talk quickly and easily."
+      ],
+      "answer": "D",
+      "why": "The world did not shrink; it only felt smaller because distant people could now speak to each other at once."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "Bell invented the telephone completely on his own.",
+        "Elisha Gray deserved no credit for any of his ideas.",
+        "Bell's experience with deafness helped inspire his work.",
+        "The telegraph was more useful than the telephone."
+      ],
+      "answer": "C",
+      "why": "Bell's mother was deaf and he taught deaf students, which led him to study sound and speech. Watson helped him, so he did not work alone."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the passage?",
+      "options": [
+        "What materials Bell experimented with",
+        "How the argument between Bell and Gray was settled",
+        "Who helped Bell with his experiments",
+        "When Bell received his patent"
+      ],
+      "answer": "B",
+      "why": "The passage says the two men argued for years but never explains how the argument ended."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A teacher studies how sound travels and builds a device.",
+        "A man shouts loudly enough to be heard overseas.",
+        "A telephone in 1876 works with no wire or power.",
+        "An operator hears a message before it is sent."
+      ],
+      "answer": "A",
+      "why": "Bell himself was a teacher who studied sound and built a device; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which title best describes the main events of the passage?",
+      "options": [
+        "How Bell Sent the First Voice by Wire",
+        "A School for Deaf Students in Boston",
+        "The Life of Thomas Watson",
+        "How Telegraphs Use Dots and Dashes"
+      ],
+      "answer": "A",
+      "why": "The passage is mainly about Bell inventing the telephone; the other titles describe small details."
+    }
+  ]
+}

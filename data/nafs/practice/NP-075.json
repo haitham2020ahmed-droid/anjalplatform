@@ -1,0 +1,169 @@
+{
+  "code": "NP-075",
+  "title": "More Than a Wall",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "The Great Wall of China is not actually a single wall. It is an enormous network of walls, trenches, and natural barriers built across northern China over roughly two thousand years. According to a government survey completed in 2012, all of its sections together stretch more than 21,000 kilometers.\n\nThe earliest walls were constructed from packed earth by separate kingdoms that wanted to protect themselves from one another. Around 221 BCE, Qin Shi Huang, the first emperor to unite China, ordered workers to connect several of these walls to defend against raiders from the northern grasslands. Later dynasties repaired and extended the barrier, but most of the sections that tourists visit today were built during the Ming dynasty, between the fourteenth and seventeenth centuries, using bricks and stone.\n\nThe wall was more than a barrier. Soldiers lived in watchtowers along its length, and when they spotted an enemy, they sent warnings by lighting fires or sending smoke signals from tower to tower. The wall also helped officials control trade and travel along the frontier.\n\nBuilding it was exhausting and dangerous, and many workers died during construction. Contrary to a popular belief, the wall cannot be seen from space with the naked eye. Nevertheless, it remains one of the most impressive structures humans have ever created, and it was named a UNESCO World Heritage Site in 1987.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the passage is an adjective?",
+      "options": [
+        "network",
+        "enormous",
+        "constructed",
+        "nevertheless"
+      ],
+      "answer": "B",
+      "why": "\"Enormous\" describes the network, so it is an adjective."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"frontier\" correctly?",
+      "options": [
+        "Soldiers guarded the frontier between the two lands.",
+        "She frontier her homework before dinner.",
+        "The frontier tasted sweet and fresh.",
+        "He spoke so frontier that everyone heard."
+      ],
+      "answer": "A",
+      "why": "A frontier is a border area between two regions; only the first sentence uses it as a noun with that meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why did Qin Shi Huang order workers to connect the walls?",
+      "options": [
+        "To help traders travel more easily",
+        "To build a road for his army",
+        "To make the wall visible from space",
+        "To defend against northern raiders"
+      ],
+      "answer": "D",
+      "why": "The passage says he connected the walls \"to defend against raiders from the northern grasslands.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which of these events happened first?",
+      "options": [
+        "Ming workers built sections with bricks and stone.",
+        "UNESCO named the wall a World Heritage Site.",
+        "Separate kingdoms built walls of packed earth.",
+        "A government survey measured all the sections."
+      ],
+      "answer": "C",
+      "why": "The earliest walls were built by separate kingdoms before China was united; the Ming sections, the 1987 UNESCO listing and the 2012 survey came later."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How were the earliest walls different from most sections tourists visit today?",
+      "options": [
+        "They were taller and made of brick.",
+        "They were built during the Ming dynasty.",
+        "They were used only for trade.",
+        "They were packed earth, not brick and stone."
+      ],
+      "answer": "D",
+      "why": "The earliest walls were \"constructed from packed earth,\" while most visited sections were built by the Ming \"using bricks and stone.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The writer states, \"The wall was more than a barrier.\" What does the writer mean?",
+      "options": [
+        "It was longer than any other barrier.",
+        "It also served for signals and trade control.",
+        "It was built to be beautiful, not useful.",
+        "It was too weak to stop anyone."
+      ],
+      "answer": "B",
+      "why": "The paragraph explains that the wall also carried warnings by fire and smoke and helped officials control trade and travel."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best shows the writer's viewpoint about the wall?",
+      "options": [
+        "It is impressive, but it came at a high cost.",
+        "It was a waste of time and effort.",
+        "It is famous mainly because it shows from space.",
+        "It was built quickly and easily."
+      ],
+      "answer": "A",
+      "why": "The writer says building it was exhausting and many workers died, yet calls it one of the most impressive human structures."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the least clear in the passage?",
+      "options": [
+        "Which dynasty built the visited sections",
+        "How soldiers sent warnings",
+        "How many workers died building it",
+        "When it became a World Heritage Site"
+      ],
+      "answer": "C",
+      "why": "The passage says only that \"many workers died\" without a number; the other details are given clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "An astronaut sees the wall from space with bare eyes.",
+        "One worker builds the entire wall in a single year.",
+        "A smoke signal travels around the world in one second.",
+        "A tourist walks along a Ming section of the wall."
+      ],
+      "answer": "D",
+      "why": "Tourists visit the Ming sections today; the passage says the wall cannot be seen from space with the naked eye, and the others are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "The First Emperor's Childhood",
+        "Two Thousand Years of China's Great Wall",
+        "How to Send Smoke Signals",
+        "Travel Tips for Visiting Beijing"
+      ],
+      "answer": "B",
+      "why": "The passage traces the wall's history, purpose and importance; the other titles cover details that are minor or not discussed."
+    }
+  ]
+}

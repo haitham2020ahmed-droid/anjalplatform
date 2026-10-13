@@ -1,0 +1,169 @@
+{
+  "code": "NP-059",
+  "title": "The Stone That Speaks",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "passage": "Lina and her older brother Khalid stood in front of a tall glass case at the National Museum in Riyadh, where an ancient stone carved with strange letters rested under a soft yellow light.\n\n\"What do you think it says?\" Lina asked, pressing her nose almost against the glass.\n\n\"According to this sign, it is an inscription written in an old Arabian script, and it was found near AlUla, an oasis that was an important stop for trading caravans thousands of years ago,\" Khalid replied, reading from the card beside the case.\n\n\"Thousands of years? That is older than Grandmother's house, older than our city, maybe even older than the mountains!\" Lina exclaimed.\n\nKhalid laughed and answered, \"Not older than the mountains, Lina, because mountains take millions of years to form, but you are right that it is incredibly old.\"\n\nA museum guide walked over, smiled at them, and explained, \"Many visitors pass this stone quickly, but it tells us that people in this land were writing, trading, and recording their names long before most of the buildings around us existed.\"\n\nLina thought about this for a moment before asking, \"So someone, a long time ago, wanted to be remembered, just like we write our names in our notebooks?\"\n\n\"Exactly,\" said the guide with a warm smile, \"and that is why writing is one of the ways people speak to the future.\"\n\nOn the way home, Lina took out her notebook and wrote one careful sentence about the day, hoping that someone would read it a thousand years later.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the story is a plural noun?",
+      "options": [
+        "remembered",
+        "careful",
+        "ancient",
+        "caravans"
+      ],
+      "answer": "D",
+      "why": "'Caravans' names more than one group of travellers; the other words are adjectives or a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word 'inscription' correctly?",
+      "options": [
+        "We drank a cold inscription after our long walk.",
+        "The inscription on the coin showed a king's name.",
+        "The inscription ran quickly across the playground.",
+        "My mother inscriptioned the cake with sugar."
+      ],
+      "answer": "B",
+      "why": "An inscription is writing carved or printed on something, like the words on the ancient stone."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "What type of text is this?",
+      "options": [
+        "An encyclopedia article",
+        "A poem about mountains",
+        "A letter to a museum",
+        "A story told mostly through dialogue"
+      ],
+      "answer": "D",
+      "why": "It has characters, a setting and events, and most of it is the characters' conversation in quotation marks."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Who says that writing is one of the ways people speak to the future?",
+      "options": [
+        "the museum guide",
+        "Lina's grandmother",
+        "Khalid",
+        "Lina"
+      ],
+      "answer": "A",
+      "why": "The guide answers 'Exactly' and then says writing is one of the ways people speak to the future."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How is Lina's notebook sentence similar to the ancient inscription?",
+      "options": [
+        "Both were written in an old Arabian script.",
+        "Both were found near the oasis of AlUla.",
+        "Both are writing meant to be remembered.",
+        "Both are kept inside a glass case."
+      ],
+      "answer": "C",
+      "why": "The people who carved the stone wanted to be remembered, and Lina hopes someone will read her sentence in a thousand years."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Lina says the stone may be 'even older than the mountains!' What does this exaggeration show?",
+      "options": [
+        "how much she knows about mountains",
+        "how sure she is that the guide is wrong",
+        "how bored she is at the museum",
+        "how amazed she is by the stone's great age"
+      ],
+      "answer": "D",
+      "why": "Lina exaggerates because she is excited; Khalid then explains that mountains are far older."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best expresses the main idea of the story?",
+      "options": [
+        "Old writings connect us with people of the past.",
+        "Museums are interesting only for adults.",
+        "Visitors should pass old stones quickly.",
+        "Mountains are more important than writing."
+      ],
+      "answer": "A",
+      "why": "The guide explains that the stone shows people long ago writing and trading, and Lina feels connected to them."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "what Lina did on the way home",
+        "what the words on the stone actually say",
+        "which city the museum is in",
+        "where the stone was first found"
+      ],
+      "answer": "B",
+      "why": "Lina asks what the stone says, but no one ever tells her; the other details are given."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Lina's notebook talks to people in the future.",
+        "An old stone reads its message aloud to Lina.",
+        "A guide explains an ancient stone to visitors.",
+        "Real mountains appear inside the museum hall."
+      ],
+      "answer": "C",
+      "why": "Museum guides really explain objects to visitors; stones and notebooks cannot talk."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the best alternative title for the story?",
+      "options": [
+        "Messages from the Past",
+        "Grandmother's Old House",
+        "A Trip to the Mountains",
+        "How to Become a Museum Guide"
+      ],
+      "answer": "A",
+      "why": "The story is about an ancient written message and how writing carries messages through time."
+    }
+  ]
+}

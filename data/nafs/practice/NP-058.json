@@ -1,0 +1,169 @@
+{
+  "code": "NP-058",
+  "title": "Secrets of the Scribes",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "More than five thousand years ago, the people of ancient Egypt developed one of the world's earliest writing systems. Today we call their picture-like symbols hieroglyphs, a Greek word meaning \"sacred carvings,\" because the Greeks often saw them on the walls of temples and tombs.\n\nHieroglyphic writing was more complicated than it looks. The system contained hundreds of signs, and each one could work in different ways. Some signs represented whole words or ideas, while others stood for sounds, much like the letters of our alphabet. Writers could arrange the signs in rows or columns and could even write from right to left or from left to right.\n\nBecause the system was so complex, only a small group of people, called scribes, could read and write. Young people who trained as scribes studied for many years, copying texts again and again on pieces of pottery and stone. Scribes kept records of harvests, taxes, and laws, so they held respected positions in society. For everyday documents, they used a quicker, simpler script called hieratic, written with reed brushes and ink on papyrus, a paper made from a river plant.\n\nAfter Egypt was conquered by foreign rulers, knowledge of hieroglyphs slowly disappeared. For centuries, no one could understand them. Then, in 1799, soldiers discovered the Rosetta Stone, which carried the same message in three scripts, including Greek. Using this clue, the French scholar Jean-François Champollion finally cracked the code in 1822.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "In the passage, 'taxes' is the plural of 'tax'. Which word forms its plural in the SAME way?",
+      "options": [
+        "scribe",
+        "sign",
+        "stone",
+        "box"
+      ],
+      "answer": "D",
+      "why": "Words ending in -x add -es: tax → taxes, box → boxes. The others simply add -s."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word 'conquered' correctly?",
+      "options": [
+        "The scribe conquered the papyrus with fresh ink.",
+        "We conquered quietly so the baby could sleep.",
+        "She conquered her lunch into two equal halves.",
+        "The army conquered the city after a long battle."
+      ],
+      "answer": "D",
+      "why": "To conquer means to take control of a place by force, as foreign rulers conquered Egypt."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why did the Greeks call the symbols 'sacred carvings'?",
+      "options": [
+        "They were carved into gold coins.",
+        "They saw them on temple and tomb walls.",
+        "The Greeks used them in their songs.",
+        "Only priests were allowed to read them."
+      ],
+      "answer": "B",
+      "why": "The passage says the Greeks often saw the symbols on the walls of temples and tombs."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "Soldiers found the Rosetta Stone.",
+        "Champollion cracked the code.",
+        "Scribes kept records of harvests.",
+        "Knowledge of hieroglyphs disappeared."
+      ],
+      "answer": "B",
+      "why": "Champollion read the hieroglyphs in 1822, after the Rosetta Stone was found in 1799."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How was hieratic different from hieroglyphic writing?",
+      "options": [
+        "It was carved only on temple walls.",
+        "It could only be written top to bottom.",
+        "It was quicker and simpler for daily use.",
+        "It used Greek letters instead of signs."
+      ],
+      "answer": "C",
+      "why": "The passage calls hieratic 'a quicker, simpler script' used for everyday documents."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says Champollion 'cracked the code.' What does this expression mean?",
+      "options": [
+        "He worked out how to read the writing.",
+        "He broke the Rosetta Stone into pieces.",
+        "He hid the meaning from other scholars.",
+        "He invented a new secret language."
+      ],
+      "answer": "A",
+      "why": "To 'crack a code' means to solve it; Champollion figured out how hieroglyphs could be read."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "The Rosetta Stone was a key to a lost writing system.",
+        "Hieroglyphs were too simple to be important.",
+        "Anyone in Egypt could read hieroglyphs easily.",
+        "Scribes had little respect in Egyptian society."
+      ],
+      "answer": "A",
+      "why": "No one could read hieroglyphs for centuries until the Rosetta Stone's Greek text gave scholars a clue."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the passage?",
+      "options": [
+        "When the Rosetta Stone was discovered",
+        "What material papyrus was made from",
+        "Who could read and write in ancient Egypt",
+        "How the Greek text helped Champollion read the signs"
+      ],
+      "answer": "D",
+      "why": "The passage says Champollion used 'this clue' but does not explain how; the other facts are stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of these could really have happened in ancient Egypt?",
+      "options": [
+        "A young scribe copies texts onto pottery to practise.",
+        "A scribe types tax records on a computer.",
+        "A farmer reads Champollion's book.",
+        "A scribe sends a message by telephone."
+      ],
+      "answer": "A",
+      "why": "Trainee scribes copied texts on pottery; telephones, computers and Champollion came thousands of years later."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which title best describes the whole passage?",
+      "options": [
+        "Greek Temples and Tombs",
+        "The Soldiers of 1799",
+        "Lost and Found: The Story of Hieroglyphs",
+        "How to Make Papyrus at Home"
+      ],
+      "answer": "C",
+      "why": "The passage tells how hieroglyphs were created, forgotten and finally understood again."
+    }
+  ]
+}

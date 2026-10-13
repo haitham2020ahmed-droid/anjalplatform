@@ -1,0 +1,169 @@
+{
+  "code": "NP-049",
+  "title": "Marie Curie: A Life of Discovery",
+  "kind": "INFORMATIONAL",
+  "genre": "biography",
+  "passage": "Marie Curie was one of the most important scientists in history, yet her path to success was extremely difficult. She was born Maria Skłodowska in Warsaw, Poland, in 1867. At that time, universities in her country did not accept women, so Maria worked as a teacher and saved money for years in order to continue her education abroad.\n\nIn 1891, she moved to Paris and enrolled at the famous Sorbonne university. She lived in a tiny, cold room and sometimes forgot to eat because she was concentrating so hard on her studies. Nevertheless, she graduated at the top of her class in physics. In Paris, she met the scientist Pierre Curie, and they married in 1895.\n\nTogether, the Curies investigated radioactivity, a type of energy given off by certain substances. In 1898, they discovered two new elements, which they named polonium, after Marie's homeland, and radium. In 1903, Marie became the first woman to receive a Nobel Prize, and in 1911 she won a second Nobel Prize, this time in chemistry.\n\nDuring the First World War, she developed mobile X-ray units that helped doctors treat injured soldiers near the battlefield. Sadly, years of working with radioactive materials damaged her health, and she died in 1934. Today, her determination continues to inspire young people, especially girls, who dream of becoming scientists.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which word belongs to the same word family as \"determination\"?",
+      "options": [
+        "terminal",
+        "mineral",
+        "determined",
+        "nation"
+      ],
+      "answer": "C",
+      "why": "\"Determined\" shares the base word \"determine\"; the other words only share some letters."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which of these sentences about Marie Curie is an EXCLAMATORY sentence?",
+      "options": [
+        "She was born in Warsaw in 1867.",
+        "What an incredible scientist she was!",
+        "Read the story of her life tonight.",
+        "When did she win her first prize?"
+      ],
+      "answer": "B",
+      "why": "An exclamatory sentence shows strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Maria work as a teacher and save money for years?",
+      "options": [
+        "Universities in Poland did not accept women.",
+        "She wanted to buy equipment for a laboratory.",
+        "Her family asked her to pay for their house.",
+        "She needed money to travel to the war."
+      ],
+      "answer": "A",
+      "why": "Universities in her country did not accept women, so she saved to continue her education abroad."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "She discovered polonium and radium.",
+        "She moved to Paris to study at the Sorbonne.",
+        "She married the scientist Pierre Curie.",
+        "She received her first Nobel Prize."
+      ],
+      "answer": "B",
+      "why": "She moved to Paris in 1891, married in 1895, discovered the elements in 1898 and won the Nobel Prize in 1903."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What was one EFFECT of Marie Curie's years of working with radioactive materials?",
+      "options": [
+        "She left the Sorbonne.",
+        "She returned to Poland.",
+        "Her health was damaged.",
+        "She stopped her research."
+      ],
+      "answer": "C",
+      "why": "The passage says \"years of working with radioactive materials damaged her health.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The writer says her \"path to success was extremely difficult.\" What does \"path to success\" mean here?",
+      "options": [
+        "the road she walked each day from her room to the Sorbonne",
+        "the route that X-ray units took to reach the battlefield",
+        "the long journey by train from Warsaw to the city of Paris",
+        "the series of steps and challenges on the way to her goals"
+      ],
+      "answer": "D",
+      "why": "\"Path\" is used figuratively to describe her life's journey towards achievement, not a real road."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST describes the writer's viewpoint about Marie Curie?",
+      "options": [
+        "The writer thinks she was lucky and found success easily.",
+        "The writer admires her determination and achievements.",
+        "The writer believes that Pierre deserved all the credit.",
+        "The writer feels that her discoveries were not important."
+      ],
+      "answer": "B",
+      "why": "The writer calls her \"one of the most important scientists in history\" and says her determination \"continues to inspire.\""
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "Why polonium was given its name",
+        "In which city Marie Curie was born",
+        "How the Curies discovered polonium and radium",
+        "When she won her second Nobel Prize"
+      ],
+      "answer": "C",
+      "why": "The passage says they discovered two elements but never explains how; the other facts are stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could REALLY happen?",
+      "options": [
+        "A scientist uses radium to fly across the sea.",
+        "An X-ray unit heals a soldier's wound by itself.",
+        "A new element names itself after a country.",
+        "A young woman travels abroad to study science."
+      ],
+      "answer": "D",
+      "why": "Like Marie Curie, people really do travel to other countries to study; the others are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "Against All Odds: The Story of Marie Curie",
+        "Pierre Curie and His Famous Laboratory",
+        "The Battles of the First World War",
+        "Growing Up in Warsaw in the 1800s"
+      ],
+      "answer": "A",
+      "why": "The biography covers Marie Curie's whole life and the obstacles she overcame; the others cover only small parts."
+    }
+  ]
+}

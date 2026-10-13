@@ -1,0 +1,568 @@
+{
+  "code": "NB-005",
+  "title": "The Date Palm: A Tree of Life",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 507,
+  "passage": "For thousands of years, the date palm has been one of the most valuable plants in the Arabian Peninsula, because it flourishes where few other plants can survive. It has given families food, shade and building materials, and Saudi Arabia alone is now home to more than thirty million date palms.\n\nAlthough the date palm is well adapted to dry regions, it cannot live without a dependable supply of water. Its roots stretch deep into the ground to reach water hidden below the surface, which explains why palms are usually found near oases, wells and springs. The tree also needs intense sunlight and heat, so farmers say that a palm likes to have \"its feet in water and its head in the fire of the sky.\"\n\nSurprisingly, most new palms do not grow from seeds. Instead, farmers rely on offshoots, which are young palms that sprout from the base of a mother tree. After carefully separating an offshoot, the farmer plants it in fresh soil and waters it while its roots become established. This method is valuable because the young tree will produce exactly the same variety of dates as its mother, whereas a palm grown from a seed may give fruit of poor quality. An offshoot usually begins to bear fruit after four to six years.\n\nDate palms are either male or female, and only the female trees produce fruit. In spring, the male trees release a fine powder called pollen, which farmers carry by hand to the flowers of the female trees, often climbing the tall trunks to reach them. This delicate task, known as pollination, must be done at precisely the right time; otherwise, the harvest will be small. Over the summer, the green fruit gradually turns yellow or red, and then it softens and darkens as it ripens.\n\nEvery part of the palm is useful. People eat dates fresh or dried, and dried dates can be stored for many months without spoiling, which made them an essential food for desert travellers. Because dates contain natural sugar, fibre and minerals, they provide quick energy. The leaves, called fronds, are woven into baskets, mats and fans. In the past, the sturdy trunks served as beams that supported the roofs of houses, while the rough fibres were twisted into durable ropes.\n\nToday, date palms are important to the economy as well. Saudi Arabia is one of the largest producers of dates in the world and exports them to many countries. Every year, date festivals in cities such as Buraydah and Unaizah attract thousands of visitors and traders.\n\nNevertheless, palms face serious dangers. The red palm weevil, a small but destructive insect, can tunnel through the inside of a trunk until the tree dies, often before any damage is visible. Consequently, farmers inspect their trees regularly and remove infected ones quickly to protect the rest of the farm.\n\nWhat a remarkable tree! The date palm has become a symbol of generosity and patience, and caring for it means protecting a gift that has fed families for generations.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “dependable” as it is used in paragraph 2?",
+      "options": [
+        "plentiful",
+        "seasonal",
+        "reliable",
+        "underground"
+      ],
+      "answer": "C",
+      "why": "A dependable supply of water is one the palm can rely on all the time, so “reliable” is closest; “plentiful” describes amount, not trust."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “destructive” as it is used in paragraph 7?",
+      "options": [
+        "damaging",
+        "harmless",
+        "noticeable",
+        "energetic"
+      ],
+      "answer": "B",
+      "why": "Destructive means causing serious damage; its opposite is harmless. “Damaging” is a synonym, not an opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 3, the farmer waters the offshoot “while its roots become established”. What does “become established” mean here?",
+      "options": [
+        "grow firmly into the new soil",
+        "are cut away from the mother tree",
+        "are covered with fine pollen",
+        "are dried for many months"
+      ],
+      "answer": "A",
+      "why": "The young palm has just been planted, so its roots need time to settle and grow firmly in the soil."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an adverb?",
+      "options": [
+        "valuable",
+        "separating",
+        "variety",
+        "carefully"
+      ],
+      "answer": "D",
+      "why": "“Carefully” describes how the farmer separates the offshoot, so it is an adverb; “valuable” is an adjective, “variety” a noun and “separating” a verb form."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In “the sturdy trunks served as beams” (paragraph 5), the word “sturdy” is …",
+      "options": [
+        "a noun",
+        "an adverb",
+        "an adjective",
+        "a verb"
+      ],
+      "answer": "C",
+      "why": "“Sturdy” describes the trunks (strong and solid), so it is an adjective."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “pollination”?",
+      "options": [
+        "polish",
+        "pollinate",
+        "polite",
+        "pole"
+      ],
+      "answer": "B",
+      "why": "Pollen, pollinate and pollination share the same root; the other words only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The text mentions “oases” in paragraph 2. What is the singular form of “oases”?",
+      "options": [
+        "oasis",
+        "oase",
+        "oasie",
+        "oas"
+      ],
+      "answer": "A",
+      "why": "“Oasis” has an irregular plural: the -is ending changes to -es (oasis → oases)."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is a command?",
+      "options": [
+        "Why do farmers inspect their palms so often?",
+        "What a destructive insect the weevil is!",
+        "Farmers inspect their palms regularly.",
+        "Inspect every palm for signs of the weevil."
+      ],
+      "answer": "D",
+      "why": "A command tells someone to do something and begins with a verb (“Inspect”)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “essential” (paragraph 5) in a meaningful sentence of your own.",
+      "model": "Water is essential for every living thing, so we should never waste it.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “essential” with its meaning (absolutely necessary, very important)",
+        "1 = the word is used but the sentence is incomplete or the meaning is unclear",
+        "0 = the word is missing or used with a wrong meaning"
+      ],
+      "why": "Essential means absolutely necessary; dried dates were essential because travellers could not do without them."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the overall purpose of the text?",
+      "options": [
+        "to explain how the date palm is grown and why it is so valuable",
+        "to compare the date palm with other desert plants",
+        "to describe the history of the date festivals",
+        "to persuade farmers to grow palms instead of rice"
+      ],
+      "answer": "A",
+      "why": "The paragraphs explain the palm’s needs, planting, pollination, uses, economic value and dangers."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which of these is another suitable title for the whole text?",
+      "options": [
+        "The Red Palm Weevil: A Hidden Enemy",
+        "The Festivals of Buraydah",
+        "Food for Desert Travellers",
+        "From Offshoot to Harvest"
+      ],
+      "answer": "D",
+      "why": "The other titles fit only one paragraph each; the text follows the palm from planting to harvest and use."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Dates change colour several times during the summer.",
+        "Male palms are more useful than female palms because they make pollen.",
+        "A good date harvest depends on careful, well-timed pollination.",
+        "Climbing tall trunks is the hardest job on a palm farm."
+      ],
+      "answer": "C",
+      "why": "The paragraph explains male and female trees and why pollination must be done by hand at the right time; the colour change is only a supporting detail."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why are palms usually found near oases, wells and springs?",
+      "options": [
+        "The sand there stays cool during the night.",
+        "Their deep roots must reach water below the ground.",
+        "They need shade from other, taller trees.",
+        "Farmers are not allowed to plant them elsewhere."
+      ],
+      "answer": "B",
+      "why": "The roots stretch deep to reach hidden water, “which explains why” palms grow near water sources."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what is the main advantage of planting an offshoot rather than a seed?",
+      "options": [
+        "It produces the same variety of dates as its mother.",
+        "It bears fruit in less than one year.",
+        "It needs no water while its roots grow.",
+        "It is protected from the red palm weevil."
+      ],
+      "answer": "A",
+      "why": "The text says the offshoot “will produce exactly the same variety of dates as its mother”; the other claims are not in the text."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which feature shows that this is an informational (expository) text?",
+      "options": [
+        "It tells events through the eyes of one character.",
+        "It uses rhyme and rhythm in every line.",
+        "It presents facts and explanations about one topic.",
+        "It is written as a letter to a friend."
+      ],
+      "answer": "C",
+      "why": "Expository texts explain a topic with facts, which is what every paragraph here does."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "When a farmer grows a new palm from an offshoot, which step comes FIRST?",
+      "options": [
+        "He plants the offshoot in fresh soil.",
+        "He separates the offshoot from the mother tree.",
+        "He waters it while its roots become established.",
+        "He waits four to six years for the first fruit."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3: “After carefully separating an offshoot, the farmer plants it …” — separating comes first."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what happens to the fruit AFTER it turns yellow or red?",
+      "options": [
+        "The male trees release a fine powder.",
+        "Farmers carry pollen to the female flowers.",
+        "It is stored for months as dried dates.",
+        "It softens and darkens as it ripens."
+      ],
+      "answer": "D",
+      "why": "“The green fruit gradually turns yellow or red, and then it softens and darkens as it ripens.” Pollen comes earlier, in spring."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which condition must farmers meet to avoid a small harvest?",
+      "options": [
+        "pollinating the female flowers at the right time",
+        "cutting all the offshoots in spring",
+        "growing every new palm from seed",
+        "removing the fronds before summer"
+      ],
+      "answer": "A",
+      "why": "Pollination “must be done at precisely the right time; otherwise, the harvest will be small.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Using paragraph 7, why is the red palm weevil especially hard to stop?",
+      "options": [
+        "It attacks only the fronds, which are too high to reach.",
+        "It is too large for farmers to remove by hand.",
+        "It damages the trunk from inside, often before anything can be seen.",
+        "It spreads pollen to the wrong trees in spring."
+      ],
+      "answer": "C",
+      "why": "The weevil tunnels “through the inside of a trunk … often before any damage is visible”, so farmers may not notice it in time."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why do farmers remove infected trees quickly?",
+      "options": [
+        "to use the trunks as beams for new houses",
+        "to stop the insects spreading to healthy trees",
+        "to make space for palms grown from seed",
+        "to sell the wood at the date festivals"
+      ],
+      "answer": "B",
+      "why": "They remove them “to protect the rest of the farm”, which means stopping the weevil from spreading."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Using information from paragraph 5, why were dried dates an essential food for desert travellers?",
+      "options": [
+        "They are woven into baskets, mats and fans.",
+        "They grow only near oases, wells and springs.",
+        "They must be eaten fresh on the day they are picked.",
+        "They last for months and give quick energy."
+      ],
+      "answer": "D",
+      "why": "Two sentences work together: dried dates keep “for many months without spoiling”, and their sugar gives “quick energy”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How is a palm grown from a seed different from one grown from an offshoot?",
+      "options": [
+        "Its fruit may be of poor quality.",
+        "Its fruit is exactly like its mother’s.",
+        "It never needs to be pollinated.",
+        "It cannot grow in the Arabian Peninsula."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 contrasts the two: the offshoot copies its mother, “whereas” a seed-grown palm “may give fruit of poor quality”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do palm fronds and palm fibres have in common?",
+      "options": [
+        "Both supported the roofs of houses.",
+        "Both provide sugar, fibre and minerals.",
+        "Both were made into useful objects.",
+        "Both release pollen in the spring."
+      ],
+      "answer": "C",
+      "why": "Fronds were woven into baskets, mats and fans, and fibres were twisted into ropes; only trunks were beams."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, how do the date festivals add to the importance of the palm?",
+      "options": [
+        "They protect the palms from the red palm weevil.",
+        "They attract thousands of visitors and traders.",
+        "They teach farmers how to pollinate by hand.",
+        "They decide the price of dates in every country."
+      ],
+      "answer": "B",
+      "why": "Paragraph 6 links the palm to the economy and says the festivals “attract thousands of visitors and traders”."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is an exclamatory sentence?",
+      "options": [
+        "Every part of the palm is useful.",
+        "Nevertheless, palms face serious dangers.",
+        "Surprisingly, most new palms do not grow from seeds.",
+        "What a remarkable tree!"
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling and ends with an exclamation mark; the others are statements."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The saying “its feet in water and its head in the fire of the sky” means that a palm needs …",
+      "options": [
+        "water at its roots and strong heat above",
+        "to be planted beside a fire",
+        "cool shade above and dry sand below",
+        "water only in the hottest hours"
+      ],
+      "answer": "A",
+      "why": "The “feet” are the roots and the “fire of the sky” is the hot sun, so the palm needs both water below and heat above."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "What is your opinion of how the writer organises the ideas?",
+      "options": [
+        "Confusing, because the paragraphs are in no clear order.",
+        "Weak, because it gives opinions but no facts at all.",
+        "Clear, because it moves from growing palms to their uses and dangers.",
+        "Unclear, because it is told only through a conversation."
+      ],
+      "answer": "C",
+      "why": "The paragraphs follow a logical path: needs, planting, pollination, uses, economy, dangers and a conclusion."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the text, which use of the date palm is most beneficial to people’s health?",
+      "options": [
+        "using the trunks as beams for roofs",
+        "eating dates for their sugar, fibre and minerals",
+        "weaving fans and mats from the fronds",
+        "twisting the fibres into durable ropes"
+      ],
+      "answer": "B",
+      "why": "Only the dates themselves are described as giving the body sugar, fibre, minerals and energy."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "to advertise the festivals in Buraydah and Unaizah",
+        "to warn farmers that palms are too hard to grow",
+        "to compare Saudi dates with dates from abroad",
+        "to help readers value an important tree of their region"
+      ],
+      "answer": "D",
+      "why": "The text explains the palm’s many gifts and ends by calling it “a gift that has fed families for generations”."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which attitude towards the date palm is most present in the text?",
+      "options": [
+        "admiration",
+        "worry",
+        "indifference",
+        "amusement"
+      ],
+      "answer": "A",
+      "why": "Although the weevil is mentioned, the writer calls the palm “a remarkable tree” and a symbol of generosity, showing admiration."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how long an offshoot takes to bear fruit",
+        "which cities hold date festivals",
+        "how the red palm weevil gets inside a trunk",
+        "what the fronds are used for"
+      ],
+      "answer": "C",
+      "why": "The text says the weevil tunnels inside the trunk but never explains how it gets in; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A male palm gives a large harvest of dates every summer.",
+        "A farmer plants an offshoot and picks its first dates five years later.",
+        "A palm in the desert produces fruit without any water at all.",
+        "A palm grown from seed bears fruit one month after planting."
+      ],
+      "answer": "B",
+      "why": "Offshoots bear fruit after four to six years; the other events contradict facts in the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas of the whole text?",
+      "options": [
+        "The Red Palm Weevil: A Farmer’s Enemy",
+        "Festivals of the Qassim Region",
+        "How to Climb a Palm Tree",
+        "The Generous Palm: Food, Shade and Shelter"
+      ],
+      "answer": "D",
+      "why": "The text covers all the gifts the palm gives people; the other titles describe only one small part or none."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is the best way, according to the text, for farmers to protect their palms from the red palm weevil?",
+      "options": [
+        "inspect the trees regularly and remove infected ones quickly",
+        "pollinate each tree twice during the spring",
+        "plant only offshoots taken from male trees",
+        "stop watering the trees during the summer"
+      ],
+      "answer": "A",
+      "why": "Paragraph 7 gives this solution."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Imagine that many young people no longer want to look after palm farms. Suggest one solution to this problem and explain why it would help.",
+      "model": "Schools could organise visits to palm farms during pollination and harvest, so that students can see how offshoots are planted and how dates are picked. When young people understand how essential the palm is to their families and economy, they are more likely to want to care for the farms.",
+      "rubric": [
+        "2 = a clear, sensible solution linked to the text with a reason",
+        "1 = a solution without a reason, or a reason that is unclear",
+        "0 = no solution, or an answer unrelated to the problem"
+      ],
+      "why": "Any reasonable, explained solution (school visits, modern tools, festivals, training) is accepted."
+    }
+  ]
+}

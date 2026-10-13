@@ -1,0 +1,568 @@
+{
+  "code": "NB-009",
+  "title": "Sleep: The Body's Night Shift",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 471,
+  "passage": "Have you ever dragged yourself out of bed, grumpy and sluggish, after staying up far too late? That heavy feeling is your body's way of delivering an important message. Although many people imagine that sleep is simply wasted time, the hours you spend resting are some of the busiest of the day, because your body and brain carry out essential work that cannot be completed while you are awake. For this reason, doctors recommend that children between the ages of six and twelve sleep for nine to twelve hours every night.\n\nDuring sleep, the brain organises the enormous amount of information it has collected since the morning. It files away new vocabulary, facts and skills, much like a librarian returning books to their proper shelves, so that they can be found again when they are needed. This explains why a student who sleeps well often remembers lessons more accurately than a classmate who stays up late. Meanwhile, the body takes advantage of the quiet hours to repair tired muscles. During deep sleep, it also releases most of the hormone that helps children grow.\n\nUnfortunately, a surprising number of children do not get the rest they need, and one common reason is screens. Phones, tablets and televisions give off a bright blue light that tricks the brain into believing it is still daytime. As a result, the brain delays the release of melatonin, a natural chemical that makes us feel drowsy. Heavy meals, sugary drinks and beverages containing caffeine can also keep the body alert when they are consumed late in the evening.\n\nFortunately, healthy sleep habits are not difficult to develop. First, go to bed and wake up at the same time every day, even at weekends, because a consistent timetable sets the body's internal clock. Second, switch off screens at least one hour before bedtime. Choose a calmer activity instead, such as reading a book, talking with your family or preparing your school bag for the following day. Third, keep your bedroom dark, quiet and comfortably cool. Finally, spend some time outdoors in daylight, since morning sunlight helps the body recognise when it is time to be awake.\n\nThe rewards of sufficient sleep are considerable. Well-rested children generally find it easier to concentrate in class, they are less likely to become ill, and they manage their emotions more successfully. They also have more energy for sport and play. Children who regularly sleep too little, on the other hand, may feel exhausted, forget important information and become upset over minor problems.\n\nIn many ways, sleep resembles charging a battery: if you unplug it too early, it will run out long before the day is over. So tonight, put the screen away, turn off the light and give your body the rest it deserves. Your brain will thank you in the morning!",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “sufficient” as it is used in paragraph 5?",
+      "options": [
+        "excessive",
+        "enough",
+        "occasional",
+        "peaceful"
+      ],
+      "answer": "B",
+      "why": "“The rewards of sufficient sleep” means the rewards of getting enough sleep; “excessive” means too much."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “consistent” in “a consistent timetable” (paragraph 4)?",
+      "options": [
+        "reliable",
+        "predictable",
+        "changeable",
+        "organised"
+      ],
+      "answer": "C",
+      "why": "A consistent timetable stays the same every day; its opposite is one that keeps changing (“changeable”). The other words are close in meaning to “consistent”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Melatonin is described as “a natural chemical that makes us feel drowsy” (paragraph 3). What does “drowsy” mean?",
+      "options": [
+        "anxious and restless",
+        "sleepy and ready to rest",
+        "hungry and thirsty",
+        "cheerful and lively"
+      ],
+      "answer": "B",
+      "why": "Melatonin helps us fall asleep, so “drowsy” means sleepy and ready to rest."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from paragraph 4 is a noun?",
+      "options": [
+        "consistent",
+        "internal",
+        "timetable",
+        "comfortably"
+      ],
+      "answer": "C",
+      "why": "“Timetable” names a thing; “consistent” and “internal” are adjectives and “comfortably” is an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from the text is an irregular plural?",
+      "options": [
+        "children",
+        "muscles",
+        "hours",
+        "skills"
+      ],
+      "answer": "A",
+      "why": "“Children” is the plural of “child” and is not formed by adding -s; the other plurals simply add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “recommend” (paragraph 1)?",
+      "options": [
+        "comment",
+        "recognise",
+        "recommendation",
+        "remember"
+      ],
+      "answer": "C",
+      "why": "“Recommendation” is formed from “recommend” + -ation; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “considerable” in a meaningful sentence of your own.",
+      "model": "Building the new school library took a considerable amount of time, so it opened a whole year later than planned.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “considerable” with its correct meaning (large / important in amount or size)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused or the sentence has no clear meaning"
+      ],
+      "why": "“Considerable” means large or great in amount, size or importance."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “battery”?",
+      "options": [
+        "batterys",
+        "batteries",
+        "battery's",
+        "batteryes"
+      ],
+      "answer": "B",
+      "why": "Nouns ending in a consonant + y change y to i and add -es: batteries."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Third, keep your bedroom dark, quiet and comfortably cool.”?",
+      "options": [
+        "a statement",
+        "a question",
+        "an exclamation",
+        "a command"
+      ],
+      "answer": "D",
+      "why": "It tells the reader to do something, so it is a command (imperative), even though it ends with a full stop."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "The Science of Blue Light",
+        "Why Batteries Run Out",
+        "A Librarian's Busy Night",
+        "Sleep Well, Learn Well"
+      ],
+      "answer": "D",
+      "why": "The whole text explains how good sleep helps the brain and body; blue light, batteries and librarians are only details or comparisons."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to describe how doctors study the brain during sleep",
+        "to warn readers that screens damage the eyes",
+        "to compare the sleep of children and adults",
+        "to explain why sleep matters and how to improve it"
+      ],
+      "answer": "D",
+      "why": "The text explains what sleep does, why children lose sleep, and gives tips for sleeping better."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "Sleep is a busy time when essential work is done.",
+        "Grumpy children should visit a doctor.",
+        "Children aged six to twelve sleep more than adults.",
+        "Staying up late is the main cause of bad moods."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says sleep is not wasted time because the body and brain carry out essential work while we rest."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why does the blue light from screens make it harder to fall asleep?",
+      "options": [
+        "It strains the eyes, so they cannot close properly.",
+        "It makes the brain release more melatonin than usual.",
+        "It signals daytime, so melatonin is released later.",
+        "It heats the bedroom so that it is no longer cool."
+      ],
+      "answer": "C",
+      "why": "The light tricks the brain into believing it is still daytime, so the release of melatonin is delayed (not increased)."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a persuasive letter",
+        "a personal narrative",
+        "a biography",
+        "an informational article"
+      ],
+      "answer": "D",
+      "why": "It gives facts and advice about a topic, so it is an informational (expository) article."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why does a student who sleeps well often remember lessons more accurately?",
+      "options": [
+        "The student has more time to revise in the morning.",
+        "The brain files away new facts and skills during sleep.",
+        "Deep sleep releases a hormone that improves memory.",
+        "Melatonin helps the brain store new vocabulary."
+      ],
+      "answer": "B",
+      "why": "Paragraph 2 says the brain organises information and files away new vocabulary, facts and skills during sleep. The hormone released in deep sleep helps children grow, not remember."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which tip does the writer give SECOND in paragraph 4?",
+      "options": [
+        "Switch off screens an hour before bedtime.",
+        "Keep your bedroom dark, quiet and cool.",
+        "Go to bed at the same time every day.",
+        "Spend time outdoors in daylight."
+      ],
+      "answer": "A",
+      "why": "The tip that begins with “Second” is to switch off screens at least one hour before bedtime."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In which order does the writer present the ideas in the text?",
+      "options": [
+        "rewards of sleep, what sleep does, tips, causes of poor sleep",
+        "what sleep does, tips, causes of poor sleep, rewards of sleep",
+        "causes of poor sleep, tips, what sleep does, rewards of sleep",
+        "what sleep does, causes of poor sleep, tips, rewards of sleep"
+      ],
+      "answer": "D",
+      "why": "Paragraphs 1–2 explain what sleep does, paragraph 3 gives causes of poor sleep, paragraph 4 gives tips and paragraph 5 lists the rewards."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered when choosing an activity for the hour before bed?",
+      "options": [
+        "It should help you feel alert.",
+        "It should not involve a screen.",
+        "It should take place outdoors.",
+        "It should include a light snack."
+      ],
+      "answer": "B",
+      "why": "The writer advises switching off screens at least one hour before bedtime and choosing a calmer activity instead."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Using paragraphs 3 and 4, why might reading a paper book be a better bedtime activity than playing on a tablet?",
+      "options": [
+        "A book gives off no blue light, so melatonin is not delayed.",
+        "A book makes the bedroom darker and cooler.",
+        "A book helps the brain release growth hormone.",
+        "A book sets the body's internal clock each morning."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 explains that screens give off blue light that delays melatonin, and paragraph 4 suggests reading a book instead."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, what can happen to children who regularly sleep too little?",
+      "options": [
+        "They become ill less often than other children.",
+        "They concentrate better because they are excited.",
+        "They grow faster because they are more active.",
+        "They may forget information and get upset easily."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 says they may feel exhausted, forget important information and become upset over minor problems."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why does the writer advise spending time outdoors in daylight?",
+      "options": [
+        "It helps the body recognise when it is time to be awake.",
+        "It warms the bedroom before bedtime.",
+        "It replaces the need for a regular timetable.",
+        "It releases the hormone that helps children grow."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: morning sunlight helps the body recognise when it is time to be awake."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a well-rested child different from a child who sleeps too little?",
+      "options": [
+        "The tired child has more energy for sport.",
+        "The well-rested child is more likely to become ill.",
+        "The well-rested child manages emotions more successfully.",
+        "The tired child remembers lessons more accurately."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5 says well-rested children manage their emotions more successfully, while tired children become upset over minor problems."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the text, what is the effect of consuming caffeine late in the evening?",
+      "options": [
+        "It can keep the body alert.",
+        "It makes melatonin work faster.",
+        "It helps tired muscles repair.",
+        "It sets the internal clock."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 says beverages containing caffeine can keep the body alert when consumed late in the evening."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do blue light from screens and late-evening caffeine have in common, according to the text?",
+      "options": [
+        "Both help the brain file away facts.",
+        "Both increase the release of melatonin.",
+        "Both can keep the body from sleeping.",
+        "Both are recommended before bedtime."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 presents both as reasons children do not get the rest they need."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In paragraph 2, the phrase “much like a librarian returning books to their proper shelves” compares which two things?",
+      "options": [
+        "storing facts in the brain and shelving books",
+        "library shelves and the body's tired muscles",
+        "a classmate who stays up late and a busy librarian",
+        "reading a book and preparing a school bag"
+      ],
+      "answer": "A",
+      "why": "The brain filing away facts so they can be found again is compared to a librarian putting books in their places."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "So tonight, put the screen away, turn off the light and give your body the rest it deserves.",
+        "Your brain will thank you in the morning!",
+        "The rewards of sufficient sleep are considerable.",
+        "Have you ever dragged yourself out of bed, grumpy and sluggish, after staying up far too late?"
+      ],
+      "answer": "B",
+      "why": "It ends with an exclamation mark and expresses strong, cheerful feeling."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Why does the writer compare sleep to charging a battery in the last paragraph?",
+      "options": [
+        "to introduce a new topic about saving electricity",
+        "to make an abstract idea easy to picture and remember",
+        "to prove that the body runs on electricity",
+        "to show that sleep is less important than energy"
+      ],
+      "answer": "B",
+      "why": "Comparing sleep to a familiar object turns the idea into a clear picture that readers understand and remember."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which advice from the text would help MOST a child who plays on a tablet until midnight?",
+      "options": [
+        "Have a sugary drink to relax before sleeping.",
+        "Sleep later at weekends to catch up.",
+        "Eat a large dinner just before bed.",
+        "Switch off screens an hour before going to bed."
+      ],
+      "answer": "D",
+      "why": "The child's problem is late screen use; the text advises switching off screens an hour before bed. The other choices go against the writer's advice."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this text?",
+      "options": [
+        "Children usually sleep far too much.",
+        "Doctors disagree about how much sleep matters.",
+        "Screens should be banned from all homes.",
+        "Many children do not get the rest they need."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 says a surprising number of children do not get the rest they need; the text tries to help them."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which word best describes the writer's tone in the last paragraph?",
+      "options": [
+        "worried",
+        "disappointed",
+        "encouraging",
+        "strict"
+      ],
+      "answer": "C",
+      "why": "The writer gently urges readers to rest and ends cheerfully: “Your brain will thank you in the morning!”"
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how many hours of sleep children need",
+        "what melatonin does in the body",
+        "exactly how cool a bedroom should be",
+        "why screens can delay sleep"
+      ],
+      "answer": "C",
+      "why": "The text says the bedroom should be “comfortably cool” but gives no temperature; the other points are explained clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A tiny librarian lives inside a student's brain.",
+        "A girl who turns off her tablet early falls asleep more easily.",
+        "A boy charges his brain overnight like a phone battery.",
+        "A child sleeps three hours a night and concentrates better."
+      ],
+      "answer": "B",
+      "why": "Turning off screens early really can help sleep; the others are impossible or contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "Rest Tonight, Shine Tomorrow",
+        "The Danger of Libraries",
+        "How to Build a Battery",
+        "Melatonin: A Chemical History"
+      ],
+      "answer": "A",
+      "why": "The text is about sleeping well at night so that you do well the next day."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write one or two sentences that end it with a new tip for better sleep.",
+      "model": "Before you go to bed, write down anything that is worrying you, then close your notebook and let your mind rest. A calm mind drifts into sleep far more easily than a busy one.",
+      "rubric": [
+        "2 = a clear new ending that fits the topic and gives a sensible, healthy sleep tip with a reason",
+        "1 = an ending related to sleep but vague, or the tip is not explained",
+        "0 = no answer, or an ending unrelated to the topic"
+      ],
+      "why": "Any sensible ending that gives a suitable new sleep tip is accepted."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "How can a family help children keep healthy sleep habits?",
+      "options": [
+        "Watch television together until late.",
+        "Let children choose a new bedtime each night.",
+        "Set a fixed bedtime and a screen-free hour.",
+        "Serve fizzy drinks with the evening meal."
+      ],
+      "answer": "C",
+      "why": "A fixed bedtime and no screens before bed follow the writer's advice in paragraph 4."
+    }
+  ]
+}

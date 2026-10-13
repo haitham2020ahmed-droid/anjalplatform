@@ -1,0 +1,169 @@
+{
+  "code": "NP-060",
+  "title": "Sleep On It",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Many students believe that staying up late to study is the best way to prepare for a test. However, scientists who study the brain have discovered that sleep plays an essential role in learning and memory, and that cutting it short can actually make remembering more difficult.\n\nDuring the day, the brain takes in a huge amount of new information, from vocabulary words to the rules of a game. At first, these memories are fragile and stored mainly in a small, curved part of the brain called the hippocampus. While we sleep, especially during deep sleep, the brain replays the day's experiences and gradually moves important information to other areas, where it can be stored for a much longer time. Researchers often compare this process to saving a document on a computer so that it is not lost.\n\nSleep also helps the brain prepare for the next day. A well-rested brain can focus better, solve problems more creatively, and absorb new information more easily. In contrast, students who sleep too little often find it harder to pay attention, and they may feel irritable or forgetful.\n\nExperts recommend that children between six and twelve years old get nine to twelve hours of sleep each night. Simple habits can help: going to bed at the same time every evening, avoiding screens before bedtime, and keeping the bedroom dark and quiet. So the next time you have an important exam, remember that a good night's sleep may be one of your most powerful study tools.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a verb?",
+      "options": [
+        "fragile",
+        "absorb",
+        "irritable",
+        "memory"
+      ],
+      "answer": "B",
+      "why": "'Absorb' is an action the brain does; 'fragile' and 'irritable' are adjectives and 'memory' is a noun."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is a command?",
+      "options": [
+        "Turn off your screens before bedtime.",
+        "Why do students stay up so late?",
+        "Sleep helps the brain store memories.",
+        "What a difference sleep makes!"
+      ],
+      "answer": "A",
+      "why": "A command tells someone to do something; the others are a statement, a question and an exclamation."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "According to the passage, why is staying up late to study not a good idea?",
+      "options": [
+        "The brain cannot learn after sunset.",
+        "Less sleep can make remembering harder.",
+        "Night lights damage the hippocampus.",
+        "Teachers give tired students harder tests."
+      ],
+      "answer": "B",
+      "why": "The first paragraph says cutting sleep short can make remembering more difficult."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "What does the brain do with new memories AFTER first storing them in the hippocampus?",
+      "options": [
+        "Deletes them to make space for more",
+        "Keeps them only in the hippocampus",
+        "Moves important ones to other areas during sleep",
+        "Sends them back to the eyes and ears"
+      ],
+      "answer": "C",
+      "why": "During sleep the brain replays the day and gradually moves important information to other areas for long-term storage."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "How do well-rested students differ from students who sleep too little?",
+      "options": [
+        "They focus better and learn new things more easily.",
+        "They feel more irritable during their lessons.",
+        "They need many more hours of study each day.",
+        "They forget more of what they learned that day."
+      ],
+      "answer": "A",
+      "why": "The passage says a well-rested brain focuses better and absorbs information more easily, while tired students struggle and may feel irritable."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Researchers compare sleep to 'saving a document on a computer.' What does this comparison help explain?",
+      "options": [
+        "Students should study on computers at night.",
+        "Memories are stored as computer files.",
+        "Computers need sleep to work properly.",
+        "Sleep keeps new memories from being lost."
+      ],
+      "answer": "D",
+      "why": "Saving a document protects it; in the same way, sleep helps store memories so they are not lost."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is the writer most likely to agree with?",
+      "options": [
+        "Screens before bed help the brain relax.",
+        "Enough sleep is part of preparing well for a test.",
+        "Sleep matters only for very young children.",
+        "Students should study all night before exams."
+      ],
+      "answer": "B",
+      "why": "The writer ends by calling a good night's sleep 'one of your most powerful study tools.'"
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the passage?",
+      "options": [
+        "Where new memories are first stored",
+        "How a well-rested brain performs",
+        "Why screens before bedtime make sleep worse",
+        "How many hours of sleep children aged 6–12 need"
+      ],
+      "answer": "C",
+      "why": "The passage advises avoiding screens but never explains why; the other points are explained clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following could really happen?",
+      "options": [
+        "A student's brain prints his notes while he sleeps.",
+        "A student learns a whole language in one night.",
+        "A student stays awake a month without tiredness.",
+        "A student who sleeps well remembers new words better."
+      ],
+      "answer": "D",
+      "why": "The passage explains that sleep helps the brain store new information; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which is the best solution for a student who often feels tired and forgetful in class?",
+      "options": [
+        "Drink coffee every evening while studying",
+        "Study later into the night to catch up",
+        "Use a phone in bed until feeling sleepy",
+        "Go to bed at the same time each night"
+      ],
+      "answer": "D",
+      "why": "The passage recommends regular bedtimes, no screens before bed and a dark, quiet room."
+    }
+  ]
+}

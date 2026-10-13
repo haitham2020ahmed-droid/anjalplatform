@@ -1,7 +1,6 @@
 /**
- * Which conditional entries the student menu shows: RTI (only students in Tier 2 / 3) and NAFS (only when the
- * student has NAFS work — a NAFS plan's skills are NAFS assignments). Bounded: one tier row, the student's
- * assignment ids, one count.
+ * Which conditional entries the student menu shows: RTI (only students in Tier 2 / 3) and NAFS (only students in a
+ * Grade 6 class: the NAFS icon). Bounded: one tier row, the student's classes, one count.
  */
 import { cache } from "react";
 import type { Repo } from "../seeding/repo";
@@ -22,8 +21,20 @@ export const hasNafsPlan = cache(async (repo: Repo, studentId: string): Promise<
   return track > 0 || program > 0;
 });
 
+/**
+ * 🇸🇦 The NAFS icon (the NAFS center for students: My practice · My tests · My results) is shown ONLY to students in a
+ * Grade 6 class (NAFS is the Grade 6 national test). Two bounded reads.
+ */
+export const inGrade6Class = cache(async (repo: Repo, studentId: string): Promise<boolean> => {
+  const classIds = (await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] })).map((m) => m.classId);
+  if (!classIds.length) return false;
+  const classes = await repo.findMany("Class", { id: { in: classIds }, deletedAt: null }, { select: ["gradeId"] });
+  if (!classes.length) return false;
+  return (await repo.count("Grade", { id: { in: [...new Set(classes.map((c) => c.gradeId))] }, level: 6 })) > 0;
+});
+
 export async function studentMenuFlags(repo: Repo, studentId: string): Promise<StudentMenuFlags> {
-  const [rti, nafs, st] = await Promise.all([rtiStatus(repo, studentId), hasNafsPlan(repo, studentId), repo.findUnique("Student", { id: studentId })]);
+  const [rti, nafs, st] = await Promise.all([rtiStatus(repo, studentId), inGrade6Class(repo, studentId), repo.findUnique("Student", { id: studentId })]);
   const g = st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null;
   return { rti: rti !== null, nafs, grade: g ? Number(g.level) : undefined };
 }

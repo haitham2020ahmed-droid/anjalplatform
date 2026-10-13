@@ -1,0 +1,169 @@
+{
+  "code": "NP-036",
+  "title": "The Recitation Contest",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Reem had memorized the verses perfectly at home and could recite them for her grandmother after dinner without a single mistake, her voice calm and clear. However, whenever she imagined standing on the stage of the school hall in front of hundreds of students, her hands became icy and her heart began to pound like a drum.\n\nThe Quran recitation contest was only three days away when Reem finally confessed her fear to her teacher, Ms. Nouf. \"What if I forget everything the moment I see the audience?\" she asked anxiously.\n\nMs. Nouf listened patiently and then suggested a practical plan. First, Reem would practise in the empty hall so that the stage became familiar; next, she would recite in front of a small group of classmates, and finally in front of the entire class. \"Before you begin,\" the teacher advised, \"take three slow breaths and concentrate on the meaning of the words, not on the faces in the audience.\"\n\nOn the morning of the contest, Reem's knees were still trembling as she walked toward the microphone, so she paused, breathed slowly three times, and lowered her eyes to concentrate on the meaning of the verses. Her first words emerged quietly, but gradually her voice became steady and confident, filling the silent hall.\n\nWhen she finished, the audience applauded warmly, and although Reem received second place, the certificate was not what made her proudest. She had discovered that fear can be managed through patience, careful preparation, and determination.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the story is an ADVERB?",
+      "options": [
+        "audience",
+        "practical",
+        "anxiously",
+        "microphone"
+      ],
+      "answer": "C",
+      "why": "Anxiously describes how Reem asked (a verb), so it is an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the story is a QUESTION?",
+      "options": [
+        "Ms. Nouf listened patiently and then suggested a practical plan.",
+        "\"What if I forget everything the moment I see the audience?\"",
+        "Take three slow breaths and concentrate on the meaning of the words.",
+        "When she finished, the audience applauded warmly."
+      ],
+      "answer": "B",
+      "why": "It asks something and ends with a question mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Ms. Nouf want Reem to practise in the empty hall first?",
+      "options": [
+        "So that she could test the microphone",
+        "Because the classroom was being cleaned",
+        "So that the judges could hear her early",
+        "So that the stage would become familiar"
+      ],
+      "answer": "D",
+      "why": "The story says Reem would practise in the empty hall so that the stage became familiar."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which event happened FIRST in the story?",
+      "options": [
+        "Reem confessed her fear to Ms. Nouf.",
+        "Reem walked toward the microphone.",
+        "The audience applauded warmly.",
+        "Reem received second place."
+      ],
+      "answer": "A",
+      "why": "Reem told her teacher about her fear three days before the contest, before all the other events."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How was reciting at home different from what Reem imagined on stage?",
+      "options": [
+        "At home she forgot the verses; on stage she remembered.",
+        "At home she felt calm; on stage she imagined fear.",
+        "At home she recited loudly; on stage she whispered.",
+        "At home she had listeners; on stage she had none."
+      ],
+      "answer": "B",
+      "why": "At home her voice was calm and clear, but imagining the stage made her hands icy and her heart pound."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "The writer says Reem's heart \"began to pound like a drum.\" What is the effect of this simile?",
+      "options": [
+        "It shows that Reem played music before the contest.",
+        "It shows that the school hall was very noisy.",
+        "It shows how strongly fear affected her body.",
+        "It shows that Reem was eager to perform."
+      ],
+      "answer": "C",
+      "why": "Comparing her heartbeat to a drum helps readers feel how strong and loud her nervousness was."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the story?",
+      "options": [
+        "Fear can be overcome with steady preparation.",
+        "Shy students should never enter contests.",
+        "Only first place shows real success.",
+        "Teachers cannot help students with fear."
+      ],
+      "answer": "A",
+      "why": "Reem follows a step-by-step plan and succeeds, and the ending states that fear can be managed through preparation."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is the LEAST clear?",
+      "options": [
+        "Who Reem recited for at home",
+        "How many breaths Ms. Nouf advised",
+        "What place Reem received",
+        "Whether Reem completed every practice step"
+      ],
+      "answer": "D",
+      "why": "The plan is described, but the story never says whether Reem actually practised in the hall and in front of her class."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "The microphone recites the verses for Reem.",
+        "A nervous student grows calmer after slow breaths.",
+        "The applause lifts Reem into the air.",
+        "Reem's certificate changes into a trophy."
+      ],
+      "answer": "B",
+      "why": "Slow breathing really can help calm nerves, as it does for Reem; the other events are imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the story?",
+      "options": [
+        "The Broken Microphone",
+        "A Dinner with Grandmother",
+        "The Empty Classroom",
+        "Reem Finds Her Voice"
+      ],
+      "answer": "D",
+      "why": "The story is about Reem overcoming stage fright until her voice became steady and confident."
+    }
+  ]
+}

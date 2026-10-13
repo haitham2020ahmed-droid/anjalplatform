@@ -10,6 +10,20 @@ const words = (x: string) => new Set(x.toLowerCase().replace(/[^a-z0-9 ]+/g, " "
 const STOP = new Set(["the", "and", "for", "with", "that", "this", "which", "what", "from", "word", "words", "sentence", "read", "text", "passage", "question", "best", "most", "does", "how", "why"]);
 const overlap = (a: Set<string>, b: Set<string>) => { let n = 0; for (const w of a) if (b.has(w)) n++; return n; };
 const UNCLASSIFIED = /unclassified/i;
+/** ⚡ the words of a skill's name and code, worked out once per skill */
+const skillWordCache = new WeakMap<SkillRef, Set<string>>();
+const skillWords = (k: SkillRef) => { let w = skillWordCache.get(k); if (!w) skillWordCache.set(k, (w = words(`${k.name} ${k.code}`))); return w; };
+
+/** ⚡ lower-case skill code / name → the grades that have it, built once per index (not once per row) */
+const gradeKeyCache = new WeakMap<CurriculumIndex, Map<string, Set<number>>>();
+function gradesByKey(idx: CurriculumIndex): Map<string, Set<number>> {
+  let m = gradeKeyCache.get(idx);
+  if (m) return m;
+  m = new Map();
+  for (const [g, list] of idx.grades) for (const s of list) for (const key of [s.code.toLowerCase(), s.name.toLowerCase()]) { const set = m.get(key); if (set) set.add(g); else m.set(key, new Set([g])); }
+  gradeKeyCache.set(idx, m);
+  return m;
+}
 
 /** The grade of a row with an empty Grade: its standard (RL.5.2 → 5), else a skill of that exact name/code in one grade. */
 export function gradeFromRow(idx: CurriculumIndex, cells: { standard?: string; skill?: string }): number | null {
@@ -17,8 +31,8 @@ export function gradeFromRow(idx: CurriculumIndex, cells: { standard?: string; s
   if (c && idx.grades.has(c.grade)) return c.grade;
   const k = String(cells.skill ?? "").trim().toLowerCase();
   if (k) {
-    const hits = [...idx.grades.entries()].filter(([, list]) => list.some((s) => s.code.toLowerCase() === k || s.name.toLowerCase() === k)).map(([g]) => g);
-    if (hits.length === 1) return hits[0];
+    const hits = gradesByKey(idx).get(k);
+    if (hits?.size === 1) return [...hits][0];
   }
   return idx.grades.size === 1 ? [...idx.grades.keys()][0] : null;
 }
@@ -35,7 +49,7 @@ export function pickSkill(idx: CurriculumIndex, grade: number, row: { skill?: st
   const skills = (idx.grades.get(grade) ?? []).filter((s) => !UNCLASSIFIED.test(s.name));
   if (!skills.length) return null;
   const want = words(`${row.skill ?? ""} ${row.skill ?? ""} ${row.stem}`);
-  const best = (list: SkillRef[]) => [...list].sort((a, b) => overlap(words(`${b.name} ${b.code}`), want) - overlap(words(`${a.name} ${a.code}`), want) || a.name.localeCompare(b.name))[0];
+  const best = (list: SkillRef[]) => [...list].sort((a, b) => overlap(skillWords(b), want) - overlap(skillWords(a), want) || a.name.localeCompare(b.name))[0];
   const std = row.standard ? shortStandard(row.standard) : "";
   if (std) {
     const parent = std.replace(/^([A-Z]+\.\d+\.\d+)\..*$/, "$1");

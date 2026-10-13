@@ -1,0 +1,169 @@
+{
+  "code": "NP-061",
+  "title": "The Arabian Leopard",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "The Arabian leopard is the smallest leopard in the world, yet it is one of the most remarkable animals of our peninsula. An adult male usually weighs about thirty kilograms, roughly half the weight of an African leopard. Its pale golden coat, covered with dark rosettes, helps it disappear among the rocky slopes where it hunts at dawn and dusk.\n\nThis shy cat lives in the rugged mountains of western Saudi Arabia, Oman and Yemen. It feeds mainly on rock hyraxes, hares and ibex, and it can survive for long periods with very little water, getting much of the moisture it needs from its prey.\n\nSadly, the Arabian leopard is critically endangered. Scientists believe that fewer than two hundred remain in the wild. Hunting, the loss of its prey and the spread of roads and farms into its mountain home have pushed it close to extinction.\n\nSaudi Arabia is working hard to protect it. The Royal Commission for AlUla runs a breeding programme, and several healthy cubs have been born in recent years. In addition, the Kingdom has named February 10 the Day of the Arabian Leopard to raise awareness.\n\nProtecting this beautiful cat means protecting the whole mountain ecosystem. If the leopard survives, the hyraxes, ibex, plants and springs it depends on will survive too.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, how does the Arabian leopard survive with very little water?",
+      "options": [
+        "It gets much of its moisture from its prey.",
+        "It digs deep wells in the mountain rock.",
+        "It drinks only at dawn and dusk.",
+        "It stores water in its thick golden coat."
+      ],
+      "answer": "A",
+      "why": "The second paragraph states that it gets much of the moisture it needs from its prey."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which idea does the writer present FIRST in the passage?",
+      "options": [
+        "It is critically endangered.",
+        "It is the smallest leopard in the world.",
+        "Saudi Arabia runs a breeding programme for it.",
+        "Saving it protects the whole ecosystem."
+      ],
+      "answer": "B",
+      "why": "The passage opens by saying the Arabian leopard is the smallest leopard in the world; the other ideas come later."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "In the sentence \"It feeds mainly on rock hyraxes, hares and ibex,\" which word is a verb?",
+      "options": [
+        "mainly",
+        "rock",
+        "feeds",
+        "hares"
+      ],
+      "answer": "C",
+      "why": "'Feeds' is the action word (verb); 'mainly' is an adverb and 'rock' and 'hares' are nouns here."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence is an exclamatory sentence?",
+      "options": [
+        "How heavy is an adult Arabian leopard?",
+        "Protect the leopard's mountain home.",
+        "The leopard hunts at dawn and dusk.",
+        "What a beautiful coat the leopard has!"
+      ],
+      "answer": "D",
+      "why": "An exclamatory sentence expresses strong feeling and ends with an exclamation mark; the others are a question, a command and a statement."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says the leopard's coat helps it \"disappear among the rocky slopes.\" What does this phrase suggest?",
+      "options": [
+        "It can make itself invisible whenever danger comes near.",
+        "Its colours blend with the rocks, so it is hard to spot.",
+        "It often gets lost when it wanders across the slopes.",
+        "The rocks fall and cover it while it is hunting."
+      ],
+      "answer": "B",
+      "why": "'Disappear' is used expressively: the pale coat and rosettes match the rocks, so the leopard is very hard to see."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is the Arabian leopard different from the African leopard, according to the passage?",
+      "options": [
+        "It has no rosettes on its coat.",
+        "It hunts only in the middle of the day.",
+        "It weighs about half as much.",
+        "It lives near large rivers and lakes."
+      ],
+      "answer": "C",
+      "why": "The passage says an adult male weighs about thirty kilograms, roughly half the weight of an African leopard."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Based on the facts in the passage, which event could really happen?",
+      "options": [
+        "A wild leopard goes several days without drinking from a spring.",
+        "A thirty-kilogram leopard drags an adult camel up a cliff.",
+        "Two thousand Arabian leopards are counted in one small valley.",
+        "A leopard turns its coat bright green to hide among palm trees."
+      ],
+      "answer": "A",
+      "why": "The leopard can survive long periods with little water, so this is realistic; the others contradict the passage's facts (its size, fewer than 200 left) or are impossible."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "Where the leopard lives — three countries are named.",
+        "What the leopard eats — its main prey are listed.",
+        "How much a male weighs — an approximate figure is given.",
+        "How many cubs AlUla has bred — it only says 'several'."
+      ],
+      "answer": "D",
+      "why": "The writer gives places, prey and weight clearly, but uses the vague word 'several' for the number of cubs born."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "The leopard is not worth saving because it is so small.",
+        "Roads and farms matter more than any wild animal in the mountains.",
+        "Saving the leopard is worthwhile because it helps the whole ecosystem.",
+        "Breeding programmes are useless because the leopard is very shy."
+      ],
+      "answer": "C",
+      "why": "The final paragraph argues that if the leopard survives, the hyraxes, ibex, plants and springs will survive too."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "A Small Cat in Big Danger",
+        "How to Train a Mountain Leopard",
+        "The African Leopard's Long Journey",
+        "Farming in the Mountains of Yemen"
+      ],
+      "answer": "A",
+      "why": "The passage describes a small leopard that is critically endangered and the efforts to save it."
+    }
+  ]
+}

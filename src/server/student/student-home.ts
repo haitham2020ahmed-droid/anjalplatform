@@ -18,6 +18,8 @@ import { ForbiddenError } from "../auth/rbac";
 import type { Repo, Row } from "../seeding/repo";
 import { myWorkItems, type MyWorkItem } from "../plans/wizard";
 import { testsToDoCount } from "../tests/assessments";
+import { nafsToDoCount } from "../nafs/student";
+import { nafsPracticeToDo } from "../nafs/practice";
 import { myDiagnostic } from "../diagnostic/test";
 import { openGamesFor } from "../game/live";
 import { myExitTicket } from "../teacher/classroom";
@@ -114,6 +116,8 @@ export interface StudentHome {
   /** skills to work on (rows not done) — the badge on My Work and the X of the welcome line */
   toDo: number;
   testsToDo: number;
+  /** NAFS tests + adaptive NAFS practice not done yet (the NAFS icon; Grade 6 only) */
+  nafsToDo: number;
   /** writing tasks not handed in yet (the badge on the Writing tile) */
   writingToDo: number;
   last: LastActivity | null;
@@ -131,13 +135,15 @@ export interface StudentHome {
  */
 export async function studentHome(repo: Repo, actor: Actor, now = new Date()): Promise<StudentHome> {
   const sid = studentIdOf(actor);
-  const [work, testsToDo, last, rti, rr, diag, games, exit, mapTests, respond, writing, comments] = await Promise.all([
+  const [work, testsToDo, last, rti, rr, diag, games, exit, mapTests, respond, writing, comments, nafsToDo] = await Promise.all([
     myWorkItems(repo, actor, now), testsToDoCount(repo, actor, now), lastActivity(repo, actor, now), rtiStatus(repo, sid),
     repo.findUnique("RRStudent", { studentId: sid }),
     myDiagnostic(repo, actor, now).catch(() => null), openGamesFor(repo, actor).catch(() => []), myExitTicket(repo, actor).catch(() => null),
     mapPracticeTests(repo, actor, now).catch(() => ({ windows: [], warmupDone: false })), studentRespondWork(repo, actor).catch(() => []),
     myTasks(repo, actor).catch(() => []),
     repo.count("WorkComment", { studentId: sid, createdAt: { gte: new Date(now.getTime() - 7 * DAY) } }),
+    // 🇸🇦 NAFS tests and adaptive practice live in the NAFS icon (Grade 6): counted on its own home card, not My Tests
+    Promise.all([nafsToDoCount(repo, actor, now), nafsPracticeToDo(repo, actor)]).then(([a, b]) => a + b).catch(() => 0),
   ]);
   const rows = work.map((w) => ({ ...w, reteach: /^Reteach:/i.test(s(w.note)) }));
   const notices: HomeNotice[] = [];
@@ -152,8 +158,9 @@ export async function studentHome(repo: Repo, actor: Actor, now = new Date()): P
   const writingTodo = writing.filter((w) => w.status === "NOT_STARTED" || w.status === "DRAFT").length;
   // writing tasks: the number sits on the home's Writing tile (no second link to the same page)
   if (comments) notices.push({ key: "comments", icon: "💬", text: "New comments from your teacher: {n}", vars: { n: comments }, href: "/student/comments", cta: "Open" });
+  if (nafsToDo) notices.push({ key: "nafs", icon: "🇸🇦", text: "NAFS: {n} to do", vars: { n: nafsToDo }, href: "/student/nafs", cta: "Open" });
   return {
-    work: rows, toDo: rows.filter((r) => r.status !== "Done").length, testsToDo, writingToDo: writingTodo, last, rti,
+    work: rows, toDo: rows.filter((r) => r.status !== "Done").length, testsToDo, nafsToDo, writingToDo: writingTodo, last, rti,
     readRiseLevel: rr ? Number(rr.level) : null, notices,
     readRiseStart: rr && rr.startLevel !== null && rr.startLevel !== undefined ? { level: Number(rr.startLevel), at: rr.placedAt instanceof Date ? rr.placedAt.toISOString() : String(rr.placedAt ?? "") } : null,
   };

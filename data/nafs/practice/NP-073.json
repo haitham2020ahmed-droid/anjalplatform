@@ -1,0 +1,169 @@
+{
+  "code": "NP-073",
+  "title": "Your Body's Defense Team",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Every day, your body is attacked by invaders too small to see. Bacteria, viruses, and other germs float in the air, cling to surfaces, and hide in food. Fortunately, you are protected by the immune system, a remarkable network of organs, cells, and chemicals that works constantly to keep you healthy.\n\nThe first line of defense is a set of physical barriers. Your skin acts like a protective wall, while the sticky mucus inside your nose traps particles before they reach your lungs. Even your tears contain substances that destroy certain bacteria.\n\nWhen germs manage to slip past these barriers, white blood cells take action. Some of them, called phagocytes, surround invaders and swallow them completely. Others produce antibodies, special proteins that attach to a particular germ and mark it for destruction. Sometimes the body also raises its temperature, producing a fever that makes it harder for many germs to multiply.\n\nPerhaps the most impressive feature of the immune system is its memory. After the body defeats a germ, certain cells remember it, so the next infection can be stopped much more quickly. Vaccines use this ability by safely teaching the body to recognize a germ before a real infection occurs.\n\nYou can support your immune system by sleeping well, eating nutritious food, exercising regularly, and washing your hands with soap.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a verb?",
+      "options": [
+        "remarkable",
+        "bacteria",
+        "completely",
+        "swallow"
+      ],
+      "answer": "D",
+      "why": "\"Swallow\" is an action (phagocytes swallow invaders); \"remarkable\" is an adjective, \"bacteria\" a noun and \"completely\" an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "\"Bacteria\" is a plural noun. What is its singular form?",
+      "options": [
+        "bacteriums",
+        "bacterium",
+        "bacterias",
+        "bacteria"
+      ],
+      "answer": "B",
+      "why": "\"Bacteria\" has an irregular plural from Latin: one bacterium, many bacteria."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why does the body sometimes produce a fever?",
+      "options": [
+        "It makes it harder for germs to multiply.",
+        "It helps the skin grow thicker.",
+        "It removes mucus from the nose.",
+        "It teaches the body to remember germs."
+      ],
+      "answer": "A",
+      "why": "The passage says a fever \"makes it harder for many germs to multiply.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "According to the passage, what happens when germs slip past the body's barriers?",
+      "options": [
+        "The skin forms a protective wall.",
+        "Mucus traps them inside the nose.",
+        "White blood cells take action against them.",
+        "Tears wash them away at once."
+      ],
+      "answer": "C",
+      "why": "The barriers (skin, mucus, tears) come first; the passage says that after germs get past them, \"white blood cells take action.\""
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "How are phagocytes different from the cells that make antibodies?",
+      "options": [
+        "Phagocytes stay in skin; the others live in tears.",
+        "Phagocytes swallow germs; the others mark germs.",
+        "Phagocytes cause fever; the others trap germs.",
+        "Phagocytes remember germs; the others forget them."
+      ],
+      "answer": "B",
+      "why": "Phagocytes surround and swallow invaders, while other white blood cells produce antibodies that attach to a germ and mark it for destruction."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says your skin \"acts like a protective wall.\" What is the effect of this comparison?",
+      "options": [
+        "It shows that skin is as hard as stone.",
+        "It explains how skin makes antibodies.",
+        "It suggests germs can easily climb over skin.",
+        "It helps readers picture how skin blocks germs."
+      ],
+      "answer": "D",
+      "why": "Comparing skin to a wall helps readers imagine a barrier that keeps invaders out."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best expresses the writer's viewpoint?",
+      "options": [
+        "The immune system is impressive, and we can help it.",
+        "The immune system can defeat any germ without help.",
+        "Germs are too small to be a real danger to people.",
+        "Vaccines matter less than washing our hands well."
+      ],
+      "answer": "A",
+      "why": "The writer calls the system \"remarkable\" and its memory \"impressive,\" and ends with ways we can support it."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the least complete in the passage?",
+      "options": [
+        "What phagocytes do to invaders",
+        "Where sticky mucus is found",
+        "How vaccines safely teach the body",
+        "Why the body raises its temperature"
+      ],
+      "answer": "C",
+      "why": "The passage says vaccines teach the body \"safely\" but does not explain how they do it; the other points are explained."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A white blood cell grows big enough to see across a room.",
+        "A child's body fights off a cold in about a week.",
+        "A boy's skin turns into stone to stop germs.",
+        "A single vaccine protects a person from every illness forever."
+      ],
+      "answer": "B",
+      "why": "The body really does defeat common infections such as colds; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Based on the passage, which is the best way for a student to keep the immune system strong?",
+      "options": [
+        "Sleep well and wash hands with soap.",
+        "Stay indoors and avoid all exercise.",
+        "Eat mainly sweets for extra energy.",
+        "Stay up late to finish more homework."
+      ],
+      "answer": "A",
+      "why": "The final paragraph recommends sleeping well, eating nutritious food, exercising and washing hands with soap."
+    }
+  ]
+}

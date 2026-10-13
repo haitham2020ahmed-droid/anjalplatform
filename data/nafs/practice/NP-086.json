@@ -1,0 +1,169 @@
+{
+  "code": "NP-086",
+  "title": "Why the Sky Is Blue",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "On a clear afternoon, the sky above us appears brilliantly blue, but sunlight itself is not blue at all. Sunlight is actually a mixture of all the colors of the rainbow, from red and orange to blue and violet. Each color travels as a wave with a different length, and while red light has relatively long waves, blue and violet light have considerably shorter waves.\n\nWhen sunlight enters Earth's atmosphere, it collides with tiny molecules of gas, mostly nitrogen and oxygen. These molecules are far smaller than the wavelengths of light, and they scatter short waves much more strongly than long ones. As a result, blue light bounces in every direction across the sky, and wherever we look, some of that scattered blue light reaches our eyes. Scientists call this process Rayleigh scattering, after the British physicist who explained it in the nineteenth century.\n\nViolet light is scattered even more than blue, so why is the sky not violet? There are two main reasons: the sun produces less violet light than blue light, and human eyes are considerably more sensitive to blue.\n\nThe same process explains why sunsets are often red and orange. In the evening, sunlight must travel through a much thicker layer of air before reaching us. Most of the blue light is scattered away along the journey, leaving the warmer colors to paint the horizon.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "'Waves' is a regular plural. Which of these words forms its plural in an IRREGULAR way?",
+      "options": [
+        "wave",
+        "color",
+        "child",
+        "sunset"
+      ],
+      "answer": "C",
+      "why": "Child→children is irregular; the others just add -s."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "'Violet light is scattered even more than blue, so why is the sky not violet?' What type of sentence is this?",
+      "options": [
+        "A question",
+        "A command",
+        "An exclamation",
+        "A statement"
+      ],
+      "answer": "A",
+      "why": "It asks something and ends with a question mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why does blue light reach our eyes from every part of the sky?",
+      "options": [
+        "The sun gives off only blue light",
+        "Gas molecules scatter it in all directions",
+        "Blue light has the longest waves",
+        "The sea reflects blue into the air"
+      ],
+      "answer": "B",
+      "why": "Blue light 'bounces in every direction across the sky' after hitting gas molecules."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which idea does the writer explain LAST?",
+      "options": [
+        "What sunlight is made of",
+        "Who explained the scattering",
+        "Why the sky is not violet",
+        "Why sunsets are often red and orange"
+      ],
+      "answer": "D",
+      "why": "The final paragraph explains red and orange sunsets."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How is red light different from blue light?",
+      "options": [
+        "Red light has shorter waves and scatters more",
+        "Red light has longer waves and scatters less",
+        "Red light does not travel as a wave at all",
+        "Red light comes from the sun only at night"
+      ],
+      "answer": "B",
+      "why": "Red light has long waves, and short waves are scattered much more strongly."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "'…leaving the warmer colors to paint the horizon.' What is the effect of the word 'paint'?",
+      "options": [
+        "It suggests people paint the sky",
+        "It says the horizon is made of paint",
+        "It makes the sunset sound like art",
+        "It shows that colors vanish at night"
+      ],
+      "answer": "C",
+      "why": "'Paint' is figurative: it compares the colorful sunset to a painting."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "Simple science can explain beauty in nature",
+        "The sky is blue because it reflects the sea",
+        "Scientists still cannot explain the blue sky",
+        "Sunsets are red because the sun gets cooler"
+      ],
+      "answer": "A",
+      "why": "The writer uses scattering to explain both the blue sky and colorful sunsets."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is LEAST complete?",
+      "options": [
+        "What sunlight is made of",
+        "Which gases are most common in air",
+        "Why sunsets look red and orange",
+        "Why human eyes are more sensitive to blue"
+      ],
+      "answer": "D",
+      "why": "The writer states this fact but gives no explanation for it."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A clear noon sky looks green all day long",
+        "The sky looks orange near the horizon at sunset",
+        "Sunlight reaches Earth as pure blue light",
+        "Red light scatters more strongly than violet"
+      ],
+      "answer": "B",
+      "why": "The passage explains why sunsets are red and orange; the others contradict it."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "How to Paint a Sunset",
+        "The Life of a British Physicist",
+        "Scattered Light: Secret of the Sky",
+        "Why the Ocean Is Salty"
+      ],
+      "answer": "C",
+      "why": "The passage explains how scattered light makes the sky blue."
+    }
+  ]
+}

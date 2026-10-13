@@ -1,0 +1,169 @@
+{
+  "code": "NP-007",
+  "title": "Planning Eid Gifts",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "passage": "Three days before Eid, Lama and her younger sister Huda sat on their bedroom floor, surrounded by coloured paper, ribbons, scissors and a small notebook.\n\n\"We need a proper plan this year,\" Lama announced, opening the notebook to a clean page. \"Last year we bought our presents at the last minute, and we spent far more money than we had intended.\"\n\nHuda frowned thoughtfully, twisting a ribbon around her finger. \"But I want everyone to love their presents, especially Grandmother, because she deserves something truly special.\"\n\n\"Then let's consider what each person genuinely enjoys,\" Lama suggested. \"Grandmother adores her garden, so perhaps we could plant mint and basil in a pot that we decorate ourselves.\"\n\nHuda's eyes sparkled with excitement. \"That's a perfect idea, and since Father is always losing his keys, we could make him a wooden key holder with his name painted across the top.\"\n\nThey continued down the list, writing an idea and an estimated cost beside each name, and when Huda finally calculated the total, she gasped with surprise. \"We still have enough money left to buy sweets for the neighbours' children!\"\n\nLama laughed and pointed at the organised list. \"A careful plan doesn't make Eid less exciting; it simply means that we can share our happiness with more people.\"\n\nFor the next two days, the sisters painted, glued and wrapped their gifts in secret. On the morning of Eid, when Grandmother lifted her little green pot and smiled, Huda whispered, \"This is the most wonderful gift we have ever given.\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "The story mentions 'the neighbours' children'. What is the singular form of 'children'?",
+      "options": [
+        "childs",
+        "childish",
+        "child",
+        "childhood"
+      ],
+      "answer": "C",
+      "why": "'Children' is an irregular plural; its singular is 'child'. 'Childish' and 'childhood' are other words in the same family."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the story is an exclamatory sentence?",
+      "options": [
+        "Lama laughed and pointed at the organised list.",
+        "We still have enough money left to buy sweets for the neighbours' children!",
+        "For the next two days, the sisters painted, glued and wrapped their gifts in secret.",
+        "Huda frowned thoughtfully, twisting a ribbon around her finger."
+      ],
+      "answer": "B",
+      "why": "Huda's sentence ends with an exclamation mark and shows strong surprise and joy, so it is exclamatory."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Why did Lama want to make a plan this year?",
+      "options": [
+        "Grandmother asked them to write a list of gifts.",
+        "Huda had lost all of her pocket money.",
+        "The shops would be closed before Eid.",
+        "They overspent last year by shopping at the last minute."
+      ],
+      "answer": "D",
+      "why": "Lama says, 'Last year we bought our presents at the last minute, and we spent far more money than we had intended.'"
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who says, 'A careful plan doesn't make Eid less exciting'?",
+      "options": [
+        "Lama",
+        "Huda",
+        "Grandmother",
+        "Father"
+      ],
+      "answer": "A",
+      "why": "The story says, 'Lama laughed and pointed at the organised list' before speaking these words."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How are Lama and Huda different at the start of the story?",
+      "options": [
+        "Lama wants to spend much more money than Huda.",
+        "Lama thinks about cost; Huda thinks about pleasing people.",
+        "Huda wants to buy sweets; Lama wants to skip Eid.",
+        "Lama loves gardening; Huda prefers painting."
+      ],
+      "answer": "B",
+      "why": "Lama worries about overspending, while Huda says she wants everyone to love their presents."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "'Huda's eyes sparkled with excitement.' What does this expression show?",
+      "options": [
+        "Huda's eyes hurt from the bright light.",
+        "Huda was about to start crying.",
+        "Huda was tired of all the planning.",
+        "Huda was delighted by the idea."
+      ],
+      "answer": "D",
+      "why": "Sparkling eyes show happiness and enthusiasm; Huda immediately calls the idea 'perfect'."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which value does the story most strongly encourage?",
+      "options": [
+        "careful planning so that we can share with others",
+        "buying the most expensive gifts possible",
+        "keeping all our money for ourselves",
+        "waiting until the last minute to shop"
+      ],
+      "answer": "A",
+      "why": "The sisters' plan leaves money for sweets for the neighbours, and Lama says planning lets them 'share our happiness with more people'."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "In your opinion, which information in the story is the LEAST clear or complete?",
+      "options": [
+        "what gift they made for Grandmother",
+        "what Father often loses",
+        "how much money the sisters had to spend",
+        "when the sisters made their gifts"
+      ],
+      "answer": "C",
+      "why": "The sisters write estimated costs, but the story never says how much money they had; the other details are stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A basil plant grows a metre tall overnight.",
+        "Two sisters paint a flowerpot as a gift.",
+        "A key holder finds Father's keys by itself.",
+        "A notebook writes the gift list on its own."
+      ],
+      "answer": "B",
+      "why": "Painting a pot as a present is realistic; plants do not grow a metre in a night and objects cannot act by themselves."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which would be the most suitable different ending for the story?",
+      "options": [
+        "The sisters forget the gifts and do not celebrate Eid.",
+        "Huda keeps all the gifts and hides them from everyone.",
+        "Grandmother invites the girls to plant the mint in her garden.",
+        "Lama throws the plan away and shops at the last minute."
+      ],
+      "answer": "C",
+      "why": "This ending fits the characters and the story's message of sharing; the others contradict how the sisters behave."
+    }
+  ]
+}

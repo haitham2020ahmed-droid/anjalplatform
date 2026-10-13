@@ -1,0 +1,169 @@
+{
+  "code": "NP-022",
+  "title": "The Brown Leather Wallet",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "On a windy Thursday afternoon, Faisal was walking home from football practice when he noticed a brown leather wallet lying beside the curb. Picking it up and opening it carefully, he discovered several banknotes, a family photograph, and an identity card belonging to an elderly man named Abu Saleh, who lived three streets away.\n\nFaisal hesitated for a moment, because his new trainers were already worn and the money in the wallet would easily buy another pair. However, he remembered his grandfather's favorite saying: \"Whatever is not yours will never truly belong to you.\" He closed the wallet and turned toward Abu Saleh's neighborhood.\n\nWhen Faisal knocked, a thin man with a worried face opened the door; he had been searching his car and his pockets for over an hour. As soon as he saw the wallet, his eyes filled with tears. \"My son, you have returned more than money,\" he exclaimed. \"That photograph is the only picture I have of my late wife!\"\n\nAbu Saleh insisted on offering Faisal a reward, but the boy politely refused. Instead, the old man invited him inside for tea and dates and told him stories about the city fifty years earlier.\n\nThat evening, Faisal described the encounter to his parents. His father placed a hand on his shoulder and said quietly, \"Today you earned something more valuable than new shoes.\" Faisal smiled, realizing that honesty had given him an unexpected friendship.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "The word \"honesty\" belongs to the same word family as which word?",
+      "options": [
+        "hostile",
+        "honey",
+        "hesitate",
+        "honest"
+      ],
+      "answer": "D",
+      "why": "\"Honesty\" is the noun formed from the adjective \"honest\"; the other words have different roots and meanings."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the story is EXCLAMATORY?",
+      "options": [
+        "My son, you have returned more than money.",
+        "Today you earned something more valuable than new shoes.",
+        "That photograph is the only picture I have of my late wife!",
+        "Whatever is not yours will never truly belong to you."
+      ],
+      "answer": "C",
+      "why": "This sentence shows strong emotion and ends with an exclamation mark; the others are statements."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Abu Saleh's eyes fill with tears?",
+      "options": [
+        "All the banknotes were missing from it.",
+        "The wallet held the only photo of his late wife.",
+        "He thought Faisal had stolen his wallet.",
+        "He was upset that Faisal refused a reward."
+      ],
+      "answer": "B",
+      "why": "Abu Saleh explains, \"That photograph is the only picture I have of my late wife!\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Who says, \"Today you earned something more valuable than new shoes\"?",
+      "options": [
+        "Faisal's grandfather",
+        "Abu Saleh",
+        "Faisal himself",
+        "Faisal's father"
+      ],
+      "answer": "D",
+      "why": "In the last paragraph, Faisal's father places a hand on his shoulder and says these words."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "How were Faisal's feelings at the end different from his feelings when he first found the wallet?",
+      "options": [
+        "He went from feeling angry to feeling bored.",
+        "He went from feeling tempted to feeling content.",
+        "He went from feeling happy to feeling regret.",
+        "He went from feeling calm to feeling afraid."
+      ],
+      "answer": "B",
+      "why": "At first he hesitated because the money could buy new trainers; at the end he smiles, pleased with his new friendship."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Abu Saleh says, \"You have returned more than money.\" What does he mean?",
+      "options": [
+        "The wallet held something of great personal value.",
+        "Faisal had also returned his lost car keys.",
+        "Faisal deserved to be paid back with extra money.",
+        "Faisal had added his own money to the wallet."
+      ],
+      "answer": "A",
+      "why": "He means the family photograph, which mattered to him far more than the banknotes."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the story?",
+      "options": [
+        "Children may keep anything they find in the street.",
+        "Doing right can bring rewards money cannot buy.",
+        "Elderly people should never carry any money.",
+        "Faisal should have accepted the reward offered."
+      ],
+      "answer": "B",
+      "why": "Faisal refuses the reward yet gains a friendship and his father's pride, which money could not buy."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is the LEAST clear?",
+      "options": [
+        "How much money was inside the wallet",
+        "Who the owner of the wallet was",
+        "Which saying Faisal's grandfather liked",
+        "What Abu Saleh served Faisal"
+      ],
+      "answer": "A",
+      "why": "The story only says \"several banknotes\"; the owner, the tea and dates, and the saying are all stated clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of these events could really happen?",
+      "options": [
+        "A photograph in a wallet begins to speak.",
+        "A boy reads a stranger's thoughts from a card.",
+        "A boy returns a lost wallet to its owner.",
+        "A wallet blows home to its owner by itself."
+      ],
+      "answer": "C",
+      "why": "Returning a found wallet is realistic; the other events could only happen in a fantasy story."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the best alternative title for the story?",
+      "options": [
+        "More Valuable Than Shoes",
+        "Grandfather's Lost Car",
+        "A Trip to the Shoe Shop",
+        "The Big Football Match"
+      ],
+      "answer": "A",
+      "why": "The title echoes the father's words and the story's lesson that honesty is worth more than new shoes."
+    }
+  ]
+}

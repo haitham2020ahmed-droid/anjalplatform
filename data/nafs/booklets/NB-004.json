@@ -1,0 +1,568 @@
+{
+  "code": "NB-004",
+  "title": "The Lesson of the Line",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 498,
+  "passage": "At sunrise, Grandfather's small white boat slipped out of the harbour in Yanbu and glided steadily across the Red Sea. The water was so transparent that Faisal could see the coral reef far below, glowing orange, purple and green, while little silver fish darted between the rocks like sparks of light. Leaning eagerly over the side, Faisal announced confidently, \"Today I will catch the biggest hamour in the whole Red Sea!\" Grandfather smiled patiently and handed him a fishing rod, remarking that the sea never hurries, so neither should a sensible fisherman.\n\nFaisal dropped his line into the water and waited. After only a few minutes without a single bite, however, he pulled the line up impatiently to inspect the bait and then threw it back in, only to pull it up again shortly afterwards. \"Why don't the fish want my bait?\" he complained. Grandfather replied calmly, \"That is because you keep taking it away from them, so leave it still and allow the fish to discover it.\"\n\nHowever, Faisal simply could not sit still. He shifted his feet restlessly, tapped the side of the boat and stared at the line as though his determined eyes could pull a fish out of the water by themselves. As the sun climbed higher, his face grew hot and his patience grew thin. Meanwhile, Grandfather sat quietly, holding his rod with gentle hands and observing the water as if he had all the time in the world, and before long a fat fish was flapping in his bucket, followed shortly by another.\n\nFaisal sighed loudly and protested that the competition was unfair, because Grandfather's rod must obviously be better than his own. Grandfather laughed good-naturedly and asked, \"Shall we exchange rods, then?\" They swapped, but Faisal waited only a moment before he pulled up his line again out of habit, and once again the hook was disappointingly empty. His cheeks burned, although this time the sun was not responsible, because at last he understood that the problem had never been the rod.\n\nDetermined to change, Faisal took a deep breath, let the line sink and kept his hands perfectly still. He listened to the waves slapping gently against the boat and watched a seagull circle lazily overhead, and for the first time that morning, a peaceful calm settled over him like a soft blanket.\n\nThen, without warning, the rod bent sharply towards the water. When Faisal shouted that something enormous was pulling, Grandfather advised him to stay calm and avoid fighting it, explaining that a tired fish is far easier to land than a frightened one. Faisal held on, turning the reel bit by bit, until a magnificent spotted hamour finally rose from the water, gleaming in the sunlight. \"What a splendid fish you have caught, Faisal!\" Grandfather exclaimed proudly. \"Patience caught it, not the rod.\" Faisal grinned all the way back to the harbour, because he knew he would remember this valuable lesson far longer than the taste of dinner.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “darted” as it is used in paragraph 1?",
+      "options": [
+        "floated",
+        "rested",
+        "rushed",
+        "drifted"
+      ],
+      "answer": "C",
+      "why": "The fish moved “like sparks of light”, so “darted” means moved suddenly and quickly. “Floated” and “drifted” describe slow movement."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “restlessly” as it is used in paragraph 3?",
+      "options": [
+        "calmly",
+        "nervously",
+        "quickly",
+        "loudly"
+      ],
+      "answer": "A",
+      "why": "“Restlessly” means in an uneasy way, unable to keep still; its opposite is “calmly”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 1: “The water was so transparent that Faisal could see the coral reef far below.” What does “transparent” mean?",
+      "options": [
+        "deep and dark",
+        "warm and still",
+        "full of salt",
+        "clear enough to see through"
+      ],
+      "answer": "D",
+      "why": "Faisal could see the reef far below, so the water was clear enough to see through."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 6 is an adjective?",
+      "options": [
+        "finally",
+        "magnificent",
+        "held",
+        "reel"
+      ],
+      "answer": "B",
+      "why": "“Magnificent” describes the noun “hamour”; “finally” is an adverb, “held” a verb and “reel” a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 1, “little silver fish darted between the rocks” describes many fish. What is true about the plural of “fish”?",
+      "options": [
+        "It is formed by changing f to -ves.",
+        "It is always formed by adding -es.",
+        "It is usually the same as the singular.",
+        "It is formed by adding -en, as in ox and oxen."
+      ],
+      "answer": "C",
+      "why": "We say one fish and many fish; the plural is usually the same as the singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “patience”?",
+      "options": [
+        "patient",
+        "pattern",
+        "patrol",
+        "pasture"
+      ],
+      "answer": "A",
+      "why": "“Patient” and “patience” share the same root and meaning; the others only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “determined” in a meaningful sentence of your own.",
+      "model": "Although the mathematics problem was difficult, Noura was determined to solve it without asking for the answer.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “determined” with its meaning (having made a firm decision to do something and not give up)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Determined” means having a firm decision to do something and not giving up."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “reef”?",
+      "options": [
+        "reeves",
+        "reefes",
+        "reefies",
+        "reefs"
+      ],
+      "answer": "D",
+      "why": "Unlike “shelf → shelves”, “reef” simply adds -s: reefs."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Shall we exchange rods, then?”",
+      "options": [
+        "a command",
+        "a question",
+        "an exclamation",
+        "a statement"
+      ],
+      "answer": "B",
+      "why": "Grandfather is making a suggestion in the form of a question, and the sentence ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Broken Fishing Rod",
+        "Grandfather's Lucky Rod",
+        "Patience on the Red Sea",
+        "A Storm near Yanbu"
+      ],
+      "answer": "C",
+      "why": "The story is about Faisal learning patience; the rod was never the reason for Grandfather's success."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to explain how coral reefs are formed",
+        "to give instructions for catching hamour",
+        "to describe the history of Yanbu",
+        "to entertain while teaching the value of patience"
+      ],
+      "answer": "D",
+      "why": "It tells an enjoyable story with a clear lesson stated at the end: “Patience caught it, not the rod.”"
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Faisal grows restless while Grandfather waits calmly and catches fish.",
+        "Faisal finally catches his first fish of the day.",
+        "The sun becomes too hot, so they decide to return home.",
+        "Grandfather teaches Faisal how to tie a fishing hook."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 contrasts Faisal's restlessness with Grandfather's calm success."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to Grandfather, why did the fish not take Faisal's bait?",
+      "options": [
+        "The bait was too old.",
+        "Faisal kept taking it away from them.",
+        "There were no fish near the reef.",
+        "Faisal's rod was broken."
+      ],
+      "answer": "B",
+      "why": "Grandfather says, “That is because you keep taking it away from them.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which description best fits this text?",
+      "options": [
+        "a narrative told by an outside narrator",
+        "a personal narrative told by Faisal",
+        "an informational report about fishing",
+        "a friendly letter to Grandfather"
+      ],
+      "answer": "A",
+      "why": "It tells events with characters and a lesson, and the narrator calls Faisal “he”, so the narrator is outside the story."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Faisal protest that the competition was unfair?",
+      "options": [
+        "Grandfather had taken his bait.",
+        "The sun was shining in his eyes.",
+        "He believed Grandfather's rod was better than his.",
+        "A seagull had stolen his fish."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: he protested “because Grandfather's rod must obviously be better than his own.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What happened right after Faisal and Grandfather swapped rods?",
+      "options": [
+        "Faisal caught the spotted hamour.",
+        "Grandfather caught a fat fish.",
+        "The boat slipped out of the harbour.",
+        "Faisal pulled up his line again out of habit."
+      ],
+      "answer": "D",
+      "why": "“They swapped, but Faisal waited only a moment before he pulled up his line again out of habit.”"
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells the story?",
+      "options": [
+        "a narrator outside the story",
+        "Faisal",
+        "Grandfather",
+        "the seagull"
+      ],
+      "answer": "A",
+      "why": "The narrator uses “he” for Faisal and names both characters, so the narrator is not one of them."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, why did Grandfather tell Faisal not to fight the fish?",
+      "options": [
+        "The fish would escape if Faisal waited too long.",
+        "A tired fish is far easier to land than a frightened one.",
+        "The rod might break if Faisal pulled too hard.",
+        "Hamour are too heavy for a boy to lift."
+      ],
+      "answer": "B",
+      "why": "Grandfather explained “that a tired fish is far easier to land than a frightened one.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Faisal's cheeks burn in paragraph 4?",
+      "options": [
+        "The midday sun was burning his face.",
+        "He was angry that Grandfather laughed at him.",
+        "He felt embarrassed when he realised the rod was not the problem.",
+        "He was excited because a fish was pulling."
+      ],
+      "answer": "C",
+      "why": "The writer says “this time the sun was not responsible” and links the burning cheeks to his understanding that the rod was never the problem."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after Faisal's announcement in paragraph 1?",
+      "options": [
+        "wanting to know the colour of the boat",
+        "wanting to learn Grandfather's age",
+        "wanting to find out what is for dinner",
+        "wanting to know whether he will keep his bold promise"
+      ],
+      "answer": "D",
+      "why": "His confident claim makes the reader curious about whether he will succeed."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words best describe Faisal's feelings in paragraph 3?",
+      "options": [
+        "calm and relaxed",
+        "restless and impatient",
+        "proud and pleased",
+        "frightened and lonely"
+      ],
+      "answer": "B",
+      "why": "He shifts his feet, taps the boat and stares at the line, and “his patience grew thin.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Grandfather's way of fishing different from Faisal's at first?",
+      "options": [
+        "Grandfather waited quietly; Faisal kept checking his line.",
+        "Grandfather kept checking his line; Faisal waited quietly.",
+        "Grandfather used no bait; Faisal used bait.",
+        "Grandfather fished from the shore; Faisal fished from the boat."
+      ],
+      "answer": "A",
+      "why": "Paragraphs 2 and 3 contrast Faisal pulling up his line again and again with Grandfather sitting quietly and observing the water."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Faisal letting the line sink and keeping his hands perfectly still?",
+      "options": [
+        "He lost his rod in the sea.",
+        "Grandfather became annoyed.",
+        "He finally caught a hamour.",
+        "The boat drifted back to the harbour."
+      ],
+      "answer": "C",
+      "why": "Soon after he became calm in paragraph 5, the rod bent and he brought in a magnificent hamour."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Faisal's behaviour in paragraph 5 and Grandfather's behaviour in paragraph 3 have in common?",
+      "options": [
+        "Both tap the side of the boat.",
+        "Both complain about their rods.",
+        "Both keep pulling up their lines.",
+        "Both keep still and wait patiently."
+      ],
+      "answer": "D",
+      "why": "In paragraph 5 Faisal keeps his hands perfectly still, just as Grandfather sat quietly with gentle hands in paragraph 3."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, how does the writer show that Faisal is impatient?",
+      "options": [
+        "by telling the reader his exact age",
+        "through his actions, such as tapping the boat",
+        "by listing the fish of the Red Sea",
+        "by describing the clothes he wears"
+      ],
+      "answer": "B",
+      "why": "The writer shows impatience through what Faisal does, not just by saying it."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “a peaceful calm settled over him like a soft blanket” suggest about Faisal?",
+      "options": [
+        "He felt relaxed and comforted.",
+        "He felt cold and wanted a blanket.",
+        "He grew sleepy and stopped fishing.",
+        "He felt heavy and tired from the sun."
+      ],
+      "answer": "A",
+      "why": "The simile compares his new calm to the comfort of a soft blanket."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is exclamatory?",
+      "options": [
+        "Shall we exchange rods, then?",
+        "However, Faisal simply could not sit still.",
+        "What a splendid fish you have caught, Faisal!",
+        "Patience caught it, not the rod."
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling, begins with “What a …” and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the most useful lesson in the story?",
+      "options": [
+        "A better rod is all you need to succeed.",
+        "It is best to give up when progress is slow.",
+        "Fishing is an activity only for grandfathers.",
+        "Good results often come to those who wait calmly."
+      ],
+      "answer": "D",
+      "why": "Faisal succeeds only after he becomes patient: “Patience caught it, not the rod.”"
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this story?",
+      "options": [
+        "to persuade children to buy better fishing rods",
+        "to show young readers that patience brings success",
+        "to warn people never to go out to sea",
+        "to explain how to cook hamour for dinner"
+      ],
+      "answer": "B",
+      "why": "The story's lesson is stated by Grandfather at the end."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the end of the story?",
+      "options": [
+        "pride",
+        "anger",
+        "fear",
+        "disappointment"
+      ],
+      "answer": "A",
+      "why": "Grandfather exclaims “proudly”, and Faisal grins all the way back to the harbour."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "where the boat sailed from",
+        "what kind of fish Faisal caught",
+        "what bait Faisal used",
+        "who gave Faisal a fishing rod"
+      ],
+      "answer": "C",
+      "why": "The bait is never described; the other details are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A fish jumps into the boat and thanks the boy politely.",
+        "A boy catches a hamour from a small boat in the Red Sea.",
+        "Grandfather walks across the water all the way to the reef.",
+        "The whole sea turns into sand at noon."
+      ],
+      "answer": "B",
+      "why": "Hamour live around Red Sea reefs and are caught by fishermen in small boats."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Fish That Got Away",
+        "Faisal's Fishing Shop",
+        "Lost in the Desert",
+        "Patience Caught It"
+      ],
+      "answer": "D",
+      "why": "Grandfather's words sum up how Faisal finally caught the fish."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that still show what Faisal learned.",
+      "model": "The hamour turned out to be quite small, so Faisal gently released it back into the sea. He was not disappointed, because he had finally learned how to wait calmly, and he promised Grandfather that next time he would be patient from the very first minute.",
+      "rubric": [
+        "2 = a clear new ending that fits Faisal, Grandfather and the lesson of patience",
+        "1 = an ending is given but it is unclear or does not fit the story or its lesson well",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits the characters and the story's lesson is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "If Faisal feels impatient during a long homework task, which solution would the story's lesson suggest?",
+      "options": [
+        "giving up after the first difficult question",
+        "copying a friend's answers to finish quickly",
+        "taking a deep breath and working step by step",
+        "changing his pencil again and again"
+      ],
+      "answer": "C",
+      "why": "On the boat, staying calm and working “bit by bit” led to success."
+    }
+  ]
+}

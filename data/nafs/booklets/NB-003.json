@@ -1,0 +1,568 @@
+{
+  "code": "NB-003",
+  "title": "Every Drop Counts: Saving Water in Saudi Arabia",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 448,
+  "passage": "Imagine a huge country that has no permanent rivers or lakes at all. That country is Saudi Arabia, where much of the land is desert, rainfall is rare and summers are extremely hot. Nevertheless, millions of people depend on a reliable supply of water every day for drinking, cooking, washing and growing food. Where does all this water come from, and how can we make sure that enough remains for the future?\n\nThe Kingdom obtains its water from two main sources. The first is groundwater, which is stored deep beneath the surface in layers of rock and sand known as aquifers. Some of this water collected thousands of years ago, when the climate of Arabia was much wetter, so once it has been used, it cannot easily be replaced. The second source is the sea, because large factories called desalination plants remove the salt from seawater so that people can drink it safely. In fact, Saudi Arabia is one of the largest producers of desalinated water in the world.\n\nHowever, desalination is expensive. The process needs a great deal of energy, and the extremely salty water that remains afterwards must be returned to the sea carefully to protect marine life. Pumping groundwater from deep wells is also costly, and it gradually empties these ancient underground stores. This is exactly why conserving water matters so much: every litre that we waste had to be found, purified and carried to our homes.\n\nAgriculture consumes the largest share of water in the Kingdom. For this reason, many farmers now rely on drip irrigation, a system of narrow pipes that delivers small drops of water directly to the roots of plants. Because very little water is lost to evaporation, this method uses far less water than flooding entire fields. In addition, several cities treat used water from homes and reuse it to irrigate parks and gardens.\n\nFamilies can contribute as well. A national programme called \"Qatrah,\" which means \"a drop,\" encourages everyone to use water responsibly, since simple habits can make a significant difference. Turn off the tap while you brush your teeth. Take shorter showers instead of baths, and repair dripping taps promptly, because a single leaking tap can waste thousands of litres in a year. Water plants early in the morning or in the evening, when less water evaporates in the fierce heat of the sun.\n\nConserving water is also part of our values, since the Holy Qur'an teaches us to eat and drink without being wasteful. How wonderful it would be if every family in the Kingdom saved just a few buckets a day! Together, these small drops could become an ocean of savings for the generations to come.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “obtains” as it is used in paragraph 2?",
+      "options": [
+        "loses",
+        "gets",
+        "stores",
+        "cleans"
+      ],
+      "answer": "B",
+      "why": "The Kingdom “obtains” its water from two sources, meaning it gets its water from them."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “promptly” as it is used in paragraph 5?",
+      "options": [
+        "quickly",
+        "carefully",
+        "often",
+        "late"
+      ],
+      "answer": "D",
+      "why": "“Promptly” means quickly and without delay; its opposite is “late”. “Quickly” is a synonym, not an opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 4: “Because very little water is lost to evaporation, this method uses far less water than flooding entire fields.” What does “evaporation” mean?",
+      "options": [
+        "water turning into vapour in the air",
+        "water soaking deep into the ground",
+        "water flowing back into the sea",
+        "water being cleaned so it can be reused"
+      ],
+      "answer": "A",
+      "why": "Paragraph 5 adds that less water “evaporates in the fierce heat of the sun”, so evaporation is water turning into vapour in the heat."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a verb?",
+      "options": [
+        "narrow",
+        "directly",
+        "delivers",
+        "system"
+      ],
+      "answer": "C",
+      "why": "“Delivers” is an action; “narrow” is an adjective, “directly” an adverb and “system” a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the text does NOT end in -s?",
+      "options": [
+        "people",
+        "layers",
+        "plants",
+        "families"
+      ],
+      "answer": "A",
+      "why": "“People” is an irregular plural of “person”; the others are regular plurals."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “conserving”?",
+      "options": [
+        "conversation",
+        "conservation",
+        "construction",
+        "consonant"
+      ],
+      "answer": "B",
+      "why": "“Conservation” shares the root and meaning of “conserve”; “conversation” only looks similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “significant” in a meaningful sentence of your own.",
+      "model": "Reading for twenty minutes every evening made a significant difference to my vocabulary by the end of the year.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “significant” with its meaning (large or important enough to be noticed)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Significant” means large or important enough to have an effect."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “supply”, which appears in paragraph 1?",
+      "options": [
+        "supplys",
+        "suppleys",
+        "supply's",
+        "supplies"
+      ],
+      "answer": "D",
+      "why": "A consonant + y changes y to -ies: supply → supplies."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Imagine a huge country that has no permanent rivers or lakes at all.”?",
+      "options": [
+        "a question",
+        "an exclamation",
+        "a command",
+        "a statement"
+      ],
+      "answer": "C",
+      "why": "It begins with the verb “Imagine” and tells the reader to do something, so it is a command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Every Drop Matters in a Dry Land",
+        "How Desalination Plants Are Built",
+        "The History of Farming in Arabia",
+        "Rivers and Lakes of the Kingdom"
+      ],
+      "answer": "A",
+      "why": "The text explains why water is precious in a desert country and how to save it. Desalination is only one part, and the country has no rivers."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to tell the story of one farming family in the desert",
+        "to compare Saudi Arabia with countries that have rivers",
+        "to explain how to dig a deep well safely",
+        "to inform readers about water and encourage them to save it"
+      ],
+      "answer": "D",
+      "why": "It gives facts about water sources and costs, then urges families to save water."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 3?",
+      "options": [
+        "Desalination plants always destroy marine life in the sea.",
+        "Producing fresh water is costly, so wasting it is a serious problem.",
+        "Groundwater is much cheaper to use than desalinated water.",
+        "Deep wells are easy to dig and can never be emptied."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 explains the costs of desalination and pumping and ends: “This is exactly why conserving water matters so much.”"
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why can some groundwater not easily be replaced?",
+      "options": [
+        "It is too salty for people to drink.",
+        "Desalination plants use all of it.",
+        "It collected thousands of years ago, when Arabia was wetter.",
+        "It is stored underneath the sea."
+      ],
+      "answer": "C",
+      "why": "The water was collected when the climate was much wetter, and today's rare rain cannot refill it quickly."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "expository nonfiction",
+        "a short story",
+        "a poem",
+        "a biography"
+      ],
+      "answer": "A",
+      "why": "It explains a real topic with facts, causes and solutions; it has no characters or plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why does drip irrigation use far less water than flooding fields?",
+      "options": [
+        "It only works at night.",
+        "It uses seawater instead of groundwater.",
+        "Farmers use it only once a year.",
+        "Very little water is lost to evaporation."
+      ],
+      "answer": "D",
+      "why": "The paragraph says: “Because very little water is lost to evaporation, this method uses far less water.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which topic does the writer discuss BEFORE explaining drip irrigation?",
+      "options": [
+        "water-saving habits for families",
+        "the costs of desalination and pumping",
+        "the meaning of “Qatrah”",
+        "the teaching of the Holy Qur'an"
+      ],
+      "answer": "B",
+      "why": "The costs come in paragraph 3; drip irrigation is in paragraph 4, and the other topics come later."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 5, how does the writer speak directly to the reader?",
+      "options": [
+        "by telling a story about the writer's family",
+        "by quoting a farmer's opinion",
+        "by giving commands such as “Turn off the tap”",
+        "by asking readers to write a letter"
+      ],
+      "answer": "C",
+      "why": "Sentences such as “Turn off the tap” and “Take shorter showers” tell the reader what to do."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, what are aquifers?",
+      "options": [
+        "layers of rock and sand that store water underground",
+        "factories that remove salt from seawater",
+        "narrow pipes used to water plants",
+        "deep wells used for pumping water"
+      ],
+      "answer": "A",
+      "why": "Groundwater is stored “in layers of rock and sand known as aquifers.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Using paragraphs 2 and 3, why are the ancient underground stores slowly becoming empty?",
+      "options": [
+        "Desalination plants make the water salty.",
+        "Sand from the desert fills them up.",
+        "The sea pushes the water away from the land.",
+        "Water is pumped out but cannot easily be replaced."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2 says used groundwater cannot easily be replaced, and paragraph 3 says pumping gradually empties the stores."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end paragraph 1 with a question?",
+      "options": [
+        "to show that nobody knows where water comes from",
+        "to make readers curious about the answers that follow",
+        "to test whether readers already know the facts",
+        "to change the topic before paragraph 2"
+      ],
+      "answer": "B",
+      "why": "The question “Where does all this water come from…?” is answered in the rest of the text, so it draws the reader on."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words best describe the writer's attitude toward saving water?",
+      "options": [
+        "serious but hopeful",
+        "careless and bored",
+        "angry and unkind",
+        "unsure and confused"
+      ],
+      "answer": "A",
+      "why": "The writer explains a serious problem (paragraph 3) but ends hopefully: small drops “could become an ocean of savings.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is drip irrigation different from flooding fields?",
+      "options": [
+        "Flooding loses much less water to evaporation than drip irrigation does.",
+        "Drip irrigation uses seawater, while flooding uses only groundwater.",
+        "Drip irrigation sends water straight to the roots; flooding covers the whole field.",
+        "Both methods use exactly the same amount of water on a farm."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: drip irrigation “delivers small drops of water directly to the roots” and uses far less water than flooding."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the effect of repairing a dripping tap promptly?",
+      "options": [
+        "It refills the underground aquifers.",
+        "It can save thousands of litres of water a year.",
+        "It makes tap water cleaner to drink.",
+        "It reduces the heat of the sun."
+      ],
+      "answer": "B",
+      "why": "Paragraph 5 says a single leaking tap can waste thousands of litres in a year."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Using paragraphs 2 and 3, what do desalinated water and groundwater have in common?",
+      "options": [
+        "Both come from the sea.",
+        "Both can be replaced easily.",
+        "Both are used only by farmers.",
+        "Both are costly to provide."
+      ],
+      "answer": "D",
+      "why": "Desalination “is expensive”, and “pumping groundwater from deep wells is also costly.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, how does the writer make the information easy to follow?",
+      "options": [
+        "It moves from the problem, to the sources and costs, then to solutions.",
+        "It follows one family through a whole day.",
+        "It repeats the same fact in every paragraph.",
+        "It gives numbers without any explanation."
+      ],
+      "answer": "A",
+      "why": "The paragraphs move in a clear order: the problem, the sources, the costs, then solutions for farms and families."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the expression “an ocean of savings” mean in paragraph 6?",
+      "options": [
+        "a new sea that people will build",
+        "money kept in a bank by the beach",
+        "a very large amount of saved water",
+        "salty water from desalination plants"
+      ],
+      "answer": "C",
+      "why": "It is figurative: many small drops saved by families add up to a huge amount."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "Where does all this water come from, and how can we make sure that enough remains for the future?",
+        "How wonderful it would be if every family in the Kingdom saved just a few buckets a day!",
+        "Turn off the tap while you brush your teeth.",
+        "However, desalination is expensive."
+      ],
+      "answer": "B",
+      "why": "It expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which is the BEST use of water in a desert country, according to the text's ideas?",
+      "options": [
+        "washing the car with a running hose every day",
+        "filling a bath for a quick wash",
+        "watering the garden at noon",
+        "using drip irrigation to grow vegetables"
+      ],
+      "answer": "D",
+      "why": "Drip irrigation grows food with little water; watering at noon loses more water to evaporation."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this text?",
+      "options": [
+        "a wish to sell more bottled water",
+        "a love of stories about the sea",
+        "concern that the Kingdom's water is limited and costly",
+        "a plan to build new swimming pools"
+      ],
+      "answer": "C",
+      "why": "The writer stresses that water is scarce and expensive to produce and must not be wasted."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the text?",
+      "options": [
+        "responsibility",
+        "jealousy",
+        "boredom",
+        "anger"
+      ],
+      "answer": "A",
+      "why": "The writer asks farmers, cities and families to take responsibility for saving water."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the text is the LEAST clear?",
+      "options": [
+        "the meaning of the word “Qatrah”",
+        "how cities treat used water before reusing it",
+        "why desalination is expensive",
+        "what drip irrigation is"
+      ],
+      "answer": "B",
+      "why": "The writer says cities treat used water but never explains how; the other points are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A great river suddenly appears in the desert and flows forever.",
+        "Seawater becomes sweet by itself overnight without any plant.",
+        "A family uses less water by fixing leaks and taking short showers.",
+        "One tap supplies every home in the Kingdom with water."
+      ],
+      "answer": "C",
+      "why": "Fixing leaks and taking short showers are real habits named in the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "The Rainy Kingdom",
+        "Rivers of the Desert",
+        "Water Never Runs Out",
+        "Every Drop Counts"
+      ],
+      "answer": "D",
+      "why": "The text shows that even small amounts of saved water add up."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that add one more solution for saving water at school and explain why it would work.",
+      "model": "Schools could collect the water that drips from air-conditioning units and use it to irrigate the school garden. Because this water would otherwise be wasted, the garden would stay green without using fresh water from the taps. Students could also form a “water team” that checks the taps every week and reports any leaks.",
+      "rubric": [
+        "2 = a clear new ending with a sensible, realistic water-saving solution and a reason linked to the text",
+        "1 = an ending is given but the solution is unclear, unrealistic or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible, explained water-saving idea that fits the text's message is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How can a school help to save water, using ideas from the text?",
+      "options": [
+        "Put up signs reminding students to turn off taps.",
+        "Repair leaking taps promptly.",
+        "Water the school garden in the evening.",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "All three ideas match the advice in paragraph 5."
+    }
+  ]
+}

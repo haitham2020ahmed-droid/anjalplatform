@@ -1,0 +1,568 @@
+{
+  "code": "NB-018",
+  "title": "My Voice at the Assembly",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "words": 514,
+  "passage": "My name is Faisal, and for most of my life I have been the most reserved boy in every classroom. Although I usually knew the answers in class, my voice always seemed to retreat somewhere deep inside my throat whenever a teacher glanced in my direction. So when Mr. Khalid, our English teacher, announced that I would deliver a short speech at the Thursday morning assembly, my heart dropped like a stone.\n\n“Me, in front of the entire school?” I whispered, desperately hoping that I had misunderstood him.\n\n“Yes, you,” he replied with a calm, encouraging smile, explaining that I had written the most thoughtful paragraph in the class about kindness to the elderly and that everyone deserved to hear it.\n\nThat evening, when I nervously confessed my fears to my mother, she did not laugh or advise me to abandon the whole idea; instead, she sat beside me and spoke gently. “Courage does not mean that you have no fear, Faisal; it means doing the right thing even while you are afraid.” Then she insisted that I rehearse the speech for her, for my little brother and, rather comically, for our sleepy, unimpressed cat.\n\nEvery night for a week, I practised diligently in our small living room. At first my hands trembled so violently that the paper rattled like a leaf in the wind. Gradually, however, I learned to breathe deeply, to lift my eyes between sentences, and to address one friendly face at a time instead of an imaginary crowd. My brother applauded enthusiastically after every attempt, even when I stumbled awkwardly over unfamiliar vocabulary.\n\nOn Thursday, the playground was crowded with long, orderly rows of boys in white thobes, and the morning sun was already uncomfortably warm. When the head teacher finally announced my name, my legs felt as heavy as sacks of rice. I walked slowly towards the microphone and looked out, and hundreds of curious eyes looked back at me.\n\nFor a terrible moment, no words came, until I noticed my friend Omar standing in the third row and he nodded at me, just once. I took a slow breath and began: “Good morning, everyone. Today I want to talk about our grandparents, the people who taught our parents how to be kind.”\n\nMy voice was small at first, but it grew steadily stronger with each sentence. I described my grandfather, who walks to the mosque every day and greets every child he passes by name. Finally, I invited everyone to visit an elderly relative that weekend and simply listen respectfully to their stories.\n\nWhen I finished, there was a brief, uncertain silence before the whole playground erupted with applause. How thunderous that applause sounded to my astonished ears! Mr. Khalid shook my hand warmly, and Omar patted me proudly on the back.\n\nThat afternoon, a younger boy approached me at the school gate and shyly explained that he was going to visit his grandmother that evening. I smiled all the way home, because I realized that my small, hesitant voice had travelled further than I had ever imagined.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “hesitant” in “my small, hesitant voice”?",
+      "options": [
+        "unsure",
+        "cheerful",
+        "powerful",
+        "impatient"
+      ],
+      "answer": "A",
+      "why": "A hesitant voice is unsure and slow because the speaker lacks confidence."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “reserved” as it is used in paragraph 1?",
+      "options": [
+        "outgoing",
+        "polite",
+        "shy",
+        "careful"
+      ],
+      "answer": "A",
+      "why": "Reserved means quiet and slow to speak in front of others; outgoing (friendly and talkative) is its opposite. Shy is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “erupted” mean in “the whole playground erupted with applause”?",
+      "options": [
+        "slowly became completely silent",
+        "filled with smoke and fire",
+        "was shaken by a small earthquake",
+        "suddenly burst into loud noise"
+      ],
+      "answer": "D",
+      "why": "After a brief silence, the students suddenly clapped loudly; here “erupted” does not mean a volcano throwing out fire."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In the sentence “My brother applauded enthusiastically after every attempt”, which word is a verb?",
+      "options": [
+        "brother",
+        "applauded",
+        "enthusiastically",
+        "attempt"
+      ],
+      "answer": "B",
+      "why": "Applauded is the action the brother did. Enthusiastically is an adverb, and attempt is used here as a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is singular?",
+      "options": [
+        "sentences",
+        "hands",
+        "eyes",
+        "vocabulary"
+      ],
+      "answer": "D",
+      "why": "Vocabulary is one (uncountable) noun; hands, sentences and eyes are plural forms ending in -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word from the story belongs to the same word family as “courage”?",
+      "options": [
+        "curious",
+        "encouraging",
+        "comically",
+        "uncomfortably"
+      ],
+      "answer": "B",
+      "why": "Encouraging comes from encourage, which is built on courage (en- + courage); the others are not related to courage."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “encouraging” in a sentence of your own.",
+      "model": "My coach's encouraging words helped me to keep running until I finally crossed the finish line.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “encouraging” with a clear meaning (giving hope or confidence)",
+        "1 = the word is used, but the sentence is unclear or has errors",
+        "0 = no sentence, or the word is missing or used wrongly"
+      ],
+      "why": "Encouraging means giving someone confidence or hope, like Mr. Khalid's smile."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “life”?",
+      "options": [
+        "lifes",
+        "lives",
+        "lifeses",
+        "lifs"
+      ],
+      "answer": "B",
+      "why": "Life is an irregular noun: f changes to v before -es, so the plural is lives."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “How thunderous that applause sounded to my astonished ears!”?",
+      "options": [
+        "a question",
+        "a statement",
+        "an exclamatory sentence",
+        "a command"
+      ],
+      "answer": "C",
+      "why": "Although it begins with “How”, it does not ask anything; it shows strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "Lessons from My Grandfather",
+        "My Brother's Applause",
+        "Finding My Voice",
+        "A Morning Assembly in the Sun"
+      ],
+      "answer": "C",
+      "why": "The story is about a reserved boy who learns to speak confidently in front of others; the other titles focus on small details."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main message of the story?",
+      "options": [
+        "A good speech must always be short and funny.",
+        "Grandparents should be visited every weekend.",
+        "Practice and support can help us overcome fear.",
+        "Shy people are better at writing than speaking."
+      ],
+      "answer": "C",
+      "why": "Faisal rehearses, receives support from others and succeeds despite his fear. Visiting grandparents is the topic of his speech, not the story's message."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "A boy refuses to answer any questions in class.",
+        "A boy proudly volunteers to speak at the assembly.",
+        "A teacher praises a boy for his clear, strong voice.",
+        "A very shy boy is chosen to give a speech at assembly."
+      ],
+      "answer": "D",
+      "why": "Paragraph 1 shows that Faisal is very quiet and that Mr. Khalid announces he will deliver a speech; Faisal did not volunteer."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Mr. Khalid choose Faisal to give the speech?",
+      "options": [
+        "He always knew the answers in English lessons.",
+        "He was the most confident speaker in the whole class.",
+        "He had asked to speak at the assembly himself.",
+        "He had written the most thoughtful paragraph on kindness."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3: Faisal “had written the most thoughtful paragraph in the class about kindness to the elderly.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a personal narrative told by the main character",
+        "a story told by a narrator outside the events",
+        "the full text of a speech given at an assembly",
+        "a letter written to thank an English teacher"
+      ],
+      "answer": "A",
+      "why": "Faisal tells his own experience using “I” and “my”, with events, feelings and dialogue, so it is a personal narrative."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Faisal read his speech to his family, and even to the cat?",
+      "options": [
+        "He wanted his family to choose a new topic.",
+        "His mother wanted him to rehearse before the assembly.",
+        "The cat was the only one willing to listen.",
+        "His brother needed help with his own homework."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: his mother “insisted that I rehearse the speech for her, for my little brother and … for our sleepy, unimpressed cat.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "From whose point of view is the story told?",
+      "options": [
+        "Faisal's, as the boy who gives the speech",
+        "Mr. Khalid's, as the teacher who chose him",
+        "an outside narrator who knows every thought",
+        "Omar's, as a friend in the third row"
+      ],
+      "answer": "A",
+      "why": "The story is told in the first person by Faisal: “My name is Faisal…”"
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What did Faisal do right after Omar nodded at him?",
+      "options": [
+        "He searched the crowd for his teacher.",
+        "He walked slowly towards the microphone.",
+        "He invited everyone to visit a relative.",
+        "He took a slow breath and began his speech."
+      ],
+      "answer": "D",
+      "why": "Paragraph 7: Omar “nodded at me, just once. I took a slow breath and began.” He had already walked to the microphone before this."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "The playground erupted with applause.",
+        "Mr. Khalid shook his hand warmly.",
+        "He described his grandfather in the speech.",
+        "A younger boy spoke to him at the school gate."
+      ],
+      "answer": "D",
+      "why": "The boy approached Faisal “That afternoon”, after the speech, the applause and Mr. Khalid's handshake."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What made Faisal's legs feel “as heavy as sacks of rice”?",
+      "options": [
+        "his fear of speaking to the whole school",
+        "the heat of the morning sun",
+        "standing for a long time in a row",
+        "tiredness from practising late every night"
+      ],
+      "answer": "A",
+      "why": "This happens the moment his name is announced, and the story shows he was terrified of speaking in public, so the heaviness comes from fear."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Faisal's mother most likely insist that he rehearse many times?",
+      "options": [
+        "so that he would choose an easier, shorter topic",
+        "so that the cat would get used to loud noises",
+        "so that repeated practice would build his confidence",
+        "so that his little brother could learn the speech"
+      ],
+      "answer": "C",
+      "why": "She explains that courage means acting even while afraid, and the practice helps him learn to breathe and look up, so it builds confidence."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.IMPLIED",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase best describes Faisal's feelings at the end of the story?",
+      "options": [
+        "anxious and doubtful",
+        "proud and quietly satisfied",
+        "surprised and disappointed",
+        "relieved but still embarrassed"
+      ],
+      "answer": "B",
+      "why": "He smiles all the way home because he realizes his voice “had travelled further than I had ever imagined”, which shows pride and satisfaction."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Faisal's voice change during his speech?",
+      "options": [
+        "It was small at first but grew steadily stronger.",
+        "It shook at first and then stopped completely.",
+        "It stayed equally quiet from start to finish.",
+        "It was loud at first but faded to a whisper."
+      ],
+      "answer": "A",
+      "why": "Paragraph 8: “My voice was small at first, but it grew steadily stronger with each sentence.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was one effect of Faisal's speech?",
+      "options": [
+        "A younger boy decided to visit his grandmother.",
+        "Mr. Khalid asked him to speak every week.",
+        "Omar decided to give a speech as well.",
+        "His grandfather came to the school to thank him."
+      ],
+      "answer": "A",
+      "why": "In the last paragraph a younger boy says he is going to visit his grandmother, as Faisal had suggested."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Faisal's mother and Omar have in common?",
+      "options": [
+        "Both listened to him rehearse at home.",
+        "Both stood in the third row at assembly.",
+        "Both helped him find courage when he was afraid.",
+        "Both laughed at his fear at first."
+      ],
+      "answer": "C",
+      "why": "His mother encouraged him to rehearse, and Omar's nod gave him the courage to begin; only his family heard him rehearse at home."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “the paper rattled like a leaf in the wind” show?",
+      "options": [
+        "A window was open in the living room.",
+        "He practised his speech outside in a garden.",
+        "Faisal's hands were shaking with nerves.",
+        "The paper was thin and badly folded."
+      ],
+      "answer": "C",
+      "why": "The sentence says his hands “trembled so violently” that the paper rattled, so the simile shows his nervousness."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "What is your opinion of how the writer presents Faisal's story?",
+      "options": [
+        "dull, because it is full of charts and numbers",
+        "effective, because it traces his feelings from fear to pride",
+        "weak, because there is no dialogue at all",
+        "confusing, because the events are told out of order"
+      ],
+      "answer": "B",
+      "why": "The events are in order and the writer shows Faisal's feelings at each stage, from fear to practice to pride."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “my heart dropped like a stone” mean?",
+      "options": [
+        "He suddenly felt dizzy and ill.",
+        "He suddenly felt worried and afraid.",
+        "He felt calm and well prepared.",
+        "He felt excited and proud."
+      ],
+      "answer": "B",
+      "why": "It is a simile showing a sudden heavy feeling of fear when he hears he must give a speech."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which lesson from the story is the most useful for students?",
+      "options": [
+        "Only confident students should be chosen.",
+        "Quiet people should avoid public speaking.",
+        "Practising helps us face our fears.",
+        "A speech is only good if it is long."
+      ],
+      "answer": "C",
+      "why": "Faisal's week of practice helped him succeed although he was afraid."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the story?",
+      "options": [
+        "anger that slowly turns into forgiveness",
+        "boredom that slowly turns into excitement",
+        "nervousness that slowly turns into confidence",
+        "jealousy that slowly turns into friendship"
+      ],
+      "answer": "C",
+      "why": "The story follows Faisal from fear of the speech to confidence and pride at the end."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the main reason Faisal succeeded?",
+      "options": [
+        "The microphone made his voice very loud.",
+        "He had given many speeches before that day.",
+        "His speech was shorter than anyone else's.",
+        "He practised and had people who supported him."
+      ],
+      "answer": "D",
+      "why": "His practice and the support of his mother, brother, Omar and Mr. Khalid helped him; nothing suggests he had spoken before."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which information in the story is the least clear, in your opinion?",
+      "options": [
+        "the exact words of the whole speech",
+        "the day of the week of the assembly",
+        "the name of Faisal's English teacher",
+        "who nodded at Faisal from the crowd"
+      ],
+      "answer": "A",
+      "why": "Only the opening lines and a summary of the speech are given; the other details are clearly stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A voice flies to another city by itself.",
+        "A shy pupil speaks well after a week of practice.",
+        "A cat gives Faisal advice about his speech.",
+        "A playground claps with nobody in it."
+      ],
+      "answer": "B",
+      "why": "Shy students can improve with practice; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "Omar and the Third Row",
+        "A Grandfather Who Knows Every Name",
+        "The Hottest Morning of the Year",
+        "From Silent Boy to Confident Speaker"
+      ],
+      "answer": "D",
+      "why": "The story traces Faisal's change from a very quiet boy into a confident speaker."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. What might happen if Faisal forgot his words at the microphone?",
+      "model": "Halfway through the speech Faisal's mind went completely blank, but he remembered his mother's words about courage. He glanced at Omar, unfolded his paper and continued reading slowly and clearly. Although the speech was not perfect, the students still applauded, and Faisal decided to volunteer again the following term.",
+      "rubric": [
+        "2 = a clear, sensible new ending that fits the characters and events",
+        "1 = a new ending that is only partly clear or loosely linked to the story",
+        "0 = no answer, or the ending does not relate to the story"
+      ],
+      "why": "A good ending stays true to the characters, for example Faisal using his mother's advice and the skills he practised."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, how can family and friends help shy students speak in public?",
+      "options": [
+        "by giving them kind encouragement",
+        "by letting them rehearse with people they trust",
+        "by offering a friendly face in the audience",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "Mr. Khalid encourages Faisal, his family listens to him rehearse, and Omar's nod gives him a friendly face, so all are correct."
+    }
+  ]
+}

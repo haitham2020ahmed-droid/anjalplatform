@@ -1,0 +1,169 @@
+{
+  "code": "NP-025",
+  "title": "Baghdad's House of Wisdom",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "In the ninth century, Baghdad was one of the largest and wealthiest cities on Earth. At its heart stood the House of Wisdom, a famous center of learning supported by the Abbasid caliphs, especially Caliph al-Ma'mun, who ruled from 813 to 833.\n\nScholars from many backgrounds gathered there to translate important books from Greek, Persian, and Indian languages into Arabic. Works on mathematics, astronomy, medicine, and philosophy were carefully copied, studied, and discussed. Paper had recently arrived from Central Asia. It made books far cheaper to produce, so knowledge spread more quickly than ever before.\n\nThe scholars did not simply copy older ideas; they also improved them. The mathematician Muhammad ibn Musa al-Khwarizmi wrote a book about solving equations, and the word \"algebra\" comes from its Arabic title. In fact, the word \"algorithm\" is derived from his own name. Astronomers measured the movements of stars and planets with impressive accuracy. They even attempted to calculate the size of the Earth.\n\nSadly, the House of Wisdom did not last. In 1258, Mongol armies captured Baghdad and destroyed many of its libraries. According to historical accounts, so many manuscripts were thrown into the Tigris River that its water turned dark with ink.\n\nNevertheless, the knowledge preserved and developed in Baghdad had already traveled to other cities, including Cairo and Córdoba. Centuries later, European scholars translated these Arabic works into Latin, helping to inspire new discoveries in science.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word is in the same word family as \"translate\"?",
+      "options": [
+        "tranquil",
+        "translation",
+        "transport",
+        "tradition"
+      ],
+      "answer": "B",
+      "why": "\"Translation\" is the noun formed from the verb \"translate\"; the others only share some letters."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is EXCLAMATORY?",
+      "options": [
+        "Baghdad stood beside the Tigris River.",
+        "Read the book about al-Khwarizmi.",
+        "What a remarkable library it must have been!",
+        "Did the scholars speak many languages?"
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling and ends with an exclamation mark; the others are a question, a command and a statement."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did knowledge spread more quickly than ever before?",
+      "options": [
+        "Books were carried quickly by river boats.",
+        "The caliph banned books written in Greek.",
+        "Scholars memorized every book by heart.",
+        "Paper made books much cheaper to produce."
+      ],
+      "answer": "D",
+      "why": "The passage says paper \"made books far cheaper to produce, so knowledge spread more quickly.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "Arabic works were translated into Latin.",
+        "Al-Ma'mun supported the House of Wisdom.",
+        "Al-Khwarizmi wrote about equations.",
+        "Mongol armies captured Baghdad."
+      ],
+      "answer": "A",
+      "why": "European scholars translated the Arabic works \"centuries later,\" after the fall of Baghdad in 1258."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What do the words \"algebra\" and \"algorithm\" have in common?",
+      "options": [
+        "Both are linked to al-Khwarizmi's work.",
+        "Both describe ways of making paper.",
+        "Both were invented by Mongol scholars.",
+        "Both come from Greek astronomy books."
+      ],
+      "answer": "A",
+      "why": "\"Algebra\" comes from the title of his book, and \"algorithm\" comes from his name."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "\"Its water turned dark with ink.\" What does this description emphasize?",
+      "options": [
+        "how ink was made from river water",
+        "how huge the loss of books was",
+        "how the scholars wrote their books",
+        "how dirty the river usually was"
+      ],
+      "answer": "B",
+      "why": "The image shows that so many manuscripts were destroyed that they could darken a whole river."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best represents the writer's viewpoint?",
+      "options": [
+        "Translation is less valuable than discovery.",
+        "The scholars only copied the ideas of others.",
+        "All of Baghdad's knowledge was lost in 1258.",
+        "Baghdad's scholars made lasting gifts to science."
+      ],
+      "answer": "D",
+      "why": "The writer says the scholars improved older ideas and that their work later inspired new discoveries in Europe."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information in the passage is the LEAST clear?",
+      "options": [
+        "who ruled when the House of Wisdom grew",
+        "which river flows through Baghdad",
+        "how scholars calculated the size of the Earth",
+        "where the word \"algebra\" comes from"
+      ],
+      "answer": "C",
+      "why": "The passage says they \"attempted to calculate the size of the Earth\" but gives no method or result."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which event could REALLY have happened in ninth-century Baghdad?",
+      "options": [
+        "A scholar emailed his findings to Córdoba.",
+        "A scholar translated a Greek medical book.",
+        "Students printed books on electric machines.",
+        "Astronomers used satellites to map stars."
+      ],
+      "answer": "B",
+      "why": "Translating Greek books into Arabic is exactly what the passage describes; email, satellites and electric printing did not exist then."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the best way to protect valuable old manuscripts today?",
+      "options": [
+        "Lend the only copies to anyone who asks.",
+        "Stop translating them into other languages.",
+        "Make digital copies and store them in many places.",
+        "Keep them all in one building beside a river."
+      ],
+      "answer": "C",
+      "why": "Baghdad lost manuscripts kept in one place; copies stored in several places protect knowledge from a single disaster."
+    }
+  ]
+}

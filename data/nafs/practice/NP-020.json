@@ -1,0 +1,169 @@
+{
+  "code": "NP-020",
+  "title": "Why We Have Seasons",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Many people believe that summer happens when Earth moves closer to the Sun, but this explanation is incorrect. In fact, Earth is nearest to the Sun in early January, which is the middle of winter in the Northern Hemisphere. The real reason for the seasons is the tilt of Earth's axis.\n\nEarth's axis is an imaginary line running through the planet from the North Pole to the South Pole. This axis is tilted by about twenty-three and a half degrees, and it keeps pointing in the same direction as Earth travels around the Sun during the year.\n\nFor part of the year, the Northern Hemisphere leans toward the Sun. Sunlight strikes it more directly, so the energy is concentrated on a smaller area, and the days are longer than the nights. This combination produces the warm temperatures of summer. Six months later, the Northern Hemisphere leans away from the Sun, and the sunlight arrives at a lower angle, spreading its energy over a larger area. The days become shorter, and winter arrives.\n\nBecause the two hemispheres lean in opposite directions, their seasons are also opposite. When students in Riyadh are enjoying cool winter evenings, children in Australia are swimming at the beach on hot summer afternoons.\n\nPlaces near the equator receive fairly direct sunlight all year, so they experience much smaller seasonal changes in temperature.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What is the plural form of \"hemisphere\"?",
+      "options": [
+        "hemispherees",
+        "hemispheres",
+        "hemisphera",
+        "hemispheries"
+      ],
+      "answer": "B",
+      "why": "The passage uses \"hemispheres\"; it is a regular plural formed by adding -s."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which sentence is a command?",
+      "options": [
+        "Earth's axis is tilted.",
+        "Why is January cold in Riyadh?",
+        "Look at the globe and find the equator.",
+        "What a hot afternoon it is!"
+      ],
+      "answer": "C",
+      "why": "A command tells someone to do something; \"Look at the globe\" gives an instruction."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why does Earth have seasons?",
+      "options": [
+        "Earth moves closer to the Sun.",
+        "The Sun becomes hotter in summer.",
+        "The Moon blocks the sunlight in winter.",
+        "Earth's axis is tilted."
+      ],
+      "answer": "D",
+      "why": "The first paragraph says the real reason for the seasons is the tilt of Earth's axis."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "In what order does the writer present the ideas?",
+      "options": [
+        "Examples, a definition, then a poem",
+        "A story about Australia, then the history of science",
+        "The equator first, then the poles, then the Moon",
+        "A common mistake, the true cause, then examples"
+      ],
+      "answer": "D",
+      "why": "The passage first corrects a common belief, then explains the tilt, then gives examples such as Riyadh and Australia."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is sunlight in summer different from sunlight in winter?",
+      "options": [
+        "In summer it comes from a different, closer star.",
+        "In summer it strikes more directly on a smaller area.",
+        "In winter it is concentrated on a smaller area.",
+        "In winter it lasts longer than in summer."
+      ],
+      "answer": "B",
+      "why": "The passage says summer sunlight is more direct and concentrated, while winter sunlight arrives at a lower angle and spreads out."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says the Northern Hemisphere \"leans toward the Sun.\" Why does the writer choose the word \"leans\"?",
+      "options": [
+        "To show that Earth is about to fall over",
+        "To explain that the Sun pulls Earth closer each day",
+        "To help readers picture the tilt as a body bending",
+        "To suggest that the hemisphere is tired"
+      ],
+      "answer": "C",
+      "why": "\"Leans\" is an expressive word that helps readers imagine the tilted position of the planet."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which event could really happen?",
+      "options": [
+        "It is winter in Riyadh while it is summer in Sydney.",
+        "It is summer at both poles on the same day.",
+        "Earth stops tilting for one month each year.",
+        "The equator has a very cold winter with heavy snow."
+      ],
+      "answer": "A",
+      "why": "The passage explains that the hemispheres have opposite seasons at the same time."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "Seasons are a mystery that no one understands.",
+        "Distance from the Sun is the main cause of seasons.",
+        "Winter is better than summer in every country.",
+        "A popular idea can be wrong, so checking facts matters."
+      ],
+      "answer": "D",
+      "why": "The writer shows that a common belief about seasons is incorrect and explains the evidence."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "Why Earth's axis became tilted in the first place",
+        "When Earth is nearest to the Sun",
+        "How much Earth's axis is tilted",
+        "Why equator places have small changes"
+      ],
+      "answer": "A",
+      "why": "The writer explains the effects of the tilt but never says what caused it."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "Summer Holidays in Australia",
+        "It's All in the Tilt",
+        "Why the Sun Is Hot",
+        "Earth's Journey to the Moon"
+      ],
+      "answer": "B",
+      "why": "The passage's main idea is that Earth's tilt, not its distance, causes the seasons."
+    }
+  ]
+}

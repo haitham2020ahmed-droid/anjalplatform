@@ -1,0 +1,169 @@
+{
+  "code": "NP-016",
+  "title": "The Body's Tireless Pump",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Your heart is a muscular organ about the size of your fist, and it works every moment of your life without needing to rest. Its job is to pump blood through your body, delivering oxygen and nutrients to every cell.\n\nThe heart is divided into four chambers: the two upper chambers, called atria, receive blood, while the two lower chambers, called ventricles, push blood out. A thick wall separates the right side of the heart from the left side, so the two kinds of blood do not mix.\n\nBlood that has already delivered its oxygen returns from the body to the right atrium, and it then flows into the right ventricle, which pumps it to the lungs. Inside the lungs, the blood releases carbon dioxide and absorbs fresh oxygen. Next, the oxygen-rich blood travels back to the left atrium and down into the left ventricle. The left ventricle has the thickest, strongest wall because it must push blood all the way around the body.\n\nBetween the chambers are valves that act like one-way doors. They open to let blood through and then snap shut to stop it from flowing backward. The familiar \"lub-dub\" sound that a doctor hears through a stethoscope is the noise of these valves closing.\n\nAn adult's heart usually beats between sixty and one hundred times a minute at rest, and regular exercise helps keep it strong.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "The passage uses \"atria\" for the upper chambers. What is the singular form of \"atria\"?",
+      "options": [
+        "atrias",
+        "atriumes",
+        "atrium",
+        "atrion"
+      ],
+      "answer": "C",
+      "why": "The passage itself names the \"right atrium\"; \"atria\" is the irregular plural of \"atrium.\""
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which sentence uses the word \"release\" correctly, with the same meaning as in the passage?",
+      "options": [
+        "She release a pencil from yesterday.",
+        "The release is very tall and green.",
+        "He was release in the morning to his class.",
+        "The children release the balloons into the sky."
+      ],
+      "answer": "D",
+      "why": "In the passage, blood \"releases\" carbon dioxide, meaning it lets it go; only this sentence uses the verb correctly with that meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why does the left ventricle have the thickest wall?",
+      "options": [
+        "It holds the most carbon dioxide.",
+        "It only receives blood from the lungs.",
+        "It needs to rest more than other chambers.",
+        "It must push blood all the way around the body."
+      ],
+      "answer": "D",
+      "why": "The passage states this reason directly in the third paragraph."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "After blood leaves the right ventricle, where does it go NEXT?",
+      "options": [
+        "to the lungs",
+        "to the left atrium",
+        "to the rest of the body",
+        "to the right atrium"
+      ],
+      "answer": "A",
+      "why": "The right ventricle pumps blood to the lungs; only after that does it return to the left atrium."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is blood in the right side of the heart different from blood in the left side?",
+      "options": [
+        "The right side has more oxygen than the left side does.",
+        "The right side has less oxygen; the left side is oxygen-rich.",
+        "The right side carries food, while the left carries water.",
+        "There is no real difference between the two sides at all."
+      ],
+      "answer": "B",
+      "why": "Blood returning from the body (right side) has delivered its oxygen; blood from the lungs (left side) is oxygen-rich."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "The writer says valves \"act like one-way doors.\" How does this comparison help the reader?",
+      "options": [
+        "It shows that the heart contains real wooden doors inside.",
+        "It shows that blood stops moving while a person sleeps.",
+        "It shows that valves let blood move in only one direction.",
+        "It shows that the valves inside the heart are made of metal."
+      ],
+      "answer": "C",
+      "why": "Comparing valves to one-way doors makes clear that blood can pass forward but not backward."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A heart stops working every night to rest.",
+        "A doctor hears a heartbeat through a stethoscope.",
+        "Blood flows through the heart in every direction at once.",
+        "A person's heart grows larger than a car."
+      ],
+      "answer": "B",
+      "why": "The passage describes doctors hearing the \"lub-dub\" sound; the other events are impossible."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "The heart is the least important organ in the body.",
+        "Exercising regularly is a good choice for heart health.",
+        "Exercise makes the heart weaker and more tired over time.",
+        "Only doctors really need to learn how the heart works."
+      ],
+      "answer": "B",
+      "why": "The final sentence says regular exercise helps keep the heart strong."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "How many chambers the human heart is divided into",
+        "Where the blood picks up fresh oxygen and loses carbon dioxide",
+        "How blood travels from the left ventricle to each part of the body",
+        "What causes the familiar \"lub-dub\" sound of the heart"
+      ],
+      "answer": "C",
+      "why": "The passage says the left ventricle pumps blood around the body but never explains the vessels that carry it."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "Four Rooms and a Busy Pump",
+        "How Doctors Use Stethoscopes",
+        "Why We Breathe Carbon Dioxide",
+        "The Strongest Muscles in Sport"
+      ],
+      "answer": "A",
+      "why": "The passage explains the four chambers and how the heart pumps, which this title captures."
+    }
+  ]
+}

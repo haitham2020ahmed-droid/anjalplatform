@@ -14,6 +14,7 @@ export default async function MyTestsPage() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
   const { t: tr } = await getT();
+  // (NAFS tests live in the NAFS icon only — Grade 6: /student/nafs → My tests)
   const v = await myTests(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>

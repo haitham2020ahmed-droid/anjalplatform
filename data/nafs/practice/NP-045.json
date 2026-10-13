@@ -1,0 +1,169 @@
+{
+  "code": "NP-045",
+  "title": "Hegra: A City Carved in Stone",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "In the desert of AlUla, in the north-west of Saudi Arabia, enormous sandstone rocks rise from the golden sand. Carved into these rocks are more than one hundred magnificent tombs, decorated with columns, stairs and carved birds. This remarkable place is called Mada'in Salih, and it is also known by its ancient name, Hegra.\n\nHegra was built by the Nabataeans, a skilled people whose capital was the famous city of Petra in present-day Jordan. About two thousand years ago, Hegra was an important stop on the trade route that carried valuable incense and spices between southern Arabia and the Mediterranean. Camel caravans rested there, and the city's wells supplied travellers with precious water.\n\nThe Nabataeans were expert stonemasons. They carved their tombs from the top downward, cutting directly into the solid rock. Many tombs have inscriptions above their doors that record the name of the owner and the year the tomb was made. The largest tomb, known as Qasr al-Farid, stands entirely alone and was never completed, so it shows historians exactly how the carving process worked.\n\nIn 2008, Mada'in Salih became the first place in Saudi Arabia to be added to the UNESCO World Heritage List. Today, visitors from around the world come to admire its beauty, and archaeologists continue to uncover new information about the people who once lived there.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a PLURAL noun?",
+      "options": [
+        "desert",
+        "tombs",
+        "capital",
+        "sand"
+      ],
+      "answer": "B",
+      "why": "\"Tombs\" means more than one tomb; the other words are singular."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "The passage calls Mada'in Salih a \"remarkable place.\" Which sentence uses \"remarkable\" with the same meaning?",
+      "options": [
+        "Please remarkable your name at the top of the page.",
+        "The remarkable of the story was very sad indeed.",
+        "The athlete's remarkable speed amazed the crowd.",
+        "She remarkable the answer quickly on the board."
+      ],
+      "answer": "C",
+      "why": "\"Remarkable\" is an adjective meaning unusual and worth noticing; only the first sentence uses it correctly."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why is the tomb called Qasr al-Farid useful to historians?",
+      "options": [
+        "Because it is the oldest tomb, it shows when the city was founded.",
+        "Because it has the longest inscription, it names every Nabataean king.",
+        "Because it stands near the wells, it shows where the caravans rested.",
+        "Because it was never completed, it shows how the carving was done."
+      ],
+      "answer": "D",
+      "why": "The passage states that it \"was never completed, so it shows historians exactly how the carving process worked.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "In what ORDER does the writer present the information?",
+      "options": [
+        "the site → its builders and trade → carving methods → the site today",
+        "carving methods → the site today → its builders and trade → the site",
+        "the site today → the site → carving methods → its builders and trade",
+        "its builders and trade → the site today → the site → carving methods"
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 describes the site, paragraph 2 the Nabataeans and trade, paragraph 3 carving, and paragraph 4 UNESCO and today."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What did Hegra and Petra have in COMMON?",
+      "options": [
+        "Both are in present-day Jordan.",
+        "Both were added to UNESCO's list in 2008.",
+        "Both were built by the Nabataeans.",
+        "Both are carved from a single rock."
+      ],
+      "answer": "C",
+      "why": "The passage says Hegra was built by the Nabataeans, whose capital was Petra."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The passage opens: \"enormous sandstone rocks rise from the golden sand.\" What is the effect of these words?",
+      "options": [
+        "They show that the rocks are slowly growing taller every single year.",
+        "They help the reader picture huge rocks standing out in a bright desert.",
+        "They tell the reader that the sand at AlUla is made of real gold.",
+        "They explain the exact height and age of the rocks in the desert."
+      ],
+      "answer": "B",
+      "why": "\"Rise\" and \"golden\" create a vivid image of tall rocks against bright sand; they are descriptive, not literal facts."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST describes the writer's viewpoint?",
+      "options": [
+        "The writer admires the Nabataeans' skill and values the site.",
+        "The writer thinks Hegra is less important than Petra.",
+        "The writer believes the tombs should be closed to visitors.",
+        "The writer feels that archaeologists have nothing left to find."
+      ],
+      "answer": "A",
+      "why": "Words such as \"magnificent,\" \"remarkable\" and \"expert stonemasons\" show admiration for the people and the place."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "What the caravans carried along the trade route",
+        "What happened to the people of Hegra after the trade period",
+        "How the Nabataeans began carving each tomb",
+        "When Mada'in Salih joined the UNESCO list"
+      ],
+      "answer": "B",
+      "why": "The passage never explains what happened to Hegra's people later; the other details are clearly stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could REALLY happen?",
+      "options": [
+        "A camel caravan carves a tomb in a single night.",
+        "The sandstone rocks walk across the desert at dawn.",
+        "A tourist photographs the carved tombs in AlUla.",
+        "A tomb's inscription changes its words every year."
+      ],
+      "answer": "C",
+      "why": "Visitors from around the world come to see the tombs, so photographing them is realistic."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "How to Ride a Camel in the Desert",
+        "The Modern Cities of North-West Arabia",
+        "Petra: The Capital of Jordan Today",
+        "Hegra: Saudi Arabia's Ancient Stone City"
+      ],
+      "answer": "D",
+      "why": "The passage is about the ancient city of Hegra (Mada'in Salih) and its carved tombs."
+    }
+  ]
+}

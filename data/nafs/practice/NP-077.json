@@ -1,0 +1,169 @@
+{
+  "code": "NP-077",
+  "title": "Grandmother's Machine",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "passage": "In the corner of my grandmother's living room stands an old black sewing machine decorated with faded golden flowers, and for as long as I can remember, I was strictly forbidden to touch it.\n\n\"It is older than your father,\" Grandmother would remind me, smiling as I stared at the shiny wheel.\n\nLast summer, the week before my cousin's wedding, I accidentally tore the sleeve of my favorite dress and was nearly in tears, convinced that it was completely ruined. Grandmother examined the tear calmly, then pulled a second chair beside the machine and announced that today I would finally learn to use it.\n\nFirst, she showed me how to thread the needle, guiding the thread through every tiny hook and loop. Then she placed my hands on the fabric and explained that I had to press the pedal gently while keeping the cloth moving in a straight line. My first stitches wandered across the material like a confused ant, and I groaned with frustration and embarrassment.\n\n\"Patience, my dear,\" Grandmother said gently. \"The machine listens to calm hands, not hurried ones.\"\n\nWe practiced on scraps of cloth for two afternoons before I dared to repair my dress. When I finally finished, the stitches were not perfectly straight, but the sleeve was whole again.\n\nAt the wedding, nobody noticed the repair, yet I felt as proud as if I had designed the dress myself. Now, whenever I visit, Grandmother and I sew together, and she has promised that one day the machine will be mine.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the story is a noun?",
+      "options": [
+        "gently",
+        "faded",
+        "practiced",
+        "machine"
+      ],
+      "answer": "D",
+      "why": "\"Machine\" names a thing, so it is a noun; \"gently\" is an adverb, \"faded\" an adjective and \"practiced\" a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"frustration\" correctly?",
+      "options": [
+        "She frustration the thread through the needle.",
+        "He sighed in frustration when the knot would not untie.",
+        "The frustration dress looked lovely at the wedding.",
+        "We frustration together every single afternoon."
+      ],
+      "answer": "B",
+      "why": "Frustration is a feeling of annoyance when something goes wrong; only the first sentence uses it as a noun with that meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "A poem about sewing",
+        "A letter to Grandmother",
+        "A personal narrative",
+        "An article about machines"
+      ],
+      "answer": "C",
+      "why": "The narrator tells a true-to-life story about her own experience using \"I\" and \"my.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "What happened right after the narrator tore her sleeve?",
+      "options": [
+        "Grandmother examined the tear calmly.",
+        "She practiced on scraps for two days.",
+        "She went to her cousin's wedding.",
+        "Grandmother promised her the machine."
+      ],
+      "answer": "A",
+      "why": "The story says that after the tear, \"Grandmother examined the tear calmly\"; the practice, the wedding and the promise come later."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Why did the narrator feel proud at the wedding?",
+      "options": [
+        "Everyone praised her new dress.",
+        "She had designed the dress herself.",
+        "She had repaired the dress herself.",
+        "Grandmother gave her the machine."
+      ],
+      "answer": "C",
+      "why": "The cause of her pride was fixing the sleeve on her own; she only felt \"as proud as if\" she had designed it."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "\"My first stitches wandered across the material like a confused ant.\" What is the effect of this simile?",
+      "options": [
+        "It shows that ants damaged the dress.",
+        "It shows that the stitches were very neat.",
+        "It shows that the narrator feared insects.",
+        "It shows with humor how crooked the stitches were."
+      ],
+      "answer": "D",
+      "why": "A confused ant moves in a crooked, uncertain path, so the simile paints a funny picture of uneven stitches."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Grandmother says, \"The machine listens to calm hands, not hurried ones.\" Which opinion best matches her viewpoint?",
+      "options": [
+        "Machines are smarter than most people.",
+        "Patience leads to better work than rushing.",
+        "Fast work is always the best work.",
+        "Only grandparents can use sewing machines."
+      ],
+      "answer": "B",
+      "why": "She is teaching that careful, patient work gives better results, which is why the narrator practiced for two afternoons."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information is the least clear in the story?",
+      "options": [
+        "How the dress got torn",
+        "What decorates the machine",
+        "How long they practiced",
+        "What Grandmother promised"
+      ],
+      "answer": "A",
+      "why": "The narrator says she \"accidentally tore\" the sleeve but never explains how; the other details are given."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A sewing machine fixes a dress by itself overnight.",
+        "The painted flowers on the machine start to grow.",
+        "An ant sews a straight line across a dress.",
+        "A girl learns to sew from her grandmother."
+      ],
+      "answer": "D",
+      "why": "Grandparents often teach children skills like sewing; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "difficulty": 3,
+      "stem": "Which would be the best different ending that still fits the story?",
+      "options": [
+        "Years later, she teaches her own daughter on the same machine.",
+        "The narrator decides never to sew again after the wedding.",
+        "The machine breaks, and Grandmother throws it away angrily.",
+        "The narrator sells the machine to buy a brand-new dress."
+      ],
+      "answer": "A",
+      "why": "This ending continues the story's theme of passing skills and the machine between generations; the others go against the story's feelings."
+    }
+  ]
+}

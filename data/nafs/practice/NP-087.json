@@ -1,0 +1,169 @@
+{
+  "code": "NP-087",
+  "title": "The Recycling Club",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "passage": "Every afternoon, Lina noticed that the bins outside her school overflowed with plastic bottles, juice cartons and crumpled paper. \"Somebody should really do something about this,\" she complained to her friends Huda and Reem.\n\n\"Why not us?\" Huda replied immediately.\n\nThe next morning, the three girls visited the principal's office and proposed a recycling club. Mrs. Al-Qahtani listened carefully and agreed, on one condition: they must present a detailed plan by the end of the week.\n\nThe friends worked enthusiastically. Reem designed colorful posters explaining which materials could be recycled, Huda contacted a local recycling company, and Lina organized a schedule so that volunteers could collect materials every Thursday. The principal approved their plan and provided three large containers, one each for plastic, paper and metal.\n\nAt first, very few students participated. Many simply threw everything into the nearest bin, and some even laughed at the club. Lina felt discouraged, but Reem suggested a competition between classes. Each week, the class that collected the most recyclable material would win a small trophy and have its name announced during the morning assembly.\n\nSuddenly, everyone wanted to help. Within a month, the containers were filling up twice a week, and the recycling company began collecting them regularly. What an incredible change it was!\n\nAt the end of the year, the club had recycled more than four hundred kilograms of material, and the principal decided to make it a permanent school tradition.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the story is a VERB?",
+      "options": [
+        "colorful",
+        "trophy",
+        "enthusiastically",
+        "proposed"
+      ],
+      "answer": "D",
+      "why": "'Proposed' is an action the girls did; the others are an adjective, a noun and an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence from the story is EXCLAMATORY?",
+      "options": [
+        "Why not us?",
+        "What an incredible change it was!",
+        "Somebody should really do something about this.",
+        "Suddenly, everyone wanted to help."
+      ],
+      "answer": "B",
+      "why": "It shows strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What type of text is this?",
+      "options": [
+        "A poem",
+        "A news report",
+        "A short story with dialogue",
+        "A science article"
+      ],
+      "answer": "C",
+      "why": "It has characters, events and conversation in quotation marks."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Who said, 'Why not us?'",
+      "options": [
+        "Huda",
+        "Lina",
+        "Reem",
+        "Mrs. Al-Qahtani"
+      ],
+      "answer": "A",
+      "why": "The story says: '\"Why not us?\" Huda replied immediately.'"
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What was the EFFECT of the competition between classes?",
+      "options": [
+        "The principal closed the recycling club",
+        "Students laughed at the club even more",
+        "Many more students began to recycle",
+        "The recycling company stopped coming"
+      ],
+      "answer": "C",
+      "why": "After the competition, 'everyone wanted to help' and the containers filled twice a week."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "'The bins outside her school overflowed with plastic bottles.' What does 'overflowed' suggest?",
+      "options": [
+        "The bins were nearly empty",
+        "Water was leaking from the bins",
+        "The bins were neatly organized",
+        "There was far too much waste"
+      ],
+      "answer": "D",
+      "why": "'Overflowed' paints a picture of bins so full that rubbish spilled out."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the story?",
+      "options": [
+        "Recycling is only the principal's job",
+        "A few students can make a real difference",
+        "Competitions always cause arguments",
+        "Students never care about the environment"
+      ],
+      "answer": "B",
+      "why": "Three girls started a club that became a permanent school tradition."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is LEAST complete?",
+      "options": [
+        "Which class won the trophy most often",
+        "What the three containers collected",
+        "How much material the club recycled",
+        "Who designed the club's posters"
+      ],
+      "answer": "A",
+      "why": "The story mentions a weekly trophy but never names any winning class."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which event could really happen?",
+      "options": [
+        "Plastic bottles sort themselves into the right bin",
+        "A trophy announces the winning class by itself",
+        "A school club recycles hundreds of kilograms",
+        "Paper turns into metal inside the containers"
+      ],
+      "answer": "C",
+      "why": "A school club recycling 400 kg in a year is realistic; the others are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "If students had still ignored the club after the competition, which would be the BEST solution?",
+      "options": [
+        "Close the club and throw everything away",
+        "Punish anyone who uses a plastic bottle",
+        "Remove all the bins from the school",
+        "Explain at assembly how recycling helps"
+      ],
+      "answer": "D",
+      "why": "Raising awareness keeps the club's goal; the others give up or are unfair."
+    }
+  ]
+}

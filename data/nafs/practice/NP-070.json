@@ -1,0 +1,169 @@
+{
+  "code": "NP-070",
+  "title": "The Tree on Al-Nakheel Street",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "For as long as anyone could remember, an enormous ghaf tree had stood at the corner of Al-Nakheel Street. Children climbed its twisted branches after school, and elderly men gathered in its generous shade every evening, drinking coffee and exchanging neighbourhood news.\n\nOne Saturday morning, Reem discovered a yellow notice attached to its trunk, announcing that the tree would be removed the following month to create space for a larger car park.\n\nReem hurried home with her heart pounding. \"They can't destroy it!\" she cried. \"Where will Uncle Saad and his friends sit, and where will the birds build their nests?\"\n\nHer father listened carefully before replying. \"Anger alone will not rescue the tree,\" he said, \"but a thoughtful plan might.\"\n\nThat week, Reem and her friends went from door to door collecting signatures. They photographed the birds that nested in the branches and measured the temperature beneath the tree, which was eight degrees cooler than the unshaded street. Reem also composed a polite letter explaining that ghaf trees can survive for many decades and require very little water.\n\nFinally, Reem's father helped her deliver the letter and the signatures to the municipality, and two weeks later an engineer visited the street to examine the tree closely.\n\nTo everyone's delight, the car park was redesigned so that the tree could remain, and the grateful neighbours celebrated with a picnic beneath its branches.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why was the ghaf tree going to be removed?",
+      "options": [
+        "To make space for a larger car park",
+        "Because it was sick and dying",
+        "Because the birds were too noisy",
+        "To build a new school on the corner"
+      ],
+      "answer": "A",
+      "why": "The yellow notice said it would be removed 'to create space for a larger car park'."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "What happened right AFTER Reem's father helped deliver the letter?",
+      "options": [
+        "An engineer came to examine the tree.",
+        "Reem discovered the yellow notice.",
+        "Reem collected signatures door to door.",
+        "Reem measured the shade's temperature."
+      ],
+      "answer": "A",
+      "why": "Two weeks after the letter was delivered, an engineer visited the street to examine the tree."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What is the plural of \"branch\" as it is written in the story?",
+      "options": [
+        "branchs",
+        "branches",
+        "branch's",
+        "branchies"
+      ],
+      "answer": "B",
+      "why": "Nouns ending in -ch add -es to form the plural: branch → branches."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence from the story is exclamatory?",
+      "options": [
+        "Her father listened carefully before replying.",
+        "\"Where will the birds build their nests?\"",
+        "\"They can't destroy it!\"",
+        "That week, Reem went from door to door."
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling and ends with an exclamation mark; the others are statements or a question."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The men gathered in the tree's \"generous shade.\" What is the effect of the word \"generous\"?",
+      "options": [
+        "It shows the tree was costly to plant.",
+        "It means the shade was very small.",
+        "It shows the men paid to sit there.",
+        "It makes the tree seem kind, giving freely."
+      ],
+      "answer": "D",
+      "why": "'Generous' describes the tree like a kind person who gives a lot of shade to everyone."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What was the EFFECT of Reem's careful plan?",
+      "options": [
+        "The tree was moved to another street.",
+        "The car park was redesigned to save the tree.",
+        "The birds left the neighbourhood.",
+        "Uncle Saad stopped drinking coffee."
+      ],
+      "answer": "B",
+      "why": "After the letter and signatures, 'the car park was redesigned so that the tree could remain'."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A ghaf tree lives for centuries with no water at all.",
+        "The tree reads Reem's letter and decides to stay.",
+        "A city changes a plan after residents send a petition.",
+        "The shade makes the air eighty degrees cooler."
+      ],
+      "answer": "C",
+      "why": "Councils can change plans after residents ask; the passage says ghaf trees need very little water, not none."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "How many signatures were collected — no number is given.",
+        "How much cooler the shade was — eight degrees is stated.",
+        "Who helped deliver the letter — her father is named.",
+        "How the neighbours celebrated — a picnic is mentioned."
+      ],
+      "answer": "A",
+      "why": "The story says they collected signatures but never says how many."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST matches the father's viewpoint?",
+      "options": [
+        "Children should not interfere in city plans.",
+        "Trees matter less than parking spaces.",
+        "Reem should shout until the plan changes.",
+        "Calm planning works better than anger."
+      ],
+      "answer": "D",
+      "why": "He says, 'Anger alone will not rescue the tree, but a thoughtful plan might.'"
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which OTHER solution could also have helped save the tree?",
+      "options": [
+        "Cutting off its branches before the workers come",
+        "Hiding the notice so that nobody reads it",
+        "Asking a local newspaper to report on it",
+        "Moving the birds' nests to the car park"
+      ],
+      "answer": "C",
+      "why": "Telling more people through the newspaper would add public support, like the signatures did."
+    }
+  ]
+}

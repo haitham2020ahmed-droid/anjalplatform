@@ -1,0 +1,169 @@
+{
+  "code": "NP-067",
+  "title": "Spiders: Nature's Silk Builders",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Many people shiver when they see a spider, but these small creatures are among the most skilful and inventive builders in the natural world.\n\nAll spiders are able to produce silk, although not every species spins a web. The silk is manufactured inside the spider's body as a liquid protein and becomes a solid thread as it is pulled out through tiny organs called spinnerets. Weight for weight, some spider silk is stronger than steel, and it can also stretch considerably without breaking.\n\nThe most familiar design is the circular orb web. To construct one, a garden spider first releases a thread that drifts on the breeze until it catches on a nearby branch. It then adds supporting lines that resemble the spokes of a wheel, and finally it spirals around the centre, laying down sticky silk that captures flying insects. The entire structure may be completed in less than an hour.\n\nWebs are not only traps, however. Spiders also use silk to wrap their prey, to protect their eggs and even to travel, since young spiders sometimes release long threads that lift them into the air and carry them many kilometres away.\n\nSpiders are valuable to people as well. By consuming enormous numbers of flies, mosquitoes and agricultural pests, they help protect both our health and our food supply, and scientists are now studying spider silk to develop new materials for medicine.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why does a garden spider lay down sticky silk in the final spiral?",
+      "options": [
+        "To trap flying insects",
+        "To protect its eggs",
+        "To make the web shine",
+        "To carry it through the air"
+      ],
+      "answer": "A",
+      "why": "The passage says the sticky silk 'captures flying insects'."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "In what order does a garden spider build an orb web?",
+      "options": [
+        "Sticky spiral, spokes, then drifting thread",
+        "Spokes, drifting thread, then sticky spiral",
+        "Drifting thread, sticky spiral, then spokes",
+        "Drifting thread, spokes, then sticky spiral"
+      ],
+      "answer": "D",
+      "why": "First a thread drifts to a branch, then it adds the supporting spokes, and finally the sticky spiral."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "In \"some spider silk is stronger than steel,\" which word is an adjective?",
+      "options": [
+        "silk",
+        "steel",
+        "stronger",
+        "is"
+      ],
+      "answer": "C",
+      "why": "'Stronger' describes the silk by comparing it with steel; 'silk' and 'steel' are nouns and 'is' is a verb."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence is an exclamatory sentence?",
+      "options": [
+        "What an amazing web that spider has built!",
+        "Have you ever touched a spider's web?",
+        "Look closely at the centre of the web.",
+        "Spider silk can stretch without breaking."
+      ],
+      "answer": "A",
+      "why": "It shows strong feeling and ends with an exclamation mark; the others are a question, a command and a statement."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer compares the web's supporting lines to \"the spokes of a wheel.\" How does this help the reader?",
+      "options": [
+        "It helps us picture the shape of the lines.",
+        "It suggests a web can roll along like a wheel.",
+        "It proves the lines are as heavy as metal spokes.",
+        "It explains why spiders eat mosquitoes."
+      ],
+      "answer": "A",
+      "why": "The comparison gives a clear picture: straight lines spreading out from a centre, like spokes."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What is one EFFECT of spiders eating crop pests?",
+      "options": [
+        "Spider silk becomes stronger than steel.",
+        "Our food supply is better protected.",
+        "Young spiders travel many kilometres.",
+        "More flies and mosquitoes appear."
+      ],
+      "answer": "B",
+      "why": "By eating crop pests, spiders 'help protect both our health and our food supply'."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A spider spins its silk as a solid metal wire.",
+        "A garden spider builds a city-sized web in an hour.",
+        "Wind carries a young spider kilometres on its silk.",
+        "A spider wraps prey in leaves since it has no silk."
+      ],
+      "answer": "C",
+      "why": "Young spiders can be carried far on threads; the passage also says all spiders produce silk, so the last option is false."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the passage?",
+      "options": [
+        "How silk leaves the body — spinnerets are named.",
+        "What spiders use silk for — several uses are listed.",
+        "How long a web takes — under an hour is stated.",
+        "Which medical materials silk could make — none are named."
+      ],
+      "answer": "D",
+      "why": "The writer mentions 'new materials for medicine' without saying what they are."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST expresses the writer's viewpoint?",
+      "options": [
+        "Spiders are dangerous and should be removed.",
+        "Spiders deserve respect rather than fear.",
+        "Only garden spiders are useful to people.",
+        "Webs are pretty but have no real purpose."
+      ],
+      "answer": "B",
+      "why": "The writer admits people shiver at spiders but presents them as skilful builders that are valuable to us."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "How to Keep Spiders Out of Your Home",
+        "Inside a Busy Steel Factory",
+        "Silk Engineers of the Natural World",
+        "Mosquitoes and Their Many Dangers"
+      ],
+      "answer": "C",
+      "why": "The passage is about spiders as skilful builders who use silk in many ways."
+    }
+  ]
+}

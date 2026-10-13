@@ -1,0 +1,169 @@
+{
+  "code": "NP-092",
+  "title": "The Boy Behind the Wall",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "When the moving truck finally pulled away from the house next door, Khalid pressed his face against the window and watched a boy about his own age carry a single cardboard box toward the front gate, keeping his eyes on the ground as if he were carefully counting the stones of the path.\n\nThe next afternoon, Khalid intentionally kicked his football over the wall and then knocked on the neighbours' door to ask for it. The new boy opened the door, held out the ball without a word, and closed the door again before Khalid could even introduce himself.\n\n\"He doesn't like me,\" Khalid complained to his grandmother.\n\nHis grandmother smiled. \"Some people are like date palms,\" she explained gently. \"They take a long time to grow, but their fruit is worth the wait. Perhaps he simply needs a reason to speak that does not feel like an examination.\"\n\nFor several days, Khalid deliberately said nothing. Instead, he left a small puzzle book on the low wall between the two houses, together with a note that read, \"Page twelve is impossible.\" The following morning the book was back, and page twelve had been solved in neat, confident pencil.\n\nBefore long, the two boys were exchanging increasingly difficult puzzles across the wall every single day. By the end of the month, Khalid had discovered that the boy's name was Yousef, that his family had moved three times in two years, and that he laughed much more loudly than anyone would ever expect.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the story is an adjective?",
+      "options": [
+        "examination",
+        "introduce",
+        "confident",
+        "wall"
+      ],
+      "answer": "C",
+      "why": "\"Confident\" describes the pencil writing, so it is an adjective; the others are nouns or a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"deliberately\" correctly?",
+      "options": [
+        "Sara deliberately left a seat free for her friend.",
+        "The deliberately was too heavy to carry home.",
+        "He deliberately the door before he left.",
+        "We ate a deliberately lunch in the garden."
+      ],
+      "answer": "A",
+      "why": "\"Deliberately\" means on purpose and describes how an action is done; only the first sentence uses it that way."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What type of text is this?",
+      "options": [
+        "An article about date palms",
+        "A story with dialogue",
+        "A poem about friendship",
+        "A letter to a grandmother"
+      ],
+      "answer": "B",
+      "why": "It has characters, events and spoken words in quotation marks, so it is a narrative story with dialogue."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who says, \"Some people are like date palms\"?",
+      "options": [
+        "Khalid",
+        "Yousef",
+        "Yousef's mother",
+        "Khalid's grandmother"
+      ],
+      "answer": "D",
+      "why": "The story says Khalid's grandmother smiled and then explained this to him."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is Khalid's second attempt to meet Yousef different from his first?",
+      "options": [
+        "It is louder and happens in front of Yousef's family.",
+        "It is a direct question asking for Yousef's name.",
+        "It is quieter and lets Yousef answer in his own way.",
+        "It involves the grandmother visiting Yousef's house."
+      ],
+      "answer": "C",
+      "why": "First Khalid knocks on the door; later he quietly leaves a puzzle book, which Yousef can answer without speaking."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The grandmother says some people are \"like date palms.\" What does this comparison suggest?",
+      "options": [
+        "Shy people prefer to live near farms.",
+        "Some friendships grow slowly but are valuable.",
+        "Yousef will soon move away again.",
+        "Khalid should stop trying to be friends."
+      ],
+      "answer": "B",
+      "why": "Date palms take a long time to grow but give good fruit, just as a shy person's friendship may take time but be worth it."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best expresses the writer's viewpoint in the story?",
+      "options": [
+        "Patience can help a shy person feel comfortable.",
+        "Shy people do not really want any friends.",
+        "Kicking a ball over a wall is the best way to make friends.",
+        "Grandparents rarely understand children's problems."
+      ],
+      "answer": "A",
+      "why": "Khalid succeeds only after he waits and finds a gentle way to communicate, which shows the value of patience."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "What Khalid left on the low wall",
+        "What the new boy's name turned out to be",
+        "How Khalid felt after the door closed",
+        "Why Yousef's family had moved so many times"
+      ],
+      "answer": "D",
+      "why": "The story says the family moved three times in two years but never explains why."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A puzzle book solves page twelve by itself overnight.",
+        "A shy boy replies to a note by solving a puzzle.",
+        "A date palm tells Khalid how to make new friends.",
+        "Yousef's laugh is so loud that it knocks down the wall."
+      ],
+      "answer": "B",
+      "why": "Answering a note by solving a puzzle is realistic; the other events are imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the best alternative title for the story?",
+      "options": [
+        "The Lost Football",
+        "Grandmother's Date Farm",
+        "Friendship Across the Wall",
+        "Moving Day Disaster"
+      ],
+      "answer": "C",
+      "why": "The story is about a friendship that grows through puzzles passed over the wall."
+    }
+  ]
+}

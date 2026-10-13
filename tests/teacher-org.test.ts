@@ -115,10 +115,15 @@ describe("NAFS: Grade 6 teachers and admins only", () => {
     await assertNafs(repo, g6);
   });
 
-  test("menus: NAFS is never a teacher menu entry; Find a page lists the NAFS plan only for Grade 6 teachers and admins", () => {
-    for (const f of [{}, { nafs: true }]) assert.ok(!navItemsFor("TEACHER", f).some((i) => /nafs/i.test(i.href + i.label)));
+  test("menus: NAFS is its own teacher menu entry only for Grade 6 teachers; Find a page lists it (and the NAFS plan) for them and admins", () => {
+    // owner's latest instruction: NAFS is its OWN icon in the teacher menu (not inside Plans or Assessments)
+    assert.ok(!navItemsFor("TEACHER", {}).some((i) => /nafs/i.test(i.href + i.label)), "other teachers: no NAFS entry");
+    const g6 = navItemsFor("TEACHER", { nafs: true });
+    assert.equal(g6.filter((i) => i.href === NAFS_PAGE.href).length, 1);
+    assert.equal(g6[g6.findIndex((i) => i.href === "/teacher/assessments") + 1].href, "/teacher/nafs", "right after Assessments");
     assert.ok(!searchablePagesFor("TEACHER", { nafs: false }).some((p) => /nafs/i.test(p.href + p.label)), "other teachers: no NAFS");
     assert.ok(searchablePagesFor("TEACHER", { nafs: true }).some((p) => p.href === NAFS_PAGE.href), "Grade 6 teachers find it");
+    assert.ok(searchablePagesFor("TEACHER", { nafs: true }).some((p) => p.href === "/teacher/plans?tab=nafs"), "and the NAFS plan");
     assert.ok(searchablePagesFor("SCHOOL_ADMIN").some((p) => p.href === NAFS_PAGE.href), "admins find it");
     assert.ok(hasAr(NAFS_PAGE.label) && hasAr(NAFS_REFUSED));
     // the frame passes the teacher's Grade 6 flag (one cached read per request)

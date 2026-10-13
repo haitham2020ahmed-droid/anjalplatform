@@ -10,7 +10,7 @@ export const MORE_TOOLS = MORE;
 export interface NavOpts {
   /** the student is in the RTI program (Tier 2/3) */
   rti?: boolean;
-  /** student: has NAFS work / results (src/server/student/menu-flags.ts); teacher: teaches a Grade 6 class (NAFS) */
+  /** student: in a Grade 6 class (src/server/student/menu-flags.ts); teacher: teaches a Grade 6 class (NAFS) */
   nafs?: boolean;
 }
 
@@ -19,7 +19,7 @@ export interface NavOpts {
  * (src/i18n/en.ts); the shell translates them. Pages taken out of the menu still open (see docs/WHAT-MOVED-WHERE.md).
  */
 export function navItemsFor(role: string, opts: NavOpts = {}): NavItem[] {
-  if (role === "TEACHER") return TEACHER_MENU;
+  if (role === "TEACHER") return opts.nafs ? teacherMenuWithNafs() : TEACHER_MENU;
   if (role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN") return adminMenu();
   if (role === "STUDENT") return studentMenu(opts);
   return [];
@@ -27,19 +27,24 @@ export function navItemsFor(role: string, opts: NavOpts = {}): NavItem[] {
 
 // ------------------------------------------------------------------ Student
 /**
- * Five entries only (owner's spec): Home · My Work · My Tests · MAP · ReadMaster / ReadRise. No RTI wording.
+ * Five entries (owner's spec): Home · My Work · My Tests · MAP · ReadMaster / ReadRise — plus NAFS for students in a
+ * Grade 6 class only (the NAFS center, owner-approved plan). No RTI wording.
  * Clean line icons (no emoji) and each page once: the home page's tiles open the rest (Curriculum Map, Second
  * Chance, Fluency Coach, Writing).
  */
-function studentMenu(_opts: NavOpts): NavItem[] {
+function studentMenu(opts: NavOpts): NavItem[] {
   return [
     { href: "/student", label: "Home", icon: "🏠", line: "home" },
     { href: "/student/work", label: "My Work", icon: "📋", line: "work" },
     { href: "/student/tests", label: "My Tests", icon: "📝", line: "tests" },
     { href: "/student/map", label: "MAP", icon: "🗺️", line: "map" },
     { href: "/student/reading", label: "ReadMaster / ReadRise", icon: "📚", line: "reading" },
+    // 🇸🇦 the NAFS icon: ONLY for students in a Grade 6 class (menu-flags.ts inGrade6Class)
+    ...(opts.nafs ? [STUDENT_NAFS_PAGE] : []),
   ];
 }
+/** The student's NAFS icon: My practice · My tests · My results (Grade 6 students only). */
+export const STUDENT_NAFS_PAGE: NavItem = { href: "/student/nafs", label: "NAFS", icon: "🇸🇦", line: "flag" };
 
 // ------------------------------------------------------------------ Teacher
 /**
@@ -47,7 +52,8 @@ function studentMenu(_opts: NavOpts): NavItem[] {
  * (no Home tiles, hub cards or second menu entries repeat them). Reports = every report (MAP reports too) · MAP = MAP
  * results, score entry and the MAP practice test · Plans = every plan (MAP, NAFS, curriculum, support, custom) ·
  * Reading = ReadMaster, ReadRise and Reading Fluency. The tools used now and then sit under "More" (folded).
- * NAFS (inside Plans) is only for teachers of a Grade 6 class and admins: src/server/teacher/nafs-access.ts.
+ * NAFS (its own entry, added by navItemsFor) is only for teachers of a Grade 6 class and admins:
+ * src/server/teacher/nafs-access.ts.
  */
 export const TEACHER_MENU: NavItem[] = [
   { href: "/teacher", label: "Home", icon: "🏠", line: "home" },
@@ -65,8 +71,18 @@ export const TEACHER_MENU: NavItem[] = [
   { href: "/teacher/calendar", label: "Calendar", icon: "🗓️", line: "calendar", group: MORE },
   { href: "/guide", label: "Help", icon: "❔", line: "help", group: MORE },
 ];
-/** The NAFS plan (a tab of Plans): found by name only by teachers of a Grade 6 class and by admins. */
-export const NAFS_PAGE: NavItem = { href: "/teacher/plans?tab=nafs", label: "NAFS plan", icon: "🇸🇦", line: "flag" };
+/**
+ * 🇸🇦 NAFS: its OWN menu entry (owner's spec), after Assessments, only for teachers of a Grade 6 class
+ * (src/server/teacher/nafs-access.ts); admins find it by name. The section's tabs: About NAFS · Skills · Question
+ * bank · Tests · Bubble sheets · Reports.
+ */
+export const NAFS_PAGE: NavItem = { href: "/teacher/nafs", label: "NAFS", icon: "🇸🇦", line: "flag" };
+/** The NAFS plan (a tab of Plans, also linked from the NAFS section's Reports): found by name by the same people. */
+export const NAFS_PLAN_PAGE: NavItem = { href: "/teacher/plans?tab=nafs", label: "NAFS plan", icon: "🧾" };
+function teacherMenuWithNafs(): NavItem[] {
+  const at = TEACHER_MENU.findIndex((i) => i.href === "/teacher/assessments") + 1;
+  return [...TEACHER_MENU.slice(0, at), NAFS_PAGE, ...TEACHER_MENU.slice(at)];
+}
 
 /**
  * Pages that left a menu but still open (docs/WHAT-MOVED-WHERE.md): "Find a page" in the side menu still finds
@@ -130,8 +146,8 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
 /** Every page a role can find by name: the menu, then the pages that left it (no duplicates). */
 export function searchablePagesFor(role: string, opts: NavOpts = {}): NavItem[] {
   const menu = navItemsFor(role, opts);
-  const extra = role === "TEACHER" ? [...OFF_MENU.TEACHER, ...(opts.nafs ? [NAFS_PAGE] : [])] : role === "STUDENT" ? OFF_MENU[role]
-    : role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN" ? [...adminOffMenu(), NAFS_PAGE] : [];
+  const extra = role === "TEACHER" ? [...OFF_MENU.TEACHER, ...(opts.nafs ? [NAFS_PLAN_PAGE] : [])] : role === "STUDENT" ? OFF_MENU[role]
+    : role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN" ? [...adminOffMenu(), NAFS_PAGE, NAFS_PLAN_PAGE] : [];
   const seen = new Set(menu.map((i) => i.href));
   return [...menu, ...extra.filter((i) => !seen.has(i.href))];
 }

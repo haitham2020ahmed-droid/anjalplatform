@@ -1,0 +1,169 @@
+{
+  "code": "NP-064",
+  "title": "The Day I Finally Let Go",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "passage": "For most of my childhood, my bicycle stood in the corner of our garage like a silent accusation, while my cousins rode theirs around the neighbourhood every evening and I invented excuses, pretending that I simply was not interested.\n\nThe truth was that I was terrified of falling. When I was seven years old, I had attempted to ride once, crashed into a parked car and scraped both of my knees, and after that painful experience I absolutely refused to try again.\n\nLast winter, when I was eleven, my older sister Noura announced that she was determined to teach me. \"You can't hide forever,\" she said firmly. Every afternoon after school, we practised in the empty car park behind the mosque, where the ground was smooth and level.\n\nAt first, Noura held the back of the seat while I pedalled slowly and wobbled anxiously from side to side, gripping the handlebars so tightly that my fingers ached. I fell three times during the first week, but on each occasion Noura helped me up and calmly said one word: \"Again.\"\n\nThen, one cool afternoon in the second week, I was pedalling steadily and chatting about my mathematics test when I noticed that Noura's voice was coming from far behind me. I turned my head and realized, with astonishment, that she had let go a long time earlier. I was riding entirely by myself!\n\nThat evening, I joined my cousins for the first time. My knees were still bruised, but my heart felt as light as a feather.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the narrator refuse to try riding again after the age of seven?",
+      "options": [
+        "The bicycle was too small for the narrator.",
+        "The cousins laughed at the narrator's riding.",
+        "The narrator's parents did not allow it.",
+        "A crash had left the narrator afraid of falling."
+      ],
+      "answer": "D",
+      "why": "The narrator crashed into a parked car, scraped both knees and was 'terrified of falling'."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "When did the narrator discover that Noura had let go of the seat?",
+      "options": [
+        "On the very first afternoon in the car park",
+        "While chatting about a maths test in week two",
+        "After falling for the third time in week one",
+        "When the narrator was seven years old"
+      ],
+      "answer": "B",
+      "why": "It happened 'one cool afternoon in the second week' while the narrator was chatting about a mathematics test."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "In \"my heart felt as light as a feather,\" which word is an adjective?",
+      "options": [
+        "heart",
+        "felt",
+        "light",
+        "feather"
+      ],
+      "answer": "C",
+      "why": "'Light' describes the heart, so it is an adjective; 'heart' and 'feather' are nouns and 'felt' is a verb."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence from the story is an exclamatory sentence?",
+      "options": [
+        "I was riding entirely by myself!",
+        "The truth was that I was terrified of falling.",
+        "That evening, I joined my cousins for the first time.",
+        "You can't hide forever."
+      ],
+      "answer": "A",
+      "why": "It expresses strong surprise and joy and ends with an exclamation mark."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The narrator says the bicycle stood \"like a silent accusation.\" What does this suggest?",
+      "options": [
+        "The bicycle had been stolen from a neighbour.",
+        "The bicycle made strange noises at night.",
+        "The cousins had damaged the bicycle.",
+        "The narrator felt guilty every time they saw it."
+      ],
+      "answer": "D",
+      "why": "The simile suggests the unused bicycle seemed to blame the narrator for not riding it."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How did the narrator change from the beginning of the story to the end?",
+      "options": [
+        "From loving cycling to finding it boring",
+        "From riding alone to needing help again",
+        "From making excuses to riding with the cousins",
+        "From being brave to fearing every fall"
+      ],
+      "answer": "C",
+      "why": "At first the narrator invented excuses; at the end the narrator joined the cousins on the bicycle."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A learner falls several times before riding without help.",
+        "A rider stays balanced for an hour without moving at all.",
+        "Scraped knees heal completely in a single second.",
+        "A bicycle pedals itself to the car park every day."
+      ],
+      "answer": "A",
+      "why": "Falling a few times while learning is realistic; the other events are impossible."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "How far the narrator rode alone — no distance is given.",
+        "Where the lessons took place — the car park is described.",
+        "Who taught the narrator — Noura is named.",
+        "How old the narrator was last winter — eleven is given."
+      ],
+      "answer": "A",
+      "why": "The narrator says Noura let go 'a long time earlier' but never says how far the ride was."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the story?",
+      "options": [
+        "It is better to avoid things that once hurt you.",
+        "Patient support can help someone overcome a fear.",
+        "Older sisters should not interfere in hobbies.",
+        "Learning to ride is only possible before seven."
+      ],
+      "answer": "B",
+      "why": "Noura's daily, patient help ('Again') is what allowed the narrator to overcome the fear of falling."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the story?",
+      "options": [
+        "My Cousins' New Bicycles",
+        "A Car Park Full of Cars",
+        "The Day I Finally Rode Alone",
+        "Why I Hate Mathematics Tests"
+      ],
+      "answer": "C",
+      "why": "The key event is the narrator riding alone for the first time."
+    }
+  ]
+}

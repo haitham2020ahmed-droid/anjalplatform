@@ -1,0 +1,169 @@
+{
+  "code": "NP-093",
+  "title": "How a Message Crosses the Internet",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "When you send a message to a friend in another city, it seems to arrive almost instantly, as though it travelled along a single wire. In reality, its journey is far more complicated and far more clever.\n\nFirst, your device breaks the message into many small pieces called packets. Each packet carries a fragment of the message along with important information, including the address of the computer it came from, the address of the computer it is going to, and a number showing its position in the original message. These addresses, known as IP addresses, work much like the addresses written on envelopes.\n\nNext, the packets travel through a huge network of machines called routers. A router reads the destination address on each packet and sends it toward the next router that is closer to its goal. Surprisingly, the packets from one message do not always follow the same route. If one path is crowded or broken, a router simply chooses another, so some packets may cross a different country before reaching your friend.\n\nFinally, the receiving device collects all the packets and uses their numbers to put them back in the correct order. If a packet is missing or damaged, the device asks for it to be sent again. Only when every piece has arrived does the complete message appear on the screen.\n\nThis system, which engineers designed decades ago, allows billions of messages to share the same network every single second.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "In the sentence \"A router reads the destination address on each packet,\" which word is a verb?",
+      "options": [
+        "router",
+        "destination",
+        "packet",
+        "reads"
+      ],
+      "answer": "D",
+      "why": "\"Reads\" is the action the router performs, so it is the verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is a question?",
+      "options": [
+        "Your device breaks the message into small packets.",
+        "How does a message reach a friend in another city?",
+        "Send the message to your friend now.",
+        "What a clever system the internet is!"
+      ],
+      "answer": "B",
+      "why": "A question asks for information and ends with a question mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why does a router sometimes choose a different path for a packet?",
+      "options": [
+        "The packet has lost its position number.",
+        "The friend has asked for the message again.",
+        "The usual path is crowded or broken.",
+        "The message is too short to send."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 says that if one path is crowded or broken, a router chooses another."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which step in the journey of a message happens LAST?",
+      "options": [
+        "The device puts the packets back in order.",
+        "The device breaks the message into packets.",
+        "Routers read the destination address.",
+        "Packets travel through different countries."
+      ],
+      "answer": "A",
+      "why": "The receiving device reassembles the packets at the end, just before the message appears."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How are IP addresses similar to the addresses written on envelopes?",
+      "options": [
+        "Both are always written by hand.",
+        "Both are checked by postal workers.",
+        "Both change every time a message is sent.",
+        "Both show where something is going."
+      ],
+      "answer": "D",
+      "why": "The passage compares them because both tell the system where to deliver something."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The writer says the journey is \"far more complicated and far more clever.\" What is the effect of repeating \"far more\"?",
+      "options": [
+        "It shows that messages travel very long distances.",
+        "It suggests that the writer is confused.",
+        "It stresses how surprising the real process is.",
+        "It tells the reader that the internet is slow."
+      ],
+      "answer": "C",
+      "why": "The repetition emphasises the contrast between how simple sending seems and how clever it really is."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best shows the writer's viewpoint?",
+      "options": [
+        "Sending messages online is too hard for most people.",
+        "The design of the internet is clever and impressive.",
+        "Routers often lose important messages.",
+        "Engineers should replace the internet with single wires."
+      ],
+      "answer": "B",
+      "why": "Words such as \"clever\" and the final sentence about billions of messages show the writer admires the system."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "How a device knows that a packet is damaged",
+        "What the number on each packet is for",
+        "What a router does with each packet",
+        "Why each packet carries an IP address"
+      ],
+      "answer": "A",
+      "why": "The passage says a damaged packet is requested again but never explains how the damage is detected."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A packet decides by itself which friend should receive it.",
+        "A router rewrites a message to make it more polite.",
+        "Two packets of one message cross different countries.",
+        "A message appears before any of its packets arrive."
+      ],
+      "answer": "C",
+      "why": "The passage says packets of one message may take different routes, even through different countries."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "According to the passage, what is the solution when a packet goes missing?",
+      "options": [
+        "The sender writes a completely new message.",
+        "The router deletes the whole message.",
+        "The friend guesses the missing words.",
+        "The receiving device asks for it again."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4 says that if a packet is missing or damaged, the device asks for it to be sent again."
+    }
+  ]
+}

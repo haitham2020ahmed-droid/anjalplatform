@@ -1,0 +1,216 @@
+{
+ "code": "NB-902",
+ "title": "The Lost Kite",
+ "kind": "LITERARY",
+ "genre": "narrative story",
+ "passage": "The Lost Kite. Huda ran up the hill with her new red kite. The wind pulled it high above the houses, and she laughed.\n\nThen the string snapped. The kite drifted over the market and caught on a lamp post. Her brother Sami climbed a ladder, untangled it carefully and handed it back. \"Next time,\" he said, \"hold the string with both hands!\"",
+ "questions": [
+  {
+   "n": 1,
+   "standard": "MOE.S01",
+   "nafs": "NAFS.V.SYNANT",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 1 about the text (S01)?",
+   "options": [
+    "Choice one 1",
+    "Choice two 1",
+    "Choice three 1",
+    "Choice four 1"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 2,
+   "standard": "MOE.S02",
+   "nafs": "NAFS.V.FORMS",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 2 about the text (S02)?",
+   "options": [
+    "Choice one 2",
+    "Choice two 2",
+    "Choice three 2",
+    "Choice four 2"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 3,
+   "standard": "MOE.S03",
+   "nafs": "NAFS.V.CONTEXT",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 3 about the text (S03)?",
+   "options": [
+    "Choice one 3",
+    "Choice two 3",
+    "Choice three 3",
+    "Choice four 3"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 4,
+   "standard": "MOE.S04",
+   "nafs": "NAFS.RC.MAIN",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 4 about the text (S04)?",
+   "options": [
+    "Choice one 4",
+    "Choice two 4",
+    "Choice three 4",
+    "Choice four 4"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 5,
+   "standard": "MOE.S05",
+   "nafs": "NAFS.RC.DETAIL",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 5 about the text (S05)?",
+   "options": [
+    "Choice one 5",
+    "Choice two 5",
+    "Choice three 5",
+    "Choice four 5"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 6,
+   "standard": "MOE.S06",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 6 about the text (S06)?",
+   "options": [
+    "Choice one 6",
+    "Choice two 6",
+    "Choice three 6",
+    "Choice four 6"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 7,
+   "standard": "MOE.S07",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 7 about the text (S07)?",
+   "options": [
+    "Choice one 7",
+    "Choice two 7",
+    "Choice three 7",
+    "Choice four 7"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 8,
+   "standard": "MOE.S08",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 8 about the text (S08)?",
+   "options": [
+    "Choice one 8",
+    "Choice two 8",
+    "Choice three 8",
+    "Choice four 8"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 9,
+   "standard": "MOE.S09",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 9 about the text (S09)?",
+   "options": [
+    "Choice one 9",
+    "Choice two 9",
+    "Choice three 9",
+    "Choice four 9"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 10,
+   "standard": "MOE.S10",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 10 about the text (S10)?",
+   "options": [
+    "Choice one 10",
+    "Choice two 10",
+    "Choice three 10",
+    "Choice four 10"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 11,
+   "standard": "MOE.S11",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 11 about the text (S11)?",
+   "options": [
+    "Choice one 11",
+    "Choice two 11",
+    "Choice three 11",
+    "Choice four 11"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 12,
+   "standard": "MOE.S12",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 12 about the text (S12)?",
+   "options": [
+    "Choice one 12",
+    "Choice two 12",
+    "Choice three 12",
+    "Choice four 12"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 13,
+   "standard": "MOE.S13",
+   "nafs": "NAFS.RC.MAIN",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "WRITTEN",
+   "stem": "Suggest a different ending for the story.",
+   "model": "A sentence that uses the word correctly.",
+   "rubric": [
+    "2 = correct and complete",
+    "1 = partly correct",
+    "0 = no answer or wrong"
+   ]
+  }
+ ]
+}

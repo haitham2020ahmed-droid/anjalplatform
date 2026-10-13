@@ -1,0 +1,169 @@
+{
+  "code": "NP-082",
+  "title": "The Broken Window",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Faris had promised his grandmother that he would practice his football kicks only in the open lot behind the mosque. That afternoon, however, the lot seemed inconveniently far away, while the narrow, deserted lane outside his apartment building appeared perfectly suitable for a few quick practice kicks.\n\nHe positioned the ball carefully on the uneven pavement, stepped backward, and kicked with tremendous determination. The ball curved sharply to the left and crashed straight through Mr. Saleh's kitchen window. The sound of shattering glass echoed down the lane like thunder, and Faris froze, his heart pounding against his ribs.\n\nFor a moment he seriously considered running away, since nobody had witnessed the accident and the lane was completely empty. Then he remembered his grandmother's words: \"A mistake becomes a lesson only when you admit it.\"\n\nSlowly and reluctantly, Faris walked to Mr. Saleh's door and knocked. When the elderly neighbor appeared, Faris explained exactly what had happened and apologized sincerely. Mr. Saleh studied him silently for a long moment, then nodded thoughtfully. \"Honesty is rarer than glass,\" he said.\n\nThat weekend, Faris spent his savings on a new pane and asked his uncle, a carpenter, to teach him how to install it. Together they measured the frame, removed the dangerous broken pieces, and fitted the new glass securely, and when they finished, Mr. Saleh invited Faris inside for tea and dates.\n\nFrom then on, Faris practiced only in the open lot, and Mr. Saleh often came to watch him play, applauding enthusiastically whenever he scored.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the story is an ADJECTIVE?",
+      "options": [
+        "knocked",
+        "savings",
+        "elderly",
+        "slowly"
+      ],
+      "answer": "C",
+      "why": "'Elderly' describes the neighbor (a noun), so it is an adjective. 'Slowly' is an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is a COMMAND?",
+      "options": [
+        "Pick up the broken glass carefully.",
+        "Faris kicked the ball very hard.",
+        "Did Mr. Saleh forgive Faris?",
+        "What a loud crash that was!"
+      ],
+      "answer": "A",
+      "why": "A command tells someone to do something; it begins with the verb 'Pick'."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Faris decide NOT to run away?",
+      "options": [
+        "Mr. Saleh had seen him kick the ball",
+        "He remembered his grandmother's words",
+        "His uncle was standing in the lane",
+        "He wanted to get his football back"
+      ],
+      "answer": "B",
+      "why": "The story says: 'Then he remembered his grandmother's words: A mistake becomes a lesson only when you admit it.'"
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "What happened right AFTER Faris apologized to Mr. Saleh?",
+      "options": [
+        "Faris kicked the ball through the window",
+        "Faris and his uncle measured the frame",
+        "Mr. Saleh invited Faris inside for tea",
+        "Mr. Saleh said honesty is rarer than glass"
+      ],
+      "answer": "D",
+      "why": "Mr. Saleh studied him, nodded and spoke; the repair and the tea came that weekend."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What was the EFFECT of Faris practicing in the lane instead of the lot?",
+      "options": [
+        "He scored the best goal of his life",
+        "He broke his neighbor's kitchen window",
+        "His grandmother took his football away",
+        "Mr. Saleh moved out of the building"
+      ],
+      "answer": "B",
+      "why": "The ball curved left and crashed through Mr. Saleh's kitchen window."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "'The sound of shattering glass echoed down the lane like thunder.' What does this simile show?",
+      "options": [
+        "That a storm was starting over the lane",
+        "That the glass broke slowly and quietly",
+        "How loud and shocking the crash seemed",
+        "That Faris enjoyed the sound of the ball"
+      ],
+      "answer": "C",
+      "why": "Comparing the sound to thunder shows it was very loud and frightening."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST expresses the writer's viewpoint?",
+      "options": [
+        "Admitting a mistake and fixing it builds trust",
+        "Children should never play football at all",
+        "Breaking things is fine if nobody sees you",
+        "Neighbors usually stay angry for a long time"
+      ],
+      "answer": "A",
+      "why": "Faris confesses and repairs the window, and Mr. Saleh becomes his friend and supporter."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is LEAST clear?",
+      "options": [
+        "Where Faris was supposed to practice",
+        "Who taught Faris to install the glass",
+        "What Mr. Saleh served after the repair",
+        "How much Faris paid for the new glass"
+      ],
+      "answer": "D",
+      "why": "The story says he spent his savings but never says how much the pane cost."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could really happen?",
+      "options": [
+        "A broken window repairs itself overnight",
+        "A boy pays for a new window with his savings",
+        "A carpenter fixes glass by only looking at it",
+        "A ball circles the building and returns home"
+      ],
+      "answer": "B",
+      "why": "Paying for a repair with one's savings is realistic; the others are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for the story?",
+      "options": [
+        "Faris Wins the Football Cup",
+        "A Day at the Carpenter's Shop",
+        "The Window That Taught Honesty",
+        "The Lane Where Nobody Lived"
+      ],
+      "answer": "C",
+      "why": "The story centers on breaking a window and learning to be honest about it."
+    }
+  ]
+}

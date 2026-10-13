@@ -17,7 +17,7 @@ import {
 } from "../src/imports/questions/template";
 import { curriculumRows, exampleRows, templateCsv, templateXlsx } from "../src/imports/questions/template-files";
 import {
-  ImportFileError, analyzeImport, cancelImport, checkInput, commitImportChunk, getImportJob, importProblemRows, listImportJobs, loadCurriculumIndex, updateImportRow,
+  COMMIT_CHUNK, ImportFileError, analyzeImport, cancelImport, checkInput, commitImportChunk, getImportJob, importProblemRows, listImportJobs, loadCurriculumIndex, updateImportRow,
   type CommitProgress,
 } from "../src/server/admin/question-import";
 import { demoDatabase, ROOT } from "./helpers/db";
@@ -490,7 +490,7 @@ describe("question import: upload, preview and import (database)", () => {
     const { last, calls } = await commitAll(repo, admin, jobId);
     const commitMs = Date.now() - t;
     assert.equal(last.counts.imported, N);
-    assert.equal(calls, N / 100, "100 questions per request (progress bar steps)");
+    assert.equal(calls, Math.ceil(N / COMMIT_CHUNK), `${COMMIT_CHUNK} questions per request (progress bar steps)`);
     assert.equal(await repo.count("Question", {}), before + N);
     const done = await getImportJob(repo, admin, jobId);
     for (const k of [0, 777, 999]) {

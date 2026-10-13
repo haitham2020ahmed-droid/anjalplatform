@@ -3472,3 +3472,192 @@ model DiagnosticWindow {
 
   @@unique([schoolId, grade, schoolYear])
 }
+
+// ------------------------------------------------------------------ 🇸🇦 NAFS section (teacher; src/server/nafs/*)
+
+/// The NAFS reading skills — the ONLY skills of the NAFS section (seeded from src/server/nafs/framework.ts with
+/// stable codes NAFS.RC.MAIN … NAFS.P4). domain: RC · IAE · V · PIRLS; process: the default PIRLS process (P1–P4)
+/// of a question of this skill.
+model NafsSkill {
+  code      String  @id @db.VarChar(24)
+  domain    String  @db.VarChar(8)
+  name      String  @db.VarChar(120)
+  process   String? @db.VarChar(4)
+  sortOrder Int     @default(0)
+  isActive  Boolean @default(true)
+}
+
+/// NAFS skill → the platform's skill family (Main Idea, Synonyms and Antonyms …): AUTO from the family's name, or
+/// ADMIN (set on the NAFS Skills tab). Shared by every school, like NafsSkillLink.
+model NafsSkillFamily {
+  nafsCode  String   @db.VarChar(24)
+  familyId  String
+  source    String   @db.VarChar(8)
+  updatedAt DateTime @default(now())
+
+  @@id([nafsCode, familyId])
+  @@index([familyId])
+}
+
+/// One question in a school's NAFS bank: the school's own question (made in the section, an AI draft, or the school
+/// copy of an edited platform question: copyOfId), its NAFS skill / PIRLS process tag, hidden (never deleted).
+model NafsBankItem {
+  id          String   @id @default(cuid())
+  schoolId    String
+  questionId  String
+  nafsCode    String?  @db.VarChar(24)
+  process     String?  @db.VarChar(4)
+  own         Boolean  @default(false)
+  copyOfId    String?
+  hidden      Boolean  @default(false)
+  /// an AI draft waiting for the teacher's review (not usable in tests until approved)
+  draft       Boolean  @default(false)
+  /// the Ministry of Education NAFS standard (MOE.S01 … MOE.S13) set by the teacher or a model booklet; null = the
+  /// skill's sure mapping (or a clear stem) decides
+  standard    String?  @db.VarChar(8)
+  /// a NAFS model booklet question (platform content): the booklet's code (NB-001) and the question's number in it
+  booklet     String?  @db.VarChar(16)
+  bookletN    Int?
+  /// the question's own NAFS difficulty (1 Easy · 2 Medium · 3 Hard) from a model booklet, a practice set or the
+  /// teacher; null = from the question's difficulty level / statistics
+  difficulty  Int?
+  createdById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+
+  @@unique([schoolId, questionId])
+  @@index([schoolId, own])
+}
+
+/// A NAFS test (simulation, automatic or manual): the questions in booklet order and their marks.
+model NafsTest {
+  id           String    @id @default(cuid())
+  schoolId     String
+  createdById  String
+  title        String    @db.VarChar(191)
+  /// SIMULATION | AUTO | MANUAL
+  mode         String    @db.VarChar(12)
+  questionIds  Json
+  /// { questionId: marks }; null = 1 mark each
+  marks        Json?
+  timeLimitMin Int?
+  /// what it was built from (chosen skills, counts, the simulation numbers)
+  settings     Json?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @default(now())
+  deletedAt    DateTime?
+
+  @@index([schoolId, createdAt])
+}
+
+/// A NAFS test given to a Grade 6 class to answer online (simulation mode); releasedAt = the teacher released the
+/// results to the students.
+model NafsTestClass {
+  id          String    @id @default(cuid())
+  testId      String
+  classId     String
+  openAt      DateTime?
+  dueAt       DateTime?
+  releasedAt  DateTime?
+  /// this assignment's own time in minutes (null = the test's time)
+  timeLimitMin Int?
+  /// only these students of the class (Student ids); null = the whole class
+  studentIds  Json?
+  createdById String
+  createdAt   DateTime  @default(now())
+
+  @@unique([testId, classId])
+  @@index([classId])
+}
+
+/// One student's answers to a NAFS test — online, from a bubble sheet or typed by the teacher. Answers only
+/// (0–3 = A–D, null = blank, in the test's order): sheet images are never sent or stored.
+model NafsResult {
+  id          String    @id @default(cuid())
+  testId      String
+  classId     String
+  studentId   String
+  /// ONLINE | SHEET | TYPED
+  source      String    @db.VarChar(8)
+  answers     Json
+  correct     Int       @default(0)
+  points      Float     @default(0)
+  maxPoints   Float     @default(0)
+  /// short written answers typed online: { "<index>": "text" } (on paper there is no text)
+  texts       Json?
+  /// the teacher's rubric scores of the written answers: { "<index>": 0 | 1 | 2 } — never scored automatically
+  writtenScores Json?
+  startedAt   DateTime?
+  submittedAt DateTime?
+  gradedById  String?
+  updatedAt   DateTime  @default(now())
+
+  @@unique([testId, studentId])
+  @@index([classId, testId])
+  @@index([studentId])
+}
+
+/// 🇸🇦 NAFS adaptive practice (NAFS center, Tool 1): the teacher's chosen NAFS skills / Ministry standards (or chosen
+/// questions) for a Grade 6 class or chosen students of it. Everything the students do is stored in the NAFS tables
+/// below only — never in the platform's attempts, mastery or levels.
+model NafsPractice {
+  id           String    @id @default(cuid())
+  schoolId     String
+  createdById  String
+  title        String    @db.VarChar(191)
+  /// the targets practised: NAFS skill codes (NAFS.RC.MAIN …) and / or Ministry standards (MOE.S01 …)
+  targets      Json
+  /// the teacher's chosen questions (null = any question of the targets in the NAFS center)
+  questionIds  Json?
+  classId      String
+  /// only these students of the class (Student ids); null = the whole class
+  studentIds   Json?
+  /// questions per student (null = the default); time in minutes (null = no limit)
+  maxQuestions Int?
+  timeLimitMin Int?
+  dueAt        DateTime?
+  createdAt    DateTime  @default(now())
+  deletedAt    DateTime?
+
+  @@index([schoolId, createdAt])
+  @@index([classId])
+}
+
+/// One student's adaptive NAFS practice: the adaptive state per target (current difficulty, the last answers,
+/// mastered), the question shown now, totals and time spent.
+model NafsPracticeRun {
+  id         String    @id @default(cuid())
+  practiceId String
+  studentId  String
+  classId    String
+  state      Json
+  asked      Int       @default(0)
+  correct    Int       @default(0)
+  seconds    Int       @default(0)
+  startedAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now())
+  finishedAt DateTime?
+
+  @@unique([practiceId, studentId])
+  @@index([studentId])
+}
+
+/// One answer in an adaptive NAFS practice (NAFS tables only): the question, its target, its difficulty (1–3),
+/// the choice (0–3), right or wrong and the time taken.
+model NafsPracticeAnswer {
+  id         String   @id @default(cuid())
+  runId      String
+  practiceId String
+  studentId  String
+  questionId String
+  target     String   @db.VarChar(24)
+  difficulty Int
+  choice     Int?
+  correct    Boolean
+  ms         Int      @default(0)
+  at         DateTime @default(now())
+
+  @@index([runId])
+  @@index([practiceId])
+  @@index([studentId, at])
+}

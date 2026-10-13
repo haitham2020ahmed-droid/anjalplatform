@@ -1,0 +1,169 @@
+{
+  "code": "NP-009",
+  "title": "Ibn Battuta: Thirty Years of Travel",
+  "kind": "INFORMATIONAL",
+  "genre": "biography",
+  "passage": "In 1325, a young man named Ibn Battuta left his home in Tangier, in present-day Morocco, to perform the Hajj in Makkah. He was only twenty-one years old, and he expected to return within a year or two. Instead, he travelled for almost thirty years.\n\nAfter completing his pilgrimage, Ibn Battuta discovered that he loved exploring new lands. He journeyed across North Africa, the Arabian Peninsula, Persia and East Africa. Later he reached India, where the sultan of Delhi appointed him as a judge, and he eventually sailed as far as the Maldives and China. Historians estimate that he covered roughly 120,000 kilometres, more than most travellers of his time.\n\nHis journeys were often dangerous. He survived storms at sea, illness and attacks by robbers, and on several occasions he lost nearly everything he owned. Nevertheless, his knowledge of Islamic law and his curiosity about people helped him find work and friendship wherever he went.\n\nWhen he finally returned to Morocco, the sultan asked him to describe his adventures. A scholar named Ibn Juzayy wrote down his account in a book usually known as the Rihla, which means \"the journey.\"\n\nToday, the Rihla remains a valuable source of information about the cultures, cities and trade routes of the fourteenth-century world.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a noun?",
+      "options": [
+        "dangerous",
+        "pilgrimage",
+        "eventually",
+        "journeyed"
+      ],
+      "answer": "B",
+      "why": "'Pilgrimage' names a journey (the Hajj), so it is a noun; 'dangerous' is an adjective, 'eventually' an adverb and 'journeyed' a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word 'valuable' correctly?",
+      "options": [
+        "The old map is valuable because it shows forgotten trade routes.",
+        "He valuable across the desert for many years.",
+        "The sultan valuabled him as a judge in Delhi.",
+        "Valuable is the city where the traveller was born."
+      ],
+      "answer": "A",
+      "why": "'Valuable' is an adjective meaning useful or worth a lot; only this sentence uses it to describe a noun."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Ibn Battuta first leave Tangier?",
+      "options": [
+        "to become a judge in India",
+        "to write a book about travel",
+        "to escape from a band of robbers",
+        "to perform the Hajj in Makkah"
+      ],
+      "answer": "D",
+      "why": "The passage states he left home 'to perform the Hajj in Makkah'."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "He was made a judge in Delhi.",
+        "He completed his pilgrimage.",
+        "Ibn Juzayy wrote down his account.",
+        "He left his home in Tangier."
+      ],
+      "answer": "C",
+      "why": "The account was written after he 'finally returned to Morocco', at the end of all his travels."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What helped Ibn Battuta find work and friends wherever he went?",
+      "options": [
+        "his knowledge of Islamic law and his curiosity",
+        "his great wealth and his large army",
+        "his skill as the captain of a ship",
+        "letters from the sultan of Morocco"
+      ],
+      "answer": "A",
+      "why": "The passage says 'his knowledge of Islamic law and his curiosity about people helped him find work and friendship wherever he went'."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "'He expected to return within a year or two. Instead, he travelled for almost thirty years.' What is the effect of this contrast?",
+      "options": [
+        "It shows that he disliked travelling.",
+        "It explains why he became a judge.",
+        "It stresses how surprisingly long his journey became.",
+        "It suggests that he got lost on his way home."
+      ],
+      "answer": "C",
+      "why": "Placing 'a year or two' beside 'almost thirty years' highlights how much longer the journey became than he planned."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "Ibn Battuta travelled only to become rich.",
+        "Ibn Battuta was a brave and curious traveller.",
+        "The Rihla has very little value today.",
+        "Travel was safe in the fourteenth century."
+      ],
+      "answer": "B",
+      "why": "He kept travelling despite storms, illness and robbers, and loved exploring new lands, showing bravery and curiosity."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "the city where Ibn Battuta was born",
+        "the name of the scholar who wrote his account",
+        "what the word 'Rihla' means",
+        "how historians worked out the distance he travelled"
+      ],
+      "answer": "D",
+      "why": "The passage gives the estimate of 120,000 kilometres but not how it was calculated; the other facts are clearly stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which event could really happen to a traveller in the fourteenth century?",
+      "options": [
+        "A traveller loses his belongings to robbers on a road.",
+        "A traveller flies from Morocco to China in a day.",
+        "A traveller phones his family from a ship.",
+        "A traveller drives a car across the Sahara."
+      ],
+      "answer": "A",
+      "why": "Ibn Battuta himself was attacked by robbers; aeroplanes, phones and cars did not exist in the fourteenth century."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "A Short Trip to Makkah",
+        "The Sultan of Delhi's Palace",
+        "Thirty Years on the Road",
+        "How to Build a Sailing Ship"
+      ],
+      "answer": "C",
+      "why": "The passage covers Ibn Battuta's almost thirty years of travel; the other titles are too narrow or off the topic."
+    }
+  ]
+}

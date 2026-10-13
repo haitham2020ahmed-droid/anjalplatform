@@ -1,0 +1,169 @@
+{
+  "code": "NP-081",
+  "title": "Wolves of the Northern Desert",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Few people imagine that wolves still roam the northern deserts of Arabia, yet the Arabian wolf survives in remote valleys and rocky plateaus near the borders of Jordan and Iraq. It is the smallest kind of grey wolf. It weighs about eighteen kilograms, which is half the weight of its cousins in cold northern lands.\n\nIts small size helps it survive. A smaller body produces less heat, and its large ears release extra warmth into the air during scorching summer afternoons. Its fur is short and thin in summer, although it grows longer and thicker when the desert nights become bitterly cold in winter.\n\nUnlike most wolves, Arabian wolves seldom travel in large packs. They usually hunt alone or in pairs, searching for hares, rodents, insects and the remains of larger animals. Because water is scarce, they obtain much of their moisture from the food they eat.\n\nUnfortunately, the wolf's population has declined considerably. Some herders have hunted wolves to protect their sheep and goats, and expanding roads and settlements have reduced the wild spaces the animals require. Today, conservation organizations in Saudi Arabia are protecting large reserves where wolves, gazelles and other native species can live safely. Scientists believe that these reserves, together with greater public awareness, offer the Arabian wolf its best chance of surviving in the desert for future generations.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Like 'sheep' in the passage, which word has the SAME form in the singular and the plural?",
+      "options": [
+        "wolf",
+        "deer",
+        "goose",
+        "mouse"
+      ],
+      "answer": "B",
+      "why": "'Deer' is irregular: one deer, two deer. Wolf→wolves, goose→geese, mouse→mice."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence uses the word 'scarce' correctly?",
+      "options": [
+        "She scarce the water into three small cups.",
+        "The wolf was so scarce that it fell asleep.",
+        "We scarce the road carefully before crossing.",
+        "Fresh grass is scarce in the desert in summer."
+      ],
+      "answer": "D",
+      "why": "'Scarce' is an adjective meaning hard to find; only this sentence uses it that way."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why do Arabian wolves get much of their moisture from food?",
+      "options": [
+        "Because water is hard to find in the desert",
+        "Because they cannot reach rivers in winter",
+        "Because their large ears lose a lot of water",
+        "Because herders guard all the desert wells"
+      ],
+      "answer": "A",
+      "why": "The passage states: 'Because water is scarce, they obtain much of their moisture from the food they eat.'"
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which topic does the writer discuss right AFTER explaining how the wolf's ears and fur help it?",
+      "options": [
+        "Where the wolf lives in northern Arabia",
+        "How much an Arabian wolf weighs",
+        "How the wolf hunts and finds its food",
+        "Why the wolf's numbers have declined"
+      ],
+      "answer": "C",
+      "why": "Paragraph 2 is about ears and fur; paragraph 3 moves on to hunting alone or in pairs and what it eats."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How is the Arabian wolf different from most other wolves?",
+      "options": [
+        "It rarely hunts in large packs",
+        "It hunts only during bright daylight",
+        "It eats only plants and desert fruit",
+        "It lives in large groups all year"
+      ],
+      "answer": "A",
+      "why": "The passage says: 'Unlike most wolves, Arabian wolves seldom travel in large packs.'"
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says desert nights become 'bitterly cold.' What is the effect of this phrase?",
+      "options": [
+        "It shows the nights are pleasant and mild",
+        "It stresses how harsh winter nights feel",
+        "It gives the exact temperature at night",
+        "It suggests the wolves enjoy cold food"
+      ],
+      "answer": "B",
+      "why": "'Bitterly' is an expressive word that makes the cold sound painful and severe."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "Wolves are a danger that should be removed",
+        "More roads will help wolves find more food",
+        "The wolf will surely vanish within ten years",
+        "Protected reserves are vital for the wolf's survival"
+      ],
+      "answer": "D",
+      "why": "The last paragraph says scientists believe reserves offer the wolf its best chance of survival."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is LEAST complete?",
+      "options": [
+        "What Arabian wolves usually hunt and eat",
+        "Why a smaller body helps in the summer heat",
+        "How many Arabian wolves are left in the wild",
+        "How the wolf's fur changes with the seasons"
+      ],
+      "answer": "C",
+      "why": "The writer says the population has 'declined considerably' but never gives a number."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Based on the facts in the passage, which event could really happen?",
+      "options": [
+        "A wolf hunts a hare alone in a rocky valley",
+        "An Arabian wolf of eighty kilograms chases camels",
+        "A wolf drinks from a river every hour in summer",
+        "A wolf grows thick winter fur in one afternoon"
+      ],
+      "answer": "A",
+      "why": "The passage says the wolf often hunts alone and eats hares; the others contradict its facts."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Based on the passage, what is the BEST way to help the Arabian wolf survive?",
+      "options": [
+        "Move all the wolves to colder countries",
+        "Protect its habitat and teach people about it",
+        "Build new roads straight through the reserves",
+        "Let herders hunt the wolves more freely"
+      ],
+      "answer": "B",
+      "why": "The passage names reserves and public awareness as the wolf's best chance."
+    }
+  ]
+}

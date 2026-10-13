@@ -1,0 +1,169 @@
+{
+  "code": "NP-041",
+  "title": "Travellers in the Arabian Sky",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Twice every year, millions of birds pass over Saudi Arabia on one of the busiest migration routes on Earth. In autumn, they leave their breeding grounds in Europe and Central Asia and fly south toward warmer parts of Africa. In spring, they make the long journey back again.\n\nThe Arabian Peninsula lies directly between these two continents, so it works like an enormous bridge for travelling birds. Large soaring birds, such as storks, eagles and buzzards, depend on rising columns of warm air called thermals. By circling inside a thermal, a heavy eagle can climb high into the sky without flapping its wings, and then glide many kilometres to the next column of warm air. Because thermals do not form above cool water, these birds avoid crossing wide seas. Instead, they follow the mountains along the Red Sea coast and cross to Africa at the narrow strait of Bab el-Mandeb.\n\nSmaller birds, such as warblers and swallows, often fly at night and rest during the day. For them, green oases, farms and coastal wetlands are vital stopping places where they can find water, insects and shade.\n\nUnfortunately, some of these resting places are disappearing as cities grow. Scientists in the Kingdom now count migrating birds, protect important wetlands and ask people not to disturb flocks that are resting.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "The passage says scientists \"ask people not to disturb flocks.\" Which word from the passage is an IRREGULAR plural noun?",
+      "options": [
+        "people",
+        "storks",
+        "wetlands",
+        "insects"
+      ],
+      "answer": "A",
+      "why": "\"People\" is the irregular plural of \"person\"; the other words form their plurals regularly by adding -s."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "In the passage, oases and wetlands are \"vital stopping places.\" Which sentence uses the word \"vital\" with the same meaning?",
+      "options": [
+        "The vital shop closed early on Friday evening.",
+        "Clean water is vital for every living thing.",
+        "He felt vital because the film was so boring.",
+        "We painted the vital wall a pale shade of blue."
+      ],
+      "answer": "B",
+      "why": "\"Vital\" means extremely important or necessary; water is necessary for living things."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why do large soaring birds avoid flying across wide seas?",
+      "options": [
+        "Strong winds over the sea blow their feathers away.",
+        "Fishing boats frighten them away from the coast.",
+        "Thermals do not form above cool water.",
+        "They cannot find insects to eat above the sea."
+      ],
+      "answer": "C",
+      "why": "The passage states that \"thermals do not form above cool water,\" so soaring birds avoid crossing wide seas."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "According to the passage, what does an eagle do AFTER it has climbed high inside a thermal?",
+      "options": [
+        "It flaps its wings hard to climb even higher.",
+        "It lands at an oasis to drink and rest.",
+        "It circles until the thermal turns into cool air.",
+        "It glides many kilometres to the next thermal."
+      ],
+      "answer": "D",
+      "why": "The eagle climbs by circling in a thermal \"and then glide[s] many kilometres to the next column of warm air.\""
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "How are the travelling habits of small birds DIFFERENT from those of large soaring birds?",
+      "options": [
+        "Small birds cross the open sea, while soaring birds always stay inside the cities.",
+        "Small birds often fly at night and rest by day, while soaring birds ride warm air.",
+        "Small birds travel only in spring, while soaring birds travel only during autumn.",
+        "Small birds depend on thermals, while soaring birds flap their wings the whole way."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 says small birds often fly at night and rest during the day; paragraph 2 says soaring birds depend on thermals of warm air."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says the Arabian Peninsula \"works like an enormous bridge for travelling birds.\" What does this comparison suggest?",
+      "options": [
+        "The birds walk across a real bridge built over the Red Sea.",
+        "The peninsula is too narrow and dangerous for birds to cross.",
+        "The peninsula connects two continents that the birds travel between.",
+        "Engineers have built special towers to help the birds rest."
+      ],
+      "answer": "C",
+      "why": "A bridge joins two places; the simile shows that Arabia links Europe and Asia with Africa for migrating birds."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the information in the passage?",
+      "options": [
+        "Migrating birds would be safer if they stopped travelling altogether.",
+        "Small birds are more important to protect than large soaring birds.",
+        "Growing cities have no real effect on the birds that pass through.",
+        "Protecting Saudi wetlands helps birds from many different countries."
+      ],
+      "answer": "D",
+      "why": "Birds from Europe, Asia and Africa rest at Saudi wetlands, and the passage says resting places are disappearing, so protecting them helps many birds."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "How scientists in the Kingdom count the migrating birds",
+        "Why soaring birds follow the mountains along the coast",
+        "Where soaring birds cross from Arabia over to Africa",
+        "In which seasons the birds travel south and north"
+      ],
+      "answer": "A",
+      "why": "The passage says scientists \"count migrating birds\" but never explains how; the other points are clearly explained."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could REALLY happen?",
+      "options": [
+        "An eagle carries a tired swallow on its back across the ocean.",
+        "A buzzard flies from Europe to Africa without moving at all.",
+        "A flock of storks rests at a wetland near the Red Sea in autumn.",
+        "Warblers build a stone bridge so they can cross the sea."
+      ],
+      "answer": "C",
+      "why": "Storks are migrating soaring birds that rest at wetlands during autumn migration; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "How Eagles Hunt in the Desert at Night",
+        "A Bridge in the Sky: Bird Migration over Arabia",
+        "The Busy Fishing Ports of the Red Sea",
+        "Building New Cities in Saudi Arabia"
+      ],
+      "answer": "B",
+      "why": "The whole passage explains how and why birds migrate over Arabia, which this title captures."
+    }
+  ]
+}

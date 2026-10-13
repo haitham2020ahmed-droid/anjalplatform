@@ -1,0 +1,567 @@
+{
+ "code": "NB-901",
+ "title": "Morning at the Oasis Garden",
+ "kind": "INFORMATIONAL",
+ "genre": "expository",
+ "passage": "Morning at the Oasis Garden. The school garden opens early, before the sun grows strong. Students water the date palms, check the drip pipes and write what they see in a notebook.\n\nThe garden teaches patience. A seed planted in autumn may not show a leaf until winter, and a palm takes years to give fruit. Still, every small job helps the garden live through the hot summer.",
+ "questions": [
+  {
+   "n": 1,
+   "standard": "MOE.S01",
+   "nafs": "NAFS.V.SYNANT",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 1 about the text (S01)?",
+   "options": [
+    "Choice one 1",
+    "Choice two 1",
+    "Choice three 1",
+    "Choice four 1"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 2,
+   "standard": "MOE.S01",
+   "nafs": "NAFS.V.SYNANT",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 2 about the text (S01)?",
+   "options": [
+    "Choice one 2",
+    "Choice two 2",
+    "Choice three 2",
+    "Choice four 2"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 3,
+   "standard": "MOE.S01",
+   "nafs": "NAFS.V.SYNANT",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 3 about the text (S01)?",
+   "options": [
+    "Choice one 3",
+    "Choice two 3",
+    "Choice three 3",
+    "Choice four 3"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 4,
+   "standard": "MOE.S02",
+   "nafs": "NAFS.V.FORMS",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 4 about the text (S02)?",
+   "options": [
+    "Choice one 4",
+    "Choice two 4",
+    "Choice three 4",
+    "Choice four 4"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 5,
+   "standard": "MOE.S02",
+   "nafs": "NAFS.V.FORMS",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 5 about the text (S02)?",
+   "options": [
+    "Choice one 5",
+    "Choice two 5",
+    "Choice three 5",
+    "Choice four 5"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 6,
+   "standard": "MOE.S02",
+   "nafs": "NAFS.V.FORMS",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 6 about the text (S02)?",
+   "options": [
+    "Choice one 6",
+    "Choice two 6",
+    "Choice three 6",
+    "Choice four 6"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 7,
+   "standard": "MOE.S03",
+   "nafs": "NAFS.V.CONTEXT",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 7 about the text (S03)?",
+   "options": [
+    "Choice one 7",
+    "Choice two 7",
+    "Choice three 7",
+    "Choice four 7"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 8,
+   "standard": "MOE.S03",
+   "nafs": "NAFS.V.CONTEXT",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 8 about the text (S03)?",
+   "options": [
+    "Choice one 8",
+    "Choice two 8",
+    "Choice three 8",
+    "Choice four 8"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 9,
+   "standard": "MOE.S03",
+   "nafs": "NAFS.V.CONTEXT",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "WRITTEN",
+   "stem": "Use the word “patience” in a sentence of your own.",
+   "model": "A sentence that uses the word correctly.",
+   "rubric": [
+    "2 = correct and complete",
+    "1 = partly correct",
+    "0 = no answer or wrong"
+   ]
+  },
+  {
+   "n": 10,
+   "standard": "MOE.S04",
+   "nafs": "NAFS.RC.MAIN",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 10 about the text (S04)?",
+   "options": [
+    "Choice one 10",
+    "Choice two 10",
+    "Choice three 10",
+    "Choice four 10"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 11,
+   "standard": "MOE.S04",
+   "nafs": "NAFS.RC.MAIN",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 11 about the text (S04)?",
+   "options": [
+    "Choice one 11",
+    "Choice two 11",
+    "Choice three 11",
+    "Choice four 11"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 12,
+   "standard": "MOE.S04",
+   "nafs": "NAFS.RC.MAIN",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 12 about the text (S04)?",
+   "options": [
+    "Choice one 12",
+    "Choice two 12",
+    "Choice three 12",
+    "Choice four 12"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 13,
+   "standard": "MOE.S05",
+   "nafs": "NAFS.RC.DETAIL",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 13 about the text (S05)?",
+   "options": [
+    "Choice one 13",
+    "Choice two 13",
+    "Choice three 13",
+    "Choice four 13"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 14,
+   "standard": "MOE.S05",
+   "nafs": "NAFS.RC.DETAIL",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 14 about the text (S05)?",
+   "options": [
+    "Choice one 14",
+    "Choice two 14",
+    "Choice three 14",
+    "Choice four 14"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 15,
+   "standard": "MOE.S05",
+   "nafs": "NAFS.RC.DETAIL",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 15 about the text (S05)?",
+   "options": [
+    "Choice one 15",
+    "Choice two 15",
+    "Choice three 15",
+    "Choice four 15"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 16,
+   "standard": "MOE.S06",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 16 about the text (S06)?",
+   "options": [
+    "Choice one 16",
+    "Choice two 16",
+    "Choice three 16",
+    "Choice four 16"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 17,
+   "standard": "MOE.S06",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 17 about the text (S06)?",
+   "options": [
+    "Choice one 17",
+    "Choice two 17",
+    "Choice three 17",
+    "Choice four 17"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 18,
+   "standard": "MOE.S06",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P1",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 18 about the text (S06)?",
+   "options": [
+    "Choice one 18",
+    "Choice two 18",
+    "Choice three 18",
+    "Choice four 18"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 19,
+   "standard": "MOE.S07",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 19 about the text (S07)?",
+   "options": [
+    "Choice one 19",
+    "Choice two 19",
+    "Choice three 19",
+    "Choice four 19"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 20,
+   "standard": "MOE.S07",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 20 about the text (S07)?",
+   "options": [
+    "Choice one 20",
+    "Choice two 20",
+    "Choice three 20",
+    "Choice four 20"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 21,
+   "standard": "MOE.S07",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P2",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 21 about the text (S07)?",
+   "options": [
+    "Choice one 21",
+    "Choice two 21",
+    "Choice three 21",
+    "Choice four 21"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 22,
+   "standard": "MOE.S08",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 22 about the text (S08)?",
+   "options": [
+    "Choice one 22",
+    "Choice two 22",
+    "Choice three 22",
+    "Choice four 22"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 23,
+   "standard": "MOE.S08",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 23 about the text (S08)?",
+   "options": [
+    "Choice one 23",
+    "Choice two 23",
+    "Choice three 23",
+    "Choice four 23"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 24,
+   "standard": "MOE.S08",
+   "nafs": "NAFS.IAE.ANALYZE",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 24 about the text (S08)?",
+   "options": [
+    "Choice one 24",
+    "Choice two 24",
+    "Choice three 24",
+    "Choice four 24"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 25,
+   "standard": "MOE.S09",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 25 about the text (S09)?",
+   "options": [
+    "Choice one 25",
+    "Choice two 25",
+    "Choice three 25",
+    "Choice four 25"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 26,
+   "standard": "MOE.S09",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 26 about the text (S09)?",
+   "options": [
+    "Choice one 26",
+    "Choice two 26",
+    "Choice three 26",
+    "Choice four 26"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 27,
+   "standard": "MOE.S09",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 27 about the text (S09)?",
+   "options": [
+    "Choice one 27",
+    "Choice two 27",
+    "Choice three 27",
+    "Choice four 27"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 28,
+   "standard": "MOE.S10",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 28 about the text (S10)?",
+   "options": [
+    "Choice one 28",
+    "Choice two 28",
+    "Choice three 28",
+    "Choice four 28"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 29,
+   "standard": "MOE.S10",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 29 about the text (S10)?",
+   "options": [
+    "Choice one 29",
+    "Choice two 29",
+    "Choice three 29",
+    "Choice four 29"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 30,
+   "standard": "MOE.S10",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 30 about the text (S10)?",
+   "options": [
+    "Choice one 30",
+    "Choice two 30",
+    "Choice three 30",
+    "Choice four 30"
+   ],
+   "answer": "C"
+  },
+  {
+   "n": 31,
+   "standard": "MOE.S11",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 31 about the text (S11)?",
+   "options": [
+    "Choice one 31",
+    "Choice two 31",
+    "Choice three 31",
+    "Choice four 31"
+   ],
+   "answer": "D"
+  },
+  {
+   "n": 32,
+   "standard": "MOE.S12",
+   "nafs": "NAFS.IAE.EVAL",
+   "pirls": "P4",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 32 about the text (S12)?",
+   "options": [
+    "Choice one 32",
+    "Choice two 32",
+    "Choice three 32",
+    "Choice four 32"
+   ],
+   "answer": "A"
+  },
+  {
+   "n": 33,
+   "standard": "MOE.S13",
+   "nafs": "NAFS.RC.MAIN",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 33 about the text (S13)?",
+   "options": [
+    "Choice one 33",
+    "Choice two 33",
+    "Choice three 33",
+    "Choice four 33"
+   ],
+   "answer": "B"
+  },
+  {
+   "n": 34,
+   "standard": "MOE.S13",
+   "nafs": "NAFS.RC.MAIN",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "WRITTEN",
+   "stem": "Suggest a different way to help the garden in summer.",
+   "model": "A sentence that uses the word correctly.",
+   "rubric": [
+    "2 = correct and complete",
+    "1 = partly correct",
+    "0 = no answer or wrong"
+   ]
+  },
+  {
+   "n": 35,
+   "standard": "MOE.S13",
+   "nafs": "NAFS.RC.MAIN",
+   "pirls": "P3",
+   "why": "Fixture item for tests.",
+   "type": "MCQ",
+   "stem": "Fixture question 35 about the text (S13)?",
+   "options": [
+    "Choice one 35",
+    "Choice two 35",
+    "Choice three 35",
+    "Choice four 35"
+   ],
+   "answer": "D"
+  }
+ ]
+}

@@ -1,0 +1,169 @@
+{
+  "code": "NP-004",
+  "title": "Sunshine Power in NEOM",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "In the northwest of Saudi Arabia, along the coast of the Red Sea, a remarkable project called NEOM is taking shape. One of its central goals is to power the region with clean, renewable energy rather than oil and gas.\n\nThe location offers an obvious advantage. The area receives strong sunshine for most of the year, and the skies are usually clear. Solar panels convert this sunlight directly into electricity, producing no smoke and very little noise. Steady winds in the region can also turn wind turbines, so the two sources can support each other.\n\nHowever, sunshine has a weakness: it disappears at night. To solve this problem, engineers plan to store extra energy in large batteries and to use some of it to produce green hydrogen. In this process, electricity splits water into hydrogen and oxygen. The hydrogen can be stored, transported and later used as fuel without releasing harmful carbon dioxide.\n\nDesert conditions create other challenges as well. Dust and sand can settle on panels and reduce how much electricity they produce, so the panels must be cleaned regularly, sometimes by robots.\n\nSupporters believe that projects like this can help the Kingdom reach the goals of Vision 2030, reduce pollution and create new jobs for young Saudis. If they succeed, NEOM could become an example for sunny countries around the world.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a plural noun?",
+      "options": [
+        "energy",
+        "oxygen",
+        "sunshine",
+        "batteries"
+      ],
+      "answer": "D",
+      "why": "'Batteries' is the plural of 'battery' (y changes to i and -es is added); the other words are singular nouns."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "The last sentence mentions 'countries'. Which is the correct plural of 'country'?",
+      "options": [
+        "countrys",
+        "countries",
+        "countryes",
+        "countres"
+      ],
+      "answer": "B",
+      "why": "When a noun ends in a consonant + y, the y changes to i and -es is added: country → countries."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why must the solar panels at NEOM be cleaned regularly?",
+      "options": [
+        "Seawater makes the panels rust quickly.",
+        "The robots need practice at cleaning.",
+        "Dust and sand reduce the electricity they make.",
+        "Clean panels make much less noise."
+      ],
+      "answer": "C",
+      "why": "The passage states that dust and sand settle on panels 'and reduce how much electricity they produce'."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "In which order does the writer present these ideas?",
+      "options": [
+        "sunshine's advantage, night problem, dust, benefits",
+        "night problem, sunshine's advantage, benefits, dust",
+        "benefits, dust, sunshine's advantage, night problem",
+        "dust, night problem, benefits, sunshine's advantage"
+      ],
+      "answer": "A",
+      "why": "The passage moves from the region's strong sunshine, to the problem of night, to dust, and finally to the benefits for the Kingdom."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How are solar panels different from wind turbines, according to the passage?",
+      "options": [
+        "Panels make noise; turbines are silent.",
+        "Panels use sunlight; turbines are turned by wind.",
+        "Panels work at night; turbines work by day.",
+        "Panels make hydrogen; turbines make oil."
+      ],
+      "answer": "B",
+      "why": "Panels 'convert this sunlight directly into electricity', while 'steady winds' turn the turbines."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says 'sunshine has a weakness'. What is the purpose of this expression?",
+      "options": [
+        "to show that sunlight is harmful to people",
+        "to suggest that the sun is growing weaker",
+        "to explain why the region has clear skies",
+        "to introduce a problem with relying only on the sun"
+      ],
+      "answer": "D",
+      "why": "The phrase leads into the problem that sunshine 'disappears at night', which engineers must solve with storage."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion does the writer seem to support?",
+      "options": [
+        "Saudi Arabia should stop building new cities.",
+        "Solar energy can never work in deserts.",
+        "Clean energy projects can benefit people and nature.",
+        "Oil is the cleanest source of energy we have."
+      ],
+      "answer": "C",
+      "why": "The writer reports that such projects can reduce pollution and create jobs, and hopes NEOM becomes an example for others."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "how many jobs the project will create for young Saudis",
+        "why the region is suitable for solar energy",
+        "what happens when electricity splits water",
+        "why the panels need to be cleaned"
+      ],
+      "answer": "A",
+      "why": "The passage only says the project could 'create new jobs' without saying how many or what kind; the other points are explained."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A solar panel catches sunlight at midnight in NEOM.",
+        "A robot cleans the dust from a row of solar panels.",
+        "Hydrogen fuel turns desert sand into drinking water.",
+        "Wind turbines push the clouds away so the sun shines."
+      ],
+      "answer": "B",
+      "why": "The passage says panels are sometimes cleaned by robots; there is no sunlight at midnight, and hydrogen and turbines cannot do the other things."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which sentence would make the best different ending for the passage?",
+      "options": [
+        "NEOM may soon show how sunshine can power a clean future.",
+        "Therefore, NEOM will burn more oil every year.",
+        "In conclusion, sand is NEOM's most useful resource.",
+        "Finally, solar panels do not work in hot countries."
+      ],
+      "answer": "A",
+      "why": "This ending matches the passage's hopeful message about clean energy; the others contradict the main idea."
+    }
+  ]
+}

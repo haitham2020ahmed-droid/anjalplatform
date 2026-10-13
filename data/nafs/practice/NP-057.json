@@ -1,0 +1,169 @@
+{
+  "code": "NP-057",
+  "title": "Omar and the Dolphin",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Omar was collecting shells along the deserted beach near Al Wajh when he noticed a grey shape lying in the shallow water. At first he thought it was a piece of driftwood, but then the shape moved, and a high whistle drifted across the sand. It was a young dolphin, stranded by the falling tide, its smooth skin already drying in the intense morning sun.\n\nOmar's heart pounded, but he remembered his science teacher explaining that a stranded dolphin must be kept wet and must never be dragged by its tail or fins. Quickly, he pulled off his cap, filled it with seawater, and gently poured it over the dolphin's back, careful to keep the water away from the blowhole on top of its head.\n\n\"Don't worry, little one, because help is coming very soon,\" he murmured reassuringly.\n\nWith his other hand, Omar phoned his father, who called the coastguard, and while they waited, Omar kept pouring water and spoke softly to calm the terrified creature. The dolphin's dark eye followed him, as if it understood that he meant no harm.\n\nTwenty minutes later, two rescuers arrived with a canvas stretcher. They lifted the dolphin carefully and carried it into deeper water. For a moment it floated motionless, and Omar held his breath; then, with a powerful flick of its tail, the dolphin shot forward and disappeared beneath the shining waves.\n\nThe rescuers told Omar that his calm, quick thinking had probably saved the dolphin's life, and as he walked home, he felt as light as the sea breeze.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the story is an adverb?",
+      "options": [
+        "quickly",
+        "pounded",
+        "powerful",
+        "stretcher"
+      ],
+      "answer": "A",
+      "why": "'Quickly' tells how Omar acted, so it is an adverb; 'stretcher' is a noun, 'powerful' an adjective and 'pounded' a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "The story mentions 'the dolphin's life.' What is the plural of 'life'?",
+      "options": [
+        "lifeses",
+        "lifes",
+        "lives",
+        "livies"
+      ],
+      "answer": "C",
+      "why": "Many nouns ending in -fe change to -ves in the plural: life → lives, knife → knives."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the story, why did Omar pour seawater over the dolphin?",
+      "options": [
+        "His father told him to on the phone.",
+        "He was trying to wake it from sleep.",
+        "He wanted to wash the sand off it.",
+        "A stranded dolphin must be kept wet."
+      ],
+      "answer": "D",
+      "why": "Omar remembered his teacher explaining that a stranded dolphin must be kept wet."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "What happened just BEFORE the rescuers arrived?",
+      "options": [
+        "The dolphin swam off into deeper water.",
+        "Omar kept pouring water and spoke softly.",
+        "The rescuers praised Omar's quick thinking.",
+        "Omar walked home feeling very light."
+      ],
+      "answer": "B",
+      "why": "While waiting for the coastguard, Omar kept pouring water and calmed the dolphin; the other events came after the rescuers arrived."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What caused the dolphin to become stranded?",
+      "options": [
+        "a storm at sea",
+        "bright beach lights",
+        "the falling tide",
+        "a fishing net"
+      ],
+      "answer": "C",
+      "why": "The story says the dolphin was 'stranded by the falling tide.'"
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "\"He felt as light as the sea breeze.\" What does this simile show?",
+      "options": [
+        "Omar had lost weight from working so hard.",
+        "Omar felt cold because of the strong wind.",
+        "Omar was tired and hungry after the rescue.",
+        "Omar felt relieved and happy after the rescue."
+      ],
+      "answer": "D",
+      "why": "Feeling 'light' shows that his worry was gone and he was happy the dolphin was safe."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the story?",
+      "options": [
+        "Knowing what to do in an emergency can save a life.",
+        "Children should never try to help wild animals.",
+        "Dolphins never need any help from people.",
+        "Rescuers usually arrive too late to help."
+      ],
+      "answer": "A",
+      "why": "Omar used what he learned in science and stayed calm; the rescuers said his quick thinking probably saved the dolphin."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "Where the story takes place",
+        "Whether the dolphin was hurt before it stranded",
+        "How Omar kept the dolphin wet",
+        "Who called the coastguard"
+      ],
+      "answer": "B",
+      "why": "The story never says whether the dolphin was injured; the place (Al Wajh), the caller (his father) and the cap of water are all stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A dolphin flies over the waves back to its family.",
+        "A boy keeps a stranded dolphin wet until help arrives.",
+        "A boy carries a grown dolphin home in his cap.",
+        "A dolphin thanks the boy in Arabic and swims off."
+      ],
+      "answer": "B",
+      "why": "Keeping a stranded dolphin wet is a real rescue step; dolphins cannot speak or fly, and a cap cannot hold a dolphin."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the best alternative title for the story?",
+      "options": [
+        "Collecting Shells in Al Wajh",
+        "The Science Teacher's Lesson",
+        "A Rescue at Low Tide",
+        "A Day at the Fish Market"
+      ],
+      "answer": "C",
+      "why": "The main event is Omar rescuing a dolphin stranded by the falling tide."
+    }
+  ]
+}

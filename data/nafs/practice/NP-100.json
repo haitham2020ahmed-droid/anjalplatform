@@ -1,0 +1,169 @@
+{
+  "code": "NP-100",
+  "title": "Caught in the Sandstorm",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "passage": "Last winter, my family drove into the desert north of Riyadh for a relaxing weekend of camping. On the first afternoon, my brother Omar and I climbed an enormous dune while my father set up the tents and my mother prepared tea over a small fire.\n\nFrom the top of the dune, Omar noticed something unusual on the horizon. A brownish wall, wider than anything I had ever seen, seemed to be gradually swallowing the sky. I wondered aloud whether it was a mountain, although I knew perfectly well that there were no mountains in that direction.\n\nWe hurried back to the campsite immediately. My father took one look at the horizon and immediately instructed everyone to pack the loose equipment into the car. Within ten minutes, the wind had risen to a howl, and the air was filled with stinging sand that found its way into our eyes, our ears, and even our teeth.\n\nWe sat in the car with the windows closed while the storm roared furiously around us. Through the glass, the world turned an eerie orange, and I could no longer see the tents, although they were only a few metres away. My little sister held my hand so tightly that my fingers ached painfully.\n\nAfter about an hour, the wind dropped as suddenly as it had begun. When we stepped outside, one tent had collapsed and the fire had disappeared beneath the sand. Nevertheless, my father simply laughed and remarked that the desert had reminded us who was really in charge.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "The passage says the sand got into \"our teeth.\" What is the singular of \"teeth\"?",
+      "options": [
+        "teeth",
+        "tooths",
+        "tooth",
+        "teethe"
+      ],
+      "answer": "C",
+      "why": "\"Teeth\" is the irregular plural of \"tooth\"."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"eerie\" correctly?",
+      "options": [
+        "The empty house made an eerie sound at night.",
+        "He eerie ran to the shop.",
+        "The eerie of the storm was loud.",
+        "We eerie the tents before dark."
+      ],
+      "answer": "A",
+      "why": "\"Eerie\" is an adjective meaning strange and slightly frightening; it must describe a noun, such as \"sound\"."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the family sit in the car during the storm?",
+      "options": [
+        "To drive back home to Riyadh.",
+        "To shelter from the stinging sand.",
+        "To sleep after a long day.",
+        "To watch the sunset together."
+      ],
+      "answer": "B",
+      "why": "The family closed the windows and waited in the car while the sand-filled wind roared outside."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who is the narrator of this story?",
+      "options": [
+        "Omar",
+        "The father",
+        "The mother",
+        "One of the children in the family"
+      ],
+      "answer": "D",
+      "why": "The narrator says \"my brother Omar\", \"my father\" and \"my little sister\", so the narrator is one of the children."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What caused the narrator's fingers to ache?",
+      "options": [
+        "The sand stung the narrator's fingers.",
+        "The narrator climbed the dune on all fours.",
+        "The little sister gripped the narrator's hand.",
+        "The cold winter air froze them."
+      ],
+      "answer": "C",
+      "why": "The story says the little sister held the narrator's hand so tightly that the fingers ached."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The storm \"seemed to be gradually swallowing the sky.\" What does this phrase suggest?",
+      "options": [
+        "The storm was making loud eating noises.",
+        "The storm was huge and covered more sky as it came.",
+        "The sky was turning clear and blue.",
+        "The storm was moving away from the camp."
+      ],
+      "answer": "B",
+      "why": "\"Swallowing\" gives a picture of the dust wall taking over more and more of the sky."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion about the father is BEST supported by the story?",
+      "options": [
+        "He stayed calm and made sensible decisions.",
+        "He was careless about his family's safety.",
+        "He was angry that the tent collapsed.",
+        "He did not notice the storm until it arrived."
+      ],
+      "answer": "A",
+      "why": "He acted at once, packed the car, kept everyone inside and laughed calmly afterwards."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "Where the family went camping",
+        "Who first noticed the storm",
+        "Where the family waited during the storm",
+        "How the family fixed the camp afterwards"
+      ],
+      "answer": "D",
+      "why": "The story ends with a collapsed tent and a buried fire but does not say what the family did next."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "The sand turns into water when the wind stops.",
+        "A sandstorm turns the daylight orange.",
+        "The dune walks away to escape the storm.",
+        "The storm lifts the car up into the clouds."
+      ],
+      "answer": "B",
+      "why": "Dust in the air can make daylight look orange; the others are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST solution to help the family stay safer on a future desert trip?",
+      "options": [
+        "Climb the highest dune when a storm comes.",
+        "Keep the car windows open during storms.",
+        "Check the weather forecast before leaving.",
+        "Light a bigger fire to stop the wind."
+      ],
+      "answer": "C",
+      "why": "Checking the forecast could warn the family about a sandstorm before they set up camp."
+    }
+  ]
+}

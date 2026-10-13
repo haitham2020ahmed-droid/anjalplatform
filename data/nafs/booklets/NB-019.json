@@ -1,0 +1,568 @@
+{
+  "code": "NB-019",
+  "title": "From Flower to Jar: How Bees Make Honey",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 469,
+  "passage": "Have you ever spread golden honey on warm bread and wondered where it came from? Every spoonful is the result of hard work by thousands of tiny insects. Honeybees are among the most industrious workers in nature, and their efforts benefit farmers just as much as they improve our breakfast.\n\nA honeybee colony lives together in a hive, where every member has a particular role. There is a single queen, who lays all the eggs, along with a few hundred male bees called drones and many thousands of female worker bees. The workers perform almost every task: they clean the hive, feed the young bees, guard the entrance against intruders and gather food.\n\nHoney begins as nectar, a sugary liquid produced inside flowers. A worker bee travels from blossom to blossom, sucking up the nectar with her long, straw-like tongue and storing it in a special organ called the honey stomach. To fill it completely, she may need to visit between fifty and a hundred flowers on a single journey.\n\nWhen she returns to the hive, the forager passes the nectar to younger house bees, which chew it and add special substances from their bodies. These substances slowly change it. They then deposit it into the six-sided wax cells of the honeycomb. At this stage, however, the nectar is still very watery, so the bees fan their wings over the cells repeatedly, like thousands of miniature electric fans, until much of the water evaporates. Once the honey is thick enough, they seal each cell with a lid of wax, which allows the honey to be stored for a remarkably long time without spoiling.\n\nThis takes enormous effort. During her whole lifetime, a single worker bee produces only about one twelfth of a teaspoon of honey. That is why every jar holds the work of many bees.\n\nWhile bees collect nectar, they also perform a service that is even more valuable. A fine yellow powder called pollen clings to their hairy bodies, and when a bee lands on the next flower, some of this pollen rubs off. This process, known as pollination, helps the plant to produce fruit and seeds. Many crops, such as apples, almonds, melons and cucumbers, give much larger harvests when bees visit them. For this reason, some farmers deliberately place beehives beside their fields.\n\nIn Saudi Arabia, beekeepers in the mountains of Al-Baha and Asir are famous for Sidr honey, which bees make from the blossoms of the Sidr tree. It is one of the most valued kinds of honey in the world.\n\nUnfortunately, bees face serious threats, including harmful chemical sprays and the disappearance of wild flowers. We can protect them by planting flowers, using fewer chemicals and never destroying a hive. How amazing it is that such small creatures accomplish so much for us!",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “industrious” as it is used in paragraph 1?",
+      "options": [
+        "intelligent",
+        "dangerous",
+        "hard-working",
+        "well organized"
+      ],
+      "answer": "C",
+      "why": "Industrious workers work hard and steadily; the paragraph links it to the “hard work” of thousands of insects."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “deliberately” in “some farmers deliberately place beehives beside their fields”?",
+      "options": [
+        "carefully",
+        "accidentally",
+        "frequently",
+        "eagerly"
+      ],
+      "answer": "B",
+      "why": "Deliberately means on purpose; accidentally (by chance, without meaning to) is its opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “seal” mean in “they seal each cell with a lid of wax”?",
+      "options": [
+        "fill to the top",
+        "close tightly",
+        "open quickly",
+        "a sea animal"
+      ],
+      "answer": "B",
+      "why": "The bees cover each cell with a lid of wax to close it; here seal is a verb, not the animal."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is an adjective?",
+      "options": [
+        "forager",
+        "evaporates",
+        "watery",
+        "honeycomb"
+      ],
+      "answer": "C",
+      "why": "Watery describes the nectar; forager and honeycomb are nouns, and evaporates is a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the singular form of “bodies”?",
+      "options": [
+        "bodys",
+        "bodye",
+        "body",
+        "bodie"
+      ],
+      "answer": "C",
+      "why": "Bodies is the plural of body: consonant + y changes to -ies in the plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “pollen”?",
+      "options": [
+        "pollination",
+        "pillow",
+        "pollution",
+        "pole"
+      ],
+      "answer": "A",
+      "why": "Pollination is the moving of pollen between flowers; pollution only looks similar and is not related."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “benefit” in a sentence of your own.",
+      "model": "Reading every evening can benefit students because it builds their vocabulary and their concentration.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “benefit” with a clear meaning (to help or be good for)",
+        "1 = the word is used, but the sentence is unclear or has errors",
+        "0 = no sentence, or the word is missing or used wrongly"
+      ],
+      "why": "To benefit means to help or be good for someone, as bees “benefit farmers”."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “colony”?",
+      "options": [
+        "colonys",
+        "colonies",
+        "colonyes",
+        "colonie"
+      ],
+      "answer": "B",
+      "why": "When a noun ends in consonant + y, the y changes to i and we add -es: colonies."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is the first sentence of the text?",
+      "options": [
+        "a command",
+        "an exclamatory sentence",
+        "a statement",
+        "a question"
+      ],
+      "answer": "D",
+      "why": "“Have you ever … wondered where it came from?” asks the reader something and ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "Sidr Honey from Al-Baha and Asir",
+        "Why Farmers Grow Melons",
+        "The Secret Life of the Queen Bee",
+        "Bees: Small Workers with a Big Job"
+      ],
+      "answer": "D",
+      "why": "The text shows how much work bees do, both making honey and pollinating crops; the other titles cover only one detail."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to buy Sidr honey",
+        "to explain how bees make honey and why they matter",
+        "to tell the story of one beekeeper in Asir",
+        "to warn readers about the dangers of bee stings"
+      ],
+      "answer": "B",
+      "why": "Most of the text explains honey-making and pollination with facts, and it ends by showing how we can protect bees."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2?",
+      "options": [
+        "Drones guard the hive against intruders.",
+        "The queen does every job in the hive.",
+        "Worker bees spend their lives cleaning.",
+        "Bees in a colony have different roles."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2 explains the roles of the queen, the drones and the workers; the workers, not the drones, guard the entrance."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why do bees fan their wings over the honeycomb cells?",
+      "options": [
+        "to spread pollen over the wax",
+        "to chase intruders away",
+        "to cool the queen on hot days",
+        "to make the watery nectar thicker"
+      ],
+      "answer": "D",
+      "why": "Paragraph 4: the nectar is still very watery, so the bees fan their wings until much of the water evaporates and the honey is thick enough."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a poem about nature",
+        "a set of instructions",
+        "an informational (expository) text",
+        "a narrative story"
+      ],
+      "answer": "C",
+      "why": "It explains facts about a real topic, so it is an informational (expository) text."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, why do some farmers place beehives beside their fields?",
+      "options": [
+        "Bees protect crops from chemical sprays.",
+        "Bee visits help crops give larger harvests.",
+        "Bees eat the insects that damage fruit.",
+        "Hives keep the soil moist and fertile."
+      ],
+      "answer": "B",
+      "why": "Crops such as apples and melons “give much larger harvests when bees visit them. For this reason, some farmers deliberately place beehives beside their fields.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What happens right after the forager passes the nectar to the house bees?",
+      "options": [
+        "They chew it and add special substances.",
+        "She fills her honey stomach with nectar.",
+        "They fan their wings over the cells.",
+        "They seal the cells with a lid of wax."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 says the house bees “chew it and add special substances from their bodies” before they deposit it in the cells."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which step in making honey comes LAST?",
+      "options": [
+        "adding substances to the nectar",
+        "fanning the wings over the cells",
+        "sealing the cells with wax",
+        "depositing nectar in the cells"
+      ],
+      "answer": "C",
+      "why": "The cells are sealed only “Once the honey is thick enough”, after all the other steps."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which detail about worker bees is given in the text?",
+      "options": [
+        "They are all female.",
+        "They are all male.",
+        "They never leave the hive.",
+        "They lay most of the eggs."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 mentions “many thousands of female worker bees”; the queen lays the eggs and the drones are male."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Using paragraph 6, how does pollen travel from one flower to another?",
+      "options": [
+        "It sticks to bees and rubs off.",
+        "Bees mix it into the honey.",
+        "Farmers carry it between fields.",
+        "Wind blows it out of the hive."
+      ],
+      "answer": "A",
+      "why": "Pollen “clings to their hairy bodies”, and when the bee lands on the next flower, “some of this pollen rubs off.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why does every jar of honey hold the work of many bees?",
+      "options": [
+        "Only the queen is able to make honey.",
+        "Each jar must be filled in a single day.",
+        "One bee makes only a tiny amount in its life.",
+        "Bees share every jar with the drones."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5: a single worker bee produces only about one twelfth of a teaspoon of honey in her whole lifetime."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.IMPLIED",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which word best describes the writer's attitude towards bees?",
+      "options": [
+        "critical",
+        "indifferent",
+        "fearful",
+        "admiring"
+      ],
+      "answer": "D",
+      "why": "The writer calls bees “among the most industrious workers in nature” and ends with “How amazing it is…”, which shows admiration."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is nectar different from finished honey?",
+      "options": [
+        "Nectar is salty; honey is sweet.",
+        "Nectar is made by bees; honey grows in flowers.",
+        "Nectar is kept in cells; honey stays in flowers.",
+        "Nectar is watery; honey is thick."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4 explains that bees dry the watery nectar until it becomes thick honey."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the text, what is the effect of bee visits on crops such as apples and melons?",
+      "options": [
+        "smaller fruit",
+        "a bitter taste",
+        "much larger harvests",
+        "fewer seeds"
+      ],
+      "answer": "C",
+      "why": "Paragraph 6: these crops “give much larger harvests when bees visit them.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do almonds and cucumbers have in common, according to the text?",
+      "options": [
+        "Both give larger harvests when bees visit.",
+        "Both are used by bees to make honey.",
+        "Both grow only in Al-Baha and Asir.",
+        "Both are harmed when bees visit them."
+      ],
+      "answer": "A",
+      "why": "Both are listed among the crops that give larger harvests when bees visit them."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “like thousands of miniature electric fans” describe?",
+      "options": [
+        "farmers cooling their fields",
+        "bees beating their wings",
+        "machines inside the hive",
+        "wind in the mountains"
+      ],
+      "answer": "B",
+      "why": "The writer compares the bees fanning their wings over the cells to many small electric fans."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "What is your opinion of how the writer explains honey-making?",
+      "options": [
+        "clear, because the steps are in order",
+        "weak, because it contains no facts",
+        "confusing, because the steps are mixed up",
+        "dull, because it uses no comparisons"
+      ],
+      "answer": "A",
+      "why": "Paragraphs 3 and 4 follow the steps in order from flower to sealed cell, using words such as When, then and Once."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "“Honey begins as nectar, a sugary liquid produced inside flowers.”",
+        "“Have you ever spread golden honey on warm bread and wondered where it came from?”",
+        "“A honeybee colony lives together in a hive, where every member has a particular role.”",
+        "“How amazing it is that such small creatures accomplish so much for us!”"
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling and ends with an exclamation mark; the first sentence of the text is a question."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which action would be most helpful for bees?",
+      "options": [
+        "planting flowers and using fewer chemicals",
+        "moving all hives far away from farms",
+        "cutting down the old Sidr trees",
+        "spraying the fields more often"
+      ],
+      "answer": "A",
+      "why": "The last paragraph lists planting flowers and using fewer chemicals as ways to protect bees."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to advertise a honey shop in Asir",
+        "a wish to make readers afraid of bees",
+        "a wish to complain about honey prices",
+        "a wish to help readers value and protect bees"
+      ],
+      "answer": "D",
+      "why": "The text praises the work of bees and ends by explaining how we can protect them."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the main reason bees are important to farms?",
+      "options": [
+        "They make the soil softer.",
+        "They pollinate crops.",
+        "They eat harmful pests.",
+        "They help water plants."
+      ],
+      "answer": "B",
+      "why": "Paragraph 6 calls pollination a service “even more valuable” than honey, because it helps crops produce fruit and seeds."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which information in the text is the least clear, in your opinion?",
+      "options": [
+        "what pollen is and how it reaches a flower",
+        "what the special substances added by house bees are",
+        "which regions of Saudi Arabia produce Sidr honey",
+        "where a worker bee stores the nectar she collects"
+      ],
+      "answer": "B",
+      "why": "The text mentions “special substances” but never explains what they are; the other details are clearly stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "One bee fills a whole jar of honey in a day.",
+        "Bees turn the desert sand into honey.",
+        "A farmer gets more melons after placing hives nearby.",
+        "A queen bee collects all the nectar alone."
+      ],
+      "answer": "C",
+      "why": "The text says crops such as melons give larger harvests when bees visit them; the other events contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas of the text?",
+      "options": [
+        "The Sweet Journey of Nectar",
+        "Farming in the Mountains of Asir",
+        "How Chemicals Help Our Crops",
+        "The Queen Who Ruled the Hive"
+      ],
+      "answer": "A",
+      "why": "The text follows nectar from the flower to the sealed honey cell, and the other titles do not fit its main ideas."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "The text says bees are threatened by the disappearance of wild flowers. Suggest a solution that students in your school could carry out, and explain how it would help.",
+      "model": "Our class could plant a small garden of flowering plants, such as Sidr seedlings and basil, beside the school fence and agree never to spray it with chemicals. The blossoms would provide bees with nectar and pollen close to the school, and the bees would in turn pollinate nearby plants.",
+      "rubric": [
+        "2 = a practical solution with a clear explanation linked to the problem in the text",
+        "1 = a solution with no clear explanation, or only loosely linked to the problem",
+        "0 = no answer, or the answer is unrelated to the problem"
+      ],
+      "why": "Good solutions give bees more flowers or protect them from harmful chemicals, as the last paragraph suggests."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the text, how can we protect bees?",
+      "options": [
+        "by planting flowers",
+        "by using fewer chemical sprays",
+        "by never destroying a hive",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "The last paragraph mentions all three actions."
+    }
+  ]
+}

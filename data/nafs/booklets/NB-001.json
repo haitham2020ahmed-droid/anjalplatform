@@ -1,0 +1,568 @@
+{
+  "code": "NB-001",
+  "title": "Keeping Food Safe at Home",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 486,
+  "passage": "Have you ever opened the fridge and noticed a strange smell drifting from a forgotten box at the back of a shelf? Although food is precious, it can also make us seriously ill when it is stored carelessly, because tiny living things called bacteria are found almost everywhere around us. Most of them are completely harmless, yet certain types multiply rapidly in food and can cause stomach pain, fever and vomiting. Fortunately, by learning a few practical rules, every member of the family can help to keep this kind of illness away.\n\nTemperature is the most important rule of all. Harmful bacteria grow fastest between 5°C and 60°C, a range that food-safety experts call the \"danger zone.\" For this reason, foods that spoil easily, such as meat, chicken, fish, milk and cooked rice, should be placed in the fridge within two hours of cooking or buying them. In very hot weather, such as a Saudi summer afternoon, a single hour is a safer limit. A refrigerator should be kept at 4°C or below, while a freezer should remain at minus 18°C, a temperature so cold that bacteria cannot multiply at all.\n\nWhere you place food inside the fridge matters as well. Raw meat and chicken belong on the lowest shelf in sealed containers, so that their juices cannot drip onto fruit, vegetables or ready-to-eat dishes. Separating raw and cooked foods prevents harmful bacteria from spreading, a problem that experts call cross-contamination. Similarly, cutting boards and knives that have touched raw meat must be washed thoroughly in hot, soapy water before they are used for anything else.\n\nNot every food, however, needs to be kept cold. Dry foods such as rice, flour, lentils and dates keep well in a cool, dry cupboard, provided that they are stored in tightly sealed jars that keep out insects and moisture. Canned food can last for a very long time, but a can that is swollen, rusty or badly dented should be discarded, because the food inside may be contaminated. Bread and bananas also generally prefer the cupboard to the fridge, since cold air makes bread go stale more quickly and turns banana skins brown.\n\nFinally, read the labels carefully. A \"use by\" date shows the last day on which a food is safe to eat, whereas a \"best before\" date shows when the food is at its highest quality. After the \"best before\" date, some foods may still be safe, although their flavour and texture gradually decline. Sensible households use older food first and newer food later, a system that shops call \"first in, first out.\"\n\nStoring food safely is neither complicated nor expensive. On the contrary, it saves money, reduces waste and protects everyone's health. What a difference a few good habits can make! The next time you help to put away the shopping, remember the three essential rules: keep it cold, keep it covered and keep it clean.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word or phrase is closest in meaning to “discarded” as it is used in paragraph 4?",
+      "options": [
+        "kept for later",
+        "thrown away",
+        "heated again",
+        "opened carefully"
+      ],
+      "answer": "B",
+      "why": "A damaged can should be “discarded” because the food may be contaminated, so it should be thrown away."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “complicated” as it is used in paragraph 6?",
+      "options": [
+        "difficult",
+        "expensive",
+        "careful",
+        "simple"
+      ],
+      "answer": "D",
+      "why": "“Complicated” means hard to understand or do; its opposite is “simple”. “Difficult” is close in meaning, not opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 4: “a can that is swollen, rusty or badly dented should be discarded, because the food inside may be contaminated.” What does “contaminated” mean?",
+      "options": [
+        "made unsafe by harmful germs",
+        "sealed tightly inside a can",
+        "past its best quality but still safe",
+        "cooked at a very high temperature"
+      ],
+      "answer": "A",
+      "why": "The writer links contaminated food to cans that must be thrown away, so it means made unsafe by harmful bacteria."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an adverb?",
+      "options": [
+        "sealed",
+        "lowest",
+        "thoroughly",
+        "spreading"
+      ],
+      "answer": "C",
+      "why": "“Thoroughly” describes how the boards must be washed (a verb), so it is an adverb; “sealed” and “lowest” are adjectives and “spreading” is a verb form."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Most nouns in paragraph 3 form their plural by adding -s. Which noun from paragraph 3 forms its plural in a DIFFERENT way?",
+      "options": [
+        "container",
+        "vegetable",
+        "board",
+        "shelf"
+      ],
+      "answer": "D",
+      "why": "Shelf → shelves (f changes to -ves); container, vegetable and board just add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “contaminated”?",
+      "options": [
+        "container",
+        "contamination",
+        "contain",
+        "continent"
+      ],
+      "answer": "B",
+      "why": "“Contamination” shares the root and meaning of “contaminate”; the others only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “essential” in a meaningful sentence of your own.",
+      "model": "Clean water is essential for every living thing, so we must never waste it.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “essential” with its meaning (absolutely necessary, very important)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Essential” means absolutely necessary or extremely important."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “bacteria” in paragraph 1 is plural. What is its singular form?",
+      "options": [
+        "bacterium",
+        "bacterias",
+        "bacteriums",
+        "bacter"
+      ],
+      "answer": "A",
+      "why": "“Bacteria” is an irregular plural borrowed from Latin: one bacterium, many bacteria."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is a command?",
+      "options": [
+        "Temperature is the most important rule of all.",
+        "Finally, read the labels carefully.",
+        "Where you place food inside the fridge matters as well.",
+        "What a difference a few good habits can make!"
+      ],
+      "answer": "B",
+      "why": "It tells the reader to do something. “Where you place food…” starts like a question but is a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Why All Bacteria Are Dangerous",
+        "Reading Labels at the Supermarket",
+        "Safe Storage Keeps Families Healthy",
+        "Choosing the Best Fridge for Your Home"
+      ],
+      "answer": "C",
+      "why": "The whole text explains how storing food safely protects health. Labels are only paragraph 5, and the text says most bacteria are harmless."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to buy fresh food every day",
+        "to explain how scientists study bacteria",
+        "to describe the dangers of eating in restaurants",
+        "to inform readers how to store food so that it stays safe"
+      ],
+      "answer": "D",
+      "why": "Every paragraph gives facts and advice about storing food safely at home."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 1?",
+      "options": [
+        "Some bacteria can make food dangerous, but simple rules can prevent illness.",
+        "Most bacteria are harmless, so stored food rarely causes illness.",
+        "A strange smell in the fridge always means the food is unsafe.",
+        "Stomach pain and fever are the most common illnesses in families."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 warns that certain bacteria cause illness and then says that a few practical rules can keep it away."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why should a freezer be kept at minus 18°C?",
+      "options": [
+        "Food keeps its flavour only at that temperature.",
+        "Bacteria cannot multiply at that temperature.",
+        "Bacteria grow fastest at that temperature.",
+        "It is the temperature of the danger zone."
+      ],
+      "answer": "B",
+      "why": "The writer says minus 18°C is “a temperature so cold that bacteria cannot multiply at all.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "a personal narrative",
+        "a fable with a moral",
+        "an expository text",
+        "a biography"
+      ],
+      "answer": "C",
+      "why": "It explains a topic with facts and advice; it has no characters or plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the text, why is it better to keep bread and bananas in the cupboard?",
+      "options": [
+        "They attract insects when kept in the fridge.",
+        "They are dry foods, just like rice and flour.",
+        "They must be eaten before their “use by” date.",
+        "Cold air makes bread stale and banana skins brown."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4 explains that cold air makes bread go stale more quickly and turns banana skins brown."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which idea does the writer discuss immediately BEFORE explaining food labels?",
+      "options": [
+        "foods that do not need to be kept cold",
+        "where to place raw meat in the fridge",
+        "the temperature of the freezer",
+        "why good habits save money"
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 (dry foods, cans, bread and bananas) comes just before the labels in paragraph 5."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase shows that the writer is speaking directly to the reader?",
+      "options": [
+        "“a problem that experts call cross-contamination”",
+        "“a system that shops call”",
+        "“Have you ever opened the fridge”",
+        "“Most of them are completely harmless”"
+      ],
+      "answer": "C",
+      "why": "The question uses “you”, so the writer is addressing the reader directly."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Using information from paragraph 2, how soon should cooked rice be put in the fridge on a very hot Saudi summer afternoon?",
+      "options": [
+        "within two hours",
+        "within four hours",
+        "before the end of the day",
+        "within one hour"
+      ],
+      "answer": "D",
+      "why": "Two hours is the usual limit, but in very hot weather “a single hour is a safer limit.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why must cutting boards that touched raw meat be washed in hot, soapy water?",
+      "options": [
+        "to remove the smell of the meat",
+        "to stop bacteria from spreading to other food",
+        "to keep the boards cool and dry",
+        "to make the boards last longer"
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 explains that keeping raw food apart and washing boards prevents harmful bacteria from spreading."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin the text with a question about a strange smell in the fridge?",
+      "options": [
+        "to connect the topic to something many readers have experienced",
+        "to prove that every smell in a fridge is dangerous",
+        "to explain exactly how bacteria produce smells",
+        "to begin a story about the writer's own family"
+      ],
+      "answer": "A",
+      "why": "A familiar experience draws readers in before the writer gives the rules."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words best describe the writer's attitude toward food safety in paragraphs 1 and 6?",
+      "options": [
+        "frightened and hopeless",
+        "amused and careless",
+        "serious but reassuring",
+        "angry and critical"
+      ],
+      "answer": "C",
+      "why": "Paragraph 1 warns that food can make us “seriously ill”, but it adds “Fortunately”, and paragraph 6 says safe storage is “neither complicated nor expensive”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a “use by” date different from a “best before” date?",
+      "options": [
+        "A “use by” date is about quality; a “best before” date is about safety.",
+        "A “use by” date is about safety; a “best before” date is about quality.",
+        "Both dates show the last day on which a food is safe to eat.",
+        "Food must be thrown away the day after either date."
+      ],
+      "answer": "B",
+      "why": "Paragraph 5: “use by” shows the last safe day, while “best before” shows when the food is at its highest quality."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on paragraph 3, what could happen if raw chicken were stored on the top shelf above an uncovered salad?",
+      "options": [
+        "The salad would freeze and lose its flavour.",
+        "The chicken would be safe to eat without cooking.",
+        "The salad would go stale more quickly.",
+        "Its juices could drip down and spread bacteria to the salad."
+      ],
+      "answer": "D",
+      "why": "The writer puts raw meat on the lowest shelf so that its juices cannot drip onto ready-to-eat food."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do a badly dented can and cooked rice left in the danger zone for too long have in common?",
+      "options": [
+        "Both may hold food that is no longer safe to eat.",
+        "Both should be moved to a cool, dry cupboard.",
+        "Both have passed their “best before” date.",
+        "Both can be made safe again by freezing."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 says bacteria grow fast in the danger zone, and paragraph 4 says the food in a dented can may be contaminated."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end with “keep it cold, keep it covered and keep it clean”?",
+      "options": [
+        "to introduce a new rule that was not explained",
+        "to compare the fridge with the freezer",
+        "to sum up the main rules in a short, memorable way",
+        "to show that the rules are difficult to follow"
+      ],
+      "answer": "C",
+      "why": "The repeated pattern gathers the advice into three easy-to-remember rules."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “first in, first out” mean in paragraph 5?",
+      "options": [
+        "The first customer in a shop should leave first.",
+        "Food bought earlier should be used before newer food.",
+        "Food should always be eaten on the day it is bought.",
+        "New food should be placed at the front so it is used first."
+      ],
+      "answer": "B",
+      "why": "The sentence before it says to “use older food first and newer food later.”"
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "Finally, read the labels carefully.",
+        "Not every food, however, needs to be kept cold.",
+        "On the contrary, it saves money, reduces waste and protects everyone's health.",
+        "What a difference a few good habits can make!"
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action BEST follows the advice in the text after a family dinner on a hot summer evening?",
+      "options": [
+        "putting the leftover rice in the fridge within an hour",
+        "leaving the rice on the table to cool overnight",
+        "storing the leftover rice in a cupboard jar",
+        "keeping the rice warm on the stove until morning"
+      ],
+      "answer": "A",
+      "why": "The text says cooked rice belongs in the fridge and that one hour is safer in very hot weather."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this text?",
+      "options": [
+        "a plan to advertise a new kind of fridge",
+        "a wish to help families avoid illness and waste",
+        "a belief that canned food is always unsafe",
+        "an interest in how scientists study bacteria"
+      ],
+      "answer": "B",
+      "why": "The writer explains rules that prevent illness and says safe storage “saves money, reduces waste and protects everyone's health.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final paragraph?",
+      "options": [
+        "worry that food can never be truly safe",
+        "anger at shops that sell old food",
+        "confidence that good habits are easy to learn",
+        "sadness about the food that families waste"
+      ],
+      "answer": "C",
+      "why": "The writer says safe storage is “neither complicated nor expensive” and ends with an encouraging exclamation."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "the temperatures of the danger zone",
+        "why raw meat goes on the lowest shelf",
+        "what a “use by” date means",
+        "how a family can check that its fridge is at 4°C or below"
+      ],
+      "answer": "D",
+      "why": "The writer gives the correct temperature but never explains how to measure it; the other points are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A girl gets stomach pain after eating rice left out all afternoon in summer.",
+        "A swollen can repairs itself and becomes safe to eat again.",
+        "Bacteria in a freezer at minus 18°C multiply faster than ever.",
+        "A jar of lentils grows legs and walks away from the insects."
+      ],
+      "answer": "A",
+      "why": "Rice left in the danger zone lets harmful bacteria grow, which can cause stomach pain, as the text explains."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "The Danger Zone of the Desert",
+        "Cold, Covered and Clean",
+        "A Day at the Supermarket",
+        "Bacteria: Our Best Friends"
+      ],
+      "answer": "B",
+      "why": "The writer's three key rules sum up all the advice in the text."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that end it with one more useful food-safety rule and explain why it works.",
+      "model": "One final rule is just as essential: always wash your hands with soap and warm water for at least twenty seconds before you prepare food. Hands touch door handles, phones and raw meat, so they can carry bacteria to everything else in the kitchen. If every member of the family follows this habit, the other rules will work even better.",
+      "rubric": [
+        "2 = a clear new ending with a sensible food-safety rule and a reason that links to the text's ideas (e.g. stopping bacteria spreading)",
+        "1 = an ending is given but the rule is unclear, unrelated or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible food-safety rule that is explained and fits the text's message is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A family wants to stop bacteria spreading from raw chicken to a salad. Which solution fits the advice in paragraph 3?",
+      "options": [
+        "Cut the salad on a separate, clean board.",
+        "Wash the board and knife in hot, soapy water before cutting the salad.",
+        "A and B",
+        "Rinse the board quickly in cold water."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 supports both keeping raw and ready-to-eat food apart and washing boards and knives in hot, soapy water; a quick cold rinse is not enough."
+    }
+  ]
+}

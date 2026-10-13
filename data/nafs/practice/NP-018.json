@@ -1,0 +1,169 @@
+{
+  "code": "NP-018",
+  "title": "The Hejaz Railway",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "At the beginning of the twentieth century, travelling from Damascus to Medina was a long and dangerous journey. Pilgrims crossing the desert by camel caravan needed more than a month to reach the holy city, and they faced extreme heat, shortages of water and the risk of attack.\n\nIn 1900, the Ottoman government began building a railway to make this journey faster and safer. The project was paid for largely by donations from Muslims in many countries, and thousands of workers laid the tracks across rocky hills and open desert. Engineers constructed stations, bridges and water tanks along the route, because steam engines needed regular supplies of water.\n\nIn 1908, the first train arrived in Medina after crossing roughly thirteen hundred kilometers. A trip that had once taken weeks could now be completed in only a few days. The original plan was to continue the line to Mecca, but this section was never built.\n\nThe railway's success did not last long. During the First World War, the tracks were attacked many times, and bridges and engines were destroyed. After the war, regular service to Medina stopped, and the desert slowly covered parts of the line.\n\nToday, visitors can explore the restored station in Medina, which has become a museum, and see old carriages at stations such as Al-Ula. These quiet buildings remind us of an ambitious project that once connected distant cities.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "In the passage, which word is a verb?",
+      "options": [
+        "engineers",
+        "ambitious",
+        "constructed",
+        "regular"
+      ],
+      "answer": "C",
+      "why": "\"Constructed\" tells what the engineers did, so it is a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which sentence uses the word \"restore\" correctly, with the meaning used in the passage?",
+      "options": [
+        "The restore was too heavy for the train to carry.",
+        "She restore her bag on the train yesterday.",
+        "Workers will restore the old fort so tourists can visit it.",
+        "Restore quickly because the station is closing now."
+      ],
+      "answer": "C",
+      "why": "In the passage, \"restored\" means repaired to its earlier condition; only this sentence uses the verb that way."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why were water tanks built along the railway?",
+      "options": [
+        "Pilgrims wanted to wash their camels there.",
+        "Farmers used them to water their crops nearby.",
+        "They were used to put out fires on the trains.",
+        "Steam engines needed regular supplies of water."
+      ],
+      "answer": "D",
+      "why": "The second paragraph states that steam engines needed regular supplies of water."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which event happened LAST?",
+      "options": [
+        "The first train arrived in Medina.",
+        "Regular train service to Medina stopped.",
+        "The Ottoman government began building.",
+        "Workers laid tracks across the desert."
+      ],
+      "answer": "B",
+      "why": "Service stopped after the First World War, which came after the line was built and opened in 1908."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What was one effect of the Hejaz Railway when it opened?",
+      "options": [
+        "Pilgrims stopped travelling to Medina.",
+        "The journey to Medina became much shorter.",
+        "The railway reached Mecca within a year.",
+        "Camel caravans became faster than trains."
+      ],
+      "answer": "B",
+      "why": "A trip that had taken weeks could now be completed in only a few days."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "The writer says \"the desert slowly covered parts of the line.\" What does this expression suggest?",
+      "options": [
+        "The desert built a new railway line.",
+        "The tracks were gradually buried and forgotten.",
+        "The trains drove more slowly in sand.",
+        "Sandstorms happened only once a year."
+      ],
+      "answer": "B",
+      "why": "The expression describes the abandoned tracks being buried by sand over time."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which event could a visitor really experience today?",
+      "options": [
+        "Riding the original steam train from Damascus to Medina",
+        "Taking the Hejaz train all the way to Mecca",
+        "Watching workers lay the first tracks in 1900",
+        "Seeing old railway carriages at a station in Al-Ula"
+      ],
+      "answer": "D",
+      "why": "The passage says visitors can see old carriages at stations such as Al-Ula; the others are no longer possible or never happened."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST expresses the writer's viewpoint about the railway?",
+      "options": [
+        "It was an ambitious project whose success was short.",
+        "It was a useless project that nobody needed.",
+        "It is still the fastest way to reach Medina.",
+        "It was built mainly to carry goods for traders."
+      ],
+      "answer": "A",
+      "why": "The writer calls it ambitious and says its success did not last long."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information in the passage is the LEAST clear?",
+      "options": [
+        "Who attacked the railway during the war and why",
+        "When the railway construction began",
+        "How long the railway line was",
+        "Where the restored museum station is"
+      ],
+      "answer": "A",
+      "why": "The writer says the tracks were attacked many times but does not explain who did it or why."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "Tracks Across the Desert: The Hejaz Railway",
+        "The Camels of the Syrian Desert",
+        "Building a Modern Airport in Medina",
+        "Why Trains Need Water"
+      ],
+      "answer": "A",
+      "why": "The passage tells the history of the Hejaz Railway from its building to its museum today."
+    }
+  ]
+}

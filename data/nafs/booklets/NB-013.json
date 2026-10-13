@@ -1,0 +1,568 @@
+{
+  "code": "NB-013",
+  "title": "Falcons: Hunters of the Sky",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 465,
+  "passage": "For thousands of years, the people of Arabia have admired the falcon, a proud and clever bird of prey whose strength and speed have inspired poets and travellers alike. In the past, falconry, the sport of hunting with trained falcons, was a vital skill, because it helped desert families find meat when other food was scarce. Today, although few people depend on it for their meals, falconry remains a treasured tradition that connects people with their history and with nature.\n\nEvery part of the falcon's body is built for hunting. Its hooked beak tears meat easily, while its sharp, curved claws, known as talons, grip struggling prey with remarkable force. Its eyesight is extraordinary: a falcon can spot a small animal from more than a kilometre away, long before a human would notice it. The peregrine falcon, the fastest animal on Earth, can reach more than 300 kilometres per hour when it dives from high in the sky! Surprisingly, in most falcon species the female is larger and stronger than the male.\n\nTraining a falcon demands time, skill and patience. A falconer begins by slowly helping the bird feel calm around people. He covers its head with a small leather hood, which keeps the falcon quiet because it cannot see what is happening around it. He carries the bird on a thick glove so that its talons cannot injure his hand. Over the following weeks, the falcon learns to fly to the falconer whenever he swings a lure, which is a bundle of feathers tied to a rope. Each time the falcon returns, it receives a reward of meat, and in this way trust gradually grows between the bird and its trainer.\n\nIn Saudi Arabia, falconry is much more than a sport, since it teaches young people good values such as patience, respect and responsibility. Fathers pass their skills to their sons, and families keep stories about famous birds alive. At large festivals, falcons compete in speed races and beauty contests. In 2010, falconry was added to UNESCO's list of the world's intangible cultural heritage, and Saudi Arabia was one of the countries that shared the nomination.\n\nNevertheless, wild falcons face serious dangers. Some lose their homes when the land where they live is cleared for building, and others are captured illegally. For this reason, many responsible falconers now choose birds that were bred in special centres instead of taking them from the wild. Some programmes even release healthy falcons back into nature, fitted with small trackers so that scientists can follow their long journeys.\n\nThe falcon has become a lasting symbol of courage and freedom. By protecting these magnificent birds and caring for them wisely, we can make sure that future generations will still be able to watch them soar across the desert sky.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “scarce” as it is used in paragraph 1?",
+      "options": [
+        "in short supply",
+        "easy to find",
+        "too expensive to buy",
+        "unhealthy to eat"
+      ],
+      "answer": "A",
+      "why": "Families needed falconry when other food was scarce, that is, when there was too little of it."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “gradually” as it is used in paragraph 3?",
+      "options": [
+        "steadily",
+        "patiently",
+        "carefully",
+        "suddenly"
+      ],
+      "answer": "D",
+      "why": "Gradually means slowly, little by little; suddenly means all at once. Steadily is close in meaning, not opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 2: “Its eyesight is extraordinary: a falcon can spot a small animal from more than a kilometre away, long before a human would notice it.” What does “extraordinary” mean?",
+      "options": [
+        "far better than what is usual",
+        "weak and unreliable",
+        "similar to a human's",
+        "useful only at night"
+      ],
+      "answer": "A",
+      "why": "The words after the colon explain the meaning: seeing a small animal from over a kilometre away is far beyond the usual."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from the text is a noun?",
+      "options": [
+        "gradually",
+        "responsibility",
+        "remarkable",
+        "illegally"
+      ],
+      "answer": "B",
+      "why": "Responsibility names a quality (noun); gradually and illegally are adverbs, and remarkable is an adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In the phrase “grip struggling prey” (paragraph 2), the word “struggling” is used as …",
+      "options": [
+        "a noun",
+        "a verb",
+        "an adjective",
+        "an adverb"
+      ],
+      "answer": "C",
+      "why": "Here struggling describes the prey, so it works as an adjective, even though it comes from the verb struggle."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “illegally” in paragraph 5?",
+      "options": [
+        "legal",
+        "eagle",
+        "legend",
+        "league"
+      ],
+      "answer": "A",
+      "why": "Illegally is built from legal (il- + legal + -ly); the other words only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “responsible” in a sentence of your own.",
+      "model": "A responsible pet owner makes sure that the animal always has clean water, enough food and a safe place to rest.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “responsible” with a meaning that fits",
+        "1 = uses the word, but the sentence is incomplete, copied from the text, or has errors that affect meaning",
+        "0 = no answer, the word is missing, or it is used with the wrong meaning"
+      ],
+      "why": "The sentence must be original and show that responsible means doing your duties carefully and being trusted to take care of something."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 2, “species” is a plural noun (“most falcon species”). What is the singular form of this word?",
+      "options": [
+        "specie",
+        "species",
+        "specy",
+        "speciy"
+      ],
+      "answer": "B",
+      "why": "Species is an irregular noun whose singular and plural forms are the same: one species, many species."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is this: “By protecting these magnificent birds and caring for them wisely, we can make sure that future generations will still be able to watch them soar across the desert sky.”?",
+      "options": [
+        "a command",
+        "a question",
+        "a statement",
+        "an exclamation"
+      ],
+      "answer": "C",
+      "why": "Although it encourages the reader, it gives an idea, has a subject (we) and ends with a full stop, so it is a statement, not a command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "The Peregrine Falcon's Record Dive",
+        "Festivals of the Arabian Desert",
+        "How to Build a Breeding Centre",
+        "Falcons: Speed, Skill and Shared Heritage"
+      ],
+      "answer": "D",
+      "why": "The text covers the falcon's body, its training, its place in Saudi heritage and its protection; the other titles fit only one detail."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to buy a trained falcon",
+        "to inform readers about falcons and why falconry matters",
+        "to describe one falconer's personal adventures",
+        "to compare falcons with other birds of prey"
+      ],
+      "answer": "B",
+      "why": "The writer gives facts about falcons, their training, their cultural value and the dangers they face."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "Falconry was once needed for food and is still valued today",
+        "Falcons are the cleverest birds in Arabia",
+        "Poets wrote about falcons more than any other bird",
+        "Desert families no longer hunt for meat"
+      ],
+      "answer": "A",
+      "why": "The paragraph moves from falconry's past role (finding meat) to its present value as a treasured tradition; the other choices are details or not stated."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why does the falconer cover the falcon's head with a hood?",
+      "options": [
+        "It protects the bird from the hot sun",
+        "It makes the bird look attractive in contests",
+        "It stops the bird seeing, which keeps it quiet",
+        "It teaches the bird to return to the lure"
+      ],
+      "answer": "C",
+      "why": "The text says the hood keeps the falcon quiet because it cannot see what is happening around it."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which feature shows that this is an informational text rather than a story?",
+      "options": [
+        "It has a main character who solves a problem",
+        "It is written in rhyming lines",
+        "It is told mostly through conversation",
+        "It gives facts and figures about a real topic"
+      ],
+      "answer": "D",
+      "why": "Dates (2010), measurements (300 kilometres per hour) and explanations show it is an informational (expository) text."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, what allows a falcon to notice prey long before a human would?",
+      "options": [
+        "its hooked beak",
+        "its extraordinary eyesight",
+        "its great diving speed",
+        "its large size"
+      ],
+      "answer": "B",
+      "why": "Paragraph 2 says a falcon can spot a small animal from more than a kilometre away, long before a human would notice it."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, which of these happens LAST in a falcon's training?",
+      "options": [
+        "The falconer helps the bird feel calm around people",
+        "The falcon learns to fly to the swinging lure",
+        "Trust grows between the bird and its trainer",
+        "The falcon is carried on a thick glove"
+      ],
+      "answer": "C",
+      "why": "Trust grows gradually, as the result of weeks of returning to the lure and receiving rewards; it is the final stage described."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is presenting the information in this text?",
+      "options": [
+        "a falcon describing its own life",
+        "a falconer describing his own bird",
+        "a festival judge describing a contest",
+        "a writer giving facts in the third person"
+      ],
+      "answer": "D",
+      "why": "No character tells the text; a writer presents facts about falcons and uses words such as it, he and they."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the text, what happened in 2010?",
+      "options": [
+        "Falconry was added to UNESCO's heritage list",
+        "Saudi Arabia held its first falcon festival",
+        "Scientists first fitted falcons with trackers",
+        "The peregrine was found to be the fastest animal"
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 says that in 2010 falconry was added to UNESCO's list of the world's intangible cultural heritage."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Based on paragraph 5, why do many responsible falconers now choose birds bred in special centres?",
+      "options": [
+        "because bred birds win more speed races",
+        "to reduce the number of falcons taken from the wild",
+        "because wild falcons cannot be trained",
+        "because the law says every falcon needs a tracker"
+      ],
+      "answer": "B",
+      "why": "The paragraph first explains that wild falcons are captured illegally, then says “For this reason” falconers choose bred birds instead of taking them from the wild."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, what most makes the reader want to keep reading this text?",
+      "options": [
+        "a mystery that is solved at the end",
+        "long lists of festival rules",
+        "a conversation between two falconers",
+        "surprising facts, such as the peregrine's dive speed"
+      ],
+      "answer": "D",
+      "why": "Remarkable facts such as a dive of more than 300 kilometres per hour catch the reader's interest; the other features are not in the text."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which evidence from paragraph 3 best shows that a falconer must be patient?",
+      "options": [
+        "The falconer swings a bundle of feathers",
+        "The hood is made of leather",
+        "The falcon learns over weeks, and trust grows gradually",
+        "The glove protects the falconer's hand"
+      ],
+      "answer": "C",
+      "why": "Training that lasts “the following weeks” and trust that grows “gradually” show that the falconer must wait and keep trying."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, how is a female falcon usually different from a male?",
+      "options": [
+        "She is larger and stronger",
+        "She dives faster",
+        "She has sharper eyesight",
+        "She is easier to train"
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 says that in most falcon species the female is larger and stronger than the male; the other differences are not mentioned."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the effect of giving the falcon a reward of meat each time it returns?",
+      "options": [
+        "It becomes afraid of the glove",
+        "It learns to come back to the falconer",
+        "It stops hunting for itself",
+        "It no longer needs the hood"
+      ],
+      "answer": "B",
+      "why": "The reward teaches the falcon to fly back whenever the falconer swings the lure, and in this way trust grows."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the hood, the glove and the lure have in common?",
+      "options": [
+        "They are prizes given at festivals",
+        "They are used to feed the falcon",
+        "They contain small trackers",
+        "They help the falconer handle or train the bird"
+      ],
+      "answer": "D",
+      "why": "All three are tools used during training: the hood calms the bird, the glove protects the hand and the lure calls the bird back."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is your opinion of the way the writer organises the ideas?",
+      "options": [
+        "The writer jumps between topics without any order",
+        "The ideas are given only as numbers and dates",
+        "Each paragraph has one clear topic, from the bird itself to its protection",
+        "The facts are told through a conversation"
+      ],
+      "answer": "C",
+      "why": "The paragraphs move in a clear order: history, body, training, culture, dangers and conclusion."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why does the writer end the sentence about the peregrine falcon's dive with an exclamation mark?",
+      "options": [
+        "to show that the fact is surprising and impressive",
+        "to ask the reader a question",
+        "to give the reader an order",
+        "to show that the writer is angry"
+      ],
+      "answer": "A",
+      "why": "The exclamation mark turns the sentence into an exclamatory sentence that expresses amazement at the falcon's speed."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “soar across the desert sky” suggest about falcons?",
+      "options": [
+        "They hunt only in the desert",
+        "They fly high, freely and gracefully",
+        "They are tired after long journeys",
+        "They fly close to the ground"
+      ],
+      "answer": "B",
+      "why": "To soar means to fly high and smoothly, which matches the idea of freedom in the same paragraph."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, which plan would best protect wild falcons, based on the text?",
+      "options": [
+        "catching young falcons from the wild to train them",
+        "clearing more desert land for building",
+        "keeping all falcons hooded at all times",
+        "using bred birds and releasing healthy falcons with trackers"
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 shows that bred birds and release programmes reduce the dangers of capture, while the other plans would add to the dangers."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do you think motivated the writer to write this text?",
+      "options": [
+        "a wish to sell falconry equipment",
+        "worry that festivals are too crowded",
+        "admiration for falcons and pride in a tradition",
+        "a plan to teach desert cooking"
+      ],
+      "answer": "C",
+      "why": "The writer praises falcons, describes the values falconry teaches and calls for protecting the birds."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words from the text best show the writer's admiration for falcons?",
+      "options": [
+        "“serious dangers” and “captured illegally”",
+        "“proud”, “extraordinary” and “magnificent”",
+        "“thick glove” and “leather hood”",
+        "“scarce” and “cleared for building”"
+      ],
+      "answer": "B",
+      "why": "Proud, extraordinary and magnificent are words of praise; the other words describe problems or equipment."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the least clear in the text?",
+      "options": [
+        "how falcon beauty contests are judged",
+        "what a lure is",
+        "why a hood keeps a falcon quiet",
+        "how fast a peregrine falcon dives"
+      ],
+      "answer": "A",
+      "why": "Beauty contests are mentioned but never explained; the other points are explained clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the facts in the text, which of these situations is realistic?",
+      "options": [
+        "A male falcon is usually larger than the female",
+        "A hooded falcon stays calm because it can see clearly",
+        "A wild falcon refuses meat from its trainer",
+        "A trained falcon flies to its falconer when he swings a lure"
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 describes falcons flying to the swinging lure; the other situations contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas of the whole text?",
+      "options": [
+        "Falcon Festivals Around the World",
+        "The Life of a Desert Hunter",
+        "The Falcon: A Bird of Pride and Heritage",
+        "Why Falcons Are Disappearing"
+      ],
+      "answer": "C",
+      "why": "The text is about the falcon and its importance in Arabian heritage; the other titles fit only part of it or not at all."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "The text says wild falcons face dangers. Suggest another solution, not mentioned in the text, to help protect them. Explain your idea.",
+      "model": "Protected nature reserves could be created in the desert where no building is allowed, so that wild falcons keep their homes. In addition, schools could hold awareness days to explain that capturing wild falcons is illegal and harms the birds.",
+      "rubric": [
+        "2 = a clear, logical solution in complete sentences that fits the characters/ideas of the text",
+        "1 = a solution is given but it is very short, unclear, or only partly connected to the text",
+        "0 = no answer, or the answer repeats the text or is unrelated to it"
+      ],
+      "why": "Any reasonable new solution linked to the dangers in paragraph 5 (loss of homes, illegal capture) is accepted."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How can we keep the tradition of falconry alive for the future?",
+      "options": [
+        "Pass its skills and values to young people",
+        "Hold fewer falconry festivals",
+        "Take more falcons from the wild",
+        "Keep the old stories private"
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 shows that the tradition lives on when fathers pass their skills to their sons and families keep the stories alive."
+    }
+  ]
+}

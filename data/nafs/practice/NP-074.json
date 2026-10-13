@@ -1,0 +1,169 @@
+{
+  "code": "NP-074",
+  "title": "The Library Lantern",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "passage": "\"Our class needs a newspaper,\" declared Huda as the group gathered around a table in the school library. \"Ms. Amal said we could publish the first issue before the winter break.\"\n\n\"Then we need to organize ourselves immediately,\" replied Reem, opening her laptop. \"A newspaper has sections, deadlines, and editors. Who wants to write the main story?\"\n\n\"I will interview the cafeteria staff about the new healthy menu,\" offered Sara. \"Everyone has an opinion about it, so the article will definitely attract readers.\"\n\nLina raised her hand hesitantly. \"I am not confident about writing, but I enjoy photography. Could I take the pictures instead?\"\n\n\"Absolutely,\" Huda answered with enthusiasm. \"A newspaper without photographs would be extremely boring for our readers.\"\n\nReem typed rapidly, organizing the assignments into a table. \"So far we have a main story and photographs. We still need a sports column, a puzzle page, and a title for the whole newspaper.\"\n\n\"What about The Library Lantern?\" suggested Sara. \"It sounds as though we are bringing light to important news.\"\n\nThe others considered the idea for a moment, and then everyone agreed enthusiastically. Huda wrote a schedule on the whiteboard: articles due Sunday, editing on Tuesday, and printing on Thursday.\n\n\"Remember,\" Reem warned seriously, \"responsible reporters always check every fact carefully before publishing anything.\"\n\nAs the bell rang, the four friends packed their bags, already discussing headlines on their way down the corridor.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word belongs to the same word family as \"publish\"?",
+      "options": [
+        "publication",
+        "punish",
+        "polish",
+        "puzzle"
+      ],
+      "answer": "A",
+      "why": "\"Publication\" is the noun formed from \"publish\"; the other words only share some letters."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence is a command?",
+      "options": [
+        "Who wants to write the main story?",
+        "Our class needs a newspaper.",
+        "Remember to check every fact before publishing.",
+        "What a wonderful title that is!"
+      ],
+      "answer": "C",
+      "why": "A command tells someone to do something; the others are a question, a statement and an exclamation."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "A poem",
+        "A dialogue story",
+        "A letter",
+        "A news article"
+      ],
+      "answer": "B",
+      "why": "The passage is a story told mostly through the characters' conversation, so it is a dialogue story, not the newspaper itself."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Who suggested the name The Library Lantern?",
+      "options": [
+        "Huda",
+        "Reem",
+        "Lina",
+        "Sara"
+      ],
+      "answer": "D",
+      "why": "The text says: \"'What about The Library Lantern?' suggested Sara.\""
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How is Lina different from Sara?",
+      "options": [
+        "Lina prefers photography, but Sara wants to write.",
+        "Lina wants to write, but Sara prefers photography.",
+        "Lina is the editor, but Sara designs the puzzles.",
+        "Lina wants a sports page, but Sara wants none."
+      ],
+      "answer": "A",
+      "why": "Lina is not confident about writing and offers to take pictures, while Sara volunteers to write the main story."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Sara says the title sounds \"as though we are bringing light to important news.\" What does she mean?",
+      "options": [
+        "The paper will be printed on glowing paper.",
+        "The library needs better lamps for reading.",
+        "The paper will help readers see the news clearly.",
+        "The news should be read only at night."
+      ],
+      "answer": "C",
+      "why": "A lantern gives light; Sara uses it as a figure of speech for helping readers understand important news."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the dialogue?",
+      "options": [
+        "Reem should have written every article alone.",
+        "The newspaper will fail because Lina cannot write.",
+        "Ms. Amal will publish the newspaper for them.",
+        "The friends work well as a team by sharing tasks."
+      ],
+      "answer": "D",
+      "why": "Each girl takes a role (writer, photographer, organizer), and they agree on a title and schedule together."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the least clear in the passage?",
+      "options": [
+        "When the articles are due",
+        "Who will write the sports column",
+        "Who will take the photographs",
+        "What the main story is about"
+      ],
+      "answer": "B",
+      "why": "Reem says they still need a sports column, but nobody is given that job; the other details are stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A library lantern writes the articles by itself.",
+        "The cafeteria food answers Sara's interview questions.",
+        "Students print a class paper before a school break.",
+        "A pencil interviews the cafeteria staff on its own."
+      ],
+      "answer": "C",
+      "why": "Students really can produce a class newspaper; lanterns, food and pencils cannot write, talk or interview anyone."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which is the best alternative title for the story?",
+      "options": [
+        "A Day in the Cafeteria",
+        "Lina's Camera Adventure",
+        "The Winter Break Trip",
+        "Planning Our Class Newspaper"
+      ],
+      "answer": "D",
+      "why": "The whole story is about the friends planning their newspaper; the other titles focus on one small detail or on something that does not happen."
+    }
+  ]
+}

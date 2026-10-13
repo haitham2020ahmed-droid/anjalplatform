@@ -1,0 +1,169 @@
+{
+  "code": "NP-080",
+  "title": "The New Goalkeeper",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "When the Al-Noor Falcons lost their goalkeeper to a broken wrist two weeks before the regional tournament, Coach Saleh made a surprising decision. Instead of choosing one of the experienced defenders, he handed the gloves to Omar, a quiet newcomer who had joined the team only a month earlier.\n\nThe other players exchanged doubtful glances, since Omar was the shortest boy on the squad, and nobody had ever seen him play in goal.\n\nDuring the first practice, the strikers fired shot after shot past him. Omar dived too late, misjudged several high balls, and once slipped awkwardly in the mud. Afterward, the team captain, Yousef, muttered that the tournament was already lost.\n\nOmar said nothing in response; however, every evening he stayed behind and asked Coach Saleh to kick balls toward the corners of the net. He studied videos of professional goalkeepers, practiced his footwork, and learned to shout clear instructions to his defenders.\n\nBy the opening match, his reactions had become remarkably quick. In the final minutes, with the score tied, an opposing striker raced toward the goal alone. Omar stayed calm, spread his arms wide, and blocked the shot with his fingertips.\n\nThe crowd roared with excitement, and when the final whistle blew, Yousef was the first to reach him.\n\n\"I was wrong about you,\" the captain admitted, offering his hand. \"You did not just replace our goalkeeper; you made our whole defense stronger.\"\n\nOmar smiled, shook his hand, and quietly reminded him that four difficult matches still remained.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the story is a verb?",
+      "options": [
+        "remarkably",
+        "blocked",
+        "doubtful",
+        "tournament"
+      ],
+      "answer": "B",
+      "why": "\"Blocked\" is the action Omar did to the shot; the others are an adverb, an adjective and a noun."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"doubtful\" correctly?",
+      "options": [
+        "She doubtful the ball into the net.",
+        "The doubtful scored three goals.",
+        "He ran doubtful across the field.",
+        "The sky was dark, so a picnic seemed doubtful."
+      ],
+      "answer": "D",
+      "why": "\"Doubtful\" is an adjective meaning uncertain or unlikely; only the first sentence uses it that way."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Coach Saleh need a new goalkeeper?",
+      "options": [
+        "The goalkeeper had broken his wrist.",
+        "The goalkeeper had moved to another city.",
+        "The captain wanted to play in goal.",
+        "The rules required a younger player."
+      ],
+      "answer": "A",
+      "why": "The story begins by saying the team \"lost their goalkeeper to a broken wrist.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which event happened before the opening match?",
+      "options": [
+        "Omar blocked a shot with his fingertips.",
+        "Yousef admitted he had been wrong.",
+        "Omar studied videos of goalkeepers.",
+        "The crowd roared after a save."
+      ],
+      "answer": "C",
+      "why": "Omar studied videos during his evening practice; the save, the cheering and Yousef's apology all happened at the opening match."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How did Yousef's attitude toward Omar change?",
+      "options": [
+        "He went from admiring Omar to envying him.",
+        "He trusted Omar at first and never changed.",
+        "He ignored Omar and later asked him to leave.",
+        "He went from doubting Omar to respecting him."
+      ],
+      "answer": "D",
+      "why": "Yousef first muttered that the tournament was lost, but at the end he admitted, \"I was wrong about you.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "\"You did not just replace our goalkeeper; you made our whole defense stronger.\" What does Yousef mean?",
+      "options": [
+        "Omar should play as a defender instead.",
+        "Omar improved the team, not just filled a gap.",
+        "The defense became weaker because of Omar.",
+        "Omar replaced every player on the team."
+      ],
+      "answer": "B",
+      "why": "Omar did more than fill the empty place; his clear instructions and saves helped the entire defense."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best expresses the lesson of the story?",
+      "options": [
+        "Hard work can prove other people's doubts wrong.",
+        "Only the tallest players should be goalkeepers.",
+        "Coaches should always choose experienced players.",
+        "Winning one match is enough for any team."
+      ],
+      "answer": "A",
+      "why": "Omar was doubted, practiced every evening and earned his teammates' respect."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information is the least clear in the story?",
+      "options": [
+        "What happened in the final minutes",
+        "What Omar practiced in the evenings",
+        "Why the coach chose Omar over a defender",
+        "Who reached Omar first after the match"
+      ],
+      "answer": "C",
+      "why": "The story calls the choice \"surprising\" but never explains the coach's reason; the other details are described."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A goalkeeper stops every shot all season with his eyes closed.",
+        "A new goalkeeper improves after weeks of extra practice.",
+        "The ball stops in midair because Omar shouts at it.",
+        "Omar grows thirty centimeters taller in one night."
+      ],
+      "answer": "B",
+      "why": "Practice really does improve a player's skills; the other events are impossible or unrealistic."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "difficulty": 3,
+      "stem": "Which is the best alternative title for the story?",
+      "options": [
+        "The Captain's Broken Wrist",
+        "A Day at the Football Museum",
+        "Coach Saleh Says Goodbye",
+        "From Doubted Newcomer to Team Hero"
+      ],
+      "answer": "D",
+      "why": "The story is about Omar changing from a doubted newcomer into the player who saves the match; the injured player was the goalkeeper, not the captain."
+    }
+  ]
+}

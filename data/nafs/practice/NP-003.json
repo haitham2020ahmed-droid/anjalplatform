@@ -1,0 +1,169 @@
+{
+  "code": "NP-003",
+  "title": "The Forgotten Homework",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Faisal realised his mistake the moment he unzipped his school bag on Sunday morning: his mathematics homework, which he had completed carefully the previous evening, was still lying on his desk at home beside his reading lamp.\n\nHis stomach tightened as Mr Kareem began walking between the rows, collecting notebooks one by one. Faisal's friend Omar leaned across and whispered, \"Just tell him you did it and the dog ate it.\" Faisal almost smiled, because his family did not even own a dog, but the idea of inventing an excuse made him feel deeply uncomfortable.\n\nWhen the teacher reached his desk, Faisal took a deep breath and explained, \"Mr Kareem, I completed the homework, but I forgot it at home, and I'm sorry because I should have checked my bag before leaving.\"\n\nThe classroom became completely silent. Mr Kareem studied him for a long moment, and Faisal prepared himself for a lecture. Instead, the teacher nodded slowly and replied, \"Thank you for being honest, Faisal, because honesty is worth more than a perfect notebook. Bring it tomorrow, and I will still mark it.\"\n\nThat evening, Faisal wrote a short checklist and taped it inside the door of his wardrobe: notebook, pencil case, water bottle, homework. The following morning, he examined every item twice before leaving the house.\n\nHe discovered that telling the truth had cost him only a few nervous seconds, while it had earned him something far more valuable: his teacher's trust.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the story belongs to the same word family as 'honest'?",
+      "options": [
+        "nervous",
+        "trust",
+        "honesty",
+        "lecture"
+      ],
+      "answer": "C",
+      "why": "'Honesty' is the noun formed from the adjective 'honest', so they belong to the same word family."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the story is a command?",
+      "options": [
+        "Just tell him you did it and the dog ate it.",
+        "The classroom became completely silent.",
+        "He discovered that telling the truth had cost him only a few nervous seconds.",
+        "Faisal almost smiled."
+      ],
+      "answer": "A",
+      "why": "Omar's sentence begins with the verb 'tell' and gives an instruction, which makes it a command (imperative sentence)."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Faisal almost smile at Omar's suggestion?",
+      "options": [
+        "He had already handed in his homework.",
+        "His family did not even own a dog.",
+        "He knew Mr Kareem loved dogs.",
+        "He had found the homework in his bag."
+      ],
+      "answer": "B",
+      "why": "The story says Faisal almost smiled 'because his family did not even own a dog'."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which event happened LAST in the story?",
+      "options": [
+        "Omar whispered an idea to Faisal.",
+        "Faisal wrote a checklist and taped it up.",
+        "Mr Kareem collected the notebooks.",
+        "Faisal checked every item twice before leaving."
+      ],
+      "answer": "D",
+      "why": "The checklist was written that evening; the double-checking happened 'the following morning', after all the other events."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What was the result of Faisal telling the truth?",
+      "options": [
+        "The teacher thanked him and accepted the work later.",
+        "He received a long lecture from the teacher.",
+        "He had to redo the homework during break.",
+        "Omar was punished instead of him."
+      ],
+      "answer": "A",
+      "why": "Mr Kareem thanked him for his honesty and told him to bring the homework tomorrow because he would still mark it."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "'His stomach tightened.' What does this expression show about Faisal?",
+      "options": [
+        "He was very hungry.",
+        "He had eaten too much breakfast.",
+        "He felt nervous and worried.",
+        "He was excited to see his teacher."
+      ],
+      "answer": "C",
+      "why": "A tightening stomach is a physical sign of nerves; Faisal is worried because the teacher is collecting the homework he forgot."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the story?",
+      "options": [
+        "Making excuses is the safest choice at school.",
+        "Honesty can build trust, even after a mistake.",
+        "Forgetting homework is never a serious problem.",
+        "Teachers should never accept late homework."
+      ],
+      "answer": "B",
+      "why": "Faisal admits his mistake and earns his teacher's trust, which supports the idea that honesty builds trust."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "In your opinion, which information in the story is the LEAST clear or complete?",
+      "options": [
+        "which subject the homework was for",
+        "what Faisal wrote on his checklist",
+        "what the teacher said to Faisal",
+        "how Omar reacted when Faisal told the truth"
+      ],
+      "answer": "D",
+      "why": "The story never tells us what Omar thought or did after Faisal chose honesty; the subject, the checklist and the teacher's words are all given."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A notebook walks to school by itself to find its owner.",
+        "A dog eats homework and then explains the answers.",
+        "A teacher lets a pupil hand in forgotten homework the next day.",
+        "A checklist speaks to Faisal every morning."
+      ],
+      "answer": "C",
+      "why": "A teacher accepting homework a day late is realistic; notebooks cannot walk, dogs cannot explain answers and lists cannot speak."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the best alternative title for the story?",
+      "options": [
+        "A Few Nervous Seconds",
+        "The Dog That Ate the Homework",
+        "Omar's Clever Excuse",
+        "A Difficult Mathematics Test"
+      ],
+      "answer": "A",
+      "why": "The story's lesson is that telling the truth cost Faisal only 'a few nervous seconds'; there was no dog, the excuse was not used and there was no test."
+    }
+  ]
+}

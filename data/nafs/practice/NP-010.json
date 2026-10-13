@@ -1,0 +1,169 @@
+{
+  "code": "NP-010",
+  "title": "The Class 6B Garden",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "When Ms Noura announced that Class 6B would create a garden in the empty corner of the school yard, most of the students cheered enthusiastically. Only Ziyad looked doubtful, complaining that nothing could grow there because the soil was as hard as concrete.\n\nHe was partly right, as the class soon discovered. On the first day, the students struggled to push their shovels into the dry, compacted ground. Ms Noura therefore divided the class into teams with different responsibilities. One team mixed the soil with compost from the school kitchen, another constructed wooden boxes for raised beds, and a third team investigated which plants could survive the hot climate.\n\nAfter two weeks of effort, the class planted tomatoes, mint, peppers and a small row of sunflowers. Ziyad volunteered to design a watering timetable, because he had noticed that some plants were receiving too much water while others were gradually drying out.\n\nFor several weeks, nothing visible seemed to happen above the surface. Then, one morning, Reem came running into the classroom, shouting, \"The sunflowers have sprouted!\" Everyone rushed outside to examine the tiny green leaves that were pushing determinedly through the soil.\n\nBy the end of the term, the once lifeless corner was bursting with colour. The class organised a small market and sold their vegetables to parents, using the money to purchase more seeds for the following year.\n\nZiyad smiled proudly as he watered the tall sunflowers on the final afternoon of the term. \"I suppose I was mistaken,\" he admitted. \"Hard ground only needs patient hands.\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "The class planted 'tomatoes'. Which is the correct plural of 'tomato'?",
+      "options": [
+        "tomatoes",
+        "tomatos",
+        "tomatoies",
+        "tomato's"
+      ],
+      "answer": "A",
+      "why": "Some nouns ending in -o add -es to form the plural: tomato → tomatoes. 'Tomato's' shows possession, not plural."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the story is an exclamatory sentence?",
+      "options": [
+        "I suppose I was mistaken.",
+        "Hard ground only needs patient hands.",
+        "The sunflowers have sprouted!",
+        "He was partly right, as the class soon discovered."
+      ],
+      "answer": "C",
+      "why": "Reem shouts this sentence with an exclamation mark to express excitement, so it is exclamatory."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Ziyad design a watering timetable?",
+      "options": [
+        "Ms Noura gave it to him as a punishment.",
+        "Some plants got too much water, others too little.",
+        "The school kitchen needed more compost.",
+        "He wanted to sell water at the market."
+      ],
+      "answer": "B",
+      "why": "The story says he had noticed 'some plants were receiving too much water while others were gradually drying out'."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Who is the narrator of the story?",
+      "options": [
+        "Ziyad, the doubtful student",
+        "Ms Noura, the teacher",
+        "Reem, who saw the sprouts",
+        "a narrator outside the story"
+      ],
+      "answer": "D",
+      "why": "The story uses 'he', 'she' and 'they' for every character, so it is told by a third-person narrator who is not one of them."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What made the hard soil suitable for planting?",
+      "options": [
+        "leaving it alone for several weeks",
+        "selling vegetables at the market",
+        "adding compost and building raised beds",
+        "planting sunflowers in a long row"
+      ],
+      "answer": "C",
+      "why": "One team mixed the soil with compost and another built wooden boxes for raised beds, which changed the hard ground."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "'Hard ground only needs patient hands.' What does Ziyad mean?",
+      "options": [
+        "Difficult tasks succeed with steady effort.",
+        "Gardeners should always wear gloves.",
+        "Hard soil can never really be changed.",
+        "Only strong people are able to dig."
+      ],
+      "answer": "A",
+      "why": "Ziyad uses the garden as an image: something that seems impossible can succeed if people keep working patiently."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the story?",
+      "options": [
+        "Ziyad's doubts proved the project was a mistake.",
+        "School gardens are a waste of students' time.",
+        "Only one team did any useful work.",
+        "Teamwork helped the class solve a hard problem."
+      ],
+      "answer": "D",
+      "why": "Each team had a different job, and together they turned the lifeless corner into a colourful garden."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "In your opinion, which information in the story is the LEAST clear or complete?",
+      "options": [
+        "which plants the class decided to grow",
+        "how much money the class earned at the market",
+        "where the compost for the soil came from",
+        "who first noticed the sunflowers had sprouted"
+      ],
+      "answer": "B",
+      "why": "The story says they sold vegetables and bought seeds but never says how much they earned; the other details are given."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Sunflowers grow taller than the school overnight.",
+        "Tomatoes water themselves when they are thirsty.",
+        "Students sell vegetables they grew to their parents.",
+        "The soil tells Ziyad which seeds to plant."
+      ],
+      "answer": "C",
+      "why": "A class market selling home-grown vegetables is realistic; the other events are imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The class wants the garden to continue next year. Which is the best solution?",
+      "options": [
+        "Use market money for seeds and keep the watering timetable.",
+        "Let the plants grow without water all summer.",
+        "Cover the corner with concrete to keep it tidy.",
+        "Ask only one student to do all the work."
+      ],
+      "answer": "A",
+      "why": "Buying seeds with the earnings and following the timetable continues what made the garden succeed; the other ideas would destroy it."
+    }
+  ]
+}

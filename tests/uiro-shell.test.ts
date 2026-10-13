@@ -60,9 +60,12 @@ describe("interface language: t()", () => {
   });
 
   test("never 'Lexile' and no technical 'adaptive' in the interface words", () => {
+    // the one exception: the NAFS center's teacher tool is named "Adaptive practice" by the owner (NAFS center plan,
+    // teacher-facing only — students see "My practice")
+    const NAFS_TEACHER = new Set(["Adaptive practice", "Adaptive practice open", "Give adaptive practice", "Adaptive practice given", "No adaptive practice yet. Give the first one below.", "Tick for adaptive practice", "Adaptive practice results", "The NAFS center: adaptive practice, NAFS tests, the NAFS question bank, marking and reports — separate from the platform's own levels."]);
     for (const k of UI_STRINGS) {
       assert.doesNotMatch(k, /lexile/i);
-      assert.doesNotMatch(k, /\badaptive\b/i);
+      if (!NAFS_TEACHER.has(k)) assert.doesNotMatch(k, /\badaptive\b/i);
     }
   });
 });

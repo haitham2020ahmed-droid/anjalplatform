@@ -1,0 +1,568 @@
+{
+  "code": "NB-007",
+  "title": "Finding North: The Compass",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 456,
+  "passage": "Imagine sailing across a vast sea with no land in sight. How would you know which way to go? For thousands of years, finding direction was one of the most serious problems that travellers faced, because a single wrong turn could leave a ship hopelessly lost.\n\nBefore the compass existed, sailors relied on nature to guide them. During the day, they observed the position of the sun, and at night they searched the sky for the Pole Star, which always appears in the north. Many sailors also stayed close to the coast so that they could recognise hills and other familiar landmarks. However, on cloudy days and stormy nights, the sun and stars disappeared, and even experienced crews could easily lose their way.\n\nThe solution eventually came from an unusual rock called lodestone. Lodestone is naturally magnetic, which means that it can attract pieces of iron. More than two thousand years ago, people in China noticed that a piece of lodestone that could turn freely always pointed in the same direction. Interestingly, they first used this discovery for fortune-telling rather than for travel, and it was not until about the eleventh century that Chinese sailors began using magnetised iron needles to navigate at sea.\n\nKnowledge of the compass gradually spread along the busy trade routes, so that by the thirteenth century Arab, Persian and European sailors were using it too. Early compasses were remarkably simple: a magnetised needle was pushed through a piece of straw or cork and floated in a bowl of water. Later, the needle was balanced on a pin inside a box, with the directions marked around it. Accomplished Arab navigators such as Ahmad ibn Majid wrote detailed guides that explained how to use the compass together with the stars.\n\nBut why does a compass needle point north? The explanation lies deep inside our planet, which behaves like a giant magnet with a magnetic north pole and a magnetic south pole. Because a compass needle is itself a tiny magnet, it lines up with the Earth's magnetic field. However, magnetic north is not located in exactly the same place as the geographic North Pole, so skilled navigators must make small corrections.\n\nA compass can also be fooled. If it is placed near iron, steel or another magnet, the needle may be pulled in the wrong direction, which is why ship builders keep large metal objects away from it.\n\nToday, most ships, aircraft and cars depend on satellite navigation systems, which can display their exact position on a screen. Nevertheless, the compass has not disappeared. Pilots, sailors and desert travellers still carry one as a backup, because a compass requires neither a battery nor a signal. Sometimes the oldest tools are the most reliable.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word or phrase is closest in meaning to “observed” as it is used in paragraph 2?",
+      "options": [
+        "ignored",
+        "measured",
+        "followed",
+        "watched closely"
+      ],
+      "answer": "D",
+      "why": "Sailors “observed the position of the sun”, meaning they watched it carefully; they did not measure or follow it."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “familiar” in “familiar landmarks” (paragraph 2)?",
+      "options": [
+        "well-known",
+        "unknown",
+        "nearby",
+        "enormous"
+      ],
+      "answer": "B",
+      "why": "Familiar means already known; its opposite is unknown. “Well-known” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 3, lodestone “can attract pieces of iron”. Here, “attract” means …",
+      "options": [
+        "pull towards itself",
+        "push far away",
+        "melt into liquid",
+        "cover with rust"
+      ],
+      "answer": "A",
+      "why": "A magnetic rock pulls iron towards it; that is what “attract” means here."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a noun?",
+      "options": [
+        "simple",
+        "floated",
+        "navigators",
+        "detailed"
+      ],
+      "answer": "C",
+      "why": "“Navigators” names people; “simple” and “detailed” are adjectives and “floated” is a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In “Lodestone is naturally magnetic” (paragraph 3), the word “naturally” is …",
+      "options": [
+        "an adjective",
+        "a noun",
+        "a verb",
+        "an adverb"
+      ],
+      "answer": "D",
+      "why": "“Naturally” describes how lodestone is magnetic (by nature), so it is an adverb."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “magnetic”?",
+      "options": [
+        "magnetism",
+        "magnify",
+        "magnificent",
+        "magazine"
+      ],
+      "answer": "A",
+      "why": "Magnet, magnetic, magnetised and magnetism share the same root; the others only begin with “mag”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which is the correct plural of “compass”?",
+      "options": [
+        "compass’s",
+        "compassies",
+        "compasses",
+        "compassen"
+      ],
+      "answer": "C",
+      "why": "Nouns ending in -ss add -es to form the plural: compass → compasses."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is a question?",
+      "options": [
+        "Imagine sailing across a vast sea with no land in sight.",
+        "A compass can also be fooled.",
+        "Sometimes the oldest tools are the most reliable.",
+        "But why does a compass needle point north?"
+      ],
+      "answer": "D",
+      "why": "It asks something and ends with a question mark; “Imagine …” is a command."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “reliable” (last paragraph) in a meaningful sentence of your own.",
+      "model": "My old bicycle is very reliable, because it has never broken down on the way to school.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “reliable” with its meaning (something or someone you can trust to work well or do what is expected)",
+        "1 = the word is used but the sentence is incomplete or the meaning is unclear",
+        "0 = the word is missing or used with a wrong meaning"
+      ],
+      "why": "Reliable means dependable; the compass is reliable because it works without a battery or signal."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the overall purpose of the text?",
+      "options": [
+        "to tell an adventure story about a lost ship",
+        "to explain the history and science of the compass",
+        "to persuade sailors to stop using satellites",
+        "to compare Chinese and Arab sailors"
+      ],
+      "answer": "B",
+      "why": "The text explains how the compass developed, how it works, its weaknesses and why it is still used."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Lodestone and Fortune-Telling",
+        "Ahmad ibn Majid: A Great Navigator",
+        "Finding North: The Story of the Compass",
+        "Satellites in the Sky"
+      ],
+      "answer": "C",
+      "why": "The other titles describe only one detail; the text tells the whole story of the compass and how it finds north."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Ahmad ibn Majid invented the first compass.",
+        "Floating needles worked better than needles on pins.",
+        "Trade routes were dangerous in the thirteenth century.",
+        "The compass spread to many sailors and was gradually improved."
+      ],
+      "answer": "D",
+      "why": "The paragraph tells how the compass spread along trade routes and changed from a floating needle to a needle on a pin."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why could even experienced crews lose their way?",
+      "options": [
+        "The Pole Star moved around the sky each night.",
+        "Sailors were not allowed to sail near the coast.",
+        "Clouds and storms hid the sun and the stars.",
+        "Lodestone pulled their ships off course."
+      ],
+      "answer": "C",
+      "why": "“On cloudy days and stormy nights, the sun and stars disappeared.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, why does a compass needle point north?",
+      "options": [
+        "It lines up with the Earth’s magnetic field.",
+        "It is pulled by the light of the Pole Star.",
+        "Lodestone at the North Pole attracts it.",
+        "The North Pole is made of solid iron."
+      ],
+      "answer": "A",
+      "why": "The needle is a tiny magnet, so it lines up with the Earth’s magnetic field."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which feature shows that this is an informational text?",
+      "options": [
+        "It is told by a sailor who uses the word “I”.",
+        "It explains facts about a real invention in a logical order.",
+        "It is written in lines that rhyme.",
+        "It is a conversation between two travellers."
+      ],
+      "answer": "B",
+      "why": "Informational texts explain real facts about a topic, as this text does about the compass."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened FIRST?",
+      "options": [
+        "Chinese sailors used magnetised needles at sea.",
+        "Arab, Persian and European sailors used the compass.",
+        "Needles were balanced on pins inside boxes.",
+        "People in China used lodestone for fortune-telling."
+      ],
+      "answer": "D",
+      "why": "Fortune-telling began more than two thousand years ago, long before the eleventh and thirteenth centuries."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what came AFTER the floating-needle compass?",
+      "options": [
+        "a needle balanced on a pin inside a marked box",
+        "sailing by the sun and the Pole Star",
+        "the use of lodestone for fortune-telling",
+        "needles pushed through straw or cork"
+      ],
+      "answer": "A",
+      "why": "“Later, the needle was balanced on a pin inside a box, with the directions marked around it.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must skilled navigators consider when using a compass?",
+      "options": [
+        "The bowl must always be full of salt water.",
+        "Magnetic north is not exactly at the geographic North Pole.",
+        "The needle must always be made of straw or cork.",
+        "The compass works only in the daytime."
+      ],
+      "answer": "B",
+      "why": "Paragraph 5 says they must make small corrections for this difference."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What can cause a compass needle to point in the wrong direction?",
+      "options": [
+        "being used on a cloudy, stormy day",
+        "being carried by desert travellers",
+        "being placed near iron, steel or another magnet",
+        "being kept inside a small box"
+      ],
+      "answer": "C",
+      "why": "Paragraph 6 explains that metal and magnets can pull the needle the wrong way; clouds affect the stars, not the compass."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Using paragraphs 2 and 3, why was the magnetised needle so valuable on cloudy days and stormy nights?",
+      "options": [
+        "It made the clouds and storms disappear more quickly.",
+        "It made the Pole Star easier to see at night.",
+        "It kept ships close to the coast and its landmarks.",
+        "It showed direction even when the sun and stars were hidden."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2 says the sun and stars disappeared in bad weather; paragraph 3 says lodestone always points in the same direction, so a needle still worked."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why do pilots and desert travellers still carry a compass today?",
+      "options": [
+        "It shows their exact position on a screen.",
+        "It works without a battery or a signal.",
+        "Satellite systems are not allowed in planes.",
+        "It is more modern than satellite systems."
+      ],
+      "answer": "B",
+      "why": "The last paragraph says a compass “requires neither a battery nor a signal”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a satellite navigation system different from a compass?",
+      "options": [
+        "It can show an exact position on a screen.",
+        "It uses a needle floating in water.",
+        "It needs neither a battery nor a signal.",
+        "It was first used over two thousand years ago."
+      ],
+      "answer": "A",
+      "why": "Satellite systems “display their exact position on a screen”; the other options describe the compass or lodestone."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do lodestone and a compass needle have in common?",
+      "options": [
+        "Both were first used in Europe.",
+        "Both always point south.",
+        "Both are magnetic.",
+        "Both were first used for fortune-telling."
+      ],
+      "answer": "C",
+      "why": "Lodestone is “naturally magnetic”, and the needle is “a tiny magnet”."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was one effect of the compass spreading along trade routes?",
+      "options": [
+        "Lodestone stopped being magnetic.",
+        "The Pole Star became easier to see.",
+        "Ships no longer needed experienced crews.",
+        "Sailors from many lands began to use it."
+      ],
+      "answer": "D",
+      "why": "By the thirteenth century, Arab, Persian and European sailors were using it."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Why do you think the writer begins the text with “Imagine sailing across a vast sea with no land in sight”?",
+      "options": [
+        "to tell readers that they must learn to sail",
+        "to make readers picture the problem sailors faced",
+        "to show that the text is a poem about the sea",
+        "to give the exact date the compass was invented"
+      ],
+      "answer": "B",
+      "why": "Asking readers to imagine the scene pulls them into the problem that the text then explains."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "“A compass can also be fooled.” What does this expression mean?",
+      "options": [
+        "A compass can give a false reading.",
+        "A compass can break if it is dropped.",
+        "A compass can tell jokes to sailors.",
+        "A compass can work without a needle."
+      ],
+      "answer": "A",
+      "why": "Saying a compass is “fooled” is an expressive way of saying it can be tricked into pointing the wrong way."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "What is your opinion of the way the writer explains the science of the compass?",
+      "options": [
+        "It is confusing, because it uses no examples or comparisons.",
+        "It is too short, because it gives no reason at all.",
+        "It is clear, because it compares the Earth to a giant magnet.",
+        "It is told only through a conversation between sailors."
+      ],
+      "answer": "C",
+      "why": "Comparing the Earth to a giant magnet makes a difficult idea easy to understand."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, which invention described in the text was most useful to early sailors in bad weather?",
+      "options": [
+        "the fortune-telling lodestone",
+        "the satellite screen",
+        "sailing by the Pole Star",
+        "the magnetised needle compass"
+      ],
+      "answer": "D",
+      "why": "The Pole Star disappears in storms and satellites are modern; the needle compass worked when the sky was hidden."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "to warn readers never to go to sea",
+        "to show how a simple tool changed travel",
+        "to sell compasses to desert travellers",
+        "to prove that satellites are useless"
+      ],
+      "answer": "B",
+      "why": "The text shows how the compass solved an old problem and is still useful today."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which attitude towards the compass is most present in the text?",
+      "options": [
+        "respect for an old but reliable tool",
+        "doubt about whether it really works",
+        "preference for satellite systems",
+        "amusement at early sailors"
+      ],
+      "answer": "A",
+      "why": "The text ends: “Sometimes the oldest tools are the most reliable.”"
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "what lodestone can do to iron",
+        "why sailors watched the Pole Star",
+        "how navigators make their small corrections",
+        "when Chinese sailors began using needles"
+      ],
+      "answer": "C",
+      "why": "The text says navigators “must make small corrections” but never explains how."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A compass needle points wherever its owner wishes it to point.",
+        "A piece of lodestone turns iron nails into gold coins.",
+        "A sailor finds north by looking at the Pole Star at noon on a sunny day.",
+        "A hiker’s compass points the wrong way because it is near a steel car."
+      ],
+      "answer": "D",
+      "why": "Paragraph 6 says steel can fool a compass; the Pole Star cannot be seen at noon."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas of the whole text?",
+      "options": [
+        "A Night Without Stars",
+        "The Needle That Changed Travel",
+        "The Biggest Ship in the World",
+        "The Mystery of the Moving Pole Star"
+      ],
+      "answer": "B",
+      "why": "The text is about how the compass needle helped people travel."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How can a traveller keep a compass working correctly?",
+      "options": [
+        "use it only on sunny days",
+        "take its needle out after each trip",
+        "keep it away from metal objects and magnets",
+        "keep it in a bowl of hot water"
+      ],
+      "answer": "C",
+      "why": "Paragraph 6 explains that metal and magnets disturb the needle."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Imagine that a group of desert travellers loses its satellite signal. Suggest a solution to help them find their way, using ideas from the text, and explain it.",
+      "model": "They should use a compass, because it needs neither a battery nor a signal, and keep it away from their metal car so that the needle is not fooled. At night they could also check their direction by finding the Pole Star, which always appears in the north.",
+      "rubric": [
+        "2 = a sensible solution based on the text (compass, Pole Star, sun, landmarks) with a clear explanation",
+        "1 = a solution without explanation, or only partly linked to the text",
+        "0 = no solution, or one unrelated to the text"
+      ],
+      "why": "The text gives the compass, the sun, the Pole Star and landmarks as ways to find direction."
+    }
+  ]
+}

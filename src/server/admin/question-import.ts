@@ -8,7 +8,7 @@
  *     → validate with the bank validator → duplicate check (bank and file)
  *     → ImportJob (kind QUESTIONS) + one ImportedQuestionLog per row                    [preview]
  *   preview: edit any question, select which to import, Skip / Import anyway for duplicates
- *   commit (in chunks of 100, for a progress bar): questions, choices, answers, explanations and
+ *   commit (in chunks of COMMIT_CHUNK, for a progress bar): questions, choices, answers, explanations and
  *   audit rows are written with batch inserts in one transaction per chunk. Origin IMPORTED, status
  *   DRAFT (or PUBLISHED when an admin approves on import).
  *
@@ -38,6 +38,7 @@ import { BOOT_ID, CRASH_MESSAGE, beginStep, endStep, leftByDeadProcess, type Gua
 import { areaByKey, areaFromName, areaFromText, defaultStandard, parseCcss } from "../map/nwea-area";
 import { backfillContentHashes, hashOfItem } from "../questions/dedupe-hash";
 import { schoolSkillIndex } from "../questions/skill-questions";
+import { PREVIEW_PAGE, countRow, emptyCounts, inFilter, parseFilter, type PreviewCounts, type PreviewFilter } from "../../lib/import-preview";
 
 export type ImportDecision = "IMPORT" | "SKIP" | "REPLACE" | "FORCE";
 export type RowStatus = "VALID" | "INVALID" | "DUPLICATE" | "IMPORTED" | "REPLACED" | "SKIPPED" | "FAILED";
@@ -66,7 +67,7 @@ export class ImportFileError extends ValidationError {
   }
 }
 
-const COMMIT_CHUNK = 100;
+export const COMMIT_CHUNK = 250;
 /** Preview rows are checked and saved this many at a time (Update 42A: bounded memory). */
 export const ANALYZE_CHUNK = 200;
 const LOG_BATCH = 500;
@@ -94,7 +95,17 @@ export async function loadCurriculumIndex(repo: Repo, actor: Actor, opts: { incl
   return buildCurriculumIndex(refs, standards.map((s) => ({ id: String(s.id), code: String(s.code) })), grades.map((g) => Number(g.level)));
 }
 
-const skillById = (idx: CurriculumIndex, id: string) => [...idx.grades.values()].flat().find((s) => s.id === id) ?? null;
+/** ⚡ id → skill of an index, built once per index (every row of a file looks its skill up several times) */
+const skillMaps = new WeakMap<CurriculumIndex, Map<string, SkillRef>>();
+const skillById = (idx: CurriculumIndex, id: string): SkillRef | null => {
+  let m = skillMaps.get(idx);
+  if (!m) {
+    m = new Map();
+    for (const s of [...idx.grades.values()].flat()) if (!m.has(s.id)) m.set(s.id, s); // the first one, as find() did
+    skillMaps.set(idx, m);
+  }
+  return m.get(id) ?? null;
+};
 
 /** Editor input for a row (skill and standard may be missing when the row has errors). */
 function toInput(q: RowQuestion, skillId: string, standardCode: string | null, jobId: string | null): EditorInput {
@@ -534,6 +545,17 @@ export async function analyzeImport(repo: Repo, actor: Actor, input: AnalyzeInpu
  * row's MAP area; the standard from the skill, else read from the wording — and what the rules cannot decide
  * surely is left for the platform's AI after the import (aiNeeds). The cells are filled in place.
  */
+const normSkill = (x: string) => x.toLowerCase().replace(/\s+/g, " ").trim();
+/** ⚡ each skill's comparable forms (code, code without the grade, name), worked out once per index and grade */
+const skillKeyCache = new WeakMap<CurriculumIndex, Map<number, { skill: SkillRef; keys: string[] }[]>>();
+function skillKeys(idx: CurriculumIndex, grade: number): { skill: SkillRef; keys: string[] }[] {
+  let byGrade = skillKeyCache.get(idx);
+  if (!byGrade) skillKeyCache.set(idx, (byGrade = new Map()));
+  let list = byGrade.get(grade);
+  if (!list) byGrade.set(grade, (list = (idx.grades.get(grade) ?? []).map((k) => ({ skill: k, keys: [normSkill(k.code), normSkill(k.code).replace(/^g\d+\./, ""), normSkill(k.name)] }))));
+  return list;
+}
+
 async function completeRow(idx: CurriculumIndex, cells: Partial<Record<string, string>>, rr: ReturnType<typeof readRow>, fileGrade: number | null, unclassifiedOf: (g: number) => Promise<string | undefined>): Promise<{ warnings: string[]; aiNeeds: string[] }> {
   const warnings: string[] = [], aiNeeds: string[] = [];
   if (!rr.question) return { warnings, aiNeeds };
@@ -551,9 +573,9 @@ async function completeRow(idx: CurriculumIndex, cells: Partial<Record<string, s
   const grade = rr.grade;
   if (grade === null || !idx.grades.has(grade)) return { warnings, aiNeeds };
   const skills = idx.grades.get(grade)!;
-  const norm = (x: string) => x.toLowerCase().replace(/\s+/g, " ").trim();
   const skillText = get("skill");
-  const known = skillText ? skills.filter((k) => norm(k.code) === norm(skillText) || norm(k.code).replace(/^g\d+\./, "") === norm(skillText) || norm(k.name) === norm(skillText)) : [];
+  const want = normSkill(skillText);
+  const known = skillText ? skillKeys(idx, grade).filter((x) => x.keys.includes(want)).map((x) => x.skill) : [];
   const options = [cells.optA, cells.optB, cells.optC, cells.optD].map((x) => String(x ?? "")).filter(Boolean);
   // skill
   if (known.length !== 1) {
@@ -675,9 +697,53 @@ export async function getImportJob(repo: Repo, actor: Actor, jobId: string): Pro
   return { ...viewOf(job, String(uploader?.displayName ?? "")), rows: logs.map((l) => previewRow(l, dupQs)) };
 }
 
+export interface ImportPageView extends Omit<ImportJobView, "rows"> {
+  /** the rows of this page of the chosen tab, as the browser gets them (clientRows) */
+  rows: PreviewRow[];
+  filter: PreviewFilter; page: number; pages: number; /** rows in the chosen tab */ shown: number;
+  counts: PreviewCounts;
+  /** some row has an error or a warning, or the job has errors (the “download the problems” link) */
+  hasProblems: boolean;
+}
+
+/**
+ * ⚡ The preview page: the counts of every tab from a few small columns of each row, and the full rows of ONE page
+ * of the chosen tab (PREVIEW_PAGE rows) — never every row of the file with its question and passage.
+ * Without a tab: the errors when the file has errors (and is not imported yet), else all rows.
+ */
+export async function getImportPage(repo: Repo, actor: Actor, jobId: string, opts: { filter?: string | null; page?: number | string | null } = {}): Promise<ImportPageView> {
+  assertCan(actor, "questions:edit");
+  const job = await jobInSchool(repo, actor, jobId);
+  await failDeadChecks(repo, [job]);
+  const [light, uploader] = await Promise.all([
+    repo.findMany("ImportedQuestionLog", { jobId }, { select: ["id", "rowIndex", "status", "decision", "selected", "duplicateOfId", "errors", "warnings"], orderBy: [{ field: "rowIndex", dir: "asc" }] }),
+    repo.findUnique("User", { id: job.uploadedById }),
+  ]);
+  const dupIds = [...new Set(light.map((l) => l.duplicateOfId).filter(Boolean).map(String))];
+  const dupExists = new Set<string>();
+  for (let i = 0; i < dupIds.length; i += 500) for (const q of await repo.findMany("Question", { id: { in: dupIds.slice(i, i + 500) } }, { select: ["id"] })) dupExists.add(String(q.id));
+  const view = viewOf(job, String(uploader?.displayName ?? ""));
+  const states = light.map((l) => ({ id: String(l.id), status: String(l.status), decision: String(l.decision), selected: Boolean(l.selected), duplicate: l.duplicateOfId ? dupExists.has(String(l.duplicateOfId)) : false }));
+  const counts = emptyCounts();
+  for (const r of states) countRow(counts, r);
+  const hasProblems = view.errors.length > 0 || light.some((l) => (parseJ<unknown[] | null>(l.errors) ?? []).length || (parseJ<unknown[] | null>(l.warnings) ?? []).length);
+  const filter = parseFilter(opts.filter) ?? (view.status === "COMPLETED" ? "all" : view.totals.invalid ? "errors" : "all");
+  const inTab = states.filter((r) => inFilter(filter, r));
+  const pages = Math.max(1, Math.ceil(inTab.length / PREVIEW_PAGE));
+  const page = Math.min(pages - 1, Math.max(0, Math.floor(Number(opts.page) || 0)));
+  const ids = inTab.slice(page * PREVIEW_PAGE, page * PREVIEW_PAGE + PREVIEW_PAGE).map((r) => r.id);
+  const full = ids.length ? await repo.findMany("ImportedQuestionLog", { id: { in: ids } }) : [];
+  const pageDups = [...new Set(full.map((l) => l.duplicateOfId).filter(Boolean).map(String))];
+  const dupQs = new Map((pageDups.length ? await repo.findMany("Question", { id: { in: pageDups } }, { select: ["id", "stem", "status"] }) : []).map((q) => [String(q.id), q]));
+  const order = new Map(ids.map((id, i) => [id, i]));
+  const rows = full.sort((a, b) => order.get(String(a.id))! - order.get(String(b.id))!).map((l) => previewRow(l, dupQs));
+  return { ...view, rows: clientRows(rows), filter, page, pages, shown: inTab.length, counts, hasProblems };
+}
+
 export async function listImportJobs(repo: Repo, actor: Actor, limit = 30): Promise<Omit<ImportJobView, "rows">[]> {
   assertCan(actor, "questions:edit");
-  const users = await repo.findMany("User", { schoolId: schoolOf(actor) }, { select: ["id", "displayName"] });
+  // ⚡ the school's staff only (students cannot import questions): not one id per student in the query below
+  const users = await repo.findMany("User", { schoolId: schoolOf(actor), role: { not: "STUDENT" } }, { select: ["id", "displayName"] });
   // the newest `limit` jobs only, read by the database (Update 42A: never every job with its error lists)
   const jobs = await repo.findMany("ImportJob", { kind: "QUESTIONS", uploadedById: { in: users.map((u) => u.id) } }, { orderBy: [{ field: "createdAt", dir: "desc" }], take: limit });
   await failDeadChecks(repo, jobs);
@@ -765,9 +831,19 @@ export interface CommitProgress { processed: number; total: number; done: boolea
 interface Planned { log: Row; input: EditorInput; item: BankItem; skill: SkillRef; standardId: string | null; passage: string | null; replaceId: string | null; /** the standard is not linked to the skill: kept, but the question waits for a review */ unlinkedStandard: boolean }
 
 import { passageRef } from "./passages";
+import { readCacheFor } from "../db/read-cache-repo";
+import { countGroups } from "../db/group-count";
 import { cleanLexile } from "./questions";
 import { attachmentNodes, resolveMapLocation, unclassifiedSkillId, usesFrom } from "../curriculum-map/questions";
 import { lexileBands, levelForLexile } from "../curriculum-map/lexile";
+
+const LOG_COLUMNS = ["id", "jobId", "rowIndex", "status", "decision", "selected", "source", "detected", "errors", "warnings", "duplicateOfId", "similarity", "questionId", "createdAt", "updatedAt"] as const;
+/** An import row as read, with `patch` applied, ready to be inserted again (a JSON column left empty stays empty). */
+function logRow(l: Row, patch: Row): Row & { id: string } {
+  const out: Record<string, unknown> = {};
+  for (const k of LOG_COLUMNS) { const v = k in patch ? patch[k] : l[k]; if (v !== undefined && !(v === null && (k === "errors" || k === "warnings"))) out[k] = v; }
+  return out as Row & { id: string };
+}
 
 /** Writes planned questions with batch inserts, in one transaction. Returns log id → question id. */
 async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: boolean, jobId: string, now: Date): Promise<Map<string, string>> {
@@ -850,7 +926,11 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
       }
     }
     await tx.createMany("AuditLog", audits);
-    for (const p of plans) await tx.updateMany("ImportedQuestionLog", { id: p.log.id }, { status: p.replaceId ? "REPLACED" : "IMPORTED", questionId: ids.get(String(p.log.id)), updatedAt: now });
+    // ⚡ each row's status and new question: the chunk's rows are written again in one insert (same ids, same values,
+    // in this transaction) instead of one UPDATE per row
+    const done = plans.map((p) => logRow(p.log, { status: p.replaceId ? "REPLACED" : "IMPORTED", questionId: ids.get(String(p.log.id)), updatedAt: now }));
+    await tx.deleteMany("ImportedQuestionLog", { id: { in: done.map((l) => l.id) } });
+    await tx.createMany("ImportedQuestionLog", done);
   });
   return ids;
 }
@@ -861,8 +941,16 @@ async function writeBatch(repo: Repo, actor: Actor, plans: Planned[], publish: b
  * A database error in a chunk is retried question by question, so one bad row cannot stop the rest;
  * each failure is recorded on its row and in the job's error list.
  */
-export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string, opts: { publish?: boolean } = {}, now = new Date()): Promise<CommitProgress> {
+export async function commitImportChunk(repoIn: Repo, actor: Actor, jobId: string, opts: { publish?: boolean } = {}, now = new Date()): Promise<CommitProgress> {
   assertCan(actor, "questions:edit");
+  // ⚡ the reference rows the chunk and its after-steps read again and again (grades, skills, standards, families,
+  // areas, types) are read once per chunk; writes drop what they change (db/read-cache-repo.ts)
+  const repo = readCacheFor(repoIn);
+  repo.clear();
+  try { return await commitChunk(repo, actor, jobId, opts, now); } finally { repo.clear(); }
+}
+
+async function commitChunk(repo: Repo, actor: Actor, jobId: string, opts: { publish?: boolean }, now: Date): Promise<CommitProgress> {
   if (opts.publish) assertCan(actor, "questions:publish");
   const job = await jobInSchool(repo, actor, jobId);
   if (job.status === "FAILED") throw new ValidationError(parseJ<{ stage?: string }>(job.options)?.stage === "crash" ? jobErrors(job)[0] ?? CRASH_MESSAGE : "This file could not be read. Fix the file and upload it again.");
@@ -916,6 +1004,8 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
     const hits = await bankHashHits(repo, hashes);
     const seen = new Map<string, string>();
     const keep: Planned[] = [];
+    // ⚡ rows skipped as duplicates: one statement per bank question they repeat, not one per row
+    const dupRows = new Map<string, string[]>();
     for (const [i, p] of plans.entries()) {
       const h = hashes[i];
       const fam = keyOf.get(p.skill.id) ?? `solo:${p.skill.id}`;
@@ -923,12 +1013,14 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
       const inChunk = h ? seen.get(`${h}|${fam}`) : undefined;
       if (inBank || inChunk) {
         dupSkipped++;
-        await repo.updateMany("ImportedQuestionLog", { id: p.log.id }, { status: "SKIPPED", duplicateOfId: inBank?.id ?? null, warnings: ["This question already exists in the question bank."], updatedAt: now });
+        const k = inBank?.id ?? "";
+        dupRows.set(k, [...(dupRows.get(k) ?? []), String(p.log.id)]);
         continue;
       }
       if (h) seen.set(`${h}|${fam}`, String(p.log.id));
       keep.push(p);
     }
+    for (const [dupOf, ids] of dupRows) await repo.updateMany("ImportedQuestionLog", { id: ids.length === 1 ? ids[0] : { in: ids } }, { status: "SKIPPED", duplicateOfId: dupOf || null, warnings: ["This question already exists in the question bank."], updatedAt: now });
     plans.length = 0;
     plans.push(...keep);
   }
@@ -937,7 +1029,10 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
     await repo.updateMany("ImportJob", { id: jobId }, { options: { ...fresh, dupSkipped: Number(fresh.dupSkipped ?? 0) + dupSkipped } });
   }
   if (skip.length) await repo.updateMany("ImportedQuestionLog", { id: { in: skip } }, { status: "SKIPPED", updatedAt: now });
-  for (const f of failed) await repo.updateMany("ImportedQuestionLog", { id: f.id }, { status: "FAILED", errors: f.errors, updatedAt: now });
+  // ⚡ rows that fail for the same reasons: one statement for all of them (a file with one mistake on every row)
+  const failedBy = new Map<string, string[]>();
+  for (const f of failed) { const k = JSON.stringify(f.errors); failedBy.set(k, [...(failedBy.get(k) ?? []), f.id]); }
+  for (const [k, ids] of failedBy) await repo.updateMany("ImportedQuestionLog", { id: ids.length === 1 ? ids[0] : { in: ids } }, { status: "FAILED", errors: JSON.parse(k) as string[], updatedAt: now });
   if (plans.length) {
     try {
       await writeBatch(repo, actor, plans, publish, jobId, now);
@@ -982,11 +1077,12 @@ export async function commitImportChunk(repo: Repo, actor: Actor, jobId: string,
     const fresh = parseJ<Record<string, unknown>>((await repo.findUnique("ImportJob", { id: jobId }))?.options) ?? {};
     await repo.updateMany("ImportJob", { id: jobId }, { options: { ...fresh, guard: endStep() } });
   }
-  const count = (status: RowStatus) => repo.count("ImportedQuestionLog", { jobId, status });
-  const [imported, replaced, skipped, failedN, remaining, total, duplicates] = await Promise.all([
-    count("IMPORTED"), count("REPLACED"), count("SKIPPED"), count("FAILED"), repo.count("ImportedQuestionLog", { jobId, status: { in: OPEN } }),
-    repo.count("ImportedQuestionLog", { jobId }), Promise.resolve(Number(job.duplicateRows ?? 0)),
-  ]);
+  // ⚡ every count of the job's rows from one GROUP BY
+  const byStatus = await countGroups(repo, "ImportedQuestionLog", "status", { jobId });
+  const count = (...st: RowStatus[]) => st.reduce((n, x) => n + (byStatus.get(x) ?? 0), 0);
+  const [imported, replaced, skipped, failedN, remaining, total, duplicates] = [
+    count("IMPORTED"), count("REPLACED"), count("SKIPPED"), count("FAILED"), count(...OPEN), [...byStatus.values()].reduce((a, b) => a + b, 0), Number(job.duplicateRows ?? 0),
+  ];
   const duplicatesSkipped = Number(parseJ<{ dupSkipped?: number }>((await repo.findUnique("ImportJob", { id: jobId }))?.options)?.dupSkipped ?? 0);
   const counts = { imported, replaced, skipped, failed: failedN, duplicates, duplicatesSkipped };
   const done = remaining === 0;

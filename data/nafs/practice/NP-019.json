@@ -1,0 +1,169 @@
+{
+  "code": "NP-019",
+  "title": "The Ant and the Sparrow",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Long ago, at the edge of a wide agricultural field, a hardworking ant lived beneath the twisted roots of an ancient acacia tree. Every morning she marched out before sunrise and carried grains of wheat back to her nest, patiently collecting one tiny load after another until her storeroom was nearly full.\n\nIn the branches above her lived a cheerful sparrow who spent most of the day singing melodies to anyone who would listen. \"Why do you work so hard?\" the sparrow asked one afternoon, fluttering down beside her. \"The field is full of seeds, and there is plenty of food available for every creature.\"\n\n\"The field is generous now,\" replied the ant politely, \"but the winter rains will soon arrive, and then the seeds will be washed away or buried deep in the mud.\"\n\nThe sparrow laughed and flew back to his branch, completely convinced that the ant was worrying about nothing.\n\nA few weeks later, heavy clouds gathered and the rain poured down for days without stopping. The field became a muddy pond, and the sparrow searched desperately for food, growing weaker and hungrier every day. Finally, shivering and embarrassed, he knocked at the entrance of the ant's underground nest.\n\nInstead of scolding him, the ant generously shared some of her grain and offered him a dry corner beneath the roots. \"Next season, we will gather our food together,\" she suggested kindly, and the grateful sparrow agreed, singing happily while he worked beside his small but wise neighbor.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word belongs to the same word family as \"hungrier\"?",
+      "options": [
+        "harvest",
+        "hurry",
+        "hunger",
+        "humble"
+      ],
+      "answer": "C",
+      "why": "\"Hungrier\" comes from \"hungry,\" which is built on the root \"hunger.\""
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What type of sentence is \"Why do you work so hard?\"",
+      "options": [
+        "a command",
+        "a statement",
+        "an exclamation",
+        "a question"
+      ],
+      "answer": "D",
+      "why": "It asks something and ends with a question mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report about the weather",
+        "a fable with animal characters",
+        "a poem about acacia trees",
+        "a scientific article about ants"
+      ],
+      "answer": "B",
+      "why": "It is a short story in which animals speak and act like people to teach a lesson, which is a fable."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Who says, \"The field is generous now\"?",
+      "options": [
+        "the ant",
+        "the sparrow",
+        "the narrator",
+        "the farmer"
+      ],
+      "answer": "A",
+      "why": "The text says \"replied the ant politely\" after these words."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is the ant different from the sparrow at the beginning of the story?",
+      "options": [
+        "The ant plans ahead, but the sparrow does not.",
+        "The ant sings, but the sparrow works.",
+        "The ant is lazy, but the sparrow is busy.",
+        "The ant lives in a tree, but the sparrow lives underground."
+      ],
+      "answer": "A",
+      "why": "The ant stores food before the rains, while the sparrow thinks there is plenty and does not prepare."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "The ant says, \"The field is generous now.\" What does this expression mean?",
+      "options": [
+        "The field is kind to the sparrow only.",
+        "The field is selling its seeds to the animals.",
+        "The field is giving plenty of food at the moment.",
+        "The field is too small for both of them."
+      ],
+      "answer": "C",
+      "why": "Describing the field as \"generous\" gives it a human quality to show it is providing a lot of seeds."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which event from the story could really happen in nature?",
+      "options": [
+        "An ant invites a bird to talk about seasons.",
+        "A sparrow knocks politely at a door.",
+        "Heavy rain turns a dry field into mud.",
+        "A sparrow and an ant make a plan for next year."
+      ],
+      "answer": "C",
+      "why": "Rain turning a field to mud is a natural event; talking and planning animals are imaginary."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion about the ant is BEST supported by the story?",
+      "options": [
+        "She is selfish with her food.",
+        "She is both wise and generous.",
+        "She is too proud to help others.",
+        "She is afraid of the sparrow."
+      ],
+      "answer": "B",
+      "why": "She prepares for the rain and then shares her grain and shelter instead of scolding the sparrow."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which detail does the story leave LEAST clear?",
+      "options": [
+        "How long the ant's grain would last for both of them",
+        "Where the ant built her underground nest",
+        "What the sparrow liked to do all day",
+        "What happened to the field during the rain"
+      ],
+      "answer": "A",
+      "why": "The story never tells us whether the stored grain was enough for both animals or for how long."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST different ending that still fits the story's lesson?",
+      "options": [
+        "The sparrow eats all the grain and flies away laughing.",
+        "The ant closes her door and never speaks to the sparrow again.",
+        "The rain stops at once and the sparrow is never hungry again.",
+        "The sparrow stores seeds of his own before the next rainy season."
+      ],
+      "answer": "D",
+      "why": "This ending shows the sparrow learning to plan ahead, which matches the fable's message."
+    }
+  ]
+}

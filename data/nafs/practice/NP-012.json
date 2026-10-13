@@ -1,0 +1,169 @@
+{
+  "code": "NP-012",
+  "title": "Trust the Water",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Lina had always watched the swimming pool at the community sports club from behind the glass window, admiring the confident girls who glided through the water as easily as fish. Whenever her mother suggested lessons, Lina invented a polite excuse, because the deep blue water made her stomach twist into a tight, uncomfortable knot.\n\nAt the beginning of the summer holiday, however, her cousin Reem invited her on a family excursion to the beach near Jeddah. Lina realized that she would be sitting alone on the sand while everyone else played in the waves, so she reluctantly agreed to join a beginners' class.\n\nHer instructor, Ms. Huda, was remarkably patient and calm with every nervous student. On the first day, Lina simply held the edge of the pool and practiced blowing bubbles, and gradually she learned to float on her back while the coach's hand rested gently beneath her. \"Trust the water, because it will carry you if you stay relaxed,\" Ms. Huda repeated encouragingly.\n\nSome mornings Lina swallowed water and seriously considered quitting, but she remembered Reem's invitation and returned, determined, the following day. By the fourth week, she could swim the entire width of the pool without stopping once.\n\nWhen the family finally arrived at the beach, Lina waded into the sea with an enormous smile. \"Look at me!\" she shouted to Reem as she kicked confidently through the gentle waves, and the fear that had once held her back now felt like a distant memory.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the story is an adjective?",
+      "options": [
+        "coach",
+        "learned",
+        "gently",
+        "patient"
+      ],
+      "answer": "D",
+      "why": "\"Patient\" describes Ms. Huda, so it is an adjective; \"coach\" is a noun, \"learned\" a verb and \"gently\" an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What kind of sentence is \"Look at me!\" as Lina uses it in the story?",
+      "options": [
+        "an exclamatory sentence showing excitement",
+        "a question asking for information",
+        "a statement giving a fact",
+        "a sentence that describes the weather"
+      ],
+      "answer": "A",
+      "why": "Lina shouts with strong feeling and the sentence ends with an exclamation mark, so it expresses excitement."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Lina finally agree to join a swimming class?",
+      "options": [
+        "Her coach visited her house to invite her.",
+        "Her school made swimming a required subject.",
+        "She did not want to sit alone on the beach trip.",
+        "She wanted to win a race at the sports club."
+      ],
+      "answer": "C",
+      "why": "The second paragraph says she did not want to sit alone on the sand while everyone played in the waves."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which event happened FIRST in Lina's lessons?",
+      "options": [
+        "She floated on her back with help.",
+        "She held the edge of the pool and blew bubbles.",
+        "She swam the whole width of the pool.",
+        "She kicked through the waves at the beach."
+      ],
+      "answer": "B",
+      "why": "On the first day she only held the edge and practiced blowing bubbles; the other events came later."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is Lina at the end of the story different from Lina at the beginning?",
+      "options": [
+        "She prefers the sports club to the beach.",
+        "She enjoys the water instead of fearing it.",
+        "She no longer wants to visit her cousin.",
+        "She now teaches swimming to other girls."
+      ],
+      "answer": "B",
+      "why": "At first the water made her stomach twist; at the end she wades in with a wide smile."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "The writer says the girls \"glided through the water as easily as fish.\" What is the effect of this comparison?",
+      "options": [
+        "It shows that the pool was full of fish.",
+        "It shows that the girls were afraid of water.",
+        "It shows that the water was cold and dark.",
+        "It shows how smooth and skilled the swimmers looked."
+      ],
+      "answer": "D",
+      "why": "This simile compares the swimmers to fish to show how easily and smoothly they moved."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which event from a story like this one could really happen?",
+      "options": [
+        "A child learns to breathe underwater like a fish.",
+        "A coach makes the sea calm with one word.",
+        "A child swims across the Red Sea after one lesson.",
+        "A child learns to swim a width of a pool in four weeks."
+      ],
+      "answer": "D",
+      "why": "Learning to swim a pool width after weeks of practice is realistic; the other events are impossible."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which lesson does the writer MOST want readers to take from the story?",
+      "options": [
+        "Swimming is more important than other sports.",
+        "It is better to avoid things that scare us.",
+        "Patient practice can help us overcome our fears.",
+        "Beaches are more fun than swimming pools."
+      ],
+      "answer": "C",
+      "why": "Lina overcomes her fear step by step through steady practice, which is the story's main message."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which detail does the story leave LEAST clear?",
+      "options": [
+        "Why Lina was afraid of the water to begin with",
+        "Who Lina's swimming coach was",
+        "Where the family beach trip took place",
+        "What Lina practiced on the first day"
+      ],
+      "answer": "A",
+      "why": "The story tells us the coach's name, the place and the first lesson, but it never explains what caused her fear."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which title BEST describes the events of the story?",
+      "options": [
+        "A Day at the Sports Club Café",
+        "Lina Learns to Trust the Water",
+        "Reem's Swimming Competition",
+        "The Lost Shell on Jeddah Beach"
+      ],
+      "answer": "B",
+      "why": "The story follows Lina as she overcomes her fear and learns to swim, as the coach told her to trust the water."
+    }
+  ]
+}

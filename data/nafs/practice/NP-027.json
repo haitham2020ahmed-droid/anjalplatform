@@ -1,0 +1,169 @@
+{
+  "code": "NP-027",
+  "title": "Two Plans, One Trip",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "passage": "\"The science museum is obviously the better choice,\" Omar announced at breakfast, spreading his brochures across the table. His twin brother, Hamad, rolled his eyes impatiently. \"You always choose something indoors. The desert camp offers sandboarding, stargazing, and a camel ride!\"\n\nTheir class had been asked to vote for the end-of-year trip, and the twins, who usually agreed about everything, had suddenly become rivals. Each brother began campaigning enthusiastically among their classmates: Omar prepared a colorful poster about the museum's planetarium, while Hamad recorded a short video of sand dunes glowing at sunset.\n\nBy Wednesday, the class was divided exactly in half, and the arguments were becoming unpleasant. Several students stopped communicating during break time. Their teacher, Mr. Khalid, noticed the growing tension between the classmates and asked the twins to stay after the lesson.\n\n\"Both of your ideas are excellent,\" he said calmly, \"but a trip should bring the class together, not split it apart. Is there a way to combine your plans?\"\n\nThe brothers looked at each other awkwardly. Then Omar remembered something from his brochure. \"The museum's planetarium teaches visitors how to identify constellations,\" he said slowly. Hamad's face brightened. \"So we could visit the planetarium in the morning, and then find those same stars at the desert camp at night!\"\n\nMr. Khalid smiled approvingly. When the twins presented their joint plan the next day, the class voted for it unanimously. Walking home together, Hamad laughed and admitted that two stubborn brothers had finally produced one brilliant idea.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word is in the same word family as \"approvingly\"?",
+      "options": [
+        "appear",
+        "approach",
+        "apron",
+        "approve"
+      ],
+      "answer": "D",
+      "why": "\"Approvingly\" is built from the verb \"approve\" with the endings -ing and -ly."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence from the story is EXCLAMATORY?",
+      "options": [
+        "You always choose something indoors.",
+        "The desert camp offers sandboarding, stargazing, and a camel ride!",
+        "Is there a way to combine your plans?",
+        "The science museum is obviously the better choice."
+      ],
+      "answer": "B",
+      "why": "It shows Hamad's excitement and ends with an exclamation mark; the others are a question and statements."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Mr. Khalid ask the twins to stay after the lesson?",
+      "options": [
+        "They had arrived late to his lesson.",
+        "He wanted them to cancel the trip.",
+        "He saw that the vote was dividing the class.",
+        "He preferred the museum to the camp."
+      ],
+      "answer": "C",
+      "why": "He \"noticed the growing tension between the classmates\" and said a trip should bring the class together."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Who FIRST raised the idea of combining the two plans?",
+      "options": [
+        "Omar",
+        "Mr. Khalid",
+        "Hamad",
+        "a classmate"
+      ],
+      "answer": "B",
+      "why": "Mr. Khalid asked, \"Is there a way to combine your plans?\" before Omar and Hamad found how to do it."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What did the museum and the desert camp have in common that solved the problem?",
+      "options": [
+        "Both offered a way to learn about stars.",
+        "Both were located close to the school.",
+        "Both offered a camel ride at sunset.",
+        "Both were cheaper than other trips."
+      ],
+      "answer": "A",
+      "why": "The planetarium teaches constellations, and the camp offers stargazing, so the two trips fit together."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "\"Two stubborn brothers had finally produced one brilliant idea.\" What is the effect of this sentence?",
+      "options": [
+        "It proves Omar's idea was the best one.",
+        "It shows the brothers are still angry.",
+        "It ends the story with humor and teamwork.",
+        "It hints that the trip was later cancelled."
+      ],
+      "answer": "C",
+      "why": "Hamad laughs as he says it, poking fun at their stubbornness while celebrating what they achieved together."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the story?",
+      "options": [
+        "Indoor trips are always better than outdoor ones.",
+        "Teachers should choose trips without asking.",
+        "Twins should always vote for the same trip.",
+        "Compromise can turn a conflict into a better plan."
+      ],
+      "answer": "D",
+      "why": "The joint plan was better than either idea alone and won every vote."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is the LEAST clear?",
+      "options": [
+        "how many students were in the class",
+        "where Hamad wanted the class to go",
+        "what Omar made to win support",
+        "when the twins presented their plan"
+      ],
+      "answer": "A",
+      "why": "The story says the class was \"divided exactly in half\" but never gives the number of students."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "A poster talks to persuade the teacher.",
+        "A class votes to choose its end-of-year trip.",
+        "Stars shine brightly in the desert at noon.",
+        "The museum's planets fly out to the desert."
+      ],
+      "answer": "B",
+      "why": "Class votes are realistic; stars are not visible at noon, and posters and planets cannot talk or fly."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the best alternative title for the story?",
+      "options": [
+        "Stars by Day and by Night",
+        "The Day the Twins Moved Away",
+        "Omar's Lost Brochure",
+        "A Camel Race in the City"
+      ],
+      "answer": "A",
+      "why": "The joint plan is to study stars at the planetarium by day and find them at the camp by night."
+    }
+  ]
+}

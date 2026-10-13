@@ -1,0 +1,169 @@
+{
+  "code": "NP-072",
+  "title": "Faisal's Flight Plan",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Every afternoon, Faisal climbed to the flat roof of his family's house in Jeddah and watched the airplanes descend toward the airport. He could name most of them by the shape of their wings, and he kept a notebook full of careful sketches and flight numbers.\n\n\"One day I will be the one sitting in that cockpit,\" he announced confidently at dinner one evening, pointing toward the window.\n\nHis older sister laughed at the announcement, but his father looked thoughtful and set down his spoon. \"Pilots need more than dreams,\" he said. \"They need mathematics, physics, and a great deal of patience.\"\n\nFaisal had always considered mathematics his weakest and least enjoyable subject. That night, however, he opened his textbook and worked through the chapter on fractions twice, even though nobody had asked him to. Within a few weeks, his teacher noticed that his homework had become neater and his answers more accurate.\n\nIn the spring, his school organized a visit to an aviation academy. A friendly instructor allowed each student to sit in a flight simulator, a machine that imitates the experience of flying a real aircraft. When it was Faisal's turn, his hands trembled on the controls, and his first landing was rough enough to make everyone grin.\n\n\"That was not bad at all for a beginner,\" the instructor said encouragingly. \"Keep studying, and the sky will wait for you.\"\n\nOn the bus home, Faisal opened his notebook and, beneath his drawings, wrote a new list: algebra, physics, English, and patience.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word belongs to the same word family as \"accurate\"?",
+      "options": [
+        "accident",
+        "curious",
+        "accuracy",
+        "account"
+      ],
+      "answer": "C",
+      "why": "\"Accuracy\" is the noun form of \"accurate\"; the other words only look similar."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the story is a command?",
+      "options": [
+        "Keep studying, and the sky will wait for you.",
+        "Pilots need more than dreams.",
+        "That was not bad at all for a beginner.",
+        "His older sister laughed at the announcement."
+      ],
+      "answer": "A",
+      "why": "\"Keep studying\" tells someone to do something, so it is a command (imperative); the others are statements."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Why did Faisal's father say that pilots need more than dreams?",
+      "options": [
+        "He wanted Faisal to choose a safer job like teaching.",
+        "He believed airplanes were too dangerous for young people.",
+        "He was upset that Faisal's sister had laughed at him.",
+        "Pilots also need math, physics, and patience."
+      ],
+      "answer": "D",
+      "why": "The father gives the reason directly: \"They need mathematics, physics, and a great deal of patience.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Who is telling this story?",
+      "options": [
+        "Faisal himself",
+        "An outside narrator",
+        "Faisal's sister",
+        "The instructor"
+      ],
+      "answer": "B",
+      "why": "The story uses \"he\" and \"his\" for Faisal and is told by a narrator who is not a character in it."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What effect did the father's words have on Faisal?",
+      "options": [
+        "He began studying mathematics on his own.",
+        "He gave up his dream of flying.",
+        "He stopped drawing airplanes.",
+        "He asked his sister to do his homework."
+      ],
+      "answer": "A",
+      "why": "That night Faisal worked through the fractions chapter twice \"even though nobody had asked him to.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The instructor says, \"the sky will wait for you.\" What does he mean?",
+      "options": [
+        "The weather will stay clear for Faisal's next flight.",
+        "Faisal's chance to fly will come if he keeps working.",
+        "Faisal should wait outside until the sky gets dark.",
+        "Pilots must wait a long time before every takeoff."
+      ],
+      "answer": "B",
+      "why": "This is figurative language: the sky stands for a flying career, which will still be possible if Faisal keeps studying."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion about Faisal is best supported by the story?",
+      "options": [
+        "He gives up when something is difficult.",
+        "He only cares about drawing airplanes.",
+        "He turns his dream into a practical plan.",
+        "He thinks becoming a pilot will be easy."
+      ],
+      "answer": "C",
+      "why": "Faisal studies extra mathematics and ends by writing a list of subjects to work on, which shows he is making a real plan."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information is the least clear in the story?",
+      "options": [
+        "Where Faisal watched the airplanes",
+        "What a flight simulator is",
+        "What Faisal wrote on the bus",
+        "How old Faisal is"
+      ],
+      "answer": "D",
+      "why": "The roof in Jeddah, the meaning of simulator and the list are all given, but Faisal's age is never stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A boy flies a passenger jet on his first school day.",
+        "An airplane lands on a house roof to collect a boy.",
+        "A student practices landing in a flight simulator.",
+        "Drawings in a notebook turn into real airplanes."
+      ],
+      "answer": "C",
+      "why": "Students can visit academies and try simulators; the other events are impossible or unrealistic."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which would be the best different ending that still fits the story?",
+      "options": [
+        "Years later, Faisal welcomes passengers aboard as a pilot.",
+        "Faisal decides flying is boring and throws his notebook away.",
+        "The instructor tells Faisal that he can never become a pilot.",
+        "Faisal's sister becomes a pilot, and Faisal is very angry."
+      ],
+      "answer": "A",
+      "why": "This ending follows from Faisal's hard work and determination; the others contradict his character or the instructor's encouragement."
+    }
+  ]
+}

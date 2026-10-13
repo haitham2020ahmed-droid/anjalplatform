@@ -1,0 +1,169 @@
+{
+  "code": "NP-066",
+  "title": "Drawing a Friendship",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "On the first Sunday of the new term, Ms. Huda walked into our classroom accompanied by a thin, nervous boy. \"This is Kenji,\" she explained. \"His family has recently moved to Jeddah from Japan, and he does not speak Arabic yet.\"\n\nKenji bowed politely, and when a few students giggled, his cheeks turned red and he stared at the floor as he walked towards the empty desk beside mine.\n\nDuring the first week, Kenji ate his lunch alone and spoke to nobody, and in lessons he carefully copied everything from the board, but I could tell that he understood very little of what the teachers were saying. I sympathized with him, yet I had no idea how to help, because I knew only a few words of English and absolutely no Japanese.\n\nThen, one morning, I noticed that Kenji was quietly drawing in his notebook. His sketch of the palm trees in our school courtyard was so beautiful and detailed that I gasped in admiration. When I pointed at it and gave him an enthusiastic thumbs-up, he smiled for the first time since his arrival.\n\nThe following day, I brought my own sketchbook to school, and without needing many words, we began drawing together during break. I drew a cup and wrote \"fenjan\" underneath it; he drew the same cup and wrote its Japanese name.\n\nBy the end of the term, Kenji could hold a simple conversation in Arabic and I could count to ten in Japanese, but, more importantly, we had become genuine friends.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the narrator not know how to help Kenji at first?",
+      "options": [
+        "Ms. Huda told the class to leave him alone.",
+        "Kenji sat on the other side of the room.",
+        "The narrator knew little English and no Japanese.",
+        "The narrator was busy copying from the board."
+      ],
+      "answer": "C",
+      "why": "The narrator 'knew only a few words of English and absolutely no Japanese'."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What happened right AFTER the narrator gave Kenji a thumbs-up?",
+      "options": [
+        "Kenji smiled for the first time.",
+        "Kenji bowed politely to the class.",
+        "Kenji ate his lunch alone.",
+        "Kenji spoke Arabic to the teacher."
+      ],
+      "answer": "A",
+      "why": "When the narrator gave a thumbs-up, Kenji 'smiled for the first time since his arrival'."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "In \"he carefully copied everything from the board,\" which word is an adverb?",
+      "options": [
+        "copied",
+        "everything",
+        "board",
+        "carefully"
+      ],
+      "answer": "D",
+      "why": "'Carefully' tells how he copied, so it is an adverb; 'copied' is a verb and the others are nouns/pronouns."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"sympathize\" correctly?",
+      "options": [
+        "The sympathize was drawn in his notebook.",
+        "She sympathize the palm trees yesterday.",
+        "We sympathize with lonely new students.",
+        "Kenji felt very sympathize at lunch."
+      ],
+      "answer": "C",
+      "why": "'Sympathize' is a verb meaning to share and understand someone's feelings; only this sentence uses it correctly."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The narrator says that Kenji's \"cheeks turned red.\" What does this expression show?",
+      "options": [
+        "He felt embarrassed.",
+        "He had a fever.",
+        "He had been in the sun.",
+        "He was angry at Ms. Huda."
+      ],
+      "answer": "A",
+      "why": "His cheeks turned red right after some students giggled, showing embarrassment."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What do Kenji and the narrator have in common?",
+      "options": [
+        "Both enjoy drawing.",
+        "Both speak Japanese.",
+        "Both moved from Japan.",
+        "Both dislike school."
+      ],
+      "answer": "A",
+      "why": "Kenji sketches palm trees and the narrator brings a sketchbook; drawing brings them together."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A student masters Japanese during a single break.",
+        "A student learns basic Arabic within one term.",
+        "A sketch of a palm tree grows real dates.",
+        "Kenji understands every lesson on his first day."
+      ],
+      "answer": "B",
+      "why": "Learning simple conversation in a term is realistic; Kenji spoke no Arabic on day one, so understanding every lesson was impossible."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "Where Kenji's family came from — Japan is clearly named.",
+        "Who introduced Kenji to the class — Ms. Huda is named.",
+        "Why Kenji's family moved to Jeddah — no reason is given.",
+        "What the narrator drew — a cup is mentioned."
+      ],
+      "answer": "C",
+      "why": "The story says the family moved from Japan but never explains why."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which lesson does the writer MOST want readers to learn?",
+      "options": [
+        "New students should learn Arabic before joining a class.",
+        "Drawing is more important than learning languages.",
+        "Students should laugh less during lessons.",
+        "Kindness can build friendship without a shared language."
+      ],
+      "answer": "D",
+      "why": "The narrator and Kenji became friends through a kind gesture and drawing, before they shared a language."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST solution the class could have used on Kenji's first day?",
+      "options": [
+        "Ignore him until he learns some Arabic.",
+        "Welcome him with smiles and simple gestures.",
+        "Ask him to sit alone during lunch.",
+        "Giggle so that he feels more relaxed."
+      ],
+      "answer": "B",
+      "why": "A smile and a thumbs-up worked later in the story, so welcoming gestures would have helped from the start."
+    }
+  ]
+}

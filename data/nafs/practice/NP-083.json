@@ -1,0 +1,169 @@
+{
+  "code": "NP-083",
+  "title": "Printing in Three Dimensions",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "A 3D printer is a machine that creates solid objects from a digital design, building them one thin layer at a time. Although the idea may sound futuristic, the basic process is surprisingly simple to understand.\n\nFirst, a designer uses computer software to create a three-dimensional model of the object, such as a toy, a tool, or a replacement part. Next, another program called a \"slicer\" divides that model into hundreds of extremely thin horizontal layers and sends precise instructions to the printer.\n\nThe most common type of home printer uses a long strand of plastic called filament. The printer pulls the filament into a heated nozzle, where it melts at roughly two hundred degrees Celsius. The nozzle then moves back and forth, carefully drawing the shape of the first layer onto a flat platform. When that layer cools and hardens, the nozzle rises slightly and draws the next layer on top. Gradually, the layers fuse together until the complete object appears.\n\nThis process, called additive manufacturing, differs from traditional methods that cut material away from a larger block. Because the printer adds material only where it is needed, it usually produces less waste.\n\nToday, engineers use 3D printers to produce aircraft parts, doctors use them to design medical models, and students use them to test their inventions. However, printing a large object can still take many hours.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "In the sentence 'The nozzle then moves back and forth,' which word is a VERB?",
+      "options": [
+        "nozzle",
+        "then",
+        "back",
+        "moves"
+      ],
+      "answer": "D",
+      "why": "'Moves' is the action the nozzle performs, so it is the verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is a QUESTION?",
+      "options": [
+        "Print the model after you check it.",
+        "How long does it take to print a toy?",
+        "What an amazing machine this is!",
+        "The filament melts in the nozzle."
+      ],
+      "answer": "B",
+      "why": "It asks for information and ends with a question mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "A story about an inventor's adventure",
+        "A poem describing modern machines",
+        "An informational text explaining a process",
+        "A letter asking a school for a printer"
+      ],
+      "answer": "C",
+      "why": "The passage explains, step by step, how 3D printers make objects."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "What happens right AFTER the slicer divides the model into layers?",
+      "options": [
+        "Instructions are sent to the printer",
+        "The designer creates the 3D model",
+        "The finished object finally appears",
+        "The nozzle draws the second layer"
+      ],
+      "answer": "A",
+      "why": "The slicer 'divides that model… and sends precise instructions to the printer.'"
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How is additive manufacturing different from traditional methods?",
+      "options": [
+        "It cuts objects from a large block of plastic",
+        "It uses no computer design of any kind",
+        "It adds layers instead of cutting material away",
+        "It always makes objects faster than others"
+      ],
+      "answer": "C",
+      "why": "The passage contrasts adding material layer by layer with cutting material from a larger block."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says the idea 'may sound futuristic.' What does this phrase suggest?",
+      "options": [
+        "The machine is very old and out of date",
+        "The machine is too noisy to use at home",
+        "The machine is impossible to understand",
+        "The machine seems like something from the future"
+      ],
+      "answer": "D",
+      "why": "'Futuristic' means seeming to belong to the future; the writer then says it is actually simple."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "3D printers are only toys for young children",
+        "3D printers are useful in many different jobs",
+        "3D printers will soon replace all factories",
+        "3D printers are too dangerous for students"
+      ],
+      "answer": "B",
+      "why": "The last paragraph lists engineers, doctors and students who use them."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is LEAST complete?",
+      "options": [
+        "How doctors use the medical models they print",
+        "What a slicer program does to a model",
+        "What the filament in most printers is",
+        "How hot the printer's nozzle becomes"
+      ],
+      "answer": "A",
+      "why": "Doctors are mentioned in one short phrase with no explanation; the others are explained."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A printer builds a whole house in a few seconds",
+        "A printer makes an object with no design or material",
+        "A student prints a small part for a science project",
+        "A nozzle melts plastic without using any heat"
+      ],
+      "answer": "C",
+      "why": "The passage says students use 3D printers to test inventions; the others contradict the facts."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "A student's large print takes too long. Based on the passage, which is the BEST solution?",
+      "options": [
+        "Turn off the heated nozzle",
+        "Delete the slicer program",
+        "Use a block of wood as filament",
+        "Print a smaller version of the design"
+      ],
+      "answer": "D",
+      "why": "The passage says large objects take many hours, so a smaller design prints faster; the others would stop printing."
+    }
+  ]
+}

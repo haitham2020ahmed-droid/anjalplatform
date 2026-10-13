@@ -1,0 +1,568 @@
+{
+  "code": "NB-010",
+  "title": "The Kitten in the Storm",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 516,
+  "passage": "That afternoon, the sky above our town gradually transformed from a brilliant blue into a strange, smoky orange, as though someone had spilled paint across the horizon. My father stood at the window, studying the approaching clouds with a serious, anxious expression. “A sandstorm is coming, so everyone stays inside today,” he announced.\n\nI was helping my mother fasten the wooden shutters when I noticed a faint, high-pitched sound, as thin and fragile as a whistle that had almost run out of breath. When I asked my sister, Noura, whether she had heard it, she shook her head, but I was absolutely certain that somewhere outside, something small and helpless was crying.\n\nWithin minutes, the wind had become ferocious. Sand hissed against the glass like a thousand angry snakes, and through the dusty window I could barely distinguish our garden gate, which was swinging violently back and forth. Then, beside the wall near the gate, I spotted a small grey shape pressed desperately against the bricks.\n\nPressing my face against the glass, I shouted, “Baba, there is a kitten out there!”\n\nWrapping his scarf across his face, my father said firmly, “Stay here, Khalid, because I will go.” Although I wanted to protest, I understood that he was right, since a violent storm is no place for a boy to wander. Instead, I held the torch steadily at the door so that he could find his way back.\n\nThose seconds stretched like hours until, at last, my father emerged from the swirling yellow cloud, his eyes narrowed almost shut against the stinging wind. Tucked inside his coat, wrapped like a precious gift, was the kitten, whose fur was matted with sand and whose tiny body was shivering uncontrollably.\n\nWe cleaned it gently with a damp cloth while Noura carried in a saucer of water and my mother fetched a soft towel. Gradually, the trembling stopped, and the kitten opened two luminous green eyes, gazing at us so curiously that it seemed to be asking where it was.\n\nMy mother exclaimed, “What a brave little thing!”\n\nBy the following morning, the storm had passed, leaving the sky clear and the street covered in a thin golden blanket of sand. On our neighbour's door, we found a handwritten note explaining that a small grey kitten called Lulu had disappeared and appealing to anyone who discovered her to contact the owners.\n\nMy heart sank, because I had already become attached to her. However, I remembered what my grandfather always says: what belongs to others must be returned to them. Taking a deep breath, I knocked on our neighbour's door with Lulu cradled carefully in my arms.\n\nA little girl opened the door and immediately burst into tears of joy, crying, “Lulu, you found her!” Her grateful mother thanked us repeatedly and invited us to visit Lulu whenever we wished.\n\nAs I walked home, I felt light and warm inside, as if the sun itself had settled in my chest. I had lost a kitten that had never truly been mine, but I had gained a new friend next door.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “ferocious” in “the wind had become ferocious” (paragraph 3)?",
+      "options": [
+        "gentle",
+        "fierce",
+        "freezing",
+        "steady"
+      ],
+      "answer": "B",
+      "why": "The wind was violent and frightening, so “ferocious” means “fierce”."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “fragile” in “as thin and fragile as a whistle” (paragraph 2)?",
+      "options": [
+        "delicate",
+        "faint",
+        "sturdy",
+        "quiet"
+      ],
+      "answer": "C",
+      "why": "Something fragile is weak and easily broken; the opposite is “sturdy”. “Delicate” and “faint” are close in meaning to “fragile”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “emerged” mean in “my father emerged from the swirling yellow cloud” (paragraph 6)?",
+      "options": [
+        "came out into view",
+        "disappeared completely",
+        "shouted for help",
+        "fell to the ground"
+      ],
+      "answer": "A",
+      "why": "Khalid finally sees his father again as he comes out of the cloud of sand, so “emerged” means “came out into view”."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from paragraph 7 is a verb?",
+      "options": [
+        "luminous",
+        "gently",
+        "fetched",
+        "soft"
+      ],
+      "answer": "C",
+      "why": "“Fetched” is an action (my mother fetched a soft towel); “luminous” and “soft” are adjectives and “gently” is an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from the story is a plural noun?",
+      "options": [
+        "horizon",
+        "glass",
+        "breath",
+        "shutters"
+      ],
+      "answer": "D",
+      "why": "“Shutters” means more than one shutter. “Glass” ends in s but is singular here."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “grateful” in “Her grateful mother” (paragraph 11)?",
+      "options": [
+        "gratitude",
+        "grate",
+        "great",
+        "gravel"
+      ],
+      "answer": "A",
+      "why": "“Gratitude” and “grateful” both come from the idea of thanks; the other words only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “protest” in a meaningful sentence of your own.",
+      "model": "The students did not protest when the trip was cancelled, because they understood that the roads were too dangerous.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “protest” with its correct meaning (to say that you disagree with or object to something)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused or the sentence has no clear meaning"
+      ],
+      "why": "In the story Khalid “wanted to protest”, meaning he wanted to object to his father's decision."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “torch”?",
+      "options": [
+        "torchs",
+        "torch's",
+        "torchies",
+        "torches"
+      ],
+      "answer": "D",
+      "why": "Nouns ending in -ch add -es: torches."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is a command?",
+      "options": [
+        "Baba, there is a kitten out there!",
+        "Stay here, Khalid, because I will go.",
+        "What a brave little thing!",
+        "My heart sank, because I had already become attached to her."
+      ],
+      "answer": "B",
+      "why": "“Stay here” tells Khalid what to do, so it is a command (imperative)."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Secret Garden Gate",
+        "Noura's New Pet",
+        "A Stormy Rescue",
+        "Lost in the Desert"
+      ],
+      "answer": "C",
+      "why": "The story is about rescuing a kitten during a sandstorm. Lulu never becomes Noura's pet."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main message of the story?",
+      "options": [
+        "Sandstorms can arrive without any warning.",
+        "Kindness and honesty bring their own rewards.",
+        "Kittens should never be kept as pets.",
+        "Children should always obey their parents."
+      ],
+      "answer": "B",
+      "why": "The family kindly rescues the kitten and honestly returns it, and Khalid gains a new friend."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "Father admired the beautiful orange colours of the sky.",
+        "The family was packing the car for a trip to the desert.",
+        "A changing sky warned of a sandstorm, so all stayed in.",
+        "Khalid was worried that the storm would ruin his plans."
+      ],
+      "answer": "C",
+      "why": "The sky turns orange, Father studies the clouds and announces that everyone stays inside because a sandstorm is coming."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Khalid's father tell him to stay inside?",
+      "options": [
+        "The storm was too dangerous for a boy to be outside.",
+        "Khalid needed to help Noura with the shutters.",
+        "His mother wanted him to fetch a towel.",
+        "Khalid had to hold the torch at the door."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: Khalid understood that a violent storm is no place for a boy to wander. He held the torch only after his father had decided to go."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report",
+        "a first-person story",
+        "a biography",
+        "a set of instructions"
+      ],
+      "answer": "B",
+      "why": "It is a story told by one of the characters (Khalid) using “I”."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Khalid return the kitten to the neighbours?",
+      "options": [
+        "The kitten was ill and needed a vet.",
+        "His mother insisted that pets were not allowed.",
+        "He believed what belongs to others must be returned.",
+        "Noura was allergic to cats."
+      ],
+      "answer": "C",
+      "why": "He remembered his grandfather's words: what belongs to others must be returned to them."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Who is telling the story?",
+      "options": [
+        "the father",
+        "Khalid",
+        "Noura",
+        "the neighbour's daughter"
+      ],
+      "answer": "B",
+      "why": "The narrator says “I” and is called “Khalid” by his father."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which event happened just BEFORE Khalid's father went out into the storm?",
+      "options": [
+        "Khalid shouted that there was a kitten outside.",
+        "The family cleaned the kitten with a cloth.",
+        "Khalid read the note on the neighbour's door.",
+        "Noura brought a saucer of water."
+      ],
+      "answer": "A",
+      "why": "Khalid shouted “Baba, there is a kitten out there!” and then his father wrapped his scarf across his face and went out. The other events happened later."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "When did the family find the note about the lost kitten?",
+      "options": [
+        "while Father was outside",
+        "before the storm began",
+        "that same evening",
+        "the following morning"
+      ],
+      "answer": "D",
+      "why": "Paragraph 9: “By the following morning, the storm had passed” and they found the note."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which TWO clues told Khalid that an animal was outside?",
+      "options": [
+        "a faint cry and a small grey shape by the gate",
+        "Noura's warning and the swinging garden gate",
+        "his father's announcement and the orange sky",
+        "a handwritten note and a saucer of water"
+      ],
+      "answer": "A",
+      "why": "In paragraph 2 he hears a faint, high-pitched crying sound, and in paragraph 3 he spots a small grey shape beside the wall near the gate."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Khalid feel when he learned that the kitten belonged to the neighbours?",
+      "options": [
+        "relieved",
+        "disappointed",
+        "frightened",
+        "furious"
+      ],
+      "answer": "B",
+      "why": "“My heart sank, because I had already become attached to her” shows disappointment."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Khalid hold the torch at the door?",
+      "options": [
+        "so the kitten would be frightened away",
+        "so he could read the note",
+        "so Noura could close the shutters",
+        "so his father could find his way back"
+      ],
+      "answer": "D",
+      "why": "Paragraph 5: he held the torch steadily so that his father could find his way back."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was the sky after the storm different from the sky as the storm approached?",
+      "options": [
+        "It was dark instead of bright.",
+        "It was orange instead of clear.",
+        "It was rainy instead of dusty.",
+        "It was clear instead of smoky orange."
+      ],
+      "answer": "D",
+      "why": "As the storm approached the sky became “a strange, smoky orange”; the next morning it was clear."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the father going out into the storm?",
+      "options": [
+        "The storm stopped at once.",
+        "The kitten was rescued.",
+        "Noura got lost.",
+        "The gate was repaired."
+      ],
+      "answer": "B",
+      "why": "He came back with the kitten tucked inside his coat."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Khalid and the neighbour's daughter have in common?",
+      "options": [
+        "Both went out in the storm.",
+        "Both wrote the note.",
+        "Both care deeply about Lulu.",
+        "Both live with their grandfather."
+      ],
+      "answer": "C",
+      "why": "Khalid became attached to Lulu, and the girl burst into tears of joy when she got her back."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “Sand hissed against the glass like a thousand angry snakes” suggest about the storm?",
+      "options": [
+        "The sand was green and moving.",
+        "The storm was loud and threatening.",
+        "Real snakes came into the house.",
+        "The window glass had cracked."
+      ],
+      "answer": "B",
+      "why": "The simile compares the sound of the sand to hissing snakes, which makes the storm seem noisy and dangerous."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “as if the sun itself had settled in my chest” (paragraph 12) show?",
+      "options": [
+        "Khalid felt deeply happy and content.",
+        "Khalid had a fever after the storm.",
+        "The weather was very hot that day.",
+        "Khalid had stayed in the sun too long."
+      ],
+      "answer": "A",
+      "why": "The figurative phrase shows a warm, happy feeling after doing the right thing."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Why do you think the writer tells the story in Khalid's own words?",
+      "options": [
+        "so readers can share Khalid's thoughts and feelings",
+        "so the father seems to be the main character",
+        "so the story sounds like a news report",
+        "so readers learn facts about sandstorms"
+      ],
+      "answer": "A",
+      "why": "A first-person narrator lets readers know exactly what Khalid thinks and feels, such as when his heart sank."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which value is MOST important in the story?",
+      "options": [
+        "courage in competition",
+        "keeping secrets",
+        "returning what belongs to others",
+        "becoming wealthy"
+      ],
+      "answer": "C",
+      "why": "Khalid returns Lulu because what belongs to others must be returned to them."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the end of the story?",
+      "options": [
+        "regret",
+        "boredom",
+        "fear",
+        "contentment"
+      ],
+      "answer": "D",
+      "why": "Khalid feels light and warm inside and has gained a new friend."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, was the father right to tell Khalid to stay inside?",
+      "options": [
+        "Yes, because Khalid had been rude to Noura.",
+        "Yes, because the storm was too dangerous for a boy.",
+        "No, because a kitten matters more than safety.",
+        "No, because Khalid was stronger than his father."
+      ],
+      "answer": "B",
+      "why": "The storm was violent, so it was safer for the adult to go; even Khalid admits his father was right."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the story?",
+      "options": [
+        "how the kitten became lost",
+        "the name of the kitten",
+        "who rescued the kitten",
+        "the colour of the kitten's eyes"
+      ],
+      "answer": "A",
+      "why": "The story never explains how Lulu got outside; her name, her rescuer and her green eyes are all stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "The sand turns into a thousand real snakes.",
+        "The sun settles inside a boy's chest.",
+        "A kitten explains in words where it lives.",
+        "A kitten shelters beside a wall in a sandstorm."
+      ],
+      "answer": "D",
+      "why": "A frightened kitten could really hide beside a wall; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "A Trip to the Zoo",
+        "The Orange Car",
+        "My New Bicycle",
+        "Lulu Goes Home"
+      ],
+      "answer": "D",
+      "why": "The story ends with Lulu being returned to her family."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story.",
+      "model": "Nobody claimed the kitten, so after a week my parents allowed us to keep her. We named her Rimal, which means “sand”, and on windy days she still curls up by the window as if remembering the storm.",
+      "rubric": [
+        "2 = a clear new ending that follows logically from the events and keeps the characters' values",
+        "1 = an ending that is related but unclear or not connected to the events",
+        "0 = no answer, or an ending unrelated to the story"
+      ],
+      "why": "Any logical ending that fits the characters and events is accepted."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "How can families keep their pets safe during a sandstorm?",
+      "options": [
+        "Let pets play outside until the wind stops.",
+        "Leave pets in the street to find shelter.",
+        "Keep pets indoors with doors and windows closed.",
+        "Tie pets to the garden gate during the storm."
+      ],
+      "answer": "C",
+      "why": "The story shows how dangerous the storm was outside, so pets are safest indoors."
+    }
+  ]
+}

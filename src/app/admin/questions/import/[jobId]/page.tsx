@@ -5,21 +5,23 @@ import { ActionForm } from "@/components/admin/action-form";
 import { card } from "@/components/admin/styles";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
-import { clientRows, getImportJob, type ImportJobView } from "@/server/admin/question-import";
+import { getImportPage, type ImportPageView } from "@/server/admin/question-import";
 import { schoolOf } from "@/server/admin/users";
 import { editorOptions } from "../../editor-data";
 import { archiveImportAction, cancelImportAction } from "../../../actions";
 import { ImportPreview } from "./preview";
 
-export default async function ImportJobPage({ params }: { params: Promise<{ jobId: string }> }) {
+export default async function ImportJobPage({ params, searchParams }: { params: Promise<{ jobId: string }>; searchParams: Promise<{ filter?: string; page?: string }> }) {
   const actor = await requireActor({ permission: "questions:edit" });
   const me = (await getActor())!.user;
   const { jobId } = await params;
-  let job: ImportJobView;
-  try { job = await getImportJob(repo, actor, jobId); } catch { notFound(); }
+  const sp = await searchParams;
+  let job: ImportPageView;
+  // ⚡ one page of the chosen tab (50 rows), not every row of the file
+  try { job = await getImportPage(repo, actor, jobId, { filter: sp.filter, page: Number(sp.page ?? 1) - 1 }); } catch { notFound(); }
   const { skills, standards } = await editorOptions(repo, schoolOf(actor));
   const done = job.summary;
-  const problems = job.rows.some((r) => r.errors.length || r.warnings.length) || job.errors.length > 0;
+  const problems = job.hasProblems;
   return (
     <AppShell name={String(me.displayName)}>
       <p><Link href="/admin/questions/import" className="text-brand-teal hover:underline">← Import questions</Link></p>
@@ -68,7 +70,7 @@ export default async function ImportJobPage({ params }: { params: Promise<{ jobI
         )}
         {job.status === "CANCELLED" && <p className="mt-3 text-slate-600">This import was cancelled. Nothing was added.</p>}
       </section>
-      {job.status !== "FAILED" && <div className="mt-6"><ImportPreview job={{ ...job, rows: clientRows(job.rows) }} skills={skills} standards={standards} canPublish={can(actor, "questions:publish")} /></div>}
+      {job.status !== "FAILED" && <div className="mt-6"><ImportPreview job={job} skills={skills} standards={standards} canPublish={can(actor, "questions:publish")} /></div>}
     </AppShell>
   );
 }

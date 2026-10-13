@@ -12,6 +12,7 @@
 import { createHash } from "node:crypto";
 import { answerValues, contentPayload, type BankItem } from "../../imports/questions/validate";
 import type { Repo, Row } from "../seeding/repo";
+import { eachLimit } from "../db/parallel";
 
 const s = (v: unknown) => String(v ?? "");
 export const HASH_VERSION = "v1";
@@ -147,10 +148,19 @@ export async function hashQuestions(repo: Repo, ids: string[], types?: Map<strin
 
 export const HASH_COLUMNS = ["id", "skillId", "status", "createdAt", "tags", "stem", "typeId", "passageId", "content", "contentHash", "deletedAt", "imageId"] as const;
 
-/** Saves fingerprints that changed (one statement per question; only those that differ). */
+/**
+ * Saves fingerprints that changed (only those that differ). Questions that share a fingerprint are saved by one
+ * statement; the others, one statement each, a few at a time (⚡ src/server/db/parallel.ts).
+ */
 export async function saveHashes(repo: Repo, list: HashedQuestion[]): Promise<number> {
+  const byHash = new Map<string, HashedQuestion[]>();
+  for (const q of list) if (q.stored !== q.hash) { const l = byHash.get(q.hash); if (l) l.push(q); else byHash.set(q.hash, [q]); }
   let n = 0;
-  for (const q of list) if (q.stored !== q.hash) { await repo.updateMany("Question", { id: q.id }, { contentHash: q.hash }); q.stored = q.hash; n++; }
+  await eachLimit([...byHash.values()], async (qs) => {
+    await repo.updateMany("Question", qs.length === 1 ? { id: qs[0].id } : { id: { in: qs.map((q) => q.id) } }, { contentHash: qs[0].hash });
+    for (const q of qs) q.stored = q.hash;
+    n += qs.length;
+  });
   return n;
 }
 

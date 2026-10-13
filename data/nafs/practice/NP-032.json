@@ -1,0 +1,169 @@
+{
+  "code": "NP-032",
+  "title": "The Science Competition",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Faisal stared at the robot sitting motionless on the table, its small wheels refusing to turn. In less than an hour, the judges of the regional science competition would arrive at his team's booth, and the machine that he and his friends had spent six weeks building had suddenly stopped working.\n\n\"Maybe the battery is dead,\" suggested Omar, nervously tapping his pencil against the notebook.\n\nFaisal shook his head and explained that he had charged the battery the previous evening, so something else must be wrong. He remembered the advice their teacher, Mr. Hamdan, always repeated: when a problem seems enormous, divide it into smaller questions. The team therefore began checking each component systematically. Yousef tested the motors, Omar examined the sensor that was supposed to detect obstacles, and Faisal reread the program line by line.\n\nTwenty minutes passed without any success, and the hall grew noisier as other teams demonstrated their inventions. Then Faisal noticed the problem: a single wire connecting the controller to the motors had come loose, probably when the box was bumped on the bus that morning.\n\nHe carefully reconnected the wire, pressed the switch, and held his breath. The robot rolled forward, sensed the edge of the table, and turned away safely. \"It works!\" Omar shouted.\n\nWhen the judges arrived, the boys explained not only how the robot functioned but also how they had discovered the fault. They did not win first place, but the head judge praised their teamwork and problem-solving, and Faisal realized that this experience was more valuable than any trophy.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the story is a VERB?",
+      "options": [
+        "motionless",
+        "enormous",
+        "reconnected",
+        "trophy"
+      ],
+      "answer": "C",
+      "why": "Reconnected is an action (Faisal reconnected the wire); the others are adjectives or a noun."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the story is an EXCLAMATORY sentence?",
+      "options": [
+        "\"It works!\" Omar shouted.",
+        "\"Maybe the battery is dead,\" suggested Omar.",
+        "Faisal shook his head and explained.",
+        "Twenty minutes passed without any success."
+      ],
+      "answer": "A",
+      "why": "\"It works!\" shows strong excitement and ends with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a scientific report",
+        "a personal letter",
+        "a rhyming poem",
+        "a narrative story"
+      ],
+      "answer": "D",
+      "why": "It has characters, a setting, a problem and a solution told as a sequence of events, so it is a narrative story."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What did the team do right AFTER Faisal remembered Mr. Hamdan's advice?",
+      "options": [
+        "They asked the judges for more time",
+        "They checked each component one at a time",
+        "They went out to buy a new battery",
+        "They watched the other teams' inventions"
+      ],
+      "answer": "B",
+      "why": "After recalling the advice to divide the problem into smaller questions, the team checked each component systematically."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What caused the robot to stop working?",
+      "options": [
+        "A wire had come loose, probably on the bus",
+        "The battery was not charged the night before",
+        "Yousef broke the sensor while testing it",
+        "The program had a mistake in one line"
+      ],
+      "answer": "A",
+      "why": "Faisal found that a wire between the controller and the motors had come loose, probably when the box was bumped on the bus."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "The writer says Faisal \"held his breath.\" What does this expression show?",
+      "options": [
+        "He had trouble breathing in the noisy hall",
+        "He was trying to stay silent for the judges",
+        "He was tense, waiting to see if it would work",
+        "He was angry with Omar for shouting"
+      ],
+      "answer": "C",
+      "why": "Holding one's breath is an expression for nervous waiting; Faisal did not yet know if the repair had worked."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST expresses the writer's viewpoint in the story?",
+      "options": [
+        "Science competitions waste students' time.",
+        "Calm, step-by-step teamwork matters most.",
+        "Robots should be built by one person only.",
+        "Winning first place is the only real success."
+      ],
+      "answer": "B",
+      "why": "The ending says the judge praised their teamwork and Faisal felt the experience was worth more than a trophy."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is the LEAST clear?",
+      "options": [
+        "How long the team spent building the robot",
+        "Who tested the motors",
+        "What advice Mr. Hamdan used to give",
+        "Which team won first place"
+      ],
+      "answer": "D",
+      "why": "The story says the boys did not win first place but never tells us who did; the other details are stated clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY happen at a school science competition?",
+      "options": [
+        "A robot grows bigger each time it is praised.",
+        "The judges' trophies talk and choose the winner.",
+        "A loose wire stops a student's robot from moving.",
+        "A robot's sensor reads the students' thoughts."
+      ],
+      "answer": "C",
+      "why": "A loose wire can really stop a machine from working, as happens in the story; the other events are imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the story?",
+      "options": [
+        "The Loose Wire",
+        "A Trip to the Zoo",
+        "How to Charge a Battery",
+        "The Lost Notebook"
+      ],
+      "answer": "A",
+      "why": "The central problem of the story is the loose wire that the team had to find and fix."
+    }
+  ]
+}

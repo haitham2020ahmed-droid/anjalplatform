@@ -1,0 +1,568 @@
+{
+  "code": "NB-002",
+  "title": "Welcome Home, Yousef",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 517,
+  "passage": "The telephone rang just after the dawn prayer, while the sky outside our window was still a pale, sleepy grey. Baba listened carefully, and as he listened, a wide smile slowly spread across his face. When he finally put the phone down, he turned to me with shining eyes. \"Sara,\" he announced, \"Allah has blessed us this morning, because you have a baby brother!\" I leapt off the sofa so suddenly that a cushion tumbled onto the carpet. \"Do I really have a little brother, and when can I see him?\" I asked breathlessly. \"This afternoon, when Mama comes home from the hospital,\" Baba answered, \"but before that moment arrives, we have an enormous amount of preparation to complete.\"\n\nAll morning the house buzzed like a beehive. Grandmother arrived carrying a huge pot of her famous chicken kabsa, whose delicious aroma soon filled every corner of the kitchen, while my aunt brought boxes of sweets and a flask of Arabic coffee for the visitors who would certainly come. Meanwhile, Baba climbed a ladder and hung a blue banner above the front door that declared \"Welcome Home, Yousef!\" to every visitor. When I asked what I could do to help, Grandmother handed me a wicker basket and explained, \"You can fill these little bags with dates and chocolate for the guests, which is an important responsibility.\"\n\nSecretly, however, a small cloud of worry hung over my excitement. My friend Huda had once warned me that whenever a new baby arrives, nobody notices the older children anymore. As I tied ribbons carefully around each bag, I kept wondering whether Mama would still have time to read stories with me at bedtime, as she had faithfully done every single night.\n\nAt exactly four o'clock, the car stopped outside, and Mama walked in slowly, cradling a tiny bundle wrapped in a soft white blanket. Everyone gathered around her eagerly, but she looked past them and smiled at me. \"Come closer, Sara,\" she whispered, \"because someone wants to meet his big sister.\" Yousef's face was as red as a pomegranate, and his fingers were even smaller than my pencil, so I hardly dared to breathe. Suddenly, he opened his eyes and gripped my finger with surprising strength. \"He recognises his sister already, even though he is only one day old!\" Grandmother laughed delightedly.\n\nBy evening, the house was overflowing with relatives, laughter and the sweet fragrance of incense, and visitors kept repeating \"Mabrook!\" and \"May Allah keep him safe.\" When the last guest had finally departed, I sat beside Mama on her bed and asked quietly, \"Mama, will you still read with me at night?\" She pulled me close and replied, \"Of course, habibti, and very soon you can read to Yousef as well, because he will need a patient teacher, and I believe he already has the best one.\"\n\nI smiled, feeling the cloud of worry that had followed me all day disappear completely. How wrong Huda had been! Our family had not become smaller for me; instead, it had simply grown bigger, with even more love to share among everyone.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “cradling” as it is used in paragraph 4?",
+      "options": [
+        "pushing in a small cart",
+        "wrapping up tightly",
+        "holding gently in her arms",
+        "lifting high above her head"
+      ],
+      "answer": "C",
+      "why": "Mama carried the tiny bundle carefully, so “cradling” means holding it gently in her arms."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “departed” as it is used in paragraph 5?",
+      "options": [
+        "arrived",
+        "left",
+        "hurried",
+        "waited"
+      ],
+      "answer": "A",
+      "why": "“Departed” means left; its opposite is “arrived”. “Left” has the same meaning, not the opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 2: “whose delicious aroma soon filled every corner of the kitchen”. What does “aroma” mean?",
+      "options": [
+        "a spicy taste",
+        "a large cooking pot",
+        "a cloud of steam",
+        "a pleasant smell"
+      ],
+      "answer": "D",
+      "why": "Something delicious that fills every corner of a kitchen is a pleasant smell."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an adjective?",
+      "options": [
+        "aroma",
+        "delicious",
+        "declared",
+        "meanwhile"
+      ],
+      "answer": "B",
+      "why": "“Delicious” describes the noun “aroma”, so it is an adjective; “aroma” is a noun, “declared” a verb and “meanwhile” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the story is IRREGULAR (it does not end in -s)?",
+      "options": [
+        "ribbons",
+        "relatives",
+        "children",
+        "visitors"
+      ],
+      "answer": "C",
+      "why": "One child, many children; the other words simply add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “recognises”?",
+      "options": [
+        "recognition",
+        "reckless",
+        "record",
+        "recess"
+      ],
+      "answer": "A",
+      "why": "“Recognition” comes from the same root as “recognise”; the others only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “responsibility” in a meaningful sentence of your own.",
+      "model": "Feeding our cat every morning is my responsibility, so I never leave for school before I fill her bowl.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “responsibility” with its meaning (a duty or job that someone must take care of)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Responsibility” means a duty or task that you are trusted to do."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words forms its plural in the SAME way as “family” in paragraph 6?",
+      "options": [
+        "day",
+        "key",
+        "boy",
+        "baby"
+      ],
+      "answer": "D",
+      "why": "A consonant + y changes to -ies (baby → babies); a vowel + y just adds -s (days, keys, boys)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Come closer, Sara,” in paragraph 4, even though Mama whispers it?",
+      "options": [
+        "a question",
+        "a command",
+        "an exclamation",
+        "a statement"
+      ],
+      "answer": "B",
+      "why": "Mama is telling Sara to do something, so it is a command, however softly it is spoken."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "A Busy Day in the Kitchen",
+        "Huda's Warning Comes True",
+        "A Bigger Family, A Bigger Heart",
+        "The Blue Banner"
+      ],
+      "answer": "C",
+      "why": "The story ends with the family growing bigger “with even more love”; Huda's warning turns out to be wrong."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to show how a girl's worry about a new baby turns into joy",
+        "to teach readers how to prepare food for guests",
+        "to describe what happens inside a hospital",
+        "to explain why newborn babies grip fingers"
+      ],
+      "answer": "A",
+      "why": "The story follows Sara from her secret worry to her happiness at the end."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Sara ties ribbons around the bags of dates.",
+        "Huda comes to help Sara prepare for the guests.",
+        "Mama reads Sara a story at bedtime.",
+        "Sara secretly fears she will be forgotten once the baby arrives."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 is about the “cloud of worry” Huda's warning has caused."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "How did Sara help to prepare for the guests?",
+      "options": [
+        "She hung the banner above the door.",
+        "She filled bags with dates and chocolate.",
+        "She cooked the chicken kabsa.",
+        "She served the Arabic coffee."
+      ],
+      "answer": "B",
+      "why": "Grandmother gave her a basket to fill bags with dates and chocolate; Baba hung the banner and the aunt brought the coffee."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "a fable",
+        "a news report",
+        "realistic fiction",
+        "a letter"
+      ],
+      "answer": "C",
+      "why": "It has invented but believable characters and events from everyday family life, with dialogue."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why was Sara secretly worried?",
+      "options": [
+        "Huda had warned that older children are forgotten when a baby arrives.",
+        "She feared the guests would not like the sweets.",
+        "She thought Yousef would cry all night.",
+        "Mama had already stopped reading with her."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 says Huda had warned her that nobody notices the older children anymore."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Mama walked in carrying Yousef.",
+        "Yousef gripped Sara's finger.",
+        "Sara asked Mama about reading at night.",
+        "Baba hung the blue banner."
+      ],
+      "answer": "D",
+      "why": "The banner was hung in the morning (paragraph 2), before Mama arrived at four o'clock."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "From whose point of view is the story told?",
+      "options": [
+        "Mama's",
+        "Sara's",
+        "Grandmother's",
+        "an outside narrator's"
+      ],
+      "answer": "B",
+      "why": "The narrator says “I” and the others call her Sara."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what did Mama do while everyone gathered around her?",
+      "options": [
+        "She handed Yousef to Grandmother.",
+        "She thanked the guests for the sweets.",
+        "She looked past them and smiled at Sara.",
+        "She asked Baba to take down the banner."
+      ],
+      "answer": "C",
+      "why": "“Everyone gathered around her eagerly, but she looked past them and smiled at me.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Grandmother laugh delightedly in paragraph 4?",
+      "options": [
+        "Sara dropped the basket of bags.",
+        "Baba nearly fell from the ladder.",
+        "The car arrived exactly on time.",
+        "Yousef gripped Sara's finger as if he knew her."
+      ],
+      "answer": "D",
+      "why": "Right after Yousef gripped Sara's finger, Grandmother said he recognised his sister already."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 3?",
+      "options": [
+        "wanting to know whether Huda's warning will come true",
+        "wanting to learn how Grandmother makes kabsa",
+        "wanting to know what colour the car is",
+        "wanting to find out where Huda lives"
+      ],
+      "answer": "A",
+      "why": "Sara's secret worry raises a question that the reader wants answered."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which detail best shows that Sara felt amazed and careful when she first saw Yousef?",
+      "options": [
+        "“a small cloud of worry hung over my excitement”",
+        "“I leapt off the sofa”",
+        "“I hardly dared to breathe”",
+        "“How wrong Huda had been!”"
+      ],
+      "answer": "C",
+      "why": "Not daring to breathe shows wonder and care at that moment; the other details come from other parts of the day."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Sara's mood in paragraph 3 different from her mood in paragraph 6?",
+      "options": [
+        "excited in paragraph 3; worried in paragraph 6",
+        "worried in paragraph 3; relieved and happy in paragraph 6",
+        "angry in paragraph 3; jealous in paragraph 6",
+        "calm in paragraph 3; nervous in paragraph 6"
+      ],
+      "answer": "B",
+      "why": "The “cloud of worry” in paragraph 3 disappears completely in paragraph 6."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Mama's answer in paragraph 5 on Sara?",
+      "options": [
+        "Her worry disappeared and she smiled.",
+        "She decided to telephone Huda.",
+        "She went to read a story to Yousef.",
+        "She asked to sleep beside Grandmother."
+      ],
+      "answer": "A",
+      "why": "Paragraph 6 begins: “I smiled, feeling the cloud of worry … disappear completely.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Grandmother, the aunt and Baba have in common in paragraph 2?",
+      "options": [
+        "Each brings food for the guests.",
+        "Each is worried about Sara.",
+        "Each drives to the hospital.",
+        "Each prepares something for the celebration."
+      ],
+      "answer": "D",
+      "why": "Grandmother brings kabsa, the aunt brings sweets and coffee, and Baba hangs the banner; only two of them bring food."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer let Sara tell the story herself, using “I”?",
+      "options": [
+        "so the story can describe the hospital in detail",
+        "so readers can share Sara's private worries and feelings",
+        "so readers can learn what Grandmother is thinking",
+        "so the story sounds like a news report"
+      ],
+      "answer": "B",
+      "why": "A first-person narrator lets readers know the secret worry that Sara hides from everyone."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “a small cloud of worry hung over my excitement” mean?",
+      "options": [
+        "Rain clouds were gathering over the house.",
+        "She was excited that the weather was cloudy.",
+        "A little fear spoiled some of her happiness.",
+        "Her worry made her want to go outside."
+      ],
+      "answer": "C",
+      "why": "The cloud is figurative: a small worry darkened her excitement, as a cloud darkens the sky."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is exclamatory?",
+      "options": [
+        "How wrong Huda had been!",
+        "All morning the house buzzed like a beehive.",
+        "Everyone gathered around her eagerly, but she looked past them and smiled at me.",
+        "Secretly, however, a small cloud of worry hung over my excitement."
+      ],
+      "answer": "A",
+      "why": "It expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the best way for Sara to help with her new brother?",
+      "options": [
+        "staying away so the baby can rest all day",
+        "asking Huda to look after him",
+        "waiting until he is older to spend time with him",
+        "reading to Yousef, as Mama suggests"
+      ],
+      "answer": "D",
+      "why": "Mama says Yousef will need a patient teacher and that Sara is the best one."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "A new baby brings more love to a family, not less.",
+        "Children should never listen to their friends.",
+        "Babies should come home from hospital quickly.",
+        "Guests should always bring sweets to a new baby."
+      ],
+      "answer": "A",
+      "why": "The last sentence says the family has “even more love to share among everyone.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the story as a whole?",
+      "options": [
+        "quiet sadness",
+        "joyful celebration",
+        "growing anger",
+        "constant fear"
+      ],
+      "answer": "B",
+      "why": "From the morning news to the evening guests, the family celebrates happily; Sara's worry is brief."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "who brought the kabsa",
+        "what the banner said",
+        "how old Sara is",
+        "what time Mama came home"
+      ],
+      "answer": "C",
+      "why": "Sara's age is never given; the other details are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A newborn baby tells his sister that he recognises her.",
+        "The dates in the bags turn into chocolate by themselves.",
+        "The blue banner flies away and returns with the guests.",
+        "A newborn baby grips his sister's finger tightly."
+      ],
+      "answer": "D",
+      "why": "Newborn babies naturally grip a finger placed in their hand; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "Huda Was Right",
+        "More Love, Not Less",
+        "A Trip to the Hospital",
+        "The Lost Basket"
+      ],
+      "answer": "B",
+      "why": "The story ends with the idea that the family has grown bigger, with more love for everyone."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that still show how Sara's worry is solved.",
+      "model": "That night Mama was too exhausted to read, so Sara quietly opened her favourite book and read it aloud to Mama and Yousef instead. Before she reached the last page, Yousef had fallen asleep, and Mama whispered, “You see? You are already a wonderful big sister.” Sara realised that Huda had been wrong, because she now had two people to share stories with.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and solves Sara's worry in a believable way",
+        "1 = an ending is given but it is unclear, does not fit the story well, or does not deal with Sara's worry",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits Sara, her family and the new baby, and settles her worry, is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, how could parents help an older child who feels worried about a new baby?",
+      "options": [
+        "Keep special time with the older child, such as bedtime stories.",
+        "Give the older child a helpful role with the baby.",
+        "A and B",
+        "Tell the older child to stop asking questions."
+      ],
+      "answer": "C",
+      "why": "Mama does both: she promises to keep reading with Sara and gives her the role of Yousef's teacher."
+    }
+  ]
+}

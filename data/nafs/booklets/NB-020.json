@@ -1,0 +1,568 @@
+{
+  "code": "NB-020",
+  "title": "The Night the Street Became a River",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 469,
+  "passage": "The rain began shortly after the Asr prayer, and at first Salma enjoyed watching it from the window of her family's modest house in Jeddah, because rain was unusual in her city and the drops drummed cheerfully on the roof like tiny, impatient fingers. By sunset, however, the gentle drumming had become a furious roar.\n\n“Baba, look at the street,” Salma cried in alarm, pressing her face against the glass. A torrent of brown water was rushing past the gate, carrying plastic bottles and broken branches, and it rose steadily until it had swallowed the wheels of the parked cars.\n\nHer father inspected the doors and carried the precious rugs upstairs. Then he stopped abruptly, his expression darkening as he murmured, “Umm Saad.” Their elderly neighbour was a widow who lived alone in the single-storey house across the street, since her only son worked far away in Riyadh.\n\nSalma's father telephoned her repeatedly, but there was no answer at all. Although Civil Defence had been called, the flooded roads were blocked, so he tied a strong rope securely around his waist. Abu Fahad from next door appeared with a torch, and the two men waded cautiously across the street together, with the water swirling around their knees. Salma and her mother watched anxiously from the doorway, holding their breath.\n\nWhen the torchlight reappeared a few minutes later, the men were supporting Umm Saad, one on each side, while she shivered uncontrollably and clutched a small bag containing her medicine. Salma hurried to fetch towels and a warm blanket, and her mother prepared sweet, steaming tea.\n\n“My phone fell into the water, and I was so afraid that nobody would remember me,” Umm Saad explained, her voice trembling.\n\n“How could we possibly forget you?” Salma's mother answered tenderly, wrapping the blanket around her shoulders. “You are like a grandmother to our children.”\n\nThroughout the night, other neighbours knocked on the door with offers of assistance. One family delivered bread and cheese, while the young men from the corner house carried heavy sandbags to prevent the water from entering the houses. Even little Hamad, who was only seven, contributed by holding the torch steadily.\n\nBy morning, the rain had stopped, and the sun shone on a muddy, battered street. Although many houses were damaged, nobody had been injured. Salma stood at the gate, observing her neighbours as they swept away the mud together, sharing brooms and buckets as naturally as members of one family.\n\nStanding beside her, Umm Saad smiled gently and said, “The flood took my carpet and my phone, but it showed me what a rich street I live on.” Salma did not grasp her meaning immediately, but then she looked at all the helping hands around her and nodded slowly. Some kinds of wealth cannot be washed away.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “trembling” in “her voice trembling”?",
+      "options": [
+        "whispering",
+        "echoing",
+        "rising",
+        "quivering"
+      ],
+      "answer": "D",
+      "why": "A trembling voice shakes or quivers because of fear or cold."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “unusual” in “rain was unusual in her city”?",
+      "options": [
+        "common",
+        "heavy",
+        "strange",
+        "welcome"
+      ],
+      "answer": "A",
+      "why": "Unusual means it does not happen often; common is its opposite. Strange is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “waded” mean in “the two men waded cautiously across the street”?",
+      "options": [
+        "drove carefully through a flood",
+        "walked slowly through water",
+        "climbed over a garden wall",
+        "swam quickly under water"
+      ],
+      "answer": "B",
+      "why": "The water was “swirling around their knees”, so the men walked through it."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 8 is a noun?",
+      "options": [
+        "assistance",
+        "delivered",
+        "heavy",
+        "steadily"
+      ],
+      "answer": "A",
+      "why": "Assistance names a thing (help); delivered is a verb, heavy is an adjective and steadily is an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the story is plural?",
+      "options": [
+        "widow",
+        "torrent",
+        "blanket",
+        "neighbours"
+      ],
+      "answer": "D",
+      "why": "Neighbours means more than one neighbour; the other words are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “injured” in paragraph 9?",
+      "options": [
+        "injection",
+        "inject",
+        "injury",
+        "jury"
+      ],
+      "answer": "C",
+      "why": "Injury is the noun related to injured; injection and inject come from a different word, and jury only looks similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “cautiously” in a sentence of your own.",
+      "model": "Fahd crossed the busy road cautiously, looking left and right twice before he stepped off the pavement.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “cautiously” with a clear meaning (carefully, to avoid danger)",
+        "1 = the word is used, but the sentence is unclear or has errors",
+        "0 = no sentence, or the word is missing or used wrongly"
+      ],
+      "why": "Cautiously means carefully, in a way that avoids danger, as the men did when they waded across the flooded street."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “torch”?",
+      "options": [
+        "torchs",
+        "torchies",
+        "torchen",
+        "torches"
+      ],
+      "answer": "D",
+      "why": "Nouns ending in -ch add -es in the plural: torches."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “How could we possibly forget you?”",
+      "options": [
+        "a command",
+        "an exclamatory sentence",
+        "a question",
+        "a statement"
+      ],
+      "answer": "C",
+      "why": "Although it begins with “How” and shows feeling, it asks something and ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "Hamad Holds the Torch",
+        "A Rainy Afternoon in Jeddah",
+        "Helping Hands in the Flood",
+        "Umm Saad's Lost Phone"
+      ],
+      "answer": "C",
+      "why": "The story is about neighbours helping each other during a flood; the other titles describe only small parts of it."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main message of the story?",
+      "options": [
+        "Neighbours should support one another in hard times.",
+        "Phones must always be kept away from water.",
+        "Elderly people should never live on their own.",
+        "Heavy rain always brings disaster to a city."
+      ],
+      "answer": "A",
+      "why": "Everyone on the street works together through the night, and Umm Saad calls her street “rich” because of their care."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "The roof of the house begins to leak.",
+        "A gentle rain gradually turns into a powerful storm.",
+        "Salma is frightened of the rain from the start.",
+        "Rain falls almost every day in Jeddah."
+      ],
+      "answer": "B",
+      "why": "The drops first “drummed cheerfully”, but “By sunset, however, the gentle drumming had become a furious roar.”"
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why was Salma's father worried about Umm Saad?",
+      "options": [
+        "Her son had asked him to visit her.",
+        "She lived on the top floor of a building.",
+        "She was elderly and lived alone.",
+        "She had phoned him to ask for help."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3: she was an elderly widow who “lived alone” in a single-storey house, and her son worked in Riyadh."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report about floods",
+        "a narrative story",
+        "a letter to a neighbour",
+        "a poem about the rain"
+      ],
+      "answer": "B",
+      "why": "It has characters, a setting, a sequence of events and dialogue, so it is a narrative story."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Umm Saad not answer her telephone?",
+      "options": [
+        "Her phone had fallen into the water.",
+        "The flood had cut the phone lines.",
+        "She was fast asleep upstairs.",
+        "She was visiting her son in Riyadh."
+      ],
+      "answer": "A",
+      "why": "Umm Saad says: “My phone fell into the water.” Her house had only one storey, so she could not have been upstairs."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these happened FIRST?",
+      "options": [
+        "A family delivered bread and cheese.",
+        "The two men waded across the street.",
+        "Salma's father carried the rugs upstairs.",
+        "The neighbours swept away the mud."
+      ],
+      "answer": "C",
+      "why": "He moved the rugs before he remembered Umm Saad; the other events came later."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells the story?",
+      "options": [
+        "Salma's mother",
+        "a narrator who is not a character",
+        "Salma",
+        "Umm Saad"
+      ],
+      "answer": "B",
+      "why": "The story uses “she” and “her” for Salma and never uses “I”, so it is told by a narrator outside the story."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the story, when did the rain begin?",
+      "options": [
+        "early in the morning",
+        "shortly after the Asr prayer",
+        "after the Isha prayer",
+        "at sunset"
+      ],
+      "answer": "B",
+      "why": "The first sentence: “The rain began shortly after the Asr prayer.” By sunset it had become a roar."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did the young men from the corner house carry sandbags?",
+      "options": [
+        "to stop water entering the houses",
+        "to make seats for tired neighbours",
+        "to hold the parked cars in place",
+        "to build a bridge across the street"
+      ],
+      "answer": "A",
+      "why": "Paragraph 8 says the sandbags were carried “to prevent the water from entering the houses.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Using paragraphs 3 and 4, what made Salma's father cross the flooded street?",
+      "options": [
+        "a need to buy bread for his family",
+        "a wish to check on his parked car",
+        "a search for the Civil Defence team",
+        "worry for a neighbour who lived alone"
+      ],
+      "answer": "D",
+      "why": "He remembered that Umm Saad lived alone, she did not answer her phone, and Civil Defence could not reach the street, so he went himself."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.IMPLIED",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Umm Saad's feelings when she says that she “was so afraid that nobody would remember me”?",
+      "options": [
+        "embarrassed and annoyed",
+        "frightened and lonely",
+        "proud and excited",
+        "calm and confident"
+      ],
+      "answer": "B",
+      "why": "She was alone in the flood without a phone and feared that no one would come for her."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Salma's feelings change between paragraph 1 and paragraph 2?",
+      "options": [
+        "from enjoyment to alarm",
+        "from excitement to disappointment",
+        "from fear to boredom",
+        "from anger to joy"
+      ],
+      "answer": "A",
+      "why": "In paragraph 1 she “enjoyed watching” the rain; in paragraph 2 she cries out “in alarm” as the water rises."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the result of the neighbours' efforts?",
+      "options": [
+        "Nobody was injured.",
+        "Umm Saad moved to Riyadh.",
+        "The rain stopped at once.",
+        "The houses were rebuilt that night."
+      ],
+      "answer": "A",
+      "why": "Paragraph 9: “Although many houses were damaged, nobody had been injured.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Salma's father and Abu Fahad have in common?",
+      "options": [
+        "Both stayed safely indoors all night.",
+        "Both work in the city of Riyadh.",
+        "Both lost their phones in the water.",
+        "Both crossed the flood to help Umm Saad."
+      ],
+      "answer": "D",
+      "why": "The two men waded across the street together and brought Umm Saad back to safety."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “the gentle drumming had become a furious roar” mean?",
+      "options": [
+        "Thunder had damaged the roof.",
+        "The rain grew much louder and heavier.",
+        "The neighbours were shouting angrily.",
+        "A band was playing in the street."
+      ],
+      "answer": "B",
+      "why": "The writer compares the sound of the rain first to drumming and then to a roar, showing it became much heavier."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “Some kinds of wealth cannot be washed away”?",
+      "options": [
+        "Money is safe in a bank.",
+        "Kindness between people lasts.",
+        "The flood did not reach the shops.",
+        "Expensive carpets are hard to clean."
+      ],
+      "answer": "B",
+      "why": "The “wealth” is the neighbours' care for one another, which the flood could not take away."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "What is your opinion of how the writer uses dialogue in the story?",
+      "options": [
+        "It is not needed at all.",
+        "It adds scientific facts about rain.",
+        "It makes the events confusing.",
+        "It reveals the characters' feelings."
+      ],
+      "answer": "D",
+      "why": "Lines such as “I was so afraid that nobody would remember me” show how the characters feel."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which action is the most helpful during a flood?",
+      "options": [
+        "checking on elderly neighbours",
+        "wading into deep water alone",
+        "ignoring Civil Defence warnings",
+        "driving through flooded roads"
+      ],
+      "answer": "A",
+      "why": "The story shows how checking on Umm Saad kept her safe; the other actions are dangerous. Even the men crossed together, tied with a rope."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the story?",
+      "options": [
+        "jealousy and rivalry",
+        "boredom and impatience",
+        "care and togetherness",
+        "anger and blame"
+      ],
+      "answer": "C",
+      "why": "The neighbours care for each other and work together all night."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Umm Saad call her street “rich”?",
+      "options": [
+        "It has many expensive shops.",
+        "Its houses are very large.",
+        "Its people care for one another.",
+        "All the cars on it are new."
+      ],
+      "answer": "C",
+      "why": "She sees the helping hands of her neighbours as a kind of wealth."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which information in the story is the least clear, in your opinion?",
+      "options": [
+        "who helped Umm Saad cross the street",
+        "what little Hamad held during the night",
+        "when the rain finally stopped",
+        "how much water entered Umm Saad's house"
+      ],
+      "answer": "D",
+      "why": "The story never says how much water entered her house; the other details are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "The flood water speaks to Salma at night.",
+        "Rain falls only on Umm Saad's house.",
+        "Ships sail down the street to the sea.",
+        "Neighbours share brooms to clean mud after a flood."
+      ],
+      "answer": "D",
+      "why": "Neighbours cleaning up together after a flood is realistic; the others are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "A Journey to Riyadh",
+        "The Desert Race",
+        "One Street, One Family",
+        "The Broken Window"
+      ],
+      "answer": "C",
+      "why": "The neighbours act like one family during the flood."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story.",
+      "model": "When the rain finally stopped, Umm Saad's son arrived from Riyadh, deeply grateful that his mother was safe. He thanked every neighbour personally and invited the whole street to a dinner in his mother's repaired house, where Salma and Hamad proudly served the tea.",
+      "rubric": [
+        "2 = a clear, sensible new ending that fits the characters and events",
+        "1 = a new ending that is only partly clear or loosely linked to the story",
+        "0 = no answer, or the ending does not relate to the story"
+      ],
+      "why": "A good ending stays true to the characters and the theme of neighbours helping each other."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How can neighbours prepare for future floods?",
+      "options": [
+        "by keeping each other's phone numbers",
+        "by keeping sandbags and torches ready",
+        "by checking on elderly neighbours early",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "Each idea would help neighbours stay safe, so all are correct."
+    }
+  ]
+}

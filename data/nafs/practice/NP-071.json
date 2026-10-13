@@ -1,0 +1,169 @@
+{
+  "code": "NP-071",
+  "title": "Gems from the Gulf",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "A natural pearl begins with an accident. When a tiny parasite or a fragment of shell slips inside an oyster, the animal cannot push the intruder out. Instead, a soft layer of tissue called the mantle covers the object with nacre, the smooth, shining material that also lines the inside of the shell. Layer after layer builds up over several years, and slowly the irritation becomes a gem.\n\nFor centuries, the waters of the Arabian Gulf held some of the finest pearl beds in the world. Every summer, during the diving season known as al-ghous, fleets of wooden ships left the coast for about four months. Each diver wore a clip on his nose, tied a heavy stone to his foot, and sank quickly to the sea floor, where he gathered oysters into a basket hanging from his neck. When his breath ran out, he tugged a rope, and a partner on deck pulled him up. An experienced diver might repeat this exhausting and dangerous routine dozens of times every single day.\n\nThe work was risky, and most crews earned very little, yet pearls brought wealth to many Gulf towns. In the 1930s, however, cheaper cultured pearls from Japan flooded the market, and the old trade collapsed. Today, festivals and museums keep the memory of the divers alive, reminding young people of the courage that once fed their communities.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the first paragraph is an adjective?",
+      "options": [
+        "accident",
+        "smooth",
+        "covers",
+        "slowly"
+      ],
+      "answer": "B",
+      "why": "\"Smooth\" describes the material (nacre), so it is an adjective; \"accident\" is a noun, \"covers\" a verb and \"slowly\" an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"routine\" correctly?",
+      "options": [
+        "The routine swam quickly to the bottom of the sea.",
+        "She routine the oysters into a basket every morning.",
+        "The pearl was so routine that it shone brightly.",
+        "Brushing my teeth before bed is part of my nightly routine."
+      ],
+      "answer": "D",
+      "why": "A routine is a set of actions done regularly; only the first sentence uses the noun with that meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why did a diver tug the rope?",
+      "options": [
+        "His breath had run out.",
+        "He had found a large pearl.",
+        "He wanted to warn the crew.",
+        "He needed a new basket."
+      ],
+      "answer": "A",
+      "why": "The passage states: \"When his breath ran out, he tugged a rope, and a partner on deck pulled him up.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which list shows the correct order of how a natural pearl forms?",
+      "options": [
+        "layers build up → object enters → mantle adds nacre",
+        "mantle adds nacre → layers build up → object enters",
+        "object enters → mantle adds nacre → layers build up",
+        "object enters → layers build up → mantle adds nacre"
+      ],
+      "answer": "C",
+      "why": "First an intruder slips inside, then the mantle covers it with nacre, and layer after layer builds up over years."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What effect did cheaper cultured pearls from Japan have on the Gulf in the 1930s?",
+      "options": [
+        "Divers began working all year.",
+        "Festivals for divers were cancelled.",
+        "The old pearl trade collapsed.",
+        "Natural pearls became easier to find."
+      ],
+      "answer": "C",
+      "why": "The passage links the cause (cheaper cultured pearls flooding the market) to the effect: \"the old trade collapsed.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The writer says that \"slowly the irritation becomes a gem.\" What idea does this phrase express?",
+      "options": [
+        "Something annoying can turn into something valuable.",
+        "Oysters enjoy making pearls for the divers.",
+        "Gems are formed in only a short time.",
+        "Pearls are a kind of illness in oysters."
+      ],
+      "answer": "A",
+      "why": "The irritation is the unwanted intruder; over time it becomes a precious pearl, so something unpleasant turns into something valuable."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "Pearl diving was an easy way to become rich.",
+        "Cultured pearls are more beautiful than natural ones.",
+        "Gulf towns should return to pearl diving today.",
+        "The divers showed great courage despite low pay."
+      ],
+      "answer": "D",
+      "why": "The passage says the work was risky and most crews earned little, and it praises \"the courage that once fed their communities.\""
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information is the least clear or complete in the passage?",
+      "options": [
+        "What material covers the intruder",
+        "How deep the divers usually went",
+        "How long the diving season lasted",
+        "Why the pearl trade collapsed"
+      ],
+      "answer": "B",
+      "why": "The passage names nacre, says the season lasted about four months and explains the collapse, but it never says how deep the divers went."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A diver brings up an oyster with a small pearl inside.",
+        "An oyster pushes out a pearl and hands it to a diver.",
+        "A diver stays underwater all day without any air.",
+        "A pearl grows to full size in a single hour."
+      ],
+      "answer": "A",
+      "why": "Pearls really are found inside oysters; the other events are impossible because oysters cannot hand objects, people need air, and pearls take years."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "difficulty": 3,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "How to Open an Oyster Safely",
+        "The History of Japanese Pearl Farms",
+        "From Oyster to Gem: Pearls and Gulf Divers",
+        "Festivals and Museums of the Gulf"
+      ],
+      "answer": "C",
+      "why": "The passage covers both how pearls form and the lives of the Gulf divers; the other titles cover only a small detail or something not discussed."
+    }
+  ]
+}

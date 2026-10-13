@@ -1,0 +1,169 @@
+{
+  "code": "NP-042",
+  "title": "The Red Kite",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "For weeks, Faisal had watched the colourful kites that danced above the beach at sunset, and he had secretly wished that one of them belonged to him. When he finally mentioned the idea to his father, he expected him to suggest buying one from the market. Instead, his father smiled thoughtfully and said, \"Why don't we build our own?\"\n\nThat Friday afternoon, they spread their carefully collected materials across the courtyard: two thin sticks of bamboo, a roll of strong string, some glue and a large sheet of bright red paper. His father demonstrated how to tie the sticks together in the shape of a cross and how to stretch the string tightly around the edges to form a sturdy frame. Faisal carefully cut the paper, folded its borders over the string and glued them down, while his father attached a long tail made of knotted ribbons.\n\nThe next evening, they carried the kite proudly to the beach, but on the first attempt it spun wildly and crashed into the sand. On the second attempt, it dipped and dived like a frightened bird. Faisal felt his disappointment growing, but his father patiently adjusted the tail and waited for a steady, reliable breeze.\n\nOn the third attempt, the red kite climbed higher and higher until it floated calmly above the waves. Faisal laughed with delight, because although it was not the biggest kite on the beach, it was certainly the one he treasured most.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which word belongs to the same word family as \"disappointment\"?",
+      "options": [
+        "pointed",
+        "disappointed",
+        "dismissed",
+        "appearance"
+      ],
+      "answer": "B",
+      "why": "\"Disappointed\" shares the base word \"disappoint\" with \"disappointment\"; the other words only look similar."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "\"Why don't we build our own?\" What type of sentence is this?",
+      "options": [
+        "a command",
+        "an exclamation",
+        "a question",
+        "a statement"
+      ],
+      "answer": "C",
+      "why": "The sentence asks something and ends with a question mark, so it is a question."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the kite fly successfully on the third attempt?",
+      "options": [
+        "Faisal had bought a stronger string from the market that morning.",
+        "Faisal had added more glue and a second sheet of paper.",
+        "The other children on the beach had shown them what to do.",
+        "His father had adjusted the tail and waited for a steady breeze."
+      ],
+      "answer": "D",
+      "why": "The story says his father \"patiently adjusted the tail and waited for a steady, reliable breeze\" before the successful third attempt."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which of these events happened FIRST in the story?",
+      "options": [
+        "His father attached a tail of knotted ribbons.",
+        "Faisal mentioned the idea of a kite to his father.",
+        "The kite spun wildly and crashed into the sand.",
+        "They spread their materials across the courtyard."
+      ],
+      "answer": "B",
+      "why": "Faisal mentioned the idea first; building the kite and flying it came afterwards."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How was the kite's SECOND attempt different from its first attempt?",
+      "options": [
+        "It flew calmly above the waves for a long time.",
+        "It got stuck in a palm tree beside the beach.",
+        "It moved up and down unsteadily but did not crash.",
+        "It spun wildly and then crashed into the sand."
+      ],
+      "answer": "C",
+      "why": "On the first attempt it spun and crashed; on the second it \"dipped and dived\" without the story saying it crashed."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The kite \"dipped and dived like a frightened bird.\" What is the effect of this comparison?",
+      "options": [
+        "It shows that a real bird attacked the kite in the air.",
+        "It shows that the kite was shaped exactly like a bird.",
+        "It shows that Faisal was frightened of the strong wind.",
+        "It shows the kite moving in a nervous, uncontrolled way."
+      ],
+      "answer": "D",
+      "why": "A frightened bird moves quickly and unsteadily; the simile helps the reader picture the kite's shaky flight."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the story?",
+      "options": [
+        "Something you build yourself can mean more than something you buy.",
+        "Bought kites always fly better than kites that are made at home.",
+        "Children should never try to build anything without a teacher.",
+        "Flying a kite is only enjoyable if yours is the biggest one."
+      ],
+      "answer": "A",
+      "why": "Faisal's kite was not the biggest, yet it was the one he treasured most because he built it with his father."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is the LEAST clear or complete?",
+      "options": [
+        "What materials they used to build the kite",
+        "What colour the paper on the kite was",
+        "How Faisal's father learned to make kites",
+        "Where Faisal and his father flew the kite"
+      ],
+      "answer": "C",
+      "why": "The story never explains how the father knew how to build a kite; the materials, colour and place are all stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could REALLY happen?",
+      "options": [
+        "A red kite lifts Faisal high above the waves of the sea.",
+        "A homemade paper kite crashes during a sudden gust of wind.",
+        "A seagull speaks to Faisal and teaches him to fly a kite.",
+        "A kite flies for many hours on a day with no wind at all."
+      ],
+      "answer": "B",
+      "why": "Kites often crash in gusty wind; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which is the BEST alternative title for the story?",
+      "options": [
+        "Third Time Lucky",
+        "A Trip to the Market",
+        "The Biggest Kite on the Beach",
+        "Lost at Sea"
+      ],
+      "answer": "A",
+      "why": "The kite finally flies on the third attempt, so \"Third Time Lucky\" describes the main events."
+    }
+  ]
+}

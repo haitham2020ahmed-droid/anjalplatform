@@ -1,0 +1,169 @@
+{
+  "code": "NP-037",
+  "title": "How Glaciers Shape the Land",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "A glacier is a huge, slowly moving mass of ice that forms where more snow falls each winter than melts each summer. Over many years, the layers of snow are pressed together until they turn into dense ice. Although glaciers appear frozen in place, their enormous weight causes them to flow downhill or spread outward, often moving only a few centimetres or metres each day.\n\nAs a glacier moves, it acts like a gigantic piece of sandpaper. Rocks and boulders frozen into its base scrape and grind the ground beneath, polishing the bedrock and leaving long scratches that point in the direction the ice travelled. Glaciers also pluck large blocks of rock from the valley floor and carry them great distances.\n\nThis powerful erosion reshapes entire landscapes. A river usually cuts a narrow valley shaped like the letter V, but a glacier widens and deepens it into a broad U-shaped valley with steep sides. In some coastal regions, such as Norway, these valleys later filled with seawater to form long, narrow inlets called fjords.\n\nWhen a glacier melts, it drops the rocks, sand, and clay it has been carrying. These deposits can form long ridges called moraines, and some boulders are left in places where the surrounding rock is completely different. Scientists study these clues to discover where ancient glaciers once existed. Today, many glaciers are shrinking as global temperatures rise, which concerns scientists because glaciers store a large share of the world's fresh water.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a PLURAL noun?",
+      "options": [
+        "boulders",
+        "glacier",
+        "dense",
+        "flow"
+      ],
+      "answer": "A",
+      "why": "Boulders names more than one large rock, so it is a plural noun."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence uses the word \"erosion\" correctly?",
+      "options": [
+        "She erosion the ball across the field.",
+        "The erosion cake tasted very sweet.",
+        "Strong waves caused erosion along the cliffs.",
+        "We erosion our homework every evening."
+      ],
+      "answer": "C",
+      "why": "Erosion is a noun meaning the wearing away of land, so waves can cause erosion of cliffs."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a story with characters and a plot",
+        "an informational text that explains",
+        "a poem with rhyming lines",
+        "a personal letter to a friend"
+      ],
+      "answer": "B",
+      "why": "It gives facts and explanations about glaciers without characters or a plot."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, what must happen BEFORE snow can become glacier ice?",
+      "options": [
+        "The glacier moves downhill.",
+        "A U-shaped valley forms.",
+        "Moraines are left behind.",
+        "Layers of snow are pressed together."
+      ],
+      "answer": "D",
+      "why": "The passage says that over many years layers of snow are pressed together until they turn into dense ice."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is a valley cut by a river different from a valley shaped by a glacier?",
+      "options": [
+        "A river valley is wide; a glacier valley is narrow.",
+        "A river valley fills with ice; a glacier valley with sand.",
+        "A river valley is V-shaped; a glacier valley is U-shaped.",
+        "A river valley has steep sides; a glacier valley is flat."
+      ],
+      "answer": "C",
+      "why": "The passage says rivers cut narrow V-shaped valleys while glaciers make broad U-shaped valleys."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "The writer says a moving glacier \"acts like a gigantic piece of sandpaper.\" What does this comparison help readers understand?",
+      "options": [
+        "The glacier scrapes and smooths the rock beneath it.",
+        "The glacier is made of sand and paper.",
+        "The glacier moves very quickly across land.",
+        "The glacier is soft and easy to break."
+      ],
+      "answer": "A",
+      "why": "Sandpaper rubs and smooths surfaces, just as rocks in the glacier's base scrape and polish the bedrock."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "Glaciers have no effect on the land around them.",
+        "Shrinking glaciers are a real cause for concern.",
+        "Fjords were dug by people long ago.",
+        "Rivers shape land more powerfully than glaciers."
+      ],
+      "answer": "B",
+      "why": "The writer explains that scientists are concerned because shrinking glaciers store much of the world's fresh water."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "What a fjord is",
+        "What moraines are",
+        "How snow turns into glacier ice",
+        "How fast glaciers are shrinking today"
+      ],
+      "answer": "D",
+      "why": "The passage says many glaciers are shrinking but gives no figures or rate; the other items are explained."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "A melting glacier leaves a boulder far from its origin.",
+        "A glacier freezes an entire ocean in a single night.",
+        "A glacier climbs a mountain to escape the sun.",
+        "A boulder rolls uphill to return to its valley."
+      ],
+      "answer": "A",
+      "why": "The passage explains that glaciers carry boulders great distances and drop them when they melt."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "Snowball Games in Winter",
+        "Norway's Fishing Villages",
+        "Rivers of Ice That Carve the Land",
+        "Why Rivers Flow to the Sea"
+      ],
+      "answer": "C",
+      "why": "It sums up the main idea: glaciers are moving ice that erodes and reshapes landscapes."
+    }
+  ]
+}

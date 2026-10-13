@@ -2,7 +2,7 @@
  * Student pages (b1) — in-memory Demo School; invented students only:
  *  - the MAP dashboard data never shows a descriptor or Below / On / Above; points-to-goal math
  *  - programWork: the program's rows of My Work (MAP / RTI / NAFS / Curriculum)
- *  - studentMenuFlags: RTI only for Tier 2/3, NAFS only with NAFS work
+ *  - studentMenuFlags: RTI only for Tier 2/3, NAFS only for students in a Grade 6 class
  *  - My Plans, Progress Report, My Skills and Family Report redirect; the new pages exist
  *  - My Certificates: own certificates only
  */
@@ -183,10 +183,15 @@ describe("student pages (b1): data and access", () => {
     assert.equal((await programWork(repo, b, "MAP", NOW)).length, 0);
   });
 
-  test("studentMenuFlags: RTI only for Tier 2/3; NAFS only with NAFS work", async () => {
+  test("studentMenuFlags: RTI only for Tier 2/3; NAFS (the NAFS icon) only for students in a Grade 6 class", async () => {
     const fl = async (id: string) => { const f = await studentMenuFlags(repo, id); return { rti: f.rti, nafs: f.nafs }; };
-    assert.deepEqual(await fl(a), { rti: false, nafs: true });
+    // a (Grade 4) has NAFS plan work, but the NAFS icon is for Grade 6 students only (NAFS center plan)
+    assert.deepEqual(await fl(a), { rti: false, nafs: false });
     assert.deepEqual(await fl(b), { rti: false, nafs: false });
+    const g6 = (await repo.findMany("Grade", { schoolId: t4.schoolId, level: 6 }))[0];
+    const k6 = (await repo.findMany("Class", { gradeId: g6.id, deletedAt: null }))[0];
+    const s6 = (await repo.findMany("ClassMembership", { classId: k6.id, leftAt: null }))[0];
+    assert.equal((await studentMenuFlags(repo, String(s6.studentId))).nafs, true, "a Grade 6 student sees NAFS");
     await repo.create("StudentTier", { studentId: b, schoolId: t4.schoolId, tier: 3, source: "TEACHER", locked: false, reason: "Test", focusSkillId: skills[3], since: NOW, monitorEveryDays: 14, updatedAt: NOW });
     assert.deepEqual(await fl(b), { rti: true, nafs: false });
     await repo.create("StudentTier", { studentId: a, schoolId: t4.schoolId, tier: 1, source: "TEACHER", locked: false, reason: "Test", focusSkillId: null, since: NOW, monitorEveryDays: 14, updatedAt: NOW });

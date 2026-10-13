@@ -1,0 +1,169 @@
+{
+  "code": "NP-076",
+  "title": "Stories in Stone",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "A fossil is any preserved trace of a living thing from the distant past. The process that creates one can take thousands or even millions of years. Most plants and animals never become fossils at all, because their bodies decay or are eaten soon after they die.\n\nFossilization usually begins when an organism is buried quickly beneath mud, sand, or volcanic ash. This cover keeps away hungry animals. It also slows down decay. Soft tissues normally disappear, but hard parts such as bones, teeth, and shells can survive. Over time, more layers of sediment pile on top, and their enormous weight gradually presses the lower layers into solid rock.\n\nMeanwhile, water seeping through the ground carries dissolved minerals into tiny spaces inside the bones or shells. These minerals harden, sometimes replacing the original material completely, so the fossil becomes a stone copy of the creature. Other fossils are simply impressions, such as a leaf's outline or a dinosaur's footprint pressed into mud that later hardened.\n\nEventually, wind, rain, and rivers wear away the rock above. Then a fossil may appear at the surface, where a scientist, or even a lucky hiker, might discover it. Because deeper layers of rock are generally older, scientists can estimate a fossil's age from its position. Fossils found in Saudi Arabia, including ancient whale and elephant remains, show that the region's environment was once very different from today's desert.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "The passage uses the plural word \"teeth.\" What is its singular form?",
+      "options": [
+        "tooth",
+        "teeths",
+        "teethe",
+        "toothes"
+      ],
+      "answer": "A",
+      "why": "\"Teeth\" is an irregular plural: one tooth, many teeth."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence is an exclamatory sentence?",
+      "options": [
+        "Did you find a fossil on the hike?",
+        "Fossils form over millions of years.",
+        "Look carefully at the layers of rock.",
+        "What an amazing fossil we found!"
+      ],
+      "answer": "D",
+      "why": "An exclamatory sentence shows strong feeling and ends with an exclamation mark; the others are a question, a statement and a command."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why do most plants and animals never become fossils?",
+      "options": [
+        "They are too small to leave traces.",
+        "They live only in deserts.",
+        "Their bodies decay or are eaten.",
+        "They are buried far too quickly."
+      ],
+      "answer": "C",
+      "why": "The passage states that their bodies \"decay or are eaten soon after they die.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which list shows the correct order of events in forming a fossil?",
+      "options": [
+        "rock above wears away → buried in sediment → minerals fill spaces",
+        "buried in sediment → minerals fill spaces → rock above wears away",
+        "minerals fill spaces → rock above wears away → buried in sediment",
+        "buried in sediment → rock above wears away → minerals fill spaces"
+      ],
+      "answer": "B",
+      "why": "Remains are buried first, minerals then seep in and harden, and finally erosion exposes the fossil."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "How is a footprint fossil different from a bone that has turned to stone?",
+      "options": [
+        "It is made of minerals that replaced bone.",
+        "It is an impression, not part of the body.",
+        "It forms only in volcanic ash.",
+        "It is always older than bone fossils."
+      ],
+      "answer": "B",
+      "why": "The passage calls footprints and leaf outlines \"impressions,\" while bone fossils are the creature's remains filled or replaced by minerals."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says the fossil becomes \"a stone copy of the creature.\" What does this phrase help the reader understand?",
+      "options": [
+        "Minerals keep the shape of the original remains.",
+        "The creature was made of stone while alive.",
+        "Scientists carve copies of animals from stone.",
+        "The fossil is a fake that people made."
+      ],
+      "answer": "A",
+      "why": "As minerals replace the original material, the stone keeps the creature's shape, like a copy."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "Fossils are easy to find in any backyard.",
+        "Only scientists should be allowed to find fossils.",
+        "Fossils tell us very little about the past.",
+        "Fossils are rare, so each one is valuable."
+      ],
+      "answer": "D",
+      "why": "The passage says most living things never become fossils, and that fossils reveal the past, such as Saudi Arabia's very different ancient environment."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information is the least clear in the passage?",
+      "options": [
+        "What happens to soft tissues",
+        "What keeps hungry animals away",
+        "How old the Saudi whale fossils are",
+        "How rock layers help date fossils"
+      ],
+      "answer": "C",
+      "why": "The passage mentions ancient whale and elephant remains in Saudi Arabia but gives no age for them; the other points are explained."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A hiker finds a shell fossil after rain wears away rock.",
+        "A dinosaur bone turns into stone in one afternoon.",
+        "A fossil whale swims out of the desert rock.",
+        "A leaf presses its outline into rock that is already hard."
+      ],
+      "answer": "A",
+      "why": "Erosion really exposes fossils that people find; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "A team finds several fossils in a desert. Based on the passage, which is the best way to protect what the fossils can teach?",
+      "options": [
+        "Leave every fossil in the open wind to clean it.",
+        "Record which rock layer each fossil came from.",
+        "Paint the fossils so that they look newer.",
+        "Mix fossils from different layers into one box."
+      ],
+      "answer": "B",
+      "why": "Scientists estimate age from a fossil's position, so recording the layer keeps that information; the other choices destroy it."
+    }
+  ]
+}

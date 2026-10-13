@@ -164,4 +164,13 @@ export const UNIQUE_KEYS: Record<string, readonly (readonly string[])[]> = {
   Feedback: [["id"]],
   SecondChanceAnswer: [["id"]],
   DiagnosticWindow: [["id"], ["schoolId", "grade", "schoolYear"]],
+  NafsSkill: [["code"]],
+  NafsSkillFamily: [["nafsCode", "familyId"]],
+  NafsBankItem: [["id"], ["schoolId", "questionId"]],
+  NafsTest: [["id"]],
+  NafsTestClass: [["id"], ["testId", "classId"]],
+  NafsResult: [["id"], ["testId", "studentId"]],
+  NafsPractice: [["id"]],
+  NafsPracticeRun: [["id"], ["practiceId", "studentId"]],
+  NafsPracticeAnswer: [["id"]],
 };

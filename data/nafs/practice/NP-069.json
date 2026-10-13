@@ -1,0 +1,169 @@
+{
+  "code": "NP-069",
+  "title": "Ibn Sina and the Canon of Medicine",
+  "kind": "INFORMATIONAL",
+  "genre": "biography",
+  "passage": "More than a thousand years ago, a Persian scholar named Ibn Sina wrote a book that would guide doctors for over six centuries. That book was The Canon of Medicine.\n\nIbn Sina was born in 980 CE near Bukhara, in Central Asia. He was an extraordinary student who had memorized the Qur'an by the age of ten. By the age of eighteen, he was already treating patients, and he once cured a ruler whose illness had defeated other physicians.\n\nWritten in Arabic and completed around 1025, the Canon gathered the medical knowledge of the Greeks, Persians, Indians and Arabs into five large volumes. However, Ibn Sina did not simply copy older ideas. He added careful observations of his own and organized everything in a clear, logical way.\n\nThe book explained that some diseases can spread through water and soil, and it described how to test new medicines carefully before trusting them. It also discussed hundreds of drugs, along with the importance of diet, exercise and sleep for good health.\n\nThe Canon was later translated into Latin and became a standard textbook in European universities, where students studied it until the seventeenth century.\n\nToday, Ibn Sina is remembered as one of the greatest thinkers in history. His work shows how scholars in the Islamic world preserved and expanded the knowledge of earlier civilizations.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did The Canon of Medicine become a textbook in European universities?",
+      "options": [
+        "It was written in Greek.",
+        "It had only one short volume.",
+        "It was translated into Latin.",
+        "It was copied from European books."
+      ],
+      "answer": "C",
+      "why": "The passage says the Canon 'was later translated into Latin and became a standard textbook'."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which event happened FIRST in Ibn Sina's life?",
+      "options": [
+        "He memorized the Qur'an.",
+        "He completed the Canon.",
+        "He began treating patients.",
+        "He cured a famous ruler."
+      ],
+      "answer": "A",
+      "why": "He memorized the Qur'an by the age of ten, before he treated patients at eighteen and finished the Canon around 1025."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word belongs to the same word family as \"medicine\"?",
+      "options": [
+        "medical",
+        "media",
+        "meditate",
+        "medal"
+      ],
+      "answer": "A",
+      "why": "'Medical' comes from the same root as 'medicine'; the other words only begin with similar letters."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"preserve\" correctly?",
+      "options": [
+        "He preserve a patient yesterday morning.",
+        "Libraries preserve old books for future readers.",
+        "The preserve of medicine was very large.",
+        "She felt preserve after reading the Canon."
+      ],
+      "answer": "B",
+      "why": "'Preserve' is a verb meaning to keep safe; only this sentence uses it correctly."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer calls Ibn Sina \"an extraordinary student.\" What does the writer want to emphasize?",
+      "options": [
+        "His poor marks at school",
+        "His love of long journeys",
+        "His unusual talent at a young age",
+        "His dislike of medicine"
+      ],
+      "answer": "C",
+      "why": "The phrase, followed by facts about his early achievements, stresses his remarkable talent."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How was the Canon different from simply copying older books?",
+      "options": [
+        "It ignored Greek and Indian knowledge.",
+        "It was written only in Latin.",
+        "It discussed only a single disease.",
+        "Ibn Sina added his own observations."
+      ],
+      "answer": "D",
+      "why": "'Ibn Sina did not simply copy older ideas. He added careful observations of his own.'"
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which event could really happen?",
+      "options": [
+        "Ibn Sina teaches a university class in the 1600s.",
+        "A gifted young scholar treats patients at eighteen.",
+        "A ten-year-old writes five volumes in one night.",
+        "A doctor cures every disease with one medicine."
+      ],
+      "answer": "B",
+      "why": "The passage says Ibn Sina treated patients by eighteen; he lived around 1000 CE, so he could not teach in the 1600s."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the passage?",
+      "options": [
+        "When the Canon was finished — 1025 is given.",
+        "What language it was written in — Arabic.",
+        "Which ruler Ibn Sina cured — he is not named.",
+        "How long Europe used it — until the 1600s."
+      ],
+      "answer": "C",
+      "why": "The passage mentions 'a ruler' without giving his name or kingdom."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "What MOST likely motivated the writer to write this passage?",
+      "options": [
+        "To show the contribution of Muslim scholars",
+        "To persuade readers to become doctors at eighteen",
+        "To criticize European universities",
+        "To explain how to make medicines at home"
+      ],
+      "answer": "A",
+      "why": "The writer ends by saying Ibn Sina's work shows how scholars in the Islamic world preserved and expanded knowledge."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "A Journey Across the Desert",
+        "The Life of a Greek Philosopher",
+        "Modern Hospitals in Bukhara",
+        "A Book That Lasted Centuries"
+      ],
+      "answer": "D",
+      "why": "The passage focuses on the Canon, which guided doctors for over six centuries."
+    }
+  ]
+}

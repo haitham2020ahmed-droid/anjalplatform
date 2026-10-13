@@ -1,0 +1,169 @@
+{
+  "code": "NP-043",
+  "title": "The Journey of Electricity",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "When you switch on a lamp, the light seems to appear instantly, yet the electricity that powers it may have travelled hundreds of kilometres to reach your home. Its journey begins at a power station. There, a source of energy, such as burning gas or sunlight, is used to make an electric current. In many power stations, steam or moving water spins a huge machine called a generator, which changes movement into electrical energy.\n\nBefore the electricity leaves the power station, it passes through a step-up transformer. This device raises the voltage to a very high level. Electricity at high voltage loses much less energy as it travels along wires. Tall metal towers then carry thick transmission lines across deserts, valleys and farmland.\n\nNear towns and cities, the electricity arrives at a substation. Here, step-down transformers lower the voltage so that it can travel safely along smaller lines. These lines run beside streets or under the ground. A final transformer, often in a metal box near a group of houses, lowers the voltage again. Now it is at the level that home devices are made to use.\n\nFinally, the current passes through a meter, which measures how much electricity each family uses, and then flows through the wires inside the walls to every socket and switch in the house.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which word belongs to the same word family as \"electricity\"?",
+      "options": [
+        "election",
+        "elegant",
+        "electrical",
+        "selection"
+      ],
+      "answer": "C",
+      "why": "\"Electrical\" comes from the same base, \"electric\"; the other words have different roots."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which of these sentences is an EXCLAMATORY sentence?",
+      "options": [
+        "Electricity travels along metal wires.",
+        "Switch off the lights when you leave.",
+        "Where does our electricity come from?",
+        "What a long journey electricity makes!"
+      ],
+      "answer": "D",
+      "why": "An exclamatory sentence shows strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why is the voltage raised before electricity leaves the power station?",
+      "options": [
+        "High voltage makes electricity safer for use in homes.",
+        "Electricity at high voltage loses less energy in the wires.",
+        "The meter cannot measure electricity at low voltage.",
+        "Tall towers can only carry electricity at high voltage."
+      ],
+      "answer": "B",
+      "why": "The passage states that \"electricity at high voltage loses much less energy as it travels along wires.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which part of the journey comes RIGHT BEFORE the electricity passes through the meter?",
+      "options": [
+        "A step-up transformer raises the voltage very high.",
+        "A generator changes movement into electrical energy.",
+        "A final transformer lowers the voltage near the houses.",
+        "Tall towers carry it across deserts and valleys."
+      ],
+      "answer": "C",
+      "why": "The order is generator, step-up transformer, transmission lines, substation, smaller lines, final transformer, then the meter."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "How is a step-up transformer DIFFERENT from a step-down transformer?",
+      "options": [
+        "One makes electricity from gas; the other makes it from sunlight.",
+        "One is found inside every home; the other is found on tall towers.",
+        "One measures the electricity used; the other carries it underground.",
+        "One raises voltage for long trips; the other lowers it for safe use."
+      ],
+      "answer": "D",
+      "why": "The step-up transformer raises the voltage so less energy is lost; step-down transformers reduce it so it can travel safely to homes."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The passage begins: \"When you switch on a lamp, the light seems to appear instantly.\" What is the effect of this opening?",
+      "options": [
+        "It links the topic to an everyday action the reader knows.",
+        "It warns the reader that switching on lamps is dangerous.",
+        "It tells the reader exactly how a power station works.",
+        "It proves that light travels faster than electricity."
+      ],
+      "answer": "A",
+      "why": "Starting with a familiar action makes the reader curious about the long journey hidden behind it."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "Electricity is free because it travels to our homes on its own.",
+        "Power stations should be built inside every house to save time.",
+        "We should not waste electricity, since much equipment is needed to deliver it.",
+        "Transmission lines are not needed because homes produce power."
+      ],
+      "answer": "C",
+      "why": "The passage shows that generators, transformers, towers, lines and meters are all needed, which supports using electricity carefully."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "Where the electricity's journey begins",
+        "How a transformer actually changes the voltage",
+        "What the meter in a house measures",
+        "What carries the transmission lines"
+      ],
+      "answer": "B",
+      "why": "The passage says transformers raise or lower voltage but never explains how they do it; the other points are stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could REALLY happen?",
+      "options": [
+        "A storm damages a power line and a street loses electricity.",
+        "A lamp produces its own electricity from the darkness.",
+        "A meter sends electricity back to the power station by post.",
+        "A transformer turns electricity into drinking water."
+      ],
+      "answer": "A",
+      "why": "If a power line is damaged, electricity cannot reach the homes it serves; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "How to Build a Solar Panel",
+        "From Power Station to Light Switch",
+        "The Dangers of Playing near Towers",
+        "Why Lamps Use Less Energy Today"
+      ],
+      "answer": "B",
+      "why": "The passage follows electricity from the power station all the way to switches in the house."
+    }
+  ]
+}

@@ -1,0 +1,568 @@
+{
+  "code": "NB-006",
+  "title": "The Muddy Water Problem",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 510,
+  "passage": "Three weeks before the school science fair, Saad and Yousef sat at Saad's kitchen table, staring at an empty notebook that seemed to grow emptier with every passing minute. \"We need an idea that nobody else will have,\" Yousef insisted, tapping his pencil impatiently against the table.\n\nSaad gazed out of the window at the garden, where a puddle of brown water had collected beside his mother's watering can, and an idea slowly began to form. He suggested building a water filter that could make muddy water clearer by passing it through layers of sand and stones.\n\nYousef frowned and complained that the idea sounded far too simple, because he had been hoping to build a robot. \"A robot would need motors and batteries that we don't have,\" Saad replied patiently, \"whereas a filter only needs materials that we can find at home.\" After a long, uncomfortable silence, Yousef nodded reluctantly, on the condition that theirs would be the most impressive filter in the school.\n\nThe following afternoon, the boys gathered their materials: a large plastic bottle, cotton wool, fine sand, small stones and some charcoal. Saad's older brother, Fahad, helped them cut the bottle in half and turn the top section upside down so that it worked like a funnel. Eager to see results, the boys tipped in the layers hurriedly without checking their order, and Yousef carefully poured in a cup of muddy water from the garden.\n\nThey waited anxiously as the water trickled out drip by drip, just as brown and cloudy as before. \"It didn't work!\" cried Yousef, throwing his hands in the air in frustration. Saad felt his face grow hot, but instead of arguing, he took a deep breath and reminded his friend that real scientists never give up after a single failed attempt.\n\nTogether they opened their library book and reread the instructions line by line, as carefully as detectives examining a clue, until Saad noticed a diagram that revealed their error. The stones belonged at the top, where they could trap the largest pieces of dirt, while the finer layers belonged lower down. They had put everything in the wrong order.\n\nThis time they assembled the filter with great care: stones, then sand, then charcoal, then cotton wool. When Yousef poured the muddy water in, the drops that emerged at the bottom were almost clear. \"We did it!\" they shouted together, although Fahad warned them that the water still was not safe to drink, because tiny germs could pass straight through even when it looked clean.\n\nOn the day of the fair, the boys explained their filter confidently to the judges and even displayed the unsuccessful first test in their notebook, because, as Saad explained, mistakes are an essential part of science. They did not win first prize, but one of the judges, Mr Khalid, wrote an encouraging comment on their card: \"Excellent scientific thinking. You learned from your mistake.\"\n\nGrinning at his friend, Yousef announced with his usual enthusiasm, \"Next year, let's build a robot that cleans the filter for us.\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “reluctantly” as it is used in paragraph 3?",
+      "options": [
+        "eagerly",
+        "silently",
+        "proudly",
+        "unwillingly"
+      ],
+      "answer": "D",
+      "why": "Yousef agrees only after a long silence and “on the condition” that the filter is impressive, so he agrees unwillingly."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “hurriedly” in “the boys tipped in the layers hurriedly” (paragraph 4)?",
+      "options": [
+        "hastily",
+        "nervously",
+        "unhurriedly",
+        "noisily"
+      ],
+      "answer": "C",
+      "why": "Hurriedly means in a rush; its opposite is unhurriedly. “Hastily” has the same meaning, not the opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 6, Saad noticed a diagram that “revealed their error”. What does “revealed” mean here?",
+      "options": [
+        "hid completely",
+        "showed clearly",
+        "repaired quickly",
+        "caused"
+      ],
+      "answer": "B",
+      "why": "The diagram made their mistake clear to them: the layers were in the wrong order."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 8 is an adjective?",
+      "options": [
+        "unsuccessful",
+        "confidently",
+        "displayed",
+        "judges"
+      ],
+      "answer": "A",
+      "why": "“Unsuccessful” describes the first test; “confidently” is an adverb, “displayed” a verb and “judges” a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In the sentence “They waited anxiously as the water trickled out drip by drip”, the word “anxiously” is …",
+      "options": [
+        "an adjective",
+        "a noun",
+        "an adverb",
+        "a verb"
+      ],
+      "answer": "C",
+      "why": "“Anxiously” tells how they waited, so it is an adverb."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “impressive”?",
+      "options": [
+        "impossible",
+        "improve",
+        "imprison",
+        "impression"
+      ],
+      "answer": "D",
+      "why": "Impress, impressive and impression share the same root; the others only begin with the same letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 3, Saad mentions “batteries”. Which is the singular form of this word?",
+      "options": [
+        "batterie",
+        "battery",
+        "batteri",
+        "batterys"
+      ],
+      "answer": "B",
+      "why": "A noun ending in a consonant + y forms its plural by changing y to i and adding -es, so batteries → battery."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is a command?",
+      "options": [
+        "Did you check the order of the layers?",
+        "What a clever filter you have built!",
+        "Check the order of the layers before you pour.",
+        "The boys checked the order of the layers."
+      ],
+      "answer": "C",
+      "why": "A command tells someone to do something and begins with a verb (“Check”)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “encouraging” (paragraph 8) in a meaningful sentence of your own.",
+      "model": "My teacher wrote an encouraging comment on my essay, which made me want to keep improving my writing.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “encouraging” with its meaning (giving someone hope, confidence or support)",
+        "1 = the word is used but the sentence is incomplete or the meaning is unclear",
+        "0 = the word is missing or used with a wrong meaning"
+      ],
+      "why": "An encouraging comment gives someone confidence and makes them want to continue."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main message of the story?",
+      "options": [
+        "Simple projects never impress the judges at a fair.",
+        "Mistakes can teach us valuable lessons if we keep trying.",
+        "It is better to work alone than with a friend.",
+        "Older brothers should do the hardest part of a project."
+      ],
+      "answer": "B",
+      "why": "The boys fail, study their mistake, succeed, and are praised for learning from it."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "A Robot for Next Year",
+        "The Lost Library Book",
+        "Fahad’s Warning",
+        "The Second Attempt"
+      ],
+      "answer": "D",
+      "why": "The key turning point is the careful second attempt after the first one failed; the other titles describe small details or events that do not happen."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraphs 1–3?",
+      "options": [
+        "Saad builds a robot for the science fair.",
+        "Yousef refuses to take part in the fair.",
+        "The boys disagree at first but agree on a project.",
+        "The boys win first prize with a water filter."
+      ],
+      "answer": "C",
+      "why": "Yousef wants a robot and Saad suggests a filter; after a silence they agree on the filter."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why did Saad think a filter was a better choice than a robot?",
+      "options": [
+        "A filter needs only materials they could find at home.",
+        "Fahad had already built a filter before.",
+        "Mr Khalid asked every pupil to make a filter.",
+        "A robot would take only one day to build."
+      ],
+      "answer": "A",
+      "why": "Saad says a robot needs motors and batteries they do not have, “whereas a filter only needs materials that we can find at home.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Using paragraphs 4 and 6, which statement best explains why the first test failed?",
+      "options": [
+        "Fahad cut the bottle in the wrong place.",
+        "They rushed and put the layers in the wrong order.",
+        "The muddy water was too thick to pass through.",
+        "They forgot to put the charcoal in."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 says they tipped in the layers “hurriedly without checking their order”, and paragraph 6 confirms “They had put everything in the wrong order.”"
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "This text is best described as …",
+      "options": [
+        "an informational report about filters",
+        "a set of instructions for a project",
+        "a letter to a science teacher",
+        "a story with dialogue and narration"
+      ],
+      "answer": "D",
+      "why": "It has characters, a problem, events in order and conversation, so it is a story; it is not written to instruct."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Yousef complained that the idea was too simple.",
+        "Yousef nodded reluctantly.",
+        "Saad noticed a puddle beside the watering can.",
+        "The boys gathered their materials."
+      ],
+      "answer": "C",
+      "why": "Saad saw the puddle and got the idea before Yousef complained, agreed, and the materials were gathered."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did the boys do soon AFTER the first test failed?",
+      "options": [
+        "They showed the filter to the judges.",
+        "They reread the instructions in their library book.",
+        "They poured in a second cup of muddy water.",
+        "Fahad cut a new bottle in half for them."
+      ],
+      "answer": "B",
+      "why": "After Saad calmed down, “they opened their library book and reread the instructions line by line.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Who helped the boys cut the bottle and later warned them about the water?",
+      "options": [
+        "Mr Khalid",
+        "Saad’s mother",
+        "Yousef",
+        "Fahad"
+      ],
+      "answer": "D",
+      "why": "Fahad, Saad’s older brother, helped cut the bottle (paragraph 4) and warned them about germs (paragraph 7)."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Saad take a deep breath after the first test failed?",
+      "options": [
+        "to get ready to shout at Yousef",
+        "because the muddy water smelled bad",
+        "to stay calm instead of arguing with Yousef",
+        "because he was tired after the test"
+      ],
+      "answer": "C",
+      "why": "His face grew hot, “but instead of arguing, he took a deep breath” — he wanted to stay calm."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Yousef most likely feel when Saad first suggested a water filter (paragraph 3)?",
+      "options": [
+        "terrified",
+        "grateful",
+        "exhausted",
+        "unimpressed"
+      ],
+      "answer": "D",
+      "why": "He frowned and complained the idea was “far too simple” because he wanted a robot."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the water to come out almost clear in the second test?",
+      "options": [
+        "They built the layers carefully in the correct order.",
+        "Fahad poured the water in instead of Yousef.",
+        "They used clean water from the kitchen tap.",
+        "They added a small motor to the bottle."
+      ],
+      "answer": "A",
+      "why": "This time they “assembled the filter with great care: stones, then sand, then charcoal, then cotton wool.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Yousef different from Saad at the beginning of the story?",
+      "options": [
+        "Yousef had built a filter before, but Saad had not.",
+        "Yousef wanted to give up, while Saad wanted to win.",
+        "Yousef wanted something exciting; Saad wanted something practical.",
+        "Yousef liked simple ideas more than Saad did."
+      ],
+      "answer": "C",
+      "why": "Yousef hoped to build a robot, while Saad chose a filter they could make with materials from home."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Saad and Yousef have in common by the end of the story?",
+      "options": [
+        "Both are angry that they did not win first prize.",
+        "Both are pleased with what they achieved and learned.",
+        "Both want to stop doing science projects.",
+        "Both think the filter was a bad idea."
+      ],
+      "answer": "B",
+      "why": "They shout “We did it!” together, explain their work confidently, and Yousef grins as he plans next year’s project."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of showing the failed first test to the judges?",
+      "options": [
+        "The judges gave them first prize at once.",
+        "Mr Khalid asked them to build a robot instead.",
+        "The judges asked them to remove the notebook.",
+        "A judge praised them for learning from their mistake."
+      ],
+      "answer": "D",
+      "why": "Mr Khalid wrote: “Excellent scientific thinking. You learned from your mistake.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is an exclamatory sentence?",
+      "options": [
+        "They did not win first prize.",
+        "Excellent scientific thinking.",
+        "We did it!",
+        "They had put everything in the wrong order."
+      ],
+      "answer": "C",
+      "why": "“We did it!” shows strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The boys reread the instructions “as carefully as detectives examining a clue”. This comparison shows that they …",
+      "options": [
+        "were secretly working for the police",
+        "studied every detail to find the mistake",
+        "read the book quickly to save time",
+        "wanted to hide the book from Fahad"
+      ],
+      "answer": "B",
+      "why": "Detectives look closely at clues to solve a mystery; the boys looked closely at the instructions to find their error."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "What is your opinion of how the writer combines dialogue and narration?",
+      "options": [
+        "Effective: the dialogue shows feelings and the narration explains events.",
+        "Confusing: it is impossible to tell who is speaking.",
+        "Unhelpful: the dialogue hides what really happens.",
+        "Unnecessary: the characters never speak at all."
+      ],
+      "answer": "A",
+      "why": "Lines such as “It didn’t work!” show Yousef’s frustration, while the narration explains the steps and the mistake."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, which of Saad’s qualities was most helpful to the project?",
+      "options": [
+        "his interest in robots",
+        "his skill at cutting plastic",
+        "his wish to win first prize",
+        "his patience"
+      ],
+      "answer": "D",
+      "why": "Saad stayed calm after the failure and studied the instructions, so they found and fixed the mistake; Fahad, not Saad, cut the bottle."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to tell this story?",
+      "options": [
+        "to show that failure can help us learn",
+        "to explain exactly how to make water safe to drink",
+        "to prove that robots are better than filters",
+        "to describe a typical day at school"
+      ],
+      "answer": "A",
+      "why": "The story’s message, repeated by Mr Khalid, is about learning from mistakes; Fahad even says the water is not safe to drink."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the end of the story?",
+      "options": [
+        "disappointment",
+        "regret",
+        "hope",
+        "anger"
+      ],
+      "answer": "C",
+      "why": "Although they did not win, Yousef grins and plans next year’s project, showing hope."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the story?",
+      "options": [
+        "who helped the boys cut the bottle",
+        "what job the sand and charcoal do in the filter",
+        "whether the boys won first prize",
+        "what Mr Khalid wrote on their card"
+      ],
+      "answer": "B",
+      "why": "Only the stones’ job is explained; the purposes of the sand, charcoal and cotton wool are not."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A sand filter makes muddy water completely safe to drink.",
+        "A robot builds itself while the boys are asleep.",
+        "A plastic bottle turns garden water into juice.",
+        "A filter of sand and stones makes muddy water look clearer."
+      ],
+      "answer": "D",
+      "why": "Layers of stones and sand can trap dirt; Fahad explains that such water is still not safe to drink."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the whole story?",
+      "options": [
+        "From Muddy Water to a Lesson Learned",
+        "The Robot That Won the Prize",
+        "The Lost Library Book",
+        "Fahad’s Science Fair"
+      ],
+      "answer": "A",
+      "why": "The story moves from the muddy-water project to the lesson about learning from mistakes."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could the boys have avoided the failed first test?",
+      "options": [
+        "by reading the instructions before building",
+        "by using a much bigger plastic bottle",
+        "by asking Fahad to pour the water",
+        "by using more muddy water"
+      ],
+      "answer": "A",
+      "why": "They tipped the layers in “hurriedly without checking their order”; reading first would have shown the right order."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story.",
+      "model": "At the fair, the judges were so impressed by the boys’ honest notebook that they invited them to explain their filter to the younger classes. Saad and Yousef became the school’s “water team”, and they promised to research how scientists make water truly safe to drink before next year’s fair.",
+      "rubric": [
+        "2 = a clear, new ending that fits the characters and events of the story",
+        "1 = an ending that is very short, unclear or only partly linked to the story",
+        "0 = no ending, or one copied from the story or unrelated to it"
+      ],
+      "why": "Any sensible ending that differs from the original and fits the story is accepted."
+    }
+  ]
+}

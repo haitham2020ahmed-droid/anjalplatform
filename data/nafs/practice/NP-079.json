@@ -1,0 +1,169 @@
+{
+  "code": "NP-079",
+  "title": "Zaha Hadid: Building the Impossible",
+  "kind": "INFORMATIONAL",
+  "genre": "biography",
+  "passage": "Zaha Hadid, one of the most celebrated architects of modern times, was born in Baghdad, Iraq, in 1950. As a child, she was fascinated by the shapes of buildings and furniture, and she even helped redesign her own bedroom. Later, she studied mathematics at the American University of Beirut before moving to London in 1972 to study architecture.\n\nHadid's early designs were so unusual that many of them were never built. Instead of straight walls and right angles, she imagined flowing curves, sharp diagonal lines, and spaces that seemed to move. Some critics said her ideas could not be built. She refused to give up. Her first major completed building, a fire station in Germany, opened in 1993.\n\nOver time, better computers and new ways of building made her bold ideas real. Her firm designed the Aquatics Centre for the 2012 London Olympics, an opera house in China, and the King Abdullah Petroleum Studies and Research Center in Riyadh, whose honeycomb-like structure was inspired by the way crystals grow.\n\nIn 2004, Hadid became the first woman to win the Pritzker Prize, often described as the highest honor in architecture. In 2016, she also became the first woman to receive the Royal Gold Medal from the Royal Institute of British Architects in her own right. She died later that year, but her buildings continue to inspire young designers around the world.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word belongs to the same word family as \"architect\"?",
+      "options": [
+        "artistic",
+        "achieve",
+        "architecture",
+        "argument"
+      ],
+      "answer": "C",
+      "why": "\"Architecture\" is the work or art of an architect; the other words only begin with similar letters."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence is an exclamatory sentence?",
+      "options": [
+        "What a daring design that building has!",
+        "Did Hadid study mathematics in Beirut?",
+        "Hadid was born in Baghdad in 1950.",
+        "Visit the center in Riyadh if you can."
+      ],
+      "answer": "A",
+      "why": "An exclamatory sentence expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "A poem",
+        "A biography",
+        "A dialogue story",
+        "A personal letter"
+      ],
+      "answer": "B",
+      "why": "It tells the true life story of a real person, written by someone else, so it is a biography."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "According to the passage, which of these happened last?",
+      "options": [
+        "She won the Pritzker Prize.",
+        "Her fire station opened in Germany.",
+        "She moved to London to study.",
+        "She received the Royal Gold Medal."
+      ],
+      "answer": "D",
+      "why": "London was 1972, the fire station 1993, the Pritzker Prize 2004 and the Royal Gold Medal 2016."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What finally allowed Hadid's daring ideas to become real buildings?",
+      "options": [
+        "Critics who praised her early work",
+        "Better computers and new building methods",
+        "A prize she won in her childhood",
+        "Her choice to use only straight walls"
+      ],
+      "answer": "B",
+      "why": "The passage says \"better computers and new ways of building made her bold ideas real.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The writer describes Hadid's spaces as ones \"that seemed to move.\" What does this expression suggest?",
+      "options": [
+        "Their curves and lines create a feeling of motion.",
+        "The buildings were on wheels and could travel.",
+        "The buildings were unsafe and often shook.",
+        "The rooms changed their size every day."
+      ],
+      "answer": "A",
+      "why": "\"Seemed\" shows this is an impression: flowing curves and diagonal lines make still buildings feel as if they move."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the biography?",
+      "options": [
+        "She succeeded because her designs were simple.",
+        "She gave up architecture after critics doubted her.",
+        "Her persistence helped her succeed despite critics.",
+        "Her buildings are popular only in London."
+      ],
+      "answer": "C",
+      "why": "Critics said her ideas could not be built, but she refused to give up and later won the highest honors."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information is the least clear in the passage?",
+      "options": [
+        "Where Hadid was born",
+        "Which prize she won in 2004",
+        "What inspired the Riyadh center",
+        "Why she moved from mathematics to architecture"
+      ],
+      "answer": "D",
+      "why": "The passage says she studied mathematics and then architecture, but not why she changed; the other details are stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A young architect designs a building with curved walls.",
+        "A building designs itself without any architect.",
+        "A fire station flies from Germany to Riyadh.",
+        "A child builds an opera house in her bedroom in a day."
+      ],
+      "answer": "A",
+      "why": "Architects really design curved buildings, as Hadid did; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "difficulty": 3,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "Famous Buildings of Riyadh",
+        "Zaha Hadid's Childhood Bedroom",
+        "The Architect Who Would Not Give Up",
+        "Prizes for Mathematicians"
+      ],
+      "answer": "C",
+      "why": "The passage follows Hadid's whole career and her refusal to give up; the other titles focus on one small detail or something not covered."
+    }
+  ]
+}

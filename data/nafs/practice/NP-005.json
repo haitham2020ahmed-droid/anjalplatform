@@ -1,0 +1,169 @@
+{
+  "code": "NP-005",
+  "title": "The Storm at Sea",
+  "kind": "LITERARY",
+  "genre": "poem",
+  "passage": "At noon the sea lay perfectly still, as smooth and silver as a polished mirror, and the fishing boats rested lazily in the quiet harbour.\n\nThen, without any warning, the afternoon sky began to change its colour. Enormous clouds rolled in from the horizon like a herd of grey camels, crowding together until they had swallowed the sun completely. A bitter wind whistled through the masts and tugged impatiently at the ropes, as though it were eager to begin some terrible game.\n\nThe water awoke from its peaceful sleep. Small waves grew into restless hills, and the restless hills grew into roaring mountains that hurled themselves furiously against the rocks, while white foam flew through the air like scattered feathers. Lightning tore the darkness open for an instant, and thunder answered with a voice so deep that the ancient harbour walls seemed to tremble.\n\nOn the shore, the fishermen dragged their boats higher onto the sand and tied them firmly to heavy iron rings. Children watched from behind their windows, pressing their noses against the glass, half frightened and half amazed by the extraordinary performance outside.\n\nAll night long the furious storm shouted and wept above the sleeping town. By dawn, however, its anger was finally exhausted. The clouds drifted away in torn pieces, and a pale golden light spread gradually across the water. The sea breathed slowly again, tired and peaceful, as if it had completely forgotten the wild dance of the previous night.\n\nWhat a powerful and beautiful creature the sea can be!",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "'The fishermen dragged their boats.' What is the singular form of 'fishermen'?",
+      "options": [
+        "fishermens",
+        "fisherman",
+        "fishman",
+        "fishermans"
+      ],
+      "answer": "B",
+      "why": "'Fishermen' is an irregular plural; the singular is 'fisherman' (like man → men)."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the passage is an exclamatory sentence?",
+      "options": [
+        "The water awoke from its peaceful sleep.",
+        "All night long the furious storm shouted and wept above the sleeping town.",
+        "What a powerful and beautiful creature the sea can be!",
+        "By dawn, however, its anger was finally exhausted."
+      ],
+      "answer": "C",
+      "why": "It begins with 'What a…' and ends with an exclamation mark, expressing strong feeling, so it is exclamatory."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a description written in a poetic style",
+        "a scientific report about the weather",
+        "a letter written to a fisherman",
+        "a dialogue between two children"
+      ],
+      "answer": "A",
+      "why": "It describes a storm using similes, personification and rich images, like a poem in prose; there are no facts, letter form or dialogue."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What happened right after the clouds swallowed the sun?",
+      "options": [
+        "The sea lay as smooth as a mirror.",
+        "A pale golden light spread across the water.",
+        "The clouds drifted away in torn pieces.",
+        "A bitter wind whistled through the masts."
+      ],
+      "answer": "D",
+      "why": "The very next sentence says 'A bitter wind whistled through the masts and tugged impatiently at the ropes'."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How is the sea at noon different from the sea during the night?",
+      "options": [
+        "It is stormy at noon but calm and smooth at night.",
+        "It is grey at noon but golden during the night.",
+        "It is calm at noon but wild and violent at night.",
+        "It is quiet at noon and still quiet at night."
+      ],
+      "answer": "C",
+      "why": "At noon the sea 'lay perfectly still'; at night its waves became 'roaring mountains' and the storm 'shouted and wept'."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Clouds rolled in 'like a herd of grey camels'. What is the effect of this simile?",
+      "options": [
+        "It tells readers that camels were walking on the beach.",
+        "It helps readers picture large, heavy clouds moving together.",
+        "It shows that the clouds were small and light.",
+        "It explains why the fishermen feared animals."
+      ],
+      "answer": "B",
+      "why": "Comparing the clouds to a herd of camels creates an image of big, heavy shapes crowding forward together; no real camels appear."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which feeling does the writer most want readers to have about the sea?",
+      "options": [
+        "admiration mixed with respect for its power",
+        "boredom, because nothing exciting happens",
+        "anger at the fishermen and their boats",
+        "fear that it will never be calm again"
+      ],
+      "answer": "A",
+      "why": "The final line calls the sea 'powerful and beautiful', showing both admiration and respect for its strength."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "what the sea looked like at noon",
+        "what the fishermen did to protect their boats",
+        "how the children felt while watching",
+        "whether any boats or buildings were damaged"
+      ],
+      "answer": "D",
+      "why": "The passage never says whether the storm caused damage; the noon sea, the fishermen's actions and the children's feelings are all described."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which event in the passage could really happen, not only in the imagination?",
+      "options": [
+        "The storm shouts and weeps like a person.",
+        "The sea forgets what it did the night before.",
+        "Fishermen tie their boats to iron rings before a storm.",
+        "The wind plays a game with the ropes."
+      ],
+      "answer": "C",
+      "why": "Securing boats before a storm is real; storms cannot weep, the sea cannot forget and the wind cannot play games — these are personification."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "How to Catch Fish in Winter",
+        "The Night the Sea Awoke",
+        "A Quiet Day at the Harbour",
+        "The Camels of the Desert"
+      ],
+      "answer": "B",
+      "why": "The passage describes the sea waking from calm into a night-long storm; the other titles do not match its events."
+    }
+  ]
+}

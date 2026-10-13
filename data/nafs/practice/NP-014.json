@@ -1,0 +1,169 @@
+{
+  "code": "NP-014",
+  "title": "When Corals Lose Their Color",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "A coral reef may look like a garden of colorful rocks, but it is actually built by millions of tiny animals called coral polyps. Each polyp shares its home with microscopic algae that live inside its body. Through photosynthesis, the algae make food for the coral, and they also give the reef many of its bright colors.\n\nThis partnership works well only when conditions are right, and it can break down surprisingly quickly. When the ocean becomes too warm for several weeks, the stressed corals push the algae out of their bodies. Without the algae, the corals lose their color, and their white skeletons show through their clear tissue. Scientists call this process coral bleaching.\n\nA bleached coral is not dead yet, but without its algae it is slowly starving. If the water cools down quickly, the algae can return, and the coral may slowly recover. If the heat continues for too long, however, the coral can die, and the fish and other creatures that depend on the reef lose their shelter and food.\n\nIn recent years, rising sea temperatures have caused serious bleaching on reefs around the world. Researchers are especially interested in the Red Sea, where some corals can survive surprisingly warm water. By studying these corals, scientists hope to learn how other reefs might be protected in the future.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What is the singular form of the word \"algae\"?",
+      "options": [
+        "algas",
+        "algaes",
+        "algi",
+        "alga"
+      ],
+      "answer": "D",
+      "why": "\"Algae\" is an irregular plural; one of them is called an \"alga.\""
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What type of sentence is \"Scientists call this process coral bleaching\"?",
+      "options": [
+        "a question",
+        "a statement",
+        "a command",
+        "an exclamation"
+      ],
+      "answer": "B",
+      "why": "It gives information and ends with a period, so it is a statement (declarative sentence)."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why do bleached corals turn white?",
+      "options": [
+        "Their white skeletons show through after the algae leave.",
+        "They are covered with white sand from the seabed.",
+        "Fish eat the colored parts of the coral.",
+        "The cold water freezes on their surface."
+      ],
+      "answer": "A",
+      "why": "The second paragraph explains that without the algae, the white skeletons show through the clear tissue."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which happens FIRST during coral bleaching?",
+      "options": [
+        "The ocean stays too warm for several weeks.",
+        "The corals slowly lose their bright colors.",
+        "The corals push the algae out of their bodies.",
+        "The fish lose their shelter and their food."
+      ],
+      "answer": "A",
+      "why": "Warm water comes first; it stresses the corals, which then push out the algae and lose their color."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is a bleached coral different from a dead coral?",
+      "options": [
+        "A bleached coral has many more algae living inside it.",
+        "A bleached coral is much brighter in color than before.",
+        "A bleached coral can still recover if the water cools.",
+        "A bleached coral no longer needs any food to survive."
+      ],
+      "answer": "C",
+      "why": "The passage states that a bleached coral is not dead yet and may recover if the water cools down quickly."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "The writer says a reef \"may look like a garden of colorful rocks.\" Why does the writer use this comparison?",
+      "options": [
+        "To show how a reef appears before explaining what it really is",
+        "To prove that coral reefs are made of plants and stones",
+        "To encourage readers to plant colorful gardens near the sea",
+        "To show that coral reefs are mostly found on dry land"
+      ],
+      "answer": "A",
+      "why": "The comparison describes a reef's appearance, then the writer corrects it: the reef is built by animals."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A coral swims to colder water to escape the heat.",
+        "Algae paint the coral a new color every morning.",
+        "A reef turns pale after a long period of very warm water.",
+        "A bleached coral grows legs and walks to the shore."
+      ],
+      "answer": "C",
+      "why": "Bleaching after a long warm period is the real process described in the passage."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "Coral reefs are not very important to the ocean at all.",
+        "Protecting coral reefs matters for many sea creatures.",
+        "Bleaching is a harmless change of color with no effect.",
+        "Only the Red Sea has coral reefs that are worth saving."
+      ],
+      "answer": "B",
+      "why": "The passage shows that when corals die, fish and other creatures lose shelter and food, which supports protecting reefs."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information does the passage leave LEAST clear?",
+      "options": [
+        "What the algae give to the coral",
+        "What happens to a coral if the heat continues",
+        "Why some Red Sea corals can survive warmer water",
+        "What color a bleached coral becomes"
+      ],
+      "answer": "C",
+      "why": "The writer says some Red Sea corals survive warm water but does not explain why; the other points are explained."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Based on the passage, which is the BEST solution to help reefs in the future?",
+      "options": [
+        "Paint the bleached corals so that they look colorful again",
+        "Remove all the fish from coral reefs during the summer",
+        "Cover the reefs with thick sand to block out the sunlight",
+        "Study heat-tolerant corals to learn how to protect other reefs"
+      ],
+      "answer": "D",
+      "why": "The last paragraph says scientists hope studying heat-tolerant corals will show how to protect other reefs."
+    }
+  ]
+}

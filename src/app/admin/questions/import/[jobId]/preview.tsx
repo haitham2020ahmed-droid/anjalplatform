@@ -1,14 +1,16 @@
 "use client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Fragment, useMemo, useState, useTransition } from "react";
-import type { ImportJobView, PreviewRow, ImportDecision, CommitProgress } from "@/server/admin/question-import";
+import { Fragment, useEffect, useMemo, useRef, useState, useTransition } from "react";
+import type { ImportPageView, PreviewRow, ImportDecision, CommitProgress } from "@/server/admin/question-import";
+import { countRow, inFilter, willImport, type PreviewCounts, type PreviewFilter } from "@/lib/import-preview";
 import type { EditorInput } from "@/server/admin/questions";
 import { QuestionEditor } from "../../question-editor";
 import { useT } from "@/i18n/client";
 import { commitImportAction, importRowAction, importSelectAllAction } from "../../../actions";
 
 type Skill = Parameters<typeof QuestionEditor>[0]["skills"][number];
-type Filter = "all" | "ready" | "errors" | "duplicates" | "done";
+type Filter = PreviewFilter;
 
 const TYPE: Record<string, string> = {
   MULTIPLE_CHOICE: "Multiple Choice", MULTI_SELECT: "Multi Select", TRUE_FALSE: "True/False", DROPDOWN: "Dropdown", FILL_BLANK: "Fill in the Blank",
@@ -19,7 +21,6 @@ const STATUS: Record<string, { text: string; cls: string }> = {
   VALID: { text: "Ready", cls: "bg-teal-100 text-teal-900" }, INVALID: { text: "Error", cls: "bg-red-100 text-red-800" }, DUPLICATE: { text: "Duplicate", cls: "bg-amber-100 text-amber-900" },
   IMPORTED: { text: "Imported", cls: "bg-teal-600 text-white" }, REPLACED: { text: "Replaced", cls: "bg-teal-600 text-white" }, SKIPPED: { text: "Skipped", cls: "bg-slate-200 text-slate-700" }, FAILED: { text: "Failed", cls: "bg-red-600 text-white" },
 };
-const PAGE = 50;
 const short = (code: string | null | undefined) => (code ?? "").replace(/^CCSS\.ELA-LITERACY\./, "");
 
 function answerOf(i: EditorInput | null): string {
@@ -31,11 +32,16 @@ function answerOf(i: EditorInput | null): string {
   }
 }
 
-const willImport = (r: PreviewRow) => r.selected && r.status !== "INVALID" && !(r.status === "DUPLICATE" && r.decision === "SKIP") && r.decision !== "SKIP";
-
-export function ImportPreview({ job, skills, standards, canPublish }: { job: ImportJobView; skills: Skill[]; standards: string[]; canPublish: boolean }) {
+/**
+ * ⚡ One page of one tab (the server sends 50 rows and the counts of every tab, never the whole file). Tabs and pages
+ * are links (?filter=…&page=…); an edit updates its row and the counts here, without reading the file again.
+ */
+export function ImportPreview({ job, skills, standards, canPublish }: { job: ImportPageView; skills: Skill[]; standards: string[]; canPublish: boolean }) {
   const router = useRouter();
   const [rows, setRows] = useState<PreviewRow[]>(job.rows);
+  const [counts, setCounts] = useState<PreviewCounts>(job.counts);
+  // a new page from the server (another tab or page, or after “Select all”): start from its rows and counts
+  useEffect(() => { setRows(job.rows); setCounts(job.counts); }, [job.rows, job.counts]);
   const [editing, setEditing] = useState<string | null>(null);
   const [publish, setPublish] = useState(false);
   const t = useT();
@@ -45,25 +51,29 @@ export function ImportPreview({ job, skills, standards, canPublish }: { job: Imp
   const [pending, start] = useTransition();
   const finished = job.status === "COMPLETED" || job.status === "CANCELLED" || Boolean(progress?.done);
   const editable = job.status === "AWAITING_CONFIRMATION" && !progress;
-  const [filter, setFilter] = useState<Filter>(job.status === "COMPLETED" ? "all" : job.totals.invalid ? "errors" : "all");
-  const [page, setPage] = useState(0);
+  const { filter, page, pages, shown } = job;
   const skillName = useMemo(() => new Map(skills.map((s) => [s.id, s.name])), [skills]);
+  // a row edited out of this tab leaves it at once (e.g. a fixed row leaves “Errors”)
+  const visible = rows.filter((r) => inFilter(filter, r));
+  const toImport = counts.toImport;
+  const href = (f: Filter, p = 0) => `?filter=${f}${p ? `&page=${p + 1}` : ""}`;
 
-  const counts = useMemo(() => ({
-    all: rows.length, ready: rows.filter((r) => r.status === "VALID").length, errors: rows.filter((r) => r.status === "INVALID" || r.status === "FAILED").length,
-    duplicates: rows.filter((r) => r.status === "DUPLICATE" || r.duplicate).length, done: rows.filter((r) => r.status === "IMPORTED" || r.status === "REPLACED").length,
-  }), [rows]);
-  const shown = useMemo(() => rows.filter((r) => filter === "all" ? true : filter === "ready" ? r.status === "VALID" : filter === "errors" ? r.status === "INVALID" || r.status === "FAILED" : filter === "duplicates" ? r.status === "DUPLICATE" || Boolean(r.duplicate) : r.status === "IMPORTED" || r.status === "REPLACED"), [rows, filter]);
-  const pages = Math.max(1, Math.ceil(shown.length / PAGE));
-  const visible = shown.slice(page * PAGE, page * PAGE + PAGE);
-  const toImport = rows.filter(willImport).length;
+  /** the row as the server saved it: here, and in the counts of the tabs */
+  const rowsNow = useRef(rows);
+  rowsNow.current = rows;
+  const replaceRow = (next: PreviewRow) => {
+    const before = rowsNow.current.find((x) => x.id === next.id);
+    rowsNow.current = rowsNow.current.map((x) => (x.id === next.id ? next : x));
+    setRows(rowsNow.current);
+    if (before) setCounts((c) => countRow(countRow({ ...c }, before, -1), next, 1));
+  };
 
   const patch = (rowId: string, p: { selected?: boolean; decision?: ImportDecision; input?: EditorInput }) =>
     start(async () => {
       const r = await importRowAction(job.id, rowId, p);
       if (r.error) return setError(r.error);
       setError(null);
-      if (r.row) setRows((xs) => xs.map((x) => (x.id === rowId ? r.row! : x)));
+      if (r.row) replaceRow(r.row);
     });
 
   async function runImport() {
@@ -74,7 +84,7 @@ export function ImportPreview({ job, skills, standards, canPublish }: { job: Imp
       do {
         const r = await commitImportAction(job.id, publish);
         if (r.error || !r.progress) {
-          setError(`${r.error ?? "The server did not answer."} The import stopped at ${p?.processed ?? progress?.processed ?? 0} of ${p?.total ?? rows.length} rows; questions already imported are kept. Press “Continue import” to go on.`);
+          setError(`${r.error ?? "The server did not answer."} The import stopped at ${p?.processed ?? progress?.processed ?? 0} of ${p?.total ?? job.totals.total} rows; questions already imported are kept. Press “Continue import” to go on.`);
           return;
         }
         p = r.progress;
@@ -96,13 +106,13 @@ export function ImportPreview({ job, skills, standards, canPublish }: { job: Imp
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label="Show rows">
         {tabs.map(([k, l]) => (
-          <button key={k} type="button" role="tab" aria-selected={filter === k} onClick={() => { setFilter(k); setPage(0); }}
-            className={`rounded-full px-3 py-1 text-sm font-semibold ${filter === k ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-300"}`}>{l} ({counts[k]})</button>
+          <Link key={k} href={href(k)} scroll={false} replace role="tab" aria-selected={filter === k}
+            className={`rounded-full px-3 py-1 text-sm font-semibold ${filter === k ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-300"}`}>{l} ({counts[k]})</Link>
         ))}
         {editable && (
           <span className="ms-auto flex flex-wrap items-center gap-2 text-sm">
-            <button type="button" className="rounded-lg px-3 py-1 ring-1 ring-slate-300" disabled={pending} onClick={() => start(async () => { const r = await importSelectAllAction(job.id, true); if (r.error) return setError(r.error); setRows((xs) => xs.map((x) => (x.status === "INVALID" ? x : { ...x, selected: true }))); })}>Select all without errors</button>
-            <button type="button" className="rounded-lg px-3 py-1 ring-1 ring-slate-300" disabled={pending} onClick={() => start(async () => { const r = await importSelectAllAction(job.id, false); if (r.error) return setError(r.error); setRows((xs) => xs.map((x) => ({ ...x, selected: false }))); })}>Select none</button>
+            <button type="button" className="rounded-lg px-3 py-1 ring-1 ring-slate-300" disabled={pending} onClick={() => start(async () => { const r = await importSelectAllAction(job.id, true); if (r.error) return setError(r.error); setRows((xs) => xs.map((x) => (x.status === "INVALID" ? x : { ...x, selected: true }))); router.refresh(); })}>Select all without errors</button>
+            <button type="button" className="rounded-lg px-3 py-1 ring-1 ring-slate-300" disabled={pending} onClick={() => start(async () => { const r = await importSelectAllAction(job.id, false); if (r.error) return setError(r.error); setRows((xs) => xs.map((x) => ({ ...x, selected: false }))); router.refresh(); })}>Select none</button>
           </span>
         )}
       </div>
@@ -158,7 +168,7 @@ export function ImportPreview({ job, skills, standards, canPublish }: { job: Imp
                       <QuestionEditor questionId={null} initial={i} skills={skills} standards={standards} readOnly={false}
                         onSave={async (payload) => {
                           const res = await importRowAction(job.id, r.id, { input: payload });
-                          if (res.row) setRows((xs) => xs.map((x) => (x.id === r.id ? res.row! : x)));
+                          if (res.row) replaceRow(res.row);
                           return res;
                         }} />
                     </td></tr>
@@ -172,9 +182,9 @@ export function ImportPreview({ job, skills, standards, canPublish }: { job: Imp
 
       {pages > 1 && (
         <div className="flex items-center gap-3 text-sm">
-          <button type="button" className="rounded-lg px-3 py-1 ring-1 ring-slate-300 disabled:opacity-50" disabled={page === 0} onClick={() => setPage(page - 1)}>Previous</button>
-          <span>Page {page + 1} of {pages} ({shown.length} rows)</span>
-          <button type="button" className="rounded-lg px-3 py-1 ring-1 ring-slate-300 disabled:opacity-50" disabled={page + 1 >= pages} onClick={() => setPage(page + 1)}>Next</button>
+          {page === 0 ? <span className="rounded-lg px-3 py-1 opacity-50 ring-1 ring-slate-300">Previous</span> : <Link href={href(filter, page - 1)} scroll={false} className="rounded-lg px-3 py-1 ring-1 ring-slate-300">Previous</Link>}
+          <span>Page {page + 1} of {pages} ({shown} rows)</span>
+          {page + 1 >= pages ? <span className="rounded-lg px-3 py-1 opacity-50 ring-1 ring-slate-300">Next</span> : <Link href={href(filter, page + 1)} scroll={false} className="rounded-lg px-3 py-1 ring-1 ring-slate-300">Next</Link>}
         </div>
       )}
 

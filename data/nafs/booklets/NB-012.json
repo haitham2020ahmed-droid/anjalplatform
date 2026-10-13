@@ -1,0 +1,568 @@
+{
+  "code": "NB-012",
+  "title": "The Right Door",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "words": 432,
+  "passage": "Dear Ms Huda,\n\nI am writing this letter on the final afternoon of Grade 6, and I hope you will read it when the school is peaceful and you have a cup of tea beside you, because there is something I have wanted to tell you throughout the entire year.\n\nWhen I walked into your classroom in September, I genuinely hated reading. Books felt like heavy doors that would never open, so during reading time I counted the minutes and stared impatiently at the clock, longing for the bell. I informed everyone that reading was boring and only for “clever” students, but secretly I was afraid, because I read slowly and was desperate that nobody should notice.\n\nYou noticed anyway; however, instead of instructing me to try harder, you asked me a surprisingly simple question: “Reem, what do you love?” I answered that I loved camels, because my grandfather keeps camels on his farm near Al-Ahsa. The following day, you placed a book on my desk about a courageous girl who rode her camel across the desert to deliver medicine to her village, and although I pretended to be uninterested, I secretly took it home.\n\nThat night, I read until my mother instructed me to switch off the light, and afterwards I continued reading under my blanket with a torch, completely absorbed in the adventure. I am sorry, Mother!\n\nAfter that, everything changed gradually. You allowed me to select my own books, and you never laughed when I stumbled over long, unfamiliar words. Instead, you explained that every reader begins slowly, like a traveller taking the first steps of a long journey. When I finished my first chapter book, you wrote “Well done, explorer!” on a small card, which I still keep carefully in my pencil case.\n\nSince September I have read twenty-three books and visited the school library every week, and last month I even read a story aloud to the Grade 2 class. Although my voice trembled at first, the children listened with wide, fascinated eyes, and by the final page I felt incredibly proud.\n\nI realise now that reading was never boring; I simply had not discovered the right door, and you were the person who gave me the key.\n\nNext year I will attend a different school, but I promise to continue reading. Perhaps one day I will even write a book of my own about a girl and her camel, and if I do, the very first copy will be yours.\n\nThank you for believing in me before I believed in myself.\n\nWith love and respect,\nReem",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “courageous” in “a courageous girl who rode her camel across the desert” (paragraph 3)?",
+      "options": [
+        "cautious",
+        "brave",
+        "curious",
+        "generous"
+      ],
+      "answer": "B",
+      "why": "A girl who crosses the desert to deliver medicine is brave, so “courageous” means “brave”."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “unfamiliar” in “long, unfamiliar words” (paragraph 5)?",
+      "options": [
+        "strange",
+        "difficult",
+        "well-known",
+        "unusual"
+      ],
+      "answer": "C",
+      "why": "“Unfamiliar” means not known; the opposite is “well-known”. “Strange” and “unusual” are close in meaning to “unfamiliar”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “absorbed” mean in “completely absorbed in the adventure” (paragraph 4)?",
+      "options": [
+        "soaked with water",
+        "deeply interested and focused",
+        "confused and lost",
+        "tired and bored"
+      ],
+      "answer": "B",
+      "why": "Reem kept reading under her blanket, so she was so interested that she could not stop. Here “absorbed” does not mean soaking up water."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from paragraph 2 is a noun?",
+      "options": [
+        "impatiently",
+        "desperate",
+        "clock",
+        "afraid"
+      ],
+      "answer": "C",
+      "why": "“Clock” names a thing; “impatiently” is an adverb and “desperate” and “afraid” are adjectives."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from the letter is singular?",
+      "options": [
+        "minutes",
+        "children",
+        "books",
+        "village"
+      ],
+      "answer": "D",
+      "why": "“Village” names one place. “Children” is the irregular plural of “child”."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “believe”?",
+      "options": [
+        "belief",
+        "below",
+        "belt",
+        "bell"
+      ],
+      "answer": "A",
+      "why": "“Belief” is the noun form of “believe”; the other words only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “fascinated” in a meaningful sentence of your own.",
+      "model": "I was so fascinated by the documentary about coral reefs that I watched it twice and then borrowed a book about the ocean.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “fascinated” with its correct meaning (extremely interested)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused or the sentence has no clear meaning"
+      ],
+      "why": "“Fascinated” means extremely interested, like the Grade 2 children listening to Reem."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “journey”?",
+      "options": [
+        "journies",
+        "journeys",
+        "journeyes",
+        "journey's"
+      ],
+      "answer": "B",
+      "why": "Nouns ending in a vowel + y simply add -s: journeys."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Reem, what do you love?”",
+      "options": [
+        "a statement",
+        "a command",
+        "a question",
+        "an exclamation"
+      ],
+      "answer": "C",
+      "why": "It asks something and ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "The Key to Reading",
+        "A Journey to Al-Ahsa",
+        "My Grandfather's Camels",
+        "The Lost Pencil Case"
+      ],
+      "answer": "A",
+      "why": "The letter is about how Reem found “the key” that opened the door to reading."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of Reem's letter?",
+      "options": [
+        "to ask the teacher for a list of new books",
+        "to explain how to look after camels",
+        "to complain about the books in the library",
+        "to thank a teacher who helped her love reading"
+      ],
+      "answer": "D",
+      "why": "Reem explains how Ms Huda changed her attitude and ends “Thank you for believing in me”."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2 (“When I walked into your classroom…”)?",
+      "options": [
+        "Reem was the fastest reader in the class.",
+        "Reem hated reading and hid her fear of reading slowly.",
+        "Reem preferred maths lessons to reading lessons.",
+        "Reem told her friends that she loved difficult books."
+      ],
+      "answer": "B",
+      "why": "The paragraph says she hated reading and was secretly afraid because she read slowly."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Reem say she loved camels?",
+      "options": [
+        "Her grandfather keeps camels on his farm.",
+        "She had read many books about camels.",
+        "She had seen camels on television.",
+        "Her teacher told her to say so."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: her grandfather keeps camels on his farm near Al-Ahsa."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report",
+        "a diary entry",
+        "a letter",
+        "a biography"
+      ],
+      "answer": "C",
+      "why": "It begins “Dear Ms Huda”, is written to another person and ends with a closing and the writer's name."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Reem read under her blanket with a torch?",
+      "options": [
+        "She was afraid of the dark.",
+        "Her mother had ordered the light off.",
+        "Her bedroom light was broken.",
+        "Her sister was asleep in the room."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: her mother told her to switch off the light, but she wanted to keep reading."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Who wrote the letter?",
+      "options": [
+        "Ms Huda",
+        "Reem's mother",
+        "Reem's grandfather",
+        "Reem"
+      ],
+      "answer": "D",
+      "why": "The letter is signed “Reem”."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Reem read a story to the Grade 2 class.",
+        "Reem took the camel book home.",
+        "Ms Huda wrote “Well done, explorer!”",
+        "Ms Huda asked Reem what she loved."
+      ],
+      "answer": "D",
+      "why": "The question about what Reem loved led to the camel book; the card and the Grade 2 reading came later."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "When did Reem read a story aloud to the Grade 2 class?",
+      "options": [
+        "in September",
+        "on her first day",
+        "last month",
+        "next year"
+      ],
+      "answer": "C",
+      "why": "Paragraph 6: “last month I even read a story aloud to the Grade 2 class”."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Reem take the book home even though she pretended to be uninterested?",
+      "options": [
+        "Her mother asked her to read it.",
+        "It was the shortest book in class.",
+        "Her friends were all reading it.",
+        "It connected to her love of camels."
+      ],
+      "answer": "D",
+      "why": "Reem had just said she loved camels, and the book was about a girl who rode her camel across the desert."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Reem feel when she read aloud to the Grade 2 class?",
+      "options": [
+        "sad and tired",
+        "angry with the children",
+        "nervous at first, then proud",
+        "bored from start to end"
+      ],
+      "answer": "C",
+      "why": "Her voice trembled at first, but by the final page she felt incredibly proud."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Ms Huda write “Well done, explorer!” on a card?",
+      "options": [
+        "to praise Reem for finishing her first chapter book",
+        "to encourage Reem to join the school trip to the desert",
+        "to remind Reem to return her library book on time",
+        "to tell Reem to read more slowly and carefully"
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: she wrote it when Reem finished her first chapter book."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Reem at the end of the year different from Reem in September?",
+      "options": [
+        "She loved reading instead of hating it.",
+        "She read more slowly than before.",
+        "She was more afraid of reading aloud.",
+        "She visited the library less often."
+      ],
+      "answer": "A",
+      "why": "In September she hated reading; by the end she had read twenty-three books and realised reading was never boring."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Ms Huda asking “Reem, what do you love?”",
+      "options": [
+        "Reem stopped reading for weeks.",
+        "Ms Huda found a book that interested Reem.",
+        "Reem's grandfather visited the school.",
+        "Reem moved to a new school."
+      ],
+      "answer": "B",
+      "why": "The next day Ms Huda placed a book about a girl and her camel on Reem's desk."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Reem and the girl in the book Ms Huda gave her have in common?",
+      "options": [
+        "Both are afraid of the desert.",
+        "Both work as teachers.",
+        "Both have a connection with camels.",
+        "Both live in a big city."
+      ],
+      "answer": "C",
+      "why": "Reem's grandfather keeps camels, and the girl in the book rode her camel across the desert."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Reem mean by “Books felt like heavy doors that would never open”?",
+      "options": [
+        "Books in the library were locked.",
+        "Her school had very heavy doors.",
+        "She kept her books behind a door.",
+        "Reading seemed difficult and closed to her."
+      ],
+      "answer": "D",
+      "why": "The simile shows that reading felt hard and impossible to get into."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the letter is exclamatory?",
+      "options": [
+        "Reem, what do you love?",
+        "I am sorry, Mother!",
+        "Next year I will attend a different school, but I promise to continue reading.",
+        "Thank you for believing in me before I believed in myself."
+      ],
+      "answer": "B",
+      "why": "It ends with an exclamation mark and expresses strong feeling."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In “you were the person who gave me the key” (paragraph 7), what does “the key” stand for?",
+      "options": [
+        "Ms Huda's help in finding books Reem enjoyed",
+        "a key that opens Reem's pencil case",
+        "a key to her grandfather's farm",
+        "a real key to the library door"
+      ],
+      "answer": "A",
+      "why": "Reading was a door Reem could not open; Ms Huda's help, such as choosing a camel book, was the “key”."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which lesson does the letter show MOST clearly?",
+      "options": [
+        "Camels are the most interesting animals.",
+        "Students should all read the same books.",
+        "A patient teacher can help students love reading.",
+        "Reading is only for the cleverest students."
+      ],
+      "answer": "C",
+      "why": "Ms Huda's patience and choice of books changed Reem's attitude to reading."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the letter?",
+      "options": [
+        "gratitude",
+        "anger",
+        "fear",
+        "jealousy"
+      ],
+      "answer": "A",
+      "why": "Reem thanks her teacher and promises her the first copy of her future book."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what was the MAIN reason Reem changed her mind about reading?",
+      "options": [
+        "Reem was given a new torch as a present.",
+        "Reem's mother made her read every night.",
+        "The library got new shelves that year.",
+        "Ms Huda matched books to her interests."
+      ],
+      "answer": "D",
+      "why": "Ms Huda found out what Reem loved, gave her a camel book, let her choose books and was patient."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the letter?",
+      "options": [
+        "how many books Reem read",
+        "what Ms Huda wrote on the card",
+        "what Reem loves",
+        "the title of the camel book"
+      ],
+      "answer": "D",
+      "why": "The letter never names the camel book; the other details are given."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A book turns into a real door that Reem can walk through.",
+        "A student who disliked reading reads twenty-three books in a year.",
+        "A teacher gives a student a magic key that opens every book.",
+        "A camel walks into the classroom and reads a story aloud."
+      ],
+      "answer": "B",
+      "why": "A student can really change and read many books; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the letter?",
+      "options": [
+        "Thank You, Ms Huda",
+        "My New School Bag",
+        "A Stormy Night",
+        "The Camel Race"
+      ],
+      "answer": "A",
+      "why": "The letter thanks Ms Huda for helping Reem love reading."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the letter.",
+      "model": "Before I leave, I would like to give you my favourite book so that you can share it with next year's students who believe reading is boring. Perhaps it will become the key for one of them, just as the camel book was for me.",
+      "rubric": [
+        "2 = a clear new ending that fits the letter's purpose and Reem's feelings",
+        "1 = an ending that is related but unclear or not connected to the letter",
+        "0 = no answer, or an ending unrelated to the letter"
+      ],
+      "why": "Any ending that keeps the grateful tone and fits the letter is accepted."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "How can schools help students who find reading hard?",
+      "options": [
+        "Make them read only very long books.",
+        "Stop them from visiting the library.",
+        "Let them choose books about things they love.",
+        "Laugh when they make mistakes aloud."
+      ],
+      "answer": "C",
+      "why": "Ms Huda helped Reem by letting her choose books and linking reading to what she loved."
+    }
+  ]
+}

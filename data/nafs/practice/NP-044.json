@@ -1,0 +1,169 @@
+{
+  "code": "NP-044",
+  "title": "A Morning at the Food Bank",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "passage": "Last Ramadan, my school organised a volunteering day at a local food bank, and I signed up mainly because my best friend Huda was going. To be honest, I imagined that the work would be repetitive and uninteresting and that I would spend the morning counting the minutes until lunchtime.\n\nAs soon as we arrived, a cheerful supervisor named Ms. Noura explained that the food bank collected donations from supermarkets, restaurants and families, and then delivered food parcels to households that were struggling. Our responsibility was to organise the donated items. We checked the expiry date on every packet, separated the rice from the lentils and the tinned vegetables, and stacked everything neatly on long metal shelves.\n\nLater, we packed cardboard boxes for families. Each box had to contain exactly the right items: rice, oil, dates, milk powder, pasta and tea. At first, I worked slowly and kept forgetting the dates, but by midday Huda and I had become an efficient and energetic team.\n\nBefore we left, Ms. Noura told us that our boxes would reach more than forty families before the evening meal. I suddenly realised that the packets I had touched would soon be on someone's table. That thought made me feel proud and grateful at the same time.\n\nSince then, I have returned to the food bank three more times, and nobody has needed to persuade me to go.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is an ADJECTIVE?",
+      "options": [
+        "supervisor",
+        "arrived",
+        "neatly",
+        "cheerful"
+      ],
+      "answer": "D",
+      "why": "\"Cheerful\" describes Ms. Noura, so it is an adjective; the others are a noun, a verb and an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "The word \"families\" is the plural of \"family.\" Which word forms its plural in the SAME way?",
+      "options": [
+        "box → boxes",
+        "city → cities",
+        "shelf → shelves",
+        "day → days"
+      ],
+      "answer": "B",
+      "why": "Like \"family → families,\" \"city → cities\" changes the final -y to -ies."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the narrator first sign up for the volunteering day?",
+      "options": [
+        "Her teacher had told her she must go.",
+        "She had volunteered there many times.",
+        "Her best friend Huda was going too.",
+        "She wanted to miss a difficult lesson."
+      ],
+      "answer": "C",
+      "why": "She says she signed up \"mainly because my best friend Huda was going.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who is the narrator of this passage?",
+      "options": [
+        "Ms. Noura, the food bank supervisor",
+        "a family that received a food parcel",
+        "Huda, the narrator's best friend",
+        "a student who volunteered with her school"
+      ],
+      "answer": "D",
+      "why": "The passage is told in the first person (\"I,\" \"my\") by a student whose school organised the visit."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How did the narrator's work at midday DIFFER from her work at the start?",
+      "options": [
+        "She and Huda had become a fast team instead of working slowly.",
+        "She was sorting rice instead of packing boxes for the families.",
+        "She was working alone instead of working together with Huda.",
+        "She was delivering parcels instead of stacking items on shelves."
+      ],
+      "answer": "A",
+      "why": "At first she \"worked slowly and kept forgetting the dates,\" but by midday she and Huda \"had become an efficient and energetic team.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The narrator ends: \"nobody has needed to persuade me to go.\" What does this sentence show?",
+      "options": [
+        "Nobody has invited her to return to the food bank.",
+        "She has decided never to go to the food bank again.",
+        "She now wants to volunteer without being asked.",
+        "Her friends refuse to go to the food bank with her."
+      ],
+      "answer": "C",
+      "why": "Not needing to be persuaded means she goes willingly; her attitude has changed since the first visit."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion would the narrator MOST likely agree with?",
+      "options": [
+        "Volunteering is only worthwhile if your friends come too.",
+        "Helping others can change how you feel about hard work.",
+        "Sorting food is a boring job that nobody should have to do.",
+        "Food banks should only accept donations from supermarkets."
+      ],
+      "answer": "B",
+      "why": "She expected the work to be boring but ended up proud, grateful and eager to return."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "How the food boxes are taken to the families",
+        "Which items had to be placed in each box",
+        "Who gives donations to the food bank",
+        "Why the narrator signed up at first"
+      ],
+      "answer": "A",
+      "why": "The passage says the boxes would reach the families but does not explain how they are delivered; the other details are given."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could REALLY happen?",
+      "options": [
+        "The cardboard boxes pack themselves while everyone is asleep.",
+        "A supermarket gives its extra rice and pasta to a food bank.",
+        "A packet of dates jumps off the shelf and walks to a house.",
+        "The food on the shelves never reaches its expiry date."
+      ],
+      "answer": "B",
+      "why": "Supermarkets really do donate food to food banks, as the passage describes; the others are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "The narrator kept forgetting to put dates in the boxes. What would be the BEST solution to this problem?",
+      "options": [
+        "Leave the dates out of every box to save some time.",
+        "Ask Ms. Noura to pack all of the boxes by herself.",
+        "Keep a checklist of the six items beside the boxes.",
+        "Pack the boxes faster so that mistakes do not matter."
+      ],
+      "answer": "C",
+      "why": "A checklist of the required items would help her remember every item, including the dates."
+    }
+  ]
+}

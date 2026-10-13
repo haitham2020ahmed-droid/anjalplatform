@@ -1,0 +1,169 @@
+{
+  "code": "NP-065",
+  "title": "Eyes Above the Weather",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "When a weather forecaster warns that a sandstorm will reach Riyadh tomorrow afternoon, much of that information has come from satellites circling high above the Earth.\n\nWeather satellites belong to two main groups. Geostationary satellites orbit about 36,000 kilometres above the equator. Because they move at the same speed as the Earth turns, each one watches the same region all the time and sends fresh images every few minutes. Polar-orbiting satellites, on the other hand, fly much lower, at roughly 800 kilometres, and pass over the North and South Poles. They see each part of the planet only about twice a day, but they collect sharper, more detailed measurements.\n\nSatellites act as tireless eyes in the sky, carrying instruments that measure much more than clouds. Some detect the temperature of the land and the sea, while others measure water vapour, wind speed and even dust in the air. These instruments can work at night by sensing heat instead of light.\n\nAll of this data is sent to powerful computers. The computers use mathematical models to calculate how the atmosphere is likely to change over the next few hours and days.\n\nBefore satellites, forecasters relied on ground stations, ships and balloons, which left huge areas such as deserts and oceans unobserved. Today, satellites help warn people about storms, floods and heat waves early enough to save lives.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why can weather satellites work at night?",
+      "options": [
+        "They carry powerful lamps.",
+        "They sense heat instead of light.",
+        "They fly closer to Earth at night.",
+        "They use moonlight to take pictures."
+      ],
+      "answer": "B",
+      "why": "The passage says the instruments 'can work at night by sensing heat instead of light'."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "According to the passage, what happens to satellite data AFTER it is collected?",
+      "options": [
+        "It is printed in newspapers straight away.",
+        "It is stored on weather balloons and ships.",
+        "It is sent to computers that model the atmosphere.",
+        "It is checked by hand at ground stations."
+      ],
+      "answer": "C",
+      "why": "'All of this data is sent to powerful computers' that use mathematical models."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word belongs to the same word family as \"forecast\"?",
+      "options": [
+        "forecaster",
+        "forest",
+        "foreign",
+        "format"
+      ],
+      "answer": "A",
+      "why": "'Forecaster' is built from 'forecast' (a person who forecasts); the others only look similar."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence is a command?",
+      "options": [
+        "Satellites orbit high above the Earth.",
+        "What a powerful storm that was!",
+        "Can a satellite see through clouds?",
+        "Check the satellite images before you travel."
+      ],
+      "answer": "D",
+      "why": "A command tells someone to do something; the others are a statement, an exclamation and a question."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer calls satellites \"tireless eyes in the sky.\" What does this phrase suggest?",
+      "options": [
+        "They blink and close when they become tired.",
+        "They are shaped like enormous human eyes.",
+        "They keep watching the weather without stopping.",
+        "They can only see the sky and never the land."
+      ],
+      "answer": "C",
+      "why": "Satellites are compared to eyes that never get tired, because they watch the Earth all the time."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How do polar-orbiting satellites differ from geostationary satellites?",
+      "options": [
+        "They fly lower and give more detailed data.",
+        "They stay above one region all the time.",
+        "They orbit about 36,000 kilometres high.",
+        "They send fresh images every few minutes."
+      ],
+      "answer": "A",
+      "why": "Polar satellites fly at about 800 km and collect sharper, more detailed measurements; the other options describe geostationary satellites."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A satellite detects dust over a desert before a storm.",
+        "A satellite stops a sandstorm before it reaches Riyadh.",
+        "A polar satellite stays above Riyadh all day long.",
+        "One balloon measures every ocean on Earth in an hour."
+      ],
+      "answer": "A",
+      "why": "Satellites can measure dust in the air, so this is realistic; a polar satellite passes over each place only about twice a day."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the passage?",
+      "options": [
+        "How high geostationary satellites orbit — a figure is given.",
+        "How the computer models work — they are only named.",
+        "What older forecasts relied on — the tools are listed.",
+        "When polar satellites pass a place — twice a day is stated."
+      ],
+      "answer": "B",
+      "why": "The writer mentions 'mathematical models' but does not explain how they calculate changes."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "Ground stations are still better than satellites for deserts.",
+        "Weather forecasts were more accurate before satellites.",
+        "Satellites have made forecasts far more useful for safety.",
+        "Satellites are only useful for photographing clouds."
+      ],
+      "answer": "C",
+      "why": "The passage ends by saying satellites warn people about storms, floods and heat waves early enough to save lives."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "Building a Rocket at Home",
+        "The History of Riyadh",
+        "How Ships Cross the Ocean",
+        "Watching the Weather from Space"
+      ],
+      "answer": "D",
+      "why": "The whole passage explains how satellites in space help forecast the weather."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "code": "NP-047",
+  "title": "Grandfather's Map",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "While helping her grandfather clear out an old wooden cupboard, Reem noticed a folded piece of yellowed paper wedged behind a drawer. She carefully pulled it free and unfolded it on the dining table. It was a hand-drawn map, decorated with miniature palm trees, an ancient well and a curving dotted line that ended beside a small black cross.\n\n\"Grandfather, is this a treasure map?\" she asked excitedly.\n\nHer grandfather adjusted his spectacles and examined the paper for a long, silent moment. Then his wrinkled face gradually softened into an affectionate smile. \"I drew this when I was approximately your age,\" he explained. \"It shows our family's original farm near the village, before the new highway was constructed.\"\n\nThe following weekend, the whole family drove to the village to investigate. Reem held the fragile map on her knees and compared every landmark with the unfamiliar scenery outside the window. The well was still there, although it was now surrounded by a protective stone wall. Most of the palm trees had grown considerably taller than the neighbouring houses.\n\nWhen they finally reached the location marked with the black cross, Reem was disappointed to discover only an ordinary rock beneath a palm tree. However, her grandfather knelt down slowly and brushed away the accumulated sand. Scratched into the stone were two sets of initials: his own and those of his best childhood friend.\n\nReem realised that the map had led her to a different kind of treasure: a precious memory her grandfather had treasured for sixty years.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "\"Her grandfather knelt down slowly.\" The word \"knelt\" is the past tense of which verb?",
+      "options": [
+        "knell",
+        "knee",
+        "knelter",
+        "kneel"
+      ],
+      "answer": "D",
+      "why": "\"Knelt\" is the irregular past tense of \"kneel.\""
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "\"Grandfather, is this a treasure map?\" What type of sentence is this?",
+      "options": [
+        "a question",
+        "a command",
+        "a statement",
+        "an exclamation"
+      ],
+      "answer": "A",
+      "why": "Reem is asking something and the sentence ends with a question mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why was Reem disappointed when they reached the place marked with the black cross?",
+      "options": [
+        "The new highway had covered the whole of the farm.",
+        "Her grandfather could not remember the right place.",
+        "She saw only an ordinary rock beneath a palm tree.",
+        "The old well had been completely filled with sand."
+      ],
+      "answer": "C",
+      "why": "The story says she \"was disappointed to discover only an ordinary rock beneath a palm tree.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What did the grandfather do RIGHT BEFORE the initials were revealed?",
+      "options": [
+        "He adjusted his spectacles and smiled.",
+        "He knelt down and brushed away the sand.",
+        "He drew a new map of the old farm.",
+        "He told Reem about the new highway."
+      ],
+      "answer": "B",
+      "why": "He \"knelt down slowly and brushed away the accumulated sand,\" and then the initials could be seen."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "What do the descriptions of the well and the palm trees show about the village?",
+      "options": [
+        "It had changed over time, but the landmarks could still be found.",
+        "It had been completely destroyed when the new highway was built.",
+        "It looked exactly the same as when the map was first drawn.",
+        "It had never really existed except in her grandfather's stories."
+      ],
+      "answer": "A",
+      "why": "The well now had a wall and the palms had grown taller, yet Reem could still match them to the map."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "\"His wrinkled face gradually softened into an affectionate smile.\" What does this sentence show?",
+      "options": [
+        "He was angry that Reem had opened his old cupboard.",
+        "He felt warm and fond as he remembered his childhood.",
+        "He was confused because he had never seen the map.",
+        "He was tired after cleaning the cupboard all day."
+      ],
+      "answer": "B",
+      "why": "A face that \"softened into an affectionate smile\" shows tender feelings as he recognised his own drawing."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the story?",
+      "options": [
+        "Hand-drawn maps are always more accurate than modern maps.",
+        "Treasure is only valuable if it is made of gold or jewels.",
+        "Old objects can be precious because of the memories they hold.",
+        "Children should not touch the things their grandparents keep."
+      ],
+      "answer": "C",
+      "why": "The map led to no gold, yet Reem saw the shared memory as \"a different kind of treasure.\""
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is the LEAST clear or complete?",
+      "options": [
+        "Where Reem first found the folded map",
+        "What the map showed when it was drawn",
+        "What was scratched into the stone",
+        "Who the grandfather's childhood friend was"
+      ],
+      "answer": "D",
+      "why": "The story mentions \"his best childhood friend\" but never names him or says what happened to him."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could REALLY happen?",
+      "options": [
+        "A map glows in the dark and speaks the way to go.",
+        "A family uses an old hand-drawn map to visit a village.",
+        "A palm tree walks to a new place in the village.",
+        "A rock opens like a door when someone knocks on it."
+      ],
+      "answer": "B",
+      "why": "Families can use old maps to find places; the other events are imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the story?",
+      "options": [
+        "The Pirates' Lost Gold",
+        "Building the New Highway",
+        "A Memory Under the Palm",
+        "Cleaning Day at Home"
+      ],
+      "answer": "C",
+      "why": "The map leads to initials beneath a palm tree, a memory of the grandfather's childhood."
+    }
+  ]
+}

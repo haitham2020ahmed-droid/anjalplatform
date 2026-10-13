@@ -1,0 +1,169 @@
+{
+  "code": "NP-011",
+  "title": "Ship of the Desert",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "For thousands of years, the camel has carried people and goods across the deserts of Arabia. Its body is remarkably well suited to a land where water is scarce and the sun is fierce.\n\nMany people believe that a camel stores water in its hump, but this is a myth. The hump actually holds fat, which the animal can break down for energy when food is hard to find. When a thirsty camel finally reaches a well, it can drink more than one hundred liters of water in only a few minutes.\n\nA camel also loses very little water from its body. Its temperature can rise by several degrees during the hot day before it begins to sweat, and it cools down again during the cold desert night. Its kidneys produce very concentrated urine, so precious water is saved.\n\nOther features protect the camel from blowing sand: two rows of long eyelashes shield its eyes, and it can close its nostrils during a sandstorm. Its broad, padded feet spread out on the soft sand, so it does not sink as it walks across the dunes with a heavy load.\n\nBecause of these adaptations, the camel became a trusted partner for desert travelers. Today, camels remain an important part of Saudi culture, from traditional races to festivals that celebrate their beauty and strength.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "In the sentence \"Two rows of long eyelashes shield its eyes,\" what part of speech is the word \"shield\"?",
+      "options": [
+        "a noun",
+        "an adjective",
+        "an adverb",
+        "a verb"
+      ],
+      "answer": "D",
+      "why": "\"Shield\" tells what the eyelashes do, so here it is an action word, a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which sentence is an exclamatory sentence?",
+      "options": [
+        "Does a camel store water in its hump?",
+        "Camels can close their nostrils.",
+        "Read the paragraph about camel feet.",
+        "What an amazing animal the camel is!"
+      ],
+      "answer": "D",
+      "why": "An exclamatory sentence shows strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why does a camel not sink as it walks on soft sand?",
+      "options": [
+        "Its broad, padded feet spread out on the sand.",
+        "Its hump keeps its body light and balanced.",
+        "It walks only on hard ground at night.",
+        "Its long legs lift it high above the sand."
+      ],
+      "answer": "A",
+      "why": "The fourth paragraph says its broad, padded feet spread out, so it does not sink."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which idea does the writer present FIRST in the passage?",
+      "options": [
+        "The camel can close its nostrils in a sandstorm.",
+        "The hump holds fat, not water.",
+        "The camel has carried people and goods across Arabia.",
+        "Camels are celebrated at festivals today."
+      ],
+      "answer": "C",
+      "why": "The opening paragraph begins with camels carrying people and goods for thousands of years."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What is the effect of the camel's kidneys producing very concentrated urine?",
+      "options": [
+        "The camel's hump grows larger.",
+        "The camel saves water inside its body.",
+        "The camel can see well in a sandstorm.",
+        "The camel's temperature drops at night."
+      ],
+      "answer": "B",
+      "why": "The passage links the concentrated urine directly to saving precious water."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "The writer calls the camel \"a trusted partner for desert travelers.\" What does this phrase suggest?",
+      "options": [
+        "Camels made business deals with travelers.",
+        "Travelers were afraid of their camels.",
+        "Camels chose the routes for the travelers.",
+        "Travelers could depend on camels like a loyal friend."
+      ],
+      "answer": "D",
+      "why": "\"Trusted partner\" is an expressive phrase showing that people relied on camels as they would on a reliable companion."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Based on the passage, which event could really happen?",
+      "options": [
+        "A camel fills its hump with water to use later.",
+        "A camel walks for a year without any food or water.",
+        "A camel drinks a large amount of water quickly at a well.",
+        "A camel's eyelashes grow longer to stop a sandstorm."
+      ],
+      "answer": "C",
+      "why": "The passage states a thirsty camel can drink more than one hundred liters in a few minutes; the other events are impossible or a myth."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the information in the passage?",
+      "options": [
+        "Camels are the fastest animals in the desert.",
+        "Camels are no longer useful to anyone today.",
+        "The camel's body is well designed for desert life.",
+        "Camels prefer cold places to hot ones."
+      ],
+      "answer": "C",
+      "why": "Every paragraph describes a feature that helps the camel survive heat, thirst or sand, which supports this opinion."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "How the camel's body actually turns fat into energy",
+        "Where the camel stores its fat",
+        "What protects the camel's eyes from sand",
+        "Why the camel does not sink in sand"
+      ],
+      "answer": "A",
+      "why": "The writer says the fat can be broken down for energy but never explains how; the other points are clearly explained."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "The History of Camel Races",
+        "Built for the Desert: How Camels Survive",
+        "Why Camels Are Afraid of Water",
+        "A Journey to a Desert Well"
+      ],
+      "answer": "B",
+      "why": "The passage mainly explains the camel's adaptations for desert life, which this title covers."
+    }
+  ]
+}

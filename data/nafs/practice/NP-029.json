@@ -1,0 +1,169 @@
+{
+  "code": "NP-029",
+  "title": "Engineering the Grand Mosque",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Al-Masjid Al-Haram in Makkah surrounds the Kaaba and welcomes millions of worshippers every year. As the number of pilgrims has grown, the mosque has been expanded several times, and these projects have become some of the most ambitious construction works in the world.\n\nDuring the twentieth century, a major expansion began in the 1950s and continued for about two decades. Engineers added new prayer halls, wider corridors, and a covered passage for the Sa'i between Safa and Marwah. Later, in the 1980s, King Fahd ordered another large expansion that added a new wing and rooftop prayer areas.\n\nThe most recent expansion, launched in the early 2010s, enlarged the mosque even further. Engineers constructed multi-story buildings, wide bridges, and new gates so that crowds could enter and leave more safely. The Mataf, the area around the Kaaba where worshippers perform tawaf, was also widened to increase its capacity.\n\nThe desert heat was a major challenge. Huge cooling plants pump chilled water through pipes to air-conditioning systems throughout the building. Outside, fans spray a fine mist of water. This helps to cool the air in the courtyards. The marble used for many floors is a special type that stays relatively cool under the sun.\n\nEngineers also installed escalators, electronic displays, and thousands of cameras to help organizers guide the crowds. Together, these features allow vast numbers of people to worship in comfort and safety.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a NOUN?",
+      "options": [
+        "relatively",
+        "ambitious",
+        "capacity",
+        "constructed"
+      ],
+      "answer": "C",
+      "why": "\"Capacity\" names a thing (how much a place can hold), so it is a noun. The others are a verb, an adverb and an adjective."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence is EXCLAMATORY?",
+      "options": [
+        "Visit the cooling plants with a guide.",
+        "How enormous the cooling plants are!",
+        "The cooling plants are very large.",
+        "How do the cooling plants work?"
+      ],
+      "answer": "B",
+      "why": "It expresses strong feeling and ends with an exclamation mark. \"How do…?\" is a question even though it also begins with \"How.\""
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why were new gates, bridges and buildings constructed in the recent expansion?",
+      "options": [
+        "to make room for new shops",
+        "to store water for the cooling plants",
+        "so crowds could enter and leave more safely",
+        "to replace the old marble floors"
+      ],
+      "answer": "C",
+      "why": "The passage says they were built \"so that crowds could enter and leave more safely.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which expansion is described SECOND in the passage?",
+      "options": [
+        "the expansion that began in the 1950s",
+        "the expansion launched in the 2010s",
+        "the expansion of the cooling plants",
+        "the expansion ordered by King Fahd"
+      ],
+      "answer": "D",
+      "why": "The passage moves in time order: the 1950s expansion, then King Fahd's in the 1980s, then the 2010s project."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What is the effect of the special marble used for many floors?",
+      "options": [
+        "The mosque can be built more quickly.",
+        "Crowds can use the escalators safely.",
+        "Worshippers can read the electronic displays.",
+        "Floors stay relatively cool under the sun."
+      ],
+      "answer": "D",
+      "why": "The passage says the marble \"stays relatively cool under the sun.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer calls the projects \"some of the most ambitious construction works in the world.\" What does this suggest?",
+      "options": [
+        "They were small but very beautiful.",
+        "They were unusually large and challenging.",
+        "They were finished in only a few weeks.",
+        "They were planned but never built."
+      ],
+      "answer": "B",
+      "why": "\"Ambitious\" describes a project that aims very high and is difficult to achieve."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best expresses the writer's viewpoint?",
+      "options": [
+        "Cooling the mosque in summer is impossible.",
+        "Engineering has improved worshippers' safety and comfort.",
+        "Escalators are the only useful improvement.",
+        "Each expansion made the mosque harder to use."
+      ],
+      "answer": "B",
+      "why": "The writer ends by saying these features \"allow vast numbers of people to worship in comfort and safety.\""
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "what the Mataf is used for",
+        "what the cooling plants pump through pipes",
+        "how many worshippers the mosque holds today",
+        "which areas the 1950s expansion added"
+      ],
+      "answer": "C",
+      "why": "The passage mentions \"millions\" of visitors each year and \"vast numbers\" but never states the mosque's capacity."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "Mist fans cool the air in a hot courtyard.",
+        "One small fan cools the whole of Makkah.",
+        "Escalators carry worshippers to Madinah.",
+        "Marble floors melt in the afternoon sun."
+      ],
+      "answer": "A",
+      "why": "Mist fans really cool the courtyards, as the passage explains; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "If the courtyards became even hotter in summer, which would be the best solution?",
+      "options": [
+        "Add more mist fans and shaded areas.",
+        "Turn off the fans to save water.",
+        "Remove the cooling plants to save space.",
+        "Replace the marble with dark stone."
+      ],
+      "answer": "A",
+      "why": "More mist and shade would lower the temperature; the other choices would make the heat worse."
+    }
+  ]
+}

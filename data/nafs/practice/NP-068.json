@@ -1,0 +1,169 @@
+{
+  "code": "NP-068",
+  "title": "The Riddle in the Hofuf Market",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "Long ago, in the busy old market of Hofuf, there lived a young spice seller named Salim, who was famous throughout the town for his quick and lively mind.\n\nOne morning, a proud merchant from a distant city arrived carrying a heavy purse. \"I have heard that you are remarkably clever,\" he announced loudly, so that everyone nearby could hear. \"I will give you ten gold coins if you can answer my riddle, but if you fail, you must hand over your entire shop.\"\n\nA curious crowd quickly gathered around them, and Salim's friends whispered anxiously, warning him to refuse the challenge, but Salim only smiled and nodded politely.\n\nThe merchant stroked his beard thoughtfully and inquired, \"What becomes larger the more you take away from it?\"\n\nThe market fell completely silent, and the merchant grinned, confident that he had already won. Salim looked thoughtfully at the ground, where a workman was digging a small ditch beside the well.\n\n\"A hole,\" Salim replied calmly. \"The more earth you remove, the larger it becomes.\"\n\nThe crowd cheered enthusiastically, while the merchant's face turned pale and he slowly counted out ten gold coins.\n\nThen Salim astonished everyone by pushing half of the coins back across the counter. \"Keep these,\" he said kindly, \"and purchase saffron from my shop whenever you visit Hofuf, because a friend is worth far more than five coins.\"\n\nFrom that day onwards, the merchant became Salim's most loyal and generous customer.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Salim's friends warn him to refuse the challenge?",
+      "options": [
+        "They knew the merchant was a thief.",
+        "They wanted the gold for themselves.",
+        "They thought riddles were bad manners.",
+        "They feared he might lose his shop."
+      ],
+      "answer": "D",
+      "why": "If Salim failed, he would have to hand over his entire shop."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who asks the riddle in the story?",
+      "options": [
+        "Salim the young spice seller",
+        "A workman beside the well",
+        "The merchant from a distant city",
+        "One of Salim's anxious friends"
+      ],
+      "answer": "C",
+      "why": "The proud merchant asks, 'What becomes larger the more you take away from it?'"
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the story is a noun?",
+      "options": [
+        "saffron",
+        "calmly",
+        "proud",
+        "whispered"
+      ],
+      "answer": "A",
+      "why": "'Saffron' names a thing (a spice); 'calmly' is an adverb, 'proud' an adjective and 'whispered' a verb."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"challenge\" correctly?",
+      "options": [
+        "The riddle was a real challenge for Salim.",
+        "The merchant challenge yesterday to the crowd.",
+        "Salim smiled very challenge at the merchant.",
+        "They challenge saffron in the market quickly."
+      ],
+      "answer": "A",
+      "why": "'Challenge' is used correctly as a noun meaning a difficult task."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "\"The merchant's face turned pale.\" What does this expression show?",
+      "options": [
+        "He had stayed in the shade too long.",
+        "He was shocked that he had lost.",
+        "He was pleased with Salim's answer.",
+        "He was feeling cold that morning."
+      ],
+      "answer": "B",
+      "why": "His face lost its colour from shock when Salim answered correctly and he had to pay."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What caused the merchant to become Salim's loyal customer?",
+      "options": [
+        "Salim gave him the whole spice shop.",
+        "Salim asked him an even harder riddle.",
+        "Salim kindly returned half of the coins.",
+        "The crowd forced him to buy saffron."
+      ],
+      "answer": "C",
+      "why": "Salim's generous act of giving back five coins turned the merchant into a friend."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which event could really happen?",
+      "options": [
+        "A hole grows larger when someone fills it with earth.",
+        "Gold coins turn into saffron inside a purse.",
+        "The well answers the riddle aloud for Salim.",
+        "A seller solves a riddle by noticing things around him."
+      ],
+      "answer": "D",
+      "why": "Salim really got his idea from watching a workman dig; the other events are impossible."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "Where Salim worked — Hofuf's market is named.",
+        "Which city the merchant came from — it is not named.",
+        "What the riddle was — it is quoted exactly.",
+        "What prize was offered — ten coins are named."
+      ],
+      "answer": "B",
+      "why": "The story only says 'a distant city' and never names it."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the story?",
+      "options": [
+        "Salim was foolish to give back any coins.",
+        "The merchant was cleverer than Salim.",
+        "Salim valued friendship more than money.",
+        "Salim should have refused to answer."
+      ],
+      "answer": "C",
+      "why": "Salim returned half the coins, saying 'a friend is worth far more than five coins'."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which alternative ending would BEST fit Salim's character?",
+      "options": [
+        "Salim invites the merchant to share coffee.",
+        "Salim mocks the merchant and keeps every coin.",
+        "Salim closes his shop and leaves Hofuf forever.",
+        "Salim demands the merchant's camels as well."
+      ],
+      "answer": "A",
+      "why": "Salim is calm, clever and generous, so a friendly ending fits him best."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "code": "NP-090",
+  "title": "Cookies for the Guests",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "When Maha's mother announced that relatives from Riyadh would be visiting on Friday, Maha immediately volunteered to bake something special. There was only one serious difficulty: she had never baked anything independently before.\n\n\"Start with something uncomplicated,\" her mother advised, handing her a worn notebook full of handwritten recipes. Maha chose her grandmother's date cookies, known as maamoul, because everyone in the family praised them.\n\nHer first attempt was a complete disaster, because she forgot to measure the semolina accurately and the dough crumbled into a sandy pile on the kitchen counter. Her second batch looked better, but she left the tray in the oven too long, and the cookies emerged hard and dark brown.\n\nMaha felt completely discouraged and was ready to abandon the whole project. \"Maybe baking simply isn't my talent,\" she sighed, staring at the burnt cookies.\n\nHer mother sat beside her patiently. \"Your grandmother burned her first batches too,\" she said with a smile. \"Baking teaches you to be careful and patient.\"\n\nOn Thursday evening, Maha tried again. This time she measured every ingredient precisely, softened the dates carefully, and set a timer on her phone. As the sweet smell of butter and cardamom filled the kitchen, her confidence grew.\n\nOn Friday afternoon, the guests arrived, and Maha nervously offered them her golden cookies with Arabic coffee. Her aunt tasted one and closed her eyes. \"These taste exactly like your grandmother's!\" she exclaimed. Maha beamed with pride.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the story is an ADVERB?",
+      "options": [
+        "golden",
+        "recipes",
+        "patiently",
+        "beamed"
+      ],
+      "answer": "C",
+      "why": "'Patiently' tells how her mother sat, so it is an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence uses the word 'precisely' correctly?",
+      "options": [
+        "She measured the flour precisely.",
+        "The precisely cookies were golden.",
+        "Maha precisely her aunt at the door.",
+        "He ate a precisely with his tea."
+      ],
+      "answer": "A",
+      "why": "'Precisely' is an adverb meaning exactly; only this sentence uses it to describe an action."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Maha choose to bake maamoul?",
+      "options": [
+        "They were the quickest recipe to make",
+        "Everyone in the family praised them",
+        "Her aunt had asked for them by name",
+        "She had baked them many times before"
+      ],
+      "answer": "B",
+      "why": "The story says she chose them 'because everyone in the family praised them.'"
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "What happened right AFTER Maha's second batch came out hard and dark?",
+      "options": [
+        "The dough crumbled into a sandy pile",
+        "Her mother gave her the recipe notebook",
+        "Her aunt tasted one of the cookies",
+        "She felt discouraged and wanted to quit"
+      ],
+      "answer": "D",
+      "why": "After the burnt batch, 'Maha felt completely discouraged and was ready to abandon the whole project.'"
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How was Maha's last attempt different from her first two?",
+      "options": [
+        "She followed her aunt's recipe instead",
+        "She measured carefully and used a timer",
+        "She baked them at her neighbor's house",
+        "She added extra semolina to the dough"
+      ],
+      "answer": "B",
+      "why": "On Thursday 'she measured every ingredient precisely… and set a timer on her phone.'"
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "'Maha beamed with pride.' What does the word 'beamed' suggest?",
+      "options": [
+        "She shone a light at the guests",
+        "She quickly left the room",
+        "She smiled widely and happily",
+        "She felt nervous and shy"
+      ],
+      "answer": "C",
+      "why": "'Beamed' means smiled brightly, like a beam of light."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "What is the main message the writer wants to share?",
+      "options": [
+        "Patience and practice lead to success",
+        "Guests only care about expensive food",
+        "Only adults can learn to bake well",
+        "Buying cookies is better than baking"
+      ],
+      "answer": "A",
+      "why": "Maha fails twice but succeeds by being careful and patient, as her mother advised."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is LEAST complete?",
+      "options": [
+        "Which recipe Maha decided to bake",
+        "What went wrong with her first batch",
+        "Why her second batch became hard",
+        "How many relatives visited on Friday"
+      ],
+      "answer": "D",
+      "why": "The story only says 'relatives from Riyadh' without saying how many came."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which event could really happen?",
+      "options": [
+        "Cookies bake themselves when a timer rings",
+        "Cookies left too long in an oven turn hard",
+        "Dough turns into real sand on a counter",
+        "A notebook reads its recipes out loud"
+      ],
+      "answer": "B",
+      "why": "Overbaking makes cookies hard and dark, as in the story."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which title BEST describes the events of the story?",
+      "options": [
+        "The Guests Who Never Came",
+        "A Long Trip to Riyadh",
+        "Third Time Lucky",
+        "The Broken Oven"
+      ],
+      "answer": "C",
+      "why": "Maha succeeds on her third attempt, after two failures."
+    }
+  ]
+}

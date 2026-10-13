@@ -1,0 +1,169 @@
+{
+  "code": "NP-039",
+  "title": "Fog on the Road to Abha",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "The air grew noticeably cooler as the family's car climbed the winding road toward Abha. Lina pressed her face against the window, amazed by the green terraces and juniper trees that covered the mountainsides, so different from the dusty streets of Riyadh she had left that morning.\n\nSuddenly, a thick white cloud rolled across the road, and within minutes Lina could barely see the car in front of them. Her father switched on the fog lights, reduced his speed, and kept a long distance from the other vehicles. \"In fog like this,\" he explained calmly, \"patience is more important than arriving quickly.\"\n\nHer younger brother, Ziyad, was disappointed. \"We travelled all this way to admire the view, and now we cannot see anything!\"\n\nTheir mother suggested stopping at a small café beside the road until the fog lifted. Inside, the family drank sweet tea and listened to the owner, an elderly man who described how mountain mist arrives on many summer afternoons and makes the region famous for its pleasant temperatures. He explained that local farmers depend on this moisture to keep their terraces green and productive.\n\nAn hour later, the fog gradually began to thin. Through the drifting clouds, the children glimpsed colourful cable cars gliding above the valley, and the distant peaks looked as if they were floating in the sky. Ziyad gasped with delight and admitted that the view had been worth waiting for. Lina smiled, thinking that the fog had given them an unexpected surprise they would remember for years.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the story is a NOUN?",
+      "options": [
+        "winding",
+        "terraces",
+        "noticeably",
+        "glimpsed"
+      ],
+      "answer": "B",
+      "why": "Terraces names things (the stepped fields on the mountains), so it is a noun."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the story is an EXCLAMATORY sentence?",
+      "options": [
+        "\"We travelled all this way to admire the view, and now we cannot see anything!\"",
+        "Their mother suggested stopping at a small café beside the road until the fog lifted.",
+        "Her father switched on the fog lights and reduced his speed on the road.",
+        "An hour later, the fog gradually began to thin above the valley."
+      ],
+      "answer": "A",
+      "why": "Ziyad's words show strong disappointment and end with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did Lina's father slow down and keep a long distance from other cars?",
+      "options": [
+        "Because the engine was overheating",
+        "Because the children wanted photos",
+        "Because the café was around the corner",
+        "Because thick fog made it hard to see"
+      ],
+      "answer": "D",
+      "why": "A thick cloud rolled across the road and Lina could barely see the car in front of them."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who tells the family that local farmers depend on the mountain mist?",
+      "options": [
+        "Lina's father",
+        "Ziyad",
+        "the elderly café owner",
+        "Lina's mother"
+      ],
+      "answer": "C",
+      "why": "The café owner explained that farmers depend on the moisture to keep their terraces green."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is Abha different from Riyadh, as shown in the story?",
+      "options": [
+        "Abha is cooler, greener and often misty.",
+        "Abha is hotter and dustier than Riyadh.",
+        "Abha never has any clouds at all.",
+        "They have exactly the same weather."
+      ],
+      "answer": "A",
+      "why": "The story contrasts the cool air, green terraces and mist of Abha with the dusty streets of Riyadh."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "The writer says the distant peaks \"looked as if they were floating in the sky.\" What is the effect of this description?",
+      "options": [
+        "It shows that the mountains were really moving.",
+        "It explains that the cable cars were broken.",
+        "It shows that Ziyad was afraid of heights.",
+        "It helps readers picture peaks rising above clouds."
+      ],
+      "answer": "D",
+      "why": "The image helps readers see the mountain tops appearing above the drifting clouds, as if floating."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the story?",
+      "options": [
+        "Families should never visit the mountains.",
+        "Patience can turn disappointment into reward.",
+        "Fog always ruins a family trip.",
+        "Driving fast is safest in thick fog."
+      ],
+      "answer": "B",
+      "why": "The family waited patiently, and the clearing fog gave them a view they would remember for years."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is the LEAST clear?",
+      "options": [
+        "What the father switched on in the fog",
+        "What the family drank at the café",
+        "Where the family planned to stay in Abha",
+        "How long they waited for the fog to thin"
+      ],
+      "answer": "C",
+      "why": "The story never mentions where the family would stay; the other details are clearly stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "Mountain fog clears after an hour, revealing a valley.",
+        "The fog lifts the family's car into the clouds.",
+        "The tea in the café turns into mist.",
+        "The juniper trees walk across the road."
+      ],
+      "answer": "A",
+      "why": "Fog often thins and clears after some time; the other events are imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the story?",
+      "options": [
+        "A Day at the Beach",
+        "Worth the Wait in Abha",
+        "The Broken Fog Lights",
+        "Shopping in Riyadh"
+      ],
+      "answer": "B",
+      "why": "The family waited for the fog to lift, and the view was worth waiting for, as Ziyad admits."
+    }
+  ]
+}

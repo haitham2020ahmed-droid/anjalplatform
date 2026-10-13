@@ -1,0 +1,169 @@
+{
+  "code": "NP-002",
+  "title": "The Reed Pen of the Calligrapher",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "For more than a thousand years, the most important tool of the Arabic calligrapher was not a brush or a metal pen but a simple piece of reed called the qalam.\n\nCalligraphers chose their reeds carefully. A good reed had to be hard, straight and dry, so many were left to season for months before use. The writer then shaped the tip with a sharp knife, slicing the nib at a slant. This angled cut is what gives Arabic script its graceful contrast between thick and thin strokes. Different scripts required different widths of nib, so an experienced calligrapher kept a whole collection of pens.\n\nIn the tenth century, a scholar and official in Baghdad named Ibn Muqla developed a system of proportion for writing. He measured each letter using dots made by the pen itself, so the size of every letter depended on the width of the nib. His rules helped make beautiful writing more consistent, and later masters such as Ibn al-Bawwab refined them further.\n\nInk was just as important as the pen. Many calligraphers prepared their own black ink from soot and gum, and they guarded their recipes closely.\n\nToday, calligraphers use reed pens, bamboo pens and even digital tablets. Nevertheless, many artists insist that nothing replaces the feeling of a freshly cut qalam moving across paper.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a verb?",
+      "options": [
+        "shaped",
+        "graceful",
+        "collection",
+        "reed"
+      ],
+      "answer": "A",
+      "why": "'Shaped' tells what the writer did to the tip of the reed, so it is a verb; 'graceful' is an adjective and 'collection' and 'reed' are nouns."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "The passage mentions a sharp 'knife'. What is the correct plural of 'knife'?",
+      "options": [
+        "knifes",
+        "knifs",
+        "knives",
+        "knive"
+      ],
+      "answer": "C",
+      "why": "'Knife' is an irregular noun: the f changes to v and -es is added, giving 'knives'."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Why were reeds often left to season for months before use?",
+      "options": [
+        "so that they would change to a darker colour",
+        "because newly cut reeds were too expensive",
+        "so that the ink would stick to them better",
+        "so that they would become hard and dry"
+      ],
+      "answer": "D",
+      "why": "The passage says a good reed had to be hard, straight and dry, 'so many were left to season for months before use'."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which of these happened FIRST, according to the passage?",
+      "options": [
+        "Ibn al-Bawwab refined the rules of proportion.",
+        "Ibn Muqla created rules for letter proportions.",
+        "Calligraphers began using digital tablets.",
+        "Modern artists compared tablets with the qalam."
+      ],
+      "answer": "B",
+      "why": "Ibn Muqla developed his system in the tenth century; 'later masters such as Ibn al-Bawwab' refined it, and tablets are used 'today'."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What is the effect of cutting the nib at a slant?",
+      "options": [
+        "The reed becomes harder and straighter.",
+        "The ink dries more quickly on the paper.",
+        "Every letter becomes exactly the same width.",
+        "The script shows thick and thin strokes."
+      ],
+      "answer": "D",
+      "why": "The passage says the angled cut 'gives Arabic script its graceful contrast between thick and thin strokes'."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "'Nothing replaces the feeling of a freshly cut qalam moving across paper.' What does this sentence show?",
+      "options": [
+        "Digital tablets are not allowed in calligraphy.",
+        "Artists feel a special connection to the traditional pen.",
+        "The qalam is much cheaper than other pens.",
+        "Fresh reeds are easier to find than tablets."
+      ],
+      "answer": "B",
+      "why": "The words 'nothing replaces the feeling' express the artists' personal attachment to the reed pen, not a rule or a price."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which statement best expresses the writer's viewpoint?",
+      "options": [
+        "The simple reed pen has played a vital role in Arabic art.",
+        "Ibn Muqla's rules made calligraphy less beautiful.",
+        "Metal pens are better than reed pens for writing.",
+        "Calligraphy has not changed since the tenth century."
+      ],
+      "answer": "A",
+      "why": "The writer calls the qalam 'the most important tool' for more than a thousand years, showing it has played a vital role."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "what material the qalam was made from",
+        "which city Ibn Muqla worked in",
+        "how soot and gum were actually turned into ink",
+        "why an angled nib was useful"
+      ],
+      "answer": "C",
+      "why": "The passage names the ingredients but says recipes were guarded, so the method of making ink is never explained; the other facts are stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A qalam writes a poem by itself while the artist sleeps.",
+        "A calligrapher trims a reed with a knife to repair a worn nib.",
+        "A reed pen grows longer each time it is used.",
+        "Ink made from soot turns into gold on the paper."
+      ],
+      "answer": "B",
+      "why": "Calligraphers really do shape reed tips with knives; pens cannot write alone or grow, and soot ink does not become gold."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "A student wants to keep the art of the qalam alive. Which is the best solution?",
+      "options": [
+        "Replace all reed pens in schools with digital tablets.",
+        "Keep the recipes for ink secret from everyone.",
+        "Stop teaching old scripts because they are difficult.",
+        "Hold workshops where students cut and use reed pens."
+      ],
+      "answer": "D",
+      "why": "Teaching young people to make and use the qalam passes the skill on; the other choices would make the tradition disappear."
+    }
+  ]
+}

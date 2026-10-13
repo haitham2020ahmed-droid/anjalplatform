@@ -1,0 +1,169 @@
+{
+  "code": "NP-088",
+  "title": "The Clever Octopus",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Octopuses have no bones, three hearts and blue blood, but their most remarkable feature may be their intelligence. Scientists think they are among the smartest invertebrates, which are animals without a backbone.\n\nAn octopus has roughly five hundred million nerve cells, a number similar to that of a dog. Surprisingly, about two thirds of these cells are located not in its brain but in its eight arms. As a result, each arm can taste, touch and react somewhat independently, almost as though it had a small mind of its own.\n\nResearchers have observed octopuses solving complicated problems in laboratories. Some have learned to unscrew the lids of jars to reach food inside, and others have escaped from their tanks by squeezing through tiny openings. In the ocean, certain octopuses collect coconut shells and carry them across the seabed, later using them as portable shelters when danger approaches.\n\nOctopuses are also masters of disguise. Special cells in their skin allow them to change color and texture within a fraction of a second, so they can blend into rocks, sand or coral almost perfectly.\n\nDespite these abilities, most octopuses live only one or two years, and they do not learn from parents, because they hatch alone. Scientists remain fascinated by how such short-lived creatures develop such remarkable skills, and they continue to investigate how an animal so different from humans can think so cleverly.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the passage is an ADJECTIVE?",
+      "options": [
+        "portable",
+        "shelters",
+        "escaped",
+        "almost"
+      ],
+      "answer": "A",
+      "why": "'Portable' describes the shelters, so it is an adjective."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence uses the word 'disguise' correctly?",
+      "options": [
+        "The octopus disguise quickly across the sand.",
+        "She ate a disguise for breakfast today.",
+        "The octopus used color as a disguise.",
+        "The disguise water was cold and deep."
+      ],
+      "answer": "C",
+      "why": "A disguise is something that hides who or what you are; only this sentence uses it correctly."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why can each octopus arm react somewhat on its own?",
+      "options": [
+        "Each arm has its own separate heart",
+        "Its arms have no skin cells at all",
+        "Its brain is larger than a dog's",
+        "Most of its nerve cells are in its arms"
+      ],
+      "answer": "D",
+      "why": "About two thirds of its nerve cells are located in its arms, 'as a result' each arm reacts independently."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which idea does the writer present right AFTER describing the octopus's nerve cells?",
+      "options": [
+        "Octopuses changing color and texture",
+        "Octopuses solving problems in labs",
+        "Octopuses having three hearts",
+        "Octopuses living one or two years"
+      ],
+      "answer": "B",
+      "why": "Paragraph 3, about laboratory problem-solving, follows the paragraph on nerve cells."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "In what way is an octopus SIMILAR to a dog?",
+      "options": [
+        "Both have three hearts and blue blood",
+        "Both learn their skills from parents",
+        "Both live only one or two years",
+        "They have a similar number of nerve cells"
+      ],
+      "answer": "D",
+      "why": "The passage says an octopus has about 500 million nerve cells, 'similar to that of a dog.'"
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer calls octopuses 'masters of disguise.' What does this phrase suggest?",
+      "options": [
+        "They are extremely skilled at hiding",
+        "They teach other animals to hide",
+        "They wear masks made of coconuts",
+        "They rule over other sea creatures"
+      ],
+      "answer": "A",
+      "why": "A 'master' is an expert; the phrase stresses their skill at blending in."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST expresses the writer's viewpoint?",
+      "options": [
+        "Octopuses are dangerous and best avoided",
+        "Octopuses are no smarter than jellyfish",
+        "Octopuses are amazing animals worth studying",
+        "Octopuses should be kept as pets at home"
+      ],
+      "answer": "C",
+      "why": "Words like 'remarkable' and 'fascinated' show the writer's admiration and interest."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is LEAST clear in the passage?",
+      "options": [
+        "How many hearts an octopus has",
+        "How octopuses gain skills without parents",
+        "What octopuses do with coconut shells",
+        "How long most octopuses usually live"
+      ],
+      "answer": "B",
+      "why": "The writer says scientists still do not know how they develop such skills."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which event could really happen?",
+      "options": [
+        "An octopus grows a backbone to escape danger",
+        "An octopus lives fifty years and teaches its young",
+        "An octopus changes color only once in its life",
+        "An octopus squeezes out of a tank through a gap"
+      ],
+      "answer": "D",
+      "why": "The passage says octopuses have escaped tanks through tiny openings."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "The Clever Mind of the Octopus",
+        "Coconuts of the Tropical Beach",
+        "How Dogs Learn New Tricks",
+        "The Fastest Fish in the Ocean"
+      ],
+      "answer": "A",
+      "why": "The whole passage is about octopus intelligence."
+    }
+  ]
+}

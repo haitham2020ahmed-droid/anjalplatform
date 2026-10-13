@@ -1,0 +1,568 @@
+{
+  "code": "NB-011",
+  "title": "From Old Paper to New",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 430,
+  "passage": "Every day, schools, offices and homes discard mountains of paper, including old newspapers, cardboard boxes, notebooks and printed worksheets. Much of this material does not need to end its life in a rubbish tip, because through recycling it can be transformed into new paper again and again. But how exactly does a used sheet become a fresh one?\n\nThe journey begins with collection. People place used paper in special recycling bins, and trucks transport it to a recycling centre, where workers and machines sort it into categories such as cardboard, newspaper and office paper. Sorting is essential because each category is manufactured into a different product.\n\nNext, the sorted paper is fed into an enormous tank called a pulper, where it is mixed with water and stirred continuously until it disintegrates into tiny fibres. The result is a thick, grey, soupy mixture known as pulp. This pulp is then forced through screens with small holes, which trap unwanted objects such as staples, paper clips, plastic and fragments of glue.\n\nAfter that, the ink must be removed in a process called de-inking. Soap-like chemicals are added to the pulp, and air is bubbled through the mixture. The ink particles cling to the bubbles, which rise to the surface and form a dirty foam that can be skimmed away, leaving the cleaned pulp considerably lighter in colour.\n\nFinally, the clean pulp is sprayed onto a moving screen, where water drains away and the fibres begin to bond together. Heavy rollers squeeze out more water, and heated rollers dry the sheet. The new paper is then wound onto gigantic reels, ready to be cut and manufactured into newspapers, tissues, egg boxes or notebooks. What a remarkable journey for one old sheet of paper!\n\nPaper cannot be recycled indefinitely, however. Each time it passes through the process, its fibres become shorter and weaker, and after approximately five to seven cycles they are too short to hold together. For this reason, some new fibres from wood are usually added.\n\nRecycling paper brings numerous benefits. Fewer trees need to be cut down, and the process generally consumes less energy and water than producing paper from fresh wood. It also reduces the quantity of waste that is buried in the ground.\n\nYou can contribute, too. Keep paper clean and dry, and never put greasy food boxes or used tissues in the paper recycling bin, because oil and dirt contaminate the pulp. Use both sides of a sheet before you throw it away. Small actions, repeated by millions of people, can make a significant difference to our planet.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word or phrase is closest in meaning to “disintegrates” in “stirred continuously until it disintegrates into tiny fibres” (paragraph 3)?",
+      "options": [
+        "hardens",
+        "breaks apart",
+        "heats up",
+        "floats"
+      ],
+      "answer": "B",
+      "why": "The paper is stirred until it turns into tiny fibres, so “disintegrates” means “breaks apart”."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “gigantic” in “gigantic reels” (paragraph 5)?",
+      "options": [
+        "massive",
+        "heavy",
+        "tiny",
+        "circular"
+      ],
+      "answer": "C",
+      "why": "“Gigantic” means extremely large; its opposite is “tiny”. “Massive” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “contaminate” mean in “oil and dirt contaminate the pulp” (paragraph 8)?",
+      "options": [
+        "make dirty or impure",
+        "make thicker",
+        "make colder",
+        "make lighter in colour"
+      ],
+      "answer": "A",
+      "why": "Oil and dirt spoil the clean pulp, so “contaminate” means make dirty or impure. Making the pulp lighter is what de-inking does."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from paragraph 3 is an adjective?",
+      "options": [
+        "disintegrates",
+        "fragments",
+        "soupy",
+        "pulper"
+      ],
+      "answer": "C",
+      "why": "“Soupy” describes the mixture; “disintegrates” is a verb and “fragments” and “pulper” are nouns."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from the text is plural?",
+      "options": [
+        "pulp",
+        "glue",
+        "process",
+        "fibres"
+      ],
+      "answer": "D",
+      "why": "“Fibres” means more than one fibre. “Process” ends in s but is singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “collect”?",
+      "options": [
+        "collar",
+        "colour",
+        "college",
+        "collection"
+      ],
+      "answer": "D",
+      "why": "“Collection” is formed from “collect” + -ion; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “essential” in a meaningful sentence of your own.",
+      "model": "Water is essential for every living thing, so we must never waste it.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “essential” with its correct meaning (extremely important / necessary)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused or the sentence has no clear meaning"
+      ],
+      "why": "“Essential” means absolutely necessary or extremely important."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “category”?",
+      "options": [
+        "categorys",
+        "categories",
+        "category's",
+        "categoryes"
+      ],
+      "answer": "B",
+      "why": "Nouns ending in a consonant + y change y to i and add -es: categories."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is a command?",
+      "options": [
+        "Use both sides of a sheet before you throw it away.",
+        "The journey begins with collection.",
+        "What a remarkable journey for one old sheet of paper!",
+        "But how exactly does a used sheet become a fresh one?"
+      ],
+      "answer": "A",
+      "why": "It tells the reader what to do, so it is a command (imperative)."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "Making Glue at Home",
+        "How Forests Grow",
+        "The Journey of a Used Sheet",
+        "A History of Newspapers"
+      ],
+      "answer": "C",
+      "why": "The text follows a used sheet of paper through each stage of recycling."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to explain how paper is recycled and why it helps",
+        "to describe the trees used to make fresh paper",
+        "to tell the story of a worker in a paper factory",
+        "to persuade readers to buy more new notebooks"
+      ],
+      "answer": "A",
+      "why": "The text explains the recycling steps and the benefits of recycling paper."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 6?",
+      "options": [
+        "Wood fibres are always better than recycled ones.",
+        "Paper should never be recycled more than once.",
+        "Recycled paper is stronger than fresh paper.",
+        "Recycling has limits because fibres weaken over time."
+      ],
+      "answer": "D",
+      "why": "Paragraph 6 explains that fibres become shorter and weaker each time, so paper cannot be recycled indefinitely."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why is sorting essential?",
+      "options": [
+        "Each category becomes a different product.",
+        "Old newspapers must be thrown away first.",
+        "Sorted paper is lighter for the trucks.",
+        "Workers prefer handling cardboard."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: sorting is essential because each category is manufactured into a different product."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a poem",
+        "an informational text",
+        "an adventure story",
+        "a letter"
+      ],
+      "answer": "B",
+      "why": "It explains a process with facts, so it is an informational (expository) text."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why can paper NOT be recycled indefinitely?",
+      "options": [
+        "The water in the pulper becomes too dirty.",
+        "The ink can never be fully removed.",
+        "Its fibres become shorter and weaker each time.",
+        "Recycling centres close after a few years."
+      ],
+      "answer": "C",
+      "why": "Paragraph 6: each time, the fibres become shorter and weaker until they cannot hold together."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which step comes straight after the pulp is forced through screens?",
+      "options": [
+        "removing the ink",
+        "collecting the paper",
+        "sorting the paper",
+        "winding the paper onto reels"
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 begins “After that, the ink must be removed”."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which list shows the steps in the correct order?",
+      "options": [
+        "de-inking, collecting, pulping, drying",
+        "drying, de-inking, pulping, collecting",
+        "pulping, collecting, drying, de-inking",
+        "collecting, pulping, de-inking, drying"
+      ],
+      "answer": "D",
+      "why": "Collection (paragraph 2), pulping (paragraph 3), de-inking (paragraph 4), drying (paragraph 5)."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered before putting paper in the recycling bin?",
+      "options": [
+        "It should be printed on one side only.",
+        "It should be clean, dry and free of grease.",
+        "It must be folded into small squares.",
+        "It must be soaked in water first."
+      ],
+      "answer": "B",
+      "why": "Paragraph 8: keep paper clean and dry, and never put greasy food boxes in the bin."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What causes the ink to leave the pulp during de-inking?",
+      "options": [
+        "It clings to air bubbles that rise to the surface.",
+        "It is trapped by the screens with small holes.",
+        "It is burned away by the heated rollers.",
+        "It sinks to the bottom of the pulper."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: the ink particles cling to the bubbles, which rise and form a foam that is skimmed away."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why is the cleaned pulp lighter in colour than before?",
+      "options": [
+        "Heated rollers have bleached it.",
+        "New wood fibres have been added.",
+        "The ink has been carried away in the foam.",
+        "Water has drained through the moving screen."
+      ],
+      "answer": "C",
+      "why": "The ink clings to bubbles, forms a dirty foam and is skimmed away, leaving the pulp “considerably lighter in colour”."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why are new fibres from wood usually added to recycled pulp?",
+      "options": [
+        "Wood fibres make paper whiter.",
+        "Recycling centres must use up their wood.",
+        "New fibres remove the ink from the pulp.",
+        "Old fibres become too short to hold together."
+      ],
+      "answer": "D",
+      "why": "Paragraph 6: after five to seven cycles the fibres are too short to hold together, “For this reason” new fibres are added."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is making recycled paper different from making paper from fresh wood?",
+      "options": [
+        "It always produces more buried waste.",
+        "It generally consumes less energy and water.",
+        "It requires more trees to be cut down.",
+        "It cannot be used to make notebooks."
+      ],
+      "answer": "B",
+      "why": "Paragraph 7: recycling generally consumes less energy and water than producing paper from fresh wood."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the effect of putting greasy food boxes in the paper recycling bin?",
+      "options": [
+        "More trees are saved.",
+        "The ink is removed faster.",
+        "The paper dries more quickly.",
+        "Oil contaminates the pulp."
+      ],
+      "answer": "D",
+      "why": "Paragraph 8: oil and dirt contaminate the pulp."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do newspapers, tissues and egg boxes have in common in the text?",
+      "options": [
+        "They can all be made from recycled pulp.",
+        "They all need large amounts of glue.",
+        "They are made only from fresh wood.",
+        "They belong in general rubbish."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5 lists them as products made from the new recycled paper."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “mountains of paper”?",
+      "options": [
+        "paper made in the mountains",
+        "paper used by climbers",
+        "a very large amount of paper",
+        "paper folded into hills"
+      ],
+      "answer": "C",
+      "why": "The phrase is an exaggeration that means a huge amount of paper."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "The journey begins with collection.",
+        "What a remarkable journey for one old sheet of paper!",
+        "After that, the ink must be removed in a process called de-inking.",
+        "But how exactly does a used sheet become a fresh one?"
+      ],
+      "answer": "B",
+      "why": "It ends with an exclamation mark and expresses the writer's amazement."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Why did the writer use words such as “Next”, “After that” and “Finally”?",
+      "options": [
+        "to compare paper with other materials",
+        "to make the text sound like a poem",
+        "to show the order of the steps clearly",
+        "to introduce characters in a story"
+      ],
+      "answer": "C",
+      "why": "These sequence words show the order of the stages in the recycling process."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action is MOST helpful for a student who wants to save paper?",
+      "options": [
+        "printing extra copies of worksheets",
+        "using both sides of a sheet",
+        "throwing notebooks in general rubbish",
+        "putting pizza boxes in the paper bin"
+      ],
+      "answer": "B",
+      "why": "The writer advises using both sides of a sheet; the other actions waste paper or contaminate the pulp."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this text?",
+      "options": [
+        "to encourage people to recycle and protect the planet",
+        "to warn that paper factories are dangerous",
+        "to show that recycling is too difficult for families",
+        "to advertise a company that sells office paper"
+      ],
+      "answer": "A",
+      "why": "The text ends by asking readers to contribute because small actions can make a significant difference to our planet."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the text, why is recycling paper worth doing?",
+      "options": [
+        "Fewer trees need to be cut down.",
+        "It generally consumes less energy and water.",
+        "It reduces the quantity of buried waste.",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "Paragraph 7 gives all three benefits."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "what happens inside the pulper",
+        "which soap-like chemicals are used",
+        "what the screens trap",
+        "why paper must be sorted"
+      ],
+      "answer": "B",
+      "why": "The text only says “soap-like chemicals” without naming them; the other points are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Ink is removed from paper by drying it in the sun.",
+        "A greasy pizza box improves the recycled pulp.",
+        "A school's old worksheets are made into egg boxes.",
+        "A sheet of paper is recycled a thousand times."
+      ],
+      "answer": "C",
+      "why": "Recycled paper can become egg boxes; the other events contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "Trees of the World",
+        "A Day at the Beach",
+        "Give Paper a Second Life",
+        "The Lost Notebook"
+      ],
+      "answer": "C",
+      "why": "The text explains how used paper is made into new paper."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a solution: how could your school recycle more paper? Write one or two sentences.",
+      "model": "Our school could place a clearly labelled paper bin in every classroom and choose two students each week to empty them into the main recycling bin, so that no clean paper ends up in the general rubbish.",
+      "rubric": [
+        "2 = a clear, practical solution that fits the text's advice (e.g. clean, dry paper; both sides used)",
+        "1 = a related idea that is vague or not practical",
+        "0 = no answer, or an idea unrelated to recycling paper"
+      ],
+      "why": "Any sensible, practical solution is accepted."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "How can we stop the recycled pulp from being contaminated?",
+      "options": [
+        "Wet the paper before putting it in the bin.",
+        "Add food boxes so the bin fills faster.",
+        "Put used tissues in the paper bin daily.",
+        "Keep greasy and dirty items out of the paper bin."
+      ],
+      "answer": "D",
+      "why": "Paragraph 8: oil and dirt contaminate the pulp, so keep them out of the paper bin."
+    }
+  ]
+}

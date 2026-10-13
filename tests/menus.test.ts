@@ -39,8 +39,9 @@ function routeExists(url: string): boolean {
 }
 
 describe("menus: short and tidy", () => {
-  test("student: five entries only — Home, My Work, My Tests, MAP, ReadMaster / ReadRise (owner's spec), line icons, no repeats", () => {
-    const items = navItemsFor("STUDENT", { rti: true, nafs: true });
+  test("student: five entries — Home, My Work, My Tests, MAP, ReadMaster / ReadRise (owner's spec) + NAFS only for Grade 6, line icons, no repeats", () => {
+    assert.deepEqual(navItemsFor("STUDENT", { rti: true, nafs: true }).map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "NAFS"], "the NAFS icon: students in a Grade 6 class");
+    const items = navItemsFor("STUDENT", { rti: true, nafs: false });
     assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise"]);
     assert.ok(items.every((i) => i.line), "every student entry has a clean line icon");
     assert.equal(new Set(items.map((i) => i.href)).size, items.length, "no page twice in the menu");

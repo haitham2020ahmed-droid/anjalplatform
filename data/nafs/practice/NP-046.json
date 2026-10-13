@@ -1,0 +1,169 @@
+{
+  "code": "NP-046",
+  "title": "How We See Colour",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Why does a ripe banana look yellow while a leaf looks green? The explanation depends on light, on the properties of the objects around us and on the remarkable structure of the human eye.\n\nSunlight appears white, but it is actually a mixture of many colours. In the seventeenth century, the scientist Isaac Newton demonstrated this by passing a beam of sunlight through a glass prism, which separated it into a rainbow of colours. When white light strikes an object, the object absorbs some colours and reflects others. A leaf absorbs most colours but reflects green light, so green is the colour that travels to our eyes.\n\nLight enters the eye through a clear layer called the cornea and then passes through the pupil, the dark opening in the centre of the eye. Next, the lens focuses the light onto the retina, a thin layer at the back of the eye. The retina contains millions of specialised cells that respond to light. Rod cells help us see in dim light, but they cannot detect colour. Cone cells work best in bright light, and there are three types, which are most sensitive to red, green or blue light.\n\nThese cells send electrical signals along the optic nerve to the brain, which combines and interprets the information to create the colours we experience. When one type of cone does not work properly, a person may find it difficult to tell certain colours apart.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a NOUN?",
+      "options": [
+        "focuses",
+        "dim",
+        "retina",
+        "remarkable"
+      ],
+      "answer": "C",
+      "why": "\"Retina\" names a part of the eye, so it is a noun; the others are a verb and two adjectives."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Rod cells \"cannot detect colour.\" Which sentence uses the word \"detect\" with the same meaning?",
+      "options": [
+        "Please detect the cake into eight equal pieces.",
+        "The detect of the story was a clever young girl.",
+        "We detect our homework neatly in blue ink.",
+        "Dogs can detect smells that people cannot notice."
+      ],
+      "answer": "D",
+      "why": "\"Detect\" means to notice or discover; dogs notice smells that people miss."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why does a leaf look green?",
+      "options": [
+        "It absorbs most colours but reflects green light.",
+        "It absorbs green light and reflects all the others.",
+        "It produces its own green light from inside.",
+        "Its cone cells are more sensitive to green light."
+      ],
+      "answer": "A",
+      "why": "The passage states that a leaf \"absorbs most colours but reflects green light.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "In what ORDER does light travel through the eye?",
+      "options": [
+        "pupil → retina → cornea → lens",
+        "lens → cornea → retina → pupil",
+        "cornea → pupil → lens → retina",
+        "retina → lens → pupil → cornea"
+      ],
+      "answer": "C",
+      "why": "Light enters through the cornea, passes through the pupil, and is focused by the lens onto the retina."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How are rod cells DIFFERENT from cone cells?",
+      "options": [
+        "Rods detect colour while cones only see black.",
+        "Rods work in dim light but do not detect colour.",
+        "Rods are in the lens while cones are in the pupil.",
+        "Rods work best in bright light and cones in dim light."
+      ],
+      "answer": "B",
+      "why": "Rods \"help us see in dim light, but they cannot detect colour\"; cones work in bright light and detect colour."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Newton's prism separated sunlight \"into a rainbow of colours.\" Why does the writer use the phrase \"a rainbow of colours\"?",
+      "options": [
+        "To help the reader picture separate bands of colour.",
+        "To show that Newton saw a rainbow in the sky that day.",
+        "To prove that rainbows are only made inside glass prisms.",
+        "To explain that sunlight contains only seven colours."
+      ],
+      "answer": "A",
+      "why": "The phrase creates a familiar picture of the bands of colour that appear when white light is split."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "The colour of an object is decided only by the eye's lens.",
+        "Seeing colour needs the eye and the brain to work together.",
+        "Rod cells are more useful than cone cells in every situation.",
+        "People who mix up colours have something wrong with their brain."
+      ],
+      "answer": "B",
+      "why": "The eye's cells detect light, but the brain \"combines and interprets the information to create the colours we experience.\""
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "Which part of the eye focuses light onto the retina",
+        "Which scientist first split sunlight with a prism",
+        "How only three types of cone let us see colours like yellow",
+        "What kind of light rod cells help us see in"
+      ],
+      "answer": "C",
+      "why": "The passage says the brain combines the information but never explains how three cone types produce other colours."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could REALLY happen?",
+      "options": [
+        "A girl sees bright colours with her eyes closed.",
+        "A red apple reflects only blue light into the eye.",
+        "A person's cornea starts to make its own sunlight.",
+        "A boy finds it hard to see colours in a dark room."
+      ],
+      "answer": "D",
+      "why": "In dim light only rods work well, and they cannot detect colour, so colours are hard to see in the dark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "A student cannot tell the colours on a map apart while reading in a dim room. Based on the passage, what is the BEST solution?",
+      "options": [
+        "Close one eye so that the rod cells can rest for a while.",
+        "Read the map in bright light, where cone cells work best.",
+        "Hold the map farther away so less light reaches the eye.",
+        "Use a glass prism to turn the dim light into darkness."
+      ],
+      "answer": "B",
+      "why": "Cone cells detect colour and work best in bright light, so better lighting solves the problem."
+    }
+  ]
+}

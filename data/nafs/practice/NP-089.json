@@ -1,0 +1,169 @@
+{
+  "code": "NP-089",
+  "title": "Ibn al-Haytham: Master of Light",
+  "kind": "INFORMATIONAL",
+  "genre": "biography",
+  "passage": "Ibn al-Haytham, known in Europe as Alhazen, was born in Basra around the year 965. As a young man, he studied math, the stars and philosophy, and he became known as a very talented scholar.\n\nAccording to a famous story, the ruler of Egypt invited him to Cairo to find a way to control the flooding of the Nile River. After examining the river carefully, Ibn al-Haytham concluded that the project was impossible with the tools available at that time. Some historians say he then spent several years living quietly in Cairo, where he devoted himself to research and writing.\n\nHis most important work, the Book of Optics, changed how people understood light and sight. Many earlier thinkers believed that the eyes sent out rays that touched the objects we see. Ibn al-Haytham argued instead that light travels from objects into the eye. To support his ideas, he performed careful experiments with dark rooms, small openings and lamps, and he described how an image passes through a tiny hole.\n\nMore importantly, he insisted that scientists should test ideas through observation and experiment rather than simply accept the opinions of famous authorities. For this reason, many historians consider him an early pioneer of the scientific method.\n\nHe died around 1040. Later, his books were put into Latin, and they shaped the work of European scientists for many years.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word belongs to the same word family as 'observe'?",
+      "options": [
+        "obvious",
+        "observation",
+        "service",
+        "obtain"
+      ],
+      "answer": "B",
+      "why": "'Observation' is the noun form of the verb 'observe'."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is a STATEMENT?",
+      "options": [
+        "Test every idea with an experiment.",
+        "How does light enter the eye?",
+        "What a brilliant scholar he was!",
+        "Ibn al-Haytham was born in Basra."
+      ],
+      "answer": "D",
+      "why": "A statement gives information and ends with a period."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "A biography",
+        "A fable",
+        "A poem",
+        "A diary"
+      ],
+      "answer": "A",
+      "why": "It tells the true story of a real person's life, from birth to death."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which event happened FIRST in Ibn al-Haytham's life?",
+      "options": [
+        "He traveled to Cairo in Egypt",
+        "He wrote the Book of Optics",
+        "He studied math and philosophy",
+        "His books were put into Latin"
+      ],
+      "answer": "C",
+      "why": "He studied 'as a young man,' before the invitation to Cairo."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How did Ibn al-Haytham's idea about vision differ from earlier thinkers' ideas?",
+      "options": [
+        "He said light enters the eye from objects",
+        "He said the eyes send rays to objects",
+        "He said vision does not need light",
+        "He said only lamps can be seen clearly"
+      ],
+      "answer": "A",
+      "why": "Earlier thinkers believed the eyes sent out rays; he argued that light travels from objects into the eye."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says his book 'changed how people understood light and sight.' What does this show?",
+      "options": [
+        "The book was hard and unpopular",
+        "The book had a very large influence",
+        "The book was mainly about the Nile",
+        "The book was lost for many years"
+      ],
+      "answer": "B",
+      "why": "The phrase shows how important and powerful the book was."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "He failed because he could not control the Nile",
+        "Only his early studies in Basra really mattered",
+        "Famous authorities are always correct",
+        "His experiments make him an important scientist"
+      ],
+      "answer": "D",
+      "why": "Historians call him an early pioneer of the scientific method because he tested ideas by experiment."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is LEAST certain?",
+      "options": [
+        "Where Ibn al-Haytham was born",
+        "What the Book of Optics was about",
+        "Whether the Nile story is fully true",
+        "Which language his books were put into"
+      ],
+      "answer": "C",
+      "why": "The writer calls it 'a famous story' and says only 'some historians' describe what followed."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which event could really happen in a modern classroom?",
+      "options": [
+        "Students form an image of a lamp through a tiny hole",
+        "Students see objects in a room with no light",
+        "A student's eyes send rays that light up a room",
+        "A lamp forms an image through a solid wall"
+      ],
+      "answer": "A",
+      "why": "The passage describes how an image passes through a tiny hole, which really works."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "The Great Flood of the Nile",
+        "The Scholar Who Tested Light",
+        "A Journey to Basra",
+        "The Lamps of Cairo"
+      ],
+      "answer": "B",
+      "why": "It focuses on his life and his experiments with light."
+    }
+  ]
+}

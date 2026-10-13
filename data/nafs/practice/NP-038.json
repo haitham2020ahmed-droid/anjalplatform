@@ -1,0 +1,169 @@
+{
+  "code": "NP-038",
+  "title": "Al-Khwarizmi: Father of Algebra",
+  "kind": "INFORMATIONAL",
+  "genre": "biography",
+  "passage": "Muhammad ibn Musa al-Khwarizmi was born around the year 780, probably in the region of Khwarazm in Central Asia. As a young scholar, he moved to Baghdad, which was then one of the greatest centres of learning in the world. There he worked at the House of Wisdom. In this famous place, scholars translated, studied, and built on the knowledge of earlier peoples.\n\nAl-Khwarizmi's most important book explained ways to solve equations step by step. Its Arabic title included the word al-jabr. This word described a way of balancing the two sides of an equation, and from it comes the modern term algebra. He wrote clearly and used practical examples, such as dividing inheritances and measuring land. In this way, ordinary people could use mathematics to solve everyday problems.\n\nHe also wrote a book about Hindu-Arabic numerals, the system of ten digits, including zero, that we use today. When this work was later translated into Latin, it helped spread these numerals across Europe. Slowly, they replaced the clumsy Roman numerals. Interestingly, the Latin form of his name, Algoritmi, later gave us the word algorithm. Today this word means a set of step-by-step instructions, such as those that computers follow.\n\nBesides mathematics, al-Khwarizmi worked in astronomy and geography. He produced tables of the stars and planets and improved maps of the known world. He died around the year 850, but his ideas still shape classrooms, science, and computer programming more than a thousand years later.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "The word \"scholar\" is singular. Which word from the passage is its PLURAL?",
+      "options": [
+        "scholarly",
+        "schools",
+        "scholarship",
+        "scholars"
+      ],
+      "answer": "D",
+      "why": "Adding -s to scholar makes the plural scholars, which appears in the first paragraph."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"practical\" correctly?",
+      "options": [
+        "The practical example helped us solve a real problem.",
+        "She practical every morning before school.",
+        "The practical flew over the mountains.",
+        "We practical our lessons in the library."
+      ],
+      "answer": "A",
+      "why": "Practical is an adjective meaning useful in real life, so it correctly describes the noun example."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a fable",
+        "a poem",
+        "a biography",
+        "a dialogue"
+      ],
+      "answer": "C",
+      "why": "It tells the true life story and achievements of a real person, al-Khwarizmi."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which event happened FIRST in al-Khwarizmi's life?",
+      "options": [
+        "His numeral book was translated into Latin.",
+        "He moved to Baghdad as a young scholar.",
+        "He died around the year 850.",
+        "His name gave us the word algorithm."
+      ],
+      "answer": "B",
+      "why": "He moved to Baghdad as a young man; the translation and the new word came much later."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What was one effect of translating his book on numerals into Latin?",
+      "options": [
+        "Roman numerals became more popular.",
+        "The House of Wisdom was closed.",
+        "Baghdad stopped teaching mathematics.",
+        "Hindu-Arabic numerals spread across Europe."
+      ],
+      "answer": "D",
+      "why": "The passage says the Latin translation helped spread the numerals across Europe."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "The writer describes Roman numerals as \"clumsy.\" What does this word suggest?",
+      "options": [
+        "They were beautiful and easy to read.",
+        "They were awkward and hard to work with.",
+        "They were invented by careless people.",
+        "They were heavier than other numbers."
+      ],
+      "answer": "B",
+      "why": "Clumsy means awkward; the writer suggests Roman numerals were harder to calculate with than the new digits."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST expresses the writer's viewpoint about al-Khwarizmi?",
+      "options": [
+        "His ideas were forgotten after he died.",
+        "He mattered only to the people of Baghdad.",
+        "His work still matters in today's world.",
+        "He cared more about stars than numbers."
+      ],
+      "answer": "C",
+      "why": "The writer ends by saying his ideas still shape classrooms, science and programming a thousand years later."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST certain?",
+      "options": [
+        "Exactly where al-Khwarizmi was born",
+        "Where he worked in Baghdad",
+        "Which modern word comes from al-jabr",
+        "What the word algorithm means today"
+      ],
+      "answer": "A",
+      "why": "The writer says he was \"probably\" born in Khwarazm, so his birthplace is not certain."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY have happened in al-Khwarizmi's time?",
+      "options": [
+        "Al-Khwarizmi writes his books on a laptop.",
+        "A student flies from Baghdad to Europe by plane.",
+        "A computer follows his instructions in 820.",
+        "A scholar in Baghdad translates a book on astronomy."
+      ],
+      "answer": "D",
+      "why": "Scholars at the House of Wisdom translated books; laptops, planes and computers did not exist then."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "The Tallest Tower in Baghdad",
+        "From Al-Jabr to Algorithms",
+        "A Journey Across the Ocean",
+        "How Roman Numerals Began"
+      ],
+      "answer": "B",
+      "why": "It links his most famous ideas (algebra) with his lasting influence (algorithms)."
+    }
+  ]
+}

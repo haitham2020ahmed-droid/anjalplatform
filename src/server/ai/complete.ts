@@ -32,7 +32,8 @@ export async function queueCompletion(repo: Repo, actor: Actor, importJobId: str
   const qs = (await repo.findMany("Question", { id: { in: ids } }, { select: ["id", "tags"] })).filter((q) => needsOf(q).length);
   if (!qs.length) return null;
   // one open job per import: questions already queued are not queued again
-  const open = (await repo.findMany("AiJob", { schoolId, tool: "COMPLETE" })).filter((j) => (j.status === "QUEUED" || j.status === "RUNNING") && s((j.scope as Record<string, unknown> | null)?.importJob) === importJobId);
+  // ⚡ only the open jobs are read (not every completion job the school ever ran)
+  const open = (await repo.findMany("AiJob", { schoolId, tool: "COMPLETE", status: { in: ["QUEUED", "RUNNING"] } }, { select: ["id", "status", "scope"] })).filter((j) => (j.status === "QUEUED" || j.status === "RUNNING") && s((j.scope as Record<string, unknown> | null)?.importJob) === importJobId);
   const queued = open.length ? new Set((await repo.findMany("AiJobItem", { jobId: { in: open.map((j) => j.id) } }, { select: ["targetId"] })).map((i) => s(i.targetId))) : new Set<string>();
   const fresh = qs.filter((q) => !queued.has(s(q.id)));
   if (!fresh.length) return null;

@@ -8,6 +8,10 @@
  *   span     All-grades bank (30 per skill) — added to skills the school already has
  *   map      Curriculum Map — the Review places (map seed) first, then Concept Vocabulary / Review questions per place
  *   grammar  Grammar extras (grammar-extra-sets.json, same format as the skill sets) — skills the school already has
+ *   nafs     NAFS model booklets (data/nafs/booklets/NB-*.json) — passage + questions into the NAFS bank (Grade 6),
+ *            one booklet file per chunk; an invalid file is skipped and reported (src/server/nafs/booklets.ts)
+ *   nafsPractice  NAFS practice sets (data/nafs/practice/NP-*.json) — passage + 10 questions with a difficulty into the
+ *            NAFS center (Grade 6), one set per chunk; an invalid file is skipped and reported (src/server/nafs/practice-sets.ts)
  *
  * A pack whose file is missing is skipped. Every loader skips a question that is already there, so a chunk can be
  * run again (stop / resume, a second run) without adding anything twice.
@@ -22,12 +26,14 @@ import { normalizeSkillName, schoolSkillIndex } from "./skill-questions";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { readCacheFor } from "../db/read-cache-repo";
+import { bookletCount, bookletPackDir, bookletSignature, loadBookletsInto, readBooklets, type Booklet } from "../nafs/booklets";
+import { loadPracticeSetsInto, practiceCount, practicePackDir, practiceSignature, readPracticeSets } from "../nafs/practice-sets";
 
 const s = (v: unknown) => String(v ?? "");
 
-export type PackKey = "gap" | "topup" | "span" | "map" | "grammar";
+export type PackKey = "gap" | "topup" | "span" | "map" | "grammar" | "nafs" | "nafsPractice";
 export interface PackDef {
-  key: PackKey; title: string; hint: string; file: string; kind: "skills" | "topup" | "map";
+  key: PackKey; title: string; hint: string; file: string; kind: "skills" | "topup" | "map" | "nafs" | "nafsPractice";
   /** add only to skills the school already has (never create one) */
   onlyExisting?: boolean;
   /** at most so many skill sets / map places in one chunk */
@@ -40,6 +46,8 @@ export const PACKS: readonly PackDef[] = [
   { key: "span", title: "All-grades bank (30 per skill)", hint: "MAP-style questions for the skills the school already has.", file: "span-skill-sets.json", kind: "skills", onlyExisting: true, perChunk: 3 },
   { key: "map", title: "Curriculum Map: Review places + Concept Vocabulary / Review questions", hint: "Adds the Review places, then the questions of each selection (Grades 4–6).", file: "map-vocab-review-sets.json", kind: "map", perChunk: 3 },
   { key: "grammar", title: "Grammar extras", hint: "More grammar questions for the skills the school already has.", file: "grammar-extra-sets.json", kind: "skills", onlyExisting: true, perChunk: 3 },
+  { key: "nafs", title: "NAFS model booklets", hint: "English NAFS model booklets (a text + its questions under the 13 Ministry standards) for the NAFS section's question bank.", file: "data/nafs/booklets", kind: "nafs", perChunk: 1 },
+  { key: "nafsPractice", title: "NAFS practice sets", hint: "English NAFS practice sets (a short text + 10 questions with Easy / Medium / Hard) for the NAFS center's practice and tests.", file: "data/nafs/practice", kind: "nafsPractice", perChunk: 1 },
 ];
 export const packOf = (key: string): PackDef | undefined => PACKS.find((p) => p.key === key);
 
@@ -47,11 +55,13 @@ export const packOf = (key: string): PackDef | undefined => PACKS.find((p) => p.
 
 let packDir: string | null = null;
 /** Where the pack files are (default data/questions/sets). Tests point it at small files. */
-export function usePackDir(dir: string | null): void { packDir = dir; fileCache.clear(); }
+export function usePackDir(dir: string | null): void { packDir = dir; fileCache.clear(); bookletPackDir(dir); practicePackDir(dir); }
 const dirOf = () => packDir ?? join(process.cwd(), "data", "questions", "sets");
 
 /** The file's signature (size + time): a changed file starts its pack again from the beginning. */
 export function packSignature(def: PackDef): string | null {
+  if (def.kind === "nafs") return bookletSignature();
+  if (def.kind === "nafsPractice") return practiceSignature();
   const f = join(dirOf(), def.file);
   if (!existsSync(f)) return null;
   const st = statSync(f);
@@ -62,6 +72,7 @@ type Loaded = { sets: SkillSet[]; nodes?: undefined } | { nodes: MapSetNode[]; s
 const fileCache = new Map<string, { sig: string; p: Promise<Loaded> }>();
 /** The pack's content (read once per file version, kept for the next chunks), or null when the file is missing. */
 export async function loadPack(def: PackDef): Promise<Loaded | null> {
+  if (def.kind === "nafs" || def.kind === "nafsPractice") return null; // read by src/server/nafs/booklets.ts / practice-sets.ts
   const sig = packSignature(def);
   if (!sig) return null;
   const hit = fileCache.get(def.key);
@@ -92,9 +103,29 @@ export interface ChunkWork { from: number; next: number; total: number; added: n
 export async function runPackChunk(repoIn: Repo, schoolId: string, def: PackDef, from: number, opts: { budgetMs?: number; maxUnits?: number; now?: Date } = {}): Promise<ChunkWork> {
   // ⚡ the reference rows every question of the chunk reads again (grades, skills, standards, areas, types …) are read
   // once per chunk; writes drop what they change (db/read-cache-repo.ts)
+  if (def.kind === "nafs") return runBookletChunk(repoIn, schoolId, from, opts, readBooklets(), loadBookletsInto, "NAFS model booklets");
+  if (def.kind === "nafsPractice") return runBookletChunk(repoIn, schoolId, from, opts, readPracticeSets(), loadPracticeSetsInto, "NAFS practice sets");
   const repo = readCacheFor(repoIn);
   repo.clear();
   try { return await runChunk(repo, schoolId, def, from, opts); } finally { repo.clear(); }
+}
+
+type SetLoader = (repo: Repo, schoolId: string, list: Booklet[], byUserId: string | null, now?: Date) => Promise<{ added: number; skipped: number }>;
+/** NAFS model booklets / practice sets: one file per unit; an invalid file is reported and skipped. */
+async function runBookletChunk(repo: Repo, schoolId: string, from: number, opts: { now?: Date }, r: { valid: Booklet[]; invalid: { file: string; problems: string[] }[]; files: string[] }, load: SetLoader, what: string): Promise<ChunkWork> {
+  const total = r.files.length;
+  const out: ChunkWork = { from, next: Math.max(0, Math.min(from, total)), total, added: 0, skipped: 0, created: 0, errors: [], notes: [] };
+  if (!total) { out.notes.push("The file of this pack is not on the server yet."); return out; }
+  if (!(await repo.findMany("Grade", { schoolId, level: 6 }, { select: ["id"], take: 1 })).length) { out.notes.push(`This school has no Grade 6: the ${what} are not for it.`); out.next = total; return out; }
+  const file = r.files[out.next];
+  const bad = r.invalid.find((x) => x.file === file);
+  if (bad) out.errors.push(`${file}: skipped — ${bad.problems.slice(0, 3).join("; ")}`);
+  else {
+    const b = r.valid.find((x) => x.file === file);
+    if (b) { const w = await load(repo, schoolId, [b], null, opts.now ?? new Date()); out.added += w.added; out.skipped += w.skipped; }
+  }
+  out.next++;
+  return out;
 }
 
 async function runChunk(repo: Repo, schoolId: string, def: PackDef, from: number, opts: { budgetMs?: number; maxUnits?: number; now?: Date }): Promise<ChunkWork> {
@@ -157,6 +188,11 @@ const countCache = new WeakMap<object, Map<string, { v: string; at: number; p: P
 export function countPack(repo: Repo, schoolId: string, def: PackDef): Promise<PackCount | null> {
   const sig = packSignature(def);
   if (!sig) return Promise.resolve(null);
+  if (def.kind === "nafs" || def.kind === "nafsPractice") return (async () => {
+    const c = def.kind === "nafs" ? await bookletCount(repo, schoolId) : await practiceCount(repo, schoolId);
+    const g6 = (await repo.findMany("Grade", { schoolId, level: 6 }, { select: ["id"], take: 1 })).length > 0;
+    return { questions: c.questions, inBank: c.inBank, left: Math.max(0, c.questions - c.inBank), units: c.files, applies: g6 };
+  })();
   let m = countCache.get(repo); if (!m) countCache.set(repo, (m = new Map()));
   const v = `${sig}|${modelVersion("Question", "Skill", "CurriculumMapNode")}`, k = `${schoolId}:${def.key}`, hit = m.get(k);
   if (hit && hit.v === v && Date.now() - hit.at < 120_000) return hit.p;

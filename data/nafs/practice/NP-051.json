@@ -1,0 +1,169 @@
+{
+  "code": "NP-051",
+  "title": "Night Journeys of the Sea Turtle",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "On warm summer nights, a female green sea turtle drags her heavy body out of the ocean and slowly crawls across the sand. She may have travelled hundreds of kilometres to reach this beach, which is often the very same beach where she hatched decades earlier. Scientists believe that turtles use the Earth's magnetic field, like an invisible map, to find their way home.\n\nOnce she chooses a spot above the high-tide line, the mother digs a deep hole with her back flippers. She lays around one hundred eggs, each about the size of a ping-pong ball, and then carefully covers them with sand before returning to the sea. She never sees her young.\n\nThe eggs incubate for roughly two months. Surprisingly, the temperature of the sand decides whether the hatchlings will be male or female: warmer nests produce mostly females, while cooler nests produce mostly males. When the babies finally hatch, they usually wait until night and then race toward the brightest horizon, which is normally the moonlit sea.\n\nUnfortunately, bright lights from hotels and roads can confuse the hatchlings and lead them away from the water. In Saudi Arabia, protected beaches on the Red Sea coast and islands in the Arabian Gulf give nesting turtles a safer place. Volunteers keep these beaches dark and clean, because every hatchling that reaches the waves is a small victory for the species.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the passage is an adjective?",
+      "options": [
+        "crawls",
+        "carefully",
+        "magnetic",
+        "flippers"
+      ],
+      "answer": "C",
+      "why": "'Magnetic' describes the noun 'field', so it is an adjective; 'flippers' is a noun, 'crawls' a verb and 'carefully' an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word 'incubate' correctly?",
+      "options": [
+        "She incubated quickly to the bus stop this morning.",
+        "The farmer uses a warm lamp to incubate the eggs.",
+        "The turtle incubated the beach with her flippers.",
+        "We incubate the classroom by opening every window."
+      ],
+      "answer": "B",
+      "why": "To incubate means to keep eggs warm until they hatch, as the sand does for the turtle eggs."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why are bright lights from hotels and roads dangerous for hatchlings?",
+      "options": [
+        "They make the sand far too hot for the eggs.",
+        "They wake the mother before she can lay eggs.",
+        "They confuse hatchlings and lead them from the sea.",
+        "They attract birds that hunt the young turtles."
+      ],
+      "answer": "C",
+      "why": "The last paragraph states that bright lights can confuse the hatchlings and lead them away from the water."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "What does the mother turtle do right after she lays her eggs?",
+      "options": [
+        "She digs a deep hole with her back flippers.",
+        "She leads the hatchlings toward the moonlit water.",
+        "She waits nearby until all the babies hatch.",
+        "She covers them with sand and returns to the sea."
+      ],
+      "answer": "D",
+      "why": "The passage says she lays the eggs 'and then carefully covers them with sand before returning to the sea.' Digging comes before laying, and she never sees her young."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "According to the passage, what is the effect of a warmer nest?",
+      "options": [
+        "Most of the hatchlings will be female.",
+        "The eggs will hatch in only a few days.",
+        "Most of the hatchlings will be male.",
+        "The hatchlings will be larger than usual."
+      ],
+      "answer": "A",
+      "why": "The passage explains that warmer nests produce mostly females, while cooler nests produce mostly males."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says turtles use the Earth's magnetic field 'like an invisible map.' What does this comparison help the reader understand?",
+      "options": [
+        "Turtles carry real paper maps inside their shells.",
+        "Something unseen guides turtles to the right beach.",
+        "Turtles often get lost in the open ocean.",
+        "Scientists have drawn maps of every nesting beach."
+      ],
+      "answer": "B",
+      "why": "A map shows the way; calling the magnetic field an 'invisible map' shows that it guides turtles even though it cannot be seen."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "Turtles are in no danger because mothers lay many eggs.",
+        "Hatchlings would be safer if their mothers stayed to guard them.",
+        "Hotels should be built as close to nesting beaches as possible.",
+        "Keeping nesting beaches dark helps young turtles survive."
+      ],
+      "answer": "D",
+      "why": "The passage shows that lights confuse hatchlings and that volunteers keep beaches dark, so darkness supports their survival."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "Which sand temperature produces more female hatchlings",
+        "How many eggs a female turtle lays in one nest",
+        "How long the eggs stay in the sand before hatching",
+        "How exactly turtles use the magnetic field to find home"
+      ],
+      "answer": "D",
+      "why": "The passage only says scientists 'believe' turtles use the magnetic field and does not explain how; the other facts are stated clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A mother turtle teaches her babies how to swim.",
+        "A sea turtle flies over the beach to choose a nest.",
+        "A volunteer switches off beach lights for hatchlings.",
+        "A hatchling reads a map to find its way to the sea."
+      ],
+      "answer": "C",
+      "why": "Volunteers really keep nesting beaches dark. Turtles cannot read or fly, and the mother never meets her young."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "From Sandy Nest to Open Sea",
+        "Hotels on the Red Sea Coast",
+        "How Turtles Use Their Flippers to Swim",
+        "The Earth's Magnetic Field"
+      ],
+      "answer": "A",
+      "why": "The passage follows turtles from nesting on the sand to hatchlings reaching the sea; the other titles cover only small details."
+    }
+  ]
+}

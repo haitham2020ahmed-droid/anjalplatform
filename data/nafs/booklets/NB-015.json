@@ -1,0 +1,568 @@
+{
+  "code": "NB-015",
+  "title": "Vaccines: Training the Body's Defenders",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 469,
+  "passage": "Every day, your body encounters millions of microscopic germs, such as bacteria and viruses. Although most of them are harmless, some can cause serious illnesses. Fortunately, your body has its own defensive army, called the immune system, which works constantly to fight these invaders. Vaccines are among the cleverest tools that scientists have developed to make this army even stronger.\n\nThe immune system is made up of special cells, organs and chemicals that cooperate to protect the body. Among its most important soldiers are white blood cells. When a harmful germ enters the body, some white blood cells produce antibodies, which are Y-shaped proteins that attach themselves to the germ and help to destroy it. However, the first time the body meets an unfamiliar germ, it needs several days to produce the right antibodies, and during that time the person may become sick.\n\nThis is precisely where vaccines help. A vaccine contains a weakened or dead germ, or simply a harmless piece of one. It cannot cause the real disease, but it looks familiar enough to the immune system to trigger a response. The body reacts by producing antibodies as well as special memory cells, which can remember the germ for years. If the real germ ever attacks, the body recognises it immediately and defeats it quickly, often before the person even feels ill. In other words, a vaccine works like a practice drill for the immune system.\n\nThe history of vaccination began more than two hundred years ago. In 1796, an English doctor named Edward Jenner observed that milkmaids who had caught a mild illness called cowpox did not catch smallpox, a deadly disease that had killed millions of people. After testing his idea, he developed the first vaccine. Thanks to vaccines, smallpox was completely eliminated from the world in 1980. What an extraordinary achievement that was! Other dangerous diseases, such as polio and measles, have also become far less common.\n\nVaccines also protect people who cannot be vaccinated themselves, such as newborn babies or people with certain illnesses. When most members of a community are vaccinated, a germ cannot easily spread from person to person, because it finds too few people to infect. This is called community protection, and it keeps the most vulnerable members of society safe.\n\nSome people feel anxious about injections. It is true that a vaccine may cause a sore arm or a slight fever, but these side effects are usually mild and disappear within a day or two. Before any vaccine is approved, scientists test it carefully on thousands of volunteers to make sure that it is both safe and effective.\n\nVaccines have saved millions of lives around the world. By keeping our vaccinations up to date, we protect not only ourselves but also our families, our classmates and our whole community.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “vulnerable” as it is used in paragraph 5?",
+      "options": [
+        "very strong",
+        "well known",
+        "easily harmed",
+        "often absent"
+      ],
+      "answer": "C",
+      "why": "The most vulnerable members of society, such as newborn babies, are the people most easily harmed by germs."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “unfamiliar” as it is used in paragraph 2?",
+      "options": [
+        "well-known",
+        "dangerous",
+        "unusual",
+        "foreign"
+      ],
+      "answer": "A",
+      "why": "Unfamiliar means not known before; well-known is its opposite. Unusual and foreign are close in meaning, not opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 3: “It cannot cause the real disease, but it looks familiar enough to the immune system to trigger a response.” What does “trigger” mean here?",
+      "options": [
+        "stop completely",
+        "cause to start",
+        "hide from",
+        "slow down"
+      ],
+      "answer": "B",
+      "why": "The next sentence says the body reacts by producing antibodies, so the vaccine causes the response to start."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from the text is an adjective?",
+      "options": [
+        "eliminated",
+        "immediately",
+        "volunteers",
+        "vulnerable"
+      ],
+      "answer": "D",
+      "why": "Vulnerable describes people (adjective); eliminated is a verb, immediately an adverb and volunteers a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “bacteria” in paragraph 1 is plural. What is its singular form?",
+      "options": [
+        "bacterias",
+        "bacterium",
+        "bacteri",
+        "bacteriums"
+      ],
+      "answer": "B",
+      "why": "Bacteria is an irregular plural; one is called a bacterium."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “protect” in paragraph 5?",
+      "options": [
+        "protection",
+        "product",
+        "protest",
+        "perfect"
+      ],
+      "answer": "A",
+      "why": "Protection is the noun formed from the verb protect; protest and product only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "WRITTEN",
+      "stem": "Use the word “effective” in a sentence of your own.",
+      "model": "Drinking plenty of water is an effective way to stay healthy during the hot summer months.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “effective” with a meaning that fits",
+        "1 = uses the word, but the sentence is incomplete, copied from the text, or has errors that affect meaning",
+        "0 = no answer, the word is missing, or it is used with the wrong meaning"
+      ],
+      "why": "The sentence must be original and show that effective means working well and producing the result that is wanted."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 2, the plural “antibodies” is formed from “antibody”. Which word forms its plural in the same way?",
+      "options": [
+        "day → days",
+        "virus → viruses",
+        "cell → cells",
+        "discovery → discoveries"
+      ],
+      "answer": "D",
+      "why": "Nouns ending in a consonant + y change y to i and add -es (antibody → antibodies, discovery → discoveries); day ends in a vowel + y, so it only adds -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is a command?",
+      "options": [
+        "Vaccines have saved millions of lives around the world.",
+        "Do vaccines always hurt?",
+        "Keep your vaccinations up to date.",
+        "What an extraordinary achievement that was!"
+      ],
+      "answer": "C",
+      "why": "It tells someone to do something and has no stated subject, so it is a command; the others are a statement, a question and an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "The Life of Edward Jenner",
+        "How Vaccines Train the Body to Fight Disease",
+        "Why Babies Cannot Be Vaccinated",
+        "The History of Smallpox"
+      ],
+      "answer": "B",
+      "why": "The text explains how vaccines work and why they matter; the other titles fit only one paragraph."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to explain how vaccines work and why they matter",
+        "to tell the life story of a famous doctor",
+        "to sell a new kind of medicine",
+        "to describe how hospitals are run"
+      ],
+      "answer": "A",
+      "why": "The text gives facts about the immune system, vaccines, their history and their safety."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "All germs cause serious illnesses",
+        "Scientists have only recently discovered germs",
+        "Bacteria and viruses are the same thing",
+        "The body fights germs, and vaccines make it stronger"
+      ],
+      "answer": "D",
+      "why": "Paragraph 1 introduces the immune system as an army and vaccines as a tool that makes it stronger; it says most germs are harmless."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why may a person become sick the first time they meet a new germ?",
+      "options": [
+        "White blood cells cannot attach to new germs",
+        "The body needs several days to produce antibodies",
+        "The body has no white blood cells yet",
+        "Antibodies attack healthy cells"
+      ],
+      "answer": "B",
+      "why": "Paragraph 2 says the body needs several days to produce the right antibodies, and during that time the person may become sick."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this, and which feature shows it?",
+      "options": [
+        "a story, because it has a main character",
+        "a poem, because it uses rhyme",
+        "informational, because it explains facts about a real topic",
+        "a letter, because it begins with a greeting"
+      ],
+      "answer": "C",
+      "why": "It explains scientific facts with dates and examples, so it is an informational (expository) text."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why can a vaccine not give you the real disease?",
+      "options": [
+        "It has only a weakened or dead germ, or a harmless piece",
+        "It contains no germ material at all",
+        "It is given only to healthy adults",
+        "It destroys the body's white blood cells"
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 says a vaccine contains a weakened or dead germ, or simply a harmless piece of one."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, which of these events happened first?",
+      "options": [
+        "Jenner developed the first vaccine",
+        "Smallpox was eliminated from the world",
+        "Jenner noticed milkmaids who had caught cowpox",
+        "Polio became far less common"
+      ],
+      "answer": "C",
+      "why": "Jenner first observed the milkmaids, then tested his idea and developed the vaccine; smallpox was eliminated much later, in 1980."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which paragraph tells about the history of vaccines?",
+      "options": [
+        "Paragraph 4",
+        "Paragraph 2",
+        "Paragraph 5",
+        "Paragraph 6"
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 describes Edward Jenner in 1796 and the end of smallpox in 1980."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the text, what must happen before any vaccine is approved?",
+      "options": [
+        "It is given to newborn babies first",
+        "It is stored for one year",
+        "It is tested on milkmaids",
+        "It is tested on thousands of volunteers"
+      ],
+      "answer": "D",
+      "why": "Paragraph 6 says scientists test every vaccine carefully on thousands of volunteers."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What led Edward Jenner to his idea?",
+      "options": [
+        "He caught smallpox himself",
+        "Milkmaids with cowpox did not catch smallpox",
+        "He studied white blood cells",
+        "Cows never became ill"
+      ],
+      "answer": "B",
+      "why": "He observed that milkmaids who had caught cowpox did not catch smallpox."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, what most makes the reader want to keep reading?",
+      "options": [
+        "comparisons such as an army and a practice drill",
+        "long lists of hospital names",
+        "a funny story about a doctor",
+        "a mystery about a missing vaccine"
+      ],
+      "answer": "A",
+      "why": "Comparing the immune system to an army and a vaccine to a practice drill makes a difficult topic interesting and easy to picture."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe the writer's attitude toward vaccines?",
+      "options": [
+        "afraid and worried",
+        "doubtful and unsure",
+        "positive and confident",
+        "angry and upset"
+      ],
+      "answer": "C",
+      "why": "The writer calls vaccines “among the cleverest tools”, says they have saved millions of lives and answers people's worries calmly."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How is the body's response to a germ different after a vaccine?",
+      "options": [
+        "It needs more days to react",
+        "It recognises the germ and fights it much faster",
+        "It makes no antibodies at all",
+        "It can no longer fight the germ"
+      ],
+      "answer": "B",
+      "why": "Paragraphs 2 and 3 contrast the several days needed the first time with the immediate response that memory cells make possible."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, what happens when most people in a community are vaccinated?",
+      "options": [
+        "Everyone develops a slight fever",
+        "Germs become stronger and more dangerous",
+        "Babies need more injections",
+        "Germs find too few people to infect and cannot spread easily"
+      ],
+      "answer": "D",
+      "why": "The paragraph says a germ cannot easily spread, because it finds too few people to infect."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the text, what do newborn babies and people with certain illnesses have in common?",
+      "options": [
+        "Some of them cannot be vaccinated",
+        "Community protection helps keep them safe",
+        "They are among the most vulnerable members of society",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 says all three things: they may not be vaccinated, community protection keeps them safe, and they are among the most vulnerable."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is your opinion of the way the writer explains difficult ideas?",
+      "options": [
+        "Too many hard words make them confusing",
+        "Comparisons make them easy to picture",
+        "No examples are given at all",
+        "The ideas are in a random order"
+      ],
+      "answer": "B",
+      "why": "Comparisons such as an army and a practice drill make scientific ideas clear."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is an exclamatory sentence?",
+      "options": [
+        "“Vaccines have saved millions of lives around the world.”",
+        "“This is precisely where vaccines help.”",
+        "“What an extraordinary achievement that was!”",
+        "“Some people feel anxious about injections.”"
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling, begins with “What an …” and ends with an exclamation mark."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “a vaccine works like a practice drill for the immune system”?",
+      "options": [
+        "It lets the body prepare before a real attack",
+        "It makes the body tired and weak",
+        "It is a tool used to make holes",
+        "It is a lesson taught at school"
+      ],
+      "answer": "A",
+      "why": "Like a fire drill, a vaccine lets the body practise so that it is ready for the real germ."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In your opinion, which is the most beneficial action for a family, based on the text?",
+      "options": [
+        "avoiding all doctors",
+        "keeping vaccinations up to date",
+        "refusing all injections",
+        "staying at home all year"
+      ],
+      "answer": "B",
+      "why": "The text says keeping vaccinations up to date protects us, our families and our community."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do you think motivated the writer to write this text?",
+      "options": [
+        "to frighten readers about germs",
+        "to advertise a hospital",
+        "to tell the life story of a milkmaid",
+        "to help readers understand vaccines and feel less worried"
+      ],
+      "answer": "D",
+      "why": "The writer explains how vaccines work and calmly answers worries about injections."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which opinion would the writer most agree with?",
+      "options": [
+        "Vaccines protect both individuals and whole communities",
+        "Vaccines are only needed by adults",
+        "Vaccines are too dangerous to use",
+        "Vaccines are no longer needed now that smallpox is gone"
+      ],
+      "answer": "A",
+      "why": "The writer says vaccines protect us, our families and our community, and that polio and measles are still being fought."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the least clear in the text?",
+      "options": [
+        "what antibodies are",
+        "who made the first vaccine",
+        "how memory cells remember germs for years",
+        "what side effects can happen"
+      ],
+      "answer": "C",
+      "why": "The text says memory cells remember germs for years but does not explain how; the others are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the text, which of the following could really happen?",
+      "options": [
+        "A child has a sore arm for a day after a vaccine",
+        "A vaccine gives a healthy person smallpox",
+        "A germ spreads easily in a fully vaccinated community",
+        "A vaccine is used before it has been tested"
+      ],
+      "answer": "A",
+      "why": "Paragraph 6 says a sore arm is a common mild side effect; the other events contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas of the whole text?",
+      "options": [
+        "Edward Jenner's Farm",
+        "Practice for the Body's Army",
+        "The End of Measles",
+        "Germs That Never Harm Us"
+      ],
+      "answer": "B",
+      "why": "The text explains how vaccines train the immune system, which it calls an army."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Your younger brother is afraid of having a vaccination. Suggest a solution to help him, using ideas from the text.",
+      "model": "I would explain that the vaccine is like a practice drill that prepares his body's army to defeat real germs, and that scientists have tested it on thousands of volunteers. I would also tell him that it may only make his arm sore for a day, and I would hold his hand during the injection.",
+      "rubric": [
+        "2 = a clear, kind and logical solution in complete sentences that uses ideas from the text",
+        "1 = a solution is given but it is very short, unclear, or only partly connected to the text",
+        "0 = no answer, or the answer is unrelated to the text"
+      ],
+      "why": "Any kind, sensible solution that uses ideas from the text (how vaccines work, mild side effects, careful testing) is accepted."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How can we help protect our whole community from serious diseases?",
+      "options": [
+        "Vaccinate only the strongest people",
+        "Wait until a disease spreads before acting",
+        "Keep our vaccinations up to date",
+        "Depend only on newborn babies' health"
+      ],
+      "answer": "C",
+      "why": "The last paragraph says keeping vaccinations up to date protects our whole community."
+    }
+  ]
+}

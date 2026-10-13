@@ -1,0 +1,169 @@
+{
+  "code": "NP-026",
+  "title": "When the Ground Shakes",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "The ground beneath our feet seems solid and motionless, but Earth's outer layer is actually divided into enormous pieces called tectonic plates. These plates move extremely slowly, usually only a few centimeters each year. Where two plates meet, their edges can become stuck while pressure gradually builds. When the rock suddenly breaks and slips, it releases energy as powerful vibrations, and an earthquake occurs.\n\nThe point underground where the rock breaks is called the focus, and the location directly above it on the surface is called the epicenter. Scientists measure the strength of earthquakes using instruments called seismometers. Each step on the magnitude scale represents a much larger release of energy, so a magnitude 7 earthquake is far more destructive than a magnitude 5.\n\nMost injuries during earthquakes are caused not by the shaking itself but by falling objects and collapsing buildings. For this reason, experts recommend a simple routine: drop, cover, and hold on. People should drop to their hands and knees, take cover beneath a sturdy table, and hold on until the shaking stops. They should stay away from windows and heavy furniture that might topple.\n\nCommunities can also prepare in advance. Engineers design buildings with flexible frames that bend rather than crack, and schools practice regular earthquake drills. Families are encouraged to keep an emergency kit containing water, a flashlight, and a first-aid box. Although earthquakes cannot be prevented, careful preparation can greatly reduce the harm they cause.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is an ADJECTIVE?",
+      "options": [
+        "gradually",
+        "vibrations",
+        "sturdy",
+        "prevented"
+      ],
+      "answer": "C",
+      "why": "\"Sturdy\" describes the noun \"table,\" so it is an adjective."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is a COMMAND?",
+      "options": [
+        "Where is the nearest exit?",
+        "Take cover under a strong table.",
+        "What a powerful earthquake that was!",
+        "Earthquakes can be very dangerous."
+      ],
+      "answer": "B",
+      "why": "A command gives an instruction and begins with a verb, \"Take.\""
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why do experts recommend \"drop, cover, and hold on\"?",
+      "options": [
+        "It stops the ground from shaking.",
+        "It helps scientists measure magnitude.",
+        "Most injuries come from falling objects.",
+        "It keeps the plates from moving."
+      ],
+      "answer": "C",
+      "why": "The passage says most injuries are caused \"by falling objects and collapsing buildings. For this reason…\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which shows the correct order of events in an earthquake?",
+      "options": [
+        "Pressure builds, the rock breaks, vibrations spread.",
+        "The rock slips, the plates stop, pressure builds.",
+        "The rock breaks, pressure builds, the plates meet.",
+        "Vibrations spread, pressure builds, the rock breaks."
+      ],
+      "answer": "A",
+      "why": "Pressure builds where plates are stuck; then the rock breaks and slips, releasing energy as vibrations."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How is the focus different from the epicenter?",
+      "options": [
+        "The focus measures strength; the epicenter records it.",
+        "The focus is a fault; the epicenter is a seismometer.",
+        "The focus is on the surface; the epicenter is deep.",
+        "The focus is underground; the epicenter is above it."
+      ],
+      "answer": "D",
+      "why": "The focus is where the rock breaks underground; the epicenter is the point on the surface directly above."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The passage begins by saying the ground \"seems solid and motionless.\" Why does the writer begin this way?",
+      "options": [
+        "to describe the weather before an earthquake",
+        "to explain how seismometers are built",
+        "to contrast how things seem with how they are",
+        "to prove that the ground never moves at all"
+      ],
+      "answer": "C",
+      "why": "The word \"seems\" and the following \"but\" show the ground only looks still; in fact the plates are moving."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "School earthquake drills waste valuable time.",
+        "Buildings should never be allowed to bend.",
+        "Only scientists need to learn about earthquakes.",
+        "Every family should prepare for earthquakes."
+      ],
+      "answer": "D",
+      "why": "The passage says preparation \"can greatly reduce the harm\" and encourages families to keep emergency kits."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "What an emergency kit should contain",
+        "How much stronger magnitude 7 is than magnitude 5",
+        "What the point above the focus is called",
+        "What instruments measure earthquakes"
+      ],
+      "answer": "B",
+      "why": "The passage only says each step is \"a much larger release of energy\" without saying how much larger."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "Students practice an earthquake drill at school.",
+        "A tectonic plate moves a kilometer in a year.",
+        "A table warns people before the shaking starts.",
+        "Scientists stop an earthquake with a machine."
+      ],
+      "answer": "A",
+      "why": "Schools really hold drills. Earthquakes cannot be prevented, and plates move only a few centimeters a year."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the best solution for a family worried about earthquakes?",
+      "options": [
+        "Move every table out of the house.",
+        "Sleep beside large windows for fresh air.",
+        "Store heavy boxes on top of tall cupboards.",
+        "Fix tall shelves to the wall and pack a kit."
+      ],
+      "answer": "D",
+      "why": "Securing furniture prevents falling objects, and an emergency kit is recommended in the passage."
+    }
+  ]
+}

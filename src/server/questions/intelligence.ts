@@ -23,6 +23,7 @@ import { audit } from "../audit";
 import type { Actor } from "../auth/rbac";
 import { assertCan, ForbiddenError } from "../auth/rbac";
 import type { Repo, Row } from "../seeding/repo";
+import { eachLimit } from "../db/parallel";
 
 const s = (v: unknown) => String(v ?? "");
 const tagsOf = (q: Row): Record<string, unknown> => { let t: unknown = q.tags; if (typeof t === "string") { try { t = JSON.parse(t); } catch { t = null; } } return t && typeof t === "object" ? (t as Record<string, unknown>) : {}; };
@@ -82,6 +83,9 @@ export async function analyzeQuestions(repo: Repo, schoolId: string, opts: { que
   const open = await repo.findMany("AiSuggestion", { schoolId, tool: "INTEL", status: "SUGGESTED" }, { select: ["questionId"] });
   const pending = new Set(open.map((o) => s(o.questionId)));
   let dokFilled = 0, suggestions = 0;
+  // ⚡ the values are computed first, then saved a few at a time and the suggestions in one insert
+  const updates: [string, Row][] = [];
+  const newSuggestions: Row[] = [];
   for (const q of pick) {
     const k = skillOf.get(s(q.skillId));
     const t = tagsOf(q);
@@ -100,17 +104,17 @@ export async function analyzeQuestions(repo: Repo, schoolId: string, opts: { que
     const lit = estimateLiteracyTags({ skillCode: k?.code ?? "", category: k?.category, stem: s(q.stem), passage, options: optsBy.get(s(q.id)), answers: answersBy.get(s(q.id)) });
     const merged = mergeLiteracyTags(t, lit, "RULE");
     if (merged.changed.length) literacyTagged++;
-    await repo.updateMany("Question", { id: q.id }, {
+    updates.push([s(q.id), {
       dok, dokSource, estimatedLevel: est.level, estimatedB: est.b, difficultyFactors: est.factors, textLevel: textLevel(s(q.stem), passage),
       // a level a person set (MANUAL/TEACHER) or the data set (DATA, src/server/questions/reclassify.ts) keeps its source
       difficultySource: ["MANUAL", "TEACHER", "DATA"].includes(s(q.difficultySource)) ? s(q.difficultySource) : calibrated ? "CALIBRATED" : q.difficultySource === "ESTIMATE" ? "ESTIMATE" : "AUTHORED", intelligenceAt: now,
       ...(merged.changed.length ? { tags: merged.tags } : {}),
-    });
+    }]);
     // an authored level far from the estimate (and no student data to settle it): ask a person
     const authored = Number(q.difficultyLevel);
     if (!calibrated && Number.isFinite(authored) && Math.abs(authored - est.level) >= DISAGREE_LEVELS && !pending.has(s(q.id))) {
       const why = Object.entries(est.factors).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([f, v]) => `${f} ${Math.round(v * 100)}%`).join(", ");
-      await repo.create("AiSuggestion", {
+      newSuggestions.push({
         schoolId, jobId: null, tool: "INTEL", kind: "DIFFICULTY", questionId: q.id, passageId: null, severity: 3,
         detail: `Authored level ${authored}, but the question looks like level ${est.level} (${why}). Approve = use level ${est.level} until student data calibrates it.`,
         data: { from: authored, to: est.level, b: LEVEL_TO_B[est.level], factors: est.factors }, status: "SUGGESTED", createdAt: now,
@@ -119,6 +123,8 @@ export async function analyzeQuestions(repo: Repo, schoolId: string, opts: { que
       suggestions++;
     }
   }
+  await eachLimit(updates, ([id, data]) => repo.updateMany("Question", { id }, data));
+  if (newSuggestions.length) await repo.createMany("AiSuggestion", newSuggestions);
   const misconceptions = await tagOptions(repo, { questionIds: ids });
   bumpBankVersion();
   return { analysed: pick.length, dokFilled, suggestions, misconceptions, literacyTagged };

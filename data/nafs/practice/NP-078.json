@@ -1,0 +1,169 @@
+{
+  "code": "NP-078",
+  "title": "Bees Among the Palms",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Date palms are among the most valuable trees in Saudi Arabia, and many people assume that bees are responsible for every date the farms produce. The truth is more surprising than that. Each palm is either male or female, and only females bear fruit. Wind does not carry pollen well enough. So farmers have long climbed the trees and pollinated the female flowers by hand, placing strands of male flowers among them.\n\nBees still play an important role on many date farms, however. Honeybees visit male palm flowers to collect protein-rich pollen, which they need to feed their young, and they may carry small amounts to female flowers. More importantly, farmers often plant other crops between the palms, such as citrus trees, vegetables, and clover. Many of these plants depend heavily on insects for pollination, so healthy bee colonies can significantly increase a farm's total harvest.\n\nBeekeepers also gain from the partnership. Farms supply flowers for much of the year. The shade beneath the palms protects hives from the intense summer heat. In return, beekeepers produce honey that farmers can sell alongside their dates.\n\nUnfortunately, bees face serious threats, including pesticides, extreme temperatures, and disease. Experts recommend that farmers spray chemicals only when necessary, preferably in the evening when bees have returned to their hives, and provide clean water nearby. Protecting these small insects helps keep entire farms productive.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which word from the passage is an adverb?",
+      "options": [
+        "productive",
+        "significantly",
+        "pollination",
+        "intense"
+      ],
+      "answer": "B",
+      "why": "\"Significantly\" tells how much bee colonies increase the harvest, so it is an adverb; the others are adjectives or a noun."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "What is the plural of the word \"colony\"?",
+      "options": [
+        "colonys",
+        "colonyes",
+        "colonies",
+        "colonie"
+      ],
+      "answer": "C",
+      "why": "When a word ends in a consonant + y, change y to i and add -es: colony → colonies."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why do honeybees visit male palm flowers?",
+      "options": [
+        "To collect pollen for their young",
+        "To drink water stored in the flowers",
+        "To build hives inside the flowers",
+        "To escape the summer heat"
+      ],
+      "answer": "A",
+      "why": "The passage says bees collect \"protein-rich pollen, which they need to feed their young.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which idea does the writer present first?",
+      "options": [
+        "Bees face threats such as pesticides.",
+        "Beekeepers sell honey with the dates.",
+        "Palm shade protects hives from heat.",
+        "Farmers have pollinated palms by hand."
+      ],
+      "answer": "D",
+      "why": "The first paragraph explains hand pollination; the other ideas appear in the later paragraphs."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "What do farmers and beekeepers have in common in the partnership described?",
+      "options": [
+        "Each one gains something from the other.",
+        "Both rely on bees to pollinate every date.",
+        "Both prefer to spray chemicals in the morning.",
+        "Both work only during the summer months."
+      ],
+      "answer": "A",
+      "why": "Farmers get pollination for crops between the palms, and beekeepers get flowers, shade and honey to sell."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The writer says, \"The truth is more surprising than that.\" Why does the writer use this sentence?",
+      "options": [
+        "To show that bees produce every date on farms",
+        "To introduce a story about one farmer's life",
+        "To signal that a common belief will be corrected",
+        "To explain step by step how honey is made"
+      ],
+      "answer": "C",
+      "why": "It follows the common belief that bees produce every date and prepares the reader for the surprising fact that palms are mostly hand-pollinated."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best expresses the writer's viewpoint?",
+      "options": [
+        "Bees are the only reason date palms bear any fruit.",
+        "Bees help date farms, though not mainly by pollinating dates.",
+        "Beekeeping causes more problems than benefits on date farms.",
+        "Farmers should replace their date palms with clover."
+      ],
+      "answer": "B",
+      "why": "The writer corrects the belief that bees pollinate the dates but still argues that bees are important and should be protected."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information is the least complete in the passage?",
+      "options": [
+        "Why palms are pollinated by hand",
+        "Which crops grow between the palms",
+        "When experts suggest spraying",
+        "How much bees add to date pollination"
+      ],
+      "answer": "D",
+      "why": "The passage says bees \"may carry small amounts\" of pollen to female flowers but never says how much this helps; the others are explained."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen on a Saudi date farm?",
+      "options": [
+        "A male palm tree grows a large harvest of dates.",
+        "A single bee carries enough pollen for a whole farm.",
+        "A farmer climbs a palm to place male flowers among female ones.",
+        "Bees make dates instead of honey in their hives."
+      ],
+      "answer": "C",
+      "why": "Hand pollination is the traditional practice described in the passage; male palms bear no fruit, and the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Based on the passage, what is the best way to protect bees on a date farm?",
+      "options": [
+        "Spray chemicals every morning to stop pests.",
+        "Spray only when needed, in the evening.",
+        "Move all the hives into full summer sun.",
+        "Remove the clover growing between the palms."
+      ],
+      "answer": "B",
+      "why": "Experts recommend spraying only when necessary, preferably in the evening when bees are back in their hives."
+    }
+  ]
+}

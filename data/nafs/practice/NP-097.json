@@ -1,0 +1,169 @@
+{
+  "code": "NP-097",
+  "title": "The Night the Backdrop Fell",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "passage": "For six weeks, the Grade 6 students had rehearsed their play about a merchant travelling with a caravan to the ancient market of Souq Okaz. Faisal, who played the merchant, had practised his lines so often that even his younger sister could recite them perfectly.\n\nOn the night of the performance, the hall was crowded with parents and teachers. Everything went smoothly until the second scene, when the enormous painted desert backdrop slowly tipped forward and crashed onto the stage with a tremendous bang. A cloud of dust rose into the air, and the entire audience gasped in astonishment.\n\nFaisal froze. His memory, which had been full of carefully memorised lines a moment earlier, was suddenly completely empty. He glanced desperately toward the side of the stage, where his teacher, Mr Hamdan, was waving his arms, but he could not understand what the gestures meant.\n\nThen Saad, who played the camel driver, stepped forward confidently and pointed at the fallen backdrop. \"Merchant, the sandstorm has knocked down our tent!\" he announced. \"We must rebuild it before the market opens.\"\n\nFaisal understood immediately. Together the two boys lifted the backdrop and leaned it carefully against the wall, pretending to struggle against a powerful wind. The audience, believing that the accident was part of the story, burst into enthusiastic applause.\n\nAfter the performance, Mr Hamdan shook Saad's hand and admitted that the improvised sandstorm had been better than anything he had written. From then on, the class described any problem that turns into an opportunity as \"a falling backdrop.\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the story is a noun?",
+      "options": [
+        "rehearsed",
+        "suddenly",
+        "enthusiastic",
+        "audience"
+      ],
+      "answer": "D",
+      "why": "\"Audience\" names a group of people, so it is a noun."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence from the story is an exclamatory sentence?",
+      "options": [
+        "Faisal froze.",
+        "Merchant, the sandstorm has knocked down our tent!",
+        "We must rebuild it before the market opens.",
+        "Faisal understood immediately."
+      ],
+      "answer": "B",
+      "why": "It shows strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the audience burst into applause?",
+      "options": [
+        "The backdrop was painted very beautifully.",
+        "Mr Hamdan asked everyone to clap loudly.",
+        "They thought the accident was part of the story.",
+        "The play had finished much earlier than planned."
+      ],
+      "answer": "C",
+      "why": "The story says the audience believed the accident was part of the story."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which event happened FIRST?",
+      "options": [
+        "The backdrop crashed onto the stage.",
+        "Saad said a sandstorm had knocked down the tent.",
+        "The audience burst into applause.",
+        "Mr Hamdan shook Saad's hand."
+      ],
+      "answer": "A",
+      "why": "The crash comes first; Saad's idea, the applause and the handshake follow."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How was Saad's reaction different from Faisal's when the backdrop fell?",
+      "options": [
+        "Saad froze, while Faisal acted quickly.",
+        "Both boys ran off the stage.",
+        "Saad laughed, while Faisal cried.",
+        "Saad acted quickly, while Faisal froze."
+      ],
+      "answer": "D",
+      "why": "Faisal froze and forgot his lines, but Saad stepped forward with a new idea."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says Faisal's memory \"was suddenly completely empty.\" What does this show?",
+      "options": [
+        "That Faisal had never learned his lines.",
+        "That Faisal was bored with the play.",
+        "How shocked Faisal felt.",
+        "That the hall had become too dark."
+      ],
+      "answer": "C",
+      "why": "The expression shows how the shock of the crash wiped his lines from his mind, even though he knew them well."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which lesson does the writer most want readers to learn?",
+      "options": [
+        "Plays should never use painted backdrops.",
+        "Quick thinking can turn a mistake into a success.",
+        "Teachers should write every line for students.",
+        "Practising lines is a waste of time."
+      ],
+      "answer": "B",
+      "why": "Saad's quick idea turned the accident into the best scene, and the class named the lesson \"a falling backdrop\"."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the story?",
+      "options": [
+        "What Mr Hamdan was signalling to Faisal",
+        "Which role Saad played in the play",
+        "Where the play was set",
+        "How long the students had rehearsed"
+      ],
+      "answer": "A",
+      "why": "The story says Mr Hamdan waved his arms but even Faisal could not understand what he meant."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A painted camel walks off the backdrop to join the play.",
+        "The backdrop lifts itself up while the boys watch.",
+        "A heavy backdrop falls over during a school play.",
+        "The audience is blown into the air by a stage wind."
+      ],
+      "answer": "C",
+      "why": "A falling backdrop is a realistic accident; the others are imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which alternative ending would best fit the story's message?",
+      "options": [
+        "The class decides never to perform a play again.",
+        "Mr Hamdan cancels the show and sends everyone home.",
+        "Saad is punished for changing the script.",
+        "Faisal later helps a classmate who forgets a line."
+      ],
+      "answer": "D",
+      "why": "This ending continues the message of helping others turn a problem into an opportunity."
+    }
+  ]
+}

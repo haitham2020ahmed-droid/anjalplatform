@@ -1,0 +1,169 @@
+{
+  "code": "NP-040",
+  "title": "Plastic in Our Oceans",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Every year, millions of tonnes of plastic waste end up in the world's oceans. Some of it is dropped directly by people on beaches or from boats, but much of it travels from cities through rivers and drains, or is blown by the wind from poorly managed rubbish dumps. Because most plastic does not rot, it can remain in the environment for hundreds of years.\n\nMarine animals suffer greatly from this pollution. Sea turtles often mistake floating plastic bags for jellyfish, their natural food, and seabirds sometimes feed small pieces of plastic to their chicks. Fishing nets that have been lost or abandoned continue to trap fish, dolphins, and seals long after they are forgotten. In the Red Sea, divers have found plastic wrapped around delicate coral reefs, which can block sunlight and spread disease.\n\nOver time, sunlight and waves break larger items into tiny fragments called microplastics, which are less than five millimetres long. These particles have been discovered in the deepest ocean trenches, in Arctic ice, and even in seafood that people eat. Scientists are still investigating how microplastics may affect human health.\n\nFortunately, there are many ways to reduce the problem. Governments can improve recycling systems and restrict single-use items, while companies can design packaging that is easier to reuse. Individuals can also make a difference by carrying reusable bottles and bags, refusing unnecessary straws, and joining beach clean-up campaigns. If everyone makes small changes, the oceans can gradually become cleaner and safer for the creatures that depend on them.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word belongs to the same word family as \"pollution\"?",
+      "options": [
+        "plastic",
+        "polish",
+        "pollute",
+        "population"
+      ],
+      "answer": "C",
+      "why": "Pollute is the verb and pollution is the noun of the same word family."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which of these sentences is a COMMAND?",
+      "options": [
+        "Sea turtles eat jellyfish.",
+        "Do microplastics harm people?",
+        "What a beautiful coral reef!",
+        "Carry a reusable bottle to school."
+      ],
+      "answer": "D",
+      "why": "It tells the reader to do something, so it is a command (imperative)."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "According to the passage, why do sea turtles sometimes eat plastic bags?",
+      "options": [
+        "They mistake floating bags for jellyfish.",
+        "They are fed the bags by seabirds.",
+        "They prefer plastic to their natural food.",
+        "They need plastic to build their nests."
+      ],
+      "answer": "A",
+      "why": "The passage states that turtles mistake floating bags for jellyfish, their natural food."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "In what order does the writer present the ideas?",
+      "options": [
+        "solutions → harm to animals → sources → microplastics",
+        "sources → harm to animals → microplastics → solutions",
+        "microplastics → solutions → sources → harm to animals",
+        "harm to animals → solutions → microplastics → sources"
+      ],
+      "answer": "B",
+      "why": "The passage moves from where plastic comes from, to its harm, to microplastics, and ends with solutions."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What causes large plastic items to become microplastics?",
+      "options": [
+        "Fish chew them into tiny pieces.",
+        "Recycling machines shrink them.",
+        "Sunlight and waves break them apart.",
+        "Arctic ice melts them down."
+      ],
+      "answer": "C",
+      "why": "The passage says sunlight and waves break larger items into tiny fragments."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "The writer says lost nets \"continue to trap fish, dolphins, and seals long after they are forgotten.\" What is the effect of this phrase?",
+      "options": [
+        "It shows that fishermen remember their nets.",
+        "It suggests dolphins enjoy playing in nets.",
+        "It proves nets are useful for scientists.",
+        "It stresses that the harm goes on unnoticed."
+      ],
+      "answer": "D",
+      "why": "\"Long after they are forgotten\" emphasises that the damage keeps happening when no one is watching."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST expresses the writer's viewpoint?",
+      "options": [
+        "Everyone can help reduce ocean plastic.",
+        "Only governments can solve the problem.",
+        "Plastic pollution is not a serious problem.",
+        "Microplastics are certainly harmless to people."
+      ],
+      "answer": "A",
+      "why": "The writer lists actions for governments, companies and individuals and says small changes by everyone help."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "What microplastics are",
+        "How microplastics may affect human health",
+        "Why turtles swallow plastic bags",
+        "How individuals can help"
+      ],
+      "answer": "B",
+      "why": "The writer says scientists are still investigating this question, so no answer is given."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "A plastic bottle dissolves in seawater in one hour.",
+        "Sea turtles sort plastic into recycling bins.",
+        "A coral reef eats plastic and grows faster.",
+        "Volunteers collect plastic from a Red Sea beach."
+      ],
+      "answer": "D",
+      "why": "Beach clean-up campaigns are real; plastic does not dissolve quickly, and animals cannot recycle."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST solution to the problem described in the passage?",
+      "options": [
+        "Using reusable bags and bottles instead of single-use ones",
+        "Throwing plastic waste into rivers instead of onto beaches",
+        "Burying plastic bags in the sand on the beach",
+        "Making more plastic straws for restaurants"
+      ],
+      "answer": "A",
+      "why": "Reusable items cut down the single-use plastic that ends up in the ocean, as the passage suggests."
+    }
+  ]
+}

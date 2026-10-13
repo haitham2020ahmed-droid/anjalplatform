@@ -1,0 +1,169 @@
+{
+  "code": "NP-054",
+  "title": "Make Our School Buses Safe",
+  "kind": "INFORMATIONAL",
+  "genre": "letter",
+  "passage": "Dear Editor,\n\nI am writing as a Grade 6 student and a daily passenger on School Bus 14 to express my concern about safety on our morning and afternoon journeys. Although our driver is careful and kind, several problems make the ride more dangerous than it should be.\n\nFirst, many of the seat belts on our bus are broken or missing, so younger students often sit without any protection. Second, the bus is frequently overcrowded, and some children stand in the aisle while the bus travels on the busy highway. Finally, cars regularly speed past the bus while it is stopped to let students cross the road, even though the stop sign on its side is clearly displayed.\n\nI believe these problems can be solved if schools, parents, and the traffic authorities work together. The school could inspect every bus at the beginning of each term and repair damaged seat belts immediately. The transport company could add another bus to the busiest routes so that every student has a seat. In addition, the traffic police could place cameras at bus stops to record drivers who ignore the stop sign.\n\nSome people say that these changes would be too expensive. However, no amount of money is more valuable than the safety of a child. I hope your newspaper will publish this letter so that adults in our community understand how serious the situation is.\n\nYours sincerely,\n\nFaisal, Grade 6 student",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "The letter uses the word 'children'. What is its singular form?",
+      "options": [
+        "childe",
+        "childrens",
+        "childs",
+        "child"
+      ],
+      "answer": "D",
+      "why": "'Children' is an irregular plural; its singular form is 'child'."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence is a command?",
+      "options": [
+        "Is the bus safe for young students?",
+        "The bus is often far too crowded.",
+        "How dangerous that highway is!",
+        "Please inspect every bus before the new term."
+      ],
+      "answer": "D",
+      "why": "A command tells someone to do something; the others are a question, a statement and an exclamation."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "What type of text is this?",
+      "options": [
+        "A letter to a newspaper editor",
+        "A short adventure story",
+        "A science report",
+        "A poem about buses"
+      ],
+      "answer": "A",
+      "why": "It begins 'Dear Editor', ends 'Yours sincerely' and asks the newspaper to publish it."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which problem does the writer mention SECOND?",
+      "options": [
+        "The bus driver is unkind.",
+        "The bus is often overcrowded.",
+        "Seat belts are broken or missing.",
+        "Cars speed past the stopped bus."
+      ],
+      "answer": "B",
+      "why": "The writer uses 'First', 'Second' and 'Finally'; overcrowding comes after 'Second'. The driver is described as careful and kind."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "According to the writer, what is the result of broken or missing seat belts?",
+      "options": [
+        "Younger students sit without protection.",
+        "The driver has to drive more slowly.",
+        "Cars speed past the stopped bus.",
+        "Some students stand in the aisle."
+      ],
+      "answer": "A",
+      "why": "The letter says seat belts are broken or missing, 'so younger students often sit without any protection.' Standing in the aisle is caused by overcrowding."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "'No amount of money is more valuable than the safety of a child.' Why does the writer include this sentence?",
+      "options": [
+        "To explain how much a new bus costs",
+        "To complain about the price of bus tickets",
+        "To persuade readers that safety matters more than cost",
+        "To show that the school has a lot of money"
+      ],
+      "answer": "C",
+      "why": "This strong sentence answers people who say the changes are too expensive and persuades readers to act."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement best describes the writer's viewpoint?",
+      "options": [
+        "The problems are too expensive to solve.",
+        "Bus safety needs action from everyone working together.",
+        "Only the traffic police can make buses safer.",
+        "The bus driver is the main cause of the problems."
+      ],
+      "answer": "B",
+      "why": "The writer says the problems can be solved 'if schools, parents, and the traffic authorities work together.'"
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the letter is the LEAST complete?",
+      "options": [
+        "What the school could do about seat belts",
+        "What the writer thinks of the driver",
+        "How many students ride Bus 14 compared with its seats",
+        "Which bus the writer rides every day"
+      ],
+      "answer": "C",
+      "why": "The writer says the bus is overcrowded but never gives numbers, so readers cannot judge how serious it is."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of these events could really happen on a school bus?",
+      "options": [
+        "A bus repairs its own seat belts during a trip.",
+        "A car speeds past a stopped bus as children cross.",
+        "A stop sign moves by itself to block a car.",
+        "One bus carries every student in the city at once."
+      ],
+      "answer": "B",
+      "why": "The letter describes cars speeding past stopped buses; the other events are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which solution from the letter would most directly stop students from standing in the aisle?",
+      "options": [
+        "Repairing damaged seat belts",
+        "Placing cameras at bus stops",
+        "Publishing the letter in the newspaper",
+        "Adding another bus to the busiest routes"
+      ],
+      "answer": "D",
+      "why": "Students stand because the bus is overcrowded; another bus would give every student a seat."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "code": "NP-033",
+  "title": "The Journey of a Water Drop",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Every drop of water you drink has probably travelled around the planet many times. The water on Earth is constantly moving between the oceans, the air, and the land in a continuous process called the water cycle. Although the total amount of water stays nearly the same, its form and location change all the time.\n\nThe cycle is powered mainly by energy from the sun. When sunlight warms the surface of oceans, lakes, and rivers, some of the liquid water turns into an invisible gas called water vapour. This process is called evaporation. Plants also release water vapour through tiny openings in their leaves, a process known as transpiration.\n\nAs the warm, moist air rises, it gradually cools. Cooler air cannot hold as much vapour, so the vapour condenses into tiny droplets that gather around specks of dust and form clouds. When these droplets combine and grow too heavy to stay in the air, they fall back to the ground as precipitation, which may be rain, snow, or hail depending on the temperature.\n\nOnce the water reaches the ground, it follows several different paths. Some flows across the surface into streams and eventually returns to the sea, while some soaks into the soil and becomes groundwater stored in layers of rock. In desert countries such as Saudi Arabia, this underground water is extremely precious, because rain falls rarely and evaporation is very high. Understanding the water cycle helps people manage this limited resource wisely.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "\"Evaporation\" is a noun. Which word is the VERB from the same word family?",
+      "options": [
+        "vapour",
+        "evaporative",
+        "vaporous",
+        "evaporate"
+      ],
+      "answer": "D",
+      "why": "Evaporate is the action word (water evaporates); evaporation is the noun form of the same family."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"precipitation\" correctly?",
+      "options": [
+        "The precipitation ran quickly to catch the bus.",
+        "Heavy precipitation in the mountains filled the rivers.",
+        "She precipitation her homework before dinner.",
+        "The precipitation sun dried the wet clothes."
+      ],
+      "answer": "B",
+      "why": "Precipitation is water falling from clouds as rain, snow or hail, so heavy precipitation can fill rivers."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why is underground water extremely precious in Saudi Arabia?",
+      "options": [
+        "Groundwater tastes sweeter than seawater.",
+        "Plants release most of it through their leaves.",
+        "Rain falls rarely and evaporation is very high.",
+        "Groundwater turns into clouds faster than rivers."
+      ],
+      "answer": "C",
+      "why": "The passage states that underground water is precious because rain falls rarely and evaporation is very high."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "According to the passage, what happens right AFTER warm, moist air rises and cools?",
+      "options": [
+        "Water vapour condenses into tiny droplets.",
+        "Rain soaks into the soil.",
+        "The sun warms the ocean surface.",
+        "Streams carry water back to the sea."
+      ],
+      "answer": "A",
+      "why": "Cooler air cannot hold as much vapour, so the vapour condenses into droplets that form clouds."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is evaporation different from transpiration?",
+      "options": [
+        "Evaporation produces ice; transpiration produces liquid water.",
+        "Evaporation happens only at night; transpiration only by day.",
+        "Evaporation occurs underground; transpiration occurs in clouds.",
+        "Evaporation is from lakes and seas; transpiration is from leaves."
+      ],
+      "answer": "D",
+      "why": "Both turn water into vapour, but evaporation happens from water surfaces and transpiration from openings in plant leaves."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "The passage begins, \"Every drop of water you drink has probably travelled around the planet many times.\" What is the effect of this opening?",
+      "options": [
+        "It gives exact data about how far water travels.",
+        "It surprises the reader and makes the topic personal.",
+        "It warns readers that drinking water is unsafe.",
+        "It explains how clouds form in cold air."
+      ],
+      "answer": "B",
+      "why": "Speaking directly to \"you\" with a surprising idea grabs attention and connects the topic to the reader's own life."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "People in dry countries should use water carefully.",
+        "Desert countries never need to think about water.",
+        "Clouds are more important than oceans.",
+        "Groundwater is useless because it is hidden in rock."
+      ],
+      "answer": "A",
+      "why": "The writer ends by saying that understanding the water cycle helps people manage a limited resource wisely."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "What powers the water cycle",
+        "What the word evaporation means",
+        "How groundwater later returns to the cycle",
+        "Which forms precipitation can take"
+      ],
+      "answer": "C",
+      "why": "The passage says some water becomes groundwater stored in rock but does not explain how it moves on from there."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "Clouds rain lemon juice over a town.",
+        "Morning sunshine dries a puddle on a playground.",
+        "A whole lake rises into the sky as a block of ice.",
+        "Snow falls upward from the ground into the clouds."
+      ],
+      "answer": "B",
+      "why": "Sunlight warming water causes evaporation, so a puddle can really dry up; the others are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Based on the passage, which action would BEST help a desert country protect its limited groundwater?",
+      "options": [
+        "Pumping out as much groundwater as possible",
+        "Cutting down plants to stop transpiration",
+        "Covering rivers so they cannot reach the sea",
+        "Using water wisely and avoiding waste"
+      ],
+      "answer": "D",
+      "why": "Because rain is rare and evaporation is high, careful use and avoiding waste is the sensible solution."
+    }
+  ]
+}

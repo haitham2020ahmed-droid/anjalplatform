@@ -1,0 +1,169 @@
+{
+  "code": "NP-094",
+  "title": "A Letter About Old Riyadh",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "passage": "My dear Noura,\n\nYour mother tells me that your class is studying how Riyadh has changed, so I am writing to describe the city as I remember it from the days when I was your age, almost sixty years ago.\n\nIn those days, our house was built of mud bricks mixed with straw, and its thick walls kept the rooms surprisingly cool even in summer. The narrow lanes of our neighbourhood twisted between the houses so closely that neighbours could almost shake hands from opposite windows. Not far away stood Al-Masmak fortress, whose tall towers made me feel extremely small whenever my father and I walked past it on our way to the market.\n\nSummer nights were my favourite. Because there was no air conditioning, the whole family carried mattresses up to the flat roof and slept beneath the stars. My grandfather, who could identify nearly every star, would patiently point out the constellations until my eyes grew too heavy to stay open. In the mornings, I helped my mother draw water from the well in our courtyard before walking to the small school beside the neighbourhood mosque.\n\nHow different everything is now! Today the towers of the city rise far higher than Al-Masmak, and you can cross Riyadh in less time than it once took me to reach the date gardens. Still, I hope you will visit the old fortress with me soon, so that you can imagine the quiet city that continues to live in my memory.\n\nWith all my love, your grandfather, Abdullah",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word belongs to the same word family as \"memory\"?",
+      "options": [
+        "memorise",
+        "mosque",
+        "morning",
+        "market"
+      ],
+      "answer": "A",
+      "why": "\"Memorise\" and \"memory\" share the same root, which is about remembering."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence from the letter is an exclamatory sentence?",
+      "options": [
+        "Summer nights were my favourite.",
+        "Your mother tells me about your class.",
+        "How different everything is now!",
+        "I hope you will visit the old fortress."
+      ],
+      "answer": "C",
+      "why": "An exclamatory sentence shows strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the family sleep on the roof in summer?",
+      "options": [
+        "The rooms were too small for everyone.",
+        "Grandfather had to study the stars for school.",
+        "The house did not have any beds.",
+        "There was no air conditioning."
+      ],
+      "answer": "D",
+      "why": "The letter says that because there was no air conditioning, the family slept on the flat roof."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who is the narrator of this text?",
+      "options": [
+        "Noura herself",
+        "Noura's grandfather, Abdullah",
+        "Noura's mother",
+        "Abdullah's own grandfather"
+      ],
+      "answer": "B",
+      "why": "The letter is written in the first person and signed \"your grandfather, Abdullah\"."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is Riyadh today different from the Riyadh of the grandfather's childhood?",
+      "options": [
+        "Its towers are taller and travel is faster.",
+        "It no longer has any old buildings.",
+        "Its houses are now made of mud bricks.",
+        "Its people all sleep on roofs at night."
+      ],
+      "answer": "A",
+      "why": "The letter says towers now rise higher than Al-Masmak and you can cross the city quickly."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What does the grandfather mean by \"the quiet city that continues to live in my memory\"?",
+      "options": [
+        "Part of old Riyadh is hidden underground.",
+        "He cannot remember much about his childhood.",
+        "He wants Noura to move to a quieter city.",
+        "He still remembers old Riyadh clearly and fondly."
+      ],
+      "answer": "D",
+      "why": "The expression shows the old city is gone in reality but still alive and dear in his memories."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "What most likely motivated the grandfather to write this letter?",
+      "options": [
+        "To complain about modern Riyadh's buildings",
+        "To ask Noura to stop studying history",
+        "To share his memories for Noura's class topic",
+        "To tell Noura he is selling the old house"
+      ],
+      "answer": "C",
+      "why": "He says he is writing because her class is studying how Riyadh has changed, and he shares his memories."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information is the LEAST clear in the letter?",
+      "options": [
+        "What his family's house was built from",
+        "What the grandfather studied at his school",
+        "Where the family slept in summer",
+        "Where the family's water came from"
+      ],
+      "answer": "B",
+      "why": "The school is mentioned but nothing is said about what he learned there."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events from long ago could really have happened?",
+      "options": [
+        "Neighbours shook hands across the whole city from their windows.",
+        "The towers of Al-Masmak grew taller every night.",
+        "The stars came down to the roof to talk with Grandfather.",
+        "A family carried mattresses to the roof to sleep."
+      ],
+      "answer": "D",
+      "why": "Sleeping on the roof in summer was a real custom; the others are impossible."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which would be the best alternative title for the letter?",
+      "options": [
+        "Rooftops and Mud Walls",
+        "How to Build a Modern Tower",
+        "A Complete Guide to the Stars",
+        "Noura's Trip to the Market"
+      ],
+      "answer": "A",
+      "why": "The letter describes mud-brick houses and sleeping on rooftops in old Riyadh, which this title sums up."
+    }
+  ]
+}

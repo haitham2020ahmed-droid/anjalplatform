@@ -1,0 +1,169 @@
+{
+  "code": "NP-001",
+  "title": "Built for the Desert: Desert Foxes",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "When the sun climbs over the dunes, most desert animals hurry to find shade. Desert foxes are no exception, yet their bodies are remarkably well designed for one of the harshest environments on Earth.\n\nThe fennec fox of the Sahara is the smallest fox in the world, but its ears can grow to about fifteen centimetres long. These enormous ears do two important jobs. First, they release body heat into the air, which helps the fox stay cool. Second, they allow it to hear insects and small animals moving beneath the sand.\n\nIn the Arabian Peninsula, Rüppell's fox survives in similar conditions. Like the fennec, it has thick fur on the soles of its feet, which protects it from burning sand and helps it walk on loose ground. Both foxes are nocturnal, so they rest in cool underground dens during the day and hunt after sunset.\n\nPerhaps the most surprising adaptation is how these foxes manage without water. They can go for long periods without drinking because they obtain most of the moisture they need from their food, such as insects, lizards, eggs and fruit.\n\nScientists continue to study desert foxes because their survival strategies may help us understand how animals could adapt as the planet becomes hotter and drier.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a noun?",
+      "options": [
+        "survive",
+        "adaptation",
+        "nocturnal",
+        "hotter"
+      ],
+      "answer": "B",
+      "why": "'Adaptation' names a thing (a feature that helps an animal survive), so it is a noun; 'survive' is a verb, 'nocturnal' and 'hotter' are adjectives."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word 'adapt' correctly?",
+      "options": [
+        "The fox adapted its ears at the market yesterday.",
+        "She adapt the sand very loudly every morning.",
+        "We adapt the door so the cat could not come home.",
+        "Some plants adapt to dry weather by storing water in their leaves."
+      ],
+      "answer": "D",
+      "why": "To adapt means to change in order to suit new conditions; only this sentence uses it with that meaning and correct grammar."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why does the fennec fox have such enormous ears?",
+      "options": [
+        "to release heat and hear prey under the sand",
+        "to dig its underground den more quickly",
+        "to warn other foxes when danger is near",
+        "to shade its eyes from the strong sun"
+      ],
+      "answer": "A",
+      "why": "The passage states that the ears release body heat and allow the fox to hear insects and small animals beneath the sand."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which idea does the writer present right after describing the fennec fox's ears?",
+      "options": [
+        "how desert foxes manage without drinking water",
+        "why scientists continue to study desert foxes",
+        "Rüppell's fox living in the Arabian Peninsula",
+        "how desert animals look for shade at sunrise"
+      ],
+      "answer": "C",
+      "why": "Paragraph 2 describes the ears; paragraph 3 then introduces Rüppell's fox in the Arabian Peninsula."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How are the fennec fox and Rüppell's fox similar?",
+      "options": [
+        "Both live only in the Sahara Desert.",
+        "Both have furry feet and hunt after sunset.",
+        "Both are the smallest foxes in the world.",
+        "Both must drink water every single day."
+      ],
+      "answer": "B",
+      "why": "The passage says Rüppell's fox, 'like the fennec', has thick fur on its soles, and that both foxes are nocturnal and hunt after sunset."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says the foxes' bodies are 'remarkably well designed'. What is the effect of this expression?",
+      "options": [
+        "It shows admiration for how well the foxes suit the desert.",
+        "It suggests that people built the foxes in a factory.",
+        "It warns readers that desert foxes are dangerous.",
+        "It explains exactly how the foxes find water."
+      ],
+      "answer": "A",
+      "why": "The phrase praises the foxes' bodies, showing the writer's admiration for how well they fit their harsh environment."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "Rüppell's fox is more intelligent than the fennec fox.",
+        "Desert foxes would be happier living in cities.",
+        "Foxes are the most important animals in the desert.",
+        "Desert foxes are well equipped to survive extreme heat."
+      ],
+      "answer": "D",
+      "why": "The ears, furry feet, nocturnal habits and water-saving diet all support the view that desert foxes are well equipped for heat; the other opinions have no support."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "how long the fennec fox's ears can grow",
+        "what kinds of food desert foxes eat",
+        "how studying the foxes may help us understand a hotter planet",
+        "where Rüppell's fox lives"
+      ],
+      "answer": "C",
+      "why": "The last paragraph says the foxes' strategies 'may help us understand' future change but never explains how; the other details are stated clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A fennec fox finds a beetle by listening to sounds under the sand.",
+        "A fox drinks a whole lake to cool its body down.",
+        "A Rüppell's fox tells a scientist about the heat.",
+        "A fennec fox flies above the dunes using its ears."
+      ],
+      "answer": "A",
+      "why": "Fennec foxes really do hear prey moving beneath the sand; foxes cannot drink lakes, speak or fly."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "The Life of Pet Foxes in the City",
+        "Why Foxes Are Disappearing from Deserts",
+        "A Fennec Fox's Journey Across the Ocean",
+        "Built for the Heat: How Desert Foxes Survive"
+      ],
+      "answer": "D",
+      "why": "The whole passage explains the features that help desert foxes survive heat and lack of water; the other titles describe topics not in the text."
+    }
+  ]
+}

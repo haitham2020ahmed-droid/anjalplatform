@@ -1,0 +1,169 @@
+{
+  "code": "NP-091",
+  "title": "Built for the Desert: The Arabian Horse",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "For thousands of years, the Bedouin of the Arabian Peninsula depended on their horses to survive in one of the harshest environments on Earth. Water was scarce, grazing was poor, and journeys between wells could last for days. Over many generations, families kept and bred only the horses that could travel long distances on little food and water, and the result was the Arabian horse.\n\nToday, the Arabian is famous for its beauty, but scientists are more interested in its remarkable endurance. Its compact body and short back carry weight well. Its dense, strong bones resist injury on rough ground. Its large nostrils and powerful lungs take in plenty of air, and its heart recovers quickly after hard effort. Because the breed developed in the desert, it also tolerates heat better than many heavier horses.\n\nThese qualities explain why Arabians and horses with Arabian ancestry dominate endurance riding, a sport in which horse and rider cover up to 160 kilometres in a single day. Speed alone never wins such a race. At regular checkpoints, veterinarians examine every horse, and a horse whose heartbeat does not return to a safe rate within a set time is removed from the competition.\n\nSaudi Arabia hosts several endurance events each year, continuing a tradition that began long before any modern race. Riders often say that the best partner is not the fastest horse, but the one that is wise enough to save its strength.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "In the passage, the word \"endurance\" is a …",
+      "options": [
+        "verb",
+        "noun",
+        "adjective",
+        "adverb"
+      ],
+      "answer": "B",
+      "why": "\"Endurance\" names a quality (the ability to keep going for a long time), so it is a noun."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is a command?",
+      "options": [
+        "Arabian horses can travel very long distances.",
+        "How far can an Arabian horse travel in a day?",
+        "What a beautiful horse that is!",
+        "Give the horse water at the next checkpoint."
+      ],
+      "answer": "D",
+      "why": "A command tells someone to do something and usually begins with a verb: \"Give …\"."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why did the Bedouin keep only certain horses for breeding?",
+      "options": [
+        "They needed horses that could travel far on little food and water.",
+        "They wanted horses that would win modern races.",
+        "They preferred horses that were tall and very heavy.",
+        "They wanted horses that would stay close to the wells."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says families kept only horses that could travel long distances on little food and water."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which of these ideas does the passage present FIRST?",
+      "options": [
+        "Veterinarians examining horses at checkpoints",
+        "Saudi Arabia hosting endurance events each year",
+        "Bedouin families breeding horses for desert journeys",
+        "The strength of the horse's heart and lungs"
+      ],
+      "answer": "C",
+      "why": "The passage begins with the Bedouin and their breeding of horses; checkpoints, the body and modern events come later."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What is the effect when a horse's heartbeat does not return to a safe rate in time?",
+      "options": [
+        "The rider receives a short time penalty.",
+        "The horse is removed from the competition.",
+        "The horse must rest for one whole day.",
+        "The race is restarted for every rider."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 links the cause (heartbeat not recovering) to the effect (removal from the competition)."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Riders say the best partner is a horse \"wise enough to save its strength.\" What is the effect of this phrase?",
+      "options": [
+        "It makes the horse sound thoughtful to show pacing matters.",
+        "It proves that horses can think exactly like people.",
+        "It shows that riders do not trust their own horses.",
+        "It suggests that Arabian horses are lazy in races."
+      ],
+      "answer": "A",
+      "why": "Describing the horse as \"wise\" gives it a human quality, which stresses that saving energy matters more than speed."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "Arabians are the fastest horses in short races.",
+        "Endurance riding is far too dangerous for horses.",
+        "Modern horses are less useful than desert horses.",
+        "The Arabian's endurance comes from its long desert history."
+      ],
+      "answer": "D",
+      "why": "The passage links the breed's strength, lungs, heart and heat tolerance to its development in the desert."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear or complete?",
+      "options": [
+        "Where the Arabian horse breed first developed",
+        "Who examines the horses at the checkpoints",
+        "What counts as a \"safe rate\" for a horse's heartbeat",
+        "How far horse and rider may travel in one day"
+      ],
+      "answer": "C",
+      "why": "The passage mentions a safe rate but never says what it is; the other details are stated clearly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A horse completes 160 kilometres in one day of racing.",
+        "A horse runs 160 kilometres without stopping or drinking once.",
+        "A desert horse understands every word its rider says.",
+        "A horse wins a race by flying over the checkpoints."
+      ],
+      "answer": "A",
+      "why": "Endurance races of up to 160 km in a day are real; the other events are impossible or imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "The Fastest Racehorses in the World",
+        "Made for the Long Road: The Arabian Horse",
+        "How to Become a Horse Veterinarian",
+        "Bedouin Tents and Desert Wells"
+      ],
+      "answer": "B",
+      "why": "The passage is about the Arabian horse's endurance, which this title captures; the others focus on side details or speed."
+    }
+  ]
+}

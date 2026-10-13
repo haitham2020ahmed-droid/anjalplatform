@@ -1,0 +1,169 @@
+{
+  "code": "NP-031",
+  "title": "Mangroves of the Red Sea Coast",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Along parts of Saudi Arabia's Red Sea coast, where the desert meets the warm, salty sea, grow forests that seem almost impossible. These are mangroves, trees that have adapted to survive in shallow seawater that would kill most other plants. The most common species on the Saudi coast is the grey mangrove, known locally as qurm.\n\nMangroves have remarkable ways of dealing with salt. Their roots filter out much of it before the water enters the plant, and their leaves can release extra salt through tiny glands, so on a sunny day you may notice white crystals sparkling on the leaves. Because the muddy ground contains very little oxygen, the grey mangrove also sends up pencil-like roots called pneumatophores, which poke above the mud and help the tree breathe.\n\nThese coastal forests are extremely valuable. Their tangled roots shelter young fish, crabs, and shrimp, and many migrating birds rest and feed among the branches. The roots also hold sediment in place, protecting the shoreline from erosion and storms. In addition, mangroves store large amounts of carbon in their mud, which helps slow climate change.\n\nIn the past, some mangrove areas were damaged by construction, grazing camels, and pollution. Today, Saudi Arabia is planting millions of new mangrove seedlings as part of the Saudi Green Initiative, and scientists are studying which locations give the young trees the best chance of survival.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is used as an ADJECTIVE?",
+      "options": [
+        "erosion",
+        "remarkable",
+        "survive",
+        "shelter"
+      ],
+      "answer": "B",
+      "why": "In \"remarkable ways\", the word remarkable describes the noun ways, so it is an adjective."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which of these sentences is an EXCLAMATORY sentence?",
+      "options": [
+        "Mangroves grow along the Red Sea coast.",
+        "Do mangroves grow in salty water?",
+        "Plant a mangrove seedling today.",
+        "What an amazing tree the mangrove is!"
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling and ends with an exclamation mark; the others are a statement, a question and a command."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why does the grey mangrove send up pencil-like roots above the mud?",
+      "options": [
+        "Because the muddy ground has very little oxygen",
+        "Because the roots must collect fresh rainwater",
+        "Because camels cannot reach roots above the mud",
+        "Because the roots need to release extra salt"
+      ],
+      "answer": "A",
+      "why": "The passage states that the mud contains very little oxygen, so these roots poke above it to help the tree breathe."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which idea does the writer present LAST in the passage?",
+      "options": [
+        "how the leaves release extra salt",
+        "how the roots shelter young fish",
+        "how Saudi Arabia is planting new seedlings",
+        "how mangroves store carbon in their mud"
+      ],
+      "answer": "C",
+      "why": "The final paragraph describes the planting of millions of seedlings under the Saudi Green Initiative."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "What is one effect of mangrove roots holding sediment in place?",
+      "options": [
+        "The seawater becomes less salty near the trees",
+        "The shoreline is protected from erosion and storms",
+        "Migrating birds can no longer find food",
+        "The mud loses all of its stored carbon"
+      ],
+      "answer": "B",
+      "why": "The passage links the roots holding sediment to protecting the shoreline from erosion and storms."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "The writer says white salt crystals may be seen \"sparkling on the leaves.\" What is the effect of this expression?",
+      "options": [
+        "It helps the reader picture the salt shining in sunlight",
+        "It shows that the leaves are covered with jewels",
+        "It warns readers that the leaves are dangerous",
+        "It proves that mangroves produce sugar in summer"
+      ],
+      "answer": "A",
+      "why": "\"Sparkling\" is a vivid word that helps readers imagine the bright salt crystals catching the sunlight."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the information in the passage?",
+      "options": [
+        "Mangroves are useless because they grow in salty water.",
+        "Construction on the coast should be increased everywhere.",
+        "Only scientists can benefit from mangrove forests.",
+        "Protecting and replanting mangroves is a wise choice."
+      ],
+      "answer": "D",
+      "why": "The passage lists many benefits (wildlife, shoreline protection, carbon storage), which supports protecting and replanting them."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "The local name of the grey mangrove",
+        "Which animals shelter among the roots",
+        "How many new seedlings have survived so far",
+        "How the leaves get rid of extra salt"
+      ],
+      "answer": "C",
+      "why": "The passage says millions are being planted and scientists are studying survival, but it gives no survival results."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY happen on the Saudi Red Sea coast?",
+      "options": [
+        "A crab hides among mangrove roots at low tide.",
+        "A mangrove tree walks to drier land on its roots.",
+        "Mangrove leaves turn the sea into drinking water for towns.",
+        "A camel plants new mangrove seedlings along the shore."
+      ],
+      "answer": "A",
+      "why": "The passage says crabs shelter among the roots; the other events are impossible or imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST alternative title for the passage?",
+      "options": [
+        "How to Grow Desert Flowers",
+        "Salt-Loving Forests of the Red Sea",
+        "Camels of the Arabian Peninsula",
+        "Fishing Boats in the Red Sea"
+      ],
+      "answer": "B",
+      "why": "The whole passage is about mangrove forests that survive in the salty water of the Red Sea coast."
+    }
+  ]
+}

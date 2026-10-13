@@ -1,0 +1,169 @@
+{
+  "code": "NP-023",
+  "title": "The Four Forces of Flight",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "How can an enormous metal airplane, weighing hundreds of tons, remain suspended in the sky? The answer depends on four forces that act on every aircraft: lift, weight, thrust, and drag.\n\nWeight is the downward pull of gravity, while lift is the upward aerodynamic force that opposes it. Lift is produced mainly by the wings. Each wing is carefully shaped and tilted slightly upward, so the air flowing over and under it is pushed downward. According to Newton's third law, when the wing pushes air down, the air pushes the wing up. In addition, the air moving over the curved upper surface creates lower pressure above the wing than below it, which increases the upward force.\n\nThrust is the forward force supplied by the engines, which push enormous quantities of air backward at high speed. Drag is the resistance of the air, which tries to slow the airplane. To fly steadily, thrust must overcome drag, and lift must equal or exceed weight.\n\nSpeed is therefore essential. A passenger jet must usually reach about 250 kilometers per hour along the runway before its wings generate enough lift for takeoff. Pilots also adjust movable panels called flaps, which temporarily enlarge the wing and provide extra lift at lower speeds during takeoff and landing.\n\nEngineers continually test new wing designs in wind tunnels, searching for shapes that create more lift and less drag. These improvements allow modern airplanes to carry more passengers while consuming less fuel.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "\"Quantity\" is a word used in the passage. What is its correct plural form?",
+      "options": [
+        "quantities",
+        "quantityes",
+        "quantitys",
+        "quantites"
+      ],
+      "answer": "A",
+      "why": "Nouns ending in a consonant + y change the y to i and add -es: quantity → quantities."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is a COMMAND?",
+      "options": [
+        "How do curved wings create lift?",
+        "What a powerful engine that is!",
+        "Speed is essential for every takeoff.",
+        "Watch how the flaps move during landing."
+      ],
+      "answer": "D",
+      "why": "A command tells someone to do something and begins with a verb, \"Watch.\""
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why must a passenger jet reach a high speed along the runway?",
+      "options": [
+        "Its engines stop working at low speeds.",
+        "Its wings need speed to make enough lift.",
+        "Its flaps can only open after landing.",
+        "Drag disappears completely at high speeds."
+      ],
+      "answer": "B",
+      "why": "The jet must reach about 250 km/h \"before its wings generate enough lift for takeoff.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "In what order does the passage explain the four forces?",
+      "options": [
+        "lift and drag first, then weight and thrust",
+        "drag and weight first, then lift and thrust",
+        "weight and lift first, then thrust and drag",
+        "thrust and drag first, then weight and lift"
+      ],
+      "answer": "C",
+      "why": "Paragraph 2 explains weight and lift; paragraph 3 explains thrust and drag."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How is thrust different from drag?",
+      "options": [
+        "Thrust pushes the plane forward; drag slows it.",
+        "Thrust comes from wings; drag from engines.",
+        "Thrust pulls the plane down; drag lifts it up.",
+        "Thrust acts at takeoff; drag only at landing."
+      ],
+      "answer": "A",
+      "why": "Thrust is \"the forward force supplied by the engines,\" while drag is air resistance \"which tries to slow the airplane.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The passage opens with a question about how an airplane can \"remain suspended in the sky.\" What is the effect of this opening?",
+      "options": [
+        "It warns readers that flying is dangerous.",
+        "It proves that airplanes are lighter than air.",
+        "It makes readers curious to find the answer.",
+        "It shows the writer does not know the answer."
+      ],
+      "answer": "C",
+      "why": "Opening with a question hooks the reader, who keeps reading to learn the answer."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "Modern airplanes no longer need any engines.",
+        "Better wing designs help both airlines and the planet.",
+        "Wind tunnels are more important than pilots.",
+        "Flaps should stay open for the whole flight."
+      ],
+      "answer": "B",
+      "why": "The passage says improved wings let planes carry more passengers \"while consuming less fuel,\" which benefits airlines and the environment."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear?",
+      "options": [
+        "Which force pulls the airplane downward",
+        "Which of Newton's laws explains lift",
+        "Where engineers test new wing designs",
+        "Exactly how the engines push air backward"
+      ],
+      "answer": "D",
+      "why": "The passage states that engines push air backward but never explains how; the other facts are given directly."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could really happen?",
+      "options": [
+        "A plane stays up after both wings fall off.",
+        "A passenger flaps her arms to lift the jet.",
+        "A pilot extends the flaps while landing a jet.",
+        "A jet takes off at walking speed with no engines."
+      ],
+      "answer": "C",
+      "why": "Pilots really use flaps during landing, as the passage explains; the other events break the rules of flight."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Engineers want a new airplane to use less fuel. Based on the passage, which is the best solution?",
+      "options": [
+        "Remove the flaps from both wings.",
+        "Design wings that create less drag.",
+        "Take off as slowly as possible.",
+        "Make the airplane much heavier."
+      ],
+      "answer": "B",
+      "why": "Less drag means the engines need less thrust, so the plane burns less fuel, as the final paragraph explains."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "code": "NP-098",
+  "title": "How Plants Make Their Own Food",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Animals must find food to survive, but plants have a remarkable advantage: they can produce their own. This process, called photosynthesis, takes place mainly in the leaves, and it depends on three ingredients that are found almost everywhere on Earth.\n\nThe first ingredient is water, which the roots absorb from the soil and which travels upward through narrow tubes in the stem. The second is carbon dioxide, a gas that enters the leaf through tiny openings called stomata, mostly on the underside of the leaf. The third is energy from sunlight.\n\nInside the leaf cells are small structures called chloroplasts, which contain a green substance known as chlorophyll. Chlorophyll absorbs sunlight, and the plant uses this energy to combine water and carbon dioxide into a type of sugar called glucose. The plant either uses the glucose immediately for energy and growth or stores it, often as starch, for later.\n\nPhotosynthesis also produces oxygen, which the plant releases into the air through the same stomata. As a result, nearly all the oxygen that animals and people breathe was originally released by plants and similar organisms, such as the algae that float in oceans and lakes.\n\nBecause photosynthesis requires light, it slows down at night and in deep shade. This explains why gardeners place most vegetables in sunny areas and why a houseplant kept in a dark corner may slowly turn pale and weak.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "What is the singular form of \"leaves\" as used in the passage?",
+      "options": [
+        "leaf",
+        "leave",
+        "leafe",
+        "leafs"
+      ],
+      "answer": "A",
+      "why": "\"Leaves\" is the irregular plural of \"leaf\" (f changes to v and -es is added)."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence uses the word \"absorb\" correctly?",
+      "options": [
+        "She absorbed the ball across the field.",
+        "The absorb was green and bright.",
+        "A sponge can absorb a lot of water.",
+        "We absorb to school by bus each day."
+      ],
+      "answer": "C",
+      "why": "\"Absorb\" means to take in, as roots absorb water; only the sponge sentence uses it with that meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why does photosynthesis slow down at night?",
+      "options": [
+        "Plants need more water at night.",
+        "Carbon dioxide disappears at night.",
+        "The leaves close their roots at night.",
+        "It requires light."
+      ],
+      "answer": "D",
+      "why": "The last paragraph says photosynthesis requires light, so it slows at night and in deep shade."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which order matches how the passage presents its ideas?",
+      "options": [
+        "oxygen → ingredients → need for light → chloroplasts",
+        "ingredients → chloroplasts → oxygen → need for light",
+        "need for light → oxygen → chloroplasts → ingredients",
+        "chloroplasts → need for light → ingredients → oxygen"
+      ],
+      "answer": "B",
+      "why": "The passage first lists the ingredients, then explains chloroplasts, then oxygen, and ends with the need for light."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "According to the passage, what is the effect of keeping a houseplant in a dark corner?",
+      "options": [
+        "It may slowly turn pale and weak.",
+        "It grows faster and greener.",
+        "It produces more oxygen than before.",
+        "It absorbs more carbon dioxide."
+      ],
+      "answer": "A",
+      "why": "Without enough light the plant cannot make enough food, so it may turn pale and weak."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer says plants have \"a remarkable advantage.\" Why does the writer use this phrase?",
+      "options": [
+        "To show that plants are stronger than animals.",
+        "To suggest that plants can move like animals.",
+        "To show that the writer dislikes animals.",
+        "To stress that making food is special."
+      ],
+      "answer": "D",
+      "why": "\"Remarkable\" emphasises how unusual it is that plants can produce their own food when animals cannot."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "Plants are less important than animals.",
+        "Gardeners should grow vegetables in the shade.",
+        "Plants are essential to life because they release oxygen.",
+        "Algae are more useful than any plant on land."
+      ],
+      "answer": "C",
+      "why": "The passage says nearly all the oxygen animals and people breathe was released by plants and similar organisms."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "Where carbon dioxide enters the leaf",
+        "How chlorophyll's energy joins water and carbon dioxide",
+        "Which gas plants release into the air",
+        "How water reaches the leaves"
+      ],
+      "answer": "B",
+      "why": "The passage says the plant uses the energy to combine them but does not explain how this happens."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A plant in a dark cupboard makes more food than one in sunlight.",
+        "A cactus makes food without any water at all.",
+        "A leaf turns sunlight directly into gold.",
+        "A sunny sunflower grows taller than one in a cupboard."
+      ],
+      "answer": "D",
+      "why": "Plants in sunlight can make more food and grow better; the other events contradict the passage."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "A bean plant on a shelf far from the window is turning pale and weak. What is the BEST solution based on the passage?",
+      "options": [
+        "Move it to a sunny windowsill.",
+        "Put it in a closed, dark cupboard.",
+        "Cover all of its leaves with plastic.",
+        "Cut off its green leaves."
+      ],
+      "answer": "A",
+      "why": "The plant needs light for photosynthesis, so moving it into sunlight solves the problem."
+    }
+  ]
+}

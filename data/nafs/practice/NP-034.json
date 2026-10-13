@@ -1,0 +1,169 @@
+{
+  "code": "NP-034",
+  "title": "Breakfast at the School Clinic",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "passage": "Dr. Salma smiled as eleven-year-old Hamad sat down beside her desk in the school clinic. \"Your teacher tells me you have been feeling tired and distracted during morning lessons,\" she said, \"so could you describe what you usually eat for breakfast before school?\"\n\nHamad hesitated before admitting, \"Usually nothing, because I wake up late, but sometimes I buy a packet of chips and a fizzy drink from the shop on the way.\"\n\n\"That explains a great deal,\" the doctor replied gently. \"Your brain needs steady energy in order to concentrate, and sugary snacks provide only a quick burst that disappears within an hour, leaving you even more exhausted than before.\"\n\nWhen Hamad protested that healthy food was boring, Dr. Salma laughed. \"Nutritious food does not have to be boring at all. Imagine a warm bowl of oats with dates and milk, or whole-wheat bread with cheese, cucumber, and a boiled egg. These foods release their energy slowly, so you remain alert and comfortable until lunchtime. Drinking enough water is equally important, because even mild dehydration can cause headaches and poor concentration.\"\n\nHamad anxiously asked whether he would have to give up chips forever.\n\n\"Treats are acceptable occasionally,\" she answered, \"but they should never replace proper meals. Try to fill half your plate with vegetables and fruit, and choose grilled food more often than fried food.\"\n\nHamad nodded thoughtfully and promised to ask his mother to wake him fifteen minutes earlier.\n\nA week later, his teacher noticed that Hamad was participating in lessons more enthusiastically than ever.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the passage is an ADJECTIVE?",
+      "options": [
+        "nutritious",
+        "concentrate",
+        "breakfast",
+        "occasionally"
+      ],
+      "answer": "A",
+      "why": "In \"Nutritious food\", nutritious describes the noun food; concentrate is a verb, breakfast a noun, occasionally an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence is a COMMAND?",
+      "options": [
+        "Hamad nodded thoughtfully.",
+        "These foods release their energy slowly.",
+        "Try to fill half your plate with vegetables and fruit.",
+        "Could you describe what you eat for breakfast?"
+      ],
+      "answer": "C",
+      "why": "It tells the listener to do something, so it is a command (imperative)."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a rhyming poem",
+        "a story told mostly through dialogue",
+        "a science report with charts",
+        "a letter to a friend"
+      ],
+      "answer": "B",
+      "why": "The events are shown mainly through a conversation between Dr. Salma and Hamad, so it is a dialogue story."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Who gives the advice about healthy eating in the passage?",
+      "options": [
+        "Hamad's mother",
+        "Hamad's teacher",
+        "the shop owner",
+        "Dr. Salma, the school doctor"
+      ],
+      "answer": "D",
+      "why": "Dr. Salma speaks with Hamad in the school clinic and explains what he should eat."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "According to Dr. Salma, how are sugary snacks different from foods like oats?",
+      "options": [
+        "Snacks give lasting energy; oats give a short burst.",
+        "Oats cause headaches, but snacks help you focus.",
+        "Snacks give a quick burst; oats release energy slowly.",
+        "Both release their energy at exactly the same speed."
+      ],
+      "answer": "C",
+      "why": "She says sugary snacks give a quick burst that disappears, while foods like oats release energy slowly."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Dr. Salma says, \"That explains a great deal.\" What does this expression show?",
+      "options": [
+        "She sees how Hamad's eating causes his tiredness.",
+        "She thinks Hamad is telling a very long story.",
+        "She is angry that Hamad buys chips at the shop.",
+        "She does not understand Hamad's answer at all."
+      ],
+      "answer": "A",
+      "why": "The phrase shows she has connected Hamad's missing breakfast and sugary snacks to his tiredness in class."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "Students should never eat any treats at all.",
+        "Chips are the best food to eat before school.",
+        "Water has nothing to do with concentration.",
+        "A healthy breakfast can help students learn better."
+      ],
+      "answer": "D",
+      "why": "After Hamad changes his habits, his teacher notices he participates more, which supports this opinion."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST clear?",
+      "options": [
+        "Which foods Dr. Salma suggests for breakfast",
+        "Whether Hamad's mother agreed to wake him earlier",
+        "Why Hamad usually skips breakfast",
+        "What mild dehydration can cause"
+      ],
+      "answer": "B",
+      "why": "Hamad only promises to ask his mother; the story never says what she answered."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "A boy feels more alert after eating oats and dates.",
+        "A boiled egg gives a boy the power to fly.",
+        "Chips turn into vegetables inside a lunch box.",
+        "A doctor's advice makes a boy grow a metre in a week."
+      ],
+      "answer": "A",
+      "why": "Eating a balanced breakfast can really improve alertness; the other events are imaginary."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the BEST solution to Hamad's problem, based on the passage?",
+      "options": [
+        "Buying two packets of chips instead of one",
+        "Sleeping in the clinic during morning lessons",
+        "Waking up earlier to eat a healthy breakfast",
+        "Drinking more fizzy drinks to stay awake"
+      ],
+      "answer": "C",
+      "why": "His tiredness comes from skipping breakfast, so waking earlier to eat a healthy meal solves it."
+    }
+  ]
+}

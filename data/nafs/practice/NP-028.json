@@ -1,0 +1,169 @@
+{
+  "code": "NP-028",
+  "title": "From Egg to Wings",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Few creatures undergo a transformation as dramatic as the butterfly, which passes through four distinct stages during its life: egg, larva, pupa, and adult. This complete change is called metamorphosis.\n\nThe cycle begins when a female butterfly lays tiny eggs, usually on the underside of a leaf. She chooses the plant carefully, because her young will need to eat it as soon as they hatch. Depending on the species and the temperature, the eggs hatch after a few days or several weeks.\n\nThe creature that emerges is a larva, commonly called a caterpillar. Its main task is eating, and it consumes leaves almost continuously throughout the day and night. As the caterpillar grows, its skin becomes too tight, so it sheds that skin several times. Within about two weeks, a caterpillar may increase its body mass by more than a hundred times.\n\nNext, the fully grown caterpillar attaches itself to a stem, where it forms a hard protective case called a chrysalis. Although the pupa appears motionless from the outside, remarkable changes are happening within. The caterpillar's body breaks down, and its cells reorganize to build wings, long legs, and a new body.\n\nFinally, the adult butterfly pushes its way out of the chrysalis. At first, its wings are crumpled and damp, so it pumps fluid into them and waits for them to harden. Within hours, it can fly in search of flowers, where it drinks sweet nectar through a long, tube-like mouthpart. Soon, females will lay eggs, beginning the remarkable cycle again.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "What is the correct plural of \"larva\"?",
+      "options": [
+        "larvs",
+        "larvies",
+        "larvae",
+        "larvaes"
+      ],
+      "answer": "C",
+      "why": "\"Larva\" is a Latin word with an irregular plural: one larva, two larvae."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"transformation\" correctly?",
+      "options": [
+        "She transformation the clay into a bowl.",
+        "The garden's transformation took a whole year.",
+        "The transformation ran quickly across the field.",
+        "We will transformation our room tomorrow."
+      ],
+      "answer": "B",
+      "why": "\"Transformation\" is a noun meaning a complete change; only the first sentence uses it as a noun with a sensible meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why does a female butterfly choose the plant for her eggs carefully?",
+      "options": [
+        "She needs its nectar to lay eggs.",
+        "It must hide the eggs from the sun.",
+        "Her young must eat it when they hatch.",
+        "Its stem must be strong for flying."
+      ],
+      "answer": "C",
+      "why": "The passage says \"her young will need to eat it as soon as they hatch.\""
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which stage comes directly after the larva stage?",
+      "options": [
+        "egg",
+        "adult",
+        "nectar",
+        "pupa"
+      ],
+      "answer": "D",
+      "why": "The four stages are egg, larva, pupa and adult, so the pupa follows the larva."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How is the pupa stage different from the larva stage?",
+      "options": [
+        "The pupa looks still; the larva eats constantly.",
+        "The pupa lays eggs; the larva builds its wings.",
+        "The pupa can fly; the larva cannot move at all.",
+        "The pupa eats leaves; the larva drinks nectar."
+      ],
+      "answer": "A",
+      "why": "The larva eats \"almost continuously,\" while the pupa \"appears motionless from the outside.\""
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The writer says \"remarkable changes are happening within.\" What is the effect of this phrase?",
+      "options": [
+        "It stresses that hidden changes are amazing.",
+        "It suggests the changes are dangerous.",
+        "It shows the pupa is empty inside.",
+        "It proves nothing happens in the chrysalis."
+      ],
+      "answer": "A",
+      "why": "The word \"remarkable\" makes readers wonder at the changes they cannot see inside the still chrysalis."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "The egg stage is the most important stage.",
+        "Caterpillars are harmful pests to all plants.",
+        "Butterflies live for only a few hours.",
+        "Metamorphosis is an amazing natural process."
+      ],
+      "answer": "D",
+      "why": "The writer calls the change \"dramatic\" and the cycle \"remarkable\"; the other statements are not supported."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "how a caterpillar grows larger",
+        "what adult butterflies drink",
+        "how long the pupa stays inside the chrysalis",
+        "where eggs are usually laid"
+      ],
+      "answer": "C",
+      "why": "The passage gives times for the egg and larva stages but not for the pupa stage."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which of these events could REALLY happen?",
+      "options": [
+        "A butterfly hatches straight from an egg.",
+        "A caterpillar sheds its skin as it grows.",
+        "A caterpillar flies before forming a chrysalis.",
+        "An adult butterfly turns back into a caterpillar."
+      ],
+      "answer": "B",
+      "why": "Caterpillars shed their skin several times. Butterflies do not hatch from eggs, caterpillars cannot fly, and the cycle never reverses."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 1,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "Four Stages of a Butterfly's Life",
+        "How Bees Make Their Honey",
+        "The Dangers of Desert Winds",
+        "Caring for a Pet Lizard"
+      ],
+      "answer": "A",
+      "why": "The passage explains the four stages of a butterfly's life cycle."
+    }
+  ]
+}

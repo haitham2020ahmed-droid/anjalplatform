@@ -1,0 +1,169 @@
+{
+  "code": "NP-095",
+  "title": "The Changing Face of the Moon",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "On some evenings the Moon appears as a bright, complete circle, while on others it is only a thin silver curve or cannot be seen at all. These changing shapes are called the phases of the Moon, and they follow a regular pattern that repeats about every twenty-nine and a half days.\n\nThe Moon does not produce its own light. Instead, it reflects light from the Sun, and exactly half of the Moon is always lit, just as half of the Earth always experiences daytime. What changes is how much of that sunlit half we can see from Earth as the Moon travels around our planet.\n\nWhen the Moon passes between the Earth and the Sun, its illuminated side faces away from us, and we observe almost nothing. This is the new moon. Over the following nights, a narrow crescent appears and gradually grows, or waxes, until half of the visible disc is lit at the first quarter. The Moon continues to wax until, about two weeks after the new moon, the whole face is illuminated and we see a full moon. Afterwards, the lit portion shrinks, or wanes, until the cycle begins again.\n\nThese predictable phases have guided civilisations for thousands of years. In the Hijri calendar, each month begins when the first thin crescent is sighted after the new moon, which is why people across the Islamic world watch the western sky so carefully at sunset near the end of each month.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "In \"the lit portion shrinks,\" what part of speech is \"shrinks\"?",
+      "options": [
+        "noun",
+        "verb",
+        "adjective",
+        "adverb"
+      ],
+      "answer": "B",
+      "why": "\"Shrinks\" tells what the lit portion does, so it is a verb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence is a command?",
+      "options": [
+        "The Moon reflects light from the Sun.",
+        "Why does the Moon change its shape?",
+        "What a bright full moon it is!",
+        "Look at the western sky at sunset."
+      ],
+      "answer": "D",
+      "why": "A command tells the reader to do something; it begins with the verb \"Look\"."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why can we see almost nothing of the Moon at the new moon?",
+      "options": [
+        "Its lit side faces away from Earth.",
+        "The Sun stops shining on the Moon.",
+        "The Moon moves too far from Earth.",
+        "Clouds always cover it at that time."
+      ],
+      "answer": "A",
+      "why": "The passage says that when the Moon is between Earth and the Sun, its illuminated side faces away from us."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which list shows the phases in the order the passage describes them?",
+      "options": [
+        "full moon, new moon, crescent, first quarter",
+        "crescent, full moon, first quarter, new moon",
+        "new moon, crescent, first quarter, full moon",
+        "first quarter, new moon, full moon, crescent"
+      ],
+      "answer": "C",
+      "why": "The passage moves from the new moon to a growing crescent, then the first quarter, then the full moon."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "How is waxing different from waning?",
+      "options": [
+        "Waxing happens only in the Hijri calendar.",
+        "In waxing the lit part grows; in waning it shrinks.",
+        "In waxing the Moon makes its own light.",
+        "Waxing lasts one night; waning lasts a month."
+      ],
+      "answer": "B",
+      "why": "The passage defines waxing as growing and waning as shrinking."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The writer compares the Moon's lit half to half of the Earth having daytime. Why?",
+      "options": [
+        "To explain a new idea with something familiar.",
+        "To show that the Earth is larger than the Moon.",
+        "To describe how people sleep at night.",
+        "To argue that the Moon has its own light."
+      ],
+      "answer": "A",
+      "why": "Readers already know half the Earth has day; the comparison helps them picture the half-lit Moon."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is BEST supported by the passage?",
+      "options": [
+        "The full moon is the only phase scientists study.",
+        "The Moon really changes its shape every night.",
+        "People no longer need to watch the Moon at all.",
+        "The phases matter in both science and daily life."
+      ],
+      "answer": "D",
+      "why": "The passage explains the science and shows how the phases still guide the Hijri calendar."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is the LEAST complete?",
+      "options": [
+        "Where the Moon's light comes from",
+        "How long one cycle of phases lasts",
+        "Why the first crescent is seen in the western sky",
+        "What we see when the Moon is between Earth and Sun"
+      ],
+      "answer": "C",
+      "why": "The passage says people watch the western sky at sunset but does not explain why the crescent appears there."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "People see a thin crescent low in the west at sunset.",
+        "The Moon shines with its own light at the new moon.",
+        "A full moon appears the night after a new moon.",
+        "The Moon stays full for a whole month."
+      ],
+      "answer": "A",
+      "why": "A young crescent is seen in the west after sunset; the other events contradict the passage."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which is the best alternative title for the passage?",
+      "options": [
+        "How to Build Your Own Telescope",
+        "Why the Moon Seems to Change Shape",
+        "The Hottest Days of the Sun",
+        "Old Stories About the Stars"
+      ],
+      "answer": "B",
+      "why": "The whole passage explains the phases, so this title fits best."
+    }
+  ]
+}

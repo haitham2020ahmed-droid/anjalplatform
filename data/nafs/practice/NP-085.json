@@ -1,0 +1,169 @@
+{
+  "code": "NP-085",
+  "title": "Gahwa: Coffee in Arabia",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Coffee has been part of life in Arabia for more than five hundred years. Many historians believe that the drink first became popular in Yemen in the fifteenth century. There, scholars and travelers discovered that a beverage made from roasted coffee beans helped them remain alert during long evenings of study and prayer.\n\nFrom the ports of Yemen, especially the famous harbor of Mocha, coffee spread northward to Makkah, Cairo and eventually Istanbul. Merchants carried sacks of beans across the Red Sea. Soon coffeehouses appeared in many cities, where people met to talk, hear poems and share news.\n\nIn the Arabian Peninsula, coffee developed its own distinctive traditions. Arabic coffee, known as gahwa, is usually lightly roasted and flavored with cardamom, and sometimes saffron or cloves. It is poured from a long-spouted pot called a dallah into small cups without handles. Traditionally, the host serves guests with the right hand, filling each cup only partly, and a guest gently shakes the cup to signal that he has finished.\n\nServing coffee is a strong sign of kindness to guests. In 2015, UNESCO recognized Arabic coffee as part of the world's intangible cultural heritage, and Saudi Arabia later named 2022 the Year of Saudi Coffee. Today, farmers in the Jazan region continue to grow coffee on mountain terraces, preserving an ancient agricultural tradition.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a NOUN?",
+      "options": [
+        "poured",
+        "hospitality",
+        "gently",
+        "distinctive"
+      ],
+      "answer": "B",
+      "why": "'Hospitality' names a quality, so it is a noun; the others are a verb, an adverb and an adjective."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which sentence uses the word 'generosity' correctly?",
+      "options": [
+        "She generosity the coffee into small cups.",
+        "The dallah was very generosity and tall.",
+        "They walked generosity to the old market.",
+        "The host showed generosity to every guest."
+      ],
+      "answer": "D",
+      "why": "'Generosity' is a noun meaning willingness to give; only this sentence uses it as a noun."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why did scholars in Yemen drink coffee?",
+      "options": [
+        "It helped them stay alert in the evenings",
+        "It was cheaper than water in Yemen",
+        "It cured illnesses during long travel",
+        "Merchants required them to taste it"
+      ],
+      "answer": "A",
+      "why": "They found it 'helped them remain alert during long evenings of study and prayer.'"
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "After the ports of Yemen, where did coffee spread next?",
+      "options": [
+        "Jazan first, and then Mocha",
+        "Europe first, and then Yemen",
+        "Makkah, Cairo and later Istanbul",
+        "Istanbul first, then Makkah"
+      ],
+      "answer": "C",
+      "why": "The passage says coffee spread northward 'to Makkah, Cairo and eventually Istanbul.'"
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What is the EFFECT when a guest gently shakes the cup?",
+      "options": [
+        "The host knows the guest has finished",
+        "The host adds saffron to the coffee",
+        "The coffee becomes cooler and sweeter",
+        "The guest is asked to pour for others"
+      ],
+      "answer": "A",
+      "why": "Shaking the cup is a signal that the guest has had enough."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "The writer calls serving coffee 'a strong sign of kindness to guests.' What does this show?",
+      "options": [
+        "Coffee is mostly served to sick people",
+        "Coffee means more than just a drink",
+        "Coffee is a drink only for strangers",
+        "Coffee is too strong for most guests"
+      ],
+      "answer": "B",
+      "why": "The phrase shows that serving coffee carries a social meaning of generosity."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which statement BEST matches the writer's viewpoint?",
+      "options": [
+        "Coffeehouses were bad places to share news",
+        "Gahwa should be served in large mugs",
+        "Coffee farming in Jazan is no longer needed",
+        "Arabic coffee is a valuable tradition to keep"
+      ],
+      "answer": "D",
+      "why": "The writer mentions UNESCO, the Year of Saudi Coffee and farmers 'preserving an ancient tradition.'"
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the passage is LEAST clear?",
+      "options": [
+        "What a dallah is used for",
+        "When UNESCO recognized Arabic coffee",
+        "Exactly who first discovered the drink",
+        "Which spice usually flavors gahwa"
+      ],
+      "answer": "C",
+      "why": "The writer only says 'many historians believe' and mentions scholars and travelers in general."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which event could really happen today?",
+      "options": [
+        "A farmer in Jazan harvests coffee on a terrace",
+        "A merchant in 1450 orders coffee by phone",
+        "A dallah pours coffee with nobody holding it",
+        "Coffee beans grow inside sacks on a ship"
+      ],
+      "answer": "A",
+      "why": "The passage says Jazan farmers still grow coffee on mountain terraces."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which title would BEST fit this passage?",
+      "options": [
+        "How to Grow Tea in the Desert",
+        "A Cup of History: Coffee in Arabia",
+        "The Ships of the Red Sea",
+        "Famous Poets of Istanbul"
+      ],
+      "answer": "B",
+      "why": "The passage traces the history and traditions of coffee in Arabia."
+    }
+  ]
+}

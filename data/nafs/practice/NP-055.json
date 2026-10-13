@@ -1,0 +1,169 @@
+{
+  "code": "NP-055",
+  "title": "The Empty Quarter Is Not Empty",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "passage": "Covering about 650,000 square kilometres of southern Arabia, the Rub' al Khali, or Empty Quarter, is the largest continuous sand desert on Earth. Most of it lies within Saudi Arabia, but it also stretches into Oman, the United Arab Emirates, and Yemen. Its name suggests a place with nothing in it, yet the desert is far from empty.\n\nThe landscape is dominated by enormous dunes, some of which rise more than 250 metres above the desert floor. Iron oxide coating the grains gives much of the sand its striking orange and red colour, which glows brightly at sunrise and sunset. In summer, daytime temperatures can climb above 50 degrees Celsius, while winter nights can feel surprisingly cold.\n\nDespite these harsh conditions, many living things have adapted to survive. Beetles collect tiny droplets of moisture, sand cats hunt at night to avoid the heat, and the Arabian oryx can go for long periods without drinking water. Scientists have also discovered that thousands of years ago, the region contained shallow lakes where hippos and water buffalo once lived.\n\nFor centuries, only skilled Bedouin travellers with camels dared to cross the sands. Today, the Empty Quarter also holds great importance for the Kingdom's economy, because large oil and gas fields, such as Shaybah, lie beneath its dunes. Whether people see it as a treasure, a challenge, or a natural wonder, the Empty Quarter remains one of the most remarkable places on the planet.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Which word from the passage is a noun?",
+      "options": [
+        "survive",
+        "landscape",
+        "brightly",
+        "enormous"
+      ],
+      "answer": "B",
+      "why": "'Landscape' names a thing, so it is a noun; 'enormous' is an adjective, 'survive' a verb and 'brightly' an adverb."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word 'harsh' correctly?",
+      "options": [
+        "The harsh kitten purred softly on my lap.",
+        "She harshed the door quietly behind her.",
+        "The harsh desert sun sent travellers looking for shade.",
+        "We ate a harsh breakfast of eggs and warm bread."
+      ],
+      "answer": "C",
+      "why": "'Harsh' means severe or difficult to bear, like the harsh conditions of the desert."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "According to the passage, why does much of the sand look orange and red?",
+      "options": [
+        "Iron oxide coats the grains of sand.",
+        "The summer sun burns the sand red.",
+        "Ancient lakes left red mud behind.",
+        "Oil under the dunes colours the sand."
+      ],
+      "answer": "A",
+      "why": "The passage states that iron oxide coating the grains gives the sand its orange and red colour."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 2,
+      "stem": "Which idea does the writer present right after describing the dunes and temperatures?",
+      "options": [
+        "How living things survive there",
+        "Which countries the desert reaches",
+        "Where the oil and gas fields are",
+        "How large the whole desert is"
+      ],
+      "answer": "A",
+      "why": "Paragraph 3, which comes after the dunes and temperatures, explains how beetles, sand cats and oryx survive."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "How was the Empty Quarter thousands of years ago different from today?",
+      "options": [
+        "It was smaller than the country of Oman.",
+        "Its summers were colder than its winters.",
+        "It had shallow lakes where hippos lived.",
+        "It was covered by thick green forests."
+      ],
+      "answer": "C",
+      "why": "Scientists discovered that the region once contained shallow lakes with hippos and water buffalo."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "The writer says the desert is 'far from empty.' What does this phrase suggest?",
+      "options": [
+        "It is very far away from every city.",
+        "Nobody has ever travelled into it.",
+        "It holds more life and riches than its name suggests.",
+        "It is becoming emptier every year."
+      ],
+      "answer": "C",
+      "why": "'Far from empty' means 'not empty at all': the passage goes on to describe animals, ancient lakes and oil."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which opinion is best supported by the passage?",
+      "options": [
+        "The Empty Quarter has no value for people.",
+        "Only scientists should be allowed to visit.",
+        "No animal could ever live in such a desert.",
+        "The desert is both a natural wonder and a resource."
+      ],
+      "answer": "D",
+      "why": "The writer describes its beauty and wildlife and also its oil and gas fields, calling it remarkable."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 2,
+      "stem": "Which information is the LEAST clear in the passage?",
+      "options": [
+        "How high some of the dunes rise",
+        "How hot summer days can become",
+        "Which countries the desert covers",
+        "How the beetles actually collect moisture"
+      ],
+      "answer": "D",
+      "why": "The passage says beetles collect droplets of moisture but not how they do it; the other facts are given with details."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 1,
+      "stem": "Which of these could really happen in the Empty Quarter today?",
+      "options": [
+        "A sand cat hunts for food after sunset.",
+        "A camel crosses the whole desert in a day.",
+        "A hippo swims in a lake near Shaybah.",
+        "Snow covers the dunes on summer afternoons."
+      ],
+      "answer": "A",
+      "why": "Sand cats hunt at night to avoid the heat; hippos lived there only thousands of years ago."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 3,
+      "stem": "Which title would best fit this passage?",
+      "options": [
+        "How Oil Is Made Underground",
+        "Surprises in the Sands of Arabia",
+        "Camels of the World",
+        "Hippos in Ancient Lakes"
+      ],
+      "answer": "B",
+      "why": "The passage shows many surprising things about the Empty Quarter; the other titles cover only one small detail or are off topic."
+    }
+  ]
+}

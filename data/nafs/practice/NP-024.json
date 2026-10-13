@@ -1,0 +1,169 @@
+{
+  "code": "NP-024",
+  "title": "Ten Terrible Minutes",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "passage": "I will never forget the morning my family relocated to Dammam and I began sixth grade at an unfamiliar school. As my father parked outside the gate, my stomach twisted like a wrung-out towel, because I knew absolutely nobody and was convinced that every student would stare at the new girl.\n\nInside, the corridors were crowded and noisy, and although I clutched my printed schedule tightly, the room numbers seemed to rearrange themselves every time I looked at them. Eventually, I wandered into a science laboratory by mistake, where twenty older students turned around simultaneously. My cheeks burned with embarrassment as I apologized and hurried back into the corridor.\n\nAt that moment, a girl carrying a bright yellow backpack approached me. \"You look lost,\" she observed kindly. \"I'm Reem. Are you looking for Room 14? That's my class too.\" She guided me upstairs and generously saved me a seat beside her.\n\nDuring lunch, Reem introduced me to her friends, who asked curious questions about the city where I had previously lived. Surprisingly, they seemed genuinely interested. By the afternoon, I was laughing at their jokes and had even volunteered to answer a difficult question in mathematics.\n\nWhen my mother collected me after school, she asked anxiously how the day had gone. I grinned and explained that it had been terrible for exactly ten minutes and wonderful for the remainder. Since then, I always make an effort to notice new students, because I remember how much one small act of kindness meant to me.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Which word from the story is an ADVERB?",
+      "options": [
+        "embarrassment",
+        "unfamiliar",
+        "laboratory",
+        "anxiously"
+      ],
+      "answer": "D",
+      "why": "\"Anxiously\" describes how the mother asked, so it is an adverb. The others are an adjective and two nouns."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "difficulty": 2,
+      "stem": "Which sentence uses the word \"genuinely\" correctly?",
+      "options": [
+        "The genuinely was hidden in the box.",
+        "He genuinely the door before leaving.",
+        "They ran genuinely of the classroom.",
+        "She was genuinely pleased to see her friend."
+      ],
+      "answer": "D",
+      "why": "\"Genuinely\" is an adverb meaning \"truly\"; only the first sentence uses it correctly to describe \"pleased.\""
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "difficulty": 1,
+      "stem": "Why did the narrator feel nervous outside the school gate?",
+      "options": [
+        "She knew nobody at the new school.",
+        "She disliked her science lessons.",
+        "Her father was late for his work.",
+        "She had left her schedule at home."
+      ],
+      "answer": "A",
+      "why": "She says she \"knew absolutely nobody\" and expected every student to stare at the new girl."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "difficulty": 1,
+      "stem": "Who is the narrator of this story?",
+      "options": [
+        "a girl starting at a new school",
+        "a teacher in the laboratory",
+        "Reem, a student in Room 14",
+        "the narrator's anxious mother"
+      ],
+      "answer": "A",
+      "why": "The story is told in the first person (\"I\") by the new girl who has just moved to Dammam."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "What was the main effect of Reem's kindness on the narrator?",
+      "options": [
+        "It made her want to return to her old city.",
+        "It helped her feel confident and included.",
+        "It made her afraid of the older students.",
+        "It caused her to miss her mathematics class."
+      ],
+      "answer": "B",
+      "why": "After Reem helped her, she was laughing with new friends and even volunteered to answer in mathematics."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "\"My stomach twisted like a wrung-out towel.\" What does this simile show?",
+      "options": [
+        "how hot the weather had become",
+        "how anxious the narrator felt",
+        "how hungry the narrator was",
+        "how tidy the narrator's bag was"
+      ],
+      "answer": "B",
+      "why": "Comparing her stomach to a twisted towel shows the tight, uncomfortable feeling of nerves."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "What most likely motivated the writer to tell this story?",
+      "options": [
+        "to describe the city of Dammam in detail",
+        "to complain about crowded school corridors",
+        "to show the power of a small kindness",
+        "to explain how to find rooms in a school"
+      ],
+      "answer": "C",
+      "why": "The writer ends by saying she always notices new students because of \"how much one small act of kindness meant.\""
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which information in the story is the LEAST clear?",
+      "options": [
+        "the color of Reem's backpack",
+        "the number of the narrator's classroom",
+        "why the narrator's family moved to Dammam",
+        "who collected the narrator after school"
+      ],
+      "answer": "C",
+      "why": "The move is mentioned but never explained; the backpack color, Room 14 and her mother are all stated."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "difficulty": 3,
+      "stem": "Which event from the story could REALLY happen?",
+      "options": [
+        "A towel twists itself inside a girl's stomach.",
+        "A new student walks into the wrong classroom.",
+        "Room numbers physically move when someone looks.",
+        "A backpack leads a lost student upstairs."
+      ],
+      "answer": "B",
+      "why": "Entering the wrong room is realistic. The moving room numbers and the twisted towel are only ways of describing her feelings."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P3",
+      "difficulty": 2,
+      "stem": "Which different ending would best fit the message of the story?",
+      "options": [
+        "Months later, she helps another new student find a class.",
+        "She returns to her old school the next day.",
+        "She decides never to speak to Reem again.",
+        "She hides in the laboratory until evening."
+      ],
+      "answer": "A",
+      "why": "This ending continues the lesson of kindness to new students that the narrator learned."
+    }
+  ]
+}
