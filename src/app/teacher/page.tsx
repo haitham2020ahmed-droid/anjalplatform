@@ -78,26 +78,28 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
         <h2 id="na-h" className="flex items-center gap-2 border-b border-line px-4 py-3 text-xl text-ink"><LineIcon name="alert" className="h-5 w-5 text-rose-600" />{t("Needs attention")}</h2>
         <p className="px-4 pt-2 text-xs text-slate-500">{t("No practice for 7 days or more · stuck on a skill (15+ questions and a score under 50).")}</p>
         {sum.list.length === 0 ? <p className="p-4 text-sm text-slate-600">{t("Everyone is on track.")}</p> : (
-          <ul className="divide-y divide-slate-100">
-            {sum.list.slice(0, 30).map((r, ix) => (
-              <li key={r.studentId} className={`${ix > 5 ? "hidden group-has-[:checked]/na:flex" : "flex"} flex-wrap items-center justify-between gap-2 px-4 py-2.5`}>
-                <div className="min-w-0">
-                  <Link prefetch={false} href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link>
-                  <span className="ms-2 text-xs text-slate-500"><bdi>{r.className}</bdi></span>
-                  <p className="text-sm text-slate-600">
-                    {r.stuck.length > 0 && <span title={r.stuck.map((k) => `${k.skill} (${k.questions}, ${k.score}%)`).join(" · ")}>{t("Stuck on")}: {r.stuck[0].skill} <span className="text-slate-400">({r.stuck[0].score}%)</span>{r.stuck.length > 1 && <span className="ms-1 rounded-full bg-slate-100 px-2 text-xs text-slate-600">{t("+{n} more", { n: r.stuck.length - 1 })}</span>}</span>}
-                    {r.stuck.length === 0 && <span>{r.neverPractised ? t("Has not practised yet") : t("No practice for {n} days", { n: r.idleDays ?? 0 })}</span>}
+          // compact rows (name · class · reason on one line) in a fixed-height box the teacher scrolls (mouse, touch or
+          // keyboard: the box takes focus); "Show all" opens every row inside the same box
+          <div role="region" aria-label={t("Needs attention")} tabIndex={0} className="mx-3 mb-3 mt-2 max-h-[18rem] overflow-y-auto rounded-xl ring-1 ring-line [scrollbar-gutter:stable] [scrollbar-width:thin] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">
+            <ul className="divide-y divide-slate-100">
+              {sum.list.map((r, ix) => (
+                <li key={r.studentId} className={`${ix > 7 ? "hidden group-has-[:checked]/na:flex" : "flex"} items-center justify-between gap-2 px-3 py-1.5 text-sm`}>
+                  <p className="min-w-0 flex-1 truncate">
+                    <Link prefetch={false} href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link>
+                    <span className="ms-1.5 text-xs text-slate-500"><bdi>{r.className}</bdi></span>
+                    <span className="mx-1.5 text-slate-300" aria-hidden="true">·</span>
+                    {r.stuck.length > 0 && <span className="text-slate-600" title={r.stuck.map((k) => `${k.skill} (${k.questions}, ${k.score}%)`).join(" · ")}>{t("Stuck on")}: {r.stuck[0].skill} <span className="text-slate-400">({r.stuck[0].score}%)</span>{r.stuck.length > 1 && <span className="ms-1 rounded-full bg-slate-100 px-1.5 text-xs text-slate-600">{t("+{n} more", { n: r.stuck.length - 1 })}</span>}</span>}
+                    {r.stuck.length === 0 && <span className="text-slate-600">{r.neverPractised ? t("Has not practised yet") : t("No practice for {n} days", { n: r.idleDays ?? 0 })}</span>}
                   </p>
-                </div>
-                {r.stuck.length > 0
-                  ? <Link prefetch={false} href={`/teacher/plans?${new URLSearchParams([["tab", "custom"], ["classId", r.classId], ["who", "student"], ["sid", r.studentId], ...r.stuck.map((k) => ["add", k.skillId] as [string, string])])}`} className="inline-flex min-h-9 items-center rounded-lg bg-white px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t("Create Plan")}</Link>
-                  : <Link prefetch={false} href={`/teacher/students/${r.studentId}`} className="inline-flex min-h-9 items-center rounded-lg bg-white px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t("Open")}</Link>}
-              </li>
-            ))}
-          </ul>
+                  {r.stuck.length > 0
+                    ? <Link prefetch={false} href={`/teacher/plans?${new URLSearchParams([["tab", "custom"], ["classId", r.classId], ["who", "student"], ["sid", r.studentId], ...r.stuck.map((k) => ["add", k.skillId] as [string, string])])}`} className="inline-flex h-7 shrink-0 items-center rounded-md bg-white px-2.5 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t("Create Plan")}</Link>
+                    : <Link prefetch={false} href={`/teacher/students/${r.studentId}`} className="inline-flex h-7 shrink-0 items-center rounded-md bg-white px-2.5 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t("Open")}</Link>}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
-        {sum.list.length > 6 && <p className="border-t border-slate-100 px-4 py-2"><label className="inline-flex cursor-pointer items-center gap-1 text-sm font-semibold text-brand-teal"><input type="checkbox" className="peer sr-only" data-na-toggle /> <span className="group-has-[:checked]/na:hidden">{t("Show all ({n})", { n: Math.min(30, sum.list.length) })}</span><span className="hidden group-has-[:checked]/na:inline">{t("Show fewer")}</span></label></p>}
-        {sum.list.length > 30 && <p className="px-4 pb-2 text-sm text-slate-600">{t("… and {n} more", { n: sum.list.length - 30 })}</p>}
+        {sum.list.length > 8 && <p className="border-t border-slate-100 px-4 py-2"><label className="inline-flex cursor-pointer items-center gap-1 text-sm font-semibold text-brand-teal has-[:focus-visible]:underline"><input type="checkbox" className="peer sr-only" data-na-toggle /> <span className="group-has-[:checked]/na:hidden">{t("Show all ({n})", { n: sum.list.length })}</span><span className="hidden group-has-[:checked]/na:inline">{t("Show fewer")}</span></label></p>}
       </section>
 
 

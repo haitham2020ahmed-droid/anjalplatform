@@ -8,15 +8,21 @@ import { PrintButton } from "@/components/plans/print-button";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classTasks, classWritingErrors, taskForTeacher, writingSkillOptions, type TaskView } from "@/server/teacher/writing";
-import { GENRES, GENRE_ICON, GENRE_LABEL } from "@/server/writing/genres";
+import { GENRES, GENRE_LABEL } from "@/server/writing/genres";
 import { WRITING_ERROR_CODES } from "@/server/writing/reteach";
 import { MISCONCEPTION_BY_CODE } from "@/insights/misconceptions";
 import { SkillListPicker, type SkillListRow } from "@/components/skill-picker";
+import { LineIcon } from "@/components/ui/line-icon";
+import { ITEM_PREVIEW } from "@/server/student/preview-as";
 import { approveAiAction, createTaskAction, dismissAiAction, reteachAction, requestAiAction, researchScoreAction, scoreAction } from "./actions";
 
 export const metadata = { title: "Writing & reading aloud" };
 
 const box = "mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 font-normal";
+// the new-task form: the platform's field sizes (inputs 44px high, labels 14px semibold)
+const inp = "mt-1.5 block h-11 w-full rounded-lg border border-slate-300 bg-white px-3 text-base font-normal text-ink";
+const area = "mt-1.5 block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-base font-normal text-ink";
+const lbl = "block text-sm font-semibold text-ink";
 const sel = "mt-1 block rounded-lg border border-slate-300 px-2 py-1.5";
 const CODE_LABEL = (c: string) => MISCONCEPTION_BY_CODE.get(c)?.label ?? c;
 const STAGE_LABEL: Record<string, string> = { PLAN: "planning", DRAFT: "drafting", REVISE: "revising", FINAL: "final" };
@@ -149,25 +155,34 @@ function MovePicker({ task }: { task: TaskView }) {
   );
 }
 
-function NewTaskForm({ classId, skills }: { classId: string; skills: SkillListRow[] }) {
+function NewTaskForm({ classId, skills, tr }: { classId: string; skills: SkillListRow[]; tr: (k: string) => string }) {
+  const kindTile = "inline-flex h-11 cursor-pointer items-center gap-2 rounded-lg px-3 font-semibold text-ink ring-1 ring-slate-300 has-[:checked]:bg-surface-2 has-[:checked]:ring-brand-navy";
   return (
-    <form action={createTaskAction} className="mt-3 space-y-2 text-sm">
+    <form action={createTaskAction} className="mt-4 grid gap-x-5 gap-y-4 border-t border-line pt-4 text-sm md:grid-cols-2">
       <input type="hidden" name="classId" value={classId} />
-      <div className="flex gap-3"><label className="flex items-center gap-1"><input type="radio" name="kind" value="WRITE" defaultChecked /> ✍️ Writing</label><label className="flex items-center gap-1"><input type="radio" name="kind" value="READ_ALOUD" /> 🎙 Read aloud</label></div>
-      <label className="block font-semibold">Genre (writing)<select name="genre" defaultValue="NARRATIVE" className={box}>{GENRES.map((g) => <option key={g} value={g}>{GENRE_ICON[g]} {GENRE_LABEL[g]}</option>)}</select></label>
-      <label className="block font-semibold">Title<input name="title" required maxLength={191} className={box} /></label>
-      <label className="block font-semibold">What students do<textarea name="prompt" required rows={3} className={box} placeholder="e.g. Write an opinion: should every school have a garden? Give two reasons." /></label>
-      <label className="block font-semibold">Text (to read aloud, or to write about)<textarea name="passage" rows={3} className={box} /></label>
-      <div className="flex gap-2"><label className="font-semibold">Min. words<input name="minWords" type="number" min={10} max={1000} className={`${box} w-24`} /></label><label className="font-semibold">Due<input name="dueAt" type="date" className={box} /></label></div>
-      <label className="flex items-start gap-2"><input type="checkbox" name="staged" value="1" className="mt-1" /> <span><b>Staged</b>: plan (organizer + sentence frames) → draft → revise with 1–2 steps → final</span></label>
-      <label className="flex items-start gap-2"><input type="checkbox" name="aiFeedback" value="1" className="mt-1" /> <span><b>🤖 AI feedback drafts</b>: you check and approve each one before the student sees it (only the writing, genre and rubric are sent)</span></label>
+      <div role="radiogroup" className="flex flex-wrap gap-2 md:col-span-2">
+        <label className={kindTile}><input type="radio" name="kind" value="WRITE" defaultChecked /><LineIcon name="writing" className="h-[18px] w-[18px]" />{tr("Writing")}</label>
+        <label className={kindTile}><input type="radio" name="kind" value="READ_ALOUD" /><LineIcon name="mic" className="h-[18px] w-[18px]" />{tr("Read aloud")}</label>
+      </div>
+      <label className={lbl}>{tr("Genre (writing)")}<select name="genre" defaultValue="NARRATIVE" className={inp}>{GENRES.map((g) => <option key={g} value={g}>{GENRE_LABEL[g]}</option>)}</select></label>
+      <label className={lbl}>{tr("Title")}<input name="title" required maxLength={191} className={inp} /></label>
+      <label className={lbl}>{tr("What students do")}<textarea name="prompt" required rows={4} className={area} placeholder="e.g. Write an opinion: should every school have a garden? Give two reasons." /></label>
+      <label className={lbl}>{tr("Text (to read aloud, or to write about)")}<textarea name="passage" rows={4} className={area} /></label>
+      <label className={lbl}>{tr("Min. words")}<input name="minWords" type="number" min={10} max={1000} className={inp} /></label>
+      <label className={lbl}>{tr("Due")}<input name="dueAt" type="date" className={inp} /></label>
+      <div className="grid gap-2 md:col-span-2">
+        <label className="flex items-start gap-2"><input type="checkbox" name="staged" value="1" className="mt-1" /> <span><b>Staged</b>: plan (organizer + sentence frames) → draft → revise with 1–2 steps → final</span></label>
+        <label className="flex items-start gap-2"><input type="checkbox" name="aiFeedback" value="1" className="mt-1" /> <span><b>AI feedback drafts</b>: you check and approve each one before the student sees it (only the writing, genre and rubric are sent)</span></label>
+      </div>
+      <div className="md:col-span-2">
       <SkillListPicker skills={skills} mode="single" name="skillId" optional allowEmpty legend="Skill it practises (optional)" height="max-h-64" />
-      <details className="rounded-xl bg-slate-50 p-3">
-        <summary className="cursor-pointer font-semibold">📚 Sources (up to 3) — needed for Research</summary>
+      </div>
+      <details className="rounded-xl bg-slate-50 p-3 md:col-span-2">
+        <summary className="cursor-pointer font-semibold">Sources (up to 3) — needed for Research</summary>
         {[1, 2, 3].map((i) => <div key={i} className="mt-2"><label className="block font-semibold">Source {i} title<input name={`src${i}.title`} maxLength={120} className={box} /></label><label className="block">Text<textarea name={`src${i}.text`} rows={3} maxLength={8000} className={box} /></label></div>)}
       </details>
-      <details className="rounded-xl bg-slate-50 p-3">
-        <summary className="cursor-pointer font-semibold">❓ Research questions (up to 3), answered before writing</summary>
+      <details className="rounded-xl bg-slate-50 p-3 md:col-span-2">
+        <summary className="cursor-pointer font-semibold">Research questions (up to 3), answered before writing</summary>
         {[1, 2, 3].map((i) => (
           <div key={i} className="mt-2 space-y-1 border-t border-slate-200 pt-2">
             <label className="block font-semibold">Question {i}<input name={`rq${i}.q`} maxLength={300} className={box} /></label>
@@ -177,7 +192,7 @@ function NewTaskForm({ classId, skills }: { classId: string; skills: SkillListRo
           </div>
         ))}
       </details>
-      <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Assign to the class</button>
+      <div className="md:col-span-2"><button className="inline-flex h-11 items-center gap-2 rounded-xl bg-brand-navy px-5 font-semibold text-white hover:bg-brand-purple"><LineIcon name="send" className="h-[18px] w-[18px]" />{tr("Assign to the class")}</button></div>
     </form>
   );
 }
@@ -200,22 +215,31 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher", label: "Home" }} icon="✍️" title="Writing & Reading Aloud" subtitle="Genre writing with 4-trait rubrics and student self-checks, staged plan → draft → revise, source-based research, AI feedback drafts you approve, and reading aloud."><PrintButton /></PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
-      <nav className="flex flex-wrap gap-2 print:hidden">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/writing?classId=${String(c.id)}`} className={chip(c.id === classId)}>{String(c.name)}</Link>)}</nav>
-      <div className="mt-5 grid gap-5 lg:grid-cols-[22rem_1fr]">
+      <nav aria-label={tr("Classes")} className="flex flex-wrap gap-2 print:hidden">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/writing?classId=${String(c.id)}`} className={chip(c.id === classId)}>{String(c.name)}</Link>)}</nav>
+      {/* one compact toolbar: the main actions, aligned and the same height */}
+      <div className="mt-4 flex flex-wrap items-center gap-2 print:hidden">
+        <Link prefetch={false} href={`/teacher/writing/new?classId=${classId}`} className="inline-flex h-11 items-center gap-2 rounded-xl px-4 text-sm font-semibold bg-brand-navy text-white hover:bg-brand-purple"><LineIcon name="lock" className="h-[18px] w-[18px]" />{tr("New writing task (rubric, locked page)")}</Link>
+        <Link prefetch={false} href="/teacher/writing/rubrics" className="inline-flex h-11 items-center gap-2 rounded-xl px-4 text-sm font-semibold bg-surface text-brand-navy ring-1 ring-line hover:ring-brand-teal"><LineIcon name="scale" className="h-[18px] w-[18px]" />{tr("Rubrics")}</Link>
+        <Link prefetch={false} href={`/teacher/writing/report?classId=${classId}`} className="inline-flex h-11 items-center gap-2 rounded-xl px-4 text-sm font-semibold bg-surface text-brand-navy ring-1 ring-line hover:ring-brand-teal"><LineIcon name="chart" className="h-[18px] w-[18px]" />{tr("Writing results")}</Link>
+      </div>
+      <details className="group/new mt-4 rounded-[1.25rem] bg-surface p-5 shadow-card ring-1 ring-line print:hidden" open={!tasks.length}>
+        <summary className="flex cursor-pointer list-none items-center gap-2 text-base font-semibold text-brand-navy [&::-webkit-details-marker]:hidden"><span className="grid h-8 w-8 place-items-center rounded-lg bg-surface-2 ring-1 ring-line"><LineIcon name="plus" className="h-4 w-4" /></span>{tr("New genre task or reading aloud")}<LineIcon name="chevron" className="ms-auto h-4 w-4 text-muted transition-transform group-open/new:rotate-90 rtl:-scale-x-100" /></summary>
+        <NewTaskForm classId={classId} skills={skills} tr={tr} />
+      </details>
+      {/* tasks + the chosen task: a side list beside the task when one is open; otherwise the list takes the full width (no empty panel) */}
+      <div className={`mt-5 grid gap-5 ${task ? "lg:grid-cols-[20rem_minmax(0,1fr)]" : ""}`}>
         <aside className="space-y-4 print:hidden">
-          <div className="grid gap-2">
-            <Link prefetch={false} href={`/teacher/writing/new?classId=${classId}`} className="flex min-h-11 items-center gap-2 rounded-2xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">🔒 {tr("New writing task (rubric, locked page)")}</Link>
-            <div className="flex flex-wrap gap-2 text-sm">
-              <Link prefetch={false} href="/teacher/writing/rubrics" className="inline-flex min-h-10 items-center rounded-xl bg-white px-3 font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">📏 {tr("Rubrics")}</Link>
-              <Link prefetch={false} href={`/teacher/writing/report?classId=${classId}`} className="inline-flex min-h-10 items-center rounded-xl bg-white px-3 font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">📊 {tr("Writing results")}</Link>
-            </div>
-          </div>
-          <details className="rounded-2xl bg-white p-4 ring-1 ring-slate-200" open={!tasks.length}>
-            <summary className="cursor-pointer font-bold text-brand-navy">➕ New genre task or reading aloud</summary>
-            <NewTaskForm classId={classId} skills={skills} />
-          </details>
-          <section className="rounded-2xl bg-white p-4 text-sm ring-1 ring-slate-200">
-            <h2 className="font-bold text-brand-navy">🧩 Class writing errors</h2>
+          <section aria-labelledby="wt-h" className="rounded-[1.25rem] bg-surface p-4 shadow-card ring-1 ring-line">
+            <h2 id="wt-h" className="flex items-center gap-2 text-base font-semibold text-ink"><LineIcon name="file" className="h-[18px] w-[18px] text-ink-2" />{tr("Tasks")} <span className="text-sm font-normal text-muted">({tasks.length})</span></h2>
+            {!tasks.length ? <p className="mt-2 text-sm text-muted">{tr("No tasks for this class yet.")}</p> : (
+              <>
+                {!task && <p className="mt-1 text-sm text-muted">{tr("Choose a task to see the students' work.")}</p>}
+                <ul className={`mt-3 grid gap-2 ${task ? "" : "sm:grid-cols-2 xl:grid-cols-3"}`}>{tasks.map((t) => <li key={t.id}><Link href={t.locked ? `/teacher/writing/task/${t.id}` : `/teacher/writing?classId=${classId}&task=${t.id}`} aria-current={task?.id === t.id ? "page" : undefined} className={`flex h-full items-start gap-2 rounded-xl p-3 text-sm ring-1 ${task?.id === t.id ? "bg-brand-navy text-white ring-brand-navy" : "bg-white ring-slate-200 hover:ring-brand-teal"}`}><LineIcon name={t.locked ? "lock" : t.kind === "WRITE" ? "writing" : "mic"} className="mt-0.5 h-4 w-4 shrink-0 opacity-80" /><span className="min-w-0"><span className="block font-semibold">{t.title}</span><span className="block text-xs opacity-80">{t.locked ? `${tr("Rubric · locked page")} · ` : t.kind === "WRITE" ? `${GENRE_LABEL[t.genre].split(" (")[0]}${t.staged ? " · staged" : ""} · ` : ""}{t.submitted}/{t.members} handed in · {t.scored} scored{t.aiPending ? ` · ${t.aiPending} AI to check` : ""}{t.dueAt ? ` · due ${t.dueAt.slice(0, 10)}` : ""}</span></span></Link></li>)}</ul>
+              </>
+            )}
+          </section>
+          <section aria-labelledby="we-h" className="rounded-[1.25rem] bg-surface p-4 text-sm shadow-card ring-1 ring-line">
+            <h2 id="we-h" className="flex items-center gap-2 text-base font-semibold text-ink"><LineIcon name="flag" className="h-[18px] w-[18px] text-ink-2" />{tr("Class writing errors")}</h2>
             {!errors.rows.length ? <p className="mt-1 text-slate-600">No approved feedback with error tags yet{errors.pending ? ` (${errors.pending} AI draft${errors.pending === 1 ? "" : "s"} waiting for you)` : ""}.</p> : (
               <ol className="mt-2 space-y-2">{errors.rows.map((r) => (
                 <li key={r.code}>
@@ -227,13 +251,12 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
             )}
             {errors.pieces > 0 && <p className="mt-2 text-xs text-slate-500">From {errors.pieces} piece{errors.pieces === 1 ? "" : "s"} of approved feedback.{!task && " Open a task to assign reteach skills."}</p>}
           </section>
-          <ul className="space-y-2">{tasks.map((t) => <li key={t.id}><Link href={t.locked ? `/teacher/writing/task/${t.id}` : `/teacher/writing?classId=${classId}&task=${t.id}`} className={`block rounded-2xl p-3 ring-1 ${task?.id === t.id ? "bg-brand-navy text-white ring-brand-navy" : "bg-white ring-slate-200 hover:ring-brand-teal"}`}><span className="block font-semibold">{t.locked ? "🔒" : t.kind === "WRITE" ? GENRE_ICON[t.genre] : "🎙"} {t.title}</span><span className="block text-xs opacity-80">{t.locked ? `${tr("Rubric · locked page")} · ` : t.kind === "WRITE" ? `${GENRE_LABEL[t.genre].split(" (")[0]}${t.staged ? " · staged" : ""} · ` : ""}{t.submitted}/{t.members} handed in · {t.scored} scored{t.aiPending ? ` · 🤖 ${t.aiPending} to check` : ""}{t.dueAt ? ` · due ${t.dueAt.slice(0, 10)}` : ""}</span></Link></li>)}</ul>
         </aside>
-        <section>
-          {!task ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">Choose a task, or make a new one.</p> : (
-            <>
-              <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
-                <h2 className="text-xl font-bold text-brand-navy">{task.kind === "WRITE" ? GENRE_ICON[task.genre] : "🎙"} {task.title}</h2>
+        {task && (
+          <section className="min-w-0">
+              <div className="rounded-[1.25rem] bg-surface p-5 shadow-card ring-1 ring-line">
+                <h2 className="flex items-center gap-2 text-xl font-bold text-brand-navy"><LineIcon name={task.kind === "WRITE" ? "writing" : "mic"} className="h-5 w-5 shrink-0" />{task.title}</h2>
+                {task.subs[0] && <Link prefetch={false} href={ITEM_PREVIEW.writing(task.id, task.subs[0].studentId)} className="mt-2 inline-flex min-h-10 items-center rounded-xl bg-white px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 print:hidden">👀 {tr("Preview as student")}</Link>}
                 <p className="text-sm text-slate-500">{task.genreLabel}{task.staged ? " · staged (plan → draft → revise → final)" : ""}{task.aiFeedback ? " · 🤖 AI drafts" : ""}{task.skill ? ` · skill: ${task.skill.name}` : ""}</p>
                 <p className="mt-1 whitespace-pre-line text-slate-700">{task.prompt}</p>
                 {task.passage && <details className="mt-2 rounded-xl bg-slate-50 p-3 text-sm"><summary className="cursor-pointer font-semibold">The text</summary><p className="mt-2 whitespace-pre-line">{task.passage}</p></details>}
@@ -246,9 +269,8 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
                 </details>
               </div>
               <ul className="mt-4 space-y-3">{task.subs.map((x) => <SubmissionCard key={x.studentId} task={task} x={x} />)}</ul>
-            </>
-          )}
-        </section>
+          </section>
+        )}
       </div>
     </AppShell>
   );

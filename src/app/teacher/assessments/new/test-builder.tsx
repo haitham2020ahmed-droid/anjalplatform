@@ -9,6 +9,8 @@ import { QuestionDrawer } from "@/components/tests/question-drawer";
 import { MakeTest } from "./make-test";
 import { testFingerprint } from "@/lib/test-fingerprint";
 import { MapQuestionSource } from "./map-source";
+import { ReviewSource } from "./review-source";
+import { QuestionCopyEditor } from "@/components/tests/question-copy-editor";
 import { useT } from "@/i18n/client";
 import { EmptyState } from "@/components/ui-kit";
 import { SkillQuestionPicker, type PickerValue } from "@/components/skill-picker";
@@ -16,7 +18,7 @@ import { SKILL_TABS, byName, filterSkills, questionBadge, type SkillTabFilter } 
 
 const TYPES: { id: TestType; label: string }[] = [
   { id: "NAFS", label: "NAFS" }, { id: "MAP", label: "MAP" }, { id: "DIAGNOSTIC", label: "Diagnostic" },
-  { id: "WEEKLY_QUIZ", label: "Weekly Quiz" }, { id: "CHAPTER_TEST", label: "Chapter Test" }, { id: "CUSTOM", label: "+ Custom" },
+  { id: "WEEKLY_QUIZ", label: "Weekly Quiz" }, { id: "CHAPTER_TEST", label: "Chapter Test" }, { id: "REVIEW", label: "Review" }, { id: "CUSTOM", label: "+ Custom" },
 ];
 const VERSION_NAME: Record<string, string> = { SAME: "Questions", BELOW: "Approaching version", ON: "Meeting version", ABOVE: "Exceeding version" };
 const defaultMode = (t: TestType): LevelMode => (t === "WEEKLY_QUIZ" ? "LEVEL" : "SAME");
@@ -61,7 +63,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
   const [templateId, setTemplateId] = useState<string | null>(template?.id ?? null);
   const [onlyReady, setOnlyReady] = useState(false);
   const [randomN, setRandomN] = useState("10");
-  const [source, setSource] = useState<"MAKE" | "MAP" | "SKILLS">(mapTree.grades.length ? "MAP" : "SKILLS");
+  const [source, setSource] = useState<"MAKE" | "MAP" | "SKILLS" | "REVIEW">(template?.type === "REVIEW" ? "REVIEW" : mapTree.grades.length ? "MAP" : "SKILLS");
   const [mapPicks, setMapPicks] = useState<MapSourceQuestion[]>(initialPicks);
   const [pickMsg, setPickMsg] = useState<string | null>(null);
   const [previewedFp, setPreviewedFp] = useState<string | null>(null);
@@ -69,6 +71,8 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
   const [marks, setMarks] = useState<Record<string, number>>(() => ({ ...(template?.spec.marks ?? {}) }));
   const [viewAt, setViewAt] = useState<number | null>(null);
   const [replacing, setReplacing] = useState<string | null>(null);
+  // ✏️ the question being edited as the teacher's own copy
+  const [editing, setEditing] = useState<string | null>(null);
   const markOf = (id: string) => (typeof marks[id] === "number" ? marks[id] : 1);
   const pickIds = new Set(mapPicks.map((p) => p.id));
   // the skills the generator offers: every skill of the teacher's grades (admin without classes: all)
@@ -125,6 +129,14 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
     setMarks((m) => { const n = { ...m }; if (id in n) { n[row.id] = n[id]; delete n[id]; } return n; });
     setPreview(null);
   }
+  /** ✏️ the teacher's copy takes the original's place (and its marks) */
+  function takeCopy(oldId: string, row: MapSourceQuestion) {
+    setMapPicks((l) => l.map((p) => (p.id === oldId ? row : p)));
+    setMarks((m) => { const n = { ...m }; if (oldId in n) { n[row.id] = n[oldId]; delete n[oldId]; } return n; });
+    setEditing(null);
+    setPreview(null);
+    setPickMsg(t("✓ Saved as your copy. The original question did not change."));
+  }
   const setMark = (id: string, v: string) => { const n = Number(v); setMarks((m) => ({ ...m, [id]: Number.isFinite(n) && n >= 0 ? Math.min(100, round2(n)) : 1 })); };
   /** the marks of the selected list only (to save and assign) */
   const marksOut = () => Object.fromEntries(mapPicks.map((p) => [p.id, markOf(p.id)]));
@@ -149,6 +161,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
     setType(tt);
     if (!nameEdited) setName(tt === "CUSTOM" ? "" : names[tt]);
     setLevelMode(defaultMode(tt));
+    if (tt === "REVIEW") setSource("REVIEW");
     setPreview(null);
   }
   function toggle(id: string) {
@@ -224,10 +237,12 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
         <div className="mt-3 flex flex-wrap gap-2" role="tablist" aria-label={t("Question source")}>
           <button type="button" role="tab" aria-selected={source === "MAKE"} onClick={() => setSource("MAKE")} className={`min-h-11 rounded-xl px-4 font-semibold ${source === "MAKE" ? "bg-amber-500 text-white" : "bg-amber-50 text-amber-900 ring-1 ring-amber-300"}`}>⚡ {t("Make the test for me")}</button>
           <button type="button" role="tab" aria-selected={source === "MAP"} onClick={() => setSource("MAP")} className={`min-h-11 rounded-xl px-4 font-semibold ${source === "MAP" ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-300"}`}>📚 {t("Curriculum Map questions")}</button>
+          <button type="button" role="tab" aria-selected={source === "REVIEW"} onClick={() => setSource("REVIEW")} className={`min-h-11 rounded-xl px-4 font-semibold ${source === "REVIEW" ? "bg-fuchsia-700 text-white" : "bg-fuchsia-50 text-fuchsia-900 ring-1 ring-fuchsia-300"}`}>🔁 {t("Review: mix selections")}</button>
           <button type="button" role="tab" aria-selected={source === "SKILLS"} onClick={() => setSource("SKILLS")} className={`min-h-11 rounded-xl px-4 font-semibold ${source === "SKILLS" ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-300"}`}>🧩 {t("Skills & grammar")}</button>
         </div>
         <p className="mt-2 text-sm text-slate-500">{t("One test can mix both: tick lesson questions, then add skills or grammar.")}</p>
         {source === "MAKE" && <MakeTest tree={mapTree} skills={gradeSkills} classes={classes} classId={classId} onClassId={setClassId} onDone={takeGenerated} />}
+        {source === "REVIEW" && <ReviewSource tree={mapTree} skills={skills} classId={classId} picked={mapPicks} onAdd={addPicks} onRemove={removePick} />}
         {source === "MAP" && <MapQuestionSource initialTree={mapTree} picked={mapPicks} onAdd={addPicks} onRemove={removePick} />}
         {pickMsg && <p role="alert" className="mt-3 rounded-xl bg-amber-50 px-4 py-2 text-sm text-amber-900 ring-1 ring-amber-200">{pickMsg}</p>}
         {source === "SKILLS" && (<>
@@ -300,6 +315,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
                     <span className="flex shrink-0 flex-wrap items-center justify-end gap-1">
                       <label className="flex items-center gap-1 text-xs text-slate-600"><input type="number" min={0} max={100} step={0.5} value={markOf(q.id)} onChange={(e) => setMark(q.id, e.target.value)} aria-label={t("Marks for question {n}", { n: i + 1 })} className="min-h-9 w-16 rounded-lg px-2 text-sm ring-1 ring-slate-300" />{t("marks")}</label>
                       <button type="button" onClick={() => setViewAt(i)} className="min-h-9 rounded-lg px-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">👁 {t("View")}</button>
+                      <button type="button" onClick={() => setEditing(q.id)} title={t("Your own copy: the original question does not change")} className="min-h-9 rounded-lg px-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">✏️ {t("Edit")}</button>
                       <button type="button" disabled={replacing !== null} onClick={() => void replacePick(q.id)} title={t("A similar question: same skill and level")} className="min-h-9 rounded-lg px-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 disabled:opacity-50">{replacing === q.id ? t("Working…") : `🔁 ${t("Replace")}`}</button>
                       <button type="button" disabled={i === 0} onClick={() => { setMapPicks(move(mapPicks, i, -1)); setPreview(null); }} aria-label={t("Move question {n} up", { n: i + 1 })} className="min-h-9 min-w-9 rounded-lg text-slate-600 ring-1 ring-slate-300 disabled:opacity-30">▲</button>
                       <button type="button" disabled={i === mapPicks.length - 1} onClick={() => { setMapPicks(move(mapPicks, i, 1)); setPreview(null); }} aria-label={t("Move question {n} down", { n: i + 1 })} className="min-h-9 min-w-9 rounded-lg text-slate-600 ring-1 ring-slate-300 disabled:opacity-30">▼</button>
@@ -309,6 +325,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
                 ))}
               </ol>
             )}
+            {editing && <QuestionCopyEditor questionId={editing} onSaved={(row) => takeCopy(editing, row)} onClose={() => setEditing(null)} />}
             {viewAt !== null && mapPicks[viewAt] && (
               <QuestionDrawer ids={mapPicks.map((p) => p.id)} index={viewAt} onIndex={setViewAt} onClose={() => setViewAt(null)}
                 isSelected={(id) => pickIds.has(id)} onToggle={(d, on) => (on ? addPicks([d.row]) : removePick(d.id))} />

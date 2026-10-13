@@ -17,7 +17,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
 import { isHiddenSkill } from "../skills/master";
-import { hasLesson } from "../lessons/run";
+import { hasLesson, hasLessons } from "../lessons/run";
 import type { Program } from "./program";
 import type { SectionSpec, PlanSource, Txt } from "./editor";
 import { fmt, studentNames } from "./editor";
@@ -178,11 +178,14 @@ export async function suggestPlans(repo: Repo, actor: Actor, classId: string, no
   const out: SuggestedPlan[] = [];
   const lessonOf = new Map<string, boolean>();
   const withLesson = async (k: string) => { if (!lessonOf.has(k)) lessonOf.set(k, await hasLesson(repo, k)); return lessonOf.get(k)!; };
+  // ⚡ the lessons of every skill about to be shown, read together (not one skill after another)
+  const prefetch = async (ks: string[]) => { const miss = ks.filter((k) => !lessonOf.has(k)); if (miss.length) for (const [k, v] of await hasLessons(repo, miss)) lessonOf.set(k, v); };
   const groups = [...weak].filter(([, l]) => l.length >= GROUP_MIN)
     .map(([k, l]) => { const scored = l.filter((x) => x.acc >= 0); return { k, l, avg: scored.length ? Math.round(scored.reduce((t, x) => t + x.acc, 0) / scored.length) : null }; })
     .sort((a, b) => b.l.length - a.l.length || (a.avg ?? 100) - (b.avg ?? 100) || (d.skillName.get(a.k) ?? "").localeCompare(d.skillName.get(b.k) ?? ""))
     .slice(0, opts.maxGroups ?? 4);
   const covered = new Map<string, Set<string>>();
+  await prefetch(groups.map((g) => g.k));
   for (const g of groups) {
     const name = d.skillName.get(g.k)!;
     const ids = g.l.map((x) => x.st).sort();
@@ -209,6 +212,7 @@ export async function suggestPlans(repo: Repo, actor: Actor, classId: string, no
     const weight = ks.length * 2 + missedSkills.length + diag.length + (d.fluency.get(st)?.percentile != null && d.fluency.get(st)!.percentile! < 25 ? 1 : 0);
     return { st, all, weight, ks };
   }).filter((x) => x.all.length > 0).sort((a, b) => b.weight - a.weight || (d.names.get(a.st) ?? "").localeCompare(d.names.get(b.st) ?? "")).slice(0, opts.maxStudents ?? 6);
+  await prefetch(need.flatMap((n) => n.all));
   for (const n of need) {
     const name = d.names.get(n.st) ?? "Student";
     const r = lines(d, n.st, n.all);

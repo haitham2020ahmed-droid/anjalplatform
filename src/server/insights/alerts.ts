@@ -23,7 +23,7 @@ import { isHiddenSkill } from "../skills/master";
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
 const DAY = 86_400_000;
-export type AlertKind = "NO_PRACTICE" | "WEAK_SKILL" | "DROPPED" | "LATE_WORK" | "MAP_RISK" | "RAPID_GUESS" | "LEVEL_CONFLICT" | "DECLINING" | "INVALID_TEST";
+export type AlertKind = "NO_PRACTICE" | "WEAK_SKILL" | "DROPPED" | "LATE_WORK" | "MAP_RISK" | "RAPID_GUESS" | "LEVEL_CONFLICT" | "DECLINING" | "INVALID_TEST" | "EARLY_WARNING";
 export const ALERT_INFO: Record<AlertKind, { icon: string; title: string; tip: string }> = {
   MAP_RISK: { icon: "🗺️", title: "MAP: at risk", tip: "Check the MAP plan; a small group for the focus area helps." },
   RAPID_GUESS: { icon: "⚡", title: "Rapid guessing", tip: "Talk with the student; if it is the MAP test, ask about a retest." },
@@ -33,9 +33,10 @@ export const ALERT_INFO: Record<AlertKind, { icon: string; title: string; tip: s
   NO_PRACTICE: { icon: "💤", title: "No practice for 7 days", tip: "Check in with the student; a short task to restart." },
   DECLINING: { icon: "📉", title: "Declining", tip: "Their recent answers are clearly weaker than before: check in with the student, look at the skills that fell, and give support now." },
   INVALID_TEST: { icon: "⚡", title: "Invalid result — re-test", tip: "Too many answers were too fast to read: the result is not used for the level or the tier. Talk with the student and let them take it again." },
+  EARLY_WARNING: { icon: "🔴", title: "Early warning: urgent", tip: "Open the early warning: see which measures fell, make a plan or assign practice, and write what you did." },
   LEVEL_CONFLICT: { icon: "⚖️", title: "Data disagree", tip: "Open their Level Story: one source says Exceeding, another Approaching. Decide the level, or check for guessing." },
 };
-const ORDER: AlertKind[] = ["DECLINING", "INVALID_TEST", "MAP_RISK", "RAPID_GUESS", "LEVEL_CONFLICT", "DROPPED", "WEAK_SKILL", "LATE_WORK", "NO_PRACTICE"];
+const ORDER: AlertKind[] = ["EARLY_WARNING", "DECLINING", "INVALID_TEST", "MAP_RISK", "RAPID_GUESS", "LEVEL_CONFLICT", "DROPPED", "WEAK_SKILL", "LATE_WORK", "NO_PRACTICE"];
 
 /** ISO week label of a date, e.g. 2026-W41. */
 export function weekKey(d: Date): string {
@@ -174,6 +175,9 @@ export async function scanAlerts(repo: Repo, schoolId: string, now = new Date(),
   if (!force && now.getTime() - last < 3 * 3600_000) return 0;
   await repo.upsert("SchoolSetting", { schoolId, key: SCAN_KEY }, { value: { at: now.getTime() }, updatedAt: now }, { value: { at: now.getTime() }, updatedAt: now });
   const found = await findAlerts(repo, schoolId, now);
+  // 🔴 early warning (early-warning.ts): each Urgent student is ONE open alert, raised by this same scan
+  const { urgentFindings, EW_KIND } = await import("./early-warning");
+  found.push(...await urgentFindings(repo, schoolId, now, weekKey(now)));
   // readiness I-5: ONE open alert per student and kind. Findings of the same kind are merged (e.g. two weak skills);
   // an alert that is still open is refreshed ("still true on …"), not raised again every week
   const merged = new Map<string, Found>();
@@ -195,6 +199,9 @@ export async function scanAlerts(repo: Repo, schoolId: string, now = new Date(),
   // state, not an event — an up-and-down week must not leave a "declining" flag open for weeks
   const cleared = [...openBy.entries()].filter(([k]) => k.endsWith("|DECLINING") && !merged.has(k)).map(([, r]) => s(r.id));
   if (cleared.length) await repo.updateMany("StudentAlert", { id: { in: cleared } }, { status: "HANDLED", action: `Cleared automatically on ${now.toISOString().slice(0, 10)}: the recent answers no longer show a decline.`, handledAt: now });
+  // the same for an urgent early warning that is no longer urgent
+  const calm = [...openBy.entries()].filter(([k]) => k.endsWith(`|${EW_KIND}`) && !merged.has(k)).map(([, r]) => s(r.id));
+  if (calm.length) await repo.updateMany("StudentAlert", { id: { in: calm } }, { status: "HANDLED", action: `Cleared automatically on ${now.toISOString().slice(0, 10)}: no longer urgent.`, handledAt: now });
   if (!merged.size) return 0;
   const studentIds = [...new Set([...merged.values()].map((f) => f.studentId))];
   const [have, recentHandled] = await Promise.all([
@@ -221,13 +228,20 @@ export async function scanAlerts(repo: Repo, schoolId: string, now = new Date(),
   await repo.createMany("StudentAlert", unique.map((f) => ({ schoolId, classId: f.classId || null, studentId: f.studentId, kind: f.kind, key: f.key.slice(0, 120), detail: f.detail, status: "OPEN", createdAt: now })));
   // one notification per person: the teachers of the classes concerned, and the school admins
   const perUser = new Map<string, number>();
+  const urgentOf = new Map<string, number>(); // new Urgent early warnings per person (the same ONE notification says so)
   const classIds = [...new Set(unique.map((f) => f.classId).filter(Boolean))];
   const ct = classIds.length ? await repo.findMany("ClassTeacher", { classId: { in: classIds } }) : [];
   const teachers = ct.length ? await repo.findMany("Teacher", { id: { in: [...new Set(ct.map((c) => s(c.teacherId)))] } }, { select: ["id", "userId"] }) : [];
-  for (const f of unique) for (const c of ct.filter((x) => x.classId === f.classId)) { const u = s(teachers.find((t) => t.id === c.teacherId)?.userId); if (u) perUser.set(u, (perUser.get(u) ?? 0) + 1); }
+  for (const f of unique) for (const c of ct.filter((x) => x.classId === f.classId)) { const u = s(teachers.find((t) => t.id === c.teacherId)?.userId); if (u) { perUser.set(u, (perUser.get(u) ?? 0) + 1); if (f.kind === EW_KIND) urgentOf.set(u, (urgentOf.get(u) ?? 0) + 1); } }
   const admins = await repo.findMany("User", { schoolId, role: "SCHOOL_ADMIN", isActive: true }, { select: ["id"] });
-  for (const a of admins) perUser.set(s(a.id), unique.length);
-  if (perUser.size) await repo.createMany("Notification", [...perUser].map(([userId, n]) => ({ userId, type: "INTERVENTION_ALERT", title: `🚨 ${n} new student alert${n === 1 ? "" : "s"}`, body: "Students who need attention: open the list, act, and mark them handled.", link: "/teacher/alerts", createdAt: now })));
+  const urgentAll = unique.filter((f) => f.kind === EW_KIND).length;
+  for (const a of admins) { perUser.set(s(a.id), unique.length); if (urgentAll) urgentOf.set(s(a.id), urgentAll); }
+  if (perUser.size) await repo.createMany("Notification", [...perUser].map(([userId, n]) => {
+    const u = urgentOf.get(userId) ?? 0;
+    return u
+      ? { userId, type: "INTERVENTION_ALERT", title: `🔴 ${u} urgent student${u === 1 ? "" : "s"} · ${n} new alert${n === 1 ? "" : "s"}`, body: "Early warning: a student needs action now. Open the list, act, and mark it handled.", link: "/teacher/reports/early-warning", createdAt: now }
+      : { userId, type: "INTERVENTION_ALERT", title: `🚨 ${n} new student alert${n === 1 ? "" : "s"}`, body: "Students who need attention: open the list, act, and mark them handled.", link: "/teacher/alerts", createdAt: now };
+  }));
   return unique.length;
 }
 

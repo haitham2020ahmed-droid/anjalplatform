@@ -13,8 +13,11 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertNafs } from "../teacher/nafs-access";
 import { seededShuffle } from "../practice/items";
-import { DIFFICULTIES, DIFFICULTY_NAME, isMoeCode, isNafsCode, MAX_NAFS_MINUTES, MAX_NAFS_QUESTIONS, MOE_BY_CODE, MOE_STANDARDS, PROCESSES, SIMULATION_DEFAULT, SKILL_BY_CODE, textTypeOf, type Difficulty, type DifficultyMix, type NafsProcess, type SimulationSettings } from "./framework";
+import { DIFFICULTIES, DIFFICULTY_NAME, GUIDE_BOOKLET_SIZE, isMoeCode, isNafsCode, MAX_NAFS_MINUTES, MAX_NAFS_QUESTIONS, MOE_BY_CODE, MOE_CODES, MOE_STANDARDS, PROCESS_TARGET, PROCESSES, SIMULATION_DEFAULT, SKILL_BY_CODE, textTypeOf, type Difficulty, type DifficultyMix, type NafsProcess, type SimulationSettings } from "./framework";
 import { loadNafsQuestions, matchesTarget, nafsIndex, usable, type NafsEntry, type NafsKind } from "./bank";
+import { saveNafsTest, type SaveTestInput } from "./tests";
+import { createNafsPractice, type PracticeInput } from "./practice";
+import { BALANCED_MIX, cleanFullCounts, FULL_DEFAULT, FULL_MAX_QUESTIONS, FULL_MIN_QUESTIONS, fullDistribution, fullMinutes } from "./coverage";
 
 const s = (v: unknown) => String(v ?? "");
 const clamp = (v: unknown, lo: number, hi: number, d: number) => { const n = Math.round(Number(v)); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
@@ -373,28 +376,225 @@ export async function buildNafsAutomatic(repo: Repo, actor: Actor, input: AutoIn
 }
 
 /** Another question of the same NAFS skill, not in the test (the same passage first, then unseen, then same process). */
-export async function replaceNafsQuestion(repo: Repo, actor: Actor, input: { questionId: string; current: string[]; classId?: string | null; seed?: string }): Promise<string> {
+export async function replaceNafsQuestion(repo: Repo, actor: Actor, input: { questionId: string; current: string[]; classId?: string | null; seed?: string; sameStandard?: boolean }): Promise<string> {
   const pool = await poolFor(repo, actor);
   const was = pool.find((e) => e.id === input.questionId) ?? (await nafsIndex(repo, actor.schoolId!)).find((e) => e.id === input.questionId);
   if (!was) throw new ForbiddenError("This question is not in the NAFS bank.");
   const inTest = new Set((input.current ?? []).map(s));
   const seen = await seenByClass(repo, actor.schoolId!, input.classId);
-  const options = seededShuffle(pool.filter((e) => e.nafsCode === was.nafsCode && e.kind === was.kind && !inTest.has(e.id) && e.id !== was.id), s(input.seed) || "replace")
+  // the complete NAFS test: another question of the SAME Ministry standard (any skill), so the standard stays covered
+  const same = input.sameStandard && isMoeCode(was.standard) ? (e: NafsEntry) => e.standard === was.standard : (e: NafsEntry) => e.nafsCode === was.nafsCode;
+  if (input.sameStandard && !isMoeCode(was.standard)) throw new ValidationError("This question has no Ministry standard: remove it, or add a question of the standard you need.");
+  const options = seededShuffle(pool.filter((e) => same(e) && e.kind === was.kind && !inTest.has(e.id) && e.id !== was.id), s(input.seed) || "replace")
     .sort((a, b) => Number(Boolean(was.standard) && b.standard === was.standard) - Number(Boolean(was.standard) && a.standard === was.standard) || Number(b.passageId === was.passageId && Boolean(was.passageId)) - Number(a.passageId === was.passageId && Boolean(was.passageId)) || Number(seen.has(a.id)) - Number(seen.has(b.id)) || Number(b.process === was.process) - Number(a.process === was.process));
-  if (!options.length) throw new ValidationError("No other question of this skill in the NAFS bank.");
+  if (!options.length) throw new ValidationError(input.sameStandard ? "No other question of this standard in the NAFS bank." : "No other question of this skill in the NAFS bank.");
   return options[0].id;
 }
 
 // ------------------------------------------------------------------ rows for the builder
 
-export interface BuilderRow { id: string; n: number; stem: string; options: string[]; correct: number; nafsCode: string; skill: string; process: NafsProcess; passageId: string | null; passageTitle: string | null; own: boolean; standard: string | null; kind: NafsKind; booklet: string | null; difficulty: Difficulty }
+export interface BuilderRow { id: string; n: number; stem: string; options: string[]; correct: number; nafsCode: string; skill: string; process: NafsProcess; passageId: string | null; passageTitle: string | null; own: boolean; standard: string | null; kind: NafsKind; booklet: string | null; difficulty: Difficulty; textType?: "LIT" | "INFO" | null }
 export async function builderRows(repo: Repo, actor: Actor, ids: string[]): Promise<BuilderRow[]> {
   await assertNafs(repo, actor);
   const idx = new Map((await nafsIndex(repo, actor.schoolId!)).map((e) => [e.id, e]));
-  const list = ids.map(s).filter((id) => idx.has(id)).slice(0, MAX_NAFS_QUESTIONS * 2);
-  const qs = await loadNafsQuestions(repo, list);
+  const list = [...new Set(ids.map(s))].filter((id) => idx.has(id)).slice(0, MAX_NAFS_QUESTIONS * 2);
+  const [qs, types] = await Promise.all([loadNafsQuestions(repo, list), passageTypes(repo, list.map((id) => idx.get(id)!))]);
   return list.flatMap((id, i) => {
     const e = idx.get(id)!, q = qs.find((x) => x.id === id);
-    return q ? [{ id, n: i + 1, stem: q.stem, options: q.options, correct: q.correct, nafsCode: e.nafsCode, skill: SKILL_BY_CODE.get(e.nafsCode)?.name ?? "", process: e.process, passageId: e.passageId, passageTitle: q.passage ? q.passage.title || q.passage.text.slice(0, 50) : null, own: e.own, standard: e.standard, kind: e.kind, booklet: e.booklet, difficulty: e.difficulty }] : [];
+    return q ? [{ id, n: i + 1, stem: q.stem, options: q.options, correct: q.correct, nafsCode: e.nafsCode, skill: SKILL_BY_CODE.get(e.nafsCode)?.name ?? "", process: e.process, passageId: e.passageId, passageTitle: q.passage ? q.passage.title || q.passage.text.slice(0, 50) : null, own: e.own, standard: e.standard, kind: e.kind, booklet: e.booklet, difficulty: e.difficulty, textType: e.passageId ? types.get(e.passageId) ?? null : null }] : [];
   });
+}
+
+// ------------------------------------------------------------------ "Complete NAFS test (all standards)"
+
+/**
+ * The complete NAFS test: EVERY one of the 13 Ministry standards (under the three content areas), in the guide's
+ * proportions (35 per text: 3 per standard, 1 for S11 and S12) scaled to the teacher's number — never below one per
+ * standard, so at least 13 questions (fullDistribution) — or the teacher's own count per standard (each ≥ 1).
+ *   - only questions WITH a Ministry standard cover a standard (a question without one is never used here);
+ *   - at least one informational and one literary text (the texts whose questions cover the most standards, unseen
+ *     first; two of each kind above 35 questions);
+ *   - balanced difficulty (the teacher's mix; default 30 / 40 / 30) spread inside each standard too, and the PIRLS
+ *     processes represented (20 / 30 / 30 / 20 targets, each standard's processes varied);
+ *   - questions this class has not seen first; no duplicates; the written items (S03 and S13) only when asked;
+ *   - the order of the guide's booklet: text by text, each text's questions by standard (passage questions together).
+ * When the bank lacks questions for a standard the result says how many are missing (`shortage`).
+ */
+export interface FullSettings { questions: number; minutes: number; written: boolean; counts: Record<string, number> }
+export interface FullBuilt extends BuiltTest { counts: Record<string, number>; available: Record<string, number>; shortage: Record<string, number>; texts: { id: string; type: "LIT" | "INFO" | null }[] }
+
+export function cleanFull(input: { questions?: unknown; minutes?: unknown; written?: unknown; counts?: unknown } | null | undefined, max = FULL_MAX_QUESTIONS): FullSettings {
+  const i = input ?? {};
+  const asked = clamp(i.questions, FULL_MIN_QUESTIONS, FULL_MAX_QUESTIONS, FULL_DEFAULT.questions);
+  const counts = i.counts && typeof i.counts === "object" && Object.keys(i.counts as object).length ? cleanFullCounts(i.counts, asked) : fullDistribution(asked);
+  const questions = Object.values(counts).reduce((a, b) => a + b, 0);
+  if (questions > max) throw new ValidationError(`A complete NAFS test here has at most ${max} questions (a bubble sheet holds ${max}).`);
+  return { questions, minutes: clamp(i.minutes, 1, MAX_NAFS_MINUTES, fullMinutes(questions)), written: i.written === undefined ? FULL_DEFAULT.written : Boolean(i.written), counts };
+}
+
+/** The questions a complete test may use: usable, WITH a Ministry standard, multiple choice (+ written when asked). */
+export const fullEligible = (pool: NafsEntry[], written: boolean) => pool.filter((e) => usable(e) && isMoeCode(e.standard) && (e.kind === "MCQ" || (written && e.kind === "WRITTEN")));
+
+/** Usable questions per standard in the bank (for the "the bank lacks…" warnings). */
+export function availableByStandard(pool: NafsEntry[], written: boolean): Record<string, number> {
+  const out: Record<string, number> = Object.fromEntries(MOE_STANDARDS.map((x) => [x.code, 0]));
+  for (const e of fullEligible(pool, written)) out[e.standard!]++;
+  return out;
+}
+
+interface RankCtx { seen: Set<string>; chosen: Set<string>; used: Set<string>; diffLeft: Record<Difficulty, number>; procLeft: Record<NafsProcess, number>; inStd: NafsEntry[] }
+/** The ranking of one candidate for a standard (higher first). */
+function fullRank(e: NafsEntry, c: RankCtx): number {
+  return (c.seen.has(e.id) ? 0 : 40)
+    + (c.diffLeft[e.difficulty] > 0 ? 8 : 0)
+    + (e.passageId && c.chosen.has(e.passageId) ? 6 : e.passageId && c.used.has(e.passageId) ? 3 : 0)
+    + (c.inStd.some((x) => x.difficulty === e.difficulty) ? 0 : 4)
+    + (c.procLeft[e.process] > 0 ? 3 : 0) + (c.inStd.some((x) => x.process === e.process) ? 0 : 2);
+}
+
+/** Builds the complete NAFS test from the bank (pure). `keep`: questions already chosen that stay. */
+export function buildFull(poolIn: NafsEntry[], types: Map<string, "LIT" | "INFO" | null>, seen: Set<string>, st: FullSettings, seed: string, mixIn: DifficultyMix | null = null, keep: string[] = []): FullBuilt {
+  const notes: string[] = [];
+  const mix = mixIn ?? { ...BALANCED_MIX };
+  const pool = fullEligible(poolIn, st.written);
+  const available = availableByStandard(poolIn, st.written);
+  const total = MOE_STANDARDS.reduce((a, x) => a + Math.max(1, st.counts[x.code] ?? 1), 0);
+  const diffLeft = difficultyQuota(total, mix);
+  const procLeft = shareOut(total, PROCESS_TARGET);
+  const taken = new Set<string>(), used = new Set<string>();
+  const picked: NafsEntry[] = [];
+  const take = (e: NafsEntry) => { taken.add(e.id); picked.push(e); if (e.passageId) used.add(e.passageId); diffLeft[e.difficulty]--; procLeft[e.process]--; };
+  const byId = new Map(pool.map((e) => [e.id, e]));
+  for (const id of keep) { const e = byId.get(id); if (e && !taken.has(e.id)) take(e); }
+  // the texts: informational and literary — those whose questions cover the most standards (unseen first)
+  const groups = new Map<string, NafsEntry[]>();
+  for (const e of pool) if (e.passageId) { const l = groups.get(e.passageId) ?? []; l.push(e); groups.set(e.passageId, l); }
+  const ranked = seededShuffle([...groups.entries()], `${seed}:texts`).sort((a, b) =>
+    new Set(b[1].map((e) => e.standard)).size - new Set(a[1].map((e) => e.standard)).size
+    || b[1].filter((e) => !seen.has(e.id)).length - a[1].filter((e) => !seen.has(e.id)).length);
+  const chosen = new Set<string>(used);
+  const perKind = total > GUIDE_BOOKLET_SIZE ? 2 : 1;
+  for (const kind of ["INFO", "LIT"] as const) {
+    let have = [...chosen].filter((id) => types.get(id) === kind).length;
+    for (const [id] of ranked) { if (have >= perKind) break; if (types.get(id) === kind && !chosen.has(id)) { chosen.add(id); have++; } }
+    if (!have) notes.push(kind === "INFO" ? "The bank has no informational text with Ministry-standard questions: the test has no informational text." : "The bank has no literary text with Ministry-standard questions: the test has no literary text.");
+  }
+  // every standard in the guide's order: the written item first (S03, S13) when asked, then the best ranked
+  const shortage: Record<string, number> = {};
+  for (const x of MOE_STANDARDS) {
+    const want = Math.max(1, st.counts[x.code] ?? 1);
+    const inStd = () => picked.filter((e) => e.standard === x.code);
+    let need = want - inStd().length;
+    const cands = seededShuffle(pool.filter((e) => e.standard === x.code), `${seed}:${x.code}`);
+    const ctx = (): RankCtx => ({ seen, chosen, used, diffLeft, procLeft, inStd: inStd() });
+    if (need > 0 && st.written && (x.code === "MOE.S03" || x.code === "MOE.S13") && !inStd().some((e) => e.kind === "WRITTEN")) {
+      const c = ctx();
+      const w = cands.filter((e) => e.kind === "WRITTEN" && !taken.has(e.id)).sort((a, b) => fullRank(b, c) - fullRank(a, c))[0];
+      if (w) { take(w); need--; }
+    }
+    while (need > 0) {
+      const hasWritten = inStd().some((e) => e.kind === "WRITTEN");
+      const left = cands.filter((e) => !taken.has(e.id) && !(e.kind === "WRITTEN" && hasWritten));
+      if (!left.length) break;
+      const c = ctx();
+      left.sort((a, b) => fullRank(b, c) - fullRank(a, c));
+      take(left[0]); need--;
+    }
+    if (need > 0) {
+      shortage[x.code] = need;
+      notes.push(`${x.short}: the bank has ${want - need} question(s) for this standard — ${need} missing (you asked for ${want}).`);
+    }
+  }
+  const uncovered = MOE_STANDARDS.filter((x) => !picked.some((e) => e.standard === x.code));
+  if (uncovered.length) notes.push(`Not covered: ${uncovered.map((x) => x.short).join(", ")} — the bank has no usable question for ${uncovered.length === 1 ? "this standard" : "these standards"}.`);
+  const missingP = PROCESSES.filter((p) => !picked.some((e) => e.process === p));
+  if (missingP.length && picked.length >= PROCESSES.length) notes.push(`Reading process(es) not represented: ${missingP.join(", ")}.`);
+  const dn = difficultyNote(picked, mix);
+  if (dn) notes.push(dn);
+  return { questionIds: orderFull(picked, types), notes, counts: Object.fromEntries(MOE_STANDARDS.map((x) => [x.code, Math.max(1, st.counts[x.code] ?? 1)])), available, shortage, texts: [...used].map((id) => ({ id, type: types.get(id) ?? null })) };
+}
+
+/** The booklet's order: informational texts, literary texts, other texts, then questions without a text — each by standard. */
+export function orderFull(list: NafsEntry[], types: Map<string, "LIT" | "INFO" | null>): string[] {
+  const rankText = (id: string) => (types.get(id) === "INFO" ? 0 : types.get(id) === "LIT" ? 1 : 2);
+  const firstAt = new Map<string, number>();
+  list.forEach((e, i) => { if (e.passageId && !firstAt.has(e.passageId)) firstAt.set(e.passageId, i); });
+  const key = (e: NafsEntry): [number, number, number, number] => e.passageId ? [0, rankText(e.passageId), firstAt.get(e.passageId)!, stdOrder(e)] : [1, 0, 0, stdOrder(e)];
+  return [...list].sort((a, b) => { const ka = key(a), kb = key(b); for (let i = 0; i < 4; i++) if (ka[i] !== kb[i]) return ka[i] - kb[i]; return (a.bookletN ?? 999) - (b.bookletN ?? 999); }).map((e) => e.id);
+}
+
+export async function buildNafsFull(repo: Repo, actor: Actor, input: { settings?: { questions?: unknown; minutes?: unknown; written?: unknown; counts?: unknown } | null; classId?: string | null; seed?: string; difficulty?: unknown; practice?: boolean }): Promise<FullBuilt & { settings: FullSettings }> {
+  const pool = await poolFor(repo, actor);
+  // a practice is multiple choice only; a saved test holds at most a bubble sheet's questions
+  const st = cleanFull({ ...(input.settings ?? {}), written: input.practice ? false : input.settings?.written }, MAX_NAFS_QUESTIONS);
+  const [types, seen] = await Promise.all([passageTypes(repo, fullEligible(pool, st.written)), seenByClass(repo, actor.schoolId!, input.classId)]);
+  return { ...buildFull(pool, types, seen, st, s(input.seed) || "nafs-full", cleanDifficultyMix(input.difficulty)), settings: st };
+}
+
+/**
+ * More questions for ONE standard of a complete test (the teacher raised its count): `n` questions of that standard
+ * not in the test, ranked like the builder (unseen first, the difficulty and process balance, the test's texts).
+ */
+export async function moreForStandard(repo: Repo, actor: Actor, input: { standard: string; n: number; current: string[]; classId?: string | null; written?: boolean; seed?: string }): Promise<string[]> {
+  if (!isMoeCode(input.standard)) throw new ValidationError("Choose a Ministry standard.");
+  const pool = await poolFor(repo, actor);
+  const n = clamp(input.n, 1, MAX_NAFS_QUESTIONS, 1);
+  const inTest = new Set((input.current ?? []).map(s));
+  const eligible = fullEligible(pool, Boolean(input.written));
+  const mine = eligible.filter((e) => inTest.has(e.id));
+  const seen = await seenByClass(repo, actor.schoolId!, input.classId);
+  const used = new Set(mine.map((e) => e.passageId).filter(Boolean) as string[]);
+  const total = mine.length + n;
+  const diffLeft = difficultyQuota(total, BALANCED_MIX);
+  const procLeft = shareOut(total, PROCESS_TARGET);
+  for (const e of mine) { diffLeft[e.difficulty]--; procLeft[e.process]--; }
+  const out: NafsEntry[] = [];
+  const cands = seededShuffle(eligible.filter((e) => e.standard === input.standard && !inTest.has(e.id)), s(input.seed) || "more");
+  while (out.length < n) {
+    const inStd = [...mine.filter((e) => e.standard === input.standard), ...out];
+    const hasWritten = inStd.some((e) => e.kind === "WRITTEN");
+    const left = cands.filter((e) => !out.includes(e) && !(e.kind === "WRITTEN" && hasWritten));
+    if (!left.length) break;
+    const c: RankCtx = { seen, chosen: used, used, diffLeft, procLeft, inStd };
+    left.sort((a, b) => fullRank(b, c) - fullRank(a, c));
+    const e = left[0]; out.push(e); diffLeft[e.difficulty]--; procLeft[e.process]--;
+  }
+  return out.map((e) => e.id);
+}
+
+/** The standards a list of questions leaves uncovered (only usable questions with a Ministry standard count). */
+export async function fullUncovered(repo: Repo, actor: Actor, ids: string[]): Promise<string[]> {
+  const pool = await poolFor(repo, actor);
+  const byId = new Map(pool.map((e) => [e.id, e]));
+  const list = ids.map((id) => byId.get(s(id))).filter(Boolean) as NafsEntry[];
+  return MOE_STANDARDS.filter((x) => !list.some((e) => isMoeCode(e.standard) && e.standard === x.code)).map((x) => x.code);
+}
+
+const uncoveredError = (codes: string[]) => new ValidationError(`Not every standard is covered (${codes.map((c) => MOE_BY_CODE.get(c)?.short ?? c).join(", ")}). Confirm to save anyway, or add questions for ${codes.length === 1 ? "it" : "them"}.`);
+
+/** Saves a complete NAFS test (purpose "Test"): refused while a standard is uncovered unless the teacher confirmed. */
+export async function saveFullNafsTest(repo: Repo, actor: Actor, input: Omit<SaveTestInput, "mode"> & { confirmUncovered?: boolean }, now = new Date()): Promise<string> {
+  const uncovered = await fullUncovered(repo, actor, input.questionIds ?? []);
+  if (uncovered.length && !input.confirmUncovered) throw uncoveredError(uncovered);
+  return saveNafsTest(repo, actor, { ...input, mode: "FULL", settings: { ...(input.settings && typeof input.settings === "object" ? input.settings : {}), kind: "FULL", uncovered } }, now);
+}
+
+/**
+ * Gives a complete NAFS test as adaptive practice (purpose "Practice"): the targets are exactly the 13 Ministry
+ * standards; the questions are the teacher's list (only these), or — `wholeBank` — every multiple-choice question
+ * WITH a Ministry standard. Refused while a standard has no question unless the teacher confirmed.
+ */
+export async function createFullNafsPractice(repo: Repo, actor: Actor, input: Omit<PracticeInput, "targets"> & { wholeBank?: boolean; confirmUncovered?: boolean }, now = new Date()): Promise<{ id: string; students: number }> {
+  const questionIds = input.wholeBank ? null : [...new Set((input.questionIds ?? []).map(s).filter(Boolean))];
+  if (questionIds && !questionIds.length) throw new ValidationError("The practice has no questions.");
+  const pool = await poolFor(repo, actor);
+  const mcq = fullEligible(pool, false);
+  if (questionIds) {
+    const ok = new Set(mcq.map((e) => e.id));
+    if (questionIds.some((id) => !ok.has(id))) throw new ValidationError("Every practice question needs a Ministry standard and must be multiple choice: remove the others.");
+  }
+  const list = questionIds ? mcq.filter((e) => questionIds.includes(e.id)) : mcq;
+  const uncovered = MOE_STANDARDS.filter((x) => !list.some((e) => e.standard === x.code)).map((x) => x.code);
+  if (uncovered.length && !input.confirmUncovered) throw uncoveredError(uncovered);
+  return createNafsPractice(repo, actor, { ...input, targets: [...MOE_CODES], questionIds }, now);
 }

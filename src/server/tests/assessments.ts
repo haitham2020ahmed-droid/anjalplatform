@@ -1,6 +1,6 @@
 /**
  * 📝 Assessments (UI reorg Phase 5): a teacher builds a test from skills of ANY grade, gives it a type (NAFS, MAP,
- * Diagnostic, Weekly Quiz, Chapter Test or a custom name), chooses the question level (same for all, or at each
+ * Diagnostic, Weekly Quiz, Chapter Test, Review — several curriculum selections and bank questions mixed, see review.ts — or a custom name), chooses the question level (same for all, or at each
  * student's level), dates, an optional time limit and per-student shuffle, previews it (removing questions) and
  * assigns it to one student, a group or the whole class of THEIR OWN classes (checked on the server).
  *
@@ -40,9 +40,9 @@ async function inBatches(ids: string[], size: number, fn: (chunk: string[]) => P
 
 // ------------------------------------------------------------------ types, names, defaults
 
-export const TEST_TYPES = ["NAFS", "MAP", "DIAGNOSTIC", "WEEKLY_QUIZ", "CHAPTER_TEST", "CUSTOM"] as const;
+export const TEST_TYPES = ["NAFS", "MAP", "DIAGNOSTIC", "WEEKLY_QUIZ", "CHAPTER_TEST", "REVIEW", "CUSTOM"] as const;
 export type TestType = (typeof TEST_TYPES)[number];
-export const TEST_TYPE_NAME: Record<TestType, string> = { NAFS: "NAFS", MAP: "MAP", DIAGNOSTIC: "Diagnostic", WEEKLY_QUIZ: "Weekly Quiz", CHAPTER_TEST: "Chapter Test", CUSTOM: "Other" };
+export const TEST_TYPE_NAME: Record<TestType, string> = { NAFS: "NAFS", MAP: "MAP", DIAGNOSTIC: "Diagnostic", WEEKLY_QUIZ: "Weekly Quiz", CHAPTER_TEST: "Chapter Test", REVIEW: "Review", CUSTOM: "Other" };
 export type LevelMode = "SAME" | "LEVEL";
 export const LEVELS: QLevel[] = ["BELOW", "ON", "ABOVE"];
 export const LEVEL_NAME: Record<QLevel, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
@@ -402,7 +402,8 @@ export async function teacherTests(repo: Repo, actor: Actor, classId?: string): 
   const classes = await accessibleClasses(repo, actor);
   const ids = classes.map((c) => s(c.id)).filter((id) => !classId || id === classId);
   if (!ids.length) return [];
-  const tests = await repo.findMany("TeacherTest", { classId: { in: ids }, deletedAt: null }, { orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 });
+  // only the columns the list shows (not the questions' skills or marks: lighter, and opens even before `db push`)
+  const tests = await repo.findMany("TeacherTest", { classId: { in: ids }, deletedAt: null }, { select: ["id", "title", "testType", "classId", "createdAt", "dueAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 });
   if (!tests.length) return [];
   const sets = await repo.findMany("Assignment", { testId: { in: tests.map((t) => s(t.id)) }, deletedAt: null }, { select: ["id", "testId"] });
   const rows = sets.length ? await inBatches(sets.map((x) => s(x.id)), 500, (c) => repo.findMany("AssignmentStudent", { assignmentId: { in: c } }, { select: ["assignmentId", "status"] })) : [];
@@ -636,7 +637,7 @@ export async function myTests(repo: Repo, actor: Actor, now = new Date()): Promi
   await refreshQuestionSets(repo, sets, [studentId], now);
   const [fresh, tests, aqs, sessions] = await Promise.all([
     repo.findMany("AssignmentStudent", { studentId, assignmentId: { in: sets.map((a) => s(a.id)) } }),
-    repo.findMany("TeacherTest", { id: { in: [...new Set(sets.map((a) => s(a.testId)))] } }),
+    repo.findMany("TeacherTest", { id: { in: [...new Set(sets.map((a) => s(a.testId)))] } }, { select: ["id", "title", "testType", "timeLimitMin"] }),
     repo.findMany("AssessmentQuestion", { assessmentId: { in: sets.map((a) => s(a.assessmentId)) } }, { select: ["assessmentId"] }),
     repo.findMany("PracticeSession", { studentId, assignmentId: { in: sets.map((a) => s(a.id)) }, mode: "TEACHER_QUIZ" }, { select: ["assignmentId", "correctCount"] }),
   ]);

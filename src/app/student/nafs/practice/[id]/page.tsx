@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { nafsDbGate } from "@/components/db-update-needed";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -15,6 +16,7 @@ export const dynamic = "force-dynamic";
  */
 export default async function NafsPracticePage({ params }: { params: Promise<{ id: string }> }) {
   const actor = await requireActor({ roles: ["STUDENT"] });
+  const gate = await nafsDbGate(); if (gate) return gate; // the NAFS tables are not in the database yet: say so
   const me = (await getActor())!.user;
   const { t } = await getT();
   const { id } = await params;

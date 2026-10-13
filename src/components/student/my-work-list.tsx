@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { StudentHome } from "@/server/student/student-home";
 import { EmptyState, SourceTag, StatusPill, BTN_SECONDARY } from "@/components/ui-kit";
 import type { TFn } from "@/i18n";
+import { WORK_KIND_LABEL } from "@/lib/work-kinds";
 
 type Row = StudentHome["work"][number];
 const STATUS: Record<Row["status"], "NOT_STARTED" | "IN_PROGRESS" | "DONE"> = { "Not started": "NOT_STARTED", "In progress": "IN_PROGRESS", Done: "DONE" };
@@ -15,11 +16,11 @@ const SOFT: Record<string, string> = { CURRICULUM: "bg-blue-50/70 ring-blue-100 
  */
 export function WorkCard({ r, t }: { r: Row; t: TFn }) {
   return (
-    <li data-testid="my-work-row" data-source={r.reteach ? "RETEACH" : r.sourceKey} className={`flex flex-wrap items-center justify-between gap-2 rounded-xl border-s-4 px-3 py-2 ring-1 transition hover:shadow-card ${SOFT[r.sourceKey] ?? SOFT.CUSTOM}`}>
+    <li data-testid="my-work-row" data-source={r.reteach ? "RETEACH" : r.sourceKey} data-kind={r.kind ?? "SKILL"} className={`flex flex-wrap items-center justify-between gap-2 rounded-xl border-s-4 px-3 py-2 ring-1 transition hover:shadow-card ${SOFT[r.sourceKey] ?? SOFT.CUSTOM}`}>
       <div className="min-w-0 flex-1">
         <p className="text-[0.95rem] font-semibold leading-snug text-brand-navy"><span aria-label={t("Assigned by your teacher")} title={t("Assigned by your teacher")}>📌</span> <bdi>{r.skill}</bdi></p>
         <div className="mt-1 flex flex-wrap items-center gap-1.5">
-          {r.reteach ? <SourceTag source="CUSTOM" label={t("Reteach")} /> : r.sourceKey === "RTI" ? <SourceTag source="CUSTOM" label={t("Practice")} /> : <SourceTag source={r.sourceKey} icon />}
+          {r.kind ? <SourceTag source={r.sourceKey} label={t(WORK_KIND_LABEL[r.kind])} /> : r.reteach ? <SourceTag source="CUSTOM" label={t("Reteach")} /> : r.sourceKey === "RTI" ? <SourceTag source="CUSTOM" label={t("Practice")} /> : <SourceTag source={r.sourceKey} icon />}
           <StatusPill status={STATUS[r.status]} />
           {r.overdue && r.status !== "Done" && <span className="rounded-full bg-red-50 px-2 py-0.5 text-xs font-semibold text-red-700 ring-1 ring-red-200">{t("Late")}</span>}
           {r.dueAt && r.status !== "Done" && !r.overdue && <span className="rounded-full bg-white px-2 py-0.5 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">📅 {t("Due {date}", { date: day(r.dueAt) })}</span>}

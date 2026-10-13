@@ -19,6 +19,7 @@
  * (question-pick.ts → questions/fresh.ts); NAFS plans are for Grade 6 classes only. Nothing is ever sent by itself.
  */
 import type { Repo, Row } from "../seeding/repo";
+import { safeIfBehind } from "../db/schema-errors";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -742,7 +743,7 @@ export async function plansOverview(repo: Repo, actor: Actor, opts: { classId?: 
   const { accessibleClasses } = await import("../teacher/assign");
   const classes = (await accessibleClasses(repo, actor)).filter((c) => !opts.classId || s(c.id) === opts.classId);
   if (!classes.length) return [];
-  const rows = (await repo.findMany("SkillPlan", { classId: { in: classes.map((c) => s(c.id)) } }, { select: ["id", "title", "kind", "classId", "status", "program", "doc", "studentIds", "dueAt", "createdAt", "updatedAt", "sentAt"] }))
+  const rows = (await safeIfBehind("plans.overview", repo.findMany("SkillPlan", { classId: { in: classes.map((c) => s(c.id)) } }, { select: ["id", "title", "kind", "classId", "status", "program", "doc", "studentIds", "dueAt", "createdAt", "updatedAt", "sentAt"] }), [] as Row[]))
     .filter((p) => s(p.kind) !== "CURRICULUM")
     .sort((a, b) => (d(b.updatedAt ?? b.createdAt)?.getTime() ?? 0) - (d(a.updatedAt ?? a.createdAt)?.getTime() ?? 0)).slice(0, Math.max(1, Math.min(200, opts.limit ?? 100)));
   const items = rows.length ? await repo.findMany("SkillPlanItem", { planId: { in: rows.map((p) => s(p.id)) } }, { select: ["planId", "assignmentIds"] }) : [];

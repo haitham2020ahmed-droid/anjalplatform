@@ -68,6 +68,7 @@ const PATHS = {
   broom: "M14.5 3.5 11 10m-2.5-1.5 7 4L13 20H5l1-6.5 2.5-5ZM9 20l1-4m3 4 .5-2.5",
   sun: "M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM12 2.5v2m0 15v2M4.6 4.6 6 6m12 12 1.4 1.4M2.5 12h2m15 0h2M4.6 19.4 6 18M18 6l1.4-1.4",
   moon: "M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z",
+  plus: "M12 5v14M5 12h14",
 } as const;
 
 export type LineIconName = keyof typeof PATHS;

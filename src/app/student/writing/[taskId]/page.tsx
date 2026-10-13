@@ -1,11 +1,15 @@
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
+import { DbUpdatePage } from "@/components/db-update-needed";
+import { schemaGap } from "@/server/db/schema-errors";
 import { PageHeader } from "@/components/page-header";
 import { PassageText } from "@/components/passage-text";
 import { WordLookup } from "@/components/learn/word-lookup";
 import { Recorder } from "@/components/learn/recorder";
 import { WordCounter } from "@/components/learn/word-counter";
-import { getActor, repo, requireActor } from "@/server/auth/next";
+import { repo, requireActor } from "@/server/auth/next";
+import { studentPage } from "@/server/auth/student-page";
+import { PreviewFrame } from "@/components/student/preview-frame";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { taskForStudent, type StudentTaskView } from "@/server/teacher/writing";
 import { GENRE_ICON } from "@/server/writing/genres";
@@ -15,6 +19,8 @@ import { isLocked, lockedTaskForStudent } from "@/server/writing/locked";
 import { LockedTaskView } from "./locked-view";
 
 export const metadata = { title: "Writing" };
+
+const BEHIND: unique symbol = Symbol("db behind");
 
 const STEPS = [["PLAN", "1 Plan"], ["DRAFT", "2 Draft"], ["REVISE", "3 Revise"], ["FINAL", "4 Final"]] as const;
 
@@ -45,15 +51,16 @@ function Feedback({ t, title }: { t: StudentTaskView; title: string }) {
 }
 
 /** ✍️ Research → plan → draft → revise → final (or simply write), or 🎙 record; then the teacher's feedback. */
-export default async function WritingTaskPage({ params, searchParams }: { params: Promise<{ taskId: string }>; searchParams: Promise<{ msg?: string }> }) {
-  const actor = await requireActor({ roles: ["STUDENT"] });
-  const me = (await getActor())!.user;
+export default async function WritingTaskPage({ params, searchParams }: { params: Promise<{ taskId: string }>; searchParams: Promise<{ msg?: string; preview?: string }> }) {
+  const { actor, me, preview } = await studentPage((await searchParams).preview, () => requireActor({ roles: ["STUDENT"] }));
   const { taskId } = await params;
   const sp = await searchParams;
   // 🔒 a locked rubric task: preview → the locked page → the returned grade
-  if (isLocked(await repo.findUnique("WritingTask", { id: taskId }))) {
+  const task = await repo.findUnique("WritingTask", { id: taskId }).catch((e): typeof BEHIND => { if (schemaGap(e)) return BEHIND; throw e; });
+  if (task === BEHIND) return <DbUpdatePage />; // the update's new columns are not in the database yet
+  if (isLocked(task)) {
     let v; try { v = await lockedTaskForStudent(repo, actor, taskId); } catch (e) { if (e instanceof ForbiddenError) notFound(); throw e; }
-    return <AppShell name={String(me.displayName)}><LockedTaskView v={v} msg={sp.msg} /></AppShell>;
+    return <AppShell name={String(me.displayName)}><PreviewFrame preview={preview}><LockedTaskView v={v} msg={sp.msg} /></PreviewFrame></AppShell>;
   }
   let t: StudentTaskView; try { t = await taskForStudent(repo, actor, taskId); } catch (e) { if (e instanceof ForbiddenError) notFound(); throw e; }
   const m = t.mine;
@@ -62,7 +69,7 @@ export default async function WritingTaskPage({ params, searchParams }: { params
   const needsCheck = t.kind === "WRITE" && t.genre !== "FREE";
   const box = "mt-1 block w-full rounded-xl border border-slate-300 bg-white px-3 py-2";
   return (
-    <AppShell name={String(me.displayName)}>
+    <AppShell name={String(me.displayName)}><PreviewFrame preview={preview}>
       <PageHeader back={{ href: "/student/writing", label: "Writing" }} icon={t.kind === "WRITE" ? GENRE_ICON[t.genre] : "🎙"} title={t.title} subtitle={[t.genreLabel, t.dueAt ? `Due ${t.dueAt.slice(0, 10)}` : ""].filter(Boolean).join(" · ")} />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {t.staged && <ol className="mb-4 flex flex-wrap gap-2 text-sm font-semibold">{STEPS.map(([k, label]) => <li key={k} className={`rounded-full px-3 py-1 ${stage === k ? "bg-brand-navy text-white" : STEPS.findIndex((s) => s[0] === k) < STEPS.findIndex((s) => s[0] === stage) ? "bg-emerald-100 text-emerald-900" : "bg-white text-slate-500 ring-1 ring-slate-200"}`}>{label}</li>)}</ol>}
@@ -123,7 +130,7 @@ export default async function WritingTaskPage({ params, searchParams }: { params
       <details className="mt-4 rounded-2xl bg-white p-4 text-sm ring-1 ring-slate-200"><summary className="cursor-pointer font-semibold text-brand-navy">How it is scored ({t.rubric.min}–{t.rubric.max} for each part)</summary>
         <ul className="mt-2 space-y-2">{t.rubric.traits.map((r) => <li key={r.key}><b>{r.name}</b>: {r.what}{Object.keys(r.levels).length > 0 && <ul className="ml-4 text-slate-600">{[4, 3, 2, 1].map((n) => <li key={n}>{n} — {r.levels[n]}</li>)}</ul>}</li>)}</ul>
       </details>
-    </AppShell>
+    </PreviewFrame></AppShell>
   );
 }
 

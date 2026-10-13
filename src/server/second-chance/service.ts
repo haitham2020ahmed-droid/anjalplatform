@@ -17,6 +17,7 @@
  * Questions of a test the student has not finished yet are left out until the test is over.
  */
 import type { Repo, Row } from "../seeding/repo";
+import { safeIfBehind } from "../db/schema-errors";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { loadQuestionItems, toClientQuestion, type ClientQuestion } from "../practice/items";
@@ -82,8 +83,8 @@ export async function answerEvents(repo: Repo, studentIds: string[], opts: { now
     repo.findMany("PracticeSession", { studentId: who, endedAt: null }, { select: ["id", "assessmentId"], take: 200 }),
     !opts.everySource ? Promise.resolve([] as Row[]) : repo.findMany("ExitTicketAnswer", { studentId: who, createdAt: { gte: since }, ...(opts.wrongOnly ? { isCorrect: false } : {}) },
       { select: ["studentId", "questionId", "isCorrect", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
-    !opts.everySource ? Promise.resolve([] as Row[]) : repo.findMany("SecondChanceAnswer", { studentId: who, source: GAME_MISS, createdAt: { gte: since } },
-      { select: ["studentId", "questionId", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
+    !opts.everySource ? Promise.resolve([] as Row[]) : safeIfBehind("second-chance.games", repo.findMany("SecondChanceAnswer", { studentId: who, source: GAME_MISS, createdAt: { gte: since } },
+      { select: ["studentId", "questionId", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }), [] as Row[]),
     // MAP practice tests: only finished ones (like other tests)
     !opts.everySource ? Promise.resolve([] as Row[]) : repo.findMany("MapSimSession", { studentId: who, status: "DONE", startedAt: { gte: since } }, { select: ["id", "studentId"], take: 50 * studentIds.length }),
   ]);

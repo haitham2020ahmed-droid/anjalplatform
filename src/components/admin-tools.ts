@@ -66,7 +66,7 @@ export const ADMIN_TOOLS: AdminTool[] = [
   { href: "/teacher/rti-plan", label: "RTI Weekly Plan", icon: "🗓", group: "programs", home: true, menu: true, hint: "RTI groups and weekly sessions", perm: "reports:read" },
   { href: "/admin/tiers", label: "Support Tiers", icon: "🪜", group: "programs" },
   { href: "/teacher/map-rit", label: "MAP Scores", icon: "📥", group: "programs", perm: "reports:read" },
-  { href: "/teacher/map-test", label: "MAP Practice Test", icon: "🎯", group: "programs", perm: "reports:read" },
+  { href: "/teacher/map-test", label: "MAP Test", icon: "🎯", group: "programs", perm: "reports:read" },
   { href: "/admin/map-classification", label: "MAP Classification", icon: "🗃️", group: "programs" },
   { href: "/admin/map-continuum", label: "Learning Continuum", icon: "📘", group: "programs", perm: "settings:school" },
   { href: "/teacher/plans", label: "Skill Plans", icon: "🗂️", group: "programs", perm: "assignments:read", schoolAdminOnly: true },
@@ -101,6 +101,7 @@ export const ADMIN_TOOLS: AdminTool[] = [
   { href: "/admin/feedback", label: "Feedback", icon: "💬", group: "settings", home: true, menu: true, hint: "What users told you" },
   { href: "/admin/connections", label: "Connections", icon: "🔌", group: "settings", perm: "reports:read" },
   { href: "/admin/errors", label: "Errors", icon: "🧯", group: "settings", perm: "settings:school" },
+  { href: "/admin/system", label: "System check", icon: "🧱", group: "settings", hint: "Is the database up to date with the code?" },
   { href: "/guide", label: "Help", icon: "❔", group: "settings" },
 ];
 

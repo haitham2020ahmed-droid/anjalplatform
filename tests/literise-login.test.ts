@@ -42,7 +42,7 @@ describe("sign-in page (Literise)", () => {
     assert.ok(words.includes("Literise"));
     // Literise D1 (redesign): the navy half says "Read today. Rise tomorrow." and one short line
     assert.ok(words.includes("Read today. Rise tomorrow."));
-    assert.ok(words.includes("Reading, writing and vocabulary at the right level for every student in Grades 4 to 6."));
+    assert.ok(words.includes("Reading, writing and vocabulary at the right level for every student."));
     assert.ok(words.includes("Welcome back!") && words.includes("Who's signing in today?"));
     for (const r of ["Student", "Teacher", "Admin"]) assert.match(html, new RegExp(`type="radio"[^>]*value="${r}"`), r);
     const form = html.match(/<form[^>]*>/)![0];
@@ -51,7 +51,9 @@ describe("sign-in page (Literise)", () => {
     assert.match(html, /name="username"/);
     assert.match(html, /name="password"[^>]*type="password"|type="password"[^>]*name="password"/);
     assert.match(html, /placeholder="Your student username"/, "Student is chosen first");
-    assert.ok(words.includes("Let's go, Student!"));
+    assert.ok(words.includes("Let's go"));
+    // the button names no role: just "Let's go" with the arrow
+    assert.doesNotMatch(words, /Let's go, (Student|Teacher|Admin)/);
     assert.ok(words.includes("Literise · Al-Anjal Private Schools"));
     // the crisp vector school logo (SchoolLogo), not the blurry uploaded image
     assert.match(html, /role="img" aria-label="Al-Anjal Private Schools, since 1985"/);
@@ -68,10 +70,9 @@ describe("sign-in page (Literise)", () => {
     }
   });
 
-  test("the role tiles only change wording; every role has its own placeholder, help line and button", () => {
+  test("the role tiles only change wording; every role has its own placeholder and help line; one plain \"Let's go\" button", () => {
     assert.deepEqual(SIGN_IN_ROLES.map((r) => r.who), ["Student", "Teacher", "Admin"]);
     assert.equal(new Set(SIGN_IN_ROLES.map((r) => r.placeholder)).size, 3);
-    assert.equal(new Set(SIGN_IN_ROLES.map((r) => r.go)).size, 3);
     // the tiles never reach the server as a role: the sign-in route reads only username, password and next
     const route = read("src/app/login/submit/route.ts");
     assert.doesNotMatch(route, /signin-as|form\.get\("role"\)/);
@@ -91,8 +92,9 @@ describe("sign-in page (Literise)", () => {
     assert.ok(words.includes("Literise"));
     assert.ok(words.includes("مرحبًا بعودتك!"));
     assert.ok(words.includes("اقرأ اليوم، وارتقِ غدًا."));
-    const keys = ["Read today. Rise tomorrow.", "Reading, writing and vocabulary at the right level for every student in Grades 4 to 6.", "Welcome back!", "Who's signing in today?", "Enter your password", "Al-Anjal Private Schools",
-      ...SIGN_IN_ROLES.flatMap((r) => [r.who, r.placeholder, r.help, r.go])];
+    assert.ok(words.includes("هيا بنا"));
+    const keys = ["Read today. Rise tomorrow.", "Reading, writing and vocabulary at the right level for every student.", "Welcome back!", "Who's signing in today?", "Enter your password", "Al-Anjal Private Schools",
+      ...SIGN_IN_ROLES.flatMap((r) => [r.who, r.placeholder, r.help]), "Let's go"];
     for (const k of keys) {
       assert.ok((UI_STRINGS as readonly string[]).includes(k), `en.ts: ${k}`);
       assert.ok((ar as Record<string, string>)[k], `ar.ts: ${k}`);

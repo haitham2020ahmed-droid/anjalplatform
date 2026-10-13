@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { useAdminErrorDetail } from "@/components/ui/admin-error-detail";
 
 /**
  * Last-resort error page: shown when the ROOT layout itself fails (error.tsx cannot catch that).
@@ -7,6 +8,8 @@ import { useEffect } from "react";
  * (the app's stylesheet may not have loaded). Reports to the same error log as error.tsx.
  */
 export default function GlobalError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+  // admins: the real message behind the reference (the server answers admins only)
+  const detail = useAdminErrorDetail(error.digest);
   useEffect(() => {
     console.error(error);
     try { void fetch("/api/client-error", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: error.message, digest: error.digest, path: window.location.pathname }) }); } catch { /* offline */ }
@@ -23,6 +26,12 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
             <button onClick={() => (stale ? window.location.reload() : reset())} style={{ ...btn, border: "none", background: "#1f3a68", color: "#fff" }}>{stale ? "Reload" : "Try again"}</button>
             <a href="/" style={{ ...btn, color: "#1f3a68", border: "1px solid #cbd5e1" }}>Home</a>
           </div>
+          {detail && (
+            <div style={{ marginTop: 16, borderRadius: 12, background: "#fffbeb", padding: 12, textAlign: "start", fontSize: 12, color: "#451a03", border: "1px solid #fde68a" }}>
+              <p style={{ margin: 0, fontWeight: 600 }}>What went wrong (only admins see this)</p>
+              <p dir="ltr" style={{ margin: "4px 0 0", overflowWrap: "anywhere" }}>{detail}</p>
+            </div>
+          )}
           {error.digest && <p style={{ marginTop: 16, fontSize: 12, color: "#94a3b8" }}>Reference: {error.digest}</p>}
         </main>
       </body>

@@ -9,14 +9,18 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { attachmentNodes } from "../curriculum-map/questions";
 import { fromDifficulty } from "../curriculum-map/leveled-run";
-import { loadQuestionItems, loadSkillItems, type PracticeItem } from "../practice/items";
+import { loadQuestionItems, loadSkillItems, toClientQuestion, type ClientQuestion, type PracticeItem } from "../practice/items";
 import { openStudentPreview } from "../tests/student-preview";
 
 const s = (v: unknown) => String(v ?? "");
 export type Level = "BELOW" | "ON" | "ABOVE";
 export const LEVELS: Level[] = ["BELOW", "ON", "ABOVE"];
 export interface PreviewQuestion { id: string; type: string; stem: string; passageTitle: string | null; passageText: string | null; options: { label: string; text: string; correct: boolean }[]; answer: string | null }
-export interface PreviewView { title: string; subtitle: string; level: Level; counts: Record<Level, number>; questions: PreviewQuestion[]; shown: number; assignHref: string | null; test?: boolean }
+export interface PreviewView {
+  title: string; subtitle: string; level: Level; counts: Record<Level, number>; questions: PreviewQuestion[]; shown: number; assignHref: string | null; test?: boolean;
+  /** a test: the chosen version's questions exactly as the student's quiz player gets them (no answers) */
+  student?: ClientQuestion[];
+}
 
 const MAX = 40;
 /** a test shows every question (a test has at most 50) */
@@ -53,6 +57,7 @@ export async function previewWork(repo: Repo, actor: Actor, input: { code?: stri
     return {
       title: p.title, subtitle: p.levelMode === "LEVEL" ? "Test · each student gets the version of their level" : "Test · every student gets these questions",
       level, counts, questions: byLevel[level].slice(0, TEST_MAX).map(view), shown: Math.min(TEST_MAX, byLevel[level].length), assignHref: null, test: true,
+      student: byLevel[level].slice(0, TEST_MAX).map((i) => toClientQuestion(i, `preview:${s(input.test)}:${i.questionId}`)),
     };
   }
   if (input.code) {

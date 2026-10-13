@@ -57,7 +57,9 @@ export const KEYED_REFS: readonly { table: string; key: readonly string[]; id?: 
 export const JSON_REFS: readonly (readonly [string, string])[] = [
   ["Assignment", "questionIds"], ["LiveGame", "questionIds"], ["ExitTicket", "questionIds"], ["Worksheet", "questionIds"],
   ["ProgressCheck", "categories"], ["LessonRun", "log"], ["NafsTest", "questionIds"], ["NafsTest", "marks"],
-  ["NafsPractice", "questionIds"], ["NafsPracticeRun", "state"],
+  ["NafsPractice", "questionIds"], ["NafsPracticeRun", "state"], ["MapSimWindow", "itemIds"], ["MapSimWindow", "excludedIds"],
+  // ✏️ a teacher's copy of a test question points at its original (tags.teacherCopyOf — src/server/tests/review.ts)
+  ["Question", "tags"],
 ];
 
 /** Every id of `map` replaced by its kept copy, anywhere in a JSON value; repeated ids in a list are kept once. */

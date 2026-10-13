@@ -22,6 +22,9 @@ import { audit } from "../audit";
 import { autoHideBroken } from "../questions/auto-check";
 import { thinSkills } from "../questions/min-per-skill";
 import { PACKS, countPack, packOf, packSignature, runPackChunk, type PackCount, type PackKey } from "../questions/load-packs";
+import { adminErrorText, schemaGap, SCHEMA_FIX } from "../db/schema-errors";
+
+export { SCHEMA_FIX };
 
 const s = (v: unknown) => String(v ?? "");
 export const PROGRESS_KEY = "questions.load";
@@ -173,18 +176,53 @@ export async function finishLoad(repo: Repo, actor: Actor, input: { token: strin
 
 // ------------------------------------------------------------------ the page
 
-export interface PackRow { key: PackKey; title: string; hint: string; file: string; present: boolean; count: PackCount | null; progress: PackProgress | null }
+export interface PackRow { key: PackKey; title: string; hint: string; file: string; present: boolean; progress: PackProgress | null }
 export interface LoadStatus { packs: PackRow[]; running: { byName: string; until: string } | null; last: LoadSummary | null }
 
-/** Every pack with what is in already / left and its progress; whether a load is running now. */
+const safeSig = (def: (typeof PACKS)[number]): string | null => { try { return packSignature(def); } catch { return null; } };
+
+/**
+ * ⚡ The page itself: every pack (title, file there or not, its progress) and whether a load is running — NO counting
+ * (two small SchoolSetting reads). What is in already / left comes after the page has opened, one request per pack
+ * (packCount), so a slow or failing pack never holds up or breaks the page.
+ */
 export async function loadStatus(repo: Repo, actor: Actor, now = new Date()): Promise<LoadStatus> {
   const schoolId = assertSchoolAdmin(actor);
   const [p, l] = await Promise.all([readProgress(repo, schoolId), readLock(repo, schoolId)]);
-  const packs: PackRow[] = [];
-  for (const def of PACKS) {
-    const sig = packSignature(def);
+  const packs: PackRow[] = PACKS.map((def) => {
+    const sig = safeSig(def);
     const pr = p.packs[def.key];
-    packs.push({ key: def.key, title: def.title, hint: def.hint, file: def.file, present: Boolean(sig), count: sig ? await countPack(repo, schoolId, def) : null, progress: pr && pr.sig === sig ? pr : null });
-  }
+    return { key: def.key, title: def.title, hint: def.hint, file: def.file, present: Boolean(sig), progress: pr && pr.sig === sig ? pr : null };
+  });
   return { packs, running: lockBusy(l, now) ? { byName: l!.byName, until: new Date(l!.until).toISOString() } : null, last: p.last ?? null };
+}
+
+/**
+ * A clear message for a pack that could not be counted or loaded (the admin sees it on the pack's row): a missing
+ * table / column (src/server/db/schema-errors.ts) → "Run npx prisma db push"; anything else → its own message (admins
+ * only: this page and its requests are school admin only). `error` is the English text to translate, `what` fills it.
+ */
+export function explainLoadError(e: unknown, fallback = "This pack could not be counted."): { error: string; what: string; schema: boolean } {
+  const g = schemaGap(e);
+  if (g) return { error: SCHEMA_FIX, what: g.what, schema: true };
+  return { error: fallback, what: adminErrorText(e), schema: false };
+}
+
+export type PackCountResult = { key: PackKey; ok: true; count: PackCount | null; ms: number } | { key: PackKey; ok: false; error: string; what: string; schema: boolean };
+
+/**
+ * What is in already / left for ONE pack (the page asks for every pack at once, after it has opened). Never throws for
+ * a database or file problem: the pack's row shows the reason instead (e.g. "Run npx prisma db push").
+ */
+export async function packCount(repo: Repo, actor: Actor, key: string): Promise<PackCountResult> {
+  const schoolId = assertSchoolAdmin(actor);
+  const def = packOf(key);
+  if (!def) throw new ValidationError("Unknown question pack.");
+  const t0 = Date.now();
+  try {
+    return { key: def.key, ok: true, count: await countPack(repo, schoolId, def), ms: Date.now() - t0 };
+  } catch (e) {
+    console.error(`load-questions: count ${def.key}`, e);
+    return { key: def.key, ok: false, ...explainLoadError(e) };
+  }
 }

@@ -66,8 +66,9 @@ describe("one place per page (menus, Home, hubs)", () => {
     for (const h of ["/student/readmaster", "/teacher/readrise", "/teacher/fluency"]) assert.ok(reading.includes(`"${h}"`), h);
     assert.ok(!read("src/app/teacher/students/page.tsx").includes("/teacher/reports"), "Needs help is a report (Reports → Skills)");
     const map = read("src/app/teacher/map-center/page.tsx");
-    assert.match(map, /tab === "results" && \(/, "the MAP tabs row shows on Results only");
-    assert.match(map, /\/teacher\/map-entry/); assert.match(map, /\/teacher\/map-test/);
+    // the MAP tabs row shows on Results and on the MAP Test tab (the old MAP practice test page is merged into it)
+    assert.match(map, /\(tab === "results" \|\| tab === "test"\) && \(/, "the MAP tabs row shows on Results and MAP Test only");
+    assert.match(map, /\/teacher\/map-entry/); assert.match(map, /tab: "test"/);
     assert.match(map, /back: \{ href: "\/teacher\/reports", label: "Reports" \}/, "MAP reports go back to Reports");
     assert.match(map, /back: \{ href: "\/teacher\/plans", label: "Plans" \}/, "the MAP plan goes back to Plans");
     assert.ok(!read("src/app/teacher/map-center/reports-tab.tsx").includes("/map-report/class/${classId}/groups"), "the MAP report cards live in Reports → MAP");

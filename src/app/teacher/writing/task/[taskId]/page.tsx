@@ -9,6 +9,7 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { getT } from "@/i18n/server";
 import { lockedTaskForTeacher, STATUS_LABEL, type LockedStatus, type LockedTaskTeacherView } from "@/server/writing/locked";
 import { reopenAction } from "../../locked-actions";
+import { ITEM_PREVIEW } from "@/server/student/preview-as";
 
 export const metadata = { title: "Writing submissions" };
 
@@ -32,7 +33,9 @@ export default async function SubmissionsPage({ params, searchParams }: { params
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: `/teacher/writing?classId=${v.classId}`, label: "Writing & Reading Aloud" }} icon="🔒" title={v.title}
-        subtitle={[v.className, v.dueAt ? `${t("Due")} ${when(v.dueAt)}` : "", v.timeLimitMin ? t("{n} min", { n: v.timeLimitMin }) : "", v.minWords ? t("At least {n} words", { n: v.minWords }) : ""].filter(Boolean).join(" · ")} />
+        subtitle={[v.className, v.dueAt ? `${t("Due")} ${when(v.dueAt)}` : "", v.timeLimitMin ? t("{n} min", { n: v.timeLimitMin }) : "", v.minWords ? t("At least {n} words", { n: v.minWords }) : ""].filter(Boolean).join(" · ")}>
+        {v.rows[0] && <Link href={ITEM_PREVIEW.writing(v.id, v.rows[0].studentId)} className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 font-semibold text-brand-navy ring-1 ring-slate-300 print:hidden">👀 {t("Preview as student")}</Link>}
+      </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
 
       <section className="grid gap-2 sm:grid-cols-3 lg:grid-cols-6">

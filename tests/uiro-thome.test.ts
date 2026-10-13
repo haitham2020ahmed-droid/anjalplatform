@@ -193,7 +193,7 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
   });
 
   test("every student name on the teacher pages opens the ONE profile page", () => {
-    const files = ["map-center/reports-tab.tsx", "map-center/results-tab.tsx", "map-test/page.tsx", "progress/page.tsx", "respond/[id]/page.tsx", "alerts/page.tsx", "tiers/page.tsx", "rti-plan/weekly/page.tsx", "attention/page.tsx", "accounts/page.tsx"];
+    const files = ["map-center/reports-tab.tsx", "map-center/results-tab.tsx", "map-center/test-page.tsx", "progress/page.tsx", "respond/[id]/page.tsx", "alerts/page.tsx", "tiers/page.tsx", "rti-plan/weekly/page.tsx", "attention/page.tsx", "accounts/page.tsx"];
     for (const f of files) {
       const src = readFileSync(join(process.cwd(), "src/app/teacher", f), "utf8");
       assert.ok(src.includes("/teacher/students/${"), `${f} links names to the profile`);

@@ -8,13 +8,23 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { accessibleClasses } from "./assign";
+import { modelVersion } from "../cache/bank-version";
+import { TtlCache } from "../lib/ttl-cache";
 
 const KEY = "coordinators";
 const s = (v: unknown) => String(v ?? "");
 
+/** ⚡ the setting row, read once for a few seconds per school (any settings write in this process reads it again) */
+const settingCache = new WeakMap<object, TtlCache<Row | null>>();
+function coordinatorRow(repo: Repo, schoolId: string): Promise<Row | null> {
+  let c = settingCache.get(repo);
+  if (!c) settingCache.set(repo, (c = new TtlCache<Row | null>(10_000, 500)));
+  return c.getOrLoad(`${schoolId}|${modelVersion("SchoolSetting")}`, async () => (await repo.findMany("SchoolSetting", { schoolId, key: KEY }))[0] ?? null);
+}
+
 export async function coordinatorMap(repo: Repo, schoolId: string | null): Promise<Record<string, number[]>> {
   if (!schoolId) return {};
-  const row = (await repo.findMany("SchoolSetting", { schoolId, key: KEY }))[0];
+  const row = await coordinatorRow(repo, schoolId);
   let v: unknown = row?.value ?? null;
   if (typeof v === "string") { try { v = JSON.parse(v); } catch { v = null; } }
   const out: Record<string, number[]> = {};

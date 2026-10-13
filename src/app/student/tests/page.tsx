@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
-import { getActor, repo, requireActor } from "@/server/auth/next";
+import { repo, requireActor } from "@/server/auth/next";
+import { studentPage } from "@/server/auth/student-page";
+import { PreviewFrame } from "@/components/student/preview-frame";
 import { myTests } from "@/server/tests/assessments";
 import { EmptyState, SourceTag, BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit";
 import { getT } from "@/i18n/server";
@@ -10,14 +12,13 @@ export const metadata = { title: "My Tests" };
 const day = (v: string | null) => (v ? new Date(v).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }) : null);
 
 /** 📝 My Tests: To Do (with the due date) and Completed (score + date; open to review the answers). */
-export default async function MyTestsPage() {
-  const actor = await requireActor({ roles: ["STUDENT"] });
-  const me = (await getActor())!.user;
+export default async function MyTestsPage({ searchParams }: { searchParams: Promise<{ preview?: string }> }) {
+  const { actor, me, preview } = await studentPage((await searchParams).preview, () => requireActor({ roles: ["STUDENT"] }));
   const { t: tr } = await getT();
   // (NAFS tests live in the NAFS icon only — Grade 6: /student/nafs → My tests)
   const v = await myTests(repo, actor);
   return (
-    <AppShell name={String(me.displayName)}>
+    <AppShell name={String(me.displayName)}><PreviewFrame preview={preview}>
       <PageHeader back={{ href: "/student", label: "Home" }} icon="📝" title="My Tests" />
       {v.completed.length > 0 && (() => {
         const avg = Math.round(v.completed.reduce((n, x) => n + Number(x.pct ?? 0), 0) / v.completed.length);
@@ -66,6 +67,6 @@ export default async function MyTestsPage() {
           </ul>
         )}
       </section>
-    </AppShell>
+    </PreviewFrame></AppShell>
   );
 }

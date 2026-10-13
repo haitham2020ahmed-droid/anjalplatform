@@ -68,7 +68,9 @@ const TEACHER_DAYS = 30;
 export { THETA_ABOVE, THETA_BELOW };
 const s = (v: unknown) => String(v ?? "");
 
-export interface EvidenceOpts { category?: "CV" | "ACS" | "RTR" | null; subject?: "READING" | "LANGUAGE"; useTeacher?: boolean }
+export interface EvidenceOpts { category?: "CV" | "ACS" | "RTR" | null; subject?: "READING" | "LANGUAGE"; useTeacher?: boolean;
+  /** ⚡ several calls for the SAME students in one page (overall + each section): the students' data is read once */
+  memo?: Map<string, Promise<unknown>> }
 
 /**
  * What the evidence says NOW, before the stability rule (used by the daily job; `states` gives the current confirmed
@@ -78,9 +80,16 @@ export async function rawEvidenceLevels(repo: Repo, schoolId: string | null, ids
   const out = new Map<string, EvidenceLevel>();
   if (!ids.length) return out;
   const subject = opts.subject ?? "READING";
-  const [levels, practice, rules, saved, reading, flu, diag, thetas] = await Promise.all([levelsOf(repo, ids), practiceStats(repo, ids, now), ladderSettings(repo, schoolId), repo.findMany("StudentLevel", { studentId: { in: ids } }), repo.findMany("StudentReadingLexile", { studentId: { in: ids } }),
-    repo.findMany("FluencyCheck", { studentId: { in: ids }, checkedAt: { gte: new Date(now.getTime() - 365 * 86_400_000) } }, { select: ["studentId", "wcpm", "percentile", "checkedAt", "source"] }),
-    repo.findMany("DiagnosticScore", { studentId: { in: ids } }, { select: ["studentId", "pct", "completedAt", "rapid", "total", "level"] }),
+  const once = <T>(key: string, load: () => Promise<T>): Promise<T> => {
+    const m = opts.memo;
+    if (!m) return load();
+    let p = m.get(key) as Promise<T> | undefined;
+    if (!p) { p = load(); m.set(key, p); }
+    return p;
+  };
+  const [levels, practice, rules, saved, reading, flu, diag, thetas] = await Promise.all([once("levels", () => levelsOf(repo, ids)), practiceStats(repo, ids, now), once("rules", () => ladderSettings(repo, schoolId)), once("saved", () => repo.findMany("StudentLevel", { studentId: { in: ids } })), once("reading", () => repo.findMany("StudentReadingLexile", { studentId: { in: ids } })),
+    once("fluency", () => repo.findMany("FluencyCheck", { studentId: { in: ids }, checkedAt: { gte: new Date(now.getTime() - 365 * 86_400_000) } }, { select: ["studentId", "wcpm", "percentile", "checkedAt", "source"] })),
+    once("diagnostic", () => repo.findMany("DiagnosticScore", { studentId: { in: ids } }, { select: ["studentId", "pct", "completedAt", "rapid", "total", "level"] })),
     pre.thetas ? Promise.resolve(pre.thetas) : levelThetas(repo, ids, now)]);
   const at = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
   const fluPoints = new Map<string, FluencyPoint[]>();
@@ -91,8 +100,8 @@ export async function rawEvidenceLevels(repo: Repo, schoolId: string | null, ids
   }
   const diagOf = new Map<string, Row>();
   for (const x of [...diag].sort((a, b) => at(a.completedAt) - at(b.completedAt))) diagOf.set(s(x.studentId), x);
-  const maps = await mapSummaries(repo, ids, subject, new Map(ids.map((id) => [id, grade])));
-  const band = (await lexileBands(repo, schoolId))[grade];
+  const [maps, bands] = await Promise.all([once(`maps|${subject}|${grade}`, () => mapSummaries(repo, ids, subject, new Map(ids.map((id) => [id, grade])))), once("bands", () => lexileBands(repo, schoolId))]);
+  const band = bands[grade];
   for (const id of ids) {
     const lv = levels.get(id)!, p = practice.get(id), m = maps.get(id), th = thetas.get(id);
     const base = { current: lv.level, currentSource: lv.source };

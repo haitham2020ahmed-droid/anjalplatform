@@ -6,9 +6,10 @@ import { useT } from "@/i18n/client";
 import type { BuilderRow, MinistrySettings } from "@/server/nafs/build";
 import type { BankRow } from "@/server/nafs/bank";
 import type { SimulationSettings } from "@/server/nafs/framework";
+import { FullNafsBuilder } from "./full-test-builder";
 import { aiDraftsAction, automaticAction, bankSearchAction, ministryAction, replaceAction, rowsAction, saveTestAction, simulationAction } from "@/app/teacher/nafs/actions";
 
-type Mode = "SIMULATION" | "MINISTRY" | "AUTO" | "MANUAL" | "AI";
+type Mode = "FULL" | "SIMULATION" | "MINISTRY" | "AUTO" | "MANUAL" | "AI";
 interface Skill { code: string; name: string; domain: string }
 const INPUT = "min-h-10 rounded-lg bg-surface px-2 text-ink ring-1 ring-line";
 const NUM = `${INPUT} w-20 tabular-nums`;
@@ -22,11 +23,37 @@ const DIFF_NAME: Record<number, string> = { 1: "Easy", 2: "Medium", 3: "Hard" };
  * as a list the teacher changes freely: replace / remove / move / add questions and marks, then saves.
  */
 export function NafsTestBuilder(props: {
-  initialMode: Mode; skills: Skill[]; domains: { code: string; name: string }[]; classes: { id: string; name: string }[];
+  initialMode: Mode; skills: Skill[]; domains: { code: string; name: string }[]; classes: { id: string; name: string; students: { id: string; name: string }[] }[];
   simulation: SimulationSettings; ministry: MinistrySettings; maxQuestions: number; maxMinutes: number;
-  standards: { code: string; short: string; text?: string }[]; booklets: { code: string; title: string; questions: number; written: number }[];
-  existing: { id: string | null; title: string; mode: Mode; rows: BuilderRow[]; marks: Record<string, number> | null; timeLimitMin: number | null; locked: boolean } | null;
+  standards: { code: string; short: string; text: string; area: string }[]; booklets: { code: string; title: string; questions: number; written: number }[];
+  existing: { id: string | null; title: string; mode: Mode; rows: BuilderRow[]; marks: Record<string, number> | null; timeLimitMin: number | null; locked: boolean; counts?: Record<string, number> | null; written?: boolean | null } | null;
+  initialPurpose?: "TEST" | "PRACTICE";
+  /** prefilled from the Dashboard ("Make a test on these standards"): the standards / skills and the class */
+  initialCodes?: string[]; initialClassId?: string | null;
 }) {
+  const t = useT();
+  const [full, setFull] = useState((props.existing?.mode ?? props.initialMode) === "FULL");
+  const [other, setOther] = useState<Mode>(props.initialMode === "FULL" ? (props.existing && props.existing.mode !== "FULL" ? props.existing.mode : "SIMULATION") : props.initialMode);
+  if (full) return (
+    <div className="grid gap-4">
+      <ModeNav current="FULL" onPick={(k) => { if (k !== "FULL") { setOther(k); setFull(false); } }} t={t} />
+      <FullNafsBuilder classes={props.classes} standards={props.standards} maxQuestions={props.maxQuestions} maxMinutes={props.maxMinutes} initialPurpose={props.initialPurpose ?? "TEST"}
+        existing={props.existing ? { id: props.existing.id, title: props.existing.title, rows: props.existing.rows, marks: props.existing.marks, timeLimitMin: props.existing.timeLimitMin, locked: props.existing.locked, counts: props.existing.counts ?? null, written: props.existing.written ?? null } : null} />
+    </div>
+  );
+  return <ClassicBuilder {...props} existing={props.existing?.mode === "FULL" ? null : props.existing} initialMode={other} onFull={() => setFull(true)} />;
+}
+
+const MODES: { k: Mode; label: string }[] = [{ k: "FULL", label: "Complete NAFS test (all standards)" }, { k: "SIMULATION", label: "NAFS simulation" }, { k: "MINISTRY", label: "Ministry booklet model" }, { k: "AUTO", label: "Automatic" }, { k: "MANUAL", label: "Manual" }, { k: "AI", label: "Generate new questions with AI" }];
+function ModeNav({ current, onPick, t }: { current: Mode; onPick: (k: Mode) => void; t: (s: string) => string }) {
+  return (
+    <nav className="flex flex-wrap gap-1.5" aria-label={t("How to make the test")}>
+      {MODES.map((x) => <button key={x.k} type="button" aria-pressed={current === x.k} onClick={() => onPick(x.k)} className={`min-h-10 rounded-full px-4 text-sm font-semibold ring-1 ${current === x.k ? "bg-teal-700 text-white ring-teal-700" : x.k === "FULL" ? "bg-teal-50 text-teal-900 ring-teal-300" : "bg-surface text-ink-2 ring-line"}`}>{x.k === "FULL" ? "★ " : ""}{t(x.label)}</button>)}
+    </nav>
+  );
+}
+
+function ClassicBuilder(props: Parameters<typeof NafsTestBuilder>[0] & { onFull: () => void }) {
   const t = useT();
   const router = useRouter();
   const [busy, start] = useTransition();
@@ -37,12 +64,12 @@ export function NafsTestBuilder(props: {
   const startMode = props.existing?.mode ?? props.initialMode;
   const [count, setCount] = useState<string>(String(props.existing ? props.existing.rows.length : startMode === "MINISTRY" ? props.ministry.questions : props.simulation.questions));
   const [minutes, setMinutes] = useState<string>(String(props.existing?.timeLimitMin ?? (startMode === "MINISTRY" ? props.ministry.minutes : props.simulation.minutes)));
-  const [classId, setClassId] = useState("");
+  const [classId, setClassId] = useState(props.initialClassId && props.classes.some((c) => c.id === props.initialClassId) ? props.initialClassId : "");
   const [notes, setNotes] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [sim, setSim] = useState<SimulationSettings>(props.simulation);
   const [min, setMin] = useState<MinistrySettings>(props.ministry);
-  const [codes, setCodes] = useState<string[]>([]);
+  const [codes, setCodes] = useState<string[]>(props.existing ? [] : (props.initialCodes ?? []));
   const [perSkill, setPerSkill] = useState(false);
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [ai, setAi] = useState({ count: 5, topic: "", withPassage: true, kind: "" as "" | "LIT" | "INFO" });
@@ -125,6 +152,7 @@ export function NafsTestBuilder(props: {
   });
   const toggle = (c: string) => setCodes(codes.includes(c) ? codes.filter((x) => x !== c) : [...codes, c]);
   const pickMode = (k: Mode) => {
+    if (k === "FULL") return props.onFull();
     setMode(k); setError(null);
     if (!rows.length && k === "MINISTRY") { setCount(String(props.ministry.questions)); setMinutes(String(props.ministry.minutes)); }
     if (!rows.length && k === "SIMULATION") { setCount(String(props.simulation.questions)); setMinutes(String(props.simulation.minutes)); }
@@ -161,7 +189,6 @@ export function NafsTestBuilder(props: {
       })}
     </div>
   );
-  const MODES: { k: Mode; label: string }[] = [{ k: "SIMULATION", label: "NAFS simulation" }, { k: "MINISTRY", label: "Ministry booklet model" }, { k: "AUTO", label: "Automatic" }, { k: "MANUAL", label: "Manual" }, { k: "AI", label: "Generate new questions with AI" }];
   const num = (key: keyof SimulationSettings, label: string, max: number) => (
     <label className="grid gap-1 text-xs font-semibold text-ink-2">{t(label)}<input type="number" min={0} max={max} value={sim[key] as number} onChange={(e) => setSim({ ...sim, [key]: Number(e.target.value) })} className={NUM} /></label>
   );
@@ -170,9 +197,7 @@ export function NafsTestBuilder(props: {
   return (
     <div className="grid gap-4">
       {locked && <p className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900 ring-1 ring-amber-200">{t("This test already has results: saving makes a new copy.")}</p>}
-      <nav className="flex flex-wrap gap-1.5" aria-label={t("How to make the test")}>
-        {MODES.map((x) => <button key={x.k} type="button" onClick={() => pickMode(x.k)} className={`min-h-10 rounded-full px-4 text-sm font-semibold ring-1 ${mode === x.k ? "bg-teal-700 text-white ring-teal-700" : "bg-surface text-ink-2 ring-line"}`}>{t(x.label)}</button>)}
-      </nav>
+      <ModeNav current={mode} onPick={pickMode} t={t} />
 
       {mode !== "AI" && (
         <section className="flex flex-wrap items-end gap-4 rounded-2xl bg-surface p-5 shadow-card ring-2 ring-teal-200" aria-label={t("Test settings")}>

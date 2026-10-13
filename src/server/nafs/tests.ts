@@ -20,9 +20,9 @@ const iso = (v: unknown) => d(v)?.toISOString() ?? null;
 export const json = <T,>(v: unknown, def: T): T => { if (v === null || v === undefined) return def; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return def; } } return v as T; };
 const round2 = (n: number) => Math.round(n * 100) / 100;
 
-export type NafsMode = "SIMULATION" | "MINISTRY" | "AUTO" | "MANUAL";
-export const MODES: NafsMode[] = ["SIMULATION", "MINISTRY", "AUTO", "MANUAL"];
-export const MODE_NAME: Record<NafsMode, string> = { SIMULATION: "NAFS simulation", MINISTRY: "Ministry booklet model", AUTO: "Automatic", MANUAL: "Manual" };
+export type NafsMode = "FULL" | "SIMULATION" | "MINISTRY" | "AUTO" | "MANUAL";
+export const MODES: NafsMode[] = ["FULL", "SIMULATION", "MINISTRY", "AUTO", "MANUAL"];
+export const MODE_NAME: Record<NafsMode, string> = { FULL: "Complete NAFS test (all standards)", SIMULATION: "NAFS simulation", MINISTRY: "Ministry booklet model", AUTO: "Automatic", MANUAL: "Manual" };
 export type Answer = 0 | 1 | 2 | 3 | null;
 
 function schoolOf(actor: Actor): string { if (!actor.schoolId) throw new ForbiddenError("No school."); return actor.schoolId; }

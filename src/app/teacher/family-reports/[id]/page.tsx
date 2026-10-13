@@ -6,6 +6,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { familyReport } from "@/server/reports/family-reports";
 import { FamilyReportFields, FamilyReportView, StatusChip } from "@/components/reports/family-report-view";
 import { saveFamilyReportAction, withdrawFamilyReportAction } from "../actions";
+import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Family Report" };
 
@@ -16,6 +17,7 @@ export default async function FamilyReportEdit({ params, searchParams }: { param
   const { id } = await params;
   const sp = await searchParams;
   const r = await familyReport(repo, actor, id);
+  const { t } = await getT();
   const mine = r.createdById === actor.userId || actor.role !== "TEACHER";
   const editable = mine && (r.status === "DRAFT" || r.status === "RETURNED");
   return (
@@ -45,7 +47,8 @@ export default async function FamilyReportEdit({ params, searchParams }: { param
             </span>
           </div>
           <FamilyReportView r={r} />
-          <p className="mt-3 text-sm print:hidden"><Link href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-teal underline">Open {r.studentName.split(" ")[0]}’s page</Link></p>
+          <p className="mt-3 text-sm print:hidden"><Link href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-teal underline">Open {r.studentName.split(" ")[0]}’s page</Link>
+            {r.status === "APPROVED" && <> · <Link href={`/student/reports?view=family&preview=${encodeURIComponent(r.studentId)}`} className="font-semibold text-brand-teal underline">👀 {t("Preview as student")}</Link></>}</p>
         </div>
       </div>
     </AppShell>

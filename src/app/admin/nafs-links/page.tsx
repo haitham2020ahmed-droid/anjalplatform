@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { nafsDbGate } from "@/components/db-update-needed";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -12,6 +13,7 @@ export const metadata = { title: "Bank ↔ NAFS" };
 /** 🔗 Every skill of the bank with its NAFS area (like Bank ↔ MAP): what is not linked yet and the suggestion. */
 export default async function NafsLinksPage({ searchParams }: { searchParams: Promise<{ msg?: string; all?: string }> }) {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:edit" });
+  const gate = await nafsDbGate(); if (gate) return gate; // the NAFS tables are not in the database yet: say so
   const me = (await getActor())!.user;
   const { t } = await getT();
   const sp = await searchParams;

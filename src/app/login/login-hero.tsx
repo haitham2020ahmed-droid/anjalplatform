@@ -21,7 +21,7 @@ export function LoginHero({ t }: { t: TFn }) {
       <LiteriseLogo tone="dark" size="md" />
       <div className="relative max-w-[19rem] md:mt-14">
         <p className="font-display text-[1.625rem] leading-[1.1] md:text-[2.125rem]">{t("Read today. Rise tomorrow.")}</p>
-        <p className="mt-3 hidden text-[15px] leading-relaxed text-[#c6cbef] md:block">{t("Reading, writing and vocabulary at the right level for every student in Grades 4 to 6.")}</p>
+        <p className="mt-3 hidden text-[15px] leading-relaxed text-[#c6cbef] md:block">{t("Reading, writing and vocabulary at the right level for every student.")}</p>
       </div>
     </section>
   );

@@ -6,7 +6,7 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { aiEnv } from "@/server/ai/env";
 import { getT } from "@/i18n/server";
-import { builderRows, buildNafsAutomatic, buildNafsMinistry, buildNafsSimulation, cleanDifficultyMix, replaceNafsQuestion, type BuilderRow, type MinistrySettings } from "@/server/nafs/build";
+import { builderRows, buildNafsAutomatic, buildNafsFull, buildNafsMinistry, buildNafsSimulation, cleanDifficultyMix, createFullNafsPractice, moreForStandard, replaceNafsQuestion, saveFullNafsTest, type BuilderRow, type FullSettings, type MinistrySettings } from "@/server/nafs/build";
 import { createNafsPractice, deleteNafsPractice } from "@/server/nafs/practice";
 import { nafsBankPage, retagNafsQuestion, reviewNafsDraft, saveNafsQuestion, setNafsFamilyLink, setNafsHidden, type BankPage, type BankSource, type NafsQuestionInput } from "@/server/nafs/bank";
 import { assignNafsOnline, deleteNafsTest, markWrittenAnswer, releaseNafsResults, saveNafsAnswers, saveNafsTest, updateNafsAssignment, type SaveTestInput } from "@/server/nafs/tests";
@@ -137,10 +137,53 @@ export async function deletePracticeAction(form: FormData): Promise<void> {
   back("/teacher/nafs?tab=practice", t("Practice removed."));
 }
 
-export async function replaceAction(input: { questionId: string; current: string[]; classId?: string | null }): Promise<{ ok?: BuilderRow; error?: string }> {
+// ------------------------------------------------------------------ "Complete NAFS test (all standards)"
+
+export interface FullBuildResult { rows: BuilderRow[]; notes: string[]; counts: Record<string, number>; available: Record<string, number>; shortage: Record<string, number>; settings: FullSettings }
+/** Builds the complete NAFS test (every Ministry standard) for the teacher to audit before saving. */
+export async function fullBuildAction(input: { settings?: { questions?: number; minutes?: number; written?: boolean; counts?: Record<string, number> | null }; classId?: string | null; seed?: string; difficulty?: unknown; practice?: boolean }): Promise<{ ok?: FullBuildResult; error?: string }> {
   const actor = await requireActor(STAFF);
   return wrap(async () => {
-    const id = await replaceNafsQuestion(repo, actor, { questionId: String(input?.questionId ?? ""), current: Array.isArray(input?.current) ? input.current.map(String) : [], classId: input?.classId ? String(input.classId) : null, seed: String(Date.now()) });
+    const b = await buildNafsFull(repo, actor, { settings: input?.settings ?? null, classId: input?.classId ? String(input.classId) : null, seed: String(input?.seed ?? Date.now()), difficulty: cleanDifficultyMix(input?.difficulty), practice: Boolean(input?.practice) });
+    return { rows: await builderRows(repo, actor, b.questionIds), notes: b.notes, counts: b.counts, available: b.available, shortage: b.shortage, settings: b.settings };
+  });
+}
+
+/** n more questions of one standard (the teacher raised its count). */
+export async function fullMoreAction(input: { standard: string; n: number; current: string[]; classId?: string | null; written?: boolean }): Promise<{ ok?: BuilderRow[]; error?: string }> {
+  const actor = await requireActor(STAFF);
+  return wrap(async () => {
+    const ids = await moreForStandard(repo, actor, { standard: String(input?.standard ?? ""), n: Number(input?.n), current: Array.isArray(input?.current) ? input.current.map(String) : [], classId: input?.classId ? String(input.classId) : null, written: Boolean(input?.written), seed: String(Date.now()) });
+    return builderRows(repo, actor, ids);
+  });
+}
+
+export async function saveFullTestAction(input: Omit<SaveTestInput, "mode"> & { confirmUncovered?: boolean }): Promise<{ ok?: string; error?: string }> {
+  const actor = await requireActor(STAFF);
+  return wrap(() => saveFullNafsTest(repo, actor, {
+    id: input?.id ? String(input.id) : null, title: String(input?.title ?? ""), questionIds: Array.isArray(input?.questionIds) ? input.questionIds.map(String) : [],
+    marks: input?.marks ?? null, timeLimitMin: input?.timeLimitMin ?? null, settings: input?.settings ?? null, confirmUncovered: Boolean(input?.confirmUncovered),
+  }));
+}
+
+export async function fullPracticeAction(input: { title: string; classId: string; studentIds?: string[] | null; questionIds?: string[] | null; wholeBank?: boolean; maxQuestions?: number | null; timeLimitMin?: number | null; dueAt?: string | null; confirmUncovered?: boolean }): Promise<{ ok?: { id: string; students: number }; error?: string }> {
+  const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
+  return wrap(async () => {
+    const r = await createFullNafsPractice(repo, actor, {
+      title: String(input?.title ?? ""), classId: String(input?.classId ?? ""), studentIds: Array.isArray(input?.studentIds) ? input.studentIds.map(String).filter(Boolean) : null,
+      questionIds: Array.isArray(input?.questionIds) ? input.questionIds.map(String) : null, wholeBank: Boolean(input?.wholeBank),
+      maxQuestions: input?.maxQuestions ? Number(input.maxQuestions) : null, timeLimitMin: input?.timeLimitMin ? Number(input.timeLimitMin) : null, dueAt: dateOf(input?.dueAt, true),
+      confirmUncovered: Boolean(input?.confirmUncovered),
+    });
+    revalidatePath("/teacher/nafs");
+    return r;
+  });
+}
+
+export async function replaceAction(input: { questionId: string; current: string[]; classId?: string | null; sameStandard?: boolean }): Promise<{ ok?: BuilderRow; error?: string }> {
+  const actor = await requireActor(STAFF);
+  return wrap(async () => {
+    const id = await replaceNafsQuestion(repo, actor, { questionId: String(input?.questionId ?? ""), current: Array.isArray(input?.current) ? input.current.map(String) : [], classId: input?.classId ? String(input.classId) : null, seed: String(Date.now()), sameStandard: Boolean(input?.sameStandard) });
     return (await builderRows(repo, actor, [id]))[0];
   });
 }
@@ -151,6 +194,8 @@ export async function rowsAction(ids: string[]): Promise<{ ok?: BuilderRow[]; er
 }
 
 export async function saveTestAction(input: SaveTestInput): Promise<{ ok?: string; error?: string }> {
+  // a complete NAFS test is always saved with its coverage check
+  if (String(input?.mode ?? "") === "FULL") return saveFullTestAction({ ...input, confirmUncovered: false });
   const actor = await requireActor(STAFF);
   return wrap(() => saveNafsTest(repo, actor, {
     id: input?.id ? String(input.id) : null, title: String(input?.title ?? ""), mode: String(input?.mode ?? "MANUAL"),
@@ -163,6 +208,7 @@ export async function aiDraftsAction(input: AiNafsInput): Promise<{ ok?: { ids: 
   return wrap(() => generateNafsDrafts(repo, actor, {
     codes: Array.isArray(input?.codes) ? input.codes.map(String) : [], count: Number(input?.count), topic: input?.topic ? String(input.topic) : null,
     withPassage: Boolean(input?.withPassage), textType: input?.textType === "LIT" || input?.textType === "INFO" ? input.textType : null,
+    standard: input?.standard ? String(input.standard) : null,
   }, { env: aiEnv() }));
 }
 

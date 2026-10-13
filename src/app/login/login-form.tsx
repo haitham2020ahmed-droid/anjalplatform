@@ -12,10 +12,10 @@ type Who = "Student" | "Teacher" | "Admin";
  * The sign-in form: the white half of the Literise D1 card (school logo + language switch, "Welcome back!", the three
  * role tiles with line icons, username, password with Show, the main button, the forgot-password line).
  * The three tiles only change the wording (placeholder, help line, button): the real role comes from the account. */
-export const SIGN_IN_ROLES: { who: Who; placeholder: string; help: string; go: string }[] = [
-  { who: "Student", placeholder: "Your student username", help: "Use the username on your sign-in card.", go: "Let's go, Student!" },
-  { who: "Teacher", placeholder: "Your teacher username", help: "Use the username the school gave you.", go: "Let's go, Teacher!" },
-  { who: "Admin", placeholder: "Your admin username", help: "Use your school admin account.", go: "Let's go, Admin!" },
+export const SIGN_IN_ROLES: { who: Who; placeholder: string; help: string }[] = [
+  { who: "Student", placeholder: "Your student username", help: "Use the username on your sign-in card." },
+  { who: "Teacher", placeholder: "Your teacher username", help: "Use the username the school gave you." },
+  { who: "Admin", placeholder: "Your admin username", help: "Use your school admin account." },
 ];
 
 const icon = (w: Who): ReactNode => ({
@@ -76,7 +76,7 @@ export function LoginForm({ error, username, next = "" }: { error: string | null
       {error && <p id="login-error" role="alert" className="animate-shake rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700 ring-1 ring-red-200">{error}</p>}
       <button disabled={pending} className="mt-1 flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-navy text-[15px] font-semibold text-white shadow-btn transition hover:brightness-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f2b705]/60 active:scale-[.99] disabled:opacity-70">
         {pending && <span aria-hidden="true" className="h-5 w-5 animate-spin rounded-full border-2 border-white/40 border-t-white" />}
-        {pending ? t("Signing in…") : <span>{t(role.go)} <span aria-hidden="true" className="inline-block rtl:-scale-x-100">→</span></span>}
+        {pending ? t("Signing in…") : <span>{t("Let's go")} <span aria-hidden="true" className="inline-block rtl:-scale-x-100">→</span></span>}
       </button>
       <p className="text-center text-[13px] text-muted">{t("Forgot your password? Students ask their teacher · Teachers ask the admin.")}</p>
       <p className="border-t border-line pt-3 text-center text-xs text-muted"><span dir="ltr">Literise</span> · {t("Al-Anjal Private Schools")}</p>

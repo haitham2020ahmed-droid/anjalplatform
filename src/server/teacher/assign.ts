@@ -13,6 +13,8 @@
  * practised months ago is not "completed" the moment it is assigned.
  */
 import { countGroups } from "../db/group-count";
+import { modelVersion } from "../cache/bank-version";
+import { TtlCache } from "../lib/ttl-cache";
 import { hideLevels } from "../../lib/hide-levels";
 import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
@@ -252,6 +254,16 @@ export async function accessibleClasses(repo: Repo, actor: Actor): Promise<Row[]
   assertCan(actor, "assignments:read");
   // students (and parents) also hold assignments:read for their OWN work; class views are for staff only
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only teachers and admins can see class assignments.");
+  // ⚡ a page asks several times (menu, page, each panel): read once for a few seconds — any write to the classes, the
+  // class teachers or the teachers in this process reads them again at once (write counters). Callers get copies.
+  const key = `${actor.role}|${actor.schoolId}|${actor.userId}|${modelVersion("Class", "ClassTeacher", "Teacher")}`;
+  let c = classCache.get(repo);
+  if (!c) classCache.set(repo, (c = new TtlCache<Row[]>(CLASS_CACHE_MS, 2000)));
+  return (await c.getOrLoad(key, () => readAccessibleClasses(repo, actor))).map((r) => ({ ...r }));
+}
+const CLASS_CACHE_MS = 10_000;
+const classCache = new WeakMap<object, TtlCache<Row[]>>();
+async function readAccessibleClasses(repo: Repo, actor: Actor): Promise<Row[]> {
   if (actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN") return (await repo.findMany("Class", { schoolId: actor.schoolId, deletedAt: null }));
   const t = await repo.findUnique("Teacher", { userId: actor.userId });
   if (!t) return [];

@@ -135,7 +135,8 @@ describe("Curriculum Map → the student's own study plan", () => {
     const sheet = read("src/components/student/study-plan.tsx");
     assert.match(sheet, /<span dir="ltr">Literise<\/span> · \{t\("Study plan"\)\}/);
     assert.doesNotMatch(sheet, /Al-Anjal English/);
-    assert.match(sheet, /<PrintButton label="Download PDF \/ Print" \/>/);
+    // the student's sheet says "Download PDF / Print" (the teacher's read-only preview of it says "Download")
+    assert.match(sheet, /<PrintButton label=\{preview \? "Download" : "Download PDF \/ Print"\} \/>/);
     assert.match(sheet, /data-testid="plan-switcher"/);
     assert.match(sheet, /print:hidden/);
     assert.match(read("src/app/student/plans/[planId]/page.tsx"), /<StudyPlan /);

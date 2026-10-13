@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { nafsDbGate } from "@/components/db-update-needed";
 import { hideLevels } from "@/lib/hide-levels";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
-import { getActor, repo, requireActor } from "@/server/auth/next";
+import { repo, requireActor } from "@/server/auth/next";
+import { studentPage } from "@/server/auth/student-page";
+import { PreviewFrame } from "@/components/student/preview-frame";
 import { inGrade6Class } from "@/server/student/menu-flags";
 import { myNafsTests } from "@/server/nafs/student";
 import { myNafsPractice } from "@/server/nafs/practice";
@@ -27,17 +30,17 @@ const CARD = "flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-s
  *   My tests     the NAFS tests given to me online, with the time and the due date
  *   My results   my score and the skills to practise — only after the teacher releases them; never a level word.
  */
-export default async function StudentNafsPage({ searchParams }: { searchParams: Promise<{ part?: string }> }) {
-  const actor = await requireActor({ roles: ["STUDENT"] });
-  const me = (await getActor())!.user;
+export default async function StudentNafsPage({ searchParams }: { searchParams: Promise<{ part?: string; preview?: string }> }) {
+  const { actor, me, preview } = await studentPage((await searchParams).preview, () => requireActor({ roles: ["STUDENT"] }));
+  const gate = await nafsDbGate(); if (gate) return gate; // the NAFS tables are not in the database yet: say so
   const sp = await searchParams;
   const part: Part = (PARTS.find((x) => x.key === sp.part)?.key ?? "practice") as Part;
   const [{ t }, g6] = await Promise.all([getT(), inGrade6Class(repo, actor.studentId!)]);
   if (!g6) return (
-    <AppShell name={String(me.displayName)}>
+    <AppShell name={String(me.displayName)}><PreviewFrame preview={preview}>
       <PageHeader back={{ href: "/student", label: "Home" }} icon="🇸🇦" title="NAFS" />
       <EmptyState icon="🇸🇦" title="NAFS is for Grade 6 students." text="Your teacher will add work here soon." action={{ href: "/student", label: "Home" }} />
-    </AppShell>
+    </PreviewFrame></AppShell>
   );
   const [practice, tests, plans] = await Promise.all([
     myNafsPractice(repo, actor).catch(() => []), myNafsTests(repo, actor).catch(() => []),
@@ -47,7 +50,7 @@ export default async function StudentNafsPage({ searchParams }: { searchParams: 
   const results = tests.filter((x) => x.status === "DONE");
   const count: Record<Part, number> = { practice: practice.filter((x) => x.status !== "DONE").length, tests: todoTests.length, results: results.filter((x) => x.pct !== null).length };
   return (
-    <AppShell name={String(me.displayName)}>
+    <AppShell name={String(me.displayName)}><PreviewFrame preview={preview}>
       <PageHeader back={{ href: "/student", label: "Home" }} icon="🇸🇦" title="NAFS" subtitle={t("Practise for the NAFS reading test, take your NAFS tests and see your results.")} />
       <nav aria-label={t("NAFS")} className="mb-5 flex gap-1 overflow-x-auto rounded-2xl bg-surface p-1 shadow-card ring-1 ring-line">
         {PARTS.map((x) => (
@@ -116,6 +119,6 @@ export default async function StudentNafsPage({ searchParams }: { searchParams: 
           </ul>
         )
       )}
-    </AppShell>
+    </PreviewFrame></AppShell>
   );
 }

@@ -115,8 +115,8 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
   const st = await repo.findUnique("Student", { id: studentId });
   const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 0);
   const [pk, mastery] = await Promise.all([groupPools(repo, actor.schoolId!, grade), repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct", "score"] })]);
-  const subjects: MySubject[] = [];
-  for (const subject of ["READING", "LANGUAGE"] as const) {
+  // ⚡ the two subjects (and the sent plans) are read side by side, not one after another
+  const one = async (subject: Subject): Promise<MySubject> => {
     const p = (await mapProfiles(repo, actor.schoolId!, [studentId], subject)).get(studentId)!;
     const acc = new Map<GroupKey, number | null>();
     const next = new Map<GroupKey, string | null>();
@@ -138,9 +138,10 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
       const cur = useEst ? est!.rit : latest;
       goal = { target: p.fall.projection, from: p.fall.rit, now: cur, nowIsEstimate: useEst, left: Math.max(0, p.fall.projection - cur), reached: !useEst && cur >= p.fall.projection, onCourse: useEst && cur >= p.fall.projection };
     }
-    subjects.push({ subject, profile: p, areas: ordered, orderedBy: p.hasGoals ? "MAP" : "PRACTICE", goal, estimate: est?.rit ?? null });
-  }
-  return { subjects, plans: await sentPlans(repo, studentId, now) };
+    return { subject, profile: p, areas: ordered, orderedBy: p.hasGoals ? "MAP" : "PRACTICE", goal, estimate: est?.rit ?? null };
+  };
+  const [reading, language, plans] = await Promise.all([one("READING"), one("LANGUAGE"), sentPlans(repo, studentId, now)]);
+  return { subjects: [reading, language], plans };
 }
 
 // ------------------------------------------------------------------ mid-unit check

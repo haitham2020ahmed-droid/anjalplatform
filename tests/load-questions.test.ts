@@ -15,7 +15,7 @@ import type { Actor } from "../src/server/auth/rbac";
 import { loadMapSetsFile } from "../src/server/questions/map-sets";
 import { loadSkillSetsFile } from "../src/server/questions/skill-sets";
 import { PACKS, packOf, runPackChunk, usePackDir } from "../src/server/questions/load-packs";
-import { checkChunk, finishLoad, LOCK_TTL_MS, loadChunk, loadStatus, startLoad, stopLoad } from "../src/server/admin/load-questions";
+import { checkChunk, finishLoad, LOCK_TTL_MS, loadChunk, loadStatus, packCount, startLoad, stopLoad } from "../src/server/admin/load-questions";
 
 const s = (v: unknown) => String(v ?? "");
 
@@ -58,11 +58,16 @@ describe("📥 Load new questions (chunked)", () => {
     assert.deepEqual(st.packs.map((p) => p.key), PACKS.map((p) => p.key));
     const gap = st.packs.find((p) => p.key === "gap")!;
     assert.equal(gap.present, true);
-    assert.equal(gap.count!.questions, GAP_SETS * PER_SET);
-    assert.equal(gap.count!.inBank, 0);
-    assert.equal(gap.count!.left, GAP_SETS * PER_SET);
+    // the counts come after the page has opened, one request per pack
+    const gc = await packCount(repo, admin, "gap");
+    assert.ok(gc.ok);
+    assert.equal(gc.count!.questions, GAP_SETS * PER_SET);
+    assert.equal(gc.count!.inBank, 0);
+    assert.equal(gc.count!.left, GAP_SETS * PER_SET);
     const grammar = st.packs.find((p) => p.key === "grammar")!;
-    assert.equal(grammar.present, false); assert.equal(grammar.count, null);
+    assert.equal(grammar.present, false);
+    const g = await packCount(repo, admin, "grammar");
+    assert.ok(g.ok); assert.equal(g.count, null);
     assert.equal(st.running, null);
   });
 
@@ -105,7 +110,8 @@ describe("📥 Load new questions (chunked)", () => {
     const st = await loadStatus(repo, admin);
     assert.equal(st.running, null, "the lock is given back at the end");
     assert.equal(st.last?.added, sum.added);
-    const gap = st.packs.find((p) => p.key === "gap")!;
+    const gap = await packCount(repo, admin, "gap");
+    assert.ok(gap.ok);
     assert.equal(gap.count!.inBank, GAP_SETS * PER_SET); assert.equal(gap.count!.left, 0);
   });
 

@@ -67,6 +67,7 @@ export default async function StudentPage({ params }: { params: Promise<{ studen
         who={<>{t("Grade {n}", { n: d.grade })}{d.className ? <> · <bdi>{d.className}</bdi></> : null}</>} when={<>{t("Last active")}: <span dir="ltr">{day(x.time.lastActive)}</span></>}
         filters={<nav aria-label={t("On this page")} className="flex gap-2 overflow-x-auto pb-1">
           {sections.map(([id, label]) => <a key={id} href={`#${id}`} className="inline-flex min-h-10 shrink-0 items-center rounded-full bg-white px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">{t(label)}</a>)}
+          <Link prefetch={false} href={`/teacher/student-view?student=${encodeURIComponent(studentId)}`} className="inline-flex min-h-10 shrink-0 items-center rounded-full bg-sky-700 px-3 text-sm font-semibold text-white">👀 {t("Preview as student")}</Link>
         </nav>} />
 
       <section id="overview" aria-label={t("Overview")} className="scroll-mt-20">

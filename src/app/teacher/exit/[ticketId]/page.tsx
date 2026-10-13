@@ -4,6 +4,9 @@ import { PrintButton } from "@/components/plans/print-button";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { exitTicketResults } from "@/server/teacher/classroom";
 import { closeTicketAction } from "../../week/actions";
+import Link from "next/link";
+import { ITEM_PREVIEW } from "@/server/student/preview-as";
+import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Exit ticket results" };
 
@@ -14,11 +17,13 @@ export default async function ExitResultsPage({ params, searchParams }: { params
   const { ticketId } = await params;
   const sp = await searchParams;
   const r = await exitTicketResults(repo, actor, ticketId);
+  const { t } = await getT();
   return (
     <AppShell name={String(me.displayName)}>
       {r.status === "OPEN" && <meta httpEquiv="refresh" content="10" />}
       <PageHeader back={{ href: `/teacher/week?classId=${r.classId}`, label: "My week" }} icon="🎫" title={r.title} subtitle={<>{r.answered} of {r.members} students answered{r.status === "OPEN" ? " · updates by itself" : " · closed"}.</>}>
         <PrintButton />
+        {r.students[0] && <Link href={ITEM_PREVIEW.exit(r.id, r.students[0].id)} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 print:hidden">👀 {t("Preview as student")}</Link>}
         {r.status === "OPEN" && <form action={closeTicketAction}><input type="hidden" name="ticketId" value={r.id} /><button className="rounded-xl bg-slate-700 px-4 py-2 font-semibold text-white">Close</button></form>}
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}

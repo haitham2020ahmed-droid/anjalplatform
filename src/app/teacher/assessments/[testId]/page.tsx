@@ -8,6 +8,7 @@ import { RETEACH_PCT, testResults, type TestResults } from "@/server/tests/asses
 import { personalizeNafsAction, reteachAction } from "../actions";
 import { EmptyState, SourceTag } from "@/components/ui-kit";
 import { getT } from "@/i18n/server";
+import { ITEM_PREVIEW } from "@/server/student/preview-as";
 
 export const metadata = { title: "Test results" };
 const day = (v: string | null) => (v ? new Date(v).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "—");
@@ -28,6 +29,7 @@ export default async function TestResultsPage({ params, searchParams }: { params
     <AppShell name={String(me.displayName)}>
       <ReportHeader back={{ href: "/teacher/assessments", label: "Assessments" }} icon="📊" title={t.title} who={t.className}
         subtitle={<><SourceTag source={t.type === "CUSTOM" ? "OTHER" : t.type} /> · {t.className} · {tr(t.levelMode === "LEVEL" ? "at each student's level" : "same for all")}{t.dueAt ? ` · ${tr("Due {date}", { date: day(t.dueAt) })}` : ""}{t.timeLimitMin ? ` · ${tr("{n} min", { n: t.timeLimitMin })}` : ""}{t.shuffle ? ` · ${tr("shuffled")}` : ""}{r.marks && r.students[0] ? ` · ${tr("{n} marks", { n: Math.max(...r.students.map((x) => x.maxPoints)) })}` : ""}</>}>
+        {r.students.length > 0 && <Link href={ITEM_PREVIEW.test(t.id, r.students[0].id)} className="inline-flex min-h-11 items-center rounded-xl px-5 font-semibold text-brand-navy ring-1 ring-slate-300 print:hidden">👀 {tr("Preview as student")}</Link>}
         <form action={reteachAction}>
           <input type="hidden" name="testId" value={t.id} />
           <button disabled={!toReteach} className="min-h-11 rounded-xl bg-brand-navy px-5 font-semibold text-white disabled:opacity-50" title={tr("Adds every skill under {pct}% to that student's My Work", { pct: RETEACH_PCT })}>🔁 {tr("Reteach")}</button>
@@ -84,7 +86,7 @@ export default async function TestResultsPage({ params, searchParams }: { params
           rows={r.students.filter((x) => x.finished).map((x) => ({
             id: x.id, flag: x.pct !== null && x.pct < RETEACH_PCT ? "bad" as const : undefined,
             sort: { n: x.name, s: x.pct, f: x.completedAt, ...Object.fromEntries(r.skills.map((k) => [`k${k.skillId}`, x.bySkill[k.skillId]?.pct ?? null])) },
-            cells: { n: <Link href={`/teacher/assessments/${t.id}/review/${x.assignmentId}/${x.id}`} className="font-semibold text-brand-navy underline">{x.name}</Link>,
+            cells: { n: <span className="inline-flex flex-wrap items-center gap-2"><Link href={`/teacher/assessments/${t.id}/review/${x.assignmentId}/${x.id}`} className="font-semibold text-brand-navy underline">{x.name}</Link><Link href={ITEM_PREVIEW.testReview(x.assignmentId, x.id)} title={tr("Preview as student")} aria-label={tr("Preview as student")} className="text-sm print:hidden">👀</Link></span>,
               s: <span className={tone(x.pct)}>{x.pct}% <span className="text-xs text-slate-500">({x.correct}/{x.total})</span>{r.marks && <span className="block text-xs font-semibold text-slate-700">{tr("{n} / {m} marks", { n: x.points, m: x.maxPoints })}</span>}</span>,
               ...Object.fromEntries(r.skills.map((k) => [`k${k.skillId}`, <span key={k.skillId} className={tone(x.bySkill[k.skillId]?.pct ?? null)}>{x.bySkill[k.skillId] ? `${x.bySkill[k.skillId].pct}%` : "—"}</span>])),
               f: <span className="text-sm text-slate-600">{day(x.completedAt)}</span> },

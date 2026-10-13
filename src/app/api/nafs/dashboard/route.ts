@@ -1,0 +1,35 @@
+import { NextResponse } from "next/server";
+import { apiActor } from "@/server/auth/next";
+import { ForbiddenError } from "@/server/auth/rbac";
+import { ValidationError } from "@/server/curriculum-admin";
+import { ReportBusyError } from "@/reports/pdf";
+import { reportDeps } from "@/server/reports/runtime";
+import { contentDisposition, RateLimitedError } from "@/server/reports/service";
+import { exportNafsDashboard } from "@/server/nafs/dashboard";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+/**
+ * GET /api/nafs/dashboard?format=xlsx|pdf[&classId=…][&from=YYYY-MM-DD][&to=YYYY-MM-DD] — the NAFS dashboard as a file
+ * (Grade 6 teachers: their classes; admins: the school).
+ */
+export async function GET(req: Request) {
+  const actor = await apiActor();
+  if (!actor) return new NextResponse("Please sign in.", { status: 401 });
+  const q = new URL(req.url).searchParams;
+  const format = q.get("format");
+  if (format !== "pdf" && format !== "xlsx") return new NextResponse("Unknown format.", { status: 422 });
+  const c = q.get("classId");
+  const classId = c && /^[A-Za-z0-9_-]{1,64}$/.test(c) ? c : null;
+  try {
+    const file = await exportNafsDashboard(reportDeps(), actor, { classId, from: q.get("from"), to: q.get("to"), format });
+    return new NextResponse(Buffer.from(file.bytes), { headers: { "Content-Type": file.contentType, "Content-Disposition": contentDisposition(file.filename), "Content-Length": String(file.bytes.length), "Cache-Control": "no-store, private", "X-Content-Type-Options": "nosniff" } });
+  } catch (e) {
+    if (e instanceof ValidationError) return new NextResponse(e.message, { status: 422 });
+    if (e instanceof RateLimitedError) return new NextResponse(e.message, { status: 429, headers: { "Retry-After": String(e.retryAfterSeconds) } });
+    if (e instanceof ReportBusyError) return new NextResponse(e.message, { status: 503, headers: { "Retry-After": "30" } });
+    if (e instanceof ForbiddenError || (e as { status?: number }).status === 403) return new NextResponse("Not found.", { status: 404 });
+    throw e;
+  }
+}

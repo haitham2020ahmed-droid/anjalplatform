@@ -1,17 +1,18 @@
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
-import { getActor, repo, requireActor } from "@/server/auth/next";
+import { repo, requireActor } from "@/server/auth/next";
+import { studentPage } from "@/server/auth/student-page";
+import { PreviewFrame } from "@/components/student/preview-frame";
 import { commentsFor } from "@/server/teacher/classroom";
 
 export const metadata = { title: "Comments" };
 
 /** 💬 What my teachers wrote about my work. */
-export default async function CommentsPage() {
-  const actor = await requireActor({ roles: ["STUDENT"] });
-  const me = (await getActor())!.user;
+export default async function CommentsPage({ searchParams }: { searchParams: Promise<{ preview?: string }> }) {
+  const { actor, me, preview } = await studentPage((await searchParams).preview, () => requireActor({ roles: ["STUDENT"] }));
   const list = await commentsFor(repo, actor, actor.studentId!);
   return (
-    <AppShell name={String(me.displayName)}>
+    <AppShell name={String(me.displayName)}><PreviewFrame preview={preview}>
       <PageHeader back={{ href: "/student", label: "My work" }} icon="💬" title="Comments from My Teachers" />
       {!list.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No comments yet.</p> : (
         <ul className="space-y-3">{list.map((c) => (
@@ -21,6 +22,6 @@ export default async function CommentsPage() {
           </li>
         ))}</ul>
       )}
-    </AppShell>
+    </PreviewFrame></AppShell>
   );
 }

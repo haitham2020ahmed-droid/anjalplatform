@@ -9,16 +9,41 @@ import { ValidationError } from "@/server/curriculum-admin";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { LEVELS, previewWork, type PreviewView } from "@/server/teacher/preview";
 import { getT } from "@/i18n/server";
+import { StudentTestPreview } from "@/components/tests/student-test-preview";
+import { assignedTestPreview, type AssignedTestPreview } from "@/server/student/preview-as";
 
 export const metadata = { title: "Preview" };
 const NAME = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" } as const;
 
 /** 👀 What each level will see — switch Below / On / Above; print or save as PDF. */
-export default async function PreviewPage({ searchParams }: { searchParams: Promise<{ code?: string; skillId?: string; level?: string; key?: string; msg?: string; test?: string }> }) {
+export default async function PreviewPage({ searchParams }: { searchParams: Promise<{ code?: string; skillId?: string; level?: string; key?: string; msg?: string; test?: string; assigned?: string; as?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const { t } = await getT();
+  if (sp.assigned) {
+    // 👀 an assigned test, exactly as the chosen student gets it (their version, order and choice order)
+    let a: AssignedTestPreview | null = null, err: string | null = null;
+    try { a = await assignedTestPreview(repo, actor, sp.assigned, sp.as); } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) err = e.message; else throw e; }
+    return (
+      <AppShell name={String(me.displayName)}>
+        <PageHeader back={{ href: `/teacher/assessments/${encodeURIComponent(sp.assigned)}`, label: "Test results" }} icon="👀" title={a ? t("Preview as student: {name}", { name: a.studentName }) : "Preview"} subtitle={a ? a.title : null}>{a && <PrintButton />}</PageHeader>
+        {err && <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-red-800">{t(err)}</p>}
+        {a && (
+          <>
+            <p role="status" className="mb-4 rounded-xl bg-sky-50 px-4 py-3 text-sky-900 ring-1 ring-sky-200 print:hidden">{t("This is exactly what the student sees. Read only: nothing is answered, sent or saved.")}</p>
+            {a.students.length > 1 && (
+              <nav aria-label={t("See as")} className="mb-4 flex flex-wrap items-center gap-2 text-sm print:hidden">
+                <span className="font-semibold text-slate-700">{t("See as")}</span>
+                {a.students.slice(0, 60).map((st) => <Link key={st.id} href={`/teacher/preview?assigned=${encodeURIComponent(a!.testId)}&as=${st.id}`} aria-current={st.id === a!.studentId ? "true" : undefined} className={`inline-flex min-h-11 items-center rounded-full px-4 font-semibold ${st.id === a!.studentId ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}><bdi>{st.name}</bdi></Link>)}
+              </nav>
+            )}
+            <StudentTestPreview title={a.title} questions={a.questions} timeLimitMin={a.timeLimitMin} />
+          </>
+        )}
+      </AppShell>
+    );
+  }
   let v: PreviewView | null = null, error: string | null = null;
   try { v = await previewWork(repo, actor, sp); } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) error = e.message; else throw e; }
   const showKey = sp.key === "1";
@@ -38,6 +63,7 @@ export default async function PreviewPage({ searchParams }: { searchParams: Prom
             {LEVELS.map((l) => <Link key={l} href={q({ level: l })} aria-current={v!.level === l ? "page" : undefined} className={`rounded-2xl px-5 py-2.5 font-bold ${v!.level === l ? "bg-brand-navy text-white shadow" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`}>{l === "BELOW" ? "🟠" : l === "ON" ? "🔵" : "🟢"} {NAME[l]} <span className="text-xs font-normal opacity-80">({v!.counts[l]})</span></Link>)}
             <Link href={q({ key: showKey ? "" : "1" })} className="ms-auto rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-700 ring-1 ring-slate-300">{showKey ? "🙈 Hide answers" : "🔑 Show answers"}</Link>
           </nav>
+          {v.test && v.student && !showKey ? <div className="mt-5"><StudentTestPreview title={v.title} questions={v.student} /></div> : <>
           <h2 className="mt-5 hidden text-xl font-bold print:block">{NAME[v.level]}</h2>
           {!v.questions.length ? <p className="mt-5 rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No questions at {NAME[v.level]} yet. Students placed here get the nearest level that has questions.</p> : (
             <ol className="mt-5 space-y-4">
@@ -57,6 +83,7 @@ export default async function PreviewPage({ searchParams }: { searchParams: Prom
             </ol>
           )}
           {v.counts[v.level] > v.shown && <p className="mt-3 text-sm text-slate-500">Showing the first {v.shown} of {v.counts[v.level]}.</p>}
+          </>}
         </>
       )}
     </AppShell>

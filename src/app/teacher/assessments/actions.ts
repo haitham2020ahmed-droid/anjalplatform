@@ -10,6 +10,7 @@ import { assertNoDuplicateQuestions, mapSectionQuestions, mapSourceTree, type Ma
 import { assertPreviewedAsStudent, saveStudentPreview } from "@/server/tests/student-preview";
 import { generateTest, replaceQuestion, type GeneratedTest, type GenerateInput } from "@/server/tests/generate";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
+import { bankSearch, editQuestionCopy, reviewStandards, suggestReview, type BankFilter, type BankResults, type CopyEdit, type ReviewSuggestion } from "@/server/tests/review";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "assignments:create" as const };
 const known = (e: unknown) => e instanceof ValidationError || e instanceof ForbiddenError;
@@ -59,6 +60,40 @@ export async function replaceQuestionAction(input: { questionId: string; exclude
   const actor = await requireActor(STAFF);
   try { return { row: await replaceQuestion(repo, actor, { questionId: String(input?.questionId ?? ""), exclude: Array.isArray(input?.exclude) ? input.exclude.map(String) : [], classId: input?.classId ? String(input.classId) : null, seed: String(Date.now()) }) }; }
   catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
+}
+
+/** 🔁 Review: "Suggest for me" fills each selection (units, weeks, lessons, skills, standards) with its number of questions. */
+export async function reviewSuggestAction(input: { selections: unknown; level?: string | null; classId?: string | null; exclude?: string[] }): Promise<{ suggestion?: ReviewSuggestion; error?: string }> {
+  const actor = await requireActor(STAFF);
+  try { return { suggestion: await suggestReview(repo, actor, { selections: input?.selections, level: input?.level ? String(input.level) : null, classId: input?.classId ? String(input.classId) : null, exclude: Array.isArray(input?.exclude) ? input.exclude.map(String) : [], seed: String(Date.now()) }) }; }
+  catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
+}
+
+/** 🔁 Review: one page of the question bank (skill, type, level, passage, words). */
+export async function bankSearchAction(input: BankFilter): Promise<{ results?: BankResults; error?: string }> {
+  const actor = await requireActor(STAFF);
+  const passage = input?.passage === "WITH" || input?.passage === "WITHOUT" ? input.passage : "";
+  try { return { results: await bankSearch(repo, actor, { skillId: input?.skillId ? String(input.skillId) : null, type: input?.type ? String(input.type) : null, level: input?.level ? String(input.level) : null, passage, q: input?.q ? String(input.q) : null, page: Number(input?.page) || 1 }) }; }
+  catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
+}
+
+/** 🔁 Review: standards to choose from (by code). */
+export async function reviewStandardsAction(q: string): Promise<{ standards?: { code: string; text: string }[]; error?: string }> {
+  const actor = await requireActor(STAFF);
+  try { return { standards: await reviewStandards(repo, actor, String(q ?? "")) }; }
+  catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
+}
+
+/** ✏️ Edit a question of the test: saved as the teacher's own copy (the shared original never changes). */
+export async function editCopyAction(input: CopyEdit): Promise<{ row?: MapSourceQuestion; error?: string }> {
+  const actor = await requireActor(STAFF);
+  try {
+    return { row: await editQuestionCopy(repo, actor, {
+      questionId: String(input?.questionId ?? ""), stem: String(input?.stem ?? ""),
+      options: Array.isArray(input?.options) ? input.options.map((o) => ({ label: String(o?.label ?? ""), text: String(o?.text ?? ""), correct: Boolean(o?.correct) })) : null,
+      answer: typeof input?.answer === "boolean" ? input.answer : null, answers: Array.isArray(input?.answers) ? input.answers.map(String) : null,
+    }) };
+  } catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
 }
 
 /** 👀 Saves the test for "Preview as student"and returns the preview page address. */

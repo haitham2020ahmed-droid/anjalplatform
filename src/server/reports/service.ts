@@ -87,6 +87,8 @@ export function parseReportRequest(q: URLSearchParams): ReportRequest {
     if (kind === "readrise" && req.scope === "class" && q.get("studentId")) req.studentId = id("studentId");
     const days = q.get("days");
     req.days = days ? Number(oneOf(days, ["7", "30", "90", "365"] as const, "window")) : kind === "readmaster" ? 90 : 30;
+    // the early warning of the school: filtered by grade / teacher (ids checked like any other)
+    if (kind === "warning" && req.scope === "school") for (const k of ["gradeId", "teacherId"] as const) { const v = q.get(k); if (v) { if (!ID.test(v)) throw new ValidationError(`Invalid ${k}.`); req[k] = v; } }
   }
   if (kind === "standards") {
     req.scope = oneOf(q.get("scope"), ["class", "school"] as const, "scope", "class");
@@ -193,7 +195,7 @@ export async function exportReport(deps: ReportDeps, actor: Actor, req: ReportRe
     req.kind === "student" ? await buildStudentReport(ctx, req.studentId!)
     : req.kind === "class" ? await buildClassReport(ctx, req.classId!)
     : req.kind === "standards" ? await buildStandardsReport(ctx, req.scope === "school" ? { school: true } : { classId: req.classId! })
-    : isExtraKind(req.kind) ? await buildExtraReport(ctx, req.kind, { classId: req.classId, studentId: req.studentId, scope: req.scope, days: req.days ?? 30 })
+    : isExtraKind(req.kind) ? await buildExtraReport(ctx, req.kind, { classId: req.classId, studentId: req.studentId, scope: req.scope, days: req.days ?? 30, gradeId: req.gradeId, teacherId: req.teacherId })
     : await buildSchoolReport(ctx);
 
   let bytes: Uint8Array;
@@ -210,7 +212,7 @@ export async function exportReport(deps: ReportDeps, actor: Actor, req: ReportRe
   await audit(repo, {
     actorId: actor.userId, action: "report.export", entityType: req.studentId ? "Student" : req.classId ? "Class" : "School",
     entityId: req.studentId ?? req.classId ?? schoolId,
-    after: { kind: req.kind, format: req.format, locale: req.locale, period: req.period, from: req.from ?? null, to: req.to ?? null, scope: req.scope ?? null, days: req.days ?? null, bytes: bytes.length },
+    after: { kind: req.kind, format: req.format, locale: req.locale, period: req.period, from: req.from ?? null, to: req.to ?? null, scope: req.scope ?? null, days: req.days ?? null, ...(req.gradeId ? { gradeId: req.gradeId } : {}), ...(req.teacherId ? { teacherId: req.teacherId } : {}), bytes: bytes.length },
     at: now,
   });
   return { bytes, contentType: CONTENT_TYPES[req.format], filename: `${doc.fileStem}.${req.format}`, doc };

@@ -101,6 +101,10 @@ export const REPORTS: ReportDef[] = [
   { key: "games-usage", category: "Class", line: "star", title: "Games Report", hint: "The most played and best rated games.", period: true,
     classUrl: (p) => `/teacher/reports/games-usage?${qs({ classId: p.classId, days: per(p.period).days })}`,
     match: on(/^\/teacher\/reports\/games-usage$/, "class") },
+  { key: "early-warning", category: "Class", line: "alert", title: "🚨 Early warning", hint: "Drops, rises and up-down swings of every student, and who needs action now.",
+    classUrl: (p) => `/teacher/reports/early-warning?${qs({ classId: p.classId })}`,
+    files: (p) => [{ label: "Excel", href: `/api/reports?${qs({ kind: "warning", format: "xlsx", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }, { label: "PDF file", href: `/api/reports?${qs({ kind: "warning", format: "pdf", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }],
+    match: on(/^\/teacher\/reports\/early-warning$/, "class") },
   // ---- Student
   { key: "student-progress", category: "Student", line: "growth", title: "Student Progress", hint: "One student's work, accuracy, skills and MAP over time.",
     studentUrl: (p) => `/teacher/progress/${id(p.studentId)}`,

@@ -1,4 +1,5 @@
 import { OMR_SCANNER_LABELS } from "@/lib/omr/labels";
+import { nafsDbGate } from "@/components/db-update-needed";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
@@ -20,6 +21,7 @@ export const metadata = { title: "Grade bubble sheets" };
 export default async function NafsGradePage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ class?: string; mode?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   if (!(await canSeeNafs(repo, actor))) redirect("/teacher");
+  const gate = await nafsDbGate(); if (gate) return gate; // the NAFS tables are not in the database yet: say so
   const me = (await getActor())!.user;
   const { t } = await getT();
   const [{ id }, sp] = await Promise.all([params, searchParams]);

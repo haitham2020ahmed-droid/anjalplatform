@@ -12,7 +12,9 @@ export default async function ErrorsPage() {
   const rows = await errorList(repo, actor);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin", label: "Home" }} icon="🩺" title="Errors" subtitle="Problems the platform met in the last 30 days, grouped. Send a screenshot of this page to the developer if something keeps happening." />
+      <PageHeader back={{ href: "/admin", label: "Home" }} icon="🩺" title="Errors" subtitle="Problems the platform met in the last 30 days, grouped. Send a screenshot of this page to the developer if something keeps happening.">
+        <a href="/admin/system" className="inline-flex min-h-11 items-center rounded-xl bg-surface px-4 text-sm font-semibold text-teal-ink ring-1 ring-line">🧱 System check</a>
+      </PageHeader>
       {!rows.length ? <p className="rounded-2xl bg-emerald-50 p-6 font-semibold text-emerald-900 ring-1 ring-emerald-200">✅ No errors in the last 30 days.</p> : (
         <ul className="space-y-2">{rows.map((r) => <li key={r.id} className="rounded-2xl bg-white p-4 text-sm ring-1 ring-slate-200"><p className="text-slate-500">{r.at.slice(0, 16).replace("T", " ")} · {r.source === "SERVER" ? "server" : "browser"}{r.path ? ` · ${r.path}` : ""}{r.digest ? ` · ref ${r.digest}` : ""} · <b className="text-red-700">{r.count}×</b></p><p className="mt-1 font-mono text-slate-900">{r.message}</p></li>)}</ul>
       )}

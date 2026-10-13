@@ -21,6 +21,7 @@
  */
 import { feedWriting, safeFeed } from "../practice/skill-evidence";
 import type { Repo, Row } from "../seeding/repo";
+import { safeIfBehind } from "../db/schema-errors";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "./assignments";
@@ -136,7 +137,7 @@ export interface TaskSummary { id: string; kind: TaskKind; genre: Genre; staged:
 export async function classTasks(repo: Repo, actor: Actor, classId: string): Promise<TaskSummary[]> {
   assertCan(actor, "reports:read");
   await assertClassRead(repo, actor, classId);
-  const tasks = await repo.findMany("WritingTask", { classId, deletedAt: null });
+  const tasks = await safeIfBehind("writing.class", repo.findMany("WritingTask", { classId, deletedAt: null }), [] as Row[]);
   const subs = tasks.length ? await repo.findMany("WritingSubmission", { taskId: { in: tasks.map((t) => t.id) } }, { select: ["taskId", "status", "aiStatus"] }) : [];
   const memberIds = await classMembers(repo, classId);
   return tasks.map((t) => ({
@@ -389,7 +390,7 @@ export async function classWritingErrors(repo: Repo, actor: Actor, classId: stri
 export async function myTasks(repo: Repo, actor: Actor): Promise<(TaskSummary & { status: SubmissionView["status"]; stage: Stage | null; total: number | null; max: number; lockedStatus: LockedStatus | null; timeLimitMin: number | null })[]> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError();
   const cls = (await repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] })).map((m) => m.classId);
-  const tasks = (cls.length ? await repo.findMany("WritingTask", { classId: { in: cls }, deletedAt: null }, { select: ["id", "kind", "genre", "staged", "title", "dueAt", "createdAt", "locked", "rubric", "studentIds", "timeLimitMin", "research", "sources"] }) : [])
+  const tasks = (cls.length ? await safeIfBehind("writing.mine", repo.findMany("WritingTask", { classId: { in: cls }, deletedAt: null }, { select: ["id", "kind", "genre", "staged", "title", "dueAt", "createdAt", "locked", "rubric", "studentIds", "timeLimitMin", "research", "sources"] }), [] as Row[]) : [])
     .filter((t) => isAssignedTo(t, actor.studentId!));
   const subs = tasks.length ? await repo.findMany("WritingSubmission", { taskId: { in: tasks.map((t) => t.id) }, studentId: actor.studentId }, { select: ["taskId", "status", "scores", "stage", "startedAt", "submitMode", "text"] }) : [];
   return tasks.map((t) => {

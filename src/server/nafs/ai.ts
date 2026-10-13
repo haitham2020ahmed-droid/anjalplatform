@@ -18,10 +18,15 @@ import { saveNafsDrafts, type NafsQuestionInput } from "./bank";
 const s = (v: unknown) => String(v ?? "");
 export const MAX_AI_QUESTIONS = 8;
 
-export interface AiNafsInput { codes: string[]; count: number; topic?: string | null; withPassage?: boolean; textType?: "LIT" | "INFO" | null }
+export interface AiNafsInput {
+  codes: string[]; count: number; topic?: string | null; withPassage?: boolean; textType?: "LIT" | "INFO" | null;
+  /** every draft measures this Ministry standard (the complete NAFS test's "Generate with AI (draft)") */
+  standard?: string | null;
+}
 interface AiReply { passage: { title: string; text: string; type: "LIT" | "INFO" } | null; questions: { skill: string; process: NafsProcess; standard: string | null; stem: string; options: string[]; correct: number; explanation: string }[] }
 
-export function nafsPrompt(input: { codes: string[]; count: number; topic: string; withPassage: boolean; textType: "LIT" | "INFO" | null }): { system: string; user: Record<string, unknown> } {
+export function nafsPrompt(input: { codes: string[]; count: number; topic: string; withPassage: boolean; textType: "LIT" | "INFO" | null; standard?: string | null }): { system: string; user: Record<string, unknown> } {
+  const required = input.standard ? MOE_STANDARDS.find((x) => x.code === input.standard) ?? null : null;
   const system = [
     "You write ORIGINAL English reading questions that simulate the Saudi national test NAFS (Grade 6, English reading section)",
     "at real Grade 6 INTERNATIONAL level (American curriculum, Common Core Grade 6 reading rigor): Grade 6 vocabulary and sentence complexity,",
@@ -52,6 +57,7 @@ export function nafsPrompt(input: { codes: string[]; count: number; topic: strin
     ministryStandards: MOE_STANDARDS.map((x) => ({ code: x.code, standard: x.text, sampleQuestionTypes: x.samples, nafsSkills: x.nafs, processes: x.pirls })),
     officialOptionStyles: [...MOE_OPTION_STYLES],
     ministryBlueprint: "In the guide's booklet each text has 35 questions grouped under the 13 standards (3 each; S11 and S12 one each). Prefer the standards that fit the chosen skills.",
+    ...(required ? { requiredStandard: { code: required.code, standard: required.text, sampleQuestionTypes: required.samples, rule: "EVERY question must measure this standard; give this code as its standard." } } : {}),
   };
   return { system, user };
 }
@@ -87,7 +93,10 @@ export function nafsValidator(codes: string[], count: number, withPassage: boole
 export async function generateNafsDrafts(repo: Repo, actor: Actor, input: AiNafsInput, deps: { env: EnvLike; make?: { gemini?: typeof geminiProvider; anthropic?: typeof anthropicProvider } }, now = new Date()): Promise<{ ids: string[]; error?: string }> {
   await assertNafs(repo, actor);
   if (!actor.schoolId) throw new ForbiddenError("No school.");
-  const codes = [...new Set((input.codes ?? []).map(s).filter((c) => isNafsCode(c) && domainOf(c) !== "PIRLS"))];
+  const standard = isMoeCode(input.standard) ? s(input.standard) : null;
+  let codes = [...new Set((input.codes ?? []).map(s).filter((c) => isNafsCode(c) && domainOf(c) !== "PIRLS"))];
+  // drafts for one Ministry standard: its own NAFS skills when none are chosen
+  if (!codes.length && standard) codes = (MOE_STANDARDS.find((x) => x.code === standard)?.nafs ?? []).filter((c) => isNafsCode(c) && domainOf(c) !== "PIRLS");
   if (!codes.length) throw new ValidationError("Choose at least one NAFS skill.");
   const count = Math.round(Number(input.count));
   if (!(count >= 1 && count <= MAX_AI_QUESTIONS)) throw new ValidationError(`Choose 1 to ${MAX_AI_QUESTIONS} questions at a time.`);
@@ -98,11 +107,11 @@ export async function generateNafsDrafts(repo: Repo, actor: Actor, input: AiNafs
   const rate = await rateState(repo, actor.schoolId, settings, now);
   if (rate.waitMs > 0) return { ids: [], error: rate.reason ?? `The AI limit per minute is reached. Try again in ${Math.ceil(rate.waitMs / 1000)} seconds.` };
   const withPassage = Boolean(input.withPassage);
-  const prompt = nafsPrompt({ codes, count, topic, withPassage, textType: input.textType ?? null });
+  const prompt = nafsPrompt({ codes, count, topic, withPassage, textType: input.textType ?? null, standard });
   const r = await callJson(repo, { schoolId: actor.schoolId, tool: "nafs-generate", picked, items: count }, prompt.system, prompt.user, nafsValidator(codes, count, withPassage));
   if (!r.ok) return { ids: [], error: r.error };
   const list: Omit<NafsQuestionInput, "id">[] = r.value.questions.map((q) => ({
-    nafsCode: q.skill, process: q.process, standard: q.standard, stem: q.stem, options: q.options, correct: q.correct, explanation: q.explanation,
+    nafsCode: q.skill, process: q.process, standard: standard ?? q.standard, stem: q.stem, options: q.options, correct: q.correct, explanation: q.explanation,
     passageTitle: r.value.passage?.title ?? null, passageText: r.value.passage?.text ?? null, textType: r.value.passage?.type ?? null,
   }));
   return { ids: await saveNafsDrafts(repo, actor, list, now) };

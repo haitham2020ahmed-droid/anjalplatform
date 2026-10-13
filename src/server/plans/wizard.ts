@@ -31,6 +31,7 @@ import { assignedSkills } from "../student/assigned";
 import { tagProgram, type Program } from "./program";
 import { nafsAreaList as sharedNafsAreaList, nafsAreaSkills, publishedQuestionCounts } from "./nafs-areas";
 import { SOURCE_LABEL, sourceOfPlanKind, sourceOfWork, type SourceKey, type SourceLabel } from "../../lib/source-tags";
+import type { WorkKind } from "../../lib/work-kinds";
 
 const s = (v: unknown) => String(v ?? "");
 
@@ -497,7 +498,13 @@ export interface MyWorkItem {
   action: "Start" | "Continue" | "Review";
   /** the teacher's note (e.g. "Reteach: Weekly Quiz – Week 6") */
   note?: string | null;
+  /**
+   * work that is not a skill or a set of questions (student/all-work.ts): a test, a MAP Test, a NAFS test or
+   * practice, a ReadRise article, writing, reading aloud, an exit ticket … — shown with this kind instead of the program
+   */
+  kind?: WorkKind;
 }
+export type { WorkKind };
 
 /**
  * My Work: ONE row per skill (a skill assigned twice shows once, the most urgent), with its source tag

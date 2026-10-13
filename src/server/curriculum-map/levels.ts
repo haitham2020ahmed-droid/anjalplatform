@@ -281,7 +281,9 @@ export async function rosterForGrade(repo: Repo, actor: Actor, gradeLevel: numbe
   const users = studs.length ? await repo.findMany("User", { id: { in: studs.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
   const nameOf = new Map(studs.map((x) => [s(x.id), s(users.find((u) => u.id === x.userId)?.displayName ?? "Student")]));
   // each student's level from ALL their data (teacher, own work in the section, platform, Diagnostic, MAP)
-  const ev = async (category: "CV" | "ACS" | "RTR" | null) => evidenceLevels(repo, actor.schoolId, ids, gradeLevel, { category });
+  // ⚡ the four views (overall + each section) read the same students' data once
+  const memo = new Map<string, Promise<unknown>>();
+  const ev = async (category: "CV" | "ACS" | "RTR" | null) => evidenceLevels(repo, actor.schoolId, ids, gradeLevel, { category, memo });
   const [overall, cv, acs, rtr] = await Promise.all([ev(null), ev("CV"), ev("ACS"), ev("RTR")]);
   const pick = (m: Map<string, { level: Level; from: string; reason: string }>, id: string): RosterLevel => { const e = m.get(id); return e ? { level: e.level, from: e.from, reason: e.reason } : { level: "ON", from: "NO_DATA", reason: "No results yet." }; };
   return mine.map((c) => ({

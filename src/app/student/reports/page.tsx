@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { AtAGlance, Callout, Meter, ReportHeader, ReportSection } from "@/components/report-kit";
-import { getActor, repo, requireActor } from "@/server/auth/next";
+import { repo, requireActor } from "@/server/auth/next";
+import { studentPage } from "@/server/auth/student-page";
+import { PreviewFrame } from "@/components/student/preview-frame";
 import type { Actor } from "@/server/auth/rbac";
 import { READING_REPORT_LINKS, reportCards } from "@/server/student/student-home";
 import { studentWeek } from "@/server/teacher/classroom";
@@ -48,15 +50,14 @@ const CARD_SOFT = ["bg-sky-50 ring-sky-200", "bg-teal-50 ring-teal-200", "bg-vio
  * now (those addresses redirect here). Reading reports are a "My report" tab inside each reading program.
  * Every number is the signed-in student's own (actor.studentId).
  */
-export default async function MyReportsPage({ searchParams }: { searchParams: Promise<{ view?: string; goal?: string }> }) {
-  const actor = await requireActor({ roles: ["STUDENT"] });
-  const me = (await getActor())!.user;
+export default async function MyReportsPage({ searchParams }: { searchParams: Promise<{ view?: string; goal?: string; preview?: string }> }) {
+  const { actor, me, preview } = await studentPage((await searchParams).preview, () => requireActor({ roles: ["STUDENT"] }));
   const sp = await searchParams;
   const view: View = sp.view === "progress" ? "progress" : sp.view === "family" ? "family" : "home";
   const { t } = await getT();
   const name = String(me.displayName);
   return (
-    <AppShell name={name}>
+    <AppShell name={name}><PreviewFrame preview={preview}>
       {view === "home" && (
         <>
           <ReportHeader back={{ href: "/student", label: "My Work" }} icon="📊" title="My Reports" subtitle={t("All my reports in one place")} who={name} print={false} />
@@ -76,7 +77,7 @@ export default async function MyReportsPage({ searchParams }: { searchParams: Pr
       )}
       {view === "progress" && <ProgressView actor={actor} name={name} t={t} goalMsg={sp.goal} />}
       {view === "family" && <FamilyView actor={actor} name={name} t={t} />}
-    </AppShell>
+    </PreviewFrame></AppShell>
   );
 }
 

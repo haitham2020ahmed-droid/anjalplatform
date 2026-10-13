@@ -16,6 +16,7 @@
  * A pack whose file is missing is skipped. Every loader skips a question that is already there, so a chunk can be
  * run again (stop / resume, a second run) without adding anything twice.
  */
+import { createHash } from "node:crypto";
 import { existsSync, statSync } from "node:fs";
 import { join } from "node:path";
 import type { Repo } from "../seeding/repo";
@@ -94,6 +95,12 @@ export function questionsOf(loaded: Loaded): number {
 
 // ------------------------------------------------------------------ one chunk
 
+/**
+ * ⏱ A chunk starts no new unit after this long, so one web request stays well under 10 s on Render (one unit of the
+ * biggest pack is ~1–2 s with a 20,000-question bank).
+ */
+export const CHUNK_BUDGET_MS = 5_000;
+
 export interface ChunkWork { from: number; next: number; total: number; added: number; skipped: number; created: number; errors: string[]; notes: string[] }
 
 /**
@@ -132,7 +139,7 @@ async function runChunk(repo: Repo, schoolId: string, def: PackDef, from: number
   const loaded = await loadPack(def);
   if (!loaded) return { from, next: 0, total: 0, added: 0, skipped: 0, created: 0, errors: [], notes: ["The file of this pack is not on the server yet."] };
   const total = unitsOf(def, loaded);
-  const max = Math.max(1, opts.maxUnits ?? def.perChunk), budget = opts.budgetMs ?? 8_000, t0 = Date.now();
+  const max = Math.max(1, opts.maxUnits ?? def.perChunk), budget = opts.budgetMs ?? CHUNK_BUDGET_MS, t0 = Date.now();
   const out: ChunkWork = { from, next: Math.max(0, Math.min(from, total)), total, added: 0, skipped: 0, created: 0, errors: [], notes: [] };
   let done = 0;
   if (def.kind === "map" && out.next < total && !(await repo.findMany("Grade", { schoolId, level: { in: [4, 5, 6] } }, { select: ["id"], take: 1 })).length) {
@@ -177,43 +184,58 @@ async function runChunk(repo: Repo, schoolId: string, def: PackDef, from: number
 
 export interface PackCount { questions: number; inBank: number; left: number; units: number; applies: boolean }
 
+/** the loaders' own "same question" key (skill-sets.ts): case, spaces and punctuation ignored */
 const qkey = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+/** a short fingerprint of that key: the school's texts are kept as 16 characters each, never as the texts */
+const fp = (t: string) => createHash("sha1").update(qkey(t)).digest("base64").slice(0, 16);
+/** a pack's count (and the school's text fingerprints) is kept this long while the bank does not change */
+export const COUNT_TTL_MS = 5 * 60_000;
 const countCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<PackCount> }>>();
 
 /**
  * How many of the pack's questions are already in the school's bank and how many are left (an estimate by question
- * text, light: the texts are looked up 300 at a time, only the id / text / skill columns). For the top-up pack,
- * "left" is what the skills under 25 still miss. Cached per bank version (and at most 2 minutes).
+ * text, as the loaders compare them). For the top-up pack, "left" is what the skills under 25 still miss.
+ * ⚡ Cached per school and pack by (the pack file's signature, the bank version) for COUNT_TTL_MS; concurrent
+ * requests share one count. The NAFS packs are counted by booklet code (by school), never by text.
  */
 export function countPack(repo: Repo, schoolId: string, def: PackDef): Promise<PackCount | null> {
   const sig = packSignature(def);
   if (!sig) return Promise.resolve(null);
-  if (def.kind === "nafs" || def.kind === "nafsPractice") return (async () => {
-    const c = def.kind === "nafs" ? await bookletCount(repo, schoolId) : await practiceCount(repo, schoolId);
-    const g6 = (await repo.findMany("Grade", { schoolId, level: 6 }, { select: ["id"], take: 1 })).length > 0;
-    return { questions: c.questions, inBank: c.inBank, left: Math.max(0, c.questions - c.inBank), units: c.files, applies: g6 };
-  })();
+  const nafs = def.kind === "nafs" || def.kind === "nafsPractice";
   let m = countCache.get(repo); if (!m) countCache.set(repo, (m = new Map()));
-  const v = `${sig}|${modelVersion("Question", "Skill", "CurriculumMapNode")}`, k = `${schoolId}:${def.key}`, hit = m.get(k);
-  if (hit && hit.v === v && Date.now() - hit.at < 120_000) return hit.p;
-  const p = countPackNow(repo, schoolId, def);
+  const v = `${sig}|${nafs ? modelVersion("NafsBankItem", "Grade") : modelVersion("Question", "Skill", "CurriculumMapNode", "Curriculum", "Grade")}`;
+  const k = `${schoolId}:${def.key}`, hit = m.get(k);
+  if (hit && hit.v === v && Date.now() - hit.at < COUNT_TTL_MS) return hit.p;
+  const p = nafs ? countNafsPack(repo, schoolId, def) : countPackNow(repo, schoolId, def);
   remember(m, k, { v, at: Date.now(), p }, 24);
   p.catch(() => m!.delete(k));
   return p;
 }
 
-/** a stored text equals a pack text as the database compares them (case and trailing spaces ignored) */
-const stemKey = (t: string) => t.toLowerCase().trimEnd();
-const stemCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Map<string, string>> }>>();
-/** The school's (not deleted) question texts: compare key → the stored text. Cached per bank version, ≤ 2 minutes. */
-function schoolStems(repo: Repo, schoolId: string, skillIds: string[]): Promise<Map<string, string>> {
+async function countNafsPack(repo: Repo, schoolId: string, def: PackDef): Promise<PackCount> {
+  const [c, g6] = await Promise.all([
+    def.kind === "nafs" ? bookletCount(repo, schoolId) : practiceCount(repo, schoolId),
+    repo.findMany("Grade", { schoolId, level: 6 }, { select: ["id"], take: 1 }),
+  ]);
+  return { questions: c.questions, inBank: c.inBank, left: Math.max(0, c.questions - c.inBank), units: c.files, applies: g6.length > 0 };
+}
+
+/** skills per read of the school's question texts (each read returns only their stems, by the skill index) */
+const STEM_SKILLS = 200;
+const stemCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Set<string>> }>>();
+/**
+ * Fingerprints of the school's (not deleted) question texts, read ONCE for every pack of the page (by skill, indexed;
+ * only the stem column — never passages, choices or content), turned into 16-character fingerprints as each part
+ * arrives. Cached per bank version.
+ */
+function schoolStemPrints(repo: Repo, schoolId: string, skillIds: string[]): Promise<Set<string>> {
   let m = stemCache.get(repo); if (!m) stemCache.set(repo, (m = new Map()));
   const v = modelVersion("Question", "Skill", "Curriculum", "Grade"), hit = m.get(schoolId);
-  if (hit && hit.v === v && Date.now() - hit.at < 120_000) return hit.p;
+  if (hit && hit.v === v && Date.now() - hit.at < COUNT_TTL_MS) return hit.p;
   const p = (async () => {
-    const out = new Map<string, string>();
-    for (let i = 0; i < skillIds.length; i += 400) {
-      for (const r of await repo.findMany("Question", { skillId: { in: skillIds.slice(i, i + 400) }, deletedAt: null }, { select: ["stem"] })) { const st = s(r.stem); out.set(stemKey(st), st); }
+    const out = new Set<string>();
+    for (let i = 0; i < skillIds.length; i += STEM_SKILLS) {
+      for (const r of await repo.findMany("Question", { skillId: { in: skillIds.slice(i, i + STEM_SKILLS) }, deletedAt: null }, { select: ["stem"] })) out.add(fp(s(r.stem)));
     }
     return out;
   })();
@@ -223,7 +245,8 @@ function schoolStems(repo: Repo, schoolId: string, skillIds: string[]): Promise<
 }
 
 async function countPackNow(repo: Repo, schoolId: string, def: PackDef): Promise<PackCount> {
-  const loaded = (await loadPack(def))!;
+  const loaded = await loadPack(def);
+  if (!loaded) throw new Error("The file of this pack is not on the server yet.");
   const idx = await schoolSkillIndex(repo, schoolId);
   const g46 = new Set([...idx.skillOf.values()].filter((k) => [4, 5, 6].includes(k.grade)).map((k) => normalizeSkillName(k.name)));
   const hasGrades = [...idx.skillOf.values()].some((k) => [4, 5, 6].includes(k.grade)) || (await repo.findMany("Grade", { schoolId, level: { in: [4, 5, 6] } }, { select: ["id"], take: 1 })).length > 0;
@@ -231,12 +254,9 @@ async function countPackNow(repo: Repo, schoolId: string, def: PackDef): Promise
   const groups = (loaded.nodes ?? loaded.sets ?? []) as { skill?: string; questions: SkillSet["questions"] }[];
   const usable = groups.filter((g) => def.onlyExisting ? g46.has(normalizeSkillName(s(g.skill))) : def.kind === "topup" ? true : hasGrades);
   const questions = usable.flatMap((g) => g.questions);
-  // ⚡ the school's question texts are read ONCE (by skill, indexed) for every pack of the page, instead of looking the
-  // pack's texts up 300 at a time (an unindexed text column: each lookup scanned the whole question table)
-  const have = await schoolStems(repo, schoolId, [...idx.ids]);
-  const found = new Set<string>();
-  for (const q of questions) { const raw = stemKey(s(q.stem)); if (have.has(raw)) found.add(qkey(have.get(raw)!)); }
-  const inBank = questions.filter((q) => found.has(qkey(s(q.stem)))).length;
+  const have = await schoolStemPrints(repo, schoolId, [...idx.ids]);
+  const isIn = (q: { stem: unknown }) => have.has(fp(s(q.stem)));
+  const inBank = questions.filter(isIn).length;
   let left = questions.length - inBank;
   if (def.kind === "topup") {
     // only what the skills under 25 still miss (at most what the file has for them)
@@ -248,7 +268,7 @@ async function countPackNow(repo: Repo, schoolId: string, def: PackDef): Promise
       const n = normalizeSkillName(set.skill), miss = missingOf.get(n);
       if (!miss) continue;
       missingOf.delete(n);
-      left += Math.min(miss, set.questions.filter((q) => !found.has(qkey(s(q.stem)))).length);
+      left += Math.min(miss, set.questions.filter((q) => !isIn(q)).length);
     }
   }
   return { questions: questions.length, inBank, left: Math.max(0, left), units: unitsOf(def, loaded), applies: usable.length > 0 };

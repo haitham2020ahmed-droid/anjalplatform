@@ -17,7 +17,7 @@ import { seedQuestions } from "../../src/server/seeding/questions";
 import { loadBank } from "../../src/server/seeding/load-files";
 import { DEMO_SCHOOL_CODE } from "../../src/server/seeding/demo";
 import { PACKS, runPackChunk } from "../../src/server/questions/load-packs";
-import { loadStatus } from "../../src/server/admin/load-questions";
+import { loadStatus, packCount } from "../../src/server/admin/load-questions";
 import { skillPickerList } from "../../src/server/skills/picker";
 import { masterSkills } from "../../src/server/skills/master";
 import { builderSkills, previewTest } from "../../src/server/tests/assessments";
@@ -156,6 +156,7 @@ async function main() {
   const plan = await createSkillPlan(repo, teacher, { classId, title: "Perf plan", codes: g4.slice(0, 12).map((n) => n.code) }).catch(() => null);
 
   await measure("Admin › Load new questions (page)", m, () => loadStatus(m, admin));
+  await measure("Admin › Load new questions (7 pack counts)", m, () => Promise.all(PACKS.map((p) => packCount(m, admin, p.key))));
   await measure("Skill picker (teacher)", m, () => skillPickerList(m, teacher));
   await measure("Master skills (admin)", m, () => masterSkills(m, schoolId));
   await measure("Test builder › skills", m, () => builderSkills(m, teacher, {}));

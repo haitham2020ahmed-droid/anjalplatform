@@ -1,4 +1,6 @@
 import { AppShell } from "@/components/app-shell";
+import { DbUpdatePage } from "@/components/db-update-needed";
+import { schemaGap } from "@/server/db/schema-errors";
 import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
 import { AutoPrint } from "@/components/plans/auto-print";
@@ -19,6 +21,8 @@ import {
 
 export const metadata = { title: "Plan" };
 
+const BEHIND: unique symbol = Symbol("db behind");
+
 type SP = { msg?: string; print?: string; step?: string; add?: string; open?: string; q?: string; as?: string; level?: string; type?: string; text?: string };
 
 /**
@@ -32,7 +36,9 @@ export default async function PlanPage({ params, searchParams }: { params: Promi
   const { t } = await getT();
   const planId = (await params).planId;
   const sp = await searchParams;
-  const row = await repo.findUnique("SkillPlan", { id: planId });
+  // the plan's newest columns not in the database yet (update not pushed): say so instead of an error page
+  const row = await repo.findUnique("SkillPlan", { id: planId }).catch((e): typeof BEHIND => { if (schemaGap(e)) return BEHIND; throw e; });
+  if (row === BEHIND) return <DbUpdatePage />;
   if (row && String(row.kind) === "CURRICULUM") {
     const g = await curriculumPlanGrid(repo, actor, planId);
     return (
@@ -73,12 +79,15 @@ export default async function PlanPage({ params, searchParams }: { params: Promi
   const closeHref = `/teacher/plans/${v.id}?${new URLSearchParams([...(sp.add ? [["add", sp.add]] : []), ...(step !== "what" ? [["step", step]] : [])] as [string, string][])}`;
   return (
     <AppShell name={String(me.displayName)}>
+      {/* in the preview step the Download / Print gives only the student's sheet: the editor's header, steps and banner stay off paper */}
+      <div data-print={step === "preview" ? "hide" : undefined}>
       <PageHeader back={{ href: "/teacher/plans", label: "Plans" }} icon="🗂️" title={v.title}
-        subtitle={`${v.className} · ${t("Grade {n}", { n: v.grade })} · ${t("{n} student(s)", { n: v.planStudentIds.length })} · ${t("{n} part(s)", { n: v.sections.length })}${v.goals ? ` · 🎯 ${v.goals}` : ""}`}><PrintButton /></PageHeader>
+        subtitle={`${v.className} · ${t("Grade {n}", { n: v.grade })} · ${t("{n} student(s)", { n: v.planStudentIds.length })} · ${t("{n} part(s)", { n: v.sections.length })}${v.goals ? ` · 🎯 ${v.goals}` : ""}`}>{step !== "preview" && <PrintButton />}</PageHeader>
       {sp.print === "1" && <AutoPrint />}
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg.startsWith("⚠️") ? "" : "✅ "}{sp.msg}</p>}
       <PlanStepper t={t} planId={v.id} step={step} />
       <StatusBanner t={t} v={v} />
+      </div>
       {open && <QuestionPanel t={t} q={open} closeHref={closeHref} />}
       {step === "what" && (
         <div className="space-y-5">

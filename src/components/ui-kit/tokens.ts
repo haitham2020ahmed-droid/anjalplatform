@@ -3,7 +3,7 @@
  * ONE colour per source everywhere: Curriculum = blue, MAP = green, RTI = orange, Grammar = purple, NAFS = teal.
  */
 export type SourceKey = "CURRICULUM" | "MAP" | "RTI" | "GRAMMAR" | "NAFS" | "VOCABULARY" | "CUSTOM";
-export type TestTypeKey = "NAFS" | "MAP" | "DIAGNOSTIC" | "WEEKLY_QUIZ" | "CHAPTER_TEST" | "CUSTOM" | "OTHER";
+export type TestTypeKey = "NAFS" | "MAP" | "DIAGNOSTIC" | "WEEKLY_QUIZ" | "CHAPTER_TEST" | "REVIEW" | "CUSTOM" | "OTHER";
 export type TagKey = SourceKey | TestTypeKey;
 
 export interface TagStyle { label: string; icon: string; className: string; hex: string }
@@ -19,6 +19,7 @@ export const TAG_STYLE: Record<TagKey, TagStyle> = {
   DIAGNOSTIC: { label: "Diagnostic", icon: "🩺", className: "bg-rose-50 text-rose-800 ring-rose-200", hex: "#be123c" },
   WEEKLY_QUIZ: { label: "Weekly Quiz", icon: "📝", className: "bg-amber-50 text-amber-900 ring-amber-200", hex: "#b45309" },
   CHAPTER_TEST: { label: "Chapter Test", icon: "📗", className: "bg-sky-50 text-sky-800 ring-sky-200", hex: "#0369a1" },
+  REVIEW: { label: "Review", icon: "🔁", className: "bg-fuchsia-50 text-fuchsia-800 ring-fuchsia-200", hex: "#a21caf" },
   CUSTOM: { label: "Custom", icon: "✳️", className: "bg-slate-100 text-slate-700 ring-slate-200", hex: "#475569" },
   OTHER: { label: "Other", icon: "✳️", className: "bg-slate-100 text-slate-700 ring-slate-200", hex: "#475569" },
 };

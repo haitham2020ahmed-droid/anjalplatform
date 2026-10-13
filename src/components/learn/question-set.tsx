@@ -12,8 +12,10 @@ import { WordLookup } from "./word-lookup";
 type Result = { correct: number; total: number; review: Graded[] };
 
 /** A short set of questions answered together (exit ticket, review of mistakes): submit once, see what was right. */
-export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back to my work", resultNote }: {
+export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back to my work", resultNote, preview = false }: {
   id: string; questions: ClientQuestion[]; doneHref: string; doneLabel?: string; resultNote?: string;
+  /** 👀 a teacher's "Preview as student": the same set, nothing can be sent */
+  preview?: boolean;
   submit: (id: string, responses: Record<string, unknown>, timesMs?: Record<string, number>) => Promise<{ ok: true; value: Result } | { ok: false; error: string }>;
 }) {
   const [values, setValues] = useState<Record<string, AnswerValue>>({});
@@ -26,6 +28,7 @@ export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back
   const onAnswer = (qid: string) => { const t = Date.now(); spent.current[qid] = (spent.current[qid] ?? 0) + (t - mark.current); mark.current = t; };
   const ready = questions.every((q) => isAnswerReady(q, values[q.questionId] ?? null));
   const send = async () => {
+    if (preview) return;
     setBusy(true); setError(null);
     const responses: Record<string, unknown> = {};
     for (const q of questions) { const v = values[q.questionId] ?? null; responses[q.questionId] = (q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") && !Array.isArray(v) ? q.elements : v; }
@@ -58,7 +61,7 @@ export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back
         })}
         {error && <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-red-800">{error}</p>}
         {!result ? (
-          <button onClick={() => void send()} disabled={!ready || busy} className="rounded-xl bg-brand-navy px-6 py-3 text-lg font-semibold text-white disabled:opacity-50">{busy ? "Checking…" : "Submit my answers"}</button>
+          <button onClick={() => void send()} disabled={preview || !ready || busy} className="rounded-xl bg-brand-navy px-6 py-3 text-lg font-semibold text-white disabled:opacity-50">{busy ? "Checking…" : "Submit my answers"}</button>
         ) : (
           <section role="status" className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-emerald-50 to-white p-6 ring-2 ring-emerald-300">
             <p className="text-2xl font-bold text-brand-navy">{result.correct} of {result.total} correct {result.correct === result.total ? "🎉" : ""}</p>

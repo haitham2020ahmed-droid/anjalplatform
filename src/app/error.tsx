@@ -1,8 +1,12 @@
 "use client";
 import { useEffect } from "react";
+import { useT } from "@/i18n/client";
+import { useAdminErrorDetail } from "@/components/ui/admin-error-detail";
 
 /** A friendly page when something fails (instead of a technical error). */
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+  const t = useT();
+  const detail = useAdminErrorDetail(error.digest);
   useEffect(() => {
     console.error(error);
     // tell the school's error log (message and page only)
@@ -19,6 +23,12 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
           <button onClick={() => (stale ? window.location.reload() : reset())} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">{stale ? "Reload" : "Try again"}</button>
           <a href="/" className="rounded-xl px-5 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300">Home</a>
         </div>
+        {detail && (
+          <div className="mt-4 rounded-xl bg-amber-50 p-3 text-start text-xs text-amber-950 ring-1 ring-amber-200">
+            <p className="font-semibold">{t("What went wrong (only admins see this)")}</p>
+            <p className="mt-1 break-words" dir="ltr">{detail}</p>
+          </div>
+        )}
         {error.digest && <p className="mt-4 text-xs text-slate-400">Reference: {error.digest}</p>}
       </div>
     </main>

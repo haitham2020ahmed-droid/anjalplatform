@@ -1,18 +1,24 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
+import { isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
 import { FeedbackPanel } from "@/components/practice/feedback-panel";
+import { QuizQuestion } from "@/components/practice/quiz-question";
 import type { Feedback, QuizView } from "@/server/practice/session";
+import type { ClientQuestion } from "@/server/practice/items";
 import { submitQuizAnswerAction } from "./actions";
-import { PassageText, plainPassage } from "@/components/passage-text";
-import { ListenButton } from "@/components/listen-button";
 import { WordLookup } from "@/components/learn/word-lookup";
+import { useT } from "@/i18n/client";
 import { FlagButton } from "@/components/learn/flag-button";
 import { answerSavedFx } from "@/components/feedback-fx/sound";
 
-/** The teacher's chosen questions, one by one; the correct answer after each; a report at the end. */
-export function QuizPlayer({ initial }: { initial: QuizView }) {
+/**
+ * The teacher's chosen questions, one by one; the correct answer after each; a report at the end.
+ * `preview` (👀 a teacher's "Preview as student"): the same player with the test's questions, moving on locally —
+ * nothing is sent to the server, so no answer or attempt is ever recorded.
+ */
+export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: ClientQuestion[] }) {
+  const tr = useT();
   const [view, setView] = useState(initial);
   const [shown, setShown] = useState(initial.question);
   const [value, setValue] = useState<AnswerValue>(null);
@@ -34,6 +40,14 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
   }, [view.endsAt]);
   async function submit() {
     if (!q) return;
+    if (preview) {
+      // 👀 preview: the next question here, nothing saved
+      const i = view.index; // 1-based position of the question shown
+      const nextQ = preview[i] ?? null;
+      const nv: QuizView = { ...view, index: i + 1, answered: view.answered + 1, question: nextQ, ended: !nextQ };
+      setView(nv); setValue(null); setShown(nextQ);
+      return;
+    }
     setPending(true); setError(null);
     const r = await submitQuizAnswerAction({ assignmentId: view.assignmentId, questionId: q.questionId, response: value });
     setPending(false);
@@ -45,6 +59,16 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
   }
   const nextHref = view.nextHref ?? "/student/plans";
   function next() { setFb(null); setValue(null); setShown(view.question); }
+  if (!q && preview) {
+    return (
+      <div className="rounded-3xl bg-white p-10 text-center ring-1 ring-slate-200">
+        <p className="text-5xl" aria-hidden="true">👀</p>
+        <h1 className="mt-2 text-3xl font-bold text-brand-navy">{tr("End of the preview")}</h1>
+        <p className="mx-auto mt-3 max-w-xl text-lg text-slate-700">{tr("A student sees “You finished the test!” here. Nothing was saved.")}</p>
+        <button type="button" onClick={() => { setView(initial); setShown(initial.question); setValue(null); }} className="mt-6 inline-flex min-h-12 items-center rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">{tr("Start the preview again")}</button>
+      </div>
+    );
+  }
   if (!q && view.isTest) {
     return (
       <div className="rounded-3xl bg-white p-10 text-center ring-1 ring-slate-200">
@@ -123,30 +147,15 @@ export function QuizPlayer({ initial }: { initial: QuizView }) {
           </div>
         </div>
       )}
-      <div className={["mt-6 grid gap-8", q.passage ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" : ""].join(" ")}>
-        {q.passage && (
-          <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200 lg:sticky lg:top-4" aria-label="Reading passage">
-            <div className="flex flex-wrap items-center justify-between gap-2"><h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2><ListenButton text={`${q.passage.title}. ${plainPassage(q.passage.text)}`} label="Listen to the text" /></div>
-            <PassageText text={q.passage.text} paraClassName="mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800" />
-          </article>
-        )}
-        <div>
-          {q.image && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={q.image.url} alt={q.image.alt} className="mb-4 max-h-[50vh] w-auto max-w-full rounded-xl bg-white ring-1 ring-slate-200" />
-          )}
-          {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900">{q.stem}</p>}
-          <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
-          <div className="mt-5"><AnswerInput q={q} value={value} onChange={setValue} disabled={!!fb || pending} /></div>
-          {error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{error}</p>}
-          <div className="mt-6">{fb && <FeedbackPanel fb={fb} questionId={q.questionId} />}</div>
-          {!view.testMode && <FlagButton key={q.questionId} questionId={q.questionId} />}
-          <div className="mt-6">
-            {!fb ? <button type="button" disabled={pending || !isAnswerReady(q, value)} onClick={() => void submit()} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white disabled:opacity-50">{view.testMode ? (pending ? "Saving…" : view.answered + 1 >= view.total ? "Finish the test" : "Next ▶") : pending ? "Checking…" : "Check answer"}</button>
-              : <button type="button" onClick={next} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">{view.question ? "Next question" : "Finish"}</button>}
-          </div>
+      <QuizQuestion q={q} value={value} onChange={setValue} disabled={!!fb || pending}>
+        {error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{error}</p>}
+        <div className="mt-6">{fb && <FeedbackPanel fb={fb} questionId={q.questionId} />}</div>
+        {!view.testMode && <FlagButton key={q.questionId} questionId={q.questionId} />}
+        <div className="mt-6">
+          {!fb ? <button type="button" disabled={pending || (!preview && !isAnswerReady(q, value))} onClick={() => void submit()} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white disabled:opacity-50">{view.testMode ? (pending ? "Saving…" : view.answered + 1 >= view.total ? "Finish the test" : "Next ▶") : pending ? "Checking…" : "Check answer"}</button>
+            : <button type="button" onClick={next} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">{view.question ? "Next question" : "Finish"}</button>}
         </div>
-      </div>
+      </QuizQuestion>
     </WordLookup>
   );
 }

@@ -6,6 +6,7 @@ import { cache } from "react";
 import type { Repo } from "../seeding/repo";
 import { TtlCache } from "../lib/ttl-cache";
 import { rtiStatus } from "./student-home";
+import { nafsReady } from "../nafs/ready";
 
 export interface StudentMenuFlags { rti: boolean; nafs: boolean; /** the student's grade (the calm theme from Grade 7) */ grade?: number }
 
@@ -34,7 +35,9 @@ export const inGrade6Class = cache(async (repo: Repo, studentId: string): Promis
 });
 
 export async function studentMenuFlags(repo: Repo, studentId: string): Promise<StudentMenuFlags> {
-  const [rti, nafs, st] = await Promise.all([rtiStatus(repo, studentId), inGrade6Class(repo, studentId), repo.findUnique("Student", { id: studentId })]);
+  // the NAFS icon also waits for the NAFS tables (an update whose `prisma db push` did not run: the icon just hides)
+  const [rti, g6, st, ready] = await Promise.all([rtiStatus(repo, studentId), inGrade6Class(repo, studentId), repo.findUnique("Student", { id: studentId }), nafsReady(repo)]);
+  const nafs = g6 && ready;
   const g = st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null;
   return { rti: rti !== null, nafs, grade: g ? Number(g.level) : undefined };
 }

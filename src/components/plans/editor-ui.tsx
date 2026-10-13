@@ -9,10 +9,13 @@ import { Section } from "@/components/page-header";
 import { EmptyState } from "@/components/ui-kit";
 import { PassageText } from "@/components/passage-text";
 import { hideLevels } from "@/lib/hide-levels";
-import type { EditorSection, PlanEditorView, PlanStatus, Txt } from "@/server/plans/editor";
+import { editorPlanLabel, type EditorSection, type PlanEditorView, type PlanStatus, type Txt } from "@/server/plans/editor";
+import { planKindOf } from "@/server/plans/program";
+import { DEFAULT_TARGET_CORRECT } from "@/server/teacher/assign";
+import type { StudentPlanView } from "@/server/curriculum-map/plans";
+import { StudyPlan } from "@/components/student/study-plan";
 import type { FullQuestion, MapLesson, QuestionLine } from "@/server/plans/question-pick";
 import { ProgramChip } from "./program-chip";
-import { StudentPlanPreview } from "./student-preview";
 import { BTN, BTN_MAIN, BTN_SOFT } from "./plan-builder";
 import {
   addQuestionsAction, addSectionAction, deleteDraftAction, duplicatePlanAction, pausePlanAction, questionAction, saveDetailsAction,
@@ -383,30 +386,47 @@ export function QuestionPanel({ t, q, closeHref }: { t: TFn; q: FullQuestion; cl
   );
 }
 
-/** 3 · Preview: the plan exactly as one student will see it (no levels, no answers). */
+/**
+ * The plan as the student's study-plan sheet (src/components/student/study-plan.tsx), built from the editor's parts the
+ * way sending writes them (SkillPlanItem label "<program plan> · Grade <n> · <part>", read back as unit · set · part).
+ */
+export function studentSheetOf(v: PlanEditorView, mine: EditorSection[]): StudentPlanView {
+  const unit = editorPlanLabel(v.program), set = `Grade ${v.grade}`;
+  return {
+    id: v.id, kind: planKindOf(v.program), target: DEFAULT_TARGET_CORRECT, title: v.title, className: v.className, grade: v.grade, note: v.note, createdAt: "",
+    places: mine.map((x) => ({ itemId: x.key, code: x.placeCode ?? x.skillId, label: x.label ?? x.skillName, unit, set, status: "NOT_STARTED", progress: 0, href: null, locked: false, empty: false, skills: null, correct: 0 })),
+  };
+}
+
+/** 3 · Preview: the plan exactly as one student will see it (the student's own study-plan sheet; no levels, no answers) + Download. */
 export function PreviewStep({ t, v, as, lines }: { t: TFn; v: PlanEditorView; as: string | null; lines: Map<string, { stem: string; passageTitle: string | null }> }) {
   const withWork = v.classStudents.filter((st) => v.sections.some((x) => x.students.some((y) => y.id === st.id)));
   const me = withWork.find((st) => st.id === as) ?? withWork[0] ?? null;
   const mine = me ? v.sections.filter((x) => x.students.some((y) => y.id === me.id)) : [];
   return (
-    <Section title="3 · Preview as student" icon="👀" hint={t("This is what {name} will see. Nothing is sent until you press Send.", { name: me?.name ?? t("the student") })}>
-      {!me ? <EmptyState compact icon="🔎" title="Nothing to send yet" text="Go back and add at least one skill." /> : (<>
-        {withWork.length > 1 && (
-          <nav aria-label={t("See as")} className="mb-4 flex flex-wrap items-center gap-2 text-sm">
-            <span className="font-semibold text-slate-700">{t("See as")}</span>
-            {withWork.slice(0, 40).map((st) => <Link key={st.id} href={`/teacher/plans/${v.id}?step=preview&as=${st.id}`} aria-current={st.id === me.id ? "true" : undefined} className={`inline-flex min-h-11 items-center rounded-full px-4 font-semibold ${st.id === me.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}><bdi>{st.name}</bdi></Link>)}
-          </nav>
-        )}
-        <StudentPlanPreview title={v.title} studentName={me.name} className={v.className} program={v.program} skills={mine.map((x) => x.label ?? x.skillName)} note={v.note} dueAt={v.dueAt} />
-        <div className="mt-4 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+    <div className="space-y-4">
+      <div data-print="hide">
+        <Section title="3 · Preview as student" icon="👀" hint={t("This is what {name} will see. Nothing is sent until you press Send.", { name: me?.name ?? t("the student") })}>
+          {!me ? <EmptyState compact icon="🔎" title="Nothing to send yet" text="Go back and add at least one skill." /> : withWork.length > 1 && (
+            <nav aria-label={t("See as")} className="flex flex-wrap items-center gap-2 text-sm">
+              <span className="font-semibold text-slate-700">{t("See as")}</span>
+              {withWork.slice(0, 40).map((st) => <Link key={st.id} href={`/teacher/plans/${v.id}?step=preview&as=${st.id}`} aria-current={st.id === me.id ? "true" : undefined} className={`inline-flex min-h-11 items-center rounded-full px-4 font-semibold ${st.id === me.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}><bdi>{st.name}</bdi></Link>)}
+            </nav>
+          )}
+        </Section>
+      </div>
+      {me && (<>
+        <StudyPlan t={t} p={studentSheetOf(v, mine)} studentName={me.name} basePath={`/teacher/plans/${v.id}`} preview />
+        {v.status !== "DRAFT" && <p className="print:hidden" data-print="hide"><Link prefetch={false} href={`/student/plans/${encodeURIComponent(v.id)}?preview=${encodeURIComponent(me.id)}`} className={BTN_SOFT}>👀 {t("Open {name}'s own page (with their progress)", { name: me.name })}</Link></p>}
+        <div className="break-inside-avoid rounded-2xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-7 print:p-0 print:shadow-none print:ring-0">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">{t("The questions")}</p>
           <ol className="mt-2 space-y-3">
             {mine.map((x, i) => (
               <li key={x.key}>
-                <p className="font-semibold text-brand-navy">{i + 1}. {hideLevels(x.label ?? x.skillName)}{x.lesson && <span className="ms-2 text-sm font-normal text-slate-600">🧩 {t("Lesson first")}</span>}</p>
+                <p className="font-semibold text-brand-navy">{i + 1}. {hideLevels(x.label ?? x.skillName)}{x.lesson && <span className="ms-2 text-sm font-normal text-slate-600">{t("Lesson first")}</span>}</p>
                 {x.auto ? <p className="text-sm text-slate-600">{t("Questions chosen for them as they go.")}</p> : (
                   <ol className="mt-1 list-decimal space-y-1 ps-6 text-sm text-slate-800">
-                    {x.questionIds.map((id) => <li key={id}>{hideLevels(lines.get(id)?.stem ?? "")}{lines.get(id)?.passageTitle && <span className="text-slate-500"> · 📖 {lines.get(id)!.passageTitle}</span>}</li>)}
+                    {x.questionIds.map((id) => <li key={id}>{hideLevels(lines.get(id)?.stem ?? "")}{lines.get(id)?.passageTitle && <span className="text-slate-500"> · {lines.get(id)!.passageTitle}</span>}</li>)}
                   </ol>
                 )}
               </li>
@@ -414,11 +434,11 @@ export function PreviewStep({ t, v, as, lines }: { t: TFn; v: PlanEditorView; as
           </ol>
         </div>
       </>)}
-      <div className="mt-5 flex flex-wrap justify-end gap-3">
+      <div className="flex flex-wrap justify-end gap-3 print:hidden">
         <Link href={`/teacher/plans/${v.id}?step=what`} className={BTN_SOFT}>{t("Back to the plan")}</Link>
         <Link href={`/teacher/plans/${v.id}?step=send`} className={`${BTN_MAIN} px-8`}>{t("Next: Send")}</Link>
       </div>
-    </Section>
+    </div>
   );
 }
 

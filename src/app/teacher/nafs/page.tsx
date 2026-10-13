@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { nafsDbGate } from "@/components/db-update-needed";
 import { redirect } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
@@ -13,6 +14,7 @@ import { ReportsTab } from "@/components/nafs/reports-tab";
 import { MarkingTab } from "@/components/nafs/marking-tab";
 import { HomeTab } from "@/components/nafs/home-tab";
 import { PracticeTab } from "@/components/nafs/practice-tab";
+import { DashboardTab } from "@/components/nafs/dashboard-tab";
 import { ensureNafsBooklets } from "@/server/nafs/booklets";
 import { ensureNafsPracticeSets } from "@/server/nafs/practice-sets";
 import { CENTER_TABS } from "@/server/nafs/center";
@@ -25,7 +27,7 @@ type Tab = (typeof CENTER_TABS)[number]["key"] | (typeof EXTRA)[number];
 
 /**
  * 🇸🇦 The NAFS CENTER (its own menu entry; Grade 6 teachers and admins only) — independent of the platform's own
- * assessment: everything about NAFS lives here. Tabs in the owner's order: Home · Adaptive practice · Create test ·
+ * assessment: everything about NAFS lives here. Tabs in the owner's order: Home · Dashboard · Adaptive practice · Create test ·
  * Question bank · Marking (written answers + bubble sheets + typed answers) · Reports, and a small "About NAFS" link at
  * the top (the Ministry guide, the 13 standards, the booklet model, sources). Questions are organised by the 13 Ministry
  * standards and the NAFS skills, each with a difficulty — never by grade.
@@ -35,6 +37,7 @@ type Tab = (typeof CENTER_TABS)[number]["key"] | (typeof EXTRA)[number];
 export default async function NafsPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   if (!(await canSeeNafs(repo, actor))) redirect("/teacher?msg=" + encodeURIComponent("NAFS is for Grade 6 teachers only."));
+  const gate = await nafsDbGate(); if (gate) return gate; // the NAFS tables are not in the database yet: say so
   const me = (await getActor())!.user;
   const { t } = await getT();
   const sp = await searchParams;
@@ -56,6 +59,7 @@ export default async function NafsPage({ searchParams }: { searchParams: Promise
       </nav>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-sky-50 px-4 py-3 text-sky-900 ring-1 ring-sky-200">{sp.msg}</p>}
       {tab === "home" && <HomeTab actor={actor} t={t} />}
+      {tab === "dashboard" && <DashboardTab actor={actor} t={t} sp={sp} />}
       {tab === "practice" && <PracticeTab actor={actor} t={t} sp={sp} />}
       {tab === "tests" && <TestsTab actor={actor} t={t} />}
       {tab === "bank" && <BankTab actor={actor} t={t} sp={sp} />}

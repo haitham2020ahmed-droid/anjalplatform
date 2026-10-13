@@ -10,6 +10,7 @@ import { ClassRows } from "@/components/home/class-rows";
 import { teacherFollowupForHome, type teacherFollowup } from "@/server/insights/teacher-followup";
 import { ADMIN_TOOLS, ALL_TOOLS_HREF } from "@/components/admin-tools";
 import { LineIcon, type LineIconName } from "@/components/ui/line-icon";
+import { urgentUnhandledCount } from "@/server/insights/early-warning";
 
 export const metadata = { title: "Administration" };
 
@@ -28,9 +29,10 @@ export default async function AdminHome() {
   const me = (await getActor())!.user;
   const now = new Date();
   // every count of the page in one round trip, the teacher follow-up beside it; the alert scan runs after the page is sent (Update 42B)
-  const [{ t, lang }, { waiting, deletions, students, active, alertsOpen, flags, reportsWaiting, short, rows, conn }, follow] = await Promise.all([
+  const [{ t, lang }, { waiting, deletions, students, active, alertsOpen, flags, reportsWaiting, short, rows, conn }, urgentOld, follow] = await Promise.all([
     getT(),
     adminHomeData(repo, actor),
+    urgentUnhandledCount(repo, actor.schoolId!, now).catch(() => 0), // early warning: urgent, not handled for 7+ days
     teacherFollowupForHome(repo, actor, now).catch(() => ({ rows: [] as Awaited<ReturnType<typeof teacherFollowup>>["rows"] })),
   ]);
   const tools = ADMIN_TOOLS.filter((x) => adminMayUse(actor, x));
@@ -49,6 +51,7 @@ export default async function AdminHome() {
   // only what waits for the admin's decision, most urgent first, at most three
   const weak = conn ? conn.stages.flatMap((st) => st.checks.filter((c) => c.health === "BAD")).length : 0;
   const attention = [
+    { href: "/teacher/reports/early-warning", icon: "alert" as LineIconName, title: "Urgent students not handled for 7+ days", n: urgentOld },
     { href: "/admin/report-approvals", icon: "inbox" as LineIconName, title: "Family reports to approve", n: reportsWaiting },
     { href: "/admin/questions?status=UNDER_REVIEW", icon: "clock" as LineIconName, title: "Questions waiting for approval", n: waiting },
     { href: "/admin/questions/requests", icon: "pen" as LineIconName, title: "Teacher requests", n: deletions },
@@ -94,6 +97,7 @@ export default async function AdminHome() {
       )}
 
       <section aria-label={t("Shortcuts")} className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+        <Link prefetch={false} href="/teacher/reports/early-warning" className={shortcut}>{ico("alert")}{t("Early Warning")}</Link>
         <Link prefetch={false} href="/admin/coverage" className={shortcut}>{ico("chart")}{t("Coverage Report")}</Link>
         <Link prefetch={false} href="/admin/item-quality" className={shortcut}>{ico("search")}{t("Question Check")}</Link>
         {actor.role === "SCHOOL_ADMIN" && <Link prefetch={false} href="/admin/questions/load" className={shortcut}>{ico("download")}{t("Load new questions")}</Link>}

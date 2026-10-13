@@ -4,6 +4,7 @@
  * statuses, notifications and reports work as usual; the plan groups them as a map the student opens.
  */
 import type { Repo, Row } from "../seeding/repo";
+import { safeIfBehind } from "../db/schema-errors";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
@@ -74,7 +75,7 @@ export interface PlanSummary { id: string; kind: string; classId: string; title:
 export async function listSkillPlans(repo: Repo, actor: Actor): Promise<PlanSummary[]> {
   assertCan(actor, "assignments:read");
   if (actor.role === "STUDENT" || actor.role === "PARENT") throw new ForbiddenError("Staff only.");
-  const plans = (await repo.findMany("SkillPlan", { schoolId: actor.schoolId })).sort((a, b) => s(b.createdAt instanceof Date ? b.createdAt.toISOString() : b.createdAt).localeCompare(s(a.createdAt instanceof Date ? a.createdAt.toISOString() : a.createdAt)));
+  const plans = (await safeIfBehind("plans.list", repo.findMany("SkillPlan", { schoolId: actor.schoolId }), [] as Row[])).sort((a, b) => s(b.createdAt instanceof Date ? b.createdAt.toISOString() : b.createdAt).localeCompare(s(a.createdAt instanceof Date ? a.createdAt.toISOString() : a.createdAt)));
   const out: PlanSummary[] = [];
   // batched: places, students and classes of all plans in three queries
   const allItems = plans.length ? await repo.findMany("SkillPlanItem", { planId: { in: plans.map((p) => p.id) } }) : [];
@@ -136,7 +137,7 @@ export async function studentSkillPlans(repo: Repo, actor: Actor): Promise<Stude
   const st = await repo.findUnique("Student", { id: actor.studentId });
   const myClasses = new Set((await repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId)));
   // drafts, paused and withdrawn plans are not shown to students (plan editor)
-  const plans = (await repo.findMany("SkillPlan", { schoolId: st?.schoolId })).filter((p) => visibleToStudents(p));
+  const plans = (await safeIfBehind("plans.student", repo.findMany("SkillPlan", { schoolId: st?.schoolId }), [] as Row[])).filter((p) => visibleToStudents(p));
   const out: StudentPlanSummary[] = [];
   // all the plans' places in one query (not one per plan)
   const allItems = plans.length ? await repo.findMany("SkillPlanItem", { planId: { in: plans.map((p) => p.id) } }) : [];

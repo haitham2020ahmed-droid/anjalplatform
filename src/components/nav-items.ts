@@ -79,6 +79,8 @@ export const TEACHER_MENU: NavItem[] = [
 export const NAFS_PAGE: NavItem = { href: "/teacher/nafs", label: "NAFS", icon: "🇸🇦", line: "flag" };
 /** The NAFS plan (a tab of Plans, also linked from the NAFS section's Reports): found by name by the same people. */
 export const NAFS_PLAN_PAGE: NavItem = { href: "/teacher/plans?tab=nafs", label: "NAFS plan", icon: "🧾" };
+/** The NAFS center's Dashboard (teachers of a Grade 6 class: their classes; admins: the whole school), found by name. */
+export const NAFS_DASHBOARD_PAGE: NavItem = { href: "/teacher/nafs?tab=dashboard", label: "NAFS dashboard", icon: "📊" };
 function teacherMenuWithNafs(): NavItem[] {
   const at = TEACHER_MENU.findIndex((i) => i.href === "/teacher/assessments") + 1;
   return [...TEACHER_MENU.slice(0, at), NAFS_PAGE, ...TEACHER_MENU.slice(at)];
@@ -146,8 +148,8 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
 /** Every page a role can find by name: the menu, then the pages that left it (no duplicates). */
 export function searchablePagesFor(role: string, opts: NavOpts = {}): NavItem[] {
   const menu = navItemsFor(role, opts);
-  const extra = role === "TEACHER" ? [...OFF_MENU.TEACHER, ...(opts.nafs ? [NAFS_PLAN_PAGE] : [])] : role === "STUDENT" ? OFF_MENU[role]
-    : role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN" ? [...adminOffMenu(), NAFS_PAGE, NAFS_PLAN_PAGE] : [];
+  const extra = role === "TEACHER" ? [...OFF_MENU.TEACHER, ...(opts.nafs ? [NAFS_PLAN_PAGE, NAFS_DASHBOARD_PAGE] : [])] : role === "STUDENT" ? OFF_MENU[role]
+    : role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN" ? [...adminOffMenu(), ...(opts.nafs === false ? [] : [NAFS_PAGE, NAFS_DASHBOARD_PAGE, NAFS_PLAN_PAGE])] : [];
   const seen = new Set(menu.map((i) => i.href));
   return [...menu, ...extra.filter((i) => !seen.has(i.href))];
 }

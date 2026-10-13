@@ -62,7 +62,7 @@ describe("interface language: t()", () => {
   test("never 'Lexile' and no technical 'adaptive' in the interface words", () => {
     // the one exception: the NAFS center's teacher tool is named "Adaptive practice" by the owner (NAFS center plan,
     // teacher-facing only — students see "My practice")
-    const NAFS_TEACHER = new Set(["Adaptive practice", "Adaptive practice open", "Give adaptive practice", "Adaptive practice given", "No adaptive practice yet. Give the first one below.", "Tick for adaptive practice", "Adaptive practice results", "The NAFS center: adaptive practice, NAFS tests, the NAFS question bank, marking and reports — separate from the platform's own levels."]);
+    const NAFS_TEACHER = new Set(["Adaptive practice", "Adaptive practice open", "Give adaptive practice", "Adaptive practice given", "No adaptive practice yet. Give the first one below.", "Tick for adaptive practice", "Adaptive practice results", "adaptive practice on the same 13 standards", "The NAFS center: adaptive practice, NAFS tests, the NAFS question bank, marking and reports — separate from the platform's own levels.", "Assign adaptive practice on these standards", "NAFS tests and NAFS adaptive practice only — never the platform's levels or ReadRise. Group words are for teachers only: students never see them.", "No NAFS results in these dates yet. Give a NAFS test or adaptive practice first."]);
     for (const k of UI_STRINGS) {
       assert.doesNotMatch(k, /lexile/i);
       if (!NAFS_TEACHER.has(k)) assert.doesNotMatch(k, /\badaptive\b/i);

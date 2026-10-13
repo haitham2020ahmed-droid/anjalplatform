@@ -176,6 +176,22 @@ export async function hasLesson(repo: Repo, skillId: string): Promise<boolean> {
   try { await skillAndContent(repo, skillId); return true; } catch { return false; }
 }
 
+/** ⚡ hasLesson for many skills at once: two reads in all (not two per skill). Same answer as hasLesson. */
+export async function hasLessons(repo: Repo, skillIds: string[]): Promise<Map<string, boolean>> {
+  const ids = [...new Set(skillIds.filter(Boolean))];
+  const out = new Map<string, boolean>(ids.map((id) => [id, false]));
+  if (!ids.length) return out;
+  const skills = await repo.findMany("Skill", { id: { in: ids } }, { select: ["id", "code", "name", "familyId", "deletedAt", "isActive"] });
+  const famIds = [...new Set(skills.map((k) => s(k.familyId)).filter(Boolean))];
+  const fams = famIds.length ? await repo.findMany("SkillFamily", { id: { in: famIds } }, { select: ["id", "code"] }) : [];
+  const famCode = new Map(fams.map((f) => [s(f.id), s(f.code)]));
+  for (const k of skills) {
+    if (k.deletedAt || k.isActive === false) continue;
+    out.set(s(k.id), Boolean(lessonForSkill({ familyCode: famCode.get(s(k.familyId)) ?? "", code: s(k.code), name: s(k.name) })));
+  }
+  return out;
+}
+
 async function assertSkillInStudentCurriculum(repo: Repo, student: Row, skillId: string): Promise<void> {
   const [skill, curs] = await Promise.all([repo.findUnique("Skill", { id: skillId }), repo.findMany("Curriculum", { gradeId: student.gradeId, isActive: true })]);
   if (!skill || !curs.some((c) => c.id === skill.curriculumId)) throw new ForbiddenError("This skill is not part of your curriculum.");

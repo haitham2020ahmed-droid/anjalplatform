@@ -216,7 +216,12 @@ async function byQuestionArea(repo: Repo, skills: { id: string; name: string }[]
   const all = new Map<string, Row>(); for (const q of [...bySkill, ...byId]) all.set(s(q.id), q);
   if (!all.size) return;
   const { areaFromName } = await import("./nwea-area");
-  const where = new Map<string, GroupKey>(); for (const [g, list] of pools) for (const q of list) where.set(q.id, g);
+  // ⚡ lookups by id and ONE removal pass per pool at the end (the same pools, in the same order, as removing each
+  // moved question at once — a pool of thousands was copied once per moved question)
+  const where = new Map<string, GroupKey>(), first = new Map<string, PoolQ>();
+  for (const [g, list] of pools) for (const q of list) { where.set(q.id, g); const k = `${g}|${q.id}`; if (!first.has(k)) first.set(k, q); }
+  const skillOf = new Map(skills.map((k) => [k.id, k] as const));
+  const drop = new Map<GroupKey, Set<string>>();
   for (const q of all.values()) {
     if (manual.has(s(q.typeId))) continue;
     const g = areaFromName(s(q.mapInstructionalArea)) as GroupKey | null;
@@ -224,16 +229,17 @@ async function byQuestionArea(repo: Repo, skills: { id: string; name: string }[]
     const before = where.get(s(q.id));
     if (before === g) continue;
     let rit: number;
-    if (before) { const old = pools.get(before)!.find((x) => x.id === q.id)!; rit = old.rit; pools.set(before, pools.get(before)!.filter((x) => x.id !== q.id)); }
+    if (before) { rit = first.get(`${before}|${s(q.id)}`)!.rit; let d = drop.get(before); if (!d) drop.set(before, (d = new Set())); d.add(s(q.id)); }
     else {
       let t: unknown = q.tags; if (typeof t === "string") { try { t = JSON.parse(t); } catch { t = null; } }
       const cal = (t as { rit?: { value?: number } } | null)?.rit?.value;
       rit = Number.isFinite(Number(cal)) && cal ? Number(cal) : ritFromDifficulty(Number(q.difficultyLevel ?? 4), norm) ?? 200;
     }
     pools.get(g)!.push({ id: s(q.id), skillId: s(q.skillId), rit });
-    const sk = skills.find((k) => k.id === q.skillId);
+    const sk = skillOf.get(q.skillId as string);
     if (sk && !skillMap.has(sk.id)) skillMap.set(sk.id, { id: sk.id, name: sk.name, group: g });
   }
+  for (const [g, d] of drop) pools.set(g, pools.get(g)!.filter((x) => !d.has(x.id)));
 }
 
 /**
@@ -251,12 +257,16 @@ async function linkByStandard(repo: Repo, schoolId: string, grade: number, pools
   if (!pool.length) return;
   const where = new Map<string, GroupKey>();
   for (const [g, list] of pools) for (const q of list) where.set(q.id, g);
-  const ids = pool.map((q) => q.id);
-  const rows = await repo.findMany("Question", { id: { in: ids } }, { select: ["id", "skillId", "standardId", "difficultyLevel", "tags"] });
+  const groupOfCode = (code: string): GroupKey | null => { const a = areaForStandard(code); return a ? GROUPS.find((g) => g.codes.includes(a))?.key ?? null : null; };
+  // ⚡ only the questions that may move or join are read (the others are skipped below without their row): the same
+  // pools, without re-reading every question of the grade by id
+  const ids = [...new Set(pool.filter((q) => { const g = groupOfCode(q.area.code); return g && g !== "WRITING" && where.get(q.id) !== g; }).map((q) => q.id))];
+  const rows = ids.length ? await repo.findMany("Question", { id: { in: ids } }, { select: ["id", "skillId", "standardId", "difficultyLevel", "tags"] }) : [];
   const byId = new Map(rows.map((r) => [s(r.id), r]));
   const ownStd = new Set(rows.filter((r) => r.standardId).map((r) => s(r.id)));
-  const groupOfCode = (code: string): GroupKey | null => { const a = areaForStandard(code); return a ? GROUPS.find((g) => g.codes.includes(a))?.key ?? null : null; };
   const votes = new Map<string, Map<GroupKey, number>>();
+  // ⚡ one removal pass per pool at the end (same result and order as removing each moved question at once)
+  const drop = new Map<GroupKey, Set<string>>();
   for (const q of pool) {
     const g = groupOfCode(q.area.code);
     if (!g || g === "WRITING") continue;
@@ -265,7 +275,7 @@ async function linkByStandard(repo: Repo, schoolId: string, grade: number, pools
     if (before && (before === g || !ownStd.has(q.id))) continue;
     const r = byId.get(q.id);
     if (!r) continue;
-    if (before) pools.set(before, (pools.get(before) ?? []).filter((x) => x.id !== q.id));
+    if (before) { let d = drop.get(before); if (!d) drop.set(before, (d = new Set())); d.add(q.id); }
     let t: unknown = r.tags; if (typeof t === "string") { try { t = JSON.parse(t); } catch { t = null; } }
     const cal = (t as { rit?: { value?: number } } | null)?.rit?.value;
     const rit = Number.isFinite(Number(cal)) && cal ? Number(cal) : ritFromDifficulty(Number(r.difficultyLevel ?? 4), norm) ?? 200;
@@ -273,6 +283,7 @@ async function linkByStandard(repo: Repo, schoolId: string, grade: number, pools
     pools.get(g)!.push({ id: q.id, skillId, rit });
     if (skillId && !skillMap.has(skillId)) { const v = votes.get(skillId) ?? new Map(); v.set(g, (v.get(g) ?? 0) + 1); votes.set(skillId, v); }
   }
+  for (const [g, d] of drop) pools.set(g, (pools.get(g) ?? []).filter((x) => !d.has(x.id)));
   // skills that only now have MAP questions: listed under the area most of their questions belong to
   if (votes.size) {
     const names = await repo.findMany("Skill", { id: { in: [...votes.keys()] }, deletedAt: null }, { select: ["id", "name"] });

@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { nafsDbGate } from "@/components/db-update-needed";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -17,6 +18,7 @@ export const metadata = { title: "NAFS question" };
 export default async function NafsQuestionPage({ searchParams }: { searchParams: Promise<{ id?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   if (!(await canSeeNafs(repo, actor))) redirect("/teacher");
+  const gate = await nafsDbGate(); if (gate) return gate; // the NAFS tables are not in the database yet: say so
   const me = (await getActor())!.user;
   const { t } = await getT();
   const sp = await searchParams;

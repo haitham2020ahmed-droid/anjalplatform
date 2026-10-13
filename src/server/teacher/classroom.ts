@@ -83,6 +83,18 @@ export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: stri
   return null;
 }
 
+/**
+ * 👀 Preview as student: one exit ticket exactly as the student gets it (the same questions, the same choice order),
+ * for a student of the ticket's class. Reads only — nothing is answered or recorded.
+ */
+export async function exitTicketForStudentPreview(repo: Repo, studentActor: Actor, ticketId: string): Promise<{ id: string; title: string; questions: ClientQuestion[] } | null> {
+  const sid = student(studentActor);
+  const t = await repo.findUnique("ExitTicket", { id: ticketId });
+  if (!t || !(await myClassIds(repo, sid)).includes(s(t.classId))) return null;
+  const items = ticketItems(await loadQuestionItems(repo, parseIds(t.questionIds)));
+  return { id: s(t.id), title: s(t.title), questions: items.map((i) => toClientQuestion(i, `${t.id}:${i.questionId}`)) };
+}
+
 export async function submitExitTicket(repo: Repo, actor: Actor, ticketId: string, responses: Record<string, unknown>, now = new Date()): Promise<{ correct: number; total: number; review: Graded[] }> {
   const sid = student(actor);
   const t = await repo.findUnique("ExitTicket", { id: ticketId });

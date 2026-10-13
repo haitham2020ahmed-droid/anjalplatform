@@ -6,6 +6,7 @@
  */
 import { isLocked, scoreMax, scorePercent } from "../writing/locked";
 import type { Repo, Row } from "../seeding/repo";
+import { safeIfBehind } from "../db/schema-errors";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { readableClasses } from "../teacher/coordinators";
 import { levelsOf, practiceStats, studentNames, workStats, type PracticeStats, type WorkStats } from "./student-data";
@@ -115,7 +116,7 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
     mapProfiles(repo, actor.schoolId!, ids, "READING"), mapProfiles(repo, actor.schoolId!, ids, "LANGUAGE"),
     sentPlans(repo, studentId, now), repo.count("MapPlan", { studentId, status: "DRAFT" }),
     repo.findMany("MapSimSession", { studentId, kind: "SIM" }),
-    repo.findMany("WritingSubmission", { studentId }, { select: ["taskId", "status", "scores", "audioType", "submittedAt", "scorePct"] }),
+    safeIfBehind("student-file.writing", repo.findMany("WritingSubmission", { studentId }, { select: ["taskId", "status", "scores", "audioType", "submittedAt", "scorePct"] }), [] as Row[]),
     repo.findMany("StudentWord", { studentId }, { select: ["word", "lastAt"] }), dueMistakes(repo, studentId, now),
     studentBadges(repo, studentId, now), repo.findMany("StudentAlert", { studentId }),
     commentsFor(repo, actor, studentId), notesFor(repo, actor, studentId),

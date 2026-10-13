@@ -2,7 +2,9 @@
  * 🏠 Student Home (UI reorg Phase 2): everything the new home page needs, in a few bounded round trips.
  *
  *   A  welcome counts (skills to work on, tests waiting) + "Continue where you left off" (lastActivity)
- *   B  My Work — one row per skill with its source tag (myWorkItems, Phase 4); ALL grammar work is here
+ *   B  My Work — one row per skill with its source tag (myWorkItems, Phase 4); ALL grammar work is here; and EVERY other
+ *      assigned thing (tests, MAP / NAFS tests and practice, ReadRise, writing, exit tickets …: allWorkItems,
+ *      student/all-work.ts), each once — the My Tests / NAFS badges and the exit-ticket notice come from those rows
  *   C  Reading tiles (ReadMaster: every published article of the grade; ReadRise: the whole library) — no assignment
  *   D  My Progress tiles (My Tests with the to-do badge, My Reports hub); MAP is a program page (/student/map)
  *   E  Programs tiles (Curriculum Map of the grade; RTI Program ONLY for students in Tier 2/3)
@@ -10,19 +12,16 @@
  *      Respond to Reading, writing tasks, new teacher comments) — only when there is some.
  *
  * Every read is bounded (one student's rows, a page of at most a few rows, or one grade's map). Reuses:
- * myWorkItems (plans/wizard.ts), testsToDoCount (tests/assessments.ts), myDiagnostic, openGamesFor, myExitTicket,
+ * allWorkItems (student/all-work.ts → myWorkItems, plans/wizard.ts), myDiagnostic, openGamesFor,
  * map practice tests (map/sim.ts), studentRespondWork, myTasks. The adaptive engine is not touched.
  */
 import type { Actor } from "../auth/rbac";
 import { ForbiddenError } from "../auth/rbac";
 import type { Repo, Row } from "../seeding/repo";
 import { myWorkItems, type MyWorkItem } from "../plans/wizard";
-import { testsToDoCount } from "../tests/assessments";
-import { nafsToDoCount } from "../nafs/student";
-import { nafsPracticeToDo } from "../nafs/practice";
+import { allWorkItems } from "./all-work";
 import { myDiagnostic } from "../diagnostic/test";
 import { openGamesFor } from "../game/live";
-import { myExitTicket } from "../teacher/classroom";
 import { myTests as mapPracticeTests } from "../map/sim";
 import { studentRespondWork } from "../curriculum-map/respond-assign";
 import { myTasks } from "../teacher/writing";
@@ -112,8 +111,9 @@ export async function studentRtiProgram(repo: Repo, actor: Actor, now = new Date
 
 export interface HomeNotice { key: string; icon: string; text: string; vars?: Record<string, string | number>; href: string; cta: string; urgent?: boolean }
 export interface StudentHome {
+  /** EVERY assigned thing (skills, sets, tests, MAP / NAFS tests, ReadRise, writing …: student/all-work.ts), each once */
   work: (MyWorkItem & { reteach: boolean })[];
-  /** skills to work on (rows not done) — the badge on My Work and the X of the welcome line */
+  /** work not done yet (each assigned thing once) — the badge on My Work and the X of the welcome line */
   toDo: number;
   testsToDo: number;
   /** NAFS tests + adaptive NAFS practice not done yet (the NAFS icon; Grade 6 only) */
@@ -135,24 +135,32 @@ export interface StudentHome {
  */
 export async function studentHome(repo: Repo, actor: Actor, now = new Date()): Promise<StudentHome> {
   const sid = studentIdOf(actor);
-  const [work, testsToDo, last, rti, rr, diag, games, exit, mapTests, respond, writing, comments, nafsToDo] = await Promise.all([
-    myWorkItems(repo, actor, now), testsToDoCount(repo, actor, now), lastActivity(repo, actor, now), rtiStatus(repo, sid),
+  // read once, shared by My Work (every assigned thing is a My Work row) and the notices below
+  const mapP = mapPracticeTests(repo, actor, now).catch(() => ({ windows: [], warmupDone: false }));
+  const respondP = studentRespondWork(repo, actor).catch(() => []);
+  const writingP = myTasks(repo, actor).catch(() => []);
+  const [work, last, rti, rr, diag, games, mapTests, respond, writing, comments] = await Promise.all([
+    allWorkItems(repo, actor, now, { map: mapP, respond: respondP, writing: writingP }), lastActivity(repo, actor, now), rtiStatus(repo, sid),
     repo.findUnique("RRStudent", { studentId: sid }),
-    myDiagnostic(repo, actor, now).catch(() => null), openGamesFor(repo, actor).catch(() => []), myExitTicket(repo, actor).catch(() => null),
-    mapPracticeTests(repo, actor, now).catch(() => ({ windows: [], warmupDone: false })), studentRespondWork(repo, actor).catch(() => []),
-    myTasks(repo, actor).catch(() => []),
+    myDiagnostic(repo, actor, now).catch(() => null), openGamesFor(repo, actor).catch(() => []),
+    mapP, respondP, writingP,
     repo.count("WorkComment", { studentId: sid, createdAt: { gte: new Date(now.getTime() - 7 * DAY) } }),
-    // 🇸🇦 NAFS tests and adaptive practice live in the NAFS icon (Grade 6): counted on its own home card, not My Tests
-    Promise.all([nafsToDoCount(repo, actor, now), nafsPracticeToDo(repo, actor)]).then(([a, b]) => a + b).catch(() => 0),
   ]);
+  // 🇸🇦 NAFS tests and adaptive practice (the NAFS icon, Grade 6) not done yet: the NAFS rows of My Work (the same
+  // ones nafsToDoCount / nafsPracticeToDo count; none while the NAFS tables are not in the database: safeIfBehind)
+  const nafsToDo = work.filter((w) => (w.kind === "NAFS_TEST" || w.kind === "NAFS_PRACTICE") && w.status !== "Done").length;
   const rows = work.map((w) => ({ ...w, reteach: /^Reteach:/i.test(s(w.note)) }));
+  // the My Tests badge: the test rows of My Work not done yet (the same sets testsToDoCount counts; read once)
+  const testsToDo = work.filter((w) => w.kind === "TEST" && w.status !== "Done").length;
   const notices: HomeNotice[] = [];
   if (diag && diag.status !== "DONE") notices.push({ key: "diagnostic", icon: "🩺", text: diag.status === "STARTED" ? "Finish your Diagnostic Test" : "Take your Diagnostic Test", href: diag.href, cta: diag.status === "STARTED" ? "Continue" : "Start", urgent: true });
   // 🗓️ no self-start: the Diagnostic shows only while the school admin has it open for the grade (myDiagnostic)
   for (const g of games) notices.push({ key: `game-${g.code}`, icon: "🎮", text: "A live game is open: {title}", vars: { title: g.title }, href: `/play/${g.code}`, cta: "Join a Game", urgent: true });
-  if (exit) notices.push({ key: "exit", icon: "🎟️", text: "Exit ticket: 3 quick questions", href: `/student/exit/${exit.id}`, cta: "Start" });
+  // the newest open exit ticket not answered yet (a My Work row: read once there)
+  const exit = work.find((w) => w.kind === "EXIT_TICKET" && w.status !== "Done");
+  if (exit) notices.push({ key: "exit", icon: "🎟️", text: "Exit ticket: 3 quick questions", href: exit.href, cta: "Start" });
   const mapTodo = mapTests.windows.filter((w) => w.open).reduce((n, w) => n + w.sessions.filter((x) => x.status !== "DONE").length, 0);
-  if (mapTodo > 0) notices.push({ key: "map-test", icon: "🧭", text: "MAP practice test is open", href: "/student/map-test", cta: "Start" });
+  if (mapTodo > 0) notices.push({ key: "map-test", icon: "🧭", text: "A MAP Test is open", href: "/student/map-test", cta: "Start" });
   const respondTodo = respond.filter((r) => !r.finishedAt);
   if (respondTodo.length) notices.push({ key: "respond", icon: "✍️", text: "Respond to Reading: {n} to write", vars: { n: respondTodo.length }, href: respondTodo[0]?.setCode ? `/student/respond/${respondTodo[0].setCode}` : "/student/respond", cta: "Open" });
   const writingTodo = writing.filter((w) => w.status === "NOT_STARTED" || w.status === "DRAFT").length;

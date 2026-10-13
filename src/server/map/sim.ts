@@ -21,6 +21,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
+import { hideLevels } from "../../lib/hide-levels";
 import { loadQuestionItems, toClientQuestion, type ClientQuestion } from "../practice/items";
 import { normalizeResponse } from "../practice/session";
 import { contentKeysForIds, Sitting } from "../questions/fresh";
@@ -61,10 +62,19 @@ export function estimate(answers: { b: number; x: number }[], mu: number, sd = P
   return { rit: r, se: 1 / Math.sqrt(info) };
 }
 
-/** Even blueprint: 50 → 17 · 17 · 16 for the three goal-area groups of the subject. */
-export function blueprint(subject: Subject, total: number): Map<GroupKey, number> {
+/**
+ * Blueprint: 50 → 17 · 17 · 16 for the three goal-area groups of the subject (even), or by the teacher's shares
+ * (percent per group; a group at 0 gets no questions). Largest remainders, so the parts always add up to `total`.
+ */
+export function blueprint(subject: Subject, total: number, shares?: Partial<Record<GroupKey, number>> | null): Map<GroupKey, number> {
   const gs = GROUPS.filter((g) => g.subject === subject).map((g) => g.key);
-  return new Map(gs.map((g, i) => [g, Math.floor(total / gs.length) + (i < total % gs.length ? 1 : 0)]));
+  const w = gs.map((g) => Math.max(0, Number(shares?.[g] ?? NaN)));
+  if (!shares || !w.every(Number.isFinite) || w.reduce((a, b) => a + b, 0) <= 0) return new Map(gs.map((g, i) => [g, Math.floor(total / gs.length) + (i < total % gs.length ? 1 : 0)]));
+  const sum = w.reduce((a, b) => a + b, 0);
+  const raw = w.map((x) => (total * x) / sum), base = raw.map(Math.floor);
+  let left = total - base.reduce((a, b) => a + b, 0);
+  for (const i of raw.map((r, i) => [r - Math.floor(r), i] as const).sort((a, b) => b[0] - a[0]).map(([, i]) => i)) { if (left <= 0) break; if (w[i] > 0) { base[i]++; left--; } }
+  return new Map(gs.map((g, i) => [g, base[i]]));
 }
 
 /** The next group: the one furthest behind its share of the blueprint. */
@@ -91,8 +101,8 @@ export function pickItem(pool: PoolQ[], rit: number, exclude: Set<string>, avoid
 
 // ------------------------------------------------------------------ pools (the grade and the grades around it)
 
-interface SimPool { byGroup: Map<GroupKey, PoolQ[]>; group: Map<string, GroupKey>; rit: Map<string, number> }
-async function simPool(repo: Repo, schoolId: string, grade: number, subject: Subject): Promise<SimPool> {
+export interface SimPool { byGroup: Map<GroupKey, PoolQ[]>; group: Map<string, GroupKey>; rit: Map<string, number> }
+export async function simPool(repo: Repo, schoolId: string, grade: number, subject: Subject): Promise<SimPool> {
   const byGroup = new Map<GroupKey, PoolQ[]>(GROUPS.filter((g) => g.subject === subject).map((g) => [g.key, []]));
   const group = new Map<string, GroupKey>(), rit = new Map<string, number>();
   // MAP items are not tied to one grade: use the grade below and above as well (wider RIT range)
@@ -114,8 +124,40 @@ async function studentGrade(repo: Repo, studentId: string): Promise<number> {
 
 // ------------------------------------------------------------------ windows (admin / teacher)
 
-export interface WindowView { id: string; title: string; grade: number | null; season: string; subjects: Subject[]; items: number; opensAt: string; closesAt: string; open: boolean }
-const windowView = (w: Row, now: Date): WindowView => ({ id: s(w.id), title: s(w.title), grade: w.grade === null || w.grade === undefined ? null : Number(w.grade), season: s(w.season), subjects: (Array.isArray(w.subjects) ? w.subjects : JSON.parse(s(w.subjects) || "[]")) as Subject[], items: Number(w.items), opensAt: iso(w.opensAt)!, closesAt: iso(w.closesAt)!, open: time(w.opensAt) <= now.getTime() && time(w.closesAt) > now.getTime() });
+export type TestKind = "AUTO" | "MANUAL";
+export interface ManualItem { id: string; area: GroupKey; rit: number }
+export interface WindowView {
+  id: string; title: string; grade: number | null; season: string; subjects: Subject[]; items: number; opensAt: string; closesAt: string; open: boolean;
+  /** MAP Test tab: AUTO (adaptive) or MANUAL (fixed items); classes / students it is for (null = the old school-wide window) */
+  kind: TestKind; classIds: string[] | null; studentIds: string[] | null; draft: boolean; createdById: string;
+}
+/** A JSON column read as a value (MySQL gives objects, SQLite text). */
+export function jsonOf<T>(v: unknown, fallback: T): T {
+  if (v === null || v === undefined || v === "") return fallback;
+  if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fallback; } }
+  return v as T;
+}
+export const idList = (v: unknown): string[] | null => { const l = jsonOf<unknown>(v, null); return Array.isArray(l) ? l.map(s).filter(Boolean) : null; };
+/** The manual test's items, in order. */
+export const manualItems = (w: Row): ManualItem[] => jsonOf<unknown[]>(w.itemIds, []).map((x) => (typeof x === "string" ? { id: x, area: "LIT" as GroupKey, rit: 200 } : (x as ManualItem))).filter((x) => x && x.id);
+export const windowView = (w: Row, now: Date): WindowView => {
+  const kind: TestKind = w.kind === "MANUAL" ? "MANUAL" : "AUTO";
+  return {
+    id: s(w.id), title: s(w.title), grade: w.grade === null || w.grade === undefined ? null : Number(w.grade), season: s(w.season), subjects: jsonOf<Subject[]>(w.subjects, []),
+    items: kind === "MANUAL" ? manualItems(w).length : Number(w.items), opensAt: iso(w.opensAt)!, closesAt: iso(w.closesAt)!, open: !w.draft && time(w.opensAt) <= now.getTime() && time(w.closesAt) > now.getTime(),
+    kind, classIds: idList(w.classIds), studentIds: idList(w.studentIds), draft: Boolean(w.draft), createdById: s(w.createdById),
+  };
+};
+
+/** Is this (published) test for the student? Class tests: one of the classes (and the chosen students); old windows: the grade. */
+export function isForStudent(v: WindowView, studentId: string, grade: number, classIds: readonly string[]): boolean {
+  if (v.draft) return false;
+  if (v.classIds) return v.classIds.some((c) => classIds.includes(c)) && (!v.studentIds?.length || v.studentIds.includes(studentId));
+  return v.grade === null || v.grade === grade;
+}
+async function studentClassIds(repo: Repo, studentId: string): Promise<string[]> {
+  return (await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId));
+}
 
 export async function createWindow(repo: Repo, actor: Actor, input: { title?: string; grade: number | null; season: Season; subjects: Subject[]; items?: number; opensAt: Date; closesAt: Date }, now = new Date()): Promise<string> {
   assertCan(actor, "assignments:create");
@@ -173,22 +215,36 @@ export async function readiness(repo: Repo, actor: Actor, grade: number, items =
 
 // ------------------------------------------------------------------ the student's test
 
-export interface MyTests { windows: (WindowView & { sessions: { subject: Subject; status: "NOT_STARTED" | "IN_PROGRESS" | "DONE"; answered: number; total: number; resultRit: number | null; resultLow: number | null; resultHigh: number | null }[] })[]; warmupDone: boolean }
+export interface MyTests { windows: (WindowView & { sessions: { subject: Subject; status: "NOT_STARTED" | "IN_PROGRESS" | "DONE"; answered: number; total: number; resultRit: number | null; resultLow: number | null; resultHigh: number | null; practise: string[] }[] })[]; warmupDone: boolean }
 
 function student(actor: Actor): string { if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Students only."); return actor.studentId; }
 
 export async function myTests(repo: Repo, actor: Actor, now = new Date()): Promise<MyTests> {
   const sid = student(actor);
-  const grade = await studentGrade(repo, sid);
-  const all = (await repo.findMany("MapSimWindow", { schoolId: actor.schoolId })).filter((w) => (w.grade === null || w.grade === undefined || Number(w.grade) === grade) && time(w.opensAt) <= now.getTime() && time(w.closesAt) > now.getTime() - 30 * DAY);
-  const sessions = await repo.findMany("MapSimSession", { studentId: sid });
+  const [grade, classIds, rows, sessions] = await Promise.all([
+    studentGrade(repo, sid), studentClassIds(repo, sid),
+    repo.findMany("MapSimWindow", { schoolId: actor.schoolId, closesAt: { gt: new Date(now.getTime() - 30 * DAY) } }, { take: 200 }),
+    repo.findMany("MapSimSession", { studentId: sid }),
+  ]);
+  const all = rows.map((w) => windowView(w, now)).filter((v) => isForStudent(v, sid, grade, classIds) && time(v.opensAt) <= now.getTime()).map((v) => ({ ...v, title: hideLevels(v.title) }));
   return {
-    windows: all.map((w) => windowView(w, now)).sort((a, b) => b.opensAt.localeCompare(a.opensAt)).map((w) => ({ ...w, sessions: w.subjects.map((subject) => { const x = sessions.find((y) => y.windowId === w.id && y.subject === subject && y.kind === "SIM"); return { subject, status: (x ? s(x.status) : "NOT_STARTED") as "NOT_STARTED" | "IN_PROGRESS" | "DONE", answered: Number(x?.answered ?? 0), total: Number(x?.total ?? w.items), resultRit: x?.resultRit !== null && x?.resultRit !== undefined ? Number(x.resultRit) : null, resultLow: x?.resultLow !== null && x?.resultLow !== undefined ? Number(x.resultLow) : null, resultHigh: x?.resultHigh !== null && x?.resultHigh !== undefined ? Number(x.resultHigh) : null }; }) })),
+    windows: all.sort((a, b) => b.opensAt.localeCompare(a.opensAt)).map((w) => ({ ...w, sessions: w.subjects.map((subject) => { const x = sessions.find((y) => y.windowId === w.id && y.subject === subject && y.kind === "SIM"); return { subject, status: (x ? s(x.status) : "NOT_STARTED") as "NOT_STARTED" | "IN_PROGRESS" | "DONE", answered: Number(x?.answered ?? 0), total: Number(x?.total ?? w.items), resultRit: x?.resultRit !== null && x?.resultRit !== undefined ? Number(x.resultRit) : null, resultLow: x?.resultLow !== null && x?.resultLow !== undefined ? Number(x.resultLow) : null, resultHigh: x?.resultHigh !== null && x?.resultHigh !== undefined ? Number(x.resultHigh) : null, practise: x?.status === "DONE" ? areasToPractise(x) : [] }; }) })),
     warmupDone: sessions.some((x) => x.kind === "WARMUP" && x.status === "DONE"),
   };
 }
 
-export interface TestScreen { sessionId: string; subject: Subject; kind: "SIM" | "WARMUP"; n: number; total: number; question: ClientQuestion | null; done: boolean; warning: string | null; result: { rit: number; low: number; high: number } | null }
+/** `result.practise`: the goal areas to practise next (area names only — never a level word for the student). */
+export interface TestScreen { sessionId: string; subject: Subject; kind: "SIM" | "WARMUP"; n: number; total: number; question: ClientQuestion | null; done: boolean; warning: string | null; result: { rit: number; low: number; high: number; practise: string[] } | null }
+
+/** The goal areas to practise: those clearly under the overall result (else the lowest one). */
+export function areasToPractise(row: Row): string[] {
+  const areas = jsonOf<Record<string, { rit: number }>>(row.areas, {});
+  const rit = Number(row.resultRit);
+  const list = GROUPS.filter((g) => areas[g.key]).map((g) => ({ name: g.name, rit: Number(areas[g.key].rit) })).sort((a, b) => a.rit - b.rit);
+  if (!list.length) return [];
+  const low = list.filter((a) => a.rit <= rit - 3).map((a) => a.name);
+  return low.length ? low : [list[0].name];
+}
 
 /** Starts (or resumes) the test of one subject in an open window; kind WARMUP = 5 practice questions, not scored. */
 export async function startTest(repo: Repo, actor: Actor, input: { windowId?: string | null; subject: Subject; warmup?: boolean }, now = new Date()): Promise<TestScreen> {
@@ -197,7 +253,7 @@ export async function startTest(repo: Repo, actor: Actor, input: { windowId?: st
   let total = WARMUP_ITEMS, windowId: string | null = null;
   if (!input.warmup) {
     const w = input.windowId ? await repo.findUnique("MapSimWindow", { id: input.windowId }) : null;
-    if (!w || s(w.schoolId) !== s(actor.schoolId) || (w.grade !== null && w.grade !== undefined && Number(w.grade) !== grade)) throw new ForbiddenError("This test is not for you.");
+    if (!w || s(w.schoolId) !== s(actor.schoolId) || !isForStudent(windowView(w, now), sid, grade, await studentClassIds(repo, sid))) throw new ForbiddenError("This test is not for you.");
     const v = windowView(w, now);
     if (!v.open) throw new ValidationError("This practice test is not open now.");
     if (!v.subjects.includes(input.subject)) throw new ValidationError("This subject is not part of this test.");
@@ -222,16 +278,35 @@ async function seenIds(repo: Repo, studentId: string): Promise<{ sim: Set<string
   return { sim: new Set(sim.map((a) => s(a.questionId))), practice: new Set(practice.map((a) => s(a.questionId))) };
 }
 
+/** The test's window (null for a warm-up). */
+async function windowOf(repo: Repo, row: Row): Promise<Row | null> {
+  return row.windowId ? repo.findUnique("MapSimWindow", { id: s(row.windowId) }) : null;
+}
+
 async function serveNext(repo: Repo, row: Row, grade: number, now: Date, warning: string | null): Promise<TestScreen> {
   const subject = s(row.subject) as Subject;
   if (Number(row.answered) >= Number(row.total)) return finish(repo, row, now, warning);
+  const w = await windowOf(repo, row);
+  if (w?.kind === "MANUAL") {
+    // a fixed test: the next item of the teacher's list (an item taken out of the bank since is skipped)
+    const list = manualItems(w);
+    const done = new Set((await repo.findMany("MapSimAnswer", { sessionId: row.id }, { select: ["questionId"] })).map((a) => s(a.questionId)));
+    const live = new Set((await loadQuestionItems(repo, list.filter((x) => !done.has(x.id)).map((x) => x.id))).map((i) => i.questionId));
+    const next = list.find((x) => !done.has(x.id) && live.has(x.id));
+    if (!next) return finish(repo, row, now, warning);
+    await repo.updateMany("MapSimSession", { id: row.id }, { servedQuestionId: next.id, servedAt: now });
+    return screen(repo, { ...row, servedQuestionId: next.id, servedAt: now }, now, warning);
+  }
   const pool = await simPool(repo, s(row.schoolId), grade, subject);
+  // the teacher's exclusions leave the pool
+  const excluded = new Set(idList(w?.excludedIds) ?? []);
+  if (excluded.size) for (const [k, list] of pool.byGroup) pool.byGroup.set(k, list.filter((q) => !excluded.has(q.id)));
   const mine = await repo.findMany("MapSimAnswer", { sessionId: row.id }, { select: ["area", "questionId"] });
   const done = new Map<GroupKey, number>();
   for (const a of mine) done.set(s(a.area) as GroupKey, (done.get(s(a.area) as GroupKey) ?? 0) + 1);
   const seen = await seenIds(repo, s(row.studentId));
   const available = new Set([...pool.byGroup].filter(([, l]) => l.some((q) => !seen.sim.has(q.id))).map(([k]) => k));
-  const plan = blueprint(subject, Number(row.total));
+  const plan = blueprint(subject, Number(row.total), jsonOf<Partial<Record<GroupKey, number>> | null>(w?.areaShares, null));
   // 🛡️ never a copy of a question already answered in this test (same content stored under another skill or grade)
   const mineIds = mine.map((a) => s(a.questionId));
   const sitting = new Sitting();
@@ -252,7 +327,7 @@ async function serveNext(repo: Repo, row: Row, grade: number, now: Date, warning
 
 async function screen(repo: Repo, row: Row, now: Date, warning: string | null): Promise<TestScreen> {
   const base = { sessionId: s(row.id), subject: s(row.subject) as Subject, kind: s(row.kind) as "SIM" | "WARMUP", n: Number(row.answered) + 1, total: Number(row.total), warning };
-  if (row.status === "DONE") return { ...base, n: Number(row.answered), question: null, done: true, result: row.kind === "SIM" && row.resultRit !== null && row.resultRit !== undefined ? { rit: Number(row.resultRit), low: Number(row.resultLow), high: Number(row.resultHigh) } : null };
+  if (row.status === "DONE") return { ...base, n: Number(row.answered), question: null, done: true, result: row.kind === "SIM" && row.resultRit !== null && row.resultRit !== undefined ? { rit: Number(row.resultRit), low: Number(row.resultLow), high: Number(row.resultHigh), practise: areasToPractise(row) } : null };
   if (!row.servedQuestionId) return serveNext(repo, row, await studentGrade(repo, s(row.studentId)), now, warning);
   const [item] = await loadQuestionItems(repo, [s(row.servedQuestionId)]);
   if (!item) { await repo.updateMany("MapSimSession", { id: row.id }, { servedQuestionId: null }); return serveNext(repo, { ...row, servedQuestionId: null }, await studentGrade(repo, s(row.studentId)), now, warning); }
@@ -266,16 +341,21 @@ export async function answerTest(repo: Repo, actor: Actor, sessionId: string, qu
   if (!row || row.studentId !== sid) throw new ForbiddenError("This test is not yours.");
   if (row.status === "DONE") return screen(repo, row, now, null);
   if (s(row.servedQuestionId) !== questionId) return screen(repo, row, now, null);   // an old screen: show the current question
-  if (row.windowId) { const w = await repo.findUnique("MapSimWindow", { id: row.windowId }); if (!w || time(w.closesAt) <= now.getTime()) throw new ValidationError("This practice test has closed."); }
+  const w = await windowOf(repo, row);
+  if (row.windowId && (!w || time(w.closesAt) <= now.getTime())) throw new ValidationError("This practice test has closed.");
   const [item] = await loadQuestionItems(repo, [questionId]);
   const grade = await studentGrade(repo, sid);
-  const pool = await simPool(repo, s(row.schoolId), grade, s(row.subject) as Subject);
-  let ok = false;
-  try { ok = Boolean(item) && scoreResponse(item as never, normalizeResponse(item!, response)) >= 1; } catch { ok = false; }
+  // a manual test's item keeps the area and RIT it was chosen with; an adaptive one reads them from the pool
+  const fixed = w?.kind === "MANUAL" ? manualItems(w).find((x) => x.id === questionId) : undefined;
+  const pool = fixed ? null : await simPool(repo, s(row.schoolId), grade, s(row.subject) as Subject);
+  let ok = false, given: unknown = null;
+  try { given = item ? normalizeResponse(item, response) : null; ok = Boolean(item) && scoreResponse(item as never, given as never) >= 1; } catch { ok = false; }
   const ms = Math.max(0, now.getTime() - time(row.servedAt));
   const rapid = ms < rapidMs(Boolean(item?.passageText));
   const n = Number(row.answered) + 1;
-  await repo.create("MapSimAnswer", { sessionId, n, questionId, area: pool.group.get(questionId) ?? "LIT", itemRit: pool.rit.get(questionId) ?? Number(row.rit), isCorrect: ok, responseMs: Math.min(ms, 2_000_000_000), rapid, createdAt: now });
+  const area = fixed?.area ?? pool?.group.get(questionId) ?? (s(row.subject) === "LANGUAGE" ? "GRAMMAR" : "LIT");
+  const itemRit = fixed ? Number(fixed.rit) : pool?.rit.get(questionId) ?? Number(row.rit);
+  await repo.create("MapSimAnswer", { sessionId, n, questionId, area, itemRit, isCorrect: ok, responseMs: Math.min(ms, 2_000_000_000), rapid, response: given ?? null, createdAt: now });
   // the estimate from all careful answers (rapid guesses are not scored, as NWEA)
   const answers = await repo.findMany("MapSimAnswer", { sessionId }, { select: ["itemRit", "isCorrect", "rapid", "n"] });
   const est = estimate(answers.filter((a) => !a.rapid).map((a) => ({ b: Number(a.itemRit), x: a.isCorrect ? 1 : 0 })), Number(row.startRit));
@@ -295,7 +375,7 @@ async function tellTeachers(repo: Repo, studentId: string, title: string, body: 
   const ct = m.length ? await repo.findMany("ClassTeacher", { classId: { in: m.map((x) => x.classId) } }) : [];
   const ts = ct.length ? await repo.findMany("Teacher", { id: { in: ct.map((c) => c.teacherId) } }, { select: ["userId"] }) : [];
   const names = await studentNames(repo, [studentId]);
-  if (ts.length) await repo.createMany("Notification", ts.map((t) => ({ userId: t.userId, type: "INTERVENTION_ALERT", title, body: `${names.get(studentId)?.name ?? "A student"}: ${body}`, link: "/teacher/map-test", createdAt: now })));
+  if (ts.length) await repo.createMany("Notification", ts.map((t) => ({ userId: t.userId, type: "INTERVENTION_ALERT", title, body: `${names.get(studentId)?.name ?? "A student"}: ${body}`, link: "/teacher/map-center?tab=test", createdAt: now })));
 }
 
 async function finish(repo: Repo, row: Row, now: Date, warning: string | null): Promise<TestScreen> {
@@ -307,7 +387,7 @@ async function finish(repo: Repo, row: Row, now: Date, warning: string | null): 
   for (const g of GROUPS.filter((x) => x.subject === s(row.subject))) {
     const mine = answers.filter((a) => a.area === g.key);
     if (!mine.length) continue;
-    areas[g.key] = { rit: Math.round(estimate(mine.map((a) => ({ b: Number(a.itemRit), x: a.isCorrect ? 1 : 0 })), overall.rit, 8).rit), n: mine.length };
+    areas[g.key] = { rit: Math.round(estimate(mine.map((a) => ({ b: Number(a.itemRit), x: a.isCorrect ? 1 : 0 })), overall.rit, 8).rit), n: mine.length, ok: mine.filter((a) => a.isCorrect).length } as { rit: number; n: number };
   }
   const data = { status: "DONE", rit: overall.rit, se: overall.se, resultRit: rit, resultLow: rit - half, resultHigh: rit + half, areas, servedQuestionId: null, servedAt: null, finishedAt: now };
   await repo.updateMany("MapSimSession", { id: row.id }, data);

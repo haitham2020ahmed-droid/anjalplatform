@@ -6,6 +6,7 @@
  */
 import { idsKey, sharedRead } from "../lib/shared-read";
 import type { Repo, Row } from "../seeding/repo";
+import { countGroups } from "../db/group-count";
 import { nationalNorm, seasonOf, type Season } from "../map/rit";
 import { bandOf as planBand } from "../map/personal-plan";
 
@@ -109,10 +110,12 @@ export const EXACT_ANSWER_COUNT_MAX = 60;
  */
 export async function answerTotals(repo: Repo, studentIds: string[]): Promise<Map<string, { answers: number; correct: number }> | null> {
   if (!studentIds.length || studentIds.length > EXACT_ANSWER_COUNT_MAX) return null;
-  const rows = await repo.findMany("QuestionAttempt", { studentId: { in: studentIds } }, { select: ["studentId", "isCorrect"] });
-  const out = new Map(studentIds.map((id) => [id, { answers: 0, correct: 0 }]));
-  for (const r of rows) { const o = out.get(s(r.studentId)); if (!o) continue; o.answers++; if (r.isCorrect) o.correct++; }
-  return out;
+  // ⚡ two GROUP BY counts (one row per student) instead of reading every answer of the year
+  const [all, right] = await Promise.all([
+    countGroups(repo, "QuestionAttempt", "studentId", { studentId: { in: studentIds } }),
+    countGroups(repo, "QuestionAttempt", "studentId", { studentId: { in: studentIds }, isCorrect: true }),
+  ]);
+  return new Map(studentIds.map((id) => [id, { answers: all.get(id) ?? 0, correct: right.get(id) ?? 0 }]));
 }
 
 /**

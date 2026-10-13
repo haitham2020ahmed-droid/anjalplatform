@@ -31,15 +31,16 @@ export function planChoiceLabel(p: StudentPlanSummary, all: StudentPlanSummary[]
  * progress; then Unit → Text Set (lesson name and words) → numbered sections (Concept Vocabulary, Analyze Craft and
  * Structure, Respond to Reading, Review), each a link straight to its questions. "Download PDF / Print" prints the
  * sheet only. Several plans sent → a small switcher at the top. Server component: strings come translated via `t`.
+ * `preview`: the teacher's read-only "Preview as student" (plan editor): the same sheet, no links, only a Download button.
  */
-export function StudyPlan({ t, p, studentName, plans = [], basePath, msg }: { t: TFn; p: StudentPlanView; studentName: string; plans?: StudentPlanSummary[]; basePath: string; msg?: string | null }) {
+export function StudyPlan({ t, p, studentName, plans = [], basePath, msg, preview = false }: { t: TFn; p: StudentPlanView; studentName: string; plans?: StudentPlanSummary[]; basePath: string; msg?: string | null; preview?: boolean }) {
   const units = [...new Set(p.places.map((x) => x.unit))];
   const done = p.places.filter((x) => x.status === "COMPLETED").length;
   const pct = p.places.length ? Math.round((100 * done) / p.places.length) : 0;
   return (
-    <div data-testid="study-plan">
+    <div data-testid="study-plan" data-preview={preview ? "1" : undefined}>
       <div className="mb-4 flex flex-wrap items-center gap-2 print:hidden">
-        {plans.length > 1 && (
+        {!preview && plans.length > 1 && (
           <div role="group" aria-label={t("Your plans")} data-testid="plan-switcher" className="flex flex-wrap items-center gap-1 rounded-xl bg-white p-1 ring-1 ring-slate-200/80">
             {plans.map((x) => {
               const on = x.id === p.id;
@@ -48,8 +49,8 @@ export function StudyPlan({ t, p, studentName, plans = [], basePath, msg }: { t:
           </div>
         )}
         <span className="flex-1" />
-        <Link prefetch={false} href="/student/respond" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal/60"><LineIcon name="writing" className="h-4 w-4" />{t("Respond to Reading")}</Link>
-        <PrintButton label="Download PDF / Print" />
+        {!preview && <Link prefetch={false} href="/student/respond" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal/60"><LineIcon name="writing" className="h-4 w-4" />{t("Respond to Reading")}</Link>}
+        <PrintButton label={preview ? "Download" : "Download PDF / Print"} />
       </div>
       {msg && <p role="alert" className="mb-4 flex items-center gap-2 rounded-xl bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900 ring-1 ring-amber-200 print:hidden"><LineIcon name="lock" className="h-4 w-4" />{msg}</p>}
       {p.note && <p className="mb-4 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700 ring-1 ring-slate-200">{p.note}</p>}
@@ -85,7 +86,7 @@ export function StudyPlan({ t, p, studentName, plans = [], basePath, msg }: { t:
                   <h2 className="flex items-center gap-2 text-base font-semibold">{locked && <LineIcon name="lock" className="h-4 w-4" />}{u}</h2>
                   <span className="flex items-center gap-3 text-sm tabular-nums">
                     <span dir="ltr">{uDone}/{inUnit.length}</span>
-                    {uDone === inUnit.length && inUnit.length > 0 && <Link prefetch={false} href={`/student/plans/${p.id}/certificate?unit=${encodeURIComponent(u)}`} className="inline-flex items-center gap-1 rounded-full bg-white/15 px-3 py-0.5 text-xs font-semibold text-white ring-1 ring-white/30 hover:bg-white/25 print:hidden"><LineIcon name="award" className="h-3.5 w-3.5" />{t("My certificate")}</Link>}
+                    {!preview && uDone === inUnit.length && inUnit.length > 0 && <Link prefetch={false} href={`/student/plans/${p.id}/certificate?unit=${encodeURIComponent(u)}`} className="inline-flex items-center gap-1 rounded-full bg-white/15 px-3 py-0.5 text-xs font-semibold text-white ring-1 ring-white/30 hover:bg-white/25 print:hidden"><LineIcon name="award" className="h-3.5 w-3.5" />{t("My certificate")}</Link>}
                   </span>
                 </div>
                 <div className="mt-4 grid gap-x-8 gap-y-6 md:grid-cols-2 print:grid-cols-2">
@@ -99,7 +100,7 @@ export function StudyPlan({ t, p, studentName, plans = [], basePath, msg }: { t:
                           {lesson && lesson.vocabulary.length > 0 && <p className="mt-1.5 flex flex-wrap gap-1">{lesson.vocabulary.map((w) => <span key={w} className="rounded-md bg-slate-50 px-1.5 py-0.5 text-[11px] text-slate-600 ring-1 ring-slate-200">{w}</span>)}</p>}
                         </div>
                         <ol className="mt-1.5 space-y-0.5">
-                          {inUnit.filter((x) => x.set === set).map((x, i) => <Row key={x.itemId} x={x} n={`${ui + 1}.${si + 1}.${i + 1}`} target={p.target} t={t} />)}
+                          {inUnit.filter((x) => x.set === set).map((x, i) => <Row key={x.itemId} x={x} n={`${ui + 1}.${si + 1}.${i + 1}`} target={p.target} t={t} preview={preview} />)}
                         </ol>
                       </div>
                     );
@@ -114,7 +115,7 @@ export function StudyPlan({ t, p, studentName, plans = [], basePath, msg }: { t:
   );
 }
 
-function Row({ x, n, target, t }: { x: Place; n: string; target: number; t: TFn }) {
+function Row({ x, n, target, t, preview = false }: { x: Place; n: string; target: number; t: TFn; preview?: boolean }) {
   const st = stateOf(x);
   const review = /^review$/i.test(x.label.trim());
   const body = (
@@ -132,8 +133,8 @@ function Row({ x, n, target, t }: { x: Place; n: string; target: number; t: TFn 
   );
   return (
     <li data-section={review ? "review" : undefined}>
-      {x.href ? <Link prefetch={false} href={x.href} className="group flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-slate-50">{body}</Link>
-        : <span className="flex items-start gap-2 px-2 py-1.5" title={x.locked ? t("Your teacher has not opened this unit yet") : t("Questions are not ready yet")}>{body}</span>}
+      {x.href && !preview ? <Link prefetch={false} href={x.href} className="group flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-slate-50">{body}</Link>
+        : <span className="flex items-start gap-2 px-2 py-1.5" title={preview ? undefined : x.locked ? t("Your teacher has not opened this unit yet") : t("Questions are not ready yet")}>{body}</span>}
     </li>
   );
 }

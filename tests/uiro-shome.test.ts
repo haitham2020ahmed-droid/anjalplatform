@@ -103,9 +103,12 @@ describe("UI reorg Phase 2: Student Home", () => {
     assert.equal(tag(skill2)?.sourceKey, "MAP", "MAP work is in My Work (no separate MAP area)");
     assert.equal(tag(grammarSkill)?.sourceKey, "GRAMMAR", "grammar work lives in My Work with the Grammar tag");
     assert.equal(tag(reteachSkill)?.reteach, true, "Reteach work after a test is tagged Reteach");
-    assert.equal(h.work.length, 4, "one row per skill; the test is not a My Work row");
-    assert.ok(h.work.every((w) => w.href.startsWith("/practice/") && w.action === "Start"), "Start opens the questions at the student's level");
-    assert.equal(h.toDo, 4);
+    // one row per skill, and (MAP Test plan § 5b) the test is in My Work too — once, as a test row opening the quiz
+    const skills = h.work.filter((w) => !w.kind), tests = h.work.filter((w) => w.kind === "TEST");
+    assert.equal(skills.length, 4, "one row per skill");
+    assert.ok(skills.every((w) => w.href.startsWith("/practice/") && w.action === "Start"), "Start opens the questions at the student's level");
+    assert.equal(tests.length, 1); assert.ok(tests[0].href.startsWith("/quiz/"));
+    assert.equal(h.toDo, 5, "each assigned thing counted once");
     assert.equal(h.testsToDo, 1);
     // the welcome line (and its Arabic version) carries both numbers
     const line = "Hello, {name} — you have {x} skills to work on and {y} tests waiting.";
@@ -221,7 +224,10 @@ describe("UI reorg Phase 2: Student Home", () => {
     const h = await studentHome(c.repo, A, NOW);
     assert.ok(h.work.length >= 4);
     t.diagnostic(`student home: ${c.calls()} database calls`);
-    assert.ok(c.calls() <= 40, `student home used ${c.calls()} database calls`);
+    // ≤ 45: My Work lists every assigned thing (MAP Test plan § 5b: tests, MAP / NAFS tests, ReadRise, exit tickets,
+    // lessons, plans, the survey …), one bounded read per source; the My Tests / NAFS badges and the exit-ticket notice
+    // are taken from those rows (no second read)
+    assert.ok(c.calls() <= 45, `student home used ${c.calls()} database calls`);
   });
 
   test("no clutter: no question counts or 'adaptive'; never 'Lexile' for ReadRise", () => {

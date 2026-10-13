@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { nafsDbGate } from "@/components/db-update-needed";
 import { redirect } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
@@ -24,6 +25,7 @@ const local = (v: string | null) => (v ? v.slice(0, 16) : "");
 export default async function NafsTestPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   if (!(await canSeeNafs(repo, actor))) redirect("/teacher");
+  const gate = await nafsDbGate(); if (gate) return gate; // the NAFS tables are not in the database yet: say so
   const me = (await getActor())!.user;
   const { t } = await getT();
   const [{ id }, sp] = await Promise.all([params, searchParams]);

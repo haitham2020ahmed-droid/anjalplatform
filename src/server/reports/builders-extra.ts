@@ -15,16 +15,19 @@ import { classReadMasterReport, readMasterAnalytics, type ReadMasterAnalytics } 
 import { classReport as readRiseClass, schoolDashboard as readRiseSchool } from "../readrise/dashboards";
 import { classGrowth as readRiseClassGrowth, studentGrowthReport as readRiseStudentGrowth } from "../readrise/growth-report";
 import { FIT_LABEL, RANGE_NOTE, SKILL_LABEL, rangeText } from "../readrise/growth-words";
+import { ForbiddenError } from "../auth/rbac";
+import { earlyWarning } from "../insights/early-warning";
+import { MEASURES, PATTERN_NAME, SEVERITY_NAME } from "../insights/early-warning-rules";
 
-export const EXTRA_KINDS = ["grammar", "games", "rti", "levels", "readmaster", "readrise"] as const;
+export const EXTRA_KINDS = ["grammar", "games", "rti", "levels", "readmaster", "readrise", "warning"] as const;
 export type ExtraKind = (typeof EXTRA_KINDS)[number];
 export const isExtraKind = (k: string): k is ExtraKind => (EXTRA_KINDS as readonly string[]).includes(k);
 /** which extra kinds are school-wide (need analytics:school) for a scope */
-export const EXTRA_SCHOOL: Record<ExtraKind, "never" | "always" | "scope"> = { grammar: "scope", games: "never", rti: "never", levels: "always", readmaster: "scope", readrise: "scope" };
+export const EXTRA_SCHOOL: Record<ExtraKind, "never" | "always" | "scope"> = { grammar: "scope", games: "never", rti: "never", levels: "always", readmaster: "scope", readrise: "scope", warning: "scope" };
 
 export const RR_EXPORT_NOTE = "ReadRise Level (estimate): ReadRise's own reading level on a Lexile-like scale — an estimate from first-try article scores, not an official Lexile measure and not the MAP Lexile.";
 const TITLES: Record<ExtraKind, string> = {
-  grammar: "Grammar Results", games: "Live Games Report", rti: "RTI Weekly Plan", levels: "Approaching / Meeting / Exceeding Distribution", readmaster: "ReadMaster Results", readrise: "ReadRise Report",
+  grammar: "Grammar Results", games: "Live Games Report", rti: "RTI Weekly Plan", levels: "Approaching / Meeting / Exceeding Distribution", readmaster: "ReadMaster Results", readrise: "ReadRise Report", warning: "Early Warning",
 };
 const col = (key: string, label: string, kind: Column["kind"], width = 1, nowrap = false): Column => ({ key, label, kind, width, nowrap });
 const num = (v: number | null | undefined) => (v === null || v === undefined ? null : v);
@@ -56,8 +59,9 @@ function rmAnalyticsTables(x: ReadMasterAnalytics): Section[] {
   ];
 }
 
-export async function buildExtraReport(ctx: BuildContext, kind: ExtraKind, opts: { classId?: string; studentId?: string; scope?: "class" | "school"; days: number }): Promise<ReportDoc> {
+export async function buildExtraReport(ctx: BuildContext, kind: ExtraKind, opts: { classId?: string; studentId?: string; scope?: "class" | "school"; days: number; gradeId?: string; teacherId?: string }): Promise<ReportDoc> {
   const { repo, actor, now } = ctx;
+  if (kind === "warning") return earlyWarningDoc(ctx, opts);
   const days = opts.days;
   const win: MetaItem = { label: "Window", value: `last ${days} days` };
   if (kind === "grammar" && opts.scope === "school") {
@@ -186,4 +190,44 @@ async function readRiseStudentDoc(ctx: BuildContext, classId: string, studentId:
       g.recent.map((x) => ({ date: x.at.slice(0, 10), title: x.title, text: x.textLevel, student: x.studentLevel, fit: FIT_LABEL[x.fit], score: num(x.score), kind: x.stretch ? "stretch" : x.firstTry ? "first try" : "re-read" }))),
     { type: "notes", title: "Notes", items: [RR_EXPORT_NOTE, "Fit: exact = the text measures within 75 points of the student's level; stretch = harder; easy = easier.", RANGE_NOTE] },
   ], "history", [g.name]);
+}
+
+/** 🚨 Early warning (the same view as the page: Urgent first, why in plain words, the last teacher action). */
+async function earlyWarningDoc(ctx: BuildContext, opts: { classId?: string; scope?: "class" | "school"; gradeId?: string; teacherId?: string }): Promise<ReportDoc> {
+  const school = opts.scope === "school";
+  const v = await earlyWarning(ctx.repo, ctx.actor, school ? { gradeId: opts.gradeId ?? null, teacherId: opts.teacherId ?? null } : { classId: opts.classId ?? null }, ctx.now);
+  const cls = v.classes.find((c) => c.id === v.classId);
+  if (!school && !cls) throw new ForbiddenError("Not found.");
+  const grade = v.grades.find((g) => g.id === opts.gradeId), teacher = v.teachers.find((x) => x.id === opts.teacherId);
+  const meta: MetaItem[] = school
+    ? [{ label: "Scope", value: "Whole school" }, ...(grade ? [{ label: "Grade", value: String(grade.level) }] : []), ...(teacher ? [{ label: "Teacher", value: teacher.name, isolate: "auto" as const }] : [])]
+    : [{ label: "Class", value: cls!.name, isolate: "latin" }];
+  const trend = (r: (typeof v.rows)[number]) => r.measures.filter((m) => m.pattern !== "STABLE").map((m) => `${MEASURES[m.key].label}: ${PATTERN_NAME[m.pattern]} (${m.points.map((p) => p.v).join(" → ")})`).join("; ") || "—";
+  const glance: Kpi[] = [
+    { label: "Urgent", value: v.counts.URGENT, kind: "int", tone: v.counts.URGENT ? "bad" : "good", glance: true, hint: "students who need action now" },
+    { label: "Watch", value: v.counts.WATCH, kind: "int", tone: v.counts.WATCH ? "warn" : "neutral", glance: true, hint: "a drop, swinging up and down, or no progress" },
+    { label: "Good news", value: v.counts.GOOD, kind: "int", tone: "good", glance: true, hint: "a big rise or back on track" },
+  ];
+  if (school) glance.push({ label: "Urgent not handled 7+ days", value: v.unhandled.length, kind: "int", tone: v.unhandled.length ? "bad" : "good", glance: true, hint: "urgent alerts nobody marked handled for a week" });
+  const sections: Section[] = [
+    kpis("Summary", glance),
+    table("students", "Students", [
+      { ...col("severity", "Severity", "text", 1, true), tones: { Urgent: "bad", Watch: "warn", "Good news": "good" } }, col("name", "Student", "name", 2), ...(school ? [col("cls", "Class", "latin", 1, true)] : []),
+      col("reason", "Why", "text", 4), col("trend", "Measures", "text", 4), col("last", "Last teacher action", "text", 2.5),
+    ], v.rows.map((r) => ({ severity: SEVERITY_NAME[r.severity], name: r.name, cls: r.className, reason: r.reason, trend: trend(r), last: r.lastAction ? `${r.lastAction.text} (${r.lastAction.by || "—"}, ${r.lastAction.date})` : "—" })), "Handled students leave the list until their situation changes."),
+    table("dropping", "Measures that drop most", [col("measure", "Measure", "text", 2), col("students", "Students dropping", "int")], v.dropping.map((d) => ({ measure: d.label, students: d.students })), undefined, "Dropping"),
+    table("moves", "Moving between groups this month", [col("name", "Student", "name", 2), col("cls", "Class", "latin", 1, true), col("from", "From", "text"), col("to", "To", "text"), col("date", "Date", "date")], v.moves.map((m) => ({ name: m.name, cls: m.className, from: m.from, to: m.to, date: m.at.slice(0, 10) })), undefined, "Group moves"),
+  ];
+  if (school) {
+    sections.push(
+      table("classes", "By class", [col("cls", "Class", "latin", 1.2, true), col("teachers", "Teachers", "name", 2), col("urgent", "Urgent", "int"), col("watch", "Watch", "int"), col("good", "Good news", "int"), col("old", "Urgent 7+ days", "int")], v.byClass.map((c) => ({ cls: c.className, teachers: c.teachers || "—", urgent: c.urgent, watch: c.watch, good: c.good, old: c.unhandled7 }))),
+      table("unhandled", "Urgent, not handled for 7+ days", [col("name", "Student", "name", 2), col("cls", "Class", "latin", 1, true), col("days", "Days open", "int"), col("detail", "Why", "text", 4)], v.unhandled.map((u) => ({ name: u.name, cls: u.className, days: u.days, detail: u.detail })), undefined, "Not handled"),
+    );
+  }
+  sections.push({ type: "notes", title: "How to read it", items: [
+    "Urgent: a sudden big drop, drops on 2+ measures at the same time, no practice for 14+ days with a falling level, MAP at risk and declining, or invalid tests (rapid guessing) again and again.",
+    "Watch: one drop, swinging up and down, or no progress for 4+ weeks. Good news: a big rise or back on track.",
+    "Measures: level group, skill average (weekly accuracy), ReadRise level, MAP RIT, progress checks, weekly checks, test scores, fluency (WCPM), NAFS results and writing scores. Staff only.",
+  ] });
+  return doc(ctx, "warning", school ? "Level movements and serious problems · every class" : "Level movements and serious problems", meta, sections, "students", school ? ["school"] : [cls!.name]);
 }

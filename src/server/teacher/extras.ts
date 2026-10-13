@@ -18,6 +18,7 @@ import { seasonOf } from "../map/rit";
 import { shareParentReport } from "../insights/parent-report";
 import { weekStart } from "./classroom";
 import { cycleCalendarEvents } from "../assessment-cycle/status";
+import { schemaGap, SCHEMA_FIX } from "../db/schema-errors";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -136,7 +137,7 @@ export async function calendar(repo: Repo, actor: Actor, from: Date, days = 35):
   for (const x of exits) if (inRange(x.createdAt)) out.push({ date: iso(x.createdAt)!.slice(0, 10), kind: "EXIT", title: s(x.title), className: nameOf(x.classId), href: `/teacher/exit/${s(x.id)}` });
   for (const r of respond) if (inRange(r.dueAt)) out.push({ date: iso(r.dueAt)!.slice(0, 10), kind: "RESPOND", title: s(r.title), className: nameOf(r.classId), href: "/teacher/respond" });
   for (const w of writing) if (inRange(w.dueAt)) out.push({ date: iso(w.dueAt)!.slice(0, 10), kind: "WRITING", title: s(w.title), className: nameOf(w.classId), href: `/teacher/writing?task=${s(w.id)}` });
-  for (const w of wins) { if (inRange(w.opensAt)) out.push({ date: iso(w.opensAt)!.slice(0, 10), kind: "MAP_TEST", title: `Opens: ${s(w.title)}`, className: "", href: `/teacher/map-test?w=${s(w.id)}` }); if (inRange(w.closesAt)) out.push({ date: iso(w.closesAt)!.slice(0, 10), kind: "MAP_TEST", title: `Closes: ${s(w.title)}`, className: "", href: `/teacher/map-test?w=${s(w.id)}` }); }
+  for (const w of wins) { if (inRange(w.opensAt)) out.push({ date: iso(w.opensAt)!.slice(0, 10), kind: "MAP_TEST", title: `Opens: ${s(w.title)}`, className: "", href: `/teacher/map-center/test/${s(w.id)}` }); if (inRange(w.closesAt)) out.push({ date: iso(w.closesAt)!.slice(0, 10), kind: "MAP_TEST", title: `Closes: ${s(w.title)}`, className: "", href: `/teacher/map-center/test/${s(w.id)}` }); }
   // the assessment cycle: windows, progress checks due per text set, Tier 2/3 fluency checks due
   for (const e of await cycleCalendarEvents(repo, s(actor.schoolId ?? classes[0]?.schoolId), classes, from, new Date(to))) out.push({ date: e.date, kind: e.kind, title: e.title, className: e.classId ? nameOf(e.classId) : "", href: e.href });
   return out.sort((a, b) => a.date.localeCompare(b.date) || a.kind.localeCompare(b.kind));
@@ -310,6 +311,22 @@ export async function logError(repo: Repo, e: { source: "SERVER" | "BROWSER"; me
     if (recent.length > 50) return;   // a storm: keep the database safe
     await repo.create("ErrorLog", { source: e.source, message: s(e.message).replace(/\s+/g, " ").slice(0, 1000), path: e.path ? s(e.path).slice(0, 300) : null, digest: e.digest ? s(e.digest).slice(0, 100) : null, userId: e.userId ?? null, createdAt: now });
   } catch { /* logging must never break a page */ }
+}
+
+/**
+ * 🩺 The real message behind an error page's "Reference" (a server error's digest), for the school admin / platform
+ * admin only — never for teachers or students (null). A missing table / column gets the fix ("Run npx prisma db push").
+ * Only the last 2 hours are searched (createdAt index), one row.
+ */
+export async function errorDetail(repo: Repo, actor: Actor, digest: string, now = new Date()): Promise<{ message: string; path: string | null } | null> {
+  if (!isAdmin(actor)) return null;
+  const d = s(digest).trim();
+  if (!/^[\w-]{3,100}$/.test(d)) return null;
+  const rows = await repo.findMany("ErrorLog", { digest: d, source: "SERVER", createdAt: { gte: new Date(now.getTime() - 2 * 3_600_000) } }, { select: ["message", "path"], take: 1 });
+  if (!rows.length) return null;
+  const message = s(rows[0].message);
+  const gap = schemaGap({ message });
+  return { message: gap ? `${SCHEMA_FIX.replace("{what}", gap.what)} — ${message.slice(0, 400)}` : message.slice(0, 600), path: rows[0].path ? s(rows[0].path) : null };
 }
 
 export async function errorList(repo: Repo, actor: Actor): Promise<{ id: string; source: string; message: string; path: string | null; digest: string | null; at: string; count: number }[]> {

@@ -24,6 +24,7 @@ import { needsTour } from "@/server/ui/prefs";
 import { getT } from "@/i18n/server";
 import { isContentPath } from "@/i18n/content-routes";
 import { canSeeNafsCached } from "@/server/teacher/nafs-access";
+import { schemaGapsSeen } from "@/server/db/schema-errors";
 import { matchReport } from "./teacher/report-catalog";
 import { ReportBar } from "./teacher/report-bar";
 
@@ -51,8 +52,12 @@ export async function AppShell({ name, children }: { name: string; children: Rea
   // "/student/rti" in the counts = the student is in the RTI program (Tier 2/3): only then the RTI entry.
   // NAFS the same way: "/student/nafs" in the counts.
   // a teacher's NAFS flag = teaches a Grade 6 class (NAFS is for Grade 6 only)
-  const flags = role === "TEACHER" ? { nafs: me ? await canSeeNafsCached(repo, me.actor).catch(() => false) : false }
+  const admin = role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN";
+  // admins: NAFS is found by name — only while its tables are in the database (an update not pushed: hidden)
+  const flags = role === "TEACHER" || admin ? { nafs: me ? await canSeeNafsCached(repo, me.actor).catch(() => false) : false }
     : flagsR ?? { rti: "/student/rti" in counts, nafs: "/student/nafs" in counts };
+  // 🧱 admins: a recent table/column is missing (the update's `npx prisma db push` did not run) → say so on every page
+  const dbBehind = admin && (schemaGapsSeen().length > 0 || !flags.nafs);
   const items = navItemsFor(role, flags).map((i) => ({ ...i, ...(counts[i.href] ?? {}) }));
   const staff = ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"].includes(role);
   // a report page (the Reports catalogue): the report bar on top — class switcher, student, date range, Download, Send
@@ -119,6 +124,11 @@ export async function AppShell({ name, children }: { name: string; children: Rea
           </div>
         </header>
         <main id="main" tabIndex={-1} {...(content ? { "data-content": "", lang: "en" } : {})} className={`animate-fade-up mx-auto max-w-7xl px-4 py-6 outline-none sm:px-6 lg:px-8 print:max-w-none print:p-0${report ? " has-report-bar" : ""}`}>
+          {dbBehind && (
+            <p role="status" className="mb-4 rounded-xl bg-amber-50 px-4 py-2.5 text-sm text-amber-950 ring-1 ring-amber-200 print:hidden">
+              {t("The database needs an update: run npx prisma db push")} · <a href="/admin/system" className="font-semibold underline">{t("System check")}</a>
+            </p>
+          )}
           {report && me && <ReportBar actor={me.actor} report={report.report} at={report.at} search={search} />}
           {children}
         </main>

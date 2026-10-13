@@ -21,6 +21,11 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
   // the questions ticked in the Question bank (?pick=…&pick=… or a comma list)
   const raw = sp.pick as unknown;
   const picked = [...new Set((Array.isArray(raw) ? raw.map(String) : String(raw ?? "").split(",")).map((x) => x.trim()).filter(Boolean))].slice(0, 120);
+  // prefilled from the Dashboard ("Assign adaptive practice on these standards"): ?class=…&target=…&sid=…
+  const list0 = (v: unknown) => [...new Set((Array.isArray(v) ? v.map(String) : String(v ?? "").split(",")).map((x) => x.trim()).filter(Boolean))];
+  const preTargets = new Set(list0(sp.target as unknown).slice(0, 26));
+  const preClass = classes.find((c) => c.id === sp.class)?.id;
+  const preSids = list0(sp.sid as unknown).filter((id) => classes.some((c) => c.id === preClass && c.students.some((x) => x.id === id)));
   const open = sp.open ? await nafsPracticeReport(repo, actor, sp.open).catch(() => null) : null;
   return (
     <div className="grid gap-4">
@@ -52,6 +57,7 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
           <form action={createPracticeAction} className="mt-3 grid gap-4">
             {picked.map((id) => <input key={id} type="hidden" name="pick" value={id} />)}
             <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Name")}<input name="title" required maxLength={150} defaultValue={t("NAFS practice")} className={INPUT} /></label>
+            {preTargets.size > 0 && !picked.length && <p className="rounded-xl bg-teal-50 px-4 py-3 text-sm text-teal-900 ring-1 ring-teal-200">{t("Prefilled from the Dashboard: check the standards and the students, then give the practice.")}</p>}
             {picked.length > 0 ? (
               <p className="rounded-xl bg-teal-50 px-4 py-3 text-sm text-teal-900 ring-1 ring-teal-200">{t("{n} chosen question(s) from the Question bank: the practice adapts inside them.", { n: picked.length })} <Link href="/teacher/nafs?tab=practice#give" className="font-semibold underline">{t("Clear")}</Link></p>
             ) : (
@@ -62,7 +68,7 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
                     <div key={a.code} className="rounded-xl bg-surface-2 p-3 ring-1 ring-line">
                       <p className="text-xs font-semibold uppercase tracking-wide text-muted">{t(a.name)}</p>
                       {MOE_STANDARDS.filter((x) => x.area === a.code).map((x) => (
-                        <label key={x.code} className="mt-1.5 flex items-start gap-2 text-sm text-ink"><input type="checkbox" name="target" value={x.code} className="mt-1 h-4 w-4" /><span><b className="me-1 font-mono" dir="ltr">{x.short}</b>{t(x.text)}</span></label>
+                        <label key={x.code} className="mt-1.5 flex items-start gap-2 text-sm text-ink"><input type="checkbox" name="target" value={x.code} defaultChecked={preTargets.has(x.code)} className="mt-1 h-4 w-4" /><span><b className="me-1 font-mono" dir="ltr">{x.short}</b>{t(x.text)}</span></label>
                       ))}
                     </div>
                   ))}
@@ -72,7 +78,7 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
                     <div key={d.code} className="rounded-xl bg-surface-2 p-3 ring-1 ring-line">
                       <p className="text-xs font-semibold uppercase tracking-wide text-muted">{t(d.name)}</p>
                       {CONTENT_SKILLS.filter((k) => k.domain === d.code).map((k) => (
-                        <label key={k.code} className="mt-1.5 flex items-center gap-2 text-sm text-ink"><input type="checkbox" name="target" value={k.code} className="h-4 w-4" />{t(k.name)}</label>
+                        <label key={k.code} className="mt-1.5 flex items-center gap-2 text-sm text-ink"><input type="checkbox" name="target" value={k.code} defaultChecked={preTargets.has(k.code)} className="h-4 w-4" />{t(k.name)}</label>
                       ))}
                     </div>
                   ))}
@@ -80,9 +86,9 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
               </fieldset>
             )}
             <div className="flex flex-wrap items-end gap-3">
-              <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Class")}<select name="classId" className={INPUT}>{classes.map((c) => <option key={c.id} value={c.id}>{c.name} · {t("{n} students", { n: c.students.length })}</option>)}</select></label>
+              <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Class")}<select name="classId" defaultValue={preClass} className={INPUT}>{classes.map((c) => <option key={c.id} value={c.id}>{c.name} · {t("{n} students", { n: c.students.length })}</option>)}</select></label>
               <label className="grid min-w-60 flex-1 gap-1 text-sm font-semibold text-ink-2">{t("Only these students (optional)")}
-                <select name="sid" multiple size={4} className="rounded-xl bg-surface px-2 py-1 ring-1 ring-line">
+                <select name="sid" multiple size={4} defaultValue={preSids} className="rounded-xl bg-surface px-2 py-1 ring-1 ring-line">
                   {classes.map((c) => <optgroup key={c.id} label={c.name}>{c.students.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}</optgroup>)}
                 </select>
               </label>

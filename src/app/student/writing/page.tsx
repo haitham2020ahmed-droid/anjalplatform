@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
-import { getActor, repo, requireActor } from "@/server/auth/next";
+import { repo, requireActor } from "@/server/auth/next";
+import { studentPage } from "@/server/auth/student-page";
+import { PreviewFrame } from "@/components/student/preview-frame";
 import { myTasks } from "@/server/teacher/writing";
 import { GENRE_ICON } from "@/server/writing/genres";
 import { STATUS_LABEL } from "@/server/writing/locked";
@@ -10,13 +12,12 @@ import { getT } from "@/i18n/server";
 export const metadata = { title: "Writing" };
 
 /** ✍️ My writing and reading-aloud tasks. */
-export default async function MyWritingPage() {
-  const actor = await requireActor({ roles: ["STUDENT"] });
-  const me = (await getActor())!.user;
+export default async function MyWritingPage({ searchParams }: { searchParams: Promise<{ preview?: string }> }) {
+  const { actor, me, preview } = await studentPage((await searchParams).preview, () => requireActor({ roles: ["STUDENT"] }));
   const list = await myTasks(repo, actor);
   const { t: tr } = await getT();
   return (
-    <AppShell name={String(me.displayName)}>
+    <AppShell name={String(me.displayName)}><PreviewFrame preview={preview}>
       <PageHeader back={{ href: "/student", label: "My work" }} icon="✍️" title="Writing & Reading Aloud" />
       {!list.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No writing task yet.</p> : (
         <ul className="grid gap-3 md:grid-cols-2">{list.map((t) => (
@@ -26,6 +27,6 @@ export default async function MyWritingPage() {
           </Link></li>
         ))}</ul>
       )}
-    </AppShell>
+    </PreviewFrame></AppShell>
   );
 }

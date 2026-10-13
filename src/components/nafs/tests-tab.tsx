@@ -3,6 +3,7 @@ import type { TFn } from "@/i18n";
 import type { Actor } from "@/server/auth/rbac";
 import { repo } from "@/server/auth/next";
 import { listNafsTests, MODE_NAME } from "@/server/nafs/tests";
+import { FullTestTile } from "./home-tab";
 
 const NEW: { mode: string; icon: string; title: string; text: string }[] = [
   { mode: "SIMULATION", icon: "🎯", title: "NAFS simulation", text: "20 questions, 35 minutes, 2–3 passages, the PIRLS mix. Change any number and any question." },
@@ -17,6 +18,7 @@ export async function TestsTab({ actor, t }: { actor: Actor; t: TFn }) {
   const tests = await listNafsTests(repo, actor);
   return (
     <div className="grid gap-4">
+      <FullTestTile t={t} />
       <p className="text-sm text-ink-2">{t("Every test is made from ALL the NAFS questions gathered here (platform questions, model booklets and your school's own). You set the number of questions and the time in every mode.")}</p>
       <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
         {NEW.map((x) => (

@@ -2247,6 +2247,23 @@ model MapSimWindow {
   closesAt    DateTime
   createdById String
   createdAt   DateTime  @default(now())
+  /// MAP Test tab (teacher / admin): AUTO (adaptive, simulates MAP Growth) | MANUAL (a fixed list of items); null = AUTO
+  kind        String?   @db.VarChar(8)
+  /// the classes it is for (null = every student of `grade`, the old school-wide window)
+  classIds    Json?
+  /// only these students of those classes (null = the whole classes)
+  studentIds  Json?
+  /// MANUAL: the items in order [{ id, area, rit }]
+  itemIds     Json?
+  /// AUTO: the share of each goal area in percent { LIT: 34, INFO: 33, VOCAB: 33 } (null = even)
+  areaShares  Json?
+  /// AUTO: questions the teacher took out of the pool
+  excludedIds Json?
+  /// a draft is not shown to students yet (manual tests while they are being built)
+  draft       Boolean?
+  /// MANUAL: how it was built { areas, ritLow, ritHigh }
+  settings    Json?
+  updatedAt   DateTime?
 
   @@index([schoolId, closesAt])
 }
@@ -2294,6 +2311,8 @@ model MapSimAnswer {
   responseMs Int
   rapid      Boolean  @default(false)
   createdAt  DateTime @default(now())
+  /// the answer given (normalized), for the item analysis (most chosen wrong answer)
+  response   Json?
 
   @@id([sessionId, n])
   @@index([questionId])

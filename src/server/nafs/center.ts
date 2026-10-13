@@ -14,9 +14,11 @@ import { listNafsPractice } from "./practice";
 
 const s = (v: unknown) => String(v ?? "");
 
-/** The center's tabs, in the owner's order (About NAFS is a small link at the top). */
+/** The center's tabs, in the owner's order (About NAFS is a small link at the top): Home · Dashboard · Adaptive practice ·
+ * Create test · Question bank · Marking · Reports. */
 export const CENTER_TABS = [
   { key: "home", label: "Home" },
+  { key: "dashboard", label: "Dashboard" },
   { key: "practice", label: "Adaptive practice" },
   { key: "tests", label: "Create test" },
   { key: "bank", label: "Question bank" },
