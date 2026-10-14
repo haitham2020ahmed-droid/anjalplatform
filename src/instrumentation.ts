@@ -10,12 +10,19 @@ export async function register(): Promise<void> {
     // one log line a minute while the server uses more than 400 MB (what grew before a crash)
     const { startMemoryLog } = await import("./server/monitoring/memory");
     startMemoryLog();
-    // ✏️ teachers' edited copies made before they became private: private now (once, in the background, never blocking)
-    setTimeout(() => { void import("./instrumentation-node").then((m) => m.privatizeCopiesInBackground()).catch(() => undefined); }, 15_000).unref?.();
-    // 🛠 stuck questions (not under a skill, drafts, waiting): fixed once after the update, in the background (report: System check)
-    setTimeout(() => { void import("./instrumentation-node").then((m) => m.fixStuckQuestionsInBackground()).catch(() => undefined); }, 60_000).unref?.();
-    // ⭐ skill stars computed from the practice already there (once, in the background, batched)
-    setTimeout(() => { void import("./instrumentation-node").then((m) => m.migrateStarsInBackground()).catch(() => undefined); }, 30_000).unref?.();
+    // One-time background jobs after an update, ONE AFTER ANOTHER, 2 minutes after the start. OFF unless the server
+    // sets BACKGROUND_JOBS=on: on the 512 MB Render instance they ran together and the server restarted (out of
+    // memory). Admins run them from System check / the Question Bank instead.
+    if ((process.env.BACKGROUND_JOBS ?? "").toLowerCase() === "on") {
+      setTimeout(() => {
+        void (async () => {
+          const m = await import("./instrumentation-node");
+          await m.privatizeCopiesInBackground();   // ✏️ teachers' edited copies → private
+          await m.migrateStarsInBackground();      // ⭐ skill stars from the practice already there
+          await m.fixStuckQuestionsInBackground(); // 🛠 stuck questions (report: System check)
+        })().catch(() => undefined);
+      }, 120_000).unref?.();
+    }
   }
 }
 
